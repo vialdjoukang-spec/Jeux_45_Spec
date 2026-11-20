@@ -2,6 +2,8 @@
 
 Jeu de maîtrise clinique suisse : 45 spécialités, 19 transversales, 248 SSP, 3 975 entités, 119 242 notions pondérées.
 
+**Production du contenu : `PROCEDURE_CREDITS_CLAUDE.md` (fiches → réflexes → vignettes, 100 % JSON).**
+
 **Toute IA commence par lire [`CANEVAS_GENIE_LOGICIEL.md`](CANEVAS_GENIE_LOGICIEL.md), puis s'identifie (§ 0).**
 
 | Dossier | Contenu |

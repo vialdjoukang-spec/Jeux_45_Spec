@@ -1,12 +1,14 @@
-"""Production des QCM du jeu en fichiers JSON, avec l'API Claude (Message Batches + cache de prompt).
+"""COUCHE 3 — Vignettes riches A / K' du jeu, en JSON, via l'API Claude (Batch + cache).
+À lancer APRÈS les fiches (produire_fiches_claude.py) : chaque requête reçoit la fiche validée de l'entité,
+ce qui garantit la cohérence et réduit les erreurs. Ordre : spécialité par spécialité, du plus banal au plus rare.
 
 Une requête = une rubrique d'une entité de la Cartographie. Elle produit `poids` items (au moins 1).
-Sortie : content/items/<SSP>/<entityId>/<rubrique>.json  (+ registre_production.csv)
+Sortie : content/items/<SPEC>/<entityId>/<rubrique>.json  (+ registre_production.csv)
 
 Usage (PowerShell, depuis la racine du dépôt) :
-  python scripts/produire_items_claude.py pilote --ssp G1 --n 3          # 3 requêtes immédiates, pour juger la qualité et le coût
-  python scripts/produire_items_claude.py soumettre --ssp G1             # un SSP entier en batch (−50 %)
-  python scripts/produire_items_claude.py soumettre --priorite --max 2000 # les 2000 requêtes les plus prioritaires
+  python scripts/produire_items_claude.py pilote --spec CAR --n 3       # 3 requêtes immédiates (entités dont la fiche existe)
+  python scripts/produire_items_claude.py soumettre --spec CAR         # une spécialité entière en batch (−50 %)
+  python scripts/produire_items_claude.py soumettre --max 2000         # les 2000 prochaines, du plus banal au plus rare
   python scripts/produire_items_claude.py statut                          # état des batchs lancés
   python scripts/produire_items_claude.py recuperer                       # télécharge, valide et écrit les JSON
   python scripts/produire_items_claude.py bilan                           # avancement global
@@ -18,6 +20,10 @@ import argparse, csv, datetime as dt, glob, json, os, re, sys, time
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(RACINE, "data", "ssp")
 SORTIE = os.path.join(RACINE, "content", "items")
+FICHES = os.path.join(RACINE, "content", "fiches")
+SPECS = json.load(open(os.path.join(RACINE, "data", "references", "entite_specialites.json"), encoding="utf-8"))
+CODES = {k: v["code"] for k, v in SPECS["specialites"].items()}
+FREQ = {"TF": 1, "F": 2, None: 3, "MF": 4, "R": 5}
 SUIVI = os.path.join(RACINE, "scripts", "batchs.json")
 REGISTRE = os.path.join(RACINE, "registre_production.csv")
 SCHEMA = json.load(open(os.path.join(RACINE, "scripts", "schema_item.json"), encoding="utf-8"))
@@ -58,16 +64,26 @@ def charger_cibles():
         d = json.load(open(f, encoding="utf-8"))
         for e in d["entites"]:
             urgent = "urgence" in (e.get("tables") or [])
-            prio = (0 if urgent else {"TF": 1, "F": 2, "MF": 3, "R": 4}.get(e.get("strate"), 5))
+            prio = FREQ.get(e.get("strate"), 3)
+            codes = [CODES.get(x, x) for x in SPECS["entiteVersSpecialites"].get(e["id"], [])]
             for n in e["notions"]:
                 cid = re.sub(r"[^A-Za-z0-9_-]", "_", f"{e['id']}__{n['rubrique']}")[:64]
-                cibles.append({"id": cid, "prio": prio, "lot": d["lot"], "ssp": d["ssp"], "nomSSP": d["nom"], "circuit": d["circuit"],
+                cibles.append({"id": cid, "prio": prio, "codes": codes, "lot": d["lot"], "ssp": d["ssp"], "nomSSP": d["nom"], "circuit": d["circuit"],
                                "entite": e, "rubrique": n["rubrique"], "poids": max(1, int(n["poids"] or 1)), "amorce": n["amorce"]})
     return cibles
 
 
 def chemin_sortie(c):
-    return os.path.join(SORTIE, c["ssp"].replace(".", "_"), c["entite"]["id"].replace(".", "_"), f"{c['rubrique']}.json")
+    return os.path.join(SORTIE, (c["codes"] or ["SANS_SPEC"])[0], c["entite"]["id"].replace(".", "_"), f"{c['rubrique']}.json")
+
+
+def fiche(c):
+    import glob as g
+    p = g.glob(os.path.join(FICHES, "*", re.sub(r"[^A-Za-z0-9_-]", "_", c["entite"]["id"]) + ".json"))
+    if not p:
+        return None
+    f = json.load(open(p[0], encoding="utf-8"))
+    return {k: f[k] for k in ("premiersGestes", "drapeauxRouges", "discriminants", "examens", "traitement", "chiffresCles", "ladder", "pieges") if k in f}
 
 
 def message_utilisateur(c):
@@ -81,7 +97,9 @@ def message_utilisateur(c):
             f"Présentation (typique/atypique) : {pres}\n\n"
             f"Rubrique : {LIBELLES.get(c['rubrique'], c['rubrique'])}.\n"
             f"Amorce de la notion à développer : « {c['amorce']} »\n"
-            f"Poids : {c['poids']} → produis exactement {c['poids']} item(s), distincts et complémentaires, qui couvrent toutes les notions exigibles de cette rubrique. {zero_d}")
+
+            + (f"FICHE DE RAISONNEMENT VALIDÉE (source de vérité, à respecter strictement) : {json.dumps(fiche(c), ensure_ascii=False)[:9000]}\n\n" if fiche(c) else "")
+            + f"Poids : {c['poids']} → produis exactement {c['poids']} item(s), distincts et complémentaires, qui couvrent toutes les notions exigibles de cette rubrique. {zero_d}")
 
 
 def params(c, modele):
@@ -138,10 +156,11 @@ def selection(args):
     cibles = [c for c in charger_cibles() if not os.path.exists(chemin_sortie(c))]
     if args.ssp:
         cibles = [c for c in cibles if c["ssp"] == args.ssp]
-    if getattr(args, "priorite", False):
-        cibles.sort(key=lambda c: (c["prio"], -c["lot"]))     # urgences d'abord, puis SSP du 248 vers le 001
-    else:
-        cibles.sort(key=lambda c: (-c["lot"], c["id"]))        # ordre rétrograde 248 → 001
+    if args.spec:
+        cibles = [c for c in cibles if args.spec.upper() in c["codes"]]
+    if getattr(args, "avec_fiche", True):
+        cibles = [c for c in cibles if fiche(c) is not None]   # la couche 3 suit la couche 1
+    cibles.sort(key=lambda c: (c["prio"], (c["codes"] or ["ZZZ"])[0], c["id"]))   # du plus banal au plus rare
     return cibles[: args.max] if args.max else cibles
 
 
@@ -220,6 +239,6 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser(); sp = ap.add_subparsers(dest="cmd", required=True)
     for nom in ("pilote", "soumettre", "statut", "recuperer", "bilan"):
         p = sp.add_parser(nom)
-        p.add_argument("--ssp"); p.add_argument("--max", type=int); p.add_argument("--n", type=int, default=3)
-        p.add_argument("--priorite", action="store_true"); p.add_argument("--modele", default=MODELE_DEFAUT); p.add_argument("--sec", action="store_true")
+        p.add_argument("--ssp"); p.add_argument("--spec"); p.add_argument("--max", type=int); p.add_argument("--n", type=int, default=3)
+        p.add_argument("--sans-fiche", dest="avec_fiche", action="store_false"); p.add_argument("--modele", default=MODELE_DEFAUT); p.add_argument("--sec", action="store_true")
     a = ap.parse_args(); globals()["cmd_" + a.cmd](a)

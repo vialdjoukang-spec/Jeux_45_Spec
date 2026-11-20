@@ -1,0 +1,72 @@
+{
+  "title": "Fiche de raisonnement d'une entité (source unique de vérité du jeu)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["enUneLigne", "frequence", "urgenceVitale", "premiersGestes", "drapeauxRouges", "presentation", "discriminants", "examens", "traitement", "chiffresCles", "ladder", "pieges", "notionsCouvertes", "sources"],
+  "properties": {
+    "enUneLigne": {"type": "string", "minLength": 40, "description": "Une phrase verbale qui dit ce qu'est l'entité et pourquoi elle compte."},
+    "frequence": {"enum": ["tres_frequente", "frequente", "peu_frequente", "rare"]},
+    "urgenceVitale": {"type": "boolean"},
+    "premiersGestes": {
+      "type": "array", "minItems": 3, "maxItems": 8,
+      "description": "Ce qu'il faut faire, dans l'ordre exact, devant cette entité. Le geste 1 est celui à faire EN PREMIER.",
+      "items": {"type": "object", "additionalProperties": false, "required": ["ordre", "action", "pourquoi"],
+        "properties": {"ordre": {"type": "integer", "minimum": 1}, "action": {"type": "string", "minLength": 10}, "pourquoi": {"type": "string", "minLength": 30}}}
+    },
+    "drapeauxRouges": {
+      "type": "array", "minItems": 1,
+      "items": {"type": "object", "additionalProperties": false, "required": ["signe", "signification", "action"],
+        "properties": {"signe": {"type": "string"}, "signification": {"type": "string", "minLength": 20}, "action": {"type": "string", "minLength": 10}}}
+    },
+    "presentation": {
+      "type": "object", "additionalProperties": false, "required": ["typique", "atypique"],
+      "properties": {
+        "typique": {"type": "array", "minItems": 2, "items": {"type": "object", "additionalProperties": false, "required": ["element", "mecanisme"], "properties": {"element": {"type": "string"}, "mecanisme": {"type": "string", "minLength": 20}}}},
+        "atypique": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["element", "terrain"], "properties": {"element": {"type": "string"}, "terrain": {"type": "string"}}}}
+      }
+    },
+    "discriminants": {
+      "type": "array", "minItems": 2,
+      "items": {"type": "object", "additionalProperties": false, "required": ["rival", "elementQuiTranche"],
+        "properties": {"rival": {"type": "string"}, "elementQuiTranche": {"type": "string", "minLength": 20}}}
+    },
+    "examens": {
+      "type": "array", "minItems": 1,
+      "items": {"type": "object", "additionalProperties": false, "required": ["ordre", "examen", "quand", "attendu", "pourquoi"],
+        "properties": {"ordre": {"type": "integer"}, "examen": {"type": "string"}, "quand": {"type": "string"}, "attendu": {"type": "string"}, "pourquoi": {"type": "string", "minLength": 20}}}
+    },
+    "traitement": {
+      "type": "array", "minItems": 1,
+      "items": {"type": "object", "additionalProperties": false, "required": ["etape", "mesure", "posologie", "pourquoi", "source"],
+        "properties": {"etape": {"type": "integer"}, "mesure": {"type": "string"}, "posologie": {"type": "string", "description": "Dose, voie, rythme, durée ; chaîne vide si non applicable."}, "pourquoi": {"type": "string", "minLength": 20}, "source": {"type": "string"}}}
+    },
+    "chiffresCles": {
+      "type": "array", "minItems": 2,
+      "items": {"type": "object", "additionalProperties": false, "required": ["valeur", "signification", "source"],
+        "properties": {"valeur": {"type": "string"}, "signification": {"type": "string", "minLength": 15}, "source": {"type": "string"}}}
+    },
+    "ladder": {
+      "type": "object", "additionalProperties": false,
+      "required": ["zeroD", "mechanism", "semiology", "discriminant", "decision", "trap", "anchor"],
+      "properties": {"zeroD": {"type": "string", "minLength": 60}, "mechanism": {"type": "string", "minLength": 60}, "semiology": {"type": "string", "minLength": 60}, "discriminant": {"type": "string", "minLength": 60}, "decision": {"type": "string", "minLength": 60}, "trap": {"type": "string", "minLength": 40}, "anchor": {"type": "string", "minLength": 20}}
+    },
+    "pieges": {
+      "type": "array", "minItems": 2,
+      "items": {"type": "object", "additionalProperties": false, "required": ["erreur", "type", "correction"],
+        "properties": {"erreur": {"type": "string"}, "type": {"enum": ["chronologie_inversee", "confusion_entite_voisine", "confusion_mecanisme", "contre_indication_ignoree", "examen_inutile", "posologie_fausse", "seuil_mal_retenu", "urgence_sous_estimee"]}, "correction": {"type": "string", "minLength": 20}}}
+    },
+    "notionsCouvertes": {
+      "type": "array", "minItems": 1,
+      "description": "Une entrée par rubrique de la Cartographie : le développement complet des notions exigibles.",
+      "items": {"type": "object", "additionalProperties": false, "required": ["rubrique", "developpement"],
+        "properties": {"rubrique": {"type": "string"}, "developpement": {"type": "string", "minLength": 80}}}
+    },
+    "transversalIds": {"type": "array", "items": {"type": "string", "pattern": "^TRANS_[A-S]$"}},
+    "mediaQueries": {"type": "array", "items": {"type": "string"}},
+    "sources": {
+      "type": "array", "minItems": 1,
+      "items": {"type": "object", "additionalProperties": false, "required": ["level", "ref"],
+        "properties": {"level": {"enum": ["AIPS", "Compendium", "CH", "EU", "INT"]}, "ref": {"type": "string"}, "date": {"type": "string"}}}
+    }
+  }
+}

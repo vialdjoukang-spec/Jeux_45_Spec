@@ -1,112 +1,114 @@
-# PROCÉDURE — Produire les QCM du jeu en JSON avec les crédits API Claude
+# PROCÉDURE — Produire le jeu en JSON avec les crédits API Claude
 
-> Script : `scripts/produire_items_claude.py`. Schéma : `scripts/schema_item.json`.
-> Unité de travail : **1 requête = 1 rubrique d'une entité** de la Cartographie, qui produit autant d'items que son poids.
-> Total : **59 390 requêtes, 119 242 items**. Ordre par défaut : **rétrograde, du SSP 248 vers le 001**.
-> Économies intégrées : **API Batch** (environ −50 %) et **cache de prompt** (les règles ne sont payées qu'une fois).
+## Architecture en 3 couches (la moins coûteuse pour la plus haute qualité)
+
+| Couche | Fichiers JSON | Produit par | Coût | Rôle pédagogique |
+|---|---|---|---|---|
+| **1. Fiches de raisonnement** | `content/fiches/<SPEC>/<entité>.json` (3 975) | API Claude, Sonnet, Batch | **Payant, une fois par entité** | La source unique de vérité : quoi faire **en premier**, puis ensuite ; drapeaux rouges ; discriminants ; examens et traitement dans l'ordre ; chiffres clés sourcés ; échelle 0-D → ancre ; pièges. |
+| **2. Cartes réflexes** | `content/reflexes/<SPEC>/<entité>.json` (environ 20 par fiche, soit environ 80 000) | Script `generer_reflexes.py` | **0 token** | L'instantanéité : premier geste, ordonner la conduite, drapeau → action, discriminant, chiffre, mécanisme, premier examen (5 à 20 s par carte). |
+| **3. Vignettes riches A / K'** | `content/items/<SPEC>/<entité>/<rubrique>.json` | API Claude, à partir de la fiche validée | Payant, en option, par priorité | Le raisonnement long, au format de l'examen fédéral. |
+
+**Pourquoi cette architecture**
+- On paie le savoir **une seule fois** (la fiche), puis on le décline gratuitement en réflexes.
+- **REJECTOR_ vérifie 3 975 fiches** au lieu de 119 242 items. Toutes les cartes dérivées héritent d'un fond vérifié.
+- Le jeu reste cohérent : une carte réflexe ne peut jamais contredire sa fiche.
+
+**Ordre de production :** spécialité par spécialité, **du plus banal au plus rare** : très fréquent → fréquent → urgences → peu fréquent → rare. Les entités banales forment les réflexes du quotidien ; un raisonnement compris sur elles se transfère au reste.
 
 ## Étapes
 
 | # | Étape | Résultat attendu |
 |---|---|---|
-| 1 | Installer les bibliothèques Python | Aucune erreur rouge |
-| 2 | Créer la clé API et l'enregistrer | Clé visible dans la Console |
-| 3 | Fixer une limite de dépense | Limite affichée dans la Console |
-| 4 | Mettre le dépôt à jour | `scripts/produire_items_claude.py` présent |
-| 5 | **Pilote** : 3 requêtes immédiates | 3 fichiers JSON dans `content/items/G1/…` |
-| 6 | Lire les JSON du pilote et le coût réel | Qualité validée, coût par item connu |
-| 7 | Lancer un SSP entier en batch | Un identifiant de batch s'affiche |
-| 8 | Récupérer les résultats | Fichiers écrits et `registre_production.csv` à jour |
-| 9 | Mesurer l'avancement, puis pousser sur GitHub | Pourcentage affiché, commit poussé |
+| 1 | Installer les bibliothèques | Aucune erreur rouge |
+| 2 | Créer et enregistrer la clé API | Clé visible dans la Console |
+| 3 | Fixer une limite de 200 $ dans la Console (Limits) | Limite affichée |
+| 4 | Mettre le dépôt à jour | Les scripts sont présents |
+| 5 | **Pilote** : 2 fiches immédiates | 2 fichiers dans `content/fiches/CAR/` |
+| 6 | Lire les 2 fiches et le coût réel (Console, Usage) | Qualité validée, coût par fiche connu |
+| 7 | Lancer une spécialité en batch | Un identifiant de batch s'affiche |
+| 8 | Récupérer les fiches | `registre_fiches.csv` à jour |
+| 9 | Faire auditer les fiches par REJECTOR_ | `audit.rejector = "pass"` dans chaque fiche validée |
+| 10 | Générer les réflexes (0 token) | Cartes dans `content/reflexes/` |
+| 11 | Pousser sur GitHub | Commit visible |
 
 ### 1. Bibliothèques
-```
-python --version
-```
-*(Vérifier que Python 3.10 ou plus est installé ; sinon, l'installer depuis python.org en cochant « Add to PATH ».)*
-
 ```
 pip install anthropic jsonschema
 ```
 *(Installer le client de l'API Claude et le validateur de schéma.)*
 
-### 2. Clé API
-Crée une clé sur https://platform.claude.com, rubrique **API keys**, puis enregistre-la :
+### 2. Clé API (créée sur https://platform.claude.com, rubrique API keys)
 ```
 setx ANTHROPIC_API_KEY "ta_clé_ici"
 ```
-*(Enregistrer la clé dans Windows ; ferme puis rouvre PowerShell ensuite.)*
+*(Enregistrer la clé dans Windows ; rouvre ensuite PowerShell.)*
 
-🛑 La clé ne va **jamais** dans un fichier du dépôt, qui est public.
-
-### 3. Limite de dépense
-Dans la Console, rubrique **Limits** : fixe une limite mensuelle de **200 $**. Le script s'arrête alors de lui-même quand les crédits sont épuisés.
+🛑 La clé ne va jamais dans un fichier du dépôt public.
 
 ### 4. Dépôt à jour
 ```
 cd "C:\Users\viald\OneDrive\Documents\Jeux_45_Spec"
 ```
-*(Entrer dans le dépôt du jeu.)*
+*(Entrer dans le dépôt.)*
 
 ```
 git pull
 ```
-*(Récupérer le script et le schéma.)*
+*(Récupérer les scripts.)*
 
-### 5. Pilote (3 requêtes immédiates, sans batch)
+### 5. Pilote
 ```
-python scripts/produire_items_claude.py pilote --ssp G1 --n 3
+python scripts/produire_fiches_claude.py pilote --spec CAR --n 2
 ```
-*(Produire 3 rubriques de G1 pour juger la qualité et le coût.)*
+*(Produire tout de suite 2 fiches de cardiologie, les plus banales d'abord.)*
 
-### 6. Vérifier la qualité et le coût
-- Ouvre les 3 fichiers de `content/items/G1/…` : énoncés, distracteurs, échelle en 7 marches, sources.
-- Ouvre `registre_production.csv` : tokens consommés par requête.
-- Lis le coût réel dans la Console, rubrique **Usage**. Le coût par item × 119 242 donne le coût total ; le batch le divise environ par deux.
-
-### 7. Lancer un SSP entier en batch
+### 7. Batch d'une spécialité
 ```
-python scripts/produire_items_claude.py soumettre --ssp G1
+python scripts/produire_fiches_claude.py soumettre --spec CAR
 ```
-*(Soumettre les 330 rubriques de G1, soit 699 items, en batch.)*
-
-Variantes :
-```
-python scripts/produire_items_claude.py soumettre --max 2000
-```
-*(Soumettre les 2000 prochaines rubriques en ordre rétrograde, du SSP 248 vers le 001.)*
+*(Soumettre les 175 fiches de cardiologie en batch, environ −50 %.)*
 
 ```
-python scripts/produire_items_claude.py soumettre --priorite --max 2000
+python scripts/produire_fiches_claude.py soumettre --max 500
 ```
-*(Soumettre d'abord les entités d'urgence, puis les plus fréquentes.)*
+*(Variante : soumettre les 500 prochaines fiches, toutes spécialités confondues, du plus banal au plus rare.)*
 
-### 8. Récupérer
+### 8. Récupération
 ```
-python scripts/produire_items_claude.py statut
+python scripts/produire_fiches_claude.py statut
 ```
-*(Voir l'état des batchs ; attendre « ended », en général moins d'une heure.)*
-
-```
-python scripts/produire_items_claude.py recuperer
-```
-*(Télécharger, valider et écrire les fichiers JSON.)*
-
-Chaque fichier contient `controles.erreurs` : une liste vide signifie que le schéma et les règles A et K' sont respectés. Un fichier qui porte des erreurs est à refaire : supprime-le, puis relance `soumettre`.
-
-### 9. Avancement et sauvegarde
-```
-python scripts/produire_items_claude.py bilan
-```
-*(Afficher le pourcentage d'items produits.)*
+*(Voir l'état des batchs ; attendre « ended ».)*
 
 ```
-git add content registre_production.csv scripts/batchs.json
+python scripts/produire_fiches_claude.py recuperer
 ```
-*(Préparer l'envoi des items produits.)*
+*(Écrire et valider les fiches.)*
 
 ```
-git commit -m "Items produits par l'API Claude (batch)"
+python scripts/produire_fiches_claude.py bilan
+```
+*(Afficher l'avancement, par niveau de fréquence.)*
+
+### 10. Réflexes (0 token, uniquement sur les fiches validées par REJECTOR_)
+```
+python scripts/generer_reflexes.py
+```
+*(Générer les cartes réflexes à partir des fiches validées.)*
+
+### 3 (optionnel). Vignettes riches, à partir des fiches
+```
+python scripts/produire_items_claude.py soumettre --spec CAR
+```
+*(Produire les vignettes A/K' des entités de cardiologie dont la fiche existe.)*
+
+### 11. Sauvegarde
+```
+git add content registre_fiches.csv scripts/batchs_fiches.json
+```
+*(Préparer l'envoi des fiches et des cartes.)*
+
+```
+git commit -m "Fiches et réflexes produits"
 ```
 *(Enregistrer l'étape.)*
 
@@ -115,9 +117,10 @@ git push
 ```
 *(Envoyer sur GitHub.)*
 
-## Règles d'usage
-- **Le modèle par défaut est Sonnet** (`claude-sonnet-5-5`). Pour Opus, ajoute `--modele claude-opus-5-5`, mais réserve-le aux rubriques difficiles : il coûte nettement plus.
-- **Le script ne refait jamais ce qui existe** : une rubrique déjà écrite est sautée. Tu peux donc le relancer sans risque.
-- **Simulation gratuite** : ajoute `--sec` à n'importe quelle commande pour voir ce qui serait envoyé, sans rien payer.
-- **REJECTOR_ reste obligatoire** (canevas § 5). Ces items sortent avec `audit.rejector = null`. Un autre fournisseur (Gemini) ou une passe séparée doit vérifier le fond avant l'entrée dans le jeu.
-- **Les 200 $ ne couvriront pas les 119 242 items.** Le pilote donne le chiffre exact. Commence donc par les urgences (`--priorite`), car c'est là qu'une erreur coûte le plus, en examen comme en pratique.
+## Règles
+- **Le modèle par défaut est Sonnet.** Ajoute `--modele claude-opus-5-5` uniquement pour les fiches qui échouent ou que tu juges faibles.
+- **Rien n'est refait deux fois** : une fiche existante est sautée.
+- **Simulation gratuite** : ajoute `--sec` à n'importe quelle commande.
+- **Une fiche dont `controles.erreurs` n'est pas vide est à refaire** : supprime-la, puis relance `soumettre`.
+- **REJECTOR_ est obligatoire** avant la génération des réflexes ; `generer_reflexes.py` ignore les fiches non validées.
+- **Budget :** le pilote donne le coût réel d'une fiche. Multiplie-le par 3 975, puis divise par deux pour le batch : tu sauras ce que couvrent tes 200 $. Les fiches passent avant les vignettes.

@@ -137,8 +137,19 @@ tests/ (unit, e2e, a11y)
 ---
 
 ## § 4. PRODUCTION EXHAUSTIVE DES QCM
+### 4.0 Architecture de contenu en 3 couches, 100 % JSON (prime sur toute autre organisation)
+| Couche | Fichiers | Producteur | Rôle |
+|---|---|---|---|
+| 1. Fiche de raisonnement | `content/fiches/<SPEC>/<entité>.json`, schéma `scripts/schema_fiche.json` | IA (`scripts/produire_fiches_claude.py`) | Source unique de vérité par entité. C'est elle que REJECTOR_ audite. |
+| 2. Cartes réflexes | `content/reflexes/<SPEC>/<entité>.json` | Script `scripts/generer_reflexes.py` (0 token) | L'instantanéité : premier geste, ordre de la conduite, drapeau → action, discriminant, chiffre, mécanisme, premier examen. |
+| 3. Vignettes A / K' | `content/items/<SPEC>/<entité>/<rubrique>.json`, schéma `scripts/schema_item.json` | IA (`scripts/produire_items_claude.py`), à partir de la fiche validée | Le raisonnement long, au format de l'examen fédéral. |
+
+- **R-04.0 🛑** Une carte ou une vignette ne contredit jamais sa fiche. Une fiche sans `audit.rejector = "pass"` ne génère rien de jouable.
+- **R-04.00** Ordre de production : spécialité par spécialité, **du plus banal au plus rare** (très fréquent → fréquent → urgences → peu fréquent → rare). Le jeu propose d'abord les réflexes du quotidien, et l'échelle de correction ancre leur raisonnement.
+- **R-04.000** Le frontend ne lit que ces JSON. Aucun contenu médical n'est écrit dans le code.
+
 - **R-04.1 🛑 Exhaustivité.** Une notion de poids ×n engendre au moins n items. **Cible : environ 120 000 items** pour les 3 975 entités. Les items existants (559 duels et 60 questions de cas) sont réécrits selon ce canevas, pas simplement conservés.
-- **R-04.2 Ordre de production :** strate 1 (urgences vitales) → strate 2 → strate 3 → strate 4, et à l'intérieur d'une strate, par spécialité, de la plus pauvre en items à la plus riche.
+- **R-04.2 Ordre de production :** voir R-04.00 (du plus banal au plus rare, spécialité par spécialité).
 - **R-04.3 🛑 Format :** 60 % de type A, 40 % de K', par entité.
 - **R-04.4 🛑 Zéro-D :** au moins 30 % des items d'une entité portent sur les rubriques `definition`, `basicSciences` ou `pathophysiology`.
 - **R-04.5 Cas longs :** chaque entité a au moins 1 cas long en 6 étapes (vignette → anamnèse → examen → examens complémentaires → décision → suivi). Chaque étape contient 2 items.
