@@ -15,24 +15,19 @@ Store every network as JSON Canvas, so it opens in Obsidian and in our engine:
 ```
 `fromSide`/`toSide` ∈ top|right|bottom|left; `toEnd` arrow by default; colours "1"–"6" or hex. Add our own keys freely (`type`, `organe`, `vers`) — the spec tolerates extensions.
 
-## 2. The link geometry (what makes it look like Obsidian)
-A cubic Bézier whose tangents are **perpendicular to the exit side**:
-```
-P0 = exit point on fromSide        P3 = entry point on toSide
-d  = max(60, |P3.x − P0.x| × 0.5)  (vertical sides: use |Δy|)
-P1 = P0 + d·normal(fromSide)       P2 = P3 + d·normal(toSide)
-```
-- Arrowhead: small filled triangle (9 × 9 px) aligned with the final tangent.
-- Two nodes in the **same column**: loop out sideways (P1 = P0 + 70·n, P2 = P3 + 70·n), never a straight line through the content.
-- Fan-out (one source → many targets, image 2 style): all curves start from the same anchor; spread is automatic because each target has its own P3.
-- Stroke 1.5–1.8 px, opacity 0.85, colour = relation type; label (11 px) at the curve midpoint only when it carries meaning.
+## 2. Link geometry — house style (straight, convergent)
+- **Straight lines only.** Several lines **converge on the centre** of the entity they point to and stop on its ellipse border with a 10 px arrowhead (border point = centre + d·k, k = 1/√((dx/a)²+(dy/b)²)).
+- **Nothing crosses the body**, except the start from an organ: a **horizontal** segment from the organ dot to the body silhouette edge (projected skin bounding box + 10 px), then a straight line to the first ellipse.
+- Nodes are **ellipses** (`border-radius:50%`, `width:max-content`, max 190 px), coloured border = node type, small uppercase type above the text, "+" when children are hidden.
+- Obsidian Bézier curves (tangents ⟂ exit side, JSON Canvas fromSide/toSide) only when the user asks for curves.
 
-## 3. Layout rules that kill crossings
-1. Columns = levels of reasoning (e.g. organ → sign → syndrome → exam → diagnosis → treatment). Left-to-right reading.
-2. Inside a column, **sort nodes by the screen Y of what they point to** (organ projection, parent node). This alone removes most crossings.
-3. Spacing: ≥ 40 px between columns' edges; labels never wider than 260 px (wrap).
-4. Too many nodes (> 25 visible)? Collapse by default; click expands one circuit; hover highlights the full path from the root.
-5. For automatic layouts beyond columns, use **ELK.js** (`layered`, `elk.edgeRouting: SPLINES`) or **dagre**; for exploratory clouds use **d3-force**; for very large graphs (10⁴+ nodes) **sigma.js / Cytoscape.js**. Keep our Bézier renderer for the final drawing.
+## 3. Layout and interaction
+1. Columns = levels of reasoning (organ → sign → syndrome → exam → diagnosis → treatment), placed **outside the body silhouette**, on the organ's side.
+2. Organ nodes sit at the organ's screen height; a child sits at the **mean height of its parents** (convergence); siblings of one parent fan out (≈ 60 px step); then resolve collisions per column and clamp to the viewport.
+3. **Progressive reveal**: at start only body-anchored nodes show; click an ellipse → its children appear; click again → they retract.
+4. **One reset button, two outcomes**: click = selective reset (retract the last opened circuit), double-click = global reset (everything retracts).
+5. **Theme button**: cycles backgrounds white, sky blue, champagne, gold (CSS variables, soft radial halo behind the body).
+6. Very large graphs: ELK.js / dagre for layered layout, d3-force for clouds, sigma.js / Cytoscape.js beyond 10⁴ nodes — keep the straight convergent renderer for the final drawing.
 
 ## 4. Rendering stack (no SVG for images)
 - Nodes: HTML (`div`, Atkinson Hyperlegible for text, coloured side border = node type, small uppercase type label above the text).
@@ -42,7 +37,8 @@ P1 = P0 + d·normal(fromSide)       P2 = P3 + d·normal(toSide)
 
 ## 5. Ready-made engine (bundled)
 `scripts/reseau3d.html` + `scripts/shot.py` (also at github.com/vialdjoukang-spec/Jeux_45_Spec/tree/main/skills/obsidian-like-complex-network).
-- Config = JSON: `colonnes[] {id, cote:"g"|"d", x, yMin, yMax, noeuds[] {type, texte, couleur, organe?, vers:["colId:index"]}}`, optional `fenetre` (real image window with raw/annotated pair and numbered ellipses), `masquer[]`, camera `cible/dist/fov`.
+- Camera: `cible/dist/fov`, `masquer[]`, `voile` (pelvic occlusion box).
+- Config v2: `noeuds[] {id, type, texte, couleur, organe?, cote?, de:[parentIds], col?, y0?}`, `fenetres[] {de, x, y, w, img, annotations[]}`, `theme`. URL hash: `config.json&tout` (all open), `&sauf=id`, `&theme=or`, `&capture` (no transitions).
 - Run: `python3 scripts/shot.py config.json out.png` (serves the folder, opens Chromium with SwiftShader WebGL, waits for `document.title==="PRET"`, screenshots 1600 × 1000).
 - Needs `three` (npm) next to the page and a `corps.glb` (see skill 3d-images-upload-super) when nodes anchor on organs.
 
