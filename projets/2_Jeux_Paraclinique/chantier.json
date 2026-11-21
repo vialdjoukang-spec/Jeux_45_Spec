@@ -6,7 +6,7 @@
  "vision": "Savoir quoi demander, pourquoi cet examen plutôt qu'un autre, et quoi y chercher : chaque organe, de la tête aux pieds, avec ses examens par modalité et la radio-anatomie normale.",
  "perimetre": {
   "inclus": [
-   "9 régions, 64 organes, 601 examens (catalogue complet)",
+   "9 régions, 66 organes, 616 examens (catalogue complet)",
    "23 prélèvements biologiques",
    "27 techniques et séquences avec facteur discriminant",
    "Fenêtre à deux clichés (patient / normal annoté)",
@@ -38,7 +38,7 @@
  "etapes": [
   [
    "1. Champs d'examen",
-   "Remplir discriminant, visée, signe recherché, limite pour les 601 examens."
+   "Remplir discriminant, visée, signe recherché, limite pour les 616 examens."
   ],
   [
    "2. Banque d'images",
@@ -57,7 +57,7 @@
    "Arène « le bon examen », aventure par poste, progression."
   ]
  ],
- "cout": "Coût moyen : 601 fiches courtes et structurées ; l'abonnement suffit pour le texte ; la banque d'images demande du temps plus que des tokens.",
+ "cout": "Coût moyen : 616 fiches courtes et structurées ; l'abonnement suffit pour le texte ; la banque d'images demande du temps plus que des tokens.",
  "audit1": [
   [
    "Le catalogue listait les examens sans dire ce qu'on y cherche.",
@@ -68,18 +68,38 @@
    "La radio-anatomie normale annotée s'affiche à droite."
   ],
   [
+   "Le JSON d'examen n'avait pas les champs « signe recherché » et « seuil », malgré la règle.",
+   "Champs ajoutés aux 616 examens, avec un glossaire par organe."
+  ],
+  [
+   "La biologie existait en deux endroits (organe et prélèvement), avec un risque de valeurs divergentes.",
+   "Le prélèvement devient la source unique des valeurs ; l'organe y renvoie par « prelevementRef »."
+  ],
+  [
+   "Les précautions manquaient : grossesse, enfant, insuffisance rénale, produit de contraste, implant en IRM.",
+   "Champs « precautions », « irradiation_mSv » et « delai » ajoutés : ils nourrissent la lentille et le choix économe."
+  ],
+  [
    "Les séquences IRM n'étaient pas discriminées.",
    "27 techniques décrites : ce qu'elles voient le mieux, quand, plutôt que quoi, limite."
   ]
  ],
  "audit2": [
   [
-   "Un catalogue de 601 examens ressemble à un dictionnaire.",
+   "Un catalogue de 616 examens ressemble à un dictionnaire.",
    "L'arène part toujours d'un cas clinique et récompense le choix juste et économe."
   ],
   [
    "Le joueur peut cocher tous les examens par prudence.",
    "Chaque examen inutile retire des points et affiche la recommandation smarter medicine."
+  ],
+  [
+   "Une image du web peut être interdite de réutilisation.",
+   "Chaque image garde son URL source et sa licence (Wikimedia Commons, Open-i, MedPix en priorité) ; aucune image sans licence vérifiée."
+  ],
+  [
+   "Le prototype ne montre qu'un cas (pneumonie).",
+   "Le pilote thorax passe à 20 cas, chacun avec cliché patient et cliché normal annoté."
   ],
   [
    "La lecture d'image fatigue.",

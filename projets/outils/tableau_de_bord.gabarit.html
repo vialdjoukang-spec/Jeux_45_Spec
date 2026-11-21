@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chantier des 4 jeux</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Overpass:wght@700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE: carnet de chantier clinique, sobre et précis.
+   IDEA: le registre de chantier où l'on coche chaque lot livré.
+   PICTURE: quatre jauges de projet en tête, puis les fiches de tâche.
+   COLOUR and TYPE: blanc, encre, une couleur par projet ; Overpass pour les titres, Atkinson Hyperlegible pour le contenu.
+   LAYOUT: sommaire numéroté à gauche, colonne de lecture contenue. */
+:root{color-scheme:light dark;--bg:light-dark(#f7f7f5,#121416);--carte:light-dark(#fff,#1b1e21);--ink:light-dark(#16191d,#e8eaed);--doux:light-dark(#5b6370,#a3abb6);--trait:light-dark(#dfe2e6,#2c3137);--ok:light-dark(#1f7a4d,#5fd39a)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Atkinson Hyperlegible",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Overpass,system-ui,sans-serif;line-height:1.1;margin:0;text-wrap:balance}
+h1{font-size:clamp(26px,3.4vw,36px);font-weight:800}h2{font-size:22px;font-weight:800;margin:34px 0 12px}h3{font-size:16px;font-weight:700}
+.cadre{display:grid;grid-template-columns:230px minmax(0,1fr);gap:36px;max-width:1180px;margin:0 auto;padding:28px max(4vw,16px) 60px}
+nav{position:sticky;top:18px;align-self:start}nav ol{list-style:none;padding:0;margin:14px 0 0;counter-reset:n}
+nav li{counter-increment:n;margin:2px 0}nav a{display:flex;gap:8px;padding:7px 8px;border-radius:7px;color:var(--ink);text-decoration:none;font-size:14px}
+nav a::before{content:counter(n);font-weight:700;color:var(--doux);width:1.2em}nav a:hover{background:var(--carte)}
+main{max-width:860px}.intro{color:var(--doux);margin:8px 0 0;max-width:68ch}
+.jauges{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0 6px}
+.jauge{background:var(--carte);border:1px solid var(--trait);border-left:5px solid var(--c);border-radius:9px;padding:12px 14px}
+.jauge b{display:block;font-size:14px}.barre{height:8px;border-radius:5px;background:var(--trait);margin:8px 0 4px;overflow:hidden}.barre i{display:block;height:100%;background:var(--c);width:0;transition:width .4s}
+.jauge small{color:var(--doux)}
+.etat{font-size:13px;color:var(--doux);margin:6px 0 0}.etat.err{color:#c0392b}
+.regles{background:var(--carte);border:1px solid var(--trait);border-radius:9px;padding:14px 18px}.regles li{margin:4px 0}
+.filtres{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 4px}
+.filtres button,.btn{font:inherit;font-size:14px;min-height:38px;padding:6px 12px;border-radius:7px;border:1px solid var(--trait);background:var(--carte);color:var(--ink);cursor:pointer}
+.filtres button[aria-pressed=true]{background:var(--ink);color:var(--bg)}.btn:focus-visible,.filtres button:focus-visible,summary:focus-visible{outline:2px solid #2f6fd0;outline-offset:2px}
+.tache{background:var(--carte);border:1px solid var(--trait);border-left:5px solid var(--c);border-radius:9px;margin:10px 0;padding:0}
+.tache>summary{list-style:none;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;padding:12px 14px;cursor:pointer}
+.tache>summary::-webkit-details-marker{display:none}
+.tache input[type=checkbox].fait{width:22px;height:22px;accent-color:var(--ok)}
+.tache .id{font-weight:700;color:var(--c);margin-right:6px}.tache.ok h3{text-decoration:line-through;color:var(--doux)}
+.badge{font-size:12px;padding:3px 8px;border-radius:20px;border:1px solid var(--trait);white-space:nowrap;color:var(--doux)}.badge.cl{border-color:var(--c);color:var(--c)}
+.corps{padding:0 16px 16px 46px;display:grid;gap:12px}.corps p{margin:0}
+.lbl{font-size:12px;font-weight:700;color:var(--doux);margin-bottom:3px}
+ul.fich{margin:0;padding-left:18px;font-size:13px}ul.fich a{color:inherit}
+pre{white-space:pre-wrap;background:light-dark(#f2f3f5,#14171a);border:1px solid var(--trait);border-radius:7px;padding:10px;font:12.5px/1.5 ui-monospace,Menlo,monospace;max-height:260px;overflow:auto;margin:0}
+.plats{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px}.plats label{display:flex;gap:6px;align-items:center}
+textarea,select,input[type=text]{font:inherit;font-size:15px;width:100%;border:1px solid var(--trait);border-radius:7px;padding:8px;background:var(--bg);color:var(--ink)}
+textarea{min-height:76px;resize:vertical}
+.ligne{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.imp{font-size:13px;border:1px dashed var(--trait);border-radius:7px;padding:8px}.imp div{display:flex;gap:8px;justify-content:space-between;padding:3px 0}
+.imp .ko{color:#c0392b}.imp .bon{color:var(--ok)}
+.dep{font-size:13px;color:var(--doux)}
+@media(max-width:820px){.cadre{grid-template-columns:minmax(0,1fr)}nav{position:static}.jauges{grid-template-columns:minmax(0,1fr)}.corps{padding-left:16px}}
+@media(prefers-reduced-motion:reduce){.barre i{transition:none}}
+</style>
+</head>
+<body>
+<div class="cadre">
+<nav aria-label="Sommaire"><h3>Sommaire</h3><ol id="som"></ol></nav>
+<main>
+<h1>Chantier des 4 jeux : ce que tu fais, où, et ce que tu me renvoies</h1>
+<p class="intro">Claude conçoit, audite et polit ; le gros œuvre (volumes de texte, recherche d'images) se fait sur Gemini, Grok ou ailleurs. Tu coches où tu as travaillé, tu écris ce que tu as fait, tu importes les JSON obtenus : je les lis directement ici.</p>
+<div class="jauges" id="jauges"></div>
+<p class="etat" id="etat">Connexion à la base de données…</p>
+
+<h2 id="mode">Mode d'emploi</h2>
+<ol class="regles">
+<li>Tu ouvres une tâche, tu copies son prompt et tu joins les fichiers listés (ils sont dans ton dossier Jeux_45_Spec ou sur GitHub).</li>
+<li>Tu travailles sur la plateforme indiquée ; tu peux en choisir une autre : tu la coches.</li>
+<li>Tu écris en deux lignes ce que tu as fait (compte, modèle, lots traités, problèmes).</li>
+<li>Tu importes les JSON rendus : la page vérifie qu'ils se lisent et compte les champs encore vides.</li>
+<li>Tu passes la tâche en « Envoyé à Claude » et tu me le dis : je lis tes imports, j'audite, je corrige et j'intègre.</li>
+<li>Les tâches marquées « Claude » sont pour moi : tu me les demandes simplement.</li>
+</ol>
+
+<div class="filtres" role="group" aria-label="Filtrer">
+<button data-f="tout" aria-pressed="true">Toutes</button><button data-f="vous" aria-pressed="false">Pour toi</button><button data-f="claude" aria-pressed="false">Pour Claude</button><button data-f="ouvert" aria-pressed="false">Non validées</button>
+</div>
+<div id="liste"></div>
+
+<h2 id="export">Sauvegarde</h2>
+<p class="intro">Tout est enregistré automatiquement. Si la base n'est pas joignable, ce bouton copie ton état complet en JSON : tu me le colles dans la conversation.</p>
+<p class="ligne"><button class="btn" id="copier">Copier mon état complet</button><span class="etat" id="copie"></span></p>
+</main>
+</div>
+<script>
+{
+const TACHES=/*TACHES*/[];
+const PROJ={"1_Jeux_Tetrade_Fondation":["Tétrade Fondation","#c0392b"],"2_Jeux_Paraclinique":["Paraclinique","#16897b"],"3_Transversal_Discip":["Transversal Discip","#1E3A8A"],"4_Jeux_45_Spec":["Jeux 45 Spec","#7a5cc4"]};
+const PLATS=["Gemini — compte 1","Gemini — compte 2","Gemini — compte 3","Gemini — compte 4","Grok","Claude Cowork / chat","Claude Code","Hydrogen medium","Neon medium","Autre"];
+const STATUTS=["À faire","En cours","Produit","Envoyé à Claude","Validé"];
+const etat={},imports={};let db=null,filtre="tout";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cle=s=>s.normalize("NFKD").replace(/[^\w.-]+/g,"_").slice(0,120);
+const E=id=>etat[id]||(etat[id]={statut:"À faire",plateformes:[],compteRendu:""});
+const fini=id=>["Validé"].includes(E(id).statut);
+
+function jauges(){
+  $("#jauges").innerHTML=Object.entries(PROJ).map(([p,[nom,c]])=>{const ts=TACHES.filter(t=>t.projet===p);const n=ts.filter(t=>fini(t.id)).length;const env=ts.filter(t=>E(t.id).statut==="Envoyé à Claude").length;
+    return `<div class="jauge" style="--c:${c}"><b>${nom}</b><div class="barre"><i style="width:${ts.length?100*n/ts.length:0}%"></i></div><small>${n} validées sur ${ts.length} · ${env} en attente de Claude</small></div>`}).join("");
+}
+function sommaire(){
+  $("#som").innerHTML=`<li><a href="#mode">Mode d'emploi</a></li>`+Object.entries(PROJ).map(([p,[nom]])=>`<li><a href="#${p}">${nom}</a></li>`).join("")+`<li><a href="#export">Sauvegarde</a></li>`;
+}
+function visible(t){if(filtre==="vous")return !t.claude;if(filtre==="claude")return t.claude;if(filtre==="ouvert")return !fini(t.id);return true}
+function carte(t){
+  const e=E(t.id),c=PROJ[t.projet][1],im=imports[t.id]||[];
+  return `<details class="tache${fini(t.id)?" ok":""}" style="--c:${c}" data-id="${t.id}">
+<summary><input type="checkbox" class="fait" aria-label="Validée" ${fini(t.id)?"checked":""}><h3><span class="id">${t.id}</span>${esc(t.titre)}</h3><span class="badge${t.claude?" cl":""}">${t.claude?"Claude · ":""}${esc(e.statut)}</span></summary>
+<div class="corps">
+<p><span class="lbl">Où :</span> ${esc(t.ou)}</p>
+<p>${esc(t.quoi)}</p>
+${t.dependances.length?`<p class="dep">Après : ${t.dependances.join(", ")}</p>`:""}
+${t.entrees.length?`<div><div class="lbl">Fichiers à joindre</div><ul class="fich">${t.entrees.map(f=>{const l=t.liens.find(x=>x.endsWith(f));return `<li>${l?`<a href="${esc(l)}">${esc(f)}</a>`:esc(f)}</li>`}).join("")}</ul></div>`:""}
+${t.sortie?`<p><span class="lbl">Résultat attendu :</span> ${esc(t.sortie)}</p>`:""}
+${t.prompt?`<div><div class="ligne" style="justify-content:space-between"><span class="lbl">Prompt</span><button class="btn cp">Copier le prompt</button></div><pre>${esc(t.prompt)}</pre></div>`:""}
+<div><div class="lbl">Statut</div><select class="statut">${STATUTS.map(s=>`<option${s===e.statut?" selected":""}>${s}</option>`).join("")}</select></div>
+<div><div class="lbl">Où j'ai travaillé</div><div class="plats">${PLATS.map(p=>`<label><input type="checkbox" value="${esc(p)}" ${e.plateformes.includes(p)?"checked":""}>${esc(p)}</label>`).join("")}</div></div>
+<div><div class="lbl">Ce que j'ai fait exactement</div><textarea class="cr" placeholder="Compte, modèle, fichiers traités, problèmes rencontrés…">${esc(e.compteRendu)}</textarea></div>
+<div><div class="lbl">JSON obtenus</div><input type="file" class="fichiers" accept=".json,application/json" multiple>
+<div class="imp">${im.length?im.map(x=>`<div><span>${esc(x.nom)} · ${(x.taille/1024).toFixed(0)} Ko</span><span class="${x.valide?(x.nuls?"":"bon"):"ko"}">${x.valide?(x.nuls?x.nuls+" champs vides":"complet"):"JSON illisible"}</span><button class="btn suppr" data-k="${esc(x.k)}">Retirer</button></div>`).join(""):"Aucun fichier importé."}</div></div>
+</div></details>`;
+}
+function liste(){
+  const ouverts=new Set([...document.querySelectorAll("details.tache[open]")].map(d=>d.dataset.id));
+  $("#liste").innerHTML=Object.entries(PROJ).map(([p,[nom]])=>{const ts=TACHES.filter(t=>t.projet===p&&visible(t));return `<h2 id="${p}">${nom}</h2>`+(ts.length?ts.map(carte).join(""):`<p class="intro">Aucune tâche dans ce filtre.</p>`)}).join("");
+  ouverts.forEach(id=>{const d=document.querySelector(`details[data-id="${id}"]`);if(d)d.open=true});
+  jauges();
+}
+function nuls(o){let n=0;const v=x=>{if(x===null||x==="")n++;else if(Array.isArray(x))x.forEach(v);else if(x&&typeof x==="object")for(const[k,y]of Object.entries(x)){if(k!=="_meta")v(y)}};v(o);return n}
+
+const attente={};
+async function sauver(id){
+  const e=E(id);e.maj=new Date().toISOString();
+  if(!db)return memo();
+  if(attente[id])return attente[id].then(()=>sauver(id));
+  attente[id]=db.doc("taches/"+id).set({...e,id}).catch(err=>signal(err)).finally(()=>delete attente[id]);
+}
+async function importer(id,files){
+  for(const f of files){
+    const texte=await f.text();let valide=true,n=0;try{n=nuls(JSON.parse(texte))}catch{valide=false}
+    const k=cle(id+"__"+f.name),morceaux=[];for(let i=0;i<texte.length;i+=80000)morceaux.push(texte.slice(i,i+80000));
+    const meta={k,tache:id,nom:f.name,taille:f.size,valide,nuls:n,morceaux:morceaux.length,date:new Date().toISOString()};
+    (imports[id]=(imports[id]||[]).filter(x=>x.k!==k)).push(meta);
+    if(db){try{for(let i=0;i<morceaux.length;i++)await db.doc(`contenus/${k}__${i}`).set({k,tache:id,nom:f.name,i,n:morceaux.length,texte:morceaux[i]});await db.doc("imports/"+k).set(meta)}catch(err){signal(err)}}
+    else{try{localStorage.setItem("imp_"+k,texte)}catch{}memo()}
+  }
+  if(E(id).statut==="À faire"||E(id).statut==="En cours"){E(id).statut="Produit";await sauver(id)}
+  liste();
+}
+async function retirer(id,k){
+  const m=(imports[id]||[]).find(x=>x.k===k);imports[id]=(imports[id]||[]).filter(x=>x.k!==k);
+  if(db&&m){try{await db.doc("imports/"+k).delete();for(let i=0;i<m.morceaux;i++)await db.doc(`contenus/${k}__${i}`).delete()}catch(err){signal(err)}}else memo();
+  liste();
+}
+function memo(){try{localStorage.setItem("chantier_etat",JSON.stringify({etat,imports}))}catch{}}
+function signal(err){$("#etat").textContent="Enregistrement refusé ("+(err&&err.code||"erreur")+") : utilise « Copier mon état complet ».";$("#etat").className="etat err"}
+
+document.addEventListener("click",async ev=>{
+  const b=ev.target;
+  if(b.matches(".filtres button")){filtre=b.dataset.f;document.querySelectorAll(".filtres button").forEach(x=>x.setAttribute("aria-pressed",x===b));liste();return}
+  const d=b.closest("details.tache");if(!d)return;const id=d.dataset.id;
+  if(b.matches("input.fait")){ev.stopPropagation();setTimeout(async()=>{E(id).statut=b.checked?"Validé":"Envoyé à Claude";await sauver(id);liste()});return}
+  if(b.matches(".cp")){const t=TACHES.find(x=>x.id===id);try{await navigator.clipboard.writeText(t.prompt);b.textContent="Copié"}catch{b.textContent="Sélectionne le texte"}setTimeout(()=>b.textContent="Copier le prompt",1800);return}
+  if(b.matches(".suppr")){retirer(id,b.dataset.k)}
+});
+document.addEventListener("change",async ev=>{
+  const b=ev.target,d=b.closest("details.tache");if(!d)return;const id=d.dataset.id,e=E(id);
+  if(b.matches(".statut")){e.statut=b.value;await sauver(id);liste()}
+  else if(b.matches(".plats input")){e.plateformes=[...d.querySelectorAll(".plats input:checked")].map(x=>x.value);await sauver(id)}
+  else if(b.matches(".fichiers")&&b.files.length){await importer(id,[...b.files])}
+});
+const pause={};
+document.addEventListener("input",ev=>{const b=ev.target;if(!b.matches("textarea.cr"))return;const id=b.closest("details.tache").dataset.id;E(id).compteRendu=b.value;clearTimeout(pause[id]);pause[id]=setTimeout(()=>sauver(id),900)});
+$("#copier").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(JSON.stringify({etat,imports},null,1));$("#copie").textContent="Copié : colle-le dans la conversation."}catch{$("#copie").textContent="Copie refusée par le navigateur."}});
+
+try{const m=JSON.parse(localStorage.getItem("chantier_etat")||"null");if(m){Object.assign(etat,m.etat||{});Object.assign(imports,m.imports||{})}}catch{}
+sommaire();liste();
+
+(async()=>{
+  const minuterie=setTimeout(()=>{if(!db){$("#etat").textContent="La base n'est pas encore joignable : tes saisies restent dans ce navigateur ; copie ton état avant de fermer."}},10000);
+  let d=null;try{d=window.claude&&await window.claude.use("db")}catch{}
+  if(!d){clearTimeout(minuterie);$("#etat").textContent="Base de données indisponible dans cette vue : tes saisies restent dans ce navigateur ; utilise « Copier mon état complet ».";return}
+  db=d;
+  db.collection("taches").onSnapshot(s=>{clearTimeout(minuterie);s.docs.forEach(x=>{const v=x.data();if(v)etat[x.id]={statut:v.statut,plateformes:v.plateformes||[],compteRendu:v.compteRendu||"",maj:v.maj}});
+    $("#etat").textContent="Enregistrement automatique actif : Claude lit cette page directement.";$("#etat").className="etat";if(!document.activeElement||!document.activeElement.matches("textarea"))liste()},err=>signal(err));
+  db.collection("imports").onSnapshot(s=>{for(const k in imports)delete imports[k];s.docs.forEach(x=>{const v=x.data();if(v)(imports[v.tache]=imports[v.tache]||[]).push(v)});if(!document.activeElement||!document.activeElement.matches("textarea"))liste()},err=>signal(err));
+})();
+}
+</script>
+</body>
+</html>

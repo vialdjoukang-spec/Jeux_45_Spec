@@ -12,6 +12,7 @@ OUT = os.path.join(ICI, "donnees")
 
 
 def slug(t):
+    t = t.replace("œ", "oe").replace("Œ", "Oe").replace("æ", "ae").replace("Æ", "Ae")
     t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode().lower()
     t = re.sub(r"\(.*?\)", "", t)
     return re.sub(r"[^a-z0-9]+", "_", t).strip("_")[:40]
@@ -124,7 +125,7 @@ ecrits.append(ecrire("paraclinique/imagerie/cas/pneumonie_lobaire_moyenne.json",
 for reg, orgs in TOPO.items():
     for org, mods in orgs.items():
         ecrits.append(ecrire(f"paraclinique/topographie/{slug(reg)}/{slug(org)}.json", {"_meta": {"region": reg, "organe": org, "statut": "LISTE COMPLÈTE — indication, principe, interprétation et bulle à remplir"},
-            "examens": [{"id": slug(org) + "__" + slug(e), "modalite": MODALITES[k], "nom": e, "visees": [], "indication": None, "discriminant": None, "avantageSelectif": None, "plutotQue": None, "limite": None, "referencePour": [], "smarterMedicine": None, "radioAnatomieNormale": None, "bulle": None} for k, v in mods.items() for e in v]}))
+            "examens": [{"id": slug(org) + "__" + slug(e), "modalite": MODALITES[k], "nom": e, "visees": [], "signeRecherche": None, "seuil": None, "indication": None, "discriminant": None, "avantageSelectif": None, "plutotQue": None, "limite": None, "referencePour": [], "smarterMedicine": None, "radioAnatomieNormale": None, "precautions": None, "irradiation_mSv": None, "delai": None, "prelevementRef": None, "bulle": None} for k, v in mods.items() for e in v], "glossaire": {}}))
 for pre, exs in PRELEVEMENTS.items():
     ecrits.append(ecrire(f"paraclinique/biologie/prelevements/{slug(pre)}.json", {"_meta": {"prelevement": pre, "statut": "LISTE COMPLÈTE — technique, valeurs de référence SI suisses et interprétation à remplir"},
         "examens": [{"nom": e, "technique": None, "valeursReference": None, "interpretation": None, "bulle": None} for e in exs]}))

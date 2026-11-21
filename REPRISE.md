@@ -82,3 +82,10 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Solution la plus économique et efficace proposée une fois, en GRAS MAJUSCULE et en couleur.
 - Contenu à apprendre : de la coque vers le centre, avec le pourquoi.
 - Commandes de terminal : une seule par bloc, avec son but entre parenthèses.
+
+## 12. Tableau de bord du chantier (lié à Claude)
+- Page : https://claude.ai/artifact/N7VUBhFLfp3gq6rTsPt88v (slug `aaf7eb3f-771e-48f5-8164-276c764bd25f`), source `projets/outils/taches.py` + `tableau_de_bord.gabarit.html` → `projets/tableau_de_bord.html` et `projets/taches.json` (60 tâches).
+- Répartition : Claude conçoit, audite et polit ; le gros œuvre (volumes, recherche d'images) se fait sur Gemini (4 comptes Pro), Grok, Hydrogen medium, Neon medium.
+- Lecture par Claude (outils claude-artifacts) : `db_list` collection `taches` (statut, plateformes, compteRendu), `imports` (métadonnées des JSON importés), `contenus` (texte des JSON en morceaux de 80 000 caractères : champs k, i, n, texte ; recoller par ordre de i).
+- Quand Vial dit qu'une tâche est « Envoyé à Claude » : lire ses imports, auditer, corriger, intégrer dans le dépôt, puis passer la tâche en « Validé ».
+- Après toute modification de `taches.py` : régénérer, puis republier la page (publish_files avec slug et base_version).

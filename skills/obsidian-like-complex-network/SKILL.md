@@ -5,7 +5,7 @@ description: Draw dense, readable Obsidian-style networks (canvas graphs, concep
 
 # Obsidian-like amazing complex Network
 
-Goal: a network that reads like an Obsidian canvas — calm nodes, curved links that leave a node **by one side** and enter the next **by the facing side**, an arrowhead at the arrival, and zero visual chaos even with 50+ links.
+Goal: a network that reads like an Obsidian canvas — calm nodes, **straight** links (bracket/bus connectors) that leave a node **by one side** and enter the next **by the facing side**, an arrowhead at the arrival, and zero visual chaos even with 50+ links.
 
 ## 1. Data first: JSON Canvas 1.0 (open spec, jsoncanvas.org)
 Store every network as JSON Canvas, so it opens in Obsidian and in our engine:
@@ -39,7 +39,7 @@ Store every network as JSON Canvas, so it opens in Obsidian and in our engine:
 
 ## 4. Rendering stack (no SVG for images)
 - Nodes: HTML (`div`, Atkinson Hyperlegible for text, coloured side border = node type, small uppercase type label above the text).
-- Links: **canvas 2D** (`bezierCurveTo`) — light, crisp, no SVG.
+- Links: **canvas 2D**, straight bus segments — light, crisp, no SVG (`bezierCurveTo` only if curves are explicitly requested).
 - Anchors on a 3D body or a real image: project the 3D point with three.js (`vector.project(camera)`) or use image pixel coordinates × display scale. Dot (4.5 px, white rim) on the anchor.
 - Interaction (production): pan + wheel zoom, mini-map bottom-left, "Collapse all" button, legend bottom-right.
 
