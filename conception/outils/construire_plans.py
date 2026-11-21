@@ -375,7 +375,7 @@ for e in TETRADE["ecrans"]:
 TETRADE["decisions"].insert(0, {"question": "Qu'est-ce qu'un système dans la Tétrade ?", "choix": TETRADE["systemesOrganes"]["regle"], "raison": "En sciences fondamentales, on épluche chaque organe du système ; un système réduit au cœur fausserait la représentation."})
 TETRADE["donnees"] += [
     {"fichier": "tetrade/<systeme>/organes.json", "role": "Liste ordonnée des organes du système (haut → bas), ancre 3D et renvois topographiques", "champs": ["organe", "ancre3D", "topo[]", "statut"], "producteur": "Script depuis systemes.py", "volume": "1 fichier par système"},
-    {"fichier": "tetrade/<systeme>/organes/<organe>.json", "role": "Organe déplié par espace : anatomie (6 volets), physiologie (5 volets) ; mots-clés avec fenêtre", "champs": ["anatomie{volet: [motCle, texte, fenetre]}", "physiologie{volet: [motCle, texte, fenetre]}", "bulle", "glossaire"], "producteur": "Script (squelette) + IA (textes)", "volume": "123 organes"}]
+    {"fichier": "tetrade/<systeme>/organes/<organe>.json", "role": "Organe déplié par espace : volets d'anatomie et de physiologie adaptés au type d'organe ; mots-clés avec fenêtre ; pathologies en 4 paliers (très fréquente, fréquente, urgence, piège) avec bilan et traitement", "champs": ["pathologies{palier: [nom, bulle]}", "anatomie{volet: [motCle, texte, fenetre]}", "physiologie{volet: [motCle, texte, fenetre]}", "bulle", "glossaire"], "producteur": "Script (squelette) + IA (textes)", "volume": "123 organes"}]
 TETRADE["prototype"]["images"] += ["prototypes/tetrade_systeme_anatomie.png", "prototypes/tetrade_physiologie_courbe.png", "prototypes/tetrade_gaz_du_sang.png"]
 
 # ---------- théorie et pratique : la pratique EST le jeu ----------

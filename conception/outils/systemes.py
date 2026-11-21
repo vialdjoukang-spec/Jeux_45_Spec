@@ -12,11 +12,13 @@ VOLETS_PHYSIOLOGIE = ["Paramètres simples", "Régulation", "Lois physiques et b
 # organe : (nom, ancre 3D BodyParts3D, clés topo)
 SYSTEMES = {
  "Cardiovasculaire": [
-  ("Cœur", "coeur", ["Cœur et péricarde"]), ("Péricarde", "coeur", ["Cœur et péricarde"]),
-  ("Aorte thoracique et crosse", "aorte", ["Aorte thoracique et artères pulmonaires"]), ("Troncs supra-aortiques (carotides, vertébrales, sous-clavières)", "aorte", ["Vaisseaux du cou et de la tête"]),
-  ("Tronc et artères pulmonaires", "coeur", ["Aorte thoracique et artères pulmonaires"]), ("Veines pulmonaires", "coeur", ["Aorte thoracique et artères pulmonaires"]),
-  ("Veines caves", "coeur", ["Veines caves et système porte"]), ("Aorte abdominale et artères viscérales", "aorte", ["Aorte abdominale et vaisseaux digestifs"]),
-  ("Système porte", "foie", ["Veines caves et système porte"]), ("Artères des membres", "femur", ["Artères des membres"]), ("Veines des membres", "femur", ["Veines des membres"]),
+  # validé par Vial le 2026-11-21 : ordre haut → bas, péricarde avant le cœur, cœur scindé en 4, circulation pulmonaire fusionnée,
+  # système porte rattaché au digestif (« Vascularisation digestive et système porte »). Contenu : cardio/contenu.txt et cardio/pathologies.txt.
+  ("Troncs supra-aortiques (carotides, vertébrales, sous-clavières)", "aorte", ["Vaisseaux du cou et de la tête"]), ("Aorte thoracique et crosse", "aorte", ["Aorte thoracique et artères pulmonaires"]),
+  ("Péricarde", "coeur", ["Cœur et péricarde"]), ("Cœur : myocarde et cavités", "coeur", ["Cœur et péricarde"]), ("Cœur : valves", "coeur", ["Cœur et péricarde"]),
+  ("Cœur : tissu de conduction", "coeur", ["Cœur et péricarde"]), ("Cœur : circulation coronaire", "coeur", ["Cœur et péricarde"]),
+  ("Circulation pulmonaire (artères et veines)", "coeur", ["Aorte thoracique et artères pulmonaires"]), ("Veines caves", "coeur", ["Veines caves et système porte"]),
+  ("Aorte abdominale et artères viscérales", "aorte", ["Aorte abdominale et vaisseaux digestifs"]), ("Artères des membres", "femur", ["Artères des membres"]), ("Veines des membres", "femur", ["Veines des membres"]),
   ("Microcirculation (artérioles, capillaires, veinules, endothélium)", None, ["Artères des membres"]), ("Système lymphatique", None, ["Système lymphatique"])],
  "Respiratoire": [
   ("Fosses nasales et sinus", "crane", ["Nez, sinus et cavum"]), ("Pharynx", "crane", ["Larynx et pharynx"]), ("Larynx", "trachee", ["Larynx et pharynx"]),
@@ -70,25 +72,7 @@ SYSTEMES = {
   ("Adaptation néonatale (vie extra-utérine)", "coeur", ["Grossesse, fœtus et placenta", "Cœur et péricarde"]), ("Génétique et dysmorphies", None, ["Génétique"])],
 }
 
-# ---------- pilote 1 : anatomie du cœur (mots-clés → vue 3D) ----------
-ANATOMIE_COEUR = {
- "Macroscopie": [["Faces et bords", "Le cœur présente une face sternocostale, une face diaphragmatique et une base ; le bord droit répond à l'oreillette droite."],
-                 ["Cavités", "Quatre cavités : deux oreillettes reçoivent le sang, deux ventricules l'éjectent."],
-                 ["Valves", "Valves tricuspide et mitrale (atrioventriculaires), pulmonaire et aortique (sigmoïdes)."]],
- "Microscopie": [["Cardiomyocytes", "Des cellules striées, ramifiées, reliées par des disques intercalaires, se contractent ensemble."],
-                 ["Tissu nodal", "Nœud sinusal, nœud atrioventriculaire, faisceau de His et réseau de Purkinje conduisent l'influx."],
-                 ["Endocarde et épicarde", "Un endothélium tapisse les cavités ; l'épicarde porte les vaisseaux coronaires et la graisse."]],
- "Vascularisation": [["Coronaire gauche (IVA, circonflexe)", "L'IVA irrigue la paroi antérieure et le septum ; la circonflexe irrigue la paroi latérale."],
-                     ["Coronaire droite", "Elle irrigue le ventricule droit, la paroi inférieure et, le plus souvent, le nœud sinusal et le nœud AV."],
-                     ["Sinus coronaire", "Il collecte le sang veineux du cœur et s'ouvre dans l'oreillette droite."]],
- "Innervation": [["Sympathique", "Les nerfs cardiaques sympathiques accélèrent le cœur et renforcent sa contraction (récepteurs β1)."],
-                 ["Parasympathique (nerf vague)", "Le vague ralentit le nœud sinusal et la conduction AV (récepteurs M2)."],
-                 ["Plexus cardiaque", "Il réunit les fibres des deux systèmes à la base du cœur."]],
- "Rapports et projections": [["Foyers d'auscultation", "Aortique (2e EIC droit), pulmonaire (2e EIC gauche), tricuspide (4e EIC gauche), mitral (apex, 5e EIC ligne médioclaviculaire)."],
-                             ["Rapports postérieurs", "L'oreillette gauche touche l'œsophage : l'échographie transœsophagienne la voit de près."]],
- "Embryologie et variantes": [["Tube cardiaque", "Le cœur naît d'un tube qui se plie et se cloisonne entre la 3e et la 8e semaine."],
-                              ["Dominance coronaire", "Le réseau est « droit dominant » chez environ 70–80 % des personnes : la coronaire droite donne l'interventriculaire postérieure."]],
-}
+# L'anatomie, la physiologie et les pathologies du cardiovasculaire vivent dans cardio/ (lues par cardio.py).
 
 # ---------- pilote 2 : physiologie du poumon (mots-clés → courbes et calculateurs) ----------
 PHYSIOLOGIE_POUMON = {

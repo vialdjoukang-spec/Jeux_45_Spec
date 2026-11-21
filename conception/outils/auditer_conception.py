@@ -14,7 +14,7 @@ cfg = json.load(open(os.path.join(ICI, "prototypes/moteur/tetrade.json"), encodi
 N = {n["id"]: n for n in cfg["noeuds"]}
 enf = {i: [n for n in cfg["noeuds"] if i in n.get("de", [])] for i in N}
 RUBS = {"semiologie": [["def", ""], ["pourquoi", ""], ["confusion", ""], ["retenir", ""]], **cfg.get("rubriques", {})}
-def rubs(n): return RUBS.get(n.get("espace")) or RUBS.get(n.get("rubriques")) or RUBS["semiologie"]
+def rubs(n): return RUBS.get(n.get("rubriques")) or RUBS.get(n.get("espace")) or RUBS["semiologie"]
 sans_bulle = [i for i, n in N.items() if not n.get("aProduire") and not all((n.get("bulle") or {}).get(k) for k, _ in rubs(n))]
 ctrl("Chaque case produite porte une infobulle complète (rubriques de son espace)", not sans_bulle, ", ".join(sans_bulle))
 temps = [i for i, n in N.items() if str(n.get("type", "")).startswith(("Temps", "Interrogatoire"))]
@@ -81,7 +81,7 @@ ctrl("Chaque examen biologique d'organe renvoie à ses analyses (valeurs dans un
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from pratique import genre as _genre
 _th = [os.path.relpath(f, os.path.join(ICI, "donnees")) for f in _g.glob(os.path.join(ICI, "donnees", "**", "*.json"), recursive=True)
-       if not os.path.relpath(f, os.path.join(ICI, "donnees")).startswith("pratique") and _genre("/" + os.path.relpath(f, os.path.join(ICI, "donnees"))) and not f.endswith("liste.json") and "exemple" not in f]
+       if not os.path.relpath(f, os.path.join(ICI, "donnees")).startswith(("pratique", "images")) and _genre("/" + os.path.relpath(f, os.path.join(ICI, "donnees"))) and not f.endswith("liste.json") and "exemple" not in f]
 _sansj = [x for x in _th if not os.path.exists(os.path.join(ICI, "donnees", "pratique", x))]
 ctrl(f"Chaque fichier théorique a son jumeau pratique ({len(_th)} fichiers)", not _sansj, ", ".join(_sansj[:10]))
 # 1 quinquies. Index de recherche : chaque organe et chaque examen y figure, rattaché à au moins un organe ou à une fiche d'analyse

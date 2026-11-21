@@ -4,7 +4,8 @@ chaque organe se déplie selon l'espace actif (anatomie, physiologie, sémiologi
 Usage : python conception/outils/construire_config_tetrade.py"""
 import json, os, re, sys, unicodedata
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from systemes import SYSTEMES, ANATOMIE_COEUR, PHYSIOLOGIE_POUMON, GLOSSAIRE
+from systemes import SYSTEMES, PHYSIOLOGIE_POUMON, GLOSSAIRE
+from cardio import ORGANES as CV, VOLETS_BULLE as CV_VOLETS, PATHOS as CV_PATHOS, PALIERS, PALIER_BULLE, GLOSSAIRE_CV
 
 ICI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CFG = os.path.join(ICI, "prototypes", "moteur", "tetrade.json")
@@ -34,14 +35,6 @@ VOLET_BULLE = {
  "Intégration avec les autres organes": ("L'intégration relie la fonction de l'organe à celle des autres organes.", "Elle prépare la lecture des examens complexes, comme les gaz du sang."),
  "Valeurs normales (unités SI)": ("Les valeurs normales s'expriment en unités SI, celles des laboratoires suisses.", "Tu raisonnes en kPa pour les gaz du sang."),
 }
-REPERE = {"Faces et bords": "Sur la radiographie de face, le bord droit correspond à l'oreillette droite et le bord gauche au ventricule gauche.",
- "Cavités": "L'échocardiographie mesure chaque cavité ; la dilatation du ventricule gauche dévie la pointe.", "Valves": "Chaque valve s'ausculte à son foyer ; une fuite ou un rétrécissement donne un souffle.",
- "Cardiomyocytes": "Leur nécrose libère la troponine.", "Tissu nodal": "Son atteinte donne les bradycardies et les blocs visibles à l'ECG.", "Endocarde et épicarde": "L'endocarde lésé fixe les bactéries de l'endocardite.",
- "Coronaire gauche (IVA, circonflexe)": "Son occlusion donne un sus-décalage antérieur (V1–V4) ou latéral (I, aVL, V5–V6).", "Coronaire droite": "Son occlusion donne un sus-décalage inférieur (II, III, aVF) et parfois une bradycardie.",
- "Sinus coronaire": "Les sondes de resynchronisation passent par lui.", "Sympathique": "Les bêtabloquants bloquent ses récepteurs β1.", "Parasympathique (nerf vague)": "L'atropine lève son frein en cas de bradycardie.",
- "Plexus cardiaque": "Il explique les douleurs cardiaques projetées au bras gauche et à la mâchoire.", "Foyers d'auscultation": "Tu ausculte chaque foyer au pavillon puis à la membrane.",
- "Rapports postérieurs": "Une oreillette gauche dilatée peut comprimer l'œsophage (dysphagie).", "Tube cardiaque": "Un défaut de cloisonnement donne une communication interauriculaire ou interventriculaire.",
- "Dominance coronaire": "Elle décide quelle artère irrigue la paroi inférieure."}
 RETENIR = {"Fréquence respiratoire": "Une FR ≥ 30/min compte dans le score CRB-65.", "Volume courant": "Le respirateur se règle sur le poids idéal, pas sur le poids réel.",
  "Volumes et capacités": "Un rapport VEMS/CVF < 0,7 signe l'obstruction.", "Chémorécepteurs centraux": "Chez le BPCO hypercapnique, l'O₂ à haut débit peut aggraver l'hypercapnie.",
  "Chémorécepteurs périphériques": "Ils deviennent le moteur ventilatoire du patient hypercapnique chronique.", "Équation des gaz alvéolaires": "Un gradient A-a élevé désigne une cause pulmonaire de l'hypoxémie.",
@@ -50,6 +43,15 @@ RETENIR = {"Fréquence respiratoire": "Une FR ≥ 30/min compte dans le score CR
  "Rapport ventilation / perfusion": "L'embolie crée de l'espace mort ; la pneumonie crée de l'effet shunt.", "Poumon et rein : équilibre acide-base": "Une compensation n'est jamais complète : un pH normal avec des valeurs anormales évoque un trouble mixte.",
  "Lecture des gaz du sang": "Tu lis toujours dans l'ordre : pH, cause primaire, compensation, gradient A-a, trou anionique.", "Gaz du sang artériel": "Tu convertis : 1 kPa = 7,5 mmHg."}
 
+# organes dont l'identifiant reste stable (circuits pilotes rattachés)
+OID = {"Cœur : myocarde et cavités": "coe"}
+for _n in CV:
+    OID.setdefault(_n, "cv_" + slug(court(_n)))
+# organes partagés : une seule maison, l'autre système y renvoie (validé par Vial le 2026-11-21)
+LIENS = {"Circulation pulmonaire": {"def": "La circulation pulmonaire relie le ventricule droit aux alvéoles puis à l'oreillette gauche.",
+          "pourquoi": "Son contenu complet (anatomie, physiologie, pathologies) vit dans le système cardiovasculaire pour éviter une copie.",
+          "confusion": "Les échanges gazeux eux-mêmes restent décrits ici, au poumon.",
+          "retenir": "Tu ouvres Cardiovasculaire → Circulation pulmonaire pour l'embolie et l'hypertension pulmonaires."}}
 N = []
 for sysn, orgs in SYSTEMES.items():
     anc, cote, coul = RACINES[sysn]
@@ -57,22 +59,43 @@ for sysn, orgs in SYSTEMES.items():
     N.append({"id": sid, "type": "", "nature": "Système", "texte": court(sysn).replace("&", "et"), "organe": anc, "cote": cote, "couleur": coul,
               "rubriques": "systeme", "bulle": {"def": f"Le système {court(sysn).lower()} compte {len(orgs)} organes ou structures, déroulés de haut en bas.", "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."}})
     for nom, _, topo in orgs:
-        oid = "coe" if nom == "Cœur" else "pou" if nom.startswith("Poumons") else "org_" + slug(sysn)[:6] + "_" + slug(nom)
-        b = A.get(oid, {}).get("bulle") if oid in ("coe", "pou") else None
+        oid = OID.get(nom) or ("pou" if nom.startswith("Poumons") else "org_" + slug(sysn)[:6] + "_" + slug(nom))
+        b = A.get(oid, {}).get("bulle") if oid == "pou" else None
+        if nom in CV: b = CV[nom]["bulle"]
+        if nom in LIENS: b = LIENS[nom]
         o = {"id": oid, "type": "", "nature": "Organe", "texte": court(nom), "couleur": coul, "de": [sid], "rubriques": "organe",
              "bulle": b or {"def": f"{nom} : organe du système {court(sysn).lower()}.", "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."},
              "topo": topo}
-        if oid not in ("coe", "pou"):
+        if not b:
             o["aProduire"] = True
         N.append(o)
 
-# ---- anatomie du cœur : volets → mots-clés → vue 3D ----
-for i, (vol, items) in enumerate(ANATOMIE_COEUR.items()):
-    vid = f"an{i}"
-    d, r = VOLET_BULLE[vol]
-    N.append({"id": vid, "type": "", "nature": "Volet", "texte": vol, "couleur": "#c0392b", "de": ["coe"], "espace": "anatomie", "bulle": {"def": d, "repere": r}})
-    for j, (k, t) in enumerate(items):
-        N.append({"id": f"{vid}_{j}", "type": "", "nature": "Mot-clé", "texte": court(k) if len(k) > 34 else k, "couleur": "#c0392b", "de": [vid], "espace": "anatomie", "fenetre": "3d", "bulle": {"def": t, "repere": REPERE[k]}})
+# ---- cardiovasculaire : 14 organes → volets → mots-clés (fenêtres) ; physiopathologie → 4 paliers → pathologies ----
+COUL_CV = "#c0392b"
+def bulle_volet(vol, esp):
+    d, r = VOLET_BULLE.get(vol) or CV_VOLETS[vol]
+    return {"def": d, ("repere" if esp == "anatomie" else "retenir"): r}
+for nom, org in CV.items():
+    oid = OID[nom]
+    for esp, cle in (("anatomie", "a"), ("physiologie", "p")):
+        for i, (vol, items) in enumerate(org[esp]):
+            vid = f"{oid}_{cle}{i}"
+            N.append({"id": vid, "type": "", "nature": "Volet", "texte": court(vol), "couleur": COUL_CV, "de": [oid], "espace": esp, "bulle": bulle_volet(vol, esp)})
+            for j, (k, t, r, fen) in enumerate(items):
+                n = {"id": f"{vid}_{j}", "type": "", "nature": "Mot-clé", "texte": k, "couleur": COUL_CV, "de": [vid], "espace": esp,
+                     "bulle": {"def": t, ("repere" if esp == "anatomie" else "retenir"): r}}
+                fen = "3d" if esp == "anatomie" else fen
+                if fen: n["fenetre"] = fen
+                N.append(n)
+    paliers = {}
+    for p in CV_PATHOS.get(nom, []):
+        pal = p["palier"]; nomp, typ, col = PALIERS[pal]
+        if pal not in paliers:
+            paliers[pal] = f"{oid}_x{pal.lower()}"
+            d, c = PALIER_BULLE[pal]
+            N.append({"id": paliers[pal], "type": "", "nature": "Palier", "texte": nomp, "couleur": col, "de": [oid], "espace": "physiopathologie", "bulle": {"def": d, "consequence": c}})
+        N.append({"id": f"{paliers[pal]}_{slug(p['nom'])}", "type": "Diagnostic · " + typ, "nature": "Pathologie", "texte": p["nom"], "couleur": col,
+                  "de": [paliers[pal]], "espace": "physiopathologie", "rubriques": "pathologie", "bulle": p["bulle"]})
 
 # ---- physiologie du poumon : volets → mots-clés → courbes et calculateurs ----
 for i, (vol, items) in enumerate(PHYSIOLOGIE_POUMON.items()):
@@ -96,6 +119,8 @@ for i, t, d, c in PP:
 
 # ---- sémiologie : circuits pilotes conservés (temps d'examen rattachés à l'organe) ----
 for n in ancien["noeuds"]:
+    if n["id"].startswith("cv_") or n.get("nature") in ("Palier", "Pathologie") or n["id"].startswith("coe_"):
+        continue
     if n["id"] in ("coe", "pou") or n.get("nature") in ("Système", "Organe", "Volet", "Mot-clé", "Mécanisme") or n["id"].startswith(("sys_", "org_", "an", "ph", "pp")) and not n["id"].startswith(("pt",)):
         continue
     if n.get("organe"):
@@ -108,7 +133,8 @@ cfg = {k: v for k, v in ancien.items() if k != "noeuds"}
 cfg.update(noeuds=N, espace="anatomie", sousTitre="Systèmes sur le corps 3D · clic : organes de haut en bas · espaces : anatomie, physiologie, sémiologie, physiopathologie",
            rubriques={"anatomie": [["def", "Ce que c'est"], ["repere", "Repère clinique"]], "physiologie": [["def", "Ce que c'est"], ["retenir", "À retenir"]],
                       "physiopathologie": [["def", "Ce qui se passe"], ["consequence", "Conséquence clinique"]], "systeme": [["def", "Ce que c'est"], ["retenir", "Comment l'explorer"]],
-                      "organe": [["def", "Ce que c'est"], ["pourquoi", "Pourquoi ici"], ["confusion", "Confusion possible"], ["retenir", "À retenir"]]},
-           cible=[0, -90, 1000], dist=5400, glossaire={**ancien.get("glossaire", {}), **GLOSSAIRE})
+                      "organe": [["def", "Ce que c'est"], ["pourquoi", "Pourquoi ici"], ["confusion", "Confusion possible"], ["retenir", "À retenir"]],
+                      "pathologie": [["def", "Ce qui se passe"], ["pourquoi", "Pourquoi ces signes"], ["confusion", "Confusion possible"], ["retenir", "À retenir"]]},
+           cible=[0, -90, 1000], dist=5400, glossaire={**ancien.get("glossaire", {}), **GLOSSAIRE, **GLOSSAIRE_CV})
 json.dump(cfg, open(CFG, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print("noeuds :", len(N), "| organes :", sum(1 for n in N if n.get("nature") == "Organe"), "| à produire :", sum(1 for n in N if n.get("aProduire")))

@@ -187,7 +187,7 @@ const VIS=[['diagnostique','Diagnostique'],['retentissement','Extension et reten
 let lentille=Q.get('lentille')||'';const LEN=C.lentilles||[];
 function montrer(n){if(!n.bulle||n.el.classList.contains('cache'))return;bulle.style.setProperty('--c',n.couleur||'#888');const B=n.bulle;
  const pl=lentille&&n.particularites&&n.particularites[lentille];const ln=LEN.find(l=>l.id===lentille);
- const RUB=RUBS[n.espace]||RUBS[n.rubriques]||RUBS.semiologie;const rub='<h4>'+n.texte+'</h4><dl>'+RUB.filter(([k])=>B[k]!==undefined).map(([k,l])=>'<dt>'+l+'</dt><dd>'+(B[k]||'Aucune confusion fréquente.')+'</dd>').join('')
+ const RUB=RUBS[n.rubriques]||RUBS[n.espace]||RUBS.semiologie;const rub='<h4>'+n.texte+'</h4><dl>'+RUB.filter(([k])=>B[k]!==undefined).map(([k,l])=>'<dt>'+l+'</dt><dd>'+(B[k]||'Aucune confusion fréquente.')+'</dd>').join('')
   +(pl?'<dt style="color:'+ln.couleur+'">Particularité · '+ln.nom+'</dt><dd style="border-left:3px solid '+ln.couleur+';padding-left:6px">'+pl+'</dd>':'')+'</dl>';
  const sup=x=>'<span class=terme data-def="'+esc(x[1])+'">'+x[0]+'</span>';
  const bil=B.bilan?'<h5 class=sec>Bilan</h5>'+VIS.filter(([k])=>B.bilan[k]).map(([k,l])=>'<div class=vis><b>'+l+'</b>'+Object.entries(B.bilan[k]).map(([g,xs])=>'<div class=grp>› '+g+' : '+xs.map(sup).join(', ')+'</div>').join('')+'</div>').join(''):'';

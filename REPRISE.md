@@ -1,6 +1,6 @@
 # REPRISE — à lire en entier avant toute action
 
-Dernière mise à jour : 2026-11-21 · Commit de référence : 985ab5d puis celui qui ajoute ce fichier.
+Dernière mise à jour : 2026-11-21 (soir) · Le système cardiovasculaire est rédigé ; voir §8.
 Auteur et décideur : Dr Vial Tato Djoukang (psychiatre, préparation de l'examen fédéral suisse). Langue : français, phrases verbales, jamais nominales.
 
 ## 1. Les 4 projets (dossier `projets/`)
@@ -38,10 +38,13 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Police du contenu : Atkinson Hyperlegible ; taille modérée.
 
 ## 5. Systèmes et organes (source unique `conception/outils/systemes.py`)
-- Un système déroule **TOUS** ses organes (14 systèmes, 123 organes). Jamais un système réduit à un organe.
+- Un système déroule **TOUS** ses organes (14 systèmes, 124 organes). Jamais un système réduit à un organe.
+- Une seule maison par organe partagé : l'autre système y renvoie (`LIENS` dans `construire_config_tetrade.py`). Ex. : « Circulation pulmonaire » vit dans le cardiovasculaire ; le système porte vit dans le digestif.
 - Clic sur un organe → contenu de l'espace actif :
   - Anatomie : macroscopie, microscopie, vascularisation, innervation (+ rapports et projections, embryologie et variantes), en arbre propre ; chaque mot-clé ouvre une **image 3D** de la structure.
-  - Physiologie : paramètres du simple au complexe ; chaque mot-clé ouvre une **courbe calculée**, un tracé ou un calculateur (`fenetres.js` : odc, hh, alveolaire, gazometrie, spiro, 3d). Unités SI en kPa ; altitude (La Chaux-de-Fonds ≈ 1000 m).
+  - Physiologie : paramètres du simple au complexe ; chaque mot-clé ouvre une **courbe calculée**, un tracé ou un calculateur (`fenetres.js` : odc, hh, alveolaire, gazometrie, spiro ; wiggers, pv, starling — un seul moteur `hemo()` à élastance variable —, ecg, pa, hemodyn, starling_cap, do2, bernoulli, ips ; 3d). Gaz en kPa ; PA en mmHg (pratique suisse) ; altitude (La Chaux-de-Fonds ≈ 1000 m).
+  - Physiopathologie : l'organe débouche sur **4 paliers** — Très fréquentes, Fréquentes, Urgences, Pièges (rares) — puis sur les pathologies (`type` « Diagnostic · … »), chacune avec infobulle 4 rubriques + bilan par visée + traitement (posologie, source). C'est ce qui rend les 4 onglets jouables pour Spec_45.
+  - Rédaction : texte compact dans `conception/outils/<systeme>/` (`contenu.txt`, `pathologies.txt`, `glossaire.txt`), lu par `<systeme>.py` à 0 token. Modèle : `cardio/` + `cardio.py`.
 - Le gabarit 6 volets d'anatomie / 5 de physiologie **n'est pas universel** : il se réadapte système par système (ex. Psyché : circuits, neurotransmetteurs, fonctions).
 - Fichiers : `construire_config_tetrade.py` → `prototypes/moteur/tetrade.json` ; `generer_json.py` → `donnees/tetrade/<systeme>/organes.json` et `organes/<organe>.json`.
 
@@ -63,19 +66,21 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Chaîne complète : `construire_config_tetrade.py` → `construire_plans.py` → `generer_json.py` → `rendre_plans.py` → audits → `projets/outils/chantiers.py` → `rendre_chantiers.py` → commit/push.
 - Rendu headless : Playwright + Chromium SwiftShader ; `shot.py "config.json&ouvrir=…&espace=…&fenetre=…&bulle=…&theme=…"`.
 
-## 8. État au 2026-11-21
-- Rédigés : cœur (anatomie), poumon (physiologie, 5 courbes), circuit sémiologique de l'insuffisance cardiaque gauche, pneumonie (cliché + radio-anatomie normale).
-- 121 organes « à produire » (`aProduire`), listés mais vides.
+## 8. État au 2026-11-21 (soir)
+- **Cardiovasculaire rédigé** (validé par Vial : 14 organes, volets adaptés par type, fenêtres) : 14 organes × anatomie + physiologie (≈ 200 mots-clés), 57 pathologies en 4 paliers avec bilan et traitement, 10 fenêtres de courbes testées sans écran (0 erreur JS), 101 sigles au glossaire. À relire par Vial : `conception/outils/cardio/*.txt`.
+- Poumon (physiologie, 5 courbes), circuit sémiologique de l'insuffisance cardiaque gauche, pneumonie (cliché + radio-anatomie normale).
+- 108 organes « à produire » (`aProduire`), listés mais vides.
+- Limites connues : (1) la sémiologie par organe du cardiovasculaire reste à produire (seul le circuit de l'IC gauche existe) ; (2) la fenêtre 3D montre le même modèle (cœur) pour tous les organes : vues 3D par structure à faire ; (3) les posologies portent « à vérifier dans l'AIPS » sauf vérification ponctuelle (tafamidis 61 mg confirmé Swissmedic ; atropine 0,5 mg ERC 2025 / 1 mg AHA 2025).
 - Catalogue paraclinique : 66 organes, 601 examens listés (champs à remplir).
 
 ## 9. Méthode convenue pour la suite
-1. Système par système (cardiovasculaire, puis respiratoire) : proposer la liste des organes, les volets adaptés et les fenêtres de courbes à créer (ex. ECG, Frank-Starling, boucle pression-volume, clairance/DFG, potentiel d'action, axes hormonaux).
+1. Système par système (cardiovasculaire fait ; prochain : sémiologie cardiovasculaire, puis respiratoire) : proposer la liste des organes, les volets adaptés, les fenêtres de courbes et les 4 paliers de pathologies.
 2. Attendre la validation de Vial.
 3. Produire le contenu ; audit bloquant après chaque lot ; commit et push.
 
 ## 10. En attente
 - Pilote Jeux_45_Spec : `python scripts/produire_fiches_claude.py pilote --spec CAR --n 2` (schéma `scripts/schema_fiche.json` : `glossaire` et `examens.items.visee` obligatoires). Vial envoie les 2 fiches pour audit.
-- Le skill `obsidian-like-complex-network` du compte de Vial décrit encore des liens courbes : proposer sa mise à jour depuis la copie du dépôt (`skills/obsidian-like-complex-network/`).
+- Skill `obsidian-like-complex-network` : les liens droits sont déjà en place dans le compte ; la copie du dépôt est corrigée et synchronisée (nouvelles fenêtres, paliers). Mise à jour du compte proposée le 2026-11-21 (fenêtres + paliers).
 
 ## 11. Façon de répondre à Vial
 - Réponse directe et brève ; vérité sans complaisance ; critique constructive et un « plus » à chaque proposition.

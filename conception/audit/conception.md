@@ -1,6 +1,6 @@
 # Audit rigoureux de la conception — RÉUSSI
 
-Organes encore à produire (backlog, non bloquant) : 121
+Organes encore à produire (backlog, non bloquant) : 108
 
 | Contrôle | Résultat | Détail |
 |---|---|---|
@@ -14,15 +14,15 @@ Organes encore à produire (backlog, non bloquant) : 121
 | Le mot « atypique » est défini dès qu'il est employé | ✅ |  |
 | Chaque signe ou symptôme est classé typique ou atypique | ✅ |  |
 | Le bilan n'affiche que des noms courts ; chaque nom porte en infobulle le signe recherché | ✅ |  |
-| Chaque système déroule TOUS ses organes (123 organes, 14 systèmes) | ✅ |  |
+| Chaque système déroule TOUS ses organes (124 organes, 14 systèmes) | ✅ |  |
 | Chaque organe est relié au catalogue topographique des examens | ✅ |  |
 | Chaque case reste concise (≤ 45 caractères ; le détail va en infobulle ou fenêtre) | ✅ |  |
 | Chaque mot-clé à fenêtre ouvre un modèle existant (3D, courbe, calculateur) | ✅ |  |
-| Chaque mot-clé ouvre une fenêtre (image 3D en anatomie, courbe ou détail en physiologie) | ✅ | 30 mots-clés |
+| Chaque mot-clé ouvre une fenêtre (image 3D en anatomie, courbe ou détail en physiologie) | ✅ | 245 mots-clés |
 | Chaque case d'espace appartient à l'un des 4 espaces | ✅ |  |
 | Chaque analyse biologique est unique (304 analyses individuelles) | ✅ |  |
 | Chaque examen biologique d'organe renvoie à ses analyses (valeurs dans une source unique) | ✅ |  |
-| Chaque fichier théorique a son jumeau pratique (703 fichiers) | ✅ |  |
+| Chaque fichier théorique a son jumeau pratique (704 fichiers) | ✅ |  |
 | Index de recherche complet (82 organes, 1053 examens et analyses) | ✅ |  |
 | La fenêtre de clichés montre la radio-anatomie normale à droite | ✅ |  |
 | Chaque technique d'imagerie a ses 5 champs (discriminant, préférence, alternative, limite) | ✅ |  |
@@ -30,7 +30,7 @@ Organes encore à produire (backlog, non bloquant) : 121
 | Les 19 disciplines-outils couvrent les lettres A à S | ✅ |  |
 | Les lentilles cliniques incluent pédiatrie, gériatrie, femme/grossesse, chirurgie, psychiatrie | ✅ |  |
 | L'arbre de cours transversal compte 9 parties | ✅ |  |
-| Les 1555 JSON se lisent sans erreur | ✅ |  |
+| Les 1562 JSON se lisent sans erreur | ✅ |  |
 | Aucun nom de fichier ne garde un joker (<systeme>, <organe>…) | ✅ |  |
 | Plan tetrade : aucune image SVG | ✅ |  |
 | Plan tetrade : audit interne réussi | ✅ |  |
