@@ -45,7 +45,7 @@ RÈGLES BLOQUANTES
 10. Les phrases génériques interchangeables d'une entité à l'autre sont interdites.
 11. glossaire : chaque sigle, score ou terme technique que tu emploies (ex. « atypique », « CURB-65 », « ARNI ») reçoit sa définition en une phrase verbale ; aucun terme ne renvoie hors du jeu.
 12. presentation.atypique : les présentations trompeuses (sujet âgé, enfant, grossesse, immunodépression), chacune avec son mécanisme ; elles s'affichent en rouge.
-13. examens.attendu : le signe paraclinique précis recherché (ex. « FEVG ≤ 40 % »), jamais le nom seul de l'examen.
+13. examens : « examen » reste un nom court ; « attendu » donne le signe paraclinique précis recherché et son seuil (ex. « FEVG ≤ 40 % ») ; « visee » range l'examen : diagnostique (1re intention ou gold standard), retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation.
 Tu réponds UNIQUEMENT en appelant l'outil emettre_fiche."""
 
 OUTIL = {"name": "emettre_fiche", "description": "Émet la fiche de raisonnement de l'entité.",

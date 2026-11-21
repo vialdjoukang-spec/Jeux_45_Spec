@@ -36,7 +36,7 @@ def squelette(d):
                           "Les posologies suivent la cascade suisse : AIPS, Compendium, sociétés suisses, sociétés européennes.",
                           "Tout sigle, score ou terme technique (ex. « atypique ») cité dans un texte doit exister dans « glossaire » avec sa définition : aucun renvoi hors de l'application.",
                           "Chaque signe ou symptôme porte « presentation » : « typique » ou « atypique » (affiché en rouge).",
-                          "Chaque examen d'un bilan s'écrit [examen, signe paraclinique recherché] et se range dans une des six visées."]},
+                          "Le bilan se range par visée (diagnostique avec « 1re intention » et « Gold standard », retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation), puis par groupe (Biologie, Imagerie, Score, Explorations, Clinique) ; chaque examen s'écrit [nom affiché, détail en infobulle : signe recherché et seuil]."]},
             "elements": [el], "glossaire": {}}
 
 

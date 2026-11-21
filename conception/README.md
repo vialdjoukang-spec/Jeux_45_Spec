@@ -42,7 +42,7 @@ python conception/outils/rendre_plans.py
 ## Mise à jour : navigation par côté, disciplines transversales, discriminants
 - Règle du côté : un circuit se développe du côté où le trait né du corps rejoint sa première case.
 - Onglet Disciplines transversales : 19 disciplines-outils (A → S) et 12 lentilles cliniques (`outils/transversales.py`).
-- Infobulle de diagnostic : bilan en six visées et traitement avec posologie et source.
+- Infobulle de diagnostic : bilan par visée (diagnostique : 1re intention puis gold standard ; retentissement ; étiologique ; complications ; thérapeutique ; sortie), noms courts et détails au survol, puis traitement avec posologie et source.
 - Facteur discriminant des techniques d'imagerie, visées du bilan et smarter medicine (`outils/catalogue_paraclinique.py`).
 - Fenêtre de clichés : patient (brut / annoté) à gauche, radio-anatomie normale à droite.
 - Anatomie : fenêtre de structure 3D à quatre vues (`prototypes/moteur/anatomie.html`).

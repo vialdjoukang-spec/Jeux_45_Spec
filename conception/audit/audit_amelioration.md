@@ -21,7 +21,7 @@ Contrôles automatiques : `auditer_conception.py` (20/20), `auditer_couverture.p
 |---|---|---|
 | A | Onglet « Disciplines transversales » : 19 disciplines-outils (A → S, avec sous-onglets et leçons de la Cartographie) et 12 lentilles cliniques. | Les lentilles isolent ce qui est propre à une discipline dans les zones communes. |
 | B | Sélecteur de lentille dans le prototype, pastille sur les cases concernées, ligne « Particularité » dans l'infobulle. | La lentille montre en un clic ce qui change chez l'enfant, la personne âgée ou la femme enceinte. |
-| C | Infobulle de diagnostic : bilan en six visées (diagnostique, étiologique, retentissement, complications, rémission, sortie) et traitement avec posologie et source. | La répétition fixe la connaissance d'un onglet à l'autre. |
+| C | Infobulle de diagnostic : bilan par visée (diagnostique : 1re intention puis gold standard ; retentissement ; étiologique ; complications ; thérapeutique ; sortie), noms courts dont le détail s'affiche au survol, et traitement avec posologie et source. | La répétition fixe la connaissance d'un onglet à l'autre. |
 | D | Facteur discriminant de 27 techniques et séquences (IRM : T1, T2, FLAIR, diffusion/ADC, SWI, gadolinium, STIR, angio, cholangio, perfusion, corps entier). | Tu dois savoir quel examen demander, et pourquoi lui plutôt qu'un autre. |
 | E | Smarter medicine : 5 recommandations suisses amorcées, dont une marquée « à vérifier ». | Elles freinent la surprescription. |
 | F | Fenêtre de structure anatomique en 3D réelle, à quatre vues, avec la crosse aortique renforcée et la radio-anatomie correspondante. | L'anatomie vue sous plusieurs angles prépare la lecture des images. |

@@ -20,8 +20,9 @@ typ = lambda i: [x for x in enf[i] if x.get("presentation") != "atypique"]
 mauvais = [f"{i}:{len(typ(i))}" for i in temps if not (2 <= len(typ(i)) <= 3 or (len(typ(i)) == 1 and typ(i)[0].get("uniqueAssume")))]
 ctrl("Chaque temps d'examen a 2 ou 3 signes typiques (ou un signe unique assumé et expliqué)", not mauvais, ", ".join(mauvais))
 diags = [i for i, n in N.items() if str(n.get("type", "")).startswith("Diagnostic")]
-incomplets = [i for i in diags if not (set(k for k, _ in [(v[0], 0) for v in VISEES]) <= set((N[i]["bulle"].get("bilan") or {}).keys()) and N[i]["bulle"].get("traitement") and N[i]["bulle"].get("source"))]
-ctrl("Chaque diagnostic répète le bilan en 6 visées et le traitement avec posologie et source", not incomplets, ", ".join(incomplets))
+OBLIG = {"diagnostique", "retentissement", "etiologique", "complications"}
+incomplets = [i for i in diags if not (OBLIG <= set((N[i]["bulle"].get("bilan") or {}).keys()) and "Gold standard" in (N[i]["bulle"]["bilan"].get("diagnostique") or {}) and N[i]["bulle"].get("traitement") and N[i]["bulle"].get("source"))]
+ctrl("Chaque diagnostic répète le bilan par visée (diagnostique avec gold standard, retentissement, étiologique, complications) et le traitement avec source", not incomplets, ", ".join(incomplets))
 ids_l = {l["id"] for l in cfg.get("lentilles", [])}
 orph = [f"{i}:{k}" for i, n in N.items() for k in (n.get("particularites") or {}) if k not in ids_l]
 ctrl("Chaque particularité renvoie à une lentille déclarée", not orph, ", ".join(orph))
@@ -39,8 +40,9 @@ ctrl("Chaque sigle cité dans une infobulle est défini dans le glossaire", not 
 ctrl("Le mot « atypique » est défini dès qu'il est employé", "atypique" not in textes or "atypique" in GL)
 sans_pres = [i for i, n in N.items() if n.get("type") in ("Signe", "Symptôme") and n.get("presentation") not in ("typique", "atypique")]
 ctrl("Chaque signe ou symptôme est classé typique ou atypique", not sans_pres, ", ".join(sans_pres))
-bil = [i for i in diags for v in (N[i]["bulle"].get("bilan") or {}).values() for x in v if not (isinstance(x, list) and len(x) == 2 and all(x))]
-ctrl("Chaque examen du bilan cite le signe paraclinique recherché", not bil, ", ".join(sorted(set(bil))))
+VALIDES = {v[0] for v in VISEES}
+bil = [i for i in diags for k, v in (N[i]["bulle"].get("bilan") or {}).items() for g, xs in (v.items() if isinstance(v, dict) else [("?", [None])]) for x in xs if k not in VALIDES or not (isinstance(x, list) and len(x) == 2 and all(x) and len(x[0]) <= 60)]
+ctrl("Le bilan n'affiche que des noms courts ; chaque nom porte en infobulle le signe recherché", not bil, ", ".join(sorted(set(bil))))
 
 # 2. Paraclinique : fenêtre à deux clichés avec radio-anatomie normale
 pa = json.load(open(os.path.join(ICI, "prototypes/moteur/paraclinique.json"), encoding="utf-8"))

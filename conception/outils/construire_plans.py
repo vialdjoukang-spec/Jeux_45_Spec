@@ -314,7 +314,7 @@ REGLE_COTE = "Le côté du premier trait décide du sens : si le trait horizonta
 for p in (TETRADE, PHARMACO, PARACLINIQUE):
     p["toile"] = dict(p["toile"], regles=[r for r in p["toile"]["regles"] if not r.startswith("La navigation horizontale")] + [REGLE_COTE])
     p["semiologie"] = dict(p["semiologie"], seuils=p["semiologie"]["seuils"] + ["Si la sémiologie d'un temps d'examen n'offre qu'un seul signe valide, ce signe reste seul, marqué « uniqueAssume », et son infobulle le dit : on n'invente jamais un signe pour remplir.",
-        "Chaque diagnostic répète en infobulle le bilan stratifié (diagnostique, étiologique, retentissement, complications, rémission, sortie) et le traitement avec posologie et source : la même information revient d'un onglet à l'autre pour être répétée."])
+        "Chaque diagnostic répète en infobulle le bilan par visée (diagnostique : 1re intention puis gold standard ; retentissement ; étiologique ; complications ; thérapeutique si applicable ; sortie si hospitalisation), en noms courts dont le détail s'affiche au survol, et le traitement avec posologie et source : la même information revient d'un onglet à l'autre pour être répétée."])
 TETRADE["transversales"] = {"outils": OUTILS, "axes": AXES, "lentilles": LENTILLES, "arborescence": ARBORESCENCE,
     "regle": "Un onglet « Disciplines transversales » réunit deux familles : les outils de la médecine (19 disciplines, une lettre de A à S, chaque lettre ouvre ses sous-onglets et ses leçons) et les lentilles cliniques, qui filtrent les zones communes pour n'y montrer que ce qui est propre à la discipline."}
 for e in TETRADE["ecrans"]:
@@ -332,20 +332,20 @@ TETRADE["ecrans"].append({"id": "E10", "nom": "Onglet Disciplines transversales"
 TETRADE["decisions"][:0] = [
     {"question": "Dans quel sens se développe l'arbre ?", "choix": REGLE_COTE, "raison": "Le regard suit le trait né du corps ; un développement qui change de côté casserait la lecture."},
     {"question": "Où placer pédiatrie, gériatrie, gynécologie, chirurgie, psychiatrie ?", "choix": "Dans l'onglet Disciplines transversales, sous forme de lentilles qui filtrent les zones communes", "raison": "Les particularités liées à l'âge, au terrain ou à l'approche s'affichent là où elles servent, sans dupliquer les circuits."},
-    {"question": "Que montre un diagnostic au survol ?", "choix": "Le bilan stratifié en six visées et le traitement avec posologie, même si l'onglet Examens complémentaires les reprend", "raison": "La répétition fixe la connaissance ; une donnée unique se réutilise d'un onglet à l'autre."},
+    {"question": "Que montre un diagnostic au survol ?", "choix": "Le bilan par visée (noms courts, détails au survol) et le traitement avec posologie, même si l'onglet Examens complémentaires les reprend", "raison": "La répétition fixe la connaissance ; une donnée unique se réutilise d'un onglet à l'autre."},
     {"question": "Quel niveau d'exigence pour l'anatomie ?", "choix": "Arbre de l'extérieur vers l'intérieur, fenêtre 3D réelle à quatre vues, trajet renforcé, radio-anatomie normale correspondante", "raison": "Raisonner devant une imagerie exige de connaître la structure sous plusieurs angles."}]
 TETRADE["donnees"] += [
     {"fichier": "tetrade/transversales/outils/<lettre>.json", "role": "Discipline-outil (A → S) : sous-onglets, leçons, arbre de cours en 9 parties", "champs": ["lettre", "nom", "sousOnglets[]", "lecons[]", "arborescence[] (9 parties)", "liensTetrade[]", "liensSSP[]"], "producteur": "Script + IA", "volume": "19 fichiers"},
     {"fichier": "tetrade/transversales/lentilles.json", "role": "Lentilles cliniques et leurs filtres", "champs": ["id", "nom", "specialites[]", "filtre", "revele[]", "couleur"], "producteur": "Script", "volume": "12 lentilles"},
     {"fichier": "tetrade/<systeme>/anatomie3d.json", "role": "Arbre anatomique et fenêtres de structure", "champs": ["structureId", "parent", "niveau (extérieur → intérieur)", "vues3D[] (au moins 4)", "trajetRenforce[]", "radioAnatomie[] (Rx, CT, IRM, écho)", "bulle"], "producteur": "Script (modèles 3D) + IA (textes)", "volume": "1 fichier par système"}]
-TETRADE["prototype"]["images"] = ["prototypes/tetrade.png", "prototypes/tetrade_gauche.png", "prototypes/anatomie_fenetre_coeur.png"]
+TETRADE["prototype"]["images"] = ["prototypes/tetrade.png", "prototypes/tetrade_survol_bilan.png", "prototypes/tetrade_gauche.png", "prototypes/anatomie_fenetre_coeur.png"]
 PARACLINIQUE["techniques"] = TECHNIQUES
 PARACLINIQUE["visees"] = VISEES
 PARACLINIQUE["smarter"] = SMARTER
 PARACLINIQUE["onglets"]["imagerie"]["fenetre"] = "À gauche, le cliché du patient, brut ou annoté par un bouton ; à droite, le même examen normal avec sa radio-anatomie annotée par lettres ; les lésions se numérotent, les repères normaux se lettrent."
 PARACLINIQUE["decisions"][:0] = [
     {"question": "Comment rendre le choix d'un examen aigu ?", "choix": "Chaque technique et chaque séquence porte son facteur discriminant, son avantage sélectif, l'examen qu'elle remplace et sa limite", "raison": "Le médecin doit savoir quoi demander exactement pour le diagnostic recherché, et éviter la surprescription (smarter medicine)."},
-    {"question": "Comment ranger un bilan ?", "choix": "En six visées : diagnostique, étiologique, retentissement, complications, rémission, sortie", "raison": "Un bilan stratifié évite les examens sans conséquence et prépare le suivi."}]
+    {"question": "Comment ranger un bilan ?", "choix": "Par visée : diagnostique (1re intention, gold standard), extension et retentissement, étiologique, suivi des complications, thérapeutique si applicable, sortie si hospitalisation", "raison": "Un bilan stratifié évite les examens sans conséquence et prépare le suivi."}]
 PARACLINIQUE["donnees"].append({"fichier": "paraclinique/topographie/<region>/<organe>.json", "role": "Examens de l'organe, toutes modalités", "champs": ["nom", "modalite", "visees[]", "discriminant", "avantageSelectif", "plutotQue", "limite", "referencePour[]", "smarterMedicine", "bulle"], "producteur": "Script (liste) + IA (textes)", "volume": "64 organes"})
 PARACLINIQUE["prototype"]["images"] = ["prototypes/paraclinique.png"]
 

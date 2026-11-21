@@ -56,7 +56,7 @@ SEMIOLOGIE = {
     ],
     "glossaire": "Tout sigle, score ou terme technique cité dans une infobulle (atypique, ARNI, CURB-65…) porte sa propre infobulle de définition, tirée du glossaire du module : l'apprenant ne quitte jamais l'application pour se souvenir d'une notion.",
     "typiqueAtypique": "À chaque temps d'examen et à l'anamnèse, quand c'est applicable, les signes et symptômes se rangent en deux catégories : typiques (couleur du système) et atypiques (en rouge), pour préparer aux pièges de présentation.",
-    "bilan": "Chaque examen du bilan s'écrit « examen → signe paraclinique recherché » (exemple : échocardiographie → FEVG ≤ 40 %) ; l'énumération détaillée vit dans l'infobulle, pas dans la case.",
+    "bilan": "Le bilan affiche seulement, par visée, des groupes courts (Biologie, Imagerie, Score, Explorations, Clinique) suivis des noms d'examens ; chaque nom est un support d'infobulle qui donne le signe paraclinique recherché et son seuil. Visées : diagnostique (1re intention, puis gold standard), extension et retentissement, étiologique, suivi des complications, thérapeutique si applicable, sortie si hospitalisation. Tout mot affiché peut devenir un support d'infobulle.",
     "sons": {
         "regle": "Tout signe auscultatoire porte un bouton 🔊 qui joue un enregistrement réel ; le son se rejoue aussi depuis l'infobulle.",
         "catalogue": ["Galop B3", "Galop B4", "Souffles systoliques et diastoliques", "Fibrillation auriculaire", "Bloc auriculo-ventriculaire", "Tachycardie",

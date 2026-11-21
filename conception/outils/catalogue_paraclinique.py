@@ -147,12 +147,12 @@ SYSTEMES = {"Cardiovasculaire": ["Cœur et péricarde", "Aorte thoracique et art
 
 # ---------- visées d'un bilan : chaque examen se range dans au moins une visée ----------
 VISEES = [
- ["diagnostique", "Poser ou exclure le diagnostic (examen de référence, sensibilité ou spécificité décisive)."],
- ["etiologique", "Trouver la cause une fois le syndrome posé."],
- ["retentissement", "Mesurer l'atteinte des organes cibles et la gravité."],
- ["complications", "Dépister les complications de la maladie et du traitement (tolérance)."],
- ["remission", "Suivre la réponse au traitement et la rémission."],
- ["sortie", "Vérifier les critères qui autorisent la sortie ou le relais ambulatoire."],
+ ["diagnostique", "Diagnostique : examens de 1re intention, puis gold standard qui pose formellement le diagnostic."],
+ ["retentissement", "Extension et retentissement : atteinte des autres organes et gravité."],
+ ["etiologique", "Étiologique : trouver la cause une fois le diagnostic posé."],
+ ["complications", "Suivi des complications éventuelles (maladie et traitement)."],
+ ["therapeutique", "Thérapeutique (si applicable) : examens qui guident ou permettent le traitement."],
+ ["sortie", "Sortie (si hospitalisation) : critères qui autorisent le retour à domicile."],
 ]
 
 # ---------- techniques d'imagerie : facteur discriminant et avantage sélectif ----------

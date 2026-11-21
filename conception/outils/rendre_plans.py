@@ -105,7 +105,7 @@ def rendre(p, audit):
             + "<h4>Arbre de cours d'une discipline transversale</h4>" + table([{"p": a, "c": b} for a, b in t["arborescence"]], [("p", "Partie"), ("c", "Contenu")])))
     if p.get("techniques"):
         S.append(("techniques", "Choisir l'examen : facteur discriminant et avantage sélectif", "".join(f"<h4>{E(fam)}</h4>" + table([{"t": a, "d": b, "q": c, "p": d, "l": e} for a, b, c, d, e in lst], [("t", "Technique"), ("d", "Ce qu'elle voit le mieux"), ("q", "Tu la préfères quand"), ("p", "Plutôt que"), ("l", "Limite")]) for fam, lst in p["techniques"].items())
-            + "<h4>Les six visées d'un bilan</h4>" + table([{"v": a, "c": b} for a, b in p["visees"]], [("v", "Visée"), ("c", "But")])
+            + "<h4>Les visées d'un bilan</h4>" + table([{"v": a, "c": b} for a, b in p["visees"]], [("v", "Visée"), ("c", "But")])
             + "<h4>Smarter medicine</h4>" + table([{"s": a, "r": b} for a, b in p["smarter"]], [("s", "Situation"), ("r", "Recommandation")])))
     if p.get("topographie"):
         t = p["topographie"]
