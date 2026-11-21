@@ -7,7 +7,7 @@ try:
     pg=b.new_page(viewport={'width':1600,'height':1000})
     pg.on('console',lambda m:print('CON',m.text)); pg.on('pageerror',lambda e:print('ERR',e))
     for cfg,out in zip(sys.argv[1::2],sys.argv[2::2]):
-      pg.goto('about:blank'); pg.goto('http://localhost:8765/reseau3d.html#'+cfg); pg.wait_for_function("document.title==='PRET'",timeout=90000)
-      pg.screenshot(path=out,type='png'); print('ok',out)
+      pg.goto('about:blank'); pg.goto('http://localhost:8765/reseau3d.html#'+cfg+'&capture'); pg.wait_for_function("document.title==='PRET'",timeout=90000)
+      pg.wait_for_timeout(900); pg.screenshot(path=out,type='png'); print('ok',out)
     b.close()
 finally: srv.kill()

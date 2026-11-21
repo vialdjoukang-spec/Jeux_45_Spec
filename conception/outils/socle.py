@@ -23,15 +23,15 @@ ARCHITECTURE = [
 ]
 
 TOILE = {
-    "moteur": "three.js pour le mannequin 3D réel ; canvas 2D pour les liens de style Obsidian (courbes de Bézier aux tangentes horizontales, sortie par un côté du nœud, flèche à l'arrivée, format JSON Canvas fromSide/toSide) ; HTML pour les nœuds ; pan + zoom à la molette ; mini-carte en bas à gauche ; skill « obsidian-network »",
+    "moteur": "three.js pour le mannequin 3D réel ; canvas 2D pour les traits ; HTML pour les nœuds en ellipse ; skill « obsidian-like-complex-network »",
     "regles": [
-        "Le nœud racine (système, prélèvement, région) reste toujours visible.",
-        "Un clic sur un nœud déplie ses enfants ; un second clic les replie.",
-        "Un survol surligne le chemin complet depuis la racine jusqu'au nœud.",
-        "Un bouton « Tout replier » ramène la toile à son état initial.",
-        "La couleur d'un lien code son type de relation ; la légende reste ouverte en bas à droite.",
-        "Les nœuds rattachés à un organe se trient selon la hauteur de l'organe à l'écran, pour que les liens ne se croisent pas.",
-        "Deux nœuds d'une même colonne se relient par une boucle latérale, jamais par un trait qui traverse le corps.",
+        "Aucun trait ne traverse le corps, sauf le départ d'un organe : ce départ est un segment horizontal qui sort du corps par le côté le plus proche.",
+        "Tous les traits sont droits ; plusieurs traits convergent vers le centre de l'entité qu'ils désignent et finissent par une flèche sur le bord de l'ellipse.",
+        "Chaque nœud est une ellipse ; sa bordure porte la couleur de son type ; un « + » signale qu'il cache une suite.",
+        "Au départ, seuls les nœuds posés sur le corps sont visibles ; un clic sur une ellipse révèle ses enfants, un second clic les replie.",
+        "Le bouton ↺ a deux issues : un clic replie le dernier circuit ouvert (repli sélectif), un double-clic replie tout (réinitialisation globale).",
+        "Le bouton de thème fait défiler quatre fonds : blanc, bleu ciel, champagne, or.",
+        "Les colonnes de raisonnement se placent hors de la silhouette du corps ; un enfant se place à la hauteur moyenne de ses parents, ce qui fait converger les traits.",
     ],
 }
 
