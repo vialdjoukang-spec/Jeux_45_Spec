@@ -148,6 +148,21 @@ ecrits.append(ecrire("tetrade/cardiovasculaire/anatomie3d.exemple_coeur.json", {
     "vues3D": ["antérieure", "latérale gauche", "postérieure", "supérieure"], "trajetRenforce": ["aorte"], "modele": "BodyParts3D (FMA7088, FMA3734)",
     "radioAnatomie": ["Rx thorax PA : bord droit = oreillette droite ; bord gauche = ventricule gauche ; bouton aortique = crosse", "CT injecté axial : crosse, puis quatre cavités", "IRM cardiaque : petit axe et quatre cavités"]}))
 
+# ---------- systèmes → organes (liste complète) ; organe déplié par espace ----------
+from systemes import SYSTEMES as SYS_O, VOLETS_ANATOMIE, VOLETS_PHYSIOLOGIE, ANATOMIE_COEUR, PHYSIOLOGIE_POUMON
+for sysn, orgs in SYS_O.items():
+    ecrits.append(ecrire(f"tetrade/{slug(sysn)}/organes.json", {"_meta": {"systeme": sysn, "ordre": "haut → bas", "statut": "LISTE COMPLÈTE"},
+        "organes": [{"organe": o, "ancre3D": a, "topo": t, "fichier": f"organes/{slug(o)}.json"} for o, a, t in orgs]}))
+    for o, a, t in orgs:
+        rempli = {"Cœur": ("anatomie", ANATOMIE_COEUR), "Poumons (lobes, segments, acinus)": ("physiologie", PHYSIOLOGIE_POUMON)}.get(o)
+        an = {v: [] for v in VOLETS_ANATOMIE}; ph = {v: [] for v in VOLETS_PHYSIOLOGIE}
+        if rempli and rempli[0] == "anatomie": an = {v: [{"motCle": x[0], "texte": x[1], "fenetre": "3d"} for x in l] for v, l in rempli[1].items()}
+        if rempli and rempli[0] == "physiologie": ph = {v: [{"motCle": x[0], "texte": x[1], "fenetre": x[2]} for x in l] for v, l in rempli[1].items()}
+        ecrits.append(ecrire(f"tetrade/{slug(sysn)}/organes/{slug(o)}.json", {"_meta": {"systeme": sysn, "organe": o, "statut": "EXEMPLE RÉEL" if rempli else "À REMPLIR",
+            "regles": ["La case garde un nom court ; le texte va en infobulle ; la courbe ou l'image 3D va en fenêtre.", "Chaque mot-clé d'anatomie ouvre une image 3D réelle (jamais de SVG).",
+                       "Chaque mot-clé de physiologie ouvre une courbe calculée, un tracé ou un détail ; unités SI (kPa).", "Phrases verbales ; tout sigle figure au glossaire."]},
+            "organe": o, "ancre3D": a, "topo": t, "anatomie": an, "physiologie": ph, "bulle": None, "glossaire": {}}))
+
 # ---------- schémas de validation (un par famille de fichier) ----------
 SCH = {
     "bulle": {"type": "object", "required": ["def", "pourquoi", "confusion", "retenir"], "properties_note": "un diagnostic ajoute bilan (6 visées) et traitement[] avec source", "properties": {k: {"type": "string", "minLength": 20} for k in ["def", "pourquoi", "confusion", "retenir"]}},

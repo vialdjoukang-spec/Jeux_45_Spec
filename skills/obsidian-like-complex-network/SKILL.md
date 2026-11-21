@@ -1,6 +1,6 @@
 ---
 name: obsidian-like-complex-network
-description: Draw dense, readable Obsidian-style networks (canvas graphs, concept maps, diagnostic circuits, mind maps) with smooth Bézier links leaving node sides, arrowheads, typed colours, and optional anchoring on a real 3D model or a real image. Use whenever the user asks for an "Obsidian-like" graph, a canvas/JSON Canvas, a network of linked notions, a decision tree with curved connections, organ → sign → syndrome → diagnosis circuits, or any connection-heavy visual — even if they don't say "Obsidian". Never draws images in SVG.
+description: Draw dense, readable Obsidian-style networks (canvas graphs, concept maps, diagnostic circuits, mind maps) with straight horizontal links and bracket/bus connectors (fan-in convergence, perfect symmetry), arrowheads, typed colours, and optional anchoring on a real 3D model or a real image. Use whenever the user asks for an "Obsidian-like" graph, a canvas/JSON Canvas, a network of linked notions, a decision tree, organ → sign → syndrome → diagnosis circuits, or any connection-heavy visual — even if they don't say "Obsidian". Never draws images in SVG.
 ---
 
 # Obsidian-like amazing complex Network
@@ -47,6 +47,10 @@ Store every network as JSON Canvas, so it opens in Obsidian and in our engine:
 `scripts/reseau3d.html` + `scripts/shot.py` (also at github.com/vialdjoukang-spec/Jeux_45_Spec/tree/main/skills/obsidian-like-complex-network).
 - Camera: `cible/dist/fov`, `masquer[]`, `voile` (pelvic occlusion box).
 - Config v2: `noeuds[] {id, type, texte, couleur, organe?, cote?, de:[parentIds], col?, y0?}`, `fenetres[] {de, x, y, w, img, annotations[]}`, `theme`. URL hash: `config.json&tout` (all open), `&sauf=id`, `&theme=or`, `&capture` (no transitions).
+- Systems → organs: a root `nature:"Système"` lists ALL its organs (never one); boxes hold short names only (≤ 45 chars), detail in tooltip or window.
+- Spaces: `espace` on a node (`anatomie|physiologie|semiologie|physiopathologie`) shows it only under that tab; `rubriques` per space set tooltip fields; `aProduire:true` marks backlog.
+- Windows: `fenetre` on a node opens `scripts/fenetres.js` → `3d` (real 3D view), `odc`, `hh`, `alveolaire`, `gazometrie`, `spiro` (computed curves, SI kPa, sliders). Never hand-drawn curves.
+- More URL params: `&ouvrir=id1,id2`, `&espace=physiologie`, `&fenetre=nodeId`, `&bulle=nodeId`, `&lentille=PED`. Wheel pans long organ lists.
 - Run: `python3 scripts/shot.py config.json out.png` (serves the folder, opens Chromium with SwiftShader WebGL, waits for `document.title==="PRET"`, screenshots 1600 × 1000).
 - Needs `three` (npm) next to the page and a `corps.glb` (see skill 3d-images-upload-super) when nodes anchor on organs.
 

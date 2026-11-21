@@ -1,6 +1,6 @@
 {
  "titre": "Tétrade topo-systémique — simulation du prototype",
- "sousTitre": "Mannequin 3D réel · survol = explication · 🔊 = son réel · clic = circuit suivant",
+ "sousTitre": "Systèmes sur le corps 3D · clic : organes de haut en bas · espaces : anatomie, physiologie, sémiologie, physiopathologie",
  "theme": "champagne",
  "voile": [
   -58,
@@ -12,96 +12,3419 @@
  ],
  "opacitePeau": 0.22,
  "cible": [
-  640,
+  0,
   -90,
-  1060
+  1000
  ],
- "dist": 4300,
+ "dist": 5400,
  "fov": 22,
  "largeurColonne": 170,
  "ecartColonne": 38,
+ "lentilles": [
+  {
+   "id": "PED",
+   "nom": "Pédiatrie",
+   "couleur": "#e05aa0"
+  },
+  {
+   "id": "GER",
+   "nom": "Gériatrie",
+   "couleur": "#7a5cc4"
+  },
+  {
+   "id": "GYN",
+   "nom": "Femme et grossesse",
+   "couleur": "#c2417a"
+  },
+  {
+   "id": "CHI",
+   "nom": "Chirurgie",
+   "couleur": "#5b6574"
+  },
+  {
+   "id": "PSY",
+   "nom": "Psychiatrie",
+   "couleur": "#3d8f5a"
+  },
+  {
+   "id": "URG",
+   "nom": "Urgences",
+   "couleur": "#e0452b"
+  }
+ ],
+ "glossaire": {
+  "atypique": "Une pneumonie atypique est due à Mycoplasma pneumoniae, Chlamydophila pneumoniae ou Legionella : début progressif, toux sèche, signes extrarespiratoires (céphalées, myalgies, diarrhée), clinique modeste contrastant avec une radiographie marquée. Ces germes sans paroi ou intracellulaires échappent aux bêtalactamines, d'où le macrolide.",
+  "ARNI": "Inhibiteur du récepteur de l'angiotensine et de la néprilysine (sacubitril/valsartan) : il bloque l'angiotensine et prolonge l'effet des peptides natriurétiques.",
+  "ARM": "Antagoniste des récepteurs minéralocorticoïdes (spironolactone, éplérénone) : il bloque l'aldostérone.",
+  "iSGLT2": "Inhibiteur du cotransporteur sodium-glucose de type 2 (dapagliflozine, empagliflozine) : il fait éliminer glucose et sodium dans l'urine.",
+  "IEC": "Inhibiteur de l'enzyme de conversion de l'angiotensine (lisinopril, ramipril).",
+  "NYHA": "Classification de la New York Heart Association : I sans gêne, II gêne aux efforts habituels, III gêne aux petits efforts, IV gêne au repos.",
+  "FEVG": "Fraction d'éjection du ventricule gauche : part du volume ventriculaire éjectée à chaque systole (normale ≥ 50 %).",
+  "ICFEp": "Insuffisance cardiaque à fraction d'éjection préservée (FEVG ≥ 50 %).",
+  "ICFE améliorée": "Insuffisance cardiaque dont la FEVG, d'abord ≤ 40 %, remonte au-dessus de 40 % sous traitement.",
+  "CRB-65": "Score de gravité de la pneumonie : Confusion, FR ≥ 30/min, PAS < 90 ou PAD ≤ 60 mmHg, âge ≥ 65 ans ; 1 point chacun.",
+  "CURB-65": "CRB-65 auquel s'ajoute l'urée > 7 mmol/l (U) ; utilisé à l'hôpital.",
+  "NT-proBNP": "Fragment N-terminal du pro-peptide natriurétique de type B, libéré par le myocarde ventriculaire étiré.",
+  "PIGS": "Paediatric Infectious Diseases Group of Switzerland : il publie les recommandations suisses d'infectiologie pédiatrique.",
+  "AIPS": "Information sur les médicaments de Swissmedic : la source officielle des posologies autorisées en Suisse.",
+  "SpO₂": "Saturation pulsée en oxygène mesurée au doigt par l'oxymètre.",
+  "OMS": "Organisation mondiale de la santé.",
+  "ESC": "Société européenne de cardiologie.",
+  "B3": "Troisième bruit du cœur, protodiastolique, juste après B2.",
+  "B4": "Quatrième bruit du cœur, télédiastolique, juste avant B1, lié à la contraction auriculaire contre un ventricule rigide.",
+  "CRP": "Protéine C réactive : marqueur sanguin de l'inflammation.",
+  "FSC": "Formule sanguine complète.",
+  "DFG": "Débit de filtration glomérulaire, estimé par la formule CKD-EPI.",
+  "PCR": "Amplification génique qui détecte l'ADN ou l'ARN d'un germe.",
+  "FR": "Fréquence respiratoire.",
+  "FC": "Fréquence cardiaque.",
+  "PAS": "Pression artérielle systolique.",
+  "PAD": "Pression artérielle diastolique.",
+  "ECG": "Électrocardiogramme.",
+  "IRM": "Imagerie par résonance magnétique.",
+  "CT": "Tomodensitométrie (scanner).",
+  "TSH": "Hormone thyréostimulante.",
+  "ICFEr": "Insuffisance cardiaque à fraction d'éjection réduite (FEVG ≤ 40 %).",
+  "IV": "Voie intraveineuse.",
+  "QRS": "Complexe de dépolarisation ventriculaire sur l'ECG.",
+  "PaO₂": "Pression artérielle en oxygène : norme 10,7–13,3 kPa chez l'adulte jeune ; elle baisse avec l'âge et l'altitude.",
+  "T": "Température corporelle.",
+  "COVID-19": "Maladie due au SARS-CoV-2.",
+  "SARS-CoV-2": "Coronavirus responsable de la COVID-19.",
+  "IC": "Insuffisance cardiaque.",
+  "OAP": "Œdème aigu du poumon.",
+  "ICFE": "Insuffisance cardiaque selon la fraction d'éjection.",
+  "Killip": "Classification de gravité de l'insuffisance cardiaque à l'infarctus : I sans crépitants, II crépitants aux bases, III œdème pulmonaire, IV choc cardiogénique.",
+  "Light": "Critères de Light : un épanchement est un exsudat si protéines pleurales/sériques > 0,5, LDH pleurales/sériques > 0,6, ou LDH pleurales > 2/3 de la limite supérieure sérique.",
+  "SSI": "Société suisse d'infectiologie.",
+  "Swissmedic": "Autorité suisse d'autorisation et de surveillance des médicaments.",
+  "BPCO": "Bronchopneumopathie chronique obstructive : obstruction bronchique peu réversible, surtout liée au tabac.",
+  "ICFEm": "Insuffisance cardiaque à fraction d'éjection modérément réduite (FEVG 41–49 %).",
+  "AV": "Atrioventriculaire : qui relie oreillette et ventricule (nœud AV, valves AV).",
+  "CO₂": "Dioxyde de carbone : il est produit par les cellules et éliminé par la ventilation ; il règle le pH via l'acide carbonique.",
+  "CPT": "Capacité pulmonaire totale : volume d'air contenu dans les poumons après une inspiration maximale (≈ 6 l chez l'adulte).",
+  "CRF": "Capacité résiduelle fonctionnelle : volume qui reste dans les poumons en fin d'expiration calme (≈ 2,5 l).",
+  "CV": "Capacité vitale : volume maximal expiré après une inspiration maximale.",
+  "CVF": "Capacité vitale forcée : capacité vitale mesurée lors d'une expiration forcée ; elle baisse dans le syndrome restrictif.",
+  "DLCO": "Capacité de diffusion du monoxyde de carbone : elle mesure le passage alvéolo-capillaire ; elle baisse dans la fibrose et l'emphysème.",
+  "EIC": "Espace intercostal : intervalle entre deux côtes, repère de l'auscultation et de la ponction.",
+  "FiO₂": "Fraction inspirée en oxygène : 0,21 à l'air ambiant ; elle monte sous oxygénothérapie.",
+  "IVA": "Artère interventriculaire antérieure : branche de la coronaire gauche qui irrigue la paroi antérieure et le septum.",
+  "LCR": "Liquide cérébrospinal : il baigne l'encéphale et la moelle ; on le prélève par ponction lombaire.",
+  "MALT": "Tissu lymphoïde associé aux muqueuses : défense immunitaire locale des voies aériennes et digestives.",
+  "ORL": "Oto-rhino-laryngologie : spécialité de l'oreille, du nez et de la gorge.",
+  "PAO₂": "Pression alvéolaire en oxygène : PAO₂ = FiO₂ × (Patm − PH₂O) − PaCO₂ / 0,8 ; elle vaut ≈ 13,3 kPa au niveau de la mer.",
+  "PH₂O": "Pression de vapeur d'eau à 37 °C : 6,3 kPa (47 mmHg), à soustraire de la pression atmosphérique.",
+  "PaCO₂": "Pression artérielle en CO₂ : norme 4,7–6,0 kPa ; elle reflète directement la ventilation alvéolaire.",
+  "QR": "Quotient respiratoire : rapport CO₂ produit / O₂ consommé, ≈ 0,8 avec une alimentation mixte.",
+  "SI": "Système international d'unités : en Suisse, les gaz du sang s'expriment en kPa (1 kPa = 7,5 mmHg).",
+  "VEMS": "Volume expiré maximal en une seconde : il baisse dans l'obstruction ; le rapport VEMS/CVF < 0,7 signe un trouble obstructif.",
+  "VR": "Volume résiduel : air qui reste dans les poumons après une expiration maximale ; il augmente dans la distension."
+ },
+ "espace": "anatomie",
+ "rubriques": {
+  "anatomie": [
+   [
+    "def",
+    "Ce que c'est"
+   ],
+   [
+    "repere",
+    "Repère clinique"
+   ]
+  ],
+  "physiologie": [
+   [
+    "def",
+    "Ce que c'est"
+   ],
+   [
+    "retenir",
+    "À retenir"
+   ]
+  ],
+  "physiopathologie": [
+   [
+    "def",
+    "Ce qui se passe"
+   ],
+   [
+    "consequence",
+    "Conséquence clinique"
+   ]
+  ],
+  "systeme": [
+   [
+    "def",
+    "Ce que c'est"
+   ],
+   [
+    "retenir",
+    "Comment l'explorer"
+   ]
+  ],
+  "organe": [
+   [
+    "def",
+    "Ce que c'est"
+   ],
+   [
+    "pourquoi",
+    "Pourquoi ici"
+   ],
+   [
+    "confusion",
+    "Confusion possible"
+   ],
+   [
+    "retenir",
+    "À retenir"
+   ]
+  ]
+ },
  "noeuds": [
   {
-   "id": "cer",
-   "type": "Neuro",
-   "texte": "Encéphale",
-   "organe": "cerveau",
-   "couleur": "#8e5cc4",
-   "cote": "g",
+   "id": "sys_cardiovasculaire",
+   "type": "",
+   "nature": "Système",
+   "texte": "Cardiovasculaire",
+   "organe": "coeur",
+   "cote": "d",
+   "couleur": "#c0392b",
+   "rubriques": "systeme",
    "bulle": {
-    "def": "L'encéphale réunit les hémisphères, le tronc cérébral et le cervelet dans la boîte crânienne.",
-    "pourquoi": "Un circuit neurologique part d'ici vers les signes de chaque temps d'examen.",
-    "confusion": "Une atteinte médullaire ou périphérique peut imiter un déficit central.",
-    "retenir": "Tu localises d'abord la lésion, puis tu cherches sa cause."
-   }
-  },
-  {
-   "id": "pou",
-   "type": "Respiratoire",
-   "texte": "Poumons",
-   "organe": "poumon_d",
-   "couleur": "#3d7fd6",
-   "bulle": {
-    "def": "Les poumons échangent l'oxygène et le gaz carbonique à travers la membrane alvéolocapillaire.",
-    "pourquoi": "Quand les alvéoles se remplissent, l'échange chute et produit les signes du circuit.",
-    "confusion": "Une atteinte pleurale ou cardiaque peut donner des signes pulmonaires semblables.",
-    "retenir": "Tu compares toujours les deux côtés, niveau par niveau."
-   }
-  },
-  {
-   "id": "foi",
-   "type": "Digestif",
-   "texte": "Foie",
-   "organe": "foie",
-   "couleur": "#c98a2b",
-   "cote": "g",
-   "bulle": {
-    "def": "Le foie occupe l'hypocondre droit et assure synthèse, détoxification et production de bile.",
-    "pourquoi": "Un circuit hépatique part d'ici vers l'ictère, l'hépatomégalie et l'insuffisance hépatique.",
-    "confusion": "Une hépatomégalie de stase cardiaque peut imiter une atteinte primitive du foie.",
-    "retenir": "Tu explores la cholestase, la cytolyse et la fonction de synthèse séparément."
-   }
-  },
-  {
-   "id": "rei",
-   "type": "Urinaire",
-   "texte": "Reins",
-   "organe": "reins",
-   "couleur": "#b8960f",
-   "cote": "g",
-   "bulle": {
-    "def": "Les reins filtrent le plasma et règlent l'eau, les électrolytes et l'équilibre acide-base.",
-    "pourquoi": "Un circuit rénal part d'ici vers les syndromes néphritique, néphrotique et l'insuffisance rénale.",
-    "confusion": "Une créatinine élevée peut venir d'une déshydratation sans atteinte rénale propre.",
-    "retenir": "Tu classes toute insuffisance rénale en prérénale, rénale ou postrénale."
-   }
-  },
-  {
-   "id": "bas",
-   "type": "Locomoteur",
-   "texte": "Bassin · hanche",
-   "organe": "bassin",
-   "couleur": "#6b7280",
-   "cote": "g",
-   "bulle": {
-    "def": "Le bassin et la hanche portent le poids du tronc et le transmettent aux membres inférieurs.",
-    "pourquoi": "Un circuit locomoteur part d'ici vers la douleur, la boiterie et la limitation articulaire.",
-    "confusion": "Une douleur projetée lombaire ou viscérale peut imiter une coxopathie.",
-    "retenir": "Tu examines toujours la hanche devant une douleur du genou chez l'enfant."
+    "def": "Le système cardiovasculaire compte 13 organes ou structures, déroulés de haut en bas.",
+    "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."
    }
   },
   {
    "id": "coe",
-   "type": "Cardiovasculaire",
+   "type": "",
+   "nature": "Organe",
    "texte": "Cœur",
-   "organe": "coeur",
    "couleur": "#c0392b",
-   "cote": "d",
+   "de": [
+    "sys_cardiovasculaire"
+   ],
+   "rubriques": "organe",
    "bulle": {
     "def": "Le cœur gauche reçoit le sang oxygéné des veines pulmonaires et l'éjecte dans l'aorte.",
     "pourquoi": "Quand le ventricule gauche faiblit, la pression remonte vers les poumons et produit les signes du circuit.",
     "confusion": "Les signes de congestion droite (jugulaires, foie, œdèmes) relèvent du cœur droit.",
     "retenir": "Tu examines dans l'ordre : inspection, palpation, percussion, auscultation, puis interrogatoire."
+   },
+   "topo": [
+    "Cœur et péricarde"
+   ]
+  },
+  {
+   "id": "org_cardio_pericarde",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Péricarde",
+   "couleur": "#c0392b",
+   "de": [
+    "sys_cardiovasculaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Péricarde : organe du système cardiovasculaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Cœur et péricarde"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_cardio_aorte_thoracique_et_crosse",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Aorte thoracique et crosse",
+   "couleur": "#c0392b",
+   "de": [
+    "sys_cardiovasculaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Aorte thoracique et crosse : organe du système cardiovasculaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Aorte thoracique et artères pulmonaires"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_cardio_troncs_supra_aortiques_carotid",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Troncs supra-aortiques",
+   "couleur": "#c0392b",
+   "de": [
+    "sys_cardiovasculaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Troncs supra-aortiques (carotides, vertébrales, sous-clavières) : organe du système cardiovasculaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Vaisseaux du cou et de la tête"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_cardio_tronc_et_arteres_pulmonaires",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Tronc et artères pulmonaires",
+   "couleur": "#c0392b",
+   "de": [
+    "sys_cardiovasculaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Tronc et artères pulmonaires : organe du système cardiovasculaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Aorte thoracique et artères pulmonaires"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_cardio_veines_pulmonaires",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Veines pulmonaires",
+   "couleur": "#c0392b",
+   "de": [
+    "sys_cardiovasculaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Veines pulmonaires : organe du système cardiovasculaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Aorte thoracique et artères pulmonaires"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_cardio_veines_caves",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Veines caves",
+   "couleur": "#c0392b",
+   "de": [
+    "sys_cardiovasculaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Veines caves : organe du système cardiovasculaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Veines caves et système porte"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_cardio_aorte_abdominale_et_arteres_vi",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Aorte abdominale et artères viscérales",
+   "couleur": "#c0392b",
+   "de": [
+    "sys_cardiovasculaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Aorte abdominale et artères viscérales : organe du système cardiovasculaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Aorte abdominale et vaisseaux digestifs"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_cardio_systeme_porte",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Système porte",
+   "couleur": "#c0392b",
+   "de": [
+    "sys_cardiovasculaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Système porte : organe du système cardiovasculaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Veines caves et système porte"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_cardio_arteres_des_membres",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Artères des membres",
+   "couleur": "#c0392b",
+   "de": [
+    "sys_cardiovasculaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Artères des membres : organe du système cardiovasculaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Artères des membres"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_cardio_veines_des_membres",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Veines des membres",
+   "couleur": "#c0392b",
+   "de": [
+    "sys_cardiovasculaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Veines des membres : organe du système cardiovasculaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Veines des membres"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_cardio_microcirculation_arterioles_ca",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Microcirculation",
+   "couleur": "#c0392b",
+   "de": [
+    "sys_cardiovasculaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Microcirculation (artérioles, capillaires, veinules, endothélium) : organe du système cardiovasculaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Artères des membres"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_cardio_systeme_lymphatique",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Système lymphatique",
+   "couleur": "#c0392b",
+   "de": [
+    "sys_cardiovasculaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Système lymphatique : organe du système cardiovasculaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Système lymphatique"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "sys_respiratoire",
+   "type": "",
+   "nature": "Système",
+   "texte": "Respiratoire",
+   "organe": "poumon_d",
+   "cote": "g",
+   "couleur": "#2f6fd0",
+   "rubriques": "systeme",
+   "bulle": {
+    "def": "Le système respiratoire compte 11 organes ou structures, déroulés de haut en bas.",
+    "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."
+   }
+  },
+  {
+   "id": "org_respir_fosses_nasales_et_sinus",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Fosses nasales et sinus",
+   "couleur": "#2f6fd0",
+   "de": [
+    "sys_respiratoire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Fosses nasales et sinus : organe du système respiratoire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Nez, sinus et cavum"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_respir_pharynx",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Pharynx",
+   "couleur": "#2f6fd0",
+   "de": [
+    "sys_respiratoire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Pharynx : organe du système respiratoire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Larynx et pharynx"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_respir_larynx",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Larynx",
+   "couleur": "#2f6fd0",
+   "de": [
+    "sys_respiratoire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Larynx : organe du système respiratoire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Larynx et pharynx"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_respir_trachee",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Trachée",
+   "couleur": "#2f6fd0",
+   "de": [
+    "sys_respiratoire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Trachée : organe du système respiratoire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Poumons et voies aériennes"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_respir_bronches_et_bronchioles",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Bronches et bronchioles",
+   "couleur": "#2f6fd0",
+   "de": [
+    "sys_respiratoire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Bronches et bronchioles : organe du système respiratoire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Poumons et voies aériennes"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "pou",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Poumons",
+   "couleur": "#2f6fd0",
+   "de": [
+    "sys_respiratoire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Les poumons échangent l'oxygène et le gaz carbonique à travers la membrane alvéolocapillaire.",
+    "pourquoi": "Quand les alvéoles se remplissent, l'échange chute et produit les signes du circuit.",
+    "confusion": "Une atteinte pleurale ou cardiaque peut donner des signes pulmonaires semblables.",
+    "retenir": "Tu compares toujours les deux côtés, niveau par niveau."
+   },
+   "topo": [
+    "Poumons et voies aériennes"
+   ]
+  },
+  {
+   "id": "org_respir_circulation_pulmonaire",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Circulation pulmonaire",
+   "couleur": "#2f6fd0",
+   "de": [
+    "sys_respiratoire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Circulation pulmonaire : organe du système respiratoire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Aorte thoracique et artères pulmonaires"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_respir_plevre",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Plèvre",
+   "couleur": "#2f6fd0",
+   "de": [
+    "sys_respiratoire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Plèvre : organe du système respiratoire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Plèvre"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_respir_diaphragme_et_muscles_respirat",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Diaphragme et muscles respiratoires",
+   "couleur": "#2f6fd0",
+   "de": [
+    "sys_respiratoire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Diaphragme et muscles respiratoires : organe du système respiratoire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Poumons et voies aériennes"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_respir_paroi_thoracique",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Paroi thoracique",
+   "couleur": "#2f6fd0",
+   "de": [
+    "sys_respiratoire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Paroi thoracique : organe du système respiratoire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Paroi thoracique et côtes"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_respir_centres_respiratoires_et_chemo",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Centres respiratoires et chémorécepteurs",
+   "couleur": "#2f6fd0",
+   "de": [
+    "sys_respiratoire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Centres respiratoires et chémorécepteurs : organe du système respiratoire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Encéphale"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "sys_neurologique",
+   "type": "",
+   "nature": "Système",
+   "texte": "Neurologique",
+   "organe": "cerveau",
+   "cote": "g",
+   "couleur": "#8e5cc4",
+   "rubriques": "systeme",
+   "bulle": {
+    "def": "Le système neurologique compte 13 organes ou structures, déroulés de haut en bas.",
+    "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."
+   }
+  },
+  {
+   "id": "org_neurol_meninges_et_lcr",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Méninges et LCR",
+   "couleur": "#8e5cc4",
+   "de": [
+    "sys_neurologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Méninges et LCR : organe du système neurologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Méninges et LCR"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_neurol_hemispheres_cerebraux_lobes_co",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Hémisphères cérébraux",
+   "couleur": "#8e5cc4",
+   "de": [
+    "sys_neurologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Hémisphères cérébraux (lobes, cortex) : organe du système neurologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Encéphale"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_neurol_noyaux_gris_centraux_et_thalam",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Noyaux gris centraux et thalamus",
+   "couleur": "#8e5cc4",
+   "de": [
+    "sys_neurologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Noyaux gris centraux et thalamus : organe du système neurologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Encéphale"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_neurol_systeme_limbique_et_hypothalam",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Système limbique et hypothalamus",
+   "couleur": "#8e5cc4",
+   "de": [
+    "sys_neurologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Système limbique et hypothalamus : organe du système neurologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Encéphale",
+    "Hypophyse et hypothalamus"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_neurol_tronc_cerebral",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Tronc cérébral",
+   "couleur": "#8e5cc4",
+   "de": [
+    "sys_neurologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Tronc cérébral : organe du système neurologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Encéphale"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_neurol_cervelet",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Cervelet",
+   "couleur": "#8e5cc4",
+   "de": [
+    "sys_neurologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Cervelet : organe du système neurologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Encéphale"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_neurol_nerfs_craniens_i_a_xii",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Nerfs crâniens",
+   "couleur": "#8e5cc4",
+   "de": [
+    "sys_neurologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Nerfs crâniens (I à XII) : organe du système neurologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Encéphale"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_neurol_vascularisation_cerebrale_poly",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Vascularisation cérébrale",
+   "couleur": "#8e5cc4",
+   "de": [
+    "sys_neurologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Vascularisation cérébrale (polygone de Willis, sinus veineux) : organe du système neurologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Vaisseaux du cou et de la tête",
+    "Encéphale"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_neurol_moelle_epiniere",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Moelle épinière",
+   "couleur": "#8e5cc4",
+   "de": [
+    "sys_neurologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Moelle épinière : organe du système neurologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Moelle épinière"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_neurol_racines_et_plexus",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Racines et plexus",
+   "couleur": "#8e5cc4",
+   "de": [
+    "sys_neurologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Racines et plexus : organe du système neurologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Racines et plexus"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_neurol_nerfs_peripheriques",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Nerfs périphériques",
+   "couleur": "#8e5cc4",
+   "de": [
+    "sys_neurologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Nerfs périphériques : organe du système neurologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Nerfs périphériques"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_neurol_jonction_neuromusculaire",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Jonction neuromusculaire",
+   "couleur": "#8e5cc4",
+   "de": [
+    "sys_neurologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Jonction neuromusculaire : organe du système neurologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Muscles"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_neurol_systeme_nerveux_autonome",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Système nerveux autonome",
+   "couleur": "#8e5cc4",
+   "de": [
+    "sys_neurologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Système nerveux autonome : organe du système neurologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Nerfs périphériques"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "sys_psyche_psychiatrie",
+   "type": "",
+   "nature": "Système",
+   "texte": "Psyché",
+   "organe": "cerveau",
+   "cote": "d",
+   "couleur": "#3d8f5a",
+   "rubriques": "systeme",
+   "bulle": {
+    "def": "Le système psyché compte 7 organes ou structures, déroulés de haut en bas.",
+    "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."
+   }
+  },
+  {
+   "id": "org_psyche_fonctions_cognitives_attention",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Fonctions cognitives",
+   "couleur": "#3d8f5a",
+   "de": [
+    "sys_psyche_psychiatrie"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Fonctions cognitives (attention, mémoire, fonctions exécutives) : organe du système psyché.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Psyché"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_psyche_perception_et_pensee",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Perception et pensée",
+   "couleur": "#3d8f5a",
+   "de": [
+    "sys_psyche_psychiatrie"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Perception et pensée : organe du système psyché.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Psyché"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_psyche_affects_et_humeur",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Affects et humeur",
+   "couleur": "#3d8f5a",
+   "de": [
+    "sys_psyche_psychiatrie"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Affects et humeur : organe du système psyché.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Psyché"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_psyche_pulsions_motivation_et_comport",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Pulsions, motivation et comportement",
+   "couleur": "#3d8f5a",
+   "de": [
+    "sys_psyche_psychiatrie"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Pulsions, motivation et comportement : organe du système psyché.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Psyché"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_psyche_conscience_de_soi_et_personnal",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Conscience de soi et personnalité",
+   "couleur": "#3d8f5a",
+   "de": [
+    "sys_psyche_psychiatrie"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Conscience de soi et personnalité : organe du système psyché.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Psyché"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_psyche_sommeil_et_vigilance",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Sommeil et vigilance",
+   "couleur": "#3d8f5a",
+   "de": [
+    "sys_psyche_psychiatrie"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Sommeil et vigilance : organe du système psyché.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Sommeil et vigilance"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_psyche_circuits_de_la_recompense_et_a",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Circuits de la récompense et addictions",
+   "couleur": "#3d8f5a",
+   "de": [
+    "sys_psyche_psychiatrie"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Circuits de la récompense et addictions : organe du système psyché.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Toxicologie et médicaments"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "sys_endocrinien_metabolique",
+   "type": "",
+   "nature": "Système",
+   "texte": "Endocrinien et métabolique",
+   "organe": "trachee",
+   "cote": "g",
+   "couleur": "#d9731a",
+   "rubriques": "systeme",
+   "bulle": {
+    "def": "Le système endocrinien & métabolique compte 10 organes ou structures, déroulés de haut en bas.",
+    "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."
+   }
+  },
+  {
+   "id": "org_endocr_hypothalamus_et_hypophyse",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Hypothalamus et hypophyse",
+   "couleur": "#d9731a",
+   "de": [
+    "sys_endocrinien_metabolique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Hypothalamus et hypophyse : organe du système endocrinien & métabolique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Hypophyse et hypothalamus"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_endocr_epiphyse",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Épiphyse",
+   "couleur": "#d9731a",
+   "de": [
+    "sys_endocrinien_metabolique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Épiphyse : organe du système endocrinien & métabolique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Encéphale"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_endocr_thyroide",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Thyroïde",
+   "couleur": "#d9731a",
+   "de": [
+    "sys_endocrinien_metabolique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Thyroïde : organe du système endocrinien & métabolique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Thyroïde"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_endocr_parathyroides",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Parathyroïdes",
+   "couleur": "#d9731a",
+   "de": [
+    "sys_endocrinien_metabolique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Parathyroïdes : organe du système endocrinien & métabolique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Parathyroïdes"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_endocr_thymus",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Thymus",
+   "couleur": "#d9731a",
+   "de": [
+    "sys_endocrinien_metabolique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Thymus : organe du système endocrinien & métabolique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Médiastin"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_endocr_pancreas_endocrine",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Pancréas endocrine",
+   "couleur": "#d9731a",
+   "de": [
+    "sys_endocrinien_metabolique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Pancréas endocrine : organe du système endocrinien & métabolique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Pancréas"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_endocr_surrenales",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Surrénales",
+   "couleur": "#d9731a",
+   "de": [
+    "sys_endocrinien_metabolique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Surrénales : organe du système endocrinien & métabolique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Surrénales"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_endocr_gonades_ovaires_testicules",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Gonades",
+   "couleur": "#d9731a",
+   "de": [
+    "sys_endocrinien_metabolique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Gonades (ovaires, testicules) : organe du système endocrinien & métabolique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Utérus, col, ovaires et annexes",
+    "Testicules et scrotum"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_endocr_tissu_adipeux_et_metabolisme_e",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Tissu adipeux et métabolisme énergétique",
+   "couleur": "#d9731a",
+   "de": [
+    "sys_endocrinien_metabolique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Tissu adipeux et métabolisme énergétique : organe du système endocrinien & métabolique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Métabolisme et endocrinologie"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_endocr_metabolisme_phosphocalcique_et",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Métabolisme phosphocalcique et osseux",
+   "couleur": "#d9731a",
+   "de": [
+    "sys_endocrinien_metabolique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Métabolisme phosphocalcique et osseux : organe du système endocrinien & métabolique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Os longs et squelette"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "sys_digestif_hepatobiliaire",
+   "type": "",
+   "nature": "Système",
+   "texte": "Digestif et hépatobiliaire",
+   "organe": "estomac",
+   "cote": "d",
+   "couleur": "#c98a2b",
+   "rubriques": "systeme",
+   "bulle": {
+    "def": "Le système digestif & hépatobiliaire compte 13 organes ou structures, déroulés de haut en bas.",
+    "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."
+   }
+  },
+  {
+   "id": "org_digest_cavite_buccale_et_glandes_sali",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Cavité buccale et glandes salivaires",
+   "couleur": "#c98a2b",
+   "de": [
+    "sys_digestif_hepatobiliaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Cavité buccale et glandes salivaires : organe du système digestif & hépatobiliaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Cavité buccale et glandes salivaires"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_digest_pharynx",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Pharynx",
+   "couleur": "#c98a2b",
+   "de": [
+    "sys_digestif_hepatobiliaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Pharynx : organe du système digestif & hépatobiliaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Larynx et pharynx"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_digest_sophage",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Œsophage",
+   "couleur": "#c98a2b",
+   "de": [
+    "sys_digestif_hepatobiliaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Œsophage : organe du système digestif & hépatobiliaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Œsophage"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_digest_estomac",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Estomac",
+   "couleur": "#c98a2b",
+   "de": [
+    "sys_digestif_hepatobiliaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Estomac : organe du système digestif & hépatobiliaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Estomac et duodénum"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_digest_duodenum",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Duodénum",
+   "couleur": "#c98a2b",
+   "de": [
+    "sys_digestif_hepatobiliaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Duodénum : organe du système digestif & hépatobiliaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Estomac et duodénum"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_digest_foie",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Foie",
+   "couleur": "#c98a2b",
+   "de": [
+    "sys_digestif_hepatobiliaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Foie : organe du système digestif & hépatobiliaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Foie"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_digest_vesicule_et_voies_biliaires",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Vésicule et voies biliaires",
+   "couleur": "#c98a2b",
+   "de": [
+    "sys_digestif_hepatobiliaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Vésicule et voies biliaires : organe du système digestif & hépatobiliaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Vésicule et voies biliaires"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_digest_pancreas_exocrine",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Pancréas exocrine",
+   "couleur": "#c98a2b",
+   "de": [
+    "sys_digestif_hepatobiliaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Pancréas exocrine : organe du système digestif & hépatobiliaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Pancréas"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_digest_jejunum_et_ileon",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Jéjunum et iléon",
+   "couleur": "#c98a2b",
+   "de": [
+    "sys_digestif_hepatobiliaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Jéjunum et iléon : organe du système digestif & hépatobiliaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Intestin grêle"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_digest_colon",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Côlon",
+   "couleur": "#c98a2b",
+   "de": [
+    "sys_digestif_hepatobiliaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Côlon : organe du système digestif & hépatobiliaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Côlon, rectum et anus"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_digest_rectum_et_canal_anal",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Rectum et canal anal",
+   "couleur": "#c98a2b",
+   "de": [
+    "sys_digestif_hepatobiliaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Rectum et canal anal : organe du système digestif & hépatobiliaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Côlon, rectum et anus"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_digest_peritoine",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Péritoine",
+   "couleur": "#c98a2b",
+   "de": [
+    "sys_digestif_hepatobiliaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Péritoine : organe du système digestif & hépatobiliaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Péritoine et ascite"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_digest_vascularisation_digestive_et_s",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Vascularisation digestive et système porte",
+   "couleur": "#c98a2b",
+   "de": [
+    "sys_digestif_hepatobiliaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Vascularisation digestive et système porte : organe du système digestif & hépatobiliaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Aorte abdominale et vaisseaux digestifs",
+    "Veines caves et système porte"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "sys_renal_uro_genital",
+   "type": "",
+   "nature": "Système",
+   "texte": "Rénal et uro-génital",
+   "organe": "reins",
+   "cote": "d",
+   "couleur": "#b8960f",
+   "rubriques": "systeme",
+   "bulle": {
+    "def": "Le système rénal & uro-génital compte 6 organes ou structures, déroulés de haut en bas.",
+    "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."
+   }
+  },
+  {
+   "id": "org_renal__reins_nephron_glomerule_tubule",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Reins",
+   "couleur": "#b8960f",
+   "de": [
+    "sys_renal_uro_genital"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Reins (néphron, glomérule, tubule) : organe du système rénal & uro-génital.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Reins"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_renal__ureteres",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Uretères",
+   "couleur": "#b8960f",
+   "de": [
+    "sys_renal_uro_genital"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Uretères : organe du système rénal & uro-génital.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Uretères"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_renal__vessie",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Vessie",
+   "couleur": "#b8960f",
+   "de": [
+    "sys_renal_uro_genital"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Vessie : organe du système rénal & uro-génital.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Vessie et urètre"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_renal__uretre",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Urètre",
+   "couleur": "#b8960f",
+   "de": [
+    "sys_renal_uro_genital"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Urètre : organe du système rénal & uro-génital.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Vessie et urètre"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_renal__prostate_et_vesicules_seminale",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Prostate et vésicules séminales",
+   "couleur": "#b8960f",
+   "de": [
+    "sys_renal_uro_genital"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Prostate et vésicules séminales : organe du système rénal & uro-génital.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Prostate et vésicules séminales"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_renal__testicules_epididymes_et_voies",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Testicules, épididymes et voies spermatiques",
+   "couleur": "#b8960f",
+   "de": [
+    "sys_renal_uro_genital"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Testicules, épididymes et voies spermatiques : organe du système rénal & uro-génital.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Testicules et scrotum"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "sys_hematologique_oncologique",
+   "type": "",
+   "nature": "Système",
+   "texte": "Hématologique et oncologique",
+   "organe": "femur",
+   "cote": "g",
+   "couleur": "#a33",
+   "rubriques": "systeme",
+   "bulle": {
+    "def": "Le système hématologique & oncologique compte 7 organes ou structures, déroulés de haut en bas.",
+    "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."
+   }
+  },
+  {
+   "id": "org_hemato_moelle_osseuse_hematopoiese",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Moelle osseuse",
+   "couleur": "#a33",
+   "de": [
+    "sys_hematologique_oncologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Moelle osseuse (hématopoïèse) : organe du système hématologique & oncologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Moelle osseuse et ganglions"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_hemato_sang_globules_rouges",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Sang : globules rouges",
+   "couleur": "#a33",
+   "de": [
+    "sys_hematologique_oncologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Sang : globules rouges : organe du système hématologique & oncologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Sang et hémostase"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_hemato_sang_globules_blancs",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Sang : globules blancs",
+   "couleur": "#a33",
+   "de": [
+    "sys_hematologique_oncologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Sang : globules blancs : organe du système hématologique & oncologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Sang et hémostase"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_hemato_plaquettes_et_hemostase",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Plaquettes et hémostase",
+   "couleur": "#a33",
+   "de": [
+    "sys_hematologique_oncologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Plaquettes et hémostase : organe du système hématologique & oncologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Sang et hémostase"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_hemato_rate",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Rate",
+   "couleur": "#a33",
+   "de": [
+    "sys_hematologique_oncologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Rate : organe du système hématologique & oncologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Rate"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_hemato_ganglions_lymphatiques",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Ganglions lymphatiques",
+   "couleur": "#a33",
+   "de": [
+    "sys_hematologique_oncologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Ganglions lymphatiques : organe du système hématologique & oncologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Moelle osseuse et ganglions",
+    "Ganglions cervicaux"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_hemato_thymus",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Thymus",
+   "couleur": "#a33",
+   "de": [
+    "sys_hematologique_oncologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Thymus : organe du système hématologique & oncologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Médiastin"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "sys_infectieux_immunitaire",
+   "type": "",
+   "nature": "Système",
+   "texte": "Infectieux et immunitaire",
+   "organe": "rate",
+   "cote": "d",
+   "couleur": "#16897b",
+   "rubriques": "systeme",
+   "bulle": {
+    "def": "Le système infectieux & immunitaire compte 5 organes ou structures, déroulés de haut en bas.",
+    "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."
+   }
+  },
+  {
+   "id": "org_infect_barrieres_peau_muqueuses_micro",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Barrières",
+   "couleur": "#16897b",
+   "de": [
+    "sys_infectieux_immunitaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Barrières (peau, muqueuses, microbiote) : organe du système infectieux & immunitaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Peau",
+    "Infection et immunité"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_infect_immunite_innee",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Immunité innée",
+   "couleur": "#16897b",
+   "de": [
+    "sys_infectieux_immunitaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Immunité innée : organe du système infectieux & immunitaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Infection et immunité"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_infect_immunite_adaptative_lymphocyte",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Immunité adaptative",
+   "couleur": "#16897b",
+   "de": [
+    "sys_infectieux_immunitaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Immunité adaptative (lymphocytes B et T) : organe du système infectieux & immunitaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Infection et immunité"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_infect_complement",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Complément",
+   "couleur": "#16897b",
+   "de": [
+    "sys_infectieux_immunitaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Complément : organe du système infectieux & immunitaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Infection et immunité"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_infect_organes_lymphoides_moelle_thym",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Organes lymphoïdes",
+   "couleur": "#16897b",
+   "de": [
+    "sys_infectieux_immunitaire"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Organes lymphoïdes (moelle, thymus, rate, ganglions, MALT) : organe du système infectieux & immunitaire.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Moelle osseuse et ganglions",
+    "Rate"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "sys_locomoteur_rhumatologique",
+   "type": "",
+   "nature": "Système",
+   "texte": "Locomoteur et rhumatologique",
+   "organe": "bassin",
+   "cote": "g",
+   "couleur": "#6b7280",
+   "rubriques": "systeme",
+   "bulle": {
+    "def": "Le système locomoteur & rhumatologique compte 11 organes ou structures, déroulés de haut en bas.",
+    "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."
+   }
+  },
+  {
+   "id": "org_locomo_crane_et_face",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Crâne et face",
+   "couleur": "#6b7280",
+   "de": [
+    "sys_locomoteur_rhumatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Crâne et face : organe du système locomoteur & rhumatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Os du crâne et de la face"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_locomo_rachis",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Rachis",
+   "couleur": "#6b7280",
+   "de": [
+    "sys_locomoteur_rhumatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Rachis : organe du système locomoteur & rhumatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Rachis osseux"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_locomo_ceinture_scapulaire_et_epaule",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Ceinture scapulaire et épaule",
+   "couleur": "#6b7280",
+   "de": [
+    "sys_locomoteur_rhumatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Ceinture scapulaire et épaule : organe du système locomoteur & rhumatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Épaule"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_locomo_coude_poignet_et_main",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Coude, poignet et main",
+   "couleur": "#6b7280",
+   "de": [
+    "sys_locomoteur_rhumatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Coude, poignet et main : organe du système locomoteur & rhumatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Coude, poignet et main"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_locomo_bassin_et_hanche",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Bassin et hanche",
+   "couleur": "#6b7280",
+   "de": [
+    "sys_locomoteur_rhumatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Bassin et hanche : organe du système locomoteur & rhumatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Hanche et bassin"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_locomo_genou",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Genou",
+   "couleur": "#6b7280",
+   "de": [
+    "sys_locomoteur_rhumatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Genou : organe du système locomoteur & rhumatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Genou"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_locomo_cheville_et_pied",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Cheville et pied",
+   "couleur": "#6b7280",
+   "de": [
+    "sys_locomoteur_rhumatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Cheville et pied : organe du système locomoteur & rhumatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Cheville et pied"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_locomo_os_tissu_osseux",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Os",
+   "couleur": "#6b7280",
+   "de": [
+    "sys_locomoteur_rhumatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Os (tissu osseux) : organe du système locomoteur & rhumatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Os longs et squelette"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_locomo_articulations_et_synoviale",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Articulations et synoviale",
+   "couleur": "#6b7280",
+   "de": [
+    "sys_locomoteur_rhumatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Articulations et synoviale : organe du système locomoteur & rhumatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Articulations et synoviale"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_locomo_muscles_stries_squelettiques",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Muscles striés squelettiques",
+   "couleur": "#6b7280",
+   "de": [
+    "sys_locomoteur_rhumatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Muscles striés squelettiques : organe du système locomoteur & rhumatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Muscles"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_locomo_tendons_ligaments_et_bourses",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Tendons, ligaments et bourses",
+   "couleur": "#6b7280",
+   "de": [
+    "sys_locomoteur_rhumatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Tendons, ligaments et bourses : organe du système locomoteur & rhumatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Articulations et synoviale"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "sys_dermatologique",
+   "type": "",
+   "nature": "Système",
+   "texte": "Dermatologique",
+   "organe": "humerus",
+   "cote": "g",
+   "couleur": "#b07a5a",
+   "rubriques": "systeme",
+   "bulle": {
+    "def": "Le système dermatologique compte 6 organes ou structures, déroulés de haut en bas.",
+    "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."
+   }
+  },
+  {
+   "id": "org_dermat_epiderme",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Épiderme",
+   "couleur": "#b07a5a",
+   "de": [
+    "sys_dermatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Épiderme : organe du système dermatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Peau"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_dermat_derme_et_hypoderme",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Derme et hypoderme",
+   "couleur": "#b07a5a",
+   "de": [
+    "sys_dermatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Derme et hypoderme : organe du système dermatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Peau"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_dermat_annexes_poils_et_cheveux",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Annexes : poils et cheveux",
+   "couleur": "#b07a5a",
+   "de": [
+    "sys_dermatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Annexes : poils et cheveux : organe du système dermatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Ongles et cheveux"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_dermat_annexes_ongles",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Annexes : ongles",
+   "couleur": "#b07a5a",
+   "de": [
+    "sys_dermatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Annexes : ongles : organe du système dermatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Ongles et cheveux"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_dermat_glandes_sudorales_et_sebacees",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Glandes sudorales et sébacées",
+   "couleur": "#b07a5a",
+   "de": [
+    "sys_dermatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Glandes sudorales et sébacées : organe du système dermatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Peau"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_dermat_muqueuses",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Muqueuses",
+   "couleur": "#b07a5a",
+   "de": [
+    "sys_dermatologique"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Muqueuses : organe du système dermatologique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Peau"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "sys_ophtalmologique_orl",
+   "type": "",
+   "nature": "Système",
+   "texte": "Ophtalmologique et ORL",
+   "organe": "crane",
+   "cote": "g",
+   "couleur": "#5b6574",
+   "rubriques": "systeme",
+   "bulle": {
+    "def": "Le système ophtalmologique & orl compte 9 organes ou structures, déroulés de haut en bas.",
+    "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."
+   }
+  },
+  {
+   "id": "org_ophtal_paupieres_et_voies_lacrymales",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Paupières et voies lacrymales",
+   "couleur": "#5b6574",
+   "de": [
+    "sys_ophtalmologique_orl"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Paupières et voies lacrymales : organe du système ophtalmologique & orl.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Œil et orbite"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_ophtal_globe_oculaire_cornee_cristall",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Globe oculaire",
+   "couleur": "#5b6574",
+   "de": [
+    "sys_ophtalmologique_orl"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Globe oculaire (cornée, cristallin, rétine) : organe du système ophtalmologique & orl.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Œil et orbite"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_ophtal_voies_optiques",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Voies optiques",
+   "couleur": "#5b6574",
+   "de": [
+    "sys_ophtalmologique_orl"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Voies optiques : organe du système ophtalmologique & orl.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Œil et orbite",
+    "Encéphale"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_ophtal_oreille_externe_et_moyenne",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Oreille externe et moyenne",
+   "couleur": "#5b6574",
+   "de": [
+    "sys_ophtalmologique_orl"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Oreille externe et moyenne : organe du système ophtalmologique & orl.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Oreille et équilibre"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_ophtal_oreille_interne_cochlee_vestib",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Oreille interne",
+   "couleur": "#5b6574",
+   "de": [
+    "sys_ophtalmologique_orl"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Oreille interne (cochlée, vestibule) : organe du système ophtalmologique & orl.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Oreille et équilibre"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_ophtal_nez_et_sinus",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Nez et sinus",
+   "couleur": "#5b6574",
+   "de": [
+    "sys_ophtalmologique_orl"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Nez et sinus : organe du système ophtalmologique & orl.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Nez, sinus et cavum"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_ophtal_cavite_buccale_et_pharynx",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Cavité buccale et pharynx",
+   "couleur": "#5b6574",
+   "de": [
+    "sys_ophtalmologique_orl"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Cavité buccale et pharynx : organe du système ophtalmologique & orl.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Cavité buccale et glandes salivaires",
+    "Larynx et pharynx"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_ophtal_larynx",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Larynx",
+   "couleur": "#5b6574",
+   "de": [
+    "sys_ophtalmologique_orl"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Larynx : organe du système ophtalmologique & orl.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Larynx et pharynx"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_ophtal_glandes_salivaires",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Glandes salivaires",
+   "couleur": "#5b6574",
+   "de": [
+    "sys_ophtalmologique_orl"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Glandes salivaires : organe du système ophtalmologique & orl.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Cavité buccale et glandes salivaires"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "sys_gyneco_obstetrical",
+   "type": "",
+   "nature": "Système",
+   "texte": "Gynéco-obstétrical",
+   "organe": "bassin",
+   "cote": "d",
+   "couleur": "#c2417a",
+   "rubriques": "systeme",
+   "bulle": {
+    "def": "Le système gynéco-obstétrical compte 7 organes ou structures, déroulés de haut en bas.",
+    "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."
+   }
+  },
+  {
+   "id": "org_gyneco_seins",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Seins",
+   "couleur": "#c2417a",
+   "de": [
+    "sys_gyneco_obstetrical"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Seins : organe du système gynéco-obstétrical.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Seins"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_gyneco_ovaires",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Ovaires",
+   "couleur": "#c2417a",
+   "de": [
+    "sys_gyneco_obstetrical"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Ovaires : organe du système gynéco-obstétrical.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Utérus, col, ovaires et annexes"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_gyneco_trompes",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Trompes",
+   "couleur": "#c2417a",
+   "de": [
+    "sys_gyneco_obstetrical"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Trompes : organe du système gynéco-obstétrical.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Utérus, col, ovaires et annexes"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_gyneco_uterus_et_col",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Utérus et col",
+   "couleur": "#c2417a",
+   "de": [
+    "sys_gyneco_obstetrical"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Utérus et col : organe du système gynéco-obstétrical.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Utérus, col, ovaires et annexes"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_gyneco_vagin_et_vulve",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Vagin et vulve",
+   "couleur": "#c2417a",
+   "de": [
+    "sys_gyneco_obstetrical"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Vagin et vulve : organe du système gynéco-obstétrical.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Utérus, col, ovaires et annexes"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_gyneco_plancher_pelvien",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Plancher pelvien",
+   "couleur": "#c2417a",
+   "de": [
+    "sys_gyneco_obstetrical"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Plancher pelvien : organe du système gynéco-obstétrical.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Plancher pelvien"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_gyneco_placenta_et_unite_fto_placenta",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Placenta et unité fœto-placentaire",
+   "couleur": "#c2417a",
+   "de": [
+    "sys_gyneco_obstetrical"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Placenta et unité fœto-placentaire : organe du système gynéco-obstétrical.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Grossesse, fœtus et placenta"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "sys_pediatrique_croissance_et_deve",
+   "type": "",
+   "nature": "Système",
+   "texte": "Pédiatrique",
+   "organe": "cage",
+   "cote": "d",
+   "couleur": "#e05aa0",
+   "rubriques": "systeme",
+   "bulle": {
+    "def": "Le système pédiatrique compte 5 organes ou structures, déroulés de haut en bas.",
+    "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."
+   }
+  },
+  {
+   "id": "org_pediat_croissance_staturo_ponderale",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Croissance staturo-pondérale",
+   "couleur": "#e05aa0",
+   "de": [
+    "sys_pediatrique_croissance_et_deve"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Croissance staturo-pondérale : organe du système pédiatrique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Os longs et squelette"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_pediat_developpement_psychomoteur",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Développement psychomoteur",
+   "couleur": "#e05aa0",
+   "de": [
+    "sys_pediatrique_croissance_et_deve"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Développement psychomoteur : organe du système pédiatrique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Encéphale"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_pediat_puberte",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Puberté",
+   "couleur": "#e05aa0",
+   "de": [
+    "sys_pediatrique_croissance_et_deve"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Puberté : organe du système pédiatrique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Métabolisme et endocrinologie"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_pediat_adaptation_neonatale_vie_extra",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Adaptation néonatale",
+   "couleur": "#e05aa0",
+   "de": [
+    "sys_pediatrique_croissance_et_deve"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Adaptation néonatale (vie extra-utérine) : organe du système pédiatrique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Grossesse, fœtus et placenta",
+    "Cœur et péricarde"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "org_pediat_genetique_et_dysmorphies",
+   "type": "",
+   "nature": "Organe",
+   "texte": "Génétique et dysmorphies",
+   "couleur": "#e05aa0",
+   "de": [
+    "sys_pediatrique_croissance_et_deve"
+   ],
+   "rubriques": "organe",
+   "bulle": {
+    "def": "Génétique et dysmorphies : organe du système pédiatrique.",
+    "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."
+   },
+   "topo": [
+    "Génétique"
+   ],
+   "aProduire": true
+  },
+  {
+   "id": "an0",
+   "type": "",
+   "nature": "Volet",
+   "texte": "Macroscopie",
+   "couleur": "#c0392b",
+   "de": [
+    "coe"
+   ],
+   "espace": "anatomie",
+   "bulle": {
+    "def": "La macroscopie décrit la forme, les parties et l'organisation visibles à l'œil nu.",
+    "repere": "Elle donne les repères de l'examen clinique et de l'imagerie."
+   }
+  },
+  {
+   "id": "an0_0",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Faces et bords",
+   "couleur": "#c0392b",
+   "de": [
+    "an0"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "Le cœur présente une face sternocostale, une face diaphragmatique et une base ; le bord droit répond à l'oreillette droite.",
+    "repere": "Sur la radiographie de face, le bord droit correspond à l'oreillette droite et le bord gauche au ventricule gauche."
+   }
+  },
+  {
+   "id": "an0_1",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Cavités",
+   "couleur": "#c0392b",
+   "de": [
+    "an0"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "Quatre cavités : deux oreillettes reçoivent le sang, deux ventricules l'éjectent.",
+    "repere": "L'échocardiographie mesure chaque cavité ; la dilatation du ventricule gauche dévie la pointe."
+   }
+  },
+  {
+   "id": "an0_2",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Valves",
+   "couleur": "#c0392b",
+   "de": [
+    "an0"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "Valves tricuspide et mitrale (atrioventriculaires), pulmonaire et aortique (sigmoïdes).",
+    "repere": "Chaque valve s'ausculte à son foyer ; une fuite ou un rétrécissement donne un souffle."
+   }
+  },
+  {
+   "id": "an1",
+   "type": "",
+   "nature": "Volet",
+   "texte": "Microscopie",
+   "couleur": "#c0392b",
+   "de": [
+    "coe"
+   ],
+   "espace": "anatomie",
+   "bulle": {
+    "def": "La microscopie décrit les tissus et les cellules qui portent la fonction.",
+    "repere": "Elle explique ce que montrent la biopsie et l'histologie."
+   }
+  },
+  {
+   "id": "an1_0",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Cardiomyocytes",
+   "couleur": "#c0392b",
+   "de": [
+    "an1"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "Des cellules striées, ramifiées, reliées par des disques intercalaires, se contractent ensemble.",
+    "repere": "Leur nécrose libère la troponine."
+   }
+  },
+  {
+   "id": "an1_1",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Tissu nodal",
+   "couleur": "#c0392b",
+   "de": [
+    "an1"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "Nœud sinusal, nœud atrioventriculaire, faisceau de His et réseau de Purkinje conduisent l'influx.",
+    "repere": "Son atteinte donne les bradycardies et les blocs visibles à l'ECG."
+   }
+  },
+  {
+   "id": "an1_2",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Endocarde et épicarde",
+   "couleur": "#c0392b",
+   "de": [
+    "an1"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "Un endothélium tapisse les cavités ; l'épicarde porte les vaisseaux coronaires et la graisse.",
+    "repere": "L'endocarde lésé fixe les bactéries de l'endocardite."
+   }
+  },
+  {
+   "id": "an2",
+   "type": "",
+   "nature": "Volet",
+   "texte": "Vascularisation",
+   "couleur": "#c0392b",
+   "de": [
+    "coe"
+   ],
+   "espace": "anatomie",
+   "bulle": {
+    "def": "La vascularisation décrit les artères, les veines et les lymphatiques de l'organe.",
+    "repere": "Elle explique les territoires d'ischémie et la diffusion des cancers."
+   }
+  },
+  {
+   "id": "an2_0",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Coronaire gauche",
+   "couleur": "#c0392b",
+   "de": [
+    "an2"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "L'IVA irrigue la paroi antérieure et le septum ; la circonflexe irrigue la paroi latérale.",
+    "repere": "Son occlusion donne un sus-décalage antérieur (V1–V4) ou latéral (I, aVL, V5–V6)."
+   }
+  },
+  {
+   "id": "an2_1",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Coronaire droite",
+   "couleur": "#c0392b",
+   "de": [
+    "an2"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "Elle irrigue le ventricule droit, la paroi inférieure et, le plus souvent, le nœud sinusal et le nœud AV.",
+    "repere": "Son occlusion donne un sus-décalage inférieur (II, III, aVF) et parfois une bradycardie."
+   }
+  },
+  {
+   "id": "an2_2",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Sinus coronaire",
+   "couleur": "#c0392b",
+   "de": [
+    "an2"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "Il collecte le sang veineux du cœur et s'ouvre dans l'oreillette droite.",
+    "repere": "Les sondes de resynchronisation passent par lui."
+   }
+  },
+  {
+   "id": "an3",
+   "type": "",
+   "nature": "Volet",
+   "texte": "Innervation",
+   "couleur": "#c0392b",
+   "de": [
+    "coe"
+   ],
+   "espace": "anatomie",
+   "bulle": {
+    "def": "L'innervation décrit les nerfs somatiques et autonomes de l'organe.",
+    "repere": "Elle explique les douleurs projetées et les effets des médicaments autonomes."
+   }
+  },
+  {
+   "id": "an3_0",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Sympathique",
+   "couleur": "#c0392b",
+   "de": [
+    "an3"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "Les nerfs cardiaques sympathiques accélèrent le cœur et renforcent sa contraction (récepteurs β1).",
+    "repere": "Les bêtabloquants bloquent ses récepteurs β1."
+   }
+  },
+  {
+   "id": "an3_1",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Parasympathique (nerf vague)",
+   "couleur": "#c0392b",
+   "de": [
+    "an3"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "Le vague ralentit le nœud sinusal et la conduction AV (récepteurs M2).",
+    "repere": "L'atropine lève son frein en cas de bradycardie."
+   }
+  },
+  {
+   "id": "an3_2",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Plexus cardiaque",
+   "couleur": "#c0392b",
+   "de": [
+    "an3"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "Il réunit les fibres des deux systèmes à la base du cœur.",
+    "repere": "Il explique les douleurs cardiaques projetées au bras gauche et à la mâchoire."
+   }
+  },
+  {
+   "id": "an4",
+   "type": "",
+   "nature": "Volet",
+   "texte": "Rapports et projections",
+   "couleur": "#c0392b",
+   "de": [
+    "coe"
+   ],
+   "espace": "anatomie",
+   "bulle": {
+    "def": "Les rapports situent l'organe par rapport à ses voisins ; les projections le placent sur la peau.",
+    "repere": "Ils guident la palpation, l'auscultation et les ponctions."
+   }
+  },
+  {
+   "id": "an4_0",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Foyers d'auscultation",
+   "couleur": "#c0392b",
+   "de": [
+    "an4"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "Aortique (2e EIC droit), pulmonaire (2e EIC gauche), tricuspide (4e EIC gauche), mitral (apex, 5e EIC ligne médioclaviculaire).",
+    "repere": "Tu ausculte chaque foyer au pavillon puis à la membrane."
+   }
+  },
+  {
+   "id": "an4_1",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Rapports postérieurs",
+   "couleur": "#c0392b",
+   "de": [
+    "an4"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "L'oreillette gauche touche l'œsophage : l'échographie transœsophagienne la voit de près.",
+    "repere": "Une oreillette gauche dilatée peut comprimer l'œsophage (dysphagie)."
+   }
+  },
+  {
+   "id": "an5",
+   "type": "",
+   "nature": "Volet",
+   "texte": "Embryologie et variantes",
+   "couleur": "#c0392b",
+   "de": [
+    "coe"
+   ],
+   "espace": "anatomie",
+   "bulle": {
+    "def": "L'embryologie retrace la formation de l'organe ; les variantes décrivent les formes normales mais inhabituelles.",
+    "repere": "Elles expliquent les malformations et les pièges d'imagerie."
+   }
+  },
+  {
+   "id": "an5_0",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Tube cardiaque",
+   "couleur": "#c0392b",
+   "de": [
+    "an5"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "Le cœur naît d'un tube qui se plie et se cloisonne entre la 3e et la 8e semaine.",
+    "repere": "Un défaut de cloisonnement donne une communication interauriculaire ou interventriculaire."
+   }
+  },
+  {
+   "id": "an5_1",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Dominance coronaire",
+   "couleur": "#c0392b",
+   "de": [
+    "an5"
+   ],
+   "espace": "anatomie",
+   "fenetre": "3d",
+   "bulle": {
+    "def": "Le réseau est « droit dominant » chez environ 70–80 % des personnes : la coronaire droite donne l'interventriculaire postérieure.",
+    "repere": "Elle décide quelle artère irrigue la paroi inférieure."
+   }
+  },
+  {
+   "id": "ph0",
+   "type": "",
+   "nature": "Volet",
+   "texte": "Paramètres simples",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pou"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "Les paramètres simples se mesurent au lit du malade.",
+    "retenir": "Tu les connais par cœur avec leurs valeurs normales."
+   }
+  },
+  {
+   "id": "ph0_0",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Fréquence respiratoire",
+   "couleur": "#2f6fd0",
+   "de": [
+    "ph0"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "12 à 20 cycles par minute chez l'adulte au repos.",
+    "retenir": "Une FR ≥ 30/min compte dans le score CRB-65."
+   }
+  },
+  {
+   "id": "ph0_1",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Volume courant",
+   "couleur": "#2f6fd0",
+   "de": [
+    "ph0"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "Environ 500 ml (6–8 ml/kg de poids idéal).",
+    "retenir": "Le respirateur se règle sur le poids idéal, pas sur le poids réel."
+   }
+  },
+  {
+   "id": "ph0_2",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Volumes et capacités",
+   "couleur": "#2f6fd0",
+   "de": [
+    "ph0"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "CPT, CV, VR, CRF : la spirométrie et la pléthysmographie les mesurent.",
+    "retenir": "Un rapport VEMS/CVF < 0,7 signe l'obstruction."
+   },
+   "fenetre": "spiro"
+  },
+  {
+   "id": "ph1",
+   "type": "",
+   "nature": "Volet",
+   "texte": "Régulation",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pou"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "La régulation décrit les capteurs et les effecteurs qui maintiennent la fonction.",
+    "retenir": "Elle explique les compensations que tu lis dans les examens."
+   }
+  },
+  {
+   "id": "ph1_0",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Chémorécepteurs centraux",
+   "couleur": "#2f6fd0",
+   "de": [
+    "ph1"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "Ils répondent surtout à la PaCO₂ via le pH du LCR.",
+    "retenir": "Chez le BPCO hypercapnique, l'O₂ à haut débit peut aggraver l'hypercapnie."
+   }
+  },
+  {
+   "id": "ph1_1",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Chémorécepteurs périphériques",
+   "couleur": "#2f6fd0",
+   "de": [
+    "ph1"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "Les corps carotidiens répondent à une PaO₂ < 8 kPa.",
+    "retenir": "Ils deviennent le moteur ventilatoire du patient hypercapnique chronique."
+   }
+  },
+  {
+   "id": "ph2",
+   "type": "",
+   "nature": "Volet",
+   "texte": "Lois physiques et biochimie",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pou"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "Les lois physiques et la biochimie mettent la fonction en équations et en courbes.",
+    "retenir": "Chaque formule ouvre une courbe ou un calculateur."
+   }
+  },
+  {
+   "id": "ph2_0",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Équation des gaz alvéolaires",
+   "couleur": "#2f6fd0",
+   "de": [
+    "ph2"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "PAO₂ = FiO₂ × (Patm − PH₂O) − PaCO₂ / QR : elle donne l'O₂ alvéolaire et le gradient A-a.",
+    "retenir": "Un gradient A-a élevé désigne une cause pulmonaire de l'hypoxémie."
+   },
+   "fenetre": "alveolaire"
+  },
+  {
+   "id": "ph2_1",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Courbe de dissociation de l'hémoglobine",
+   "couleur": "#2f6fd0",
+   "de": [
+    "ph2"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "La saturation suit une sigmoïde ; la P50 normale vaut environ 3,5 kPa.",
+    "retenir": "Sous 8 kPa de PaO₂, la saturation chute brutalement."
+   },
+   "fenetre": "odc"
+  },
+  {
+   "id": "ph2_2",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Effet Bohr et effet Haldane",
+   "couleur": "#2f6fd0",
+   "de": [
+    "ph2"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "L'acidose, la PaCO₂, la chaleur et le 2,3-DPG déplacent la courbe à droite ; l'oxygénation libère le CO₂.",
+    "retenir": "L'acidose aide les tissus à recevoir l'O₂."
+   },
+   "fenetre": "odc"
+  },
+  {
+   "id": "ph2_3",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Henderson-Hasselbalch",
+   "couleur": "#2f6fd0",
+   "de": [
+    "ph2"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "pH = 6,1 + log(HCO₃⁻ / (0,23 × PaCO₂ en kPa)).",
+    "retenir": "Le poumon corrige vite, le rein corrige lentement."
+   },
+   "fenetre": "hh"
+  },
+  {
+   "id": "ph2_4",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Loi de Fick (diffusion)",
+   "couleur": "#2f6fd0",
+   "de": [
+    "ph2"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "Le débit de gaz augmente avec la surface et le gradient, et baisse avec l'épaisseur de la membrane.",
+    "retenir": "La fibrose épaissit la membrane : la DLCO baisse."
+   }
+  },
+  {
+   "id": "ph2_5",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Rapport ventilation / perfusion",
+   "couleur": "#2f6fd0",
+   "de": [
+    "ph2"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "V/Q ≈ 0,8 en moyenne ; l'effet shunt et l'espace mort l'écartent.",
+    "retenir": "L'embolie crée de l'espace mort ; la pneumonie crée de l'effet shunt."
+   }
+  },
+  {
+   "id": "ph3",
+   "type": "",
+   "nature": "Volet",
+   "texte": "Intégration avec les autres organes",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pou"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "L'intégration relie la fonction de l'organe à celle des autres organes.",
+    "retenir": "Elle prépare la lecture des examens complexes, comme les gaz du sang."
+   }
+  },
+  {
+   "id": "ph3_0",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Poumon et rein : équilibre acide-base",
+   "couleur": "#2f6fd0",
+   "de": [
+    "ph3"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "Le poumon règle la PaCO₂ en minutes, le rein règle les bicarbonates en jours.",
+    "retenir": "Une compensation n'est jamais complète : un pH normal avec des valeurs anormales évoque un trouble mixte."
+   },
+   "fenetre": "hh"
+  },
+  {
+   "id": "ph3_1",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Lecture des gaz du sang",
+   "couleur": "#2f6fd0",
+   "de": [
+    "ph3"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "Tu relies pH, PaCO₂, HCO₃⁻, gradient A-a et compensation attendue (Winter).",
+    "retenir": "Tu lis toujours dans l'ordre : pH, cause primaire, compensation, gradient A-a, trou anionique."
+   },
+   "fenetre": "gazometrie"
+  },
+  {
+   "id": "ph4",
+   "type": "",
+   "nature": "Volet",
+   "texte": "Valeurs normales",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pou"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "Les valeurs normales s'expriment en unités SI, celles des laboratoires suisses.",
+    "retenir": "Tu raisonnes en kPa pour les gaz du sang."
+   }
+  },
+  {
+   "id": "ph4_0",
+   "type": "",
+   "nature": "Mot-clé",
+   "texte": "Gaz du sang artériel",
+   "couleur": "#2f6fd0",
+   "de": [
+    "ph4"
+   ],
+   "espace": "physiologie",
+   "bulle": {
+    "def": "pH 7,35–7,45 ; PaCO₂ 4,7–6,0 kPa ; PaO₂ 10–13 kPa ; HCO₃⁻ 22–26 mmol/l.",
+    "retenir": "Tu convertis : 1 kPa = 7,5 mmHg."
+   },
+   "fenetre": "gazometrie"
+  },
+  {
+   "id": "pp1",
+   "type": "",
+   "nature": "Mécanisme",
+   "texte": "Dysfonction systolique",
+   "couleur": "#7a5cc4",
+   "de": [
+    "coe"
+   ],
+   "espace": "physiopathologie",
+   "bulle": {
+    "def": "Le ventricule gauche éjecte moins de sang à chaque battement.",
+    "consequence": "La fraction d'éjection baisse et le volume résiduel augmente."
+   }
+  },
+  {
+   "id": "pp2",
+   "type": "",
+   "nature": "Mécanisme",
+   "texte": "Pression télédiastolique ↑",
+   "couleur": "#7a5cc4",
+   "de": [
+    "pp1"
+   ],
+   "espace": "physiopathologie",
+   "bulle": {
+    "def": "Le sang qui reste dans le ventricule élève sa pression en fin de diastole.",
+    "consequence": "Le remplissage brutal du ventricule produit le galop B3."
+   }
+  },
+  {
+   "id": "pp3",
+   "type": "",
+   "nature": "Mécanisme",
+   "texte": "Pression capillaire pulmonaire ↑",
+   "couleur": "#7a5cc4",
+   "de": [
+    "pp2"
+   ],
+   "espace": "physiopathologie",
+   "bulle": {
+    "def": "La pression remonte dans l'oreillette gauche puis dans les capillaires pulmonaires.",
+    "consequence": "Au-delà d'environ 18 mmHg (2,4 kPa), le liquide quitte les capillaires."
+   }
+  },
+  {
+   "id": "pp4",
+   "type": "",
+   "nature": "Mécanisme",
+   "texte": "Œdème interstitiel et alvéolaire",
+   "couleur": "#7a5cc4",
+   "de": [
+    "pp3"
+   ],
+   "espace": "physiopathologie",
+   "bulle": {
+    "def": "Le liquide envahit l'interstitium puis les alvéoles.",
+    "consequence": "Il produit les crépitants, l'orthopnée et, au maximum, l'œdème aigu du poumon."
    }
   },
   {
@@ -117,7 +3440,8 @@
     "pourquoi": "L'inspection repère la détresse respiratoire et l'œdème pulmonaire.",
     "confusion": "La turgescence jugulaire se voit aussi à l'inspection, mais elle signe la congestion droite.",
     "retenir": "Deux ou trois signes concordants suffisent ; un seul ne suffit jamais."
-   }
+   },
+   "espace": "semiologie"
   },
   {
    "id": "t2",
@@ -132,7 +3456,8 @@
     "pourquoi": "La palpation révèle la dilatation et la faiblesse du ventricule gauche.",
     "confusion": "Un apex dévié par une déformation thoracique ne traduit pas une dilatation.",
     "retenir": "Tu notes le siège, l'étendue et la force du choc de pointe."
-   }
+   },
+   "espace": "semiologie"
   },
   {
    "id": "t3",
@@ -147,7 +3472,8 @@
     "pourquoi": "La percussion détecte l'épanchement pleural et l'élargissement cardiaque.",
     "confusion": "Une condensation pulmonaire est mate aussi, mais ses vibrations vocales augmentent.",
     "retenir": "La matité des bases oriente vers un épanchement de transsudation."
-   }
+   },
+   "espace": "semiologie"
   },
   {
    "id": "t4",
@@ -162,7 +3488,8 @@
     "pourquoi": "L'auscultation entend le remplissage brutal du ventricule et l'eau dans les alvéoles.",
     "confusion": "Un B4 ou un dédoublement de B2 peuvent imiter un galop B3.",
     "retenir": "Le galop B3 et les crépitants fins forment le duo le plus parlant."
-   }
+   },
+   "espace": "semiologie"
   },
   {
    "id": "t5",
@@ -177,7 +3504,8 @@
     "pourquoi": "Les symptômes décrivent la congestion pulmonaire vécue par le patient.",
     "confusion": "La BPCO et l'anémie essoufflent aussi le patient.",
     "retenir": "L'orthopnée et la dyspnée nocturne sont plus spécifiques que la dyspnée d'effort."
-   }
+   },
+   "espace": "semiologie"
   },
   {
    "id": "s11",
@@ -612,7 +3940,8 @@
     "pourquoi": "L'inspection mesure la gêne respiratoire que la condensation impose.",
     "confusion": "Une acidose métabolique accélère aussi la respiration, sans atteinte pulmonaire.",
     "retenir": "Tu comptes la fréquence respiratoire sur une minute entière."
-   }
+   },
+   "espace": "semiologie"
   },
   {
    "id": "pt2",
@@ -627,7 +3956,8 @@
     "pourquoi": "Le poumon condensé transmet mieux les vibrations vers la paroi.",
     "confusion": "Un épanchement pleural abolit au contraire les vibrations vocales.",
     "retenir": "Vibrations augmentées : condensation ; vibrations abolies : épanchement."
-   }
+   },
+   "espace": "semiologie"
   },
   {
    "id": "pt3",
@@ -642,7 +3972,8 @@
     "pourquoi": "L'alvéole remplie de liquide ne résonne plus comme l'air.",
     "confusion": "L'épanchement pleural est mat aussi, mais déclive et mobile avec la position.",
     "retenir": "Ce temps n'apporte qu'un signe ici : la sémiologie n'en fournit pas d'autre, et les autres temps posent le syndrome."
-   }
+   },
+   "espace": "semiologie"
   },
   {
    "id": "pt4",
@@ -657,7 +3988,8 @@
     "pourquoi": "La condensation laisse passer les bruits bronchiques et fait claquer les alvéoles.",
     "confusion": "Des crépitants bilatéraux et symétriques évoquent plutôt une insuffisance cardiaque.",
     "retenir": "Un souffle tubaire encadré de crépitants signe le foyer de condensation."
-   }
+   },
+   "espace": "semiologie"
   },
   {
    "id": "pt5",
@@ -672,7 +4004,8 @@
     "pourquoi": "L'infection alvéolaire produit l'expectoration, l'atteinte pleurale produit la douleur.",
     "confusion": "L'embolie pulmonaire donne aussi une douleur pleurale et une fièvre modérée.",
     "retenir": "Toux fébrile et signe focal à l'auscultation : tu demandes une radiographie."
-   }
+   },
+   "espace": "semiologie"
   },
   {
    "id": "ps11",
@@ -1123,86 +4456,5 @@
     "retenir": "Tu pèses le patient : une prise de 2 kg en 3 jours oriente vers la décompensation."
    }
   }
- ],
- "lentilles": [
-  {
-   "id": "PED",
-   "nom": "Pédiatrie",
-   "couleur": "#e05aa0"
-  },
-  {
-   "id": "GER",
-   "nom": "Gériatrie",
-   "couleur": "#7a5cc4"
-  },
-  {
-   "id": "GYN",
-   "nom": "Femme et grossesse",
-   "couleur": "#c2417a"
-  },
-  {
-   "id": "CHI",
-   "nom": "Chirurgie",
-   "couleur": "#5b6574"
-  },
-  {
-   "id": "PSY",
-   "nom": "Psychiatrie",
-   "couleur": "#3d8f5a"
-  },
-  {
-   "id": "URG",
-   "nom": "Urgences",
-   "couleur": "#e0452b"
-  }
- ],
- "glossaire": {
-  "atypique": "Une pneumonie atypique est due à Mycoplasma pneumoniae, Chlamydophila pneumoniae ou Legionella : début progressif, toux sèche, signes extrarespiratoires (céphalées, myalgies, diarrhée), clinique modeste contrastant avec une radiographie marquée. Ces germes sans paroi ou intracellulaires échappent aux bêtalactamines, d'où le macrolide.",
-  "ARNI": "Inhibiteur du récepteur de l'angiotensine et de la néprilysine (sacubitril/valsartan) : il bloque l'angiotensine et prolonge l'effet des peptides natriurétiques.",
-  "ARM": "Antagoniste des récepteurs minéralocorticoïdes (spironolactone, éplérénone) : il bloque l'aldostérone.",
-  "iSGLT2": "Inhibiteur du cotransporteur sodium-glucose de type 2 (dapagliflozine, empagliflozine) : il fait éliminer glucose et sodium dans l'urine.",
-  "IEC": "Inhibiteur de l'enzyme de conversion de l'angiotensine (lisinopril, ramipril).",
-  "NYHA": "Classification de la New York Heart Association : I sans gêne, II gêne aux efforts habituels, III gêne aux petits efforts, IV gêne au repos.",
-  "FEVG": "Fraction d'éjection du ventricule gauche : part du volume ventriculaire éjectée à chaque systole (normale ≥ 50 %).",
-  "ICFEp": "Insuffisance cardiaque à fraction d'éjection préservée (FEVG ≥ 50 %).",
-  "ICFE améliorée": "Insuffisance cardiaque dont la FEVG, d'abord ≤ 40 %, remonte au-dessus de 40 % sous traitement.",
-  "CRB-65": "Score de gravité de la pneumonie : Confusion, FR ≥ 30/min, PAS < 90 ou PAD ≤ 60 mmHg, âge ≥ 65 ans ; 1 point chacun.",
-  "CURB-65": "CRB-65 auquel s'ajoute l'urée > 7 mmol/l (U) ; utilisé à l'hôpital.",
-  "NT-proBNP": "Fragment N-terminal du pro-peptide natriurétique de type B, libéré par le myocarde ventriculaire étiré.",
-  "PIGS": "Paediatric Infectious Diseases Group of Switzerland : il publie les recommandations suisses d'infectiologie pédiatrique.",
-  "AIPS": "Information sur les médicaments de Swissmedic : la source officielle des posologies autorisées en Suisse.",
-  "SpO₂": "Saturation pulsée en oxygène mesurée au doigt par l'oxymètre.",
-  "OMS": "Organisation mondiale de la santé.",
-  "ESC": "Société européenne de cardiologie.",
-  "B3": "Troisième bruit du cœur, protodiastolique, juste après B2.",
-  "B4": "Quatrième bruit du cœur, télédiastolique, juste avant B1, lié à la contraction auriculaire contre un ventricule rigide.",
-  "CRP": "Protéine C réactive : marqueur sanguin de l'inflammation.",
-  "FSC": "Formule sanguine complète.",
-  "DFG": "Débit de filtration glomérulaire, estimé par la formule CKD-EPI.",
-  "PCR": "Amplification génique qui détecte l'ADN ou l'ARN d'un germe.",
-  "FR": "Fréquence respiratoire.",
-  "FC": "Fréquence cardiaque.",
-  "PAS": "Pression artérielle systolique.",
-  "PAD": "Pression artérielle diastolique.",
-  "ECG": "Électrocardiogramme.",
-  "IRM": "Imagerie par résonance magnétique.",
-  "CT": "Tomodensitométrie (scanner).",
-  "TSH": "Hormone thyréostimulante.",
-  "ICFEr": "Insuffisance cardiaque à fraction d'éjection réduite (FEVG ≤ 40 %).",
-  "IV": "Voie intraveineuse.",
-  "QRS": "Complexe de dépolarisation ventriculaire sur l'ECG.",
-  "PaO₂": "Pression partielle artérielle en oxygène.",
-  "T": "Température corporelle.",
-  "COVID-19": "Maladie due au SARS-CoV-2.",
-  "SARS-CoV-2": "Coronavirus responsable de la COVID-19.",
-  "IC": "Insuffisance cardiaque.",
-  "OAP": "Œdème aigu du poumon.",
-  "ICFE": "Insuffisance cardiaque selon la fraction d'éjection.",
-  "Killip": "Classification de gravité de l'insuffisance cardiaque à l'infarctus : I sans crépitants, II crépitants aux bases, III œdème pulmonaire, IV choc cardiogénique.",
-  "Light": "Critères de Light : un épanchement est un exsudat si protéines pleurales/sériques > 0,5, LDH pleurales/sériques > 0,6, ou LDH pleurales > 2/3 de la limite supérieure sérique.",
-  "SSI": "Société suisse d'infectiologie.",
-  "Swissmedic": "Autorité suisse d'autorisation et de surveillance des médicaments.",
-  "BPCO": "Bronchopneumopathie chronique obstructive : obstruction bronchique peu réversible, surtout liée au tabac.",
-  "ICFEm": "Insuffisance cardiaque à fraction d'éjection modérément réduite (FEVG 41–49 %)."
- }
+ ]
 }

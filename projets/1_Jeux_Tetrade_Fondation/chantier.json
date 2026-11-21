@@ -6,7 +6,9 @@
  "vision": "Des sciences fondamentales au diagnostic : un corps 3D réel d'où partent, à gauche ou à droite, des circuits organe → temps d'examen → signes (typiques et atypiques) → syndrome → examen clé → diagnostic, avec la pharmacologie systémique (VIT DIT CAFé).",
  "perimetre": {
   "inclus": [
-   "14 systèmes et la Psyché",
+   "14 systèmes, chacun déroulant TOUS ses organes (123 au total, de haut en bas)",
+   "4 espaces par organe : anatomie (6 volets), physiologie (5 volets), sémiologie, physiopathologie",
+   "Mots-clés → image 3D réelle (anatomie) ou courbe calculée et calculateur (physiologie : ODC, Henderson-Hasselbalch, gaz alvéolaires, gaz du sang, spirométrie)",
    "24 syndromes neurologiques majeurs",
    "Anatomie en arbre de l'extérieur vers l'intérieur, fenêtre 3D à quatre vues",
    "Physiologie et physiopathologie en réseaux",
@@ -31,6 +33,7 @@
  ],
  "visuel": "Corps BodyParts3D (puis Z-Anatomy pour muscles et nerfs), fenêtres de structure à quatre vues, réseaux de style Obsidian.",
  "donnees": [
+  "tetrade/<systeme>/organes.json et organes/<organe>.json (123 fichiers, source systemes.py)",
   "tetrade/<systeme>/graphe.json, semiologie.json, syndromes.json, anatomie3d.json, examens.json (14 systèmes)",
   "tetrade/sons.json",
   "tetrade/transversales/*",
@@ -40,7 +43,7 @@
  "etapes": [
   [
    "1. Pilote cardio-respiratoire",
-   "Finir le cœur et les poumons (déjà prototypés) jusqu'au niveau publication."
+   "Finir le cœur (anatomie) et le poumon (physiologie, 5 courbes) jusqu'au niveau publication ; les 121 autres organes sont listés et marqués « à produire »."
   ],
   [
    "2. Système nerveux",
@@ -78,6 +81,18 @@
    "Catégorie atypique en rouge à chaque temps et à l'anamnèse ; 4 cases atypiques au pilote."
   ],
   [
+   "Le système cardiovasculaire se réduisait au cœur.",
+   "Source unique systemes.py : 14 systèmes, 123 organes ; l'audit bloque tout système incomplet."
+  ],
+  [
+   "Les cases pouvaient porter de longs textes.",
+   "Audit de concision (≤ 45 caractères) ; détail en infobulle, courbe en fenêtre."
+  ],
+  [
+   "Des sigles de physiologie n'étaient pas définis (VEMS, DLCO, PaCO₂…).",
+   "21 termes ajoutés au glossaire ; l'audit les exige."
+  ],
+  [
    "La pharmacologie n'avait plus de projet propre dans la liste des 4.",
    "Elle est rattachée à la Tétrade comme cinquième pilier (à valider)."
   ]
@@ -86,6 +101,14 @@
   [
    "Le réseau complet sature l'écran.",
    "Dévoilement au clic et repli sélectif ou global."
+  ],
+  [
+   "Une liste de 13 organes dépasse la hauteur de l'écran.",
+   "Alignement en haut et défilement à la molette ; le corps glisse du côté opposé."
+  ],
+  [
+   "Une courbe dessinée à la main peut être fausse.",
+   "Toute courbe se calcule depuis un modèle réel (Hill n = 2,7, P50 = 3,55 kPa ; Henderson-Hasselbalch ; formule de Winter)."
   ],
   [
    "La 3D peut ralentir un ordinateur modeste.",
@@ -97,7 +120,7 @@
   ]
  ],
  "demarrage": [
-  "Valider la règle « 2–3 signes typiques + atypiques »",
+  "Valider la liste des 123 organes (systemes.py)",
   "Finir le pilote cœur-poumons",
   "Lancer le système nerveux"
  ]

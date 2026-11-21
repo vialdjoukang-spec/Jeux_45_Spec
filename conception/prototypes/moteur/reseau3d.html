@@ -17,7 +17,7 @@ html,body{margin:0;width:100vw;height:100vh;overflow:hidden;font-family:A,sans-s
 .n.cache{opacity:0!important;pointer-events:none}
 .n.ouvert{outline:1.5px solid var(--c);outline-offset:2px}
 .n.feuille{cursor:default}
-.n.g .plus{left:6px;right:auto}.n .plus{position:absolute;right:6px;top:5px;font-weight:700;color:var(--c);font-size:13px}
+.n.g{padding-left:20px}.n:not(.g){padding-right:22px}.n:has(.ouvre){padding-right:26px}.n.g .plus{left:6px;right:auto}.n .plus{position:absolute;right:6px;top:5px;font-weight:700;color:var(--c);font-size:13px}
 .n.ouvert .plus{display:none}
 h1{position:absolute;left:24px;top:12px;margin:0;font:700 19px Georgia,serif;color:var(--texte)}h1 small{display:block;font:400 12.5px A,sans-serif;color:var(--sous)}
 #barre{position:absolute;right:16px;top:12px;display:flex;gap:8px}
@@ -26,6 +26,11 @@ h1{position:absolute;left:24px;top:12px;margin:0;font:700 19px Georgia,serif;col
 #aide{position:absolute;right:16px;top:48px;font-size:11.5px;color:var(--sous)}
 .fen{position:absolute;box-sizing:border-box;background:var(--carte);color:var(--texte);border:1px solid var(--bord);border-top:5px solid var(--c);border-radius:14px;padding:10px;font-size:12.5px;box-shadow:0 6px 24px #0003;transition:opacity .25s}
 .cap *{transition:none!important}
+#fdet{position:absolute;z-index:40;right:20px;top:84px;background:var(--carte);color:var(--texte);border:1px solid var(--bord);border-top:5px solid var(--c);border-radius:12px;box-shadow:0 10px 30px #0004;padding:10px 14px;font-size:12.5px;max-width:800px}
+#fdet .fh{display:flex;justify-content:space-between;gap:20px;margin-bottom:6px}#fdet .fh button{border:0;background:transparent;font-size:16px;cursor:pointer;color:var(--texte)}
+#fdet .cur{display:grid;grid-template-columns:250px 1fr 50px;gap:8px;align-items:center;margin:3px 0}#fdet p{max-width:520px;line-height:1.45}#fdet .boutons button{margin-right:6px;font:700 12px A;border:1px solid var(--c);background:transparent;border-radius:99px;padding:3px 10px;cursor:pointer;color:var(--texte)}
+#espaces{position:absolute;left:24px;top:64px;display:flex;gap:6px}#espaces button{font:700 12px A,sans-serif;border:1px solid var(--bord);background:var(--carte);color:var(--texte);border-radius:999px;padding:5px 12px;cursor:pointer}#espaces button.actif{background:var(--texte);color:var(--carte)}
+.n .ouvre{position:absolute;right:6px;top:5px;font-size:12px}
 #bulle{position:absolute;z-index:20;max-height:calc(100vh - 100px);overflow:auto;width:330px;box-sizing:border-box;background:var(--carte);color:var(--texte);border:1px solid var(--bord);border-top:5px solid var(--c);border-radius:9px;padding:10px 12px;box-shadow:0 8px 28px #0004;font-size:12.5px;line-height:1.4;display:none}
 #bulle h4{margin:0 0 6px;font-size:13.5px}#bulle dl{margin:0;display:grid;grid-template-columns:118px 1fr;gap:5px 8px}#bulle dt{font-weight:700;color:var(--c);font-size:11px;text-transform:uppercase;letter-spacing:.04em;padding-top:1px}#bulle dd{margin:0}
 #bulle h5.sec{margin:9px 0 5px;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;border-top:1px solid var(--bord);padding-top:7px}#bulle .vis{margin:5px 0 7px}#bulle .vis b{display:block;font-size:11.5px;color:var(--c)}#bulle .grp{margin:2px 0 0 4px}
@@ -39,10 +44,10 @@ h1{position:absolute;left:24px;top:12px;margin:0;font:700 19px Georgia,serif;col
 <canvas id="gl"></canvas><canvas id="ln"></canvas><h1 id="t"></h1>
 <div id="barre"><button id="theme" title="Changer le fond : 7 thèmes contrastés"><i></i><span>Blanc</span></button>
 <select id="lent" title="Lentille transversale : n'afficher que les particularités de la discipline" style="font:700 12px A,sans-serif;border:1px solid var(--bord);background:var(--carte);color:var(--texte);border-radius:999px;padding:6px 10px"></select><button id="repli" title="Clic : replier le dernier circuit ouvert · Double-clic : tout replier">↺ Replier</button></div>
-<div id="bulle"></div><div id="aide">Survol : explication · 🔊 : écouter · Clic sur une case : révéler la suite · ↺ clic = repli sélectif · double-clic = repli global</div>
+<div id="bulle"></div><div id="espaces"></div><div id="aide">Survol : explication · 🔊 : écouter · Clic sur une case : révéler la suite · ↺ clic = repli sélectif · double-clic = repli global</div>
 <script type="importmap">{"imports":{"three":"./three/build/three.module.js","three/addons/":"./three/examples/jsm/"}}</script>
 <script type="module">
-import * as THREE from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import * as THREE from 'three';import {ouvrirFenetre} from './fenetres.js';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 const Q=new URLSearchParams(location.hash.slice(1).replace(/^([^&=]+\.json)/,'cfg=$1'));
 const C=await (await fetch(Q.get('cfg')||'config.json')).json();
 if(Q.has('capture'))document.body.classList.add('cap');const W=innerWidth,H=innerHeight;gl.width=ln.width=W;gl.height=ln.height=H;
@@ -67,7 +72,7 @@ g.scene.traverse(o=>{if(!o.isMesh)return;const k=o.name.replace(/_\d+$/,'');o.na
  o.material=m;});
 S.add(g.scene);R.render(S,cam);
 const proj=v=>{const p=v.clone().project(cam);return[(p.x+1)/2*W,(1-p.y)/2*H];};
-const centre=k=>{const b=new THREE.Box3().setFromObject(M[k]);const c=b.getCenter(new THREE.Vector3());if(C.ancres&&C.ancres[k])c.set(...C.ancres[k]);return proj(c);};
+const centre2=k=>centre(k);const centre=k=>{const b=new THREE.Box3().setFromObject(M[k]);const c=b.getCenter(new THREE.Vector3());if(C.ancres&&C.ancres[k])c.set(...C.ancres[k]);return proj(c);};
 const bb=new THREE.Box3().setFromObject(M.peau);let L=1e9,Rr=-1e9;
 for(const x of[bb.min.x,bb.max.x])for(const y of[bb.min.y,bb.max.y])for(const z of[bb.min.z,bb.max.z]){const p=proj(new THREE.Vector3(x,y,z));L=Math.min(L,p[0]);Rr=Math.max(Rr,p[0]);}
 const marge=C.marge??10;L-=marge;Rr+=marge;document.documentElement.style.setProperty('--cx',((L+Rr)/2/W*100)+'%');
@@ -83,7 +88,7 @@ for(const n of N)if(!n.organe)n.cote=n.cote||(function c(m){return m.cote||c(byI
  const dR=Math.max(-1,...N.filter(n=>n.cote==='d').map(n=>n.col??n._p)),dL=Math.max(-1,...N.filter(n=>n.cote==='g').map(n=>n.col??n._p));
  const placeR=W-12-Rr,placeL=L-12;const fit=(place,d)=>d<0?1e9:(place-G*(d+1))/(d+1);COL=Math.max(118,Math.min(COL,fit(placeR,dR),fit(placeL,dL)));}
 for(const n of N){const el=document.createElement('div');el.className='n cache'+(n.enf.length?'':' feuille');el.style.setProperty('--c',n.couleur||'#c98a2b');el.style.setProperty('--w',COL+'px');
- if(n.presentation==='atypique')el.classList.add('atyp');el.innerHTML=(n.type?'<b>'+(n.presentation==='atypique'?n.type+' atypique':n.type)+'</b>':'')+n.texte+(n.enf.length||(C.fenetres||[]).some(f=>f.de===n.id)?'<span class=plus>+</span>':'')+(n.son?'<span class=son title="Écouter">🔊</span>':'');document.body.appendChild(el);n.el=el;
+ if(n.presentation==='atypique')el.classList.add('atyp');el.innerHTML=(n.type?'<b>'+(n.presentation==='atypique'?n.type+' atypique':n.type)+'</b>':'')+n.texte+(n.enf.length||(C.fenetres||[]).some(f=>f.de===n.id)?'<span class=plus>+</span>':'')+(n.son?'<span class=son title="Écouter">🔊</span>':'')+(n.fenetre?'<span class=ouvre title="Ouvrir la fenêtre">'+(n.fenetre==='3d'?'🧊':'📈')+'</span>':'');document.body.appendChild(el);n.el=el;
  el.classList.add(n.cote);n.w=el.offsetWidth;n.h=el.offsetHeight;}
 for(const n of N){n._c=n.col??n._p;const pas=(COL+G)*n._c;n.x=n.cote==='d'?Rr+G+pas+COL/2:L-G-pas-COL/2;}
 /* symétrie parfaite par arbre : chaque parent se centre exactement sur le bloc de ses enfants */
@@ -104,9 +109,10 @@ for(const f of C.fenetres||[]){const w=document.createElement('div');w.className
  f.el=w;const P=byId[f.de];P.el.classList.remove('feuille');P.aFen=true;}
 /* ---------- dévoilement progressif ---------- */
 const ouvert=new Set(),pile=[];
-const visible=n=>!n.de.length||n.de.some(p=>ouvert.has(p)&&visible(byId[p]));
+let espace=Q.get('espace')||C.espace||'anatomie';
+const visible=n=>(!n.espace||n.espace===espace)&&(!n.de.length||n.de.some(p=>ouvert.has(p)&&visible(byId[p])));
 function replier(id){ouvert.delete(id);for(const c of byId[id].enf)replier(c);}
-for(const n of N)n.el.onclick=()=>{if(!n.enf.length&&!n.aFen)return;if(ouvert.has(n.id))replier(n.id);else{ouvert.add(n.id);pile.push(n.id);}dessiner();};
+for(const n of N)n.el.onclick=()=>{if(n.fenetre){ouvrirFenetre(n.fenetre,n.texte,n.couleur);return;}if(!n.enf.length&&!n.aFen)return;if(ouvert.has(n.id))replier(n.id);else{ouvert.add(n.id);pile.push(n.id);}dessiner();};
 let tmr=null;repli.onclick=()=>{clearTimeout(tmr);tmr=setTimeout(()=>{while(pile.length){const id=pile.pop();if(ouvert.has(id)){replier(id);break;}}dessiner();},240);};
 repli.ondblclick=()=>{clearTimeout(tmr);ouvert.clear();pile.length=0;dessiner();};
 /* ---------- traits : horizontale (ou oblique) puis verticale qui groupe ---------- */
@@ -115,24 +121,35 @@ const bordX=(n,versDroite)=>versDroite?n.x+n.w/2:n.x-n.w/2;
 const seg=(pts,col,w=2)=>{x.strokeStyle=col;x.lineWidth=w;x.lineJoin='round';x.beginPath();x.moveTo(...pts[0]);for(const p of pts.slice(1))x.lineTo(...p);x.stroke();};
 const pointe=(b,dir,col)=>{x.fillStyle=col;x.beginPath();x.moveTo(...b);x.lineTo(b[0]-9*dir,b[1]-5);x.lineTo(b[0]-9*dir,b[1]+5);x.fill();};
 const noeudRond=(p,col)=>{x.fillStyle=col;x.beginPath();x.arc(...p,3.2,0,7);x.fill();};
+let COLc=0,decal=0,oy=0;
+function recadrer(dRv,dLv){const cible=+(C.largeurColonne||170),bodyW=Rr-L,needR=(dRv+1)*(cible+G),needL=(dLv+1)*(cible+G),dispo=W-24-bodyW;
+ let gauche=needR+needL<=dispo?12+needL+(dispo-needL-needR)/2:12+dispo*needL/Math.max(1,needL+needR);
+ const centreVoulu=gauche+bodyW/2,centre=(L+Rr)/2,dpx=centreVoulu-centre;if(Math.abs(dpx)<4)return;
+ const p0=proj(new THREE.Vector3(T[0],T[1],T[2])),p1=proj(new THREE.Vector3(T[0]+100,T[1],T[2])),pxmm=(p1[0]-p0[0])/100;decal-=dpx/pxmm;
+ cam.position.x=T[0]+decal;cam.lookAt(T[0]+decal,T[1],T[2]);cam.updateMatrixWorld();R.render(S,cam);L+=dpx;Rr+=dpx;
+ for(const n of N)if(n.organe)n.o=n.ancre?proj(new THREE.Vector3(...n.ancre)):centre2(n.organe);document.documentElement.style.setProperty('--cx',((L+Rr)/2/W*100)+'%');}
 function disposer(){
+const visN=N.filter(visible),dRv=Math.max(-1,...visN.filter(n=>n.cote==='d').map(n=>n._c)),dLv=Math.max(-1,...visN.filter(n=>n.cote==='g').map(n=>n._c));if(!Q.get('cx'))recadrer(dRv,dLv);
+const fitc=(place,d)=>d<0?1e9:(place-G*(d+1))/(d+1);const col=Math.round(Math.max(118,Math.min(+(Q.get('col')||C.largeurColonne||190),fitc(W-12-Rr,dRv),fitc(L-12,dLv))));
+if(col!==COLc){COLc=col;N.forEach(n=>n.el.style.setProperty('--w',col+'px'));}
+for(const n of N){n.el.style.minHeight='';n.w=n.el.offsetWidth;n.h=n.el.offsetHeight;const pas=(col+G)*n._c;n.x=n.cote==='d'?Rr+G+pas+col/2:L-G-pas-col/2;}
 /* frères : même hauteur (symétrie du groupe) */
 const grp={};N.filter(n=>n.de.length===1).forEach(n=>(grp[n.de[0]]??=[]).push(n));
 for(const f of Object.values(grp)){const h=Math.max(...f.map(n=>n.h));f.forEach(n=>{n.el.style.minHeight=h+'px';n.h=n.el.offsetHeight;});}
 const GF=C.ecartFreres??10,GC=C.ecartCousins??22,haut=96,bas=H-16;
 const fils=n=>ouvert.has(n.id)?n.enf.map(i=>byId[i]).filter(c=>c&&c.de.length===1&&visible(c)):[];
-const ecart=ks=>ks.some(k=>fils(k).length)?GC:GF;
-const span=n=>{const ks=fils(n);if(!ks.length)return n.h;return Math.max(n.h,ks.reduce((s,k)=>s+span(k),0)+ecart(ks)*(ks.length-1));};
-const poser=(n,cy,acc)=>{n.y=cy;acc&&acc.push(n);const ks=fils(n);if(!ks.length)return;const g=ecart(ks);const tot=ks.reduce((s,k)=>s+span(k),0)+g*(ks.length-1);let y=cy-tot/2;for(const k of ks){poser(k,y+span(k)/2,acc);y+=span(k)+g;}};
-const recaler=arbre=>{const t=Math.min(...arbre.map(m=>m.y-m.h/2)),bt=Math.max(...arbre.map(m=>m.y+m.h/2));const d=t<haut?haut-t:(bt>bas?bas-bt:0);if(d)arbre.forEach(m=>m.y+=d);};
+const ecart=ks=>GF;const gapEntre=(a,b)=>(fils(a).length||fils(b).length)?GC:GF;
+const span=n=>{const ks=fils(n);if(!ks.length)return n.h;let t=0;ks.forEach((k,i)=>{t+=span(k)+(i?gapEntre(ks[i-1],k):0);});return Math.max(n.h,t);};
+const poser=(n,cy,acc)=>{n.y=cy;acc&&acc.push(n);const ks=fils(n);if(!ks.length)return;let tot=0;ks.forEach((k,i)=>{tot+=span(k)+(i?gapEntre(ks[i-1],k):0);});let y=cy-tot/2;ks.forEach((k,i)=>{if(i)y+=gapEntre(ks[i-1],k);poser(k,y+span(k)/2,acc);y+=span(k);});};
+const recaler=arbre=>{const t=Math.min(...arbre.map(m=>m.y-m.h/2)),bt=Math.max(...arbre.map(m=>m.y+m.h/2));const d=(bt-t>bas-haut)?haut-t:(t<haut?haut-t:(bt>bas?bas-bt:0));if(d)arbre.forEach(m=>m.y+=d);};
 /* racines : à hauteur de leur organe ; poussées seulement si deux racines d'une même colonne se gênent */
 const racines=N.filter(n=>!n.de.length);
 for(const cote of['g','d']){const rs=racines.filter(r=>r.cote===cote).sort((a,b)=>(a.y0??a.o?.[1]??0)-(b.y0??b.o?.[1]??0));
- let bas0=-1e9;for(const r of rs){const sp=span(r),cy=Math.max(r.y0??r.o?.[1]??H/2,bas0+GC+sp/2);const arbre=[];poser(r,cy,arbre);recaler(arbre);bas0=Math.max(...arbre.filter(m=>m._c===0).map(m=>m.y+m.h/2));}}
+ let bas0=-1e9;for(const r of rs){const cy=Math.max(r.y0??r.o?.[1]??H/2,bas0+GF+r.h/2);const arbre=[];poser(r,cy,arbre);recaler(arbre);bas0=Math.max(...arbre.filter(m=>m._c===0).map(m=>m.y+m.h/2));}}
 /* entités convergentes : à la hauteur moyenne de leurs parents, puis leur propre arbre */
 for(const n of N.filter(n=>n.de.length>1&&visible(n)).sort((a,b)=>a._p-b._p)){const ps=n.de.map(p=>byId[p]).filter(p=>ouvert.has(p.id)&&visible(p));const arbre=[];poser(n,n.y0??ps.reduce((s,p)=>s+p.y,0)/ps.length,arbre);recaler(arbre);}
 N.forEach(n=>{if(n.y0&&n.de.length===1&&!fils(n).length)n.y=n.y0;});
-N.forEach(n=>{n.el.style.left=(n.x-n.w/2)+'px';n.el.style.top=n.y+'px';});
+N.forEach(n=>{if(n.de.length)n.y+=oy;n.el.style.left=(n.x-n.w/2)+'px';n.el.style.top=n.y+'px';});
 }
 function dessiner(){disposer();x.clearRect(0,0,W,H);const trait=getComputedStyle(document.documentElement).getPropertyValue('--trait').trim();
  for(const n of N){n.el.classList.toggle('cache',!visible(n));n.el.classList.toggle('ouvert',ouvert.has(n.id));}
@@ -156,10 +173,11 @@ function dessiner(){disposer();x.clearRect(0,0,W,H);const trait=getComputedStyle
  for(const f of C.fenetres||[]){const p=byId[f.de];if(!(ouvert.has(p.id)&&vis(p)))continue;const col=p.couleur||trait;
   if(p.y<f.y){const xs=Math.min(Math.max(p.x,f.x+24),f.x+f.w-24);seg([[xs,p.y+p.h/2],[xs,f.y]],col,2.2);x.fillStyle=col;x.beginPath();x.moveTo(xs,f.y);x.lineTo(xs-5,f.y-9);x.lineTo(xs+5,f.y-9);x.fill();}
   else{seg([[bordX(p,true),p.y],[f.x,p.y]],col,2.2);pointe([f.x,p.y],1,col);}}}
+if(Q.get('ouvrir'))Q.get('ouvrir').split(',').forEach(i=>ouvert.add(i));
 if(Q.has('tout'))for(const n of N)if((n.enf.length||n.aFen)&&!(Q.get('sauf')||'').split(',').includes(n.id))ouvert.add(n.id);
 
 /* ---------- infobulle symétrique : 4 rubriques fixes, une phrase verbale chacune ---------- */
-const RUB=[['def','Ce que c\'est'],['pourquoi','Pourquoi ici'],['confusion','Confusion possible'],['retenir','À retenir']];
+const RUBS=Object.assign({semiologie:[['def','Ce que c\'est'],['pourquoi','Pourquoi ici'],['confusion','Confusion possible'],['retenir','À retenir']]},C.rubriques||{});
 let audio=null;const jouer=src=>{try{if(audio)audio.pause();audio=new Audio(src);audio.play();}catch(e){}};
 const GLO=C.glossaire||{};const GK=Object.keys(GLO).sort((a,b)=>b.length-a.length);
 const GRE=GK.length?new RegExp('(^|[^\\wÀ-ÿ\\-])('+GK.map(t=>t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')(?![\\wÀ-ÿ])','g'):null;
@@ -169,7 +187,7 @@ const VIS=[['diagnostique','Diagnostique'],['retentissement','Extension et reten
 let lentille=Q.get('lentille')||'';const LEN=C.lentilles||[];
 function montrer(n){if(!n.bulle||n.el.classList.contains('cache'))return;bulle.style.setProperty('--c',n.couleur||'#888');const B=n.bulle;
  const pl=lentille&&n.particularites&&n.particularites[lentille];const ln=LEN.find(l=>l.id===lentille);
- const rub='<h4>'+n.texte+'</h4><dl>'+RUB.map(([k,l])=>'<dt>'+l+'</dt><dd>'+(B[k]||'Aucune confusion fréquente.')+'</dd>').join('')
+ const RUB=RUBS[n.espace]||RUBS[n.rubriques]||RUBS.semiologie;const rub='<h4>'+n.texte+'</h4><dl>'+RUB.filter(([k])=>B[k]!==undefined).map(([k,l])=>'<dt>'+l+'</dt><dd>'+(B[k]||'Aucune confusion fréquente.')+'</dd>').join('')
   +(pl?'<dt style="color:'+ln.couleur+'">Particularité · '+ln.nom+'</dt><dd style="border-left:3px solid '+ln.couleur+';padding-left:6px">'+pl+'</dd>':'')+'</dl>';
  const sup=x=>'<span class=terme data-def="'+esc(x[1])+'">'+x[0]+'</span>';
  const bil=B.bilan?'<h5 class=sec>Bilan</h5>'+VIS.filter(([k])=>B.bilan[k]).map(([k,l])=>'<div class=vis><b>'+l+'</b>'+Object.entries(B.bilan[k]).map(([g,xs])=>'<div class=grp>› '+g+' : '+xs.map(sup).join(', ')+'</div>').join('')+'</div>').join(''):'';
@@ -183,5 +201,11 @@ lent.innerHTML='<option value="">Lentille : aucune</option>'+LEN.map(l=>'<option
 function appliquerLentille(){for(const n of N){const a=lentille&&n.particularites&&n.particularites[lentille];n.el.classList.toggle('terne',!!lentille&&!a);let p=n.el.querySelector('.pastille');if(p)p.remove();
  if(a){p=document.createElement('span');p.className='pastille';p.style.background=LEN.find(l=>l.id===lentille).couleur;n.el.appendChild(p);}}}
 lent.onchange=()=>{lentille=lent.value;appliquerLentille();};appliquerLentille();if(!LEN.length)lent.style.display='none';
+const ESP=[['anatomie','Anatomie'],['physiologie','Physiologie'],['semiologie','Sémiologie'],['physiopathologie','Physiopathologie']];
+espaces.innerHTML=ESP.map(([k,l])=>'<button data-e="'+k+'">'+l+'</button>').join('');
+const majEsp=()=>espaces.querySelectorAll('button').forEach(b=>b.classList.toggle('actif',b.dataset.e===espace));
+espaces.querySelectorAll('button').forEach(b=>b.onclick=()=>{espace=b.dataset.e;majEsp();dessiner();});majEsp();
+if(Q.get('fenetre')){const n=byId[Q.get('fenetre')];setTimeout(()=>ouvrirFenetre(n.fenetre,n.texte,n.couleur),0);}
+addEventListener('wheel',e=>{if(e.target.closest('#bulle,#fdet'))return;oy-=e.deltaY*0.6;dessiner();},{passive:true});
 setTheme();if(Q.get('bulle'))montrer(byId[Q.get('bulle')]);document.title='PRET';
 </script></body></html>

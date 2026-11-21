@@ -21,6 +21,6 @@
 | Les 101 examens témoins sont présents | ✅ |  |
 | Chaque prélèvement liste ses examens | ✅ |  |
 
-**Couverture :** regions : 9 · organes : 64 · prelevements : 23 · Imagerie : 222 · Biologie : 193 · Exploration fonctionnelle : 104 · Endoscopie : 32 · Anatomopathologie / biopsie : 50
+**Couverture :** regions : 9 · organes : 66 · prelevements : 23 · Imagerie : 230 · Biologie : 197 · Exploration fonctionnelle : 105 · Endoscopie : 33 · Anatomopathologie / biopsie : 51
 
-- Organes du catalogue non rattachés à un système (navigation topographique seule) : aucun.
+- Organes du catalogue non rattachés à un système (navigation topographique seule) : Corps entier (bilan d'extension et trauma).

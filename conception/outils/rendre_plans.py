@@ -84,6 +84,12 @@ def rendre(p, audit):
         S.append(("semiologie", "Infobulles symétriques, seuils de signes et sons réels",
                   f"<p>{E(sm['infobulle']['regle'])}</p>" + table([{"r": a, "c": b} for a, b in sm["infobulle"]["rubriques"]], [("r", "Rubrique"), ("c", "Contenu attendu")])
                   + f"<p>{E(sm['infobulle']['symetrie'])}</p><p><b>Glossaire :</b> {E(sm['glossaire'])}</p><p><b>Typiques et atypiques :</b> {E(sm['typiqueAtypique'])}</p><p><b>Bilan :</b> {E(sm['bilan'])}</p><h4>Seuils</h4>{liste(sm['seuils'])}<h4>Sons</h4><p>{E(sm['sons']['regle'])}</p>{liste(sm['sons']['catalogue'])}<p>{E(sm['sons']['source'])}</p>"))
+    if p.get("systemesOrganes"):
+        so = p["systemesOrganes"]
+        S.append(("systemesOrganes", "Systèmes et organes : tout le système, organe par organe", f"<p>{E(so['regle'])}</p><p>{E(so['motsCles'])}</p><p>{E(so['concision'])}</p>"
+            + f"<p><b>Anatomie :</b> {E(', '.join(so['anatomie']))}<br><b>Physiologie :</b> {E(', '.join(so['physiologie']))}</p>"
+            + table([{"s": x["systeme"], "n": len(x["organes"]), "o": " · ".join(x["organes"])} for x in so["systemes"]], [("s", "Système"), ("n", "N"), ("o", "Organes, de haut en bas")])
+            + "<h4>Aspects ajoutés</h4>" + liste(so["ajouts"]) + "<h4>Propositions</h4>" + liste(so["propositions"])))
     if p.get("neuro"):
         S.append(("neuro", "Système nerveux : syndromes majeurs à identifier", "<p>Le système nerveux concentre le travail le plus lourd : chaque syndrome ci-dessous reçoit son circuit complet (signes par temps d'examen, symptômes, infobulles, examens, diagnostics).</p>" + liste(p["neuro"])))
     if p.get("mnemonique"):

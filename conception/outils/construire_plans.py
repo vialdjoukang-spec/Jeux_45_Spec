@@ -349,6 +349,36 @@ PARACLINIQUE["decisions"][:0] = [
 PARACLINIQUE["donnees"].append({"fichier": "paraclinique/topographie/<region>/<organe>.json", "role": "Examens de l'organe, toutes modalités", "champs": ["nom", "modalite", "visees[]", "discriminant", "avantageSelectif", "plutotQue", "limite", "referencePour[]", "smarterMedicine", "bulle"], "producteur": "Script (liste) + IA (textes)", "volume": "64 organes"})
 PARACLINIQUE["prototype"]["images"] = ["prototypes/paraclinique.png"]
 
+# ---------- Systèmes → TOUS leurs organes ; espaces ; mots-clés → fenêtres 3D et courbes ----------
+from systemes import SYSTEMES as SYS_O, VOLETS_ANATOMIE, VOLETS_PHYSIOLOGIE
+TETRADE["systemesOrganes"] = {
+    "regle": "Un système déroule TOUS ses organes : le trait horizontal né du corps rejoint le système, puis une longue verticale liste chaque organe de haut en bas. Le clic sur un organe déplie l'espace actif (anatomie, physiologie, sémiologie, physiopathologie).",
+    "anatomie": VOLETS_ANATOMIE, "physiologie": VOLETS_PHYSIOLOGIE,
+    "motsCles": "Chaque mot-clé d'un volet ouvre une fenêtre : en anatomie, l'image 3D réelle de la structure ; en physiologie, la courbe, le tracé ou le calculateur interactif (ex. poumon : Henderson-Hasselbalch, courbe de dissociation de l'hémoglobine, équation des gaz alvéolaires, lecture des gaz du sang, boucle débit-volume).",
+    "concision": "La case ne porte qu'un nom court ; la définition va dans l'infobulle ; la courbe et le calcul vont dans la fenêtre.",
+    "systemes": [{"systeme": k, "organes": [o for o, _, _ in v]} for k, v in SYS_O.items()],
+    "ajouts": ["Rapports et projections (anatomie de surface, repères d'examen)", "Embryologie et variantes (malformations, variantes normales)",
+               "Régulation (nerveuse, hormonale, locale)", "Lois physiques et biochimie (Laplace, Poiseuille, Fick, Starling, Henderson-Hasselbalch)",
+               "Intégration avec les autres organes (poumon et rein pour l'acide-base, cœur et rein pour la volémie)",
+               "Valeurs normales en unités SI suisses (gaz du sang en kPa) et effet de l'altitude (La Chaux-de-Fonds ≈ 1000 m)"],
+    "propositions": ["Variations selon l'âge (nouveau-né, grossesse, sujet âgé) servies par les lentilles", "Pharmacologie de l'organe : renvoi vers VIT DIT CAFé et les cibles",
+                     "Histologie réelle (lames virtuelles libres) dans la fenêtre de microscopie", "Exercice « calcule » généré depuis chaque calculateur (0 token)"]}
+for e in TETRADE["ecrans"]:
+    if e["id"] == "E2":
+        e.update(zones=["Mannequin 3D, glissé du côté opposé au développement", "Trait horizontal vers le système, puis verticale longue : TOUS les organes de haut en bas", "Onglets des 4 espaces"],
+                 regleLocale="Un système n'est jamais réduit à un organe : la liste vient de systemes.py, et l'audit refuse un système incomplet.",
+                 exemple="Cardiovasculaire : cœur, péricarde, aorte thoracique, troncs supra-aortiques, artères pulmonaires, veines pulmonaires, veines caves, aorte abdominale, système porte, artères et veines des membres, microcirculation, système lymphatique.")
+    if e["id"] == "E5":
+        e.update(zones=["Volets : " + ", ".join(VOLETS_PHYSIOLOGIE), "Mots-clés du simple au complexe", "Fenêtre de courbe ou de calculateur, curseurs réglables"],
+                 interactions=["Clic sur un volet : ses mots-clés apparaissent", "Clic sur un mot-clé : la fenêtre s'ouvre ; les curseurs déplacent la courbe", "Survol : définition et point à retenir"],
+                 regleLocale="Une courbe se calcule (modèle réel) ; elle ne se dessine jamais à la main.",
+                 exemple="Poumon → Lois physiques → Courbe de dissociation : le curseur pH déplace la P50 (effet Bohr).")
+TETRADE["decisions"].insert(0, {"question": "Qu'est-ce qu'un système dans la Tétrade ?", "choix": TETRADE["systemesOrganes"]["regle"], "raison": "En sciences fondamentales, on épluche chaque organe du système ; un système réduit au cœur fausserait la représentation."})
+TETRADE["donnees"] += [
+    {"fichier": "tetrade/<systeme>/organes.json", "role": "Liste ordonnée des organes du système (haut → bas), ancre 3D et renvois topographiques", "champs": ["organe", "ancre3D", "topo[]", "statut"], "producteur": "Script depuis systemes.py", "volume": "1 fichier par système"},
+    {"fichier": "tetrade/<systeme>/organes/<organe>.json", "role": "Organe déplié par espace : anatomie (6 volets), physiologie (5 volets) ; mots-clés avec fenêtre", "champs": ["anatomie{volet: [motCle, texte, fenetre]}", "physiologie{volet: [motCle, texte, fenetre]}", "bulle", "glossaire"], "producteur": "Script (squelette) + IA (textes)", "volume": "123 organes"}]
+TETRADE["prototype"]["images"] += ["prototypes/tetrade_systeme_anatomie.png", "prototypes/tetrade_physiologie_courbe.png", "prototypes/tetrade_gaz_du_sang.png"]
+
 os.makedirs(os.path.join(ICI, "plans"), exist_ok=True)
 for p in (TETRADE, PHARMACO, PARACLINIQUE):
     json.dump(p, open(os.path.join(ICI, "plans", f"{p['id']}.plan.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)

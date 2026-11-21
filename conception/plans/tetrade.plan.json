@@ -230,6 +230,11 @@
  ],
  "decisions": [
   {
+   "question": "Qu'est-ce qu'un système dans la Tétrade ?",
+   "choix": "Un système déroule TOUS ses organes : le trait horizontal né du corps rejoint le système, puis une longue verticale liste chaque organe de haut en bas. Le clic sur un organe déplie l'espace actif (anatomie, physiologie, sémiologie, physiopathologie).",
+   "raison": "En sciences fondamentales, on épluche chaque organe du système ; un système réduit au cœur fausserait la représentation."
+  },
+  {
    "question": "Dans quel sens se développe l'arbre ?",
    "choix": "Le côté du premier trait décide du sens : si le trait horizontal né du corps rejoint une case à droite, tout le développement de cette case se fait vers la droite ; s'il rejoint une case à gauche, il se fait vers la gauche ; le corps glisse vers le côté opposé pour laisser la place.",
    "raison": "Le regard suit le trait né du corps ; un développement qui change de côté casserait la lecture."
@@ -310,10 +315,9 @@
    "nom": "Page d'un système",
    "but": "Voir la structure et lancer un réseau",
    "zones": [
-    "Mannequin 3D au centre, organes du système surlignés",
-    "Cadre du système, relié aux organes par des courbes",
-    "Barre des 4 boutons de la tétrade",
-    "Mini-carte et légende"
+    "Mannequin 3D, glissé du côté opposé au développement",
+    "Trait horizontal vers le système, puis verticale longue : TOUS les organes de haut en bas",
+    "Onglets des 4 espaces"
    ],
    "interactions": [
     "Rotation à 360° par glisser",
@@ -321,8 +325,8 @@
     "Clic sur un organe : fiche d'organe",
     "Clic sur un bouton : affiche ou masque son calque"
    ],
-   "regleLocale": "Tu fais tourner le mannequin, puis tu actives un seul calque à la fois pour garder la toile lisible.",
-   "exemple": "Le calque Sémiologie fait apparaître les temps de l'examen cardiaque autour du cadre."
+   "regleLocale": "Un système n'est jamais réduit à un organe : la liste vient de systemes.py, et l'audit refuse un système incomplet.",
+   "exemple": "Cardiovasculaire : cœur, péricarde, aorte thoracique, troncs supra-aortiques, artères pulmonaires, veines pulmonaires, veines caves, aorte abdominale, système porte, artères et veines des membres, microcirculation, système lymphatique."
   },
   {
    "id": "E3",
@@ -369,16 +373,17 @@
    "nom": "Réseau de physiologie",
    "but": "Comprendre la fonction",
    "zones": [
-    "Points de départ : les fonctions et régulations du système",
-    "Schéma de chaque fonction",
-    "Valeurs normales en unités SI suisses"
+    "Volets : Paramètres simples, Régulation, Lois physiques et biochimie, Intégration avec les autres organes, Valeurs normales (unités SI)",
+    "Mots-clés du simple au complexe",
+    "Fenêtre de courbe ou de calculateur, curseurs réglables"
    ],
    "interactions": [
-    "Clic sur une fonction : surligne les organes qui la portent",
-    "Survol d'une valeur : sa signification"
+    "Clic sur un volet : ses mots-clés apparaissent",
+    "Clic sur un mot-clé : la fenêtre s'ouvre ; les curseurs déplacent la courbe",
+    "Survol : définition et point à retenir"
    ],
-   "regleLocale": "Tu pars d'une fonction et tu vois quels organes la portent.",
-   "exemple": "Débit cardiaque = fréquence cardiaque × volume d'éjection systolique."
+   "regleLocale": "Une courbe se calcule (modèle réel) ; elle ne se dessine jamais à la main.",
+   "exemple": "Poumon → Lois physiques → Courbe de dissociation : le curseur pH déplace la P50 (effet Bohr)."
   },
   {
    "id": "E6",
@@ -717,6 +722,30 @@
    ],
    "producteur": "Script (modèles 3D) + IA (textes)",
    "volume": "1 fichier par système"
+  },
+  {
+   "fichier": "tetrade/<systeme>/organes.json",
+   "role": "Liste ordonnée des organes du système (haut → bas), ancre 3D et renvois topographiques",
+   "champs": [
+    "organe",
+    "ancre3D",
+    "topo[]",
+    "statut"
+   ],
+   "producteur": "Script depuis systemes.py",
+   "volume": "1 fichier par système"
+  },
+  {
+   "fichier": "tetrade/<systeme>/organes/<organe>.json",
+   "role": "Organe déplié par espace : anatomie (6 volets), physiologie (5 volets) ; mots-clés avec fenêtre",
+   "champs": [
+    "anatomie{volet: [motCle, texte, fenetre]}",
+    "physiologie{volet: [motCle, texte, fenetre]}",
+    "bulle",
+    "glossaire"
+   ],
+   "producteur": "Script (squelette) + IA (textes)",
+   "volume": "123 organes"
   }
  ],
  "exercices": [
@@ -902,7 +931,10 @@
    "prototypes/tetrade.png",
    "prototypes/tetrade_survol_bilan.png",
    "prototypes/tetrade_gauche.png",
-   "prototypes/anatomie_fenetre_coeur.png"
+   "prototypes/anatomie_fenetre_coeur.png",
+   "prototypes/tetrade_systeme_anatomie.png",
+   "prototypes/tetrade_physiologie_courbe.png",
+   "prototypes/tetrade_gaz_du_sang.png"
   ]
  },
  "blocages": [
@@ -1414,6 +1446,235 @@
    ]
   ],
   "regle": "Un onglet « Disciplines transversales » réunit deux familles : les outils de la médecine (19 disciplines, une lettre de A à S, chaque lettre ouvre ses sous-onglets et ses leçons) et les lentilles cliniques, qui filtrent les zones communes pour n'y montrer que ce qui est propre à la discipline."
+ },
+ "systemesOrganes": {
+  "regle": "Un système déroule TOUS ses organes : le trait horizontal né du corps rejoint le système, puis une longue verticale liste chaque organe de haut en bas. Le clic sur un organe déplie l'espace actif (anatomie, physiologie, sémiologie, physiopathologie).",
+  "anatomie": [
+   "Macroscopie",
+   "Microscopie",
+   "Vascularisation",
+   "Innervation",
+   "Rapports et projections",
+   "Embryologie et variantes"
+  ],
+  "physiologie": [
+   "Paramètres simples",
+   "Régulation",
+   "Lois physiques et biochimie",
+   "Intégration avec les autres organes",
+   "Valeurs normales (unités SI)"
+  ],
+  "motsCles": "Chaque mot-clé d'un volet ouvre une fenêtre : en anatomie, l'image 3D réelle de la structure ; en physiologie, la courbe, le tracé ou le calculateur interactif (ex. poumon : Henderson-Hasselbalch, courbe de dissociation de l'hémoglobine, équation des gaz alvéolaires, lecture des gaz du sang, boucle débit-volume).",
+  "concision": "La case ne porte qu'un nom court ; la définition va dans l'infobulle ; la courbe et le calcul vont dans la fenêtre.",
+  "systemes": [
+   {
+    "systeme": "Cardiovasculaire",
+    "organes": [
+     "Cœur",
+     "Péricarde",
+     "Aorte thoracique et crosse",
+     "Troncs supra-aortiques (carotides, vertébrales, sous-clavières)",
+     "Tronc et artères pulmonaires",
+     "Veines pulmonaires",
+     "Veines caves",
+     "Aorte abdominale et artères viscérales",
+     "Système porte",
+     "Artères des membres",
+     "Veines des membres",
+     "Microcirculation (artérioles, capillaires, veinules, endothélium)",
+     "Système lymphatique"
+    ]
+   },
+   {
+    "systeme": "Respiratoire",
+    "organes": [
+     "Fosses nasales et sinus",
+     "Pharynx",
+     "Larynx",
+     "Trachée",
+     "Bronches et bronchioles",
+     "Poumons (lobes, segments, acinus)",
+     "Circulation pulmonaire",
+     "Plèvre",
+     "Diaphragme et muscles respiratoires",
+     "Paroi thoracique",
+     "Centres respiratoires et chémorécepteurs"
+    ]
+   },
+   {
+    "systeme": "Neurologique",
+    "organes": [
+     "Méninges et LCR",
+     "Hémisphères cérébraux (lobes, cortex)",
+     "Noyaux gris centraux et thalamus",
+     "Système limbique et hypothalamus",
+     "Tronc cérébral",
+     "Cervelet",
+     "Nerfs crâniens (I à XII)",
+     "Vascularisation cérébrale (polygone de Willis, sinus veineux)",
+     "Moelle épinière",
+     "Racines et plexus",
+     "Nerfs périphériques",
+     "Jonction neuromusculaire",
+     "Système nerveux autonome"
+    ]
+   },
+   {
+    "systeme": "Psyché (psychiatrie)",
+    "organes": [
+     "Fonctions cognitives (attention, mémoire, fonctions exécutives)",
+     "Perception et pensée",
+     "Affects et humeur",
+     "Pulsions, motivation et comportement",
+     "Conscience de soi et personnalité",
+     "Sommeil et vigilance",
+     "Circuits de la récompense et addictions"
+    ]
+   },
+   {
+    "systeme": "Endocrinien & métabolique",
+    "organes": [
+     "Hypothalamus et hypophyse",
+     "Épiphyse",
+     "Thyroïde",
+     "Parathyroïdes",
+     "Thymus",
+     "Pancréas endocrine",
+     "Surrénales",
+     "Gonades (ovaires, testicules)",
+     "Tissu adipeux et métabolisme énergétique",
+     "Métabolisme phosphocalcique et osseux"
+    ]
+   },
+   {
+    "systeme": "Digestif & hépatobiliaire",
+    "organes": [
+     "Cavité buccale et glandes salivaires",
+     "Pharynx",
+     "Œsophage",
+     "Estomac",
+     "Duodénum",
+     "Foie",
+     "Vésicule et voies biliaires",
+     "Pancréas exocrine",
+     "Jéjunum et iléon",
+     "Côlon",
+     "Rectum et canal anal",
+     "Péritoine",
+     "Vascularisation digestive et système porte"
+    ]
+   },
+   {
+    "systeme": "Rénal & uro-génital",
+    "organes": [
+     "Reins (néphron, glomérule, tubule)",
+     "Uretères",
+     "Vessie",
+     "Urètre",
+     "Prostate et vésicules séminales",
+     "Testicules, épididymes et voies spermatiques"
+    ]
+   },
+   {
+    "systeme": "Hématologique & oncologique",
+    "organes": [
+     "Moelle osseuse (hématopoïèse)",
+     "Sang : globules rouges",
+     "Sang : globules blancs",
+     "Plaquettes et hémostase",
+     "Rate",
+     "Ganglions lymphatiques",
+     "Thymus"
+    ]
+   },
+   {
+    "systeme": "Infectieux & immunitaire",
+    "organes": [
+     "Barrières (peau, muqueuses, microbiote)",
+     "Immunité innée",
+     "Immunité adaptative (lymphocytes B et T)",
+     "Complément",
+     "Organes lymphoïdes (moelle, thymus, rate, ganglions, MALT)"
+    ]
+   },
+   {
+    "systeme": "Locomoteur & rhumatologique",
+    "organes": [
+     "Crâne et face",
+     "Rachis",
+     "Ceinture scapulaire et épaule",
+     "Coude, poignet et main",
+     "Bassin et hanche",
+     "Genou",
+     "Cheville et pied",
+     "Os (tissu osseux)",
+     "Articulations et synoviale",
+     "Muscles striés squelettiques",
+     "Tendons, ligaments et bourses"
+    ]
+   },
+   {
+    "systeme": "Dermatologique",
+    "organes": [
+     "Épiderme",
+     "Derme et hypoderme",
+     "Annexes : poils et cheveux",
+     "Annexes : ongles",
+     "Glandes sudorales et sébacées",
+     "Muqueuses"
+    ]
+   },
+   {
+    "systeme": "Ophtalmologique & ORL",
+    "organes": [
+     "Paupières et voies lacrymales",
+     "Globe oculaire (cornée, cristallin, rétine)",
+     "Voies optiques",
+     "Oreille externe et moyenne",
+     "Oreille interne (cochlée, vestibule)",
+     "Nez et sinus",
+     "Cavité buccale et pharynx",
+     "Larynx",
+     "Glandes salivaires"
+    ]
+   },
+   {
+    "systeme": "Gynéco-obstétrical",
+    "organes": [
+     "Seins",
+     "Ovaires",
+     "Trompes",
+     "Utérus et col",
+     "Vagin et vulve",
+     "Plancher pelvien",
+     "Placenta et unité fœto-placentaire"
+    ]
+   },
+   {
+    "systeme": "Pédiatrique (croissance et développement)",
+    "organes": [
+     "Croissance staturo-pondérale",
+     "Développement psychomoteur",
+     "Puberté",
+     "Adaptation néonatale (vie extra-utérine)",
+     "Génétique et dysmorphies"
+    ]
+   }
+  ],
+  "ajouts": [
+   "Rapports et projections (anatomie de surface, repères d'examen)",
+   "Embryologie et variantes (malformations, variantes normales)",
+   "Régulation (nerveuse, hormonale, locale)",
+   "Lois physiques et biochimie (Laplace, Poiseuille, Fick, Starling, Henderson-Hasselbalch)",
+   "Intégration avec les autres organes (poumon et rein pour l'acide-base, cœur et rein pour la volémie)",
+   "Valeurs normales en unités SI suisses (gaz du sang en kPa) et effet de l'altitude (La Chaux-de-Fonds ≈ 1000 m)"
+  ],
+  "propositions": [
+   "Variations selon l'âge (nouveau-né, grossesse, sujet âgé) servies par les lentilles",
+   "Pharmacologie de l'organe : renvoi vers VIT DIT CAFé et les cibles",
+   "Histologie réelle (lames virtuelles libres) dans la fenêtre de microscopie",
+   "Exercice « calcule » généré depuis chaque calculateur (0 token)"
+  ]
  },
  "auditConception": [
   {
