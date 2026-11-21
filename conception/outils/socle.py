@@ -7,6 +7,7 @@ PRINCIPES = [
     "Le contenu vit dans des fichiers JSON ; le code ne contient aucune donnée médicale.",
     "Un seul moteur d'affichage sert tous les systèmes, prélèvements ou régions : on ajoute des données, jamais de code.",
     "Chaque réseau est un graphe (nœuds typés + liens typés) ; la toile zoomable de style Obsidian le dessine.",
+    "Aucune image n'est en SVG : le corps vient de vrais modèles 3D (BodyParts3D, Z-Anatomy), les clichés et photos viennent du web ; les organes génitaux externes sont toujours occultés.",
     "L'IA rédige une fois la source de vérité ; les scripts en tirent gratuitement les exercices, les calculs et les courbes.",
     "REJECTOR_ vérifie le fond de chaque source avant que le moindre exercice en dérive.",
     "Tout se replie par défaut ; l'utilisateur déplie un circuit à la fois, ce qui protège la lisibilité.",
@@ -17,18 +18,20 @@ PRINCIPES = [
 ARCHITECTURE = [
     {"couche": "1. Source de vérité", "contenu": "Graphe JSON par unité (système, prélèvement, région ou exploration) et fiches de nœuds", "producteur": "IA (API Batch + cache), puis REJECTOR_", "cout": "Payé une fois"},
     {"couche": "2. Dérivés calculés", "contenu": "Exercices, calculateurs, courbes pharmacocinétiques, index de recherche", "producteur": "Scripts Python", "cout": "0 token"},
-    {"couche": "3. Affichage", "contenu": "Toile zoomable (graphe), mannequin 3D, fenêtres de détail", "producteur": "Un seul moteur (TypeScript + three.js + SVG)", "cout": "Écrit une fois"},
+    {"couche": "3. Affichage", "contenu": "Toile zoomable (graphe), mannequin 3D, fenêtres de détail", "producteur": "Un seul moteur (TypeScript + three.js + canvas 2D, sans SVG)", "cout": "Écrit une fois"},
     {"couche": "4. Pratique", "contenu": "Arène, aventure, examen blanc (A, K', menus longs)", "producteur": "Moteur du jeu Jeux_45_Spec", "cout": "Partagé avec le jeu"},
 ]
 
 TOILE = {
-    "moteur": "SVG pour les liens (courbes de Bézier), HTML pour les nœuds, three.js pour le mannequin ; pan + zoom à la molette ; mini-carte en bas à gauche",
+    "moteur": "three.js pour le mannequin 3D réel ; canvas 2D pour les liens de style Obsidian (courbes de Bézier aux tangentes horizontales, sortie par un côté du nœud, flèche à l'arrivée, format JSON Canvas fromSide/toSide) ; HTML pour les nœuds ; pan + zoom à la molette ; mini-carte en bas à gauche ; skill « obsidian-network »",
     "regles": [
         "Le nœud racine (système, prélèvement, région) reste toujours visible.",
         "Un clic sur un nœud déplie ses enfants ; un second clic les replie.",
         "Un survol surligne le chemin complet depuis la racine jusqu'au nœud.",
         "Un bouton « Tout replier » ramène la toile à son état initial.",
         "La couleur d'un lien code son type de relation ; la légende reste ouverte en bas à droite.",
+        "Les nœuds rattachés à un organe se trient selon la hauteur de l'organe à l'écran, pour que les liens ne se croisent pas.",
+        "Deux nœuds d'une même colonne se relient par une boucle latérale, jamais par un trait qui traverse le corps.",
     ],
 }
 

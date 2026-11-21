@@ -11,6 +11,7 @@
   "Le contenu vit dans des fichiers JSON ; le code ne contient aucune donnée médicale.",
   "Un seul moteur d'affichage sert tous les systèmes, prélèvements ou régions : on ajoute des données, jamais de code.",
   "Chaque réseau est un graphe (nœuds typés + liens typés) ; la toile zoomable de style Obsidian le dessine.",
+  "Aucune image n'est en SVG : le corps vient de vrais modèles 3D (BodyParts3D, Z-Anatomy), les clichés et photos viennent du web ; les organes génitaux externes sont toujours occultés.",
   "L'IA rédige une fois la source de vérité ; les scripts en tirent gratuitement les exercices, les calculs et les courbes.",
   "REJECTOR_ vérifie le fond de chaque source avant que le moindre exercice en dérive.",
   "Tout se replie par défaut ; l'utilisateur déplie un circuit à la fois, ce qui protège la lisibilité.",
@@ -33,7 +34,7 @@
   {
    "couche": "3. Affichage",
    "contenu": "Toile zoomable (graphe), mannequin 3D, fenêtres de détail",
-   "producteur": "Un seul moteur (TypeScript + three.js + SVG)",
+   "producteur": "Un seul moteur (TypeScript + three.js + canvas 2D, sans SVG)",
    "cout": "Écrit une fois"
   },
   {
@@ -44,13 +45,15 @@
   }
  ],
  "toile": {
-  "moteur": "SVG pour les liens (courbes de Bézier), HTML pour les nœuds, three.js pour le mannequin ; pan + zoom à la molette ; mini-carte en bas à gauche",
+  "moteur": "three.js pour le mannequin 3D réel ; canvas 2D pour les liens de style Obsidian (courbes de Bézier aux tangentes horizontales, sortie par un côté du nœud, flèche à l'arrivée, format JSON Canvas fromSide/toSide) ; HTML pour les nœuds ; pan + zoom à la molette ; mini-carte en bas à gauche ; skill « obsidian-network »",
   "regles": [
    "Le nœud racine (système, prélèvement, région) reste toujours visible.",
    "Un clic sur un nœud déplie ses enfants ; un second clic les replie.",
    "Un survol surligne le chemin complet depuis la racine jusqu'au nœud.",
    "Un bouton « Tout replier » ramène la toile à son état initial.",
-   "La couleur d'un lien code son type de relation ; la légende reste ouverte en bas à droite."
+   "La couleur d'un lien code son type de relation ; la légende reste ouverte en bas à droite.",
+   "Les nœuds rattachés à un organe se trient selon la hauteur de l'organe à l'écran, pour que les liens ne se croisent pas.",
+   "Deux nœuds d'une même colonne se relient par une boucle latérale, jamais par un trait qui traverse le corps."
   ]
  },
  "areneAventure": {
@@ -141,8 +144,8 @@
  },
  "mnemonique": {
   "nom": "VIT DIT CAFé",
-  "statut": "À CONFIRMER PAR VIAL : la signification exacte ne figure en clair dans aucun fichier Progression.",
-  "hypothese": [
+  "statut": "CONFIRMÉ PAR VIAL (2026-11-21) : les lettres nomment les différentes altérations d'un tissu ou d'un organe.",
+  "lettres": [
    [
     "V",
     "Vasculaire"
@@ -350,7 +353,7 @@
     "definition",
     "couleur"
    ],
-   "producteur": "Vial",
+   "producteur": "Script (signification validée par Vial)",
    "volume": "1 fichier"
   },
   {
@@ -472,10 +475,10 @@
  "production": [
   {
    "n": 1,
-   "etape": "Confirmer la signification de VIT DIT CAFé",
-   "outil": "Vial",
-   "cout": "—",
-   "controle": "mnemonique.json rempli"
+   "etape": "Écrire mnemonique.json depuis la signification validée de VIT DIT CAFé",
+   "outil": "Script",
+   "cout": "0 token",
+   "controle": "10 lettres, 10 familles d'altération"
   },
   {
    "n": 2,
@@ -566,11 +569,10 @@
   "Aucune courbe ne s'affiche sans ses paramètres sourcés.",
   "Aucune molécule ne s'affiche sans son nom commercial suisse, ou sans la mention « non commercialisée en Suisse »."
  ],
- "questionsOuvertes": [
-  "Confirme la signification de chaque lettre de VIT DIT CAFé (l'hypothèse du plan doit être validée ou corrigée)."
- ],
+ "questionsOuvertes": [],
  "prototype": {
-  "titre": "Prototype : myocarde → V (vasculaire) → cardiopathie ischémique → antiagrégants",
+  "titre": "Prototype : myocarde → VIT DIT CAFé → diagnostics → réseau thérapeutique",
+  "image": "prototypes/pharmacologie.png",
   "centre": "mannequin",
   "cadre": "Système cardiovasculaire",
   "colonnes": [
@@ -717,6 +719,14 @@
   },
   {
    "controle": "Le prototype a au moins 4 colonnes",
+   "resultat": true
+  },
+  {
+   "controle": "Le prototype est une image réelle (PNG 3D), pas un SVG",
+   "resultat": true
+  },
+  {
+   "controle": "Aucune question ouverte sur VIT DIT CAFé",
    "resultat": true
   },
   {

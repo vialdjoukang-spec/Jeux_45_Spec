@@ -11,6 +11,7 @@
   "Le contenu vit dans des fichiers JSON ; le code ne contient aucune donnée médicale.",
   "Un seul moteur d'affichage sert tous les systèmes, prélèvements ou régions : on ajoute des données, jamais de code.",
   "Chaque réseau est un graphe (nœuds typés + liens typés) ; la toile zoomable de style Obsidian le dessine.",
+  "Aucune image n'est en SVG : le corps vient de vrais modèles 3D (BodyParts3D, Z-Anatomy), les clichés et photos viennent du web ; les organes génitaux externes sont toujours occultés.",
   "L'IA rédige une fois la source de vérité ; les scripts en tirent gratuitement les exercices, les calculs et les courbes.",
   "REJECTOR_ vérifie le fond de chaque source avant que le moindre exercice en dérive.",
   "Tout se replie par défaut ; l'utilisateur déplie un circuit à la fois, ce qui protège la lisibilité.",
@@ -33,7 +34,7 @@
   {
    "couche": "3. Affichage",
    "contenu": "Toile zoomable (graphe), mannequin 3D, fenêtres de détail",
-   "producteur": "Un seul moteur (TypeScript + three.js + SVG)",
+   "producteur": "Un seul moteur (TypeScript + three.js + canvas 2D, sans SVG)",
    "cout": "Écrit une fois"
   },
   {
@@ -44,13 +45,15 @@
   }
  ],
  "toile": {
-  "moteur": "SVG pour les liens (courbes de Bézier), HTML pour les nœuds, three.js pour le mannequin ; pan + zoom à la molette ; mini-carte en bas à gauche",
+  "moteur": "three.js pour le mannequin 3D réel ; canvas 2D pour les liens de style Obsidian (courbes de Bézier aux tangentes horizontales, sortie par un côté du nœud, flèche à l'arrivée, format JSON Canvas fromSide/toSide) ; HTML pour les nœuds ; pan + zoom à la molette ; mini-carte en bas à gauche ; skill « obsidian-network »",
   "regles": [
    "Le nœud racine (système, prélèvement, région) reste toujours visible.",
    "Un clic sur un nœud déplie ses enfants ; un second clic les replie.",
    "Un survol surligne le chemin complet depuis la racine jusqu'au nœud.",
    "Un bouton « Tout replier » ramène la toile à son état initial.",
-   "La couleur d'un lien code son type de relation ; la légende reste ouverte en bas à droite."
+   "La couleur d'un lien code son type de relation ; la légende reste ouverte en bas à droite.",
+   "Les nœuds rattachés à un organe se trient selon la hauteur de l'organe à l'écran, pour que les liens ne se croisent pas.",
+   "Deux nœuds d'une même colonne se relient par une boucle latérale, jamais par un trait qui traverse le corps."
   ]
  },
  "areneAventure": {
@@ -124,14 +127,14 @@
    "Onglet Explorations fonctionnelles"
   ],
   "exclus": [
-   "Images sans licence publiées sur le dépôt public"
+   "Images dessinées en SVG"
   ]
  },
  "decisions": [
   {
-   "question": "Images d'imagerie : n'importe quelle source ?",
-   "choix": "Le dépôt public ne publie que des images sous licence libre (Wikimedia Commons, articles CC BY). Les images d'autres sources restent dans un dossier local non publié, pour ton usage personnel.",
-   "raison": "Publier une image protégée sur un dépôt public t'expose à un retrait ou à une plainte ; l'usage personnel local ne pose pas ce problème."
+   "question": "Images d'imagerie : quelle source ?",
+   "choix": "Toute source du web convient (décision de Vial) ; chaque image garde son URL d'origine dans son JSON pour pouvoir être remplacée ; aucune image en SVG",
+   "raison": "Vial privilégie le réalisme ; la traçabilité de l'URL suffit à maintenir la banque (skill « 3d-images-upload-super »)."
   },
   {
    "question": "Calculs : rédigés ou calculés ?",
@@ -601,15 +604,14 @@
   "Aucune image anatomique ou sémiologique n'est dessinée par une IA.",
   "Aucun fichier HTML produit ne perd la signature de son agent (heure, modèle, plateforme).",
   "Aucune phrase nominale n'apparaît dans un texte didactique.",
-  "Aucune image sans licence libre n'est publiée sur le dépôt public.",
+  "Aucune image n'est produite en SVG : clichés et photos réels, corps en 3D réelle, organes génitaux externes occultés.",
   "Aucun calcul ne s'affiche sans test unitaire réussi.",
   "Aucun cliché annoté ne s'affiche sans sa description numérotée des lésions."
  ],
- "questionsOuvertes": [
-  "Veux-tu une banque d'images locale non publiée (usage personnel) en plus des images libres publiées ?"
- ],
+ "questionsOuvertes": [],
  "prototype": {
-  "titre": "Prototype : Biologie → liquide d'ascite → infection d'ascite → traitement",
+  "titre": "Prototype : Imagerie → thorax → Rx PA → poumon droit → pneumonie, fenêtre à deux clichés",
+  "image": "prototypes/paraclinique.png",
   "centre": "tube",
   "cadre": "Liquide d'ascite",
   "colonnes": [
@@ -744,6 +746,14 @@
   },
   {
    "controle": "Le prototype a au moins 4 colonnes",
+   "resultat": true
+  },
+  {
+   "controle": "Le prototype est une image réelle (PNG 3D), pas un SVG",
+   "resultat": true
+  },
+  {
+   "controle": "Aucune question ouverte sur VIT DIT CAFé",
    "resultat": true
   },
   {

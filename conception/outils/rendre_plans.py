@@ -6,6 +6,8 @@ import base64, glob, html, json, os, sys
 ICI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 POL = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ICI, "outils")
 E = html.escape
+from pathlib import Path
+BASE = Path(ICI)
 
 
 def b64(nom):
@@ -35,12 +37,20 @@ def auditer(p):
     r.append(("Au moins un exercice est généré à 0 token", any("Script" in d["producteur"] for d in p["donnees"])))
     r.append(("REJECTOR_ figure dans les blocages ou la production", "REJECTOR_" in json.dumps(p, ensure_ascii=False)))
     r.append(("Le prototype a au moins 4 colonnes", len(p["prototype"].get("colonnes", [])) >= 4))
+    r.append(("Le prototype est une image réelle (PNG 3D), pas un SVG", str(p["prototype"].get("image","")).endswith(".png") and (BASE / p["prototype"]["image"]).exists()))
+    r.append(("Aucune question ouverte sur VIT DIT CAFé", "VIT DIT" not in " ".join(p.get("questionsOuvertes", []))))
     brut = json.dumps({k: v for k, v in p.items() if k != "auditConception"})
     r.append(("Aucun marqueur de travail inachevé (TODO, XXX)", "TODO" not in brut and "XXX" not in brut))
     return r
 
 
-# ---------- prototype SVG ----------
+# ---------- prototype : image 3D réelle (aucun SVG) ----------
+def img_prototype(p):
+    import base64
+    b = base64.b64encode((BASE / p["prototype"]["image"]).read_bytes()).decode()
+    return f'<img alt="Simulation du prototype" src="data:image/png;base64,{b}" style="width:100%;border-radius:10px;border:1px solid #e5e1da">'
+
+# ---------- ancien prototype SVG (abandonné, conservé pour mémoire) ----------
 def svg_prototype(p):
     pr, c = p["prototype"], p["couleur"]
     cols = pr["colonnes"]; W = 1180; H = 520; x0 = 250; dx = (W - x0 - 40) / len(cols)
@@ -114,7 +124,7 @@ def rendre(p, audit):
     S.append(("toile", "Toile zoomable (réseau de style Obsidian)", f"<p>{E(p['toile']['moteur'])}.</p>{liste(p['toile']['regles'])}"))
     if p.get("mnemonique"):
         m = p["mnemonique"]
-        S.append(("mnemonique", f"Mnémonique {m['nom']}", f"<p class='alerte'>{E(m['statut'])}</p>" + table([{"l": a, "f": b} for a, b in m["hypothese"]], [("l", "Lettre"), ("f", "Famille (hypothèse)")]) + f"<p>{E(m['regle'])}</p>"))
+        S.append(("mnemonique", f"Mnémonique {m['nom']}", f"<p class='ok'><b>{E(m['statut'])}</b></p>" + table([{"l": a, "f": b} for a, b in m["lettres"]], [("l", "Lettre"), ("f", "Famille d'altération du tissu ou de l'organe")]) + f"<p>{E(m['regle'])}</p>"))
     if p.get("onglets"):
         o = p["onglets"]
         S.append(("onglets", "Contenu des trois onglets",
@@ -139,7 +149,7 @@ def rendre(p, audit):
     S.append(("construction", "Construction, étape par étape", table(p["construction"], [("n", "#"), ("phase", "Phase"), ("livrable", "Livrable"), ("sortie", "Critère de sortie")])))
     if p.get("questionsOuvertes"):
         S.append(("questions", "Questions ouvertes pour Vial", liste(p["questionsOuvertes"])))
-    S.append(("prototype", "Simulation du prototype", f"<p><b>{E(p['prototype']['titre'])}</b></p>{svg_prototype(p)}<p class='leg'>{E(p['prototype']['legende'])}</p>"))
+    S.append(("prototype", "Simulation du prototype", f"<p><b>{E(p['prototype']['titre'])}</b></p>{img_prototype(p)}<p class='leg'>{E(p['prototype']['legende'])}</p>"))
     ok = sum(1 for _, v in audit if v)
     S.append(("audit", "Auto-audit de conception", f"<p><b>{ok} / {len(audit)} contrôles réussis.</b></p>" +
               "<div class='t'><table><tr><th>Contrôle</th><th>Résultat</th></tr>" + "".join(f"<tr><td>{E(k)}</td><td class='{'ok' if v else 'ko'}'>{'✅' if v else '❌'}</td></tr>" for k, v in audit) + "</table></div>"))
@@ -153,7 +163,7 @@ aside{{position:fixed;top:0;left:0;width:240px;height:100vh;overflow:auto;paddin
 aside h3{{font:700 .75rem Arial;letter-spacing:.1em;text-transform:uppercase;color:var(--c);margin:0 0 10px}}aside a{{display:flex;gap:8px;padding:5px 6px;color:#333;text-decoration:none;font-size:.82rem;border-radius:6px}}aside a:hover{{background:#f0ebe4}}aside b{{color:var(--c);min-width:20px}}
 main{{margin-left:240px;padding:0 0 70px}}.col{{max-width:900px;margin:auto;padding:0 32px}}
 header{{background:linear-gradient(120deg,var(--c),#222);color:#fff;padding:38px 32px 30px}}header h1{{font:700 2rem Georgia,serif;margin:0}}header p{{margin:.5em 0 0;opacity:.92}}header .st{{display:inline-block;margin-top:12px;background:#fff2;padding:3px 10px;border-radius:12px;font-size:.8rem}}
-h2{{font:700 1.2rem Georgia,serif;color:var(--c);margin:2em 0 .6em;padding-top:.6em;border-top:2px solid var(--c);display:flex;gap:10px;align-items:center}}h2 span{{background:var(--c);color:#fff;border-radius:50%;width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;font-size:.85rem}}
+p.ok{{background:#e8f6ee;border-left:4px solid #2e9e5b;padding:8px 12px;border-radius:6px}}h2{{font:700 1.2rem Georgia,serif;color:var(--c);margin:2em 0 .6em;padding-top:.6em;border-top:2px solid var(--c);display:flex;gap:10px;align-items:center}}h2 span{{background:var(--c);color:#fff;border-radius:50%;width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;font-size:.85rem}}
 h4{{color:var(--c);margin:1em 0 .3em}}h5{{margin:.2em 0;color:#555}}.t{{overflow-x:auto}}table{{border-collapse:collapse;width:100%;font-size:.84rem;margin:.4em 0 1em}}th{{background:var(--c);color:#fff;text-align:left;padding:6px 8px}}td{{padding:6px 8px;border-bottom:1px solid #eee;vertical-align:top}}tr:nth-child(even) td{{background:#fbf9f6}}td ul,.carte ul{{margin:0;padding-left:18px}}
 .carte{{border:1px solid #e3ddd4;border-left:5px solid var(--c);border-radius:8px;padding:10px 14px;margin:10px 0;break-inside:avoid}}.ct{{font-weight:700}}.id{{background:var(--c);color:#fff;border-radius:6px;padding:1px 7px;font-size:.8rem}}.but{{font-weight:400;color:#666}}.g2{{display:grid;grid-template-columns:1fr 1fr;gap:14px}}.regle{{background:#f7f4ef;border-radius:6px;padding:7px 10px;margin-top:6px;font-size:.88rem}}
 .alerte{{background:#fde8e6;color:#9b1c13;border-radius:6px;padding:8px 12px;font-weight:700}}.bloc li{{margin:.25em 0}}.ok{{color:#2f7d32;font-weight:700}}.ko{{color:#b3261e;font-weight:700}}.leg{{color:#555;font-size:.85rem}}

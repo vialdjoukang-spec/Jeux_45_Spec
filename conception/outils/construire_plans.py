@@ -30,7 +30,7 @@ TETRADE = plan(
                "exclus": ["Contenu rédigé dans le code", "Anatomie 3D générée par une IA"]},
     decisions=[
         {"question": "Page qui s'étend horizontalement, ou toile zoomable ?", "choix": "Toile zoomable avec mini-carte", "raison": "Le mannequin et la racine restent visibles ; une page qui s'allonge fait perdre le fil."},
-        {"question": "Mannequin 3D : généré ou existant ?", "choix": "Modèles libres existants (Z-Anatomy, BodyParts3D), licence vérifiée et citée", "raison": "Une IA ne produit pas d'anatomie 3D fiable ; ces modèles sont exacts et gratuits."},
+        {"question": "Mannequin 3D : généré ou existant ?", "choix": "Vrais modèles 3D existants (BodyParts3D, Z-Anatomy) ; organes génitaux externes occultés (peau retirée dans une boîte pelvienne) ; jamais de SVG", "raison": "Une IA ne produit pas d'anatomie 3D fiable ; ces modèles sont exacts, gratuits et déjà validés dans le prototype (skill « 3d-images-upload-super »)."},
         {"question": "Accès au traitement depuis un diagnostic : survol ou clic ?", "choix": "Les deux : le survol ouvre un aperçu (1re ligne + posologie adulte) ; le clic déplie le réseau complet (lignes, âges, situations spéciales)", "raison": "Le survol entraîne le réflexe ; le clic sert l'approfondissement, sans encombrer la toile."},
         {"question": "Psyché : avec la neurologie ou à part ?", "choix": "Système distinct ; le sommeil y appartient ; diagnostics en CIM-10 ; présentation par groupe d'âge", "raison": "Ce sont tes règles de structure pour toute la plateforme."},
     ],
@@ -97,7 +97,7 @@ TETRADE = plan(
         {"n": 8, "phase": "Extension aux 13 autres systèmes", "livrable": "Données seulement", "sortie": "Les quatre audits sont verts"},
     ],
     questionsOuvertes=["Faut-il un système « Pédiatrique » à part, ou une dimension « âge » transversale à chaque système ?"],
-    prototype={"titre": "Prototype : page « Cardiovasculaire », calque Sémiologie actif", "centre": "mannequin", "cadre": "Système cardiovasculaire",
+    prototype={"titre": "Prototype : Tétrade — clic sur le cœur, circuit sémiologique déplié", "image": "prototypes/tetrade.png", "centre": "mannequin", "cadre": "Système cardiovasculaire",
                "colonnes": [["Inspection", "Palpation", "Auscultation"], ["Choc de pointe dévié", "Galop B3", "Turgescence jugulaire"], ["Dyspnée d'effort", "Orthopnée", "Œdèmes déclives"], ["Insuffisance cardiaque gauche", "Insuffisance cardiaque droite"], ["NT-proBNP", "Échocardiographie"], ["Insuffisance cardiaque (CAR)", "Valvulopathie (CAR)"]],
                "legende": "Les courbes relient chaque élément à l'étape suivante ; survoler le diagnostic ouvre l'aperçu du traitement."},
 )
@@ -111,8 +111,8 @@ PHARMACO = plan(
         "Il comprend la pharmacocinétique et la pharmacodynamique de chaque molécule grâce à leurs courbes.",
     ],
     perimetre={"inclus": SYSTEMES + ["Classes et molécules disponibles en Suisse (AIPS, Compendium)"], "exclus": ["Molécules non autorisées en Suisse, sauf mention explicite"]},
-    mnemonique={"nom": "VIT DIT CAFé", "statut": "À CONFIRMER PAR VIAL : la signification exacte ne figure en clair dans aucun fichier Progression.",
-                "hypothese": [["V", "Vasculaire"], ["I", "Infectieux"], ["T", "Traumatique"], ["D", "Dégénératif"], ["I", "Inflammatoire ou immunologique"], ["T", "Tumoral"], ["C", "Congénital"], ["A", "Auto-immun"], ["F", "Fonctionnel"], ["é", "Endocrinien et métabolique"]],
+    mnemonique={"nom": "VIT DIT CAFé", "statut": "CONFIRMÉ PAR VIAL (2026-11-21) : les lettres nomment les différentes altérations d'un tissu ou d'un organe.",
+                "lettres": [["V", "Vasculaire"], ["I", "Infectieux"], ["T", "Traumatique"], ["D", "Dégénératif"], ["I", "Inflammatoire ou immunologique"], ["T", "Tumoral"], ["C", "Congénital"], ["A", "Auto-immun"], ["F", "Fonctionnel"], ["é", "Endocrinien et métabolique"]],
                 "regle": "Le fichier mnemonique.json porte la signification ; le moteur l'affiche sans aucune valeur codée en dur."},
     decisions=[
         {"question": "Le traitement : survol ou clic ?", "choix": "Clic obligatoire, avec réseau complet", "raison": "Ici, la médication est l'objectif : elle mérite toute la toile (âges, PK/PD, courbes, interactions)."},
@@ -137,7 +137,7 @@ PHARMACO = plan(
         {"n": 7, "etape": "S'évaluer", "resultat": "Arène, aventure, examen blanc."},
     ],
     donnees=[
-        {"fichier": "pharmaco/mnemonique.json", "role": "Signification des lettres VIT DIT CAFé", "champs": ["lettre", "famille", "definition", "couleur"], "producteur": "Vial", "volume": "1 fichier"},
+        {"fichier": "pharmaco/mnemonique.json", "role": "Signification des lettres VIT DIT CAFé", "champs": ["lettre", "famille", "definition", "couleur"], "producteur": "Script (signification validée par Vial)", "volume": "1 fichier"},
         {"fichier": "pharmaco/<systeme>/structures.json", "role": "Structures malades et ciblables", "champs": ["structureId", "nom", "maillage3d", "cibles[] (récepteurs, enzymes, canaux, transporteurs)"], "producteur": "IA", "volume": "14 fichiers"},
         {"fichier": "pharmaco/<systeme>/graphe.json", "role": "Structure → perturbation → diagnostic → traitement", "champs": ["noeuds[] : structure | perturbation | diagnostic | but | ligne | classe | molecule", "liens[] : souffre_de | produit | traite_par | contient | cible"], "producteur": "IA, puis REJECTOR_", "volume": "14 fichiers"},
         {"fichier": "pharmaco/classes.json", "role": "Classes médicamenteuses", "champs": ["classeId", "nom", "mecanisme", "indications[]", "chefDeFile[] par profil"], "producteur": "IA", "volume": "≈ 300 classes"},
@@ -155,7 +155,7 @@ PHARMACO = plan(
         {"type": "Lettre → famille de mécanisme", "exemple": "À quelle lettre de VIT DIT CAFé appartient ce diagnostic ?", "generation": "mnemonique + graphe"},
     ],
     production=[
-        {"n": 1, "etape": "Confirmer la signification de VIT DIT CAFé", "outil": "Vial", "cout": "—", "controle": "mnemonique.json rempli"},
+        {"n": 1, "etape": "Écrire mnemonique.json depuis la signification validée de VIT DIT CAFé", "outil": "Script", "cout": "0 token", "controle": "10 lettres, 10 familles d'altération"},
         {"n": 2, "etape": "Extraire les données AIPS (posologies, grossesse, CI) de l'index local", "outil": "Script", "cout": "0 token", "controle": "Numéro Swissmedic par spécialité"},
         {"n": 3, "etape": "Produire le système pilote (cardiovasculaire) : graphe, classes, molécules", "outil": "API Claude, Batch + cache", "cout": "Payant, une fois", "controle": "Schémas + concordance AIPS"},
         {"n": 4, "etape": "Calculer les courbes", "outil": "Script", "cout": "0 token", "controle": "Courbe cohérente avec t½ et Tmax"},
@@ -172,8 +172,8 @@ PHARMACO = plan(
         {"n": 7, "phase": "Extension", "livrable": "Infectiologie, puis les autres systèmes", "sortie": "Les quatre audits sont verts"},
     ],
     blocages=["Aucune courbe ne s'affiche sans ses paramètres sourcés.", "Aucune molécule ne s'affiche sans son nom commercial suisse, ou sans la mention « non commercialisée en Suisse »."],
-    questionsOuvertes=["Confirme la signification de chaque lettre de VIT DIT CAFé (l'hypothèse du plan doit être validée ou corrigée)."],
-    prototype={"titre": "Prototype : myocarde → V (vasculaire) → cardiopathie ischémique → antiagrégants", "centre": "mannequin", "cadre": "Système cardiovasculaire",
+    questionsOuvertes=[],
+    prototype={"titre": "Prototype : myocarde → VIT DIT CAFé → diagnostics → réseau thérapeutique", "image": "prototypes/pharmacologie.png", "centre": "mannequin", "cadre": "Système cardiovasculaire",
                "colonnes": [["Myocarde", "Valves", "Artères coronaires"], ["V", "I", "T", "D", "I", "T", "C", "A", "F"], ["Cardiopathie ischémique", "Myocardite"], ["Antiagrégants", "Bêtabloquants", "Statines"], ["Acide acétylsalicylique", "Clopidogrel"], ["Courbe C(t)", "Posologie par âge"]],
                "legende": "Chaque clic déplie le niveau suivant ; la fiche de molécule affiche les courbes calculées."},
 )
@@ -186,9 +186,9 @@ PARACLINIQUE = plan(
         "Il maîtrise les calculs et les critères diagnostiques qui tranchent.",
         "Il lit une image en comparant un cliché brut et un cliché annoté.",
     ],
-    perimetre={"inclus": ["Onglet Biologie", "Onglet Imagerie", "Onglet Explorations fonctionnelles"], "exclus": ["Images sans licence publiées sur le dépôt public"]},
+    perimetre={"inclus": ["Onglet Biologie", "Onglet Imagerie", "Onglet Explorations fonctionnelles"], "exclus": ["Images dessinées en SVG"]},
     decisions=[
-        {"question": "Images d'imagerie : n'importe quelle source ?", "choix": "Le dépôt public ne publie que des images sous licence libre (Wikimedia Commons, articles CC BY). Les images d'autres sources restent dans un dossier local non publié, pour ton usage personnel.", "raison": "Publier une image protégée sur un dépôt public t'expose à un retrait ou à une plainte ; l'usage personnel local ne pose pas ce problème."},
+        {"question": "Images d'imagerie : quelle source ?", "choix": "Toute source du web convient (décision de Vial) ; chaque image garde son URL d'origine dans son JSON pour pouvoir être remplacée ; aucune image en SVG", "raison": "Vial privilégie le réalisme ; la traçabilité de l'URL suffit à maintenir la banque (skill « 3d-images-upload-super »)."},
         {"question": "Calculs : rédigés ou calculés ?", "choix": "Calculateurs exécutés par script, à partir de formules versionnées", "raison": "Le calcul est exact, et le joueur peut faire varier les valeurs."},
         {"question": "Le sommeil", "choix": "La polysomnographie relève des explorations fonctionnelles, mais ses diagnostics renvoient à la Psyché", "raison": "Ta règle : le sommeil appartient à la psychiatrie."},
     ],
@@ -261,9 +261,9 @@ PARACLINIQUE = plan(
         {"n": 6, "phase": "Pratique", "livrable": "Exercices, arène, aventure, examen blanc", "sortie": "Correction commentée partout"},
         {"n": 7, "phase": "Extension complète", "livrable": "Données seulement", "sortie": "Les quatre audits sont verts"},
     ],
-    blocages=["Aucune image sans licence libre n'est publiée sur le dépôt public.", "Aucun calcul ne s'affiche sans test unitaire réussi.", "Aucun cliché annoté ne s'affiche sans sa description numérotée des lésions."],
-    questionsOuvertes=["Veux-tu une banque d'images locale non publiée (usage personnel) en plus des images libres publiées ?"],
-    prototype={"titre": "Prototype : Biologie → liquide d'ascite → infection d'ascite → traitement", "centre": "tube", "cadre": "Liquide d'ascite",
+    blocages=["Aucune image n'est produite en SVG : clichés et photos réels, corps en 3D réelle, organes génitaux externes occultés.", "Aucun calcul ne s'affiche sans test unitaire réussi.", "Aucun cliché annoté ne s'affiche sans sa description numérotée des lésions."],
+    questionsOuvertes=[],
+    prototype={"titre": "Prototype : Imagerie → thorax → Rx PA → poumon droit → pneumonie, fenêtre à deux clichés", "image": "prototypes/paraclinique.png", "centre": "tube", "cadre": "Liquide d'ascite",
                "colonnes": [["Cytologie", "Protéines", "Albumine"], ["PNN = 320/mm³", "Gradient albumine = 14 g/L"], ["Critère : PNN ≥ 250/mm³", "Hypertension portale"], ["Infection d'ascite", "Cirrhose"], ["Céfotaxime (posologie, source)", "Albumine IV"]],
                "legende": "Le calculateur se met à jour à la saisie ; le critère tranche ; le diagnostic ouvre le traitement."},
 )

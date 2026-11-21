@@ -196,7 +196,7 @@ tests/ (unit, e2e, a11y)
 | `AUDITEUR_A11Y` | Il vérifie le contraste, le clavier et les lecteurs d'écran. | Build → rapport axe |
 | `AUDITEUR_FONCTIONNEL` | Il joue chaque zone de bout en bout (Playwright). | Build → rapport e2e |
 | `AUDITEUR_PSY` | Il évalue l'engagement et ses garde-fous (§ 8). | Build + métriques → rapport |
-| `ICONOGRAPHE` | Il cherche les images sous licence libre et les annote. | Item → `media/` + attribution |
+| `ICONOGRAPHE` | Il cherche de vraies images sur le web (toute source, URL gardée), rend le corps en vraie 3D, occulte les organes génitaux externes et annote ; jamais de SVG (skill `3d-images-upload-super`). | Item → `media/` + `images.json` (URL d'origine) |
 | `ORCHESTRATEUR` | Il découpe le travail en vagues, lance les agents et tient `SUIVI.csv`. | `INDEX.json` → plan des vagues |
 | `PRODUCTEUR_<SPEC>` | Il produit les items d'une spécialité. | `data/ssp` → `content/items/` |
 | `REJECTOR_` | Il vérifie le fond (§ 5). | Items → verdicts |
