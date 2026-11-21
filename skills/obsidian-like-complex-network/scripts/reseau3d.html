@@ -9,7 +9,7 @@
 [data-theme=anthracite]{--fond:#1b1d21;--ombre:#41454d;--mi:#26292e;--texte:#f5f5f5;--carte:#24272c;--trait:#d7dbe0;--bord:#50555e;--sous:#c8ccd2}
 html,body{margin:0;width:100vw;height:100vh;overflow:hidden;font-family:A,sans-serif;color:var(--texte);background:radial-gradient(ellipse 30% 50% at var(--cx,50%) 52%,var(--ombre) 0%,var(--mi) 62%,var(--fond) 100%)}
 #gl,#ln{position:absolute;inset:0}#ln{pointer-events:none}
-.n{position:absolute;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;width:var(--w);padding:6px 10px 7px;border-radius:7px;font-size:13px;line-height:1.25;color:var(--texte);background:var(--carte);
+.n{position:absolute;transition:opacity .25s,top .3s;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;width:var(--w);padding:6px 10px 7px;border-radius:7px;font-size:13px;line-height:1.25;color:var(--texte);background:var(--carte);
  border:1px solid var(--bord);box-shadow:0 2px 8px #0003;cursor:pointer;transform:translateY(-50%);transition:opacity .25s;user-select:none}
 .n.d{border-left:5px solid var(--c)}.n.g{border-right:5px solid var(--c)}
 .n b{display:block;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--c);margin-bottom:1px}
@@ -25,12 +25,16 @@ h1{position:absolute;left:24px;top:12px;margin:0;font:700 19px Georgia,serif;col
 #barre button i{display:inline-block;width:11px;height:11px;border-radius:50%;vertical-align:-1px;margin-right:6px;border:1px solid #0003;background:var(--fond)}
 #aide{position:absolute;right:16px;top:48px;font-size:11.5px;color:var(--sous)}
 .fen{position:absolute;box-sizing:border-box;background:var(--carte);color:var(--texte);border:1px solid var(--bord);border-top:5px solid var(--c);border-radius:14px;padding:10px;font-size:12.5px;box-shadow:0 6px 24px #0003;transition:opacity .25s}
-.cap *{transition:none!important}.fen.cache{opacity:0;pointer-events:none}.fen ol{margin:8px 0 0 18px;padding:0;line-height:1.45}
+.cap *{transition:none!important}
+#bulle{position:absolute;z-index:20;width:330px;box-sizing:border-box;background:var(--carte);color:var(--texte);border:1px solid var(--bord);border-top:5px solid var(--c);border-radius:9px;padding:10px 12px;box-shadow:0 8px 28px #0004;font-size:12.5px;line-height:1.4;display:none}
+#bulle h4{margin:0 0 6px;font-size:13.5px}#bulle dl{margin:0;display:grid;grid-template-columns:118px 1fr;gap:5px 8px}#bulle dt{font-weight:700;color:var(--c);font-size:11px;text-transform:uppercase;letter-spacing:.04em;padding-top:1px}#bulle dd{margin:0}
+#bulle .ecoute{margin-top:8px;font:700 12px A,sans-serif;border:1px solid var(--c);color:var(--texte);background:transparent;border-radius:999px;padding:4px 12px;cursor:pointer}
+.n .son{position:absolute;right:6px;bottom:4px;font-size:13px;cursor:pointer;line-height:1}.n.g .son{left:6px;right:auto}.fen.cache{opacity:0;pointer-events:none}.fen ol{margin:8px 0 0 18px;padding:0;line-height:1.45}
 </style></head><body>
 <canvas id="gl"></canvas><canvas id="ln"></canvas><h1 id="t"></h1>
 <div id="barre"><button id="theme" title="Changer le fond : 7 thèmes contrastés"><i></i><span>Blanc</span></button>
 <button id="repli" title="Clic : replier le dernier circuit ouvert · Double-clic : tout replier">↺ Replier</button></div>
-<div id="aide">Clic sur une case : révéler la suite · ↺ clic = repli sélectif · double-clic = repli global</div>
+<div id="bulle"></div><div id="aide">Survol : explication · 🔊 : écouter · Clic sur une case : révéler la suite · ↺ clic = repli sélectif · double-clic = repli global</div>
 <script type="importmap">{"imports":{"three":"./three/build/three.module.js","three/addons/":"./three/examples/jsm/"}}</script>
 <script type="module">
 import * as THREE from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
@@ -74,30 +78,10 @@ for(const n of N)if(!n.organe)n.cote=n.cote||(function c(m){return m.cote||c(byI
  const dR=Math.max(-1,...N.filter(n=>n.cote==='d').map(n=>n.col??n._p)),dL=Math.max(-1,...N.filter(n=>n.cote==='g').map(n=>n.col??n._p));
  const placeR=W-12-Rr,placeL=L-12;const fit=(place,d)=>d<0?1e9:(place-G*(d+1))/(d+1);COL=Math.max(118,Math.min(COL,fit(placeR,dR),fit(placeL,dL)));}
 for(const n of N){const el=document.createElement('div');el.className='n cache'+(n.enf.length?'':' feuille');el.style.setProperty('--c',n.couleur||'#c98a2b');el.style.setProperty('--w',COL+'px');
- el.innerHTML=(n.type?'<b>'+n.type+'</b>':'')+n.texte+(n.enf.length||(C.fenetres||[]).some(f=>f.de===n.id)?'<span class=plus>+</span>':'');document.body.appendChild(el);n.el=el;
+ el.innerHTML=(n.type?'<b>'+n.type+'</b>':'')+n.texte+(n.enf.length||(C.fenetres||[]).some(f=>f.de===n.id)?'<span class=plus>+</span>':'')+(n.son?'<span class=son title="Écouter">🔊</span>':'');document.body.appendChild(el);n.el=el;
  el.classList.add(n.cote);n.w=el.offsetWidth;n.h=el.offsetHeight;}
 for(const n of N){n._c=n.col??n._p;const pas=(COL+G)*n._c;n.x=n.cote==='d'?Rr+G+pas+COL/2:L-G-pas-COL/2;}
-/* symétrie parfaite : frères = même hauteur, pas constant, groupe centré sur l'horizontale du parent, déplacé en bloc */
-const groupes={};N.filter(n=>!n.organe&&n.de.length===1).forEach(n=>(groupes[n.de[0]]??=[]).push(n));
-const colH={};N.forEach(n=>colH[n._c+n.cote]=Math.max(colH[n._c+n.cote]||0,n.h));
-N.forEach(n=>{n.el.style.minHeight=colH[n._c+n.cote]+'px';n.h=n.el.offsetHeight;});
-const PAS=Math.max(...N.map(n=>n.h))+14; /* pas unique dans tout le réseau : les frères s'alignent d'une colonne à l'autre */
-const parProf={};N.forEach(n=>(parProf[n._c+n.cote]??=[]).push(n));
-const gap=14,haut=96,bas=H-20;
-for(const k of Object.keys(parProf).sort((a,b)=>parseInt(a)-parseInt(b))){const col=parProf[k];
- /* blocs : chaque groupe de frères forme un bloc rigide ; les autres cases sont seules */
- const blocs=[];const vu=new Set();
- for(const n of col){if(vu.has(n))continue;const f=(!n.organe&&n.de.length===1)?groupes[n.de[0]].filter(m=>col.includes(m)):[n];f.forEach(m=>vu.add(m));
-  let cy;if(n.y0)cy=n.y0;else if(n.organe)cy=n.o[1];else{const ps=n.de.map(p=>byId[p]);cy=ps.reduce((s,p)=>s+p.y,0)/ps.length;}
-  const pas=f.length>1?PAS:0;f.forEach((m,i)=>m.dy=(i-(f.length-1)/2)*pas);
-  blocs.push({f,cy,demi:((f.length-1)*pas+Math.max(...f.map(m=>m.h)))/2});}
- blocs.sort((a,b)=>a.cy-b.cy);
- for(let i=1;i<blocs.length;i++){const a=blocs[i-1],b=blocs[i],m=a.demi+b.demi+gap;if(b.cy-a.cy<m){const d=(m-(b.cy-a.cy))/2;
-  /* écart réparti des deux côtés pour garder la symétrie globale */ a.cy-=d;b.cy+=d;for(let j=i-1;j>0;j--){const p=blocs[j-1],q=blocs[j],mm=p.demi+q.demi+gap;if(q.cy-p.cy<mm)p.cy=q.cy-mm;}}}
- const top=blocs.length?blocs[0].cy-blocs[0].demi:0,bot=blocs.length?blocs[blocs.length-1].cy+blocs[blocs.length-1].demi:0;
- const dec=top<haut?haut-top:(bot>bas?bas-bot:0);
- blocs.forEach(b=>b.f.forEach(m=>m.y=b.cy+dec+m.dy));}
-N.forEach(n=>{n.el.style.left=(n.x-n.w/2)+'px';n.el.style.top=n.y+'px';});
+/* symétrie parfaite par arbre : chaque parent se centre exactement sur le bloc de ses enfants */
 for(const f of C.fenetres||[]){const w=document.createElement('div');w.className='fen cache';w.style.cssText+=`left:${f.x}px;top:${f.y}px;width:${f.w}px;--c:${f.couleur||'#2a9d8f'}`;
  const iw=(f.w-34)/2;w.innerHTML=`<div style="font-weight:700;margin-bottom:6px">${f.titre}</div><div style="display:flex;gap:10px"><div><div style="opacity:.7;margin-bottom:3px">Cliché brut</div><img src="${f.img}" style="width:${iw}px;display:block;border-radius:4px"></div><div style="position:relative"><div style="opacity:.7;margin-bottom:3px">Cliché annoté</div><img class=a src="${f.img}" style="width:${iw}px;display:block;border-radius:4px"><canvas style="position:absolute;left:0;top:19px"></canvas></div></div><ol></ol>`;
  document.body.appendChild(w);const im=w.querySelector('img.a');await new Promise(r=>im.complete?r():im.onload=r);
@@ -119,7 +103,26 @@ const bordX=(n,versDroite)=>versDroite?n.x+n.w/2:n.x-n.w/2;
 const seg=(pts,col,w=2)=>{x.strokeStyle=col;x.lineWidth=w;x.lineJoin='round';x.beginPath();x.moveTo(...pts[0]);for(const p of pts.slice(1))x.lineTo(...p);x.stroke();};
 const pointe=(b,dir,col)=>{x.fillStyle=col;x.beginPath();x.moveTo(...b);x.lineTo(b[0]-9*dir,b[1]-5);x.lineTo(b[0]-9*dir,b[1]+5);x.fill();};
 const noeudRond=(p,col)=>{x.fillStyle=col;x.beginPath();x.arc(...p,3.2,0,7);x.fill();};
-function dessiner(){x.clearRect(0,0,W,H);const trait=getComputedStyle(document.documentElement).getPropertyValue('--trait').trim();
+function disposer(){
+/* frères : même hauteur (symétrie du groupe) */
+const grp={};N.filter(n=>n.de.length===1).forEach(n=>(grp[n.de[0]]??=[]).push(n));
+for(const f of Object.values(grp)){const h=Math.max(...f.map(n=>n.h));f.forEach(n=>{n.el.style.minHeight=h+'px';n.h=n.el.offsetHeight;});}
+const GF=C.ecartFreres??10,GC=C.ecartCousins??22,haut=96,bas=H-16;
+const fils=n=>ouvert.has(n.id)?n.enf.map(i=>byId[i]).filter(c=>c&&c.de.length===1&&visible(c)):[];
+const ecart=ks=>ks.some(k=>fils(k).length)?GC:GF;
+const span=n=>{const ks=fils(n);if(!ks.length)return n.h;return Math.max(n.h,ks.reduce((s,k)=>s+span(k),0)+ecart(ks)*(ks.length-1));};
+const poser=(n,cy,acc)=>{n.y=cy;acc&&acc.push(n);const ks=fils(n);if(!ks.length)return;const g=ecart(ks);const tot=ks.reduce((s,k)=>s+span(k),0)+g*(ks.length-1);let y=cy-tot/2;for(const k of ks){poser(k,y+span(k)/2,acc);y+=span(k)+g;}};
+const recaler=arbre=>{const t=Math.min(...arbre.map(m=>m.y-m.h/2)),bt=Math.max(...arbre.map(m=>m.y+m.h/2));const d=t<haut?haut-t:(bt>bas?bas-bt:0);if(d)arbre.forEach(m=>m.y+=d);};
+/* racines : à hauteur de leur organe ; poussées seulement si deux racines d'une même colonne se gênent */
+const racines=N.filter(n=>!n.de.length);
+for(const cote of['g','d']){const rs=racines.filter(r=>r.cote===cote).sort((a,b)=>(a.y0??a.o?.[1]??0)-(b.y0??b.o?.[1]??0));
+ let bas0=-1e9;for(const r of rs){const sp=span(r),cy=Math.max(r.y0??r.o?.[1]??H/2,bas0+GC+sp/2);const arbre=[];poser(r,cy,arbre);recaler(arbre);bas0=Math.max(...arbre.filter(m=>m._c===0).map(m=>m.y+m.h/2));}}
+/* entités convergentes : à la hauteur moyenne de leurs parents, puis leur propre arbre */
+for(const n of N.filter(n=>n.de.length>1&&visible(n)).sort((a,b)=>a._p-b._p)){const ps=n.de.map(p=>byId[p]).filter(p=>ouvert.has(p.id)&&visible(p));const arbre=[];poser(n,n.y0??ps.reduce((s,p)=>s+p.y,0)/ps.length,arbre);recaler(arbre);}
+N.forEach(n=>{if(n.y0&&n.de.length===1&&!fils(n).length)n.y=n.y0;});
+N.forEach(n=>{n.el.style.left=(n.x-n.w/2)+'px';n.el.style.top=n.y+'px';});
+}
+function dessiner(){disposer();x.clearRect(0,0,W,H);const trait=getComputedStyle(document.documentElement).getPropertyValue('--trait').trim();
  for(const n of N){n.el.classList.toggle('cache',!visible(n));n.el.classList.toggle('ouvert',ouvert.has(n.id));}
  for(const f of C.fenetres||[]){const p=byId[f.de];f.el.classList.toggle('cache',!(ouvert.has(p.id)&&visible(p)));}
  const vis=n=>visible(n);const actifs=n=>n.de.filter(p=>ouvert.has(p)&&vis(byId[p]));
@@ -142,5 +145,15 @@ function dessiner(){x.clearRect(0,0,W,H);const trait=getComputedStyle(document.d
   if(p.y<f.y){const xs=Math.min(Math.max(p.x,f.x+24),f.x+f.w-24);seg([[xs,p.y+p.h/2],[xs,f.y]],col,2.2);x.fillStyle=col;x.beginPath();x.moveTo(xs,f.y);x.lineTo(xs-5,f.y-9);x.lineTo(xs+5,f.y-9);x.fill();}
   else{seg([[bordX(p,true),p.y],[f.x,p.y]],col,2.2);pointe([f.x,p.y],1,col);}}}
 if(Q.has('tout'))for(const n of N)if((n.enf.length||n.aFen)&&!(Q.get('sauf')||'').split(',').includes(n.id))ouvert.add(n.id);
-setTheme();document.title='PRET';
+
+/* ---------- infobulle symétrique : 4 rubriques fixes, une phrase verbale chacune ---------- */
+const RUB=[['def','Ce que c\'est'],['pourquoi','Pourquoi ici'],['confusion','Confusion possible'],['retenir','À retenir']];
+let audio=null;const jouer=src=>{try{if(audio)audio.pause();audio=new Audio(src);audio.play();}catch(e){}};
+function montrer(n){if(!n.bulle||n.el.classList.contains('cache'))return;bulle.style.setProperty('--c',n.couleur||'#888');
+ bulle.innerHTML='<h4>'+n.texte+'</h4><dl>'+RUB.map(([k,l])=>'<dt>'+l+'</dt><dd>'+(n.bulle[k]||'Aucune confusion fréquente.')+'</dd>').join('')+'</dl>'+(n.son?'<button class=ecoute>▶ Écouter : '+(n.sonTitre||n.texte)+'</button>':'');
+ bulle.style.display='block';const bw=330,bh=bulle.offsetHeight;let bx=n.cote==='d'?n.x-n.w/2-bw-14:n.x+n.w/2+14;if(bx<8)bx=n.x+n.w/2+14;if(bx+bw>W-8)bx=n.x-n.w/2-bw-14;
+ bulle.style.left=bx+'px';bulle.style.top=Math.min(Math.max(n.y-bh/2,90),H-bh-8)+'px';const b=bulle.querySelector('.ecoute');if(b)b.onclick=()=>jouer(n.son);}
+for(const n of N){n.el.onmouseenter=()=>montrer(n);n.el.onmouseleave=()=>{bulle.style.display='none';};const sb=n.el.querySelector('.son');if(sb)sb.onclick=e=>{e.stopPropagation();jouer(n.son);};}
+bulle.onmouseenter=()=>bulle.style.display='block';bulle.onmouseleave=()=>bulle.style.display='none';
+setTheme();if(Q.get('bulle'))montrer(byId[Q.get('bulle')]);document.title='PRET';
 </script></body></html>

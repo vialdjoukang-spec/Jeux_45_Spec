@@ -24,3 +24,11 @@ python conception/outils/rendre_plans.py
 - Les organes génitaux externes sont occultés (peau retirée dans une boîte pelvienne).
 - Moteur et configurations : `prototypes/moteur/` (régénérer : `build_glb.py`, puis `shot.py <config.json> <sortie.png>`).
 - Skills associés : `skills/obsidian-like-complex-network/`, `skills/3d-images-upload-super/`.
+
+## Mise à jour du 2026-11-21 (soir)
+- Infobulle symétrique systématique (4 rubriques : Ce que c'est · Pourquoi ici · Confusion possible · À retenir) sur chaque case.
+- 2 ou 3 signes par temps d'examen ; le syndrome nomme son minimum suffisant et ses confusions.
+- Sons réels d'auscultation (HLS-CMDS) : galop B3 et crépitants fins dans le prototype.
+- Disposition recalculée à chaque clic, parents centrés sur leurs enfants.
+- Système nerveux : 24 syndromes majeurs listés (plan Tétrade + donnees/tetrade/neurologique/syndromes.json).
+- `outils/generer_json.py` génère TOUS les JSON (202 fichiers : squelettes + exemples réels + schémas) dans `donnees/`, à 0 token.

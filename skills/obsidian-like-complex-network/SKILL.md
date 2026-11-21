@@ -31,6 +31,12 @@ Store every network as JSON Canvas, so it opens in Obsidian and in our engine:
 5b. Column width auto-fits the viewport (min 118 px) so the whole network stays visible.
 6. Very large graphs: ELK.js / dagre for layered layout, d3-force for clouds, sigma.js / Cytoscape.js beyond 10⁴ nodes — keep the straight convergent renderer for the final drawing.
 
+## 3b. Tooltips, sounds, thresholds (medical networks)
+- **Systematic tooltip** on every box (sign, symptom, syndrome, exam step, exam, diagnosis): a fixed frame of 4 rubrics in the same order — *Ce que c'est · Pourquoi ici · Confusion possible · À retenir* — one verbal sentence each, comparable length (perfect symmetry). Data: `bulle {def, pourquoi, confusion, retenir}`.
+- **Sounds**: auscultation signs carry `son` (real recording, MP3) → 🔊 on the box + "▶ Écouter" in the tooltip. Source: HLS-CMDS (github.com/Torabiy/HLS-CMDS, S3, S4, murmurs, fine/coarse crackles, wheezes, rub).
+- **Thresholds**: 2–3 signs per examination step (one is never enough); the syndrome tooltip names its minimum sufficient set and any confusing sign from a neighbouring syndrome.
+- **Dynamic layout**: recompute positions on every click from visible boxes only (tidy tree: each parent centred on its children block).
+
 ## 4. Rendering stack (no SVG for images)
 - Nodes: HTML (`div`, Atkinson Hyperlegible for text, coloured side border = node type, small uppercase type label above the text).
 - Links: **canvas 2D** (`bezierCurveTo`) — light, crisp, no SVG.

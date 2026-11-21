@@ -12,11 +12,20 @@ SYSTEMES = ["Cardiovasculaire", "Respiratoire", "Neurologique", "Psyché (psychi
 def plan(**k):
     base = {"version": "1.0", "date": "2026-11-21", "statut": "Conception — non implémentée", "signature": SIGNATURE,
             "principes": PRINCIPES, "architecture": ARCHITECTURE, "toile": TOILE, "areneAventure": ARENE_AVENTURE,
-            "evaluation": EVALUATION, "audits": AUDITS}
+            "evaluation": EVALUATION, "audits": AUDITS, "semiologie": SEMIOLOGIE}
     base.update(k)
     base["blocages"] = BLOCAGES_COMMUNS + k.get("blocages", [])
     return base
 
+
+NEURO_SYNDROMES = ["Syndrome pyramidal (déficit moteur central, spasticité, Babinski)", "Syndrome extrapyramidal (parkinsonien et hyperkinétique)", "Syndrome cérébelleux (statique et cinétique)",
+    "Syndrome vestibulaire (central et périphérique)", "Syndrome méningé", "Hypertension intracrânienne", "Syndrome confusionnel", "Syndrome démentiel",
+    "Syndromes lobaires : frontal, pariétal, temporal, occipital", "Aphasies (Broca, Wernicke, conduction, transcorticales, globale)", "Héminégligence et apraxies",
+    "Syndromes du tronc cérébral et syndromes alternes (Wallenberg, Weber, Millard-Gubler)", "Atteintes des nerfs crâniens (I à XII)", "Syndrome thalamique",
+    "Syndromes médullaires : section complète, hémisection (Brown-Séquard), centromédullaire (syringomyélique), cordonal postérieur, spinal antérieur",
+    "Syndrome du cône terminal et syndrome de la queue de cheval", "Syndrome radiculaire (cervical, lombosacré)", "Syndrome plexique (brachial, lombosacré)",
+    "Polyneuropathie, mononeuropathie et mononeuropathie multiple", "Syndrome de la jonction neuromusculaire (myasthénique, Lambert-Eaton)", "Syndrome myogène",
+    "Syndrome dysautonomique", "Syndrome épileptique (crises focales et généralisées)", "Syndrome neurovasculaire par territoire artériel"]
 
 TETRADE = plan(
     id="tetrade", titre="Tétrade topo-systémique", couleur="#7a1f3d",
@@ -28,7 +37,11 @@ TETRADE = plan(
     ],
     perimetre={"inclus": SYSTEMES + ["Lien vers les 3 975 entités de la Cartographie et vers le jeu"],
                "exclus": ["Contenu rédigé dans le code", "Anatomie 3D générée par une IA"]},
+    neuro=NEURO_SYNDROMES,
     decisions=[
+        {"question": "Infobulles : où ?", "choix": "Partout, de façon systématique : signes, symptômes, syndromes, temps d'examen, examens, diagnostics ; quatre rubriques fixes et symétriques", "raison": "L'explication au survol transforme la liste en raisonnement, surtout là où l'anatomie, la physiologie et la sémiologie sont complexes (système nerveux)."},
+        {"question": "Combien de signes par temps d'examen ?", "choix": "Deux ou trois, jamais un seul ; le syndrome nomme son minimum suffisant", "raison": "Un signe isolé n'autorise pas à parler d'un syndrome ; deux ou trois signes concordants le posent."},
+        {"question": "Sons d'auscultation ?", "choix": "Enregistrements réels (base HLS-CMDS), bouton 🔊 sur la case et dans l'infobulle", "raison": "Le galop ou les crépitants s'apprennent à l'oreille, pas à la lecture."},
         {"question": "Page qui s'étend horizontalement, ou toile zoomable ?", "choix": "Toile zoomable avec mini-carte", "raison": "Le mannequin et la racine restent visibles ; une page qui s'allonge fait perdre le fil."},
         {"question": "Mannequin 3D : généré ou existant ?", "choix": "Vrais modèles 3D existants (BodyParts3D, Z-Anatomy) ; organes génitaux externes occultés (peau retirée dans une boîte pelvienne) ; jamais de SVG", "raison": "Une IA ne produit pas d'anatomie 3D fiable ; ces modèles sont exacts, gratuits et déjà validés dans le prototype (skill « 3d-images-upload-super »)."},
         {"question": "Accès au traitement depuis un diagnostic : survol ou clic ?", "choix": "Les deux : le survol ouvre un aperçu (1re ligne + posologie adulte) ; le clic déplie le réseau complet (lignes, âges, situations spéciales)", "raison": "Le survol entraîne le réflexe ; le clic sert l'approfondissement, sans encombrer la toile."},
@@ -59,8 +72,9 @@ TETRADE = plan(
         {"fichier": "tetrade/<systeme>/graphe.json", "role": "Source de vérité : nœuds et liens", "champs": ["noeuds[] : id, type (organe | temps_examen | signe | symptome | syndrome | examen | diagnostic | specialite | fonction | mecanisme | traitement), label, refs", "liens[] : de, vers, type (recherche | compose | complete | oriente | explique | traite | porte)", "sources[]"], "producteur": "IA, puis REJECTOR_", "volume": "14 fichiers"},
         {"fichier": "tetrade/<systeme>/anatomie.json", "role": "Fiches d'organes", "champs": ["organeId", "vignette", "macro", "micro", "vascularisation", "innervation", "rapports", "maillage3d", "sources"], "producteur": "IA", "volume": "≈ 15 à 40 organes par système"},
         {"fichier": "tetrade/<systeme>/physiologie.json", "role": "Fonctions et régulations", "champs": ["fonctionId", "enoncé", "formule", "valeursNormales (SI)", "organes[]", "schema"], "producteur": "IA", "volume": "≈ 10 à 25 fonctions par système"},
-        {"fichier": "tetrade/<systeme>/semiologie.json", "role": "Temps d'examen, signes, symptômes", "champs": ["signe : technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite", "symptome : questionAPoser, caracteristiques[] (siège, irradiation, type, intensité, horaire, facteurs)"], "producteur": "IA", "volume": "≈ 40 à 120 signes par système"},
-        {"fichier": "tetrade/<systeme>/syndromes.json", "role": "Composition des syndromes et débouchés", "champs": ["syndromeId", "signes[]", "symptomes[]", "examenComplementaire", "diagnostics[] (entité de la Cartographie, spécialité)"], "producteur": "IA", "volume": "≈ 10 à 30 syndromes par système"},
+        {"fichier": "tetrade/<systeme>/semiologie.json", "role": "Temps d'examen, signes, symptômes", "champs": ["signe : technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son", "bulle : def, pourquoi, confusion, retenir (4 rubriques symétriques, obligatoires)", "symptome : questionAPoser, caracteristiques[] (siège, irradiation, type, intensité, horaire, facteurs)"], "producteur": "IA", "volume": "≈ 40 à 120 signes par système"},
+        {"fichier": "tetrade/sons.json", "role": "Catalogue des sons d'auscultation réels", "champs": ["sonId", "nom", "fichier", "foyer", "temps", "source", "licence"], "producteur": "Script (téléchargement + conversion MP3)", "volume": "≈ 40 sons"},
+        {"fichier": "tetrade/<systeme>/syndromes.json", "role": "Composition des syndromes et débouchés", "champs": ["syndromeId", "signesMinimaux[] (2 ou 3)", "signes[]", "symptomes[]", "examenComplementaire", "diagnostics[] (entité de la Cartographie, spécialité)"], "producteur": "IA", "volume": "≈ 10 à 30 syndromes par système"},
         {"fichier": "tetrade/<systeme>/physiopathologie.json", "role": "Pourquoi les signes existent", "champs": ["mecanismeId", "chaine (amorce, installation, maintien)", "explique[] (signes, symptômes)"], "producteur": "IA", "volume": "Un mécanisme par signe majeur"},
         {"fichier": "tetrade/psyche/criteres_cim10.json", "role": "Critères CIM-10 condensés, par groupe d'âge", "champs": ["code", "libelle", "criteresCondenses", "groupeAge", "cheffileParProfil"], "producteur": "IA, puis REJECTOR_", "volume": "Chapitre F"},
         {"fichier": "tetrade/modeles3d.json", "role": "Correspondance maillage ↔ organe", "champs": ["modele", "licence", "auteur", "maillageId", "organeId"], "producteur": "Toi + script", "volume": "1 fichier"},

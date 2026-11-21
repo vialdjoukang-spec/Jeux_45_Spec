@@ -1,1 +1,393 @@
-{"titre": "Tétrade topo-systémique — simulation du prototype", "sousTitre": "Mannequin 3D réel · clic sur une case pour dérouler le circuit", "theme": "champagne", "voile": [-58, -230, 630, 58, -60, 790], "opacitePeau": 0.22, "cible": [430, -90, 1000], "dist": 4300, "fov": 22, "largeurColonne": 165, "ecartColonne": 44, "noeuds": [{"id": "cer", "type": "Neuro", "texte": "Encéphale", "organe": "cerveau", "couleur": "#8e5cc4", "cote": "g"}, {"id": "pou", "type": "Respiratoire", "texte": "Poumons", "organe": "poumon_d", "couleur": "#3d7fd6"}, {"id": "foi", "type": "Digestif", "texte": "Foie", "organe": "foie", "couleur": "#c98a2b", "cote": "g"}, {"id": "rei", "type": "Urinaire", "texte": "Reins", "organe": "reins", "couleur": "#b8960f", "cote": "g"}, {"id": "bas", "type": "Locomoteur", "texte": "Bassin · hanche", "organe": "bassin", "couleur": "#6b7280", "cote": "g"}, {"id": "coe", "type": "Cardiovasculaire", "texte": "Cœur", "organe": "coeur", "couleur": "#d64545", "cote": "d"}, {"id": "est", "type": "Digestif", "texte": "Estomac", "organe": "estomac", "couleur": "#c98a2b", "cote": "d"}, {"id": "s1", "type": "Temps 1 · Inspection", "texte": "Turgescence jugulaire", "couleur": "#d64545", "de": ["coe"]}, {"id": "s2", "type": "Temps 3 · Palpation", "texte": "Choc de pointe dévié", "couleur": "#d64545", "de": ["coe"]}, {"id": "s3", "type": "Temps 4 · Auscultation", "texte": "Galop B3", "couleur": "#d64545", "de": ["coe"]}, {"id": "s4", "type": "Symptôme", "texte": "Dyspnée d'effort NYHA III", "couleur": "#3d7fd6", "de": ["coe"]}, {"id": "sy", "type": "Syndrome", "texte": "Insuffisance cardiaque gauche", "couleur": "#e07b1a", "de": ["s1", "s2", "s3", "s4"]}, {"id": "ex", "type": "Examen", "texte": "NT-proBNP · échocardiographie", "couleur": "#2a9d8f", "de": ["sy"]}, {"id": "dg", "type": "Diagnostic · Cardio", "texte": "ICFEr", "couleur": "#d64545", "de": ["sy"]}]}
+{
+ "titre": "Tétrade topo-systémique — simulation du prototype",
+ "sousTitre": "Mannequin 3D réel · survol = explication · 🔊 = son réel · clic = circuit suivant",
+ "theme": "champagne",
+ "voile": [
+  -58,
+  -230,
+  630,
+  58,
+  -60,
+  790
+ ],
+ "opacitePeau": 0.22,
+ "cible": [
+  640,
+  -90,
+  1060
+ ],
+ "dist": 4300,
+ "fov": 22,
+ "largeurColonne": 170,
+ "ecartColonne": 38,
+ "noeuds": [
+  {
+   "id": "cer",
+   "type": "Neuro",
+   "texte": "Encéphale",
+   "organe": "cerveau",
+   "couleur": "#8e5cc4",
+   "cote": "g"
+  },
+  {
+   "id": "pou",
+   "type": "Respiratoire",
+   "texte": "Poumons",
+   "organe": "poumon_d",
+   "couleur": "#3d7fd6"
+  },
+  {
+   "id": "foi",
+   "type": "Digestif",
+   "texte": "Foie",
+   "organe": "foie",
+   "couleur": "#c98a2b",
+   "cote": "g"
+  },
+  {
+   "id": "rei",
+   "type": "Urinaire",
+   "texte": "Reins",
+   "organe": "reins",
+   "couleur": "#b8960f",
+   "cote": "g"
+  },
+  {
+   "id": "bas",
+   "type": "Locomoteur",
+   "texte": "Bassin · hanche",
+   "organe": "bassin",
+   "couleur": "#6b7280",
+   "cote": "g"
+  },
+  {
+   "id": "coe",
+   "type": "Cardiovasculaire",
+   "texte": "Cœur",
+   "organe": "coeur",
+   "couleur": "#c0392b",
+   "cote": "d",
+   "bulle": {
+    "def": "Le cœur gauche reçoit le sang oxygéné des veines pulmonaires et l'éjecte dans l'aorte.",
+    "pourquoi": "Quand le ventricule gauche faiblit, la pression remonte vers les poumons et produit les signes du circuit.",
+    "confusion": "Les signes de congestion droite (jugulaires, foie, œdèmes) relèvent du cœur droit.",
+    "retenir": "Tu examines dans l'ordre : inspection, palpation, percussion, auscultation, puis interrogatoire."
+   }
+  },
+  {
+   "id": "t1",
+   "type": "Temps 1",
+   "texte": "Inspection",
+   "couleur": "#c0392b",
+   "de": [
+    "coe"
+   ],
+   "bulle": {
+    "def": "Tu observes le patient avant de le toucher.",
+    "pourquoi": "L'inspection repère la détresse respiratoire et l'œdème pulmonaire.",
+    "confusion": "La turgescence jugulaire se voit aussi à l'inspection, mais elle signe la congestion droite.",
+    "retenir": "Deux ou trois signes concordants suffisent ; un seul ne suffit jamais."
+   }
+  },
+  {
+   "id": "t2",
+   "type": "Temps 2",
+   "texte": "Palpation",
+   "couleur": "#c0392b",
+   "de": [
+    "coe"
+   ],
+   "bulle": {
+    "def": "Tu palpes l'apex et les pouls.",
+    "pourquoi": "La palpation révèle la dilatation et la faiblesse du ventricule gauche.",
+    "confusion": "Un apex dévié par une déformation thoracique ne traduit pas une dilatation.",
+    "retenir": "Tu notes le siège, l'étendue et la force du choc de pointe."
+   }
+  },
+  {
+   "id": "t3",
+   "type": "Temps 3",
+   "texte": "Percussion",
+   "couleur": "#c0392b",
+   "de": [
+    "coe"
+   ],
+   "bulle": {
+    "def": "Tu percutes les champs pulmonaires et l'aire cardiaque.",
+    "pourquoi": "La percussion détecte l'épanchement pleural et l'élargissement cardiaque.",
+    "confusion": "Une condensation pulmonaire est mate aussi, mais ses vibrations vocales augmentent.",
+    "retenir": "La matité des bases oriente vers un épanchement de transsudation."
+   }
+  },
+  {
+   "id": "t4",
+   "type": "Temps 4",
+   "texte": "Auscultation",
+   "couleur": "#c0392b",
+   "de": [
+    "coe"
+   ],
+   "bulle": {
+    "def": "Tu ausculte le cœur au pavillon et à la membrane, puis les poumons.",
+    "pourquoi": "L'auscultation entend le remplissage brutal du ventricule et l'eau dans les alvéoles.",
+    "confusion": "Un B4 ou un dédoublement de B2 peuvent imiter un galop B3.",
+    "retenir": "Le galop B3 et les crépitants fins forment le duo le plus parlant."
+   }
+  },
+  {
+   "id": "t5",
+   "type": "Interrogatoire",
+   "texte": "Symptômes",
+   "couleur": "#2f6fd0",
+   "de": [
+    "coe"
+   ],
+   "bulle": {
+    "def": "Tu demandes au patient ce qu'il ressent et quand.",
+    "pourquoi": "Les symptômes décrivent la congestion pulmonaire vécue par le patient.",
+    "confusion": "La BPCO et l'anémie essoufflent aussi le patient.",
+    "retenir": "L'orthopnée et la dyspnée nocturne sont plus spécifiques que la dyspnée d'effort."
+   }
+  },
+  {
+   "id": "s11",
+   "type": "Signe",
+   "texte": "Polypnée",
+   "couleur": "#c0392b",
+   "de": [
+    "t1"
+   ],
+   "bulle": {
+    "def": "La fréquence respiratoire dépasse 20 cycles par minute au repos.",
+    "pourquoi": "La congestion rigidifie le poumon et stimule les récepteurs J, ce qui accélère la respiration.",
+    "confusion": "Une pneumonie, une embolie pulmonaire ou une acidose accélèrent aussi la respiration.",
+    "retenir": "Elle oriente sans spécificité ; elle prend son sens avec le galop et les crépitants."
+   }
+  },
+  {
+   "id": "s12",
+   "type": "Signe",
+   "texte": "Crachats mousseux rosés",
+   "couleur": "#c0392b",
+   "de": [
+    "t1"
+   ],
+   "bulle": {
+    "def": "Le patient crache une mousse blanche ou rosée, abondante.",
+    "pourquoi": "L'œdème alvéolaire mêle liquide, air et quelques hématies.",
+    "confusion": "Une hémoptysie vraie rejette du sang rouge vif, sans mousse abondante.",
+    "retenir": "Elle signe un œdème aigu du poumon, une urgence vitale."
+   }
+  },
+  {
+   "id": "s21",
+   "type": "Signe",
+   "texte": "Choc de pointe dévié",
+   "couleur": "#c0392b",
+   "de": [
+    "t2"
+   ],
+   "bulle": {
+    "def": "L'impulsion apicale se palpe au-delà de la ligne médioclaviculaire ou sous le 5e espace.",
+    "pourquoi": "Le ventricule gauche dilaté déplace l'apex vers le bas et le dehors.",
+    "confusion": "Une scoliose ou une déformation thoracique déplacent aussi la pointe sans dilatation.",
+    "retenir": "Un choc étalé traduit une dilatation ; un choc soutenu traduit plutôt une hypertrophie."
+   }
+  },
+  {
+   "id": "s22",
+   "type": "Signe",
+   "texte": "Pouls alternant",
+   "couleur": "#c0392b",
+   "de": [
+    "t2"
+   ],
+   "bulle": {
+    "def": "Le pouls alterne un battement fort et un battement faible, à rythme régulier.",
+    "pourquoi": "Le myocarde défaillant ne récupère pas toute sa force d'un cycle à l'autre.",
+    "confusion": "Un bigéminisme alterne aussi deux pulsations, mais à rythme irrégulier.",
+    "retenir": "Il signe une dysfonction systolique sévère du ventricule gauche."
+   }
+  },
+  {
+   "id": "s31",
+   "type": "Signe",
+   "texte": "Matité des bases",
+   "couleur": "#c0392b",
+   "de": [
+    "t3"
+   ],
+   "bulle": {
+    "def": "La percussion des bases sonne mat et les vibrations vocales disparaissent.",
+    "pourquoi": "La pression capillaire élevée fait transsuder un épanchement pleural, souvent bilatéral.",
+    "confusion": "Une pneumonie condensante est mate aussi, mais les vibrations vocales y augmentent.",
+    "retenir": "L'épanchement de l'IC est un transsudat selon les critères de Light."
+   }
+  },
+  {
+   "id": "s32",
+   "type": "Signe",
+   "texte": "Matité cardiaque élargie",
+   "couleur": "#c0392b",
+   "de": [
+    "t3"
+   ],
+   "bulle": {
+    "def": "L'aire de matité cardiaque déborde ses limites habituelles.",
+    "pourquoi": "Le cœur dilaté occupe une plus grande surface sous la paroi.",
+    "confusion": "Un épanchement péricardique élargit aussi la matité, avec des bruits assourdis.",
+    "retenir": "Ce signe est peu sensible ; la radiographie et l'échographie le confirment."
+   }
+  },
+  {
+   "id": "s41",
+   "type": "Signe",
+   "texte": "Galop B3",
+   "couleur": "#c0392b",
+   "de": [
+    "t4"
+   ],
+   "bulle": {
+    "def": "Un bruit sourd suit B2 en protodiastole et crée un rythme à trois temps (« Ken-tu-cky »), au pavillon, à l'apex, en décubitus latéral gauche.",
+    "pourquoi": "Le sang heurte un ventricule gauche dilaté et rempli sous haute pression.",
+    "confusion": "Le B4 précède B1 (« Ten-nes-see ») et traduit un ventricule rigide ; le dédoublement de B2 est plus aigu.",
+    "retenir": "Après 40 ans, un B3 est pathologique ; chez l'enfant et l'athlète jeune, il peut être normal."
+   },
+   "son": "sons/galop_B3_apex.mp3",
+   "sonTitre": "galop B3 à l'apex (enregistrement réel)"
+  },
+  {
+   "id": "s42",
+   "type": "Signe",
+   "texte": "Crépitants fins bibasaux",
+   "couleur": "#c0392b",
+   "de": [
+    "t4"
+   ],
+   "bulle": {
+    "def": "Des craquements fins et inspiratoires, comme des cheveux froissés près de l'oreille, s'entendent aux deux bases.",
+    "pourquoi": "L'œdème fait se rouvrir brusquement les petites voies aériennes à chaque inspiration.",
+    "confusion": "La fibrose donne des crépitants secs « velcro » ; la pneumonie donne des crépitants localisés et fébriles.",
+    "retenir": "Ils montent vers les sommets quand l'œdème s'aggrave (classification de Killip)."
+   },
+   "son": "sons/crepitants_fins_base_droite.mp3",
+   "sonTitre": "crépitants fins à la base (enregistrement réel)"
+  },
+  {
+   "id": "s43",
+   "type": "Signe",
+   "texte": "Souffle holosystolique",
+   "couleur": "#c0392b",
+   "de": [
+    "t4"
+   ],
+   "bulle": {
+    "def": "Un souffle couvre toute la systole à l'apex et irradie vers l'aisselle.",
+    "pourquoi": "La dilatation écarte l'anneau et les piliers : la valve mitrale fuit (insuffisance fonctionnelle).",
+    "confusion": "Un rétrécissement aortique souffle au foyer aortique et irradie vers les carotides.",
+    "retenir": "Il diminue souvent quand le traitement décongestionne."
+   }
+  },
+  {
+   "id": "s51",
+   "type": "Symptôme",
+   "texte": "Dyspnée d'effort (NYHA)",
+   "couleur": "#2f6fd0",
+   "de": [
+    "t5"
+   ],
+   "bulle": {
+    "def": "L'essoufflement apparaît à l'effort et se grade de I à IV selon la NYHA.",
+    "pourquoi": "À l'effort, la pression capillaire pulmonaire dépasse ce que le ventricule évacue.",
+    "confusion": "La BPCO, l'anémie et le déconditionnement essoufflent aussi à l'effort.",
+    "retenir": "Le stade NYHA guide le traitement et le pronostic."
+   }
+  },
+  {
+   "id": "s52",
+   "type": "Symptôme",
+   "texte": "Orthopnée",
+   "couleur": "#2f6fd0",
+   "de": [
+    "t5"
+   ],
+   "bulle": {
+    "def": "L'essoufflement survient couché et cède assis ; tu la chiffres en nombre d'oreillers.",
+    "pourquoi": "Le décubitus ramène le sang des jambes vers le thorax et surcharge le ventricule gauche.",
+    "confusion": "Une ascite massive ou une paralysie diaphragmatique donnent aussi une orthopnée.",
+    "retenir": "Elle est plus spécifique de l'IC que la dyspnée d'effort."
+   }
+  },
+  {
+   "id": "s53",
+   "type": "Symptôme",
+   "texte": "Dyspnée nocturne",
+   "couleur": "#2f6fd0",
+   "de": [
+    "t5"
+   ],
+   "bulle": {
+    "def": "Le patient s'éveille 1 à 3 h après le coucher, étouffé, et doit s'asseoir.",
+    "pourquoi": "La nuit, les œdèmes regagnent les vaisseaux et la commande respiratoire baisse.",
+    "confusion": "L'asthme nocturne réveille aussi, mais avec sibilants et toux sèche.",
+    "retenir": "Elle signe une congestion pulmonaire avancée."
+   }
+  },
+  {
+   "id": "sy",
+   "type": "Syndrome",
+   "texte": "Insuffisance cardiaque gauche",
+   "couleur": "#d9731a",
+   "de": [
+    "s11",
+    "s12",
+    "s21",
+    "s22",
+    "s31",
+    "s32",
+    "s41",
+    "s42",
+    "s43",
+    "s51",
+    "s52",
+    "s53"
+   ],
+   "bulle": {
+    "def": "Le ventricule gauche n'évacue plus son volume et la pression remonte vers les capillaires pulmonaires.",
+    "pourquoi": "Galop B3, crépitants bibasaux et orthopnée suffisent à poser le syndrome : deux ou trois signes concordants valent mieux qu'un seul.",
+    "confusion": "Turgescence jugulaire, reflux hépatojugulaire et œdèmes déclives relèvent de l'IC droite : leur présence indique une IC globale.",
+    "retenir": "Le NT-proBNP et l'échocardiographie confirment le syndrome et le classent selon la FEVG."
+   }
+  },
+  {
+   "id": "ex",
+   "type": "Examen",
+   "texte": "NT-proBNP · échocardiographie",
+   "couleur": "#16897b",
+   "de": [
+    "sy"
+   ],
+   "bulle": {
+    "def": "Le myocarde étiré libère le NT-proBNP ; l'échocardiographie mesure la FEVG et les pressions de remplissage.",
+    "pourquoi": "Un NT-proBNP < 125 pg/ml en ambulatoire (< 300 pg/ml en aigu) rend l'IC très improbable.",
+    "confusion": "L'insuffisance rénale, l'âge et la fibrillation auriculaire élèvent le NT-proBNP ; l'obésité l'abaisse.",
+    "retenir": "Le NT-proBNP sert surtout à exclure ; l'échocardiographie classe ICFEr, ICFEm ou ICFEp."
+   }
+  },
+  {
+   "id": "dg",
+   "type": "Diagnostic · Cardiologie",
+   "texte": "ICFEr (FEVG ≤ 40 %)",
+   "couleur": "#c0392b",
+   "de": [
+    "sy"
+   ],
+   "bulle": {
+    "def": "L'insuffisance cardiaque à fraction d'éjection réduite se définit par une FEVG ≤ 40 %.",
+    "pourquoi": "Le ventricule gauche se contracte mal et se dilate, ce qui explique le galop et la pointe déviée.",
+    "confusion": "L'ICFEp (FEVG ≥ 50 %) donne les mêmes signes avec un ventricule rigide, non dilaté.",
+    "retenir": "Quatre piliers la traitent : IEC ou ARNI, bêtabloquant, antagoniste minéralocorticoïde et iSGLT2."
+   }
+  }
+ ]
+}

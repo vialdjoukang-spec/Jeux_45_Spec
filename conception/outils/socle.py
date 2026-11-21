@@ -34,7 +34,32 @@ TOILE = {
         "Le bouton ↺ a deux issues : un clic replie le dernier circuit ouvert (repli sélectif), un double-clic replie tout (réinitialisation globale).",
         "Le bouton de thème fait défiler sept fonds contrastés : blanc, bleu ciel, champagne, or, menthe, nuit, anthracite ; les cases restent opaques et le texte presque noir (ou blanc sur fond sombre), pour que l'écrit domine toujours le fond.",
         "La largeur des colonnes s'ajuste automatiquement à l'écran, pour que tout le réseau reste visible.",
+        "La disposition se recalcule à chaque clic sur les seules cases visibles : chaque parent reste centré sur le bloc de ses enfants.",
+        "Chaque case porte une infobulle symétrique au survol, et chaque signe auscultatoire un bouton 🔊.",
     ],
+}
+
+
+SEMIOLOGIE = {
+    "infobulle": {
+        "regle": "Chaque case (signe, symptôme, syndrome, temps d'examen, examen, diagnostic) porte une infobulle au survol, sans exception.",
+        "rubriques": [["Ce que c'est", "Une phrase verbale décrit ce que l'on voit, palpe, percute, entend ou ressent."],
+                      ["Pourquoi ici", "Une phrase verbale relie le signe au mécanisme du syndrome."],
+                      ["Confusion possible", "Une phrase verbale nomme ce qui ressemble au signe et ce qui l'en distingue ; à défaut, « Aucune confusion fréquente »."],
+                      ["À retenir", "Une phrase verbale donne la valeur diagnostique ou le seuil utile."]],
+        "symetrie": "Les quatre rubriques apparaissent toujours, dans le même ordre, avec une phrase de longueur comparable : le cadre reste parfaitement symétrique.",
+    },
+    "seuils": [
+        "Chaque temps d'examen (inspection, palpation, percussion, auscultation) présente deux ou trois signes : un seul ne suffit jamais à parler du syndrome.",
+        "Le syndrome nomme dans son infobulle le minimum suffisant : deux ou trois signes concordants qui permettent de le poser.",
+        "Quand un signe appartient à un autre syndrome proche (exemple : la turgescence jugulaire relève de l'insuffisance cardiaque droite), l'infobulle le dit explicitement.",
+    ],
+    "sons": {
+        "regle": "Tout signe auscultatoire porte un bouton 🔊 qui joue un enregistrement réel ; le son se rejoue aussi depuis l'infobulle.",
+        "catalogue": ["Galop B3", "Galop B4", "Souffles systoliques et diastoliques", "Fibrillation auriculaire", "Bloc auriculo-ventriculaire", "Tachycardie",
+                      "Crépitants fins", "Crépitants grossiers", "Sibilants", "Ronchi", "Frottement pleural", "Murmure vésiculaire normal", "Bruits hydroaériques", "Souffle vasculaire"],
+        "source": "Base HLS-CMDS (enregistrements cardiopulmonaires réels sur mannequin clinique, licence MIT / CC BY 4.0), puis PhysioNet CirCor et Mendeley pour les compléments ; source et licence notées dans le JSON du son.",
+    },
 }
 
 ARENE_AVENTURE = {

@@ -38,6 +38,7 @@ def auditer(p):
     r.append(("REJECTOR_ figure dans les blocages ou la production", "REJECTOR_" in json.dumps(p, ensure_ascii=False)))
     r.append(("Le prototype a au moins 4 colonnes", len(p["prototype"].get("colonnes", [])) >= 4))
     r.append(("Le prototype est une image réelle (PNG 3D), pas un SVG", str(p["prototype"].get("image","")).endswith(".png") and (BASE / p["prototype"]["image"]).exists()))
+    r.append(("La règle des infobulles symétriques est présente", len(p.get("semiologie", {}).get("infobulle", {}).get("rubriques", [])) == 4))
     r.append(("Aucune question ouverte sur VIT DIT CAFé", "VIT DIT" not in " ".join(p.get("questionsOuvertes", []))))
     brut = json.dumps({k: v for k, v in p.items() if k != "auditConception"})
     r.append(("Aucun marqueur de travail inachevé (TODO, XXX)", "TODO" not in brut and "XXX" not in brut))
@@ -122,6 +123,13 @@ def rendre(p, audit):
     S.append(("decisions", "Décisions de conception", table(p["decisions"], [("question", "Question"), ("choix", "Choix retenu"), ("raison", "Raison")])))
     S.append(("architecture", "Architecture en couches", table(p["architecture"], [("couche", "Couche"), ("contenu", "Contenu"), ("producteur", "Producteur"), ("cout", "Coût")])))
     S.append(("toile", "Toile zoomable (réseau de style Obsidian)", f"<p>{E(p['toile']['moteur'])}.</p>{liste(p['toile']['regles'])}"))
+    if p.get("semiologie"):
+        sm = p["semiologie"]
+        S.append(("semiologie", "Infobulles symétriques, seuils de signes et sons réels",
+                  f"<p>{E(sm['infobulle']['regle'])}</p>" + table([{"r": a, "c": b} for a, b in sm["infobulle"]["rubriques"]], [("r", "Rubrique"), ("c", "Contenu attendu")])
+                  + f"<p>{E(sm['infobulle']['symetrie'])}</p><h4>Seuils</h4>{liste(sm['seuils'])}<h4>Sons</h4><p>{E(sm['sons']['regle'])}</p>{liste(sm['sons']['catalogue'])}<p>{E(sm['sons']['source'])}</p>"))
+    if p.get("neuro"):
+        S.append(("neuro", "Système nerveux : syndromes majeurs à identifier", "<p>Le système nerveux concentre le travail le plus lourd : chaque syndrome ci-dessous reçoit son circuit complet (signes par temps d'examen, symptômes, infobulles, examens, diagnostics).</p>" + liste(p["neuro"])))
     if p.get("mnemonique"):
         m = p["mnemonique"]
         S.append(("mnemonique", f"Mnémonique {m['nom']}", f"<p class='ok'><b>{E(m['statut'])}</b></p>" + table([{"l": a, "f": b} for a, b in m["lettres"]], [("l", "Lettre"), ("f", "Famille d'altération du tissu ou de l'organe")]) + f"<p>{E(m['regle'])}</p>"))
