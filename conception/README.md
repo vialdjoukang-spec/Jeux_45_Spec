@@ -32,3 +32,9 @@ python conception/outils/rendre_plans.py
 - Disposition recalculée à chaque clic, parents centrés sur leurs enfants.
 - Système nerveux : 24 syndromes majeurs listés (plan Tétrade + donnees/tetrade/neurologique/syndromes.json).
 - `outils/generer_json.py` génère TOUS les JSON (202 fichiers : squelettes + exemples réels + schémas) dans `donnees/`, à 0 token.
+
+## Mise à jour : examens complémentaires exhaustifs
+- `outils/catalogue_paraclinique.py` : catalogue topographique unique (9 régions, 64 organes, 23 prélèvements, imagerie, biologie, explorations fonctionnelles, endoscopie, anatomopathologie).
+- `outils/auditer_couverture.py` : audit bloquant (systèmes reliés, au moins deux modalités par organe, aucun doublon, examens témoins) → `audit/couverture.md`.
+- Tétrade : onglet unique « Examens complémentaires » (E9), progression topo-systémique ou topo-organe.
+- `audit/audit_amelioration.md` : constats, corrections et reste à faire.

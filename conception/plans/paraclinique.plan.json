@@ -185,6 +185,11 @@
  },
  "decisions": [
   {
+   "question": "Comment garantir que rien ne manque ?",
+   "choix": "Un catalogue topographique unique (région → organe → imagerie, biologie, exploration fonctionnelle, endoscopie, anatomopathologie) alimente tous les onglets et la Tétrade ; un script d'audit contrôle la couverture",
+   "raison": "Les organes sont toujours la cible des investigations ; une progression topographique de la tête aux pieds rend les oublis visibles."
+  },
+  {
    "question": "Images d'imagerie : quelle source ?",
    "choix": "Toute source du web convient (décision de Vial) ; chaque image garde son URL d'origine dans son JSON pour pouvoir être remplacée ; aucune image en SVG",
    "raison": "Vial privilégie le réalisme ; la traçabilité de l'URL suffit à maintenir la banque (skill « 3d-images-upload-super »)."
@@ -203,26 +208,29 @@
  "onglets": {
   "biologie": {
    "prelevements": [
-    "Sang veineux (hématologie, biochimie, hémostase, sérologies, hormonologie)",
-    "Sang artériel (gazométrie)",
-    "Sang capillaire (glycémie, lactate)",
-    "Hémocultures",
-    "Urine (bandelette, sédiment, culture, spot, urines de 24 h)",
-    "Liquide céphalorachidien",
-    "Liquide pleural",
-    "Liquide d'ascite",
-    "Liquide synovial (articulaire)",
-    "Liquide péricardique",
-    "Selles (coproculture, parasitologie, calprotectine, sang occulte)",
-    "Expectorations et lavage broncho-alvéolaire",
-    "Moelle osseuse (myélogramme, biopsie ostéomédullaire)",
-    "Biopsies (rein, foie, peau, ganglion, prostate, sein…)",
-    "Prélèvements génitaux et urétraux",
-    "Écouvillons naso-pharyngés",
-    "Liquide amniotique",
-    "Test de la sueur",
-    "Sperme (spermogramme)",
-    "Ponction de kyste ou d'abcès"
+    "Sang veineux : Hématologie (FSC, réticulocytes, frottis), Biochimie (ionogramme, créatinine, urée, glucose, bilan hépatique, lipides, protéines, CRP), Hémostase, Sérologies, Hormonologie, Marqueurs tumoraux, Auto-immunité, Dosages médicamenteux, Gazométrie veineuse",
+    "Sang artériel : Gazométrie (pH, PaO2, PaCO2, bicarbonates, excès de base, lactate, SaO2, carboxyhémoglobine, méthémoglobine)",
+    "Sang capillaire : Glycémie capillaire, Lactate, Cétonémie, Hémoglobine (HemoCue), INR au point de soins, Carte de Guthrie (nouveau-né)",
+    "Hémocultures : Aérobies et anaérobies, Délai de positivité, Identification par spectrométrie de masse, Antibiogramme, Hémocultures pour mycobactéries et champignons",
+    "Urine : Bandelette, Sédiment urinaire, Culture (critères de Kass), Spot urinaire (Na, K, Cl, créatinine, osmolalité), Urines de 24 h (protéines, calcium, cortisol libre, métanéphrines, oxalate, citrate), Toxicologie, Antigénuries, β-hCG, PCR IST (premier jet)",
+    "Liquide céphalorachidien : Pression d'ouverture, Cellules et formule, Protéines, glucose, lactate, Gram, culture, PCR, Bandes oligoclonales, Cytologie, Xanthochromie, Biomarqueurs (Aβ42, tau)",
+    "Liquide pleural : Critères de Light (protéines, LDH), pH, glucose, Cellules, Gram, culture, BAAR, Cytologie, ADA, Triglycérides et cholestérol, Hématocrite pleural",
+    "Liquide d'ascite : Gradient albumine sérum-ascite, Protéines, Polynucléaires neutrophiles, Culture en flacons d'hémoculture, Cytologie, Amylase, Triglycérides, ADA",
+    "Liquide synovial : Aspect et viscosité, Cellules, Cristaux en lumière polarisée (urate, pyrophosphate), Gram et culture, PCR",
+    "Liquide péricardique : Cellules, Protéines, LDH, Gram, culture, BAAR, Cytologie, ADA",
+    "Selles : Coproculture et PCR multiplex, Toxines de Clostridioides difficile, Parasitologie, Calprotectine, Test immunologique fécal (FIT), Élastase, Antigène Helicobacter, Graisses fécales",
+    "Expectorations et lavage bronchoalvéolaire : Gram et culture, BAAR, culture et PCR des mycobactéries, PCR virales et Pneumocystis, Galactomannane (aspergillose), Formule cellulaire du LBA, Cytologie",
+    "Moelle osseuse : Myélogramme, Biopsie ostéomédullaire, Cytométrie en flux, Caryotype et FISH, Biologie moléculaire",
+    "Biopsies tissulaires : Histologie standard, Immunohistochimie, Immunofluorescence, Microscopie électronique, Biologie moléculaire tumorale, Culture microbiologique",
+    "Prélèvements génitaux et urétraux : Examen direct (pH, test aux amines, levures, Trichomonas), Culture, PCR Chlamydia, gonocoque, Mycoplasma genitalium, Frottis cervical et test HPV",
+    "Écouvillons nasopharyngés et de gorge : PCR respiratoires multiplex, Test rapide streptocoque A, Dépistage MRSA",
+    "Liquide amniotique : Caryotype et CGH-array, PCR infectieuses (CMV, toxoplasmose), Maturité pulmonaire (historique)",
+    "Sueur : Test de la sueur (chlorures)",
+    "Sperme : Spermogramme et spermocytogramme, Spermoculture",
+    "Ponction de kyste, d'abcès ou de collection : Gram et culture, Cytologie, Biochimie selon le site (amylase, créatinine, bilirubine)",
+    "Salive : Cortisol salivaire nocturne",
+    "Air expiré : Test respiratoire à l'urée C13, Test à l'hydrogène, FeNO",
+    "Cheveux et ongles : Mycologie, Toxicologie capillaire"
    ],
    "chaine": "Prélèvement → examens possibles → valeurs (unités SI suisses) → interprétation → syndrome biologique → diagnostics → traitement avec posologie",
    "calculs": [
@@ -249,17 +257,15 @@
   },
   "imagerie": {
    "regions": [
-    "Tête et crâne",
-    "Cou",
-    "Thorax",
-    "Cœur et gros vaisseaux",
-    "Sein",
-    "Abdomen",
-    "Pelvis",
-    "Rachis",
-    "Membre supérieur",
-    "Membre inférieur",
-    "Vaisseaux périphériques"
+    "1. Tête et encéphale",
+    "2. Cou",
+    "3. Rachis, moelle et racines",
+    "4. Thorax",
+    "5. Abdomen",
+    "6. Pelvis",
+    "7. Membres et appareil locomoteur",
+    "8. Peau et phanères",
+    "9. Systèmes transversaux (corps entier)"
    ],
    "examens": [
     "Radiographie",
@@ -277,25 +283,163 @@
   },
   "explorations": {
    "liste": [
-    "Spirométrie, pléthysmographie, DLCO",
-    "ECG, Holter, MAPA",
-    "Épreuve d'effort et épreuve cardio-pulmonaire (VO₂max)",
-    "Test de marche de 6 minutes",
-    "Test de Schellong et tilt-test",
-    "EEG",
-    "ENMG (électroneuromyographie)",
-    "Potentiels évoqués (visuels, auditifs, somesthésiques)",
-    "Polysomnographie et polygraphie (diagnostics renvoyés vers la Psyché)",
-    "Audiométrie et tympanométrie",
-    "Champ visuel et OCT",
-    "Manométrie œsophagienne et pH-impédancemétrie",
+    "Actimétrie",
+    "Acuité visuelle",
+    "Agenda du sommeil",
+    "Anuscopie",
+    "Arthroscopie",
+    "Audiométrie tonale et vocale",
+    "Bilan neuropsychologique",
+    "Bilan neuropsychologique (MoCA, MMSE, batteries)",
     "Bilan urodynamique",
-    "Tests endocriniens dynamiques"
+    "Bilan urodynamique complet (cystomanométrie, profil urétral)",
+    "Bronchoscopie avec lavage bronchoalvéolaire",
+    "Bronchoscopie de navigation",
+    "CPRE (cholangiopancréatographie rétrograde) avec brossage",
+    "Calendrier mictionnel",
+    "Calorimétrie indirecte",
+    "Capacité de diffusion du CO (DLCO)",
+    "Capillaroscopie (phénomène de Raynaud)",
+    "Cardiotocographie (CTG)",
+    "Cathétérisme cardiaque droit (pressions pulmonaires)",
+    "Cathétérisme des veines surrénaliennes",
+    "Champ visuel (Goldmann, Humphrey)",
+    "Champ visuel (compression chiasmatique)",
+    "Cholangioscopie",
+    "Coloscopie totale avec biopsies",
+    "Colposcopie",
+    "Contrôle de pacemaker et de défibrillateur",
+    "Cortisol salivaire nocturne et cortisol libre urinaire",
+    "Cystoscopie",
+    "Cœlioscopie diagnostique",
+    "Doppler transcrânien (retentissement hémodynamique)",
+    "Débitmétrie",
+    "EBUS (échoendoscopie bronchique) avec ponction ganglionnaire",
+    "EBUS et EUS",
+    "ECG 12 dérivations",
+    "EEG de sommeil et EEG prolongé",
+    "EEG standard",
+    "ENMG (canal carpien, nerf ulnaire)",
+    "Enregistreur d'événements et moniteur implantable (loop recorder)",
+    "Entéroscopie à double ballon",
+    "Ergospirométrie",
+    "Ergospirométrie (VO2max)",
+    "FeNO (NO exhalé)",
+    "Fond d'œil",
+    "Gastroscopie (OGD) avec biopsies (classification de Sydney, Helicobacter)",
+    "Gonioscopie",
+    "HGPO 75 g",
+    "HGPO avec dosage de GH (acromégalie)",
+    "Holter ECG 24 h à 7 jours",
+    "Holter glycémique (mesure continue du glucose)",
+    "Hystéroscopie",
+    "Index de pression systolique cheville-bras (IPS)",
+    "Lampe de Wood",
+    "Lampe à fente",
+    "Laparoscopie diagnostique",
+    "Laryngoscopie directe en suspension",
+    "Laryngoscopie indirecte et nasofibroscopie",
+    "Manométrie anorectale",
+    "Manométrie œsophagienne haute résolution",
+    "Manœuvre de Dix-Hallpike",
+    "Massage du sinus carotidien",
+    "Mesure de pression intracrânienne",
+    "Mesure du gradient de pression hépatique veineuse",
+    "Mesure transcutanée de l'oxygène (TcPO2)",
+    "Médiastinoscopie",
+    "Nasofibroscopie",
+    "Olfactométrie",
+    "Otoscopie et otomicroscopie",
+    "Otoémissions acoustiques (dépistage néonatal)",
+    "Oxymétrie nocturne, polygraphie et polysomnographie",
+    "Pachymétrie",
+    "Peak-flow",
+    "Phototests",
+    "Pléthysmographie (volumes)",
+    "Polygraphie ventilatoire",
+    "Polysomnographie",
+    "Potentiels évoqués auditifs (PEA)",
+    "Potentiels évoqués myogéniques vestibulaires (VEMP)",
+    "Potentiels évoqués somesthésiques et moteurs",
+    "Potentiels évoqués visuels, auditifs, somesthésiques, moteurs",
+    "Pression d'orteil",
+    "Prick-tests",
+    "Rectosigmoïdoscopie",
+    "Rhinomanométrie",
+    "Rhinoscopie",
+    "Réfraction",
+    "Spirométrie avec test de bronchodilatation",
+    "Temps de saignement (PFA-100)",
+    "Temps de transit colique (marqueurs radio-opaques)",
+    "Test au Synacthène",
+    "Test d'hypoglycémie insulinique",
+    "Test de Schirmer",
+    "Test de charge sodée (hyperaldostéronisme)",
+    "Test de freinage à la dexaméthasone 1 mg",
+    "Test de maintien de l'éveil",
+    "Test de marche de 6 minutes",
+    "Test de marche sur tapis",
+    "Test de provocation bronchique (méthacholine)",
+    "Test de restriction hydrique",
+    "Test de stimulation à l'arginine-copeptine",
+    "Test de stimulation à la sécrétine (exceptionnel)",
+    "Tests autonomes (variabilité cardiaque, sudomotricité)",
+    "Tests de personnalité standardisés",
+    "Tests de provocation (médicaments, aliments)",
+    "Tests itératifs de latence d'endormissement (TILE)",
+    "Tests épicutanés (patch tests)",
+    "Thoracoscopie",
+    "Thromboélastographie (ROTEM)",
+    "Tilt-test (test d'inclinaison)",
+    "Tonométrie",
+    "Trichogramme",
+    "Trichoscopie",
+    "Tympanométrie et réflexe stapédien",
+    "Urétéroscopie",
+    "Video head impulse test (vHIT)",
+    "Vidéo-EEG",
+    "Vidéocapsule endoscopique",
+    "Vidéonystagmographie (VNG)",
+    "Vidéostroboscopie",
+    "Vision des couleurs (Ishihara)",
+    "pH-métrie et impédancemétrie de 24 h",
+    "Échelle d'Epworth",
+    "Échelles psychométriques (PHQ-9, GAD-7, HAM-D, MADRS, YMRS, PANSS, AUDIT, MoCA)",
+    "Écho-endoscopie",
+    "Écho-endoscopie avec ponction",
+    "Écho-endoscopie biliopancréatique",
+    "Écho-endoscopie rectale",
+    "Écho-endoscopie œsophagienne",
+    "Électromyographie (EMG)",
+    "Électroneuromyographie (ENMG)",
+    "Électroneuromyographie (vitesses de conduction, EMG de détection)",
+    "Électrorétinogramme",
+    "Épreuve d'effort (ECG d'effort)",
+    "Épreuve de jeûne de 72 h (hypoglycémie)",
+    "Étude électrophysiologique endocavitaire",
+    "Œsophagogastroduodénoscopie (OGD) avec biopsies"
    ],
    "chaine": "Fonction → exploration → tracé ou résultat → interprétation (valeurs seuils) → diagnostic → traitement"
   }
  },
  "ecrans": [
+  {
+   "id": "X0",
+   "nom": "Navigation topographique",
+   "but": "Aller d'une région à l'organe, puis à ses examens",
+   "zones": [
+    "Corps 3D réel avec les 9 régions cliquables",
+    "Colonne des organes de la région",
+    "Cinq colonnes de modalités : imagerie, biologie, explorations, endoscopie, anatomopathologie"
+   ],
+   "interactions": [
+    "Clic sur une région : ses organes apparaissent",
+    "Clic sur un organe : ses examens apparaissent par modalité",
+    "Survol d'un examen : infobulle symétrique (indication, principe, limite, à retenir)"
+   ],
+   "regleLocale": "Un organe sans examen dans une modalité pertinente bloque la publication (audit de couverture).",
+   "exemple": "Thorax → Cœur → ECG, échocardiographie, troponine, coronarographie, biopsie endomyocardique."
+  },
   {
    "id": "X1",
    "nom": "Onglet Biologie",
@@ -659,38 +803,1162 @@
   "Aucune phrase nominale n'apparaît dans un texte didactique.",
   "Aucune image n'est produite en SVG : clichés et photos réels, corps en 3D réelle, organes génitaux externes occultés.",
   "Aucun calcul ne s'affiche sans test unitaire réussi.",
-  "Aucun cliché annoté ne s'affiche sans sa description numérotée des lésions."
+  "Aucun cliché annoté ne s'affiche sans sa description numérotée des lésions.",
+  "Aucun organe du catalogue ne reste sans examen ; l'audit de couverture doit réussir avant publication."
  ],
  "questionsOuvertes": [],
  "prototype": {
   "titre": "Prototype : Imagerie → thorax → Rx PA → poumon droit → pneumonie, fenêtre à deux clichés",
   "image": "prototypes/paraclinique.png",
-  "centre": "tube",
-  "cadre": "Liquide d'ascite",
+  "centre": "corps 3D",
+  "cadre": "Thorax",
   "colonnes": [
    [
-    "Cytologie",
-    "Protéines",
-    "Albumine"
+    "Région : Thorax"
    ],
    [
-    "PNN = 320/mm³",
-    "Gradient albumine = 14 g/L"
+    "Rx thoracique PA",
+    "Échographie pleurale",
+    "CT thoracique injecté"
    ],
    [
-    "Critère : PNN ≥ 250/mm³",
-    "Hypertension portale"
+    "Poumon droit"
    ],
    [
-    "Infection d'ascite",
-    "Cirrhose"
+    "Pneumonie lobaire",
+    "Pneumonie à pneumocoque"
    ],
    [
-    "Céfotaxime (posologie, source)",
-    "Albumine IV"
+    "Fenêtre : cliché brut / cliché annoté"
    ]
   ],
-  "legende": "Le calculateur se met à jour à la saisie ; le critère tranche ; le diagnostic ouvre le traitement."
+  "legende": "La région ouvre ses examens ; l'examen de première intention mène à l'organe, à la pathologie, puis à la preuve d'imagerie annotée."
+ },
+ "topographie": {
+  "progression": "Région (de la tête aux pieds, puis systèmes transversaux) → organe ciblé → modalités → examens",
+  "modalites": {
+   "IMG": "Imagerie",
+   "BIO": "Biologie",
+   "FCT": "Exploration fonctionnelle",
+   "END": "Endoscopie",
+   "HIS": "Anatomopathologie / biopsie"
+  },
+  "regions": {
+   "1. Tête et encéphale": {
+    "Encéphale": {
+     "Imagerie": [
+      "CT cérébral natif",
+      "CT cérébral injecté",
+      "Angio-CT des vaisseaux intracrâniens",
+      "CT de perfusion",
+      "IRM cérébrale (T1, T2, FLAIR, diffusion, SWI/T2*, gadolinium)",
+      "Angio-IRM (TOF)",
+      "Spectroscopie IRM",
+      "IRM fonctionnelle",
+      "PET-FDG cérébral",
+      "PET amyloïde et PET tau",
+      "SPECT de perfusion cérébrale",
+      "DaTSCAN (SPECT au transporteur de la dopamine)",
+      "Artériographie cérébrale (DSA)",
+      "Doppler transcrânien",
+      "Échographie transfontanellaire (nourrisson)"
+     ],
+     "Biologie": [
+      "Ponction lombaire (voir LCR)",
+      "Ammoniémie",
+      "Toxicologie sanguine et urinaire",
+      "Biomarqueurs de neurodégénérescence (Aβ42, tau, p-tau, NfL)",
+      "Anticorps anti-neuronaux (encéphalites auto-immunes)",
+      "Bilan de démence réversible (TSH, B12, folates, VIH, syphilis, calcium)"
+     ],
+     "Exploration fonctionnelle": [
+      "EEG standard",
+      "EEG de sommeil et EEG prolongé",
+      "Vidéo-EEG",
+      "Potentiels évoqués visuels, auditifs, somesthésiques, moteurs",
+      "Bilan neuropsychologique (MoCA, MMSE, batteries)",
+      "Mesure de pression intracrânienne"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie cérébrale stéréotaxique",
+      "Biopsie méningée"
+     ]
+    },
+    "Méninges et LCR": {
+     "Imagerie": [
+      "IRM cérébrale et médullaire avec gadolinium",
+      "Cisternographie (fuite de LCR)"
+     ],
+     "Biologie": [
+      "LCR : aspect, pression d'ouverture, cellules, protéines, glucose (rapport LCR/sang), lactate",
+      "LCR : Gram, culture, PCR multiplex (méningite/encéphalite), antigènes",
+      "LCR : bandes oligoclonales et index IgG",
+      "LCR : cytologie (méningite carcinomateuse)",
+      "LCR : xanthochromie, spectrophotométrie (hémorragie sous-arachnoïdienne)"
+     ]
+    },
+    "Hypophyse et hypothalamus": {
+     "Imagerie": [
+      "IRM hypophysaire dynamique"
+     ],
+     "Biologie": [
+      "Prolactine",
+      "IGF-1, GH",
+      "ACTH, cortisol",
+      "TSH, T4 libre",
+      "LH, FSH, testostérone, œstradiol",
+      "Osmolalités plasmatique et urinaire, copeptine"
+     ],
+     "Exploration fonctionnelle": [
+      "Test de restriction hydrique",
+      "Test de stimulation à l'arginine-copeptine",
+      "HGPO avec dosage de GH (acromégalie)",
+      "Test d'hypoglycémie insulinique",
+      "Champ visuel (compression chiasmatique)"
+     ]
+    },
+    "Œil et orbite": {
+     "Imagerie": [
+      "Échographie oculaire (modes A et B)",
+      "OCT (tomographie par cohérence optique) et angio-OCT",
+      "Angiographie à la fluorescéine et au vert d'indocyanine",
+      "Rétinophotographie",
+      "CT et IRM orbitaires"
+     ],
+     "Exploration fonctionnelle": [
+      "Acuité visuelle",
+      "Réfraction",
+      "Lampe à fente",
+      "Tonométrie",
+      "Pachymétrie",
+      "Gonioscopie",
+      "Fond d'œil",
+      "Champ visuel (Goldmann, Humphrey)",
+      "Vision des couleurs (Ishihara)",
+      "Test de Schirmer",
+      "Électrorétinogramme"
+     ],
+     "Biologie": [
+      "Prélèvement conjonctival (culture, PCR)",
+      "Ponction de chambre antérieure"
+     ]
+    },
+    "Oreille et équilibre": {
+     "Imagerie": [
+      "CT des rochers",
+      "IRM des angles pontocérébelleux (neurinome)"
+     ],
+     "Exploration fonctionnelle": [
+      "Otoscopie et otomicroscopie",
+      "Audiométrie tonale et vocale",
+      "Tympanométrie et réflexe stapédien",
+      "Potentiels évoqués auditifs (PEA)",
+      "Otoémissions acoustiques (dépistage néonatal)",
+      "Vidéonystagmographie (VNG)",
+      "Video head impulse test (vHIT)",
+      "Potentiels évoqués myogéniques vestibulaires (VEMP)",
+      "Manœuvre de Dix-Hallpike"
+     ]
+    },
+    "Nez, sinus et cavum": {
+     "Imagerie": [
+      "CT des sinus",
+      "IRM des sinus et du cavum"
+     ],
+     "Endoscopie": [
+      "Nasofibroscopie",
+      "Rhinoscopie"
+     ],
+     "Exploration fonctionnelle": [
+      "Rhinomanométrie",
+      "Olfactométrie"
+     ],
+     "Biologie": [
+      "Écouvillon nasopharyngé (PCR virales, SARS-CoV-2, grippe, VRS)"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie du cavum"
+     ]
+    },
+    "Cavité buccale et glandes salivaires": {
+     "Imagerie": [
+      "Orthopantomogramme",
+      "Échographie des glandes salivaires",
+      "Sialo-IRM",
+      "Scintigraphie salivaire"
+     ],
+     "Biologie": [
+      "Prélèvement de lésion buccale (culture, PCR HSV)"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie des glandes salivaires accessoires (Sjögren)",
+      "Biopsie de lésion buccale"
+     ]
+    },
+    "Os du crâne et de la face": {
+     "Imagerie": [
+      "CT du massif facial",
+      "Radiographie du crâne (exceptionnelle)",
+      "CT 3D craniofacial (enfant)"
+     ]
+    }
+   },
+   "2. Cou": {
+    "Thyroïde": {
+     "Imagerie": [
+      "Échographie thyroïdienne (classification EU-TIRADS)",
+      "Scintigraphie thyroïdienne (Tc-99m, iode-123)",
+      "CT cervicothoracique (goitre plongeant)"
+     ],
+     "Biologie": [
+      "TSH, T4 libre, T3 libre",
+      "Anticorps anti-TPO, anti-thyroglobuline, anti-récepteur de la TSH (TRAb)",
+      "Thyroglobuline (suivi du cancer)",
+      "Calcitonine (cancer médullaire)"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Cytoponction échoguidée (classification de Bethesda)"
+     ]
+    },
+    "Parathyroïdes": {
+     "Imagerie": [
+      "Échographie cervicale",
+      "Scintigraphie au sestamibi (SPECT-CT)",
+      "PET-choline",
+      "CT 4D"
+     ],
+     "Biologie": [
+      "Calcium total et ionisé, phosphate, PTH",
+      "25-OH-vitamine D",
+      "Calciurie de 24 h"
+     ]
+    },
+    "Larynx et pharynx": {
+     "Endoscopie": [
+      "Laryngoscopie indirecte et nasofibroscopie",
+      "Laryngoscopie directe en suspension",
+      "Vidéostroboscopie"
+     ],
+     "Imagerie": [
+      "CT cervical injecté",
+      "IRM cervicale",
+      "PET-CT (cancers ORL)"
+     ],
+     "Biologie": [
+      "Frottis de gorge (streptocoque A : test rapide, culture)"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie laryngée ou pharyngée"
+     ]
+    },
+    "Vaisseaux du cou et de la tête": {
+     "Imagerie": [
+      "Échodoppler des troncs supra-aortiques",
+      "Angio-CT des troncs supra-aortiques",
+      "Angio-IRM cervicale",
+      "Échographie des artères temporales (signe du halo)",
+      "PET-CT des gros vaisseaux (vascularite)"
+     ],
+     "Biologie": [
+      "VS et CRP (artérite à cellules géantes)"
+     ],
+     "Exploration fonctionnelle": [
+      "Doppler transcrânien (retentissement hémodynamique)"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie de l'artère temporale"
+     ]
+    },
+    "Ganglions cervicaux": {
+     "Imagerie": [
+      "Échographie ganglionnaire",
+      "CT cervical"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Cytoponction ganglionnaire",
+      "Biopsie ou exérèse ganglionnaire (histologie, cytométrie, culture mycobactérienne)"
+     ]
+    }
+   },
+   "3. Rachis, moelle et racines": {
+    "Rachis osseux": {
+     "Imagerie": [
+      "Radiographies du rachis (face, profil, clichés dynamiques)",
+      "Radiographie du rachis entier (EOS, scoliose)",
+      "CT du rachis",
+      "IRM du rachis",
+      "Scintigraphie osseuse"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Ponction-biopsie vertébrale (spondylodiscite, tumeur)"
+     ]
+    },
+    "Moelle épinière": {
+     "Imagerie": [
+      "IRM médullaire avec gadolinium",
+      "Angio-IRM médullaire",
+      "Myélo-CT"
+     ],
+     "Exploration fonctionnelle": [
+      "Potentiels évoqués somesthésiques et moteurs"
+     ],
+     "Biologie": [
+      "LCR (myélite, sclérose en plaques)",
+      "Anticorps anti-AQP4 et anti-MOG",
+      "Vitamine B12, cuivre"
+     ]
+    },
+    "Racines et plexus": {
+     "Imagerie": [
+      "IRM rachidienne",
+      "IRM du plexus brachial ou lombosacré"
+     ],
+     "Exploration fonctionnelle": [
+      "Électroneuromyographie (ENMG)"
+     ]
+    }
+   },
+   "4. Thorax": {
+    "Poumons et voies aériennes": {
+     "Imagerie": [
+      "Radiographie thoracique (PA et profil, couché au lit)",
+      "Échographie pulmonaire (lignes B, condensation)",
+      "CT thoracique natif",
+      "CT thoracique haute résolution (pneumopathies interstitielles)",
+      "CT thoracique basse dose (dépistage)",
+      "Scintigraphie de ventilation-perfusion",
+      "PET-CT (nodule, stadification)"
+     ],
+     "Biologie": [
+      "Gazométrie artérielle",
+      "Expectorations (Gram, culture, BAAR, PCR tuberculose)",
+      "Antigénuries pneumocoque et légionelle",
+      "Procalcitonine, CRP",
+      "Alpha-1-antitrypsine",
+      "IgE totales et spécifiques, éosinophiles",
+      "Précipitines (pneumopathie d'hypersensibilité)",
+      "ANCA, anticorps des connectivites",
+      "Test de libération de l'interféron gamma (IGRA)"
+     ],
+     "Exploration fonctionnelle": [
+      "Spirométrie avec test de bronchodilatation",
+      "Pléthysmographie (volumes)",
+      "Capacité de diffusion du CO (DLCO)",
+      "Test de provocation bronchique (méthacholine)",
+      "FeNO (NO exhalé)",
+      "Test de marche de 6 minutes",
+      "Ergospirométrie (VO2max)",
+      "Oxymétrie nocturne, polygraphie et polysomnographie",
+      "Peak-flow"
+     ],
+     "Endoscopie": [
+      "Bronchoscopie avec lavage bronchoalvéolaire",
+      "EBUS (échoendoscopie bronchique) avec ponction ganglionnaire",
+      "Bronchoscopie de navigation"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie transbronchique",
+      "Cryobiopsie",
+      "Ponction-biopsie transthoracique sous CT",
+      "Biopsie chirurgicale (VATS)"
+     ]
+    },
+    "Plèvre": {
+     "Imagerie": [
+      "Radiographie thoracique",
+      "Échographie pleurale",
+      "CT thoracique injecté",
+      "PET-CT (mésothéliome)"
+     ],
+     "Biologie": [
+      "Liquide pleural : critères de Light, pH, glucose, LDH, protéines, cellules, Gram, culture, cytologie, ADA, triglycérides"
+     ],
+     "Endoscopie": [
+      "Thoracoscopie"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie pleurale"
+     ]
+    },
+    "Médiastin": {
+     "Imagerie": [
+      "CT thoracique injecté",
+      "IRM médiastinale",
+      "PET-CT"
+     ],
+     "Endoscopie": [
+      "Médiastinoscopie",
+      "EBUS et EUS"
+     ],
+     "Biologie": [
+      "AFP, β-hCG (tumeurs germinales)",
+      "Anticorps anti-récepteur de l'acétylcholine (thymome)"
+     ]
+    },
+    "Cœur et péricarde": {
+     "Imagerie": [
+      "Échocardiographie transthoracique",
+      "Échocardiographie transœsophagienne",
+      "Échocardiographie de stress (effort, dobutamine)",
+      "IRM cardiaque (fonction, rehaussement tardif, T1/T2 mapping)",
+      "CT coronaire (score calcique et angio-CT)",
+      "Scintigraphie de perfusion myocardique (SPECT)",
+      "PET cardiaque (perfusion, FDG pour sarcoïdose et endocardite)",
+      "Scintigraphie aux diphosphonates (amylose à transthyrétine)",
+      "Coronarographie",
+      "Radiographie thoracique (silhouette cardiaque)"
+     ],
+     "Biologie": [
+      "Troponine T ou I haute sensibilité (cinétique)",
+      "NT-proBNP ou BNP",
+      "CK-MB (réinfarctus)",
+      "Hémocultures (endocardite, critères de Duke)",
+      "Bilan lipidique, HbA1c, Lp(a)",
+      "Ionogramme (potassium, magnésium)",
+      "Dosages médicamenteux (digoxine)",
+      "Liquide péricardique (cellules, culture, cytologie)"
+     ],
+     "Exploration fonctionnelle": [
+      "ECG 12 dérivations",
+      "Holter ECG 24 h à 7 jours",
+      "Enregistreur d'événements et moniteur implantable (loop recorder)",
+      "Épreuve d'effort (ECG d'effort)",
+      "Ergospirométrie",
+      "Tilt-test (test d'inclinaison)",
+      "Massage du sinus carotidien",
+      "Étude électrophysiologique endocavitaire",
+      "Cathétérisme cardiaque droit (pressions pulmonaires)",
+      "Contrôle de pacemaker et de défibrillateur"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie endomyocardique"
+     ]
+    },
+    "Aorte thoracique et artères pulmonaires": {
+     "Imagerie": [
+      "Angio-CT thoracique (dissection, embolie pulmonaire)",
+      "Angio-IRM aortique",
+      "Échocardiographie transœsophagienne",
+      "Scintigraphie de ventilation-perfusion",
+      "Angiographie pulmonaire"
+     ],
+     "Biologie": [
+      "D-dimères (avec score de probabilité clinique)"
+     ]
+    },
+    "Œsophage": {
+     "Endoscopie": [
+      "Œsophagogastroduodénoscopie (OGD) avec biopsies",
+      "Écho-endoscopie œsophagienne"
+     ],
+     "Imagerie": [
+      "Transit œsophagien baryté",
+      "CT thoraco-abdominal",
+      "PET-CT (stadification)"
+     ],
+     "Exploration fonctionnelle": [
+      "Manométrie œsophagienne haute résolution",
+      "pH-métrie et impédancemétrie de 24 h"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsies œsophagiennes (éosinophiles, Barrett, cancer)"
+     ]
+    },
+    "Seins": {
+     "Imagerie": [
+      "Mammographie (classification BI-RADS)",
+      "Tomosynthèse",
+      "Échographie mammaire",
+      "IRM mammaire"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Microbiopsie échoguidée",
+      "Macrobiopsie stéréotaxique",
+      "Cytoponction de kyste",
+      "Récepteurs hormonaux, HER2, Ki-67"
+     ],
+     "Biologie": [
+      "Recherche génétique BRCA1/2 (conseil génétique)"
+     ]
+    },
+    "Paroi thoracique et côtes": {
+     "Imagerie": [
+      "Radiographie du gril costal",
+      "CT thoracique",
+      "Échographie (fracture costale)",
+      "Scintigraphie osseuse"
+     ]
+    }
+   },
+   "5. Abdomen": {
+    "Foie": {
+     "Imagerie": [
+      "Échographie abdominale",
+      "Échographie de contraste (CEUS)",
+      "Élastographie (FibroScan, CAP pour la stéatose)",
+      "CT abdominal triphasique",
+      "IRM hépatique (contraste hépatospécifique)",
+      "Échodoppler portal"
+     ],
+     "Biologie": [
+      "ASAT, ALAT, GGT, phosphatase alcaline, bilirubine totale et conjuguée",
+      "Albumine, TP/INR (fonction de synthèse)",
+      "Sérologies hépatites A, B, C, D, E",
+      "Ferritine, saturation de la transferrine",
+      "Céruloplasmine, cuivre urinaire",
+      "Alpha-1-antitrypsine",
+      "Auto-anticorps (ANA, anti-muscle lisse, anti-LKM1, AMA)",
+      "IgG, IgM",
+      "AFP (carcinome hépatocellulaire)",
+      "Scores FIB-4, MELD, Child-Pugh"
+     ],
+     "Exploration fonctionnelle": [
+      "Mesure du gradient de pression hépatique veineuse"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Ponction-biopsie hépatique (percutanée ou transjugulaire)"
+     ]
+    },
+    "Vésicule et voies biliaires": {
+     "Imagerie": [
+      "Échographie abdominale",
+      "Cholangio-IRM",
+      "CT abdominal",
+      "Scintigraphie hépatobiliaire (HIDA)"
+     ],
+     "Endoscopie": [
+      "Écho-endoscopie biliopancréatique",
+      "CPRE (cholangiopancréatographie rétrograde) avec brossage",
+      "Cholangioscopie"
+     ],
+     "Biologie": [
+      "Bilirubine, phosphatase alcaline, GGT",
+      "CA 19-9",
+      "IgG4 (cholangite sclérosante IgG4)"
+     ]
+    },
+    "Pancréas": {
+     "Imagerie": [
+      "CT abdominal injecté (index de Balthazar)",
+      "IRM pancréatique et cholangio-IRM",
+      "Échographie abdominale",
+      "PET-CT",
+      "PET au Ga-68-DOTATATE (tumeurs neuroendocrines)"
+     ],
+     "Endoscopie": [
+      "Écho-endoscopie avec ponction"
+     ],
+     "Biologie": [
+      "Lipase",
+      "Triglycérides, calcium (étiologie)",
+      "Élastase fécale (insuffisance exocrine)",
+      "CA 19-9",
+      "Chromogranine A, gastrine, insuline, peptide C",
+      "Test de la sueur (mucoviscidose)"
+     ],
+     "Exploration fonctionnelle": [
+      "Test de stimulation à la sécrétine (exceptionnel)"
+     ]
+    },
+    "Rate": {
+     "Imagerie": [
+      "Échographie abdominale",
+      "CT abdominal",
+      "Scintigraphie aux globules rouges dénaturés (rate accessoire)"
+     ],
+     "Biologie": [
+      "Frottis sanguin (corps de Howell-Jolly)"
+     ]
+    },
+    "Estomac et duodénum": {
+     "Endoscopie": [
+      "Gastroscopie (OGD) avec biopsies (classification de Sydney, Helicobacter)",
+      "Écho-endoscopie"
+     ],
+     "Imagerie": [
+      "CT abdominal",
+      "Transit œsogastroduodénal",
+      "Scintigraphie de vidange gastrique"
+     ],
+     "Biologie": [
+      "Test respiratoire à l'urée C13",
+      "Antigène Helicobacter dans les selles",
+      "Gastrinémie",
+      "Anticorps anti-facteur intrinsèque et anti-cellules pariétales",
+      "Vitamine B12"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsies gastriques et duodénales (maladie cœliaque : Marsh)"
+     ]
+    },
+    "Intestin grêle": {
+     "Endoscopie": [
+      "Vidéocapsule endoscopique",
+      "Entéroscopie à double ballon"
+     ],
+     "Imagerie": [
+      "Entéro-IRM",
+      "Entéro-CT",
+      "Échographie des anses (maladie de Crohn)"
+     ],
+     "Biologie": [
+      "Anticorps anti-transglutaminase IgA et IgA totales",
+      "Calprotectine fécale",
+      "Test respiratoire à l'hydrogène (lactose, pullulation)",
+      "Folates, vitamine B12, fer, vitamine D (malabsorption)"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsies duodénales et iléales"
+     ]
+    },
+    "Côlon, rectum et anus": {
+     "Endoscopie": [
+      "Coloscopie totale avec biopsies",
+      "Rectosigmoïdoscopie",
+      "Anuscopie",
+      "Écho-endoscopie rectale"
+     ],
+     "Imagerie": [
+      "Colo-CT (coloscopie virtuelle)",
+      "CT abdominal injecté (diverticulite)",
+      "IRM pelvienne (cancer du rectum, fistules anales)",
+      "Défécographie"
+     ],
+     "Biologie": [
+      "Test immunologique fécal (FIT)",
+      "Calprotectine fécale",
+      "Coproculture, PCR multiplex des selles, toxines de Clostridioides difficile",
+      "Parasitologie des selles",
+      "ACE (suivi du cancer colorectal)"
+     ],
+     "Exploration fonctionnelle": [
+      "Manométrie anorectale",
+      "Temps de transit colique (marqueurs radio-opaques)"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsies coliques (MICI, colite microscopique, cancer : statut MMR/MSI, RAS)"
+     ]
+    },
+    "Péritoine et ascite": {
+     "Imagerie": [
+      "Échographie abdominale",
+      "CT abdominopelvien"
+     ],
+     "Biologie": [
+      "Liquide d'ascite : gradient albumine sérum-ascite, protéines, polynucléaires (≥ 250/mm³ = infection), culture en flacons d'hémoculture, cytologie, amylase, triglycérides, ADA"
+     ],
+     "Endoscopie": [
+      "Laparoscopie diagnostique"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsies péritonéales"
+     ]
+    },
+    "Aorte abdominale et vaisseaux digestifs": {
+     "Imagerie": [
+      "Échographie de l'aorte abdominale (dépistage de l'anévrisme)",
+      "Angio-CT abdominal (ischémie mésentérique, anévrisme)",
+      "Échodoppler des artères digestives et rénales",
+      "Angio-IRM",
+      "Artériographie"
+     ],
+     "Biologie": [
+      "Lactate"
+     ]
+    },
+    "Surrénales": {
+     "Imagerie": [
+      "CT surrénalien (densité, wash-out)",
+      "IRM surrénalienne (déplacement chimique)",
+      "Scintigraphie MIBG",
+      "PET au Ga-68-DOTATATE"
+     ],
+     "Biologie": [
+      "Cortisol, ACTH",
+      "Métanéphrines plasmatiques libres ou urinaires",
+      "Aldostérone et rénine (rapport)",
+      "DHEA-S, 17-OH-progestérone"
+     ],
+     "Exploration fonctionnelle": [
+      "Test de freinage à la dexaméthasone 1 mg",
+      "Cortisol salivaire nocturne et cortisol libre urinaire",
+      "Test au Synacthène",
+      "Test de charge sodée (hyperaldostéronisme)",
+      "Cathétérisme des veines surrénaliennes"
+     ]
+    },
+    "Reins": {
+     "Imagerie": [
+      "Échographie rénale et vésicale",
+      "Échodoppler des artères rénales",
+      "CT abdominal natif (lithiase)",
+      "Uro-CT",
+      "IRM rénale",
+      "Scintigraphie DMSA (cicatrices)",
+      "Scintigraphie MAG3 (fonction séparée, obstruction)"
+     ],
+     "Biologie": [
+      "Créatinine, urée, DFG (CKD-EPI)",
+      "Ionogramme, bicarbonates, gazométrie",
+      "Calcium, phosphate, PTH (troubles minéraux)",
+      "Bandelette urinaire, sédiment urinaire",
+      "Rapports albumine/créatinine et protéines/créatinine urinaires",
+      "Électrophorèse des protéines urinaires",
+      "Natriurèse, fraction d'excrétion du sodium et de l'urée",
+      "Complément C3, C4, ANCA, anti-MBG, anti-PLA2R, ANA",
+      "Cystatine C",
+      "Analyse de calcul urinaire"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Ponction-biopsie rénale (microscopie optique, immunofluorescence, électronique)"
+     ]
+    },
+    "Uretères": {
+     "Imagerie": [
+      "Uro-CT",
+      "Échographie (dilatation)",
+      "Urétéropyélographie rétrograde"
+     ],
+     "Endoscopie": [
+      "Urétéroscopie"
+     ]
+    }
+   },
+   "6. Pelvis": {
+    "Vessie et urètre": {
+     "Imagerie": [
+      "Échographie vésicale et résidu post-mictionnel",
+      "Uro-CT",
+      "Cystographie rétrograde et mictionnelle",
+      "Urétrographie rétrograde"
+     ],
+     "Endoscopie": [
+      "Cystoscopie"
+     ],
+     "Biologie": [
+      "Uricult et culture d'urine (critères de Kass)",
+      "Cytologie urinaire",
+      "PCR Chlamydia et gonocoque sur premier jet"
+     ],
+     "Exploration fonctionnelle": [
+      "Débitmétrie",
+      "Bilan urodynamique complet (cystomanométrie, profil urétral)",
+      "Calendrier mictionnel"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie et résection transurétrale de vessie"
+     ]
+    },
+    "Prostate et vésicules séminales": {
+     "Imagerie": [
+      "IRM prostatique multiparamétrique (PI-RADS)",
+      "Échographie transrectale",
+      "PET-PSMA"
+     ],
+     "Biologie": [
+      "PSA total et libre",
+      "Culture d'urine et de sperme (prostatite)"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsies prostatiques ciblées (score de Gleason, ISUP)"
+     ]
+    },
+    "Testicules et scrotum": {
+     "Imagerie": [
+      "Échographie scrotale avec doppler (torsion, masse)"
+     ],
+     "Biologie": [
+      "AFP, β-hCG, LDH (marqueurs tumoraux)",
+      "Spermogramme",
+      "Testostérone, LH, FSH",
+      "Caryotype et microdélétions du chromosome Y"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Orchidectomie inguinale (diagnostic de tumeur)",
+      "Biopsie testiculaire (infertilité)"
+     ]
+    },
+    "Utérus, col, ovaires et annexes": {
+     "Imagerie": [
+      "Échographie pelvienne endovaginale et sus-pubienne",
+      "IRM pelvienne",
+      "Hystérosalpingographie",
+      "Hystérosonographie"
+     ],
+     "Endoscopie": [
+      "Colposcopie",
+      "Hystéroscopie",
+      "Cœlioscopie diagnostique"
+     ],
+     "Biologie": [
+      "β-hCG",
+      "Frottis cervical et test HPV",
+      "Prélèvements vaginaux (examen direct, pH, culture, PCR IST)",
+      "FSH, LH, œstradiol, progestérone, AMH, prolactine, testostérone",
+      "CA-125, HE4 (masse annexielle, score ROMA)"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie du col (sous colposcopie)",
+      "Biopsie de l'endomètre (Pipelle)",
+      "Conisation"
+     ]
+    },
+    "Grossesse, fœtus et placenta": {
+     "Imagerie": [
+      "Échographie obstétricale (datation, morphologie, croissance)",
+      "Doppler ombilical et cérébral fœtal",
+      "IRM fœtale"
+     ],
+     "Biologie": [
+      "β-hCG quantitative (cinétique)",
+      "Test prénatal non invasif (ADN fœtal libre)",
+      "Dépistage combiné du 1er trimestre (PAPP-A, β-hCG libre, clarté nucale)",
+      "Groupe sanguin, Rhésus, recherche d'agglutinines irrégulières",
+      "Sérologies (toxoplasmose, rubéole, syphilis, VIH, hépatite B)",
+      "HGPO 75 g (diabète gestationnel)",
+      "Protéinurie, rapport sFlt-1/PlGF (prééclampsie)",
+      "Liquide amniotique (caryotype, PCR)"
+     ],
+     "Exploration fonctionnelle": [
+      "Cardiotocographie (CTG)"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie de trophoblaste (choriocentèse)",
+      "Amniocentèse",
+      "Examen du placenta"
+     ]
+    },
+    "Plancher pelvien": {
+     "Imagerie": [
+      "IRM dynamique du pelvis",
+      "Échographie périnéale",
+      "Défécographie"
+     ],
+     "Exploration fonctionnelle": [
+      "Bilan urodynamique",
+      "Manométrie anorectale"
+     ]
+    }
+   },
+   "7. Membres et appareil locomoteur": {
+    "Épaule": {
+     "Imagerie": [
+      "Radiographie de l'épaule (face, profil de Lamy)",
+      "Échographie de l'épaule (coiffe des rotateurs)",
+      "Arthro-CT",
+      "IRM et arthro-IRM"
+     ]
+    },
+    "Coude, poignet et main": {
+     "Imagerie": [
+      "Radiographies du coude, du poignet et de la main (incidences du scaphoïde)",
+      "Échographie (tendons, canal carpien)",
+      "CT (fracture du scaphoïde)",
+      "IRM du poignet"
+     ],
+     "Exploration fonctionnelle": [
+      "ENMG (canal carpien, nerf ulnaire)"
+     ]
+    },
+    "Hanche et bassin": {
+     "Imagerie": [
+      "Radiographie du bassin et de la hanche (face, profil de Lauenstein)",
+      "Échographie de hanche (nourrisson, épanchement)",
+      "CT (fracture complexe)",
+      "IRM (ostéonécrose, fracture de stress)"
+     ]
+    },
+    "Genou": {
+     "Imagerie": [
+      "Radiographie du genou (face, profil, défilé fémoropatellaire, en charge)",
+      "Échographie (épanchement, kyste poplité)",
+      "IRM du genou (ménisques, ligaments croisés)",
+      "Arthro-CT"
+     ],
+     "Endoscopie": [
+      "Arthroscopie"
+     ]
+    },
+    "Cheville et pied": {
+     "Imagerie": [
+      "Radiographies cheville et pied (règles d'Ottawa)",
+      "Échographie (tendon d'Achille, ligaments)",
+      "CT",
+      "IRM"
+     ]
+    },
+    "Os longs et squelette": {
+     "Imagerie": [
+      "Radiographies standard",
+      "CT",
+      "IRM (ostéomyélite, tumeur)",
+      "Scintigraphie osseuse",
+      "PET-CT",
+      "Ostéodensitométrie (DXA : T-score, Z-score)",
+      "Bilan radiologique du squelette (myélome, maltraitance de l'enfant)",
+      "Âge osseux (radiographie de la main gauche)"
+     ],
+     "Biologie": [
+      "Calcium, phosphate, phosphatase alcaline, PTH, 25-OH-vitamine D",
+      "Marqueurs du remodelage (CTX, P1NP)",
+      "Électrophorèse des protéines et chaînes légères libres (myélome)"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie osseuse (tumeur, ostéomyélite)"
+     ]
+    },
+    "Articulations et synoviale": {
+     "Imagerie": [
+      "Échographie articulaire (synovite, doppler)",
+      "IRM articulaire",
+      "Radiographies (érosions, chondrocalcinose)"
+     ],
+     "Biologie": [
+      "Liquide synovial : cellules, cristaux en lumière polarisée, Gram, culture",
+      "Facteur rhumatoïde, anti-CCP",
+      "ANA, anti-ADN natif, anti-ENA",
+      "HLA-B27",
+      "Acide urique",
+      "CRP, VS",
+      "Sérologies (Lyme, parvovirus, hépatites)"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie synoviale"
+     ]
+    },
+    "Muscles": {
+     "Imagerie": [
+      "IRM musculaire (myosite)",
+      "Échographie musculaire"
+     ],
+     "Biologie": [
+      "CK, myoglobine, LDH, aldolase",
+      "Anticorps des myosites (anti-Jo-1, anti-HMGCR, anti-SRP, anti-Mi-2)",
+      "Lactate (myopathie métabolique)",
+      "Tests génétiques (dystrophies)"
+     ],
+     "Exploration fonctionnelle": [
+      "Électromyographie (EMG)"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie musculaire"
+     ]
+    },
+    "Artères des membres": {
+     "Imagerie": [
+      "Échodoppler artériel",
+      "Angio-CT des membres inférieurs",
+      "Angio-IRM",
+      "Artériographie"
+     ],
+     "Exploration fonctionnelle": [
+      "Index de pression systolique cheville-bras (IPS)",
+      "Pression d'orteil",
+      "Test de marche sur tapis",
+      "Mesure transcutanée de l'oxygène (TcPO2)",
+      "Capillaroscopie (phénomène de Raynaud)"
+     ]
+    },
+    "Veines des membres": {
+     "Imagerie": [
+      "Échodoppler veineux (compression) des membres inférieurs et supérieurs",
+      "Phlébo-CT",
+      "Phlébographie"
+     ],
+     "Biologie": [
+      "D-dimères (avec score de Wells)",
+      "Bilan de thrombophilie (antithrombine, protéines C et S, facteur V Leiden, prothrombine G20210A, anticorps antiphospholipides)"
+     ]
+    },
+    "Nerfs périphériques": {
+     "Exploration fonctionnelle": [
+      "Électroneuromyographie (vitesses de conduction, EMG de détection)",
+      "Tests autonomes (variabilité cardiaque, sudomotricité)"
+     ],
+     "Imagerie": [
+      "Échographie nerveuse",
+      "IRM du plexus (neurographie)"
+     ],
+     "Biologie": [
+      "Glycémie, HbA1c, B12, TSH, électrophorèse des protéines (bilan de polyneuropathie)",
+      "Anticorps anti-gangliosides, anti-MAG",
+      "LCR (Guillain-Barré : dissociation albuminocytologique)"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie neuromusculaire",
+      "Biopsie cutanée (petites fibres)"
+     ]
+    }
+   },
+   "8. Peau et phanères": {
+    "Peau": {
+     "Imagerie": [
+      "Dermatoscopie",
+      "Photographie corporelle totale",
+      "Échographie cutanée haute fréquence"
+     ],
+     "Biologie": [
+      "Examen direct et culture mycologique",
+      "PCR HSV/VZV sur frottis de vésicule",
+      "Sérologie syphilis",
+      "Immunofluorescence indirecte (dermatoses bulleuses)"
+     ],
+     "Exploration fonctionnelle": [
+      "Tests épicutanés (patch tests)",
+      "Prick-tests",
+      "Lampe de Wood",
+      "Phototests"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie cutanée (punch) avec immunofluorescence directe",
+      "Exérèse diagnostique (mélanome : indice de Breslow)"
+     ]
+    },
+    "Ongles et cheveux": {
+     "Biologie": [
+      "Prélèvement mycologique unguéal"
+     ],
+     "Exploration fonctionnelle": [
+      "Trichogramme",
+      "Trichoscopie"
+     ],
+     "Anatomopathologie / biopsie": [
+      "Biopsie du cuir chevelu"
+     ]
+    }
+   },
+   "9. Systèmes transversaux (corps entier)": {
+    "Sang et hémostase": {
+     "Biologie": [
+      "Formule sanguine complète, réticulocytes, frottis sanguin",
+      "Ferritine, fer, transferrine, B12, folates",
+      "Haptoglobine, LDH, bilirubine libre, test de Coombs direct (hémolyse)",
+      "Électrophorèse de l'hémoglobine",
+      "TP/INR, TCA, fibrinogène, D-dimères",
+      "Facteurs de coagulation, facteur von Willebrand",
+      "Anti-Xa, temps de thrombine",
+      "Groupe sanguin et épreuve de compatibilité",
+      "Cytométrie en flux",
+      "Immunophénotypage",
+      "Électrophorèse et immunofixation des protéines sériques"
+     ],
+     "Exploration fonctionnelle": [
+      "Temps de saignement (PFA-100)",
+      "Thromboélastographie (ROTEM)"
+     ]
+    },
+    "Moelle osseuse et ganglions": {
+     "Anatomopathologie / biopsie": [
+      "Myélogramme",
+      "Biopsie ostéomédullaire",
+      "Caryotype médullaire, FISH, biologie moléculaire",
+      "Exérèse ganglionnaire"
+     ],
+     "Imagerie": [
+      "PET-CT (lymphome : score de Deauville)",
+      "CT thoraco-abdominopelvien"
+     ]
+    },
+    "Infection et immunité": {
+     "Biologie": [
+      "Hémocultures (2 à 3 paires)",
+      "CRP, procalcitonine, lactate",
+      "Sérologies (VIH, hépatites, syphilis, CMV, EBV, toxoplasmose)",
+      "PCR ciblées et panels multiplex",
+      "IGRA et test tuberculinique",
+      "Recherche de paludisme (frottis, goutte épaisse, test rapide)",
+      "Immunoglobulines, sous-populations lymphocytaires (CD4)",
+      "Complément (CH50, C3, C4)",
+      "Tryptase (anaphylaxie)",
+      "IgE spécifiques, test d'activation des basophiles"
+     ],
+     "Exploration fonctionnelle": [
+      "Tests de provocation (médicaments, aliments)"
+     ]
+    },
+    "Métabolisme et endocrinologie": {
+     "Biologie": [
+      "Glycémie à jeun, HbA1c, peptide C, auto-anticorps du diabète (anti-GAD, IA-2)",
+      "Bilan lipidique, Lp(a)",
+      "Ionogramme, osmolalité, magnésium",
+      "Acide urique",
+      "Gazométrie et lactate",
+      "Cétonémie",
+      "Bilan nutritionnel (albumine, préalbumine, zinc, vitamines)"
+     ],
+     "Exploration fonctionnelle": [
+      "HGPO 75 g",
+      "Épreuve de jeûne de 72 h (hypoglycémie)",
+      "Calorimétrie indirecte",
+      "Holter glycémique (mesure continue du glucose)"
+     ]
+    },
+    "Génétique": {
+     "Biologie": [
+      "Caryotype",
+      "Hybridation génomique comparative (CGH-array)",
+      "FISH",
+      "Panel de gènes, exome, génome",
+      "Dépistage néonatal (carte de Guthrie)"
+     ]
+    },
+    "Toxicologie et médicaments": {
+     "Biologie": [
+      "Screening toxicologique urinaire",
+      "Alcoolémie, CDT, PEth (consommation d'alcool)",
+      "Paracétamolémie, salicylémie",
+      "Dosages de médicaments (lithium, digoxine, antiépileptiques, vancomycine, aminosides, tacrolimus)",
+      "Carboxyhémoglobine, méthémoglobine",
+      "Cholinestérases (organophosphorés)"
+     ]
+    },
+    "Corps entier (bilan d'extension et trauma)": {
+     "Imagerie": [
+      "CT corps entier (polytraumatisme)",
+      "eFAST (échographie de traumatologie)",
+      "PET-CT corps entier",
+      "IRM corps entier (myélome, syndromes de prédisposition)",
+      "Scintigraphie osseuse corps entier",
+      "Scintigraphie aux leucocytes marqués (foyer infectieux)"
+     ]
+    },
+    "Sommeil et vigilance": {
+     "Exploration fonctionnelle": [
+      "Polysomnographie",
+      "Polygraphie ventilatoire",
+      "Tests itératifs de latence d'endormissement (TILE)",
+      "Test de maintien de l'éveil",
+      "Actimétrie",
+      "Agenda du sommeil",
+      "Échelle d'Epworth"
+     ]
+    },
+    "Psyché": {
+     "Exploration fonctionnelle": [
+      "Échelles psychométriques (PHQ-9, GAD-7, HAM-D, MADRS, YMRS, PANSS, AUDIT, MoCA)",
+      "Bilan neuropsychologique",
+      "Tests de personnalité standardisés"
+     ],
+     "Biologie": [
+      "Bilan organique d'un premier épisode psychiatrique (FSC, ionogramme, calcium, TSH, B12, glycémie, VIH, syphilis, toxicologie)",
+      "Dosages des psychotropes (lithium, clozapine, antidépresseurs)",
+      "Bilan métabolique sous antipsychotiques (glycémie, lipides, prolactine)"
+     ],
+     "Imagerie": [
+      "IRM cérébrale (premier épisode psychotique, symptôme atypique)"
+     ]
+    }
+   }
+  },
+  "compte": {
+   "regions": 9,
+   "organes": 64,
+   "Imagerie": 222,
+   "Biologie": 193,
+   "Exploration fonctionnelle": 104,
+   "Endoscopie": 32,
+   "Anatomopathologie / biopsie": 50
+  }
  },
  "auditConception": [
   {

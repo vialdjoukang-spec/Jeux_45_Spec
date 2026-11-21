@@ -2,7 +2,9 @@
 Source : conception/plans/*.plan.json (champ « donnees ») + prototypes/moteur/tetrade.json (exemple rempli).
 Sortie : conception/donnees/** , conception/donnees/INDEX.json , conception/donnees/schemas/*.schema.json
 Usage : python conception/outils/generer_json.py"""
-import json, os, re, unicodedata
+import json, os, re, sys, unicodedata
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from catalogue_paraclinique import TOPO, PRELEVEMENTS, EXPLORATIONS, MODALITES, SYSTEMES as SYS_ORG
 
 ICI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ICI, "donnees")
@@ -111,6 +113,19 @@ ecrits.append(ecrire("paraclinique/imagerie/cas/pneumonie_lobaire_moyenne.json",
     "clicheAnnote": {"src": "rx.jpg", "reperes": [{k: a[k] for k in ("n", "x", "y", "rx", "ry", "texte")} for a in json.load(open(os.path.join(ICI, "prototypes", "moteur", "paraclinique.json"), encoding="utf-8"))["fenetres"][0]["annotations"]]},
     "diagnostic": "Pneumonie à pneumocoque du lobe moyen", "conduite": None}))
 
+# ---------- catalogue topographique rempli : 1 fichier par organe, 1 par prélèvement ----------
+for reg, orgs in TOPO.items():
+    for org, mods in orgs.items():
+        ecrits.append(ecrire(f"paraclinique/topographie/{slug(reg)}/{slug(org)}.json", {"_meta": {"region": reg, "organe": org, "statut": "LISTE COMPLÈTE — indication, principe, interprétation et bulle à remplir"},
+            "examens": [{"id": slug(org) + "__" + slug(e), "modalite": MODALITES[k], "nom": e, "indication": None, "principe": None, "valeursOuSignes": None, "limite": None, "bulle": None} for k, v in mods.items() for e in v]}))
+for pre, exs in PRELEVEMENTS.items():
+    ecrits.append(ecrire(f"paraclinique/biologie/prelevements/{slug(pre)}.json", {"_meta": {"prelevement": pre, "statut": "LISTE COMPLÈTE — technique, valeurs de référence SI suisses et interprétation à remplir"},
+        "examens": [{"nom": e, "technique": None, "valeursReference": None, "interpretation": None, "bulle": None} for e in exs]}))
+ecrits.append(ecrire("paraclinique/explorations/liste.json", {"_meta": {"statut": "LISTE COMPLÈTE"}, "elements": EXPLORATIONS}))
+for sysn, orgs in SYS_ORG.items():
+    ecrits.append(ecrire(f"tetrade/{slug(sysn)}/examens.json", {"_meta": {"systeme": sysn, "progression": ["topo-systemique", "topo-organe"], "statut": "RELIÉ AU CATALOGUE"},
+        "organes": [{"organe": o, "region": next(r for r, og in TOPO.items() if o in og), "examens": [slug(o) + "__" + slug(e) for v in next(og[o] for og in TOPO.values() if o in og).values() for e in v]} for o in orgs]}))
+
 # ---------- schémas de validation (un par famille de fichier) ----------
 SCH = {
     "bulle": {"type": "object", "required": ["def", "pourquoi", "confusion", "retenir"], "properties": {k: {"type": "string", "minLength": 20} for k in ["def", "pourquoi", "confusion", "retenir"]}},
@@ -121,6 +136,7 @@ SCH = {
 for k, v in SCH.items():
     ecrits.append(ecrire(f"schemas/{k}.schema.json", {"$schema": "https://json-schema.org/draft/2020-12/schema", "title": k, **v}))
 
+ecrits = sorted(set(ecrits))
 index = {"genere": "par conception/outils/generer_json.py (0 token)", "total": len(ecrits),
          "parModule": {m: sum(1 for e in ecrits if e.startswith(m)) for m in ["tetrade", "pharmaco", "paraclinique", "schemas"]},
          "fichiers": sorted(ecrits)}

@@ -57,7 +57,8 @@
    "Le bouton de thème fait défiler sept fonds contrastés : blanc, bleu ciel, champagne, or, menthe, nuit, anthracite ; les cases restent opaques et le texte presque noir (ou blanc sur fond sombre), pour que l'écrit domine toujours le fond.",
    "La largeur des colonnes s'ajuste automatiquement à l'écran, pour que tout le réseau reste visible.",
    "La disposition se recalcule à chaque clic sur les seules cases visibles : chaque parent reste centré sur le bloc de ses enfants.",
-   "Chaque case porte une infobulle symétrique au survol, et chaque signe auscultatoire un bouton 🔊."
+   "Chaque case porte une infobulle symétrique au survol, et chaque signe auscultatoire un bouton 🔊.",
+   "La navigation horizontale part du corps vers la droite et vers la gauche : ce sens est validé."
   ]
  },
  "areneAventure": {
@@ -223,6 +224,11 @@
   "Syndrome neurovasculaire par territoire artériel"
  ],
  "decisions": [
+  {
+   "question": "Où placer les examens complémentaires dans la Tétrade ?",
+   "choix": "Dans un onglet singulier, en progression topo-systémique ou topo-organe, alimenté par le catalogue de la Paraclinique",
+   "raison": "Les espaces Anatomie et Physiologie restent centrés sur la structure et la fonction ; un seul onglet évite les doublons et les oublis."
+  },
   {
    "question": "Infobulles : où ?",
    "choix": "Partout, de façon systématique : signes, symptômes, syndromes, temps d'examen, examens, diagnostics ; quatre rubriques fixes et symétriques",
@@ -396,6 +402,23 @@
    ],
    "regleLocale": "Tu t'exerces d'abord sur les notions dues aujourd'hui.",
    "exemple": "« Quelle manœuvre recherche le signe de Murphy ? »"
+  },
+  {
+   "id": "E9",
+   "nom": "Onglet Examens complémentaires",
+   "but": "Investiguer un système ou un organe dans un onglet unique",
+   "zones": [
+    "Sélecteur de progression : topo-systémique (système → régions → organes) ou topo-organe (organe → modalités)",
+    "Colonnes des modalités : imagerie, biologie, explorations, endoscopie, anatomopathologie",
+    "Lien vers la fiche d'interprétation de la Paraclinique"
+   ],
+   "interactions": [
+    "Clic sur un organe : ses examens se déploient par modalité",
+    "Survol : infobulle symétrique",
+    "Bouton « Voir dans Paraclinique » : ouvre la fiche complète"
+   ],
+   "regleLocale": "Les espaces Anatomie et Physiologie ne listent aucun examen : ils renvoient à cet onglet.",
+   "exemple": "Système cardiovasculaire → Cœur → ECG, Holter, échocardiographie, IRM, troponine, NT-proBNP, coronarographie."
   }
  ],
  "parcours": [
@@ -597,6 +620,18 @@
    ],
    "producteur": "Script, 0 token",
    "volume": "Plusieurs milliers"
+  },
+  {
+   "fichier": "tetrade/<systeme>/examens.json",
+   "role": "Examens du système en progression topographique (renvois au catalogue)",
+   "champs": [
+    "organe",
+    "region",
+    "examens[] (id du catalogue, modalité)",
+    "progression (topo-systémique | topo-organe)"
+   ],
+   "producteur": "Script depuis le catalogue",
+   "volume": "1 fichier par système"
   }
  ],
  "exercices": [

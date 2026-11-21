@@ -277,10 +277,35 @@ PARACLINIQUE = plan(
     ],
     blocages=["Aucune image n'est produite en SVG : clichés et photos réels, corps en 3D réelle, organes génitaux externes occultés.", "Aucun calcul ne s'affiche sans test unitaire réussi.", "Aucun cliché annoté ne s'affiche sans sa description numérotée des lésions."],
     questionsOuvertes=[],
-    prototype={"titre": "Prototype : Imagerie → thorax → Rx PA → poumon droit → pneumonie, fenêtre à deux clichés", "image": "prototypes/paraclinique.png", "centre": "tube", "cadre": "Liquide d'ascite",
-               "colonnes": [["Cytologie", "Protéines", "Albumine"], ["PNN = 320/mm³", "Gradient albumine = 14 g/L"], ["Critère : PNN ≥ 250/mm³", "Hypertension portale"], ["Infection d'ascite", "Cirrhose"], ["Céfotaxime (posologie, source)", "Albumine IV"]],
-               "legende": "Le calculateur se met à jour à la saisie ; le critère tranche ; le diagnostic ouvre le traitement."},
+    prototype={"titre": "Prototype : Imagerie → thorax → Rx PA → poumon droit → pneumonie, fenêtre à deux clichés", "image": "prototypes/paraclinique.png", "centre": "corps 3D", "cadre": "Thorax",
+               "colonnes": [["Région : Thorax"], ["Rx thoracique PA", "Échographie pleurale", "CT thoracique injecté"], ["Poumon droit"], ["Pneumonie lobaire", "Pneumonie à pneumocoque"], ["Fenêtre : cliché brut / cliché annoté"]],
+               "legende": "La région ouvre ses examens ; l'examen de première intention mène à l'organe, à la pathologie, puis à la preuve d'imagerie annotée."}
 )
+
+# ---------- examens complémentaires : catalogue topographique exhaustif (source unique) ----------
+from catalogue_paraclinique import TOPO, PRELEVEMENTS, EXPLORATIONS, MODALITES
+_nb = lambda k: sum(len(o.get(k, [])) for r in TOPO.values() for o in r.values())
+PARACLINIQUE["topographie"] = {"progression": "Région (de la tête aux pieds, puis systèmes transversaux) → organe ciblé → modalités → examens",
+    "modalites": MODALITES, "regions": {r: {o: {MODALITES[k]: v for k, v in m.items()} for o, m in org.items()} for r, org in TOPO.items()},
+    "compte": {"regions": len(TOPO), "organes": sum(len(r) for r in TOPO.values()), **{MODALITES[k]: _nb(k) for k in MODALITES}}}
+PARACLINIQUE["onglets"]["biologie"]["prelevements"] = [f"{k} : {', '.join(v)}" for k, v in PRELEVEMENTS.items()]
+PARACLINIQUE["onglets"]["imagerie"]["regions"] = list(TOPO.keys())
+PARACLINIQUE["onglets"]["explorations"]["liste"] = EXPLORATIONS
+PARACLINIQUE["decisions"].insert(0, {"question": "Comment garantir que rien ne manque ?", "choix": "Un catalogue topographique unique (région → organe → imagerie, biologie, exploration fonctionnelle, endoscopie, anatomopathologie) alimente tous les onglets et la Tétrade ; un script d'audit contrôle la couverture",
+    "raison": "Les organes sont toujours la cible des investigations ; une progression topographique de la tête aux pieds rend les oublis visibles."})
+PARACLINIQUE["ecrans"].insert(0, {"id": "X0", "nom": "Navigation topographique", "but": "Aller d'une région à l'organe, puis à ses examens",
+    "zones": ["Corps 3D réel avec les 9 régions cliquables", "Colonne des organes de la région", "Cinq colonnes de modalités : imagerie, biologie, explorations, endoscopie, anatomopathologie"],
+    "interactions": ["Clic sur une région : ses organes apparaissent", "Clic sur un organe : ses examens apparaissent par modalité", "Survol d'un examen : infobulle symétrique (indication, principe, limite, à retenir)"],
+    "regleLocale": "Un organe sans examen dans une modalité pertinente bloque la publication (audit de couverture).", "exemple": "Thorax → Cœur → ECG, échocardiographie, troponine, coronarographie, biopsie endomyocardique."})
+PARACLINIQUE["blocages"].append("Aucun organe du catalogue ne reste sans examen ; l'audit de couverture doit réussir avant publication.")
+TETRADE["ecrans"].append({"id": "E9", "nom": "Onglet Examens complémentaires", "but": "Investiguer un système ou un organe dans un onglet unique",
+    "zones": ["Sélecteur de progression : topo-systémique (système → régions → organes) ou topo-organe (organe → modalités)", "Colonnes des modalités : imagerie, biologie, explorations, endoscopie, anatomopathologie", "Lien vers la fiche d'interprétation de la Paraclinique"],
+    "interactions": ["Clic sur un organe : ses examens se déploient par modalité", "Survol : infobulle symétrique", "Bouton « Voir dans Paraclinique » : ouvre la fiche complète"],
+    "regleLocale": "Les espaces Anatomie et Physiologie ne listent aucun examen : ils renvoient à cet onglet.", "exemple": "Système cardiovasculaire → Cœur → ECG, Holter, échocardiographie, IRM, troponine, NT-proBNP, coronarographie."})
+TETRADE["decisions"].insert(0, {"question": "Où placer les examens complémentaires dans la Tétrade ?", "choix": "Dans un onglet singulier, en progression topo-systémique ou topo-organe, alimenté par le catalogue de la Paraclinique",
+    "raison": "Les espaces Anatomie et Physiologie restent centrés sur la structure et la fonction ; un seul onglet évite les doublons et les oublis."})
+TETRADE["donnees"].append({"fichier": "tetrade/<systeme>/examens.json", "role": "Examens du système en progression topographique (renvois au catalogue)", "champs": ["organe", "region", "examens[] (id du catalogue, modalité)", "progression (topo-systémique | topo-organe)"], "producteur": "Script depuis le catalogue", "volume": "1 fichier par système"})
+TETRADE["toile"] = dict(TETRADE["toile"], regles=TETRADE["toile"]["regles"] + ["La navigation horizontale part du corps vers la droite et vers la gauche : ce sens est validé."])
 
 os.makedirs(os.path.join(ICI, "plans"), exist_ok=True)
 for p in (TETRADE, PHARMACO, PARACLINIQUE):
