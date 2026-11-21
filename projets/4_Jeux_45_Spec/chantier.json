@@ -1,0 +1,95 @@
+{
+ "id": "4_Jeux_45_Spec",
+ "rang": 4,
+ "titre": "Jeux_45_Spec — MedSuisse Arena 45",
+ "couleur": "#7a5cc4",
+ "vision": "Résoudre des problèmes cliniques dans 45 spécialités ; les corrections commentées servent de cours.",
+ "perimetre": {
+  "inclus": [
+   "3 975 entités de la Cartographie, triées du plus banal au plus rare",
+   "Couche 1 : fiches de raisonnement (IA)",
+   "Couche 2 : cartes réflexes (script, 0 token)",
+   "Couche 3 : vignettes A et K' avec échelle de correction en 7 marches",
+   "Sons et effets par spécialité"
+  ],
+  "exclus": [
+   "Les cours longs (SSP)"
+  ]
+ },
+ "theorie": "Pas de cours séparé : chaque correction suit l'échelle en 7 marches (zéro diagnostic → mécanisme → sémiologie → discriminant → décision → piège → ancre) et explique chaque option fausse.",
+ "arene": "Duels chronométrés par spécialité, du réflexe (premier geste) au raisonnement (vignette longue).",
+ "aventure": "Une carte par spécialité ; chaque poste traite une fréquence (TF → F → urgences → MF → R).",
+ "puzzles": [
+  "Ordonner les premiers gestes",
+  "Choisir le discriminant",
+  "Repérer le drapeau rouge",
+  "Chiffre clé"
+ ],
+ "visuel": "Icônes avec infobulle « pourquoi », barre supérieure réduite, sons et effets par spécialité.",
+ "donnees": [
+  "content/fiches/<SPEC>/<entité>.json",
+  "content/reflexes/<SPEC>/*.json",
+  "content/items/<SPEC>/<entité>/<rubrique>.json",
+  "scripts/schema_fiche.json, schema_item.json"
+ ],
+ "etapes": [
+  [
+   "1. Pilote",
+   "2 fiches cardiologie, audit, ajustement du prompt."
+  ],
+  [
+   "2. Fiches en lot (API)",
+   "Couche 1 pour toutes les spécialités, des entités banales aux rares."
+  ],
+  [
+   "3. Réflexes (script)",
+   "Couche 2 générée à 0 token depuis les fiches validées."
+  ],
+  [
+   "4. Items (API)",
+   "Couche 3, vignettes A et K' commentées."
+  ],
+  [
+   "5. Audit REJECTOR_",
+   "Rejet des fiches non conformes, régénération ciblée."
+  ],
+  [
+   "6. Assemblage HTML et jeu",
+   "Arène, aventure, FSRS, sons."
+  ]
+ ],
+ "cout": "Volume le plus grand (3 975 entités), mais pipeline prêt : c'est le projet idéal pour dépenser les crédits API (lots −50 %, cache de prompt).",
+ "audit1": [
+  [
+   "Les fiches pouvaient citer des sigles et des « atypies » sans les définir.",
+   "Le schéma de fiche exige désormais un « glossaire » ; le prompt impose aussi les présentations atypiques et le signe recherché de chaque examen."
+  ],
+  [
+   "Le coût réel par fiche n'est pas connu.",
+   "Le pilote de 2 fiches mesure le coût avant tout lot."
+  ],
+  [
+   "Les corrections doivent servir de cours.",
+   "L'échelle en 7 marches et l'explication de chaque option fausse restent obligatoires."
+  ]
+ ],
+ "audit2": [
+  [
+   "Trop de duels identiques lassent.",
+   "Alternance réflexe / raisonnement / piège atypique."
+  ],
+  [
+   "La difficulté peut décourager au début.",
+   "Ordre du plus banal au plus rare, par fréquence."
+  ],
+  [
+   "Le joueur ne voit pas ses progrès.",
+   "Carte de maîtrise par spécialité et répétition espacée."
+  ]
+ ],
+ "demarrage": [
+  "Lancer le pilote CAR (2 fiches)",
+  "M'envoyer les 2 fiches pour audit",
+  "Soumettre le lot CAR, puis les spécialités suivantes par fréquence"
+ ]
+}

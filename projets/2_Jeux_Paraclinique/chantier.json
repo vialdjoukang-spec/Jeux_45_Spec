@@ -1,0 +1,94 @@
+{
+ "id": "2_Jeux_Paraclinique",
+ "rang": 2,
+ "titre": "Jeux_Paraclinique — examens complémentaires",
+ "couleur": "#16897b",
+ "vision": "Savoir quoi demander, pourquoi cet examen plutôt qu'un autre, et quoi y chercher : chaque organe, de la tête aux pieds, avec ses examens par modalité et la radio-anatomie normale.",
+ "perimetre": {
+  "inclus": [
+   "9 régions, 64 organes, 601 examens (catalogue complet)",
+   "23 prélèvements biologiques",
+   "27 techniques et séquences avec facteur discriminant",
+   "Fenêtre à deux clichés (patient / normal annoté)",
+   "Six visées du bilan",
+   "Smarter medicine"
+  ],
+  "exclus": [
+   "La pathologie détaillée (SSP)"
+  ]
+ },
+ "theorie": "Région → organe → modalité → examen → signe recherché ; chaque examen porte son discriminant, son avantage sélectif, l'examen qu'il remplace, sa limite et sa visée.",
+ "arene": "Duel « le bon examen » : un cas, cinq examens possibles ; tu choisis celui de référence et tu justifies par son discriminant ; un examen inutile coûte des points (smarter medicine).",
+ "aventure": "Un parcours par poste (type d'examen) : Biologie, Imagerie, Explorations fonctionnelles, Endoscopie, Anatomopathologie ; chaque poste traverse les 9 régions.",
+ "puzzles": [
+  "Ranger les examens d'un bilan dans les six visées",
+  "Cliquer la lésion sur le cliché, puis le repère normal correspondant",
+  "Choisir la séquence IRM qui répond à la question",
+  "Calculer (trou anionique, Light, Kass, gradient albumine)"
+ ],
+ "visuel": "Vraies images (Rx, CT, IRM, échographie, endoscopie, histologie) avec leur cliché normal annoté à droite ; corps 3D réel pour la navigation régionale.",
+ "donnees": [
+  "paraclinique/topographie/<region>/<organe>.json (64, listes générées)",
+  "paraclinique/biologie/prelevements/*.json (23)",
+  "paraclinique/techniques_discriminants.json (rempli)",
+  "paraclinique/visees_bilan.json (rempli)",
+  "paraclinique/imagerie/cas/*.json",
+  "paraclinique/smarter_medicine.json"
+ ],
+ "etapes": [
+  [
+   "1. Champs d'examen",
+   "Remplir discriminant, visée, signe recherché, limite pour les 601 examens."
+  ],
+  [
+   "2. Banque d'images",
+   "Rassembler un cliché pathologique et un cliché normal par examen d'imagerie, avec repères."
+  ],
+  [
+   "3. Biologie",
+   "Valeurs de référence SI suisses, calculs testés, critères."
+  ],
+  [
+   "4. Assemblage HTML",
+   "Onglets par modalité et navigation topographique depuis les JSON."
+  ],
+  [
+   "5. Jeu",
+   "Arène « le bon examen », aventure par poste, progression."
+  ]
+ ],
+ "cout": "Coût moyen : 601 fiches courtes et structurées ; l'abonnement suffit pour le texte ; la banque d'images demande du temps plus que des tokens.",
+ "audit1": [
+  [
+   "Le catalogue listait les examens sans dire ce qu'on y cherche.",
+   "Chaque examen porte « signe recherché » et sa visée."
+  ],
+  [
+   "La fenêtre de clichés ne montrait pas l'anatomie normale.",
+   "La radio-anatomie normale annotée s'affiche à droite."
+  ],
+  [
+   "Les séquences IRM n'étaient pas discriminées.",
+   "27 techniques décrites : ce qu'elles voient le mieux, quand, plutôt que quoi, limite."
+  ]
+ ],
+ "audit2": [
+  [
+   "Un catalogue de 601 examens ressemble à un dictionnaire.",
+   "L'arène part toujours d'un cas clinique et récompense le choix juste et économe."
+  ],
+  [
+   "Le joueur peut cocher tous les examens par prudence.",
+   "Chaque examen inutile retire des points et affiche la recommandation smarter medicine."
+  ],
+  [
+   "La lecture d'image fatigue.",
+   "Puzzles courts : une lésion, un repère normal, une phrase."
+  ]
+ ],
+ "demarrage": [
+  "Remplir le thorax (poumons, plèvre, cœur) en pilote",
+  "Constituer la banque d'images du thorax",
+  "Ouvrir l'arène « le bon examen » sur 20 cas thoraciques"
+ ]
+}

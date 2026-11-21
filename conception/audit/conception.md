@@ -3,11 +3,15 @@
 | Contrôle | Résultat | Détail |
 |---|---|---|
 | Chaque case du prototype porte une infobulle complète (4 rubriques) | ✅ |  |
-| Chaque temps d'examen a 2 ou 3 signes (ou un signe unique assumé et expliqué) | ✅ |  |
+| Chaque temps d'examen a 2 ou 3 signes typiques (ou un signe unique assumé et expliqué) | ✅ |  |
 | Chaque diagnostic répète le bilan en 6 visées et le traitement avec posologie et source | ✅ |  |
 | Chaque particularité renvoie à une lentille déclarée | ✅ |  |
 | Chaque son déclaré existe en fichier | ✅ | sons/galop_B3_apex.mp3, sons/crepitants_fins_base_droite.mp3, sons/crepitants_localises_lobe_moyen.mp3 |
 | Le prototype montre un développement à gauche ET à droite | ✅ |  |
+| Chaque sigle cité dans une infobulle est défini dans le glossaire | ✅ |  |
+| Le mot « atypique » est défini dès qu'il est employé | ✅ |  |
+| Chaque signe ou symptôme est classé typique ou atypique | ✅ |  |
+| Chaque examen du bilan cite le signe paraclinique recherché | ✅ |  |
 | La fenêtre de clichés montre la radio-anatomie normale à droite | ✅ |  |
 | Chaque technique d'imagerie a ses 5 champs (discriminant, préférence, alternative, limite) | ✅ |  |
 | Les séquences IRM clés sont décrites | ✅ | T1, T2, FLAIR, Diffusion (DWI) et carte ADC, T2* / SWI (susceptibilité), T1 avec gadolinium, STIR et T2 avec saturation de graisse, Angio-IRM (TOF, avec contraste), Cholangio-IRM (T2 très pondéré), Perfusion et spectroscopie, IRM de diffusion corps entier |

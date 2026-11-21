@@ -16,8 +16,9 @@ enf = {i: [n for n in cfg["noeuds"] if i in n.get("de", [])] for i in N}
 sans_bulle = [i for i, n in N.items() if not all((n.get("bulle") or {}).get(k) for k in ("def", "pourquoi", "confusion", "retenir"))]
 ctrl("Chaque case du prototype porte une infobulle complète (4 rubriques)", not sans_bulle, ", ".join(sans_bulle))
 temps = [i for i, n in N.items() if str(n.get("type", "")).startswith(("Temps", "Interrogatoire"))]
-mauvais = [f"{i}:{len(enf[i])}" for i in temps if not (2 <= len(enf[i]) <= 3 or (len(enf[i]) == 1 and enf[i][0].get("uniqueAssume")))]
-ctrl("Chaque temps d'examen a 2 ou 3 signes (ou un signe unique assumé et expliqué)", not mauvais, ", ".join(mauvais))
+typ = lambda i: [x for x in enf[i] if x.get("presentation") != "atypique"]
+mauvais = [f"{i}:{len(typ(i))}" for i in temps if not (2 <= len(typ(i)) <= 3 or (len(typ(i)) == 1 and typ(i)[0].get("uniqueAssume")))]
+ctrl("Chaque temps d'examen a 2 ou 3 signes typiques (ou un signe unique assumé et expliqué)", not mauvais, ", ".join(mauvais))
 diags = [i for i, n in N.items() if str(n.get("type", "")).startswith("Diagnostic")]
 incomplets = [i for i in diags if not (set(k for k, _ in [(v[0], 0) for v in VISEES]) <= set((N[i]["bulle"].get("bilan") or {}).keys()) and N[i]["bulle"].get("traitement") and N[i]["bulle"].get("source"))]
 ctrl("Chaque diagnostic répète le bilan en 6 visées et le traitement avec posologie et source", not incomplets, ", ".join(incomplets))
@@ -28,6 +29,18 @@ sons = [n["son"] for n in N.values() if n.get("son")]
 ctrl("Chaque son déclaré existe en fichier", all(os.path.exists(os.path.join(ICI, "prototypes/moteur", s)) for s in sons), ", ".join(sons))
 cotes = {n.get("cote") for n in N.values() if n.get("organe") and enf[n["id"]]}
 ctrl("Le prototype montre un développement à gauche ET à droite", {"g", "d"} <= cotes or len([n for n in N.values() if n.get("organe") and enf[n["id"]]]) >= 2)
+
+import re
+GL = cfg.get("glossaire", {})
+textes = " ".join(json.dumps(n.get("bulle", {}), ensure_ascii=False) + " " + n["texte"] for n in cfg["noeuds"])
+sigles = sorted({m for m in re.findall(r"(?<![\w-])([A-Z][A-Za-z]*[A-Z][A-Za-z0-9₂-]*)(?![\w-])", textes) if not m.isdigit()})
+absents = [x for x in sigles if x not in GL and x not in ("FMA", "MP")]
+ctrl("Chaque sigle cité dans une infobulle est défini dans le glossaire", not absents, ", ".join(absents))
+ctrl("Le mot « atypique » est défini dès qu'il est employé", "atypique" not in textes or "atypique" in GL)
+sans_pres = [i for i, n in N.items() if n.get("type") in ("Signe", "Symptôme") and n.get("presentation") not in ("typique", "atypique")]
+ctrl("Chaque signe ou symptôme est classé typique ou atypique", not sans_pres, ", ".join(sans_pres))
+bil = [i for i in diags for v in (N[i]["bulle"].get("bilan") or {}).values() for x in v if not (isinstance(x, list) and len(x) == 2 and all(x))]
+ctrl("Chaque examen du bilan cite le signe paraclinique recherché", not bil, ", ".join(sorted(set(bil))))
 
 # 2. Paraclinique : fenêtre à deux clichés avec radio-anatomie normale
 pa = json.load(open(os.path.join(ICI, "prototypes/moteur/paraclinique.json"), encoding="utf-8"))

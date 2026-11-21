@@ -43,6 +43,9 @@ RÈGLES BLOQUANTES
 8. pieges : les erreurs réelles des candidats, typées, avec leur correction.
 9. notionsCouvertes : une entrée par rubrique fournie, qui DÉVELOPPE toutes les notions exigibles de la rubrique (le poids indique combien), sans recopier l'amorce.
 10. Les phrases génériques interchangeables d'une entité à l'autre sont interdites.
+11. glossaire : chaque sigle, score ou terme technique que tu emploies (ex. « atypique », « CURB-65 », « ARNI ») reçoit sa définition en une phrase verbale ; aucun terme ne renvoie hors du jeu.
+12. presentation.atypique : les présentations trompeuses (sujet âgé, enfant, grossesse, immunodépression), chacune avec son mécanisme ; elles s'affichent en rouge.
+13. examens.attendu : le signe paraclinique précis recherché (ex. « FEVG ≤ 40 % »), jamais le nom seul de l'examen.
 Tu réponds UNIQUEMENT en appelant l'outil emettre_fiche."""
 
 OUTIL = {"name": "emettre_fiche", "description": "Émet la fiche de raisonnement de l'entité.",

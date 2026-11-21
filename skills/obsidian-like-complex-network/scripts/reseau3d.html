@@ -26,10 +26,12 @@ h1{position:absolute;left:24px;top:12px;margin:0;font:700 19px Georgia,serif;col
 #aide{position:absolute;right:16px;top:48px;font-size:11.5px;color:var(--sous)}
 .fen{position:absolute;box-sizing:border-box;background:var(--carte);color:var(--texte);border:1px solid var(--bord);border-top:5px solid var(--c);border-radius:14px;padding:10px;font-size:12.5px;box-shadow:0 6px 24px #0003;transition:opacity .25s}
 .cap *{transition:none!important}
-#bulle{position:absolute;z-index:20;width:330px;box-sizing:border-box;background:var(--carte);color:var(--texte);border:1px solid var(--bord);border-top:5px solid var(--c);border-radius:9px;padding:10px 12px;box-shadow:0 8px 28px #0004;font-size:12.5px;line-height:1.4;display:none}
+#bulle{position:absolute;z-index:20;max-height:calc(100vh - 100px);overflow:auto;width:330px;box-sizing:border-box;background:var(--carte);color:var(--texte);border:1px solid var(--bord);border-top:5px solid var(--c);border-radius:9px;padding:10px 12px;box-shadow:0 8px 28px #0004;font-size:12.5px;line-height:1.4;display:none}
 #bulle h4{margin:0 0 6px;font-size:13.5px}#bulle dl{margin:0;display:grid;grid-template-columns:118px 1fr;gap:5px 8px}#bulle dt{font-weight:700;color:var(--c);font-size:11px;text-transform:uppercase;letter-spacing:.04em;padding-top:1px}#bulle dd{margin:0}
 #bulle h5.sec{margin:9px 0 5px;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;border-top:1px solid var(--bord);padding-top:7px}#bulle .src{font-size:11px;color:var(--sous);margin-top:5px}
 .n.terne{opacity:.35}.n .pastille{position:absolute;top:-6px;right:-6px;width:12px;height:12px;border-radius:50%;border:2px solid var(--carte)}
+#bulle .terme{border-bottom:1.5px dotted var(--c);cursor:help;position:relative}#bulle .terme:hover::after{content:attr(data-def);position:absolute;left:0;top:1.4em;z-index:30;width:260px;background:var(--texte);color:var(--carte);font:400 12px/1.4 A,sans-serif;padding:7px 9px;border-radius:7px;box-shadow:0 6px 18px #0005}
+.n.atyp{border-color:#d11 !important;background:color-mix(in srgb,#d11 7%,var(--carte))}.n.atyp b{color:#d11!important}
 #bulle .ecoute{margin-top:8px;font:700 12px A,sans-serif;border:1px solid var(--c);color:var(--texte);background:transparent;border-radius:999px;padding:4px 12px;cursor:pointer}
 .n .son{position:absolute;right:6px;bottom:4px;font-size:13px;cursor:pointer;line-height:1}.n.g .son{left:6px;right:auto}.fen.cache{opacity:0;pointer-events:none}.fen ol{margin:8px 0 0 18px;padding:0;line-height:1.45}
 </style></head><body>
@@ -80,7 +82,7 @@ for(const n of N)if(!n.organe)n.cote=n.cote||(function c(m){return m.cote||c(byI
  const dR=Math.max(-1,...N.filter(n=>n.cote==='d').map(n=>n.col??n._p)),dL=Math.max(-1,...N.filter(n=>n.cote==='g').map(n=>n.col??n._p));
  const placeR=W-12-Rr,placeL=L-12;const fit=(place,d)=>d<0?1e9:(place-G*(d+1))/(d+1);COL=Math.max(118,Math.min(COL,fit(placeR,dR),fit(placeL,dL)));}
 for(const n of N){const el=document.createElement('div');el.className='n cache'+(n.enf.length?'':' feuille');el.style.setProperty('--c',n.couleur||'#c98a2b');el.style.setProperty('--w',COL+'px');
- el.innerHTML=(n.type?'<b>'+n.type+'</b>':'')+n.texte+(n.enf.length||(C.fenetres||[]).some(f=>f.de===n.id)?'<span class=plus>+</span>':'')+(n.son?'<span class=son title="Écouter">🔊</span>':'');document.body.appendChild(el);n.el=el;
+ if(n.presentation==='atypique')el.classList.add('atyp');el.innerHTML=(n.type?'<b>'+(n.presentation==='atypique'?n.type+' atypique':n.type)+'</b>':'')+n.texte+(n.enf.length||(C.fenetres||[]).some(f=>f.de===n.id)?'<span class=plus>+</span>':'')+(n.son?'<span class=son title="Écouter">🔊</span>':'');document.body.appendChild(el);n.el=el;
  el.classList.add(n.cote);n.w=el.offsetWidth;n.h=el.offsetHeight;}
 for(const n of N){n._c=n.col??n._p;const pas=(COL+G)*n._c;n.x=n.cote==='d'?Rr+G+pas+COL/2:L-G-pas-COL/2;}
 /* symétrie parfaite par arbre : chaque parent se centre exactement sur le bloc de ses enfants */
@@ -158,16 +160,20 @@ if(Q.has('tout'))for(const n of N)if((n.enf.length||n.aFen)&&!(Q.get('sauf')||''
 /* ---------- infobulle symétrique : 4 rubriques fixes, une phrase verbale chacune ---------- */
 const RUB=[['def','Ce que c\'est'],['pourquoi','Pourquoi ici'],['confusion','Confusion possible'],['retenir','À retenir']];
 let audio=null;const jouer=src=>{try{if(audio)audio.pause();audio=new Audio(src);audio.play();}catch(e){}};
+const GLO=C.glossaire||{};const GK=Object.keys(GLO).sort((a,b)=>b.length-a.length);
+const GRE=GK.length?new RegExp('(^|[^\\wÀ-ÿ\\-])('+GK.map(t=>t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')(?![\\wÀ-ÿ])','g'):null;
+const esc=t=>t.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+const gloser=h=>GRE?h.split(/(<[^>]+>)/).map(part=>part.startsWith('<')?part:part.replace(GRE,(m,a,b)=>a+'<span class=terme data-def="'+esc(GLO[b])+'">'+b+'</span>')).join(''):h;
 const VIS=[['diagnostique','Diagnostique'],['etiologique','Étiologique'],['retentissement','Retentissement'],['complications','Complications'],['remission','Rémission'],['sortie','Sortie']];
 let lentille=Q.get('lentille')||'';const LEN=C.lentilles||[];
 function montrer(n){if(!n.bulle||n.el.classList.contains('cache'))return;bulle.style.setProperty('--c',n.couleur||'#888');const B=n.bulle;
  const pl=lentille&&n.particularites&&n.particularites[lentille];const ln=LEN.find(l=>l.id===lentille);
  bulle.innerHTML='<h4>'+n.texte+'</h4><dl>'+RUB.map(([k,l])=>'<dt>'+l+'</dt><dd>'+(B[k]||'Aucune confusion fréquente.')+'</dd>').join('')
   +(pl?'<dt style="color:'+ln.couleur+'">Particularité · '+ln.nom+'</dt><dd style="border-left:3px solid '+ln.couleur+';padding-left:6px">'+pl+'</dd>':'')+'</dl>'
-  +(B.bilan?'<h5 class=sec>Bilan stratifié</h5><dl>'+VIS.filter(([k])=>B.bilan[k]).map(([k,l])=>'<dt>'+l+'</dt><dd>'+B.bilan[k]+'</dd>').join('')+'</dl>':'')
+  +(B.bilan?'<h5 class=sec>Bilan stratifié : examen → signe recherché</h5><dl>'+VIS.filter(([k])=>B.bilan[k]).map(([k,l])=>'<dt>'+l+'</dt><dd>'+[].concat(B.bilan[k]).map(x=>typeof x==='string'?x:'<b>'+x[0]+'</b> → '+x[1]).join('<br>')+'</dd>').join('')+'</dl>':'')
   +(B.traitement?'<h5 class=sec>Traitement et posologie</h5><dl>'+B.traitement.map(t=>'<dt>'+t[0]+'</dt><dd>'+t[1]+'</dd>').join('')+'</dl>'+(B.source?'<div class=src>Source : '+B.source+'</div>':''):'')
   +(n.son?'<button class=ecoute>▶ Écouter : '+(n.sonTitre||n.texte)+'</button>':'');
- bulle.style.width=(B.bilan?400:330)+'px';bulle.style.display='block';const bw=B.bilan?400:330,bh=bulle.offsetHeight;let bx=n.cote==='d'?n.x-n.w/2-bw-14:n.x+n.w/2+14;if(bx<8)bx=n.x+n.w/2+14;if(bx+bw>W-8)bx=n.x-n.w/2-bw-14;
+ bulle.innerHTML=gloser(bulle.innerHTML);bulle.style.width=(B.bilan?430:340)+'px';bulle.style.display='block';const bw=B.bilan?400:330,bh=bulle.offsetHeight;let bx=n.cote==='d'?n.x-n.w/2-bw-14:n.x+n.w/2+14;if(bx<8)bx=n.x+n.w/2+14;if(bx+bw>W-8)bx=n.x-n.w/2-bw-14;
  bulle.style.left=bx+'px';bulle.style.top=Math.min(Math.max(n.y-bh/2,90),H-bh-8)+'px';const b=bulle.querySelector('.ecoute');if(b)b.onclick=()=>jouer(n.son);}
 for(const n of N){n.el.onmouseenter=()=>montrer(n);n.el.onmouseleave=()=>{bulle.style.display='none';};const sb=n.el.querySelector('.son');if(sb)sb.onclick=e=>{e.stopPropagation();jouer(n.son);};}
 bulle.onmouseenter=()=>bulle.style.display='block';bulle.onmouseleave=()=>bulle.style.display='none';

@@ -54,6 +54,9 @@ SEMIOLOGIE = {
         "Le syndrome nomme dans son infobulle le minimum suffisant : deux ou trois signes concordants qui permettent de le poser.",
         "Quand un signe appartient à un autre syndrome proche (exemple : la turgescence jugulaire relève de l'insuffisance cardiaque droite), l'infobulle le dit explicitement.",
     ],
+    "glossaire": "Tout sigle, score ou terme technique cité dans une infobulle (atypique, ARNI, CURB-65…) porte sa propre infobulle de définition, tirée du glossaire du module : l'apprenant ne quitte jamais l'application pour se souvenir d'une notion.",
+    "typiqueAtypique": "À chaque temps d'examen et à l'anamnèse, quand c'est applicable, les signes et symptômes se rangent en deux catégories : typiques (couleur du système) et atypiques (en rouge), pour préparer aux pièges de présentation.",
+    "bilan": "Chaque examen du bilan s'écrit « examen → signe paraclinique recherché » (exemple : échocardiographie → FEVG ≤ 40 %) ; l'énumération détaillée vit dans l'infobulle, pas dans la case.",
     "sons": {
         "regle": "Tout signe auscultatoire porte un bouton 🔊 qui joue un enregistrement réel ; le son se rejoue aussi depuis l'infobulle.",
         "catalogue": ["Galop B3", "Galop B4", "Souffles systoliques et diastoliques", "Fibrillation auriculaire", "Bloc auriculo-ventriculaire", "Tachycardie",

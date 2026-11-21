@@ -83,7 +83,7 @@ def rendre(p, audit):
         sm = p["semiologie"]
         S.append(("semiologie", "Infobulles symétriques, seuils de signes et sons réels",
                   f"<p>{E(sm['infobulle']['regle'])}</p>" + table([{"r": a, "c": b} for a, b in sm["infobulle"]["rubriques"]], [("r", "Rubrique"), ("c", "Contenu attendu")])
-                  + f"<p>{E(sm['infobulle']['symetrie'])}</p><h4>Seuils</h4>{liste(sm['seuils'])}<h4>Sons</h4><p>{E(sm['sons']['regle'])}</p>{liste(sm['sons']['catalogue'])}<p>{E(sm['sons']['source'])}</p>"))
+                  + f"<p>{E(sm['infobulle']['symetrie'])}</p><p><b>Glossaire :</b> {E(sm['glossaire'])}</p><p><b>Typiques et atypiques :</b> {E(sm['typiqueAtypique'])}</p><p><b>Bilan :</b> {E(sm['bilan'])}</p><h4>Seuils</h4>{liste(sm['seuils'])}<h4>Sons</h4><p>{E(sm['sons']['regle'])}</p>{liste(sm['sons']['catalogue'])}<p>{E(sm['sons']['source'])}</p>"))
     if p.get("neuro"):
         S.append(("neuro", "Système nerveux : syndromes majeurs à identifier", "<p>Le système nerveux concentre le travail le plus lourd : chaque syndrome ci-dessous reçoit son circuit complet (signes par temps d'examen, symptômes, infobulles, examens, diagnostics).</p>" + liste(p["neuro"])))
     if p.get("mnemonique"):
