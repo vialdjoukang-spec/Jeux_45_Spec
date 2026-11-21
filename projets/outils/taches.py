@@ -25,7 +25,7 @@ REGLES = [
     "Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.",
     "Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».",
     "Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.",
-    "Tu rends un bloc JSON valide par fichier, précédé de son nom de fichier. Si ta réponse risque d'être coupée, tu rends un seul fichier par réponse et tu attends « suite ».",
+    "Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
 ]
 
 CHAMPS_EXAMEN = [
@@ -49,7 +49,7 @@ CHAMPS_EXAMEN = [
 
 
 def prompt(role, fichiers, champs, regles_plus=()):
-    l = [role, "", "Fichiers à remplir (joints à ce message) :"] + [f"- {f}" for f in fichiers]
+    l = [role, "", "Le fichier joint LOT_<identifiant>.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :"] + [f"- {f}" for f in fichiers]
     if champs:
         l += ["", "Contenu attendu de chaque champ :"] + [f"- {c}" for c in champs]
     l += ["", "Règles :"] + [f"- {r}" for r in list(regles_plus) + REGLES]
@@ -151,8 +151,30 @@ tache(P, "J03", "Produire les fiches par spécialité (couche 1)", "Gemini (Pro)
 tache(P, "J04", "Générer les cartes réflexes (couche 2, 0 token)", "Claude Code", "python scripts/generer_reflexes.py", ["scripts/generer_reflexes.py"], "content/reflexes/", dep=["J03"], claude=True)
 tache(P, "J05", "Auditer chaque lot de fiches (REJECTOR_)", "Claude (finition) — crédits API en lot", "Rejet des fiches non conformes, régénération ciblée.", [], "lots validés", dep=["J03"], claude=True)
 
+LOTS = os.path.join(RAC, "projets", "lots")
+os.makedirs(LOTS, exist_ok=True)
+for f in glob.glob(os.path.join(LOTS, "*.json")):
+    os.remove(f)
 for t in T:
+    chemins = []
+    for e in t["entrees"]:
+        if not e.endswith(".json") or "*" in e:
+            motif = e if "*" in e else e.rstrip("/") + "/*.json"
+            chemins += sorted(os.path.relpath(x, RAC).replace(os.sep, "/") for x in glob.glob(os.path.join(RAC, motif)))
+        elif os.path.exists(os.path.join(RAC, e)):
+            chemins.append(e)
+    fich = {c: json.load(open(os.path.join(RAC, c), encoding="utf-8")) for c in chemins if c.endswith(".json")}
+    t["lot"] = None
+    if fich and t["prompt"]:
+        nom = f"LOT_{t['id']}.json"
+        json.dump({"_lot": {"tache": t["id"], "titre": t["titre"], "projet": t["projet"], "nombreFichiers": len(fich),
+                            "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."},
+                   "fichiers": fich}, open(os.path.join(LOTS, nom), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        t["lot"] = "projets/lots/" + nom
+        t["prompt"] = t["prompt"].replace("LOT_<identifiant>.json", nom)
     t["liens"] = [GH + e for e in t["entrees"] if "*" not in e]
+    if t["lot"]:
+        t["liens"].append(GH + t["lot"])
 
 json.dump({"genere": "projets/outils/taches.py", "taches": T}, open(os.path.join(RAC, "projets", "taches.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 gabarit = open(os.path.join(RAC, "projets", "outils", "tableau_de_bord.gabarit.html"), encoding="utf-8").read()

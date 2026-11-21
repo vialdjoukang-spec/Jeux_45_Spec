@@ -64,7 +64,7 @@ textarea{min-height:76px;resize:vertical}
 
 <h2 id="mode">Mode d'emploi</h2>
 <ol class="regles">
-<li>Tu ouvres une tâche, tu copies son prompt et tu joins les fichiers listés (ils sont dans ton dossier Jeux_45_Spec ou sur GitHub).</li>
+<li>Tu ouvres une tâche, tu copies son prompt et tu joins son fichier unique <b>LOT_&lt;tâche&gt;.json</b> (dossier <b>projets/lots</b>) : il contient tous les fichiers à remplir, chacun sous son chemin exact.</li>
 <li>Tu travailles sur la plateforme indiquée ; tu peux en choisir une autre : tu la coches.</li>
 <li>Tu écris en deux lignes ce que tu as fait (compte, modèle, lots traités, problèmes).</li>
 <li>Tu importes les JSON rendus : la page vérifie qu'ils se lisent et compte les champs encore vides.</li>
@@ -111,7 +111,8 @@ function carte(t){
 <p><span class="lbl">Où :</span> ${esc(t.ou)}</p>
 <p>${esc(t.quoi)}</p>
 ${t.dependances.length?`<p class="dep">Après : ${t.dependances.join(", ")}</p>`:""}
-${t.entrees.length?`<div><div class="lbl">Fichiers à joindre</div><ul class="fich">${t.entrees.map(f=>{const l=t.liens.find(x=>x.endsWith(f));return `<li>${l?`<a href="${esc(l)}">${esc(f)}</a>`:esc(f)}</li>`}).join("")}</ul></div>`:""}
+${t.lot?`<p><span class="lbl">Fichier unique à joindre :</span> <a href="${esc(t.liens[t.liens.length-1])}">${esc(t.lot)}</a> <span class="dep">(il contient tous les fichiers ci-dessous, chacun sous son chemin exact)</span></p>`:""}
+${t.entrees.length?`<div><div class="lbl">${t.lot?"Contenu du lot":"Fichiers à joindre"}</div><ul class="fich">${t.entrees.map(f=>{const l=t.liens.find(x=>x.endsWith(f));return `<li>${l?`<a href="${esc(l)}">${esc(f)}</a>`:esc(f)}</li>`}).join("")}</ul></div>`:""}
 ${t.sortie?`<p><span class="lbl">Résultat attendu :</span> ${esc(t.sortie)}</p>`:""}
 ${t.prompt?`<div><div class="ligne" style="justify-content:space-between"><span class="lbl">Prompt</span><button class="btn cp">Copier le prompt</button></div><pre>${esc(t.prompt)}</pre></div>`:""}
 <div><div class="lbl">Statut</div><select class="statut">${STATUTS.map(s=>`<option${s===e.statut?" selected":""}>${s}</option>`).join("")}</select></div>

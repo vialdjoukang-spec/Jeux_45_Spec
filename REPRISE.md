@@ -89,3 +89,4 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Lecture par Claude (outils claude-artifacts) : `db_list` collection `taches` (statut, plateformes, compteRendu), `imports` (métadonnées des JSON importés), `contenus` (texte des JSON en morceaux de 80 000 caractères : champs k, i, n, texte ; recoller par ordre de i).
 - Quand Vial dit qu'une tâche est « Envoyé à Claude » : lire ses imports, auditer, corriger, intégrer dans le dépôt, puis passer la tâche en « Validé ».
 - Après toute modification de `taches.py` : régénérer, puis republier la page (publish_files avec slug et base_version).
+- Paquets de lot : `projets/lots/LOT_<tâche>.json` (50 fichiers, générés par `taches.py`) = {"_lot": {...}, "fichiers": {chemin exact: contenu}} ; l'IA de production rend le même objet ; à l'import, chaque chemin se réécrit à sa place dans le dépôt.
