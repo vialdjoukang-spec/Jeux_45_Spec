@@ -9,7 +9,7 @@
 [data-theme=anthracite]{--fond:#1b1d21;--ombre:#41454d;--mi:#26292e;--texte:#f5f5f5;--carte:#24272c;--trait:#d7dbe0;--bord:#50555e;--sous:#c8ccd2}
 html,body{margin:0;width:100vw;height:100vh;overflow:hidden;font-family:A,sans-serif;color:var(--texte);background:radial-gradient(ellipse 30% 50% at var(--cx,50%) 52%,var(--ombre) 0%,var(--mi) 62%,var(--fond) 100%)}
 #gl,#ln{position:absolute;inset:0}#ln{pointer-events:none}
-.n{position:absolute;box-sizing:border-box;width:var(--w);padding:6px 10px 7px;border-radius:7px;font-size:13px;line-height:1.25;color:var(--texte);background:var(--carte);
+.n{position:absolute;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;width:var(--w);padding:6px 10px 7px;border-radius:7px;font-size:13px;line-height:1.25;color:var(--texte);background:var(--carte);
  border:1px solid var(--bord);box-shadow:0 2px 8px #0003;cursor:pointer;transform:translateY(-50%);transition:opacity .25s;user-select:none}
 .n.d{border-left:5px solid var(--c)}.n.g{border-right:5px solid var(--c)}
 .n b{display:block;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--c);margin-bottom:1px}
@@ -77,17 +77,26 @@ for(const n of N){const el=document.createElement('div');el.className='n cache'+
  el.innerHTML=(n.type?'<b>'+n.type+'</b>':'')+n.texte+(n.enf.length||(C.fenetres||[]).some(f=>f.de===n.id)?'<span class=plus>+</span>':'');document.body.appendChild(el);n.el=el;
  el.classList.add(n.cote);n.w=el.offsetWidth;n.h=el.offsetHeight;}
 for(const n of N){n._c=n.col??n._p;const pas=(COL+G)*n._c;n.x=n.cote==='d'?Rr+G+pas+COL/2:L-G-pas-COL/2;}
+/* symétrie parfaite : frères = même hauteur, pas constant, groupe centré sur l'horizontale du parent, déplacé en bloc */
+const groupes={};N.filter(n=>!n.organe&&n.de.length===1).forEach(n=>(groupes[n.de[0]]??=[]).push(n));
+const colH={};N.forEach(n=>colH[n._c+n.cote]=Math.max(colH[n._c+n.cote]||0,n.h));
+N.forEach(n=>{n.el.style.minHeight=colH[n._c+n.cote]+'px';n.h=n.el.offsetHeight;});
+const PAS=Math.max(...N.map(n=>n.h))+14; /* pas unique dans tout le réseau : les frères s'alignent d'une colonne à l'autre */
 const parProf={};N.forEach(n=>(parProf[n._c+n.cote]??=[]).push(n));
+const gap=14,haut=96,bas=H-20;
 for(const k of Object.keys(parProf).sort((a,b)=>parseInt(a)-parseInt(b))){const col=parProf[k];
- col.forEach(n=>{if(n.organe)n.y=n.o[1];else{const ps=n.de.map(p=>byId[p]);n.y=ps.reduce((s,p)=>s+p.y,0)/ps.length;}});
- const freres={};col.filter(n=>!n.organe&&n.de.length===1).forEach(n=>(freres[n.de[0]]??=[]).push(n));
- for(const f of Object.values(freres))if(f.length>1){const pas=C.ecartVertical||60;f.forEach((n,i)=>n.y+=(i-(f.length-1)/2)*pas);}
- col.forEach(n=>{if(n.y0)n.y=n.y0;});
- col.sort((a,b)=>a.y-b.y);const gap=12,haut=96,bas=H-20;
- for(let i=1;i<col.length;i++){const a=col[i-1],b=col[i],m=(a.h+b.h)/2+gap;if(b.y-a.y<m)b.y=a.y+m;}
- const der=col[col.length-1],over=der.y+der.h/2-bas;if(over>0)col.forEach(n=>n.y-=over);
- for(let i=0;i<col.length;i++){const a=col[i];if(a.y-a.h/2<haut)a.y=haut+a.h/2;if(i){const p=col[i-1],m=(a.h+p.h)/2+gap;if(a.y-p.y<m)a.y=p.y+m;}}}
-
+ /* blocs : chaque groupe de frères forme un bloc rigide ; les autres cases sont seules */
+ const blocs=[];const vu=new Set();
+ for(const n of col){if(vu.has(n))continue;const f=(!n.organe&&n.de.length===1)?groupes[n.de[0]].filter(m=>col.includes(m)):[n];f.forEach(m=>vu.add(m));
+  let cy;if(n.y0)cy=n.y0;else if(n.organe)cy=n.o[1];else{const ps=n.de.map(p=>byId[p]);cy=ps.reduce((s,p)=>s+p.y,0)/ps.length;}
+  const pas=f.length>1?PAS:0;f.forEach((m,i)=>m.dy=(i-(f.length-1)/2)*pas);
+  blocs.push({f,cy,demi:((f.length-1)*pas+Math.max(...f.map(m=>m.h)))/2});}
+ blocs.sort((a,b)=>a.cy-b.cy);
+ for(let i=1;i<blocs.length;i++){const a=blocs[i-1],b=blocs[i],m=a.demi+b.demi+gap;if(b.cy-a.cy<m){const d=(m-(b.cy-a.cy))/2;
+  /* écart réparti des deux côtés pour garder la symétrie globale */ a.cy-=d;b.cy+=d;for(let j=i-1;j>0;j--){const p=blocs[j-1],q=blocs[j],mm=p.demi+q.demi+gap;if(q.cy-p.cy<mm)p.cy=q.cy-mm;}}}
+ const top=blocs.length?blocs[0].cy-blocs[0].demi:0,bot=blocs.length?blocs[blocs.length-1].cy+blocs[blocs.length-1].demi:0;
+ const dec=top<haut?haut-top:(bot>bas?bas-bot:0);
+ blocs.forEach(b=>b.f.forEach(m=>m.y=b.cy+dec+m.dy));}
 N.forEach(n=>{n.el.style.left=(n.x-n.w/2)+'px';n.el.style.top=n.y+'px';});
 for(const f of C.fenetres||[]){const w=document.createElement('div');w.className='fen cache';w.style.cssText+=`left:${f.x}px;top:${f.y}px;width:${f.w}px;--c:${f.couleur||'#2a9d8f'}`;
  const iw=(f.w-34)/2;w.innerHTML=`<div style="font-weight:700;margin-bottom:6px">${f.titre}</div><div style="display:flex;gap:10px"><div><div style="opacity:.7;margin-bottom:3px">Cliché brut</div><img src="${f.img}" style="width:${iw}px;display:block;border-radius:4px"></div><div style="position:relative"><div style="opacity:.7;margin-bottom:3px">Cliché annoté</div><img class=a src="${f.img}" style="width:${iw}px;display:block;border-radius:4px"><canvas style="position:absolute;left:0;top:19px"></canvas></div></div><ol></ol>`;

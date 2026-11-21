@@ -26,7 +26,8 @@ TOILE = {
     "moteur": "three.js pour le mannequin 3D réel ; canvas 2D pour les traits ; HTML pour les cases ; skill « obsidian-like-complex-network »",
     "regles": [
         "Aucun trait ne traverse le corps, sauf le départ d'un organe : un segment horizontal sort du corps par le côté le plus proche, puis une horizontale ou une oblique rejoint la première case.",
-        "Un parent émet une horizontale qui aboutit à une barre verticale ; cette barre regroupe ses enfants, placés de façon symétrique autour de lui, et chaque enfant reçoit une courte horizontale fléchée.",
+        "Un parent émet une horizontale qui aboutit à une barre verticale ; cette barre regroupe ses enfants, et chaque enfant reçoit une courte horizontale fléchée.",
+        "La symétrie est parfaite : les frères ont la même hauteur, un pas unique sépare les cases dans tout le réseau, le groupe se centre exactement sur l'horizontale du parent et se déplace en bloc s'il gêne un autre groupe.",
         "Quand plusieurs parents mènent à une même entité, leurs horizontales aboutissent à une barre verticale commune, d'où part une seule horizontale fléchée vers l'entité.",
         "Les cases sont des rectangles arrondis, de largeur égale dans une colonne ; leur bord côté corps porte la couleur du type ; un « + » signale une suite cachée.",
         "Au départ, seules les cases posées sur le corps sont visibles ; un clic révèle la suite, un second clic la replie.",

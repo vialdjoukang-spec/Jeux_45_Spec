@@ -24,7 +24,7 @@ Store every network as JSON Canvas, so it opens in Obsidian and in our engine:
 
 ## 3. Layout and interaction
 1. Columns = levels of reasoning (organ → sign → syndrome → exam → diagnosis → treatment), placed **outside the body silhouette**, on the organ's side.
-2. Organ nodes sit at the organ's screen height; a child sits at the **mean height of its parents** (convergence); siblings of one parent fan out (≈ 60 px step); then resolve collisions per column and clamp to the viewport.
+2. **Perfect symmetry**: organ boxes sit at the organ's screen height; a child of several parents sits at their **mean height**; siblings of one parent share the same height (min-height = tallest box of the column) and **one global step** (tallest box + 14 px), centred exactly on the parent's horizontal; collisions move a sibling group **as one rigid block**, the gap split on both sides.
 3. **Progressive reveal**: at start only body-anchored nodes show; click an ellipse → its children appear; click again → they retract.
 4. **One reset button, two outcomes**: click = selective reset (retract the last opened circuit), double-click = global reset (everything retracts).
 5. **Theme button**: cycles 7 contrasted backgrounds — white, sky blue, champagne, gold, mint, night, anthracite (CSS variables, soft radial halo behind the body).
