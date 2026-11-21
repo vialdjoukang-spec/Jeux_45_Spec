@@ -19,6 +19,7 @@ def slug(t):
 
 
 REGLES = [
+    "Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.",
     "Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.",
     "Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.",
     "Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).",
