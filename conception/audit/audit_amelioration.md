@@ -13,4 +13,4 @@
 | 9 | Les fiches d'examens contiennent les noms, pas encore les indications, les valeurs et les infobulles. | À faire (production) | Remplissage système par système, puis contrôle par REJECTOR_. |
 | 10 | Une question reste ouverte : le système « Pédiatrique » reste-t-il séparé, ou l'âge devient-il une dimension transversale ? | À trancher | Décision de Vial attendue. |
 
-**Contrôles automatiques :** les 3 plans réussissent 31 contrôles sur 31 ; l'audit de couverture réussit (14 systèmes reliés, aucun doublon, 100 examens témoins présents).
+**Contrôles automatiques :** les 3 plans réussissent 31 contrôles sur 31 ; l'audit de couverture réussit (14 systèmes reliés, aucun doublon, 101 examens témoins présents).
