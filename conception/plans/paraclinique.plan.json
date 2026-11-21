@@ -1,0 +1,754 @@
+{
+ "version": "1.0",
+ "date": "2026-11-21",
+ "statut": "Conception — non implémentée",
+ "signature": {
+  "start": "2026-11-21 16:02 (Europe/Zurich)",
+  "model": "Opus 5.5",
+  "platform": "Claude"
+ },
+ "principes": [
+  "Le contenu vit dans des fichiers JSON ; le code ne contient aucune donnée médicale.",
+  "Un seul moteur d'affichage sert tous les systèmes, prélèvements ou régions : on ajoute des données, jamais de code.",
+  "Chaque réseau est un graphe (nœuds typés + liens typés) ; la toile zoomable de style Obsidian le dessine.",
+  "L'IA rédige une fois la source de vérité ; les scripts en tirent gratuitement les exercices, les calculs et les courbes.",
+  "REJECTOR_ vérifie le fond de chaque source avant que le moindre exercice en dérive.",
+  "Tout se replie par défaut ; l'utilisateur déplie un circuit à la fois, ce qui protège la lisibilité.",
+  "Chaque texte se lit en phrases verbales, en Atkinson Hyperlegible, dans une colonne contenue.",
+  "Les posologies suivent la cascade suisse : AIPS, Compendium, sociétés suisses, sociétés européennes ; les molécules s'écrivent en DCI, avec le nom commercial suisse entre parenthèses."
+ ],
+ "architecture": [
+  {
+   "couche": "1. Source de vérité",
+   "contenu": "Graphe JSON par unité (système, prélèvement, région ou exploration) et fiches de nœuds",
+   "producteur": "IA (API Batch + cache), puis REJECTOR_",
+   "cout": "Payé une fois"
+  },
+  {
+   "couche": "2. Dérivés calculés",
+   "contenu": "Exercices, calculateurs, courbes pharmacocinétiques, index de recherche",
+   "producteur": "Scripts Python",
+   "cout": "0 token"
+  },
+  {
+   "couche": "3. Affichage",
+   "contenu": "Toile zoomable (graphe), mannequin 3D, fenêtres de détail",
+   "producteur": "Un seul moteur (TypeScript + three.js + SVG)",
+   "cout": "Écrit une fois"
+  },
+  {
+   "couche": "4. Pratique",
+   "contenu": "Arène, aventure, examen blanc (A, K', menus longs)",
+   "producteur": "Moteur du jeu Jeux_45_Spec",
+   "cout": "Partagé avec le jeu"
+  }
+ ],
+ "toile": {
+  "moteur": "SVG pour les liens (courbes de Bézier), HTML pour les nœuds, three.js pour le mannequin ; pan + zoom à la molette ; mini-carte en bas à gauche",
+  "regles": [
+   "Le nœud racine (système, prélèvement, région) reste toujours visible.",
+   "Un clic sur un nœud déplie ses enfants ; un second clic les replie.",
+   "Un survol surligne le chemin complet depuis la racine jusqu'au nœud.",
+   "Un bouton « Tout replier » ramène la toile à son état initial.",
+   "La couleur d'un lien code son type de relation ; la légende reste ouverte en bas à droite."
+  ]
+ },
+ "areneAventure": {
+  "arene": [
+   "Le joueur affronte des duels de 60 à 90 s, tirés des exercices du module.",
+   "Une erreur dangereuse coûte trois fois plus qu'une erreur mineure.",
+   "Après une erreur, l'échelle de correction s'ouvre : 0-D, mécanisme, sémiologie, discriminant, décision, piège, ancre.",
+   "Le joueur rejoue aussitôt une variante de la même notion, et la réussir rapporte le double."
+  ],
+  "aventure": [
+   "Le joueur traverse un système comme un voyage : du normal à la perturbation, puis à la réparation.",
+   "Chaque étape débloque un nœud de la toile ; la toile se colore au fil des réussites.",
+   "Un boss clôt chaque système : un cas long en 6 étapes, du triage au suivi."
+  ],
+  "retention": "La répétition espacée (FSRS) planifie chaque notion ; les révisions du jour passent avant les nouveautés.",
+  "gardeFous": "Les sessions durent 12 minutes par défaut ; aucune notification de 22 h à 7 h ; une série manquée ne retire aucun point."
+ },
+ "evaluation": [
+  {
+   "format": "Type A",
+   "regle": "5 options, 1 seule correcte ; chaque option porte son explication propre."
+  },
+  {
+   "format": "K' (Kprim)",
+   "regle": "4 affirmations vrai/faux ; barème suisse : 4 justes = 1 point, 3 justes = ½ point, sinon 0."
+  },
+  {
+   "format": "Menu long",
+   "regle": "Une vignette, puis une liste de 15 à 26 réponses possibles ; le candidat choisit la ou les bonnes."
+  },
+  {
+   "format": "Examen blanc",
+   "regle": "Blocs chronométrés : 60 % A, 40 % K', menus longs intégrés ; les corrections n'apparaissent qu'à la fin."
+  }
+ ],
+ "audits": [
+  {
+   "audit": "Fonctionnement",
+   "controle": "Parcours complet de chaque écran (Playwright), rendu à 1280 px et 390 px, console sans erreur, accessibilité (axe-core)",
+   "seuil": "100 % vert ; 0 violation grave"
+  },
+  {
+   "audit": "Médical",
+   "controle": "REJECTOR_ sur chaque source ; contre-audit par une IA d'un autre fournisseur ; posologies contrôlées contre l'index AIPS ; échantillon humain de 5 %",
+   "seuil": "0 rejet de fond restant ; erreurs humaines < 2 %"
+  },
+  {
+   "audit": "Psychologique",
+   "controle": "Boucle échec → correction → revanche présente ; garde-fous respectés ; durée des sessions mesurée",
+   "seuil": "Échelle affichée après 100 % des erreurs ; < 10 % de sessions au-delà du plafond"
+  },
+  {
+   "audit": "Cohérence des données",
+   "controle": "Chaque lien pointe vers un nœud existant ; chaque nœud médical porte une source ; aucun exercice ne contredit sa source",
+   "seuil": "100 %"
+  }
+ ],
+ "id": "paraclinique",
+ "titre": "Jeux_Examens_Paraclinique",
+ "couleur": "#1f4e8c",
+ "sousTitre": "Biologie par prélèvement · Imagerie par région · Explorations fonctionnelles : de l'examen à l'interprétation, au diagnostic et au traitement",
+ "objectif": [
+  "Le médecin part d'un prélèvement, d'une région ou d'une fonction, et aboutit à l'interprétation, au diagnostic, puis au traitement avec sa posologie.",
+  "Il maîtrise les calculs et les critères diagnostiques qui tranchent.",
+  "Il lit une image en comparant un cliché brut et un cliché annoté."
+ ],
+ "perimetre": {
+  "inclus": [
+   "Onglet Biologie",
+   "Onglet Imagerie",
+   "Onglet Explorations fonctionnelles"
+  ],
+  "exclus": [
+   "Images sans licence publiées sur le dépôt public"
+  ]
+ },
+ "decisions": [
+  {
+   "question": "Images d'imagerie : n'importe quelle source ?",
+   "choix": "Le dépôt public ne publie que des images sous licence libre (Wikimedia Commons, articles CC BY). Les images d'autres sources restent dans un dossier local non publié, pour ton usage personnel.",
+   "raison": "Publier une image protégée sur un dépôt public t'expose à un retrait ou à une plainte ; l'usage personnel local ne pose pas ce problème."
+  },
+  {
+   "question": "Calculs : rédigés ou calculés ?",
+   "choix": "Calculateurs exécutés par script, à partir de formules versionnées",
+   "raison": "Le calcul est exact, et le joueur peut faire varier les valeurs."
+  },
+  {
+   "question": "Le sommeil",
+   "choix": "La polysomnographie relève des explorations fonctionnelles, mais ses diagnostics renvoient à la Psyché",
+   "raison": "Ta règle : le sommeil appartient à la psychiatrie."
+  }
+ ],
+ "onglets": {
+  "biologie": {
+   "prelevements": [
+    "Sang veineux (hématologie, biochimie, hémostase, sérologies, hormonologie)",
+    "Sang artériel (gazométrie)",
+    "Sang capillaire (glycémie, lactate)",
+    "Hémocultures",
+    "Urine (bandelette, sédiment, culture, spot, urines de 24 h)",
+    "Liquide céphalorachidien",
+    "Liquide pleural",
+    "Liquide d'ascite",
+    "Liquide synovial (articulaire)",
+    "Liquide péricardique",
+    "Selles (coproculture, parasitologie, calprotectine, sang occulte)",
+    "Expectorations et lavage broncho-alvéolaire",
+    "Moelle osseuse (myélogramme, biopsie ostéomédullaire)",
+    "Biopsies (rein, foie, peau, ganglion, prostate, sein…)",
+    "Prélèvements génitaux et urétraux",
+    "Écouvillons naso-pharyngés",
+    "Liquide amniotique",
+    "Test de la sueur",
+    "Sperme (spermogramme)",
+    "Ponction de kyste ou d'abcès"
+   ],
+   "chaine": "Prélèvement → examens possibles → valeurs (unités SI suisses) → interprétation → syndrome biologique → diagnostics → traitement avec posologie",
+   "calculs": [
+    "Trou anionique et trou anionique corrigé par l'albumine",
+    "Osmolalité calculée et trou osmolaire",
+    "DFG (CKD-EPI) et clairance (Cockcroft-Gault)",
+    "Fraction d'excrétion du sodium et de l'urée",
+    "Calcémie corrigée",
+    "Natrémie corrigée par la glycémie",
+    "Gradient albumine sérum-ascite",
+    "Gradient alvéolo-artériel en O₂",
+    "Formule de Winter",
+    "Rapport protéines/créatinine urinaires",
+    "Index de saturation de la transferrine"
+   ],
+   "criteres": [
+    "Critères de Kass (bactériurie ≥ 10⁵ UFC/mL)",
+    "Critères de Light (exsudat ou transsudat)",
+    "Infection d'ascite (PNN ≥ 250/mm³)",
+    "Profils du LCR (bactérien, viral, tuberculeux, fongique)",
+    "Liquide synovial : mécanique, inflammatoire, septique",
+    "Diagnostic biologique du diabète (HbA1c, glycémie à jeun, HGPO)"
+   ]
+  },
+  "imagerie": {
+   "regions": [
+    "Tête et crâne",
+    "Cou",
+    "Thorax",
+    "Cœur et gros vaisseaux",
+    "Sein",
+    "Abdomen",
+    "Pelvis",
+    "Rachis",
+    "Membre supérieur",
+    "Membre inférieur",
+    "Vaisseaux périphériques"
+   ],
+   "examens": [
+    "Radiographie",
+    "Échographie et Doppler",
+    "Scanner (CT)",
+    "IRM",
+    "Scintigraphie",
+    "TEP-CT",
+    "Angiographie",
+    "Mammographie",
+    "Ostéodensitométrie"
+   ],
+   "chaine": "Région → examens faisables → système d'organe → organe → pathologies → fenêtre à deux clichés",
+   "fenetre": "À gauche le cliché brut (« Observez d'abord ») ; à droite le cliché annoté avec repères numérotés ; dessous, la description des lésions en liste numérotée, concise et structurée (siège, taille, densité ou signal, rehaussement, effet de masse, signes associés), puis le diagnostic et la conduite."
+  },
+  "explorations": {
+   "liste": [
+    "Spirométrie, pléthysmographie, DLCO",
+    "ECG, Holter, MAPA",
+    "Épreuve d'effort et épreuve cardio-pulmonaire (VO₂max)",
+    "Test de marche de 6 minutes",
+    "Test de Schellong et tilt-test",
+    "EEG",
+    "ENMG (électroneuromyographie)",
+    "Potentiels évoqués (visuels, auditifs, somesthésiques)",
+    "Polysomnographie et polygraphie (diagnostics renvoyés vers la Psyché)",
+    "Audiométrie et tympanométrie",
+    "Champ visuel et OCT",
+    "Manométrie œsophagienne et pH-impédancemétrie",
+    "Bilan urodynamique",
+    "Tests endocriniens dynamiques"
+   ],
+   "chaine": "Fonction → exploration → tracé ou résultat → interprétation (valeurs seuils) → diagnostic → traitement"
+  }
+ },
+ "ecrans": [
+  {
+   "id": "X1",
+   "nom": "Onglet Biologie",
+   "but": "Partir d'un prélèvement",
+   "zones": [
+    "Liste des prélèvements, chacun avec son icône",
+    "Réseau des examens du prélèvement"
+   ],
+   "interactions": [
+    "Clic sur un prélèvement : déplie ses examens",
+    "Clic sur un examen : fiche d'interprétation"
+   ],
+   "regleLocale": "Tu choisis un prélèvement, puis un examen, puis tu interprètes.",
+   "exemple": "Liquide d'ascite → PNN, protéines, gradient albumine."
+  },
+  {
+   "id": "X2",
+   "nom": "Fiche d'interprétation",
+   "but": "Interpréter et conclure",
+   "zones": [
+    "Valeurs de référence",
+    "Calculateurs",
+    "Critères diagnostiques",
+    "Syndrome biologique → diagnostics → traitement avec posologie"
+   ],
+   "interactions": [
+    "Saisie de valeurs : le calcul et l'interprétation se mettent à jour",
+    "Clic sur un diagnostic : réseau thérapeutique"
+   ],
+   "regleLocale": "Tu saisis tes valeurs, le calcul s'exécute et le critère tranche.",
+   "exemple": "PNN à 320/mm³ → infection d'ascite → céfotaxime, posologie et source."
+  },
+  {
+   "id": "X3",
+   "nom": "Onglet Imagerie",
+   "but": "Partir d'une région",
+   "zones": [
+    "Mannequin 3D découpé en régions",
+    "Réseau région → examens → organes → pathologies"
+   ],
+   "interactions": [
+    "Clic sur une région : déplie ses examens",
+    "Clic sur un organe : ses pathologies",
+    "Clic sur une pathologie : fenêtre à deux clichés"
+   ],
+   "regleLocale": "Tu pars d'une région, puis tu choisis l'examen, l'organe et la pathologie.",
+   "exemple": "Thorax → radiographie → plèvre → pneumothorax."
+  },
+  {
+   "id": "X4",
+   "nom": "Fenêtre à deux clichés",
+   "but": "Lire une image",
+   "zones": [
+    "Cliché brut à gauche",
+    "Cliché annoté à droite (repères numérotés)",
+    "Description numérotée des lésions",
+    "Diagnostic et conduite"
+   ],
+   "interactions": [
+    "Survol d'un repère : sa description",
+    "Bouton « masquer les repères »"
+   ],
+   "regleLocale": "Tu observes d'abord le cliché brut, puis tu compares avec l'annoté.",
+   "exemple": "Pneumothorax : ligne pleurale visible, absence de trame au-delà."
+  },
+  {
+   "id": "X5",
+   "nom": "Onglet Explorations fonctionnelles",
+   "but": "Partir d'une fonction",
+   "zones": [
+    "Liste des fonctions (respiratoire, cardiaque, neurologique, musculaire, sommeil…)",
+    "Tracés types, normaux et pathologiques"
+   ],
+   "interactions": [
+    "Clic sur une exploration : tracé et interprétation",
+    "Curseurs sur certains tracés (par exemple le rapport VEMS/CVF)"
+   ],
+   "regleLocale": "Tu lis le tracé, tu appliques le seuil, puis tu conclus.",
+   "exemple": "VEMS/CVF < 0,70 après bronchodilatateur → trouble ventilatoire obstructif."
+  },
+  {
+   "id": "X6",
+   "nom": "Pratique",
+   "but": "S'évaluer",
+   "zones": [
+    "Arène, aventure, examen blanc (A, K', menus longs)"
+   ],
+   "interactions": [
+    "Correction commentée"
+   ],
+   "regleLocale": "Tu interprètes sous contrainte de temps, comme à l'examen.",
+   "exemple": "Menu long : choisis les 2 diagnostics compatibles avec ce LCR."
+  }
+ ],
+ "parcours": [
+  {
+   "n": 1,
+   "etape": "Choisir un onglet",
+   "resultat": "Biologie, Imagerie ou Explorations."
+  },
+  {
+   "n": 2,
+   "etape": "Choisir le point de départ",
+   "resultat": "Un prélèvement, une région ou une fonction."
+  },
+  {
+   "n": 3,
+   "etape": "Choisir l'examen",
+   "resultat": "La fiche d'interprétation ou la fenêtre à deux clichés s'ouvre."
+  },
+  {
+   "n": 4,
+   "etape": "Interpréter",
+   "resultat": "Le calcul, le critère ou la lecture d'image conclut."
+  },
+  {
+   "n": 5,
+   "etape": "Débouché",
+   "resultat": "Diagnostic, puis traitement avec posologie sourcée."
+  },
+  {
+   "n": 6,
+   "etape": "S'évaluer",
+   "resultat": "Arène, aventure, examen blanc."
+  }
+ ],
+ "donnees": [
+  {
+   "fichier": "paraclinique/biologie/prelevements.json",
+   "role": "Index des prélèvements",
+   "champs": [
+    "prelevementId",
+    "nom",
+    "icone",
+    "examens[]"
+   ],
+   "producteur": "IA",
+   "volume": "≈ 20"
+  },
+  {
+   "fichier": "paraclinique/biologie/examens/<examen>.json",
+   "role": "Fiche d'examen biologique",
+   "champs": [
+    "valeursReference (SI, âge, sexe)",
+    "interpretation[] (seuil → signification)",
+    "calculs[]",
+    "criteres[]",
+    "syndromes[]",
+    "diagnostics[]",
+    "sources[]"
+   ],
+   "producteur": "IA, puis REJECTOR_",
+   "volume": "≈ 300"
+  },
+  {
+   "fichier": "paraclinique/calculs.json",
+   "role": "Formules versionnées",
+   "champs": [
+    "id",
+    "nom",
+    "formule",
+    "variables (unités)",
+    "interpretation",
+    "source"
+   ],
+   "producteur": "IA, puis vérification par tests",
+   "volume": "≈ 40"
+  },
+  {
+   "fichier": "paraclinique/criteres.json",
+   "role": "Critères diagnostiques",
+   "champs": [
+    "id",
+    "nom",
+    "elements[]",
+    "regleDeDecision",
+    "source"
+   ],
+   "producteur": "IA, puis REJECTOR_",
+   "volume": "≈ 80"
+  },
+  {
+   "fichier": "paraclinique/imagerie/regions.json",
+   "role": "Régions et examens faisables",
+   "champs": [
+    "regionId",
+    "maillage3d",
+    "examens[]"
+   ],
+   "producteur": "IA",
+   "volume": "11 régions"
+  },
+  {
+   "fichier": "paraclinique/imagerie/graphe.json",
+   "role": "Région → examen → organe → pathologie",
+   "champs": [
+    "noeuds[]",
+    "liens[]"
+   ],
+   "producteur": "IA",
+   "volume": "1 fichier"
+  },
+  {
+   "fichier": "paraclinique/imagerie/cas/<pathologie>.json",
+   "role": "Fenêtre à deux clichés",
+   "champs": [
+    "clicheBrut {src, licence, auteur, url}",
+    "clicheAnnote {src, reperes[] {n, x, y, texte}}",
+    "lesions[] {n, siege, taille, aspect, signesAssocies}",
+    "diagnostic",
+    "conduite",
+    "sourceLocaleUniquement (oui/non)"
+   ],
+   "producteur": "Script (Wikimedia Commons) + IA pour la description",
+   "volume": "≈ 600"
+  },
+  {
+   "fichier": "paraclinique/explorations/<exploration>.json",
+   "role": "Explorations fonctionnelles",
+   "champs": [
+    "fonction",
+    "traces[] (normal, pathologique)",
+    "seuils[]",
+    "interpretation",
+    "diagnostics[]"
+   ],
+   "producteur": "IA",
+   "volume": "≈ 15"
+  },
+  {
+   "fichier": "paraclinique/exercices/<onglet>.json",
+   "role": "Exercices générés",
+   "champs": [
+    "type",
+    "question",
+    "options[] (texte, correct, why)",
+    "refs"
+   ],
+   "producteur": "Script, 0 token",
+   "volume": "Plusieurs milliers"
+  }
+ ],
+ "exercices": [
+  {
+   "type": "Calcul guidé",
+   "exemple": "Calcule le trou anionique, puis conclus.",
+   "generation": "calculs.json + valeurs tirées au hasard dans des plages cliniques"
+  },
+  {
+   "type": "Critère",
+   "exemple": "Ce liquide pleural est-il un exsudat selon Light ?",
+   "generation": "criteres.json"
+  },
+  {
+   "type": "Prélèvement → examen",
+   "exemple": "Quel examen demander sur ce LCR ?",
+   "generation": "prelevements.json"
+  },
+  {
+   "type": "Lecture d'image",
+   "exemple": "Clique la lésion sur le cliché brut.",
+   "generation": "repères du cliché annoté"
+  },
+  {
+   "type": "Région → examen de 1re intention",
+   "exemple": "Quel examen d'imagerie faire d'abord ?",
+   "generation": "imagerie/graphe.json"
+  },
+  {
+   "type": "Tracé → interprétation",
+   "exemple": "Ce tracé spirométrique est-il obstructif ?",
+   "generation": "explorations"
+  }
+ ],
+ "production": [
+  {
+   "n": 1,
+   "etape": "Écrire et tester les formules de calculs.json",
+   "outil": "IA + tests unitaires",
+   "cout": "Faible",
+   "controle": "Chaque formule vérifiée sur des cas connus"
+  },
+  {
+   "n": 2,
+   "etape": "Pilote Biologie : sang veineux, urine, LCR, ascite",
+   "outil": "API Claude, Batch",
+   "cout": "Payant, une fois",
+   "controle": "REJECTOR_ vert"
+  },
+  {
+   "n": 3,
+   "etape": "Pilote Imagerie : thorax",
+   "outil": "Script Wikimedia + IA pour les descriptions",
+   "cout": "Faible",
+   "controle": "Licences vérifiées"
+  },
+  {
+   "n": 4,
+   "etape": "Pilote Explorations : spirométrie, ECG",
+   "outil": "API Batch",
+   "cout": "Faible",
+   "controle": "Seuils sourcés"
+  },
+  {
+   "n": 5,
+   "etape": "Extension à tous les prélèvements, régions et explorations",
+   "outil": "API Batch",
+   "cout": "Payant",
+   "controle": "Mêmes portes"
+  }
+ ],
+ "construction": [
+  {
+   "n": 1,
+   "phase": "Schémas, formules et critères",
+   "livrable": "9 schémas, calculs.json testé, criteres.json",
+   "sortie": "100 % des tests de formules passent"
+  },
+  {
+   "n": 2,
+   "phase": "Pilote Biologie",
+   "livrable": "4 prélèvements complets",
+   "sortie": "REJECTOR_ vert"
+  },
+  {
+   "n": 3,
+   "phase": "Pilote Imagerie",
+   "livrable": "Thorax, fenêtre à deux clichés",
+   "sortie": "Licences conformes"
+  },
+  {
+   "n": 4,
+   "phase": "Pilote Explorations",
+   "livrable": "Spirométrie, ECG",
+   "sortie": "Seuils sourcés"
+  },
+  {
+   "n": 5,
+   "phase": "Toile, calculateurs et visionneuse",
+   "livrable": "Réutilisation du moteur commun",
+   "sortie": "Aucun code spécifique à un examen"
+  },
+  {
+   "n": 6,
+   "phase": "Pratique",
+   "livrable": "Exercices, arène, aventure, examen blanc",
+   "sortie": "Correction commentée partout"
+  },
+  {
+   "n": 7,
+   "phase": "Extension complète",
+   "livrable": "Données seulement",
+   "sortie": "Les quatre audits sont verts"
+  }
+ ],
+ "blocages": [
+  "Aucun exercice ne dérive d'une source sans verdict « pass » de REJECTOR_.",
+  "Aucune posologie n'apparaît sans source de la cascade suisse.",
+  "Aucune image anatomique ou sémiologique n'est dessinée par une IA.",
+  "Aucun fichier HTML produit ne perd la signature de son agent (heure, modèle, plateforme).",
+  "Aucune phrase nominale n'apparaît dans un texte didactique.",
+  "Aucune image sans licence libre n'est publiée sur le dépôt public.",
+  "Aucun calcul ne s'affiche sans test unitaire réussi.",
+  "Aucun cliché annoté ne s'affiche sans sa description numérotée des lésions."
+ ],
+ "questionsOuvertes": [
+  "Veux-tu une banque d'images locale non publiée (usage personnel) en plus des images libres publiées ?"
+ ],
+ "prototype": {
+  "titre": "Prototype : Biologie → liquide d'ascite → infection d'ascite → traitement",
+  "centre": "tube",
+  "cadre": "Liquide d'ascite",
+  "colonnes": [
+   [
+    "Cytologie",
+    "Protéines",
+    "Albumine"
+   ],
+   [
+    "PNN = 320/mm³",
+    "Gradient albumine = 14 g/L"
+   ],
+   [
+    "Critère : PNN ≥ 250/mm³",
+    "Hypertension portale"
+   ],
+   [
+    "Infection d'ascite",
+    "Cirrhose"
+   ],
+   [
+    "Céfotaxime (posologie, source)",
+    "Albumine IV"
+   ]
+  ],
+  "legende": "Le calculateur se met à jour à la saisie ; le critère tranche ; le diagnostic ouvre le traitement."
+ },
+ "auditConception": [
+  {
+   "controle": "Section « objectif » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « principes » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « perimetre » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « decisions » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « architecture » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « ecrans » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « parcours » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « donnees » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « exercices » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « production » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « areneAventure » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « evaluation » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « audits » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « blocages » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « construction » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « prototype » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque écran a une règle locale et un exemple",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque écran a des zones et des interactions",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque fichier de données a ses champs, son producteur et son volume",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque exercice indique sa source de génération",
+   "resultat": true
+  },
+  {
+   "controle": "Le parcours est numéroté sans trou",
+   "resultat": true
+  },
+  {
+   "controle": "La construction est numérotée sans trou",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque phase de construction a un critère de sortie",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque décision donne sa raison",
+   "resultat": true
+  },
+  {
+   "controle": "Au moins un exercice est généré à 0 token",
+   "resultat": true
+  },
+  {
+   "controle": "REJECTOR_ figure dans les blocages ou la production",
+   "resultat": true
+  },
+  {
+   "controle": "Le prototype a au moins 4 colonnes",
+   "resultat": true
+  },
+  {
+   "controle": "Aucun marqueur de travail inachevé (TODO, XXX)",
+   "resultat": true
+  }
+ ]
+}

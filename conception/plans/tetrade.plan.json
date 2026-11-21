@@ -1,0 +1,788 @@
+{
+ "version": "1.0",
+ "date": "2026-11-21",
+ "statut": "Conception — non implémentée",
+ "signature": {
+  "start": "2026-11-21 16:02 (Europe/Zurich)",
+  "model": "Opus 5.5",
+  "platform": "Claude"
+ },
+ "principes": [
+  "Le contenu vit dans des fichiers JSON ; le code ne contient aucune donnée médicale.",
+  "Un seul moteur d'affichage sert tous les systèmes, prélèvements ou régions : on ajoute des données, jamais de code.",
+  "Chaque réseau est un graphe (nœuds typés + liens typés) ; la toile zoomable de style Obsidian le dessine.",
+  "L'IA rédige une fois la source de vérité ; les scripts en tirent gratuitement les exercices, les calculs et les courbes.",
+  "REJECTOR_ vérifie le fond de chaque source avant que le moindre exercice en dérive.",
+  "Tout se replie par défaut ; l'utilisateur déplie un circuit à la fois, ce qui protège la lisibilité.",
+  "Chaque texte se lit en phrases verbales, en Atkinson Hyperlegible, dans une colonne contenue.",
+  "Les posologies suivent la cascade suisse : AIPS, Compendium, sociétés suisses, sociétés européennes ; les molécules s'écrivent en DCI, avec le nom commercial suisse entre parenthèses."
+ ],
+ "architecture": [
+  {
+   "couche": "1. Source de vérité",
+   "contenu": "Graphe JSON par unité (système, prélèvement, région ou exploration) et fiches de nœuds",
+   "producteur": "IA (API Batch + cache), puis REJECTOR_",
+   "cout": "Payé une fois"
+  },
+  {
+   "couche": "2. Dérivés calculés",
+   "contenu": "Exercices, calculateurs, courbes pharmacocinétiques, index de recherche",
+   "producteur": "Scripts Python",
+   "cout": "0 token"
+  },
+  {
+   "couche": "3. Affichage",
+   "contenu": "Toile zoomable (graphe), mannequin 3D, fenêtres de détail",
+   "producteur": "Un seul moteur (TypeScript + three.js + SVG)",
+   "cout": "Écrit une fois"
+  },
+  {
+   "couche": "4. Pratique",
+   "contenu": "Arène, aventure, examen blanc (A, K', menus longs)",
+   "producteur": "Moteur du jeu Jeux_45_Spec",
+   "cout": "Partagé avec le jeu"
+  }
+ ],
+ "toile": {
+  "moteur": "SVG pour les liens (courbes de Bézier), HTML pour les nœuds, three.js pour le mannequin ; pan + zoom à la molette ; mini-carte en bas à gauche",
+  "regles": [
+   "Le nœud racine (système, prélèvement, région) reste toujours visible.",
+   "Un clic sur un nœud déplie ses enfants ; un second clic les replie.",
+   "Un survol surligne le chemin complet depuis la racine jusqu'au nœud.",
+   "Un bouton « Tout replier » ramène la toile à son état initial.",
+   "La couleur d'un lien code son type de relation ; la légende reste ouverte en bas à droite."
+  ]
+ },
+ "areneAventure": {
+  "arene": [
+   "Le joueur affronte des duels de 60 à 90 s, tirés des exercices du module.",
+   "Une erreur dangereuse coûte trois fois plus qu'une erreur mineure.",
+   "Après une erreur, l'échelle de correction s'ouvre : 0-D, mécanisme, sémiologie, discriminant, décision, piège, ancre.",
+   "Le joueur rejoue aussitôt une variante de la même notion, et la réussir rapporte le double."
+  ],
+  "aventure": [
+   "Le joueur traverse un système comme un voyage : du normal à la perturbation, puis à la réparation.",
+   "Chaque étape débloque un nœud de la toile ; la toile se colore au fil des réussites.",
+   "Un boss clôt chaque système : un cas long en 6 étapes, du triage au suivi."
+  ],
+  "retention": "La répétition espacée (FSRS) planifie chaque notion ; les révisions du jour passent avant les nouveautés.",
+  "gardeFous": "Les sessions durent 12 minutes par défaut ; aucune notification de 22 h à 7 h ; une série manquée ne retire aucun point."
+ },
+ "evaluation": [
+  {
+   "format": "Type A",
+   "regle": "5 options, 1 seule correcte ; chaque option porte son explication propre."
+  },
+  {
+   "format": "K' (Kprim)",
+   "regle": "4 affirmations vrai/faux ; barème suisse : 4 justes = 1 point, 3 justes = ½ point, sinon 0."
+  },
+  {
+   "format": "Menu long",
+   "regle": "Une vignette, puis une liste de 15 à 26 réponses possibles ; le candidat choisit la ou les bonnes."
+  },
+  {
+   "format": "Examen blanc",
+   "regle": "Blocs chronométrés : 60 % A, 40 % K', menus longs intégrés ; les corrections n'apparaissent qu'à la fin."
+  }
+ ],
+ "audits": [
+  {
+   "audit": "Fonctionnement",
+   "controle": "Parcours complet de chaque écran (Playwright), rendu à 1280 px et 390 px, console sans erreur, accessibilité (axe-core)",
+   "seuil": "100 % vert ; 0 violation grave"
+  },
+  {
+   "audit": "Médical",
+   "controle": "REJECTOR_ sur chaque source ; contre-audit par une IA d'un autre fournisseur ; posologies contrôlées contre l'index AIPS ; échantillon humain de 5 %",
+   "seuil": "0 rejet de fond restant ; erreurs humaines < 2 %"
+  },
+  {
+   "audit": "Psychologique",
+   "controle": "Boucle échec → correction → revanche présente ; garde-fous respectés ; durée des sessions mesurée",
+   "seuil": "Échelle affichée après 100 % des erreurs ; < 10 % de sessions au-delà du plafond"
+  },
+  {
+   "audit": "Cohérence des données",
+   "controle": "Chaque lien pointe vers un nœud existant ; chaque nœud médical porte une source ; aucun exercice ne contredit sa source",
+   "seuil": "100 %"
+  }
+ ],
+ "id": "tetrade",
+ "titre": "Tétrade topo-systémique",
+ "couleur": "#7a1f3d",
+ "sousTitre": "Anatomie · Physiologie · Sémiologie · Physiopathologie, et la Psyché : du signe au diagnostic, puis au traitement",
+ "objectif": [
+  "Le médecin se réapproprie, système par système, la chaîne qui relie la structure, la fonction, le signe, le syndrome et le diagnostic.",
+  "Il sait quelle technique d'examen rechercher, comment s'appelle le signe, quel syndrome il compose et vers quels diagnostics il oriente.",
+  "Il comprend pourquoi chaque signe existe, ce qui ancre le raisonnement pour la vie."
+ ],
+ "perimetre": {
+  "inclus": [
+   "Cardiovasculaire",
+   "Respiratoire",
+   "Neurologique",
+   "Psyché (psychiatrie)",
+   "Endocrinien & métabolique",
+   "Digestif & hépatobiliaire",
+   "Rénal & uro-génital",
+   "Hématologique & oncologique",
+   "Infectieux & immunitaire",
+   "Locomoteur & rhumatologique",
+   "Dermatologique",
+   "Ophtalmologique & ORL",
+   "Gynéco-obstétrical",
+   "Pédiatrique (croissance et développement)",
+   "Lien vers les 3 975 entités de la Cartographie et vers le jeu"
+  ],
+  "exclus": [
+   "Contenu rédigé dans le code",
+   "Anatomie 3D générée par une IA"
+  ]
+ },
+ "decisions": [
+  {
+   "question": "Page qui s'étend horizontalement, ou toile zoomable ?",
+   "choix": "Toile zoomable avec mini-carte",
+   "raison": "Le mannequin et la racine restent visibles ; une page qui s'allonge fait perdre le fil."
+  },
+  {
+   "question": "Mannequin 3D : généré ou existant ?",
+   "choix": "Modèles libres existants (Z-Anatomy, BodyParts3D), licence vérifiée et citée",
+   "raison": "Une IA ne produit pas d'anatomie 3D fiable ; ces modèles sont exacts et gratuits."
+  },
+  {
+   "question": "Accès au traitement depuis un diagnostic : survol ou clic ?",
+   "choix": "Les deux : le survol ouvre un aperçu (1re ligne + posologie adulte) ; le clic déplie le réseau complet (lignes, âges, situations spéciales)",
+   "raison": "Le survol entraîne le réflexe ; le clic sert l'approfondissement, sans encombrer la toile."
+  },
+  {
+   "question": "Psyché : avec la neurologie ou à part ?",
+   "choix": "Système distinct ; le sommeil y appartient ; diagnostics en CIM-10 ; présentation par groupe d'âge",
+   "raison": "Ce sont tes règles de structure pour toute la plateforme."
+  }
+ ],
+ "ecrans": [
+  {
+   "id": "E1",
+   "nom": "Accueil des systèmes",
+   "but": "Choisir un système",
+   "zones": [
+    "Grille des 14 systèmes, chacun dans sa couleur",
+    "Progression par système"
+   ],
+   "interactions": [
+    "Clic : ouvre le système"
+   ],
+   "regleLocale": "Tu choisis un système ; sa couleur te suit dans toutes ses pages.",
+   "exemple": "Le système cardiovasculaire s'ouvre en rouge carmin."
+  },
+  {
+   "id": "E2",
+   "nom": "Page d'un système",
+   "but": "Voir la structure et lancer un réseau",
+   "zones": [
+    "Mannequin 3D au centre, organes du système surlignés",
+    "Cadre du système, relié aux organes par des courbes",
+    "Barre des 4 boutons de la tétrade",
+    "Mini-carte et légende"
+   ],
+   "interactions": [
+    "Rotation à 360° par glisser",
+    "Survol d'un organe : surlignage et nom",
+    "Clic sur un organe : fiche d'organe",
+    "Clic sur un bouton : affiche ou masque son calque"
+   ],
+   "regleLocale": "Tu fais tourner le mannequin, puis tu actives un seul calque à la fois pour garder la toile lisible.",
+   "exemple": "Le calque Sémiologie fait apparaître les temps de l'examen cardiaque autour du cadre."
+  },
+  {
+   "id": "E3",
+   "nom": "Chaîne sémiologique",
+   "but": "Aller du geste d'examen au diagnostic",
+   "zones": [
+    "Colonne 1 : temps de l'examen",
+    "Colonne 2 : signes",
+    "Colonne 3 : symptômes",
+    "Colonne 4 : syndromes",
+    "Colonne 5 : examen paraclinique complémentaire",
+    "Colonne 6 : diagnostics par spécialité"
+   ],
+   "interactions": [
+    "Clic sur un temps : déplie ses signes",
+    "Survol d'un signe : technique exacte et nom consacré",
+    "Survol d'un symptôme : question à poser et caractéristiques à préciser",
+    "Clic sur un syndrome : déplie ou replie son circuit",
+    "Survol d'un diagnostic : aperçu du traitement ; clic : réseau complet"
+   ],
+   "regleLocale": "Tu suis un circuit de gauche à droite ; chaque syndrome se replie pour libérer l'espace.",
+   "exemple": "Palpation → choc de pointe dévié vers la gauche → dyspnée d'effort → syndrome d'insuffisance cardiaque gauche → NT-proBNP et échocardiographie → insuffisance cardiaque (cardiologie)."
+  },
+  {
+   "id": "E4",
+   "nom": "Fiche d'organe (Anatomie)",
+   "but": "Connaître la structure",
+   "zones": [
+    "Vignette réduite",
+    "Anatomie macroscopique",
+    "Anatomie microscopique",
+    "Vascularisation",
+    "Innervation",
+    "Rapports"
+   ],
+   "interactions": [
+    "Clic sur un champ : déplie son contenu",
+    "Clic sur la vignette : agrandissement"
+   ],
+   "regleLocale": "Chaque champ se lit seul en trois phrases au plus.",
+   "exemple": "Cœur : l'artère coronaire droite vascularise le nœud sinusal chez environ 60 % des sujets."
+  },
+  {
+   "id": "E5",
+   "nom": "Réseau de physiologie",
+   "but": "Comprendre la fonction",
+   "zones": [
+    "Points de départ : les fonctions et régulations du système",
+    "Schéma de chaque fonction",
+    "Valeurs normales en unités SI suisses"
+   ],
+   "interactions": [
+    "Clic sur une fonction : surligne les organes qui la portent",
+    "Survol d'une valeur : sa signification"
+   ],
+   "regleLocale": "Tu pars d'une fonction et tu vois quels organes la portent.",
+   "exemple": "Débit cardiaque = fréquence cardiaque × volume d'éjection systolique."
+  },
+  {
+   "id": "E6",
+   "nom": "Physiopathologie",
+   "but": "Relier la fonction perturbée au signe",
+   "zones": [
+    "Mécanisme en chaîne : amorce → installation → maintien",
+    "Lien vers le signe et vers le symptôme qu'il explique"
+   ],
+   "interactions": [
+    "Clic sur un mécanisme : surligne le signe correspondant"
+   ],
+   "regleLocale": "Chaque mécanisme dit pourquoi un signe apparaît.",
+   "exemple": "La congestion veineuse pulmonaire augmente la pression capillaire, ce qui fait transsuder le liquide et produit des crépitants."
+  },
+  {
+   "id": "E7",
+   "nom": "Psyché : examen psychiatrique",
+   "but": "Appliquer la tétrade à la psychiatrie",
+   "zones": [
+    "Anatomie fonctionnelle des circuits (cortico-limbique, préfrontal, noyaux gris)",
+    "Neurotransmission (sérotonine, dopamine, noradrénaline, GABA, glutamate)",
+    "Temps de l'examen psychiatrique (AMDP) : présentation, contact, conscience, orientation, attention, mémoire, pensée formelle, contenu, perceptions, affects, psychomotricité, pulsions, sommeil, appétit, suicidalité, insight",
+    "Syndromes (dépressif, maniaque, psychotique, anxieux, obsessionnel, confusionnel, addictif)",
+    "Diagnostics CIM-10 par groupe d'âge (enfant, adolescent, adulte, sujet âgé), critères condensés au survol"
+   ],
+   "interactions": [
+    "Survol d'un critère CIM-10 : condensé du critère",
+    "Clic sur un diagnostic : chef de file thérapeutique selon le profil clinique"
+   ],
+   "regleLocale": "Tu relèves les signes AMDP, ils composent un syndrome, puis le diagnostic CIM-10 propose son traitement.",
+   "exemple": "Humeur dépressive + anhédonie + réveil précoce → syndrome dépressif mélancolique → F32.2 → chef de file adapté au profil mélancolique."
+  },
+  {
+   "id": "E8",
+   "nom": "Espace d'exercices",
+   "but": "S'entraîner sur le système",
+   "zones": [
+    "Exercices générés depuis le graphe",
+    "Accès à l'arène et à l'aventure du système"
+   ],
+   "interactions": [
+    "Choix d'un type d'exercice",
+    "Correction commentée après chaque réponse"
+   ],
+   "regleLocale": "Tu t'exerces d'abord sur les notions dues aujourd'hui.",
+   "exemple": "« Quelle manœuvre recherche le signe de Murphy ? »"
+  }
+ ],
+ "parcours": [
+  {
+   "n": 1,
+   "etape": "Choisir un système",
+   "resultat": "Le mannequin s'affiche, les organes du système sont surlignés."
+  },
+  {
+   "n": 2,
+   "etape": "Activer le calque Anatomie",
+   "resultat": "Les organes se relient au cadre ; un clic ouvre la fiche d'organe."
+  },
+  {
+   "n": 3,
+   "etape": "Activer le calque Physiologie",
+   "resultat": "Les fonctions apparaissent comme points de départ, avec leurs schémas."
+  },
+  {
+   "n": 4,
+   "etape": "Activer le calque Sémiologie",
+   "resultat": "Les temps de l'examen se déplient vers les signes."
+  },
+  {
+   "n": 5,
+   "etape": "Suivre un circuit",
+   "resultat": "Signe → symptôme → syndrome → examen → diagnostic."
+  },
+  {
+   "n": 6,
+   "etape": "Survoler ou cliquer le diagnostic",
+   "resultat": "Aperçu du traitement au survol, réseau complet au clic."
+  },
+  {
+   "n": 7,
+   "etape": "Activer le calque Physiopathologie",
+   "resultat": "Chaque signe s'explique par son mécanisme."
+  },
+  {
+   "n": 8,
+   "etape": "S'exercer",
+   "resultat": "Exercices, puis arène et aventure du système."
+  }
+ ],
+ "donnees": [
+  {
+   "fichier": "tetrade/systemes.json",
+   "role": "Index des 14 systèmes",
+   "champs": [
+    "id",
+    "nom",
+    "couleur",
+    "icone",
+    "organes[]",
+    "ordre"
+   ],
+   "producteur": "Script",
+   "volume": "1 fichier"
+  },
+  {
+   "fichier": "tetrade/<systeme>/graphe.json",
+   "role": "Source de vérité : nœuds et liens",
+   "champs": [
+    "noeuds[] : id, type (organe | temps_examen | signe | symptome | syndrome | examen | diagnostic | specialite | fonction | mecanisme | traitement), label, refs",
+    "liens[] : de, vers, type (recherche | compose | complete | oriente | explique | traite | porte)",
+    "sources[]"
+   ],
+   "producteur": "IA, puis REJECTOR_",
+   "volume": "14 fichiers"
+  },
+  {
+   "fichier": "tetrade/<systeme>/anatomie.json",
+   "role": "Fiches d'organes",
+   "champs": [
+    "organeId",
+    "vignette",
+    "macro",
+    "micro",
+    "vascularisation",
+    "innervation",
+    "rapports",
+    "maillage3d",
+    "sources"
+   ],
+   "producteur": "IA",
+   "volume": "≈ 15 à 40 organes par système"
+  },
+  {
+   "fichier": "tetrade/<systeme>/physiologie.json",
+   "role": "Fonctions et régulations",
+   "champs": [
+    "fonctionId",
+    "enoncé",
+    "formule",
+    "valeursNormales (SI)",
+    "organes[]",
+    "schema"
+   ],
+   "producteur": "IA",
+   "volume": "≈ 10 à 25 fonctions par système"
+  },
+  {
+   "fichier": "tetrade/<systeme>/semiologie.json",
+   "role": "Temps d'examen, signes, symptômes",
+   "champs": [
+    "signe : technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite",
+    "symptome : questionAPoser, caracteristiques[] (siège, irradiation, type, intensité, horaire, facteurs)"
+   ],
+   "producteur": "IA",
+   "volume": "≈ 40 à 120 signes par système"
+  },
+  {
+   "fichier": "tetrade/<systeme>/syndromes.json",
+   "role": "Composition des syndromes et débouchés",
+   "champs": [
+    "syndromeId",
+    "signes[]",
+    "symptomes[]",
+    "examenComplementaire",
+    "diagnostics[] (entité de la Cartographie, spécialité)"
+   ],
+   "producteur": "IA",
+   "volume": "≈ 10 à 30 syndromes par système"
+  },
+  {
+   "fichier": "tetrade/<systeme>/physiopathologie.json",
+   "role": "Pourquoi les signes existent",
+   "champs": [
+    "mecanismeId",
+    "chaine (amorce, installation, maintien)",
+    "explique[] (signes, symptômes)"
+   ],
+   "producteur": "IA",
+   "volume": "Un mécanisme par signe majeur"
+  },
+  {
+   "fichier": "tetrade/psyche/criteres_cim10.json",
+   "role": "Critères CIM-10 condensés, par groupe d'âge",
+   "champs": [
+    "code",
+    "libelle",
+    "criteresCondenses",
+    "groupeAge",
+    "cheffileParProfil"
+   ],
+   "producteur": "IA, puis REJECTOR_",
+   "volume": "Chapitre F"
+  },
+  {
+   "fichier": "tetrade/modeles3d.json",
+   "role": "Correspondance maillage ↔ organe",
+   "champs": [
+    "modele",
+    "licence",
+    "auteur",
+    "maillageId",
+    "organeId"
+   ],
+   "producteur": "Toi + script",
+   "volume": "1 fichier"
+  },
+  {
+   "fichier": "tetrade/liens.json",
+   "role": "Diagnostics ↔ Cartographie ↔ jeu",
+   "champs": [
+    "diagnosticId",
+    "entiteCartographie",
+    "specialites[]",
+    "ficheDeRaisonnement"
+   ],
+   "producteur": "Script",
+   "volume": "1 fichier"
+  },
+  {
+   "fichier": "tetrade/exercices/<systeme>.json",
+   "role": "Exercices générés",
+   "champs": [
+    "type",
+    "question",
+    "options[] (texte, correct, why)",
+    "refs"
+   ],
+   "producteur": "Script, 0 token",
+   "volume": "Plusieurs milliers"
+  }
+ ],
+ "exercices": [
+  {
+   "type": "Technique → signe",
+   "exemple": "Quelle manœuvre recherche le signe de Murphy ?",
+   "generation": "Lien « recherche » du graphe"
+  },
+  {
+   "type": "Signe → mécanisme",
+   "exemple": "Pourquoi le choc de pointe est-il dévié ?",
+   "generation": "Lien « explique »"
+  },
+  {
+   "type": "Symptômes → syndrome",
+   "exemple": "Ces trois éléments composent quel syndrome ?",
+   "generation": "Lien « compose »"
+  },
+  {
+   "type": "Syndrome → examen",
+   "exemple": "Quel examen complète ce syndrome ?",
+   "generation": "Lien « complete »"
+  },
+  {
+   "type": "Syndrome → diagnostics",
+   "exemple": "Classe ces diagnostics par spécialité.",
+   "generation": "Lien « oriente »"
+  },
+  {
+   "type": "Organe → vascularisation / innervation",
+   "exemple": "Quelle artère vascularise le nœud sinusal ?",
+   "generation": "anatomie.json"
+  },
+  {
+   "type": "Mannequin muet",
+   "exemple": "Clique l'organe responsable de ce signe.",
+   "generation": "maillage3d + lien « porte »"
+  },
+  {
+   "type": "Tracer le chemin",
+   "exemple": "Relie le signe au diagnostic sur la toile.",
+   "generation": "Chemin du graphe"
+  },
+  {
+   "type": "Psyché : signe AMDP → syndrome → CIM-10",
+   "exemple": "Ces signes composent-ils un épisode dépressif F32 ?",
+   "generation": "criteres_cim10.json"
+  }
+ ],
+ "production": [
+  {
+   "n": 1,
+   "etape": "Écrire les schémas JSON des 11 fichiers",
+   "outil": "Toi ou l'agent d'architecture",
+   "cout": "0 token d'IA de contenu",
+   "controle": "Validation JSON Schema"
+  },
+  {
+   "n": 2,
+   "etape": "Produire le graphe et les fiches d'un système pilote (cardiovasculaire)",
+   "outil": "API Claude, Batch + cache",
+   "cout": "Payant, une fois",
+   "controle": "Schéma + cohérence des liens"
+  },
+  {
+   "n": 3,
+   "etape": "Faire auditer le pilote par REJECTOR_",
+   "outil": "IA d'un autre fournisseur",
+   "cout": "Faible",
+   "controle": "0 rejet de fond"
+  },
+  {
+   "n": 4,
+   "etape": "Générer les exercices du pilote",
+   "outil": "Script",
+   "cout": "0 token",
+   "controle": "Chaque exercice cite son nœud source"
+  },
+  {
+   "n": 5,
+   "etape": "Valider le pilote avec Vial",
+   "outil": "Toi",
+   "cout": "—",
+   "controle": "GO écrit"
+  },
+  {
+   "n": 6,
+   "etape": "Produire les 13 autres systèmes, du plus fréquent en pratique au plus rare",
+   "outil": "API Batch",
+   "cout": "Payant",
+   "controle": "Mêmes portes"
+  }
+ ],
+ "construction": [
+  {
+   "n": 1,
+   "phase": "Schémas et données pilotes",
+   "livrable": "11 schémas + système cardiovasculaire complet",
+   "sortie": "Schémas valides, REJECTOR_ vert"
+  },
+  {
+   "n": 2,
+   "phase": "Moteur de toile",
+   "livrable": "Toile zoomable, repli et dépli, survols, mini-carte",
+   "sortie": "Le pilote s'affiche sans code spécifique au système"
+  },
+  {
+   "n": 3,
+   "phase": "Mannequin 3D",
+   "livrable": "Modèle libre chargé, rotation, surlignage d'organe",
+   "sortie": "60 images/s sur un portable ordinaire"
+  },
+  {
+   "n": 4,
+   "phase": "Calques de la tétrade",
+   "livrable": "Anatomie, Physiologie, Sémiologie, Physiopathologie",
+   "sortie": "Chaque calque s'active seul"
+  },
+  {
+   "n": 5,
+   "phase": "Débouché thérapeutique",
+   "livrable": "Aperçu au survol, réseau au clic",
+   "sortie": "Chaque diagnostic montre son traitement sourcé"
+  },
+  {
+   "n": 6,
+   "phase": "Psyché",
+   "livrable": "Examen AMDP, CIM-10 par âge, chefs de file par profil",
+   "sortie": "Critères condensés au survol"
+  },
+  {
+   "n": 7,
+   "phase": "Exercices, arène, aventure",
+   "livrable": "Générateurs, branchement sur le moteur du jeu",
+   "sortie": "Correction commentée après chaque réponse"
+  },
+  {
+   "n": 8,
+   "phase": "Extension aux 13 autres systèmes",
+   "livrable": "Données seulement",
+   "sortie": "Les quatre audits sont verts"
+  }
+ ],
+ "questionsOuvertes": [
+  "Faut-il un système « Pédiatrique » à part, ou une dimension « âge » transversale à chaque système ?"
+ ],
+ "prototype": {
+  "titre": "Prototype : page « Cardiovasculaire », calque Sémiologie actif",
+  "centre": "mannequin",
+  "cadre": "Système cardiovasculaire",
+  "colonnes": [
+   [
+    "Inspection",
+    "Palpation",
+    "Auscultation"
+   ],
+   [
+    "Choc de pointe dévié",
+    "Galop B3",
+    "Turgescence jugulaire"
+   ],
+   [
+    "Dyspnée d'effort",
+    "Orthopnée",
+    "Œdèmes déclives"
+   ],
+   [
+    "Insuffisance cardiaque gauche",
+    "Insuffisance cardiaque droite"
+   ],
+   [
+    "NT-proBNP",
+    "Échocardiographie"
+   ],
+   [
+    "Insuffisance cardiaque (CAR)",
+    "Valvulopathie (CAR)"
+   ]
+  ],
+  "legende": "Les courbes relient chaque élément à l'étape suivante ; survoler le diagnostic ouvre l'aperçu du traitement."
+ },
+ "blocages": [
+  "Aucun exercice ne dérive d'une source sans verdict « pass » de REJECTOR_.",
+  "Aucune posologie n'apparaît sans source de la cascade suisse.",
+  "Aucune image anatomique ou sémiologique n'est dessinée par une IA.",
+  "Aucun fichier HTML produit ne perd la signature de son agent (heure, modèle, plateforme).",
+  "Aucune phrase nominale n'apparaît dans un texte didactique."
+ ],
+ "auditConception": [
+  {
+   "controle": "Section « objectif » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « principes » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « perimetre » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « decisions » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « architecture » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « ecrans » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « parcours » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « donnees » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « exercices » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « production » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « areneAventure » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « evaluation » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « audits » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « blocages » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « construction » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « prototype » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque écran a une règle locale et un exemple",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque écran a des zones et des interactions",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque fichier de données a ses champs, son producteur et son volume",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque exercice indique sa source de génération",
+   "resultat": true
+  },
+  {
+   "controle": "Le parcours est numéroté sans trou",
+   "resultat": true
+  },
+  {
+   "controle": "La construction est numérotée sans trou",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque phase de construction a un critère de sortie",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque décision donne sa raison",
+   "resultat": true
+  },
+  {
+   "controle": "Au moins un exercice est généré à 0 token",
+   "resultat": true
+  },
+  {
+   "controle": "REJECTOR_ figure dans les blocages ou la production",
+   "resultat": true
+  },
+  {
+   "controle": "Le prototype a au moins 4 colonnes",
+   "resultat": true
+  },
+  {
+   "controle": "Aucun marqueur de travail inachevé (TODO, XXX)",
+   "resultat": true
+  }
+ ]
+}

@@ -1,0 +1,727 @@
+{
+ "version": "1.0",
+ "date": "2026-11-21",
+ "statut": "Conception — non implémentée",
+ "signature": {
+  "start": "2026-11-21 16:02 (Europe/Zurich)",
+  "model": "Opus 5.5",
+  "platform": "Claude"
+ },
+ "principes": [
+  "Le contenu vit dans des fichiers JSON ; le code ne contient aucune donnée médicale.",
+  "Un seul moteur d'affichage sert tous les systèmes, prélèvements ou régions : on ajoute des données, jamais de code.",
+  "Chaque réseau est un graphe (nœuds typés + liens typés) ; la toile zoomable de style Obsidian le dessine.",
+  "L'IA rédige une fois la source de vérité ; les scripts en tirent gratuitement les exercices, les calculs et les courbes.",
+  "REJECTOR_ vérifie le fond de chaque source avant que le moindre exercice en dérive.",
+  "Tout se replie par défaut ; l'utilisateur déplie un circuit à la fois, ce qui protège la lisibilité.",
+  "Chaque texte se lit en phrases verbales, en Atkinson Hyperlegible, dans une colonne contenue.",
+  "Les posologies suivent la cascade suisse : AIPS, Compendium, sociétés suisses, sociétés européennes ; les molécules s'écrivent en DCI, avec le nom commercial suisse entre parenthèses."
+ ],
+ "architecture": [
+  {
+   "couche": "1. Source de vérité",
+   "contenu": "Graphe JSON par unité (système, prélèvement, région ou exploration) et fiches de nœuds",
+   "producteur": "IA (API Batch + cache), puis REJECTOR_",
+   "cout": "Payé une fois"
+  },
+  {
+   "couche": "2. Dérivés calculés",
+   "contenu": "Exercices, calculateurs, courbes pharmacocinétiques, index de recherche",
+   "producteur": "Scripts Python",
+   "cout": "0 token"
+  },
+  {
+   "couche": "3. Affichage",
+   "contenu": "Toile zoomable (graphe), mannequin 3D, fenêtres de détail",
+   "producteur": "Un seul moteur (TypeScript + three.js + SVG)",
+   "cout": "Écrit une fois"
+  },
+  {
+   "couche": "4. Pratique",
+   "contenu": "Arène, aventure, examen blanc (A, K', menus longs)",
+   "producteur": "Moteur du jeu Jeux_45_Spec",
+   "cout": "Partagé avec le jeu"
+  }
+ ],
+ "toile": {
+  "moteur": "SVG pour les liens (courbes de Bézier), HTML pour les nœuds, three.js pour le mannequin ; pan + zoom à la molette ; mini-carte en bas à gauche",
+  "regles": [
+   "Le nœud racine (système, prélèvement, région) reste toujours visible.",
+   "Un clic sur un nœud déplie ses enfants ; un second clic les replie.",
+   "Un survol surligne le chemin complet depuis la racine jusqu'au nœud.",
+   "Un bouton « Tout replier » ramène la toile à son état initial.",
+   "La couleur d'un lien code son type de relation ; la légende reste ouverte en bas à droite."
+  ]
+ },
+ "areneAventure": {
+  "arene": [
+   "Le joueur affronte des duels de 60 à 90 s, tirés des exercices du module.",
+   "Une erreur dangereuse coûte trois fois plus qu'une erreur mineure.",
+   "Après une erreur, l'échelle de correction s'ouvre : 0-D, mécanisme, sémiologie, discriminant, décision, piège, ancre.",
+   "Le joueur rejoue aussitôt une variante de la même notion, et la réussir rapporte le double."
+  ],
+  "aventure": [
+   "Le joueur traverse un système comme un voyage : du normal à la perturbation, puis à la réparation.",
+   "Chaque étape débloque un nœud de la toile ; la toile se colore au fil des réussites.",
+   "Un boss clôt chaque système : un cas long en 6 étapes, du triage au suivi."
+  ],
+  "retention": "La répétition espacée (FSRS) planifie chaque notion ; les révisions du jour passent avant les nouveautés.",
+  "gardeFous": "Les sessions durent 12 minutes par défaut ; aucune notification de 22 h à 7 h ; une série manquée ne retire aucun point."
+ },
+ "evaluation": [
+  {
+   "format": "Type A",
+   "regle": "5 options, 1 seule correcte ; chaque option porte son explication propre."
+  },
+  {
+   "format": "K' (Kprim)",
+   "regle": "4 affirmations vrai/faux ; barème suisse : 4 justes = 1 point, 3 justes = ½ point, sinon 0."
+  },
+  {
+   "format": "Menu long",
+   "regle": "Une vignette, puis une liste de 15 à 26 réponses possibles ; le candidat choisit la ou les bonnes."
+  },
+  {
+   "format": "Examen blanc",
+   "regle": "Blocs chronométrés : 60 % A, 40 % K', menus longs intégrés ; les corrections n'apparaissent qu'à la fin."
+  }
+ ],
+ "audits": [
+  {
+   "audit": "Fonctionnement",
+   "controle": "Parcours complet de chaque écran (Playwright), rendu à 1280 px et 390 px, console sans erreur, accessibilité (axe-core)",
+   "seuil": "100 % vert ; 0 violation grave"
+  },
+  {
+   "audit": "Médical",
+   "controle": "REJECTOR_ sur chaque source ; contre-audit par une IA d'un autre fournisseur ; posologies contrôlées contre l'index AIPS ; échantillon humain de 5 %",
+   "seuil": "0 rejet de fond restant ; erreurs humaines < 2 %"
+  },
+  {
+   "audit": "Psychologique",
+   "controle": "Boucle échec → correction → revanche présente ; garde-fous respectés ; durée des sessions mesurée",
+   "seuil": "Échelle affichée après 100 % des erreurs ; < 10 % de sessions au-delà du plafond"
+  },
+  {
+   "audit": "Cohérence des données",
+   "controle": "Chaque lien pointe vers un nœud existant ; chaque nœud médical porte une source ; aucun exercice ne contredit sa source",
+   "seuil": "100 %"
+  }
+ ],
+ "id": "pharmacologie",
+ "titre": "Pharmacologie systémique",
+ "couleur": "#1d6b4f",
+ "sousTitre": "Du système à la cible malade, de la perturbation au diagnostic, du diagnostic à la médication",
+ "objectif": [
+  "Le médecin relie chaque classe médicamenteuse à la structure qu'elle cible et à la perturbation qu'elle corrige.",
+  "Il choisit la molécule selon le diagnostic, l'âge et la situation, avec sa posologie suisse.",
+  "Il comprend la pharmacocinétique et la pharmacodynamique de chaque molécule grâce à leurs courbes."
+ ],
+ "perimetre": {
+  "inclus": [
+   "Cardiovasculaire",
+   "Respiratoire",
+   "Neurologique",
+   "Psyché (psychiatrie)",
+   "Endocrinien & métabolique",
+   "Digestif & hépatobiliaire",
+   "Rénal & uro-génital",
+   "Hématologique & oncologique",
+   "Infectieux & immunitaire",
+   "Locomoteur & rhumatologique",
+   "Dermatologique",
+   "Ophtalmologique & ORL",
+   "Gynéco-obstétrical",
+   "Pédiatrique (croissance et développement)",
+   "Classes et molécules disponibles en Suisse (AIPS, Compendium)"
+  ],
+  "exclus": [
+   "Molécules non autorisées en Suisse, sauf mention explicite"
+  ]
+ },
+ "mnemonique": {
+  "nom": "VIT DIT CAFé",
+  "statut": "À CONFIRMER PAR VIAL : la signification exacte ne figure en clair dans aucun fichier Progression.",
+  "hypothese": [
+   [
+    "V",
+    "Vasculaire"
+   ],
+   [
+    "I",
+    "Infectieux"
+   ],
+   [
+    "T",
+    "Traumatique"
+   ],
+   [
+    "D",
+    "Dégénératif"
+   ],
+   [
+    "I",
+    "Inflammatoire ou immunologique"
+   ],
+   [
+    "T",
+    "Tumoral"
+   ],
+   [
+    "C",
+    "Congénital"
+   ],
+   [
+    "A",
+    "Auto-immun"
+   ],
+   [
+    "F",
+    "Fonctionnel"
+   ],
+   [
+    "é",
+    "Endocrinien et métabolique"
+   ]
+  ],
+  "regle": "Le fichier mnemonique.json porte la signification ; le moteur l'affiche sans aucune valeur codée en dur."
+ },
+ "decisions": [
+  {
+   "question": "Le traitement : survol ou clic ?",
+   "choix": "Clic obligatoire, avec réseau complet",
+   "raison": "Ici, la médication est l'objectif : elle mérite toute la toile (âges, PK/PD, courbes, interactions)."
+  },
+  {
+   "question": "Les courbes PK : dessinées ou calculées ?",
+   "choix": "Calculées par script à partir des paramètres (t½, Tmax, Vd, biodisponibilité, posologie)",
+   "raison": "Le calcul est exact, gratuit et cohérent pour toutes les molécules."
+  },
+  {
+   "question": "Organisation des molécules",
+   "choix": "DCI, nom commercial suisse entre parenthèses, par classe ; chef de file selon le profil clinique",
+   "raison": "Ce sont tes règles de structure pour la pharmacologie."
+  }
+ ],
+ "ecrans": [
+  {
+   "id": "P1",
+   "nom": "Accueil des systèmes",
+   "but": "Choisir un système",
+   "zones": [
+    "Grille des 14 systèmes"
+   ],
+   "interactions": [
+    "Clic : ouvre le système"
+   ],
+   "regleLocale": "Tu choisis un système ; chaque structure ciblable s'y affiche.",
+   "exemple": "Cardiovasculaire."
+  },
+  {
+   "id": "P2",
+   "nom": "Maquette 3D du système",
+   "but": "Voir les structures malades et ciblables",
+   "zones": [
+    "Mannequin 3D",
+    "Structures ciblables surlignées (organes, tissus, récepteurs symboliques)",
+    "Cadre du système"
+   ],
+   "interactions": [
+    "Rotation",
+    "Clic sur une structure : déplie son réseau de perturbations"
+   ],
+   "regleLocale": "Tu cliques une structure pour voir comment elle peut tomber malade.",
+   "exemple": "Clic sur le myocarde → réseau VIT DIT CAFé."
+  },
+  {
+   "id": "P3",
+   "nom": "Réseau des perturbations (VIT DIT CAFé)",
+   "but": "Classer les mécanismes de maladie",
+   "zones": [
+    "Une branche par lettre du mnémonique",
+    "Diagnostics au bout de chaque branche"
+   ],
+   "interactions": [
+    "Clic sur une lettre : déplie ses diagnostics",
+    "Survol d'un diagnostic : définition en une phrase"
+   ],
+   "regleLocale": "Chaque lettre ouvre une famille de mécanismes, puis ses diagnostics.",
+   "exemple": "V (vasculaire) → cardiopathie ischémique."
+  },
+  {
+   "id": "P4",
+   "nom": "Réseau thérapeutique d'un diagnostic",
+   "but": "Choisir la médication",
+   "zones": [
+    "Buts du traitement",
+    "Lignes : 1re, 2e, 3e",
+    "Classes → molécules (DCI + nom suisse)",
+    "Tranches d'âge : nouveau-né, enfant, adolescent, adulte, sujet âgé",
+    "Situations spéciales : grossesse, allaitement, insuffisance rénale (DFG), insuffisance hépatique (Child-Pugh)"
+   ],
+   "interactions": [
+    "Clic sur une classe : déplie ses molécules",
+    "Clic sur une molécule : fiche pharmacologique"
+   ],
+   "regleLocale": "Tu descends du but du traitement jusqu'à la molécule adaptée à l'âge et à la situation.",
+   "exemple": "Cardiopathie ischémique → antiagrégants → acide acétylsalicylique (Aspirine Cardio®) 100 mg/j."
+  },
+  {
+   "id": "P5",
+   "nom": "Fiche pharmacologique d'une molécule",
+   "but": "Maîtriser la molécule",
+   "zones": [
+    "Pharmacodynamie : cible, mécanisme, effet, relation dose-effet",
+    "Pharmacocinétique : absorption, biodisponibilité, Tmax, Vd, liaison protéique, métabolisme (CYP), élimination, t½",
+    "Courbe concentration-temps calculée, avec fenêtre thérapeutique",
+    "Courbe dose-effet",
+    "Posologie par âge et ajustements",
+    "Effets indésirables, contre-indications, interactions majeures",
+    "Grossesse et allaitement (texte AIPS)",
+    "Source de la cascade"
+   ],
+   "interactions": [
+    "Curseurs : dose, intervalle, fonction rénale → la courbe se recalcule",
+    "Survol d'un paramètre : sa définition"
+   ],
+   "regleLocale": "Tu modifies la dose ou le DFG et tu vois la courbe changer.",
+   "exemple": "Doubler l'intervalle avec un DFG à 30 mL/min ramène la concentration dans la fenêtre."
+  },
+  {
+   "id": "P6",
+   "nom": "Pratique",
+   "but": "S'évaluer",
+   "zones": [
+    "Arène",
+    "Aventure du système",
+    "Examen blanc : A, K', menus longs"
+   ],
+   "interactions": [
+    "Correction commentée après chaque réponse"
+   ],
+   "regleLocale": "Tu t'entraînes d'abord sur les molécules dues aujourd'hui.",
+   "exemple": "Menu long : choisis les 3 molécules contre-indiquées chez cette patiente enceinte."
+  }
+ ],
+ "parcours": [
+  {
+   "n": 1,
+   "etape": "Choisir un système",
+   "resultat": "La maquette 3D montre les structures ciblables."
+  },
+  {
+   "n": 2,
+   "etape": "Cliquer une structure",
+   "resultat": "Le réseau VIT DIT CAFé se déplie."
+  },
+  {
+   "n": 3,
+   "etape": "Cliquer une lettre",
+   "resultat": "Les diagnostics de cette famille apparaissent."
+  },
+  {
+   "n": 4,
+   "etape": "Cliquer un diagnostic",
+   "resultat": "Le réseau thérapeutique s'ouvre."
+  },
+  {
+   "n": 5,
+   "etape": "Choisir une classe, puis une molécule",
+   "resultat": "La fiche pharmacologique s'affiche, avec ses courbes."
+  },
+  {
+   "n": 6,
+   "etape": "Ajuster âge, dose ou fonction rénale",
+   "resultat": "La posologie et la courbe s'adaptent."
+  },
+  {
+   "n": 7,
+   "etape": "S'évaluer",
+   "resultat": "Arène, aventure, examen blanc."
+  }
+ ],
+ "donnees": [
+  {
+   "fichier": "pharmaco/mnemonique.json",
+   "role": "Signification des lettres VIT DIT CAFé",
+   "champs": [
+    "lettre",
+    "famille",
+    "definition",
+    "couleur"
+   ],
+   "producteur": "Vial",
+   "volume": "1 fichier"
+  },
+  {
+   "fichier": "pharmaco/<systeme>/structures.json",
+   "role": "Structures malades et ciblables",
+   "champs": [
+    "structureId",
+    "nom",
+    "maillage3d",
+    "cibles[] (récepteurs, enzymes, canaux, transporteurs)"
+   ],
+   "producteur": "IA",
+   "volume": "14 fichiers"
+  },
+  {
+   "fichier": "pharmaco/<systeme>/graphe.json",
+   "role": "Structure → perturbation → diagnostic → traitement",
+   "champs": [
+    "noeuds[] : structure | perturbation | diagnostic | but | ligne | classe | molecule",
+    "liens[] : souffre_de | produit | traite_par | contient | cible"
+   ],
+   "producteur": "IA, puis REJECTOR_",
+   "volume": "14 fichiers"
+  },
+  {
+   "fichier": "pharmaco/classes.json",
+   "role": "Classes médicamenteuses",
+   "champs": [
+    "classeId",
+    "nom",
+    "mecanisme",
+    "indications[]",
+    "chefDeFile[] par profil"
+   ],
+   "producteur": "IA",
+   "volume": "≈ 300 classes"
+  },
+  {
+   "fichier": "pharmaco/molecules/<dci>.json",
+   "role": "Fiche de molécule",
+   "champs": [
+    "dci",
+    "nomsSuisses[]",
+    "pd {cible, mecanisme, effet}",
+    "pk {F, Tmax, Vd, liaison, metabolisme, CYP, elimination, t12}",
+    "posologies[] {age, indication, dose, voie, rythme, duree}",
+    "ajustements {DFG, ChildPugh}",
+    "EI[]",
+    "CI[]",
+    "interactions[]",
+    "grossesse",
+    "allaitement",
+    "source {niveau, ref, date}"
+   ],
+   "producteur": "IA + index AIPS, puis REJECTOR_",
+   "volume": "≈ 1 000 molécules"
+  },
+  {
+   "fichier": "pharmaco/courbes/<dci>.json",
+   "role": "Courbes calculées",
+   "champs": [
+    "concentration-temps (modèle à 1 compartiment)",
+    "fenêtre thérapeutique",
+    "dose-effet (Emax)"
+   ],
+   "producteur": "Script, 0 token",
+   "volume": "1 par molécule"
+  },
+  {
+   "fichier": "pharmaco/exercices/<systeme>.json",
+   "role": "Exercices générés",
+   "champs": [
+    "type",
+    "question",
+    "options[] (texte, correct, why)",
+    "refs"
+   ],
+   "producteur": "Script, 0 token",
+   "volume": "Plusieurs milliers"
+  }
+ ],
+ "exercices": [
+  {
+   "type": "Diagnostic → classe de 1re ligne",
+   "exemple": "Quelle classe traite en premier cette pathologie ?",
+   "generation": "Lien « traite_par » + ligne 1"
+  },
+  {
+   "type": "Molécule → mécanisme",
+   "exemple": "Quelle cible cette molécule bloque-t-elle ?",
+   "generation": "molecules/<dci>.pd"
+  },
+  {
+   "type": "Courbe → paramètre",
+   "exemple": "Quelle demi-vie cette courbe montre-t-elle ?",
+   "generation": "courbes/<dci>"
+  },
+  {
+   "type": "Ajustement",
+   "exemple": "Quelle dose donner avec un DFG à 25 mL/min ?",
+   "generation": "ajustements"
+  },
+  {
+   "type": "Contre-indication",
+   "exemple": "Menu long : quelles molécules éviter pendant la grossesse ?",
+   "generation": "CI + grossesse"
+  },
+  {
+   "type": "Interaction",
+   "exemple": "Quel inhibiteur du CYP3A4 augmente ce taux ?",
+   "generation": "interactions"
+  },
+  {
+   "type": "Lettre → famille de mécanisme",
+   "exemple": "À quelle lettre de VIT DIT CAFé appartient ce diagnostic ?",
+   "generation": "mnemonique + graphe"
+  }
+ ],
+ "production": [
+  {
+   "n": 1,
+   "etape": "Confirmer la signification de VIT DIT CAFé",
+   "outil": "Vial",
+   "cout": "—",
+   "controle": "mnemonique.json rempli"
+  },
+  {
+   "n": 2,
+   "etape": "Extraire les données AIPS (posologies, grossesse, CI) de l'index local",
+   "outil": "Script",
+   "cout": "0 token",
+   "controle": "Numéro Swissmedic par spécialité"
+  },
+  {
+   "n": 3,
+   "etape": "Produire le système pilote (cardiovasculaire) : graphe, classes, molécules",
+   "outil": "API Claude, Batch + cache",
+   "cout": "Payant, une fois",
+   "controle": "Schémas + concordance AIPS"
+  },
+  {
+   "n": 4,
+   "etape": "Calculer les courbes",
+   "outil": "Script",
+   "cout": "0 token",
+   "controle": "Courbe cohérente avec t½ et Tmax"
+  },
+  {
+   "n": 5,
+   "etape": "REJECTOR_ sur le pilote",
+   "outil": "IA d'un autre fournisseur",
+   "cout": "Faible",
+   "controle": "0 rejet de fond"
+  },
+  {
+   "n": 6,
+   "etape": "Étendre aux 13 autres systèmes (infectiologie en second)",
+   "outil": "API Batch",
+   "cout": "Payant",
+   "controle": "Mêmes portes"
+  }
+ ],
+ "construction": [
+  {
+   "n": 1,
+   "phase": "Mnémonique, schémas, extraction AIPS",
+   "livrable": "mnemonique.json, 7 schémas, index AIPS exploitable",
+   "sortie": "Schémas valides"
+  },
+  {
+   "n": 2,
+   "phase": "Pilote cardiovasculaire",
+   "livrable": "Graphe, classes et molécules du système",
+   "sortie": "REJECTOR_ vert"
+  },
+  {
+   "n": 3,
+   "phase": "Moteur de courbes",
+   "livrable": "Modèle à 1 compartiment, Emax, curseurs",
+   "sortie": "Recalcul en moins de 50 ms"
+  },
+  {
+   "n": 4,
+   "phase": "Toile et maquette 3D",
+   "livrable": "Réutilisation du moteur de la Tétrade",
+   "sortie": "Aucun code spécifique au système"
+  },
+  {
+   "n": 5,
+   "phase": "Réseau thérapeutique et fiches",
+   "livrable": "Âges, situations spéciales, PK/PD",
+   "sortie": "Chaque posologie porte sa source"
+  },
+  {
+   "n": 6,
+   "phase": "Pratique",
+   "livrable": "Exercices, arène, aventure, examen blanc",
+   "sortie": "Correction commentée partout"
+  },
+  {
+   "n": 7,
+   "phase": "Extension",
+   "livrable": "Infectiologie, puis les autres systèmes",
+   "sortie": "Les quatre audits sont verts"
+  }
+ ],
+ "blocages": [
+  "Aucun exercice ne dérive d'une source sans verdict « pass » de REJECTOR_.",
+  "Aucune posologie n'apparaît sans source de la cascade suisse.",
+  "Aucune image anatomique ou sémiologique n'est dessinée par une IA.",
+  "Aucun fichier HTML produit ne perd la signature de son agent (heure, modèle, plateforme).",
+  "Aucune phrase nominale n'apparaît dans un texte didactique.",
+  "Aucune courbe ne s'affiche sans ses paramètres sourcés.",
+  "Aucune molécule ne s'affiche sans son nom commercial suisse, ou sans la mention « non commercialisée en Suisse »."
+ ],
+ "questionsOuvertes": [
+  "Confirme la signification de chaque lettre de VIT DIT CAFé (l'hypothèse du plan doit être validée ou corrigée)."
+ ],
+ "prototype": {
+  "titre": "Prototype : myocarde → V (vasculaire) → cardiopathie ischémique → antiagrégants",
+  "centre": "mannequin",
+  "cadre": "Système cardiovasculaire",
+  "colonnes": [
+   [
+    "Myocarde",
+    "Valves",
+    "Artères coronaires"
+   ],
+   [
+    "V",
+    "I",
+    "T",
+    "D",
+    "I",
+    "T",
+    "C",
+    "A",
+    "F"
+   ],
+   [
+    "Cardiopathie ischémique",
+    "Myocardite"
+   ],
+   [
+    "Antiagrégants",
+    "Bêtabloquants",
+    "Statines"
+   ],
+   [
+    "Acide acétylsalicylique",
+    "Clopidogrel"
+   ],
+   [
+    "Courbe C(t)",
+    "Posologie par âge"
+   ]
+  ],
+  "legende": "Chaque clic déplie le niveau suivant ; la fiche de molécule affiche les courbes calculées."
+ },
+ "auditConception": [
+  {
+   "controle": "Section « objectif » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « principes » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « perimetre » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « decisions » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « architecture » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « ecrans » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « parcours » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « donnees » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « exercices » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « production » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « areneAventure » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « evaluation » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « audits » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « blocages » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « construction » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Section « prototype » présente et non vide",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque écran a une règle locale et un exemple",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque écran a des zones et des interactions",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque fichier de données a ses champs, son producteur et son volume",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque exercice indique sa source de génération",
+   "resultat": true
+  },
+  {
+   "controle": "Le parcours est numéroté sans trou",
+   "resultat": true
+  },
+  {
+   "controle": "La construction est numérotée sans trou",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque phase de construction a un critère de sortie",
+   "resultat": true
+  },
+  {
+   "controle": "Chaque décision donne sa raison",
+   "resultat": true
+  },
+  {
+   "controle": "Au moins un exercice est généré à 0 token",
+   "resultat": true
+  },
+  {
+   "controle": "REJECTOR_ figure dans les blocages ou la production",
+   "resultat": true
+  },
+  {
+   "controle": "Le prototype a au moins 4 colonnes",
+   "resultat": true
+  },
+  {
+   "controle": "Aucun marqueur de travail inachevé (TODO, XXX)",
+   "resultat": true
+  }
+ ]
+}
