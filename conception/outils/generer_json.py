@@ -4,7 +4,8 @@ Sortie : conception/donnees/** , conception/donnees/INDEX.json , conception/donn
 Usage : python conception/outils/generer_json.py"""
 import json, os, re, sys, unicodedata
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from catalogue_paraclinique import TOPO, PRELEVEMENTS, EXPLORATIONS, MODALITES, SYSTEMES as SYS_ORG
+from catalogue_paraclinique import TOPO, PRELEVEMENTS, EXPLORATIONS, MODALITES, SYSTEMES as SYS_ORG, TECHNIQUES, VISEES, SMARTER
+from transversales import OUTILS, LENTILLES, ARBORESCENCE, REF as TREF
 
 ICI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ICI, "donnees")
@@ -54,6 +55,9 @@ EXPANS = {
     "<onglet>": ["biologie", "imagerie", "explorations"],
     "<pathologie>": ["_modele"],
     "<dci>": ["_modele"],
+    "<lettre>": [],   # produit plus bas, rempli depuis la Cartographie
+    "<region>": [],   # produit plus bas depuis le catalogue topographique
+    "<organe>": [],
 }
 
 ecrits = []
@@ -73,7 +77,7 @@ noeuds = cfg["noeuds"]
 TYPE = {"Signe": "signe", "Symptôme": "symptome", "Syndrome": "syndrome", "Examen": "examen"}
 graphe = {"_meta": {"fichier": "tetrade/cardiovasculaire/graphe.json", "statut": "EXEMPLE RÉEL — circuit de l'insuffisance cardiaque gauche, à auditer par REJECTOR_"},
           "noeuds": [{"id": n["id"], "type": TYPE.get(n.get("type"), "temps_examen" if n.get("type", "").startswith(("Temps", "Interrogatoire")) else ("organe" if n.get("organe") else "diagnostic")),
-                      "label": n["texte"], "organe": n.get("organe"), "bulle": n.get("bulle"), "son": n.get("son")} for n in noeuds],
+                      "label": n["texte"], "organe": n.get("organe"), "bulle": n.get("bulle"), "son": n.get("son"), "particularites": n.get("particularites"), "uniqueAssume": n.get("uniqueAssume", False)} for n in noeuds],
           "liens": [{"de": p, "vers": n["id"]} for n in noeuds for p in n.get("de", [])]}
 ecrits.append(ecrire("tetrade/cardiovasculaire/graphe.exemple_ic_gauche.json", graphe))
 semio = {"_meta": {"fichier": "tetrade/cardiovasculaire/semiologie.json", "statut": "EXEMPLE RÉEL — à auditer par REJECTOR_"},
@@ -117,7 +121,7 @@ ecrits.append(ecrire("paraclinique/imagerie/cas/pneumonie_lobaire_moyenne.json",
 for reg, orgs in TOPO.items():
     for org, mods in orgs.items():
         ecrits.append(ecrire(f"paraclinique/topographie/{slug(reg)}/{slug(org)}.json", {"_meta": {"region": reg, "organe": org, "statut": "LISTE COMPLÈTE — indication, principe, interprétation et bulle à remplir"},
-            "examens": [{"id": slug(org) + "__" + slug(e), "modalite": MODALITES[k], "nom": e, "indication": None, "principe": None, "valeursOuSignes": None, "limite": None, "bulle": None} for k, v in mods.items() for e in v]}))
+            "examens": [{"id": slug(org) + "__" + slug(e), "modalite": MODALITES[k], "nom": e, "visees": [], "indication": None, "discriminant": None, "avantageSelectif": None, "plutotQue": None, "limite": None, "referencePour": [], "smarterMedicine": None, "radioAnatomieNormale": None, "bulle": None} for k, v in mods.items() for e in v]}))
 for pre, exs in PRELEVEMENTS.items():
     ecrits.append(ecrire(f"paraclinique/biologie/prelevements/{slug(pre)}.json", {"_meta": {"prelevement": pre, "statut": "LISTE COMPLÈTE — technique, valeurs de référence SI suisses et interprétation à remplir"},
         "examens": [{"nom": e, "technique": None, "valeursReference": None, "interpretation": None, "bulle": None} for e in exs]}))
@@ -126,9 +130,24 @@ for sysn, orgs in SYS_ORG.items():
     ecrits.append(ecrire(f"tetrade/{slug(sysn)}/examens.json", {"_meta": {"systeme": sysn, "progression": ["topo-systemique", "topo-organe"], "statut": "RELIÉ AU CATALOGUE"},
         "organes": [{"organe": o, "region": next(r for r, og in TOPO.items() if o in og), "examens": [slug(o) + "__" + slug(e) for v in next(og[o] for og in TOPO.values() if o in og).values() for e in v]} for o in orgs]}))
 
+# ---------- techniques, visées, smarter medicine, disciplines transversales (remplis) ----------
+ecrits.append(ecrire("paraclinique/techniques_discriminants.json", {"_meta": {"statut": "REMPLI — à auditer"}, "familles": {f: [dict(zip(["technique", "discriminant", "preferQuand", "plutotQue", "limite"], l)) for l in lst] for f, lst in TECHNIQUES.items()}}))
+ecrits.append(ecrire("paraclinique/visees_bilan.json", {"_meta": {"statut": "REMPLI"}, "visees": [{"id": a, "but": b} for a, b in VISEES]}))
+ecrits.append(ecrire("paraclinique/smarter_medicine.json", {"_meta": {"statut": "AMORCÉ — à compléter liste par liste sur smartermedicine.ch"}, "recommandations": [{"situation": a, "recommandation": b} for a, b in SMARTER]}))
+ecrits.append(ecrire("tetrade/transversales/lentilles.json", {"_meta": {"statut": "REMPLI"}, "lentilles": LENTILLES}))
+for t in TREF["transversales"]:
+    ecrits.append(ecrire(f"tetrade/transversales/outils/{t['letter']}_{slug(t['name'])}.json", {"_meta": {"statut": "STRUCTURE REMPLIE — cours à rédiger"},
+        "lettre": t["letter"], "nom": t["name"], "sousOnglets": [s["name"] for s in t["subIcons"]],
+        "lecons": [{"id": l["tileId"], "titre": l["name"], "sousOnglet": l["subIconId"], "strate": l["stratumCode"]} for l in t["lessons"]],
+        "arborescence": [{"partie": a, "consigne": b, "contenu": None} for a, b in ARBORESCENCE], "liensTetrade": [], "liensSSP": []}))
+ecrits.append(ecrire("tetrade/cardiovasculaire/anatomie3d.exemple_coeur.json", {"_meta": {"statut": "EXEMPLE — fenêtre de structure du prototype"}, "structureId": "coeur", "parent": "thorax",
+    "niveau": ["Paroi thoracique et péricarde", "Faces et bords du cœur", "Cavités et valves", "Vascularisation coronaire", "Tissu de conduction et innervation"],
+    "vues3D": ["antérieure", "latérale gauche", "postérieure", "supérieure"], "trajetRenforce": ["aorte"], "modele": "BodyParts3D (FMA7088, FMA3734)",
+    "radioAnatomie": ["Rx thorax PA : bord droit = oreillette droite ; bord gauche = ventricule gauche ; bouton aortique = crosse", "CT injecté axial : crosse, puis quatre cavités", "IRM cardiaque : petit axe et quatre cavités"]}))
+
 # ---------- schémas de validation (un par famille de fichier) ----------
 SCH = {
-    "bulle": {"type": "object", "required": ["def", "pourquoi", "confusion", "retenir"], "properties": {k: {"type": "string", "minLength": 20} for k in ["def", "pourquoi", "confusion", "retenir"]}},
+    "bulle": {"type": "object", "required": ["def", "pourquoi", "confusion", "retenir"], "properties_note": "un diagnostic ajoute bilan (6 visées) et traitement[] avec source", "properties": {k: {"type": "string", "minLength": 20} for k in ["def", "pourquoi", "confusion", "retenir"]}},
     "noeud_graphe": {"type": "object", "required": ["id", "type", "label"], "properties": {"type": {"enum": ["organe", "temps_examen", "signe", "symptome", "syndrome", "examen", "diagnostic", "specialite", "fonction", "mecanisme", "traitement"]}, "bulle": {"$ref": "bulle.schema.json"}}},
     "syndrome": {"type": "object", "required": ["syndromeId", "signesMinimaux", "signes", "bulle", "diagnostics"], "properties": {"signesMinimaux": {"type": "array", "minItems": 2, "maxItems": 3}}},
     "son": {"type": "object", "required": ["sonId", "nom", "fichier", "source", "licence"]},

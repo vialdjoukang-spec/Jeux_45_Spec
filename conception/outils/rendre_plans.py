@@ -48,54 +48,10 @@ def auditer(p):
 # ---------- prototype : image 3D réelle (aucun SVG) ----------
 def img_prototype(p):
     import base64
-    b = base64.b64encode((BASE / p["prototype"]["image"]).read_bytes()).decode()
-    return f'<img alt="Simulation du prototype" src="data:image/png;base64,{b}" style="width:100%;border-radius:10px;border:1px solid #e5e1da">'
-
-# ---------- ancien prototype SVG (abandonné, conservé pour mémoire) ----------
-def svg_prototype(p):
-    pr, c = p["prototype"], p["couleur"]
-    cols = pr["colonnes"]; W = 1180; H = 520; x0 = 250; dx = (W - x0 - 40) / len(cols)
-    out = [f'<svg viewBox="0 0 {W} {H}" xmlns="http://www.w3.org/2000/svg" style="width:100%;background:#fbfaf8;border:1px solid #e5e1da;border-radius:10px">',
-           f'<defs><linearGradient id="g{p["id"]}" x1="0" x2="1"><stop offset="0" stop-color="{c}" stop-opacity=".9"/><stop offset="1" stop-color="{c}" stop-opacity=".35"/></linearGradient></defs>']
-    # figure centrale
-    if pr.get("centre") == "tube":
-        out.append(f'<g transform="translate(95,120)"><rect x="20" y="0" width="50" height="230" rx="25" fill="#fff" stroke="{c}" stroke-width="4"/><rect x="24" y="110" width="42" height="116" rx="20" fill="{c}" opacity=".45"/><rect x="12" y="-14" width="66" height="22" rx="6" fill="{c}"/></g>')
-    else:
-        out.append(f'<g transform="translate(70,40)" fill="#efe9e2" stroke="{c}" stroke-width="2.5"><circle cx="70" cy="40" r="32"/><path d="M30 85 Q70 70 110 85 L125 230 Q118 240 108 232 L100 150 L98 300 L112 440 Q100 452 86 442 L72 320 L58 442 Q44 452 32 440 L46 300 L44 150 L36 232 Q26 240 19 230 Z"/>'
-                   f'<ellipse cx="78" cy="128" rx="14" ry="17" fill="{c}" opacity=".75"/></g>')
-    out.append(f'<rect x="20" y="{H-58}" width="200" height="40" rx="8" fill="{c}"/><text x="120" y="{H-33}" text-anchor="middle" font-family="Arial" font-weight="700" font-size="14" fill="#fff">{E(pr["cadre"])}</text>')
-    pos = []
-    for i, col in enumerate(cols):
-        x = x0 + i * dx; n = len(col); hh = min(56, (H - 60) / max(n, 1)); y0 = (H - n * hh) / 2
-        pos.append([(x, y0 + j * hh + hh / 2) for j in range(n)])
-    # liens
-    for (fx, fy) in pos[0]:
-        out.append(f'<path d="M190 {H-38} C 210 {fy}, {fx-60} {fy}, {fx} {fy}" fill="none" stroke="{c}" stroke-opacity=".35" stroke-width="1.6"/>')
-    for i in range(len(pos) - 1):
-        a, b = pos[i], pos[i + 1]
-        for j, (ax, ay) in enumerate(a):
-            k = round(j * (len(b) - 1) / max(len(a) - 1, 1)) if len(a) > 1 else 0
-            for kk in {k, min(k + 1, len(b) - 1)}:
-                bx, by = b[kk]; w = dx - 20
-                out.append(f'<path d="M{ax+w} {ay} C {ax+w+30} {ay}, {bx-30} {by}, {bx} {by}" fill="none" stroke="url(#g{p["id"]})" stroke-width="2"/>')
-    for i, col in enumerate(cols):
-        for j, lab in enumerate(col):
-            x, y = pos[i][j]; w = dx - 20
-            maxc = int(w / 6.6); mots = lab.split(); l1 = ""; l2 = ""
-            for m in mots:
-                if len((l1 + " " + m).strip()) <= maxc and not l2: l1 = (l1 + " " + m).strip()
-                else: l2 = (l2 + " " + m).strip()
-            if len(l2) > maxc: l2 = l2[:maxc - 1] + "…"
-            out.append(f'<rect x="{x}" y="{y-19}" width="{w}" height="38" rx="9" fill="#fff" stroke="{c}" stroke-width="1.8"/>')
-            if l2:
-                out.append(f'<text text-anchor="middle" font-family="Arial" font-size="11" fill="#222"><tspan x="{x+w/2}" y="{y-3}">{E(l1)}</tspan><tspan x="{x+w/2}" y="{y+11}">{E(l2)}</tspan></text>')
-            else:
-                out.append(f'<text x="{x+w/2}" y="{y+4}" text-anchor="middle" font-family="Arial" font-size="11.5" fill="#222">{E(l1)}</text>')
-    out.append("</svg>")
-    return "".join(out)
+    imgs = p["prototype"].get("images") or [p["prototype"]["image"]]
+    return "".join(f'<img alt="Simulation du prototype" src="data:image/png;base64,{base64.b64encode((BASE / i).read_bytes()).decode()}" style="width:100%;border-radius:10px;border:1px solid #e5e1da;margin-bottom:10px">' for i in imgs)
 
 
-# ---------- HTML ----------
 def table(rows, cols):
     h = "<div class='t'><table><tr>" + "".join(f"<th>{E(c[1])}</th>" for c in cols) + "</tr>"
     for r in rows:
@@ -141,6 +97,16 @@ def rendre(p, audit):
                   f"<h4>Imagerie : régions</h4>{liste(o['imagerie']['regions'])}<h4>Imagerie : examens</h4>{liste(o['imagerie']['examens'])}"
                   f"<p><b>Chaîne :</b> {E(o['imagerie']['chaine'])}.</p><p><b>Fenêtre à deux clichés :</b> {E(o['imagerie']['fenetre'])}</p>"
                   f"<h4>Explorations fonctionnelles</h4>{liste(o['explorations']['liste'])}<p><b>Chaîne :</b> {E(o['explorations']['chaine'])}.</p>"))
+    if p.get("transversales"):
+        t = p["transversales"]
+        S.append(("transversales", "Onglet Disciplines transversales", f"<p>{E(t['regle'])}</p><h4>Outils de la médecine (A → S)</h4>"
+            + table([{"l": o["lettre"], "n": o["nom"], "s": " · ".join(o["sousOnglets"]), "c": o["lecons"]} for o in t["outils"]], [("l", "Lettre"), ("n", "Discipline"), ("s", "Sous-onglets"), ("c", "Leçons")])
+            + "<h4>Lentilles cliniques</h4>" + table([{"n": l["nom"], "f": l["filtre"], "r": " · ".join(l["revele"])} for l in t["lentilles"]], [("n", "Lentille"), ("f", "Filtre"), ("r", "Ce qu'elle révèle")])
+            + "<h4>Arbre de cours d'une discipline transversale</h4>" + table([{"p": a, "c": b} for a, b in t["arborescence"]], [("p", "Partie"), ("c", "Contenu")])))
+    if p.get("techniques"):
+        S.append(("techniques", "Choisir l'examen : facteur discriminant et avantage sélectif", "".join(f"<h4>{E(fam)}</h4>" + table([{"t": a, "d": b, "q": c, "p": d, "l": e} for a, b, c, d, e in lst], [("t", "Technique"), ("d", "Ce qu'elle voit le mieux"), ("q", "Tu la préfères quand"), ("p", "Plutôt que"), ("l", "Limite")]) for fam, lst in p["techniques"].items())
+            + "<h4>Les six visées d'un bilan</h4>" + table([{"v": a, "c": b} for a, b in p["visees"]], [("v", "Visée"), ("c", "But")])
+            + "<h4>Smarter medicine</h4>" + table([{"s": a, "r": b} for a, b in p["smarter"]], [("s", "Situation"), ("r", "Recommandation")])))
     if p.get("topographie"):
         t = p["topographie"]
         lignes = "".join(f"<tr><td><b>{E(r)}</b><br>{E(o)}</td>" + "".join(f"<td>{E(' · '.join(m.get(lab, [])))}</td>" for lab in t["modalites"].values()) + "</tr>" for r, org in t["regions"].items() for o, m in org.items())

@@ -57,7 +57,8 @@
    "Le bouton de thème fait défiler sept fonds contrastés : blanc, bleu ciel, champagne, or, menthe, nuit, anthracite ; les cases restent opaques et le texte presque noir (ou blanc sur fond sombre), pour que l'écrit domine toujours le fond.",
    "La largeur des colonnes s'ajuste automatiquement à l'écran, pour que tout le réseau reste visible.",
    "La disposition se recalcule à chaque clic sur les seules cases visibles : chaque parent reste centré sur le bloc de ses enfants.",
-   "Chaque case porte une infobulle symétrique au survol, et chaque signe auscultatoire un bouton 🔊."
+   "Chaque case porte une infobulle symétrique au survol, et chaque signe auscultatoire un bouton 🔊.",
+   "Le côté du premier trait décide du sens : si le trait horizontal né du corps rejoint une case à droite, tout le développement de cette case se fait vers la droite ; s'il rejoint une case à gauche, il se fait vers la gauche ; le corps glisse vers le côté opposé pour laisser la place."
   ]
  },
  "areneAventure": {
@@ -141,7 +142,9 @@
   "seuils": [
    "Chaque temps d'examen (inspection, palpation, percussion, auscultation) présente deux ou trois signes : un seul ne suffit jamais à parler du syndrome.",
    "Le syndrome nomme dans son infobulle le minimum suffisant : deux ou trois signes concordants qui permettent de le poser.",
-   "Quand un signe appartient à un autre syndrome proche (exemple : la turgescence jugulaire relève de l'insuffisance cardiaque droite), l'infobulle le dit explicitement."
+   "Quand un signe appartient à un autre syndrome proche (exemple : la turgescence jugulaire relève de l'insuffisance cardiaque droite), l'infobulle le dit explicitement.",
+   "Si la sémiologie d'un temps d'examen n'offre qu'un seul signe valide, ce signe reste seul, marqué « uniqueAssume », et son infobulle le dit : on n'invente jamais un signe pour remplir.",
+   "Chaque diagnostic répète en infobulle le bilan stratifié (diagnostique, étiologique, retentissement, complications, rémission, sortie) et le traitement avec posologie et source : la même information revient d'un onglet à l'autre pour être répétée."
   ],
   "sons": {
    "regle": "Tout signe auscultatoire porte un bouton 🔊 qui joue un enregistrement réel ; le son se rejoue aussi depuis l'infobulle.",
@@ -184,6 +187,16 @@
   ]
  },
  "decisions": [
+  {
+   "question": "Comment rendre le choix d'un examen aigu ?",
+   "choix": "Chaque technique et chaque séquence porte son facteur discriminant, son avantage sélectif, l'examen qu'elle remplace et sa limite",
+   "raison": "Le médecin doit savoir quoi demander exactement pour le diagnostic recherché, et éviter la surprescription (smarter medicine)."
+  },
+  {
+   "question": "Comment ranger un bilan ?",
+   "choix": "En six visées : diagnostique, étiologique, retentissement, complications, rémission, sortie",
+   "raison": "Un bilan stratifié évite les examens sans conséquence et prépare le suivi."
+  },
   {
    "question": "Comment garantir que rien ne manque ?",
    "choix": "Un catalogue topographique unique (région → organe → imagerie, biologie, exploration fonctionnelle, endoscopie, anatomopathologie) alimente tous les onglets et la Tétrade ; un script d'audit contrôle la couverture",
@@ -279,7 +292,7 @@
     "Ostéodensitométrie"
    ],
    "chaine": "Région → examens faisables → système d'organe → organe → pathologies → fenêtre à deux clichés",
-   "fenetre": "À gauche le cliché brut (« Observez d'abord ») ; à droite le cliché annoté avec repères numérotés ; dessous, la description des lésions en liste numérotée, concise et structurée (siège, taille, densité ou signal, rehaussement, effet de masse, signes associés), puis le diagnostic et la conduite."
+   "fenetre": "À gauche, le cliché du patient, brut ou annoté par un bouton ; à droite, le même examen normal avec sa radio-anatomie annotée par lettres ; les lésions se numérotent, les repères normaux se lettrent."
   },
   "explorations": {
    "liste": [
@@ -680,6 +693,24 @@
    ],
    "producteur": "Script, 0 token",
    "volume": "Plusieurs milliers"
+  },
+  {
+   "fichier": "paraclinique/topographie/<region>/<organe>.json",
+   "role": "Examens de l'organe, toutes modalités",
+   "champs": [
+    "nom",
+    "modalite",
+    "visees[]",
+    "discriminant",
+    "avantageSelectif",
+    "plutotQue",
+    "limite",
+    "referencePour[]",
+    "smarterMedicine",
+    "bulle"
+   ],
+   "producteur": "Script (liste) + IA (textes)",
+   "volume": "64 organes"
   }
  ],
  "exercices": [
@@ -832,7 +863,10 @@
     "Fenêtre : cliché brut / cliché annoté"
    ]
   ],
-  "legende": "La région ouvre ses examens ; l'examen de première intention mène à l'organe, à la pathologie, puis à la preuve d'imagerie annotée."
+  "legende": "La région ouvre ses examens ; l'examen de première intention mène à l'organe, à la pathologie, puis à la preuve d'imagerie annotée.",
+  "images": [
+   "prototypes/paraclinique.png"
+  ]
  },
  "topographie": {
   "progression": "Région (de la tête aux pieds, puis systèmes transversaux) → organe ciblé → modalités → examens",
@@ -1960,6 +1994,257 @@
    "Anatomopathologie / biopsie": 50
   }
  },
+ "techniques": {
+  "Radiographie": [
+   [
+    "Radiographie standard",
+    "Les contrastes os / air / tissus mous ; fractures, pneumothorax, condensation, pneumopéritoine.",
+    "Tu veux une réponse immédiate, peu irradiante, au lit du malade.",
+    "Le CT, quand la question est simple et le cliché suffit.",
+    "Elle superpose les plans et voit mal les tissus mous."
+   ]
+  ],
+  "Échographie": [
+   [
+    "Mode B",
+    "Les interfaces liquide / solide : kystes, épanchements, lithiases, dilatations des voies.",
+    "Tu veux un examen sans irradiation, au lit, chez l'enfant ou la femme enceinte.",
+    "Le CT, en première intention pour la vésicule, les reins, le pelvis, la thyroïde.",
+    "Elle dépend de l'opérateur et l'air ou l'os l'arrêtent."
+   ],
+   [
+    "Doppler couleur et pulsé",
+    "Le sens et la vitesse du flux : sténose, thrombose, vascularisation d'une masse.",
+    "Tu cherches une thrombose veineuse, une sténose carotidienne ou une torsion.",
+    "L'angio-CT, en première intention vasculaire non urgente.",
+    "Le flux lent ou profond se mesure mal."
+   ],
+   [
+    "Élastographie",
+    "La rigidité du tissu : fibrose hépatique, nodule thyroïdien suspect.",
+    "Tu évalues une fibrose sans biopsie.",
+    "La ponction-biopsie hépatique, pour stadifier la fibrose.",
+    "L'inflammation et la congestion faussent la mesure."
+   ],
+   [
+    "Échographie de contraste (CEUS)",
+    "La cinétique de rehaussement d'un nodule, sans rein ni rayons.",
+    "Tu caractérises un nodule hépatique chez un insuffisant rénal.",
+    "Le CT ou l'IRM injectés.",
+    "Elle n'explore qu'une cible à la fois."
+   ],
+   [
+    "POCUS / eFAST",
+    "Le liquide libre, le pneumothorax, la tamponnade, en quelques minutes.",
+    "Le patient est instable.",
+    "Le CT, quand le patient ne peut pas quitter la salle.",
+    "Elle répond à des questions binaires seulement."
+   ]
+  ],
+  "Scanner (CT)": [
+   [
+    "CT natif",
+    "Le sang frais, les calcifications, les lithiases, l'os.",
+    "Tu cherches une hémorragie cérébrale ou une lithiase urinaire.",
+    "L'IRM, en urgence (rapide, disponible).",
+    "Il irradie et voit mal la substance grise / blanche fine."
+   ],
+   [
+    "CT injecté, phase artérielle",
+    "Les lésions hypervasculaires et les artères : CHC, embolie pulmonaire (phase pulmonaire), dissection.",
+    "Tu cherches un saignement actif ou une embolie.",
+    "La phase portale seule.",
+    "Il exige un rein fonctionnel ; risque allergique au produit iodé."
+   ],
+   [
+    "CT injecté, phase portale",
+    "Les organes pleins et les collections abdominales.",
+    "Tu fais un bilan abdominal standard ou d'extension.",
+    "L'IRM, pour un bilan rapide et global.",
+    "Il caractérise moins bien les nodules hépatiques que l'IRM."
+   ],
+   [
+    "CT haute résolution",
+    "L'interstitium pulmonaire : verre dépoli, rayon de miel, bronchectasies.",
+    "Tu suspectes une pneumopathie interstitielle.",
+    "La radiographie, trop peu sensible.",
+    "Il ne remplace pas l'histologie dans certains cas."
+   ],
+   [
+    "Angio-CT",
+    "La lumière des vaisseaux : sténose, occlusion, anévrisme, dissection.",
+    "Tu dois décider vite d'une revascularisation.",
+    "L'artériographie, invasive.",
+    "Il irradie et demande du produit de contraste."
+   ]
+  ],
+  "IRM": [
+   [
+    "T1",
+    "L'anatomie fine ; la graisse et le sang subaigu (méthémoglobine) apparaissent en hypersignal.",
+    "Tu veux l'anatomie de référence ou un saignement subaigu.",
+    "Le T2, pour l'anatomie fine et la graisse.",
+    "L'eau et l'œdème y sont peu visibles (hyposignal)."
+   ],
+   [
+    "T2",
+    "L'eau : œdème, kystes, liquides, inflammation (hypersignal).",
+    "Tu cherches une lésion œdémateuse ou kystique.",
+    "Le T1, pour détecter la pathologie liquidienne.",
+    "Le LCR très brillant masque les lésions périventriculaires."
+   ],
+   [
+    "FLAIR",
+    "Le T2 dont le signal du LCR est annulé : lésions périventriculaires et corticales.",
+    "Tu cherches une plaque de sclérose en plaques, un œdème cortical ou une hémorragie sous-arachnoïdienne subaiguë.",
+    "Le T2 simple, près des ventricules.",
+    "La fosse postérieure reste moins bien explorée."
+   ],
+   [
+    "Diffusion (DWI) et carte ADC",
+    "La restriction de mobilité de l'eau : ischémie aiguë dès les premières minutes, abcès, tumeur très cellulaire.",
+    "Tu suspectes un AVC ischémique de moins de 6 h ou un abcès.",
+    "Le CT natif, normal dans les premières heures de l'ischémie.",
+    "Le « T2 shine-through » imite une restriction : l'ADC tranche (bas = vraie restriction)."
+   ],
+   [
+    "T2* / SWI (susceptibilité)",
+    "Les dépôts d'hémosidérine et le calcium : microsaignements, cavernomes, transformation hémorragique.",
+    "Tu cherches des microsaignements (angiopathie amyloïde) ou une lésion axonale diffuse.",
+    "Le T2 simple, aveugle aux microsaignements.",
+    "Les artéfacts métalliques et aériques l'altèrent."
+   ],
+   [
+    "T1 avec gadolinium",
+    "La rupture de la barrière hématoencéphalique et la vascularisation : tumeur, plaque active, méningite, abcès.",
+    "Tu veux savoir si une lésion est active ou vascularisée.",
+    "Le T1 natif seul.",
+    "Il exige un DFG suffisant ; des dépôts de gadolinium existent."
+   ],
+   [
+    "STIR et T2 avec saturation de graisse",
+    "L'œdème dans un tissu graisseux : œdème osseux, fracture de stress, myosite.",
+    "Tu cherches une fracture occulte ou une spondylodiscite.",
+    "Le T1 seul, pour l'œdème osseux.",
+    "Le rapport signal / bruit est plus faible."
+   ],
+   [
+    "Angio-IRM (TOF, avec contraste)",
+    "Le flux artériel sans rayons : anévrisme intracrânien, sténose.",
+    "Tu dois éviter l'iode et les rayons.",
+    "L'angio-CT chez le sujet jeune ou insuffisant rénal (TOF sans contraste).",
+    "Elle surestime parfois les sténoses."
+   ],
+   [
+    "Cholangio-IRM (T2 très pondéré)",
+    "Les voies biliaires et le canal pancréatique sans injection.",
+    "Tu cherches une lithiase de la voie biliaire principale.",
+    "La CPRE diagnostique, invasive.",
+    "Elle ne permet aucun geste thérapeutique."
+   ],
+   [
+    "Perfusion et spectroscopie",
+    "Le volume sanguin et les métabolites d'une lésion : grade tumoral, radionécrose contre récidive.",
+    "Tu dois distinguer une récidive d'une radionécrose.",
+    "L'IRM conventionnelle seule.",
+    "Elle exige une expertise et du temps."
+   ],
+   [
+    "IRM de diffusion corps entier",
+    "Les lésions cellulaires disséminées sans rayons : myélome, métastases osseuses.",
+    "Tu fais un bilan de myélome ou de prédisposition génétique.",
+    "Le bilan radiologique du squelette.",
+    "Elle est longue et peu disponible."
+   ]
+  ],
+  "Médecine nucléaire": [
+   [
+    "Scintigraphie",
+    "La fonction d'un tissu : fixation thyroïdienne, perfusion myocardique, remodelage osseux, fonction rénale séparée.",
+    "Tu veux une information fonctionnelle plutôt qu'anatomique.",
+    "L'échographie ou le CT, quand la question porte sur la fonction.",
+    "Sa résolution spatiale reste faible."
+   ],
+   [
+    "PET-FDG",
+    "La consommation de glucose : tumeurs avides, foyers infectieux ou inflammatoires.",
+    "Tu stadifies un cancer, un lymphome ou cherches une fièvre inexpliquée.",
+    "Le CT seul, pour l'activité métabolique.",
+    "Le cerveau, le cœur et l'inflammation fixent aussi le FDG."
+   ],
+   [
+    "PET à traceur spécifique (PSMA, DOTATATE, amyloïde)",
+    "Une cible moléculaire : cancer de la prostate, tumeur neuroendocrine, amylose cérébrale.",
+    "La cible exprime le récepteur.",
+    "Le PET-FDG, pour les tumeurs peu avides de glucose.",
+    "Disponibilité et coût limitent son usage."
+   ]
+  ],
+  "Endoscopie": [
+   [
+    "Endoscopie avec biopsie",
+    "La muqueuse vue directement et prélevée : la preuve histologique.",
+    "Tu dois prouver une lésion muqueuse et parfois la traiter dans le même temps.",
+    "L'imagerie en coupe, pour la muqueuse.",
+    "Elle est invasive et exige une sédation."
+   ],
+   [
+    "Écho-endoscopie",
+    "Les couches de la paroi et les organes voisins, avec ponction.",
+    "Tu stadifies une tumeur pariétale ou explores une masse pancréatique.",
+    "Le CT, pour les petites lésions pancréatiques ou biliaires.",
+    "Elle est invasive et opérateur-dépendante."
+   ]
+  ]
+ },
+ "visees": [
+  [
+   "diagnostique",
+   "Poser ou exclure le diagnostic (examen de référence, sensibilité ou spécificité décisive)."
+  ],
+  [
+   "etiologique",
+   "Trouver la cause une fois le syndrome posé."
+  ],
+  [
+   "retentissement",
+   "Mesurer l'atteinte des organes cibles et la gravité."
+  ],
+  [
+   "complications",
+   "Dépister les complications de la maladie et du traitement (tolérance)."
+  ],
+  [
+   "remission",
+   "Suivre la réponse au traitement et la rémission."
+  ],
+  [
+   "sortie",
+   "Vérifier les critères qui autorisent la sortie ou le relais ambulatoire."
+  ]
+ ],
+ "smarter": [
+  [
+   "Vertiges aigus",
+   "Commencer par l'anamnèse ciblée et le test HINTS ou les épreuves positionnelles, pas par une imagerie primaire (ORL 2019)."
+  ],
+  [
+   "Bilan préopératoire",
+   "Éviter tout examen préopératoire de routine (laboratoire, ECG, radiographie) sans question clinique (MIG ambulatoire 2021)."
+  ],
+  [
+   "Patient asymptomatique",
+   "Éviter les check-up approfondis réguliers chez les personnes asymptomatiques (MIG ambulatoire 2021)."
+  ],
+  [
+   "Patient hospitalisé",
+   "Éviter les examens qui n'auront probablement aucune conséquence thérapeutique, et les batteries d'examens sans question clinique (MIG hospitalière 2016)."
+  ],
+  [
+   "Lombalgie aiguë",
+   "Ne pas demander d'imagerie dans les six premières semaines sans drapeau rouge (MIG ambulatoire 2014 — à vérifier sur smartermedicine.ch)."
+  ]
+ ],
  "auditConception": [
   {
    "controle": "Section « objectif » présente et non vide",

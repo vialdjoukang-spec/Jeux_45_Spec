@@ -144,3 +144,60 @@ SYSTEMES = {"Cardiovasculaire": ["Cœur et péricarde", "Aorte thoracique et art
             "Ophtalmologique & ORL": ["Œil et orbite", "Oreille et équilibre", "Nez, sinus et cavum", "Larynx et pharynx"],
             "Gynéco-obstétrical": ["Utérus, col, ovaires et annexes", "Grossesse, fœtus et placenta", "Seins", "Plancher pelvien"],
             "Pédiatrique (croissance et développement)": ["Génétique", "Os longs et squelette", "Encéphale", "Hanche et bassin", "Métabolisme et endocrinologie"]}
+
+# ---------- visées d'un bilan : chaque examen se range dans au moins une visée ----------
+VISEES = [
+ ["diagnostique", "Poser ou exclure le diagnostic (examen de référence, sensibilité ou spécificité décisive)."],
+ ["etiologique", "Trouver la cause une fois le syndrome posé."],
+ ["retentissement", "Mesurer l'atteinte des organes cibles et la gravité."],
+ ["complications", "Dépister les complications de la maladie et du traitement (tolérance)."],
+ ["remission", "Suivre la réponse au traitement et la rémission."],
+ ["sortie", "Vérifier les critères qui autorisent la sortie ou le relais ambulatoire."],
+]
+
+# ---------- techniques d'imagerie : facteur discriminant et avantage sélectif ----------
+# Chaque ligne : technique, ce qu'elle voit le mieux (discriminant), on la préfère quand, plutôt que, limite.
+TECHNIQUES = {
+ "Radiographie": [
+  ["Radiographie standard", "Les contrastes os / air / tissus mous ; fractures, pneumothorax, condensation, pneumopéritoine.", "Tu veux une réponse immédiate, peu irradiante, au lit du malade.", "Le CT, quand la question est simple et le cliché suffit.", "Elle superpose les plans et voit mal les tissus mous."]],
+ "Échographie": [
+  ["Mode B", "Les interfaces liquide / solide : kystes, épanchements, lithiases, dilatations des voies.", "Tu veux un examen sans irradiation, au lit, chez l'enfant ou la femme enceinte.", "Le CT, en première intention pour la vésicule, les reins, le pelvis, la thyroïde.", "Elle dépend de l'opérateur et l'air ou l'os l'arrêtent."],
+  ["Doppler couleur et pulsé", "Le sens et la vitesse du flux : sténose, thrombose, vascularisation d'une masse.", "Tu cherches une thrombose veineuse, une sténose carotidienne ou une torsion.", "L'angio-CT, en première intention vasculaire non urgente.", "Le flux lent ou profond se mesure mal."],
+  ["Élastographie", "La rigidité du tissu : fibrose hépatique, nodule thyroïdien suspect.", "Tu évalues une fibrose sans biopsie.", "La ponction-biopsie hépatique, pour stadifier la fibrose.", "L'inflammation et la congestion faussent la mesure."],
+  ["Échographie de contraste (CEUS)", "La cinétique de rehaussement d'un nodule, sans rein ni rayons.", "Tu caractérises un nodule hépatique chez un insuffisant rénal.", "Le CT ou l'IRM injectés.", "Elle n'explore qu'une cible à la fois."],
+  ["POCUS / eFAST", "Le liquide libre, le pneumothorax, la tamponnade, en quelques minutes.", "Le patient est instable.", "Le CT, quand le patient ne peut pas quitter la salle.", "Elle répond à des questions binaires seulement."]],
+ "Scanner (CT)": [
+  ["CT natif", "Le sang frais, les calcifications, les lithiases, l'os.", "Tu cherches une hémorragie cérébrale ou une lithiase urinaire.", "L'IRM, en urgence (rapide, disponible).", "Il irradie et voit mal la substance grise / blanche fine."],
+  ["CT injecté, phase artérielle", "Les lésions hypervasculaires et les artères : CHC, embolie pulmonaire (phase pulmonaire), dissection.", "Tu cherches un saignement actif ou une embolie.", "La phase portale seule.", "Il exige un rein fonctionnel ; risque allergique au produit iodé."],
+  ["CT injecté, phase portale", "Les organes pleins et les collections abdominales.", "Tu fais un bilan abdominal standard ou d'extension.", "L'IRM, pour un bilan rapide et global.", "Il caractérise moins bien les nodules hépatiques que l'IRM."],
+  ["CT haute résolution", "L'interstitium pulmonaire : verre dépoli, rayon de miel, bronchectasies.", "Tu suspectes une pneumopathie interstitielle.", "La radiographie, trop peu sensible.", "Il ne remplace pas l'histologie dans certains cas."],
+  ["Angio-CT", "La lumière des vaisseaux : sténose, occlusion, anévrisme, dissection.", "Tu dois décider vite d'une revascularisation.", "L'artériographie, invasive.", "Il irradie et demande du produit de contraste."]],
+ "IRM": [
+  ["T1", "L'anatomie fine ; la graisse et le sang subaigu (méthémoglobine) apparaissent en hypersignal.", "Tu veux l'anatomie de référence ou un saignement subaigu.", "Le T2, pour l'anatomie fine et la graisse.", "L'eau et l'œdème y sont peu visibles (hyposignal)."],
+  ["T2", "L'eau : œdème, kystes, liquides, inflammation (hypersignal).", "Tu cherches une lésion œdémateuse ou kystique.", "Le T1, pour détecter la pathologie liquidienne.", "Le LCR très brillant masque les lésions périventriculaires."],
+  ["FLAIR", "Le T2 dont le signal du LCR est annulé : lésions périventriculaires et corticales.", "Tu cherches une plaque de sclérose en plaques, un œdème cortical ou une hémorragie sous-arachnoïdienne subaiguë.", "Le T2 simple, près des ventricules.", "La fosse postérieure reste moins bien explorée."],
+  ["Diffusion (DWI) et carte ADC", "La restriction de mobilité de l'eau : ischémie aiguë dès les premières minutes, abcès, tumeur très cellulaire.", "Tu suspectes un AVC ischémique de moins de 6 h ou un abcès.", "Le CT natif, normal dans les premières heures de l'ischémie.", "Le « T2 shine-through » imite une restriction : l'ADC tranche (bas = vraie restriction)."],
+  ["T2* / SWI (susceptibilité)", "Les dépôts d'hémosidérine et le calcium : microsaignements, cavernomes, transformation hémorragique.", "Tu cherches des microsaignements (angiopathie amyloïde) ou une lésion axonale diffuse.", "Le T2 simple, aveugle aux microsaignements.", "Les artéfacts métalliques et aériques l'altèrent."],
+  ["T1 avec gadolinium", "La rupture de la barrière hématoencéphalique et la vascularisation : tumeur, plaque active, méningite, abcès.", "Tu veux savoir si une lésion est active ou vascularisée.", "Le T1 natif seul.", "Il exige un DFG suffisant ; des dépôts de gadolinium existent."],
+  ["STIR et T2 avec saturation de graisse", "L'œdème dans un tissu graisseux : œdème osseux, fracture de stress, myosite.", "Tu cherches une fracture occulte ou une spondylodiscite.", "Le T1 seul, pour l'œdème osseux.", "Le rapport signal / bruit est plus faible."],
+  ["Angio-IRM (TOF, avec contraste)", "Le flux artériel sans rayons : anévrisme intracrânien, sténose.", "Tu dois éviter l'iode et les rayons.", "L'angio-CT chez le sujet jeune ou insuffisant rénal (TOF sans contraste).", "Elle surestime parfois les sténoses."],
+  ["Cholangio-IRM (T2 très pondéré)", "Les voies biliaires et le canal pancréatique sans injection.", "Tu cherches une lithiase de la voie biliaire principale.", "La CPRE diagnostique, invasive.", "Elle ne permet aucun geste thérapeutique."],
+  ["Perfusion et spectroscopie", "Le volume sanguin et les métabolites d'une lésion : grade tumoral, radionécrose contre récidive.", "Tu dois distinguer une récidive d'une radionécrose.", "L'IRM conventionnelle seule.", "Elle exige une expertise et du temps."],
+  ["IRM de diffusion corps entier", "Les lésions cellulaires disséminées sans rayons : myélome, métastases osseuses.", "Tu fais un bilan de myélome ou de prédisposition génétique.", "Le bilan radiologique du squelette.", "Elle est longue et peu disponible."]],
+ "Médecine nucléaire": [
+  ["Scintigraphie", "La fonction d'un tissu : fixation thyroïdienne, perfusion myocardique, remodelage osseux, fonction rénale séparée.", "Tu veux une information fonctionnelle plutôt qu'anatomique.", "L'échographie ou le CT, quand la question porte sur la fonction.", "Sa résolution spatiale reste faible."],
+  ["PET-FDG", "La consommation de glucose : tumeurs avides, foyers infectieux ou inflammatoires.", "Tu stadifies un cancer, un lymphome ou cherches une fièvre inexpliquée.", "Le CT seul, pour l'activité métabolique.", "Le cerveau, le cœur et l'inflammation fixent aussi le FDG."],
+  ["PET à traceur spécifique (PSMA, DOTATATE, amyloïde)", "Une cible moléculaire : cancer de la prostate, tumeur neuroendocrine, amylose cérébrale.", "La cible exprime le récepteur.", "Le PET-FDG, pour les tumeurs peu avides de glucose.", "Disponibilité et coût limitent son usage."]],
+ "Endoscopie": [
+  ["Endoscopie avec biopsie", "La muqueuse vue directement et prélevée : la preuve histologique.", "Tu dois prouver une lésion muqueuse et parfois la traiter dans le même temps.", "L'imagerie en coupe, pour la muqueuse.", "Elle est invasive et exige une sédation."],
+  ["Écho-endoscopie", "Les couches de la paroi et les organes voisins, avec ponction.", "Tu stadifies une tumeur pariétale ou explores une masse pancréatique.", "Le CT, pour les petites lésions pancréatiques ou biliaires.", "Elle est invasive et opérateur-dépendante."]],
+}
+
+# ---------- smarter medicine (Choosing Wisely Suisse) : exemples à intégrer dans les infobulles « À retenir » ----------
+SMARTER = [
+ ["Vertiges aigus", "Commencer par l'anamnèse ciblée et le test HINTS ou les épreuves positionnelles, pas par une imagerie primaire (ORL 2019)."],
+ ["Bilan préopératoire", "Éviter tout examen préopératoire de routine (laboratoire, ECG, radiographie) sans question clinique (MIG ambulatoire 2021)."],
+ ["Patient asymptomatique", "Éviter les check-up approfondis réguliers chez les personnes asymptomatiques (MIG ambulatoire 2021)."],
+ ["Patient hospitalisé", "Éviter les examens qui n'auront probablement aucune conséquence thérapeutique, et les batteries d'examens sans question clinique (MIG hospitalière 2016)."],
+ ["Lombalgie aiguë", "Ne pas demander d'imagerie dans les six premières semaines sans drapeau rouge (MIG ambulatoire 2014 — à vérifier sur smartermedicine.ch)."],
+]

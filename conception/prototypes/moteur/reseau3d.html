@@ -14,7 +14,7 @@ html,body{margin:0;width:100vw;height:100vh;overflow:hidden;font-family:A,sans-s
 .n.d{border-left:5px solid var(--c)}.n.g{border-right:5px solid var(--c)}
 .n b{display:block;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--c);margin-bottom:1px}
 [data-theme=nuit] .n b,[data-theme=anthracite] .n b{filter:brightness(1.35)}
-.n.cache{opacity:0;pointer-events:none}
+.n.cache{opacity:0!important;pointer-events:none}
 .n.ouvert{outline:1.5px solid var(--c);outline-offset:2px}
 .n.feuille{cursor:default}
 .n.g .plus{left:6px;right:auto}.n .plus{position:absolute;right:6px;top:5px;font-weight:700;color:var(--c);font-size:13px}
@@ -28,12 +28,14 @@ h1{position:absolute;left:24px;top:12px;margin:0;font:700 19px Georgia,serif;col
 .cap *{transition:none!important}
 #bulle{position:absolute;z-index:20;width:330px;box-sizing:border-box;background:var(--carte);color:var(--texte);border:1px solid var(--bord);border-top:5px solid var(--c);border-radius:9px;padding:10px 12px;box-shadow:0 8px 28px #0004;font-size:12.5px;line-height:1.4;display:none}
 #bulle h4{margin:0 0 6px;font-size:13.5px}#bulle dl{margin:0;display:grid;grid-template-columns:118px 1fr;gap:5px 8px}#bulle dt{font-weight:700;color:var(--c);font-size:11px;text-transform:uppercase;letter-spacing:.04em;padding-top:1px}#bulle dd{margin:0}
+#bulle h5.sec{margin:9px 0 5px;font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;border-top:1px solid var(--bord);padding-top:7px}#bulle .src{font-size:11px;color:var(--sous);margin-top:5px}
+.n.terne{opacity:.35}.n .pastille{position:absolute;top:-6px;right:-6px;width:12px;height:12px;border-radius:50%;border:2px solid var(--carte)}
 #bulle .ecoute{margin-top:8px;font:700 12px A,sans-serif;border:1px solid var(--c);color:var(--texte);background:transparent;border-radius:999px;padding:4px 12px;cursor:pointer}
 .n .son{position:absolute;right:6px;bottom:4px;font-size:13px;cursor:pointer;line-height:1}.n.g .son{left:6px;right:auto}.fen.cache{opacity:0;pointer-events:none}.fen ol{margin:8px 0 0 18px;padding:0;line-height:1.45}
 </style></head><body>
 <canvas id="gl"></canvas><canvas id="ln"></canvas><h1 id="t"></h1>
 <div id="barre"><button id="theme" title="Changer le fond : 7 thèmes contrastés"><i></i><span>Blanc</span></button>
-<button id="repli" title="Clic : replier le dernier circuit ouvert · Double-clic : tout replier">↺ Replier</button></div>
+<select id="lent" title="Lentille transversale : n'afficher que les particularités de la discipline" style="font:700 12px A,sans-serif;border:1px solid var(--bord);background:var(--carte);color:var(--texte);border-radius:999px;padding:6px 10px"></select><button id="repli" title="Clic : replier le dernier circuit ouvert · Double-clic : tout replier">↺ Replier</button></div>
 <div id="bulle"></div><div id="aide">Survol : explication · 🔊 : écouter · Clic sur une case : révéler la suite · ↺ clic = repli sélectif · double-clic = repli global</div>
 <script type="importmap">{"imports":{"three":"./three/build/three.module.js","three/addons/":"./three/examples/jsm/"}}</script>
 <script type="module">
@@ -50,7 +52,7 @@ const R=new THREE.WebGLRenderer({canvas:gl,antialias:true,alpha:true,preserveDra
 R.outputColorSpace=THREE.SRGBColorSpace;R.toneMapping=THREE.ACESFilmicToneMapping;
 const S=new THREE.Scene();S.add(new THREE.HemisphereLight(0xffffff,0x5a4a40,1.5));
 const d1=new THREE.DirectionalLight(0xffffff,2.2);d1.position.set(-600,-1200,1900);S.add(d1);const d2=new THREE.DirectionalLight(0xbcd0ff,1);d2.position.set(900,-300,600);S.add(d2);
-const T=C.cible||[0,-90,1000],cam=new THREE.PerspectiveCamera(C.fov||22,W/H,10,10000);cam.up.set(0,0,1);
+const T0=C.cible||[0,-90,1000],T=Q.get('cx')?[+Q.get('cx'),T0[1],T0[2]]:T0,cam=new THREE.PerspectiveCamera(C.fov||22,W/H,10,10000);cam.up.set(0,0,1);
 cam.position.set(T[0],T[1]-(C.dist||4300),T[2]+(C.camZ||120));cam.lookAt(...T);
 const g=await new GLTFLoader().loadAsync('corps.glb');const M={};
 g.scene.traverse(o=>{if(!o.isMesh)return;const k=o.name.replace(/_\d+$/,'');o.name=k;M[k]=o;o.geometry.computeVertexNormals();
@@ -71,7 +73,7 @@ await document.fonts.load('12.5px A');await document.fonts.load('700 10px A');aw
 const N=C.noeuds,byId=Object.fromEntries(N.map(n=>[n.id,n]));
 N.forEach(n=>{n.de=n.de||[];n.enf=[];});N.forEach(n=>n.de.forEach(p=>byId[p].enf.push(n.id)));
 const prof=n=>n._p??(n._p=n.de.length?1+Math.max(...n.de.map(p=>prof(byId[p]))):0);N.forEach(prof);
-let COL=C.largeurColonne||190;const G=C.ecartColonne||46;
+let COL=+(Q.get('col')||C.largeurColonne||190);const G=C.ecartColonne||46;
 for(const n of N){if(n.organe){n.o=centre(n.organe);n.cote=n.cote||(n.o[0]>(L+Rr)/2?'d':'g');}}
 for(const n of N)if(!n.organe)n.cote=n.cote||(function c(m){return m.cote||c(byId[m.de[0]]);})(n);
 {/* ajustement automatique de la largeur des colonnes à l'écran */
@@ -82,13 +84,20 @@ for(const n of N){const el=document.createElement('div');el.className='n cache'+
  el.classList.add(n.cote);n.w=el.offsetWidth;n.h=el.offsetHeight;}
 for(const n of N){n._c=n.col??n._p;const pas=(COL+G)*n._c;n.x=n.cote==='d'?Rr+G+pas+COL/2:L-G-pas-COL/2;}
 /* symétrie parfaite par arbre : chaque parent se centre exactement sur le bloc de ses enfants */
+const dessinerReperes=(img,cv,rep)=>{cv.width=img.width;cv.height=img.height;const q=cv.getContext('2d'),k=img.width/img.naturalWidth;
+ for(const a of rep){q.strokeStyle=a.couleur||'#2a9d8f';q.lineWidth=2;q.setLineDash(a.pointille?[5,4]:[]);q.beginPath();q.ellipse(a.x*k,a.y*k,a.rx*k,a.ry*k,0,0,7);q.stroke();q.setLineDash([]);
+  const cx=a.x*k+a.rx*k*.75,cy=a.y*k-a.ry*k*.75;q.fillStyle=a.couleur||'#2a9d8f';q.beginPath();q.arc(cx,cy,9,0,7);q.fill();q.fillStyle='#111';q.font='700 11px A';q.textAlign='center';q.fillText(a.n,cx,cy+4);}};
 for(const f of C.fenetres||[]){const w=document.createElement('div');w.className='fen cache';w.style.cssText+=`left:${f.x}px;top:${f.y}px;width:${f.w}px;--c:${f.couleur||'#2a9d8f'}`;
- const iw=(f.w-34)/2;w.innerHTML=`<div style="font-weight:700;margin-bottom:6px">${f.titre}</div><div style="display:flex;gap:10px"><div><div style="opacity:.7;margin-bottom:3px">Cliché brut</div><img src="${f.img}" style="width:${iw}px;display:block;border-radius:4px"></div><div style="position:relative"><div style="opacity:.7;margin-bottom:3px">Cliché annoté</div><img class=a src="${f.img}" style="width:${iw}px;display:block;border-radius:4px"><canvas style="position:absolute;left:0;top:19px"></canvas></div></div><ol></ol>`;
- document.body.appendChild(w);const im=w.querySelector('img.a');await new Promise(r=>im.complete?r():im.onload=r);
- const cv=w.querySelector('canvas');cv.width=im.width;cv.height=im.height;const q=cv.getContext('2d'),k=im.width/im.naturalWidth;
- for(const a of f.annotations){q.strokeStyle=a.couleur;q.lineWidth=2;q.setLineDash(a.pointille?[5,4]:[]);q.beginPath();q.ellipse(a.x*k,a.y*k,a.rx*k,a.ry*k,0,0,7);q.stroke();q.setLineDash([]);
-  q.fillStyle=a.couleur;q.beginPath();q.arc(a.x*k+a.rx*k*.75,a.y*k-a.ry*k*.75,9,0,7);q.fill();q.fillStyle='#111';q.font='700 11px A';q.fillText(a.n,a.x*k+a.rx*k*.75-3.5,a.y*k-a.ry*k*.75+4);
-  const li=document.createElement('li');li.textContent=a.texte;w.querySelector('ol').appendChild(li);}
+ const iw=(f.w-34)/2,nr=f.normal;
+ w.innerHTML=`<div style="font-weight:700;margin-bottom:6px">${f.titre}</div><div style="display:flex;gap:10px">
+ <div style="position:relative"><div style="margin-bottom:3px;display:flex;justify-content:space-between"><span style="color:var(--sous)">Cliché du patient</span><button class=bascule style="font:700 10.5px A;border:1px solid var(--c);background:transparent;color:var(--texte);border-radius:99px;padding:1px 8px;cursor:pointer">Annoté</button></div><img class=ipat src="${f.img}" style="width:${iw}px;display:block;border-radius:4px"><canvas class=cp style="position:absolute;left:0;top:22px"></canvas></div>
+ <div style="position:relative"><div style="margin-bottom:3px;color:var(--sous)">Radio-anatomie normale</div><img class=inor src="${nr?nr.img:f.img}" style="width:${iw}px;display:block;border-radius:4px"><canvas class=cn style="position:absolute;left:0;top:22px"></canvas></div></div>
+ <div style="display:flex;gap:14px"><ol style="flex:1"></ol><ul class=an style="flex:1;margin:8px 0 0 0;padding:0;list-style:none;line-height:1.45"></ul></div>`;
+ document.body.appendChild(w);const ip=w.querySelector('img.ipat'),inn=w.querySelector('img.inor');await Promise.all([ip,inn].map(im=>new Promise(r=>im.complete?r():im.onload=r)));
+ dessinerReperes(ip,w.querySelector('.cp'),f.annotations);if(nr)dessinerReperes(inn,w.querySelector('.cn'),nr.reperes);
+ for(const a of f.annotations){const li=document.createElement('li');li.textContent=a.texte;w.querySelector('ol').appendChild(li);}
+ for(const a of (nr?nr.reperes:[])){const li=document.createElement('li');li.innerHTML='<b>'+a.n+'.</b> '+a.texte;w.querySelector('.an').appendChild(li);}
+ const bs=w.querySelector('.bascule'),cp=w.querySelector('.cp');bs.onclick=()=>{const v=cp.style.display==='none';cp.style.display=v?'block':'none';bs.textContent=v?'Annoté':'Brut';};
  f.el=w;const P=byId[f.de];P.el.classList.remove('feuille');P.aFen=true;}
 /* ---------- dévoilement progressif ---------- */
 const ouvert=new Set(),pile=[];
@@ -149,11 +158,22 @@ if(Q.has('tout'))for(const n of N)if((n.enf.length||n.aFen)&&!(Q.get('sauf')||''
 /* ---------- infobulle symétrique : 4 rubriques fixes, une phrase verbale chacune ---------- */
 const RUB=[['def','Ce que c\'est'],['pourquoi','Pourquoi ici'],['confusion','Confusion possible'],['retenir','À retenir']];
 let audio=null;const jouer=src=>{try{if(audio)audio.pause();audio=new Audio(src);audio.play();}catch(e){}};
-function montrer(n){if(!n.bulle||n.el.classList.contains('cache'))return;bulle.style.setProperty('--c',n.couleur||'#888');
- bulle.innerHTML='<h4>'+n.texte+'</h4><dl>'+RUB.map(([k,l])=>'<dt>'+l+'</dt><dd>'+(n.bulle[k]||'Aucune confusion fréquente.')+'</dd>').join('')+'</dl>'+(n.son?'<button class=ecoute>▶ Écouter : '+(n.sonTitre||n.texte)+'</button>':'');
- bulle.style.display='block';const bw=330,bh=bulle.offsetHeight;let bx=n.cote==='d'?n.x-n.w/2-bw-14:n.x+n.w/2+14;if(bx<8)bx=n.x+n.w/2+14;if(bx+bw>W-8)bx=n.x-n.w/2-bw-14;
+const VIS=[['diagnostique','Diagnostique'],['etiologique','Étiologique'],['retentissement','Retentissement'],['complications','Complications'],['remission','Rémission'],['sortie','Sortie']];
+let lentille=Q.get('lentille')||'';const LEN=C.lentilles||[];
+function montrer(n){if(!n.bulle||n.el.classList.contains('cache'))return;bulle.style.setProperty('--c',n.couleur||'#888');const B=n.bulle;
+ const pl=lentille&&n.particularites&&n.particularites[lentille];const ln=LEN.find(l=>l.id===lentille);
+ bulle.innerHTML='<h4>'+n.texte+'</h4><dl>'+RUB.map(([k,l])=>'<dt>'+l+'</dt><dd>'+(B[k]||'Aucune confusion fréquente.')+'</dd>').join('')
+  +(pl?'<dt style="color:'+ln.couleur+'">Particularité · '+ln.nom+'</dt><dd style="border-left:3px solid '+ln.couleur+';padding-left:6px">'+pl+'</dd>':'')+'</dl>'
+  +(B.bilan?'<h5 class=sec>Bilan stratifié</h5><dl>'+VIS.filter(([k])=>B.bilan[k]).map(([k,l])=>'<dt>'+l+'</dt><dd>'+B.bilan[k]+'</dd>').join('')+'</dl>':'')
+  +(B.traitement?'<h5 class=sec>Traitement et posologie</h5><dl>'+B.traitement.map(t=>'<dt>'+t[0]+'</dt><dd>'+t[1]+'</dd>').join('')+'</dl>'+(B.source?'<div class=src>Source : '+B.source+'</div>':''):'')
+  +(n.son?'<button class=ecoute>▶ Écouter : '+(n.sonTitre||n.texte)+'</button>':'');
+ bulle.style.width=(B.bilan?400:330)+'px';bulle.style.display='block';const bw=B.bilan?400:330,bh=bulle.offsetHeight;let bx=n.cote==='d'?n.x-n.w/2-bw-14:n.x+n.w/2+14;if(bx<8)bx=n.x+n.w/2+14;if(bx+bw>W-8)bx=n.x-n.w/2-bw-14;
  bulle.style.left=bx+'px';bulle.style.top=Math.min(Math.max(n.y-bh/2,90),H-bh-8)+'px';const b=bulle.querySelector('.ecoute');if(b)b.onclick=()=>jouer(n.son);}
 for(const n of N){n.el.onmouseenter=()=>montrer(n);n.el.onmouseleave=()=>{bulle.style.display='none';};const sb=n.el.querySelector('.son');if(sb)sb.onclick=e=>{e.stopPropagation();jouer(n.son);};}
 bulle.onmouseenter=()=>bulle.style.display='block';bulle.onmouseleave=()=>bulle.style.display='none';
+lent.innerHTML='<option value="">Lentille : aucune</option>'+LEN.map(l=>'<option value="'+l.id+'">Lentille : '+l.nom+'</option>').join('');lent.value=lentille;
+function appliquerLentille(){for(const n of N){const a=lentille&&n.particularites&&n.particularites[lentille];n.el.classList.toggle('terne',!!lentille&&!a);let p=n.el.querySelector('.pastille');if(p)p.remove();
+ if(a){p=document.createElement('span');p.className='pastille';p.style.background=LEN.find(l=>l.id===lentille).couleur;n.el.appendChild(p);}}}
+lent.onchange=()=>{lentille=lent.value;appliquerLentille();};appliquerLentille();if(!LEN.length)lent.style.display='none';
 setTheme();if(Q.get('bulle'))montrer(byId[Q.get('bulle')]);document.title='PRET';
 </script></body></html>

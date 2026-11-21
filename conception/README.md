@@ -38,3 +38,12 @@ python conception/outils/rendre_plans.py
 - `outils/auditer_couverture.py` : audit bloquant (systèmes reliés, au moins deux modalités par organe, aucun doublon, examens témoins) → `audit/couverture.md`.
 - Tétrade : onglet unique « Examens complémentaires » (E9), progression topo-systémique ou topo-organe.
 - `audit/audit_amelioration.md` : constats, corrections et reste à faire.
+
+## Mise à jour : navigation par côté, disciplines transversales, discriminants
+- Règle du côté : un circuit se développe du côté où le trait né du corps rejoint sa première case.
+- Onglet Disciplines transversales : 19 disciplines-outils (A → S) et 12 lentilles cliniques (`outils/transversales.py`).
+- Infobulle de diagnostic : bilan en six visées et traitement avec posologie et source.
+- Facteur discriminant des techniques d'imagerie, visées du bilan et smarter medicine (`outils/catalogue_paraclinique.py`).
+- Fenêtre de clichés : patient (brut / annoté) à gauche, radio-anatomie normale à droite.
+- Anatomie : fenêtre de structure 3D à quatre vues (`prototypes/moteur/anatomie.html`).
+- Audit global : `outils/auditer_conception.py` → `audit/conception.md`.

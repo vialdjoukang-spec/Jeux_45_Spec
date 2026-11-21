@@ -1,1 +1,848 @@
-{"titre": "Tétrade topo-systémique — simulation du prototype", "sousTitre": "Mannequin 3D réel · clic sur une case pour dérouler le circuit", "theme": "champagne", "voile": [-58, -230, 630, 58, -60, 790], "opacitePeau": 0.22, "cible": [430, -90, 1000], "dist": 4300, "fov": 22, "largeurColonne": 165, "ecartColonne": 44, "noeuds": [{"id": "cer", "type": "Neuro", "texte": "Encéphale", "organe": "cerveau", "couleur": "#8e5cc4", "cote": "g"}, {"id": "pou", "type": "Respiratoire", "texte": "Poumons", "organe": "poumon_d", "couleur": "#3d7fd6"}, {"id": "foi", "type": "Digestif", "texte": "Foie", "organe": "foie", "couleur": "#c98a2b", "cote": "g"}, {"id": "rei", "type": "Urinaire", "texte": "Reins", "organe": "reins", "couleur": "#b8960f", "cote": "g"}, {"id": "bas", "type": "Locomoteur", "texte": "Bassin · hanche", "organe": "bassin", "couleur": "#6b7280", "cote": "g"}, {"id": "coe", "type": "Cardiovasculaire", "texte": "Cœur", "organe": "coeur", "couleur": "#d64545", "cote": "d"}, {"id": "est", "type": "Digestif", "texte": "Estomac", "organe": "estomac", "couleur": "#c98a2b", "cote": "d"}, {"id": "s1", "type": "Temps 1 · Inspection", "texte": "Turgescence jugulaire", "couleur": "#d64545", "de": ["coe"]}, {"id": "s2", "type": "Temps 3 · Palpation", "texte": "Choc de pointe dévié", "couleur": "#d64545", "de": ["coe"]}, {"id": "s3", "type": "Temps 4 · Auscultation", "texte": "Galop B3", "couleur": "#d64545", "de": ["coe"]}, {"id": "s4", "type": "Symptôme", "texte": "Dyspnée d'effort NYHA III", "couleur": "#3d7fd6", "de": ["coe"]}, {"id": "sy", "type": "Syndrome", "texte": "Insuffisance cardiaque gauche", "couleur": "#e07b1a", "de": ["s1", "s2", "s3", "s4"]}, {"id": "ex", "type": "Examen", "texte": "NT-proBNP · échocardiographie", "couleur": "#2a9d8f", "de": ["sy"]}, {"id": "dg", "type": "Diagnostic · Cardio", "texte": "ICFEr", "couleur": "#d64545", "de": ["sy"]}]}
+{
+ "titre": "Tétrade topo-systémique — simulation du prototype",
+ "sousTitre": "Mannequin 3D réel · survol = explication · 🔊 = son réel · clic = circuit suivant",
+ "theme": "champagne",
+ "voile": [
+  -58,
+  -230,
+  630,
+  58,
+  -60,
+  790
+ ],
+ "opacitePeau": 0.22,
+ "cible": [
+  640,
+  -90,
+  1060
+ ],
+ "dist": 4300,
+ "fov": 22,
+ "largeurColonne": 170,
+ "ecartColonne": 38,
+ "noeuds": [
+  {
+   "id": "cer",
+   "type": "Neuro",
+   "texte": "Encéphale",
+   "organe": "cerveau",
+   "couleur": "#8e5cc4",
+   "cote": "g",
+   "bulle": {
+    "def": "L'encéphale réunit les hémisphères, le tronc cérébral et le cervelet dans la boîte crânienne.",
+    "pourquoi": "Un circuit neurologique part d'ici vers les signes de chaque temps d'examen.",
+    "confusion": "Une atteinte médullaire ou périphérique peut imiter un déficit central.",
+    "retenir": "Tu localises d'abord la lésion, puis tu cherches sa cause."
+   }
+  },
+  {
+   "id": "pou",
+   "type": "Respiratoire",
+   "texte": "Poumons",
+   "organe": "poumon_d",
+   "couleur": "#3d7fd6",
+   "bulle": {
+    "def": "Les poumons échangent l'oxygène et le gaz carbonique à travers la membrane alvéolocapillaire.",
+    "pourquoi": "Quand les alvéoles se remplissent, l'échange chute et produit les signes du circuit.",
+    "confusion": "Une atteinte pleurale ou cardiaque peut donner des signes pulmonaires semblables.",
+    "retenir": "Tu compares toujours les deux côtés, niveau par niveau."
+   }
+  },
+  {
+   "id": "foi",
+   "type": "Digestif",
+   "texte": "Foie",
+   "organe": "foie",
+   "couleur": "#c98a2b",
+   "cote": "g",
+   "bulle": {
+    "def": "Le foie occupe l'hypocondre droit et assure synthèse, détoxification et production de bile.",
+    "pourquoi": "Un circuit hépatique part d'ici vers l'ictère, l'hépatomégalie et l'insuffisance hépatique.",
+    "confusion": "Une hépatomégalie de stase cardiaque peut imiter une atteinte primitive du foie.",
+    "retenir": "Tu explores la cholestase, la cytolyse et la fonction de synthèse séparément."
+   }
+  },
+  {
+   "id": "rei",
+   "type": "Urinaire",
+   "texte": "Reins",
+   "organe": "reins",
+   "couleur": "#b8960f",
+   "cote": "g",
+   "bulle": {
+    "def": "Les reins filtrent le plasma et règlent l'eau, les électrolytes et l'équilibre acide-base.",
+    "pourquoi": "Un circuit rénal part d'ici vers les syndromes néphritique, néphrotique et l'insuffisance rénale.",
+    "confusion": "Une créatinine élevée peut venir d'une déshydratation sans atteinte rénale propre.",
+    "retenir": "Tu classes toute insuffisance rénale en prérénale, rénale ou postrénale."
+   }
+  },
+  {
+   "id": "bas",
+   "type": "Locomoteur",
+   "texte": "Bassin · hanche",
+   "organe": "bassin",
+   "couleur": "#6b7280",
+   "cote": "g",
+   "bulle": {
+    "def": "Le bassin et la hanche portent le poids du tronc et le transmettent aux membres inférieurs.",
+    "pourquoi": "Un circuit locomoteur part d'ici vers la douleur, la boiterie et la limitation articulaire.",
+    "confusion": "Une douleur projetée lombaire ou viscérale peut imiter une coxopathie.",
+    "retenir": "Tu examines toujours la hanche devant une douleur du genou chez l'enfant."
+   }
+  },
+  {
+   "id": "coe",
+   "type": "Cardiovasculaire",
+   "texte": "Cœur",
+   "organe": "coeur",
+   "couleur": "#c0392b",
+   "cote": "d",
+   "bulle": {
+    "def": "Le cœur gauche reçoit le sang oxygéné des veines pulmonaires et l'éjecte dans l'aorte.",
+    "pourquoi": "Quand le ventricule gauche faiblit, la pression remonte vers les poumons et produit les signes du circuit.",
+    "confusion": "Les signes de congestion droite (jugulaires, foie, œdèmes) relèvent du cœur droit.",
+    "retenir": "Tu examines dans l'ordre : inspection, palpation, percussion, auscultation, puis interrogatoire."
+   }
+  },
+  {
+   "id": "t1",
+   "type": "Temps 1",
+   "texte": "Inspection",
+   "couleur": "#c0392b",
+   "de": [
+    "coe"
+   ],
+   "bulle": {
+    "def": "Tu observes le patient avant de le toucher.",
+    "pourquoi": "L'inspection repère la détresse respiratoire et l'œdème pulmonaire.",
+    "confusion": "La turgescence jugulaire se voit aussi à l'inspection, mais elle signe la congestion droite.",
+    "retenir": "Deux ou trois signes concordants suffisent ; un seul ne suffit jamais."
+   }
+  },
+  {
+   "id": "t2",
+   "type": "Temps 2",
+   "texte": "Palpation",
+   "couleur": "#c0392b",
+   "de": [
+    "coe"
+   ],
+   "bulle": {
+    "def": "Tu palpes l'apex et les pouls.",
+    "pourquoi": "La palpation révèle la dilatation et la faiblesse du ventricule gauche.",
+    "confusion": "Un apex dévié par une déformation thoracique ne traduit pas une dilatation.",
+    "retenir": "Tu notes le siège, l'étendue et la force du choc de pointe."
+   }
+  },
+  {
+   "id": "t3",
+   "type": "Temps 3",
+   "texte": "Percussion",
+   "couleur": "#c0392b",
+   "de": [
+    "coe"
+   ],
+   "bulle": {
+    "def": "Tu percutes les champs pulmonaires et l'aire cardiaque.",
+    "pourquoi": "La percussion détecte l'épanchement pleural et l'élargissement cardiaque.",
+    "confusion": "Une condensation pulmonaire est mate aussi, mais ses vibrations vocales augmentent.",
+    "retenir": "La matité des bases oriente vers un épanchement de transsudation."
+   }
+  },
+  {
+   "id": "t4",
+   "type": "Temps 4",
+   "texte": "Auscultation",
+   "couleur": "#c0392b",
+   "de": [
+    "coe"
+   ],
+   "bulle": {
+    "def": "Tu ausculte le cœur au pavillon et à la membrane, puis les poumons.",
+    "pourquoi": "L'auscultation entend le remplissage brutal du ventricule et l'eau dans les alvéoles.",
+    "confusion": "Un B4 ou un dédoublement de B2 peuvent imiter un galop B3.",
+    "retenir": "Le galop B3 et les crépitants fins forment le duo le plus parlant."
+   }
+  },
+  {
+   "id": "t5",
+   "type": "Interrogatoire",
+   "texte": "Symptômes",
+   "couleur": "#2f6fd0",
+   "de": [
+    "coe"
+   ],
+   "bulle": {
+    "def": "Tu demandes au patient ce qu'il ressent et quand.",
+    "pourquoi": "Les symptômes décrivent la congestion pulmonaire vécue par le patient.",
+    "confusion": "La BPCO et l'anémie essoufflent aussi le patient.",
+    "retenir": "L'orthopnée et la dyspnée nocturne sont plus spécifiques que la dyspnée d'effort."
+   }
+  },
+  {
+   "id": "s11",
+   "type": "Signe",
+   "texte": "Polypnée",
+   "couleur": "#c0392b",
+   "de": [
+    "t1"
+   ],
+   "bulle": {
+    "def": "La fréquence respiratoire dépasse 20 cycles par minute au repos.",
+    "pourquoi": "La congestion rigidifie le poumon et stimule les récepteurs J, ce qui accélère la respiration.",
+    "confusion": "Une pneumonie, une embolie pulmonaire ou une acidose accélèrent aussi la respiration.",
+    "retenir": "Elle oriente sans spécificité ; elle prend son sens avec le galop et les crépitants."
+   },
+   "particularites": {
+    "PED": "Les seuils de polypnée dépendent de l'âge : ≥ 60/min avant 2 mois, ≥ 50/min de 2 à 12 mois, ≥ 40/min de 1 à 5 ans (OMS)."
+   }
+  },
+  {
+   "id": "s12",
+   "type": "Signe",
+   "texte": "Crachats mousseux rosés",
+   "couleur": "#c0392b",
+   "de": [
+    "t1"
+   ],
+   "bulle": {
+    "def": "Le patient crache une mousse blanche ou rosée, abondante.",
+    "pourquoi": "L'œdème alvéolaire mêle liquide, air et quelques hématies.",
+    "confusion": "Une hémoptysie vraie rejette du sang rouge vif, sans mousse abondante.",
+    "retenir": "Elle signe un œdème aigu du poumon, une urgence vitale."
+   }
+  },
+  {
+   "id": "s21",
+   "type": "Signe",
+   "texte": "Choc de pointe dévié",
+   "couleur": "#c0392b",
+   "de": [
+    "t2"
+   ],
+   "bulle": {
+    "def": "L'impulsion apicale se palpe au-delà de la ligne médioclaviculaire ou sous le 5e espace.",
+    "pourquoi": "Le ventricule gauche dilaté déplace l'apex vers le bas et le dehors.",
+    "confusion": "Une scoliose ou une déformation thoracique déplacent aussi la pointe sans dilatation.",
+    "retenir": "Un choc étalé traduit une dilatation ; un choc soutenu traduit plutôt une hypertrophie."
+   }
+  },
+  {
+   "id": "s22",
+   "type": "Signe",
+   "texte": "Pouls alternant",
+   "couleur": "#c0392b",
+   "de": [
+    "t2"
+   ],
+   "bulle": {
+    "def": "Le pouls alterne un battement fort et un battement faible, à rythme régulier.",
+    "pourquoi": "Le myocarde défaillant ne récupère pas toute sa force d'un cycle à l'autre.",
+    "confusion": "Un bigéminisme alterne aussi deux pulsations, mais à rythme irrégulier.",
+    "retenir": "Il signe une dysfonction systolique sévère du ventricule gauche."
+   }
+  },
+  {
+   "id": "s31",
+   "type": "Signe",
+   "texte": "Matité des bases",
+   "couleur": "#c0392b",
+   "de": [
+    "t3"
+   ],
+   "bulle": {
+    "def": "La percussion des bases sonne mat et les vibrations vocales disparaissent.",
+    "pourquoi": "La pression capillaire élevée fait transsuder un épanchement pleural, souvent bilatéral.",
+    "confusion": "Une pneumonie condensante est mate aussi, mais les vibrations vocales y augmentent.",
+    "retenir": "L'épanchement de l'IC est un transsudat selon les critères de Light."
+   }
+  },
+  {
+   "id": "s32",
+   "type": "Signe",
+   "texte": "Matité cardiaque élargie",
+   "couleur": "#c0392b",
+   "de": [
+    "t3"
+   ],
+   "bulle": {
+    "def": "L'aire de matité cardiaque déborde ses limites habituelles.",
+    "pourquoi": "Le cœur dilaté occupe une plus grande surface sous la paroi.",
+    "confusion": "Un épanchement péricardique élargit aussi la matité, avec des bruits assourdis.",
+    "retenir": "Ce signe est peu sensible ; la radiographie et l'échographie le confirment."
+   }
+  },
+  {
+   "id": "s41",
+   "type": "Signe",
+   "texte": "Galop B3",
+   "couleur": "#c0392b",
+   "de": [
+    "t4"
+   ],
+   "bulle": {
+    "def": "Un bruit sourd suit B2 en protodiastole et crée un rythme à trois temps (« Ken-tu-cky »), au pavillon, à l'apex, en décubitus latéral gauche.",
+    "pourquoi": "Le sang heurte un ventricule gauche dilaté et rempli sous haute pression.",
+    "confusion": "Le B4 précède B1 (« Ten-nes-see ») et traduit un ventricule rigide ; le dédoublement de B2 est plus aigu.",
+    "retenir": "Après 40 ans, un B3 est pathologique ; chez l'enfant et l'athlète jeune, il peut être normal."
+   },
+   "son": "sons/galop_B3_apex.mp3",
+   "sonTitre": "galop B3 à l'apex (enregistrement réel)",
+   "particularites": {
+    "PED": "Chez l'enfant et l'adolescent, un B3 peut être physiologique : il ne compte qu'avec d'autres signes de congestion.",
+    "GER": "Chez la personne âgée, un B3 est toujours pathologique, mais l'emphysème gêne souvent l'auscultation."
+   }
+  },
+  {
+   "id": "s42",
+   "type": "Signe",
+   "texte": "Crépitants fins bibasaux",
+   "couleur": "#c0392b",
+   "de": [
+    "t4"
+   ],
+   "bulle": {
+    "def": "Des craquements fins et inspiratoires, comme des cheveux froissés près de l'oreille, s'entendent aux deux bases.",
+    "pourquoi": "L'œdème fait se rouvrir brusquement les petites voies aériennes à chaque inspiration.",
+    "confusion": "La fibrose donne des crépitants secs « velcro » ; la pneumonie donne des crépitants localisés et fébriles.",
+    "retenir": "Ils montent vers les sommets quand l'œdème s'aggrave (classification de Killip)."
+   },
+   "son": "sons/crepitants_fins_base_droite.mp3",
+   "sonTitre": "crépitants fins à la base (enregistrement réel)"
+  },
+  {
+   "id": "s43",
+   "type": "Signe",
+   "texte": "Souffle holosystolique",
+   "couleur": "#c0392b",
+   "de": [
+    "t4"
+   ],
+   "bulle": {
+    "def": "Un souffle couvre toute la systole à l'apex et irradie vers l'aisselle.",
+    "pourquoi": "La dilatation écarte l'anneau et les piliers : la valve mitrale fuit (insuffisance fonctionnelle).",
+    "confusion": "Un rétrécissement aortique souffle au foyer aortique et irradie vers les carotides.",
+    "retenir": "Il diminue souvent quand le traitement décongestionne."
+   }
+  },
+  {
+   "id": "s51",
+   "type": "Symptôme",
+   "texte": "Dyspnée d'effort (NYHA)",
+   "couleur": "#2f6fd0",
+   "de": [
+    "t5"
+   ],
+   "bulle": {
+    "def": "L'essoufflement apparaît à l'effort et se grade de I à IV selon la NYHA.",
+    "pourquoi": "À l'effort, la pression capillaire pulmonaire dépasse ce que le ventricule évacue.",
+    "confusion": "La BPCO, l'anémie et le déconditionnement essoufflent aussi à l'effort.",
+    "retenir": "Le stade NYHA guide le traitement et le pronostic."
+   }
+  },
+  {
+   "id": "s52",
+   "type": "Symptôme",
+   "texte": "Orthopnée",
+   "couleur": "#2f6fd0",
+   "de": [
+    "t5"
+   ],
+   "bulle": {
+    "def": "L'essoufflement survient couché et cède assis ; tu la chiffres en nombre d'oreillers.",
+    "pourquoi": "Le décubitus ramène le sang des jambes vers le thorax et surcharge le ventricule gauche.",
+    "confusion": "Une ascite massive ou une paralysie diaphragmatique donnent aussi une orthopnée.",
+    "retenir": "Elle est plus spécifique de l'IC que la dyspnée d'effort."
+   },
+   "particularites": {
+    "GER": "Chez la personne âgée, la décompensation se présente souvent par une confusion ou une chute plutôt que par une orthopnée franche."
+   }
+  },
+  {
+   "id": "s53",
+   "type": "Symptôme",
+   "texte": "Dyspnée nocturne",
+   "couleur": "#2f6fd0",
+   "de": [
+    "t5"
+   ],
+   "bulle": {
+    "def": "Le patient s'éveille 1 à 3 h après le coucher, étouffé, et doit s'asseoir.",
+    "pourquoi": "La nuit, les œdèmes regagnent les vaisseaux et la commande respiratoire baisse.",
+    "confusion": "L'asthme nocturne réveille aussi, mais avec sibilants et toux sèche.",
+    "retenir": "Elle signe une congestion pulmonaire avancée."
+   }
+  },
+  {
+   "id": "sy",
+   "type": "Syndrome",
+   "texte": "Insuffisance cardiaque gauche",
+   "couleur": "#d9731a",
+   "de": [
+    "s11",
+    "s12",
+    "s21",
+    "s22",
+    "s31",
+    "s32",
+    "s41",
+    "s42",
+    "s43",
+    "s51",
+    "s52",
+    "s53"
+   ],
+   "bulle": {
+    "def": "Le ventricule gauche n'évacue plus son volume et la pression remonte vers les capillaires pulmonaires.",
+    "pourquoi": "Galop B3, crépitants bibasaux et orthopnée suffisent à poser le syndrome : deux ou trois signes concordants valent mieux qu'un seul.",
+    "confusion": "Turgescence jugulaire, reflux hépatojugulaire et œdèmes déclives relèvent de l'IC droite : leur présence indique une IC globale.",
+    "retenir": "Le NT-proBNP et l'échocardiographie confirment le syndrome et le classent selon la FEVG."
+   },
+   "particularites": {
+    "PED": "Chez le nourrisson, la décompensation se traduit par une difficulté à boire, une sudation aux biberons et une hépatomégalie.",
+    "URG": "Dans l'œdème aigu du poumon, tu assieds le patient, tu donnes l'oxygène si SpO₂ < 90 % et tu injectes un diurétique de l'anse IV."
+   }
+  },
+  {
+   "id": "ex",
+   "type": "Examen",
+   "texte": "NT-proBNP · échocardiographie",
+   "couleur": "#16897b",
+   "de": [
+    "sy"
+   ],
+   "bulle": {
+    "def": "Le myocarde étiré libère le NT-proBNP ; l'échocardiographie mesure la FEVG et les pressions de remplissage.",
+    "pourquoi": "Un NT-proBNP < 125 pg/ml en ambulatoire (< 300 pg/ml en aigu) rend l'IC très improbable.",
+    "confusion": "L'insuffisance rénale, l'âge et la fibrillation auriculaire élèvent le NT-proBNP ; l'obésité l'abaisse.",
+    "retenir": "Le NT-proBNP sert surtout à exclure ; l'échocardiographie classe ICFEr, ICFEm ou ICFEp."
+   },
+   "particularites": {
+    "GER": "Le NT-proBNP augmente avec l'âge : en aigu, le seuil d'inclusion monte à 900 pg/ml de 50 à 75 ans et à 1800 pg/ml après 75 ans."
+   }
+  },
+  {
+   "id": "dg",
+   "type": "Diagnostic · Cardiologie",
+   "texte": "ICFEr (FEVG ≤ 40 %)",
+   "couleur": "#c0392b",
+   "de": [
+    "sy"
+   ],
+   "bulle": {
+    "def": "L'insuffisance cardiaque à fraction d'éjection réduite se définit par une FEVG ≤ 40 %.",
+    "pourquoi": "Le ventricule gauche se contracte mal et se dilate, ce qui explique le galop et la pointe déviée.",
+    "confusion": "L'ICFEp (FEVG ≥ 50 %) donne les mêmes signes avec un ventricule rigide, non dilaté.",
+    "retenir": "Quatre piliers la traitent : IEC ou ARNI, bêtabloquant, antagoniste minéralocorticoïde et iSGLT2.",
+    "bilan": {
+     "diagnostique": "ECG, NT-proBNP et échocardiographie transthoracique (FEVG ≤ 40 %).",
+     "etiologique": "Coronarographie ou CT coronaire, IRM cardiaque, bilan thyroïdien et martial.",
+     "retentissement": "Créatinine et DFG, ionogramme, FSC, ferritine et saturation de la transferrine, radiographie thoracique.",
+     "complications": "Kaliémie et créatinine 1 à 2 semaines après chaque introduction ou hausse d'IEC, d'ARNI ou d'ARM ; ECG (QRS, rythme).",
+     "remission": "Échocardiographie après 3 à 6 mois de traitement optimal ; NT-proBNP ; classe NYHA.",
+     "sortie": "Euvolémie, poids sec stable, sevrage de l'oxygène, créatinine stable, traitement oral titré et contrôle à 7–14 jours."
+    },
+    "traitement": [
+     [
+      "ARNI",
+      "Sacubitril/valsartan (Entresto®) 24/26 mg 2×/j, titré jusqu'à 97/103 mg 2×/j."
+     ],
+     [
+      "Bêtabloquant",
+      "Bisoprolol (Concor®) 1,25 mg 1×/j, titré jusqu'à 10 mg 1×/j."
+     ],
+     [
+      "ARM",
+      "Spironolactone (Aldactone®) 12,5–25 mg 1×/j, cible 50 mg."
+     ],
+     [
+      "iSGLT2",
+      "Dapagliflozine (Forxiga®) ou empagliflozine (Jardiance®) 10 mg 1×/j."
+     ],
+     [
+      "Diurétique de l'anse",
+      "Furosémide (Lasix®) à la dose minimale qui maintient l'euvolémie."
+     ]
+    ],
+    "source": "ESC 2021 et mise à jour 2023 sur l'insuffisance cardiaque ; posologies à vérifier dans l'AIPS (Swissmedic)."
+   },
+   "particularites": {
+    "GER": "Tu adaptes les doses à la fonction rénale et tu surveilles l'hypotension orthostatique et l'hyperkaliémie.",
+    "PED": "Chez l'enfant, la cause est surtout une cardiomyopathie ou une cardiopathie congénitale ; les doses se calculent en mg/kg.",
+    "GYN": "Les IEC, l'ARNI et les ARM sont contre-indiqués pendant la grossesse ; pense à la cardiomyopathie du péripartum.",
+    "CHI": "Avant une chirurgie, tu poursuis le bêtabloquant et tu suspends l'iSGLT2 3 jours avant (risque d'acidocétose)."
+   }
+  },
+  {
+   "id": "pt1",
+   "type": "Temps 1",
+   "texte": "Inspection",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pou"
+   ],
+   "bulle": {
+    "def": "Tu observes la respiration et la coloration avant de toucher le patient.",
+    "pourquoi": "L'inspection mesure la gêne respiratoire que la condensation impose.",
+    "confusion": "Une acidose métabolique accélère aussi la respiration, sans atteinte pulmonaire.",
+    "retenir": "Tu comptes la fréquence respiratoire sur une minute entière."
+   }
+  },
+  {
+   "id": "pt2",
+   "type": "Temps 2",
+   "texte": "Palpation",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pou"
+   ],
+   "bulle": {
+    "def": "Tu palpes la paroi pendant que le patient dit « trente-trois ».",
+    "pourquoi": "Le poumon condensé transmet mieux les vibrations vers la paroi.",
+    "confusion": "Un épanchement pleural abolit au contraire les vibrations vocales.",
+    "retenir": "Vibrations augmentées : condensation ; vibrations abolies : épanchement."
+   }
+  },
+  {
+   "id": "pt3",
+   "type": "Temps 3",
+   "texte": "Percussion",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pou"
+   ],
+   "bulle": {
+    "def": "Tu percutes de façon symétrique, du sommet vers la base.",
+    "pourquoi": "L'alvéole remplie de liquide ne résonne plus comme l'air.",
+    "confusion": "L'épanchement pleural est mat aussi, mais déclive et mobile avec la position.",
+    "retenir": "Ce temps n'apporte qu'un signe ici : la sémiologie n'en fournit pas d'autre, et les autres temps posent le syndrome."
+   }
+  },
+  {
+   "id": "pt4",
+   "type": "Temps 4",
+   "texte": "Auscultation",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pou"
+   ],
+   "bulle": {
+    "def": "Tu ausculte en comparant les deux côtés à chaque niveau.",
+    "pourquoi": "La condensation laisse passer les bruits bronchiques et fait claquer les alvéoles.",
+    "confusion": "Des crépitants bilatéraux et symétriques évoquent plutôt une insuffisance cardiaque.",
+    "retenir": "Un souffle tubaire encadré de crépitants signe le foyer de condensation."
+   }
+  },
+  {
+   "id": "pt5",
+   "type": "Interrogatoire",
+   "texte": "Symptômes",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pou"
+   ],
+   "bulle": {
+    "def": "Tu fais préciser la toux, la fièvre et la douleur.",
+    "pourquoi": "L'infection alvéolaire produit l'expectoration, l'atteinte pleurale produit la douleur.",
+    "confusion": "L'embolie pulmonaire donne aussi une douleur pleurale et une fièvre modérée.",
+    "retenir": "Toux fébrile et signe focal à l'auscultation : tu demandes une radiographie."
+   }
+  },
+  {
+   "id": "ps11",
+   "type": "Signe",
+   "texte": "Polypnée",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pt1"
+   ],
+   "bulle": {
+    "def": "La fréquence respiratoire dépasse 20 cycles par minute chez l'adulte.",
+    "pourquoi": "Le shunt alvéolaire abaisse l'oxygène et stimule la ventilation.",
+    "confusion": "L'anxiété accélère aussi la respiration, mais la saturation reste normale.",
+    "retenir": "Une FR ≥ 30/min compte dans le score CRB-65."
+   },
+   "particularites": {
+    "PED": "Les seuils de polypnée dépendent de l'âge : ≥ 60/min avant 2 mois, ≥ 50/min de 2 à 12 mois, ≥ 40/min de 1 à 5 ans (OMS)."
+   }
+  },
+  {
+   "id": "ps12",
+   "type": "Signe",
+   "texte": "Tirage intercostal",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pt1"
+   ],
+   "bulle": {
+    "def": "Les espaces intercostaux se creusent à chaque inspiration.",
+    "pourquoi": "Les muscles accessoires luttent contre un poumon moins compliant.",
+    "confusion": "Une obstruction des voies aériennes hautes donne un tirage avec stridor.",
+    "retenir": "Le tirage signe une détresse respiratoire, surtout chez l'enfant."
+   },
+   "particularites": {
+    "PED": "Chez le nourrisson, tu cherches aussi le battement des ailes du nez et le geignement expiratoire."
+   }
+  },
+  {
+   "id": "ps21",
+   "type": "Signe",
+   "texte": "Vibrations vocales augmentées",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pt2"
+   ],
+   "bulle": {
+    "def": "La main perçoit plus fort les vibrations du « trente-trois » du côté atteint.",
+    "pourquoi": "Le tissu condensé conduit mieux le son que le poumon aéré.",
+    "confusion": "Les vibrations sont abolies dans l'épanchement et le pneumothorax.",
+    "retenir": "C'est le signe palpatoire qui distingue la condensation de l'épanchement."
+   }
+  },
+  {
+   "id": "ps22",
+   "type": "Signe",
+   "texte": "Ampliation diminuée",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pt2"
+   ],
+   "bulle": {
+    "def": "L'hémithorax atteint se soulève moins sous tes mains à l'inspiration.",
+    "pourquoi": "Le poumon condensé et la douleur pleurale limitent l'expansion.",
+    "confusion": "Un épanchement ou une atélectasie réduisent aussi l'ampliation.",
+    "retenir": "Ce signe localise le côté atteint."
+   }
+  },
+  {
+   "id": "ps31",
+   "type": "Signe",
+   "texte": "Matité localisée et fixe",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pt3"
+   ],
+   "bulle": {
+    "def": "La percussion sonne mat en regard d'un territoire limité, sans varier avec la position.",
+    "pourquoi": "Les alvéoles pleines d'exsudat ne contiennent plus d'air.",
+    "confusion": "La matité pleurale est déclive et se déplace avec la position.",
+    "retenir": "Une matité fixe et localisée évoque une condensation."
+   },
+   "uniqueAssume": true
+  },
+  {
+   "id": "ps41",
+   "type": "Signe",
+   "texte": "Crépitants localisés",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pt4"
+   ],
+   "bulle": {
+    "def": "Des crépitants inspiratoires s'entendent en foyer, du côté atteint.",
+    "pourquoi": "Les alvéoles remplies d'exsudat se rouvrent brusquement à l'inspiration.",
+    "confusion": "Les crépitants de l'insuffisance cardiaque sont bilatéraux et basaux.",
+    "retenir": "Leur caractère unilatéral et localisé oriente vers la pneumonie."
+   },
+   "son": "sons/crepitants_localises_lobe_moyen.mp3",
+   "sonTitre": "crépitants en foyer, champ moyen droit (enregistrement réel)"
+  },
+  {
+   "id": "ps42",
+   "type": "Signe",
+   "texte": "Souffle tubaire",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pt4"
+   ],
+   "bulle": {
+    "def": "Un souffle rude et aigu, surtout expiratoire, s'entend en regard du foyer.",
+    "pourquoi": "Le parenchyme condensé transmet le bruit des bronches perméables.",
+    "confusion": "Le souffle pleural est doux et lointain, au-dessus d'un épanchement.",
+    "retenir": "Il exige des bronches perméables : une obstruction proximale le fait disparaître."
+   }
+  },
+  {
+   "id": "ps43",
+   "type": "Signe",
+   "texte": "Pectoriloquie aphone",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pt4"
+   ],
+   "bulle": {
+    "def": "La voix chuchotée s'entend nettement à travers la paroi du côté atteint.",
+    "pourquoi": "Le tissu condensé conduit les hautes fréquences de la voix.",
+    "confusion": "Sur un épanchement, la voix chuchotée s'éteint.",
+    "retenir": "C'est un signe fin et spécifique de condensation."
+   }
+  },
+  {
+   "id": "ps51",
+   "type": "Symptôme",
+   "texte": "Toux productive",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pt5"
+   ],
+   "bulle": {
+    "def": "La toux ramène une expectoration purulente, parfois rouillée.",
+    "pourquoi": "L'exsudat alvéolaire infecté remonte par les bronches.",
+    "confusion": "La bronchite aiguë donne une toux productive sans signe focal.",
+    "retenir": "Une expectoration rouillée évoque le pneumocoque."
+   }
+  },
+  {
+   "id": "ps52",
+   "type": "Symptôme",
+   "texte": "Fièvre et frissons",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pt5"
+   ],
+   "bulle": {
+    "def": "La température dépasse 38 °C, souvent après un frisson initial.",
+    "pourquoi": "L'infection bactérienne libère des cytokines pyrogènes.",
+    "confusion": "Une embolie pulmonaire peut donner une fièvre modérée.",
+    "retenir": "Un frisson solennel unique évoque le pneumocoque."
+   },
+   "particularites": {
+    "GER": "Chez la personne âgée, la fièvre manque souvent ; une confusion ou une chute peut être le seul signe."
+   }
+  },
+  {
+   "id": "ps53",
+   "type": "Symptôme",
+   "texte": "Douleur thoracique pleurale",
+   "couleur": "#2f6fd0",
+   "de": [
+    "pt5"
+   ],
+   "bulle": {
+    "def": "La douleur est latérale, en coup de poignard, accrue par l'inspiration et la toux.",
+    "pourquoi": "L'inflammation atteint la plèvre, richement innervée.",
+    "confusion": "L'embolie pulmonaire et le pneumothorax donnent la même douleur.",
+    "retenir": "Une douleur pleurale fébrile évoque une pneumonie franche lobaire."
+   }
+  },
+  {
+   "id": "psy",
+   "type": "Syndrome",
+   "texte": "Syndrome de condensation pulmonaire",
+   "couleur": "#d9731a",
+   "de": [
+    "ps11",
+    "ps12",
+    "ps21",
+    "ps22",
+    "ps31",
+    "ps41",
+    "ps42",
+    "ps43",
+    "ps51",
+    "ps52",
+    "ps53"
+   ],
+   "bulle": {
+    "def": "Les alvéoles se remplissent et le poumon perd son air sur un territoire.",
+    "pourquoi": "Vibrations vocales augmentées, matité fixe et souffle tubaire suffisent à poser le syndrome.",
+    "confusion": "L'épanchement abolit vibrations et murmure ; l'atélectasie attire le médiastin vers le côté atteint.",
+    "retenir": "La radiographie thoracique confirme le syndrome et le localise."
+   }
+  },
+  {
+   "id": "pex",
+   "type": "Examen",
+   "texte": "Radiographie thoracique · CRP",
+   "couleur": "#16897b",
+   "de": [
+    "psy"
+   ],
+   "bulle": {
+    "def": "La radiographie montre l'opacité alvéolaire ; la CRP mesure l'inflammation.",
+    "pourquoi": "La radiographie confirme la pneumonie avant l'antibiotique, sans exiger d'attendre le résultat en cas de gravité.",
+    "confusion": "Une radiographie très précoce ou chez un patient déshydraté peut rester normale.",
+    "retenir": "La procalcitonine aide à juger l'origine bactérienne et la durée du traitement."
+   }
+  },
+  {
+   "id": "pdg",
+   "type": "Diagnostic · Pneumologie",
+   "texte": "Pneumonie communautaire",
+   "couleur": "#c0392b",
+   "de": [
+    "psy"
+   ],
+   "bulle": {
+    "def": "L'infection aiguë du parenchyme pulmonaire survient hors de l'hôpital.",
+    "pourquoi": "Le pneumocoque reste le premier germe ; le score CRB-65 oriente le lieu de soin.",
+    "confusion": "La tuberculose, l'embolie et le cancer peuvent imiter une pneumonie qui ne guérit pas.",
+    "retenir": "Tu réévalues à 48–72 h : l'absence d'amélioration impose de chercher une complication.",
+    "bilan": {
+     "diagnostique": "Radiographie thoracique (face et profil), CRP et FSC.",
+     "etiologique": "À l'hôpital : hémocultures, antigénuries pneumocoque et légionelle, PCR respiratoires selon l'épidémie.",
+     "retentissement": "Saturation et gazométrie, créatinine, urée, natrémie ; score CRB-65 ou CURB-65.",
+     "complications": "Échographie pleurale si épanchement (empyème) ; CT si évolution défavorable (abcès).",
+     "remission": "Réévaluation clinique à 48–72 h ; radiographie à 6–8 semaines chez le fumeur de plus de 50 ans.",
+     "sortie": "Apyrexie, FR < 24/min, SpO₂ ≥ 92 % à l'air, alimentation et relais oral possibles."
+    },
+    "traitement": [
+     [
+      "Ambulatoire, sans comorbidité",
+      "Amoxicilline 1 g per os 3×/j pendant 5 jours."
+     ],
+     [
+      "Comorbidités",
+      "Amoxicilline-acide clavulanique (Augmentin®) 1 g per os 2–3×/j."
+     ],
+     [
+      "Hospitalisation",
+      "Amoxicilline-acide clavulanique 2,2 g IV 3×/j ; ajouter clarithromycine 500 mg 2×/j si forme grave ou atypique suspectée."
+     ],
+     [
+      "Allergie non grave à la pénicilline",
+      "Céfuroxime ; selon le type d'allergie, lévofloxacine 500 mg 1–2×/j."
+     ]
+    ],
+    "source": "Société suisse d'infectiologie (ssi.guidelines.ch) ; posologies à vérifier dans l'AIPS (Swissmedic)."
+   },
+   "particularites": {
+    "PED": "Chez l'enfant, l'amoxicilline orale se dose en mg/kg selon les recommandations pédiatriques suisses (PIGS) ; à vérifier avant prescription.",
+    "GER": "Tu utilises le CURB-65 (l'âge ≥ 65 ans compte un point) et tu penses à la pneumonie d'aspiration.",
+    "GYN": "Pendant la grossesse, l'amoxicilline reste le premier choix ; tu évites fluoroquinolones et tétracyclines."
+   }
+  }
+ ],
+ "lentilles": [
+  {
+   "id": "PED",
+   "nom": "Pédiatrie",
+   "couleur": "#e05aa0"
+  },
+  {
+   "id": "GER",
+   "nom": "Gériatrie",
+   "couleur": "#7a5cc4"
+  },
+  {
+   "id": "GYN",
+   "nom": "Femme et grossesse",
+   "couleur": "#c2417a"
+  },
+  {
+   "id": "CHI",
+   "nom": "Chirurgie",
+   "couleur": "#5b6574"
+  },
+  {
+   "id": "PSY",
+   "nom": "Psychiatrie",
+   "couleur": "#3d8f5a"
+  },
+  {
+   "id": "URG",
+   "nom": "Urgences",
+   "couleur": "#e0452b"
+  }
+ ]
+}

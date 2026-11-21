@@ -1,0 +1,30 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><style>
+@font-face{font-family:A;src:url(atk400.woff2)}@font-face{font-family:A;font-weight:700;src:url(atk700.woff2)}
+html,body{margin:0;width:100vw;height:100vh;background:#f3e5c8;font-family:A,sans-serif;color:#0a0d12;overflow:hidden}
+#fen{position:absolute;left:40px;top:70px;width:1520px;height:880px;background:#fff;border:1px solid #cdb88c;border-top:5px solid #c0392b;border-radius:12px;box-shadow:0 8px 30px #0003}
+h1{position:absolute;left:40px;top:14px;margin:0;font:700 20px Georgia,serif}h1 small{display:block;font:400 13px A;color:#3a4556}
+canvas{position:absolute;left:0;top:0}.lab{position:absolute;font:700 12.5px A;text-transform:uppercase;letter-spacing:.05em;color:#c0392b}
+.leg{position:absolute;left:1180px;top:60px;width:320px;font-size:13px;line-height:1.45}.leg h4{margin:0 0 6px;font-size:14px}.leg li{margin-bottom:5px}
+</style></head><body><h1>Anatomie — fenêtre de structure : le cœur et ses gros vaisseaux<small>Clic sur « Cœur » dans l'arbre anatomique · vues multiples · trajet des gros vaisseaux renforcé · lien vers la radio-anatomie</small></h1>
+<div id="fen"><canvas id="c" width="1140" height="880"></canvas></div>
+<script type="importmap">{"imports":{"three":"./three/build/three.module.js","three/addons/":"./three/examples/jsm/"}}</script>
+<script type="module">
+import * as THREE from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+const R=new THREE.WebGLRenderer({canvas:c,antialias:true,alpha:true,preserveDrawingBuffer:true});R.setPixelRatio(1);R.setSize(1140,880,false);R.outputColorSpace=THREE.SRGBColorSpace;R.toneMapping=THREE.ACESFilmicToneMapping;R.setScissorTest(true);
+const S=new THREE.Scene();S.add(new THREE.HemisphereLight(0xffffff,0x5a4a40,1.6));const d=new THREE.DirectionalLight(0xffffff,2.3);d.position.set(-600,-1200,1900);S.add(d);const d2=new THREE.DirectionalLight(0xffffff,1.2);d2.position.set(900,900,600);S.add(d2);
+const g=await new GLTFLoader().loadAsync('corps.glb');const garder={coeur:1,aorte:1,poumon_d:.12,poumon_g:.12,trachee:.5,oesophage:.35,cage:.1,diaphragme:.15};
+g.scene.traverse(o=>{if(!o.isMesh)return;const k=o.name.replace(/_\d+$/,'');const a=garder[k];if(!a){o.visible=false;return;}
+ const col=o.geometry.attributes.color;o.geometry.computeVertexNormals();const cc=col?new THREE.Color(col.getX(0),col.getY(0),col.getZ(0)):new THREE.Color(1,1,1);
+ o.material=new THREE.MeshPhysicalMaterial({color:k==='aorte'?new THREE.Color(.85,.08,.1):cc,roughness:.42,clearcoat:.4,transparent:a<1,opacity:a,depthWrite:a===1,emissive:k==='aorte'?new THREE.Color(.25,0,0):new THREE.Color(0,0,0)});});
+S.add(g.scene);const box=new THREE.Box3();g.scene.traverse(o=>{if(o.isMesh&&o.visible&&o.material.opacity===1)box.expandByObject(o);});const ctr=box.getCenter(new THREE.Vector3());
+const V=[["Vue antérieure",[0,-1,0]],["Vue latérale gauche",[1,0,0]],["Vue postérieure",[0,1,0]],["Vue supérieure (crâniale)",[0,-0.15,1]]];
+const w=570,h=440;V.forEach(([t,dir],i)=>{const x=(i%2)*w,y=i<2?h:0;const cam=new THREE.PerspectiveCamera(26,w/h,10,8000);const D=new THREE.Vector3(...dir).normalize().multiplyScalar(820);
+ cam.position.copy(ctr).add(D);cam.up.set(0,i===3?1:0,i===3?0:1);cam.lookAt(ctr);R.setViewport(x,y,w,h);R.setScissor(x,y,w,h);R.render(S,cam);
+ const l=document.createElement('div');l.className='lab';l.textContent=t;l.style.left=(52+x)+'px';l.style.top=(84+(i<2?0:h))+'px';document.body.appendChild(l);});
+const leg=document.createElement('div');leg.className='leg';leg.innerHTML=`<h4>Ce que tu dois voir</h4><ol>
+<li>Le cœur repose sur le diaphragme, pointe en avant, en bas et à gauche.</li><li>L'aorte (rouge renforcé) monte, forme la crosse au-dessus du hile gauche, puis descend contre le rachis.</li>
+<li>La vue postérieure montre l'oreillette gauche au contact de l'œsophage : c'est pourquoi l'échographie transœsophagienne la voit si bien.</li><li>La vue supérieure montre la crosse qui chevauche la bronche souche gauche.</li></ol>
+<h4>Radio-anatomie correspondante</h4><ol><li>Rx thorax PA : bord droit = oreillette droite ; bord gauche = ventricule gauche ; bouton aortique = crosse.</li><li>CT injecté : coupe axiale au niveau de la crosse, puis des quatre cavités.</li><li>IRM cardiaque : coupes petit axe et quatre cavités.</li></ol>
+<h4>Arbre anatomique (de l'extérieur vers l'intérieur)</h4><ol><li>Paroi thoracique et péricarde</li><li>Faces et bords du cœur</li><li>Cavités et valves</li><li>Vascularisation coronaire</li><li>Tissu de conduction et innervation</li></ol>`;document.getElementById('fen').appendChild(leg);
+document.title='PRET';
+</script></body></html>

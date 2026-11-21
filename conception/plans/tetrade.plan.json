@@ -58,7 +58,7 @@
    "La largeur des colonnes s'ajuste automatiquement à l'écran, pour que tout le réseau reste visible.",
    "La disposition se recalcule à chaque clic sur les seules cases visibles : chaque parent reste centré sur le bloc de ses enfants.",
    "Chaque case porte une infobulle symétrique au survol, et chaque signe auscultatoire un bouton 🔊.",
-   "La navigation horizontale part du corps vers la droite et vers la gauche : ce sens est validé."
+   "Le côté du premier trait décide du sens : si le trait horizontal né du corps rejoint une case à droite, tout le développement de cette case se fait vers la droite ; s'il rejoint une case à gauche, il se fait vers la gauche ; le corps glisse vers le côté opposé pour laisser la place."
   ]
  },
  "areneAventure": {
@@ -142,7 +142,9 @@
   "seuils": [
    "Chaque temps d'examen (inspection, palpation, percussion, auscultation) présente deux ou trois signes : un seul ne suffit jamais à parler du syndrome.",
    "Le syndrome nomme dans son infobulle le minimum suffisant : deux ou trois signes concordants qui permettent de le poser.",
-   "Quand un signe appartient à un autre syndrome proche (exemple : la turgescence jugulaire relève de l'insuffisance cardiaque droite), l'infobulle le dit explicitement."
+   "Quand un signe appartient à un autre syndrome proche (exemple : la turgescence jugulaire relève de l'insuffisance cardiaque droite), l'infobulle le dit explicitement.",
+   "Si la sémiologie d'un temps d'examen n'offre qu'un seul signe valide, ce signe reste seul, marqué « uniqueAssume », et son infobulle le dit : on n'invente jamais un signe pour remplir.",
+   "Chaque diagnostic répète en infobulle le bilan stratifié (diagnostique, étiologique, retentissement, complications, rémission, sortie) et le traitement avec posologie et source : la même information revient d'un onglet à l'autre pour être répétée."
   ],
   "sons": {
    "regle": "Tout signe auscultatoire porte un bouton 🔊 qui joue un enregistrement réel ; le son se rejoue aussi depuis l'infobulle.",
@@ -224,6 +226,26 @@
   "Syndrome neurovasculaire par territoire artériel"
  ],
  "decisions": [
+  {
+   "question": "Dans quel sens se développe l'arbre ?",
+   "choix": "Le côté du premier trait décide du sens : si le trait horizontal né du corps rejoint une case à droite, tout le développement de cette case se fait vers la droite ; s'il rejoint une case à gauche, il se fait vers la gauche ; le corps glisse vers le côté opposé pour laisser la place.",
+   "raison": "Le regard suit le trait né du corps ; un développement qui change de côté casserait la lecture."
+  },
+  {
+   "question": "Où placer pédiatrie, gériatrie, gynécologie, chirurgie, psychiatrie ?",
+   "choix": "Dans l'onglet Disciplines transversales, sous forme de lentilles qui filtrent les zones communes",
+   "raison": "Les particularités liées à l'âge, au terrain ou à l'approche s'affichent là où elles servent, sans dupliquer les circuits."
+  },
+  {
+   "question": "Que montre un diagnostic au survol ?",
+   "choix": "Le bilan stratifié en six visées et le traitement avec posologie, même si l'onglet Examens complémentaires les reprend",
+   "raison": "La répétition fixe la connaissance ; une donnée unique se réutilise d'un onglet à l'autre."
+  },
+  {
+   "question": "Quel niveau d'exigence pour l'anatomie ?",
+   "choix": "Arbre de l'extérieur vers l'intérieur, fenêtre 3D réelle à quatre vues, trajet renforcé, radio-anatomie normale correspondante",
+   "raison": "Raisonner devant une imagerie exige de connaître la structure sous plusieurs angles."
+  },
   {
    "question": "Où placer les examens complémentaires dans la Tétrade ?",
    "choix": "Dans un onglet singulier, en progression topo-systémique ou topo-organe, alimenté par le catalogue de la Paraclinique",
@@ -323,22 +345,21 @@
   },
   {
    "id": "E4",
-   "nom": "Fiche d'organe (Anatomie)",
-   "but": "Connaître la structure",
+   "nom": "Anatomie : arbre et fenêtre de structure 3D",
+   "but": "Connaître la structure de l'extérieur vers l'intérieur et la reconnaître en imagerie",
    "zones": [
-    "Vignette réduite",
-    "Anatomie macroscopique",
-    "Anatomie microscopique",
-    "Vascularisation",
-    "Innervation",
-    "Rapports"
+    "Arbre anatomique de la région, de l'extérieur vers l'intérieur, développé du côté où il naît",
+    "Fenêtre de structure : modèle 3D réel en quatre vues au moins (antérieure, latérale, postérieure, supérieure) et coupes",
+    "Trajet des vaisseaux et des nerfs renforcé en couleur",
+    "Panneau « Radio-anatomie correspondante » : la même structure sur Rx, CT, IRM et échographie normales"
    ],
    "interactions": [
-    "Clic sur un champ : déplie son contenu",
-    "Clic sur la vignette : agrandissement"
+    "Clic sur un nom de l'arbre : la fenêtre de structure s'ouvre",
+    "Rotation libre et bascule entre les vues",
+    "Survol : infobulle symétrique (rapports, vascularisation, innervation, repère clinique)"
    ],
-   "regleLocale": "Chaque champ se lit seul en trois phrases au plus.",
-   "exemple": "Cœur : l'artère coronaire droite vascularise le nœud sinusal chez environ 60 % des sujets."
+   "regleLocale": "Aucune structure ne s'affiche sans au moins quatre vues 3D et une correspondance en radio-anatomie normale ; jamais de SVG.",
+   "exemple": "Arbre du thorax → Cœur : vues antérieure, latérale gauche, postérieure et supérieure, crosse aortique renforcée, bord droit = oreillette droite sur la radiographie."
   },
   {
    "id": "E5",
@@ -419,6 +440,23 @@
    ],
    "regleLocale": "Les espaces Anatomie et Physiologie ne listent aucun examen : ils renvoient à cet onglet.",
    "exemple": "Système cardiovasculaire → Cœur → ECG, Holter, échocardiographie, IRM, troponine, NT-proBNP, coronarographie."
+  },
+  {
+   "id": "E10",
+   "nom": "Onglet Disciplines transversales",
+   "but": "Voir chaque notion à travers les outils de la médecine et les terrains particuliers",
+   "zones": [
+    "Rangée de 19 lettres (A → S) : chaque lettre ouvre une discipline-outil, ses 4 sous-onglets et ses leçons",
+    "Sélecteur de lentille (Pédiatrie, Gériatrie, Femme et grossesse, Chirurgie, Psychiatrie, Urgences, Oncologie, Imagerie, Pathologie, Réadaptation, Voyage, Pharmacologie)",
+    "Arbre de cours en 9 parties, de la coque vers le centre"
+   ],
+   "interactions": [
+    "Clic sur une lettre : la discipline s'ouvre avec son arbre de cours",
+    "Choix d'une lentille : les zones communes ne gardent en clair que les cases qui ont une particularité ; une pastille de couleur les signale",
+    "Survol d'une case marquée : la particularité s'ajoute à l'infobulle"
+   ],
+   "regleLocale": "Une lentille n'ajoute jamais de contenu hors des zones communes : elle isole ce qui est propre à la discipline.",
+   "exemple": "Lentille Pédiatrie sur le circuit cardiaque : le galop B3 reçoit sa pastille, car il peut être physiologique chez l'enfant."
   }
  ],
  "parcours": [
@@ -632,6 +670,50 @@
    ],
    "producteur": "Script depuis le catalogue",
    "volume": "1 fichier par système"
+  },
+  {
+   "fichier": "tetrade/transversales/outils/<lettre>.json",
+   "role": "Discipline-outil (A → S) : sous-onglets, leçons, arbre de cours en 9 parties",
+   "champs": [
+    "lettre",
+    "nom",
+    "sousOnglets[]",
+    "lecons[]",
+    "arborescence[] (9 parties)",
+    "liensTetrade[]",
+    "liensSSP[]"
+   ],
+   "producteur": "Script + IA",
+   "volume": "19 fichiers"
+  },
+  {
+   "fichier": "tetrade/transversales/lentilles.json",
+   "role": "Lentilles cliniques et leurs filtres",
+   "champs": [
+    "id",
+    "nom",
+    "specialites[]",
+    "filtre",
+    "revele[]",
+    "couleur"
+   ],
+   "producteur": "Script",
+   "volume": "12 lentilles"
+  },
+  {
+   "fichier": "tetrade/<systeme>/anatomie3d.json",
+   "role": "Arbre anatomique et fenêtres de structure",
+   "champs": [
+    "structureId",
+    "parent",
+    "niveau (extérieur → intérieur)",
+    "vues3D[] (au moins 4)",
+    "trajetRenforce[]",
+    "radioAnatomie[] (Rx, CT, IRM, écho)",
+    "bulle"
+   ],
+   "producteur": "Script (modèles 3D) + IA (textes)",
+   "volume": "1 fichier par système"
   }
  ],
  "exercices": [
@@ -812,7 +894,12 @@
     "Valvulopathie (CAR)"
    ]
   ],
-  "legende": "Les courbes relient chaque élément à l'étape suivante ; survoler le diagnostic ouvre l'aperçu du traitement."
+  "legende": "Les courbes relient chaque élément à l'étape suivante ; survoler le diagnostic ouvre l'aperçu du traitement.",
+  "images": [
+   "prototypes/tetrade.png",
+   "prototypes/tetrade_gauche.png",
+   "prototypes/anatomie_fenetre_coeur.png"
+  ]
  },
  "blocages": [
   "Aucun exercice ne dérive d'une source sans verdict « pass » de REJECTOR_.",
@@ -821,6 +908,509 @@
   "Aucun fichier HTML produit ne perd la signature de son agent (heure, modèle, plateforme).",
   "Aucune phrase nominale n'apparaît dans un texte didactique."
  ],
+ "transversales": {
+  "outils": [
+   {
+    "lettre": "A",
+    "id": "TRANS_A",
+    "nom": "Assurances sociales & Expertise",
+    "icone": "🏛️",
+    "couleur": "#1E3A8A",
+    "sousOnglets": [
+     "LAMal & remboursements",
+     "LAA / SUVA accidents",
+     "LAI & réadaptation",
+     "Certificats & expertises"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "B",
+    "id": "TRANS_B",
+    "nom": "Biostatistique & EBM",
+    "icone": "📊",
+    "couleur": "#0284C7",
+    "sousOnglets": [
+     "Sensibilité / Spécificité / RV",
+     "NNT / NNH / Risques",
+     "Essais cliniques & biais",
+     "Méta-analyses & GRADE"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "C",
+    "id": "TRANS_C",
+    "nom": "Communication clinique",
+    "icone": "💬",
+    "couleur": "#0EA5E9",
+    "sousOnglets": [
+     "Calgary-Cambridge",
+     "Annonce SPIKES",
+     "Entretien motivationnel",
+     "Décision partagée & conflits"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "D",
+    "id": "TRANS_D",
+    "nom": "Digitalisation & Cybersanté",
+    "icone": "☁️",
+    "couleur": "#2563EB",
+    "sousOnglets": [
+     "DEP (LDEP)",
+     "Télémédecine suisse",
+     "Protection données (LPD)",
+     "IA clinique & cybersécurité"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "E",
+    "id": "TRANS_E",
+    "nom": "Diversité, Équité & Inclusion (DEI)",
+    "icone": "🌈",
+    "couleur": "#EC4899",
+    "sousOnglets": [
+     "Médecine du genre",
+     "Santé des migrants",
+     "Littératie en santé",
+     "Biais & équité d'accès"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "F",
+    "id": "TRANS_F",
+    "nom": "Droit médical suisse",
+    "icone": "⚖️",
+    "couleur": "#334155",
+    "sousOnglets": [
+     "Secret médical (Art. 321 CP)",
+     "Consentement & discernement",
+     "Directives anticipées",
+     "PAFA & responsabilité"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "G",
+    "id": "TRANS_G",
+    "nom": "Épidémiologie",
+    "icone": "🗺️",
+    "couleur": "#059669",
+    "sousOnglets": [
+     "Incidence & prévalence",
+     "Dépistages organisés",
+     "Déclaration obligatoire OFSP",
+     "Investigation d'épidémie"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "H",
+    "id": "TRANS_H",
+    "nom": "Éthique biomédicale & Fin de vie",
+    "icone": "🧭",
+    "couleur": "#6366F1",
+    "sousOnglets": [
+     "4 principes (Beauchamp)",
+     "Directives ASSM",
+     "Limitation thérapeutique",
+     "Assistance au suicide"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "I",
+    "id": "TRANS_I",
+    "nom": "Génétique médicale & Conseil",
+    "icone": "🧬",
+    "couleur": "#7C3AED",
+    "sousOnglets": [
+     "Loi LAGH",
+     "Arbres généalogiques",
+     "Tests pré-symptomatiques",
+     "Onco & pharmacogénétique"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "J",
+    "id": "TRANS_J",
+    "nom": "Hygiène hospitalière",
+    "icone": "🧼",
+    "couleur": "#0D9488",
+    "sousOnglets": [
+     "Précautions standard",
+     "Isolements additionnels",
+     "BMR / SARM / EPC / C. diff",
+     "AES & stérilisation"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "K",
+    "id": "TRANS_K",
+    "nom": "Médecine du travail & Ergonomie",
+    "icone": "⛑️",
+    "couleur": "#B45309",
+    "sousOnglets": [
+     "Maladies prof. SUVA",
+     "Expositions toxiques",
+     "Ergonomie & TMS",
+     "OProMa & reprise"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "L",
+    "id": "TRANS_L",
+    "nom": "Médecine légale & Forensique",
+    "icone": "🔍",
+    "couleur": "#475569",
+    "sousOnglets": [
+     "Constat décès & mort suspecte",
+     "Constat lésions traumatiques",
+     "Violences domestiques",
+     "Toxicologie & LCR"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "M",
+    "id": "TRANS_M",
+    "nom": "Médecine palliative",
+    "icone": "🕊️",
+    "couleur": "#8B5CF6",
+    "sousOnglets": [
+     "Antalgie OMS & opioïdes",
+     "Dyspnée & symptômes",
+     "Sédation palliative",
+     "Réseau palliatif suisse"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "N",
+    "id": "TRANS_N",
+    "nom": "Médecine sociale & Prévention (OFSP)",
+    "icone": "☂️",
+    "couleur": "#16A34A",
+    "sousOnglets": [
+     "Plan vaccination OFSP",
+     "Préventions I / II / III",
+     "Déterminants sociaux",
+     "Addictions & tabacologie"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "O",
+    "id": "TRANS_O",
+    "nom": "Pharmacologie, Toxicologie & Sécurité",
+    "icone": "⚗️",
+    "couleur": "#059669",
+    "sousOnglets": [
+     "Interactions CYP450 & QT",
+     "Adaptation IR / IH / Grossesse",
+     "Pharmacovigilance Swissmedic",
+     "Tox Info Suisse 145"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "P",
+    "id": "TRANS_P",
+    "nom": "Qualité, Sécurité & Gestion de l'erreur",
+    "icone": "✅",
+    "couleur": "#0284C7",
+    "sousOnglets": [
+     "Modèle de Reason",
+     "CIRS & RMM",
+     "Annonce d'incident",
+     "Checklist OMS & identitovigilance"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "Q",
+    "id": "TRANS_Q",
+    "nom": "Radioprotection & Smarter Medicine",
+    "icone": "☢️",
+    "couleur": "#D97706",
+    "sousOnglets": [
+     "ORaP & principe ALARA",
+     "Dosimétrie & grossesse",
+     "Top-5 Smarter Medicine",
+     "Sobriété diagnostique"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "R",
+    "id": "TRANS_R",
+    "nom": "Santé planétaire",
+    "icone": "🌱",
+    "couleur": "#15803D",
+    "sousOnglets": [
+     "Approche One Health",
+     "Canicules & polluants",
+     "Éco-prescription",
+     "Empreinte hospitalière"
+    ],
+    "lecons": 12
+   },
+   {
+    "lettre": "S",
+    "id": "TRANS_S",
+    "nom": "Urgences vitales & Triage (144 / REGA)",
+    "icone": "🚁",
+    "couleur": "#B91C1C",
+    "sousOnglets": [
+     "Approche ABCDE",
+     "BLS / ALS (SRC)",
+     "Triage suisse / ESI",
+     "Chaîne 144 / REGA"
+    ],
+    "lecons": 12
+   }
+  ],
+  "axes": [
+   "1. Cadre légal, éthique & déontologique suisse (CP, CC/APEA, LPMéd, ASSM, LAMal/LAA/LAI)",
+   "2. Critères décisionnels, seuils & stratification du risque (capacité de discernement, drapeaux rouges)",
+   "3. Démarche d'entretien, communication & décision partagée (interprétariat, alliance)",
+   "4. Actes pratiques, prescriptions suisses & réseau médico-social (OFSP, Smarter Medicine, LAVI, UMV, Spitex)",
+   "5. Pièges de l'examen fédéral & transfert clinique"
+  ],
+  "lentilles": [
+   {
+    "id": "PED",
+    "nom": "Pédiatrie",
+    "specialites": [
+     "PED",
+     "CPE",
+     "PEA"
+    ],
+    "filtre": "âge (nouveau-né, nourrisson, enfant, adolescent)",
+    "revele": [
+     "valeurs normales selon l'âge",
+     "signes propres à l'enfant",
+     "examens adaptés (échographie avant CT, sédation)",
+     "posologies en mg/kg"
+    ]
+   },
+   {
+    "id": "GER",
+    "nom": "Gériatrie",
+    "specialites": [
+     "MIG"
+    ],
+    "filtre": "âge avancé, fragilité, polymédication",
+    "revele": [
+     "présentations atypiques (confusion, chute)",
+     "seuils et normes modifiés",
+     "adaptation à la fonction rénale",
+     "critères de Beers / PRISCUS",
+     "objectifs de soins"
+    ]
+   },
+   {
+    "id": "GYN",
+    "nom": "Femme, grossesse et allaitement",
+    "specialites": [
+     "GYN"
+    ],
+    "filtre": "sexe féminin, grossesse par trimestre, post-partum, allaitement",
+    "revele": [
+     "modifications physiologiques de la grossesse",
+     "imagerie sans irradiation",
+     "médicaments autorisés ou contre-indiqués",
+     "urgences obstétricales"
+    ]
+   },
+   {
+    "id": "CHI",
+    "nom": "Chirurgie et périopératoire",
+    "specialites": [
+     "CHI",
+     "ORT",
+     "NCH",
+     "CVA",
+     "CTH",
+     "CCT",
+     "URO",
+     "CPL",
+     "CMA",
+     "CMF",
+     "ANE"
+    ],
+    "filtre": "indication opératoire, risque anesthésique, suites",
+    "revele": [
+     "indications et contre-indications chirurgicales",
+     "bilan préopératoire raisonné",
+     "complications postopératoires",
+     "relais des anticoagulants"
+    ]
+   },
+   {
+    "id": "PSY",
+    "nom": "Psychiatrie et psyché",
+    "specialites": [
+     "PSY",
+     "PEA"
+    ],
+    "filtre": "comorbidité psychique, capacité de discernement",
+    "revele": [
+     "manifestations psychiques d'une maladie somatique",
+     "effets psychiques des traitements",
+     "interactions des psychotropes",
+     "communication adaptée"
+    ]
+   },
+   {
+    "id": "URG",
+    "nom": "Urgences et soins intensifs",
+    "specialites": [
+     "INT",
+     "ANE"
+    ],
+    "filtre": "instabilité vitale (ABCDE)",
+    "revele": [
+     "drapeaux rouges",
+     "premiers gestes dans l'ordre",
+     "examens au lit (POCUS, gazométrie)",
+     "critères d'admission aux soins intensifs"
+    ]
+   },
+   {
+    "id": "ONC",
+    "nom": "Oncologie et radio-oncologie",
+    "specialites": [
+     "ONC",
+     "RON",
+     "HEM"
+    ],
+    "filtre": "maladie tumorale, traitement oncologique",
+    "revele": [
+     "syndromes paranéoplasiques",
+     "toxicités des traitements",
+     "urgences oncologiques",
+     "bilan d'extension"
+    ]
+   },
+   {
+    "id": "IMG",
+    "nom": "Imagerie et médecine nucléaire",
+    "specialites": [
+     "RAD",
+     "NUC"
+    ],
+    "filtre": "choix de la technique",
+    "revele": [
+     "examen de référence et facteur discriminant",
+     "radio-anatomie normale",
+     "irradiation et contre-indications",
+     "recommandations smarter medicine"
+    ]
+   },
+   {
+    "id": "PAT",
+    "nom": "Pathologie et biologie",
+    "specialites": [
+     "PAT",
+     "GEN"
+    ],
+    "filtre": "preuve tissulaire ou moléculaire",
+    "revele": [
+     "preuve histologique attendue",
+     "marqueurs immunohistochimiques et moléculaires",
+     "conditions de prélèvement"
+    ]
+   },
+   {
+    "id": "REA",
+    "nom": "Réadaptation et handicap",
+    "specialites": [
+     "MPR"
+    ],
+    "filtre": "fonction, autonomie, retour au travail",
+    "revele": [
+     "échelles fonctionnelles",
+     "objectifs de rééducation",
+     "aides et réseau suisse (Spitex, AI)"
+    ]
+   },
+   {
+    "id": "VOY",
+    "nom": "Voyage et médecine tropicale",
+    "specialites": [
+     "TRO",
+     "INF"
+    ],
+    "filtre": "séjour à l'étranger, migration",
+    "revele": [
+     "pathologies d'importation",
+     "examens spécifiques (paludisme, sérologies)",
+     "vaccinations et prophylaxies"
+    ]
+   },
+   {
+    "id": "PHA",
+    "nom": "Pharmacologie et toxicologie",
+    "specialites": [
+     "TOX",
+     "PHA"
+    ],
+    "filtre": "médicaments et toxiques",
+    "revele": [
+     "interactions (CYP450, QT)",
+     "adaptation rénale et hépatique",
+     "surdosages et antidotes"
+    ]
+   }
+  ],
+  "arborescence": [
+   [
+    "1. Cadre",
+    "Tu définis la discipline, son utilité pour le médecin et son cadre légal suisse."
+   ],
+   [
+    "2. Notions fondamentales",
+    "Tu poses les concepts et les chiffres clés qui structurent la discipline."
+   ],
+   [
+    "3. Outils et méthodes",
+    "Tu présentes les scores, échelles, tests et formulaires de la discipline."
+   ],
+   [
+    "4. Décisions et seuils",
+    "Tu donnes les critères, les drapeaux rouges et les seuils qui font agir."
+   ],
+   [
+    "5. Applications par système",
+    "Tu relies chaque outil aux systèmes de la Tétrade et aux SSP concernés."
+   ],
+   [
+    "6. Particularités par terrain",
+    "Tu précises ce qui change chez l'enfant, la personne âgée, la femme enceinte."
+   ],
+   [
+    "7. Pièges et confusions",
+    "Tu nommes les erreurs fréquentes et la manière de les éviter."
+   ],
+   [
+    "8. Pratique suisse",
+    "Tu indiques le réseau, les numéros, les formulaires et les institutions suisses."
+   ],
+   [
+    "9. Exercices et répétition",
+    "Tu proposes QCM A, K' et menus longs, et tu renvoies aux autres onglets où la notion revient."
+   ]
+  ],
+  "regle": "Un onglet « Disciplines transversales » réunit deux familles : les outils de la médecine (19 disciplines, une lettre de A à S, chaque lettre ouvre ses sous-onglets et ses leçons) et les lentilles cliniques, qui filtrent les zones communes pour n'y montrer que ce qui est propre à la discipline."
+ },
  "auditConception": [
   {
    "controle": "Section « objectif » présente et non vide",
