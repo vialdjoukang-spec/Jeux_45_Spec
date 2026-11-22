@@ -1,9 +1,22 @@
-# Audit automatique — 2026-11-22 21:30
+# Audit automatique — 2026-11-22 23:10
 
-30 fichier(s) : 27 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
+34 fichier(s) : 30 🟩 intégrables · 4 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/01_Peau/1_Theorie/P08-01-BIO_Biologie_Peau_4-examens_production_XAi.json`
+- 🟩 `peau.json` : remplissage 91 % (80/88)
+- aVerifier déclarés : 4
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/01_Peau/1_Theorie/P08-01-FCT_Exploration_fonctionnelle_Peau_4-examens_production_XAi.json`
+- 🟧 `peau.json` : remplissage 83 % (70/84)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/01_Peau/1_Theorie/P08-01-HIS_Anatomopathologie_biopsie_Peau_2-examens_production_XAi.json`
+- 🟩 `peau.json` : remplissage 95 % (40/42)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/01_Peau/1_Theorie/P08-01-IMG_Imagerie_Peau_3-examens_production_XAi.json`
+- 🟩 `peau.json` : remplissage 86 % (54/63)
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/01_Peau/1_Theorie/P08-01-BIO_Biologie_Peau_4-examens_production_XAi.json`
 - 🟩 `peau.json` : remplissage 91 % (80/88)
