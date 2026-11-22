@@ -1,6 +1,6 @@
 # CONTRE_AUDIT_OK
 
-Contre-audit croisé interne terminé le 22.11.2026 23:28 (heure de Zurich).
+Contre-audit croisé interne terminé le 22.11.2026 23:31 (heure de Zurich).
 Verdict : conforme, transmis sans correction
 
 Fichiers couverts :
@@ -14,6 +14,12 @@ Fichiers couverts :
 - 2_Pratique/P05-01-IMG-PR_Imagerie_Foie_6-examens_PRATIQUE_production_XAi.json
 
 Contrôles : structure identique à l'original de main (clés, ordre, id, nom, _meta), JSON valide, champs vides, étiquettes ≤ 45 caractères, glossaire des sigles, doses (OFSP 2018 tableaux 13 et 16, directive R-06-06), citations Smarter Medicine comparées mot pour mot aux listes Top 5 suisses, sondage de sources chiffrées revérifiées en ligne.
+
+Sources revérifiées en ligne :
+- Hari et al., Liver Int 2017 : dose médiane 5,4 mSv
+- BSG 2020 biopsie hépatique : carotte ≥ 20 mm, 11 espaces portes, voie transveineuse si INR > 1,4 ou plaquettes < 50 G/l
+- OFSP R-06-06 rév. 2 (2018) : foie multiphasique 960 mGy·cm
+- EASL-ERN 2025 Wilson : céruloplasmine < 0,1 g/l, cuivre urinaire > 1,6 µmol/24 h, jusqu'à 20 % de céruloplasmine normale
 
 Corrections faites :
 - aucune
