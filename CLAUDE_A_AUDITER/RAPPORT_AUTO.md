@@ -80,6 +80,7 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/05_Coeur_et_pericarde/1_Theorie/P04-05-BIO_Biologie_Coeur_et_pericarde_8-examens_production_XAi.json`
 - 🟩 `coeur_et_pericarde.json` : remplissage 87 % (153/176)
+- aVerifier déclarés : 1
 
 ### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/05_Coeur_et_pericarde/1_Theorie/P04-05-FCT_Exploration_fonctionnelle_Coeur_et_pericarde_10-examens_production_XAi.json`
 - 🟧 `coeur_et_pericarde.json` : remplissage 82 % (172/210)
