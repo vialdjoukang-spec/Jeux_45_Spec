@@ -1,0 +1,192 @@
+{
+ "_lot": {
+  "tache": "P04-03-END-PR",
+  "titre": "Pratique — Examens de l'organe Médiastin — Endoscopie (2 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/4_thorax/mediastin.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/4_thorax/mediastin.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "mediastin__mediastinoscopie",
+     "nom": "Médiastinoscopie",
+     "modalite": "Endoscopie",
+     "defis": [
+      {
+       "id": "mediastin__mediastinoscopie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE, l'ERS et l'ESTS (Vilmann et al., 2015), une endosonographie négative est suivie d'une stadification chirurgicale si le soupçon d'atteinte persiste.",
+        "pourquoiFaux": "Refaire un PET n'apporte pas de preuve tissulaire, et opérer d'emblée ignorerait une atteinte N2 possible."
+       },
+       "sources": [
+        "ESGE, ERS et ESTS, endosonographie (Vilmann et al., 2015)",
+        "ESTS, stadification médiastinale du cancer bronchique (De Leyn et al., 2014)"
+       ],
+       "casClinique": "Un homme de 64 ans a un adénocarcinome pulmonaire avec un ganglion sous-carinaire fixant au PET ; l'EBUS revient négatif, mais le soupçon reste élevé.",
+       "options": [
+        "Médiastinoscopie",
+        "Refaire un PET-CT",
+        "Chirurgie pulmonaire d'emblée",
+        "ECA"
+       ],
+       "bonneReponse": "Médiastinoscopie",
+       "visee": "retentissement"
+      },
+      {
+       "id": "mediastin__mediastinoscopie-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des glandes atypiques dans un ganglion médiastinal homolatéral traduisent une métastase d'adénocarcinome, soit une atteinte N2.",
+        "pourquoiFaux": "Des granulomes sans nécrose évoqueraient une sarcoïdose ; une architecture ganglionnaire conservée exclurait une métastase."
+       },
+       "sources": [
+        "ESTS, stadification médiastinale du cancer bronchique (De Leyn et al., 2014)"
+       ],
+       "consigne": "Lisez la coupe histologique du ganglion prélevé en médiastinoscopie.",
+       "aspectRecherche": "Nature de l'infiltrat",
+       "reponse": "Métastase d'adénocarcinome : atteinte N2",
+       "imageOuTraceAttendu": "Coupe colorée à l'hématoxyline-éosine montrant un ganglion dont l'architecture est remplacée par des glandes atypiques, avec des noyaux volumineux et des mitoses."
+      },
+      {
+       "id": "mediastin__mediastinoscopie-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE, l'ERS et l'ESTS (Vilmann et al., 2015), l'endosonographie est préférée en première intention à la stadification chirurgicale.",
+        "pourquoiFaux": "La médiastinoscopie reste utile, mais en seconde ligne."
+       },
+       "sources": [
+        "ESGE, ERS et ESTS, endosonographie (Vilmann et al., 2015)"
+       ],
+       "erreurFrequente": "Faire une médiastinoscopie en première intention avant toute endosonographie.",
+       "consequence": "On impose une anesthésie générale et une cicatrice alors qu'un geste moins invasif suffisait souvent.",
+       "bonneConduite": "Commencer par l'EBUS et l'EUS, puis réserver la médiastinoscopie aux cas négatifs avec un soupçon persistant."
+      }
+     ]
+    },
+    {
+     "ref": "mediastin__ebus_et_eus",
+     "nom": "EBUS et EUS",
+     "modalite": "Endoscopie",
+     "defis": [
+      {
+       "id": "mediastin__ebus_et_eus-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE, l'ERS et l'ESTS (Vilmann et al., 2015), l'endosonographie est le premier geste de stadification médiastinale devant des ganglions anormaux au CT ou au PET.",
+        "pourquoiFaux": "La médiastinoscopie vient en seconde ligne, l'IRM ne prouve pas l'atteinte, et la thoracotomie est trop invasive."
+       },
+       "sources": [
+        "ESGE, ERS et ESTS, endosonographie (Vilmann et al., 2015)"
+       ],
+       "casClinique": "Un homme de 61 ans a un carcinome bronchique non à petites cellules du lobe supérieur droit avec des ganglions médiastinaux élargis au CT.",
+       "options": [
+        "EBUS et EUS",
+        "Médiastinoscopie d'emblée",
+        "IRM médiastinale",
+        "Thoracotomie"
+       ],
+       "bonneReponse": "EBUS et EUS",
+       "visee": "retentissement"
+      },
+      {
+       "id": "mediastin__ebus_et_eus-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un ganglion rond, hypoéchogène, à bords nets et sans hile graisseux fait suspecter une atteinte maligne, à confirmer par la cytologie.",
+        "pourquoiFaux": "Un ganglion ovale avec un hile graisseux central serait plutôt bénin ; l'aspect seul ne remplace pas la cytologie."
+       },
+       "sources": [
+        "ESGE, ERS et ESTS, endosonographie (Vilmann et al., 2015)"
+       ],
+       "consigne": "Lisez l'image d'endosonographie bronchique de la station 7.",
+       "aspectRecherche": "Aspect du ganglion",
+       "reponse": "Ganglion suspect : rond, hypoéchogène, sans hile graisseux",
+       "imageOuTraceAttendu": "Image échographique montrant un ganglion sous-carinaire rond de 18 mm, homogène et hypoéchogène, à bords nets, sans hile graisseux central, avec l'aiguille visible dans le ganglion."
+      },
+      {
+       "id": "mediastin__ebus_et_eus-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE, l'ERS et l'ESTS (Vilmann et al., 2015), une endosonographie négative est suivie d'une stadification chirurgicale si le soupçon demeure.",
+        "pourquoiFaux": "La valeur prédictive négative de l'endosonographie n'est pas parfaite."
+       },
+       "sources": [
+        "ESGE, ERS et ESTS, endosonographie (Vilmann et al., 2015)"
+       ],
+       "erreurFrequente": "Conclure à l'absence d'atteinte médiastinale sur une endosonographie négative malgré un ganglion très fixant au PET.",
+       "consequence": "On opère un patient N2 qui aurait relevé d'un traitement combiné.",
+       "bonneConduite": "Compléter par une stadification chirurgicale, par exemple une médiastinoscopie."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CT": "Tomodensitométrie : imagerie en coupes par rayons X qui mesure l'atténuation des tissus.",
+    "IRM": "Imagerie par résonance magnétique : imagerie par champ magnétique, sans rayons X.",
+    "PET": "Tomographie par émission de positons : imagerie qui localise un traceur radioactif émetteur de positons.",
+    "EBUS": "Échoendoscopie bronchique : endoscope bronchique muni d'une sonde d'échographie pour ponctionner les ganglions.",
+    "EUS": "Échoendoscopie œsophagienne : endoscope digestif muni d'une sonde d'échographie pour ponctionner les ganglions.",
+    "ESGE": "Société européenne d'endoscopie digestive.",
+    "ERS": "Société européenne de pneumologie (European Respiratory Society).",
+    "ESTS": "Société européenne de chirurgie thoracique.",
+    "ECA": "Enzyme de conversion de l'angiotensine.",
+    "PET-CT": "Examen qui couple un PET et un CT.",
+    "N2": "Catégorie TNM : atteinte des ganglions médiastinaux homolatéraux.",
+    "TNM": "Classification du cancer selon la tumeur, les ganglions et les métastases."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Endoscopie",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
