@@ -4,7 +4,8 @@ on:
   push:
     paths:
       - "CLAUDE_A_AUDITER/**"
-      - "!CLAUDE_A_AUDITER/RAPPORT_AUTO.md"
+      - "POUR CLAUDE A AUDITER/**"
+      - "!**/RAPPORT_AUTO.md"
   workflow_dispatch:
 permissions:
   contents: write
@@ -17,10 +18,13 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - name: Audit (0 token)
-        run: python projets/outils/audit_auto.py CLAUDE_A_AUDITER -o CLAUDE_A_AUDITER/RAPPORT_AUTO.md
+        run: |
+          for d in "CLAUDE_A_AUDITER" "POUR CLAUDE A AUDITER"; do
+            [ -d "$d" ] && python projets/outils/audit_auto.py "$d" -o "$d/RAPPORT_AUTO.md" || true
+          done
       - name: Publier le rapport
         run: |
           git config user.name "audit-auto"
           git config user.email "audit-auto@users.noreply.github.com"
-          git add CLAUDE_A_AUDITER/RAPPORT_AUTO.md
+          git add -A -- "*RAPPORT_AUTO.md"
           git diff --cached --quiet || (git commit -m "Rapport d'audit automatique [skip ci]" && git push)

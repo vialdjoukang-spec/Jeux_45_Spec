@@ -2,9 +2,18 @@
  "_meta": {
   "region": "4. Thorax",
   "organe": "Poumons et voies aériennes",
-  "statut": "LISTE COMPLÈTE — indication, principe, interprétation et bulle à remplir",
+  "statut": "PRODUIT — à auditer",
   "regles": [
    "Biologie : les valeurs de référence vivent dans biologie/analyses ; ici, tu dis pourquoi on demande l'analyse pour cet organe et ce qu'on y cherche."
+  ],
+  "aVerifier": [
+   "poumons_et_voies_aeriennes__radiographie_thoracique › irradiation_mSv : 0,045 mSv : dose moyenne par examen de radiographie du thorax ou des poumons, tableau 13 de l'enquête 2018 de l'OFSP (Bize, LeCoultre, Viry et Verdun, 21.10.2020) ; la page OFSP « Strahlendosen in der Medizin » donne 0,02 mSv pour un cliché du poumon, et Mettler et al. (2008) donnent 0,1 mSv pour une série face et profil",
+   "poumons_et_voies_aeriennes__ct_thoracique_natif › irradiation_mSv : 2,9 mSv calculé : valeur cible OFSP R-06-06 (révision 2, 2018) du thorax, 210 mGy·cm × 0,014 mSv/(mGy·cm) (facteur thorax adulte de l'AAPM Report 96, repris par l'AAPM en 2023) ; au NRD, 250 × 0,014 = 3,5 mSv",
+   "poumons_et_voies_aeriennes__ct_thoracique_haute_resolution › irradiation_mSv : 2,9 mSv : R-06-06 n'a pas de protocole propre au CT haute résolution ; le protocole thorax a été retenu (210 × 0,014)",
+   "poumons_et_voies_aeriennes__ct_thoracique_basse_dose › irradiation_mSv : 1,0 mSv : valeur descriptive de l'AAPM 2023 (CTDIvol ≤ 3 mGy, DLP ≤ 75 mGy·cm × 0,014) pour un adulte standard ; R-06-06 n'a pas de protocole thorax basse dose",
+   "poumons_et_voies_aeriennes__ct_thoracique_basse_dose › indication : le Swiss Cancer Screening Committee (2022) n'a pas fixé de seuil de paquets-années ; aucun programme national remboursé n'a été trouvé",
+   "poumons_et_voies_aeriennes__scintigraphie_de_ventilation_perfusion › irradiation_mSv : 2,3 mSv calculé : perfusion au MAA (180 MBq), 2,0 mSv, plus ventilation au DTPA (1000 MBq au nébuliseur), 0,313 mSv, selon l'OFSP (DRW Nuklearmedizin V2, 1.2.2023)",
+   "poumons_et_voies_aeriennes__pet_ct › irradiation_mSv : 8,8 mSv calculé : NRD FDG 3D 250 MBq (OFSP, directive de médecine nucléaire du 1.2.2023) × 0,019 mSv/MBq = 4,75 mSv (cohérent avec la dose efficace de 4,8 mSv de la même directive), plus le CT d'atténuation corps entier à la valeur cible de 270 mGy·cm (25e percentile, même directive) × 0,015 mSv/(mGy·cm) (facteur abdomen-bassin, AAPM Report 96, 2008) = 4,05 mSv ; total 8,80 mSv, arrondi à 8,8 mSv, valeur harmonisée avec les autres PET-CT au FDG du projet ; la page OFSP « Strahlendosen in der Medizin » indique 11 mSv à titre de comparaison."
   ]
  },
  "examens": [
@@ -12,203 +21,733 @@
    "id": "poumons_et_voies_aeriennes__radiographie_thoracique",
    "modalite": "Imagerie",
    "nom": "Radiographie thoracique (PA et profil, couché au lit)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "complications",
+    "sortie"
+   ],
+   "signeRecherche": "Opacité, épanchement, pneumothorax",
+   "seuil": "Selon la SSI, une opacité nouvelle sans autre diagnostic confirme la pneumonie chez un patient qui a des symptômes respiratoires.",
+   "indication": "On la demande devant une suspicion de pneumonie, d'épanchement pleural, de pneumothorax ou d'insuffisance cardiaque ; la SSI l'exige chez tout adulte hospitalisé pour une pneumonie communautaire.",
+   "discriminant": "Elle montre en un seul cliché le parenchyme, la plèvre, le médiastin et la silhouette cardiaque.",
+   "avantageSelectif": "Elle est disponible partout, même au lit du patient, rapide et peu irradiante : selon l'enquête de l'OFSP (Bize et al., 2020), une radiographie du thorax délivre en moyenne 0,045 mSv.",
+   "plutotQue": "Elle précède le CT thoracique, qu'on réserve aux doutes diagnostiques et aux complications.",
+   "limite": "Elle manque les petits nodules, les opacités rétrocardiaques et la pneumonie très précoce ; couchée au lit, elle manque souvent un pneumothorax antérieur ou un petit épanchement.",
    "referencePour": [],
-   "smarterMedicine": null,
-   "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "smarterMedicine": "La Société Suisse de Médecine Interne Générale (Smarter Medicine 2014) déconseille la radiographie du thorax préopératoire sans suspicion de pathologie thoracique, et Pédiatrie Suisse (Smarter Medicine 2024) déconseille la radiographie de routine dans la bronchiolite.",
+   "radioAnatomieNormale": [
+    "Trachée médiane",
+    "Bord droit : oreillette droite",
+    "Bord gauche : ventricule gauche",
+    "Bouton aortique",
+    "Hiles pulmonaires",
+    "Coupoles diaphragmatiques",
+    "Culs-de-sac costo-diaphragmatiques libres"
+   ],
+   "precautions": "Chez la femme enceinte, on la fait si elle est indiquée, car le faisceau ne vise pas l'utérus et la dose reste très faible, de 0,02 mSv par cliché selon l'OFSP ; chez l'enfant, on évite de répéter les clichés.",
+   "irradiation_mSv": 0.045,
+   "delai": "rapide (< 24 h)",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Radiographie du thorax",
+    "Radio du thorax",
+    "RX thorax",
+    "Cliché thoracique",
+    "Thorax face et profil",
+    "Radiographie pulmonaire"
+   ],
+   "aspectNormal": "Le cliché normal montre des champs pulmonaires transparents et symétriques, une trachée médiane, des hiles de taille normale et des culs-de-sac costo-diaphragmatiques libres.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Opacité alvéolaire systématisée",
+     "signification": "Elle traduit une condensation et, selon la SSI, une opacité nouvelle avec des symptômes respiratoires confirme la pneumonie."
+    },
+    {
+     "anomalie": "Bronchogramme aérien",
+     "signification": "Il montre des bronches restées aérées dans une condensation, ce qui situe la lésion dans les alvéoles, selon le glossaire de la Fleischner Society (Hansell et al., 2008)."
+    },
+    {
+     "anomalie": "Opacités réticulaires",
+     "signification": "Elles évoquent un œdème interstitiel ou une pneumopathie interstitielle, que le CT haute résolution caractérise ensuite."
+    },
+    {
+     "anomalie": "Émoussement d'un cul-de-sac",
+     "signification": "Il traduit un épanchement pleural, que l'échographie confirme et quantifie."
+    },
+    {
+     "anomalie": "Ligne pleurale sans trame au-delà",
+     "signification": "Elle signe un pneumothorax, que le cliché couché peut manquer quand l'air est antérieur."
+    },
+    {
+     "anomalie": "Nodule ou masse",
+     "signification": "Une opacité de plus de 3 cm s'appelle une masse et une opacité plus petite un nodule, selon le glossaire de la Fleischner Society (Hansell et al., 2008) ; elle fait demander un CT."
+    },
+    {
+     "anomalie": "Opacité rétractile",
+     "signification": "Elle attire les scissures et le médiastin, ce qui distingue une atélectasie d'une condensation."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Syndrome alvéolaire",
+     "anomaliesQuiLeComposent": [
+      "Opacité alvéolaire systématisée",
+      "Bronchogramme aérien",
+      "Contours flous"
+     ]
+    },
+    {
+     "syndrome": "Syndrome interstitiel",
+     "anomaliesQuiLeComposent": [
+      "Opacités réticulaires",
+      "Lignes de Kerley B",
+      "Épaississement péribronchique"
+     ]
+    },
+    {
+     "syndrome": "Syndrome pleural liquidien",
+     "anomaliesQuiLeComposent": [
+      "Émoussement d'un cul-de-sac",
+      "Opacité déclive à limite concave"
+     ]
+    },
+    {
+     "syndrome": "Syndrome pleural gazeux",
+     "anomaliesQuiLeComposent": [
+      "Ligne pleurale visible",
+      "Hyperclarté sans trame"
+     ]
+    },
+    {
+     "syndrome": "Atélectasie",
+     "anomaliesQuiLeComposent": [
+      "Opacité rétractile",
+      "Scissure attirée",
+      "Médiastin attiré"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Pneumonie communautaire",
+     "anomalieTypique": "Opacité alvéolaire nouvelle"
+    },
+    {
+     "pathologie": "Insuffisance cardiaque gauche",
+     "anomalieTypique": "Lignes de Kerley B et cardiomégalie"
+    },
+    {
+     "pathologie": "Épanchement pleural",
+     "anomalieTypique": "Émoussement d'un cul-de-sac"
+    },
+    {
+     "pathologie": "Pneumothorax",
+     "anomalieTypique": "Ligne pleurale sans trame au-delà"
+    },
+    {
+     "pathologie": "Cancer bronchique",
+     "anomalieTypique": "Nodule ou masse"
+    }
+   ],
+   "bulle": {
+    "def": "La radiographie projette le thorax sur un plan et montre les densités de l'air, de l'eau, de la graisse et du calcium.",
+    "pourquoi": "Une condensation remplace l'air alvéolaire par du liquide et apparaît blanche, avec un bronchogramme aérien.",
+    "confusion": "L'atélectasie ressemble à une condensation, mais elle rétracte les scissures et attire le médiastin.",
+    "retenir": "Le diagnostic de pneumonie associe une clinique compatible et une opacité nouvelle."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__echographie_pulmonaire",
    "modalite": "Imagerie",
    "nom": "Échographie pulmonaire (lignes B, condensation)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "complications",
+    "therapeutique"
+   ],
+   "signeRecherche": "Lignes B, condensation, glissement aboli",
+   "seuil": "Selon Volpicelli et al. (2012), trois lignes B ou plus dans un espace intercostal définissent une région positive, et le point poumon confirme le pneumothorax.",
+   "indication": "On la fait au lit du patient devant une dyspnée aiguë ou une suspicion de pneumothorax, d'épanchement ou d'œdème pulmonaire, et devant une pneumonie quand la radiographie n'est pas disponible, selon la SSI.",
+   "discriminant": "Elle détecte mieux que la radiographie couchée le pneumothorax et le petit épanchement : selon Alrajhi et al. (2012), sa sensibilité atteint environ 91 % pour le pneumothorax, contre 50 % pour la radiographie en décubitus.",
+   "avantageSelectif": "Elle n'irradie pas, se répète à volonté et se fait au lit d'un patient instable.",
+   "plutotQue": "Elle remplace la radiographie couchée aux urgences et aux soins intensifs pour chercher un pneumothorax ou un épanchement.",
+   "limite": "Elle ne voit que les lésions qui touchent la plèvre et manque les pneumonies centrales selon la SSI ; elle dépend de l'opérateur, et l'emphysème sous-cutané ou l'obésité gênent l'examen.",
    "referencePour": [],
    "smarterMedicine": null,
-   "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "radioAnatomieNormale": [
+    "Côtes et leur cône d'ombre",
+    "Ligne pleurale entre deux côtes",
+    "Glissement pleural",
+    "Lignes A horizontales"
+   ],
+   "precautions": "Aucune précaution particulière n'est nécessaire, y compris chez la femme enceinte et l'enfant.",
+   "irradiation_mSv": 0,
+   "delai": "urgence (< 1 h)",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Échographie thoracique",
+    "Échographie pleurale",
+    "Échographie pleuro-pulmonaire",
+    "POCUS pulmonaire"
+   ],
+   "aspectNormal": "Selon Volpicelli et al. (2012), le poumon normal montre un glissement pleural et des lignes A horizontales qui répètent la ligne pleurale.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Lignes B multiples",
+     "signification": "Selon Volpicelli et al. (2012), trois lignes B ou plus dans un espace intercostal rendent la région positive pour un syndrome interstitiel."
+    },
+    {
+     "anomalie": "Glissement pleural aboli",
+     "signification": "Il évoque un pneumothorax, mais une bulle d'emphysème, une pleurodèse ou une intubation sélective l'abolissent aussi."
+    },
+    {
+     "anomalie": "Point poumon",
+     "signification": "Selon Volpicelli et al. (2012), il confirme le pneumothorax, car il marque la limite où la plèvre recommence à glisser."
+    },
+    {
+     "anomalie": "Aspect tissulaire du poumon",
+     "signification": "Il traduit une condensation, et un bronchogramme aérien mobile oriente vers une pneumonie plutôt qu'une atélectasie."
+    },
+    {
+     "anomalie": "Collection anéchogène déclive",
+     "signification": "Elle traduit un épanchement pleural, que l'échographie détecte mieux que la radiographie couchée."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Syndrome interstitiel échographique",
+     "anomaliesQuiLeComposent": [
+      "Lignes B multiples",
+      "Atteinte bilatérale et diffuse"
+     ]
+    },
+    {
+     "syndrome": "Pneumothorax échographique",
+     "anomaliesQuiLeComposent": [
+      "Glissement pleural aboli",
+      "Absence de lignes B",
+      "Point poumon"
+     ]
+    },
+    {
+     "syndrome": "Condensation pulmonaire",
+     "anomaliesQuiLeComposent": [
+      "Aspect tissulaire du poumon",
+      "Bronchogramme aérien mobile"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Œdème pulmonaire cardiogénique",
+     "anomalieTypique": "Lignes B bilatérales diffuses"
+    },
+    {
+     "pathologie": "Pneumonie",
+     "anomalieTypique": "Condensation avec bronchogramme mobile"
+    },
+    {
+     "pathologie": "Épanchement pleural",
+     "anomalieTypique": "Collection anéchogène déclive"
+    },
+    {
+     "pathologie": "Pneumothorax",
+     "anomalieTypique": "Point poumon"
+    }
+   ],
+   "bulle": {
+    "def": "L'échographie pulmonaire analyse les artéfacts que crée la plèvre et les lésions qui l'atteignent.",
+    "pourquoi": "Quand l'interstitium se charge d'eau, des lignes verticales, les lignes B, partent de la plèvre et descendent jusqu'au bas de l'écran.",
+    "confusion": "Une bulle d'emphysème abolit aussi le glissement, mais seul le pneumothorax montre un point poumon.",
+    "retenir": "Un glissement pleural visible exclut un pneumothorax sous la sonde."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__ct_thoracique_natif",
    "modalite": "Imagerie",
    "nom": "CT thoracique natif",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
+   "visees": [
+    "diagnostique",
+    "etiologique",
+    "complications"
+   ],
+   "signeRecherche": "Nodule, masse, emphysème, bronchectasies",
+   "seuil": "Selon la Fleischner Society (2017), un nodule solide de moins de 6 mm chez un adulte à faible risque ne demande aucun suivi.",
+   "indication": "On le demande pour caractériser une anomalie de la radiographie, une hémoptysie, un nodule, un emphysème ou des bronchectasies.",
+   "discriminant": "Il montre en coupes fines le parenchyme, les bronches et la plèvre sans superposition, ce que la radiographie ne permet pas.",
+   "avantageSelectif": "Il n'a pas besoin de produit de contraste pour le parenchyme, ce qui l'autorise en cas d'insuffisance rénale ou d'allergie à l'iode.",
+   "plutotQue": "Il remplace la radiographie quand celle-ci reste douteuse, et il cède la place au CT injecté pour les vaisseaux, le médiastin et l'embolie pulmonaire.",
+   "limite": "Il distingue mal les vaisseaux des ganglions du médiastin et ne montre pas l'embolie pulmonaire, qui demande une injection.",
+   "referencePour": [
+    "Emphysème",
+    "Bronchectasies"
+   ],
    "smarterMedicine": null,
-   "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "radioAnatomieNormale": [
+    "Trachée et carène",
+    "Bronches souches et lobaires",
+    "Grande et petite scissures",
+    "Vaisseaux qui s'affinent en périphérie",
+    "Plèvre fine"
+   ],
+   "precautions": "Chez la femme enceinte, on discute d'abord une alternative non irradiante, et chez l'enfant on adapte le protocole à la taille. À la valeur cible de 210 mGy·cm des NRD OFSP R-06-06 (révision 2, 2018), la dose efficace d'un CT thoracique de l'adulte est d'environ 2,9 mSv.",
+   "irradiation_mSv": 2.9,
+   "delai": "rapide (< 24 h)",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Scanner thoracique",
+    "Tomodensitométrie thoracique",
+    "TDM thoracique",
+    "CT thorax sans contraste",
+    "Scanner du thorax natif"
+   ],
+   "aspectNormal": "Le CT normal montre un parenchyme de densité homogène, des bronches fines qui s'affinent vers la périphérie et une plèvre sans épaississement.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Nodule solide",
+     "signification": "Selon la Fleischner Society (2017), un nodule solide de moins de 6 mm chez un adulte à faible risque ne demande aucun suivi."
+    },
+    {
+     "anomalie": "Masse",
+     "signification": "Une opacité de plus de 3 cm est une masse, selon le glossaire de la Fleischner Society (Hansell et al., 2008), et elle fait d'abord craindre un cancer."
+    },
+    {
+     "anomalie": "Zones hypodenses sans paroi",
+     "signification": "Elles traduisent un emphysème, selon le glossaire de la Fleischner Society (Hansell et al., 2008)."
+    },
+    {
+     "anomalie": "Bronche plus large que l'artère",
+     "signification": "Une bronche plus large que son artère, qui ne s'affine pas vers la périphérie, définit la bronchectasie, selon le glossaire de la Fleischner Society (Hansell et al., 2008)."
+    },
+    {
+     "anomalie": "Excavation",
+     "signification": "Une cavité est un espace aérien entouré d'une paroi dans un nodule ou une condensation, selon le glossaire de la Fleischner Society (Hansell et al., 2008) ; elle fait évoquer une tuberculose, un abcès ou un carcinome épidermoïde."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Syndrome bronchique",
+     "anomaliesQuiLeComposent": [
+      "Bronchectasies",
+      "Épaississement des parois bronchiques",
+      "Impactions mucoïdes"
+     ]
+    },
+    {
+     "syndrome": "Syndrome alvéolaire",
+     "anomaliesQuiLeComposent": [
+      "Condensation",
+      "Bronchogramme aérien",
+      "Verre dépoli"
+     ]
+    },
+    {
+     "syndrome": "Syndrome nodulaire",
+     "anomaliesQuiLeComposent": [
+      "Nodule solide",
+      "Contours spiculés",
+      "Croissance au contrôle"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "BPCO avec emphysème",
+     "anomalieTypique": "Zones hypodenses sans paroi"
+    },
+    {
+     "pathologie": "Bronchectasies",
+     "anomalieTypique": "Bronche plus large que l'artère"
+    },
+    {
+     "pathologie": "Cancer bronchique",
+     "anomalieTypique": "Masse à contours spiculés"
+    },
+    {
+     "pathologie": "Tuberculose pulmonaire",
+     "anomalieTypique": "Nodules et cavité apicale"
+    }
+   ],
+   "bulle": {
+    "def": "Le CT thoracique mesure l'atténuation des rayons X en coupes et montre le poumon sans superposition.",
+    "pourquoi": "L'air apparaît noir et le tissu dense blanc, si bien qu'un nodule de quelques millimètres ressort sur le fond du poumon.",
+    "confusion": "Un vaisseau coupé en travers imite un nodule, mais il se suit d'une coupe à l'autre, alors que le nodule disparaît.",
+    "retenir": "Le CT natif suffit pour le parenchyme ; on injecte pour les vaisseaux et le médiastin."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__ct_thoracique_haute_resolution",
    "modalite": "Imagerie",
    "nom": "CT thoracique haute résolution (pneumopathies interstitielles)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
+   "visees": [
+    "diagnostique",
+    "etiologique",
+    "retentissement"
+   ],
+   "signeRecherche": "Rayon de miel, réticulations, verre dépoli",
+   "seuil": "Selon l'ATS/ERS/JRS/ALAT (Raghu et al., 2022), un rayon de miel sous-pleural à prédominance basale, avec ou sans bronchectasies de traction, définit l'aspect de PIC typique.",
+   "indication": "On le demande devant une dyspnée chronique avec des crépitants, une baisse de la DLCO ou une suspicion de pneumopathie interstitielle.",
+   "discriminant": "Il classe l'atteinte interstitielle en aspects typiques, comme la PIC, la PINS ou la pneumopathie d'hypersensibilité, et il décide si une biopsie est utile.",
+   "avantageSelectif": "Selon l'ATS/ERS/JRS/ALAT (Raghu et al., 2022), un aspect de PIC typique dans un contexte compatible suffit au diagnostic de fibrose pulmonaire idiopathique sans biopsie.",
+   "plutotQue": "Il évite la biopsie chirurgicale dans la plupart des fibroses typiques et précède la cryobiopsie quand l'aspect reste indéterminé.",
+   "limite": "Il ne donne pas l'étiologie à lui seul, car on l'interprète en discussion multidisciplinaire avec l'exposition et l'auto-immunité, et il manque les atteintes débutantes.",
+   "referencePour": [
+    "Pneumopathie interstitielle fibrosante"
+   ],
    "smarterMedicine": null,
-   "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "radioAnatomieNormale": [
+    "Lobule pulmonaire secondaire",
+    "Septa interlobulaires fins",
+    "Artère centrolobulaire",
+    "Plèvre et scissures fines"
+   ],
+   "precautions": "On ajoute des coupes en décubitus ventral pour distinguer un vrai infiltrat des opacités déclives. Selon les NRD OFSP R-06-06 (révision 2, 2018), le protocole thoracique standard délivre environ 2,9 mSv à la valeur cible de 210 mGy·cm.",
+   "irradiation_mSv": 2.9,
+   "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "CT haute résolution",
+    "CTHR",
+    "TDM haute résolution",
+    "Scanner haute résolution du thorax"
+   ],
+   "aspectNormal": "Le CT haute résolution normal montre des lobules pulmonaires de densité homogène, sans réticulation ni verre dépoli, et des septa interlobulaires à peine visibles.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Rayon de miel sous-pleural",
+     "signification": "Selon l'ATS/ERS/JRS/ALAT (Raghu et al., 2022), un rayon de miel sous-pleural à prédominance basale définit l'aspect de PIC typique."
+    },
+    {
+     "anomalie": "Réticulations",
+     "signification": "Elles traduisent un épaississement de l'interstitium par une fibrose ou un œdème, selon le glossaire de la Fleischner Society (Hansell et al., 2008)."
+    },
+    {
+     "anomalie": "Verre dépoli",
+     "signification": "Il augmente la densité du poumon sans masquer les vaisseaux et traduit un remplissage partiel des alvéoles ou un épaississement de l'interstitium, selon le glossaire de la Fleischner Society (Hansell et al., 2008)."
+    },
+    {
+     "anomalie": "Bronchectasies de traction",
+     "signification": "Elles traduisent une fibrose qui tire sur la paroi des bronches, et l'ATS/ERS/JRS/ALAT (Raghu et al., 2022) les compte dans l'aspect de PIC."
+    },
+    {
+     "anomalie": "Atténuation en mosaïque",
+     "signification": "Selon l'ATS/JRS/ALAT (Raghu et al., 2020), une mosaïque avec piégeage expiratoire oriente vers une pneumopathie d'hypersensibilité."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Aspect de PIC",
+     "anomaliesQuiLeComposent": [
+      "Rayon de miel sous-pleural",
+      "Réticulations basales",
+      "Bronchectasies de traction"
+     ]
+    },
+    {
+     "syndrome": "Aspect de pneumopathie d'hypersensibilité",
+     "anomaliesQuiLeComposent": [
+      "Verre dépoli",
+      "Nodules centrolobulaires flous",
+      "Mosaïque avec piégeage"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Fibrose pulmonaire idiopathique",
+     "anomalieTypique": "Aspect de PIC typique"
+    },
+    {
+     "pathologie": "PINS d'une connectivite",
+     "anomalieTypique": "Verre dépoli et réticulations basales"
+    },
+    {
+     "pathologie": "Pneumopathie d'hypersensibilité",
+     "anomalieTypique": "Mosaïque avec piégeage expiratoire"
+    },
+    {
+     "pathologie": "Sarcoïdose",
+     "anomalieTypique": "Micronodules périlymphatiques"
+    }
+   ],
+   "bulle": {
+    "def": "Le CT haute résolution reconstruit le poumon en coupes millimétriques pour voir le lobule pulmonaire.",
+    "pourquoi": "La fibrose détruit les alvéoles et laisse des kystes accolés en rayon de miel, d'abord sous la plèvre et aux bases.",
+    "confusion": "L'emphysème paraseptal forme aussi des kystes sous la plèvre, mais ils sont sur une seule rangée et plutôt aux sommets.",
+    "retenir": "Le rayon de miel basal et sous-pleural signe l'aspect de PIC."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__ct_thoracique_basse_dose",
    "modalite": "Imagerie",
    "nom": "CT thoracique basse dose (dépistage)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
+   "visees": [
+    "diagnostique"
+   ],
+   "signeRecherche": "Nodule pulmonaire suspect",
+   "seuil": "Selon l'ACR (Lung-RADS 2022), un nodule solide de 6 mm ou plus au premier examen classe le résultat au moins en catégorie 3.",
+   "indication": "Selon le Swiss Cancer Screening Committee (2022), on le propose aux fumeurs et anciens fumeurs à risque élevé, après une décision partagée et dans un programme organisé.",
+   "discriminant": "Il détecte les cancers bronchiques à un stade précoce, que la radiographie manque.",
+   "avantageSelectif": "Selon le Swiss Cancer Screening Committee (2022), le dépistage réduit d'environ 20 % la mortalité par cancer du poumon chez les personnes à risque.",
+   "plutotQue": "Il remplace la radiographie de dépistage : selon l'essai PLCO (Oken et al., 2011), la radiographie annuelle ne réduit pas la mortalité par cancer du poumon.",
+   "limite": "Il découvre beaucoup de nodules bénins et de lésions fortuites qui entraînent d'autres examens, et il surdiagnostique certains cancers peu évolutifs.",
+   "referencePour": [
+    "Dépistage du cancer du poumon"
+   ],
    "smarterMedicine": null,
-   "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "radioAnatomieNormale": [
+    "Parenchyme pulmonaire homogène",
+    "Bronches et vaisseaux",
+    "Plèvre fine"
+   ],
+   "precautions": "On propose toujours un sevrage tabagique selon le Swiss Cancer Screening Committee (2022), et on réserve l'examen aux personnes candidates à un traitement curatif selon l'ACR–STR. Selon l'AAPM (2023), un CTDIvol de 3 mGy au plus chez un adulte standard donne une dose efficace d'environ 1 mSv au plus.",
+   "irradiation_mSv": 1.0,
+   "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Scanner faible dose",
+    "CT de dépistage",
+    "TDM basse dose",
+    "Dépistage du cancer du poumon"
+   ],
+   "aspectNormal": "Selon l'ACR (Lung-RADS 2022), un examen sans nodule ou avec des nodules d'aspect bénin se classe en catégorie 1 ou 2.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Nodule solide de 6 mm ou plus",
+     "signification": "Selon l'ACR (Lung-RADS 2022), il classe le premier examen au moins en catégorie 3, qui demande un contrôle rapproché."
+    },
+    {
+     "anomalie": "Nodule en verre dépoli",
+     "signification": "Il évoque un adénocarcinome peu invasif quand il persiste, mais aussi une inflammation qui régresse au contrôle."
+    },
+    {
+     "anomalie": "Nodule partiellement solide",
+     "signification": "Sa composante solide porte le risque de malignité et guide le classement Lung-RADS de l'ACR (2022)."
+    },
+    {
+     "anomalie": "Découverte fortuite",
+     "signification": "Le CT de dépistage montre aussi un emphysème ou des calcifications coronaires, qui demandent leur propre prise en charge."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Nodule suspect de malignité",
+     "anomaliesQuiLeComposent": [
+      "Croissance au contrôle",
+      "Composante solide",
+      "Contours spiculés"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Nodule inflammatoire",
+     "anomalieTypique": "Régression au contrôle"
+    },
+    {
+     "pathologie": "Adénocarcinome peu invasif",
+     "anomalieTypique": "Verre dépoli persistant"
+    },
+    {
+     "pathologie": "Cancer bronchique précoce",
+     "anomalieTypique": "Nodule solide qui grossit"
+    }
+   ],
+   "bulle": {
+    "def": "Le CT basse dose explore le poumon avec une dose réduite, qui suffit pour voir les nodules.",
+    "pourquoi": "L'air contraste fortement avec un nodule, si bien qu'on réduit le courant du tube sans perdre la détection.",
+    "confusion": "Un nodule inflammatoire ressemble à un cancer, mais il régresse au contrôle, alors qu'un cancer grossit.",
+    "retenir": "Le dépistage par CT basse dose s'adresse aux gros fumeurs, dans un programme organisé."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__scintigraphie_de_ventilation_perfusion",
    "modalite": "Imagerie",
    "nom": "Scintigraphie de ventilation-perfusion",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique"
+   ],
+   "signeRecherche": "Défaut de perfusion bien ventilé",
+   "seuil": "Selon l'ESC (2019), une scintigraphie de perfusion normale exclut l'embolie pulmonaire, et un résultat de haute probabilité la confirme chez la plupart des patients.",
+   "indication": "On la demande devant une suspicion d'embolie pulmonaire quand l'angio-CT est contre-indiqué, et pour rechercher une hypertension pulmonaire thromboembolique chronique.",
+   "discriminant": "Elle montre un poumon ventilé mais non perfusé, ce qui signe l'embolie, et selon l'ESC/ERS (2022) elle dépiste mieux que l'angio-CT l'hypertension pulmonaire thromboembolique chronique.",
+   "avantageSelectif": "Selon l'ESC (2019), elle n'utilise pas de produit de contraste iodé et irradie peu les seins, ce qui la favorise chez la femme jeune ou enceinte dont la radiographie est normale.",
+   "plutotQue": "On la préfère à l'angio-CT quand une insuffisance rénale ou une allergie contre-indiquent le produit de contraste iodé.",
+   "limite": "Elle donne souvent un résultat non diagnostique quand la radiographie est anormale, et elle ne montre pas un autre diagnostic comme une pneumonie.",
    "referencePour": [],
    "smarterMedicine": null,
-   "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "radioAnatomieNormale": [
+    "Contours des deux poumons",
+    "Empreinte cardiaque à gauche",
+    "Répartition segmentaire homogène"
+   ],
+   "precautions": "Selon l'ESC (2019), on la favorise chez la femme enceinte, car elle épargne le produit de contraste iodé et irradie moins que l'angio-CT. Selon l'OFSP (DRW Nuklearmedizin, 2023), la dose efficace atteint environ 2,0 mSv pour la perfusion au MAA et 0,3 mSv pour la ventilation au DTPA.",
+   "irradiation_mSv": 2.3,
+   "delai": "rapide (< 24 h)",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Scintigraphie V/Q",
+    "Scintigraphie pulmonaire",
+    "Scintigraphie de perfusion",
+    "Scintigraphie ventilation-perfusion"
+   ],
+   "aspectNormal": "Selon l'ESC (2019), une perfusion normale et homogène des deux poumons exclut l'embolie pulmonaire.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Défaut de perfusion bien ventilé",
+     "signification": "Selon l'ESC (2019), des défauts segmentaires de perfusion bien ventilés donnent un résultat de haute probabilité d'embolie."
+    },
+    {
+     "anomalie": "Défauts concordants",
+     "signification": "Un défaut de ventilation et de perfusion au même endroit traduit une atteinte du parenchyme, comme une pneumonie ou une BPCO."
+    },
+    {
+     "anomalie": "Défauts persistants après anticoagulation",
+     "signification": "Selon l'ESC/ERS (2022), des défauts de perfusion après au moins trois mois d'anticoagulation font rechercher une HTP-TEC."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Discordance ventilation-perfusion",
+     "anomaliesQuiLeComposent": [
+      "Défaut de perfusion segmentaire",
+      "Ventilation conservée",
+      "Forme triangulaire à base pleurale"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Embolie pulmonaire",
+     "anomalieTypique": "Défauts de perfusion discordants"
+    },
+    {
+     "pathologie": "BPCO ou pneumonie",
+     "anomalieTypique": "Défauts concordants"
+    },
+    {
+     "pathologie": "HTP-TEC",
+     "anomalieTypique": "Défauts persistants sous anticoagulant"
+    }
+   ],
+   "bulle": {
+    "def": "La scintigraphie compare la ventilation d'un aérosol radioactif inhalé et la perfusion de microsphères injectées.",
+    "pourquoi": "Un caillot bloque la perfusion d'un segment qui reste ventilé, d'où un défaut triangulaire à base pleurale.",
+    "confusion": "Une pneumonie crée aussi un défaut de perfusion, mais la ventilation y manque aussi, sans discordance.",
+    "retenir": "Une perfusion normale exclut l'embolie pulmonaire."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__pet_ct",
    "modalite": "Imagerie",
    "nom": "PET-CT (nodule, stadification)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
-   "smarterMedicine": null,
-   "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "visees": [
+    "diagnostique",
+    "retentissement"
+   ],
+   "signeRecherche": "Hypermétabolisme d'un nodule ou ganglion",
+   "seuil": "Il n'existe pas de seuil universel de SUV, et selon la Fleischner Society (2017) on interprète la fixation d'un nodule solide de plus de 8 mm avec sa probabilité de malignité.",
+   "indication": "On le demande pour caractériser un nodule solide de plus de 8 mm selon la Fleischner Society (2017), et pour la stadification d'un cancer bronchique avant un traitement curatif.",
+   "discriminant": "Il montre les métastases ganglionnaires et à distance que le CT ne reconnaît pas sur leur taille.",
+   "avantageSelectif": "Il réunit en un seul examen le métabolisme et l'anatomie du corps entier, et il guide le choix du ganglion à ponctionner.",
+   "plutotQue": "Il précède l'EBUS, qui confirme par ponction un ganglion fixant, selon l'ESGE/ERS/ESTS (Vilmann et al., 2015).",
+   "limite": "Il donne des faux positifs dans l'inflammation, la tuberculose et la sarcoïdose, et des faux négatifs dans les adénocarcinomes peu invasifs, les tumeurs carcinoïdes et les très petits nodules.",
+   "referencePour": [
+    "Stadification du cancer bronchique"
+   ],
+   "smarterMedicine": "La Société suisse d'oncologie médicale (Smarter Medicine 2024) déconseille le PET dans le suivi des patients asymptomatiques en rémission complète, sauf si son utilité est fortement prouvée.",
+   "radioAnatomieNormale": [
+    "Fixation cérébrale intense",
+    "Fixation myocardique variable",
+    "Élimination rénale et vésicale",
+    "Médiastin peu fixant"
+   ],
+   "precautions": "On mesure la glycémie avant l'injection, et selon l'EANM (Boellaard et al., 2015) on reporte l'examen si elle atteint ou dépasse 11 mmol/l ; on reporte aussi l'examen chez la femme enceinte. Selon l'OFSP (directive de médecine nucléaire du 1.2.2023), 250 MBq de FDG et le CT d'atténuation corps entier à la valeur cible de 270 mGy·cm délivrent ensemble environ 8,8 mSv.",
+   "irradiation_mSv": 8.8,
+   "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "TEP-CT",
+    "PET-scan",
+    "TEP au FDG",
+    "PET-CT au FDG",
+    "Tomographie par émission de positons"
+   ],
+   "aspectNormal": "Le PET-CT normal montre une fixation physiologique du FDG dans le cerveau, le myocarde, les reins et la vessie, et une fixation faible du poumon et du médiastin.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Nodule hypermétabolique",
+     "signification": "Selon la Fleischner Society (2017), on interprète la fixation d'un nodule solide de plus de 8 mm avec sa probabilité de malignité."
+    },
+    {
+     "anomalie": "Ganglion médiastinal fixant",
+     "signification": "Selon l'ESGE/ERS/ESTS (Vilmann et al., 2015), on le ponctionne par EBUS avant de décider du traitement."
+    },
+    {
+     "anomalie": "Foyer extrathoracique fixant",
+     "signification": "Il fait suspecter une métastase à distance, qui change le stade et le traitement."
+    },
+    {
+     "anomalie": "Nodule non fixant",
+     "signification": "Il n'exclut pas un adénocarcinome peu invasif ni une tumeur carcinoïde, qui fixent peu le FDG."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Extension ganglionnaire médiastinale",
+     "anomaliesQuiLeComposent": [
+      "Ganglion médiastinal fixant",
+      "Ganglion hilaire fixant",
+      "Fixation controlatérale"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Sarcoïdose",
+     "anomalieTypique": "Ganglions hilaires symétriques fixants"
+    },
+    {
+     "pathologie": "Tuberculose",
+     "anomalieTypique": "Fixation inflammatoire"
+    },
+    {
+     "pathologie": "Cancer bronchique non à petites cellules",
+     "anomalieTypique": "Nodule et ganglions fixants"
+    }
+   ],
+   "bulle": {
+    "def": "Le PET-CT superpose la carte de consommation du glucose marqué au fluor-18 et l'image du CT.",
+    "pourquoi": "Les cellules tumorales consomment beaucoup de glucose et concentrent le FDG, qui s'accumule sans être métabolisé.",
+    "confusion": "Une sarcoïdose ou une tuberculose fixent aussi le FDG, mais la ponction tranche en montrant des granulomes.",
+    "retenir": "Un ganglion qui fixe doit être ponctionné avant de récuser une chirurgie."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__gazometrie_arterielle",
    "modalite": "Biologie",
    "nom": "Gazométrie artérielle",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
-   "smarterMedicine": null,
+   "visees": [
+    "diagnostique",
+    "retentissement",
+    "therapeutique"
+   ],
+   "signeRecherche": "Hypoxémie, hypercapnie, acidose",
+   "seuil": "Selon la SSI, une PaO2 inférieure à 8 kPa (60 mmHg) à l'air ambiant traduit une hypoxémie ; selon la BTS/ICS (Davidson et al., 2016), un pH inférieur à 7,35 avec une PaCO2 supérieure à 6,5 kPa (49 mmHg) fait discuter la ventilation non invasive.",
+   "indication": "On la demande devant une détresse respiratoire, une SpO2 basse, une suspicion d'hypercapnie ou de trouble acido-basique, et avant une oxygénothérapie de longue durée.",
+   "discriminant": "Elle mesure directement la PaCO2 et le pH, que l'oxymètre de pouls ne donne pas.",
+   "avantageSelectif": "Elle donne en quelques minutes l'oxygénation, la ventilation, l'équilibre acido-basique et le lactate.",
+   "plutotQue": "On la préfère à l'oxymétrie quand on craint une hypercapnie, car une SpO2 normale sous oxygène peut masquer une hypoventilation.",
+   "limite": "Elle reflète un seul instant, et une bulle d'air ou un retard d'analyse faussent la PaO2.",
+   "referencePour": [
+    "Insuffisance respiratoire hypercapnique"
+   ],
+   "smarterMedicine": "La Société Suisse de Médecine Intensive (Smarter Medicine 2017) recommande de ne pas pratiquer d'examens complémentaires de routine à intervalle régulier, mais seulement pour répondre à une question clinique précise.",
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
+   "precautions": "On vérifie la circulation collatérale de la main avant une ponction radiale, et on comprime plus longtemps le point de ponction chez le patient anticoagulé.",
+   "irradiation_mSv": 0,
+   "delai": "urgence (< 1 h)",
+   "prelevementRef": "sang_arteriel",
    "analysesRef": [
     "Excès de base",
     "PaCO2",
@@ -216,663 +755,2102 @@
     "SaO2",
     "pH artériel"
    ],
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Gaz du sang artériel",
+    "GDS",
+    "Gazométrie",
+    "Astrup",
+    "Équilibre acido-basique"
+   ],
+   "aspectNormal": "Les valeurs normales du pH, de la PaO2, de la PaCO2, du bicarbonate et du lactate figurent dans leurs fiches d'analyses (famille 03, électrolytes, rein et acide-base).",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Hypoxémie",
+     "signification": "Selon la SSI, une PaO2 inférieure à 8 kPa à l'air ambiant traduit une hypoxémie."
+    },
+    {
+     "anomalie": "Hypercapnie avec pH bas",
+     "signification": "Selon la BTS/ICS (Davidson et al., 2016), un pH inférieur à 7,35 avec une PaCO2 supérieure à 6,5 kPa fait discuter la ventilation non invasive."
+    },
+    {
+     "anomalie": "Hypocapnie",
+     "signification": "Elle traduit une hyperventilation, qu'on retrouve dans l'embolie pulmonaire, la pneumonie ou l'anxiété."
+    },
+    {
+     "anomalie": "Bicarbonate élevé avec hypercapnie",
+     "signification": "Il montre que le rein compense une hypercapnie ancienne, ce qui signe une acidose respiratoire chronique."
+    },
+    {
+     "anomalie": "Lactate élevé",
+     "signification": "Il traduit une hypoperfusion tissulaire, qu'on recherche dans le sepsis et le choc."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Insuffisance respiratoire hypoxémique",
+     "anomaliesQuiLeComposent": [
+      "Hypoxémie",
+      "PaCO2 normale ou basse"
+     ]
+    },
+    {
+     "syndrome": "Insuffisance respiratoire hypercapnique",
+     "anomaliesQuiLeComposent": [
+      "Hypoxémie",
+      "Hypercapnie",
+      "pH bas si aiguë"
+     ]
+    },
+    {
+     "syndrome": "Acidose respiratoire chronique compensée",
+     "anomaliesQuiLeComposent": [
+      "Hypercapnie",
+      "Bicarbonate élevé",
+      "pH proche de la normale"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Pneumonie",
+     "anomalieTypique": "Hypoxémie avec hypocapnie"
+    },
+    {
+     "pathologie": "Exacerbation de BPCO",
+     "anomalieTypique": "Acidose hypercapnique"
+    },
+    {
+     "pathologie": "Embolie pulmonaire",
+     "anomalieTypique": "Hypoxémie et hypocapnie"
+    },
+    {
+     "pathologie": "SDRA",
+     "anomalieTypique": "Hypoxémie sévère sous oxygène"
+    }
+   ],
+   "bulle": {
+    "def": "La gazométrie mesure dans le sang artériel le pH, la PaO2, la PaCO2 et les bicarbonates.",
+    "pourquoi": "Quand la ventilation baisse, le CO2 s'accumule et acidifie le sang avant que le rein ne compense.",
+    "confusion": "Une alcalose métabolique élève aussi les bicarbonates, mais le pH monte alors qu'il baisse dans l'acidose respiratoire.",
+    "retenir": "Le pH et la PaCO2 disent si une hypercapnie est aiguë et menaçante."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__expectorations",
    "modalite": "Biologie",
    "nom": "Expectorations (Gram, culture, BAAR, PCR tuberculose)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
+   "visees": [
+    "etiologique",
+    "therapeutique"
+   ],
+   "signeRecherche": "Germe, bacilles acido-alcoolo-résistants",
+   "seuil": "Selon les critères de Murray et Washington (1975), un crachat valable montre moins de 10 cellules épithéliales et plus de 25 leucocytes par champ au faible grossissement.",
+   "indication": "Selon la SSI, on fait une coloration de Gram et une culture chez le patient hospitalisé pour une pneumonie si l'échantillon peut être analysé dans les 4 heures, et on cherche la tuberculose par microscopie et PCR devant des symptômes persistants.",
+   "discriminant": "Il identifie le germe et son antibiogramme, ce qui permet de cibler l'antibiotique.",
+   "avantageSelectif": "Il est non invasif et peu coûteux, et la coloration de Gram donne un premier résultat dans la journée.",
+   "plutotQue": "On le fait avant la bronchoscopie, qu'on réserve aux patients qui ne crachent pas ou dont le crachat n'apporte rien.",
+   "limite": "La flore buccale contamine souvent l'échantillon, et la microscopie de la tuberculose reste moins sensible que la PCR selon la Ligue pulmonaire suisse (2021).",
+   "referencePour": [
+    "Tuberculose pulmonaire"
+   ],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
+   "precautions": "On recueille le crachat avant l'antibiotique si possible, et on isole le patient chez qui on suspecte une tuberculose jusqu'au résultat de la PCR, selon la Ligue pulmonaire suisse (2021).",
+   "irradiation_mSv": 0,
+   "delai": "rapide (< 24 h)",
+   "prelevementRef": "expectorations_et_lavage_bronchoalveolai",
    "analysesRef": [
     "Expectorations : Gram, culture, BAAR, PCR tuberculose"
    ],
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Examen des crachats",
+    "Culture d'expectoration",
+    "ECBC",
+    "Recherche de BAAR",
+    "Coloration de Ziehl-Neelsen",
+    "PCR tuberculose"
+   ],
+   "aspectNormal": "Un crachat valable sans germe pathogène ne montre que la flore oropharyngée ; les critères de qualité figurent dans la fiche d'analyse « Expectorations ».",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Crachat salivaire",
+     "signification": "Selon les critères de Murray et Washington (1975), plus de 10 cellules épithéliales par champ rendent le crachat non interprétable."
+    },
+    {
+     "anomalie": "Diplocoques Gram positif prédominants",
+     "signification": "Ils orientent vers le pneumocoque quand le crachat est valable et purulent."
+    },
+    {
+     "anomalie": "BAAR à l'examen direct",
+     "signification": "Selon la Ligue pulmonaire suisse (2021), ils signent une tuberculose contagieuse jusqu'à preuve du contraire."
+    },
+    {
+     "anomalie": "PCR tuberculose positive",
+     "signification": "Selon la Ligue pulmonaire suisse (2021), elle confirme le complexe Mycobacterium tuberculosis et détecte la résistance à la rifampicine."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Infection bactérienne bronchopulmonaire",
+     "anomaliesQuiLeComposent": [
+      "Crachat purulent",
+      "Germe prédominant au Gram",
+      "Culture positive"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Pneumonie à pneumocoque",
+     "anomalieTypique": "Diplocoques Gram positif"
+    },
+    {
+     "pathologie": "Exacerbation de BPCO",
+     "anomalieTypique": "Haemophilus influenzae en culture"
+    },
+    {
+     "pathologie": "Tuberculose pulmonaire",
+     "anomalieTypique": "BAAR et PCR positive"
+    }
+   ],
+   "bulle": {
+    "def": "L'examen des expectorations analyse au microscope et en culture les sécrétions bronchiques crachées.",
+    "pourquoi": "Les germes de l'infection se trouvent dans les sécrétions purulentes, où la coloration de Gram les rend visibles.",
+    "confusion": "La salive ressemble à un crachat, mais elle contient surtout des cellules épithéliales et peu de leucocytes.",
+    "retenir": "Un crachat n'est interprétable que s'il vient des bronches."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__antigenuries_pneumocoque_et_legionelle",
    "modalite": "Biologie",
    "nom": "Antigénuries pneumocoque et légionelle",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "etiologique",
+    "therapeutique"
+   ],
+   "signeRecherche": "Antigène pneumococcique ou légionelle",
+   "seuil": "Le test est positif s'il détecte l'antigène dans l'urine, et pour la légionelle il ne détecte que le sérogroupe 1 de Legionella pneumophila selon l'ESCMID (Woodhead et al., 2011).",
+   "indication": "Selon la SSI, on les demande chez tout adulte hospitalisé pour une pneumonie communautaire, et en ambulatoire on ne cherche l'antigène légionelle qu'en cas d'épidémie ou d'échec des bêtalactamines.",
+   "discriminant": "Il identifie la légionelle, que la culture usuelle ne fait pas pousser, et le pneumocoque même après le début de l'antibiotique.",
+   "avantageSelectif": "Il donne un résultat rapide sur une simple urine.",
+   "plutotQue": "On le préfère à la culture d'expectoration quand le patient ne crache pas ou a déjà reçu un antibiotique.",
+   "limite": "Selon l'ESCMID (Woodhead et al., 2011), il manque les légionelles d'un autre sérogroupe que le sérogroupe 1, et il ne donne pas d'antibiogramme.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
+   "precautions": "Aucune précaution particulière n'est nécessaire ; on interprète un test négatif avec la clinique.",
+   "irradiation_mSv": 0,
+   "delai": "rapide (< 24 h)",
+   "prelevementRef": "urine",
    "analysesRef": [
     "Antigènes urinaires pneumocoque et légionelle"
    ],
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Antigène urinaire du pneumocoque",
+    "Antigène urinaire de la légionelle",
+    "Antigénurie",
+    "Antigènes urinaires"
+   ],
+   "aspectNormal": "Un test négatif ne détecte aucun antigène ; l'interprétation figure dans la fiche d'analyse « Antigènes urinaires pneumocoque et légionelle ».",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Antigène légionelle positif",
+     "signification": "Selon l'ESCMID (Woodhead et al., 2011), il confirme une légionellose à Legionella pneumophila du sérogroupe 1."
+    },
+    {
+     "anomalie": "Antigène pneumococcique positif",
+     "signification": "Il confirme une infection à pneumocoque chez l'adulte qui a une pneumonie, même après le début de l'antibiotique."
+    },
+    {
+     "anomalie": "Antigène légionelle négatif",
+     "signification": "Selon l'ESCMID (Woodhead et al., 2011), il n'exclut pas une légionellose d'un autre sérogroupe."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Pneumonie à germe identifié",
+     "anomaliesQuiLeComposent": [
+      "Antigène urinaire positif",
+      "Opacité alvéolaire",
+      "Clinique compatible"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Pneumonie à pneumocoque",
+     "anomalieTypique": "Antigène pneumococcique positif"
+    },
+    {
+     "pathologie": "Légionellose",
+     "anomalieTypique": "Antigène légionelle positif"
+    }
+   ],
+   "bulle": {
+    "def": "L'antigénurie détecte dans l'urine des fragments du pneumocoque ou de la légionelle éliminés par le rein.",
+    "pourquoi": "Les antigènes de la paroi bactérienne passent dans le sang puis dans l'urine pendant l'infection pulmonaire.",
+    "confusion": "Une légionellose d'un autre sérogroupe donne un test négatif, mais la PCR sur l'expectoration la détecte.",
+    "retenir": "Un test négatif n'exclut pas une légionellose."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__procalcitonine_crp",
    "modalite": "Biologie",
    "nom": "Procalcitonine, CRP",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "therapeutique"
+   ],
+   "signeRecherche": "Inflammation, infection bactérienne",
+   "seuil": "Selon l'essai suisse ProHOSP (Schuetz et al., 2009), un algorithme fondé sur la procalcitonine réduit l'exposition aux antibiotiques dans l'infection respiratoire basse, à un taux d'événements indésirables comparable.",
+   "indication": "On les demande devant une infection respiratoire basse pour décider de l'antibiotique et de sa durée, et la SSI propose de les répéter après 3 à 4 jours pour juger la réponse.",
+   "discriminant": "La PCT monte surtout dans l'infection bactérienne et reste basse dans la plupart des viroses, alors que la CRP monte dans toute inflammation.",
+   "avantageSelectif": "Selon la SSI, une PCT inférieure à 0,25 µg/l permet de ne pas prescrire d'antibiotique dans une pneumonie légère en ambulatoire.",
+   "plutotQue": "On préfère la PCT à la CRP pour arrêter tôt un antibiotique, car l'essai ProHOSP (Schuetz et al., 2009) a réduit l'exposition aux antibiotiques sans plus de complications.",
+   "limite": "La PCT monte aussi après une chirurgie, un traumatisme ou un choc, et elle peut rester basse au tout début d'une infection.",
    "referencePour": [],
-   "smarterMedicine": null,
+   "smarterMedicine": "La Société Suisse de Médecine Interne Générale (Smarter Medicine 2023) recommande de ne pas prescrire d'antibiotique lors de la découverte isolée d'une CRP ou d'une PCT élevée.",
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
+   "precautions": "Aucune précaution particulière n'est nécessaire ; on interprète la valeur avec la clinique et son évolution.",
+   "irradiation_mSv": 0,
+   "delai": "rapide (< 24 h)",
+   "prelevementRef": "sang_veineux",
    "analysesRef": [
     "CRP",
     "Procalcitonine"
    ],
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "PCT",
+    "Procalcitonine",
+    "CRP",
+    "Protéine C réactive",
+    "Marqueurs de l'inflammation"
+   ],
+   "aspectNormal": "Les valeurs normales figurent dans les fiches d'analyses « CRP » et « Procalcitonine » (famille 07, inflammation et infection).",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "PCT basse",
+     "signification": "Selon la SSI, une PCT inférieure à 0,25 µg/l permet de ne pas prescrire d'antibiotique dans une pneumonie légère en ambulatoire."
+    },
+    {
+     "anomalie": "PCT élevée",
+     "signification": "Elle rend une infection bactérienne probable et soutient la prescription d'un antibiotique."
+    },
+    {
+     "anomalie": "PCT qui baisse",
+     "signification": "Selon l'essai ProHOSP (Schuetz et al., 2009), sa baisse guide l'arrêt précoce de l'antibiotique."
+    },
+    {
+     "anomalie": "CRP élevée isolée",
+     "signification": "Selon la SSMIG (Smarter Medicine 2023), elle ne justifie pas à elle seule un antibiotique."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Syndrome inflammatoire biologique",
+     "anomaliesQuiLeComposent": [
+      "CRP élevée",
+      "Leucocytose",
+      "PCT élevée si bactérien"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Bronchite aiguë virale",
+     "anomalieTypique": "PCT basse"
+    },
+    {
+     "pathologie": "Pneumonie bactérienne",
+     "anomalieTypique": "PCT et CRP élevées"
+    },
+    {
+     "pathologie": "Sepsis d'origine pulmonaire",
+     "anomalieTypique": "PCT très élevée"
+    }
+   ],
+   "bulle": {
+    "def": "La PCT est un précurseur de la calcitonine que les tissus libèrent en grande quantité dans l'infection bactérienne.",
+    "pourquoi": "Les toxines bactériennes stimulent sa production, alors que l'interféron des infections virales la freine.",
+    "confusion": "Une CRP élevée évoque aussi une infection, mais elle monte dans toute inflammation, alors que la PCT reste basse dans les viroses.",
+    "retenir": "Une PCT basse aide à ne pas donner d'antibiotique, mais jamais seule."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__alpha_1_antitrypsine",
    "modalite": "Biologie",
    "nom": "Alpha-1-antitrypsine",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "etiologique"
+   ],
+   "signeRecherche": "Déficit en alpha-1-antitrypsine",
+   "seuil": "Selon l'ERS (Miravitlles et al., 2017), un taux sérique inférieur à 11 µmol/l (0,5 g/l) définit le déficit sévère.",
+   "indication": "Selon l'ERS (Miravitlles et al., 2017), on le dose chez tout patient atteint de BPCO, quels que soient son âge et la sévérité, et chez l'adulte dont l'asthme a débuté tardivement.",
+   "discriminant": "Il identifie une cause génétique d'emphysème précoce et basal, qui justifie un dépistage familial.",
+   "avantageSelectif": "Il est simple et peu coûteux, et il oriente vers le phénotypage ou le génotypage.",
+   "plutotQue": "On le dose avant le génotypage, qu'on réserve aux taux bas ou limites.",
+   "limite": "L'alpha-1-antitrypsine monte dans l'inflammation, ce qui peut masquer un déficit modéré ; on dose donc la CRP en même temps.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
+   "precautions": "Aucune précaution particulière n'est nécessaire ; on propose un conseil génétique et un dépistage familial si le déficit est confirmé.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
+   "prelevementRef": "sang_veineux",
    "analysesRef": [
     "Alpha-1-antitrypsine"
    ],
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "AAT",
+    "Alpha-1-antiprotéase",
+    "Déficit en alpha-1-antitrypsine",
+    "Phénotype Pi"
+   ],
+   "aspectNormal": "Les valeurs normales figurent dans la fiche d'analyse « Alpha-1-antitrypsine » (famille 04, foie, pancréas et digestif).",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Taux sérique très bas",
+     "signification": "Selon l'ERS (Miravitlles et al., 2017), un taux inférieur à 11 µmol/l définit le déficit sévère."
+    },
+    {
+     "anomalie": "Taux limite avec CRP élevée",
+     "signification": "L'inflammation élève l'alpha-1-antitrypsine et peut masquer un déficit, si bien qu'on recontrôle hors inflammation."
+    },
+    {
+     "anomalie": "Phénotype PiZZ",
+     "signification": "Selon l'ERS (Miravitlles et al., 2017), il donne le déficit sévère le plus fréquent et justifie un dépistage familial."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Déficit en alpha-1-antitrypsine",
+     "anomaliesQuiLeComposent": [
+      "Taux sérique bas",
+      "Phénotype ou génotype anormal",
+      "Emphysème basal précoce"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Emphysème panlobulaire précoce",
+     "anomalieTypique": "Taux bas et phénotype PiZZ"
+    },
+    {
+     "pathologie": "Hépatopathie du déficit",
+     "anomalieTypique": "Taux bas et phénotype PiZZ"
+    }
+   ],
+   "bulle": {
+    "def": "L'alpha-1-antitrypsine est une protéine du foie qui protège le poumon contre l'élastase des neutrophiles.",
+    "pourquoi": "Sans elle, l'élastase détruit les parois alvéolaires, ce qui donne un emphysème précoce, surtout chez le fumeur.",
+    "confusion": "Un emphysème tabagique ressemble au déficit, mais il prédomine aux sommets, alors que le déficit atteint les bases.",
+    "retenir": "Selon l'ERS (Miravitlles et al., 2017), on dose l'alpha-1-antitrypsine chez tout patient atteint de BPCO."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__ige_totales_et_specifiques_eosinophiles",
    "modalite": "Biologie",
    "nom": "IgE totales et spécifiques, éosinophiles",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "etiologique",
+    "therapeutique"
+   ],
+   "signeRecherche": "Sensibilisation allergique, éosinophilie",
+   "seuil": "Selon l'ISHAM (Agarwal et al., 2024), l'aspergillose bronchopulmonaire allergique demande des IgE spécifiques d'Aspergillus d'au moins 0,35 kUA/l et des IgE totales d'au moins 500 UI/ml, et des éosinophiles d'au moins 0,5 G/l comptent comme critère.",
+   "indication": "On les demande devant un asthme pour en préciser le phénotype allergique ou éosinophilique, et devant un asthme mal contrôlé avec des infiltrats pour rechercher une aspergillose bronchopulmonaire allergique.",
+   "discriminant": "Les IgE spécifiques identifient l'allergène en cause, et les éosinophiles repèrent l'asthme sévère qui répond aux biothérapies anti-IL-5.",
+   "avantageSelectif": "Ils se font sur une simple prise de sang, même sous antihistaminique, contrairement aux tests cutanés.",
+   "plutotQue": "On les préfère aux tests cutanés en cas d'eczéma étendu, de dermographisme ou de traitement antihistaminique.",
+   "limite": "Une sensibilisation ne prouve pas une allergie clinique, et les corticoïdes oraux abaissent les éosinophiles.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
+   "precautions": "On interprète les éosinophiles à distance d'une corticothérapie orale.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
+   "prelevementRef": "sang_veineux",
    "analysesRef": [
     "IgE totales",
     "Éosinophiles"
    ],
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "IgE totales",
+    "IgE spécifiques",
+    "RAST",
+    "Éosinophilie sanguine",
+    "Bilan allergologique sanguin"
+   ],
+   "aspectNormal": "Les valeurs normales figurent dans les fiches d'analyses « IgE totales », « IgE spécifiques » (famille 08) et « Éosinophiles » (famille 01).",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "IgE spécifiques positives",
+     "signification": "Elles prouvent une sensibilisation à l'allergène, mais pas une allergie clinique."
+    },
+    {
+     "anomalie": "IgE totales très élevées",
+     "signification": "Selon l'ISHAM (Agarwal et al., 2024), des IgE totales d'au moins 500 UI/ml font partie des critères de l'ABPA."
+    },
+    {
+     "anomalie": "Éosinophilie sanguine",
+     "signification": "Selon l'ISHAM (Agarwal et al., 2024), des éosinophiles d'au moins 0,5 G/l comptent comme critère d'ABPA, et le GINA 2024 s'en sert pour choisir une biothérapie."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Inflammation de type 2",
+     "anomaliesQuiLeComposent": [
+      "Éosinophilie sanguine",
+      "FeNO élevée",
+      "IgE élevées"
+     ]
+    },
+    {
+     "syndrome": "Aspergillose bronchopulmonaire allergique",
+     "anomaliesQuiLeComposent": [
+      "IgE totales très élevées",
+      "IgE anti-Aspergillus",
+      "Éosinophilie sanguine"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Asthme allergique",
+     "anomalieTypique": "IgE spécifiques positives"
+    },
+    {
+     "pathologie": "Asthme sévère éosinophilique",
+     "anomalieTypique": "Éosinophilie sanguine"
+    },
+    {
+     "pathologie": "ABPA",
+     "anomalieTypique": "IgE totales très élevées"
+    }
+   ],
+   "bulle": {
+    "def": "Les IgE sont les anticorps de l'allergie, et les éosinophiles sont les globules blancs de l'inflammation allergique.",
+    "pourquoi": "Un allergène fixé sur les IgE des mastocytes déclenche la libération d'histamine et attire les éosinophiles.",
+    "confusion": "Une parasitose élève aussi les éosinophiles et les IgE totales, mais les IgE spécifiques d'Aspergillus restent négatives.",
+    "retenir": "Les éosinophiles sanguins guident le choix d'une biothérapie de l'asthme sévère."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__precipitines",
    "modalite": "Biologie",
    "nom": "Précipitines (pneumopathie d'hypersensibilité)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "etiologique"
+   ],
+   "signeRecherche": "IgG contre un antigène inhalé",
+   "seuil": "Selon l'ATS/JRS/ALAT (Raghu et al., 2020), des IgG spécifiques contre l'antigène suspecté signent une sensibilisation, sans seuil universel.",
+   "indication": "Selon l'ATS/JRS/ALAT (Raghu et al., 2020), on les demande devant une suspicion de pneumopathie d'hypersensibilité pour orienter la recherche de l'exposition, comme les oiseaux ou le foin moisi.",
+   "discriminant": "Elles orientent vers l'antigène en cause, ce qui guide l'éviction.",
+   "avantageSelectif": "Elles se font sur une prise de sang et confortent une exposition quand l'anamnèse reste floue.",
+   "plutotQue": "Elles complètent l'anamnèse d'exposition, qui reste le premier outil.",
+   "limite": "Selon l'ATS/JRS/ALAT (Raghu et al., 2020), elles ne confirment ni n'excluent la maladie, car beaucoup de personnes exposées sont sensibilisées sans être malades.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
+   "precautions": "Aucune précaution particulière n'est nécessaire ; on choisit le panel d'antigènes d'après l'exposition.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
+   "prelevementRef": "sang_veineux",
    "analysesRef": [
     "Précipitines (pneumopathie d'hypersensibilité)"
    ],
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "IgG spécifiques",
+    "Anticorps précipitants",
+    "Sérologie du poumon d'éleveur d'oiseaux",
+    "Sérologie du poumon de fermier"
+   ],
+   "aspectNormal": "Un résultat négatif ne montre aucune IgG spécifique contre le panel testé ; l'interprétation figure dans la fiche d'analyse « Précipitines ».",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "IgG spécifiques positives",
+     "signification": "Selon l'ATS/JRS/ALAT (Raghu et al., 2020), elles prouvent une exposition et une sensibilisation, pas la maladie."
+    },
+    {
+     "anomalie": "Précipitines négatives",
+     "signification": "Selon l'ATS/JRS/ALAT (Raghu et al., 2020), elles n'excluent pas une pneumopathie d'hypersensibilité, car le panel peut manquer l'antigène."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Pneumopathie d'hypersensibilité",
+     "anomaliesQuiLeComposent": [
+      "Exposition identifiée",
+      "IgG spécifiques positives",
+      "Lymphocytose alvéolaire",
+      "Mosaïque au CT"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Poumon d'éleveur d'oiseaux",
+     "anomalieTypique": "IgG contre les antigènes aviaires"
+    },
+    {
+     "pathologie": "Poumon de fermier",
+     "anomalieTypique": "IgG contre les moisissures du foin"
+    }
+   ],
+   "bulle": {
+    "def": "Les précipitines sont des anticorps IgG dirigés contre des antigènes organiques inhalés.",
+    "pourquoi": "L'inhalation répétée d'un antigène déclenche une réponse immunitaire qui produit ces anticorps et une alvéolite lymphocytaire.",
+    "confusion": "Un éleveur sain a souvent des précipitines, mais seul le malade associe symptômes, imagerie et lymphocytose alvéolaire.",
+    "retenir": "Des précipitines positives prouvent l'exposition, pas la maladie."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__anca_anticorps_des_connectivites",
    "modalite": "Biologie",
    "nom": "ANCA, anticorps des connectivites",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "etiologique"
+   ],
+   "signeRecherche": "Vascularite ou connectivite",
+   "seuil": "Selon les critères ACR/EULAR 2022, des ANCA anti-PR3 positifs pèsent fortement dans la classification de la granulomatose avec polyangéite, et des anti-MPO dans celle de la polyangéite microscopique.",
+   "indication": "On les demande devant une pneumopathie interstitielle, des nodules excavés ou une hémorragie alvéolaire pour rechercher une vascularite ou une connectivite.",
+   "discriminant": "Ils séparent une pneumopathie liée à une maladie auto-immune, qui se traite par immunosuppression, d'une fibrose idiopathique.",
+   "avantageSelectif": "Ils orientent le diagnostic avant toute biopsie et changent le traitement.",
+   "plutotQue": "Ils précèdent la biopsie, qu'on réserve aux résultats non concluants.",
+   "limite": "Des anticorps antinucléaires faiblement positifs se voient chez des sujets sains, et des ANCA négatifs n'excluent pas une vascularite.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
+   "precautions": "On interprète avec prudence un titre faible chez la personne âgée.",
+   "irradiation_mSv": 0,
+   "delai": "rapide (< 24 h)",
+   "prelevementRef": "sang_veineux",
    "analysesRef": [
     "ANCA (anti-PR3, anti-MPO)"
    ],
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "ANCA",
+    "Anti-PR3",
+    "Anti-MPO",
+    "Anticorps antinucléaires",
+    "ANA",
+    "Bilan auto-immun"
+   ],
+   "aspectNormal": "Les valeurs normales figurent dans les fiches d'analyses « ANCA », « Anticorps antinucléaires (ANA) » et « Anticorps anti-ENA » (famille 08).",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Anti-PR3 positifs",
+     "signification": "Selon les critères ACR/EULAR 2022, ils pèsent fortement dans la classification de la granulomatose avec polyangéite."
+    },
+    {
+     "anomalie": "Anti-MPO positifs",
+     "signification": "Selon les critères ACR/EULAR 2022, ils pèsent fortement dans la classification de la polyangéite microscopique."
+    },
+    {
+     "anomalie": "ANA à titre élevé",
+     "signification": "Ils orientent vers une connectivite, alors qu'un titre faible se voit chez des sujets sains."
+    },
+    {
+     "anomalie": "Anti-ENA positifs",
+     "signification": "Ils précisent la connectivite en cause, comme une sclérodermie ou un syndrome de Sjögren."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Syndrome pneumo-rénal",
+     "anomaliesQuiLeComposent": [
+      "Hémorragie alvéolaire",
+      "Glomérulonéphrite",
+      "ANCA ou anti-MBG positifs"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Sclérodermie avec PINS",
+     "anomalieTypique": "ANA et anti-ENA positifs"
+    },
+    {
+     "pathologie": "Polyangéite microscopique",
+     "anomalieTypique": "Anti-MPO positifs"
+    },
+    {
+     "pathologie": "Granulomatose avec polyangéite",
+     "anomalieTypique": "Anti-PR3 positifs"
+    }
+   ],
+   "bulle": {
+    "def": "Les ANCA sont des anticorps dirigés contre des enzymes des neutrophiles, et les anticorps antinucléaires signent une connectivite.",
+    "pourquoi": "Les ANCA activent les neutrophiles contre la paroi des petits vaisseaux, ce qui provoque une capillarite pulmonaire.",
+    "confusion": "Une pneumopathie d'hypersensibilité ressemble à une connectivite, mais l'auto-immunité y est négative et l'exposition présente.",
+    "retenir": "Devant une pneumopathie interstitielle, on recherche toujours une maladie auto-immune."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__test_de_liberation_de_l_interferon_gamma",
    "modalite": "Biologie",
    "nom": "Test de libération de l'interféron gamma (IGRA)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "etiologique"
+   ],
+   "signeRecherche": "Infection tuberculeuse",
+   "seuil": "Le test est positif à partir de 0,35 UI/ml d'interféron gamma selon la notice du fabricant (QuantiFERON-TB Gold Plus, Qiagen, 2019).",
+   "indication": "Selon la Ligue pulmonaire suisse (2021), on le demande pour dépister une infection tuberculeuse chez un contact ou avant un traitement immunosuppresseur, et on le préfère au test tuberculinique, sauf avant 5 ans.",
+   "discriminant": "Il ne réagit pas au BCG, contrairement au test tuberculinique, selon la Ligue pulmonaire suisse (2021).",
+   "avantageSelectif": "Il demande une seule prise de sang, sans seconde visite pour lire le résultat.",
+   "plutotQue": "Il remplace le test tuberculinique chez l'adulte et chez la personne vaccinée par le BCG, d'autant que la tuberculine manque souvent en Suisse selon la Ligue pulmonaire suisse (2021).",
+   "limite": "Selon la Ligue pulmonaire suisse (2024), sa sensibilité de 70 à 80 % ne permet ni de poser ni d'exclure une tuberculose active, et il ne distingue pas l'infection de la maladie.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
+   "precautions": "L'immunosuppression peut rendre le test indéterminé ou faussement négatif, si bien qu'on l'interprète avec prudence chez le patient sous corticoïdes.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
+   "prelevementRef": "sang_veineux",
    "analysesRef": [
     "Test de libération d'interféron gamma (IGRA)"
    ],
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "IGRA",
+    "QuantiFERON",
+    "T-SPOT.TB",
+    "Test sanguin de la tuberculose"
+   ],
+   "aspectNormal": "Un test négatif ne montre pas de réponse à Mycobacterium tuberculosis ; l'interprétation figure dans la fiche d'analyse « Test de libération d'interféron gamma (IGRA) ».",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "IGRA positif",
+     "signification": "Selon la Ligue pulmonaire suisse (2021), il signe une infection tuberculeuse, sans distinguer l'infection latente de la maladie."
+    },
+    {
+     "anomalie": "IGRA indéterminé",
+     "signification": "Il traduit souvent une réponse lymphocytaire faible, comme sous immunosuppression, et on le répète ou on l'interprète avec la clinique."
+    },
+    {
+     "anomalie": "IGRA négatif",
+     "signification": "Selon la Ligue pulmonaire suisse (2024), il n'exclut pas une tuberculose active, car sa sensibilité reste de 70 à 80 %."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Infection tuberculeuse latente",
+     "anomaliesQuiLeComposent": [
+      "IGRA positif",
+      "Radiographie normale",
+      "Absence de symptômes"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Infection tuberculeuse latente",
+     "anomalieTypique": "IGRA positif"
+    },
+    {
+     "pathologie": "Tuberculose active",
+     "anomalieTypique": "IGRA positif ou négatif"
+    }
+   ],
+   "bulle": {
+    "def": "L'IGRA mesure l'interféron gamma que libèrent les lymphocytes T mis en présence d'antigènes de Mycobacterium tuberculosis.",
+    "pourquoi": "Les lymphocytes mémoire d'une personne infectée reconnaissent ces antigènes et sécrètent de l'interféron gamma.",
+    "confusion": "Une tuberculose active donne aussi un IGRA positif, mais seules la culture et la PCR la prouvent.",
+    "retenir": "L'IGRA dépiste l'infection, pas la maladie."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__spirometrie_avec_test_de_bronchodilatati",
    "modalite": "Exploration fonctionnelle",
    "nom": "Spirométrie avec test de bronchodilatation",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
+   "visees": [
+    "diagnostique",
+    "retentissement",
+    "therapeutique"
+   ],
+   "signeRecherche": "Trouble ventilatoire obstructif",
+   "seuil": "Selon le GOLD 2025, un rapport VEMS/CVF inférieur à 0,70 après bronchodilatateur confirme la BPCO ; selon l'ERS/ATS (Stanojevic et al., 2022), l'obstruction se définit par un rapport inférieur à la LIN, soit un score z inférieur à −1,645.",
+   "indication": "On la demande devant une dyspnée, une toux chronique ou des sifflements, chez le fumeur symptomatique, et pour suivre un asthme ou une BPCO.",
+   "discriminant": "Selon l'ERS/ATS (Stanojevic et al., 2022), une hausse du VEMS ou de la CVF de plus de 10 % de la valeur prédite après bronchodilatateur signe une réversibilité, et le GINA 2024 retient une hausse d'au moins 12 % et 200 ml.",
+   "avantageSelectif": "Elle est simple, peu coûteuse et se fait au cabinet.",
+   "plutotQue": "Elle précède la pléthysmographie, qu'on demande si la CVF est basse pour confirmer une restriction.",
+   "limite": "Elle dépend de la coopération du patient et ne mesure pas la capacité pulmonaire totale, si bien qu'une CVF basse ne prouve pas une restriction.",
+   "referencePour": [
+    "BPCO"
+   ],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "Selon l'ATS/ERS (Graham et al., 2019), on la diffère en cas d'infarctus de moins d'une semaine, de pneumothorax, de chirurgie de l'œil de moins d'une semaine, ou de chirurgie thoracique ou abdominale de moins de quatre semaines, car l'effort expiratoire élève les pressions.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Exploration fonctionnelle respiratoire",
+    "EFR",
+    "Courbe débit-volume",
+    "Test de réversibilité",
+    "Spirométrie"
+   ],
+   "aspectNormal": "Selon l'ERS/ATS (Stanojevic et al., 2022), la spirométrie normale montre un VEMS, une CVF et un rapport VEMS/CVF au-dessus de la LIN.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Rapport VEMS/CVF inférieur à la LIN",
+     "signification": "Selon l'ERS/ATS (Stanojevic et al., 2022), il définit un trouble ventilatoire obstructif."
+    },
+    {
+     "anomalie": "VEMS/CVF < 0,70 après bronchodilatateur",
+     "signification": "Selon le GOLD 2025, il confirme la BPCO chez un patient exposé et symptomatique."
+    },
+    {
+     "anomalie": "Hausse du VEMS d'au moins 12 % et 200 ml",
+     "signification": "Selon le GINA 2024, elle signe une réversibilité qui soutient le diagnostic d'asthme."
+    },
+    {
+     "anomalie": "CVF basse avec rapport normal",
+     "signification": "Elle fait suspecter une restriction, que seule une CPT basse à la pléthysmographie confirme."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Trouble ventilatoire obstructif",
+     "anomaliesQuiLeComposent": [
+      "Rapport VEMS/CVF bas",
+      "VEMS abaissé",
+      "Courbe débit-volume concave"
+     ]
+    },
+    {
+     "syndrome": "Restriction suspectée",
+     "anomaliesQuiLeComposent": [
+      "CVF basse",
+      "Rapport VEMS/CVF normal ou élevé"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Asthme",
+     "anomalieTypique": "Obstruction réversible"
+    },
+    {
+     "pathologie": "BPCO",
+     "anomalieTypique": "Obstruction fixe après bronchodilatateur"
+    },
+    {
+     "pathologie": "Fibrose pulmonaire",
+     "anomalieTypique": "CVF basse et rapport élevé"
+    }
+   ],
+   "bulle": {
+    "def": "La spirométrie mesure les volumes expirés et les débits pendant une expiration forcée.",
+    "pourquoi": "Dans l'obstruction, les bronches rétrécies ralentissent l'expiration, si bien que le VEMS baisse plus que la CVF.",
+    "confusion": "Une restriction abaisse aussi le VEMS, mais le rapport VEMS/CVF reste normal ou élevé.",
+    "retenir": "La BPCO se confirme par un rapport VEMS/CVF bas après bronchodilatateur."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__plethysmographie",
    "modalite": "Exploration fonctionnelle",
    "nom": "Pléthysmographie (volumes)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
+   "visees": [
+    "diagnostique",
+    "retentissement"
+   ],
+   "signeRecherche": "Restriction, distension, piégeage",
+   "seuil": "Selon l'ERS/ATS (Stanojevic et al., 2022), une CPT inférieure à la LIN définit le trouble ventilatoire restrictif.",
+   "indication": "On la demande quand la spirométrie montre une CVF basse, pour distinguer une restriction d'une obstruction avec piégeage, et pour mesurer la distension dans l'emphysème.",
+   "discriminant": "Elle mesure le volume résiduel et la CPT, y compris l'air piégé derrière des bronches fermées.",
+   "avantageSelectif": "Elle mesure aussi la résistance des voies aériennes et reste fiable dans l'obstruction sévère, où la dilution à l'hélium sous-estime les volumes.",
+   "plutotQue": "On la préfère à la dilution à l'hélium dans l'emphysème et l'obstruction sévère.",
+   "limite": "Elle demande une cabine fermée et une bonne coopération, ce qui la rend difficile chez le patient claustrophobe.",
+   "referencePour": [
+    "Trouble ventilatoire restrictif"
+   ],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "On l'évite chez le patient très claustrophobe ou qui dépend d'une oxygénothérapie continue.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Pléthysmographie corporelle",
+    "Mesure des volumes pulmonaires",
+    "Mesure de la CPT",
+    "Volume résiduel"
+   ],
+   "aspectNormal": "Selon l'ERS/ATS (Stanojevic et al., 2022), la CPT normale se situe entre la LIN et la LSN, et le volume résiduel reste dans les limites prédites.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "CPT inférieure à la LIN",
+     "signification": "Selon l'ERS/ATS (Stanojevic et al., 2022), elle définit le trouble ventilatoire restrictif."
+    },
+    {
+     "anomalie": "CPT supérieure à la LSN",
+     "signification": "Selon l'ERS/ATS (Stanojevic et al., 2022), elle fait suspecter une distension, que confirme un rapport VR/CPT élevé."
+    },
+    {
+     "anomalie": "Rapport VR/CPT élevé",
+     "signification": "Selon l'ERS/ATS (Stanojevic et al., 2022), il traduit seul un piégeage de l'air, souvent lié à une obstruction des petites voies aériennes."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Distension thoracique",
+     "anomaliesQuiLeComposent": [
+      "CPT élevée",
+      "VR élevé",
+      "Rapport VR/CPT élevé"
+     ]
+    },
+    {
+     "syndrome": "Trouble ventilatoire restrictif",
+     "anomaliesQuiLeComposent": [
+      "CPT basse",
+      "CVF basse"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Emphysème",
+     "anomalieTypique": "Distension et piégeage"
+    },
+    {
+     "pathologie": "Fibrose pulmonaire",
+     "anomalieTypique": "CPT basse"
+    },
+    {
+     "pathologie": "Maladie neuromusculaire",
+     "anomalieTypique": "CPT basse"
+    }
+   ],
+   "bulle": {
+    "def": "La pléthysmographie mesure les volumes pulmonaires dans une cabine fermée grâce à la loi de Boyle-Mariotte.",
+    "pourquoi": "Quand le patient halète contre une valve fermée, les variations de pression dans la cabine donnent le volume de gaz thoracique.",
+    "confusion": "Une CVF basse évoque une restriction, mais une CPT normale ou élevée montre qu'il s'agit d'un piégeage.",
+    "retenir": "Seule une CPT basse prouve une restriction."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__capacite_de_diffusion_du_co",
    "modalite": "Exploration fonctionnelle",
    "nom": "Capacité de diffusion du CO (DLCO)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "retentissement"
+   ],
+   "signeRecherche": "Altération des échanges gazeux",
+   "seuil": "Selon l'ERS/ATS (Stanojevic et al., 2022), une DLCO inférieure à la LIN, corrigée pour l'hémoglobine, est anormale.",
+   "indication": "On la demande devant une pneumopathie interstitielle, un emphysème, une dyspnée inexpliquée ou une suspicion d'hypertension pulmonaire, et avant une résection pulmonaire selon l'ERS/ESTS (Brunelli et al., 2009).",
+   "discriminant": "Elle distingue l'emphysème, où elle baisse, de l'asthme, où elle reste normale.",
+   "avantageSelectif": "Elle détecte une atteinte de la membrane alvéolo-capillaire avant que les volumes ne baissent.",
+   "plutotQue": "Elle complète la spirométrie quand la dyspnée dépasse ce qu'explique l'obstruction.",
+   "limite": "L'anémie, le tabac récent et l'hémorragie alvéolaire faussent la valeur, et une baisse isolée ne dit pas la cause.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "L'examen n'utilise pas de rayonnements ionisants.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "DLCO",
+    "TLCO",
+    "Facteur de transfert du CO",
+    "Diffusion du monoxyde de carbone"
+   ],
+   "aspectNormal": "Selon l'ERS/ATS (Stanojevic et al., 2022), la DLCO normale, corrigée pour l'hémoglobine, se situe au-dessus de la LIN.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "DLCO basse avec restriction",
+     "signification": "Elle oriente vers une pneumopathie interstitielle, qui épaissit la membrane alvéolo-capillaire."
+    },
+    {
+     "anomalie": "DLCO basse avec obstruction",
+     "signification": "Elle distingue l'emphysème, qui détruit les alvéoles, de l'asthme, où elle reste normale."
+    },
+    {
+     "anomalie": "DLCO basse isolée",
+     "signification": "Avec une spirométrie et des volumes normaux, elle fait chercher une maladie vasculaire pulmonaire."
+    },
+    {
+     "anomalie": "DLCO élevée",
+     "signification": "Elle évoque une hémorragie alvéolaire ou une polyglobulie, car le sang en plus capte davantage de CO."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Atteinte de la membrane alvéolo-capillaire",
+     "anomaliesQuiLeComposent": [
+      "DLCO basse",
+      "Désaturation à l'effort",
+      "CPT basse"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "BPCO avec emphysème",
+     "anomalieTypique": "DLCO basse et obstruction"
+    },
+    {
+     "pathologie": "Fibrose pulmonaire",
+     "anomalieTypique": "DLCO basse et restriction"
+    },
+    {
+     "pathologie": "Hypertension artérielle pulmonaire",
+     "anomalieTypique": "DLCO basse isolée"
+    },
+    {
+     "pathologie": "Hémorragie alvéolaire",
+     "anomalieTypique": "DLCO élevée"
+    }
+   ],
+   "bulle": {
+    "def": "La DLCO mesure, pendant une apnée, le passage du monoxyde de carbone de l'alvéole vers l'hémoglobine.",
+    "pourquoi": "Le CO traverse la membrane alvéolo-capillaire comme l'oxygène, si bien qu'une membrane épaissie ou détruite en réduit le transfert.",
+    "confusion": "Une anémie abaisse aussi la DLCO, mais la correction pour l'hémoglobine la normalise.",
+    "retenir": "Une DLCO basse avec une spirométrie normale fait chercher une maladie interstitielle ou vasculaire."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__test_de_provocation_bronchique",
    "modalite": "Exploration fonctionnelle",
    "nom": "Test de provocation bronchique (méthacholine)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique"
+   ],
+   "signeRecherche": "Hyperréactivité bronchique",
+   "seuil": "Selon l'ERS (Coates et al., 2017), une PD20 supérieure à 400 µg de méthacholine est normale, et une PD20 plus basse traduit une hyperréactivité croissante.",
+   "indication": "On le demande devant une suspicion d'asthme quand la spirométrie est normale et le test de bronchodilatation négatif.",
+   "discriminant": "Il montre une hyperréactivité bronchique que la spirométrie de base ne révèle pas.",
+   "avantageSelectif": "Sa valeur prédictive négative élevée permet d'écarter l'asthme et d'éviter un traitement inutile.",
+   "plutotQue": "On le préfère à l'essai thérapeutique quand le diagnostic doit être sûr, par exemple pour une aptitude professionnelle.",
+   "limite": "Il est peu spécifique, car la BPCO, la rhinite allergique et l'insuffisance cardiaque donnent aussi une hyperréactivité, et un traitement inhalé récent le fausse.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "L'examen n'utilise pas de rayonnements ionisants.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Test à la méthacholine",
+    "Test de provocation",
+    "Recherche d'hyperréactivité bronchique",
+    "PD20"
+   ],
+   "aspectNormal": "Selon l'ERS (Coates et al., 2017), le test normal donne une PD20 supérieure à 400 µg de méthacholine.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "PD20 basse",
+     "signification": "Selon l'ERS (Coates et al., 2017), une PD20 inférieure à 400 µg traduit une hyperréactivité, d'autant plus forte que la dose est basse."
+    },
+    {
+     "anomalie": "Test négatif sans traitement",
+     "signification": "Il rend l'asthme très improbable, grâce à la valeur prédictive négative élevée du test."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Hyperréactivité bronchique",
+     "anomaliesQuiLeComposent": [
+      "Baisse du VEMS de 20 %",
+      "PD20 basse",
+      "Symptômes reproduits"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Rhinite allergique",
+     "anomalieTypique": "Hyperréactivité modérée"
+    },
+    {
+     "pathologie": "Asthme",
+     "anomalieTypique": "PD20 basse"
+    },
+    {
+     "pathologie": "BPCO",
+     "anomalieTypique": "Hyperréactivité non spécifique"
+    }
+   ],
+   "bulle": {
+    "def": "Le test de provocation fait inhaler des doses croissantes de méthacholine en mesurant le VEMS.",
+    "pourquoi": "Des bronches hyperréactives se contractent à des doses faibles qui ne gênent pas les bronches normales.",
+    "confusion": "La BPCO donne aussi une réponse positive, mais le tabagisme et l'obstruction fixe la distinguent.",
+    "retenir": "Un test de provocation négatif rend l'asthme très improbable."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__feno",
    "modalite": "Exploration fonctionnelle",
    "nom": "FeNO (NO exhalé)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "therapeutique"
+   ],
+   "signeRecherche": "Inflammation bronchique éosinophilique",
+   "seuil": "Selon l'ATS (Dweik et al., 2011), une FeNO inférieure à 25 ppb chez l'adulte rend l'inflammation éosinophilique peu probable, et une FeNO supérieure à 50 ppb la rend probable.",
+   "indication": "On la mesure pour soutenir un diagnostic d'asthme, pour prédire la réponse aux corticoïdes inhalés et pour juger l'adhésion au traitement.",
+   "discriminant": "Elle identifie les patients qui répondront aux corticoïdes inhalés.",
+   "avantageSelectif": "Elle est non invasive, rapide et faisable chez l'enfant.",
+   "plutotQue": "On la mesure à côté de la spirométrie, sans la remplacer, pour éviter un traitement d'épreuve.",
+   "limite": "Le tabac et les corticoïdes abaissent la FeNO, la rhinite allergique l'élève, et une valeur normale n'exclut pas un asthme non éosinophilique.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "precautions": "Selon les recommandations ATS/ERS 2005, le patient ne fume pas et ne mange pas dans l'heure qui précède, et on mesure la FeNO avant la spirométrie.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
+   "prelevementRef": "air_expire",
+   "synonymes": [
+    "NO exhalé",
+    "Monoxyde d'azote expiré",
+    "Fraction exhalée du NO",
+    "FeNO"
+   ],
+   "aspectNormal": "Selon l'ATS (Dweik et al., 2011), une FeNO inférieure à 25 ppb chez l'adulte rend l'inflammation éosinophilique peu probable.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "FeNO supérieure à 50 ppb",
+     "signification": "Selon l'ATS (Dweik et al., 2011), elle rend l'inflammation éosinophilique probable et prédit une réponse aux corticoïdes inhalés."
+    },
+    {
+     "anomalie": "FeNO entre 25 et 50 ppb",
+     "signification": "Selon l'ATS (Dweik et al., 2011), on l'interprète avec prudence, en tenant compte du contexte clinique."
+    },
+    {
+     "anomalie": "FeNO qui reste élevée sous traitement",
+     "signification": "Elle fait vérifier la prise des corticoïdes inhalés et la technique d'inhalation."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Inflammation de type 2",
+     "anomaliesQuiLeComposent": [
+      "FeNO élevée",
+      "Éosinophilie sanguine"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Asthme éosinophilique",
+     "anomalieTypique": "FeNO élevée"
+    },
+    {
+     "pathologie": "Asthme mal observé",
+     "anomalieTypique": "FeNO élevée sous traitement"
+    },
+    {
+     "pathologie": "Asthme du fumeur",
+     "anomalieTypique": "FeNO faussement basse"
+    }
+   ],
+   "bulle": {
+    "def": "La FeNO mesure la concentration de monoxyde d'azote dans l'air expiré.",
+    "pourquoi": "L'inflammation éosinophilique induit dans l'épithélium bronchique une enzyme qui produit du monoxyde d'azote.",
+    "confusion": "Une FeNO basse évoque l'absence d'asthme, mais un fumeur asthmatique peut aussi l'avoir basse.",
+    "retenir": "Une FeNO élevée prédit une bonne réponse aux corticoïdes inhalés."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__test_de_marche_de_6_minutes",
    "modalite": "Exploration fonctionnelle",
    "nom": "Test de marche de 6 minutes",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "retentissement",
+    "therapeutique",
+    "sortie"
+   ],
+   "signeRecherche": "Distance parcourue, désaturation",
+   "seuil": "Selon l'ERS/ATS (Holland et al., 2014), une variation de la distance d'environ 30 m est cliniquement importante chez l'adulte atteint d'une maladie respiratoire chronique.",
+   "indication": "On le fait pour mesurer la capacité d'effort et la désaturation à l'effort dans la BPCO, la fibrose et l'hypertension pulmonaire, et pour suivre un traitement ou une réadaptation.",
+   "discriminant": "Il montre une désaturation à l'effort que la SpO2 de repos ne révèle pas.",
+   "avantageSelectif": "Il est simple et peu coûteux, et il reflète l'effort de la vie quotidienne.",
+   "plutotQue": "On le préfère à l'ergospirométrie pour suivre un patient, car il ne demande pas d'équipement lourd.",
+   "limite": "Il ne dit pas pourquoi l'effort est limité, et la motivation, l'arthrose ou l'apprentissage influencent la distance.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "L'examen n'utilise pas de rayonnements ionisants.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Test de marche de six minutes",
+    "TM6",
+    "Distance de marche",
+    "Test de marche"
+   ],
+   "aspectNormal": "Selon l'ERS/ATS (Holland et al., 2014), on compare la distance parcourue à une valeur prédite par une équation de référence.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Distance réduite",
+     "signification": "Elle traduit une capacité d'effort limitée, qu'elle soit respiratoire, cardiaque ou musculaire."
+    },
+    {
+     "anomalie": "Désaturation à l'effort",
+     "signification": "Elle révèle une atteinte des échanges gazeux que la SpO2 de repos ne montre pas."
+    },
+    {
+     "anomalie": "Variation d'environ 30 m",
+     "signification": "Selon l'ERS/ATS (Holland et al., 2014), elle représente un changement cliniquement important dans une maladie respiratoire chronique."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Intolérance respiratoire à l'effort",
+     "anomaliesQuiLeComposent": [
+      "Distance réduite",
+      "Désaturation à l'effort",
+      "Dyspnée élevée sur l'échelle de Borg"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "BPCO",
+     "anomalieTypique": "Distance réduite"
+    },
+    {
+     "pathologie": "Fibrose pulmonaire",
+     "anomalieTypique": "Désaturation marquée à l'effort"
+    },
+    {
+     "pathologie": "Hypertension artérielle pulmonaire",
+     "anomalieTypique": "Distance réduite et pronostique"
+    }
+   ],
+   "bulle": {
+    "def": "Le test de marche mesure la distance que le patient parcourt en marchant le plus vite possible dans un couloir pendant six minutes.",
+    "pourquoi": "La distance intègre le cœur, le poumon et les muscles, et elle prédit la survie dans plusieurs maladies respiratoires.",
+    "confusion": "Une distance basse évoque une atteinte respiratoire, mais sans désaturation on cherche aussi une cause cardiaque, musculaire ou articulaire.",
+    "retenir": "Le test de marche révèle la désaturation à l'effort et suit l'évolution."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__ergospirometrie",
    "modalite": "Exploration fonctionnelle",
    "nom": "Ergospirométrie (VO2max)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
+   "visees": [
+    "retentissement",
+    "etiologique",
+    "therapeutique"
+   ],
+   "signeRecherche": "VO2max, cause de la limitation",
+   "seuil": "Selon l'ERS/ESTS (Brunelli et al., 2009), une VO2max supérieure à 20 ml/kg/min autorise une résection jusqu'à la pneumonectomie, et une VO2max inférieure à 10 ml/kg/min signe un risque élevé pour toute résection.",
+   "indication": "On la demande devant une dyspnée d'effort inexpliquée, avant une résection pulmonaire chez un patient à risque et pour le pronostic de l'insuffisance cardiaque.",
+   "discriminant": "Elle distingue une limitation cardiaque, ventilatoire, musculaire ou un déconditionnement.",
+   "avantageSelectif": "Elle mesure directement la consommation d'oxygène au lieu de l'estimer.",
+   "plutotQue": "On la préfère au test de marche quand la cause de la dyspnée reste inconnue ou que la décision chirurgicale en dépend.",
+   "limite": "Elle demande un équipement et une équipe spécialisés, et un effort insuffisant fausse le pic.",
+   "referencePour": [
+    "Capacité aérobie maximale"
+   ],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "On la fait sous surveillance de l'ECG et de la pression artérielle, et on ne la fait pas dans un syndrome coronarien aigu ou une sténose aortique serrée symptomatique.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Test d'effort cardiopulmonaire",
+    "Spiroergométrie",
+    "Épreuve d'effort métabolique",
+    "VO2max"
+   ],
+   "aspectNormal": "L'examen normal atteint une VO2max proche de la valeur prédite, avec une réserve ventilatoire conservée et un seuil anaérobie normal.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "VO2max inférieure à 10 ml/kg/min",
+     "signification": "Selon l'ERS/ESTS (Brunelli et al., 2009), elle signe un risque élevé pour toute résection pulmonaire."
+    },
+    {
+     "anomalie": "VO2max supérieure à 20 ml/kg/min",
+     "signification": "Selon l'ERS/ESTS (Brunelli et al., 2009), elle autorise une résection jusqu'à la pneumonectomie."
+    },
+    {
+     "anomalie": "Réserve ventilatoire épuisée",
+     "signification": "Elle montre que la ventilation limite l'effort, comme dans la BPCO."
+    },
+    {
+     "anomalie": "Seuil anaérobie précoce",
+     "signification": "Il traduit une limitation cardiocirculatoire ou un déconditionnement."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Limitation ventilatoire",
+     "anomaliesQuiLeComposent": [
+      "Réserve ventilatoire épuisée",
+      "Désaturation à l'effort",
+      "VO2max basse"
+     ]
+    },
+    {
+     "syndrome": "Limitation cardiocirculatoire",
+     "anomaliesQuiLeComposent": [
+      "Seuil anaérobie précoce",
+      "Pouls d'oxygène bas",
+      "VO2max basse"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Déconditionnement",
+     "anomalieTypique": "Réserve ventilatoire conservée"
+    },
+    {
+     "pathologie": "BPCO",
+     "anomalieTypique": "Limitation ventilatoire"
+    },
+    {
+     "pathologie": "Insuffisance cardiaque",
+     "anomalieTypique": "Limitation cardiocirculatoire"
+    }
+   ],
+   "bulle": {
+    "def": "L'ergospirométrie mesure les gaz respiratoires et l'ECG pendant un effort croissant sur vélo ou sur tapis.",
+    "pourquoi": "Le pic de consommation d'oxygène reflète la capacité du cœur, du poumon et des muscles à apporter et utiliser l'oxygène.",
+    "confusion": "Un déconditionnement abaisse aussi la VO2max, mais il garde une réserve ventilatoire normale.",
+    "retenir": "Une VO2max très basse contre-indique une résection pulmonaire majeure."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__oxymetrie_nocturne_polygraphie_et_polyso",
    "modalite": "Exploration fonctionnelle",
    "nom": "Oxymétrie nocturne, polygraphie et polysomnographie",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
+   "visees": [
+    "diagnostique",
+    "retentissement",
+    "therapeutique"
+   ],
+   "signeRecherche": "Apnées, hypopnées, désaturations",
+   "seuil": "Selon l'AASM, un IAH de 5 à 14 par heure définit une apnée du sommeil légère, de 15 à 29 par heure une apnée modérée et de 30 ou plus une apnée sévère.",
+   "indication": "On la demande devant un ronflement avec somnolence diurne, des apnées constatées par l'entourage, une hypertension résistante ou une suspicion d'hypoventilation.",
+   "discriminant": "La polysomnographie enregistre aussi l'EEG, ce qui mesure le sommeil réel et repère d'autres troubles du sommeil.",
+   "avantageSelectif": "La polygraphie se fait hors du laboratoire de sommeil et reste moins lourde que la polysomnographie, qui enregistre aussi le sommeil.",
+   "plutotQue": "On passe de la polygraphie à la polysomnographie quand le résultat est douteux ou qu'on suspecte un autre trouble du sommeil.",
+   "limite": "L'oxymétrie seule manque les hypopnées sans désaturation, et la polygraphie sous-estime l'IAH, car elle ne mesure pas le temps de sommeil réel.",
+   "referencePour": [
+    "Syndrome d'apnées obstructives du sommeil"
+   ],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "Aucune précaution particulière n'est nécessaire ; on évite un somnifère inhabituel la nuit de l'enregistrement.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Polygraphie ventilatoire",
+    "Polysomnographie",
+    "PSG",
+    "Oxymétrie nocturne",
+    "Étude du sommeil"
+   ],
+   "aspectNormal": "Selon l'AASM, un IAH inférieur à 5 par heure reste en dessous du seuil de l'apnée du sommeil légère.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "IAH de 15 par heure ou plus",
+     "signification": "Selon l'AASM, un IAH de 15 à 29 par heure définit une apnée modérée et de 30 ou plus une apnée sévère."
+    },
+    {
+     "anomalie": "Apnées avec efforts respiratoires",
+     "signification": "Elles signent des apnées obstructives, car le thorax lutte contre un pharynx fermé."
+    },
+    {
+     "anomalie": "Apnées sans effort respiratoire",
+     "signification": "Elles signent des apnées centrales, qu'on voit dans l'insuffisance cardiaque ou sous opioïdes."
+    },
+    {
+     "anomalie": "Désaturation nocturne prolongée",
+     "signification": "Sans apnée qui l'explique, elle fait suspecter une hypoventilation nocturne."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Syndrome d'apnées obstructives du sommeil",
+     "anomaliesQuiLeComposent": [
+      "IAH élevé",
+      "Efforts respiratoires conservés",
+      "Somnolence diurne"
+     ]
+    },
+    {
+     "syndrome": "Hypoventilation de l'obèse",
+     "anomaliesQuiLeComposent": [
+      "Désaturation nocturne prolongée",
+      "Hypercapnie diurne",
+      "Obésité"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Apnées obstructives du sommeil",
+     "anomalieTypique": "IAH élevé avec efforts"
+    },
+    {
+     "pathologie": "Apnées centrales",
+     "anomalieTypique": "Apnées sans effort respiratoire"
+    },
+    {
+     "pathologie": "Hypoventilation de l'obèse",
+     "anomalieTypique": "Désaturation nocturne prolongée"
+    }
+   ],
+   "bulle": {
+    "def": "La polygraphie enregistre la nuit le débit nasal, les mouvements respiratoires et la SpO2, et la polysomnographie y ajoute l'EEG.",
+    "pourquoi": "Dans l'apnée obstructive, le pharynx se ferme pendant le sommeil alors que le thorax continue de lutter.",
+    "confusion": "L'apnée centrale interrompt aussi le débit, mais sans aucun effort respiratoire thoracique.",
+    "retenir": "Un IAH élevé avec somnolence fait discuter une ventilation en pression positive."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__peak_flow",
    "modalite": "Exploration fonctionnelle",
    "nom": "Peak-flow",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "therapeutique"
+   ],
+   "signeRecherche": "Variabilité du débit expiratoire",
+   "seuil": "Selon le GINA 2024, une variabilité diurne moyenne du DEP supérieure à 10 % chez l'adulte, mesurée deux fois par jour pendant une à deux semaines, signe une variabilité excessive.",
+   "indication": "On l'utilise pour soutenir un diagnostic d'asthme, pour rechercher un asthme professionnel et pour l'autosurveillance d'un asthme instable.",
+   "discriminant": "Des mesures répétées au travail et en congé montrent le lien entre l'exposition et l'obstruction.",
+   "avantageSelectif": "Le débitmètre est bon marché et portable, et le patient l'utilise chaque jour chez lui.",
+   "plutotQue": "On l'utilise quand la spirométrie n'est pas disponible ou pour suivre le patient entre deux spirométries.",
+   "limite": "Il dépend de l'effort et de la technique, et il sous-estime une obstruction des petites voies aériennes.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "On utilise toujours le même appareil et on retient la meilleure de trois mesures.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "DEP",
+    "Débit expiratoire de pointe",
+    "Débitmètre de pointe",
+    "Peak-flow-mètre"
+   ],
+   "aspectNormal": "Selon le GINA 2024, le DEP normal varie peu d'un moment à l'autre, et on le compare à la meilleure valeur personnelle du patient.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Variabilité diurne supérieure à 10 %",
+     "signification": "Selon le GINA 2024, chez l'adulte, elle signe une variabilité excessive qui soutient l'asthme."
+    },
+    {
+     "anomalie": "Baisse du DEP au travail",
+     "signification": "Elle relie l'obstruction à l'exposition et oriente vers un asthme professionnel."
+    },
+    {
+     "anomalie": "DEP bas pendant une crise",
+     "signification": "Il mesure la gravité de la crise, à condition que l'effort soit reproductible."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Asthme instable",
+     "anomaliesQuiLeComposent": [
+      "Variabilité du DEP élevée",
+      "DEP matinal bas",
+      "Symptômes nocturnes"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Asthme",
+     "anomalieTypique": "Variabilité diurne excessive"
+    },
+    {
+     "pathologie": "Asthme professionnel",
+     "anomalieTypique": "Baisse du DEP au travail"
+    }
+   ],
+   "bulle": {
+    "def": "Le peak-flow mesure le débit expiratoire de pointe pendant une expiration brève et forcée.",
+    "pourquoi": "Le débit de pointe baisse quand les grosses bronches se rétrécissent, ce qui suit les variations de l'asthme.",
+    "confusion": "Un DEP bas évoque une crise, mais un mauvais effort donne la même valeur, et la reproductibilité tranche.",
+    "retenir": "La variabilité du DEP soutient le diagnostic d'asthme."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__bronchoscopie_avec_lavage_bronchoalveola",
    "modalite": "Endoscopie",
    "nom": "Bronchoscopie avec lavage bronchoalvéolaire",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
+   "visees": [
+    "diagnostique",
+    "etiologique"
+   ],
+   "signeRecherche": "Germe, lymphocytose, sang alvéolaire",
+   "seuil": "Selon l'ATS (Meyer et al., 2012), plus de 15 % de lymphocytes définissent une lymphocytose alvéolaire, et un rapport CD4/CD8 supérieur à 3,5 rend la sarcoïdose plus probable dans un contexte typique.",
+   "indication": "On la fait devant une pneumonie de l'immunodéprimé, une pneumonie qui ne répond pas au traitement, une pneumopathie interstitielle, une hémoptysie ou une suspicion de tumeur endobronchique.",
+   "discriminant": "Elle montre directement l'arbre bronchique et recueille les cellules et les germes des alvéoles.",
+   "avantageSelectif": "Elle prélève les alvéoles sans traverser la plèvre et identifie les germes opportunistes comme Pneumocystis.",
+   "plutotQue": "On la préfère aux expectorations quand le patient ne crache pas, est intubé ou immunodéprimé.",
+   "limite": "Le lavage manque souvent les lésions périphériques, et le passage par l'oropharynx peut contaminer la culture.",
+   "referencePour": [
+    "Hémorragie alvéolaire"
+   ],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "precautions": "On vérifie la coagulation et les plaquettes avant des biopsies, et on surveille la SpO2, car le lavage aggrave transitoirement l'hypoxémie.",
+   "irradiation_mSv": 0,
+   "delai": "rapide (< 24 h)",
+   "prelevementRef": "expectorations_et_lavage_bronchoalveolai",
+   "synonymes": [
+    "Fibroscopie bronchique",
+    "Bronchoscopie souple",
+    "Endoscopie bronchique",
+    "LBA",
+    "Lavage bronchoalvéolaire"
+   ],
+   "aspectNormal": "Selon l'ATS (Meyer et al., 2012), le lavage du non-fumeur contient surtout des macrophages, avec peu de lymphocytes, de neutrophiles et d'éosinophiles.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Lymphocytose alvéolaire",
+     "signification": "Selon l'ATS (Meyer et al., 2012), plus de 15 % de lymphocytes définissent une lymphocytose alvéolaire."
+    },
+    {
+     "anomalie": "Rapport CD4/CD8 élevé",
+     "signification": "Selon l'ATS (Meyer et al., 2012), un rapport supérieur à 3,5 rend la sarcoïdose plus probable dans un contexte typique."
+    },
+    {
+     "anomalie": "Retour de plus en plus sanglant",
+     "signification": "Selon l'ATS (Meyer et al., 2012), un liquide qui rougit d'une aliquote à l'autre signe une hémorragie alvéolaire."
+    },
+    {
+     "anomalie": "Éosinophilie alvéolaire",
+     "signification": "Selon l'ATS (Meyer et al., 2012), 25 % d'éosinophiles ou plus soutiennent fortement une pneumopathie à éosinophiles."
+    },
+    {
+     "anomalie": "Pneumocystis à la coloration",
+     "signification": "Il confirme une pneumocystose chez le patient immunodéprimé."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Alvéolite lymphocytaire",
+     "anomaliesQuiLeComposent": [
+      "Lymphocytose alvéolaire",
+      "Rapport CD4/CD8 anormal"
+     ]
+    },
+    {
+     "syndrome": "Hémorragie intra-alvéolaire",
+     "anomaliesQuiLeComposent": [
+      "Retour de plus en plus sanglant",
+      "Sidérophages"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Pneumonie de l'immunodéprimé",
+     "anomalieTypique": "Germe opportuniste identifié"
+    },
+    {
+     "pathologie": "Sarcoïdose",
+     "anomalieTypique": "Rapport CD4/CD8 élevé"
+    },
+    {
+     "pathologie": "Pneumopathie d'hypersensibilité",
+     "anomalieTypique": "Lymphocytose alvéolaire"
+    },
+    {
+     "pathologie": "Hémorragie alvéolaire",
+     "anomalieTypique": "Retour de plus en plus sanglant"
+    }
+   ],
+   "bulle": {
+    "def": "Le lavage bronchoalvéolaire injecte puis aspire du sérum physiologique dans un segment pulmonaire à travers le bronchoscope.",
+    "pourquoi": "Le liquide récupéré reflète les cellules et les germes des alvéoles du segment lavé.",
+    "confusion": "Une lymphocytose évoque une sarcoïdose, mais une pneumopathie d'hypersensibilité la donne aussi, avec un rapport CD4/CD8 souvent bas.",
+    "retenir": "Le lavage bronchoalvéolaire documente l'infection de l'immunodéprimé et oriente les pneumopathies interstitielles."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__ebus_avec_ponction_ganglionnaire",
    "modalite": "Endoscopie",
    "nom": "EBUS (échoendoscopie bronchique) avec ponction ganglionnaire",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
+   "visees": [
+    "diagnostique",
+    "retentissement"
+   ],
+   "signeRecherche": "Métastase ganglionnaire médiastinale",
+   "seuil": "Une cytologie maligne d'un ganglion médiastinal confirme l'atteinte, et selon l'ESGE/ERS/ESTS (Vilmann et al., 2015) une ponction négative demande encore une exploration chirurgicale si le soupçon reste fort.",
+   "indication": "Selon l'ESGE/ERS/ESTS (Vilmann et al., 2015), on la fait en première intention pour la stadification médiastinale d'un cancer bronchique avec des ganglions anormaux au CT ou au PET, et devant des adénopathies médiastinales inexpliquées.",
+   "discriminant": "Elle ponctionne sous contrôle échographique les ganglions médiastinaux et hilaires que la bronchoscopie standard ne voit pas.",
+   "avantageSelectif": "Elle évite souvent la médiastinoscopie, et elle se fait sous sédation, souvent en ambulatoire.",
+   "plutotQue": "Selon l'ESGE/ERS/ESTS (Vilmann et al., 2015), on la préfère à la médiastinoscopie comme premier geste de stadification.",
+   "limite": "Elle n'atteint pas toutes les stations ganglionnaires et peut ramener trop peu de matériel pour les analyses moléculaires.",
+   "referencePour": [
+    "Stadification médiastinale du cancer"
+   ],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "On vérifie la coagulation et on discute l'arrêt des anticoagulants avant la ponction.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "EBUS",
+    "Échoendoscopie bronchique",
+    "Ponction transbronchique échoguidée",
+    "EBUS-TBNA"
+   ],
+   "aspectNormal": "Le ganglion normal paraît petit, ovale, à bords nets, avec un hile graisseux central.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Cytologie maligne",
+     "signification": "Elle confirme l'atteinte ganglionnaire médiastinale et fixe le stade du cancer bronchique."
+    },
+    {
+     "anomalie": "Granulomes non nécrosants",
+     "signification": "Selon l'ATS (Crouser et al., 2020), ils soutiennent une sarcoïdose avec une clinique compatible."
+    },
+    {
+     "anomalie": "Ponction négative et suspicion forte",
+     "signification": "Selon l'ESGE/ERS/ESTS (Vilmann et al., 2015), elle demande encore une exploration chirurgicale du médiastin."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Extension ganglionnaire médiastinale",
+     "anomaliesQuiLeComposent": [
+      "Ganglion fixant au PET",
+      "Cytologie maligne",
+      "Station médiastinale atteinte"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Sarcoïdose",
+     "anomalieTypique": "Granulomes non nécrosants"
+    },
+    {
+     "pathologie": "Métastase ganglionnaire d'un cancer",
+     "anomalieTypique": "Cytologie maligne"
+    },
+    {
+     "pathologie": "Tuberculose ganglionnaire",
+     "anomalieTypique": "Granulomes nécrosants"
+    }
+   ],
+   "bulle": {
+    "def": "L'EBUS associe un bronchoscope et une sonde d'échographie qui guide une aiguille vers les ganglions.",
+    "pourquoi": "L'échographie voit à travers la paroi bronchique les ganglions et les vaisseaux, ce qui rend la ponction sûre.",
+    "confusion": "Un ganglion qui fixe au PET évoque une métastase, mais il peut être inflammatoire, et la cytologie tranche.",
+    "retenir": "L'EBUS est le premier geste de stadification médiastinale du cancer bronchique."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__bronchoscopie_de_navigation",
    "modalite": "Endoscopie",
    "nom": "Bronchoscopie de navigation",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique"
+   ],
+   "signeRecherche": "Nodule pulmonaire périphérique",
+   "seuil": "Selon l'étude NAVIGATE (Folch et al., 2019), le rendement diagnostique atteint environ 73 % à un an pour les lésions périphériques.",
+   "indication": "On la fait devant un nodule périphérique suspect que la bronchoscopie standard n'atteint pas, surtout si une bronche y mène ou si la ponction transthoracique est risquée.",
+   "discriminant": "Elle guide l'instrument jusqu'à une lésion périphérique grâce à une carte virtuelle tirée du CT.",
+   "avantageSelectif": "Selon l'étude NAVIGATE (Folch et al., 2019), elle ne cause un pneumothorax que dans environ 4 % des cas, bien moins que la ponction transthoracique.",
+   "plutotQue": "On la préfère à la ponction transthoracique chez le patient emphysémateux ou quand on fait une stadification par EBUS dans le même temps.",
+   "limite": "Son rendement reste inférieur à celui de la ponction transthoracique, surtout quand aucune bronche ne mène à la lésion.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "On ajoute souvent une fluoroscopie ou un CT à faisceau conique pour confirmer la position. Selon Steinfort et al. (2010), la dose efficace médiane d'une bronchoscopie guidée par fluoroscopie atteint environ 0,5 mSv, et selon Verhoeven et al. (2021) une navigation guidée par CT à faisceau conique délivre de 5,8 à 14,3 mSv selon le protocole.",
+   "irradiation_mSv": 0.5,
+   "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Navigation électromagnétique",
+    "Bronchoscopie guidée",
+    "Navigation bronchique",
+    "Bronchoscopie de navigation électromagnétique"
+   ],
+   "aspectNormal": "Un prélèvement sans tumeur ne montre que du parenchyme normal, ce qui n'exclut pas une lésion manquée.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Histologie maligne",
+     "signification": "Elle confirme le cancer et permet souvent les analyses moléculaires."
+    },
+    {
+     "anomalie": "Résultat bénin non spécifique",
+     "signification": "Il n'exclut pas une tumeur, et le suivi par CT ou une autre biopsie tranchent."
+    },
+    {
+     "anomalie": "Pneumothorax après le geste",
+     "signification": "Selon l'étude NAVIGATE (Folch et al., 2019), il survient dans environ 4 % des cas."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Nodule périphérique suspect",
+     "anomaliesQuiLeComposent": [
+      "Nodule solide qui grossit",
+      "Bronche qui mène à la lésion",
+      "Fixation au PET"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Granulome infectieux",
+     "anomalieTypique": "Inflammation granulomateuse"
+    },
+    {
+     "pathologie": "Adénocarcinome périphérique",
+     "anomalieTypique": "Histologie maligne"
+    }
+   ],
+   "bulle": {
+    "def": "La bronchoscopie de navigation guide un cathéter dans les petites bronches jusqu'à un nodule, d'après une carte construite à partir du CT.",
+    "pourquoi": "Un capteur électromagnétique localise en temps réel la pointe de l'instrument dans le thorax.",
+    "confusion": "Un résultat bénin semble rassurant, mais le prélèvement a pu manquer la lésion, et le suivi ou une autre biopsie tranchent.",
+    "retenir": "La navigation atteint les nodules périphériques avec peu de pneumothorax."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__biopsie_transbronchique",
    "modalite": "Anatomopathologie / biopsie",
    "nom": "Biopsie transbronchique",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "etiologique"
+   ],
+   "signeRecherche": "Granulome, tumeur, lymphangite",
+   "seuil": "Le diagnostic repose sur l'histologie, et selon l'ATS (Crouser et al., 2020) des granulomes non nécrosants, une clinique compatible et l'exclusion des autres causes de granulome soutiennent une sarcoïdose.",
+   "indication": "On la fait devant une suspicion de sarcoïdose, de lymphangite carcinomateuse, de rejet de greffe pulmonaire ou de lésion périphérique accessible.",
+   "discriminant": "Elle ramène du tissu alvéolaire et montre les lésions qui longent les bronches et les vaisseaux, comme les granulomes.",
+   "avantageSelectif": "Elle se fait pendant la même bronchoscopie que le lavage et l'EBUS, sans anesthésie générale.",
+   "plutotQue": "On la préfère à la biopsie chirurgicale pour les maladies qui longent les bronches et les vaisseaux, comme la sarcoïdose.",
+   "limite": "Ses fragments sont trop petits pour classer la plupart des fibroses, et elle peut se compliquer d'un pneumothorax ou d'un saignement.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "precautions": "Selon la British Thoracic Society (Du Rand et al., 2013), on arrête le clopidogrel sept jours avant une biopsie transbronchique et on vérifie la coagulation s'il existe un facteur de risque clinique de trouble de l'hémostase ; l'aspirine à faible dose peut être poursuivie, et on recherche un pneumothorax si le patient devient dyspnéique.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
+   "prelevementRef": "biopsies_tissulaires",
+   "synonymes": [
+    "Biopsie pulmonaire transbronchique",
+    "Biopsie à la pince",
+    "Biopsie transbronchique"
+   ],
+   "aspectNormal": "Le fragment normal montre des alvéoles à parois fines et des bronchioles sans inflammation ni granulome.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Granulomes non nécrosants",
+     "signification": "Selon l'ATS (Crouser et al., 2020), avec une clinique compatible et l'exclusion des autres causes, ils soutiennent une sarcoïdose."
+    },
+    {
+     "anomalie": "Granulome avec nécrose caséeuse",
+     "signification": "Il oriente vers une tuberculose, que la culture et la PCR confirment."
+    },
+    {
+     "anomalie": "Cellules tumorales lymphatiques",
+     "signification": "Elles confirment une lymphangite carcinomateuse."
+    },
+    {
+     "anomalie": "Infiltrat lymphocytaire périvasculaire",
+     "signification": "Il signe un rejet aigu chez le greffé pulmonaire."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Granulomatose pulmonaire",
+     "anomaliesQuiLeComposent": [
+      "Granulomes épithélioïdes",
+      "Cellules géantes",
+      "Distribution périlymphatique"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Sarcoïdose",
+     "anomalieTypique": "Granulomes non nécrosants"
+    },
+    {
+     "pathologie": "Tuberculose",
+     "anomalieTypique": "Granulome caséeux"
+    },
+    {
+     "pathologie": "Rejet de greffe pulmonaire",
+     "anomalieTypique": "Infiltrat périvasculaire"
+    },
+    {
+     "pathologie": "Lymphangite carcinomateuse",
+     "anomalieTypique": "Cellules tumorales lymphatiques"
+    }
+   ],
+   "bulle": {
+    "def": "La biopsie transbronchique prélève de petits fragments de poumon à travers la paroi des bronches distales.",
+    "pourquoi": "La pince traverse la bronche et arrache du tissu alvéolaire voisin, où siègent les granulomes.",
+    "confusion": "Un granulome évoque une sarcoïdose, mais une tuberculose en donne aussi, avec une nécrose caséeuse et des bacilles.",
+    "retenir": "La biopsie transbronchique convient aux maladies qui longent les bronches et les vaisseaux, pas aux fibroses."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__cryobiopsie",
    "modalite": "Anatomopathologie / biopsie",
    "nom": "Cryobiopsie",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "etiologique"
+   ],
+   "signeRecherche": "Aspect histologique d'une fibrose",
+   "seuil": "Selon l'ERS (Korevaar et al., 2022), on interprète l'histologie en discussion multidisciplinaire, et aucun seuil chiffré ne s'applique.",
+   "indication": "Selon l'ERS (Korevaar et al., 2022), on la fait devant une pneumopathie interstitielle non classée quand l'histologie est nécessaire, dans un centre expérimenté.",
+   "discriminant": "Elle ramène des fragments plus grands que la pince, assez pour reconnaître l'aspect de PIC.",
+   "avantageSelectif": "Selon l'ERS (Korevaar et al., 2022), elle peut remplacer la biopsie chirurgicale chez des patients choisis, avec moins de morbidité.",
+   "plutotQue": "On la préfère à la biopsie chirurgicale chez le patient fragile ou âgé.",
+   "limite": "Selon l'ERS (Korevaar et al., 2022), son rendement diagnostique reste inférieur à celui de la biopsie chirurgicale, avec moins d'événements indésirables graves et une hospitalisation plus courte.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "precautions": "On la fait sous anesthésie générale avec un ballonnet de blocage bronchique, et on l'évite en cas d'hypertension pulmonaire sévère ou d'hypoxémie importante.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
+   "prelevementRef": "biopsies_tissulaires",
+   "synonymes": [
+    "Cryobiopsie transbronchique",
+    "Cryobiopsie pulmonaire"
+   ],
+   "aspectNormal": "Le fragment normal montre une architecture alvéolaire conservée, sans fibrose ni inflammation.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Fibrose hétérogène sous-pleurale",
+     "signification": "Selon l'ATS/ERS/JRS/ALAT (Raghu et al., 2022), avec des foyers fibroblastiques et un rayon de miel, elle définit l'aspect histologique de PIC."
+    },
+    {
+     "anomalie": "Fibrose homogène",
+     "signification": "Une fibrose uniforme du même âge oriente vers une PINS, souvent liée à une connectivite."
+    },
+    {
+     "anomalie": "Granulomes mal formés",
+     "signification": "Selon l'ATS/JRS/ALAT (Raghu et al., 2020), des granulomes centrés sur les bronchioles orientent vers une pneumopathie d'hypersensibilité."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Aspect histologique de PIC",
+     "anomaliesQuiLeComposent": [
+      "Fibrose hétérogène sous-pleurale",
+      "Foyers fibroblastiques",
+      "Rayon de miel microscopique"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Fibrose pulmonaire idiopathique",
+     "anomalieTypique": "Aspect histologique de PIC"
+    },
+    {
+     "pathologie": "PINS",
+     "anomalieTypique": "Fibrose homogène"
+    },
+    {
+     "pathologie": "Pneumopathie d'hypersensibilité",
+     "anomalieTypique": "Granulomes bronchiolocentriques"
+    }
+   ],
+   "bulle": {
+    "def": "La cryobiopsie congèle le tissu au bout d'une sonde introduite dans les bronches, puis l'arrache.",
+    "pourquoi": "Le froid fait adhérer un large fragment de poumon sans écraser son architecture.",
+    "confusion": "Un fragment de fibrose non spécifique fait penser à une PINS, mais la discussion multidisciplinaire tranche avec le CT.",
+    "retenir": "La cryobiopsie est l'alternative moins invasive à la biopsie chirurgicale dans les fibroses."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__ponction_biopsie_transthoracique_sous_ct",
    "modalite": "Anatomopathologie / biopsie",
    "nom": "Ponction-biopsie transthoracique sous CT",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique"
+   ],
+   "signeRecherche": "Nodule périphérique malin",
+   "seuil": "Une histologie ou une cytologie maligne confirme le cancer, alors qu'un résultat bénin non spécifique n'exclut pas la malignité.",
+   "indication": "On la fait devant un nodule ou une masse périphérique suspecte, surtout près de la paroi, quand le diagnostic changera le traitement.",
+   "discriminant": "Elle atteint les lésions périphériques que la bronchoscopie standard ne voit pas, avec un rendement élevé.",
+   "avantageSelectif": "Elle ramène souvent assez de tissu pour les analyses moléculaires du cancer.",
+   "plutotQue": "On la préfère à la navigation pour une lésion périphérique sans bronche d'accès, chez un patient sans emphysème sévère.",
+   "limite": "Un résultat bénin non spécifique n'exclut pas une tumeur.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "precautions": "On vérifie la coagulation, on recherche un pneumothorax après le geste et on évite la ponction en cas d'emphysème sévère ou de fonction respiratoire très basse.",
+   "irradiation_mSv": 5.4,
+   "delai": "programmé",
+   "prelevementRef": "biopsies_tissulaires",
+   "synonymes": [
+    "Biopsie pulmonaire percutanée",
+    "Ponction transthoracique",
+    "Biopsie sous scanner",
+    "Biopsie à l'aiguille sous CT"
+   ],
+   "aspectNormal": "Le fragment sans tumeur montre du parenchyme pulmonaire normal, ce qui n'exclut pas une lésion manquée.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Carcinome",
+     "signification": "Il confirme le cancer et fournit souvent assez de tissu pour les analyses moléculaires."
+    },
+    {
+     "anomalie": "Résultat bénin non spécifique",
+     "signification": "Il n'exclut pas une tumeur, et le suivi ou une nouvelle biopsie tranchent."
+    },
+    {
+     "anomalie": "Pneumothorax après la ponction",
+     "signification": "Il est la complication principale, et on le recherche après le geste."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Nodule malin périphérique",
+     "anomaliesQuiLeComposent": [
+      "Nodule solide",
+      "Contours spiculés",
+      "Histologie maligne"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Adénocarcinome pulmonaire",
+     "anomalieTypique": "Carcinome glandulaire"
+    },
+    {
+     "pathologie": "Carcinome épidermoïde",
+     "anomalieTypique": "Carcinome malpighien"
+    },
+    {
+     "pathologie": "Métastase pulmonaire",
+     "anomalieTypique": "Tumeur d'un autre organe"
+    }
+   ],
+   "bulle": {
+    "def": "La ponction-biopsie transthoracique introduit une aiguille à travers la paroi jusqu'à la lésion sous contrôle du CT.",
+    "pourquoi": "Le CT montre la position de l'aiguille par rapport au nodule, aux vaisseaux et aux scissures.",
+    "confusion": "Un résultat inflammatoire semble rassurant, mais l'aiguille a pu manquer la tumeur, et le suivi ou une nouvelle biopsie tranchent.",
+    "retenir": "Le pneumothorax est la complication principale de la ponction transthoracique."
+   }
   },
   {
    "id": "poumons_et_voies_aeriennes__biopsie_chirurgicale",
    "modalite": "Anatomopathologie / biopsie",
    "nom": "Biopsie chirurgicale (VATS)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
+   "visees": [
+    "diagnostique",
+    "therapeutique"
+   ],
+   "signeRecherche": "Diagnostic histologique certain",
+   "seuil": "Selon l'ATS/ERS/JRS/ALAT (Raghu et al., 2022), on interprète l'histologie en discussion multidisciplinaire, et aucun seuil chiffré ne s'applique.",
+   "indication": "On la fait devant une pneumopathie interstitielle indéterminée malgré le CT et la cryobiopsie, ou devant un nodule qu'on résèque à visée diagnostique et thérapeutique.",
+   "discriminant": "Elle ramène de grands fragments de plusieurs lobes, ce qui permet de classer les fibroses difficiles.",
+   "avantageSelectif": "Elle a le meilleur rendement diagnostique des biopsies pulmonaires et peut retirer la lésion dans le même temps.",
+   "plutotQue": "On la réserve aux cas où les techniques moins invasives ont échoué, car elle demande une anesthésie générale.",
+   "limite": "Selon Hutchinson et al. (2016), la mortalité hospitalière après biopsie chirurgicale pour pneumopathie interstitielle atteint 1,7 % pour un geste programmé et 16 % pour un geste non programmé, et elle augmente avec l'âge et les comorbidités.",
+   "referencePour": [
+    "Pneumopathie interstitielle indéterminée"
+   ],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "precautions": "On ne la fait pas pendant une exacerbation aiguë de fibrose, et on évalue la fonction respiratoire et le risque opératoire avant le geste.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
+   "prelevementRef": "biopsies_tissulaires",
+   "synonymes": [
+    "Biopsie pulmonaire chirurgicale",
+    "Thoracoscopie vidéo-assistée",
+    "VATS",
+    "Résection cunéiforme"
+   ],
+   "aspectNormal": "Le fragment normal montre une architecture alvéolaire conservée dans tous les lobes prélevés.",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Aspect histologique de PIC",
+     "signification": "Selon l'ATS/ERS/JRS/ALAT (Raghu et al., 2022), il soutient une fibrose pulmonaire idiopathique en discussion multidisciplinaire."
+    },
+    {
+     "anomalie": "Fibrose homogène",
+     "signification": "Une fibrose uniforme oriente vers une PINS, que le CT peut confondre avec une PIC."
+    },
+    {
+     "anomalie": "Tumeur réséquée",
+     "signification": "Elle confirme le cancer et retire la lésion dans le même temps."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Aspect histologique de PIC",
+     "anomaliesQuiLeComposent": [
+      "Fibrose hétérogène sous-pleurale",
+      "Foyers fibroblastiques",
+      "Rayon de miel microscopique"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Fibrose pulmonaire idiopathique",
+     "anomalieTypique": "Aspect histologique de PIC"
+    },
+    {
+     "pathologie": "PINS fibrosante",
+     "anomalieTypique": "Fibrose homogène"
+    },
+    {
+     "pathologie": "Cancer bronchique précoce",
+     "anomalieTypique": "Tumeur réséquée"
+    }
+   ],
+   "bulle": {
+    "def": "La biopsie chirurgicale par VATS prélève des coins de poumon par de petites incisions sous thoracoscopie.",
+    "pourquoi": "Des fragments larges pris dans plusieurs lobes montrent l'hétérogénéité de la fibrose.",
+    "confusion": "Une PINS fibrosante ressemble à une PIC au CT, mais l'histologie homogène de la PINS tranche.",
+    "retenir": "La biopsie chirurgicale reste le dernier recours dans les fibroses indéterminées."
+   }
   }
  ],
- "glossaire": {}
+ "glossaire": {
+  "CT": "Tomodensitométrie : imagerie en coupes par rayons X qui mesure l'atténuation des tissus.",
+  "IGRA": "Test de libération de l'interféron gamma : prise de sang qui dépiste une infection tuberculeuse.",
+  "PCT": "Procalcitonine : précurseur de la calcitonine qui monte dans l'infection bactérienne.",
+  "CRP": "Protéine C réactive : protéine du foie qui monte dans toute inflammation.",
+  "IgE": "Immunoglobulines E : anticorps de l'allergie immédiate.",
+  "IgG": "Immunoglobulines G : anticorps de la réponse immunitaire tardive et de la mémoire.",
+  "ANCA": "Anticorps anticytoplasme des polynucléaires neutrophiles, marqueurs des vascularites des petits vaisseaux.",
+  "PR3": "Protéinase 3 : enzyme des neutrophiles, cible des ANCA de la granulomatose avec polyangéite.",
+  "MPO": "Myéloperoxydase : enzyme des neutrophiles, cible des ANCA de la polyangéite microscopique.",
+  "PCR": "Amplification en chaîne par polymérase : détection du matériel génétique d'un agent infectieux.",
+  "BCG": "Bacille de Calmette et Guérin : vaccin vivant atténué contre la tuberculose.",
+  "UI": "Unité internationale : unité qui mesure une quantité selon son activité biologique.",
+  "kUA": "Kilo-unité d'allergène : unité de mesure des IgE spécifiques.",
+  "G/l": "Giga par litre : milliard de cellules par litre de sang.",
+  "IL-5": "Interleukine 5 : messager qui fait produire et survivre les éosinophiles.",
+  "CO2": "Dioxyde de carbone : gaz produit par le métabolisme et éliminé par la ventilation.",
+  "FeNO": "Fraction exhalée du monoxyde d'azote : marqueur de l'inflammation bronchique éosinophilique.",
+  "SpO2": "Saturation pulsée en oxygène, mesurée par l'oxymètre de pouls.",
+  "PaO2": "Pression partielle artérielle en oxygène, mesurée en kPa.",
+  "PaCO2": "Pression partielle artérielle en dioxyde de carbone, mesurée en kPa.",
+  "PINS": "Pneumopathie interstitielle non spécifique : forme de fibrose souvent liée aux connectivites.",
+  "BPCO": "Bronchopneumopathie chronique obstructive : obstruction bronchique persistante, surtout due au tabac.",
+  "SSI": "Société suisse d'infectiologie, qui publie des recommandations de prise en charge des infections.",
+  "ERS": "Société européenne de pneumologie (European Respiratory Society).",
+  "ATS": "Société thoracique américaine (American Thoracic Society).",
+  "JRS": "Société japonaise de pneumologie (Japanese Respiratory Society).",
+  "ALAT": "Association latino-américaine du thorax.",
+  "BTS": "Société thoracique britannique (British Thoracic Society).",
+  "ICS": "Société britannique de médecine intensive (Intensive Care Society).",
+  "ACR": "Collège américain de radiologie, qui publie notamment le système Lung-RADS.",
+  "EULAR": "Alliance européenne des associations de rhumatologie.",
+  "ESCMID": "Société européenne de microbiologie clinique et d'infectiologie.",
+  "ISHAM": "Société internationale de mycologie humaine et animale.",
+  "GINA": "Initiative mondiale contre l'asthme, qui publie chaque année sa stratégie.",
+  "ProHOSP": "Essai suisse multicentrique qui a guidé l'antibiothérapie des infections respiratoires basses par la procalcitonine.",
+  "QuantiFERON-TB": "Test IGRA commercial qui mesure l'interféron gamma par méthode immuno-enzymatique.",
+  "BAAR": "Bacilles acido-alcoolo-résistants : mycobactéries, dont le bacille de la tuberculose, visibles après coloration de Ziehl-Neelsen.",
+  "SaO2": "Saturation artérielle de l'hémoglobine en oxygène, mesurée sur la gazométrie.",
+  "QuantiFERON": "Nom commercial d'un test IGRA qui mesure l'interféron gamma par méthode immuno-enzymatique.",
+  "GDS": "Gaz du sang : autre nom de la gazométrie artérielle.",
+  "SSMIG": "Société suisse de médecine interne générale.",
+  "SDRA": "Syndrome de détresse respiratoire aiguë : œdème pulmonaire lésionnel avec hypoxémie sévère.",
+  "ECBC": "Examen cytobactériologique des crachats : Gram et culture d'un crachat.",
+  "AAT": "Alpha-1-antitrypsine : protéine du foie qui protège le poumon contre l'élastase.",
+  "Pi": "Inhibiteur de protéase : nom des allèles de l'alpha-1-antitrypsine, comme PiM normal ou PiZ déficitaire.",
+  "PiZZ": "Phénotype homozygote Z de l'alpha-1-antitrypsine, responsable du déficit sévère.",
+  "RAST": "Ancien nom du dosage des IgE spécifiques d'un allergène dans le sang.",
+  "ABPA": "Aspergillose bronchopulmonaire allergique : réaction allergique à Aspergillus dans les bronches de l'asthmatique.",
+  "ANA": "Anticorps antinucléaires : marqueurs des connectivites.",
+  "ENA": "Antigènes nucléaires solubles : cibles d'anticorps qui précisent la connectivite.",
+  "MBG": "Membrane basale glomérulaire : cible des anticorps du syndrome de Goodpasture.",
+  "T-SPOT.TB": "Test IGRA commercial qui compte les lymphocytes qui sécrètent l'interféron gamma.",
+  "PET": "Tomographie par émission de positons : imagerie qui localise un traceur radioactif dans le corps.",
+  "EBUS": "Échoendoscopie bronchique : bronchoscopie munie d'une sonde d'échographie.",
+  "mSv": "Millisievert : unité de dose efficace, qui tient compte de la sensibilité des organes.",
+  "ESTS": "Société européenne de chirurgie thoracique.",
+  "ESGE": "Société européenne d'endoscopie digestive.",
+  "NAVIGATE": "Étude prospective multicentrique de la bronchoscopie de navigation électromagnétique.",
+  "CD4/CD8": "Rapport entre lymphocytes T auxiliaires et lymphocytes T cytotoxiques.",
+  "CD4": "Marqueur des lymphocytes T auxiliaires.",
+  "CD8": "Marqueur des lymphocytes T cytotoxiques.",
+  "LBA": "Lavage bronchoalvéolaire : rinçage d'un segment pulmonaire par le bronchoscope.",
+  "EBUS-TBNA": "Ponction transbronchique à l'aiguille guidée par échoendoscopie bronchique.",
+  "Sidérophages": "Macrophages chargés de fer, témoins d'un saignement alvéolaire.",
+  "VEMS": "Volume expiratoire maximal en une seconde, mesuré en spirométrie.",
+  "CVF": "Capacité vitale forcée : volume total expiré pendant une expiration forcée.",
+  "LIN": "Limite inférieure de la normale : 5e percentile des valeurs d'une population saine.",
+  "CPT": "Capacité pulmonaire totale : volume d'air dans les poumons après une inspiration maximale.",
+  "DLCO": "Capacité de diffusion du monoxyde de carbone : mesure du transfert des gaz à travers la membrane alvéolo-capillaire.",
+  "CO": "Monoxyde de carbone : gaz traceur de la mesure de la diffusion pulmonaire.",
+  "PD20": "Dose de méthacholine qui fait baisser le VEMS de 20 % au test de provocation.",
+  "ppb": "Partie par milliard : unité de concentration d'un gaz.",
+  "VO2max": "Consommation maximale d'oxygène pendant un effort, exprimée en ml/kg/min.",
+  "IAH": "Index d'apnées-hypopnées : nombre d'apnées et d'hypopnées par heure de sommeil.",
+  "EEG": "Électroencéphalogramme : enregistrement de l'activité électrique du cerveau.",
+  "ECG": "Électrocardiogramme : enregistrement de l'activité électrique du cœur.",
+  "DEP": "Débit expiratoire de pointe, mesuré par le peak-flow.",
+  "AASM": "Académie américaine de médecine du sommeil.",
+  "GOLD": "Initiative mondiale contre la BPCO, qui publie chaque année sa stratégie.",
+  "NO": "Monoxyde d'azote : gaz produit par l'épithélium bronchique enflammé, mesuré par la FeNO.",
+  "EFR": "Explorations fonctionnelles respiratoires : ensemble des mesures du souffle, des volumes et de la diffusion.",
+  "VR": "Volume résiduel : air qui reste dans les poumons après une expiration maximale.",
+  "LSN": "Limite supérieure de la normale : 95e percentile des valeurs d'une population saine.",
+  "TLCO": "Facteur de transfert du monoxyde de carbone : autre nom de la DLCO.",
+  "TM6": "Test de marche de six minutes.",
+  "PSG": "Polysomnographie : enregistrement du sommeil avec l'EEG et la respiration.",
+  "Seuil anaérobie": "Niveau d'effort à partir duquel le muscle produit du lactate et la ventilation s'accélère.",
+  "Réserve ventilatoire": "Différence entre la ventilation maximale possible et la ventilation atteinte au pic de l'effort.",
+  "Pouls d'oxygène": "Consommation d'oxygène divisée par la fréquence cardiaque, reflet du volume d'éjection à l'effort.",
+  "VATS": "Chirurgie thoracique vidéo-assistée : chirurgie du thorax par de petites incisions et une caméra.",
+  "PIC": "Pneumopathie interstitielle commune : aspect typique de la fibrose pulmonaire idiopathique.",
+  "Rayon de miel": "Kystes aériens accolés à paroi épaisse, sous la plèvre, qui signent une fibrose avancée.",
+  "Foyers fibroblastiques": "Amas de fibroblastes jeunes, témoins d'une fibrose active, typiques de la PIC.",
+  "PET-CT": "Appareil qui superpose dans le même examen l'image du PET et celle du CT.",
+  "FDG": "Fluorodésoxyglucose marqué au fluor-18 : traceur du PET qui se concentre dans les cellules qui consomment du glucose.",
+  "SUV": "Valeur de fixation normalisée : concentration du traceur rapportée à l'activité injectée et au poids.",
+  "MAA": "Macroagrégats d'albumine marqués au technétium, injectés pour la scintigraphie de perfusion.",
+  "DTPA": "Acide diéthylènetriaminepentaacétique marqué au technétium, inhalé en aérosol pour la scintigraphie de ventilation.",
+  "CTDIvol": "Indice de dose de scanographie volumique, en mGy : dose moyenne délivrée par coupe.",
+  "mGy": "Milligray : unité de dose absorbée.",
+  "NRD": "Niveaux de référence diagnostiques : doses de référence que l'OFSP fixe pour optimiser les examens.",
+  "DRW": "Diagnostische Referenzwerte : nom allemand des niveaux de référence diagnostiques de l'OFSP.",
+  "OFSP": "Office fédéral de la santé publique, autorité suisse de radioprotection.",
+  "ESC": "Société européenne de cardiologie, qui publie des recommandations cliniques.",
+  "STR": "Société américaine de radiologie thoracique.",
+  "AAPM": "Association américaine des physiciens médicaux.",
+  "EANM": "Association européenne de médecine nucléaire.",
+  "Lung-RADS": "Système de classement des CT de dépistage du cancer du poumon, publié par l'ACR.",
+  "Bronchogramme aérien": "Bronches remplies d'air qui deviennent visibles au sein d'une condensation alvéolaire.",
+  "Lignes B": "Artéfacts verticaux de l'échographie pulmonaire, issus de la plèvre, qui traduisent un interstitium chargé d'eau.",
+  "Point poumon": "Endroit où le glissement pleural réapparaît à l'échographie, qui marque la limite d'un pneumothorax.",
+  "Verre dépoli": "Augmentation de densité du poumon qui laisse voir les vaisseaux.",
+  "PA": "Incidence postéro-antérieure : le faisceau entre par le dos et sort par l'avant du thorax.",
+  "PLCO": "Essai Prostate, Lung, Colorectal and Ovarian : essai américain de dépistage qui a montré l'absence de bénéfice de la radiographie thoracique annuelle sur la mortalité par cancer du poumon.",
+  "MBq": "Mégabecquerel, unité d'activité d'un produit radiopharmaceutique.",
+  "RX": "Radiographie : abréviation usuelle des clichés par rayons X.",
+  "V/Q": "Rapport ventilation-perfusion : comparaison de la ventilation et de la perfusion d'un même territoire pulmonaire.",
+  "R-06-06": "Directive de l'OFSP qui fixe les niveaux de référence diagnostiques du CT.",
+  "POCUS": "Échographie au lit du patient, faite par le clinicien pour répondre à une question précise.",
+  "Lignes A": "Artéfacts horizontaux de l'échographie pulmonaire, qui répètent la ligne pleurale dans un poumon aéré.",
+  "Lignes de Kerley B": "Lignes horizontales courtes à la base du poumon, qui traduisent l'œdème des septa interlobulaires.",
+  "Syndrome alvéolaire": "Ensemble d'opacités qui traduisent le remplissage des alvéoles par du liquide, du pus ou des cellules.",
+  "Syndrome interstitiel": "Ensemble d'opacités qui traduisent l'épaississement du tissu de soutien du poumon.",
+  "Atténuation en mosaïque": "Alternance de zones plus claires et plus denses du poumon au CT, liée aux petites voies aériennes ou aux vaisseaux.",
+  "TDM": "Tomodensitométrie : autre nom du CT.",
+  "CTHR": "CT haute résolution : CT en coupes fines qui montre le lobule pulmonaire.",
+  "HTP-TEC": "Hypertension pulmonaire thromboembolique chronique, due à des caillots qui persistent dans les artères pulmonaires.",
+  "TEP": "Tomographie par émission de positons : autre sigle du PET."
+ }
 }
