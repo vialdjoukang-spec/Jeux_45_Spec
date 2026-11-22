@@ -1,0 +1,528 @@
+{
+ "_lot": {
+  "tache": "P04-02-PR",
+  "titre": "Pratique — Examens de l'organe Plèvre (7 examens : 4 imagerie + 1 biologie + 1 endoscopies + 1 anatomopathologie)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/4_thorax/plevre.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/4_thorax/plevre.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "plevre__radiographie_thoracique",
+     "nom": "Radiographie thoracique",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "plevre__radiographie_thoracique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "La radiographie montre rapidement un épanchement pleural sous forme d'une opacité déclive à limite concave, selon la BTS (2023).",
+        "pourquoiFaux": "Le PET-CT, la thoracoscopie et la biopsie servent au bilan étiologique d'un épanchement déjà connu et inexpliqué."
+       },
+       "sources": [
+        "BTS, maladies pleurales (Roberts et al., 2023)"
+       ],
+       "casClinique": "Un homme de 74 ans, insuffisant cardiaque, consulte à Bienne pour une dyspnée croissante et une matité de la base droite.",
+       "options": [
+        "Radiographie thoracique",
+        "PET-CT",
+        "Thoracoscopie",
+        "Biopsie pleurale"
+       ],
+       "bonneReponse": "Radiographie thoracique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "plevre__radiographie_thoracique-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Une opacité déclive à limite concave qui efface la coupole traduit un épanchement liquidien.",
+        "pourquoiFaux": "Une condensation montrerait un bronchogramme aérien sans ligne concave, et une atélectasie attirerait le médiastin."
+       },
+       "sources": [
+        "BTS, maladies pleurales (Roberts et al., 2023)"
+       ],
+       "consigne": "Lisez la radiographie de face debout de ce patient dyspnéique.",
+       "aspectRecherche": "Opacité de la base",
+       "reponse": "Épanchement pleural droit de moyenne abondance",
+       "imageOuTraceAttendu": "Cliché de face debout montrant une opacité dense et homogène de la base droite, qui efface la coupole et monte le long de la paroi latérale avec une limite supérieure concave."
+      },
+      {
+       "id": "plevre__radiographie_thoracique-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Alrajhi et al. (2012), la radiographie en décubitus n'a qu'une sensibilité d'environ 50 % pour le pneumothorax, contre une bien meilleure sensibilité pour l'échographie.",
+        "pourquoiFaux": "Le cliché couché manque l'air qui se collecte en avant du poumon."
+       },
+       "sources": [
+        "Alrajhi et al., échographie et pneumothorax (2012)",
+        "Volpicelli et al., recommandations sur l'échographie pulmonaire (2012)"
+       ],
+       "erreurFrequente": "Exclure un pneumothorax sur une radiographie faite en décubitus chez un patient ventilé.",
+       "consequence": "On méconnaît un pneumothorax antérieur qui peut devenir compressif.",
+       "bonneConduite": "Compléter par une échographie pleurale, plus sensible au lit du patient."
+      }
+     ]
+    },
+    {
+     "ref": "plevre__echographie_pleurale",
+     "nom": "Échographie pleurale",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "plevre__echographie_pleurale-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon la BTS (2023), on guide toujours la thoracentèse par l'imagerie, et l'échographie au lit du patient repère le meilleur site de ponction.",
+        "pourquoiFaux": "Le PET-CT et le CT ne guident pas une ponction en temps réel, et la thoracoscopie est un geste plus lourd réservé aux exsudats inexpliqués."
+       },
+       "sources": [
+        "BTS, maladies pleurales (Roberts et al., 2023)"
+       ],
+       "casClinique": "Une femme de 66 ans présente un épanchement pleural gauche connu ; le médecin de Martigny doit le ponctionner pour l'analyser.",
+       "options": [
+        "Échographie pleurale",
+        "PET-CT",
+        "CT thoracique injecté",
+        "Thoracoscopie"
+       ],
+       "bonneReponse": "Échographie pleurale",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "plevre__echographie_pleurale-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des cloisons dans un épanchement traduisent un épanchement compliqué, souvent infecté, qui se draine moins bien.",
+        "pourquoiFaux": "Un transsudat simple serait anéchogène sans cloison, et une condensation montrerait un parenchyme d'aspect tissulaire."
+       },
+       "sources": [
+        "BTS, maladies pleurales (Roberts et al., 2023)"
+       ],
+       "consigne": "Lisez la séquence échographique de la base gauche de ce patient fébrile.",
+       "aspectRecherche": "Contenu de l'épanchement",
+       "reponse": "Épanchement cloisonné, évocateur d'infection pleurale",
+       "imageOuTraceAttendu": "Coupe intercostale montrant une collection entre les feuillets traversée de multiples cloisons fines et mobiles, avec un liquide légèrement échogène."
+      },
+      {
+       "id": "plevre__echographie_pleurale-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon Volpicelli et al. (2012), l'absence de glissement fait suspecter un pneumothorax, mais seul le point poumon le confirme.",
+        "pourquoiFaux": "Des adhérences, une apnée ou une intubation sélective abolissent aussi le glissement."
+       },
+       "sources": [
+        "Volpicelli et al., recommandations sur l'échographie pulmonaire (2012)"
+       ],
+       "erreurFrequente": "Conclure à un pneumothorax sur la seule absence de glissement pleural.",
+       "consequence": "On draine à tort un patient qui a des adhérences pleurales ou une intubation sélective.",
+       "bonneConduite": "Chercher le point poumon, qui confirme le pneumothorax."
+      }
+     ]
+    },
+    {
+     "ref": "plevre__ct_thoracique_injecte",
+     "nom": "CT thoracique injecté",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "plevre__ct_thoracique_injecte-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS, l'ESTS, l'EACTS et l'ESTRO (2020), le CT thoracique injecté, optimisé pour la plèvre, est l'imagerie initiale de choix devant un mésothéliome suspecté.",
+        "pourquoiFaux": "Une nouvelle radiographie n'apporte rien, l'échographie ne voit pas l'ensemble du thorax, et le Holter n'a pas sa place ici."
+       },
+       "sources": [
+        "ERS, ESTS, EACTS et ESTRO, mésothéliome pleural (Opitz et al., 2020)",
+        "BTS, maladies pleurales (Roberts et al., 2023)"
+       ],
+       "casClinique": "Un ancien tuyauteur de 69 ans, exposé à l'amiante, présente un épanchement pleural droit exsudatif récidivant et une cytologie négative.",
+       "options": [
+        "CT thoracique injecté",
+        "Radiographie thoracique de contrôle",
+        "Échographie pleurale seule",
+        "Holter ECG"
+       ],
+       "bonneReponse": "CT thoracique injecté",
+       "visee": "etiologique"
+      },
+      {
+       "id": "plevre__ct_thoracique_injecte-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un épaississement nodulaire, circonférentiel et médiastinal évoque une malignité pleurale, en particulier un mésothéliome.",
+        "pourquoiFaux": "Des plaques pleurales sont localisées, souvent calcifiées et épargnent la plèvre médiastinale."
+       },
+       "sources": [
+        "ERS, ESTS, EACTS et ESTRO, mésothéliome pleural (Opitz et al., 2020)"
+       ],
+       "consigne": "Lisez la coupe axiale injectée de ce patient exposé à l'amiante.",
+       "aspectRecherche": "Épaississement pleural",
+       "reponse": "Épaississement pleural circonférentiel nodulaire, évocateur de mésothéliome",
+       "imageOuTraceAttendu": "Coupe axiale injectée montrant un épaississement pleural droit irrégulier et nodulaire, qui atteint la plèvre médiastinale et entoure le poumon, avec un petit épanchement."
+      },
+      {
+       "id": "plevre__ct_thoracique_injecte-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la BTS (2023), un CT négatif n'exclut pas une malignité pleurale.",
+        "pourquoiFaux": "Une plèvre d'aspect normal au CT peut porter de petites lésions tumorales."
+       },
+       "sources": [
+        "BTS, maladies pleurales (Roberts et al., 2023)"
+       ],
+       "erreurFrequente": "Écarter une malignité pleurale sur un CT thoracique normal chez un patient avec un exsudat inexpliqué.",
+       "consequence": "On retarde le diagnostic d'un mésothéliome ou de métastases pleurales.",
+       "bonneConduite": "Poursuivre les explorations, avec une biopsie pleurale ou une thoracoscopie, si l'exsudat reste inexpliqué."
+      }
+     ]
+    },
+    {
+     "ref": "plevre__pet_ct",
+     "nom": "PET-CT (mésothéliome)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "plevre__pet_ct-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS, l'ESTS, l'EACTS et l'ESTRO (2020), on cherche des métastases occultes par PET-CT avant un traitement à visée curative.",
+        "pourquoiFaux": "La radiographie et l'échographie ne cherchent pas de métastases, et une nouvelle biopsie n'apporte rien au bilan d'extension."
+       },
+       "sources": [
+        "ERS, ESTS, EACTS et ESTRO, mésothéliome pleural (Opitz et al., 2020)"
+       ],
+       "casClinique": "Un homme de 64 ans a un mésothéliome épithélioïde prouvé ; on discute une prise en charge à visée curative.",
+       "options": [
+        "PET-CT",
+        "Radiographie thoracique",
+        "Échographie pleurale",
+        "Biopsie pleurale"
+       ],
+       "bonneReponse": "PET-CT",
+       "visee": "retentissement"
+      },
+      {
+       "id": "plevre__pet_ct-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Une fixation superposée aux dépôts denses de talc traduit une inflammation durable après pleurodèse et non une récidive certaine.",
+        "pourquoiFaux": "Une récidive tumorale donnerait plutôt une fixation nodulaire hors des zones de talc."
+       },
+       "sources": [
+        "ERS, ESTS, EACTS et ESTRO, mésothéliome pleural (Opitz et al., 2020)"
+       ],
+       "consigne": "Lisez la coupe fusionnée PET-CT de ce patient, qui a eu un talcage il y a un an.",
+       "aspectRecherche": "Fixation pleurale",
+       "reponse": "Fixation pleurale inflammatoire après talcage, non spécifique",
+       "imageOuTraceAttendu": "Coupe fusionnée montrant une fixation pleurale basale en bande, d'intensité modérée, superposée à des plaques denses de talc au CT."
+      },
+      {
+       "id": "plevre__pet_ct-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Opitz et al. (2020), une pleurodèse au talc fausse la fixation du FDG, et l'on préfère faire le PET-CT avant.",
+        "pourquoiFaux": "Retarder le PET-CT après la pleurodèse ne corrige pas cet artéfact durable."
+       },
+       "sources": [
+        "ERS, ESTS, EACTS et ESTRO, mésothéliome pleural (Opitz et al., 2020)"
+       ],
+       "erreurFrequente": "Faire le PET-CT après une pleurodèse au talc dans le bilan d'un mésothéliome.",
+       "consequence": "La fixation inflammatoire du talc fausse le bilan et peut faire croire à une extension.",
+       "bonneConduite": "Faire le PET-CT avant la pleurodèse au talc quand c'est possible."
+      }
+     ]
+    },
+    {
+     "ref": "plevre__liquide_pleural_criteres_de_light_ph_glu",
+     "nom": "Liquide pleural : critères de Light, pH, glucose, LDH, protéines, cellules, Gram, culture, cytologie, ADA, triglycérides",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "plevre__liquide_pleural_criteres_de_light_ph_glu-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon la BTS (2023), on ponctionne un épanchement parapneumonique et l'on mesure le pH, car un pH de 7,2 ou moins impose un drainage.",
+        "pourquoiFaux": "Le PET-CT n'évalue pas l'infection pleurale, attendre un mois laisse évoluer un empyème, et la biopsie n'est pas l'examen initial."
+       },
+       "sources": [
+        "BTS, maladies pleurales (Roberts et al., 2023)"
+       ],
+       "casClinique": "Un homme de 58 ans a une pneumonie depuis une semaine, avec une fièvre persistante et un épanchement pleural moyen.",
+       "options": [
+        "Ponction pleurale avec pH",
+        "PET-CT",
+        "Radiographie de contrôle à un mois",
+        "Biopsie pleurale"
+       ],
+       "bonneReponse": "Ponction pleurale avec pH",
+       "visee": "complications"
+      },
+      {
+       "id": "plevre__liquide_pleural_criteres_de_light_ph_glu-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la BTS (2023), un pH de 7,2 ou moins signe un épanchement parapneumonique complexe à haut risque, qui impose un drainage.",
+        "pourquoiFaux": "Poursuivre les antibiotiques seuls laisse en place un épanchement infecté qui évolue vers l'empyème."
+       },
+       "sources": [
+        "BTS, maladies pleurales (Roberts et al., 2023)"
+       ],
+       "resultat": "Liquide pleural trouble, pH à 7,05, glucose à 2,1 mmol/l, chez ce patient avec pneumonie.",
+       "decision": "Poser un drain thoracique."
+      },
+      {
+       "id": "plevre__liquide_pleural_criteres_de_light_ph_glu-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la BTS (2023), on mesure le pH quand l'aspiration ne ramène pas de pus franc ; un pus franc définit déjà l'empyème.",
+        "pourquoiFaux": "Le pH n'est utile que si l'aspect du liquide ne suffit pas à décider."
+       },
+       "sources": [
+        "BTS, maladies pleurales (Roberts et al., 2023)"
+       ],
+       "erreurFrequente": "Mesurer le pH pleural sur un liquide franchement purulent.",
+       "consequence": "On abîme l'analyseur de gaz du sang, sans rien apporter à la décision.",
+       "bonneConduite": "Drainer d'emblée un pus franc, sans mesurer le pH."
+      }
+     ]
+    },
+    {
+     "ref": "plevre__thoracoscopie",
+     "nom": "Thoracoscopie",
+     "modalite": "Endoscopie",
+     "defis": [
+      {
+       "id": "plevre__thoracoscopie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Opitz et al. (2020), les biopsies thoracoscopiques sont l'examen de référence d'un exsudat resté inexpliqué, avec une sensibilité d'environ 92 % pour la malignité.",
+        "pourquoiFaux": "La radiographie n'apporte rien de plus, le PET-CT ne donne pas d'histologie et le Holter n'explore pas la plèvre."
+       },
+       "sources": [
+        "ERS, ESTS, EACTS et ESTRO, mésothéliome pleural (Opitz et al., 2020)",
+        "BTS, maladies pleurales (Roberts et al., 2023)"
+       ],
+       "casClinique": "Une femme de 71 ans présente un épanchement exsudatif lymphocytaire récidivant, avec deux cytologies et un CT non contributifs.",
+       "options": [
+        "Thoracoscopie",
+        "Radiographie thoracique",
+        "PET-CT de suivi",
+        "Holter ECG"
+       ],
+       "bonneReponse": "Thoracoscopie",
+       "visee": "etiologique"
+      },
+      {
+       "id": "plevre__thoracoscopie-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des nodules multiples et confluents font suspecter une malignité pleurale, que les biopsies dirigées confirment.",
+        "pourquoiFaux": "Une plèvre normale est lisse et rosée, et des granulations fines et régulières évoquent plutôt une tuberculose."
+       },
+       "sources": [
+        "ERS, ESTS, EACTS et ESTRO, mésothéliome pleural (Opitz et al., 2020)"
+       ],
+       "consigne": "Lisez l'image thoracoscopique de la plèvre pariétale de cette patiente.",
+       "aspectRecherche": "Aspect de la plèvre pariétale",
+       "reponse": "Nodules pleuraux pariétaux multiples, évocateurs de malignité",
+       "imageOuTraceAttendu": "Vue endoscopique montrant une plèvre pariétale parsemée de nodules blanchâtres de taille variable, certains confluents en plaques bourgeonnantes."
+      },
+      {
+       "id": "plevre__thoracoscopie-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon Opitz et al. (2020), la thoracoscopie médicale garde une mortalité d'environ 0,34 % et des complications majeures d'environ 1,8 %.",
+        "pourquoiFaux": "Un geste diagnostique n'est utile que s'il modifie la prise en charge."
+       },
+       "sources": [
+        "ERS, ESTS, EACTS et ESTRO, mésothéliome pleural (Opitz et al., 2020)",
+        "BTS, maladies pleurales (Roberts et al., 2023)"
+       ],
+       "erreurFrequente": "Proposer une thoracoscopie sans tenir compte de son risque chez un patient très fragile.",
+       "consequence": "On expose le patient à une complication majeure pour un diagnostic qui ne changera pas la prise en charge.",
+       "bonneConduite": "Discuter le rapport bénéfice-risque et préférer une biopsie guidée par imagerie ou une prise en charge symptomatique si le patient est très fragile."
+      }
+     ]
+    },
+    {
+     "ref": "plevre__biopsie_pleurale",
+     "nom": "Biopsie pleurale",
+     "modalite": "Anatomopathologie / biopsie",
+     "defis": [
+      {
+       "id": "plevre__biopsie_pleurale-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la BTS (2023), on choisit la biopsie guidée par imagerie ou la thoracoscopie selon le patient, et l'on ne fait pas de biopsie à l'aveugle.",
+        "pourquoiFaux": "La biopsie à l'aveugle a un rendement plus faible, le PET-CT ne donne pas d'histologie et une radiographie de contrôle retarde le diagnostic."
+       },
+       "sources": [
+        "BTS, maladies pleurales (Roberts et al., 2023)"
+       ],
+       "casClinique": "Un homme de 80 ans, fragile, a un épaississement pleural nodulaire au CT et ne peut pas supporter une anesthésie générale.",
+       "options": [
+        "Biopsie pleurale guidée par imagerie",
+        "Biopsie pleurale à l'aveugle",
+        "PET-CT seul",
+        "Radiographie de contrôle"
+       ],
+       "bonneReponse": "Biopsie pleurale guidée par imagerie",
+       "visee": "etiologique"
+      },
+      {
+       "id": "plevre__biopsie_pleurale-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "L'invasion du tissu adipeux sous-pleural par des cellules mésothéliales atypiques pose le diagnostic de mésothéliome.",
+        "pourquoiFaux": "Une hyperplasie mésothéliale réactive reste en surface, sans invasion de la graisse."
+       },
+       "sources": [
+        "ERS, ESTS, EACTS et ESTRO, mésothéliome pleural (Opitz et al., 2020)"
+       ],
+       "consigne": "Lisez la coupe histologique de cette biopsie pleurale.",
+       "aspectRecherche": "Invasion tissulaire",
+       "reponse": "Mésothéliome : cellules mésothéliales atypiques envahissant la graisse sous-pleurale",
+       "imageOuTraceAttendu": "Coupe colorée à l'hématoxyline-éosine montrant des nids de cellules épithélioïdes atypiques qui dépassent la plèvre et infiltrent le tissu adipeux sous-pleural."
+      },
+      {
+       "id": "plevre__biopsie_pleurale-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la BTS (2023), un prélèvement non diagnostique n'exclut pas un cancer, et le rendement de la biopsie thoracoscopique dépasse celui de la biopsie guidée fermée.",
+        "pourquoiFaux": "Une pleurite non spécifique n'est pas un diagnostic définitif."
+       },
+       "sources": [
+        "BTS, maladies pleurales (Roberts et al., 2023)"
+       ],
+       "erreurFrequente": "Rassurer le patient sur une biopsie qui montre une pleurite fibrineuse non spécifique.",
+       "consequence": "On méconnaît un mésothéliome ou des métastases que le prélèvement n'a pas atteints.",
+       "bonneConduite": "Surveiller le patient et répéter les prélèvements, de préférence par thoracoscopie, si l'épanchement récidive."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CT": "Tomodensitométrie : imagerie en coupes par rayons X qui mesure l'atténuation des tissus.",
+    "PET": "Tomographie par émission de positons : imagerie qui localise un traceur radioactif émetteur de positons.",
+    "FDG": "Fluorodésoxyglucose marqué au fluor-18 : traceur du PET qui se concentre dans les tissus consommateurs de glucose.",
+    "BTS": "Société thoracique britannique (British Thoracic Society).",
+    "ERS": "Société européenne de pneumologie (European Respiratory Society).",
+    "ESTS": "Société européenne de chirurgie thoracique.",
+    "EACTS": "Association européenne de chirurgie cardio-thoracique.",
+    "ESTRO": "Société européenne de radiothérapie et d'oncologie.",
+    "LDH": "Lactate déshydrogénase, enzyme dont le taux pleural aide à reconnaître un exsudat.",
+    "ADA": "Adénosine désaminase : enzyme dont le dosage dans le liquide pleural aide à écarter ou soutenir une tuberculose pleurale.",
+    "Light": "Critères de Light : règles biochimiques qui distinguent un exsudat d'un transsudat pleural.",
+    "PET-CT": "Examen qui couple un PET et un CT dans la même séance.",
+    "ECG": "Électrocardiogramme : enregistrement de l'activité électrique du cœur."
+   }
+  }
+ }
+}
