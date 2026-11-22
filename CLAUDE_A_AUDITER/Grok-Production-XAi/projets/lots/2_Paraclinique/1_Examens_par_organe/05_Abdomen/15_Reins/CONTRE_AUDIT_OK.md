@@ -24,3 +24,15 @@ Corrections faites :
 
 Remarques :
 - Uro-CT 14,1 mSv : deux acquisitions à la valeur cible abdomen-bassin, calcul documenté, conservé.
+
+## Seconde vérification des sources (23.11.2026 00:40, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 1 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Microhématurie : au moins 3 hématies par champ | AUA/SUFU 2020 | conforme |
+| 2 | Uro-CT : sensibilité groupée 92 %, spécificité 95 % | EAU, carcinome urothélial de la voie excrétrice supérieure (uroweb.org, chapitre diagnostic) | conforme |
+| 3 | Biopsie rénale : au moins 8 à 10 glomérules | KDIGO 2021, maladies glomérulaires | conforme |
+| 4 | Risque de lésion rénale due au contraste sous 30 ml/min/1,73 m² | ESUR 2025 (esur.org) | conforme |
+| 5 | Rapport réno-aortique de 3,5 pour une sténose de plus de 60 %, « selon l'ESVS 2025 » | valeur confirmée par d'autres sources (ERBP/ESH 2023) ; non trouvée dans l'ESVS 2025 | non trouvé (source nommée) : ajouté à _lot.aVerifier |
