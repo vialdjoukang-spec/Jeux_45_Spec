@@ -19,3 +19,15 @@ Corrections faites :
 
 Remarques :
 - Doses CT calculées sur la directive OFSP R-06-06 : calcul documenté en entrée à vérifier, conservé ; comparateur OFSP 2018 tableau 16 : CT du thorax 3,8 mSv.
+
+## Seconde vérification des sources (23.11.2026 00:36, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Achalasie de type I : 100 % de déglutitions sans contraction | Chicago 4.0, Yadlapati et al. 2021 | conforme |
+| 2 | Achalasie de type II : au moins 20 % de pressurisation panœsophagienne | Chicago 4.0 | conforme |
+| 3 | Œsophagite à éosinophiles : muqueuse normale dans environ 30 % des cas | Godat, Schoepfer et Moradpour, Rev Med Suisse 2011;7:1678 | conforme |
+| 4 | CT thorax-abdomen-bassin : 610 mGy·cm, 9,2 mSv | OFSP R-06-06 rév. 2, protocole 12 | conforme (610 × 0,015 = 9,15) |
+| 5 | CT du cou : 290 mGy·cm | OFSP R-06-06 rév. 2, protocole 4 | conforme |

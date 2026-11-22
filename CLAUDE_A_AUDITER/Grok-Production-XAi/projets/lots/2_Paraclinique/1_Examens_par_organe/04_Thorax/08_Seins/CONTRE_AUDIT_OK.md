@@ -28,3 +28,15 @@ Corrections faites :
 - P04-08-IMG — R4 : dose alignée sur l'enquête OFSP 2018, tableau 14 (mammographie 0,36 mSv) : « conception/donnees/paraclinique/topographie/4_thorax/seins.json › seins__mammographie › irradiation_mSv : 0,4 mSv : valeur typique de l'OFSP pour une « Aufnahme der weiblichen Brust » (page « Strahlendosen in der Medizin » → « conception/donnees/paraclinique/topographie/4_thorax/seins.json › seins__mammographie › irradiation_mSv : 0,36 mSv, dose moyenne de la mammographie (diagnostique et de dépistage) du tableau 14 de l'enquête OFSP 2018 (Biz »
 - P04-08-IMG — R4 : dose alignée sur l'enquête OFSP 2018, tableau 14 (mammographie 0,36 mSv) : « conception/donnees/paraclinique/topographie/4_thorax/seins.json › seins__tomosynthese › irradiation_mSv : 0,4 mSv repris de la valeur OFSP de la mammographie ; aucune dose efficace propre à la tomosynthèse n'a été relue  » → « conception/donnees/paraclinique/topographie/4_thorax/seins.json › seins__tomosynthese › irradiation_mSv : 0,36 mSv repris de la mammographie (OFSP 2018, tableau 14) ; aucune dose efficace propre à la tomosynthèse n'a été »
 - P04-08-HIS — R4 : dose alignée sur l'enquête OFSP 2018, tableau 14 (mammographie 0,36 mSv) : « conception/donnees/paraclinique/topographie/4_thorax/seins.json › seins__macrobiopsie_stereotaxique › irradiation_mSv : 0,4 mSv retenu comme ordre de grandeur (valeur OFSP de la mammographie) ; aucune dose efficace de la » → « conception/donnees/paraclinique/topographie/4_thorax/seins.json › seins__macrobiopsie_stereotaxique › irradiation_mSv : 0,36 mSv retenu comme ordre de grandeur (mammographie, OFSP 2018, tableau 14) ; aucune dose efficace »
+
+## Seconde vérification des sources (23.11.2026 00:36, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Mammographie : 0,36 mSv | OFSP 2018, tableau 14 (PDF téléchargé le 23.11.2026, identique à la copie de travail) | conforme |
+| 2 | Récepteurs aux œstrogènes : au moins 1 % de noyaux marqués | ASCO/CAP, Allison et al., J Clin Oncol 2020 (PubMed 31928404, résumé) | conforme |
+| 3 | Fixation : formol en moins d'une heure, de 6 à 72 heures | ASCO/CAP (recommandations de fixation) | conforme |
+| 4 | Avant 30 ans, masse palpable : échographie d'abord | ACR, masses palpables du sein 2022 | conforme |
+| 5 | Kyste simple : catégorie 2 ; kyste compliqué isolé : catégorie 3 | ACR BI-RADS 2013 | conforme |

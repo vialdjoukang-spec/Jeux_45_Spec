@@ -19,3 +19,15 @@ Corrections faites :
 
 Remarques :
 - Doses CT calculées sur la directive OFSP R-06-06 : calcul documenté en entrée à vérifier, conservé ; comparateur OFSP 2018 tableau 16 : CT du thorax 3,8 mSv.
+
+## Seconde vérification des sources (23.11.2026 00:36, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Angiographie pulmonaire : 1111 patients, mortalité 0,5 %, complications majeures 1 %, mineures 5 % | ESC 2019, embolie pulmonaire (citant PIOPED, Stein 1992) | conforme |
+| 2 | Vitesse de fuite tricuspide > 2,8 m/s possible, > 3,4 m/s probable | ESC/ERS 2022, hypertension pulmonaire | conforme |
+| 3 | Médiastin élargi 61,6 %, radiographie normale 12,4 % | IRAD, Hagan et al., JAMA 2000 (PubMed 10685714, résumé) | conforme (12,4 % lu ; 61,6 % non visible dans l'extrait du résumé) |
+| 4 | Angio-CT d'embolie : 200 mGy·cm ; thorax-abdomen-bassin : 450 mGy·cm | OFSP R-06-06 rév. 2, tableau 1, protocoles 7 et 13 (PDF du 23.11.2026) | conforme |
+| 5 | MAA 180 MBq 2,0 mSv ; DTPA en aérosol 1000 MBq 0,313 mSv | OFSP, directive de médecine nucléaire, tableau 1.1 (drw-nuk.pdf du 23.11.2026) | conforme |
