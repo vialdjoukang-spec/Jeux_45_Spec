@@ -120,3 +120,9 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - **Données** : `conception/donnees/recherche/index.json` (82 organes, environ 1 050 examens et analyses, régénéré par `generer_json.py`).
   - Les champs ajoutés aux examens et aux analyses sont `synonymes`, `aspectNormal`, `parametres` (analyses composites : électrophorèse, formule sanguine, gazométrie), `anomaliesElementaires`, `syndromesParacliniques` et `pathologiesAssociees`.
   - L'électrophorèse des protéines sériques est une fiche d'analyse (famille 08 Immunologie, lot PB08), reliée à 5 organes : sang et hémostase, reins, rachis osseux, os longs, nerfs périphériques.
+
+## Audit de fond des lots XAi (2026-11-22)
+- 88 lots fusionnés par champ (ancien format de `Production_XAi/Lots_traites` et de `paraclinique-thorax`, puis nouveau format de `production-xai-a03/a08/a09`) : paraclinique rempli de 2 % à 45 %.
+- `projets/outils/audit_fond.py` (0 token, relançable) applique les corrections de Claude, range les notes : `_meta.justificationsAcceptees` (299) et `_meta.aVerifierOuverts` (25), puis publie **`SORTIES_DONNEES_FIABLES/`** : 554 examens sur 820, cœur clinique rempli et aucun doute ouvert. Le jeu charge ce dossier.
+- `projets/outils/lots_complement.py` prépare pour Grok `Production_XAi/Lots_a_produire/complement_presentation/` (7 lots, 464 examens, 5 champs de présentation). Retour : `fusionner_retours.py`, puis `audit_fond.py`.
+- Les dépôts de Grok arrivent sur des branches `production-xai-*` : Claude les lit directement. Suppression de branches et envoi d'étiquettes refusés depuis la session cloud (HTTP 403) : anciennes branches laissées en place.
