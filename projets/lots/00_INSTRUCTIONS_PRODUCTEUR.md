@@ -18,6 +18,7 @@ Tu reçois un fichier `LOT_<tâche>.json` :
 - Chaque clé de « fichiers » est le **chemin exact** du fichier dans le dépôt. Tu ne la modifies jamais.
 - Tu remplis les valeurs `null`, `[]` et `{}`. Tu ne changes ni les clés, ni leur ordre, ni la structure, ni les `id`. Tu n'ajoutes pas de fichier.
 - Tu ne touches pas à `_meta` : tu en lis seulement les règles.
+- **Gabarit :** quand une liste `elements` ne contient qu'un élément type (valeurs `null` ou vides), c'est un gabarit. Tu le recopies autant de fois que le sujet l'exige (par exemple 40 à 120 signes par système), avec les mêmes clés, et tu supprimes le gabarit vide.
 - Tu rends **un seul bloc ```json**, avec le même objet `{"_lot": …, "fichiers": {…}}`, sans aucun texte autour.
 - **Réponse trop longue :** tu rends un seul chemin par réponse, dans le même format, puis tu attends le mot « suite ». Tu ne coupes jamais un fichier en deux.
 - **Doute :** si tu n'es pas certain d'une valeur, tu écris ta meilleure valeur sourcée, puis tu ajoutes dans `_lot.aVerifier` la chaîne `"<chemin> › <id ou clé> › <champ> : <raison>"`. Tu n'écris jamais « donnée non disponible », « à compléter » ou « inconnu ».
@@ -79,6 +80,7 @@ Tu reçois un fichier `LOT_<tâche>.json` :
 - `technique` : prélèvement, tube, conditions (à jeun, horaire, transport).
 - `valeursReference` : adulte homme et femme, enfant, grossesse si elle diffère ; unités SI suisses.
 - `interpretation` : causes d'augmentation et de diminution, des plus fréquentes aux plus graves.
+- `calculs`, `criteres`, `syndromes`, `diagnostics`, `sources` : ce que l'analyse alimente, cité par son nom.
 - `bulle` : voir règle 7.
 
 Ce fichier est la **source unique** des valeurs : les organes y renvoient.
@@ -96,11 +98,28 @@ Ce fichier est la **source unique** des valeurs : les organes y renvoient.
   - `fenetre` nomme la courbe ou le calculateur utile (`starling`, `pression_volume`, `ecg`, `clairance`, `potentiel_action`…), sinon `null`. Tu nommes la courbe ; tu ne la dessines pas.
 - **Gabarit inadapté :** si un volet ne convient pas à l'organe (la Psyché n'a pas de « vascularisation » au sens habituel), tu le laisses vide et tu l'expliques dans `_lot.aVerifier`.
 
-### 4.5 Tétrade : syndromes neurologiques (lot T30)
+### 4.5 Tétrade : sémiologie, syndromes, physiopathologie (lots T40 à T53)
 - `signesMinimaux` : 2 ou 3 signes qui suffisent à poser le syndrome.
 - `signes` : chacun porte `presentation` et sa `bulle`.
 - `confusionsSyndromiques` : les syndromes voisins et le signe qui les distingue.
 - `diagnostics` : les plus fréquents d'abord, puis les rares graves.
+- `semiologie` : chaque signe porte `technique`, `nomConsacre`, `eponyme`, `termeSuisse`, `sensibilite`, `specificite`, `son` (nom du son réel si auscultation), `presentation` et `bulle`. Chaque symptôme porte `questionAPoser` et `caracteristiques` (siège, irradiation, type, intensité, horaire, facteurs).
+- `physiopathologie` : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et `explique` liste les signes qu'il produit.
+- `criteres_cim10` (Psyché) : critères condensés du chapitre F, par groupe d'âge, avec le chef de file thérapeutique par profil.
+- Système neurologique : tu couvres les 24 syndromes majeurs.
+
+### 4.8 Pharmacologie (lots T61 à T74 et T80)
+- `structures` : structureId, nom, maillage3d (nom anatomique), cibles (récepteurs, enzymes, canaux, transporteurs) et la classe qui vise chacune ; tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.
+- `classes` : classeId, nom, mecanisme en une phrase, indications, chefDeFile par profil (adulte, enfant, grossesse, sujet âgé, insuffisance rénale), selon le Compendium suisse.
+
+### 4.9 Paraclinique : explorations fonctionnelles et endoscopies (lots P31 à P35)
+- `fonction` : ce que l'examen mesure, en une phrase.
+- `traces` : l'aspect normal, puis les aspects pathologiques typiques, chacun nommé ; tu ne dessines rien.
+- `seuils` : les valeurs qui séparent normal et pathologique, en unités SI.
+- `interpretation` : la démarche de lecture, en étapes courtes ; `diagnostics` : ce que l'examen pose ou exclut ; `bulle` : règle 7.
+
+### 4.10 Ce que tu ne produis jamais
+Les fichiers `graphe.json`, `anatomie3d.json`, `regions.json`, les index et les exercices se calculent par script à partir de ton travail : tu n'en reçois pas et tu n'en écris pas.
 
 ### 4.6 Transversal : leçons (lots X11 à X29)
 - Pour chaque leçon, tu suis l'arbre en 9 parties : cadre, notions, outils, décisions et seuils, applications par système, particularités par terrain, pièges, pratique suisse, exercices.

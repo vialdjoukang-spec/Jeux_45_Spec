@@ -54,7 +54,7 @@ SYS_SLUG = [slug(s) for s in SYST]
 O = plans["paraclinique"]["onglets"]
 EXPANS = {
     "<systeme>": SYS_SLUG,
-    "<examen>": [slug(p) for p in O["biologie"]["prelevements"]],
+    "<prelevement>": [],
     "<exploration>": [slug(e) for e in O["explorations"]["liste"]],
     "<onglet>": ["biologie", "imagerie", "explorations"],
     "<pathologie>": ["_modele"],
@@ -128,7 +128,7 @@ for reg, orgs in TOPO.items():
             "examens": [{"id": slug(org) + "__" + slug(e), "modalite": MODALITES[k], "nom": e, "visees": [], "signeRecherche": None, "seuil": None, "indication": None, "discriminant": None, "avantageSelectif": None, "plutotQue": None, "limite": None, "referencePour": [], "smarterMedicine": None, "radioAnatomieNormale": None, "precautions": None, "irradiation_mSv": None, "delai": None, "prelevementRef": None, "bulle": None} for k, v in mods.items() for e in v], "glossaire": {}}))
 for pre, exs in PRELEVEMENTS.items():
     ecrits.append(ecrire(f"paraclinique/biologie/prelevements/{slug(pre)}.json", {"_meta": {"prelevement": pre, "statut": "LISTE COMPLÈTE — technique, valeurs de référence SI suisses et interprétation à remplir"},
-        "examens": [{"nom": e, "technique": None, "valeursReference": None, "interpretation": None, "bulle": None} for e in exs]}))
+        "examens": [{"nom": e, "technique": None, "valeursReference": None, "interpretation": [], "calculs": [], "criteres": [], "syndromes": [], "diagnostics": [], "sources": [], "bulle": None} for e in exs], "glossaire": {}}))
 ecrits.append(ecrire("paraclinique/explorations/liste.json", {"_meta": {"statut": "LISTE COMPLÈTE"}, "elements": EXPLORATIONS}))
 for sysn, orgs in SYS_ORG.items():
     ecrits.append(ecrire(f"tetrade/{slug(sysn)}/examens.json", {"_meta": {"systeme": sysn, "progression": ["topo-systemique", "topo-organe"], "statut": "RELIÉ AU CATALOGUE"},

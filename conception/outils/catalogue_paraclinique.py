@@ -129,7 +129,16 @@ PRELEVEMENTS = {
 }
 
 # ---------- explorations fonctionnelles et endoscopies (liste de contrôle d'exhaustivité) ----------
-EXPLORATIONS = sorted({e for r in TOPO.values() for o in r.values() for k in ("FCT", "END") for e in o.get(k, [])})
+def _cle(t):
+    import re as _r, unicodedata as _u
+    t = _u.normalize("NFKD", t.replace("œ", "oe").replace("Œ", "Oe")).encode("ascii", "ignore").decode().lower()
+    return _r.sub(r"[^a-z0-9]+", "_", _r.sub(r"\(.*?\)", "", t)).strip("_")[:40]
+# Une exploration = une fiche : on fusionne les variantes d'un même examen (on garde le libellé le plus précis)
+_expl = {}
+for _e in sorted({e for r in TOPO.values() for o in r.values() for k in ("FCT", "END") for e in o.get(k, [])}):
+    _expl.setdefault(_cle(_e), []).append(_e)
+EXPLORATIONS = sorted(max(v, key=len) for v in _expl.values())
+EXPLORATIONS_VARIANTES = {max(v, key=len): sorted(v) for v in _expl.values() if len(v) > 1}
 
 # ---------- rattachement des organes aux systèmes de la Tétrade (progression topo-systémique) ----------
 SYSTEMES = {"Cardiovasculaire": ["Cœur et péricarde", "Aorte thoracique et artères pulmonaires", "Artères des membres", "Veines des membres", "Vaisseaux du cou et de la tête", "Aorte abdominale et vaisseaux digestifs"],

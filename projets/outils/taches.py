@@ -80,11 +80,31 @@ for i, (s, orgs) in enumerate(SYSTEMES.items()):
                   "bulle : {def, pourquoi, confusion, retenir} pour l'organe."],
                  ["Tu ne mets dans motCle qu'un nom court : le détail va dans texte.", "Tu ne dessines aucune courbe : tu nommes seulement la fenêtre."]),
           dep=["T01"] if i else ["T01"])
-tache(P, "T30", "Rédiger les 24 syndromes neurologiques majeurs", "Gemini (Pro)", "Chaque syndrome reçoit ses signes typiques et atypiques, son minimum suffisant et ses confusions.",
-      ["conception/donnees/tetrade/neurologique/syndromes.json"], "syndromes.json rempli",
-      prompt("Tu es neurologue enseignant. Tu remplis chaque syndrome du fichier.", ["conception/donnees/tetrade/neurologique/syndromes.json"],
-             ["signesMinimaux : 2 ou 3 signes qui suffisent à poser le syndrome.", "signes : chaque signe avec presentation « typique » ou « atypique » et sa bulle {def, pourquoi, confusion, retenir}.",
-              "confusionsSyndromiques : les syndromes voisins et le signe qui les distingue.", "diagnostics : les diagnostics les plus fréquents, puis les rares graves."]))
+for i, s_nom in enumerate(SYSTEMES):
+    d = f"conception/donnees/tetrade/{slug(s_nom)}/"
+    fich = [d + "semiologie.json", d + "syndromes.json", d + "physiopathologie.json"] + ([d + "criteres_cim10.json"] if slug(s_nom) == "psyche" else [])
+    tache(P, f"T{40 + i}", f"Sémiologie, syndromes et physiopathologie : {s_nom}", "Gemini (Pro)",
+          "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.", fich, "fichiers du système remplis",
+          prompt(f"Tu es clinicien enseignant de sémiologie. Pour le système « {s_nom} », tu remplis la sémiologie, les syndromes et la physiopathologie.", fich,
+                 ["semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.",
+                  "Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.",
+                  "syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles."
+                  + (" Pour le système neurologique, tu couvres les 24 syndromes majeurs." if slug(s_nom) == "neurologique" else ""),
+                  "physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique."]
+                 + (["criteres_cim10 : critères condensés du chapitre F, par groupe d'âge, avec le chef de file thérapeutique par profil."] if slug(s_nom) == "psyche" else [])))
+tache(P, "T60", "Construire par script les graphes, l'arbre 3D et les exercices de la Tétrade", "Claude Code",
+      "Les graphes se déduisent des fichiers remplis (0 token) : aucune IA de production n'y touche.", [], "tetrade/*/graphe.json, anatomie3d.json, exercices/*.json", claude=True)
+for i, s_nom in enumerate(SYSTEMES):
+    f = f"conception/donnees/pharmaco/{slug(s_nom)}/structures.json"
+    tache(P, f"T{61 + i}", f"Pharmacologie : structures et cibles — {s_nom}", "Gemini (Pro)", "Structures malades et ciblables, avec leurs cibles moléculaires.", [f], "structures.json rempli",
+          prompt(f"Tu es pharmacologue clinicien suisse. Pour le système « {s_nom} », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.", [f],
+                 ["structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.",
+                  "Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent."]), dep=["T01"])
+tache(P, "T80", "Classes médicamenteuses (≈ 300)", "Gemini (Pro)", "Classe, mécanisme, indications et chef de file par profil, selon le Compendium suisse.",
+      ["conception/donnees/pharmaco/classes.json"], "classes.json rempli",
+      prompt("Tu es pharmacologue clinicien suisse. Tu remplis les classes médicamenteuses disponibles en Suisse.", ["conception/donnees/pharmaco/classes.json"],
+             ["classeId, nom, mecanisme (une phrase), indications, chefDeFile par profil (adulte, enfant, grossesse, sujet âgé, insuffisance rénale)."]))
+tache(P, "T81", "Fixer la liste des molécules (index AIPS) avant leur rédaction", "Claude (conception)", "Liste issue de l'AIPS, puis lots de fiches de molécules.", ["conception/donnees/pharmaco/molecules/_modele.json"], "liste validée", claude=True)
 tache(P, "T31", "Compléter le catalogue des sons réels (HLS-CMDS)", "Claude Code",
       "Script de téléchargement et de découpe des enregistrements (souffles, frottement, sibilants, ronchi).", ["conception/donnees/tetrade/sons.json"], "sons.json + fichiers MP3", claude=True)
 tache(P, "T32", "Ajouter muscles et nerfs (Z-Anatomy) au corps 3D", "Claude Code", "Import, décimation et occultation pelvienne vérifiée.", ["skills/3d-images-upload-super/scripts/build_glb.py"], "corps.glb enrichi", claude=True)
@@ -127,6 +147,18 @@ tache(P, "P25", "Écrire 20 cas « le bon examen » (thorax)", "Gemini (Pro)", "
       ["conception/donnees/paraclinique/imagerie/cas/_modele.json"], "20 fichiers de cas",
       prompt("Tu es médecin interniste enseignant. Tu écris 20 cas cliniques thoraciques courts, chacun avec cinq examens possibles, l'examen juste et la justification par son discriminant.",
              ["conception/donnees/paraclinique/imagerie/cas/_modele.json"], ["Un examen inutile coûte des points : tu cites la recommandation Smarter Medicine quand elle existe."]), dep=["P04"])
+from catalogue_paraclinique import EXPLORATIONS
+for i in range(0, len(EXPLORATIONS), 27):
+    bloc = EXPLORATIONS[i:i + 27]
+    fich = [f"conception/donnees/paraclinique/explorations/{slug(e)}.json" for e in bloc]
+    tache(P, f"P{31 + i // 27}", f"Explorations fonctionnelles et endoscopies {i + 1} à {i + len(bloc)} ({bloc[0]} → {bloc[-1]})", "Gemini (Pro)",
+          "Une fiche par exploration : principe, tracé normal et pathologique, seuils, interprétation.", fich, "fiches d'exploration remplies",
+          prompt("Tu es médecin spécialiste des explorations fonctionnelles. Pour chaque exploration, tu remplis sa fiche.", fich,
+                 ["fonction : ce que l'examen mesure, en une phrase.", "traces : le tracé ou l'aspect normal, puis les aspects pathologiques typiques, chacun nommé.",
+                  "seuils : les valeurs qui séparent normal et pathologique, en unités SI.", "interpretation : la démarche de lecture, en étapes courtes.",
+                  "diagnostics : les diagnostics que l'examen pose ou exclut.", "bulle : {def, pourquoi, confusion, retenir}."]))
+tache(P, "P36", "Construire par script le graphe d'imagerie, les régions, l'index des prélèvements et les exercices", "Claude Code",
+      "Tout se déduit du catalogue (0 token).", [], "imagerie/graphe.json, regions.json, biologie/prelevements.json, exercices/*.json", claude=True)
 tache(P, "P30", "Auditer et intégrer chaque lot importé", "Claude (finition)", "Contrôle des champs, des sigles, des seuils et des sources ; correction ; commit.", [], "audit RÉUSSI + commit", claude=True)
 
 # ---------------- 3. Transversal ----------------

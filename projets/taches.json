@@ -533,21 +533,671 @@
   },
   {
    "projet": "1_Jeux_Tetrade_Fondation",
-   "id": "T30",
-   "titre": "Rédiger les 24 syndromes neurologiques majeurs",
+   "id": "T40",
+   "titre": "Sémiologie, syndromes et physiopathologie : Cardiovasculaire",
    "ou": "Gemini (Pro)",
-   "quoi": "Chaque syndrome reçoit ses signes typiques et atypiques, son minimum suffisant et ses confusions.",
+   "quoi": "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.",
    "entrees": [
-    "conception/donnees/tetrade/neurologique/syndromes.json"
+    "conception/donnees/tetrade/cardiovasculaire/semiologie.json",
+    "conception/donnees/tetrade/cardiovasculaire/syndromes.json",
+    "conception/donnees/tetrade/cardiovasculaire/physiopathologie.json"
    ],
-   "sortie": "syndromes.json rempli",
-   "prompt": "Tu es neurologue enseignant. Tu remplis chaque syndrome du fichier.\n\nLe fichier joint LOT_T30.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/tetrade/neurologique/syndromes.json\n\nContenu attendu de chaque champ :\n- signesMinimaux : 2 ou 3 signes qui suffisent à poser le syndrome.\n- signes : chaque signe avec presentation « typique » ou « atypique » et sa bulle {def, pourquoi, confusion, retenir}.\n- confusionsSyndromiques : les syndromes voisins et le signe qui les distingue.\n- diagnostics : les diagnostics les plus fréquents, puis les rares graves.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "sortie": "fichiers du système remplis",
+   "prompt": "Tu es clinicien enseignant de sémiologie. Pour le système « Cardiovasculaire », tu remplis la sémiologie, les syndromes et la physiopathologie.\n\nLe fichier joint LOT_T40.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/tetrade/cardiovasculaire/semiologie.json\n- conception/donnees/tetrade/cardiovasculaire/syndromes.json\n- conception/donnees/tetrade/cardiovasculaire/physiopathologie.json\n\nContenu attendu de chaque champ :\n- semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.\n- Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.\n- syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles.\n- physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
    "dependances": [],
    "claude": false,
-   "lot": "projets/lots/LOT_T30.json",
+   "lot": "projets/lots/LOT_T40.json",
    "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/cardiovasculaire/semiologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/cardiovasculaire/syndromes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/cardiovasculaire/physiopathologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T40.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T41",
+   "titre": "Sémiologie, syndromes et physiopathologie : Respiratoire",
+   "ou": "Gemini (Pro)",
+   "quoi": "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.",
+   "entrees": [
+    "conception/donnees/tetrade/respiratoire/semiologie.json",
+    "conception/donnees/tetrade/respiratoire/syndromes.json",
+    "conception/donnees/tetrade/respiratoire/physiopathologie.json"
+   ],
+   "sortie": "fichiers du système remplis",
+   "prompt": "Tu es clinicien enseignant de sémiologie. Pour le système « Respiratoire », tu remplis la sémiologie, les syndromes et la physiopathologie.\n\nLe fichier joint LOT_T41.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/tetrade/respiratoire/semiologie.json\n- conception/donnees/tetrade/respiratoire/syndromes.json\n- conception/donnees/tetrade/respiratoire/physiopathologie.json\n\nContenu attendu de chaque champ :\n- semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.\n- Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.\n- syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles.\n- physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_T41.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/respiratoire/semiologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/respiratoire/syndromes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/respiratoire/physiopathologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T41.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T42",
+   "titre": "Sémiologie, syndromes et physiopathologie : Neurologique",
+   "ou": "Gemini (Pro)",
+   "quoi": "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.",
+   "entrees": [
+    "conception/donnees/tetrade/neurologique/semiologie.json",
+    "conception/donnees/tetrade/neurologique/syndromes.json",
+    "conception/donnees/tetrade/neurologique/physiopathologie.json"
+   ],
+   "sortie": "fichiers du système remplis",
+   "prompt": "Tu es clinicien enseignant de sémiologie. Pour le système « Neurologique », tu remplis la sémiologie, les syndromes et la physiopathologie.\n\nLe fichier joint LOT_T42.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/tetrade/neurologique/semiologie.json\n- conception/donnees/tetrade/neurologique/syndromes.json\n- conception/donnees/tetrade/neurologique/physiopathologie.json\n\nContenu attendu de chaque champ :\n- semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.\n- Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.\n- syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles. Pour le système neurologique, tu couvres les 24 syndromes majeurs.\n- physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_T42.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/neurologique/semiologie.json",
     "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/neurologique/syndromes.json",
-    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T30.json"
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/neurologique/physiopathologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T42.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T43",
+   "titre": "Sémiologie, syndromes et physiopathologie : Psyché (psychiatrie)",
+   "ou": "Gemini (Pro)",
+   "quoi": "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.",
+   "entrees": [
+    "conception/donnees/tetrade/psyche/semiologie.json",
+    "conception/donnees/tetrade/psyche/syndromes.json",
+    "conception/donnees/tetrade/psyche/physiopathologie.json",
+    "conception/donnees/tetrade/psyche/criteres_cim10.json"
+   ],
+   "sortie": "fichiers du système remplis",
+   "prompt": "Tu es clinicien enseignant de sémiologie. Pour le système « Psyché (psychiatrie) », tu remplis la sémiologie, les syndromes et la physiopathologie.\n\nLe fichier joint LOT_T43.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/tetrade/psyche/semiologie.json\n- conception/donnees/tetrade/psyche/syndromes.json\n- conception/donnees/tetrade/psyche/physiopathologie.json\n- conception/donnees/tetrade/psyche/criteres_cim10.json\n\nContenu attendu de chaque champ :\n- semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.\n- Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.\n- syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles.\n- physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique.\n- criteres_cim10 : critères condensés du chapitre F, par groupe d'âge, avec le chef de file thérapeutique par profil.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_T43.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/psyche/semiologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/psyche/syndromes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/psyche/physiopathologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/psyche/criteres_cim10.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T43.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T44",
+   "titre": "Sémiologie, syndromes et physiopathologie : Endocrinien & métabolique",
+   "ou": "Gemini (Pro)",
+   "quoi": "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.",
+   "entrees": [
+    "conception/donnees/tetrade/endocrinien_metabolique/semiologie.json",
+    "conception/donnees/tetrade/endocrinien_metabolique/syndromes.json",
+    "conception/donnees/tetrade/endocrinien_metabolique/physiopathologie.json"
+   ],
+   "sortie": "fichiers du système remplis",
+   "prompt": "Tu es clinicien enseignant de sémiologie. Pour le système « Endocrinien & métabolique », tu remplis la sémiologie, les syndromes et la physiopathologie.\n\nLe fichier joint LOT_T44.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/tetrade/endocrinien_metabolique/semiologie.json\n- conception/donnees/tetrade/endocrinien_metabolique/syndromes.json\n- conception/donnees/tetrade/endocrinien_metabolique/physiopathologie.json\n\nContenu attendu de chaque champ :\n- semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.\n- Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.\n- syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles.\n- physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_T44.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/endocrinien_metabolique/semiologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/endocrinien_metabolique/syndromes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/endocrinien_metabolique/physiopathologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T44.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T45",
+   "titre": "Sémiologie, syndromes et physiopathologie : Digestif & hépatobiliaire",
+   "ou": "Gemini (Pro)",
+   "quoi": "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.",
+   "entrees": [
+    "conception/donnees/tetrade/digestif_hepatobiliaire/semiologie.json",
+    "conception/donnees/tetrade/digestif_hepatobiliaire/syndromes.json",
+    "conception/donnees/tetrade/digestif_hepatobiliaire/physiopathologie.json"
+   ],
+   "sortie": "fichiers du système remplis",
+   "prompt": "Tu es clinicien enseignant de sémiologie. Pour le système « Digestif & hépatobiliaire », tu remplis la sémiologie, les syndromes et la physiopathologie.\n\nLe fichier joint LOT_T45.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/tetrade/digestif_hepatobiliaire/semiologie.json\n- conception/donnees/tetrade/digestif_hepatobiliaire/syndromes.json\n- conception/donnees/tetrade/digestif_hepatobiliaire/physiopathologie.json\n\nContenu attendu de chaque champ :\n- semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.\n- Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.\n- syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles.\n- physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_T45.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/digestif_hepatobiliaire/semiologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/digestif_hepatobiliaire/syndromes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/digestif_hepatobiliaire/physiopathologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T45.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T46",
+   "titre": "Sémiologie, syndromes et physiopathologie : Rénal & uro-génital",
+   "ou": "Gemini (Pro)",
+   "quoi": "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.",
+   "entrees": [
+    "conception/donnees/tetrade/renal_uro_genital/semiologie.json",
+    "conception/donnees/tetrade/renal_uro_genital/syndromes.json",
+    "conception/donnees/tetrade/renal_uro_genital/physiopathologie.json"
+   ],
+   "sortie": "fichiers du système remplis",
+   "prompt": "Tu es clinicien enseignant de sémiologie. Pour le système « Rénal & uro-génital », tu remplis la sémiologie, les syndromes et la physiopathologie.\n\nLe fichier joint LOT_T46.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/tetrade/renal_uro_genital/semiologie.json\n- conception/donnees/tetrade/renal_uro_genital/syndromes.json\n- conception/donnees/tetrade/renal_uro_genital/physiopathologie.json\n\nContenu attendu de chaque champ :\n- semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.\n- Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.\n- syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles.\n- physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_T46.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/renal_uro_genital/semiologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/renal_uro_genital/syndromes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/renal_uro_genital/physiopathologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T46.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T47",
+   "titre": "Sémiologie, syndromes et physiopathologie : Hématologique & oncologique",
+   "ou": "Gemini (Pro)",
+   "quoi": "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.",
+   "entrees": [
+    "conception/donnees/tetrade/hematologique_oncologique/semiologie.json",
+    "conception/donnees/tetrade/hematologique_oncologique/syndromes.json",
+    "conception/donnees/tetrade/hematologique_oncologique/physiopathologie.json"
+   ],
+   "sortie": "fichiers du système remplis",
+   "prompt": "Tu es clinicien enseignant de sémiologie. Pour le système « Hématologique & oncologique », tu remplis la sémiologie, les syndromes et la physiopathologie.\n\nLe fichier joint LOT_T47.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/tetrade/hematologique_oncologique/semiologie.json\n- conception/donnees/tetrade/hematologique_oncologique/syndromes.json\n- conception/donnees/tetrade/hematologique_oncologique/physiopathologie.json\n\nContenu attendu de chaque champ :\n- semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.\n- Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.\n- syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles.\n- physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_T47.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/hematologique_oncologique/semiologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/hematologique_oncologique/syndromes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/hematologique_oncologique/physiopathologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T47.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T48",
+   "titre": "Sémiologie, syndromes et physiopathologie : Infectieux & immunitaire",
+   "ou": "Gemini (Pro)",
+   "quoi": "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.",
+   "entrees": [
+    "conception/donnees/tetrade/infectieux_immunitaire/semiologie.json",
+    "conception/donnees/tetrade/infectieux_immunitaire/syndromes.json",
+    "conception/donnees/tetrade/infectieux_immunitaire/physiopathologie.json"
+   ],
+   "sortie": "fichiers du système remplis",
+   "prompt": "Tu es clinicien enseignant de sémiologie. Pour le système « Infectieux & immunitaire », tu remplis la sémiologie, les syndromes et la physiopathologie.\n\nLe fichier joint LOT_T48.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/tetrade/infectieux_immunitaire/semiologie.json\n- conception/donnees/tetrade/infectieux_immunitaire/syndromes.json\n- conception/donnees/tetrade/infectieux_immunitaire/physiopathologie.json\n\nContenu attendu de chaque champ :\n- semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.\n- Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.\n- syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles.\n- physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_T48.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/infectieux_immunitaire/semiologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/infectieux_immunitaire/syndromes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/infectieux_immunitaire/physiopathologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T48.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T49",
+   "titre": "Sémiologie, syndromes et physiopathologie : Locomoteur & rhumatologique",
+   "ou": "Gemini (Pro)",
+   "quoi": "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.",
+   "entrees": [
+    "conception/donnees/tetrade/locomoteur_rhumatologique/semiologie.json",
+    "conception/donnees/tetrade/locomoteur_rhumatologique/syndromes.json",
+    "conception/donnees/tetrade/locomoteur_rhumatologique/physiopathologie.json"
+   ],
+   "sortie": "fichiers du système remplis",
+   "prompt": "Tu es clinicien enseignant de sémiologie. Pour le système « Locomoteur & rhumatologique », tu remplis la sémiologie, les syndromes et la physiopathologie.\n\nLe fichier joint LOT_T49.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/tetrade/locomoteur_rhumatologique/semiologie.json\n- conception/donnees/tetrade/locomoteur_rhumatologique/syndromes.json\n- conception/donnees/tetrade/locomoteur_rhumatologique/physiopathologie.json\n\nContenu attendu de chaque champ :\n- semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.\n- Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.\n- syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles.\n- physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_T49.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/locomoteur_rhumatologique/semiologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/locomoteur_rhumatologique/syndromes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/locomoteur_rhumatologique/physiopathologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T49.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T50",
+   "titre": "Sémiologie, syndromes et physiopathologie : Dermatologique",
+   "ou": "Gemini (Pro)",
+   "quoi": "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.",
+   "entrees": [
+    "conception/donnees/tetrade/dermatologique/semiologie.json",
+    "conception/donnees/tetrade/dermatologique/syndromes.json",
+    "conception/donnees/tetrade/dermatologique/physiopathologie.json"
+   ],
+   "sortie": "fichiers du système remplis",
+   "prompt": "Tu es clinicien enseignant de sémiologie. Pour le système « Dermatologique », tu remplis la sémiologie, les syndromes et la physiopathologie.\n\nLe fichier joint LOT_T50.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/tetrade/dermatologique/semiologie.json\n- conception/donnees/tetrade/dermatologique/syndromes.json\n- conception/donnees/tetrade/dermatologique/physiopathologie.json\n\nContenu attendu de chaque champ :\n- semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.\n- Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.\n- syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles.\n- physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_T50.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/dermatologique/semiologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/dermatologique/syndromes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/dermatologique/physiopathologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T50.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T51",
+   "titre": "Sémiologie, syndromes et physiopathologie : Ophtalmologique & ORL",
+   "ou": "Gemini (Pro)",
+   "quoi": "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.",
+   "entrees": [
+    "conception/donnees/tetrade/ophtalmologique_orl/semiologie.json",
+    "conception/donnees/tetrade/ophtalmologique_orl/syndromes.json",
+    "conception/donnees/tetrade/ophtalmologique_orl/physiopathologie.json"
+   ],
+   "sortie": "fichiers du système remplis",
+   "prompt": "Tu es clinicien enseignant de sémiologie. Pour le système « Ophtalmologique & ORL », tu remplis la sémiologie, les syndromes et la physiopathologie.\n\nLe fichier joint LOT_T51.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/tetrade/ophtalmologique_orl/semiologie.json\n- conception/donnees/tetrade/ophtalmologique_orl/syndromes.json\n- conception/donnees/tetrade/ophtalmologique_orl/physiopathologie.json\n\nContenu attendu de chaque champ :\n- semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.\n- Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.\n- syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles.\n- physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_T51.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/ophtalmologique_orl/semiologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/ophtalmologique_orl/syndromes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/ophtalmologique_orl/physiopathologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T51.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T52",
+   "titre": "Sémiologie, syndromes et physiopathologie : Gynéco-obstétrical",
+   "ou": "Gemini (Pro)",
+   "quoi": "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.",
+   "entrees": [
+    "conception/donnees/tetrade/gyneco_obstetrical/semiologie.json",
+    "conception/donnees/tetrade/gyneco_obstetrical/syndromes.json",
+    "conception/donnees/tetrade/gyneco_obstetrical/physiopathologie.json"
+   ],
+   "sortie": "fichiers du système remplis",
+   "prompt": "Tu es clinicien enseignant de sémiologie. Pour le système « Gynéco-obstétrical », tu remplis la sémiologie, les syndromes et la physiopathologie.\n\nLe fichier joint LOT_T52.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/tetrade/gyneco_obstetrical/semiologie.json\n- conception/donnees/tetrade/gyneco_obstetrical/syndromes.json\n- conception/donnees/tetrade/gyneco_obstetrical/physiopathologie.json\n\nContenu attendu de chaque champ :\n- semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.\n- Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.\n- syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles.\n- physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_T52.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/gyneco_obstetrical/semiologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/gyneco_obstetrical/syndromes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/gyneco_obstetrical/physiopathologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T52.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T53",
+   "titre": "Sémiologie, syndromes et physiopathologie : Pédiatrique (croissance et développement)",
+   "ou": "Gemini (Pro)",
+   "quoi": "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.",
+   "entrees": [
+    "conception/donnees/tetrade/pediatrique/semiologie.json",
+    "conception/donnees/tetrade/pediatrique/syndromes.json",
+    "conception/donnees/tetrade/pediatrique/physiopathologie.json"
+   ],
+   "sortie": "fichiers du système remplis",
+   "prompt": "Tu es clinicien enseignant de sémiologie. Pour le système « Pédiatrique (croissance et développement) », tu remplis la sémiologie, les syndromes et la physiopathologie.\n\nLe fichier joint LOT_T53.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/tetrade/pediatrique/semiologie.json\n- conception/donnees/tetrade/pediatrique/syndromes.json\n- conception/donnees/tetrade/pediatrique/physiopathologie.json\n\nContenu attendu de chaque champ :\n- semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.\n- Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.\n- syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles.\n- physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_T53.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/pediatrique/semiologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/pediatrique/syndromes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/tetrade/pediatrique/physiopathologie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T53.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T60",
+   "titre": "Construire par script les graphes, l'arbre 3D et les exercices de la Tétrade",
+   "ou": "Claude Code",
+   "quoi": "Les graphes se déduisent des fichiers remplis (0 token) : aucune IA de production n'y touche.",
+   "entrees": [],
+   "sortie": "tetrade/*/graphe.json, anatomie3d.json, exercices/*.json",
+   "prompt": "",
+   "dependances": [],
+   "claude": true,
+   "lot": null,
+   "liens": []
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T61",
+   "titre": "Pharmacologie : structures et cibles — Cardiovasculaire",
+   "ou": "Gemini (Pro)",
+   "quoi": "Structures malades et ciblables, avec leurs cibles moléculaires.",
+   "entrees": [
+    "conception/donnees/pharmaco/cardiovasculaire/structures.json"
+   ],
+   "sortie": "structures.json rempli",
+   "prompt": "Tu es pharmacologue clinicien suisse. Pour le système « Cardiovasculaire », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.\n\nLe fichier joint LOT_T61.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/pharmaco/cardiovasculaire/structures.json\n\nContenu attendu de chaque champ :\n- structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.\n- Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [
+    "T01"
+   ],
+   "claude": false,
+   "lot": "projets/lots/LOT_T61.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/cardiovasculaire/structures.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T61.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T62",
+   "titre": "Pharmacologie : structures et cibles — Respiratoire",
+   "ou": "Gemini (Pro)",
+   "quoi": "Structures malades et ciblables, avec leurs cibles moléculaires.",
+   "entrees": [
+    "conception/donnees/pharmaco/respiratoire/structures.json"
+   ],
+   "sortie": "structures.json rempli",
+   "prompt": "Tu es pharmacologue clinicien suisse. Pour le système « Respiratoire », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.\n\nLe fichier joint LOT_T62.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/pharmaco/respiratoire/structures.json\n\nContenu attendu de chaque champ :\n- structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.\n- Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [
+    "T01"
+   ],
+   "claude": false,
+   "lot": "projets/lots/LOT_T62.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/respiratoire/structures.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T62.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T63",
+   "titre": "Pharmacologie : structures et cibles — Neurologique",
+   "ou": "Gemini (Pro)",
+   "quoi": "Structures malades et ciblables, avec leurs cibles moléculaires.",
+   "entrees": [
+    "conception/donnees/pharmaco/neurologique/structures.json"
+   ],
+   "sortie": "structures.json rempli",
+   "prompt": "Tu es pharmacologue clinicien suisse. Pour le système « Neurologique », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.\n\nLe fichier joint LOT_T63.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/pharmaco/neurologique/structures.json\n\nContenu attendu de chaque champ :\n- structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.\n- Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [
+    "T01"
+   ],
+   "claude": false,
+   "lot": "projets/lots/LOT_T63.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/neurologique/structures.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T63.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T64",
+   "titre": "Pharmacologie : structures et cibles — Psyché (psychiatrie)",
+   "ou": "Gemini (Pro)",
+   "quoi": "Structures malades et ciblables, avec leurs cibles moléculaires.",
+   "entrees": [
+    "conception/donnees/pharmaco/psyche/structures.json"
+   ],
+   "sortie": "structures.json rempli",
+   "prompt": "Tu es pharmacologue clinicien suisse. Pour le système « Psyché (psychiatrie) », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.\n\nLe fichier joint LOT_T64.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/pharmaco/psyche/structures.json\n\nContenu attendu de chaque champ :\n- structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.\n- Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [
+    "T01"
+   ],
+   "claude": false,
+   "lot": "projets/lots/LOT_T64.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/psyche/structures.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T64.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T65",
+   "titre": "Pharmacologie : structures et cibles — Endocrinien & métabolique",
+   "ou": "Gemini (Pro)",
+   "quoi": "Structures malades et ciblables, avec leurs cibles moléculaires.",
+   "entrees": [
+    "conception/donnees/pharmaco/endocrinien_metabolique/structures.json"
+   ],
+   "sortie": "structures.json rempli",
+   "prompt": "Tu es pharmacologue clinicien suisse. Pour le système « Endocrinien & métabolique », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.\n\nLe fichier joint LOT_T65.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/pharmaco/endocrinien_metabolique/structures.json\n\nContenu attendu de chaque champ :\n- structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.\n- Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [
+    "T01"
+   ],
+   "claude": false,
+   "lot": "projets/lots/LOT_T65.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/endocrinien_metabolique/structures.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T65.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T66",
+   "titre": "Pharmacologie : structures et cibles — Digestif & hépatobiliaire",
+   "ou": "Gemini (Pro)",
+   "quoi": "Structures malades et ciblables, avec leurs cibles moléculaires.",
+   "entrees": [
+    "conception/donnees/pharmaco/digestif_hepatobiliaire/structures.json"
+   ],
+   "sortie": "structures.json rempli",
+   "prompt": "Tu es pharmacologue clinicien suisse. Pour le système « Digestif & hépatobiliaire », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.\n\nLe fichier joint LOT_T66.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/pharmaco/digestif_hepatobiliaire/structures.json\n\nContenu attendu de chaque champ :\n- structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.\n- Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [
+    "T01"
+   ],
+   "claude": false,
+   "lot": "projets/lots/LOT_T66.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/digestif_hepatobiliaire/structures.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T66.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T67",
+   "titre": "Pharmacologie : structures et cibles — Rénal & uro-génital",
+   "ou": "Gemini (Pro)",
+   "quoi": "Structures malades et ciblables, avec leurs cibles moléculaires.",
+   "entrees": [
+    "conception/donnees/pharmaco/renal_uro_genital/structures.json"
+   ],
+   "sortie": "structures.json rempli",
+   "prompt": "Tu es pharmacologue clinicien suisse. Pour le système « Rénal & uro-génital », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.\n\nLe fichier joint LOT_T67.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/pharmaco/renal_uro_genital/structures.json\n\nContenu attendu de chaque champ :\n- structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.\n- Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [
+    "T01"
+   ],
+   "claude": false,
+   "lot": "projets/lots/LOT_T67.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/renal_uro_genital/structures.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T67.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T68",
+   "titre": "Pharmacologie : structures et cibles — Hématologique & oncologique",
+   "ou": "Gemini (Pro)",
+   "quoi": "Structures malades et ciblables, avec leurs cibles moléculaires.",
+   "entrees": [
+    "conception/donnees/pharmaco/hematologique_oncologique/structures.json"
+   ],
+   "sortie": "structures.json rempli",
+   "prompt": "Tu es pharmacologue clinicien suisse. Pour le système « Hématologique & oncologique », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.\n\nLe fichier joint LOT_T68.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/pharmaco/hematologique_oncologique/structures.json\n\nContenu attendu de chaque champ :\n- structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.\n- Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [
+    "T01"
+   ],
+   "claude": false,
+   "lot": "projets/lots/LOT_T68.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/hematologique_oncologique/structures.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T68.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T69",
+   "titre": "Pharmacologie : structures et cibles — Infectieux & immunitaire",
+   "ou": "Gemini (Pro)",
+   "quoi": "Structures malades et ciblables, avec leurs cibles moléculaires.",
+   "entrees": [
+    "conception/donnees/pharmaco/infectieux_immunitaire/structures.json"
+   ],
+   "sortie": "structures.json rempli",
+   "prompt": "Tu es pharmacologue clinicien suisse. Pour le système « Infectieux & immunitaire », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.\n\nLe fichier joint LOT_T69.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/pharmaco/infectieux_immunitaire/structures.json\n\nContenu attendu de chaque champ :\n- structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.\n- Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [
+    "T01"
+   ],
+   "claude": false,
+   "lot": "projets/lots/LOT_T69.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/infectieux_immunitaire/structures.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T69.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T70",
+   "titre": "Pharmacologie : structures et cibles — Locomoteur & rhumatologique",
+   "ou": "Gemini (Pro)",
+   "quoi": "Structures malades et ciblables, avec leurs cibles moléculaires.",
+   "entrees": [
+    "conception/donnees/pharmaco/locomoteur_rhumatologique/structures.json"
+   ],
+   "sortie": "structures.json rempli",
+   "prompt": "Tu es pharmacologue clinicien suisse. Pour le système « Locomoteur & rhumatologique », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.\n\nLe fichier joint LOT_T70.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/pharmaco/locomoteur_rhumatologique/structures.json\n\nContenu attendu de chaque champ :\n- structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.\n- Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [
+    "T01"
+   ],
+   "claude": false,
+   "lot": "projets/lots/LOT_T70.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/locomoteur_rhumatologique/structures.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T70.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T71",
+   "titre": "Pharmacologie : structures et cibles — Dermatologique",
+   "ou": "Gemini (Pro)",
+   "quoi": "Structures malades et ciblables, avec leurs cibles moléculaires.",
+   "entrees": [
+    "conception/donnees/pharmaco/dermatologique/structures.json"
+   ],
+   "sortie": "structures.json rempli",
+   "prompt": "Tu es pharmacologue clinicien suisse. Pour le système « Dermatologique », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.\n\nLe fichier joint LOT_T71.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/pharmaco/dermatologique/structures.json\n\nContenu attendu de chaque champ :\n- structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.\n- Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [
+    "T01"
+   ],
+   "claude": false,
+   "lot": "projets/lots/LOT_T71.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/dermatologique/structures.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T71.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T72",
+   "titre": "Pharmacologie : structures et cibles — Ophtalmologique & ORL",
+   "ou": "Gemini (Pro)",
+   "quoi": "Structures malades et ciblables, avec leurs cibles moléculaires.",
+   "entrees": [
+    "conception/donnees/pharmaco/ophtalmologique_orl/structures.json"
+   ],
+   "sortie": "structures.json rempli",
+   "prompt": "Tu es pharmacologue clinicien suisse. Pour le système « Ophtalmologique & ORL », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.\n\nLe fichier joint LOT_T72.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/pharmaco/ophtalmologique_orl/structures.json\n\nContenu attendu de chaque champ :\n- structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.\n- Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [
+    "T01"
+   ],
+   "claude": false,
+   "lot": "projets/lots/LOT_T72.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/ophtalmologique_orl/structures.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T72.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T73",
+   "titre": "Pharmacologie : structures et cibles — Gynéco-obstétrical",
+   "ou": "Gemini (Pro)",
+   "quoi": "Structures malades et ciblables, avec leurs cibles moléculaires.",
+   "entrees": [
+    "conception/donnees/pharmaco/gyneco_obstetrical/structures.json"
+   ],
+   "sortie": "structures.json rempli",
+   "prompt": "Tu es pharmacologue clinicien suisse. Pour le système « Gynéco-obstétrical », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.\n\nLe fichier joint LOT_T73.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/pharmaco/gyneco_obstetrical/structures.json\n\nContenu attendu de chaque champ :\n- structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.\n- Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [
+    "T01"
+   ],
+   "claude": false,
+   "lot": "projets/lots/LOT_T73.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/gyneco_obstetrical/structures.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T73.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T74",
+   "titre": "Pharmacologie : structures et cibles — Pédiatrique (croissance et développement)",
+   "ou": "Gemini (Pro)",
+   "quoi": "Structures malades et ciblables, avec leurs cibles moléculaires.",
+   "entrees": [
+    "conception/donnees/pharmaco/pediatrique/structures.json"
+   ],
+   "sortie": "structures.json rempli",
+   "prompt": "Tu es pharmacologue clinicien suisse. Pour le système « Pédiatrique (croissance et développement) », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.\n\nLe fichier joint LOT_T74.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/pharmaco/pediatrique/structures.json\n\nContenu attendu de chaque champ :\n- structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.\n- Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [
+    "T01"
+   ],
+   "claude": false,
+   "lot": "projets/lots/LOT_T74.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/pediatrique/structures.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T74.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T80",
+   "titre": "Classes médicamenteuses (≈ 300)",
+   "ou": "Gemini (Pro)",
+   "quoi": "Classe, mécanisme, indications et chef de file par profil, selon le Compendium suisse.",
+   "entrees": [
+    "conception/donnees/pharmaco/classes.json"
+   ],
+   "sortie": "classes.json rempli",
+   "prompt": "Tu es pharmacologue clinicien suisse. Tu remplis les classes médicamenteuses disponibles en Suisse.\n\nLe fichier joint LOT_T80.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/pharmaco/classes.json\n\nContenu attendu de chaque champ :\n- classeId, nom, mecanisme (une phrase), indications, chefDeFile par profil (adulte, enfant, grossesse, sujet âgé, insuffisance rénale).\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_T80.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/classes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_T80.json"
+   ]
+  },
+  {
+   "projet": "1_Jeux_Tetrade_Fondation",
+   "id": "T81",
+   "titre": "Fixer la liste des molécules (index AIPS) avant leur rédaction",
+   "ou": "Claude (conception)",
+   "quoi": "Liste issue de l'AIPS, puis lots de fiches de molécules.",
+   "entrees": [
+    "conception/donnees/pharmaco/molecules/_modele.json"
+   ],
+   "sortie": "liste validée",
+   "prompt": "",
+   "dependances": [],
+   "claude": true,
+   "lot": null,
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/pharmaco/molecules/_modele.json"
    ]
   },
   {
@@ -1050,6 +1700,369 @@
     "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/imagerie/cas/_modele.json",
     "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_P25.json"
    ]
+  },
+  {
+   "projet": "2_Jeux_Paraclinique",
+   "id": "P31",
+   "titre": "Explorations fonctionnelles et endoscopies 1 à 27 (Actimétrie → Cœlioscopie diagnostique)",
+   "ou": "Gemini (Pro)",
+   "quoi": "Une fiche par exploration : principe, tracé normal et pathologique, seuils, interprétation.",
+   "entrees": [
+    "conception/donnees/paraclinique/explorations/actimetrie.json",
+    "conception/donnees/paraclinique/explorations/acuite_visuelle.json",
+    "conception/donnees/paraclinique/explorations/agenda_du_sommeil.json",
+    "conception/donnees/paraclinique/explorations/anuscopie.json",
+    "conception/donnees/paraclinique/explorations/arthroscopie.json",
+    "conception/donnees/paraclinique/explorations/audiometrie_tonale_et_vocale.json",
+    "conception/donnees/paraclinique/explorations/bilan_neuropsychologique.json",
+    "conception/donnees/paraclinique/explorations/bilan_urodynamique.json",
+    "conception/donnees/paraclinique/explorations/bilan_urodynamique_complet.json",
+    "conception/donnees/paraclinique/explorations/bronchoscopie_avec_lavage_bronchoalveola.json",
+    "conception/donnees/paraclinique/explorations/bronchoscopie_de_navigation.json",
+    "conception/donnees/paraclinique/explorations/cpre_avec_brossage.json",
+    "conception/donnees/paraclinique/explorations/calendrier_mictionnel.json",
+    "conception/donnees/paraclinique/explorations/calorimetrie_indirecte.json",
+    "conception/donnees/paraclinique/explorations/capacite_de_diffusion_du_co.json",
+    "conception/donnees/paraclinique/explorations/capillaroscopie.json",
+    "conception/donnees/paraclinique/explorations/cardiotocographie.json",
+    "conception/donnees/paraclinique/explorations/catheterisme_cardiaque_droit.json",
+    "conception/donnees/paraclinique/explorations/catheterisme_des_veines_surrenaliennes.json",
+    "conception/donnees/paraclinique/explorations/champ_visuel.json",
+    "conception/donnees/paraclinique/explorations/cholangioscopie.json",
+    "conception/donnees/paraclinique/explorations/coloscopie_totale_avec_biopsies.json",
+    "conception/donnees/paraclinique/explorations/colposcopie.json",
+    "conception/donnees/paraclinique/explorations/controle_de_pacemaker_et_de_defibrillate.json",
+    "conception/donnees/paraclinique/explorations/cortisol_salivaire_nocturne_et_cortisol_.json",
+    "conception/donnees/paraclinique/explorations/cystoscopie.json",
+    "conception/donnees/paraclinique/explorations/coelioscopie_diagnostique.json"
+   ],
+   "sortie": "fiches d'exploration remplies",
+   "prompt": "Tu es médecin spécialiste des explorations fonctionnelles. Pour chaque exploration, tu remplis sa fiche.\n\nLe fichier joint LOT_P31.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/paraclinique/explorations/actimetrie.json\n- conception/donnees/paraclinique/explorations/acuite_visuelle.json\n- conception/donnees/paraclinique/explorations/agenda_du_sommeil.json\n- conception/donnees/paraclinique/explorations/anuscopie.json\n- conception/donnees/paraclinique/explorations/arthroscopie.json\n- conception/donnees/paraclinique/explorations/audiometrie_tonale_et_vocale.json\n- conception/donnees/paraclinique/explorations/bilan_neuropsychologique.json\n- conception/donnees/paraclinique/explorations/bilan_urodynamique.json\n- conception/donnees/paraclinique/explorations/bilan_urodynamique_complet.json\n- conception/donnees/paraclinique/explorations/bronchoscopie_avec_lavage_bronchoalveola.json\n- conception/donnees/paraclinique/explorations/bronchoscopie_de_navigation.json\n- conception/donnees/paraclinique/explorations/cpre_avec_brossage.json\n- conception/donnees/paraclinique/explorations/calendrier_mictionnel.json\n- conception/donnees/paraclinique/explorations/calorimetrie_indirecte.json\n- conception/donnees/paraclinique/explorations/capacite_de_diffusion_du_co.json\n- conception/donnees/paraclinique/explorations/capillaroscopie.json\n- conception/donnees/paraclinique/explorations/cardiotocographie.json\n- conception/donnees/paraclinique/explorations/catheterisme_cardiaque_droit.json\n- conception/donnees/paraclinique/explorations/catheterisme_des_veines_surrenaliennes.json\n- conception/donnees/paraclinique/explorations/champ_visuel.json\n- conception/donnees/paraclinique/explorations/cholangioscopie.json\n- conception/donnees/paraclinique/explorations/coloscopie_totale_avec_biopsies.json\n- conception/donnees/paraclinique/explorations/colposcopie.json\n- conception/donnees/paraclinique/explorations/controle_de_pacemaker_et_de_defibrillate.json\n- conception/donnees/paraclinique/explorations/cortisol_salivaire_nocturne_et_cortisol_.json\n- conception/donnees/paraclinique/explorations/cystoscopie.json\n- conception/donnees/paraclinique/explorations/coelioscopie_diagnostique.json\n\nContenu attendu de chaque champ :\n- fonction : ce que l'examen mesure, en une phrase.\n- traces : le tracé ou l'aspect normal, puis les aspects pathologiques typiques, chacun nommé.\n- seuils : les valeurs qui séparent normal et pathologique, en unités SI.\n- interpretation : la démarche de lecture, en étapes courtes.\n- diagnostics : les diagnostics que l'examen pose ou exclut.\n- bulle : {def, pourquoi, confusion, retenir}.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_P31.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/actimetrie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/acuite_visuelle.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/agenda_du_sommeil.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/anuscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/arthroscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/audiometrie_tonale_et_vocale.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/bilan_neuropsychologique.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/bilan_urodynamique.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/bilan_urodynamique_complet.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/bronchoscopie_avec_lavage_bronchoalveola.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/bronchoscopie_de_navigation.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/cpre_avec_brossage.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/calendrier_mictionnel.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/calorimetrie_indirecte.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/capacite_de_diffusion_du_co.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/capillaroscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/cardiotocographie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/catheterisme_cardiaque_droit.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/catheterisme_des_veines_surrenaliennes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/champ_visuel.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/cholangioscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/coloscopie_totale_avec_biopsies.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/colposcopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/controle_de_pacemaker_et_de_defibrillate.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/cortisol_salivaire_nocturne_et_cortisol_.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/cystoscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/coelioscopie_diagnostique.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_P31.json"
+   ]
+  },
+  {
+   "projet": "2_Jeux_Paraclinique",
+   "id": "P32",
+   "titre": "Explorations fonctionnelles et endoscopies 28 à 54 (Doppler transcrânien (retentissement hémodynamique) → Laryngoscopie indirecte et nasofibroscopie)",
+   "ou": "Gemini (Pro)",
+   "quoi": "Une fiche par exploration : principe, tracé normal et pathologique, seuils, interprétation.",
+   "entrees": [
+    "conception/donnees/paraclinique/explorations/doppler_transcranien.json",
+    "conception/donnees/paraclinique/explorations/debitmetrie.json",
+    "conception/donnees/paraclinique/explorations/ebus_avec_ponction_ganglionnaire.json",
+    "conception/donnees/paraclinique/explorations/ebus_et_eus.json",
+    "conception/donnees/paraclinique/explorations/ecg_12_derivations.json",
+    "conception/donnees/paraclinique/explorations/eeg_de_sommeil_et_eeg_prolonge.json",
+    "conception/donnees/paraclinique/explorations/eeg_standard.json",
+    "conception/donnees/paraclinique/explorations/enmg.json",
+    "conception/donnees/paraclinique/explorations/enregistreur_d_evenements_et_moniteur_im.json",
+    "conception/donnees/paraclinique/explorations/enteroscopie_a_double_ballon.json",
+    "conception/donnees/paraclinique/explorations/ergospirometrie.json",
+    "conception/donnees/paraclinique/explorations/feno.json",
+    "conception/donnees/paraclinique/explorations/fond_d_oeil.json",
+    "conception/donnees/paraclinique/explorations/gastroscopie_avec_biopsies.json",
+    "conception/donnees/paraclinique/explorations/gastroscopie.json",
+    "conception/donnees/paraclinique/explorations/gonioscopie.json",
+    "conception/donnees/paraclinique/explorations/hgpo_75_g.json",
+    "conception/donnees/paraclinique/explorations/hgpo_avec_dosage_de_gh.json",
+    "conception/donnees/paraclinique/explorations/holter_ecg_24_h_a_7_jours.json",
+    "conception/donnees/paraclinique/explorations/holter_glycemique.json",
+    "conception/donnees/paraclinique/explorations/hysteroscopie.json",
+    "conception/donnees/paraclinique/explorations/index_de_pression_systolique_cheville_br.json",
+    "conception/donnees/paraclinique/explorations/lampe_de_wood.json",
+    "conception/donnees/paraclinique/explorations/lampe_a_fente.json",
+    "conception/donnees/paraclinique/explorations/laparoscopie_diagnostique.json",
+    "conception/donnees/paraclinique/explorations/laryngoscopie_directe_en_suspension.json",
+    "conception/donnees/paraclinique/explorations/laryngoscopie_indirecte_et_nasofibroscop.json"
+   ],
+   "sortie": "fiches d'exploration remplies",
+   "prompt": "Tu es médecin spécialiste des explorations fonctionnelles. Pour chaque exploration, tu remplis sa fiche.\n\nLe fichier joint LOT_P32.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/paraclinique/explorations/doppler_transcranien.json\n- conception/donnees/paraclinique/explorations/debitmetrie.json\n- conception/donnees/paraclinique/explorations/ebus_avec_ponction_ganglionnaire.json\n- conception/donnees/paraclinique/explorations/ebus_et_eus.json\n- conception/donnees/paraclinique/explorations/ecg_12_derivations.json\n- conception/donnees/paraclinique/explorations/eeg_de_sommeil_et_eeg_prolonge.json\n- conception/donnees/paraclinique/explorations/eeg_standard.json\n- conception/donnees/paraclinique/explorations/enmg.json\n- conception/donnees/paraclinique/explorations/enregistreur_d_evenements_et_moniteur_im.json\n- conception/donnees/paraclinique/explorations/enteroscopie_a_double_ballon.json\n- conception/donnees/paraclinique/explorations/ergospirometrie.json\n- conception/donnees/paraclinique/explorations/feno.json\n- conception/donnees/paraclinique/explorations/fond_d_oeil.json\n- conception/donnees/paraclinique/explorations/gastroscopie_avec_biopsies.json\n- conception/donnees/paraclinique/explorations/gastroscopie.json\n- conception/donnees/paraclinique/explorations/gonioscopie.json\n- conception/donnees/paraclinique/explorations/hgpo_75_g.json\n- conception/donnees/paraclinique/explorations/hgpo_avec_dosage_de_gh.json\n- conception/donnees/paraclinique/explorations/holter_ecg_24_h_a_7_jours.json\n- conception/donnees/paraclinique/explorations/holter_glycemique.json\n- conception/donnees/paraclinique/explorations/hysteroscopie.json\n- conception/donnees/paraclinique/explorations/index_de_pression_systolique_cheville_br.json\n- conception/donnees/paraclinique/explorations/lampe_de_wood.json\n- conception/donnees/paraclinique/explorations/lampe_a_fente.json\n- conception/donnees/paraclinique/explorations/laparoscopie_diagnostique.json\n- conception/donnees/paraclinique/explorations/laryngoscopie_directe_en_suspension.json\n- conception/donnees/paraclinique/explorations/laryngoscopie_indirecte_et_nasofibroscop.json\n\nContenu attendu de chaque champ :\n- fonction : ce que l'examen mesure, en une phrase.\n- traces : le tracé ou l'aspect normal, puis les aspects pathologiques typiques, chacun nommé.\n- seuils : les valeurs qui séparent normal et pathologique, en unités SI.\n- interpretation : la démarche de lecture, en étapes courtes.\n- diagnostics : les diagnostics que l'examen pose ou exclut.\n- bulle : {def, pourquoi, confusion, retenir}.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_P32.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/doppler_transcranien.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/debitmetrie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/ebus_avec_ponction_ganglionnaire.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/ebus_et_eus.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/ecg_12_derivations.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/eeg_de_sommeil_et_eeg_prolonge.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/eeg_standard.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/enmg.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/enregistreur_d_evenements_et_moniteur_im.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/enteroscopie_a_double_ballon.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/ergospirometrie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/feno.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/fond_d_oeil.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/gastroscopie_avec_biopsies.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/gastroscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/gonioscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/hgpo_75_g.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/hgpo_avec_dosage_de_gh.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/holter_ecg_24_h_a_7_jours.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/holter_glycemique.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/hysteroscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/index_de_pression_systolique_cheville_br.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/lampe_de_wood.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/lampe_a_fente.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/laparoscopie_diagnostique.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/laryngoscopie_directe_en_suspension.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/laryngoscopie_indirecte_et_nasofibroscop.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_P32.json"
+   ]
+  },
+  {
+   "projet": "2_Jeux_Paraclinique",
+   "id": "P33",
+   "titre": "Explorations fonctionnelles et endoscopies 55 à 81 (Manométrie anorectale → Rhinomanométrie)",
+   "ou": "Gemini (Pro)",
+   "quoi": "Une fiche par exploration : principe, tracé normal et pathologique, seuils, interprétation.",
+   "entrees": [
+    "conception/donnees/paraclinique/explorations/manometrie_anorectale.json",
+    "conception/donnees/paraclinique/explorations/manometrie_oesophagienne_haute_resolutio.json",
+    "conception/donnees/paraclinique/explorations/manoeuvre_de_dix_hallpike.json",
+    "conception/donnees/paraclinique/explorations/massage_du_sinus_carotidien.json",
+    "conception/donnees/paraclinique/explorations/mesure_de_pression_intracranienne.json",
+    "conception/donnees/paraclinique/explorations/mesure_du_gradient_de_pression_hepatique.json",
+    "conception/donnees/paraclinique/explorations/mesure_transcutanee_de_l_oxygene.json",
+    "conception/donnees/paraclinique/explorations/mediastinoscopie.json",
+    "conception/donnees/paraclinique/explorations/nasofibroscopie.json",
+    "conception/donnees/paraclinique/explorations/olfactometrie.json",
+    "conception/donnees/paraclinique/explorations/otoscopie_et_otomicroscopie.json",
+    "conception/donnees/paraclinique/explorations/otoemissions_acoustiques.json",
+    "conception/donnees/paraclinique/explorations/oxymetrie_nocturne_polygraphie_et_polyso.json",
+    "conception/donnees/paraclinique/explorations/pachymetrie.json",
+    "conception/donnees/paraclinique/explorations/peak_flow.json",
+    "conception/donnees/paraclinique/explorations/phototests.json",
+    "conception/donnees/paraclinique/explorations/plethysmographie.json",
+    "conception/donnees/paraclinique/explorations/polygraphie_ventilatoire.json",
+    "conception/donnees/paraclinique/explorations/polysomnographie.json",
+    "conception/donnees/paraclinique/explorations/potentiels_evoques_auditifs.json",
+    "conception/donnees/paraclinique/explorations/potentiels_evoques_myogeniques_vestibula.json",
+    "conception/donnees/paraclinique/explorations/potentiels_evoques_somesthesiques_et_mot.json",
+    "conception/donnees/paraclinique/explorations/potentiels_evoques_visuels_auditifs_some.json",
+    "conception/donnees/paraclinique/explorations/pression_d_orteil.json",
+    "conception/donnees/paraclinique/explorations/prick_tests.json",
+    "conception/donnees/paraclinique/explorations/rectosigmoidoscopie.json",
+    "conception/donnees/paraclinique/explorations/rhinomanometrie.json"
+   ],
+   "sortie": "fiches d'exploration remplies",
+   "prompt": "Tu es médecin spécialiste des explorations fonctionnelles. Pour chaque exploration, tu remplis sa fiche.\n\nLe fichier joint LOT_P33.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/paraclinique/explorations/manometrie_anorectale.json\n- conception/donnees/paraclinique/explorations/manometrie_oesophagienne_haute_resolutio.json\n- conception/donnees/paraclinique/explorations/manoeuvre_de_dix_hallpike.json\n- conception/donnees/paraclinique/explorations/massage_du_sinus_carotidien.json\n- conception/donnees/paraclinique/explorations/mesure_de_pression_intracranienne.json\n- conception/donnees/paraclinique/explorations/mesure_du_gradient_de_pression_hepatique.json\n- conception/donnees/paraclinique/explorations/mesure_transcutanee_de_l_oxygene.json\n- conception/donnees/paraclinique/explorations/mediastinoscopie.json\n- conception/donnees/paraclinique/explorations/nasofibroscopie.json\n- conception/donnees/paraclinique/explorations/olfactometrie.json\n- conception/donnees/paraclinique/explorations/otoscopie_et_otomicroscopie.json\n- conception/donnees/paraclinique/explorations/otoemissions_acoustiques.json\n- conception/donnees/paraclinique/explorations/oxymetrie_nocturne_polygraphie_et_polyso.json\n- conception/donnees/paraclinique/explorations/pachymetrie.json\n- conception/donnees/paraclinique/explorations/peak_flow.json\n- conception/donnees/paraclinique/explorations/phototests.json\n- conception/donnees/paraclinique/explorations/plethysmographie.json\n- conception/donnees/paraclinique/explorations/polygraphie_ventilatoire.json\n- conception/donnees/paraclinique/explorations/polysomnographie.json\n- conception/donnees/paraclinique/explorations/potentiels_evoques_auditifs.json\n- conception/donnees/paraclinique/explorations/potentiels_evoques_myogeniques_vestibula.json\n- conception/donnees/paraclinique/explorations/potentiels_evoques_somesthesiques_et_mot.json\n- conception/donnees/paraclinique/explorations/potentiels_evoques_visuels_auditifs_some.json\n- conception/donnees/paraclinique/explorations/pression_d_orteil.json\n- conception/donnees/paraclinique/explorations/prick_tests.json\n- conception/donnees/paraclinique/explorations/rectosigmoidoscopie.json\n- conception/donnees/paraclinique/explorations/rhinomanometrie.json\n\nContenu attendu de chaque champ :\n- fonction : ce que l'examen mesure, en une phrase.\n- traces : le tracé ou l'aspect normal, puis les aspects pathologiques typiques, chacun nommé.\n- seuils : les valeurs qui séparent normal et pathologique, en unités SI.\n- interpretation : la démarche de lecture, en étapes courtes.\n- diagnostics : les diagnostics que l'examen pose ou exclut.\n- bulle : {def, pourquoi, confusion, retenir}.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_P33.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/manometrie_anorectale.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/manometrie_oesophagienne_haute_resolutio.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/manoeuvre_de_dix_hallpike.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/massage_du_sinus_carotidien.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/mesure_de_pression_intracranienne.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/mesure_du_gradient_de_pression_hepatique.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/mesure_transcutanee_de_l_oxygene.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/mediastinoscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/nasofibroscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/olfactometrie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/otoscopie_et_otomicroscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/otoemissions_acoustiques.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/oxymetrie_nocturne_polygraphie_et_polyso.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/pachymetrie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/peak_flow.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/phototests.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/plethysmographie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/polygraphie_ventilatoire.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/polysomnographie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/potentiels_evoques_auditifs.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/potentiels_evoques_myogeniques_vestibula.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/potentiels_evoques_somesthesiques_et_mot.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/potentiels_evoques_visuels_auditifs_some.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/pression_d_orteil.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/prick_tests.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/rectosigmoidoscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/rhinomanometrie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_P33.json"
+   ]
+  },
+  {
+   "projet": "2_Jeux_Paraclinique",
+   "id": "P34",
+   "titre": "Explorations fonctionnelles et endoscopies 82 à 108 (Rhinoscopie → Trichogramme)",
+   "ou": "Gemini (Pro)",
+   "quoi": "Une fiche par exploration : principe, tracé normal et pathologique, seuils, interprétation.",
+   "entrees": [
+    "conception/donnees/paraclinique/explorations/rhinoscopie.json",
+    "conception/donnees/paraclinique/explorations/refraction.json",
+    "conception/donnees/paraclinique/explorations/spirometrie_avec_test_de_bronchodilatati.json",
+    "conception/donnees/paraclinique/explorations/temps_de_saignement.json",
+    "conception/donnees/paraclinique/explorations/temps_de_transit_colique.json",
+    "conception/donnees/paraclinique/explorations/test_au_synacthene.json",
+    "conception/donnees/paraclinique/explorations/test_d_hypoglycemie_insulinique.json",
+    "conception/donnees/paraclinique/explorations/test_de_schirmer.json",
+    "conception/donnees/paraclinique/explorations/test_de_charge_sodee.json",
+    "conception/donnees/paraclinique/explorations/test_de_freinage_a_la_dexamethasone_1_mg.json",
+    "conception/donnees/paraclinique/explorations/test_de_maintien_de_l_eveil.json",
+    "conception/donnees/paraclinique/explorations/test_de_marche_de_6_minutes.json",
+    "conception/donnees/paraclinique/explorations/test_de_marche_sur_tapis.json",
+    "conception/donnees/paraclinique/explorations/test_de_provocation_bronchique.json",
+    "conception/donnees/paraclinique/explorations/test_de_restriction_hydrique.json",
+    "conception/donnees/paraclinique/explorations/test_de_stimulation_a_l_arginine_copepti.json",
+    "conception/donnees/paraclinique/explorations/test_de_stimulation_a_la_secretine.json",
+    "conception/donnees/paraclinique/explorations/tests_autonomes.json",
+    "conception/donnees/paraclinique/explorations/tests_de_personnalite_standardises.json",
+    "conception/donnees/paraclinique/explorations/tests_de_provocation.json",
+    "conception/donnees/paraclinique/explorations/tests_iteratifs_de_latence_d_endormissem.json",
+    "conception/donnees/paraclinique/explorations/tests_epicutanes.json",
+    "conception/donnees/paraclinique/explorations/thoracoscopie.json",
+    "conception/donnees/paraclinique/explorations/thromboelastographie.json",
+    "conception/donnees/paraclinique/explorations/tilt_test.json",
+    "conception/donnees/paraclinique/explorations/tonometrie.json",
+    "conception/donnees/paraclinique/explorations/trichogramme.json"
+   ],
+   "sortie": "fiches d'exploration remplies",
+   "prompt": "Tu es médecin spécialiste des explorations fonctionnelles. Pour chaque exploration, tu remplis sa fiche.\n\nLe fichier joint LOT_P34.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/paraclinique/explorations/rhinoscopie.json\n- conception/donnees/paraclinique/explorations/refraction.json\n- conception/donnees/paraclinique/explorations/spirometrie_avec_test_de_bronchodilatati.json\n- conception/donnees/paraclinique/explorations/temps_de_saignement.json\n- conception/donnees/paraclinique/explorations/temps_de_transit_colique.json\n- conception/donnees/paraclinique/explorations/test_au_synacthene.json\n- conception/donnees/paraclinique/explorations/test_d_hypoglycemie_insulinique.json\n- conception/donnees/paraclinique/explorations/test_de_schirmer.json\n- conception/donnees/paraclinique/explorations/test_de_charge_sodee.json\n- conception/donnees/paraclinique/explorations/test_de_freinage_a_la_dexamethasone_1_mg.json\n- conception/donnees/paraclinique/explorations/test_de_maintien_de_l_eveil.json\n- conception/donnees/paraclinique/explorations/test_de_marche_de_6_minutes.json\n- conception/donnees/paraclinique/explorations/test_de_marche_sur_tapis.json\n- conception/donnees/paraclinique/explorations/test_de_provocation_bronchique.json\n- conception/donnees/paraclinique/explorations/test_de_restriction_hydrique.json\n- conception/donnees/paraclinique/explorations/test_de_stimulation_a_l_arginine_copepti.json\n- conception/donnees/paraclinique/explorations/test_de_stimulation_a_la_secretine.json\n- conception/donnees/paraclinique/explorations/tests_autonomes.json\n- conception/donnees/paraclinique/explorations/tests_de_personnalite_standardises.json\n- conception/donnees/paraclinique/explorations/tests_de_provocation.json\n- conception/donnees/paraclinique/explorations/tests_iteratifs_de_latence_d_endormissem.json\n- conception/donnees/paraclinique/explorations/tests_epicutanes.json\n- conception/donnees/paraclinique/explorations/thoracoscopie.json\n- conception/donnees/paraclinique/explorations/thromboelastographie.json\n- conception/donnees/paraclinique/explorations/tilt_test.json\n- conception/donnees/paraclinique/explorations/tonometrie.json\n- conception/donnees/paraclinique/explorations/trichogramme.json\n\nContenu attendu de chaque champ :\n- fonction : ce que l'examen mesure, en une phrase.\n- traces : le tracé ou l'aspect normal, puis les aspects pathologiques typiques, chacun nommé.\n- seuils : les valeurs qui séparent normal et pathologique, en unités SI.\n- interpretation : la démarche de lecture, en étapes courtes.\n- diagnostics : les diagnostics que l'examen pose ou exclut.\n- bulle : {def, pourquoi, confusion, retenir}.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_P34.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/rhinoscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/refraction.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/spirometrie_avec_test_de_bronchodilatati.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/temps_de_saignement.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/temps_de_transit_colique.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/test_au_synacthene.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/test_d_hypoglycemie_insulinique.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/test_de_schirmer.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/test_de_charge_sodee.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/test_de_freinage_a_la_dexamethasone_1_mg.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/test_de_maintien_de_l_eveil.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/test_de_marche_de_6_minutes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/test_de_marche_sur_tapis.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/test_de_provocation_bronchique.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/test_de_restriction_hydrique.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/test_de_stimulation_a_l_arginine_copepti.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/test_de_stimulation_a_la_secretine.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/tests_autonomes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/tests_de_personnalite_standardises.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/tests_de_provocation.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/tests_iteratifs_de_latence_d_endormissem.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/tests_epicutanes.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/thoracoscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/thromboelastographie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/tilt_test.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/tonometrie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/trichogramme.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_P34.json"
+   ]
+  },
+  {
+   "projet": "2_Jeux_Paraclinique",
+   "id": "P35",
+   "titre": "Explorations fonctionnelles et endoscopies 109 à 132 (Trichoscopie → Œsophagogastroduodénoscopie (OGD) avec biopsies)",
+   "ou": "Gemini (Pro)",
+   "quoi": "Une fiche par exploration : principe, tracé normal et pathologique, seuils, interprétation.",
+   "entrees": [
+    "conception/donnees/paraclinique/explorations/trichoscopie.json",
+    "conception/donnees/paraclinique/explorations/tympanometrie_et_reflexe_stapedien.json",
+    "conception/donnees/paraclinique/explorations/ureteroscopie.json",
+    "conception/donnees/paraclinique/explorations/video_head_impulse_test.json",
+    "conception/donnees/paraclinique/explorations/video_eeg.json",
+    "conception/donnees/paraclinique/explorations/videocapsule_endoscopique.json",
+    "conception/donnees/paraclinique/explorations/videonystagmographie.json",
+    "conception/donnees/paraclinique/explorations/videostroboscopie.json",
+    "conception/donnees/paraclinique/explorations/vision_des_couleurs.json",
+    "conception/donnees/paraclinique/explorations/ph_metrie_et_impedancemetrie_de_24_h.json",
+    "conception/donnees/paraclinique/explorations/echelle_d_epworth.json",
+    "conception/donnees/paraclinique/explorations/echelles_psychometriques.json",
+    "conception/donnees/paraclinique/explorations/echo_endoscopie.json",
+    "conception/donnees/paraclinique/explorations/echo_endoscopie_avec_ponction.json",
+    "conception/donnees/paraclinique/explorations/echo_endoscopie_biliopancreatique.json",
+    "conception/donnees/paraclinique/explorations/echo_endoscopie_rectale.json",
+    "conception/donnees/paraclinique/explorations/echo_endoscopie_oesophagienne.json",
+    "conception/donnees/paraclinique/explorations/electromyographie.json",
+    "conception/donnees/paraclinique/explorations/electroneuromyographie.json",
+    "conception/donnees/paraclinique/explorations/electroretinogramme.json",
+    "conception/donnees/paraclinique/explorations/epreuve_d_effort.json",
+    "conception/donnees/paraclinique/explorations/epreuve_de_jeune_de_72_h.json",
+    "conception/donnees/paraclinique/explorations/etude_electrophysiologique_endocavitaire.json",
+    "conception/donnees/paraclinique/explorations/oesophagogastroduodenoscopie_avec_biopsi.json"
+   ],
+   "sortie": "fiches d'exploration remplies",
+   "prompt": "Tu es médecin spécialiste des explorations fonctionnelles. Pour chaque exploration, tu remplis sa fiche.\n\nLe fichier joint LOT_P35.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :\n- conception/donnees/paraclinique/explorations/trichoscopie.json\n- conception/donnees/paraclinique/explorations/tympanometrie_et_reflexe_stapedien.json\n- conception/donnees/paraclinique/explorations/ureteroscopie.json\n- conception/donnees/paraclinique/explorations/video_head_impulse_test.json\n- conception/donnees/paraclinique/explorations/video_eeg.json\n- conception/donnees/paraclinique/explorations/videocapsule_endoscopique.json\n- conception/donnees/paraclinique/explorations/videonystagmographie.json\n- conception/donnees/paraclinique/explorations/videostroboscopie.json\n- conception/donnees/paraclinique/explorations/vision_des_couleurs.json\n- conception/donnees/paraclinique/explorations/ph_metrie_et_impedancemetrie_de_24_h.json\n- conception/donnees/paraclinique/explorations/echelle_d_epworth.json\n- conception/donnees/paraclinique/explorations/echelles_psychometriques.json\n- conception/donnees/paraclinique/explorations/echo_endoscopie.json\n- conception/donnees/paraclinique/explorations/echo_endoscopie_avec_ponction.json\n- conception/donnees/paraclinique/explorations/echo_endoscopie_biliopancreatique.json\n- conception/donnees/paraclinique/explorations/echo_endoscopie_rectale.json\n- conception/donnees/paraclinique/explorations/echo_endoscopie_oesophagienne.json\n- conception/donnees/paraclinique/explorations/electromyographie.json\n- conception/donnees/paraclinique/explorations/electroneuromyographie.json\n- conception/donnees/paraclinique/explorations/electroretinogramme.json\n- conception/donnees/paraclinique/explorations/epreuve_d_effort.json\n- conception/donnees/paraclinique/explorations/epreuve_de_jeune_de_72_h.json\n- conception/donnees/paraclinique/explorations/etude_electrophysiologique_endocavitaire.json\n- conception/donnees/paraclinique/explorations/oesophagogastroduodenoscopie_avec_biopsi.json\n\nContenu attendu de chaque champ :\n- fonction : ce que l'examen mesure, en une phrase.\n- traces : le tracé ou l'aspect normal, puis les aspects pathologiques typiques, chacun nommé.\n- seuils : les valeurs qui séparent normal et pathologique, en unités SI.\n- interpretation : la démarche de lecture, en étapes courtes.\n- diagnostics : les diagnostics que l'examen pose ou exclut.\n- bulle : {def, pourquoi, confusion, retenir}.\n\nRègles :\n- Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.\n- Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.\n- Tu respectes la pratique suisse ; pour les posologies et les valeurs, tu suis la cascade : AIPS, Compendium, sociétés suisses, sociétés européennes.\n- Tu donnes les valeurs en unités SI suisses (gaz du sang en kPa, glycémie en mmol/l).\n- Tu définis dans « glossaire » chaque sigle, score ou terme technique que tu emploies.\n- Tu écris des affirmations sourcées ; si un chiffre n'existe pas dans les sources, tu ne cites que les chiffres connus et tu n'écris jamais « donnée non disponible ».\n- Tu ne modifies ni la structure, ni les clés, ni l'ordre des fichiers ; tu remplis seulement les valeurs.\n- Tu rends le même objet JSON valide {\"fichiers\": {chemin: contenu}}, avec les chemins exacts, inchangés. Si ta réponse risque d'être coupée, tu rends un seul chemin par réponse, dans le même format, et tu attends « suite ».",
+   "dependances": [],
+   "claude": false,
+   "lot": "projets/lots/LOT_P35.json",
+   "liens": [
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/trichoscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/tympanometrie_et_reflexe_stapedien.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/ureteroscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/video_head_impulse_test.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/video_eeg.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/videocapsule_endoscopique.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/videonystagmographie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/videostroboscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/vision_des_couleurs.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/ph_metrie_et_impedancemetrie_de_24_h.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/echelle_d_epworth.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/echelles_psychometriques.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/echo_endoscopie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/echo_endoscopie_avec_ponction.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/echo_endoscopie_biliopancreatique.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/echo_endoscopie_rectale.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/echo_endoscopie_oesophagienne.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/electromyographie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/electroneuromyographie.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/electroretinogramme.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/epreuve_d_effort.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/epreuve_de_jeune_de_72_h.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/etude_electrophysiologique_endocavitaire.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/paraclinique/explorations/oesophagogastroduodenoscopie_avec_biopsi.json",
+    "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/lots/LOT_P35.json"
+   ]
+  },
+  {
+   "projet": "2_Jeux_Paraclinique",
+   "id": "P36",
+   "titre": "Construire par script le graphe d'imagerie, les régions, l'index des prélèvements et les exercices",
+   "ou": "Claude Code",
+   "quoi": "Tout se déduit du catalogue (0 token).",
+   "entrees": [],
+   "sortie": "imagerie/graphe.json, regions.json, biologie/prelevements.json, exercices/*.json",
+   "prompt": "",
+   "dependances": [],
+   "claude": true,
+   "lot": null,
+   "liens": []
   },
   {
    "projet": "2_Jeux_Paraclinique",
