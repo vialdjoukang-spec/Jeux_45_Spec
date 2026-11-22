@@ -1,0 +1,734 @@
+{
+ "_lot": {
+  "tache": "P05-02-PR",
+  "titre": "Pratique — Examens de l'organe Vésicule et voies biliaires (10 examens : 4 imagerie + 3 endoscopies + 3 biologie)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/5_abdomen/vesicule_et_voies_biliaires.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/5_abdomen/vesicule_et_voies_biliaires.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "vesicule_et_voies_biliaires__echographie_abdominale",
+     "nom": "Échographie abdominale",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "vesicule_et_voies_biliaires__echographie_abdominale-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon les Tokyo Guidelines 2018, l'échographie est l'examen de première intention devant une suspicion de cholécystite aiguë.",
+        "pourquoiFaux": "Le CT se réserve aux formes compliquées, la cholangio-IRM à la voie biliaire principale, et la scintigraphie au doute persistant."
+       },
+       "sources": [
+        "Tokyo Guidelines (2018)"
+       ],
+       "casClinique": "Une femme de 45 ans, à Sion, a une douleur de l'hypocondre droit depuis 12 heures, une fièvre à 38,4 °C et un signe de Murphy.",
+       "options": [
+        "Échographie abdominale",
+        "CT abdominal",
+        "Cholangio-IRM",
+        "Scintigraphie HIDA"
+       ],
+       "bonneReponse": "Échographie abdominale",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__echographie_abdominale-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon les Tokyo Guidelines 2018, une vésicule distendue à paroi épaissie avec calcul enclavé, Murphy échographique ou liquide péri-vésiculaire confirme une cholécystite aiguë.",
+        "pourquoiFaux": "Un calcul mobile sans paroi épaissie traduit une lithiase simple, pas une cholécystite."
+       },
+       "sources": [
+        "Tokyo Guidelines (2018)"
+       ],
+       "consigne": "Décrivez ce qui confirme une cholécystite aiguë sur cette échographie.",
+       "aspectRecherche": "Paroi, calcul et liquide autour de la vésicule",
+       "reponse": "Paroi épaissie, calcul enclavé et liquide péri-vésiculaire",
+       "imageOuTraceAttendu": "Coupe échographique d'une vésicule distendue à paroi épaissie et feuilletée, avec un calcul enclavé au collet et une lame liquidienne autour."
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__echographie_abdominale-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE 2019, l'échographie n'a qu'une sensibilité de 73 % pour les calculs de la voie biliaire principale, souvent masqués par les gaz duodénaux.",
+        "pourquoiFaux": "Une échographie normale ne suffit pas quand la cholestase et l'ictère persistent."
+       },
+       "sources": [
+        "ESGE, recommandations sur la lithiase de la voie biliaire principale (2019)"
+       ],
+       "erreurFrequente": "Exclure un calcul cholédocien sur une échographie normale chez un patient ictérique.",
+       "consequence": "On méconnaît un calcul du bas cholédoque.",
+       "bonneConduite": "On complète par cholangio-IRM ou écho-endoscopie selon la probabilité."
+      }
+     ]
+    },
+    {
+     "ref": "vesicule_et_voies_biliaires__cholangio_irm",
+     "nom": "Cholangio-IRM",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "vesicule_et_voies_biliaires__cholangio_irm-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE 2019, une probabilité intermédiaire de calcul cholédocien fait demander une cholangio-IRM ou une écho-endoscopie avant tout geste thérapeutique.",
+        "pourquoiFaux": "La CPRE se réserve au traitement, le CT manque les calculs non calcifiés, et la scintigraphie ne cherche pas de calcul."
+       },
+       "sources": [
+        "ESGE, recommandations sur la lithiase de la voie biliaire principale (2019)"
+       ],
+       "casClinique": "Un homme de 60 ans, à Lausanne, a des coliques biliaires, une PAL à 2 fois la normale et un cholédoque à 8 mm sans calcul visible à l'échographie.",
+       "options": [
+        "Cholangio-IRM",
+        "CPRE d'emblée",
+        "CT abdominal",
+        "Scintigraphie HIDA"
+       ],
+       "bonneReponse": "Cholangio-IRM",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__cholangio_irm-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "L'aspect en chapelet est typique de la cholangite sclérosante, et l'EASL 2022 fait de la cholangio-IRM l'examen de première ligne.",
+        "pourquoiFaux": "Une lacune unique évoquerait un calcul, et une sténose unique une tumeur."
+       },
+       "sources": [
+        "EASL, recommandations sur la cholangite sclérosante (2022)"
+       ],
+       "consigne": "Lisez cette cholangio-IRM en coupe coronale.",
+       "aspectRecherche": "Aspect de l'arbre biliaire intrahépatique",
+       "reponse": "Sténoses et dilatations alternées : cholangite sclérosante",
+       "imageOuTraceAttendu": "Reconstruction cholangio-IRM qui montre des voies biliaires intra- et extrahépatiques irrégulières, avec de courtes sténoses alternant avec des dilatations."
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__cholangio_irm-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE 2019, la cholangio-IRM manque plus souvent que l'écho-endoscopie les calculs de moins de 5 mm.",
+        "pourquoiFaux": "Une cholangio-IRM normale n'écarte pas une microlithiase quand la suspicion persiste."
+       },
+       "sources": [
+        "ESGE, recommandations sur la lithiase de la voie biliaire principale (2019)"
+       ],
+       "erreurFrequente": "Exclure une microlithiase après une cholangio-IRM normale chez une patiente avec une pancréatite biliaire probable.",
+       "consequence": "On méconnaît des calculs de moins de 5 mm.",
+       "bonneConduite": "On propose une écho-endoscopie."
+      }
+     ]
+    },
+    {
+     "ref": "vesicule_et_voies_biliaires__ct_abdominal",
+     "nom": "CT abdominal",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "vesicule_et_voies_biliaires__ct_abdominal-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon les Tokyo Guidelines 2018, le CT recherche une perforation, un abcès ou une gangrène devant une cholécystite compliquée.",
+        "pourquoiFaux": "L'échographie, la cholangio-IRM et la scintigraphie montrent moins bien les complications."
+       },
+       "sources": [
+        "Tokyo Guidelines (2018)"
+       ],
+       "casClinique": "Un homme diabétique de 74 ans, à Bienne, a une cholécystite qui s'aggrave malgré les antibiotiques, avec une défense et des lactates en hausse.",
+       "options": [
+        "CT abdominal",
+        "Nouvelle échographie seule",
+        "Cholangio-IRM",
+        "Scintigraphie HIDA"
+       ],
+       "bonneReponse": "CT abdominal",
+       "visee": "complications"
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__ct_abdominal-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Le gaz pariétal traduit une infection par des germes producteurs de gaz, complication grave de la cholécystite que le CT montre mieux que l'échographie.",
+        "pourquoiFaux": "Une paroi simplement épaissie sans gaz traduit une cholécystite non compliquée."
+       },
+       "sources": [
+        "Tokyo Guidelines (2018)"
+       ],
+       "consigne": "Décrivez la complication sur ce CT injecté.",
+       "aspectRecherche": "Paroi de la vésicule et contenu",
+       "reponse": "Gaz dans la paroi : cholécystite emphysémateuse",
+       "imageOuTraceAttendu": "Coupe CT injectée : vésicule distendue dont la paroi contient des bulles d'air, avec une infiltration de la graisse péri-vésiculaire."
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__ct_abdominal-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La Société Suisse de Gastroentérologie (Smarter Medicine, 2017) recommande de ne pas renouveler la tomodensitométrie dans un syndrome de douleurs abdominales fonctionnelles sans changement majeur.",
+        "pourquoiFaux": "Un CT répété sans élément nouveau n'apporte pas d'information utile."
+       },
+       "sources": [
+        "Smarter Medicine, liste Top 5 de la SSG (2017)"
+       ],
+       "erreurFrequente": "Répéter le CT chez une patiente aux douleurs abdominales fonctionnelles inchangées.",
+       "consequence": "On l'irradie inutilement.",
+       "bonneConduite": "On ne répète le CT qu'en cas de changement majeur."
+      }
+     ]
+    },
+    {
+     "ref": "vesicule_et_voies_biliaires__scintigraphie_hepatobiliaire",
+     "nom": "Scintigraphie hépatobiliaire (HIDA)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "vesicule_et_voies_biliaires__scintigraphie_hepatobiliaire-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon les Tokyo Guidelines 2018, la scintigraphie hépatobiliaire se demande quand l'échographie reste douteuse devant une cholécystite aiguë.",
+        "pourquoiFaux": "La CPRE et la cholangioscopie sont des gestes invasifs sans rôle ici, et le CT est moins sensible pour la cholécystite."
+       },
+       "sources": [
+        "Tokyo Guidelines (2018)"
+       ],
+       "casClinique": "Une femme de 50 ans, à Neuchâtel, a une douleur de l'hypocondre droit ; l'échographie montre des calculs mais une paroi fine, et le doute persiste.",
+       "options": [
+        "Scintigraphie HIDA",
+        "CT abdominal",
+        "CPRE",
+        "Cholangioscopie"
+       ],
+       "bonneReponse": "Scintigraphie HIDA",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__scintigraphie_hepatobiliaire-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la SNMMI, l'absence de remplissage de la vésicule à 60 minutes alors que le traceur atteint l'intestin affirme l'obstruction du canal cystique.",
+        "pourquoiFaux": "L'absence de passage intestinal orienterait vers un obstacle de la voie biliaire principale."
+       },
+       "sources": [
+        "SNMMI, guide de la scintigraphie hépatobiliaire"
+       ],
+       "consigne": "Interprétez cette scintigraphie à 60 minutes.",
+       "aspectRecherche": "Présence de la vésicule et de l'intestin",
+       "reponse": "Vésicule non visualisée, intestin visible : canal cystique obstrué",
+       "imageOuTraceAttendu": "Images scintigraphiques à 60 minutes : foie et intestin grêle bien visibles, sans aucune activité dans l'aire vésiculaire."
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__scintigraphie_hepatobiliaire-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon la SNMMI, un jeûne prolongé, une nutrition parentérale ou une hépatopathie sévère empêchent le remplissage de la vésicule.",
+        "pourquoiFaux": "La non-visualisation n'a pas la même valeur dans ces situations."
+       },
+       "sources": [
+        "SNMMI, guide de la scintigraphie hépatobiliaire"
+       ],
+       "erreurFrequente": "Conclure à une cholécystite chez un patient à jeun depuis plusieurs jours sous nutrition parentérale.",
+       "consequence": "On pose un faux positif.",
+       "bonneConduite": "On interprète avec prudence ou on complète par l'imagerie."
+      }
+     ]
+    },
+    {
+     "ref": "vesicule_et_voies_biliaires__echo_endoscopie_biliopancreatique",
+     "nom": "Écho-endoscopie biliopancréatique",
+     "modalite": "Endoscopie",
+     "defis": [
+      {
+       "id": "vesicule_et_voies_biliaires__echo_endoscopie_biliopancreatique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE 2019, l'écho-endoscopie cherche une microlithiase devant une pancréatite biliaire sans calcul visible, avec une sensibilité de 97 %.",
+        "pourquoiFaux": "La CPRE diagnostique est trop risquée, et le CT et la scintigraphie ne voient pas les microcalculs."
+       },
+       "sources": [
+        "ESGE, recommandations sur la lithiase de la voie biliaire principale (2019)"
+       ],
+       "casClinique": "Une femme de 52 ans, à Zurich, a une pancréatite aiguë avec cholestase transitoire ; échographie et cholangio-IRM ne montrent pas de calcul.",
+       "options": [
+        "Écho-endoscopie biliopancréatique",
+        "CPRE diagnostique",
+        "CT abdominal",
+        "Scintigraphie HIDA"
+       ],
+       "bonneReponse": "Écho-endoscopie biliopancréatique",
+       "visee": "etiologique"
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__echo_endoscopie_biliopancreatique-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE 2019, l'écho-endoscopie voit les microcalculs du bas cholédoque mieux que la cholangio-IRM.",
+        "pourquoiFaux": "Une masse hypoéchogène orienterait vers une tumeur, pas vers un calcul."
+       },
+       "sources": [
+        "ESGE, recommandations sur la lithiase de la voie biliaire principale (2019)"
+       ],
+       "consigne": "Décrivez ce que montre cette image d'écho-endoscopie du bas cholédoque.",
+       "aspectRecherche": "Contenu de la voie biliaire principale",
+       "reponse": "Microcalcul hyperéchogène avec cône d'ombre",
+       "imageOuTraceAttendu": "Image d'écho-endoscopie : petite structure hyperéchogène de 3 mm dans le bas cholédoque, avec un cône d'ombre postérieur."
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__echo_endoscopie_biliopancreatique-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "L'écho-endoscopie explore mal le hile et les voies intrahépatiques.",
+        "pourquoiFaux": "Son point fort reste le bas cholédoque et la tête du pancréas."
+       },
+       "sources": [
+        "ESGE, recommandations sur la lithiase de la voie biliaire principale (2019)",
+        "ESGE, recommandations sur les sténoses biliaires (2025)"
+       ],
+       "erreurFrequente": "Proposer une écho-endoscopie pour une sténose du hile biliaire.",
+       "consequence": "On explore mal la lésion.",
+       "bonneConduite": "On choisit la cholangio-IRM puis la CPRE avec prélèvements."
+      }
+     ]
+    },
+    {
+     "ref": "vesicule_et_voies_biliaires__cpre_avec_brossage",
+     "nom": "CPRE (cholangiopancréatographie rétrograde) avec brossage",
+     "modalite": "Endoscopie",
+     "defis": [
+      {
+       "id": "vesicule_et_voies_biliaires__cpre_avec_brossage-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE 2019, une cholangite grave avec choc septique impose un drainage biliaire le plus tôt possible et en moins de 12 heures.",
+        "pourquoiFaux": "Les autres examens diagnostiques retardent le drainage, qui seul traite la cause."
+       },
+       "sources": [
+        "ESGE, recommandations sur la lithiase de la voie biliaire principale (2019)"
+       ],
+       "casClinique": "Un homme de 78 ans, à Genève, a une fièvre, un ictère, une hypotension sous noradrénaline et un cholédoque dilaté par un calcul.",
+       "options": [
+        "CPRE avec drainage",
+        "Cholangio-IRM",
+        "Écho-endoscopie",
+        "Scintigraphie HIDA"
+       ],
+       "bonneReponse": "CPRE avec drainage",
+       "visee": "therapeutique"
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__cpre_avec_brossage-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une lacune mobile traduit un calcul, que la CPRE extrait dans le même geste.",
+        "pourquoiFaux": "Une sténose irrégulière fixe orienterait vers une tumeur."
+       },
+       "sources": [
+        "ESGE, recommandations sur la lithiase de la voie biliaire principale (2019)"
+       ],
+       "consigne": "Décrivez cette opacification lors d'une CPRE.",
+       "aspectRecherche": "Contenu du cholédoque",
+       "reponse": "Lacune arrondie mobile : calcul cholédocien",
+       "imageOuTraceAttendu": "Cliché de radioscopie : cholédoque opacifié, dilaté, avec une lacune arrondie de 10 mm qui se déplace avec l'injection."
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__cpre_avec_brossage-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ASGE 2023, reprise par l'ESGE 2025, la cytologie par brossage n'a qu'une sensibilité de 40 %.",
+        "pourquoiFaux": "Une cytologie négative n'exclut pas un cancer devant une sténose suspecte."
+       },
+       "sources": [
+        "ASGE, recommandations sur les sténoses biliaires (2023)",
+        "ESGE, recommandations sur les sténoses biliaires (2025)"
+       ],
+       "erreurFrequente": "Exclure un cancer sur une cytologie de brossage négative.",
+       "consequence": "On méconnaît un cholangiocarcinome.",
+       "bonneConduite": "On complète par biopsies, cholangioscopie ou nouvelle exploration."
+      }
+     ]
+    },
+    {
+     "ref": "vesicule_et_voies_biliaires__cholangioscopie",
+     "nom": "Cholangioscopie",
+     "modalite": "Endoscopie",
+     "defis": [
+      {
+       "id": "vesicule_et_voies_biliaires__cholangioscopie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE 2025, la cholangioscopie se demande devant une sténose restée indéterminée après une CPRE standard, avec une sensibilité de 74 %.",
+        "pourquoiFaux": "Un nouveau brossage garde une faible sensibilité, et les autres examens ne prélèvent pas."
+       },
+       "sources": [
+        "ESGE, recommandations sur les sténoses biliaires (2025)"
+       ],
+       "casClinique": "Une femme de 63 ans, à Berne, a une sténose du cholédoque ; deux brossages lors de CPRE sont négatifs, mais le CA 19-9 monte.",
+       "options": [
+        "Cholangioscopie avec biopsies",
+        "Nouveau brossage simple",
+        "Scintigraphie HIDA",
+        "Échographie abdominale"
+       ],
+       "bonneReponse": "Cholangioscopie avec biopsies",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__cholangioscopie-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Les vaisseaux tortueux orientent vers une sténose maligne et guident la biopsie ciblée.",
+        "pourquoiFaux": "Une muqueuse pâle et lisse orienterait vers une sténose bénigne."
+       },
+       "sources": [
+        "ESGE, recommandations sur les sténoses biliaires (2025)"
+       ],
+       "consigne": "Décrivez la muqueuse biliaire vue en cholangioscopie.",
+       "aspectRecherche": "Aspect vasculaire et relief de la sténose",
+       "reponse": "Vaisseaux tortueux et dilatés : sténose suspecte de malignité",
+       "imageOuTraceAttendu": "Image de cholangioscopie : sténose irrégulière avec des vaisseaux tortueux et dilatés et un relief papillaire friable."
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__cholangioscopie-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE 2025, la cholangioscopie exige un centre expert et expose au même risque de cholangite et de pancréatite que la CPRE.",
+        "pourquoiFaux": "La technique n'est utile que dans des mains entraînées."
+       },
+       "sources": [
+        "ESGE, recommandations sur les sténoses biliaires (2025)"
+       ],
+       "erreurFrequente": "Proposer une cholangioscopie dans un hôpital sans expérience de la technique.",
+       "consequence": "On expose au risque sans bénéfice.",
+       "bonneConduite": "On adresse le patient à un centre expert."
+      }
+     ]
+    },
+    {
+     "ref": "vesicule_et_voies_biliaires__bilirubine_phosphatase_alcaline_ggt",
+     "nom": "Bilirubine, phosphatase alcaline, GGT",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "vesicule_et_voies_biliaires__bilirubine_phosphatase_alcaline_ggt-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE 2019, ces tests classent la probabilité de calcul cholédocien et fixent l'indication de l'imagerie de seconde ligne.",
+        "pourquoiFaux": "La lipase vise le pancréas, et le CA 19-9 et les IgG4 ne s'utilisent qu'en cas de sténose."
+       },
+       "sources": [
+        "ESGE, recommandations sur la lithiase de la voie biliaire principale (2019)"
+       ],
+       "casClinique": "Un homme de 55 ans, à Lugano, a des coliques biliaires répétées depuis un mois.",
+       "options": [
+        "Bilirubine, PAL et GGT",
+        "Lipase seule",
+        "CA 19-9",
+        "IgG4"
+       ],
+       "bonneReponse": "Bilirubine, PAL et GGT",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__bilirubine_phosphatase_alcaline_ggt-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon les Tokyo Guidelines 2018, une bilirubine ≥ 34 µmol/l et une PAL ou une GGT > 1,5 fois la normale avec fièvre et dilatation définissent une cholangite.",
+        "pourquoiFaux": "Attendre une seconde imagerie avant les antibiotiques et le drainage expose au choc septique."
+       },
+       "sources": [
+        "Tokyo Guidelines (2018)"
+       ],
+       "resultat": "Fièvre à 39 °C, bilirubine à 50 µmol/l, PAL à 2 fois la normale et voie biliaire dilatée.",
+       "decision": "On pose une cholangite aiguë et on organise le drainage biliaire."
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__bilirubine_phosphatase_alcaline_ggt-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE 2019, environ 5 % des porteurs d'un calcul cholédocien ont des tests hépatiques normaux.",
+        "pourquoiFaux": "Des tests normaux abaissent la probabilité sans l'annuler."
+       },
+       "sources": [
+        "ESGE, recommandations sur la lithiase de la voie biliaire principale (2019)"
+       ],
+       "erreurFrequente": "Exclure un calcul cholédocien parce que les tests hépatiques sont normaux.",
+       "consequence": "On manque un calcul.",
+       "bonneConduite": "On tient compte de la clinique et de l'imagerie."
+      }
+     ]
+    },
+    {
+     "ref": "vesicule_et_voies_biliaires__ca_19_9",
+     "nom": "CA 19-9",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "vesicule_et_voies_biliaires__ca_19_9-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE 2025 et l'ESMO 2022, on dose le CA 19-9 devant une sténose biliaire suspecte et au diagnostic d'un cancer biliaire.",
+        "pourquoiFaux": "L'AFP vise le CHC, la calprotectine l'intestin et la lipase le pancréas."
+       },
+       "sources": [
+        "ESGE, recommandations sur les sténoses biliaires (2025)",
+        "ESMO, recommandations sur les cancers des voies biliaires (2022)"
+       ],
+       "casClinique": "Un homme de 68 ans, à Fribourg, a une sténose hilaire découverte au CT.",
+       "options": [
+        "CA 19-9",
+        "AFP",
+        "Calprotectine fécale",
+        "Lipase"
+       ],
+       "bonneReponse": "CA 19-9",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__ca_19_9-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESGE 2025, une cholestase élève faussement le CA 19-9 et diminue sa valeur pour distinguer une sténose maligne.",
+        "pourquoiFaux": "Conclure au cancer sur ce seul chiffre en pleine cholestase est prématuré."
+       },
+       "sources": [
+        "ESGE, recommandations sur les sténoses biliaires (2025)"
+       ],
+       "resultat": "CA 19-9 à 450 kU/l chez un patient ictérique avec une bilirubine à 180 µmol/l.",
+       "decision": "On recontrôle le CA 19-9 après drainage biliaire."
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__ca_19_9-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESMO 2022, environ 10 % des personnes sont Lewis négatives et ne produisent pas de CA 19-9.",
+        "pourquoiFaux": "Un taux nul n'exclut pas un cancer chez ces personnes."
+       },
+       "sources": [
+        "ESMO, recommandations sur les cancers des voies biliaires (2022)"
+       ],
+       "erreurFrequente": "Exclure un cancer biliaire parce que le CA 19-9 est indétectable.",
+       "consequence": "On rassure à tort.",
+       "bonneConduite": "On s'appuie sur l'imagerie et l'histologie."
+      }
+     ]
+    },
+    {
+     "ref": "vesicule_et_voies_biliaires__igg4",
+     "nom": "IgG4 (cholangite sclérosante IgG4)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "vesicule_et_voies_biliaires__igg4-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2022, on dose les IgG4 chez tout adulte au diagnostic d'une cholangite sclérosante des gros canaux.",
+        "pourquoiFaux": "Les autres analyses ne cherchent pas une maladie liée aux IgG4."
+       },
+       "sources": [
+        "EASL, recommandations sur la cholangite sclérosante (2022)"
+       ],
+       "casClinique": "Un homme de 66 ans, à Bâle, a une cholangite sclérosante des gros canaux découverte à la cholangio-IRM et un pancréas augmenté de volume.",
+       "options": [
+        "IgG4 sériques",
+        "AFP",
+        "Test de la sueur",
+        "Élastase fécale"
+       ],
+       "bonneReponse": "IgG4 sériques",
+       "visee": "etiologique"
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__igg4-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2022, un taux > 4 fois la normale est spécifique à 100 % face à la cholangite sclérosante primitive et au cholangiocarcinome.",
+        "pourquoiFaux": "Une chirurgie d'emblée pour un cancer supposé serait inutile."
+       },
+       "sources": [
+        "EASL, recommandations sur la cholangite sclérosante (2022)",
+        "Nakazawa et al., critères de la cholangite à IgG4 (2021)"
+       ],
+       "resultat": "IgG4 à 5 fois la normale chez ce patient.",
+       "decision": "On retient une cholangite à IgG4 très probable, qui répond aux corticoïdes."
+      },
+      {
+       "id": "vesicule_et_voies_biliaires__igg4-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2022, 25 à 30 % des cholangites à IgG4 ont des IgG4 sériques normales.",
+        "pourquoiFaux": "Le dosage seul ne suffit pas à écarter le diagnostic."
+       },
+       "sources": [
+        "EASL, recommandations sur la cholangite sclérosante (2022)"
+       ],
+       "erreurFrequente": "Exclure une cholangite à IgG4 sur des IgG4 normales.",
+       "consequence": "On manque une maladie corticosensible.",
+       "bonneConduite": "On s'appuie sur l'imagerie, l'histologie et l'atteinte d'autres organes."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "AFP": "Alpha-fœtoprotéine, marqueur sanguin du carcinome hépatocellulaire.",
+    "ASGE": "L'ASGE est la société américaine d'endoscopie digestive.",
+    "CA 19-9": "Le CA 19-9 est un antigène glucidique sérique utilisé comme marqueur des cancers bilio-pancréatiques.",
+    "CHC": "Carcinome hépatocellulaire, cancer primitif du foie.",
+    "CPRE": "La CPRE est la cholangiopancréatographie rétrograde endoscopique, qui opacifie les voies biliaires par la papille.",
+    "CT": "Le CT est la tomodensitométrie, qui produit des coupes du corps par rayons X.",
+    "EASL": "L'EASL est l'association européenne pour l'étude du foie.",
+    "ESGE": "L'ESGE est la société européenne d'endoscopie digestive.",
+    "ESMO": "L'ESMO est la société européenne d'oncologie médicale.",
+    "GGT": "La GGT est la gamma-glutamyl-transférase, une enzyme qui s'élève dans la cholestase.",
+    "HIDA": "HIDA désigne les dérivés de l'acide iminodiacétique marqués au technétium, traceurs de la scintigraphie biliaire.",
+    "IgG4": "Les IgG4 sont une sous-classe d'immunoglobulines G, élevée dans la maladie associée aux IgG4.",
+    "IRM": "L'IRM est l'imagerie par résonance magnétique, qui produit des coupes sans rayons ionisants.",
+    "kU/l": "kU/l signifie kilo-unités par litre, unité du CA 19-9 équivalente aux U/ml.",
+    "Lewis": "Le système Lewis est un groupe sanguin ; les personnes Lewis négatives ne produisent pas de CA 19-9.",
+    "Murphy": "Le signe de Murphy est l'arrêt de l'inspiration à la palpation de l'hypocondre droit, évocateur de cholécystite.",
+    "PAL": "La PAL est la phosphatase alcaline, une enzyme des canaux biliaires et de l'os.",
+    "SNMMI": "La SNMMI est la société américaine de médecine nucléaire et d'imagerie moléculaire.",
+    "SSG": "Société Suisse de Gastroentérologie."
+   }
+  }
+ }
+}
