@@ -10,7 +10,7 @@ Tu produis le contenu de quatre jeux d'apprentissage médical destinés à un m�
 Ton texte ne sera pas lu comme un livre. Un programme l'injecte dans des **cases courtes, des infobulles et des fenêtres**. Chaque champ a donc une place et une longueur précises : respecte-les.
 
 ## 2. Ce que tu reçois et ce que tu rends
-Tu reçois un fichier `LOT_<tâche>.json` :
+Tu reçois un fichier de lot dont le nom dit le contenu (ex. `P04_Examens_Thorax_8-organes_102-examens.json`) :
 ```json
 {"_lot": {"tache": "P04", "titre": "…", "consigne": "…"},
  "fichiers": {"conception/donnees/…/poumons_et_voies_aeriennes.json": { …contenu à remplir… }}}
@@ -139,3 +139,6 @@ Les fichiers `graphe.json`, `anatomie3d.json`, `regions.json`, les index et les 
 - [ ] Les unités sont en SI suisses ; chaque information intellectuelle, dont chaque dose et chaque valeur, porte sa source nommée.
 - [ ] Chaque citation Smarter Medicine existe dans une liste Top 5 suisse publiée.
 - [ ] Tu n'as inventé aucune URL, aucune référence et aucun chiffre ; les doutes sont listés dans `_lot.aVerifier`.
+
+---
+Signature : AAI (Anthropic AI)

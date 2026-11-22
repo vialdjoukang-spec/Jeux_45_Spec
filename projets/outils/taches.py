@@ -50,7 +50,7 @@ CHAMPS_EXAMEN = [
 
 
 def prompt(role, fichiers, champs, regles_plus=()):
-    l = [role, "", "Le fichier joint LOT_<identifiant>.json contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :"] + [f"- {f}" for f in fichiers]
+    l = [role, "", "Le fichier de lot joint (LOT_<identifiant>.json) contient, dans « fichiers », chaque fichier à remplir sous son chemin exact :"] + [f"- {f}" for f in fichiers]
     if champs:
         l += ["", "Contenu attendu de chaque champ :"] + [f"- {c}" for c in champs]
     l += ["", "Règles :"] + [f"- {r}" for r in list(regles_plus) + REGLES]
@@ -184,10 +184,66 @@ tache(P, "J03", "Produire les fiches par spécialité (couche 1)", "Gemini (Pro)
 tache(P, "J04", "Générer les cartes réflexes (couche 2, 0 token)", "Claude Code", "python scripts/generer_reflexes.py", ["scripts/generer_reflexes.py"], "content/reflexes/", dep=["J03"], claude=True)
 tache(P, "J05", "Auditer chaque lot de fiches (REJECTOR_)", "Claude (finition) — crédits API en lot", "Rejet des fiches non conformes, régénération ciblée.", [], "lots validés", dep=["J03"], claude=True)
 
+SIGNATURE = "AAI (Anthropic AI)"
 LOTS = os.path.join(RAC, "projets", "lots")
 os.makedirs(LOTS, exist_ok=True)
-for f in glob.glob(os.path.join(LOTS, "*.json")):
+for f in glob.glob(os.path.join(LOTS, "**", "*.json"), recursive=True):
     os.remove(f)
+
+
+def nf(t):
+    t = t.replace("œ", "oe").replace("Œ", "Oe").replace("é", "e").replace("É", "E")
+    t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode()
+    t = re.sub(r"[()',.:;«»]", " ", t)
+    return re.sub(r"[^A-Za-z0-9-]+", "_", t).strip("_")
+
+
+def court(x, n=34):
+    return x if len(x) <= n else x[:n].rsplit("_", 1)[0]
+
+
+def classer(t):
+    """→ (dossier projet, dossier thème, nom explicite du lot)"""
+    i, ti = t["id"], t["titre"]
+    sysn = re.search(r"(?:système |: |— )(.+?)(?: \(|$)", ti)
+    sysn = nf(sysn.group(1)) if sysn else ""
+    if i[0] == "T":
+        n = int(i[1:])
+        if 10 <= n < 30:
+            m = re.search(r"\((\d+) organes\)", ti)
+            return "1_Tetrade_Fondation", "1_Organes_Anatomie_Physiologie", f"{i}_Anatomie_Physiologie_{sysn}_{m.group(1)}-organes"
+        if 40 <= n < 60:
+            return "1_Tetrade_Fondation", "2_Semiologie_Syndromes_Physiopathologie", f"{i}_Semiologie_Syndromes_Physiopathologie_{sysn}"
+        if 61 <= n <= 74:
+            return "1_Tetrade_Fondation", "3_Pharmacologie", f"{i}_Pharmacologie_Structures_Cibles_{nf(ti.split('— ')[-1])}"
+        if n == 80:
+            return "1_Tetrade_Fondation", "3_Pharmacologie", "T80_Pharmacologie_Classes_medicamenteuses_Suisse"
+        if n == 33:
+            return "1_Tetrade_Fondation", "3_Pharmacologie", "T33_Pharmacologie_VIT-DIT-CAFe_par_organe"
+    if i[0] == "P":
+        n = int(i[1:])
+        if n < 20:
+            m = re.search(r"région \d+\. (.+?) \((\d+) organes, (\d+) examens\)", ti)
+            return "2_Paraclinique", "1_Examens_par_region", f"{i}_Examens_{nf(m.group(1))}_{m.group(2)}-organes_{m.group(3)}-examens"
+        if n == 20:
+            return "2_Paraclinique", "2_Biologie", "P20_Biologie_23-prelevements_valeurs_SI_interpretation"
+        if n == 21:
+            return "2_Paraclinique", "3_Formules_Criteres_SmarterMedicine", "P21_Formules_et_Criteres_diagnostiques"
+        if n == 22:
+            return "2_Paraclinique", "3_Formules_Criteres_SmarterMedicine", "P22_SmarterMedicine_recommandations_suisses"
+        if n == 23:
+            return "2_Paraclinique", "4_Imagerie_Images_et_Cas", "P23_Images_reelles_Thorax_URL_et_licences"
+        if n == 25:
+            return "2_Paraclinique", "4_Imagerie_Images_et_Cas", "P25_Cas_cliniques_Thorax_le_bon_examen"
+        if 31 <= n <= 39:
+            m = re.search(r"\((.+?) → (.+?)\)$", ti)
+            return "2_Paraclinique", "5_Explorations_fonctionnelles_Endoscopies", f"{i}_Explorations_{court(nf(m.group(1)))}_a_{court(nf(m.group(2)))}"
+    if i[0] == "X":
+        m = re.search(r"de (\w) — (.+?) \(", ti)
+        return "3_Transversal_Discip", "1_Lecons_par_discipline", f"{i}_Lecons_{m.group(1)}_{nf(m.group(2))[:45]}"
+    if i[0] == "J":
+        return "4_Jeux_45_Spec", "1_Fiches_par_specialite", f"{i}_Fiches_specialites_schema"
+    return "0_Divers", "0_Divers", f"{i}_{nf(ti)[:50]}"
 for t in T:
     chemins = []
     for e in t["entrees"]:
@@ -199,11 +255,14 @@ for t in T:
     fich = {c: json.load(open(os.path.join(RAC, c), encoding="utf-8")) for c in chemins if c.endswith(".json")}
     t["lot"] = None
     if fich and t["prompt"]:
-        nom = f"LOT_{t['id']}.json"
-        json.dump({"_lot": {"tache": t["id"], "titre": t["titre"], "projet": t["projet"], "nombreFichiers": len(fich),
+        dp, dt, base = classer(t)
+        nom = base + ".json"
+        rel = f"{dp}/{dt}/{nom}"
+        os.makedirs(os.path.join(LOTS, dp, dt), exist_ok=True)
+        json.dump({"_lot": {"tache": t["id"], "titre": t["titre"], "projet": t["projet"], "nombreFichiers": len(fich), "signature": SIGNATURE,
                             "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."},
-                   "fichiers": fich}, open(os.path.join(LOTS, nom), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-        t["lot"] = "projets/lots/" + nom
+                   "fichiers": fich}, open(os.path.join(LOTS, dp, dt, nom), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        t["lot"] = "projets/lots/" + rel
         t["prompt"] = t["prompt"].replace("LOT_<identifiant>.json", nom)
     t["liens"] = [GH + e for e in t["entrees"] if "*" not in e]
     if t["lot"]:
@@ -214,3 +273,24 @@ gabarit = open(os.path.join(RAC, "projets", "outils", "tableau_de_bord.gabarit.h
 html = gabarit.replace("/*TACHES*/[]", json.dumps(T, ensure_ascii=False).replace("</", "<\\/"))
 open(os.path.join(RAC, "projets", "tableau_de_bord.html"), "w", encoding="utf-8").write(html)
 print(len(T), "tâches ;", {p: sum(1 for t in T if t["projet"] == p) for p in dict.fromkeys(t["projet"] for t in T)})
+
+# ---------- 00_LISEZ_MOI.md : arborescence des lots ----------
+L = ["# LOTS JSON — mode d'emploi et arborescence", "",
+     "1. Une seule fois par plateforme : tu colles 00_INSTRUCTIONS_PRODUCTEUR.md dans les instructions permanentes (Gem, instructions personnalisées).",
+     "2. Pour chaque tâche : tu ouvres le dossier du projet, puis le dossier du thème ; tu joins le lot et tu colles son prompt (tableau de bord : https://claude.ai/artifact/N7VUBhFLfp3gq6rTsPt88v).",
+     "3. Tu importes la réponse dans la tâche du tableau de bord.", "",
+     "Le nom de chaque lot dit son contenu : identifiant de tâche, sujet, système ou région, volume.", ""]
+arbre = {}
+for t in T:
+    if t.get("lot"):
+        dp, dt, nom = t["lot"].split("/")[2:5]
+        arbre.setdefault(dp, {}).setdefault(dt, []).append((nom, t))
+for dp in sorted(arbre):
+    L += ["", f"## {dp}"]
+    for dt in sorted(arbre[dp]):
+        L += ["", f"### {dp}/{dt}"]
+        for nom, t in arbre[dp][dt]:
+            n = json.load(open(os.path.join(RAC, t["lot"]), encoding="utf-8"))["_lot"]["nombreFichiers"]
+            L.append(f"- **{nom}** — {t['titre']} ({n} fichiers JSON)")
+L += ["", f"Signature : {SIGNATURE}"]
+open(os.path.join(LOTS, "00_LISEZ_MOI.md"), "w", encoding="utf-8").write("\n".join(L) + "\n")
