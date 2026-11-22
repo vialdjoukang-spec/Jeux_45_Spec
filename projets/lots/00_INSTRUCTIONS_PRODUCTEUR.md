@@ -31,8 +31,8 @@ Tu reçois un fichier `LOT_<tâche>.json` :
 6. **Typique ou atypique :** tout signe ou symptôme porte `"presentation": "typique"` ou `"atypique"`. Tu donnes 2 à 3 signes typiques par temps d'examen ; tu n'en donnes un seul que si la sémiologie n'en offre vraiment qu'un, avec `"uniqueAssume": true`.
 7. **Bulle (infobulle) :** `{"def", "pourquoi", "confusion", "retenir"}`, une phrase verbale par rubrique, de longueur comparable. « confusion » nomme ce avec quoi on confond et le signe qui tranche.
 8. **Bilan par visée :** les visées valent diagnostique (1re intention, puis gold standard), retentissement, etiologique, complications, therapeutique (si applicable), sortie (si hospitalisation).
-9. **Exactitude :** tu écris des affirmations sûres et sourcées. Tu n'inventes jamais un chiffre, une référence, une recommandation ni une URL. Tu cites une source par son nom (« ERS/ATS 2022 », « SSMI », « Smarter Medicine 2019 »), jamais par une URL inventée.
-10. **Images :** tu ne dessines rien, ni schéma ni code graphique. Quand une tâche demande des images, tu rends des URL d'images **réelles**, avec leur licence vérifiée.
+9. **Exactitude et sources obligatoires :** tu écris des affirmations sûres. Toute information intellectuelle (connaissance, chiffre, seuil, dose, délai, recommandation) porte sa source nommée dans le texte même du champ, par exemple « selon la Swiss Stroke Society 2021 » ou « NRD OFSP R-06-06 ». Tu cites les sociétés suisses d'abord (SSN, SSMI, Smarter Medicine, BAG/OFSP), puis européennes et internationales (ESC, ESCMID, ESUR, ACR, AHA/ASA). Tu n'attribues à Smarter Medicine que les recommandations qui figurent réellement dans une liste Top 5 suisse publiée, avec le nom de la société et l'année. Tu n'inventes jamais un chiffre, une référence, une recommandation ni une URL ; une source que tu ne peux pas confirmer va dans `_lot.aVerifier`.
+10. **Images :** seules les images sont exemptes de source textuelle. Tu ne dessines rien, ni schéma ni code graphique. Quand une tâche demande des images, elles doivent être présentes, sous forme d'URL d'images **réelles**, avec leur licence vérifiée.
 
 ## 4. Définition des champs par type de lot
 
@@ -117,5 +117,6 @@ Ce fichier est la **source unique** des valeurs : les organes y renvoient.
 - [ ] Il ne reste aucun `null` sauf là où la règle le permet (`smarterMedicine`, `radioAnatomieNormale`, `prelevementRef`).
 - [ ] Chaque sigle employé figure dans `glossaire`.
 - [ ] Les explications sont en phrases verbales ; les étiquettes font 45 caractères au plus.
-- [ ] Les unités sont en SI suisses ; les doses et les valeurs portent leur source.
+- [ ] Les unités sont en SI suisses ; chaque information intellectuelle, dont chaque dose et chaque valeur, porte sa source nommée.
+- [ ] Chaque citation Smarter Medicine existe dans une liste Top 5 suisse publiée.
 - [ ] Tu n'as inventé aucune URL, aucune référence et aucun chiffre ; les doutes sont listés dans `_lot.aVerifier`.
