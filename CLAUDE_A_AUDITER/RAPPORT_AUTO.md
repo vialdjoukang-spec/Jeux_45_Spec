@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:20
+# Audit automatique — 2026-11-22 21:25
 
-18 fichier(s) : 16 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
+22 fichier(s) : 20 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -63,5 +63,19 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/02_Moelle_osseuse_et_ganglions/2_Pratique/P09-02-PR_Examens_Moelle_osseuse_et_ganglions_6-examens_PRATIQUE_production_XAi.json`
 - 🟩 `moelle_osseuse_et_ganglions.json` : remplissage 100 % (12/12)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/03_Infection_et_immunite/1_Theorie/P09-03-BIO_Biologie_Infection_et_immunite_13-examens_production_XAi.json`
+- 🟩 `infection_et_immunite.json` : remplissage 92 % (263/286)
+- aVerifier déclarés : 7
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/03_Infection_et_immunite/1_Theorie/P09-03-FCT_Exploration_fonctionnelle_Infection_et_immunite_1-examens_production_XAi.json`
+- 🟩 `infection_et_immunite.json` : remplissage 86 % (18/21)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/03_Infection_et_immunite/2_Pratique/P09-03-BIO-PR_Biologie_Infection_et_immunite_13-examens_PRATIQUE_production_XAi.json`
+- 🟩 `infection_et_immunite.json` : remplissage 100 % (26/26)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/03_Infection_et_immunite/2_Pratique/P09-03-FCT-PR_Exploration_fonctionnelle_Infection_et_immunite_1-examens_PRATIQUE_production_XAi.json`
+- 🟩 `infection_et_immunite.json` : remplissage 100 % (2/2)
 
 Signature : AAI (Anthropic AI)
