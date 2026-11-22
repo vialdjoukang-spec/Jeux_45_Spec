@@ -69,6 +69,14 @@ mc = [n for n in N.values() if n.get("nature") == "Mot-clé"]
 ctrl("Chaque mot-clé ouvre une fenêtre (image 3D en anatomie, courbe ou détail en physiologie)", all(n.get("fenetre") for n in mc if n.get("espace") == "anatomie") and mc, f"{len(mc)} mots-clés")
 esp_inc = [n["id"] for n in N.values() if n.get("espace") and n["espace"] not in ("anatomie", "physiologie", "semiologie", "physiopathologie")]
 ctrl("Chaque case d'espace appartient à l'un des 4 espaces", not esp_inc, ", ".join(esp_inc))
+# 1 ter. Biologie : une analyse = une fiche ; chaque examen biologique d'organe renvoie à ses analyses
+import glob as _g
+_an = [a for f in _g.glob(os.path.join(ICI, "donnees/paraclinique/biologie/analyses/*.json")) for a in json.load(open(f, encoding="utf-8"))["analyses"]]
+_noms = [a["nom"] for a in _an]
+ctrl(f"Chaque analyse biologique est unique ({len(_an)} analyses individuelles)", len(_noms) == len(set(_noms)), ", ".join(sorted({x for x in _noms if _noms.count(x) > 1})))
+_sans = sorted({e["nom"] for f in _g.glob(os.path.join(ICI, "donnees/paraclinique/topographie/*/*.json")) for e in json.load(open(f, encoding="utf-8"))["examens"]
+                if e["modalite"] == "Biologie" and not e.get("analysesRef") and not re.search(r"score|ponction de chambre", e["nom"], re.I)})
+ctrl("Chaque examen biologique d'organe renvoie à ses analyses (valeurs dans une source unique)", not _sans, ", ".join(_sans))
 a_prod = sum(1 for n in N.values() if n.get("aProduire"))
 INFO = f"Organes encore à produire (backlog, non bloquant) : {a_prod}"
 

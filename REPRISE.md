@@ -84,7 +84,7 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Commandes de terminal : une seule par bloc, avec son but entre parenthèses.
 
 ## 12. Tableau de bord du chantier (lié à Claude)
-- Page : https://claude.ai/artifact/N7VUBhFLfp3gq6rTsPt88v (slug `aaf7eb3f-771e-48f5-8164-276c764bd25f`), source `projets/outils/taches.py` + `tableau_de_bord.gabarit.html` → `projets/tableau_de_bord.html` et `projets/taches.json` (96 tâches).
+- Page : https://claude.ai/artifact/N7VUBhFLfp3gq6rTsPt88v (slug `aaf7eb3f-771e-48f5-8164-276c764bd25f`), source `projets/outils/taches.py` + `tableau_de_bord.gabarit.html` → `projets/tableau_de_bord.html` et `projets/taches.json` (185 tâches).
 - Répartition : Claude conçoit, audite et polit ; le gros œuvre (volumes, recherche d'images) se fait sur Gemini (4 comptes Pro), Grok, Hydrogen medium, Neon medium.
 - Lecture par Claude (outils claude-artifacts) : `db_list` collection `taches` (statut, plateformes, compteRendu), `imports` (métadonnées des JSON importés), `contenus` (texte des JSON en morceaux de 80 000 caractères : champs k, i, n, texte ; recoller par ordre de i).
 - Quand Vial dit qu'une tâche est « Envoyé à Claude » : lire ses imports, auditer, corriger, intégrer dans le dépôt, puis passer la tâche en « Validé ».
@@ -92,3 +92,4 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Paquets de lot : `projets/lots/<projet>/<thème>/<ID>_<contenu explicite>.json` (ex. `2_Paraclinique/1_Examens_par_region/P04_Examens_Thorax_8-organes_102-examens.json`) ; ancien nom `LOT_<tâche>.json` (50 fichiers, générés par `taches.py`) = {"_lot": {...}, "fichiers": {chemin exact: contenu}} ; l'IA de production rend le même objet ; à l'import, chaque chemin se réécrit à sa place dans le dépôt.
 - Index de tous les JSON avec liens GitHub et bruts : `INDEX_JSON.md` (régénéré à chaque mise à jour). Les graphes, arbres 3D, régions, index et exercices se calculent par script (T60, P36), jamais par l'IA de production.
 - Signature de mes productions : AAI (Anthropic AI), demandée par Vial (champ `_lot.signature`, pied des fichiers .md).
+- Paraclinique (22/11) : lots par organe `2_Paraclinique/1_Examens_par_organe/<NN_Région>/P<RR>-<OO>_Examens_<Organe>_<n>-examens.json` (66) ; biologie : `2_Biologie/1_Analyses_individuelles/PB01…PB15` (≈ 300 analyses, source unique des valeurs, catalogue `conception/outils/analyses_biologiques.py`) et `2_Biologie/2_Prelevements_technique/PP01…PP04` ; `3_Explorations_fonctionnelles/<Région>/PF…` ; `4_Endoscopies/<Région>/PE…` ; `5_Imagerie_Images_et_Cas` ; `6_Formules_Criteres_SmarterMedicine`. Chaque examen biologique d'organe porte `analysesRef` (lien automatique, audité).

@@ -37,7 +37,7 @@ Tu reçois un fichier de lot dont le nom dit le contenu (ex. `P04_Examens_Thorax
 
 ## 4. Définition des champs par type de lot
 
-### 4.1 Paraclinique : examen d'organe (`topographie/…/*.json`, lots P01 à P09)
+### 4.1 Paraclinique : examens d'un organe (`topographie/…/*.json`, lots P01-01 à P09-10, un organe par lot)
 | Champ | Contenu |
 |---|---|
 | `visees` | liste prise parmi diagnostique, retentissement, etiologique, complications, therapeutique, sortie |
@@ -76,14 +76,15 @@ Tu reçois un fichier de lot dont le nom dit le contenu (ex. `P04_Examens_Thorax
  "bulle": {"def": "La radiographie projette le thorax sur un plan et montre les densités air, eau et calcium.", "pourquoi": "Une condensation remplace l'air alvéolaire par du liquide et apparaît blanche, avec un bronchogramme aérien.", "confusion": "L'atélectasie ressemble à une condensation, mais elle rétracte les scissures et attire le médiastin.", "retenir": "Le diagnostic de pneumonie associe une clinique compatible et une opacité nouvelle."}}
 ```
 
-### 4.2 Paraclinique : biologie (`biologie/prelevements/*.json`, lot P20)
-- `technique` : prélèvement, tube, conditions (à jeun, horaire, transport).
-- `valeursReference` : adulte homme et femme, enfant, grossesse si elle diffère ; unités SI suisses.
-- `interpretation` : causes d'augmentation et de diminution, des plus fréquentes aux plus graves.
-- `calculs`, `criteres`, `syndromes`, `diagnostics`, `sources` : ce que l'analyse alimente, cité par son nom.
-- `bulle` : voir règle 7.
+### 4.2 Paraclinique : biologie
+**Analyses individuelles** (`biologie/analyses/*.json`, lots PB01 à PB15) : une analyse = une fiche. C'est la **source unique** des valeurs de référence.
+- `tube`, `unite` (SI suisse), `valeursReference` (adulteHomme, adulteFemme, enfant, grossesse, sujetAge ; « identique à l'adulte » si rien ne change).
+- `seuilsCritiques` (valeurs d'alerte), `variationsPhysiologiques`, `augmentation` et `diminution` (des causes fréquentes aux graves), `interferences`, `delaiResultat`, `bulle`.
+- `organes` est pré-rempli : tu ne le modifies pas.
 
-Ce fichier est la **source unique** des valeurs : les organes y renvoient.
+**Prélèvements** (`biologie/prelevements/*.json`, lots PP01 à PP04) : technique seulement (`technique`, `tube`, `conditions`, `conservationTransport`, `interpretation` sans valeurs, `bulle`). `analysesRef` est pré-rempli.
+
+**Dans une fiche d'organe**, une analyse dit pourquoi on la demande pour cet organe et quel seuil décide ; elle ne répète jamais les valeurs normales.
 
 ### 4.3 Paraclinique : calculs et critères (lot P21)
 - Tu écris la formule en notation calculable, par exemple `Na - (Cl + HCO3)`.
@@ -112,7 +113,7 @@ Ce fichier est la **source unique** des valeurs : les organes y renvoient.
 - `structures` : structureId, nom, maillage3d (nom anatomique), cibles (récepteurs, enzymes, canaux, transporteurs) et la classe qui vise chacune ; tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent.
 - `classes` : classeId, nom, mecanisme en une phrase, indications, chefDeFile par profil (adulte, enfant, grossesse, sujet âgé, insuffisance rénale), selon le Compendium suisse.
 
-### 4.9 Paraclinique : explorations fonctionnelles et endoscopies (lots P31 à P35)
+### 4.9 Paraclinique : explorations fonctionnelles et endoscopies (lots PF et PE, rangés par région)
 - `fonction` : ce que l'examen mesure, en une phrase.
 - `traces` : l'aspect normal, puis les aspects pathologiques typiques, chacun nommé ; tu ne dessines rien.
 - `seuils` : les valeurs qui séparent normal et pathologique, en unités SI.

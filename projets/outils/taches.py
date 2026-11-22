@@ -18,6 +18,20 @@ def slug(t):
     return re.sub(r"[^a-z0-9]+", "_", t).strip("_")[:40]
 
 
+def nf(t):
+    t = t.replace("œ", "oe").replace("Œ", "Oe").replace("é", "e").replace("É", "E")
+    t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode()
+    t = re.sub(r"[()',.:;«»]", " ", t)
+    return re.sub(r"[^A-Za-z0-9-]+", "_", t).strip("_")
+
+
+def court(x, n=34):
+    return x if len(x) <= n else x[:n].rsplit("_", 1)[0]
+
+
+MOD_COURT = {"IMG": "imagerie", "BIO": "biologie", "FCT": "explorations", "END": "endoscopies", "HIS": "anatomopathologie"}
+
+
 REGLES = [
     "Tu appliques intégralement les instructions du producteur (fichier 00_INSTRUCTIONS_PRODUCTEUR.md, chargé dans tes instructions ou joint à ce message) ; en cas de doute, elles priment.",
     "Tu écris en français, en phrases verbales complètes, claires et concises ; jamais de phrase nominale dans une explication.",
@@ -60,9 +74,9 @@ def prompt(role, fichiers, champs, regles_plus=()):
 T = []
 
 
-def tache(projet, id, titre, ou, quoi, entrees=(), sortie="", prompt_txt="", dep=(), claude=False):
+def tache(projet, id, titre, ou, quoi, entrees=(), sortie="", prompt_txt="", dep=(), claude=False, dossier=None, nom=None):
     T.append({"projet": projet, "id": id, "titre": titre, "ou": ou, "quoi": quoi, "entrees": list(entrees), "sortie": sortie,
-              "prompt": prompt_txt, "dependances": list(dep), "claude": claude})
+              "prompt": prompt_txt, "dependances": list(dep), "claude": claude, "dossier": list(dossier) if dossier else None, "nomLot": nom})
 
 
 # ---------------- 1. Tétrade ----------------
@@ -114,18 +128,54 @@ tache(P, "T33", "Relier chaque organe à VIT DIT CAFé et aux classes de médica
 
 # ---------------- 2. Paraclinique ----------------
 P = "2_Jeux_Paraclinique"
-for i, (reg, orgs) in enumerate(TOPO.items()):
-    fich = [f"conception/donnees/paraclinique/topographie/{slug(reg)}/{slug(o)}.json" for o in orgs]
-    n = sum(len(e) for m in orgs.values() for e in m.values())
-    tache(P, f"P{1 + i:02d}", f"Remplir les examens de la région {reg} ({len(orgs)} organes, {n} examens)", f"Gemini (Pro) — compte {i % 4 + 1}",
-          "Tu traites un organe par réponse ; tu importes ici chaque JSON rendu.", fich, "fichiers de topographie remplis",
-          prompt("Tu es médecin interniste et radiologue suisse. Pour chaque examen de chaque fichier, tu remplis tous les champs.", fich, CHAMPS_EXAMEN,
-                 ["Tu commences par la région thoracique si tu dois choisir un ordre." if reg.startswith("4") else "Tu gardes l'ordre des examens du fichier."]))
-fich = [f"conception/donnees/paraclinique/biologie/prelevements/{slug(p)}.json" for p in PRELEVEMENTS]
-tache(P, "P20", f"Remplir la biologie ({len(PRELEVEMENTS)} prélèvements)", "Gemini (Pro)", "Source unique des valeurs de référence ; les organes y renvoient.", fich, "prélèvements remplis",
-      prompt("Tu es biologiste médical FAMH. Pour chaque analyse, tu remplis technique, valeurs de référence et interprétation.", fich,
-             ["technique : prélèvement, tube, conditions (à jeun, horaire, transport).", "valeursReference : adulte homme et femme, enfant, grossesse si différent ; unités SI suisses.",
-              "interpretation : causes d'augmentation et de diminution, des plus fréquentes aux plus graves.", "bulle : {def, pourquoi, confusion, retenir}."]))
+DP = "2_Paraclinique"
+# 2.1 Examens par région, puis un lot par organe (fragments courts, homogènes, faciles à répartir)
+for r, (reg, orgs) in enumerate(TOPO.items(), 1):
+    dreg = f"{r:02d}_{nf(reg.split('. ', 1)[-1])}"
+    for o, (org, mods) in enumerate(orgs.items(), 1):
+        f = f"conception/donnees/paraclinique/topographie/{slug(reg)}/{slug(org)}.json"
+        n = sum(len(e) for e in mods.values())
+        detail = " + ".join(f"{len(v)} {MOD_COURT[k]}" for k, v in mods.items() if v)
+        tache(P, f"P{r:02d}-{o:02d}", f"Examens de l'organe {org} ({n} examens : {detail})", f"Gemini (Pro) — compte {(r + o) % 4 + 1}",
+              "Un seul organe : tu colles le prompt, tu joins le lot, tu importes le JSON rendu.", [f], "fichier d'organe rempli",
+              prompt("Tu es médecin interniste et radiologue suisse. Pour chaque examen de l'organe, tu remplis tous les champs.", [f], CHAMPS_EXAMEN,
+                     ["Biologie : tu ne donnes pas de valeurs de référence (elles vivent dans les fiches d'analyses) ; tu dis pourquoi on demande l'analyse pour cet organe, ce qu'on y cherche et le seuil décisionnel.",
+                      "analysesRef est déjà rempli : tu ne le modifies pas."]),
+              dossier=(DP, "1_Examens_par_organe", dreg), nom=f"P{r:02d}-{o:02d}_Examens_{nf(org)[:40]}_{n}-examens")
+# 2.2 Biologie : analyses individuelles (source unique des valeurs), par famille
+from analyses_biologiques import FAMILLES
+for fam, (prel, lst) in sorted(FAMILLES.items()):
+    k = int(fam[:2])
+    f = f"conception/donnees/paraclinique/biologie/analyses/{fam.lower()}.json"
+    lib = fam.split("_", 1)[1].replace("_", " ")
+    tache(P, f"PB{k:02d}", f"Analyses biologiques : {lib} ({len(lst)} analyses)", "Gemini (Pro)",
+          "Une fiche par analyse : unité SI, valeurs par âge, sexe et grossesse, seuils critiques, causes de hausse et de baisse.", [f], "fiches d'analyses remplies",
+          prompt("Tu es biologiste médical FAMH en Suisse. Pour chaque analyse du fichier, tu remplis sa fiche complète.", [f],
+                 ["tube : le tube et l'anticoagulant (ex. tube sec, EDTA, citrate, héparine).", "unite : l'unité SI suisse (mmol/l, µmol/l, g/l, kPa…).",
+                  "valeursReference : adulteHomme, adulteFemme, enfant, grossesse, sujetAge ; une valeur ou un intervalle avec l'unité ; si la valeur ne diffère pas, tu écris « identique à l'adulte ».",
+                  "seuilsCritiques : les valeurs qui imposent une action immédiate (valeurs d'alerte du laboratoire).", "variationsPhysiologiques : horaire, effort, repas, posture, âge.",
+                  "augmentation et diminution : les causes, des plus fréquentes aux plus graves.", "interferences : médicaments et facteurs préanalytiques (hémolyse, garrot, biotine…).",
+                  "delaiResultat : délai habituel du résultat.", "organes est déjà rempli : tu ne le modifies pas.", "bulle : {def, pourquoi, confusion, retenir}."],
+                 ["Tu ne crées pas d'analyse nouvelle : si une analyse importante manque, tu la signales dans _lot.aVerifier."]),
+          dossier=(DP, "2_Biologie", "1_Analyses_individuelles"), nom=f"PB{k:02d}_Analyses_{nf(lib)}_{len(lst)}-analyses")
+GROUPES_PRELEVEMENTS = {
+    "Sang": ["Sang veineux", "Sang artériel", "Sang capillaire", "Hémocultures"],
+    "Liquides_de_ponction": ["Liquide céphalorachidien", "Liquide pleural", "Liquide d'ascite", "Liquide synovial", "Liquide péricardique", "Liquide amniotique", "Ponction de kyste, d'abcès ou de collection"],
+    "Secretions_excreta_ecouvillons": ["Urine", "Selles", "Expectorations et lavage bronchoalvéolaire", "Prélèvements génitaux et urétraux", "Écouvillons nasopharyngés et de gorge", "Sperme", "Salive", "Air expiré"],
+    "Tissus_et_divers": ["Moelle osseuse", "Biopsies tissulaires", "Cheveux et ongles", "Sueur"]}
+_reste = [p for p in PRELEVEMENTS if not any(p.lower().startswith(x.lower()[:12]) for g in GROUPES_PRELEVEMENTS.values() for x in g)]
+if _reste:
+    GROUPES_PRELEVEMENTS["Tissus_et_divers"] += _reste
+for k, (g, noms) in enumerate(GROUPES_PRELEVEMENTS.items(), 1):
+    pres = [p for p in PRELEVEMENTS if any(p.lower().startswith(x.lower()[:12]) for x in noms)]
+    fich = [f"conception/donnees/paraclinique/biologie/prelevements/{slug(p)}.json" for p in pres]
+    tache(P, f"PP{k:02d}", f"Prélèvements : {g.replace('_', ' ')} ({len(pres)} prélèvements, technique)", "Gemini (Pro)",
+          "Technique, tube, conditions, conservation ; les valeurs vivent dans les fiches d'analyses.", fich, "prélèvements remplis",
+          prompt("Tu es biologiste médical FAMH. Pour chaque rubrique de chaque prélèvement, tu décris la technique.", fich,
+                 ["technique : le geste de prélèvement, en étapes courtes.", "tube : tube, flacon ou milieu de transport.", "conditions : à jeun, horaire, position, arrêt de traitement.",
+                  "conservationTransport : température et délai maximal avant analyse.", "interpretation : ce que la rubrique permet de conclure, sans valeurs (elles sont dans les fiches d'analyses).",
+                  "analysesRef est déjà rempli : tu ne le modifies pas.", "bulle : {def, pourquoi, confusion, retenir}."]),
+          dossier=(DP, "2_Biologie", "2_Prelevements_technique"), nom=f"PP{k:02d}_Prelevements_{g}_{len(pres)}-prelevements")
 tache(P, "P21", "Écrire les formules (≈ 40) et les critères diagnostiques (≈ 80)", "Gemini (Pro)", "Formules testables par script ; critères avec leur règle de décision.",
       ["conception/donnees/paraclinique/calculs.json", "conception/donnees/paraclinique/criteres.json"], "calculs.json, criteres.json",
       prompt("Tu es médecin interniste. Tu remplis les formules (trou anionique, Winter, Light, gradient albumine, DFG CKD-EPI…) et les critères diagnostiques usuels.",
@@ -146,17 +196,35 @@ tache(P, "P24", "Télécharger, annoter et brancher la banque d'images thorax", 
 tache(P, "P25", "Écrire 20 cas « le bon examen » (thorax)", "Gemini (Pro)", "Cas de l'arène : cinq examens possibles, un juste, justification par le discriminant.",
       ["conception/donnees/paraclinique/imagerie/cas/_modele.json"], "20 fichiers de cas",
       prompt("Tu es médecin interniste enseignant. Tu écris 20 cas cliniques thoraciques courts, chacun avec cinq examens possibles, l'examen juste et la justification par son discriminant.",
-             ["conception/donnees/paraclinique/imagerie/cas/_modele.json"], ["Un examen inutile coûte des points : tu cites la recommandation Smarter Medicine quand elle existe."]), dep=["P04"])
-from catalogue_paraclinique import EXPLORATIONS
-for i in range(0, len(EXPLORATIONS), 27):
-    bloc = EXPLORATIONS[i:i + 27]
-    fich = [f"conception/donnees/paraclinique/explorations/{slug(e)}.json" for e in bloc]
-    tache(P, f"P{31 + i // 27}", f"Explorations fonctionnelles et endoscopies {i + 1} à {i + len(bloc)} ({bloc[0]} → {bloc[-1]})", "Gemini (Pro)",
-          "Une fiche par exploration : principe, tracé normal et pathologique, seuils, interprétation.", fich, "fiches d'exploration remplies",
-          prompt("Tu es médecin spécialiste des explorations fonctionnelles. Pour chaque exploration, tu remplis sa fiche.", fich,
-                 ["fonction : ce que l'examen mesure, en une phrase.", "traces : le tracé ou l'aspect normal, puis les aspects pathologiques typiques, chacun nommé.",
-                  "seuils : les valeurs qui séparent normal et pathologique, en unités SI.", "interpretation : la démarche de lecture, en étapes courtes.",
-                  "diagnostics : les diagnostics que l'examen pose ou exclut.", "bulle : {def, pourquoi, confusion, retenir}."]))
+             ["conception/donnees/paraclinique/imagerie/cas/_modele.json"], ["Un examen inutile coûte des points : tu cites la recommandation Smarter Medicine quand elle existe."]), dep=["P04-01", "P04-04"])
+from catalogue_paraclinique import EXPLORATIONS, _cle
+_ou = {}
+for r, (reg, orgs) in enumerate(TOPO.items(), 1):
+    for org, mods in orgs.items():
+        for typ in ("FCT", "END"):
+            for e in mods.get(typ, []):
+                _ou.setdefault(_cle(e), (typ, r, reg))
+_grp = {}
+for e in EXPLORATIONS:
+    typ, r, reg = _ou[_cle(e)]
+    _grp.setdefault((typ, r, reg), []).append(e)
+for (typ, r, reg), lst in sorted(_grp.items()):
+    dt = "3_Explorations_fonctionnelles" if typ == "FCT" else "4_Endoscopies"
+    dreg = f"{r:02d}_{nf(reg.split('. ', 1)[-1])}"
+    nb = -(-len(lst) // 15); taille = -(-len(lst) // nb)
+    for b in range(0, len(lst), taille):
+        bloc = lst[b:b + taille]
+        fich = [f"conception/donnees/paraclinique/explorations/{slug(e)}.json" for e in bloc]
+        suf = f"-{b // taille + 1}" if nb > 1 else ""
+        idt = f"P{'F' if typ == 'FCT' else 'E'}{r:02d}{suf}"
+        lib = "Explorations fonctionnelles" if typ == "FCT" else "Endoscopies"
+        tache(P, idt, f"{lib} — {reg.split('. ', 1)[-1]} ({len(bloc)} fiches)", "Gemini (Pro)",
+              "Une fiche par technique : principe, aspect normal et pathologique, seuils, interprétation.", fich, "fiches remplies",
+              prompt("Tu es médecin spécialiste des explorations fonctionnelles et de l'endoscopie. Pour chaque technique, tu remplis sa fiche.", fich,
+                     ["fonction : ce que l'examen mesure, en une phrase.", "traces : l'aspect normal, puis les aspects pathologiques typiques, chacun nommé.",
+                      "seuils : les valeurs qui séparent normal et pathologique, en unités SI.", "interpretation : la démarche de lecture, en étapes courtes.",
+                      "diagnostics : les diagnostics que l'examen pose ou exclut.", "bulle : {def, pourquoi, confusion, retenir}."]),
+              dossier=(DP, dt, dreg), nom=f"{idt}_{nf(lib)}_{nf(reg.split('. ', 1)[-1])[:30]}_{len(bloc)}-fiches")
 tache(P, "P36", "Construire par script le graphe d'imagerie, les régions, l'index des prélèvements et les exercices", "Claude Code",
       "Tout se déduit du catalogue (0 token).", [], "imagerie/graphe.json, regions.json, biologie/prelevements.json, exercices/*.json", claude=True)
 tache(P, "P30", "Auditer et intégrer chaque lot importé", "Claude (finition)", "Contrôle des champs, des sigles, des seuils et des sources ; correction ; commit.", [], "audit RÉUSSI + commit", claude=True)
@@ -187,23 +255,16 @@ tache(P, "J05", "Auditer chaque lot de fiches (REJECTOR_)", "Claude (finition) �
 SIGNATURE = "AAI (Anthropic AI)"
 LOTS = os.path.join(RAC, "projets", "lots")
 os.makedirs(LOTS, exist_ok=True)
-for f in glob.glob(os.path.join(LOTS, "**", "*.json"), recursive=True):
-    os.remove(f)
-
-
-def nf(t):
-    t = t.replace("œ", "oe").replace("Œ", "Oe").replace("é", "e").replace("É", "E")
-    t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode()
-    t = re.sub(r"[()',.:;«»]", " ", t)
-    return re.sub(r"[^A-Za-z0-9-]+", "_", t).strip("_")
-
-
-def court(x, n=34):
-    return x if len(x) <= n else x[:n].rsplit("_", 1)[0]
+import shutil
+for x in os.listdir(LOTS):
+    if os.path.isdir(os.path.join(LOTS, x)):
+        shutil.rmtree(os.path.join(LOTS, x))
 
 
 def classer(t):
     """→ (dossier projet, dossier thème, nom explicite du lot)"""
+    if t.get("dossier"):
+        return t["dossier"][0], "/".join(t["dossier"][1:]), t["nomLot"]
     i, ti = t["id"], t["titre"]
     sysn = re.search(r"(?:système |: |— )(.+?)(?: \(|$)", ti)
     sysn = nf(sysn.group(1)) if sysn else ""
@@ -228,13 +289,13 @@ def classer(t):
         if n == 20:
             return "2_Paraclinique", "2_Biologie", "P20_Biologie_23-prelevements_valeurs_SI_interpretation"
         if n == 21:
-            return "2_Paraclinique", "3_Formules_Criteres_SmarterMedicine", "P21_Formules_et_Criteres_diagnostiques"
+            return "2_Paraclinique", "6_Formules_Criteres_SmarterMedicine", "P21_Formules_et_Criteres_diagnostiques"
         if n == 22:
-            return "2_Paraclinique", "3_Formules_Criteres_SmarterMedicine", "P22_SmarterMedicine_recommandations_suisses"
+            return "2_Paraclinique", "6_Formules_Criteres_SmarterMedicine", "P22_SmarterMedicine_recommandations_suisses"
         if n == 23:
-            return "2_Paraclinique", "4_Imagerie_Images_et_Cas", "P23_Images_reelles_Thorax_URL_et_licences"
+            return "2_Paraclinique", "5_Imagerie_Images_et_Cas", "P23_Images_reelles_Thorax_URL_et_licences"
         if n == 25:
-            return "2_Paraclinique", "4_Imagerie_Images_et_Cas", "P25_Cas_cliniques_Thorax_le_bon_examen"
+            return "2_Paraclinique", "5_Imagerie_Images_et_Cas", "P25_Cas_cliniques_Thorax_le_bon_examen"
         if 31 <= n <= 39:
             m = re.search(r"\((.+?) → (.+?)\)$", ti)
             return "2_Paraclinique", "5_Explorations_fonctionnelles_Endoscopies", f"{i}_Explorations_{court(nf(m.group(1)))}_a_{court(nf(m.group(2)))}"
@@ -283,7 +344,8 @@ L = ["# LOTS JSON — mode d'emploi et arborescence", "",
 arbre = {}
 for t in T:
     if t.get("lot"):
-        dp, dt, nom = t["lot"].split("/")[2:5]
+        _p = t["lot"].split("/")[2:]
+        dp, dt, nom = _p[0], "/".join(_p[1:-1]), _p[-1]
         arbre.setdefault(dp, {}).setdefault(dt, []).append((nom, t))
 for dp in sorted(arbre):
     L += ["", f"## {dp}"]
@@ -294,3 +356,18 @@ for dp in sorted(arbre):
             L.append(f"- **{nom}** — {t['titre']} ({n} fichiers JSON)")
 L += ["", f"Signature : {SIGNATURE}"]
 open(os.path.join(LOTS, "00_LISEZ_MOI.md"), "w", encoding="utf-8").write("\n".join(L) + "\n")
+
+# ---------- INDEX_JSON.md : tous les JSON du dépôt avec liens ----------
+import collections as _c
+_B, _R = GH, "https://raw.githubusercontent.com/vialdjoukang-spec/Jeux_45_Spec/main/"
+_fs = sorted(os.path.relpath(f, RAC).replace(os.sep, "/") for f in glob.glob(os.path.join(RAC, "**", "*.json"), recursive=True))
+_g = _c.OrderedDict()
+for f in _fs:
+    _g.setdefault("/".join(f.split("/")[:-1]) or "(racine)", []).append(f)
+_o = sorted(_g, key=lambda k: (0 if k.startswith("projets/lots") else 1 if "paraclinique" in k else 2 if "tetrade" in k else 3 if "pharmaco" in k else 4, k))
+L = ["# Index de tous les fichiers JSON du dépôt Jeux_45_Spec", "", f"{len(_fs)} fichiers ; chemin exact, lien GitHub, lien brut (raw) lisible par une IA.",
+     "Ordre : lots de production (projet → thème → région), paraclinique, tétrade, pharmacologie, puis le reste.", "", "## Sommaire", ""] + [f"- {k} — {len(_g[k])} fichiers" for k in _o]
+for k in _o:
+    L += ["", f"## {k}", ""] + [f"- `{f}` — [GitHub]({_B + f}) · [brut]({_R + f})" for f in _g[k]]
+L += ["", f"Signature : {SIGNATURE}"]
+open(os.path.join(RAC, "INDEX_JSON.md"), "w", encoding="utf-8").write("\n".join(L) + "\n")
