@@ -1,0 +1,129 @@
+{
+ "_lot": {
+  "tache": "P09-03-FCT-PR",
+  "titre": "Pratique — Examens de l'organe Infection et immunité — Exploration fonctionnelle (1 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/9_systemes_transversaux/infection_et_immunite.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/9_systemes_transversaux/infection_et_immunite.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "infection_et_immunite__tests_de_provocation",
+     "nom": "Tests de provocation (médicaments, aliments)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "infection_et_immunite__tests_de_provocation-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Le test de provocation est l'examen de référence de l'hypersensibilité médicamenteuse et permet de lever l'étiquette, selon Barbaud et al. (2024).",
+        "pourquoiFaux": "Les autres examens ne montrent pas la tolérance au médicament."
+       },
+       "sources": [
+        "Barbaud et al., tests de provocation médicamenteux (2024)"
+       ],
+       "casClinique": "Une femme de 40 ans, à Bienne, porte une étiquette d'allergie à la pénicilline depuis une éruption bénigne dans l'enfance.",
+       "options": [
+        "Test de provocation à l'amoxicilline",
+        "Tryptase de base",
+        "Complément",
+        "Hémocultures"
+       ],
+       "bonneReponse": "Test de provocation à l'amoxicilline",
+       "visee": "sortie"
+      },
+      {
+       "id": "infection_et_immunite__tests_de_provocation-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un test négatif montre la tolérance au produit, selon Barbaud et al. (2024).",
+        "pourquoiFaux": "Garder l'étiquette prive la patiente d'un antibiotique utile."
+       },
+       "sources": [
+        "Barbaud et al., tests de provocation médicamenteux (2024)"
+       ],
+       "resultat": "La patiente prend la dose complète d'amoxicilline sans réaction.",
+       "decision": "On lève l'étiquette d'allergie."
+      },
+      {
+       "id": "infection_et_immunite__tests_de_provocation-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une réaction immédiate pendant le test confirme l'hypersensibilité, selon Barbaud et al. (2024).",
+        "pourquoiFaux": "Conclure à un test négatif ignore la réaction notée."
+       },
+       "sources": [
+        "Barbaud et al., tests de provocation médicamenteux (2024)"
+       ],
+       "consigne": "Lisez la feuille de surveillance du test.",
+       "aspectRecherche": "Réaction pendant le test",
+       "reponse": "Urticaire et chute tensionnelle 20 minutes après la dose : réaction immédiate, test positif.",
+       "imageOuTraceAttendu": "Feuille de surveillance horodatée indiquant les doses croissantes du médicament, la pression artérielle, le pouls et l'état cutané, avec une urticaire et une baisse de pression notées 20 minutes après la dernière dose."
+      },
+      {
+       "id": "infection_et_immunite__tests_de_provocation-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon Hoffmann et al. (2015), un traitement par IEC ou bêtabloquant augmente le risque ou complique le traitement d'une anaphylaxie.",
+        "pourquoiFaux": "Ces traitements doivent être pris en compte avant le test."
+       },
+       "sources": [
+        "Hoffmann et al., test d'activation des basophiles (2015)"
+       ],
+       "erreurFrequente": "Faire un test de provocation chez un patient sous bêtabloquant sans évaluer le risque.",
+       "consequence": "On complique le traitement d'une éventuelle anaphylaxie.",
+       "bonneConduite": "On évalue le traitement par bêtabloquant ou IEC avant le test."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "IEC": "Les inhibiteurs de l’enzyme de conversion de l’angiotensine sont des antihypertenseurs qui freinent la dégradation de la bradykinine."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Exploration fonctionnelle",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
