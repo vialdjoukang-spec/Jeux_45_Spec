@@ -30,3 +30,15 @@ Corrections faites :
 
 Remarques :
 - Doses CT calculées sur la directive OFSP R-06-06 : calcul documenté en entrée à vérifier, conservé ; comparateur OFSP 2018 tableau 16 : CT du thorax 3,8 mSv.
+
+## Seconde vérification des sources (23.11.2026 00:36, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Échographie : sensibilité d'environ 91 % pour le pneumothorax | Alrajhi et al., Chest 2012 (PubMed 21868468, résumé) | conforme (90,9 %) |
+| 2 | Mortalité hospitalière après biopsie chirurgicale : 1,7 % programmée, 16 % non programmée | Hutchinson et al., Am J Respir Crit Care Med 2016 (PubMed 26646481, résumé) | conforme (1,7 % / 16,0 %) |
+| 3 | IgE totales d'au moins 500 UI/ml parmi les critères de l'ABPA | ISHAM, Agarwal et al., Eur Respir J 2024 (PubMed 38423624, résumé) | conforme (≥ 500 IU/ml) |
+| 4 | PaO2 inférieure à 8 kPa : hypoxémie cliniquement significative | BTS, O'Driscoll et al., Thorax 2008 (cité par des sources secondaires ; texte BTS non rouvert) | conforme, avec réserve sur l'accès au texte |
+| 5 | Dépistage par CT basse dose : environ 20 % de mortalité par cancer du poumon en moins | Swiss Cancer Screening Committee, recommandation de novembre 2022 (site cancerscreeningcommittee.ch, extrait du rapport) | conforme (réduction relative de 20 %) |
