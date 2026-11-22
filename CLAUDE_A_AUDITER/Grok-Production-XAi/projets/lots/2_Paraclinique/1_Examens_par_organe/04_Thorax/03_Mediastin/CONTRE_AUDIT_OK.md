@@ -27,3 +27,15 @@ Corrections faites :
 
 Remarques :
 - Doses CT calculées sur la directive OFSP R-06-06 : calcul documenté en entrée à vérifier, conservé ; comparateur OFSP 2018 tableau 16 : CT du thorax 3,8 mSv.
+
+## Seconde vérification des sources (23.11.2026 00:36, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | EBUS/EUS : stations 4R, 4L et 7 au minimum | ESGE/ERS/ESTS, Vilmann et al. 2015 (PubMed 26062074, notice) | conforme sur le principe (résumé consulté ; liste des stations non lue dans le résumé) |
+| 2 | Glycémie ≥ 11 mmol/l : reporter le PET-CT | EANM, Boellaard et al. 2015 (texte de la procédure, Springer/SNMMI) | conforme |
+| 3 | PET-CT au FDG : environ 8,8 mSv | OFSP, directive de médecine nucléaire (drw-nuk.pdf, téléchargé le 23.11.2026) et valeur retenue de 8,8 mSv | conforme |
+| 4 | CT thoracique : 210 mGy·cm, environ 2,9 mSv | OFSP R-06-06 rév. 2 du 15.06.2018, tableau 1, protocole 6 (PDF téléchargé le 23.11.2026) | conforme (210 × 0,014 = 2,94) |
+| 5 | LDH > 1,5 × la normale : pronostic intermédiaire des TGNS | IGCCCG 1997 (critères publiés : LDH 1,5 à 10 × N) | conforme |

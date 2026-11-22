@@ -24,3 +24,16 @@ Corrections faites :
 
 Remarques :
 - Doses CT calculées sur la directive OFSP R-06-06 : calcul documenté en entrée à vérifier, conservé ; comparateur OFSP 2018 tableau 16 : CT du thorax 3,8 mSv.
+
+## Seconde vérification des sources (23.11.2026 00:36, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 6 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 1 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | VO2 max ≤ 12 ml/kg/min sous bêtabloquant, ≤ 14 sans | ISHLT, Mehra et al. 2016 (texte ishlt.org) | conforme |
+| 2 | ECG dans les 10 minutes | ESC 2023, syndromes coronariens aigus (extraits secondaires) | conforme |
+| 3 | HbA1c ≥ 6,5 % : diabète | ADA, Standards of Care 2025 | conforme |
+| 4 | Potassium ≥ 6,5 mmol/l : hyperkaliémie sévère | ERC 2021, circonstances particulières (texte Resuscitation) | conforme |
+| 5 | FFR ≤ 0,80 : sténose ischémiante | ESC 2024, syndromes coronariens chroniques (extraits) | conforme |
+| 6 | NT-proBNP < 125 / BNP < 35 ng/l hors aigu ; 300 / 100 en aigu | Vivaldo et al., Rev Med Suisse 2021 : non rouvert ; valeurs identiques aux seuils de l'ESC | non trouvé (source nommée) : ajouté à _lot.aVerifier |
