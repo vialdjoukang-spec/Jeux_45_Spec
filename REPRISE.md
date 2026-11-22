@@ -104,3 +104,14 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
   - Le lot pratique dépend du lot théorique (il s'appuie sur la théorie remplie).
 - **Retours** : `python projets/outils/fusionner_retours.py <fichiers ou dossier>` réassemble (fragments par id), contrôle et écrit `projets/retours/rapport_fusion.md` ; `--essai` n'écrit rien.
 - **Diagnostics et prise en charge** : fichier partagé par système proposé à Vial (bilan par visée, lignes de traitement), en attente de sa validation ; il servira la Tétrade, la Paraclinique, la pharmacologie et l'arène de Jeux 45 Spec.
+
+## 14. Jeu final : onglets et recherche (spécification de Vial, 22.11.2026)
+- **Théorie et Pratique sont deux onglets distincts** de chaque plateforme de jeu. Leur association dans les lots (`1_Theorie` / `2_Pratique`) sert seulement le travail des agents.
+- **Onglet Théorie, deux barres de recherche** (les 3 jeux qui ont une théorie) :
+  - **Mode Organe** : la barre sert de sélecteur. L'organe apparaît seul au centre de la page, puis se déplie nœud après nœud : modalités → examens → contenu pédagogique, anomalies élémentaires, syndromes paracliniques, pathologies associées.
+  - **Mode Examen** : l'organe en 3D au centre et une seule ligne Obsidian horizontale vers l'examen, avec le même contenu que le mode Organe mais un accès court-circuité. Un examen lié à plusieurs organes propose leurs pastilles.
+  - Usage clé : pendant la révision d'un SSP, l'apprenant tape un bilan inconnu et obtient aussitôt paramètres, valeurs normales, anomalies, syndromes et pathologies.
+  - La recherche est insensible à la casse et aux accents, et propose toujours des réponses, même mal orthographiées (trigrammes et distance d'édition ; les `synonymes` produits enrichissent les clés).
+- **Données** : `conception/donnees/recherche/index.json` (82 organes, environ 1 050 examens et analyses, régénéré par `generer_json.py`).
+  - Les champs ajoutés aux examens et aux analyses sont `synonymes`, `aspectNormal`, `parametres` (analyses composites : électrophorèse, formule sanguine, gazométrie), `anomaliesElementaires`, `syndromesParacliniques` et `pathologiesAssociees`.
+  - L'électrophorèse des protéines sériques est une fiche d'analyse (famille 08 Immunologie, lot PB08), reliée à 5 organes : sang et hémostase, reins, rachis osseux, os longs, nerfs périphériques.

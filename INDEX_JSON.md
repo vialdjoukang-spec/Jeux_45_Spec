@@ -1,6 +1,6 @@
 # Index de tous les fichiers JSON du dépôt Jeux_45_Spec
 
-3078 fichiers ; chemin exact, lien GitHub, lien brut (raw) lisible par une IA.
+3079 fichiers ; chemin exact, lien GitHub, lien brut (raw) lisible par une IA.
 Ordre : lots de production (projet → thème → région), paraclinique, tétrade, pharmacologie, puis le reste.
 
 ## Sommaire
@@ -718,6 +718,7 @@ Ordre : lots de production (projet → thème → région), paraclinique, tétra
 - Production_XAi/Lots_traites/LOT01_XAi_pourclaude — 2 fichiers
 - conception/audit — 1 fichiers
 - conception/donnees — 1 fichiers
+- conception/donnees/recherche — 1 fichiers
 - conception/donnees/schemas — 4 fichiers
 - conception/plans — 3 fichiers
 - conception/prototypes/moteur — 3 fichiers
@@ -5674,6 +5675,10 @@ Ordre : lots de production (projet → thème → région), paraclinique, tétra
 ## conception/donnees
 
 - `conception/donnees/INDEX.json` — [GitHub](https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/INDEX.json) · [brut](https://raw.githubusercontent.com/vialdjoukang-spec/Jeux_45_Spec/main/conception/donnees/INDEX.json)
+
+## conception/donnees/recherche
+
+- `conception/donnees/recherche/index.json` — [GitHub](https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/conception/donnees/recherche/index.json) · [brut](https://raw.githubusercontent.com/vialdjoukang-spec/Jeux_45_Spec/main/conception/donnees/recherche/index.json)
 
 ## conception/donnees/schemas
 

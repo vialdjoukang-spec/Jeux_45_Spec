@@ -140,9 +140,11 @@ def _cles(nom):
     return [base] + _ALIAS.get(base, [])
 
 
+import functools
+@functools.lru_cache(maxsize=None)
 def analyses_de(examen):
     n = " " + _norm(examen) + " "
-    return sorted({a for _, a, _ in ANALYSES for c in _cles(a) if c and (" " + c + " ") in n})
+    return tuple(sorted({a for _, a, _ in ANALYSES for c in _cles(a) if c and (" " + c + " ") in n}))
 
 
 for reg, orgs in TOPO.items():
@@ -150,18 +152,25 @@ for reg, orgs in TOPO.items():
         ecrits.append(ecrire(f"paraclinique/topographie/{slug(reg)}/{slug(org)}.json", {"_meta": {"region": reg, "organe": org, "statut": "LISTE COMPLÈTE — indication, principe, interprétation et bulle à remplir",
                 "regles": ["Biologie : les valeurs de référence vivent dans biologie/analyses ; ici, tu dis pourquoi on demande l'analyse pour cet organe et ce qu'on y cherche."]},
             "examens": [{"id": slug(org) + "__" + slug(e), "modalite": MODALITES[k], "nom": e, "visees": [], "signeRecherche": None, "seuil": None, "indication": None, "discriminant": None, "avantageSelectif": None, "plutotQue": None, "limite": None, "referencePour": [], "smarterMedicine": None, "radioAnatomieNormale": None, "precautions": None, "irradiation_mSv": None, "delai": None, "prelevementRef": None,
-                         **({"analysesRef": analyses_de(e)} if k == "BIO" else {}), "bulle": None} for k, v in mods.items() for e in v], "glossaire": {}}))
+                         **({"analysesRef": list(analyses_de(e))} if k == "BIO" else {}), "synonymes": [], "aspectNormal": None, "anomaliesElementaires": [], "syndromesParacliniques": [], "pathologiesAssociees": [], "bulle": None} for k, v in mods.items() for e in v], "glossaire": {}}))
+ORGANES_DE = {}
+for _r, _os in TOPO.items():
+    for _o, _m in _os.items():
+        for _e in _m.get("BIO", []):
+            for _a in analyses_de(_e):
+                ORGANES_DE.setdefault(_a, set()).add(_o)
 for fam, (prel, lst) in FAMILLES.items():
     ecrits.append(ecrire(f"paraclinique/biologie/analyses/{fam.lower()}.json", {"_meta": {"famille": fam, "statut": "LISTE COMPLÈTE — une analyse = une fiche ; valeurs SI suisses à remplir",
             "regles": ["Source unique des valeurs de référence biologiques.", "Unités SI suisses ; valeurs par âge, sexe et grossesse quand elles diffèrent.", "Causes de hausse et de baisse : des plus fréquentes aux plus graves."]},
         "analyses": [{"id": slug(a), "nom": a, "prelevement": p, "tube": None, "unite": None,
                       "valeursReference": {"adulteHomme": None, "adulteFemme": None, "enfant": None, "grossesse": None, "sujetAge": None},
                       "seuilsCritiques": None, "variationsPhysiologiques": None, "augmentation": [], "diminution": [], "interferences": None, "delaiResultat": None,
-                      "organes": sorted({o for r, os_ in TOPO.items() for o, m in os_.items() for e in m.get("BIO", []) if a in analyses_de(e)}), "bulle": None}
+                      "organes": sorted(ORGANES_DE.get(a, ())),
+                      "synonymes": [], "parametres": [], "anomaliesElementaires": [], "syndromesParacliniques": [], "pathologiesAssociees": [], "bulle": None}
                      for f2, a, p in ANALYSES if f2 == fam], "glossaire": {}}))
 for pre, exs in PRELEVEMENTS.items():
     ecrits.append(ecrire(f"paraclinique/biologie/prelevements/{slug(pre)}.json", {"_meta": {"prelevement": pre, "statut": "LISTE COMPLÈTE — technique de prélèvement à remplir (les valeurs vivent dans biologie/analyses)"},
-        "examens": [{"nom": e, "technique": None, "tube": None, "conditions": None, "conservationTransport": None, "interpretation": [], "analysesRef": analyses_de(e), "bulle": None} for e in exs], "glossaire": {}}))
+        "examens": [{"nom": e, "technique": None, "tube": None, "conditions": None, "conservationTransport": None, "interpretation": [], "analysesRef": list(analyses_de(e)), "bulle": None} for e in exs], "glossaire": {}}))
 ecrits.append(ecrire("paraclinique/explorations/liste.json", {"_meta": {"statut": "LISTE COMPLÈTE"}, "elements": EXPLORATIONS}))
 for sysn, orgs in SYS_ORG.items():
     ecrits.append(ecrire(f"tetrade/{slug(sysn)}/examens.json", {"_meta": {"systeme": sysn, "progression": ["topo-systemique", "topo-organe"], "statut": "RELIÉ AU CATALOGUE"},
@@ -214,6 +223,33 @@ SCH = {
 for k, v in SCH.items():
     ecrits.append(ecrire(f"schemas/{k}.schema.json", {"$schema": "https://json-schema.org/draft/2020-12/schema", "title": k, **v}))
 
+# ---------- INDEX DE RECHERCHE du jeu (mode Organe, mode Examen) ----------
+def _cles_rech(t):
+    n = _norm(t); base = _norm(re.sub(r"\\(.*?\\)", "", t))
+    return sorted({n, base} | {w for w in base.split() if len(w) > 3})
+_org_rech, _ex_rech = [], {}
+for reg, orgs in TOPO.items():
+    for org, mods in orgs.items():
+        f = f"paraclinique/topographie/{slug(reg)}/{slug(org)}.json"
+        _org_rech.append({"organe": org, "region": reg, "fichier": f, "cles": _cles_rech(org), "nbExamens": sum(len(v) for v in mods.values())})
+        for k, v in mods.items():
+            for e in v:
+                x = _ex_rech.setdefault(_norm(e), {"examen": e, "modalite": MODALITES[k], "organes": [], "cles": _cles_rech(e), "analyses": list(analyses_de(e)) if k == "BIO" else []})
+                x["organes"].append({"organe": org, "fichier": f, "id": slug(org) + "__" + slug(e)})
+for fam, (prel, lst) in FAMILLES.items():
+    for _, a_, p_ in [x for x in ANALYSES if x[0] == fam]:
+        x = _ex_rech.setdefault(_norm(a_), {"examen": a_, "modalite": "Analyse biologique", "organes": [], "cles": _cles_rech(a_), "analyses": [a_]})
+        x["ficheAnalyse"] = f"paraclinique/biologie/analyses/{fam.lower()}.json"
+        for o in sorted(ORGANES_DE.get(a_, ())):
+            if not any(y["organe"] == o for y in x["organes"]):
+                reg = next(r for r, os_ in TOPO.items() if o in os_)
+                x["organes"].append({"organe": o, "fichier": f"paraclinique/topographie/{slug(reg)}/{slug(o)}.json"})
+ecrits.append(ecrire("recherche/index.json", {"_meta": {"statut": "GÉNÉRÉ PAR SCRIPT (0 token)", "usage": [
+        "Mode Organe : la barre sert de sélecteur ; l'organe apparaît seul au centre, puis se déplie nœud après nœud (modalités → examens → contenu).",
+        "Mode Examen : l'organe en 3D au centre et une seule ligne horizontale vers l'examen ; même contenu que le mode Organe, accès court-circuité.",
+        "Recherche insensible à la casse et aux accents ; propositions même mal orthographiées (trigrammes + distance d'édition) ; les synonymes produits enrichissent les clés."]},
+    "organes": _org_rech, "examens": sorted(_ex_rech.values(), key=lambda x: x["examen"])}))
+
 # ---------- PARTIE PRATIQUE : un jumeau par fichier théorique (défis du jeu, entité par entité) ----------
 from pratique import genre, defis_pour, MODES, REGLES as REGLES_PRATIQUE
 PROJET_DE = {"examen": "2_Jeux_Paraclinique", "analyse": "2_Jeux_Paraclinique", "prelevement": "2_Jeux_Paraclinique", "exploration": "2_Jeux_Paraclinique",
@@ -239,7 +275,7 @@ for ch in sorted(set(ecrits)):
 
 ecrits = sorted(set(ecrits))
 index = {"genere": "par conception/outils/generer_json.py (0 token)", "total": len(ecrits),
-         "parModule": {m: sum(1 for e in ecrits if e.startswith(m)) for m in ["tetrade", "pharmaco", "paraclinique", "pratique", "schemas"]},
+         "parModule": {m: sum(1 for e in ecrits if e.startswith(m)) for m in ["tetrade", "pharmaco", "paraclinique", "pratique", "recherche", "schemas"]},
          "fichiers": sorted(ecrits)}
 json.dump(index, open(os.path.join(OUT, "INDEX.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(json.dumps(index["parModule"]), "total", index["total"])

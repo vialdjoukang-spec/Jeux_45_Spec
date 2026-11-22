@@ -59,6 +59,11 @@ CHAMPS_EXAMEN = [
     "irradiation_mSv : dose efficace typique en mSv (nombre) ; 0 si l'examen n'irradie pas.",
     "delai : « urgence (< 1 h) », « rapide (< 24 h) » ou « programmé ».",
     "prelevementRef : pour la biologie, le nom du fichier de prélèvement (ex. sang_veineux) ; null sinon.",
+    "synonymes : les autres noms et abréviations de l'examen (ex. « EPP », « électrophorèse des protides ») ; ils servent la barre de recherche.",
+    "aspectNormal : ce que montre l'examen normal (aspect, paramètres) ; pour une biologie, renvoie aux fiches d'analyses sans répéter les valeurs.",
+    "anomaliesElementaires : [{anomalie, signification}] — chaque anomalie de base que l'examen peut montrer.",
+    "syndromesParacliniques : [{syndrome, anomaliesQuiLeComposent[]}] (ex. syndrome inflammatoire, cholestase, cytolyse, pic monoclonal).",
+    "pathologiesAssociees : [{pathologie, anomalieTypique}] — rattachement aux diagnostics, du plus fréquent au plus grave.",
     "bulle : {def, pourquoi, confusion, retenir}, une phrase verbale chacune, de longueur comparable.",
 ]
 
@@ -166,7 +171,12 @@ for fam, (prel, lst) in sorted(FAMILLES.items()):
                   "valeursReference : adulteHomme, adulteFemme, enfant, grossesse, sujetAge ; une valeur ou un intervalle avec l'unité ; si la valeur ne diffère pas, tu écris « identique à l'adulte ».",
                   "seuilsCritiques : les valeurs qui imposent une action immédiate (valeurs d'alerte du laboratoire).", "variationsPhysiologiques : horaire, effort, repas, posture, âge.",
                   "augmentation et diminution : les causes, des plus fréquentes aux plus graves.", "interferences : médicaments et facteurs préanalytiques (hémolyse, garrot, biotine…).",
-                  "delaiResultat : délai habituel du résultat.", "organes est déjà rempli : tu ne le modifies pas.", "bulle : {def, pourquoi, confusion, retenir}."],
+                  "delaiResultat : délai habituel du résultat.", "organes est déjà rempli : tu ne le modifies pas.",
+                  "synonymes : autres noms et abréviations (barre de recherche).",
+                  "parametres : pour une analyse à plusieurs paramètres (ex. électrophorèse des protéines : albumine, α1, α2, β, γ ; formule sanguine ; gazométrie), chaque paramètre avec unité et valeurs de référence.",
+                  "anomaliesElementaires : [{anomalie, signification}] (ex. pic monoclonal γ, bloc β-γ, hypoalbuminémie).",
+                  "syndromesParacliniques : [{syndrome, anomaliesQuiLeComposent[]}] ; pathologiesAssociees : [{pathologie, anomalieTypique}].",
+                  "bulle : {def, pourquoi, confusion, retenir}."],
                  ["Tu ne crées pas d'analyse nouvelle : si une analyse importante manque, tu la signales dans _lot.aVerifier."]),
           dossier=(DP, "2_Biologie", "1_Analyses_individuelles"), nom=f"PB{k:02d}_Analyses_{nf(lib)}_{len(lst)}-analyses")
 GROUPES_PRELEVEMENTS = {

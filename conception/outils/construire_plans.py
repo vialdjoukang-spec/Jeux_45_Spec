@@ -385,6 +385,13 @@ for _p, _proj, _genres in ((TETRADE, "1_Jeux_Tetrade_Fondation", ["organe", "sig
                            (PARACLINIQUE, "2_Jeux_Paraclinique", ["examen", "analyse", "prelevement", "exploration"])):
     _p["pratique"] = {"principe": "La théorie remplit l'arbre que l'apprenant consulte ; la pratique remplit le jeu auquel il joue. Chaque fichier théorique a un jumeau pratique (conception/donnees/pratique/<même chemin>.json), une entité par élément, avec des défis typés produits après la théorie et appuyés sur elle.",
                       "modes": _MODES[_proj], "defis": {g: [t for t, _, _ in _DEFIS[g]] for g in _genres}}
+_RECH = {"onglets": "Théorie et Pratique sont deux onglets distincts de la plateforme ; leur association dans les lots sert seulement les agents.",
+         "modeOrgane": "La barre sert de sélecteur : l'organe apparaît seul au centre, puis se déplie nœud après nœud (modalités, examens, contenu, anomalies élémentaires, syndromes paracliniques, pathologies associées).",
+         "modeExamen": "L'organe en 3D au centre et une seule ligne horizontale vers l'examen : même contenu, accès court-circuité ; un examen de plusieurs organes propose leurs pastilles.",
+         "tolerance": "Recherche insensible à la casse et aux accents, propositions même mal orthographiées (trigrammes, distance d'édition, synonymes).",
+         "donnees": "conception/donnees/recherche/index.json (script, 0 token)"}
+for _p in (TETRADE, PARACLINIQUE):
+    _p["recherche"] = _RECH
 os.makedirs(os.path.join(ICI, "plans"), exist_ok=True)
 for p in (TETRADE, PHARMACO, PARACLINIQUE):
     json.dump(p, open(os.path.join(ICI, "plans", f"{p['id']}.plan.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)

@@ -1,6 +1,8 @@
 # INSTRUCTIONS DU PRODUCTEUR DE CONTENU — à lire avant chaque lot
 
 ## 1. Qui tu sers et pourquoi
+Dans le jeu final, la **théorie** et la **pratique** sont deux onglets distincts de chaque plateforme ; elles sont associées dans les lots uniquement pour faciliter ton travail. La théorie est consultée par deux barres de recherche : **mode Organe** (l'organe seul au centre, déplié nœud après nœud) et **mode Examen** (l'organe en 3D au centre et une seule ligne vers l'examen). Tes champs `synonymes` rendent cette recherche tolérante aux fautes.
+
 Tu produis le contenu de quatre jeux d'apprentissage médical destinés à un médecin qui prépare l'**examen fédéral suisse de médecine humaine** (QCM PROFILES, OSCE).
 - **Tétrade Fondation** : chaque système du corps déroule tous ses organes ; chaque organe se déplie en anatomie, physiologie, sémiologie et physiopathologie.
 - **Paraclinique** : chaque organe, de la tête aux pieds, avec ses examens (biologie, imagerie, explorations fonctionnelles, endoscopie, anatomopathologie) ; savoir quoi demander, pourquoi, et quoi y chercher.
@@ -55,6 +57,11 @@ Tu reçois un fichier de lot dont le nom dit le contenu (ex. `P04_Examens_Thorax
 | `irradiation_mSv` | dose efficace typique (nombre) ; 0 si l'examen n'irradie pas |
 | `delai` | « urgence (< 1 h) », « rapide (< 24 h) » ou « programmé » |
 | `prelevementRef` | biologie seulement : le nom du fichier de prélèvement (ex. `sang_veineux`) ; `null` sinon |
+| `synonymes` | autres noms et abréviations : ils nourrissent la barre de recherche du jeu |
+| `aspectNormal` | ce que montre l'examen normal (pour une biologie : renvoi aux fiches d'analyses, sans répéter les valeurs) |
+| `anomaliesElementaires` | `[{anomalie, signification}]` |
+| `syndromesParacliniques` | `[{syndrome, anomaliesQuiLeComposent[]}]` (syndrome inflammatoire, cholestase, cytolyse, pic monoclonal…) |
+| `pathologiesAssociees` | `[{pathologie, anomalieTypique}]`, des plus fréquentes aux plus graves |
 | `bulle` | voir règle 7 |
 
 **Exemple de qualité attendue :**
@@ -80,6 +87,8 @@ Tu reçois un fichier de lot dont le nom dit le contenu (ex. `P04_Examens_Thorax
 **Analyses individuelles** (`biologie/analyses/*.json`, lots PB01 à PB15) : une analyse = une fiche. C'est la **source unique** des valeurs de référence.
 - `tube`, `unite` (SI suisse), `valeursReference` (adulteHomme, adulteFemme, enfant, grossesse, sujetAge ; « identique à l'adulte » si rien ne change).
 - `seuilsCritiques` (valeurs d'alerte), `variationsPhysiologiques`, `augmentation` et `diminution` (des causes fréquentes aux graves), `interferences`, `delaiResultat`, `bulle`.
+- `parametres` : chaque paramètre d'une analyse composite avec unité et valeurs (électrophorèse des protéines : albumine, α1, α2, β, γ ; formule sanguine ; gazométrie).
+- `synonymes`, `anomaliesElementaires`, `syndromesParacliniques`, `pathologiesAssociees` : comme pour un examen d'organe.
 - `organes` est pré-rempli : tu ne le modifies pas.
 
 **Prélèvements** (`biologie/prelevements/*.json`, lots PP01 à PP04) : technique seulement (`technique`, `tube`, `conditions`, `conservationTransport`, `interpretation` sans valeurs, `bulle`). `analysesRef` est pré-rempli.

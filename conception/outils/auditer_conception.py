@@ -84,6 +84,10 @@ _th = [os.path.relpath(f, os.path.join(ICI, "donnees")) for f in _g.glob(os.path
        if not os.path.relpath(f, os.path.join(ICI, "donnees")).startswith("pratique") and _genre("/" + os.path.relpath(f, os.path.join(ICI, "donnees"))) and not f.endswith("liste.json") and "exemple" not in f]
 _sansj = [x for x in _th if not os.path.exists(os.path.join(ICI, "donnees", "pratique", x))]
 ctrl(f"Chaque fichier théorique a son jumeau pratique ({len(_th)} fichiers)", not _sansj, ", ".join(_sansj[:10]))
+# 1 quinquies. Index de recherche : chaque organe et chaque examen y figure, rattaché à au moins un organe ou à une fiche d'analyse
+_ix = json.load(open(os.path.join(ICI, "donnees", "recherche", "index.json"), encoding="utf-8"))
+_orph = [x["examen"] for x in _ix["examens"] if not x["organes"] and not x.get("ficheAnalyse")]
+ctrl(f"Index de recherche complet ({len(_ix['organes'])} organes, {len(_ix['examens'])} examens et analyses)", len(_ix["organes"]) == len({o for r in TOPO.values() for o in r}) and not _orph, ", ".join(_orph[:8]))
 a_prod = sum(1 for n in N.values() if n.get("aProduire"))
 INFO = f"Organes encore à produire (backlog, non bloquant) : {a_prod}"
 
