@@ -1,0 +1,929 @@
+{
+ "_lot": {
+  "tache": "P04-05-FCT-PR",
+  "titre": "Pratique — Examens de l'organe Cœur et péricarde — Exploration fonctionnelle (10 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/4_thorax/coeur_et_pericarde.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/4_thorax/coeur_et_pericarde.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "coeur_et_pericarde__ecg_12_derivations",
+     "nom": "ECG 12 dérivations",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__ecg_12_derivations-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2023), un ECG à 12 dérivations se fait dans les 10 minutes devant une douleur thoracique, car un sus-décalage ST impose une reperfusion immédiate.",
+        "pourquoiFaux": "Le Holter et le tilt-test ne répondent pas à l'urgence, et l'épreuve d'effort est contre-indiquée pendant un syndrome coronarien aigu."
+       },
+       "sources": [
+        "ESC, syndromes coronariens aigus (Byrne et al., 2023)"
+       ],
+       "casClinique": "Un homme de 59 ans ressent une douleur thoracique constrictive depuis 20 minutes, en sortant d'une réunion à Lausanne.",
+       "options": [
+        "ECG 12 dérivations dans les 10 minutes",
+        "Holter ECG",
+        "Épreuve d'effort",
+        "Tilt-test"
+       ],
+       "bonneReponse": "ECG 12 dérivations dans les 10 minutes",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "coeur_et_pericarde__ecg_12_derivations-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la quatrième définition universelle (2018), un sus-décalage d'au moins 1 mm dans deux dérivations contiguës traduit une ischémie aiguë ; le miroir latéral renforce le diagnostic.",
+        "pourquoiFaux": "Attendre la troponine retarde la reperfusion d'un infarctus déjà diagnostiqué par l'ECG."
+       },
+       "sources": [
+        "Quatrième définition universelle de l'infarctus (Thygesen et al., 2018)",
+        "ESC, syndromes coronariens aigus (Byrne et al., 2023)"
+       ],
+       "resultat": "Sus-décalage ST de 2 mm au point J en DII, DIII et aVF, avec un sous-décalage en DI et aVL.",
+       "decision": "Retenir un infarctus inférieur avec sus-décalage et appeler pour une coronarographie en urgence."
+      },
+      {
+       "id": "coeur_et_pericarde__ecg_12_derivations-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un sus-décalage diffus concave sans miroir avec un sous-décalage de PR évoque une péricardite aiguë, selon l'ESC (2025).",
+        "pourquoiFaux": "Un infarctus donnerait un sus-décalage limité à un territoire avec un miroir, et une repolarisation précoce ne modifie pas le segment PR."
+       },
+       "sources": [
+        "ESC, myocardites et péricardites (2025)"
+       ],
+       "consigne": "Lisez cet ECG d'un homme de 28 ans fébrile, douloureux en inspiration profonde.",
+       "aspectRecherche": "Sus-décalage ST diffus",
+       "reponse": "Péricardite aiguë",
+       "imageOuTraceAttendu": "ECG montrant un sus-décalage ST concave vers le haut dans presque toutes les dérivations, sans miroir, avec un sous-décalage du segment PR en DII et un sus-décalage de PR en aVR."
+      },
+      {
+       "id": "coeur_et_pericarde__ecg_12_derivations-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La Société suisse d'anesthésiologie et de réanimation (Smarter Medicine 2018_I) recommande d'« éviter tout examen préopératoire de routine (laboratoire, ECG, radiographie pulmonaire) chez les patients ne présentant pas de maladie systémique pertinente ».",
+        "pourquoiFaux": "Le faible coût de l'ECG ne justifie pas un examen sans question clinique."
+       },
+       "sources": [
+        "Société suisse d'anesthésiologie et de réanimation, Smarter Medicine 2018_I"
+       ],
+       "erreurFrequente": "Faire un ECG préopératoire de routine chez un patient sans maladie systémique pertinente.",
+       "consequence": "On découvre des anomalies sans conséquence qui retardent l'opération et entraînent d'autres examens.",
+       "bonneConduite": "Réserver l'ECG préopératoire aux patients qui ont une maladie systémique pertinente ou des symptômes."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__holter_ecg_24_h_a_7_jours",
+     "nom": "Holter ECG 24 h à 7 jours",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__holter_ecg_24_h_a_7_jours-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Des symptômes presque quotidiens ont de bonnes chances d'être enregistrés par un Holter de 24 heures à 7 jours, selon l'ESC (2018).",
+        "pourquoiFaux": "Le moniteur implantable se réserve aux symptômes rares, la coronarographie cherche une sténose et le massage carotidien une hypersensibilité réflexe."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "casClinique": "Une femme de 55 ans signale des palpitations presque quotidiennes depuis un mois à Winterthour ; son ECG de repos est normal.",
+       "options": [
+        "Holter ECG",
+        "Moniteur implantable",
+        "Coronarographie",
+        "Massage du sinus carotidien"
+       ],
+       "bonneReponse": "Holter ECG",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "coeur_et_pericarde__holter_ecg_24_h_a_7_jours-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2018), une pause de plus de 3 secondes à l'éveil, hors sportif entraîné, est diagnostique même sans symptôme.",
+        "pourquoiFaux": "Ignorer la pause parce que le patient ne s'est pas plaint méconnaît un risque de syncope traumatique."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)",
+        "ESC, stimulation cardiaque (Glikson et al., 2021)"
+       ],
+       "resultat": "Pause ventriculaire de 4,5 secondes à 15 heures, à l'éveil, chez un patient de 76 ans asymptomatique à ce moment-là.",
+       "decision": "Retenir une cause rythmique probable et discuter une stimulation."
+      },
+      {
+       "id": "coeur_et_pericarde__holter_ecg_24_h_a_7_jours-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une onde P bloquée sans allongement préalable du PR définit un bloc de Mobitz II, diagnostique d'une cause rythmique selon l'ESC (2018).",
+        "pourquoiFaux": "Un Mobitz I allongerait progressivement le PR avant l'onde bloquée, et une extrasystole auriculaire bloquée serait prématurée."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "consigne": "Lisez cette bande de Holter enregistrée pendant un malaise.",
+       "aspectRecherche": "Rythme au moment du symptôme",
+       "reponse": "Bloc auriculo-ventriculaire de type Mobitz II",
+       "imageOuTraceAttendu": "Bande de Holter montrant des ondes P régulières, avec un PR constant, puis une onde P soudainement non suivie de QRS, sans allongement préalable du PR."
+      },
+      {
+       "id": "coeur_et_pericarde__holter_ecg_24_h_a_7_jours-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2018), un enregistrement négatif n'exclut pas une arythmie rare ; le moniteur implantable est indiqué dans les syncopes récidivantes inexpliquées.",
+        "pourquoiFaux": "Répéter des Holter de 24 heures a peu de chances de capter un événement trimestriel."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "erreurFrequente": "Conclure qu'il n'existe pas d'arythmie après un Holter de 24 heures normal chez un patient qui fait une syncope tous les quatre mois.",
+       "consequence": "On méconnaît une arythmie rare qui n'a pas eu lieu pendant l'enregistrement.",
+       "bonneConduite": "Adapter la durée d'enregistrement à la fréquence des symptômes et proposer un moniteur implantable pour des événements rares."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__enregistreur_d_evenements_et_moniteur_im",
+     "nom": "Enregistreur d'événements et moniteur implantable (loop recorder)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__enregistreur_d_evenements_et_moniteur_im-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2018), le moniteur implantable est indiqué dans les syncopes récidivantes inexpliquées, car il enregistre pendant des années.",
+        "pourquoiFaux": "Un nouveau Holter de 24 heures a peu de chances de capter un épisode annuel, et l'épreuve d'effort et le bilan lipidique n'expliquent pas une syncope sans prodrome."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "casClinique": "Un homme de 67 ans a fait trois syncopes sans prodrome en un an ; ECG, échographie et deux Holter sont normaux.",
+       "options": [
+        "Moniteur implantable",
+        "Holter ECG de 24 heures",
+        "Épreuve d'effort",
+        "Bilan lipidique"
+       ],
+       "bonneReponse": "Moniteur implantable",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "coeur_et_pericarde__enregistreur_d_evenements_et_moniteur_im-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2018), un rythme normal pendant la syncope exclut une cause rythmique de cet épisode.",
+        "pourquoiFaux": "Poser un stimulateur sans arythmie documentée n'a aucun bénéfice."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "resultat": "Rythme sinusal à 78/min enregistré pendant une syncope typique du patient.",
+       "decision": "Écarter une cause rythmique et chercher une autre cause."
+      },
+      {
+       "id": "coeur_et_pericarde__enregistreur_d_evenements_et_moniteur_im-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Des ondes P non conduites pendant une pause prolongée traduisent un bloc auriculo-ventriculaire paroxystique, indication de stimulation selon l'ESC (2018).",
+        "pourquoiFaux": "Une pause sinusale ne montrerait pas d'ondes P pendant l'asystolie, et un artéfact ne respecterait pas la reprise régulière du rythme."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)",
+        "ESC, stimulation cardiaque (Glikson et al., 2021)"
+       ],
+       "consigne": "Lisez l'enregistrement du moniteur implantable déclenché lors d'une syncope.",
+       "aspectRecherche": "Pause et rythme pendant la syncope",
+       "reponse": "Asystolie de 8 secondes par bloc auriculo-ventriculaire paroxystique",
+       "imageOuTraceAttendu": "Tracé à une dérivation montrant un rythme sinusal, puis une succession d'ondes P non suivies de QRS pendant 8 secondes, avant la reprise de la conduction."
+      },
+      {
+       "id": "coeur_et_pericarde__enregistreur_d_evenements_et_moniteur_im-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2018), l'intérêt du moniteur tient à sa durée d'enregistrement, qui dépasse largement celle d'un Holter.",
+        "pourquoiFaux": "Six mois sans événement ne prouvent rien chez un patient dont les syncopes sont annuelles."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "erreurFrequente": "Retirer le moniteur implantable après six mois sans événement chez un patient aux syncopes annuelles.",
+       "consequence": "On perd la chance d'enregistrer la prochaine syncope.",
+       "bonneConduite": "Garder le moniteur jusqu'à l'événement ou la fin de la batterie, selon la fréquence des symptômes."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__epreuve_d_effort",
+     "nom": "Épreuve d'effort (ECG d'effort)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__epreuve_d_effort-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2019), l'épreuve d'effort reste une option quand l'imagerie fonctionnelle n'est pas disponible et que l'ECG de repos est interprétable.",
+        "pourquoiFaux": "La coronarographie est invasive en première intention, la biopsie cherche une myocardite, et le tilt-test une syncope réflexe."
+       },
+       "sources": [
+        "ESC, syndromes coronariens chroniques (Knuuti et al., 2019)",
+        "ACC et AHA, épreuve d'effort (Gibbons et al., 2002)"
+       ],
+       "casClinique": "Un homme de 50 ans, sans antécédent, signale une gêne thoracique d'effort ; son ECG de repos est normal et le centre d'imagerie de sa région n'est pas disponible.",
+       "options": [
+        "Épreuve d'effort",
+        "Coronarographie",
+        "Biopsie endomyocardique",
+        "Tilt-test"
+       ],
+       "bonneReponse": "Épreuve d'effort",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "coeur_et_pericarde__epreuve_d_effort-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACC et l'AHA (2002), un sous-décalage horizontal ou descendant d'au moins 1 mm est le critère classique d'ischémie.",
+        "pourquoiFaux": "Un sous-décalage ascendant rapide serait moins spécifique, mais un sous-décalage horizontal de 2 mm avec douleur ne l'est pas."
+       },
+       "sources": [
+        "ACC et AHA, épreuve d'effort (Gibbons et al., 2002)"
+       ],
+       "resultat": "Sous-décalage ST horizontal de 2 mm en V4-V6 à 120 watts, avec une oppression thoracique.",
+       "decision": "Retenir un test positif pour l'ischémie et compléter le bilan coronarien."
+      },
+      {
+       "id": "coeur_et_pericarde__epreuve_d_effort-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un segment ST plat et abaissé d'au moins 1 mm pendant 80 ms après le point J traduit une ischémie d'effort.",
+        "pourquoiFaux": "Un sous-décalage du point J avec remontée rapide de ST est un aspect physiologique de l'effort."
+       },
+       "sources": [
+        "ACC et AHA, épreuve d'effort (Gibbons et al., 2002)"
+       ],
+       "consigne": "Lisez l'ECG au pic de l'effort de ce patient.",
+       "aspectRecherche": "Segment ST à l'effort",
+       "reponse": "Sous-décalage ST horizontal en dérivations latérales",
+       "imageOuTraceAttendu": "Tracé au pic de l'effort montrant un segment ST plat, abaissé de 2 mm sous la ligne isoélectrique, pendant 80 ms après le point J, en V4, V5 et V6."
+      },
+      {
+       "id": "coeur_et_pericarde__epreuve_d_effort-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACC et l'AHA (2002), un bloc de branche gauche rend l'analyse du segment ST à l'effort non interprétable.",
+        "pourquoiFaux": "Prolonger l'effort ne rend pas le tracé plus lisible."
+       },
+       "sources": [
+        "ACC et AHA, épreuve d'effort (Gibbons et al., 2002)",
+        "ESC, syndromes coronariens chroniques (Knuuti et al., 2019)"
+       ],
+       "erreurFrequente": "Faire une épreuve d'effort chez un patient dont l'ECG de repos montre un bloc de branche gauche.",
+       "consequence": "Le segment ST est ininterprétable et le test ne conclut pas.",
+       "bonneConduite": "Choisir une imagerie de stress, comme une échographie de stress ou une scintigraphie."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__ergospirometrie",
+     "nom": "Ergospirométrie",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__ergospirometrie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ISHLT (2016), la VO2 maximale mesurée par ergospirométrie aide à poser l'indication d'une transplantation.",
+        "pourquoiFaux": "L'épreuve d'effort simple ne mesure pas la VO2, le Holter cherche une arythmie et le massage carotidien une hypersensibilité réflexe."
+       },
+       "sources": [
+        "ISHLT, critères d'inscription en transplantation (Mehra et al., 2016)"
+       ],
+       "casClinique": "Un homme de 58 ans avec une insuffisance cardiaque à fraction réduite sous traitement optimal reste très essoufflé ; on discute une transplantation.",
+       "options": [
+        "Ergospirométrie",
+        "Épreuve d'effort simple",
+        "Holter ECG",
+        "Massage du sinus carotidien"
+       ],
+       "bonneReponse": "Ergospirométrie",
+       "visee": "retentissement"
+      },
+      {
+       "id": "coeur_et_pericarde__ergospirometrie-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ISHLT (2016), une VO2 maximale de 12 ml/kg/min ou moins sous bêtabloquant, après un effort maximal, oriente vers la transplantation.",
+        "pourquoiFaux": "Avec un quotient respiratoire supérieur à 1,05, l'effort est maximal et la VO2 basse ne peut pas être attribuée à un manque d'effort."
+       },
+       "sources": [
+        "ISHLT, critères d'inscription en transplantation (Mehra et al., 2016)"
+       ],
+       "resultat": "VO2 maximale à 11 ml/kg/min sous bêtabloquant, avec un quotient respiratoire de 1,12.",
+       "decision": "Retenir un effort maximal et une limitation sévère : discuter l'inscription en transplantation."
+      },
+      {
+       "id": "coeur_et_pericarde__ergospirometrie-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une réserve ventilatoire épuisée avec une réserve chronotrope conservée oriente vers une limitation pulmonaire plutôt que cardiaque.",
+        "pourquoiFaux": "Une limitation cardiaque laisserait une réserve ventilatoire et ferait atteindre la fréquence maximale."
+       },
+       "sources": [
+        "ISHLT, critères d'inscription en transplantation (Mehra et al., 2016)"
+       ],
+       "consigne": "Lisez le graphique de ventilation et de VO2 à l'effort de ce patient dyspnéique.",
+       "aspectRecherche": "Réserve ventilatoire",
+       "reponse": "Limitation ventilatoire d'origine pulmonaire",
+       "imageOuTraceAttendu": "Courbes montrant une ventilation qui atteint la ventilation maximale volontaire au pic de l'effort, avec une VO2 basse, une fréquence cardiaque loin de la valeur maximale et une désaturation."
+      },
+      {
+       "id": "coeur_et_pericarde__ergospirometrie-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ISHLT (2016), un quotient respiratoire inférieur à 1,05 signe un effort sous-maximal ; la pente VE/VCO2 aide alors à décider.",
+        "pourquoiFaux": "Une VO2 basse lors d'un effort sous-maximal ne reflète pas la capacité réelle du patient."
+       },
+       "sources": [
+        "ISHLT, critères d'inscription en transplantation (Mehra et al., 2016)"
+       ],
+       "erreurFrequente": "Interpréter une VO2 maximale basse avec un quotient respiratoire de 0,95.",
+       "consequence": "On surestime la gravité, car l'effort n'a pas été maximal.",
+       "bonneConduite": "Vérifier le quotient respiratoire et s'appuyer sur la pente VE/VCO2 si l'effort reste sous-maximal."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__tilt_test",
+     "nom": "Tilt-test (test d'inclinaison)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__tilt_test-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2018), le tilt-test se discute pour confirmer une syncope réflexe suspectée mais non confirmée par l'évaluation initiale.",
+        "pourquoiFaux": "La coronarographie, le CT et la biopsie n'explorent pas un mécanisme réflexe."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "casClinique": "Une femme de 32 ans fait des syncopes après une station debout prolongée, avec chaleur et nausées ; l'anamnèse reste douteuse et les syncopes se répètent.",
+       "options": [
+        "Tilt-test",
+        "Coronarographie",
+        "CT coronaire",
+        "Biopsie endomyocardique"
+       ],
+       "bonneReponse": "Tilt-test",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "coeur_et_pericarde__tilt_test-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2018), la reproduction de la syncope avec hypotension et bradycardie confirme un mécanisme réflexe.",
+        "pourquoiFaux": "Conclure à une cause cardiaque structurelle ignore la reproduction typique des symptômes pendant l'inclinaison."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "resultat": "Pendant l'inclinaison, chute de pression à 60/35 mmHg (8,0/4,7 kPa) puis asystolie de 6 secondes, avec reproduction de la syncope habituelle.",
+       "decision": "Retenir une syncope réflexe à composante cardio-inhibitrice."
+      },
+      {
+       "id": "coeur_et_pericarde__tilt_test-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une hausse de fréquence importante et soutenue sans hypotension oriente vers un syndrome de tachycardie posturale, selon l'ESC (2018).",
+        "pourquoiFaux": "Une hypotension orthostatique ferait chuter la pression, et une syncope réflexe associerait hypotension et bradycardie."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "consigne": "Lisez la courbe de pression et de fréquence pendant le tilt-test.",
+       "aspectRecherche": "Évolution hémodynamique",
+       "reponse": "Syndrome de tachycardie posturale",
+       "imageOuTraceAttendu": "Courbes montrant une hausse de la fréquence de 35/min dans les 10 minutes d'inclinaison, soutenue, sans chute de pression, avec des palpitations et une fatigue."
+      },
+      {
+       "id": "coeur_et_pericarde__tilt_test-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2018), un test négatif n'exclut pas une syncope réflexe.",
+        "pourquoiFaux": "Un test isolé ne remplace pas l'anamnèse."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "erreurFrequente": "Utiliser un tilt-test négatif pour exclure une syncope réflexe.",
+       "consequence": "On méconnaît une syncope réflexe et on multiplie les examens inutiles.",
+       "bonneConduite": "Interpréter le test avec l'anamnèse, qui reste la base du diagnostic de syncope réflexe."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__massage_du_sinus_carotidien",
+     "nom": "Massage du sinus carotidien",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__massage_du_sinus_carotidien-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2018), le massage du sinus carotidien est indiqué après 40 ans devant une syncope inexpliquée compatible avec un mécanisme réflexe.",
+        "pourquoiFaux": "La coronarographie, le bilan lipidique et le CT coronaire n'explorent pas le réflexe sino-carotidien."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "casClinique": "Un homme de 74 ans fait une syncope en tournant la tête pour se raser ; l'ECG et l'échographie sont normaux et il n'a pas de souffle carotidien.",
+       "options": [
+        "Massage du sinus carotidien",
+        "Coronarographie",
+        "Bilan lipidique",
+        "CT coronaire"
+       ],
+       "bonneReponse": "Massage du sinus carotidien",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "coeur_et_pericarde__massage_du_sinus_carotidien-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2018), une pause de plus de 3 secondes avec reproduction des symptômes pose le diagnostic de syndrome du sinus carotidien.",
+        "pourquoiFaux": "Une réponse anormale sans symptôme reproduit ne serait qu'une hypersensibilité, fréquente chez la personne âgée."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)",
+        "ESC, stimulation cardiaque (Glikson et al., 2021)"
+       ],
+       "resultat": "Asystolie de 7 secondes au massage droit en position debout, avec reproduction du malaise habituel.",
+       "decision": "Retenir un syndrome du sinus carotidien cardio-inhibiteur et discuter une stimulation."
+      },
+      {
+       "id": "coeur_et_pericarde__massage_du_sinus_carotidien-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "L'absence d'onde P et de QRS pendant plus de 3 secondes traduit une pause sinusale réflexe, réponse cardio-inhibitrice anormale.",
+        "pourquoiFaux": "Un simple ralentissement de quelques battements est une réponse normale au massage."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "consigne": "Lisez la bande ECG et la courbe de pression enregistrées pendant le massage.",
+       "aspectRecherche": "Pause et pression",
+       "reponse": "Réponse cardio-inhibitrice : asystolie de plus de 3 secondes",
+       "imageOuTraceAttendu": "Bande ECG montrant un rythme sinusal, puis l'absence d'onde P et de QRS pendant 5 secondes au début du massage, avec une chute de pression parallèle, puis la reprise sinusale."
+      },
+      {
+       "id": "coeur_et_pericarde__massage_du_sinus_carotidien-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2018), les complications du massage sont neurologiques, avec des accidents ischémiques transitoires ou des AVC chez 0,24 % des patients.",
+        "pourquoiFaux": "Masser plus doucement ne supprime pas le risque d'embolie à partir d'une plaque."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "erreurFrequente": "Faire un massage carotidien chez un patient qui a un souffle carotidien ou un AVC récent.",
+       "consequence": "On expose le patient à un accident ischémique cérébral.",
+       "bonneConduite": "Renoncer au massage en cas de souffle carotidien, de sténose connue ou d'accident ischémique récent."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__etude_electrophysiologique_endocavitaire",
+     "nom": "Étude électrophysiologique endocavitaire",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__etude_electrophysiologique_endocavitaire-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2018), l'étude électrophysiologique se discute chez un patient avec syncope et bloc bifasciculaire, car un HV allongé indique une stimulation.",
+        "pourquoiFaux": "Le tilt-test cherche une syncope réflexe, l'épreuve d'effort une ischémie, et le bilan lipidique le risque vasculaire."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "casClinique": "Une femme de 71 ans fait une syncope ; son ECG montre un bloc de branche droit avec un hémibloc antérieur gauche, et le Holter est normal.",
+       "options": [
+        "Étude électrophysiologique",
+        "Tilt-test",
+        "Épreuve d'effort",
+        "Bilan lipidique"
+       ],
+       "bonneReponse": "Étude électrophysiologique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "coeur_et_pericarde__etude_electrophysiologique_endocavitaire-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2018), un intervalle HV d'au moins 70 ms chez un patient avec syncope et bloc bifasciculaire indique une stimulation.",
+        "pourquoiFaux": "Attendre une nouvelle syncope expose à un traumatisme ou à un bloc complet."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)",
+        "ESC, stimulation cardiaque (Glikson et al., 2021)"
+       ],
+       "resultat": "Intervalle HV de 82 ms chez cette patiente avec bloc bifasciculaire et syncope.",
+       "decision": "Poser un stimulateur cardiaque."
+      },
+      {
+       "id": "coeur_et_pericarde__etude_electrophysiologique_endocavitaire-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "L'intervalle HV mesure le temps entre le potentiel hisien et le début de l'activation ventriculaire ; au-delà de 70 ms, il traduit une atteinte infrahisienne.",
+        "pourquoiFaux": "L'intervalle AH mesure la conduction nodale, et non la conduction infrahisienne."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "consigne": "Lisez l'électrogramme hisien de cette étude.",
+       "aspectRecherche": "Mesure de l'intervalle HV",
+       "reponse": "Intervalle HV allongé à 82 ms",
+       "imageOuTraceAttendu": "Électrogramme endocavitaire montrant l'auriculogramme, le potentiel hisien et le ventriculogramme, avec 82 ms entre le potentiel hisien et le début du QRS de surface."
+      },
+      {
+       "id": "coeur_et_pericarde__etude_electrophysiologique_endocavitaire-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La stimulation endocavitaire ne déclenche pas toujours l'arythmie spontanée du patient.",
+        "pourquoiFaux": "Un examen invasif normal n'exclut pas une arythmie intermittente."
+       },
+       "sources": [
+        "ESC, syncope (Brignole et al., 2018)"
+       ],
+       "erreurFrequente": "Conclure à l'absence de risque rythmique sur une étude électrophysiologique normale chez un patient avec cardiopathie et syncope.",
+       "consequence": "On méconnaît une arythmie que la stimulation n'a pas déclenchée.",
+       "bonneConduite": "Compléter par une surveillance prolongée, comme un moniteur implantable, si la suspicion persiste."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__catheterisme_cardiaque_droit",
+     "nom": "Cathétérisme cardiaque droit (pressions pulmonaires)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__catheterisme_cardiaque_droit-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC et l'ERS (2022), le cathétérisme droit confirme l'hypertension pulmonaire et en précise le type avant tout traitement spécifique.",
+        "pourquoiFaux": "La coronarographie explore le cœur gauche, le tilt-test une syncope réflexe et le Holter le rythme."
+       },
+       "sources": [
+        "ESC et ERS, hypertension pulmonaire (Humbert et al., 2022)"
+       ],
+       "casClinique": "Une femme de 49 ans atteinte de sclérodermie a une dyspnée croissante ; l'échographie montre une vitesse de fuite tricuspide élevée et un ventricule droit dilaté.",
+       "options": [
+        "Cathétérisme cardiaque droit",
+        "Coronarographie",
+        "Tilt-test",
+        "Holter ECG"
+       ],
+       "bonneReponse": "Cathétérisme cardiaque droit",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "coeur_et_pericarde__catheterisme_cardiaque_droit-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC et l'ERS (2022), une PAPm > 20 mmHg (2,7 kPa) avec une PAPO ≤ 15 mmHg (2,0 kPa) et des RVP supérieures à 2 UW définit le profil précapillaire.",
+        "pourquoiFaux": "Une PAPO > 15 mmHg (2,0 kPa) aurait orienté vers le cœur gauche ; ici, elle est normale."
+       },
+       "sources": [
+        "ESC et ERS, hypertension pulmonaire (Humbert et al., 2022)"
+       ],
+       "resultat": "PAPm à 34 mmHg (4,5 kPa), PAPO à 9 mmHg (1,2 kPa) et RVP à 5 UW.",
+       "decision": "Retenir une hypertension pulmonaire précapillaire."
+      },
+      {
+       "id": "coeur_et_pericarde__catheterisme_cardiaque_droit-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une pression pulmonaire élevée avec une pression capillaire normale situe l'obstacle en amont des capillaires.",
+        "pourquoiFaux": "Une pression capillaire élevée orienterait vers une cause cardiaque gauche."
+       },
+       "sources": [
+        "ESC et ERS, hypertension pulmonaire (Humbert et al., 2022)"
+       ],
+       "consigne": "Lisez les courbes de pression enregistrées pendant la montée de la sonde.",
+       "aspectRecherche": "Pressions successives",
+       "reponse": "Pression artérielle pulmonaire moyenne élevée avec pression capillaire normale",
+       "imageOuTraceAttendu": "Courbes successives de l'oreillette droite, du ventricule droit, de l'artère pulmonaire avec une moyenne à 34 mmHg (4,5 kPa), puis de la pression capillaire bloquée à 9 mmHg (1,2 kPa)."
+      },
+      {
+       "id": "coeur_et_pericarde__catheterisme_cardiaque_droit-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC et l'ERS (2022), la définition et la classification de l'hypertension pulmonaire reposent sur le cathétérisme droit.",
+        "pourquoiFaux": "L'échographie estime seulement la probabilité d'hypertension pulmonaire."
+       },
+       "sources": [
+        "ESC et ERS, hypertension pulmonaire (Humbert et al., 2022)"
+       ],
+       "erreurFrequente": "Commencer un traitement spécifique de l'hypertension artérielle pulmonaire sur la seule estimation échographique.",
+       "consequence": "On traite à tort une hypertension pulmonaire liée au cœur gauche, ce qui peut aggraver un œdème pulmonaire.",
+       "bonneConduite": "Confirmer le diagnostic et le type par un cathétérisme droit avant tout traitement spécifique."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__controle_de_pacemaker_et_de_defibrillate",
+     "nom": "Contrôle de pacemaker et de défibrillateur",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__controle_de_pacemaker_et_de_defibrillate-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Des spicules sans capture évoquent une dysfonction de sonde ou une batterie épuisée, que seul le contrôle du boîtier précise.",
+        "pourquoiFaux": "La coronarographie, le CT et le bilan lipidique n'explorent pas le fonctionnement du stimulateur."
+       },
+       "sources": [
+        "ESC, stimulation cardiaque (Glikson et al., 2021)"
+       ],
+       "casClinique": "Un homme de 80 ans porteur d'un stimulateur depuis huit ans présente une fatigue et des vertiges récents ; son ECG montre des spicules sans capture.",
+       "options": [
+        "Contrôle du stimulateur",
+        "Coronarographie",
+        "CT coronaire",
+        "Bilan lipidique"
+       ],
+       "bonneReponse": "Contrôle du stimulateur",
+       "visee": "complications"
+      },
+      {
+       "id": "coeur_et_pericarde__controle_de_pacemaker_et_de_defibrillate-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2021), une impédance très haute évoque une fracture de conducteur, qui menace la capture.",
+        "pourquoiFaux": "Augmenter seulement l'énergie de stimulation ne répare pas une sonde fracturée."
+       },
+       "sources": [
+        "ESC, stimulation cardiaque (Glikson et al., 2021)"
+       ],
+       "resultat": "Impédance de la sonde ventriculaire passée de 600 à 2 500 ohms en trois mois, avec un seuil qui monte.",
+       "decision": "Suspecter une fracture de conducteur et programmer la révision de la sonde."
+      },
+      {
+       "id": "coeur_et_pericarde__controle_de_pacemaker_et_de_defibrillate-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des intervalles irréguliers avec une morphologie ventriculaire inchangée traduisent une fibrillation auriculaire rapide conduite, et non une tachycardie ventriculaire.",
+        "pourquoiFaux": "Une tachycardie ventriculaire serait régulière, avec une morphologie différente du rythme de base."
+       },
+       "sources": [
+        "ESC, stimulation cardiaque (Glikson et al., 2021)"
+       ],
+       "consigne": "Lisez l'électrogramme enregistré par le défibrillateur lors d'un choc.",
+       "aspectRecherche": "Rythme ayant déclenché la thérapie",
+       "reponse": "Choc inapproprié sur fibrillation auriculaire rapide",
+       "imageOuTraceAttendu": "Électrogramme intracardiaque montrant une activité auriculaire chaotique, des intervalles ventriculaires irréguliers autour de 190/min et une morphologie ventriculaire identique au rythme de base avant le choc."
+      },
+      {
+       "id": "coeur_et_pericarde__controle_de_pacemaker_et_de_defibrillate-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "L'électrogramme stocké permet de savoir si le choc était approprié et d'agir sur la cause.",
+        "pourquoiFaux": "Attendre le prochain contrôle programmé laisse le patient exposé."
+       },
+       "sources": [
+        "ESC, stimulation cardiaque (Glikson et al., 2021)"
+       ],
+       "erreurFrequente": "Ne pas faire contrôler un défibrillateur après un choc ressenti par le patient.",
+       "consequence": "On méconnaît un choc inapproprié ou une arythmie grave et le risque de nouveaux chocs.",
+       "bonneConduite": "Interroger rapidement le défibrillateur pour analyser l'événement et adapter la programmation ou le traitement."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ECG": "Électrocardiogramme : enregistrement de l'activité électrique du cœur.",
+    "ESC": "Société européenne de cardiologie, qui publie les recommandations européennes de pratique.",
+    "CT": "Tomodensitométrie (scanner), imagerie en coupes par rayons X.",
+    "ST": "Segment ST de l'électrocardiogramme, dont le sus-décalage ou le sous-décalage oriente vers une ischémie aiguë.",
+    "DI": "Dérivation frontale bipolaire I de l'ECG, qui explore la paroi latérale haute.",
+    "DII": "Dérivation frontale II de l'ECG, qui explore la paroi inférieure.",
+    "DIII": "Dérivation frontale III de l'ECG, qui explore la paroi inférieure.",
+    "V4": "Dérivation précordiale de l'ECG placée à l'apex.",
+    "V4-V6": "Dérivations précordiales latérales de l'ECG.",
+    "V5": "Dérivation précordiale latérale de l'ECG.",
+    "V6": "Dérivation précordiale latérale de l'ECG.",
+    "aVF": "Dérivation frontale unipolaire de l'ECG, qui explore la paroi inférieure.",
+    "aVL": "Dérivation frontale unipolaire de l'ECG, qui explore la paroi latérale haute.",
+    "aVR": "Dérivation frontale unipolaire de l'ECG, orientée vers la cavité ventriculaire.",
+    "ERS": "Société européenne de pneumologie (European Respiratory Society).",
+    "ACC": "Collège américain de cardiologie (American College of Cardiology).",
+    "AHA": "Association américaine de cardiologie (American Heart Association).",
+    "ISHLT": "Société internationale de transplantation cardiaque et pulmonaire.",
+    "AVC": "Accident vasculaire cérébral.",
+    "VO2": "Consommation d'oxygène, exprimée en ml/kg/min.",
+    "VE/VCO2": "Rapport entre la ventilation et la production de dioxyde de carbone, reflet de l'efficacité ventilatoire.",
+    "HV": "Intervalle entre le potentiel du faisceau de His et le début de l'activation ventriculaire.",
+    "AH": "Intervalle entre l'activation auriculaire basse et le potentiel hisien, reflet de la conduction nodale.",
+    "PAPm": "Pression artérielle pulmonaire moyenne, mesurée au cathétérisme droit.",
+    "PAPO": "Pression artérielle pulmonaire d'occlusion (pression capillaire bloquée), reflet de la pression auriculaire gauche.",
+    "RVP": "Résistances vasculaires pulmonaires, exprimées en unités Wood.",
+    "UW": "Unité Wood : unité de résistance vasculaire, égale à 1 mmHg·min/l, soit 0,133 kPa·min/l.",
+    "QRS": "Complexe de l'ECG qui traduit la dépolarisation des ventricules.",
+    "PR": "Intervalle de l'ECG entre le début de l'onde P et le début du QRS."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Exploration fonctionnelle",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
