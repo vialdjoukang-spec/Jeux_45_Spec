@@ -2,9 +2,13 @@
  "_meta": {
   "region": "4. Thorax",
   "organe": "Médiastin",
-  "statut": "LISTE COMPLÈTE — indication, principe, interprétation et bulle à remplir",
+  "statut": "PRODUIT — à auditer",
   "regles": [
    "Biologie : les valeurs de référence vivent dans biologie/analyses ; ici, tu dis pourquoi on demande l'analyse pour cet organe et ce qu'on y cherche."
+  ],
+  "aVerifier": [
+   "mediastin__ct_thoracique_injecte › irradiation_mSv : 2,9 mSv calculé : valeur cible OFSP R-06-06 (révision 2, 2018) du thorax, 210 mGy·cm × 0,014 mSv/(mGy·cm) (facteur thorax adulte de l'AAPM Report 96, repris par l'AAPM en 2023)",
+   "mediastin__pet_ct › irradiation_mSv : 8,8 mSv calculé : NRD FDG 3D 250 MBq (OFSP, directive de médecine nucléaire du 1.2.2023) × 0,019 mSv/MBq = 4,75 mSv (cohérent avec la dose efficace de 4,8 mSv de la même directive), plus le CT d'atténuation corps entier à la valeur cible de 270 mGy·cm (25e percentile, même directive) × 0,015 mSv/(mGy·cm) (facteur abdomen-bassin, AAPM Report 96, 2008) = 4,05 mSv ; total 8,80 mSv, arrondi à 8,8 mSv, valeur harmonisée avec les autres PET-CT au FDG du projet ; la page OFSP « Strahlendosen in der Medizin » indique 11 mSv à titre de comparaison."
   ]
  },
  "examens": [
@@ -12,151 +16,195 @@
    "id": "mediastin__ct_thoracique_injecte",
    "modalite": "Imagerie",
    "nom": "CT thoracique injecté",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "retentissement"
+   ],
+   "signeRecherche": "Masse ou adénopathie médiastinale",
+   "seuil": "Selon l'ESTS (De Leyn et al., 2014), un ganglion médiastinal élargi au CT ou fixant au PET indique une confirmation tissulaire avant de conclure à une atteinte ganglionnaire.",
+   "indication": "On le demande pour caractériser une masse ou des adénopathies médiastinales, pour la stadification d'un cancer bronchique, et, selon Wiendl et al. (2023), pour chercher un thymome chez tout patient myasthénique.",
+   "discriminant": "Selon Archer et al. (2023), il est rapidement disponible et détecte les calcifications, ce que l'IRM fait moins bien.",
+   "avantageSelectif": "Il évalue en un seul examen le médiastin, le poumon et les vaisseaux après injection, et selon Archer et al. (2023) il reste l'examen d'imagerie le plus accessible pour une masse médiastinale.",
+   "plutotQue": "Il précède l'IRM, que l'on réserve aux doutes entre kyste et tumeur solide ou entre hyperplasie et thymome, selon Archer et al. (2023).",
+   "limite": "Selon Archer et al. (2023), il distingue moins bien qu'une IRM une lésion kystique d'une lésion solide, et une hyperplasie thymique d'une tumeur.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "On discute d'une alternative non irradiante chez la femme enceinte, on adapte le protocole chez l'enfant, et on vérifie la fonction rénale avant d'injecter. À la valeur cible de 210 mGy·cm des NRD OFSP R-06-06 (révision 2, 2018), la dose efficace d'un CT thoracique de l'adulte est d'environ 2,9 mSv.",
+   "irradiation_mSv": 2.9,
+   "delai": "rapide (< 24 h)",
    "prelevementRef": null,
    "synonymes": [],
    "aspectNormal": null,
    "anomaliesElementaires": [],
    "syndromesParacliniques": [],
    "pathologiesAssociees": [],
-   "bulle": null
+   "bulle": {
+    "def": "Le CT thoracique injecté mesure l'atténuation des rayons X en coupes après un produit de contraste iodé.",
+    "pourquoi": "Le contraste rehausse les vaisseaux et les parois, ce qui sépare une masse des structures médiastinales voisines.",
+    "confusion": "Un ganglion élargi n'est pas forcément métastatique, et seule une ponction ou une biopsie le confirme, selon l'ESTS (De Leyn et al., 2014).",
+    "retenir": "Le CT injecté est l'examen de première intention d'une masse ou d'une adénopathie médiastinale."
+   }
   },
   {
    "id": "mediastin__irm_mediastinale",
    "modalite": "Imagerie",
    "nom": "IRM médiastinale",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique"
+   ],
+   "signeRecherche": "Lésion kystique ou hyperplasie thymique",
+   "seuil": "Selon Archer et al. (2023), l'IRM distingue une lésion kystique d'une lésion solide et, grâce à la graisse microscopique, une hyperplasie thymique d'une tumeur.",
+   "indication": "On la demande quand le CT laisse un doute sur une masse médiastinale, surtout pour séparer un kyste d'une tumeur ou une hyperplasie d'un thymome, selon Archer et al. (2023).",
+   "discriminant": "Selon Archer et al. (2023), elle est supérieure au CT pour distinguer le kyste du solide et pour détecter la graisse d'une hyperplasie thymique, et elle n'irradie pas.",
+   "avantageSelectif": "Selon Archer et al. (2023), elle n'expose à aucune irradiation et offre un meilleur contraste des tissus mous, y compris pour juger d'une invasion locale.",
+   "plutotQue": "Elle complète le CT plutôt qu'elle ne le remplace en première intention, lorsque le doute porte sur un kyste ou une hyperplasie, selon Archer et al. (2023).",
+   "limite": "Elle est moins disponible que le CT et, selon Archer et al. (2023), elle détecte moins bien les calcifications.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "L'examen n'utilise pas de rayonnements ionisants, selon Archer et al. (2023).",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
    "prelevementRef": null,
    "synonymes": [],
    "aspectNormal": null,
    "anomaliesElementaires": [],
    "syndromesParacliniques": [],
    "pathologiesAssociees": [],
-   "bulle": null
+   "bulle": {
+    "def": "L'IRM médiastinale utilise le champ magnétique et les signaux des tissus, sans rayons X.",
+    "pourquoi": "L'eau d'un kyste et la graisse microscopique d'une hyperplasie thymique ont des signaux différents de ceux d'une tumeur solide.",
+    "confusion": "Une masse thymique solide évoque un thymome, mais une hyperplasie peut l'imiter au CT, et l'IRM tranche en montrant la graisse.",
+    "retenir": "L'IRM sert surtout à séparer kyste, hyperplasie et tumeur lorsque le CT reste douteux."
+   }
   },
   {
    "id": "mediastin__pet_ct",
    "modalite": "Imagerie",
    "nom": "PET-CT",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "retentissement"
+   ],
+   "signeRecherche": "Hypermétabolisme ganglionnaire",
+   "seuil": "Il n'existe pas de seuil universel de SUV, et selon l'ESTS (De Leyn et al., 2014) un ganglion médiastinal qui fixe doit être confirmé par un prélèvement tissulaire.",
+   "indication": "On le demande pour la stadification d'un cancer bronchique avant un traitement curatif, et pour chercher des métastases occultes d'une masse médiastinale suspecte.",
+   "discriminant": "Il montre les ganglions et les métastases à distance dont le CT ne reconnaît pas le caractère tumoral sur la seule taille.",
+   "avantageSelectif": "Il réunit en un seul examen le métabolisme et l'anatomie du corps entier, et il guide le choix du ganglion à ponctionner.",
+   "plutotQue": "Selon l'ESGE/ERS/ESTS (Vilmann et al., 2015), il précède l'échoendoscopie, qui confirme par ponction un ganglion fixant.",
+   "limite": "Il donne des faux positifs dans l'inflammation, la tuberculose et la sarcoïdose, et un ganglion qui fixe doit être ponctionné avant d'écarter une chirurgie.",
    "referencePour": [],
-   "smarterMedicine": null,
+   "smarterMedicine": "La Société suisse d'oncologie médicale (Smarter Medicine 2024) déconseille le PET dans le suivi des patients asymptomatiques en rémission complète, sauf s'il existe des preuves élevées de son utilité.",
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "On mesure la glycémie avant l'injection, et selon l'EANM (Boellaard et al., 2015) on reporte l'examen si elle atteint ou dépasse 11 mmol/l ; on reporte aussi l'examen chez la femme enceinte. Selon l'OFSP (directive de médecine nucléaire du 1.2.2023), 250 MBq de FDG et le CT d'atténuation corps entier à la valeur cible de 270 mGy·cm délivrent ensemble environ 8,8 mSv.",
+   "irradiation_mSv": 8.8,
+   "delai": "programmé",
    "prelevementRef": null,
    "synonymes": [],
    "aspectNormal": null,
    "anomaliesElementaires": [],
    "syndromesParacliniques": [],
    "pathologiesAssociees": [],
-   "bulle": null
+   "bulle": {
+    "def": "Le PET-CT superpose la carte de consommation du glucose marqué au fluor-18 et l'image du CT.",
+    "pourquoi": "Les cellules tumorales consomment beaucoup de glucose et concentrent le FDG, ce qui peut révéler un ganglion ou une métastase occulte.",
+    "confusion": "Un ganglion inflammatoire fixe aussi le FDG, et seule la ponction, recommandée par l'ESTS (De Leyn et al., 2014), tranche.",
+    "retenir": "Un ganglion médiastinal qui fixe doit être ponctionné avant de récuser une chirurgie."
+   }
   },
   {
    "id": "mediastin__mediastinoscopie",
    "modalite": "Endoscopie",
    "nom": "Médiastinoscopie",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "retentissement"
+   ],
+   "signeRecherche": "Métastase ganglionnaire médiastinale",
+   "seuil": "Une histologie maligne d'un ganglion médiastinal confirme l'atteinte, et selon l'ESGE/ERS/ESTS (Vilmann et al., 2015) on la réserve surtout aux cas où l'échoendoscopie n'a pas montré d'envahissement.",
+   "indication": "Selon l'ESGE/ERS/ESTS (Vilmann et al., 2015) et l'ESTS (De Leyn et al., 2014), on la fait après une échoendoscopie négative lorsque le soupçon d'atteinte ganglionnaire médiastinale demeure.",
+   "discriminant": "Elle fournit une histologie chirurgicale des ganglions accessibles par voie cervicale, après un premier geste endoscopique négatif.",
+   "avantageSelectif": "Selon De Leyn et al. (2014), la médiastinoscopie vidéo-assistée est préférée à la médiastinoscopie classique, et l'association à l'endosonographie donne la meilleure exactitude.",
+   "plutotQue": "Selon Vilmann et al. (2015), on ne la place pas en premier : l'échoendoscopie est recommandée comme geste initial de stadification.",
+   "limite": "C'est un geste chirurgical plus invasif que l'échoendoscopie, et selon Vilmann et al. (2015) elle vient après une endosonographie négative si le soupçon persiste.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "L'examen n'utilise pas de rayonnements ionisants ; il se fait au bloc opératoire, après l'échoendoscopie lorsqu'elle n'a pas montré d'envahissement, selon Vilmann et al. (2015).",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
    "prelevementRef": null,
    "synonymes": [],
    "aspectNormal": null,
    "anomaliesElementaires": [],
    "syndromesParacliniques": [],
    "pathologiesAssociees": [],
-   "bulle": null
+   "bulle": {
+    "def": "La médiastinoscopie explore le médiastin par une courte incision sus-sternale et biopsie les ganglions sous contrôle de la vue.",
+    "pourquoi": "L'opérateur atteint les relais paratrachéaux et sous-carinaires pour obtenir une histologie quand l'aiguille n'a pas montré de métastase.",
+    "confusion": "Une échoendoscopie négative semble rassurante, mais Vilmann et al. (2015) recommandent encore un geste chirurgical si le soupçon d'envahissement reste fort.",
+    "retenir": "La médiastinoscopie vient après l'EBUS et l'EUS, pas en première intention."
+   }
   },
   {
    "id": "mediastin__ebus_et_eus",
    "modalite": "Endoscopie",
    "nom": "EBUS et EUS",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
+   "visees": [
+    "diagnostique",
+    "retentissement"
+   ],
+   "signeRecherche": "Métastase ganglionnaire médiastinale",
+   "seuil": "Une cytologie maligne confirme l'atteinte ganglionnaire, et selon l'ESGE/ERS/ESTS (Vilmann et al., 2015) une endosonographie négative doit encore être suivie d'une stadification chirurgicale si le soupçon demeure.",
+   "indication": "Selon l'ESGE/ERS/ESTS (Vilmann et al., 2015), on les fait en première intention pour la stadification médiastinale d'un cancer bronchique non à petites cellules avec des ganglions anormaux au CT ou au PET.",
+   "discriminant": "L'EBUS et l'EUS ponctionnent sous contrôle échographique des relais complémentaires, et selon Vilmann et al. (2015) leur association est préférable à chacun des deux examens seul.",
+   "avantageSelectif": "Selon Vilmann et al. (2015), l'échoendoscopie est recommandée d'emblée plutôt que la stadification chirurgicale, car elle est moins invasive.",
+   "plutotQue": "Selon Vilmann et al. (2015), on la préfère à la médiastinoscopie comme premier geste de stadification ; la médiastinoscopie vient ensuite si le prélèvement est négatif.",
+   "limite": "Selon Vilmann et al. (2015), une ponction négative n'exclut pas une métastase, et une stadification chirurgicale reste alors recommandée.",
+   "referencePour": [
+    "Stadification médiastinale du cancer"
+   ],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "L'examen n'utilise pas de rayonnements ionisants.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
    "prelevementRef": null,
    "synonymes": [],
    "aspectNormal": null,
    "anomaliesElementaires": [],
    "syndromesParacliniques": [],
    "pathologiesAssociees": [],
-   "bulle": null
+   "bulle": {
+    "def": "L'EBUS et l'EUS associent une sonde d'échographie à un endoscope bronchique ou œsophagien pour ponctionner les ganglions.",
+    "pourquoi": "L'échographie voit le ganglion à travers la paroi, ce qui guide l'aiguille à l'écart des vaisseaux.",
+    "confusion": "Un ganglion qui fixe au PET évoque une métastase, mais il peut être inflammatoire, et la cytologie tranche.",
+    "retenir": "L'échoendoscopie est le premier geste de stadification médiastinale du cancer bronchique."
+   }
   },
   {
    "id": "mediastin__afp_hcg",
    "modalite": "Biologie",
    "nom": "AFP, β-hCG (tumeurs germinales)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "etiologique"
+   ],
+   "signeRecherche": "Marqueurs d'une tumeur germinale",
+   "seuil": "Selon l'ESMO (Huddart et al., 2008), une masse du médiastin antérieur associée à une élévation de l'AFP ou de la β-hCG peut poser le diagnostic de tumeur germinale.",
+   "indication": "On les dose devant une masse du médiastin antérieur, surtout chez un homme jeune, pour rechercher une tumeur germinale, selon l'ESMO (Huddart et al., 2008).",
+   "discriminant": "Selon l'ESMO (Huddart et al., 2008), le tableau clinique typique et l'élévation des marqueurs peuvent suffire au diagnostic, sans imposer d'emblée une biopsie.",
+   "avantageSelectif": "Ils se font sur une simple prise de sang et orientent rapidement vers une tumeur germinale avant tout geste invasif.",
+   "plutotQue": "Selon l'ESMO (Huddart et al., 2008), ils peuvent précéder, et parfois éviter, une biopsie lorsque le tableau et les marqueurs sont typiques.",
+   "limite": "Selon l'ESMO (Huddart et al., 2008), une biopsie reste nécessaire lorsque le tableau n'est pas typique, car des marqueurs normaux n'excluent pas une autre tumeur médiastinale.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
+   "precautions": "Aucune précaution particulière n'est nécessaire ; on interprète les marqueurs avec l'imagerie, selon l'ESMO (Huddart et al., 2008).",
+   "irradiation_mSv": 0,
+   "delai": "rapide (< 24 h)",
+   "prelevementRef": "sang_veineux",
    "analysesRef": [
     "AFP",
     "β-hCG"
@@ -166,27 +214,35 @@
    "anomaliesElementaires": [],
    "syndromesParacliniques": [],
    "pathologiesAssociees": [],
-   "bulle": null
+   "bulle": {
+    "def": "L'AFP et la β-hCG sont des marqueurs sériques produits par certaines tumeurs germinales.",
+    "pourquoi": "Une tumeur germinale non séminomateuse du médiastin libère souvent ces protéines dans le sang, ce qui oriente le diagnostic.",
+    "confusion": "Un lymphome ou un thymome peuvent aussi former une masse antérieure, mais sans élever typiquement l'AFP ou la β-hCG.",
+    "retenir": "Devant une masse médiastinale antérieure, on dose l'AFP et la β-hCG avant de biopsier."
+   }
   },
   {
    "id": "mediastin__anticorps_anti_recepteur_de_l_acetylchol",
    "modalite": "Biologie",
    "nom": "Anticorps anti-récepteur de l'acétylcholine (thymome)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "etiologique"
+   ],
+   "signeRecherche": "Myasthénie associée à un thymome",
+   "seuil": "Le test est positif lorsqu'il détecte des anticorps anti-récepteur de l'acétylcholine, ce qui, selon Wiendl et al. (2023), définit un sous-type de myasthénie et impose de chercher un thymome.",
+   "indication": "On le demande devant une suspicion de myasthénie, ou devant une masse thymique associée à une faiblesse fatigable, et selon Wiendl et al. (2023) tout myasthénique doit être exploré à la recherche d'un thymome.",
+   "discriminant": "Il identifie la myasthénie avec anticorps anti-récepteur de l'acétylcholine, pour laquelle Wiendl et al. (2023) indiquent la thymectomie en cas de thymome ou de forme généralisée.",
+   "avantageSelectif": "Il se fait sur une simple prise de sang et oriente à la fois le diagnostic de myasthénie et la recherche d'un thymome.",
+   "plutotQue": "Selon Wiendl et al. (2023), il s'accompagne d'un CT ou d'une IRM thoracique chez tout patient myasthénique, pour ne pas manquer un thymome.",
+   "limite": "Selon Wiendl et al. (2023), il existe des myasthénies séronégatives : un test négatif n'exclut donc pas le diagnostic, et n'épargne pas l'imagerie du thymus.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
-   "prelevementRef": null,
+   "precautions": "Aucune précaution particulière n'est nécessaire.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
+   "prelevementRef": "sang_veineux",
    "analysesRef": [
     "Anticorps anti-récepteur de l'acétylcholine"
    ],
@@ -195,7 +251,12 @@
    "anomaliesElementaires": [],
    "syndromesParacliniques": [],
    "pathologiesAssociees": [],
-   "bulle": null
+   "bulle": {
+    "def": "Ces anticorps reconnaissent le récepteur de l'acétylcholine de la plaque motrice.",
+    "pourquoi": "Ils perturbent la transmission nerveuse et signent une myasthénie, souvent associée à un thymome ou à une hyperplasie thymique.",
+    "confusion": "Une faiblesse fatigable sans anticorps peut encore être une myasthénie séronégative, et l'électrophysiologie ainsi que l'imagerie du thymus aident alors.",
+    "retenir": "Tout patient avec des anticorps anti-récepteur de l'acétylcholine doit avoir une imagerie du thymus."
+   }
   },
   {
    "id": "mediastin__ldh",
@@ -308,5 +369,23 @@
    "bulle": null
   }
  ],
- "glossaire": {}
+ "glossaire": {
+  "CT": "Tomodensitométrie : imagerie en coupes par rayons X qui mesure l'atténuation des tissus.",
+  "IRM": "Imagerie par résonance magnétique : imagerie par champ magnétique, sans rayons X.",
+  "PET": "Tomographie par émission de positons : imagerie qui localise un traceur radioactif émetteur de positons.",
+  "FDG": "Fluorodésoxyglucose marqué au fluor-18 : traceur du PET qui se concentre dans les tissus consommateurs de glucose.",
+  "SUV": "Standardized Uptake Value : indice semi-quantitatif de fixation du traceur en PET.",
+  "EBUS": "Échoendoscopie bronchique : endoscope bronchique muni d'une sonde d'échographie pour ponctionner les ganglions.",
+  "EUS": "Échoendoscopie œsophagienne : endoscope digestif muni d'une sonde d'échographie pour ponctionner les ganglions.",
+  "OFSP": "Office fédéral de la santé publique, autorité suisse de radioprotection.",
+  "NRD": "Niveaux de référence diagnostiques : doses de référence que l'OFSP fixe pour optimiser l'irradiation.",
+  "ESGE": "Société européenne d'endoscopie digestive.",
+  "ERS": "Société européenne de pneumologie (European Respiratory Society).",
+  "ESTS": "Société européenne de chirurgie thoracique.",
+  "EANM": "Association européenne de médecine nucléaire.",
+  "ESMO": "Société européenne d'oncologie médicale.",
+  "AFP": "Alpha-fœtoprotéine : marqueur sérique élevé dans certaines tumeurs germinales non séminomateuses.",
+  "hCG": "Hormone chorionique gonadotrope : hormone dont la sous-unité bêta sert de marqueur de tumeur germinale.",
+  "MBq": "Mégabecquerel, unité d'activité d'un produit radiopharmaceutique."
+ }
 }

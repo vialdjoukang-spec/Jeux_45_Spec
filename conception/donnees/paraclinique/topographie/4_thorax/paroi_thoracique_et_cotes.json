@@ -2,9 +2,15 @@
  "_meta": {
   "region": "4. Thorax",
   "organe": "Paroi thoracique et côtes",
-  "statut": "LISTE COMPLÈTE — indication, principe, interprétation et bulle à remplir",
+  "statut": "PRODUIT — à auditer",
   "regles": [
    "Biologie : les valeurs de référence vivent dans biologie/analyses ; ici, tu dis pourquoi on demande l'analyse pour cet organe et ce qu'on y cherche."
+  ],
+  "aVerifier": [
+   "paroi_thoracique_et_cotes__radiographie_du_gril_costal › irradiation_mSv : 0,05 mSv, approximation : ni l'OFSP, ni Hart et al. (HPA-CRCE-012, 2010), ni Wall et al. (HPA-CRCE-028, 2011) ne donnent de ligne « côtes » ; somme d'une face (0,014 mSv) et d'un profil du thorax (0,038 mSv) selon Wall et al. (2011, dose E103) = 0,052 mSv, arrondi à 0,05 ; l'ACR (2018) classe les clichés costaux au niveau relatif ☢☢☢ (1 à 10 mSv), ce qui est discordant.",
+   "paroi_thoracique_et_cotes__ct_thoracique › irradiation_mSv : 2,9 mSv calculé : valeur cible OFSP R-06-06 (révision 2, 2018) du thorax, 210 mGy·cm × 0,014 mSv/(mGy·cm) (facteur thorax adulte de l'AAPM Report 96, repris par l'AAPM en 2023) ; au NRD, 250 × 0,014 = 3,5 mSv.",
+   "paroi_thoracique_et_cotes__ct_thoracique › delai : urgence retenue pour le traumatisme grave, indication principale ; la caractérisation d'une fracture pathologique est programmée ; aucune source ne chiffre ce délai.",
+   "paroi_thoracique_et_cotes__scintigraphie_osseuse › irradiation_mSv : 4,0 mSv : dose du produit radiopharmaceutique pour 700 MBq de DPD, de MDP ou d'HDP selon l'OFSP (directive de médecine nucléaire du 1.2.2023), valeur reprise de la scintigraphie aux diphosphonates du cœur ; une SPECT-CT n'est pas comprise."
   ]
  },
  "examens": [
@@ -12,105 +18,137 @@
    "id": "paroi_thoracique_et_cotes__radiographie_du_gril_costal",
    "modalite": "Imagerie",
    "nom": "Radiographie du gril costal",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "complications"
+   ],
+   "signeRecherche": "Fracture costale déplacée",
+   "seuil": "Selon l'ACR (fractures de côtes, 2018), la radiographie thoracique de face peut manquer 50 % des fractures de côtes, sans que cela modifie la prise en charge d'un traumatisme mineur non compliqué.",
+   "indication": "Selon l'ACR (fractures de côtes, 2018), après un traumatisme mineur limité aux côtes, on commence par une radiographie thoracique de face, et les clichés costaux dédiés ne sont que parfois appropriés.",
+   "discriminant": "Selon l'ACR (2018), elle montre les complications plus importantes que la fracture elle-même, comme le pneumothorax, l'hémothorax, le volet costal ou la contusion pulmonaire.",
+   "avantageSelectif": "Elle est disponible partout, et selon l'ACR (2018) elle montre presque toujours les fragments déplacés d'un volet costal, même chez un patient corpulent.",
+   "plutotQue": "Selon l'ACR (2018), Shuaib et al. ont vu les clichés costaux changer la prise en charge chez un seul patient sur 422 (0,23 %), d'où la préférence pour la radiographie thoracique de face.",
+   "limite": "Selon l'ACR (2018), Griffith et al. n'ont vu à la radiographie que 8 des 83 fractures de côtes détectées par l'échographie (10 %).",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "On ne multiplie pas les clichés pour chercher une fracture simple, car selon l'ACR (2018) la détecter ne change pas la prise en charge d'un traumatisme mineur.",
+   "irradiation_mSv": 0.05,
+   "delai": "rapide (< 24 h)",
    "prelevementRef": null,
    "synonymes": [],
    "aspectNormal": null,
    "anomaliesElementaires": [],
    "syndromesParacliniques": [],
    "pathologiesAssociees": [],
-   "bulle": null
+   "bulle": {
+    "def": "La radiographie du gril costal projette les côtes sur un cliché, de face et souvent en oblique sur la zone douloureuse.",
+    "pourquoi": "Une fracture interrompt la corticale de la côte, et un déplacement la rend visible sur le cliché.",
+    "confusion": "Une fracture non déplacée imite une côte normale à la radiographie, mais l'échographie ou le CT la montrent.",
+    "retenir": "Selon l'ACR (2018), après un traumatisme mineur, la radiographie thoracique de face suffit le plus souvent."
+   }
   },
   {
    "id": "paroi_thoracique_et_cotes__ct_thoracique",
    "modalite": "Imagerie",
    "nom": "CT thoracique",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "complications",
+    "etiologique"
+   ],
+   "signeRecherche": "Fractures costales et lésions associées",
+   "seuil": "Selon l'ACR (2018), Kea et al. ont trouvé au CT des fractures de côtes chez 66 des 589 patients (11 %) dont la radiographie était normale, sans qu'aucune soit cliniquement majeure.",
+   "indication": "Selon l'ACR (fractures de côtes, 2018), on le fait si une lésion grave est suspectée, on peut le discuter après une réanimation cardio-pulmonaire, et on le fait pour caractériser une fracture pathologique ; il n'est habituellement pas indiqué dans un traumatisme mineur limité aux côtes.",
+   "discriminant": "Selon l'ACR (2018), le nombre de fractures et leur déplacement ont une valeur pronostique, que le CT précise mieux que la radiographie.",
+   "avantageSelectif": "Selon l'ACR (2018), il est plus sensible que la radiographie pour les fractures de côtes, et il montre dans le même temps les lésions associées.",
+   "plutotQue": "Selon l'ACR (2018), on le préfère pour caractériser une fracture pathologique, car certains aspects aident à distinguer une tumeur osseuse primitive d'une métastase.",
+   "limite": "Selon l'ACR (2018), sa meilleure sensibilité ne modifie pas la prise en charge d'un traumatisme mineur sans lésion associée, alors qu'il irradie davantage.",
    "referencePour": [],
-   "smarterMedicine": null,
+   "smarterMedicine": "La Société suisse de Chirurgie (liste Top 5, 2018) déconseille la tomodensitométrie « corps entier » systématique chez les patients présentant un traumatisme mineur ou localisé.",
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "Selon la valeur cible OFSP R-06-06 (révision 2, 2018) du thorax, il délivre environ 2,9 mSv, bien plus qu'une radiographie thoracique.",
+   "irradiation_mSv": 2.9,
+   "delai": "urgence (< 1 h)",
    "prelevementRef": null,
    "synonymes": [],
    "aspectNormal": null,
    "anomaliesElementaires": [],
    "syndromesParacliniques": [],
    "pathologiesAssociees": [],
-   "bulle": null
+   "bulle": {
+    "def": "Le CT thoracique reconstruit le thorax en coupes fines, os, poumons et médiastin compris.",
+    "pourquoi": "Les coupes fines suivent chaque côte et montrent une fracture même non déplacée, ainsi que ses complications.",
+    "confusion": "Une fracture pathologique imite une fracture traumatique, mais le CT montre une lyse ou une masse autour du trait.",
+    "retenir": "Selon l'ACR (2018), on le réserve au traumatisme grave et à la fracture pathologique."
+   }
   },
   {
    "id": "paroi_thoracique_et_cotes__echographie",
    "modalite": "Imagerie",
    "nom": "Échographie (fracture costale)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique"
+   ],
+   "signeRecherche": "Rupture de la corticale costale",
+   "seuil": "Selon la méta-analyse de Gilbertson et al. (2022), une irrégularité corticale à l'échographie a un rapport de vraisemblance positif de 55,7, et son absence un rapport négatif de 0,11, par rapport au CT.",
+   "indication": "On peut la faire au lit devant une douleur costale localisée après un traumatisme, mais l'ACR (fractures de côtes, 2018) ne la juge habituellement pas appropriée en première intention après un traumatisme mineur limité aux côtes.",
+   "discriminant": "Selon l'ACR (2018), elle explore aussi la jonction chondrocostale et le cartilage costal, et montre des fractures non déplacées invisibles à la radiographie.",
+   "avantageSelectif": "Selon Gilbertson et al. (2022), sa sensibilité groupée atteint 89,3 % et sa spécificité 98,4 % par rapport au CT, sans aucune irradiation.",
+   "plutotQue": "On la préfère aux clichés costaux pour chercher une fracture non déplacée, car selon l'ACR (2018) Griffith et al. ont vu 83 fractures à l'échographie, dont 8 seulement à la radiographie.",
+   "limite": "Selon l'ACR (2018), Hurley et al. décrivent un examen de 13 minutes en moyenne, douloureux sous la pression de la sonde, dont le résultat change rarement la prise en charge.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "Elle n'utilise pas de rayonnements ionisants et convient donc à l'enfant et à la femme enceinte.",
+   "irradiation_mSv": 0,
+   "delai": "rapide (< 24 h)",
    "prelevementRef": null,
    "synonymes": [],
    "aspectNormal": null,
    "anomaliesElementaires": [],
    "syndromesParacliniques": [],
    "pathologiesAssociees": [],
-   "bulle": null
+   "bulle": {
+    "def": "L'échographie suit la côte douloureuse avec une sonde de haute fréquence posée sur la peau.",
+    "pourquoi": "Une fracture interrompt la ligne blanche de la corticale, souvent sous le point le plus douloureux.",
+    "confusion": "Une lésion du cartilage costal imite une fracture osseuse, mais la rupture siège à la jonction chondrocostale.",
+    "retenir": "Selon Gilbertson et al. (2022), une échographie sans rupture corticale rend une fracture peu probable."
+   }
   },
   {
    "id": "paroi_thoracique_et_cotes__scintigraphie_osseuse",
    "modalite": "Imagerie",
    "nom": "Scintigraphie osseuse",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "etiologique"
+   ],
+   "signeRecherche": "Hyperfixation costale focale",
+   "seuil": "Selon l'ACR (fractures de côtes, 2018), la scintigraphie a une sensibilité de plus de 95 % mais une faible spécificité pour les fractures costales pathologiques, et la répartition des foyers aide à séparer fractures et métastases.",
+   "indication": "Selon l'ACR (2018), on la fait d'emblée, avec la radiographie et le CT, devant une suspicion de fracture costale pathologique ; elle n'est habituellement pas indiquée après un traumatisme mineur.",
+   "discriminant": "Elle explore tout le squelette en un seul examen, et selon l'ACR (2018) elle sert surtout à chercher une atteinte osseuse systémique comme des métastases.",
+   "avantageSelectif": "Selon l'ACR (2018), elle devient positive dans les 24 heures qui suivent un traumatisme costal.",
+   "plutotQue": "On la préfère au PET-CT au FDG, que l'ACR (2018) ne juge que parfois approprié devant une fracture costale pathologique.",
+   "limite": "Selon l'ACR (2018), elle date mal une fracture, car la fixation ne se normalise que dans 79 % des cas à un an, 93 % à deux ans et 100 % à trois ans.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "On reporte l'examen chez la femme enceinte ; selon l'OFSP (directive de médecine nucléaire du 1.2.2023), une activité de référence de 700 MBq de DPD, de MDP ou d'HDP délivre 4,0 mSv pour le produit radiopharmaceutique.",
+   "irradiation_mSv": 4.0,
+   "delai": "programmé",
    "prelevementRef": null,
    "synonymes": [],
    "aspectNormal": null,
    "anomaliesElementaires": [],
    "syndromesParacliniques": [],
    "pathologiesAssociees": [],
-   "bulle": null
+   "bulle": {
+    "def": "La scintigraphie osseuse image tout le squelette quelques heures après l'injection d'un diphosphonate marqué au technétium.",
+    "pourquoi": "Le traceur se fixe là où l'os se remodèle, autour d'une fracture comme autour d'une métastase.",
+    "confusion": "Des fractures alignées sur plusieurs côtes voisines imitent des métastases, mais leur disposition en ligne oriente vers le traumatisme.",
+    "retenir": "Selon l'ACR (2018), elle sert à la fracture pathologique, et non au traumatisme mineur."
+   }
   },
   {
    "id": "paroi_thoracique_et_cotes__ck_et_troponine",
@@ -170,5 +208,17 @@
    "bulle": null
   }
  ],
- "glossaire": {}
+ "glossaire": {
+  "ACR": "American College of Radiology, société américaine de radiologie qui publie des critères de pertinence de l'imagerie.",
+  "CT": "Tomodensitométrie : imagerie en coupes par rayons X qui mesure l'atténuation des tissus.",
+  "OFSP": "Office fédéral de la santé publique, autorité suisse de radioprotection.",
+  "R-06-06": "Directive de l'OFSP qui fixe les niveaux de référence diagnostiques du CT.",
+  "PET-CT": "Tomographie par émission de positons couplée à un CT, qui localise un traceur radioactif.",
+  "FDG": "Fluorodésoxyglucose marqué au fluor-18 : traceur du PET qui se concentre dans les tissus consommateurs de glucose.",
+  "MBq": "Mégabecquerel : unité d'activité radioactive injectée.",
+  "mSv": "Millisievert : unité de dose efficace, qui mesure l'effet biologique des rayonnements ionisants.",
+  "DPD": "Acide 3,3-diphosphono-1,2-propanodicarboxylique : diphosphonate marqué au technétium utilisé en scintigraphie osseuse.",
+  "MDP": "Méthylène diphosphonate : diphosphonate marqué au technétium utilisé en scintigraphie osseuse.",
+  "HDP": "Hydroxyméthylène diphosphonate : diphosphonate marqué au technétium utilisé en scintigraphie osseuse."
+ }
 }
