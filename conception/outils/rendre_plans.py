@@ -84,6 +84,10 @@ def rendre(p, audit):
         S.append(("semiologie", "Infobulles symétriques, seuils de signes et sons réels",
                   f"<p>{E(sm['infobulle']['regle'])}</p>" + table([{"r": a, "c": b} for a, b in sm["infobulle"]["rubriques"]], [("r", "Rubrique"), ("c", "Contenu attendu")])
                   + f"<p>{E(sm['infobulle']['symetrie'])}</p><p><b>Glossaire :</b> {E(sm['glossaire'])}</p><p><b>Typiques et atypiques :</b> {E(sm['typiqueAtypique'])}</p><p><b>Bilan :</b> {E(sm['bilan'])}</p><h4>Seuils</h4>{liste(sm['seuils'])}<h4>Sons</h4><p>{E(sm['sons']['regle'])}</p>{liste(sm['sons']['catalogue'])}<p>{E(sm['sons']['source'])}</p>"))
+    if p.get("pratique"):
+        pr = p["pratique"]
+        S.append(("pratique", "Théorie et pratique : la pratique est le jeu", f"<p>{E(pr['principe'])}</p><p><b>Modes :</b> {E(' · '.join(pr['modes']))}</p>"
+            + table([{"g": g, "d": ", ".join(d)} for g, d in pr["defis"].items()], [("g", "Entité"), ("d", "Défis")])))
     if p.get("systemesOrganes"):
         so = p["systemesOrganes"]
         S.append(("systemesOrganes", "Systèmes et organes : tout le système, organe par organe", f"<p>{E(so['regle'])}</p><p>{E(so['motsCles'])}</p><p>{E(so['concision'])}</p>"

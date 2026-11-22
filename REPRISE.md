@@ -93,3 +93,14 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Index de tous les JSON avec liens GitHub et bruts : `INDEX_JSON.md` (régénéré à chaque mise à jour). Les graphes, arbres 3D, régions, index et exercices se calculent par script (T60, P36), jamais par l'IA de production.
 - Signature de mes productions : AAI (Anthropic AI), demandée par Vial (champ `_lot.signature`, pied des fichiers .md).
 - Paraclinique (22/11) : lots par organe `2_Paraclinique/1_Examens_par_organe/<NN_Région>/P<RR>-<OO>_Examens_<Organe>_<n>-examens.json` (66) ; biologie : `2_Biologie/1_Analyses_individuelles/PB01…PB15` (≈ 300 analyses, source unique des valeurs, catalogue `conception/outils/analyses_biologiques.py`) et `2_Biologie/2_Prelevements_technique/PP01…PP04` ; `3_Explorations_fonctionnelles/<Région>/PF…` ; `4_Endoscopies/<Région>/PE…` ; `5_Imagerie_Images_et_Cas` ; `6_Formules_Criteres_SmarterMedicine`. Chaque examen biologique d'organe porte `analysesRef` (lien automatique, audité).
+
+## 13. Théorie et pratique (22.11.2026, demande de Vial)
+- **Théorie** = ce que l'apprenant consulte : l'arbre et le réseau Obsidian fonctionnel (fichiers `conception/donnees/<module>/…`).
+- **Pratique** = le jeu lui-même : arène, aventure, stations OSCE, cas-décision. Chaque fichier théorique a un jumeau `conception/donnees/pratique/<même chemin>.json`, une entité par élément, avec des défis typés.
+  - Gabarits et modes : `conception/outils/pratique.py` (source unique) ; 703 fichiers pratiques générés.
+  - Jeux 45 Spec : sa pratique est la couche 3 (items, `scripts/schema_item.json`).
+- **Lots** : `projets/lots/<projet>/<thème>/<région ou système>/<organe ou discipline>/1_Theorie | 2_Pratique/<lot>.json`, profondeur n autorisée par Vial pour la production agentique.
+  - Organes de plus de 10 examens coupés par modalité (`_fragment`) ; un organe Tétrade = un lot ; une leçon transversale = un lot.
+  - Le lot pratique dépend du lot théorique (il s'appuie sur la théorie remplie).
+- **Retours** : `python projets/outils/fusionner_retours.py <fichiers ou dossier>` réassemble (fragments par id), contrôle et écrit `projets/retours/rapport_fusion.md` ; `--essai` n'écrit rien.
+- **Diagnostics et prise en charge** : fichier partagé par système proposé à Vial (bilan par visée, lignes de traitement), en attente de sa validation ; il servira la Tétrade, la Paraclinique, la pharmacologie et l'arène de Jeux 45 Spec.

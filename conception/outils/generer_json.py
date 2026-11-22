@@ -177,6 +177,13 @@ for t in TREF["transversales"]:
         "lettre": t["letter"], "nom": t["name"], "sousOnglets": [s["name"] for s in t["subIcons"]],
         "lecons": [{"id": l["tileId"], "titre": l["name"], "sousOnglet": l["subIconId"], "strate": l["stratumCode"]} for l in t["lessons"]],
         "arborescence": [{"partie": a, "consigne": b, "contenu": None} for a, b in ARBORESCENCE], "liensTetrade": [], "liensSSP": []}))
+    for l in t["lessons"]:  # une leçon = un fichier (fragment de production autonome)
+        ecrits.append(ecrire(f"tetrade/transversales/lecons/{t['letter']}/{slug(l['tileId'])}.json", {"_meta": {"statut": "À REMPLIR", "discipline": f"{t['letter']} — {t['name']}",
+                "regles": ["La leçon commence par un cas suisse concret et finit par une décision à prendre.", "Phrases verbales ; tout sigle figure au glossaire.", "Elle renvoie aux SSP sans les recopier."]},
+            "id": l["tileId"], "titre": l["name"], "lettre": t["letter"], "sousOnglet": l["subIconId"], "strate": l["stratumCode"],
+            "casDOuverture": None, "parties": {a: None for a, _ in ARBORESCENCE}, "decisionFinale": None,
+            "items": [{"type": None, "enonce": None, "options": [], "bonneReponse": None, "explicationParOption": {}} for _ in range(5)],
+            "liensSSP": [], "bulle": None, "glossaire": {}}))
 ecrits.append(ecrire("tetrade/cardiovasculaire/anatomie3d.exemple_coeur.json", {"_meta": {"statut": "EXEMPLE — fenêtre de structure du prototype"}, "structureId": "coeur", "parent": "thorax",
     "niveau": ["Paroi thoracique et péricarde", "Faces et bords du cœur", "Cavités et valves", "Vascularisation coronaire", "Tissu de conduction et innervation"],
     "vues3D": ["antérieure", "latérale gauche", "postérieure", "supérieure"], "trajetRenforce": ["aorte"], "modele": "BodyParts3D (FMA7088, FMA3734)",
@@ -207,9 +214,32 @@ SCH = {
 for k, v in SCH.items():
     ecrits.append(ecrire(f"schemas/{k}.schema.json", {"$schema": "https://json-schema.org/draft/2020-12/schema", "title": k, **v}))
 
+# ---------- PARTIE PRATIQUE : un jumeau par fichier théorique (défis du jeu, entité par entité) ----------
+from pratique import genre, defis_pour, MODES, REGLES as REGLES_PRATIQUE
+PROJET_DE = {"examen": "2_Jeux_Paraclinique", "analyse": "2_Jeux_Paraclinique", "prelevement": "2_Jeux_Paraclinique", "exploration": "2_Jeux_Paraclinique",
+             "lecon": "3_Transversal_Discip"}
+for ch in sorted(set(ecrits)):
+    g = genre("/" + ch)
+    if not g or ch.startswith("pratique/") or ch.endswith("liste.json") or "exemple" in ch:
+        continue
+    th = json.load(open(os.path.join(OUT, ch), encoding="utf-8"))
+    liste = next((k for k in ("examens", "analyses", "elements") if isinstance(th.get(k), list)), None)
+    if liste:
+        ents = [{"ref": x.get("id") or x.get("nom") if isinstance(x, dict) else x, "nom": x.get("nom") if isinstance(x, dict) else x,
+                 **({"modalite": x["modalite"]} if isinstance(x, dict) and x.get("modalite") else {}),
+                 "defis": defis_pour(g, x.get("modalite") if isinstance(x, dict) else None)} for x in th[liste]]
+        gabarit = not any(e["nom"] for e in ents)
+    else:
+        ents = [{"ref": th.get("id") or th.get("organe"), "nom": th.get("titre") or th.get("organe"), "defis": defis_pour(g)}]
+        gabarit = False
+    projet = PROJET_DE.get(g, "1_Jeux_Tetrade_Fondation")
+    ecrits.append(ecrire("pratique/" + ch, {"_meta": {"source": ch, "genre": g, "projet": projet, "modes": MODES[projet], "statut": "À REMPLIR",
+            "regles": REGLES_PRATIQUE + (["La théorie de ce fichier est un gabarit : tu crées une entité par élément produit dans la théorie, avec ses défis."] if gabarit else [])},
+        "entites": ents, "glossaire": {}}))
+
 ecrits = sorted(set(ecrits))
 index = {"genere": "par conception/outils/generer_json.py (0 token)", "total": len(ecrits),
-         "parModule": {m: sum(1 for e in ecrits if e.startswith(m)) for m in ["tetrade", "pharmaco", "paraclinique", "schemas"]},
+         "parModule": {m: sum(1 for e in ecrits if e.startswith(m)) for m in ["tetrade", "pharmaco", "paraclinique", "pratique", "schemas"]},
          "fichiers": sorted(ecrits)}
 json.dump(index, open(os.path.join(OUT, "INDEX.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(json.dumps(index["parModule"]), "total", index["total"])

@@ -19,7 +19,7 @@ def resume_json(v):
             if len(v["fichiers"]) == 1:
                 return resume_json(next(iter(v["fichiers"].values())))
             return f"{len(v['fichiers'])} fichiers inclus"
-        for k in ("examens", "analyses", "elements", "lecons", "noeuds"):
+        for k in ("examens", "analyses", "entites", "elements", "lecons", "noeuds"):
             if isinstance(v.get(k), list):
                 return f"{len(v[k])} {k}"
         return f"{len([k for k in v if not k.startswith('_')])} clés"
@@ -69,9 +69,9 @@ def main():
             return
         items, sing = [], None
         if isinstance(v, dict):
-            for k in ("examens", "analyses", "elements", "lecons", "noeuds"):
+            for k in ("examens", "analyses", "entites", "elements", "lecons", "noeuds"):
                 if isinstance(v.get(k), list):
-                    items = v[k]; sing = {"examens": "Examen", "analyses": "Analyse", "elements": "Élément", "lecons": "Leçon", "noeuds": "Nœud"}[k]; break
+                    items = v[k]; sing = {"examens": "Examen", "analyses": "Analyse", "elements": "Élément", "lecons": "Leçon", "noeuds": "Nœud", "entites": "Entité"}[k]; break
             else:
                 for k, x in v.items():
                     if not k.startswith("_") and isinstance(x, (dict, list)):

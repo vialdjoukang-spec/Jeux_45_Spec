@@ -77,6 +77,13 @@ ctrl(f"Chaque analyse biologique est unique ({len(_an)} analyses individuelles)"
 _sans = sorted({e["nom"] for f in _g.glob(os.path.join(ICI, "donnees/paraclinique/topographie/*/*.json")) for e in json.load(open(f, encoding="utf-8"))["examens"]
                 if e["modalite"] == "Biologie" and not e.get("analysesRef") and not re.search(r"score|ponction de chambre", e["nom"], re.I)})
 ctrl("Chaque examen biologique d'organe renvoie à ses analyses (valeurs dans une source unique)", not _sans, ", ".join(_sans))
+# 1 quater. Chaque fichier théorique a son jumeau pratique (le jeu)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from pratique import genre as _genre
+_th = [os.path.relpath(f, os.path.join(ICI, "donnees")) for f in _g.glob(os.path.join(ICI, "donnees", "**", "*.json"), recursive=True)
+       if not os.path.relpath(f, os.path.join(ICI, "donnees")).startswith("pratique") and _genre("/" + os.path.relpath(f, os.path.join(ICI, "donnees"))) and not f.endswith("liste.json") and "exemple" not in f]
+_sansj = [x for x in _th if not os.path.exists(os.path.join(ICI, "donnees", "pratique", x))]
+ctrl(f"Chaque fichier théorique a son jumeau pratique ({len(_th)} fichiers)", not _sansj, ", ".join(_sansj[:10]))
 a_prod = sum(1 for n in N.values() if n.get("aProduire"))
 INFO = f"Organes encore à produire (backlog, non bloquant) : {a_prod}"
 

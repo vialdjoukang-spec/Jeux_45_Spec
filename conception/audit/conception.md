@@ -22,13 +22,14 @@ Organes encore à produire (backlog, non bloquant) : 121
 | Chaque case d'espace appartient à l'un des 4 espaces | ✅ |  |
 | Chaque analyse biologique est unique (304 analyses individuelles) | ✅ |  |
 | Chaque examen biologique d'organe renvoie à ses analyses (valeurs dans une source unique) | ✅ |  |
+| Chaque fichier théorique a son jumeau pratique (703 fichiers) | ✅ |  |
 | La fenêtre de clichés montre la radio-anatomie normale à droite | ✅ |  |
 | Chaque technique d'imagerie a ses 5 champs (discriminant, préférence, alternative, limite) | ✅ |  |
 | Les séquences IRM clés sont décrites | ✅ | T1, T2, FLAIR, Diffusion (DWI) et carte ADC, T2* / SWI (susceptibilité), T1 avec gadolinium, STIR et T2 avec saturation de graisse, Angio-IRM (TOF, avec contraste), Cholangio-IRM (T2 très pondéré), Perfusion et spectroscopie, IRM de diffusion corps entier |
 | Les 19 disciplines-outils couvrent les lettres A à S | ✅ |  |
 | Les lentilles cliniques incluent pédiatrie, gériatrie, femme/grossesse, chirurgie, psychiatrie | ✅ |  |
 | L'arbre de cours transversal compte 9 parties | ✅ |  |
-| Les 623 JSON se lisent sans erreur | ✅ |  |
+| Les 1554 JSON se lisent sans erreur | ✅ |  |
 | Aucun nom de fichier ne garde un joker (<systeme>, <organe>…) | ✅ |  |
 | Plan tetrade : aucune image SVG | ✅ |  |
 | Plan tetrade : audit interne réussi | ✅ |  |

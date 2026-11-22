@@ -378,6 +378,13 @@ TETRADE["donnees"] += [
     {"fichier": "tetrade/<systeme>/organes/<organe>.json", "role": "Organe déplié par espace : anatomie (6 volets), physiologie (5 volets) ; mots-clés avec fenêtre", "champs": ["anatomie{volet: [motCle, texte, fenetre]}", "physiologie{volet: [motCle, texte, fenetre]}", "bulle", "glossaire"], "producteur": "Script (squelette) + IA (textes)", "volume": "123 organes"}]
 TETRADE["prototype"]["images"] += ["prototypes/tetrade_systeme_anatomie.png", "prototypes/tetrade_physiologie_courbe.png", "prototypes/tetrade_gaz_du_sang.png"]
 
+# ---------- théorie et pratique : la pratique EST le jeu ----------
+from pratique import MODES as _MODES, DEFIS as _DEFIS
+for _p, _proj, _genres in ((TETRADE, "1_Jeux_Tetrade_Fondation", ["organe", "signe", "syndrome", "mecanisme"]),
+                           (PHARMACO, "1_Jeux_Tetrade_Fondation", ["structure_pharmaco", "classe"]),
+                           (PARACLINIQUE, "2_Jeux_Paraclinique", ["examen", "analyse", "prelevement", "exploration"])):
+    _p["pratique"] = {"principe": "La théorie remplit l'arbre que l'apprenant consulte ; la pratique remplit le jeu auquel il joue. Chaque fichier théorique a un jumeau pratique (conception/donnees/pratique/<même chemin>.json), une entité par élément, avec des défis typés produits après la théorie et appuyés sur elle.",
+                      "modes": _MODES[_proj], "defis": {g: [t for t, _, _ in _DEFIS[g]] for g in _genres}}
 os.makedirs(os.path.join(ICI, "plans"), exist_ok=True)
 for p in (TETRADE, PHARMACO, PARACLINIQUE):
     json.dump(p, open(os.path.join(ICI, "plans", f"{p['id']}.plan.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)

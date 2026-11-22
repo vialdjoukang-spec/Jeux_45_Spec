@@ -5,7 +5,7 @@ import json, os, re, sys, unicodedata, glob
 
 RAC = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(RAC, "conception", "outils"))
-from catalogue_paraclinique import TOPO, PRELEVEMENTS
+from catalogue_paraclinique import TOPO, PRELEVEMENTS, MODALITES
 from systemes import SYSTEMES
 
 GH = "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/"
@@ -74,38 +74,43 @@ def prompt(role, fichiers, champs, regles_plus=()):
 T = []
 
 
-def tache(projet, id, titre, ou, quoi, entrees=(), sortie="", prompt_txt="", dep=(), claude=False, dossier=None, nom=None):
+def tache(projet, id, titre, ou, quoi, entrees=(), sortie="", prompt_txt="", dep=(), claude=False, dossier=None, nom=None, fragment=None):
     T.append({"projet": projet, "id": id, "titre": titre, "ou": ou, "quoi": quoi, "entrees": list(entrees), "sortie": sortie,
-              "prompt": prompt_txt, "dependances": list(dep), "claude": claude, "dossier": list(dossier) if dossier else None, "nomLot": nom})
+              "prompt": prompt_txt, "dependances": list(dep), "claude": claude, "dossier": list(dossier) if dossier else None, "nomLot": nom, "fragment": fragment})
 
 
 # ---------------- 1. Tétrade ----------------
 P = "1_Jeux_Tetrade_Fondation"
 tache(P, "T01", "Valider la liste des organes, les volets et les fenêtres du système cardiovasculaire", "Claude (conception)",
       "Claude te propose la liste, tu valides ou tu corriges ; rien ne se produit avant ta validation.", ["conception/outils/systemes.py"], "systemes.py validé", claude=True)
-for i, (s, orgs) in enumerate(SYSTEMES.items()):
-    fich = [f"conception/donnees/tetrade/{slug(s)}/organes/{slug(o)}.json" for o, _, _ in orgs]
-    tache(P, f"T{10 + i:02d}", f"Rédiger les organes du système {s} ({len(orgs)} organes)", "Gemini (Pro)",
-          "Tu joins les fichiers d'organes du système, tu colles le prompt, tu importes ici les JSON rendus.", fich,
-          f"conception/donnees/tetrade/{slug(s)}/organes/*.json remplis",
-          prompt("Tu es anatomiste et physiologiste, enseignant en faculté de médecine suisse. Tu remplis chaque fichier d'organe : anatomie et physiologie, volet par volet.", fich,
-                 ["anatomie : pour chaque volet, 3 à 6 entrées {motCle, texte, fenetre} ; motCle en 1 à 4 mots ; texte en une ou deux phrases ; fenetre = « 3d ».",
-                  "physiologie : pour chaque volet, du paramètre le plus simple au plus complexe ; fenetre = nom de la courbe ou du calculateur utile (ex. starling, pression_volume, ecg, clairance), sinon null.",
-                  "bulle : {def, pourquoi, confusion, retenir} pour l'organe."],
-                 ["Tu ne mets dans motCle qu'un nom court : le détail va dans texte.", "Tu ne dessines aucune courbe : tu nommes seulement la fenêtre."]),
-          dep=["T01"] if i else ["T01"])
+DT = "1_Tetrade_Fondation"
+for i, (s_nom, orgs) in enumerate(SYSTEMES.items()):
+    dsys = f"{i + 1:02d}_{nf(s_nom)}"
+    for o, (org, _, _) in enumerate(orgs, 1):
+        f = f"conception/donnees/tetrade/{slug(s_nom)}/organes/{slug(org)}.json"
+        tache(P, f"T{10 + i:02d}-{o:02d}", f"Anatomie et physiologie : {org} ({s_nom})", "Gemini (Pro)",
+              "Un seul organe : anatomie (6 volets) et physiologie (5 volets).", [f], "fichier d'organe rempli",
+              prompt("Tu es anatomiste et physiologiste, enseignant en faculté de médecine suisse. Tu remplis le fichier d'organe : anatomie et physiologie, volet par volet.", [f],
+                     ["anatomie : pour chaque volet, 3 à 6 entrées {motCle, texte, fenetre} ; motCle en 1 à 4 mots ; texte en une ou deux phrases ; fenetre = « 3d ».",
+                      "physiologie : pour chaque volet, du paramètre le plus simple au plus complexe ; fenetre = nom de la courbe ou du calculateur utile (ex. starling, pression_volume, ecg, clairance), sinon null.",
+                      "bulle : {def, pourquoi, confusion, retenir} pour l'organe."],
+                     ["Tu ne mets dans motCle qu'un nom court : le détail va dans texte.", "Tu ne dessines aucune courbe : tu nommes seulement la fenêtre."]),
+              dep=["T01"], dossier=(DT, "1_Organes_Anatomie_Physiologie", dsys, f"{o:02d}_{nf(court(org.split(' (')[0], 40))}"),
+              nom=f"T{10 + i:02d}-{o:02d}_Anatomie_Physiologie_{nf(org.split(' (')[0])[:40]}")
+SEMIO = {"semiologie": ("Semiologie", "semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques. Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques."),
+         "syndromes": ("Syndromes", "syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles."),
+         "physiopathologie": ("Physiopathologie", "physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique."),
+         "criteres_cim10": ("Criteres_CIM-10", "criteres_cim10 : critères condensés du chapitre F, par groupe d'âge, avec le chef de file thérapeutique par profil.")}
 for i, s_nom in enumerate(SYSTEMES):
-    d = f"conception/donnees/tetrade/{slug(s_nom)}/"
-    fich = [d + "semiologie.json", d + "syndromes.json", d + "physiopathologie.json"] + ([d + "criteres_cim10.json"] if slug(s_nom) == "psyche" else [])
-    tache(P, f"T{40 + i}", f"Sémiologie, syndromes et physiopathologie : {s_nom}", "Gemini (Pro)",
-          "Signes et symptômes par temps d'examen, syndromes et mécanismes du système ; un fichier par réponse.", fich, "fichiers du système remplis",
-          prompt(f"Tu es clinicien enseignant de sémiologie. Pour le système « {s_nom} », tu remplis la sémiologie, les syndromes et la physiopathologie.", fich,
-                 ["semiologie : chaque signe avec technique, nomConsacre, eponyme, termeSuisse, sensibilite, specificite, son, presentation (typique ou atypique) et bulle ; chaque symptôme avec questionAPoser et caracteristiques.",
-                  "Chaque temps d'examen (inspection, palpation, percussion, auscultation, examens spécifiques) porte 2 à 3 signes typiques.",
-                  "syndromes : signesMinimaux (2 ou 3), signes, symptomes, examenComplementaire, diagnostics (les plus fréquents, puis les rares graves), confusions possibles."
-                  + (" Pour le système neurologique, tu couvres les 24 syndromes majeurs." if slug(s_nom) == "neurologique" else ""),
-                  "physiopathologie : un mécanisme par signe majeur, en chaîne amorce → installation → maintien, et la liste des signes qu'il explique."]
-                 + (["criteres_cim10 : critères condensés du chapitre F, par groupe d'âge, avec le chef de file thérapeutique par profil."] if slug(s_nom) == "psyche" else [])))
+    dsys = f"{i + 1:02d}_{nf(s_nom)}"
+    for q, (fic, (lib, regle)) in enumerate(SEMIO.items(), 1):
+        if fic == "criteres_cim10" and slug(s_nom) != "psyche":
+            continue
+        f = f"conception/donnees/tetrade/{slug(s_nom)}/{fic}.json"
+        tache(P, f"T{40 + i}-{q}", f"{lib.replace('_', ' ')} : {s_nom}", "Gemini (Pro)", "Un seul fichier du système.", [f], "fichier rempli",
+              prompt(f"Tu es clinicien enseignant. Pour le système « {s_nom} », tu remplis ce fichier.", [f],
+                     [regle + (" Pour le système neurologique, tu couvres les 24 syndromes majeurs." if fic == "syndromes" and slug(s_nom) == "neurologique" else "")]),
+              dossier=(DT, "2_Semiologie_Syndromes_Physiopathologie", dsys), nom=f"T{40 + i}-{q}_{lib}_{nf(s_nom)[:35]}")
 tache(P, "T60", "Construire par script les graphes, l'arbre 3D et les exercices de la Tétrade", "Claude Code",
       "Les graphes se déduisent des fichiers remplis (0 token) : aucune IA de production n'y touche.", [], "tetrade/*/graphe.json, anatomie3d.json, exercices/*.json", claude=True)
 for i, s_nom in enumerate(SYSTEMES):
@@ -113,7 +118,8 @@ for i, s_nom in enumerate(SYSTEMES):
     tache(P, f"T{61 + i}", f"Pharmacologie : structures et cibles — {s_nom}", "Gemini (Pro)", "Structures malades et ciblables, avec leurs cibles moléculaires.", [f], "structures.json rempli",
           prompt(f"Tu es pharmacologue clinicien suisse. Pour le système « {s_nom} », tu listes les structures qui tombent malades et leurs cibles médicamenteuses.", [f],
                  ["structureId, nom, maillage3d (nom anatomique de la structure), cibles (récepteurs, enzymes, canaux, transporteurs) avec la classe qui les vise.",
-                  "Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent."]), dep=["T01"])
+                  "Tu relies chaque structure aux lettres VIT DIT CAFé qui la concernent."]), dep=["T01"],
+          dossier=(DT, "3_Pharmacologie", f"{i + 1:02d}_{nf(s_nom)}"), nom=f"T{61 + i}_Pharmacologie_Structures_Cibles_{nf(s_nom)[:35]}")
 tache(P, "T80", "Classes médicamenteuses (≈ 300)", "Gemini (Pro)", "Classe, mécanisme, indications et chef de file par profil, selon le Compendium suisse.",
       ["conception/donnees/pharmaco/classes.json"], "classes.json rempli",
       prompt("Tu es pharmacologue clinicien suisse. Tu remplis les classes médicamenteuses disponibles en Suisse.", ["conception/donnees/pharmaco/classes.json"],
@@ -136,12 +142,17 @@ for r, (reg, orgs) in enumerate(TOPO.items(), 1):
         f = f"conception/donnees/paraclinique/topographie/{slug(reg)}/{slug(org)}.json"
         n = sum(len(e) for e in mods.values())
         detail = " + ".join(f"{len(v)} {MOD_COURT[k]}" for k, v in mods.items() if v)
-        tache(P, f"P{r:02d}-{o:02d}", f"Examens de l'organe {org} ({n} examens : {detail})", f"Gemini (Pro) — compte {(r + o) % 4 + 1}",
-              "Un seul organe : tu colles le prompt, tu joins le lot, tu importes le JSON rendu.", [f], "fichier d'organe rempli",
-              prompt("Tu es médecin interniste et radiologue suisse. Pour chaque examen de l'organe, tu remplis tous les champs.", [f], CHAMPS_EXAMEN,
-                     ["Biologie : tu ne donnes pas de valeurs de référence (elles vivent dans les fiches d'analyses) ; tu dis pourquoi on demande l'analyse pour cet organe, ce qu'on y cherche et le seuil décisionnel.",
-                      "analysesRef est déjà rempli : tu ne le modifies pas."]),
-              dossier=(DP, "1_Examens_par_organe", dreg), nom=f"P{r:02d}-{o:02d}_Examens_{nf(org)[:40]}_{n}-examens")
+        dorg = f"{o:02d}_{nf(court(org, 40))}"
+        parts = [(None, n)] if n <= 10 else [(MODALITES[k], len(v)) for k, v in mods.items() if v]
+        for m, nb in parts:
+            code = "" if m is None else "-" + {"Imagerie": "IMG", "Biologie": "BIO", "Exploration fonctionnelle": "FCT", "Endoscopie": "END", "Anatomopathologie / biopsie": "HIS"}[m]
+            tache(P, f"P{r:02d}-{o:02d}{code}", f"Examens de l'organe {org}" + (f" — {m}" if m else "") + f" ({nb} examens{'' if m else ' : ' + detail})", f"Gemini (Pro) — compte {(r + o) % 4 + 1}",
+                  "Un fragment court et homogène ; il se réassemble par script au retour.", [f], "examens remplis",
+                  prompt("Tu es médecin interniste et radiologue suisse. Pour chaque examen du fragment, tu remplis tous les champs.", [f], CHAMPS_EXAMEN,
+                         ["Biologie : tu ne donnes pas de valeurs de référence (elles vivent dans les fiches d'analyses) ; tu dis pourquoi on demande l'analyse pour cet organe, ce qu'on y cherche et le seuil décisionnel.",
+                          "analysesRef est déjà rempli : tu ne le modifies pas."]),
+                  dossier=(DP, "1_Examens_par_organe", dreg, dorg), nom=f"P{r:02d}-{o:02d}{code}_{nf(m) if m else 'Examens'}_{nf(org)[:35]}_{nb}-examens",
+                  fragment={"cle": "examens", "champ": "modalite", "valeur": m} if m else None)
 # 2.2 Biologie : analyses individuelles (source unique des valeurs), par famille
 from analyses_biologiques import FAMILLES
 for fam, (prel, lst) in sorted(FAMILLES.items()):
@@ -196,7 +207,7 @@ tache(P, "P24", "Télécharger, annoter et brancher la banque d'images thorax", 
 tache(P, "P25", "Écrire 20 cas « le bon examen » (thorax)", "Gemini (Pro)", "Cas de l'arène : cinq examens possibles, un juste, justification par le discriminant.",
       ["conception/donnees/paraclinique/imagerie/cas/_modele.json"], "20 fichiers de cas",
       prompt("Tu es médecin interniste enseignant. Tu écris 20 cas cliniques thoraciques courts, chacun avec cinq examens possibles, l'examen juste et la justification par son discriminant.",
-             ["conception/donnees/paraclinique/imagerie/cas/_modele.json"], ["Un examen inutile coûte des points : tu cites la recommandation Smarter Medicine quand elle existe."]), dep=["P04-01", "P04-04"])
+             ["conception/donnees/paraclinique/imagerie/cas/_modele.json"], ["Un examen inutile coûte des points : tu cites la recommandation Smarter Medicine quand elle existe."]), dep=[t["id"] for t in T if t["id"].startswith("P04-") and ("Poumons et voies" in t["titre"] or "Cœur et péricarde" in t["titre"])])
 from catalogue_paraclinique import EXPLORATIONS, _cle
 _ou = {}
 for r, (reg, orgs) in enumerate(TOPO.items(), 1):
@@ -234,13 +245,15 @@ P = "3_Transversal_Discip"
 tache(P, "X01", "Fixer le schéma de leçon (9 parties) et rédiger 2 leçons pilotes (C : SPIKES, Q : Top 5)", "Claude (conception)", "Le pilote fixe la qualité attendue avant tout volume.", [], "schéma + 2 leçons", claude=True)
 for f in sorted(glob.glob(os.path.join(RAC, "conception", "donnees", "tetrade", "transversales", "outils", "*.json"))):
     d = json.load(open(f, encoding="utf-8"))
-    rel = os.path.relpath(f, RAC).replace(os.sep, "/")
-    tache(P, f"X{ord(d['lettre']) - 64 + 10:02d}", f"Rédiger les leçons de {d['lettre']} — {d['nom']} ({len(d['lecons'])} leçons)", "Gemini (Pro)",
-          "Une leçon par réponse ; tu importes ici chaque JSON.", [rel], "transversales/lecons/<id>.json",
-          prompt(f"Tu es enseignant de médecine suisse, spécialiste de « {d['nom']} ». Pour chaque leçon du fichier, tu rédiges la leçon complète selon l'arbre en 9 parties.", [rel],
-                 ["arborescence : cadre, notions, outils, décisions et seuils, applications par système, particularités par terrain, pièges, pratique suisse, exercices.",
-                  "Chaque leçon commence par un cas suisse concret et finit par une décision à prendre.", "items : 5 QCM (type A ou K') avec explication de chaque option fausse."]),
-          dep=["X01"])
+    dd = f"{d['lettre']}_{nf(d['nom'])[:40]}"
+    for q, l in enumerate(d["lecons"], 1):
+        fl = f"conception/donnees/tetrade/transversales/lecons/{d['lettre']}/{slug(l['id'])}.json"
+        tache(P, f"X{d['lettre']}-{q:02d}", f"Leçon {d['lettre']} — {l['titre']}", "Gemini (Pro)", "Une leçon complète selon l'arbre en 9 parties, avec 5 QCM.", [fl, os.path.relpath(f, RAC).replace(os.sep, "/")], "leçon remplie",
+              prompt(f"Tu es enseignant de médecine suisse, spécialiste de « {d['nom']} ». Tu rédiges la leçon « {l['titre']} » ; le fichier de la discipline t'est joint pour le contexte, tu ne le modifies pas.", [fl],
+                     ["parties : cadre, notions, outils, décisions et seuils, applications par système, particularités par terrain, pièges, pratique suisse, exercices ; chaque partie en phrases verbales courtes.",
+                      "casDOuverture : un cas suisse concret ; decisionFinale : la décision que l'apprenant doit savoir prendre.",
+                      "items : 5 QCM (type A ou K') avec une explication pour chaque option.", "bulle : {def, pourquoi, confusion, retenir}."]),
+              dep=["X01"], dossier=("3_Transversal_Discip", "1_Lecons_par_discipline", dd), nom=f"X{d['lettre']}-{q:02d}_Lecon_{nf(court(l['titre'], 45))}")
 
 # ---------------- 4. Jeux_45_Spec ----------------
 P = "4_Jeux_45_Spec"
@@ -305,6 +318,29 @@ def classer(t):
     if i[0] == "J":
         return "4_Jeux_45_Spec", "1_Fiches_par_specialite", f"{i}_Fiches_specialites_schema"
     return "0_Divers", "0_Divers", f"{i}_{nf(ti)[:50]}"
+# ---------- jumeaux PRATIQUE : chaque lot théorique a son lot pratique (défis du jeu), rangés 1_Theorie / 2_Pratique ----------
+sys.path.insert(0, os.path.join(RAC, "conception", "outils"))
+from pratique import DEFIS, REGLES as REGLES_PRATIQUE
+for t in list(T):
+    if t["claude"] or not t["prompt"] or t["id"] in ("P21", "P22", "P23", "P25", "J03", "T33", "T80"):
+        continue
+    dp, dt, base = classer(t)
+    t["dossier"], t["nomLot"] = [dp] + dt.split("/") + ["1_Theorie"], base
+    src = [e for e in t["entrees"] if e.startswith("conception/donnees/") and "/transversales/outils/" not in e]
+    pr = ["conception/donnees/pratique/" + e[len("conception/donnees/"):] for e in src]
+    pr = [x for x in pr if os.path.exists(os.path.join(RAC, x))]
+    if not pr:
+        continue
+    types = sorted({ty for f in pr for e in json.load(open(os.path.join(RAC, f), encoding="utf-8"))["entites"] for d in e["defis"] for ty in [d["type"]]})
+    champs = [f"{ty} : " + ", ".join(k for k in next(c for g in DEFIS.values() for (tt, c, _) in g if tt == ty)) for ty in types]
+    frag = dict(t["fragment"], cle="entites") if t.get("fragment") else None
+    T.append({**t, "id": t["id"] + "-PR", "titre": "Pratique — " + t["titre"], "quoi": "Les défis du jeu pour chaque entité du lot théorique jumeau (à joindre une fois rempli).",
+              "entrees": pr, "sortie": "défis remplis", "dependances": [t["id"]], "fragment": frag,
+              "dossier": [dp] + dt.split("/") + ["2_Pratique"], "nomLot": base.replace(t["id"], t["id"] + "-PR", 1) + "_PRATIQUE",
+              "prompt": prompt("Tu es concepteur de jeux pédagogiques médicaux et clinicien suisse. Pour chaque entité du fichier pratique, tu remplis ses défis. "
+                               "Tu joins aussi le JSON théorique jumeau déjà rempli : chaque défi s'appuie sur lui.", pr,
+                               ["Champs communs : id (ex. <ref>-1), type (déjà fixé), mode, niveau, points, tempsSec, correction {pourquoiJuste, pourquoiFaux}, sources."] + champs,
+                               REGLES_PRATIQUE)})
 for t in T:
     chemins = []
     for e in t["entrees"]:
@@ -314,6 +350,12 @@ for t in T:
         elif os.path.exists(os.path.join(RAC, e)):
             chemins.append(e)
     fich = {c: json.load(open(os.path.join(RAC, c), encoding="utf-8")) for c in chemins if c.endswith(".json")}
+    fr = t.get("fragment")
+    if fr:  # fragment : seuls les éléments de la valeur demandée ; le script de fusion les replace par leur id
+        for c, v in fich.items():
+            if isinstance(v.get(fr["cle"]), list):
+                v[fr["cle"]] = [x for x in v[fr["cle"]] if isinstance(x, dict) and x.get(fr["champ"]) == fr["valeur"]]
+                v["_fragment"] = {**fr, "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"}
     t["lot"] = None
     if fich and t["prompt"]:
         dp, dt, base = classer(t)

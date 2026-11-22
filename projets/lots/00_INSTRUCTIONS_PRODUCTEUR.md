@@ -132,7 +132,34 @@ Les fichiers `graphe.json`, `anatomie3d.json`, `regions.json`, les index et les 
 - Tu suis exactement `scripts/schema_fiche.json` : glossaire, présentations atypiques, et chaque examen avec son signe recherché et sa visée.
 - La correction suit l'échelle en 7 marches : zéro diagnostic, mécanisme, sémiologie, discriminant, décision, piège, ancre.
 
-## 5. Contrôle avant de rendre (tu le fais toi-même)
+## 5. Partie pratique : les défis du jeu (lots `…_PRATIQUE.json`, dossiers `2_Pratique`)
+La théorie remplit l'arbre que l'apprenant consulte ; **la pratique remplit le jeu** auquel il joue : arène, aventure, station OSCE, cas-décision.
+- Chaque lot théorique a un **jumeau pratique** dans le dossier voisin `2_Pratique`. Il porte les mêmes entités (même `ref`), chacune avec des défis dont le `type` est déjà fixé.
+- Tu remplis la pratique **après** la théorie, en joignant le JSON théorique rempli : chaque défi s'appuie sur lui et ne le contredit jamais.
+- Champs communs à tout défi : `id` (`<ref>-1`, `<ref>-2`…), `mode` (un des modes donnés dans `_meta.modes`), `niveau` (1 reconnaître, 2 décider, 3 piège d'expert), `points` (10, 20, 30), `tempsSec` (30 à 90), `correction {pourquoiJuste, pourquoiFaux}`, `sources`.
+- Types de défis selon l'entité :
+
+| Entité | Défis |
+|---|---|
+| Examen d'organe | `bon_examen` (cas, 4 options, visée), `seuil_decision`, `lecture` (image, tracé, endoscopie, histologie), `piege` |
+| Analyse biologique | `interpreter` (valeur avec unité → conclusion), `preanalytique` |
+| Prélèvement | `ordonner_le_geste`, `erreur_de_prelevement` |
+| Exploration, endoscopie | `lire_le_trace`, `indication` (faire ou non) |
+| Organe (anatomie, physiologie) | `reperage_3d`, `relier`, `calcul_ou_courbe` |
+| Signe | `station_osce` (consigne au patient, geste, résultat), `ecoute_ou_observation` |
+| Syndrome | `composer_le_syndrome` (signes minimaux, intrus), `orienter` |
+| Mécanisme | `chaine_causale` |
+| Structure pharmacologique, classe | `prescrire` (contre-indication, posologie et source), `interaction_ou_effet`, `chef_de_file` |
+| Leçon transversale | `cas_decision`, `simulation` (réplique attendue, erreurs à éviter) |
+
+- Un défi se joue en moins de 90 secondes. Les distracteurs sont plausibles et de longueur comparable, et une seule réponse est juste. Les cas sont suisses et les valeurs sont en SI.
+
+## 6. Fragments et réassemblage
+- Quand un organe compte plus de 10 examens, son lot est coupé **par modalité** (`-IMG`, `-BIO`, `-FCT`, `-END`, `-HIS`). Le fichier du lot porte alors `_fragment` et ne contient que les éléments de cette modalité.
+- Tu remplis seulement ces éléments. Tu gardes leur `id` et tu ne touches pas à `_fragment` : un script remet chaque élément à sa place au retour.
+- Arborescence : projet → thème → région ou système → organe ou discipline → `1_Theorie` / `2_Pratique` → lot. La profondeur sert à répartir le travail ; elle ne change rien au contenu.
+
+## 7. Contrôle avant de rendre (tu le fais toi-même)
 - [ ] Le JSON se lit sans erreur ; les chemins et les clés sont intacts.
 - [ ] Il ne reste aucun `null` sauf là où la règle le permet (`smarterMedicine`, `radioAnatomieNormale`, `prelevementRef`).
 - [ ] Chaque sigle employé figure dans `glossaire`.
@@ -140,6 +167,7 @@ Les fichiers `graphe.json`, `anatomie3d.json`, `regions.json`, les index et les 
 - [ ] Les unités sont en SI suisses ; chaque information intellectuelle, dont chaque dose et chaque valeur, porte sa source nommée.
 - [ ] Chaque citation Smarter Medicine existe dans une liste Top 5 suisse publiée.
 - [ ] Tu n'as inventé aucune URL, aucune référence et aucun chiffre ; les doutes sont listés dans `_lot.aVerifier`.
+- [ ] Pratique : chaque défi a sa correction (pourquoi juste, pourquoi faux) et s'appuie sur la théorie jumelle.
 
 ---
 Signature : AAI (Anthropic AI)
