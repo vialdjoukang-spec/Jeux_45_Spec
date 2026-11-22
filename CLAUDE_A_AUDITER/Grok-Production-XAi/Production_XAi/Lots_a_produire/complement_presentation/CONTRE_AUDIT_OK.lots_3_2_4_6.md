@@ -54,3 +54,30 @@ LOT_COMPLEMENT_6
 Remarques pour la relecture :
 - LOT_COMPLEMENT_4 : l'échocardiographie transœsophagienne cite la recommandation EANM/SNMMI v2.0 (2025) pour les végétations et abcès ; les recommandations ESC 2023 sur l'endocardite seraient une source plus directe.
 - Les rapports de vraisemblance de Fournier, Moix et Hugli (Rev Med Suisse 2008) n'ont pas été relus.
+
+## Seconde vérification des sources (23.11.2026 00:51, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des lots de complément 3, 2, 4 et 6 (5 par lot) ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation ou de l'article, PDF de la société savante). 20 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Lot 3 · rachis : scoliose écartée sans angle de Cobb de 10° ou plus avec rotation | Negrini et al., lignes directrices SOSORT 2016 (Scoliosis Spinal Disord 2018) | conforme |
+| 2 | Lot 3 · potentiels évoqués moteurs : anormaux au-delà de 2,5 à 3 écarts-types | Groppa et al., rapport IFCN, Clin Neurophysiol 2012 (PMC4890546) | conforme |
+| 3 | Lot 3 · vitamine B12 : zone grise de 150 à 250 pmol/l | guide mediX « Vitamin B12-Mangel » (medix.ch) | conforme |
+| 4 | Lot 3 · hernie discale chez 20 à 40 % des asymptomatiques | Genevay et Gabay, Rev Med Suisse 2009 (revmed.ch) | conforme |
+| 5 | Lot 3 · angio-IRM 4D de fistule durale : sensibilité poolée 98 %, bon côté 91 %, bon niveau 76 % | Raymaekers et al., World Neurosurg 2025 (doi 10.1016/j.wneu.2024.10.087) | conforme |
+| 6 | Lot 2 · cytologie thyroïdienne bénigne : risque moyen de malignité de 4 % | Ali et al., Bethesda 2023, Thyroid 2023 | conforme |
+| 7 | Lot 2 · artérite à cellules géantes : CRP ≥ 10 mg/l (ou VS ≥ 50) = 3 points ; 90,3 % des cas DCVAS | Ponte et al., critères ACR/EULAR 2022, Ann Rheum Dis 2022 | conforme |
+| 8 | Lot 2 · angio-IRM au gadolinium : sensibilité de 94 à 95 % pour une sténose carotidienne de 70 à 99 % | Naylor et al., ESVS 2023, Eur J Vasc Endovasc Surg | conforme |
+| 9 | Lot 2 · calcitonine > 100 ng/l : valeur prédictive positive de 100 % pour le cancer médullaire | Kiriakopoulos et al., Ther Adv Endocrinol Metab 2022 (reprend Costante 2007) | conforme |
+| 10 | Lot 2 · excellente réponse : thyroglobuline non stimulée < 0,2 µg/l sans anticorps, après thyroïdectomie totale et iode | Ringel et al., ATA 2025, Thyroid 2025 | conforme |
+| 11 | Lot 4 · thoracoscopie : sensibilité d'environ 92 % pour la malignité pleurale | Opitz et al., ERS/ESTS/EACTS/ESTRO 2020 (texte intégral : 1369 patients, 22 séries, 92 %) | conforme |
+| 12 | Lot 4 · échographie costale : irrégularité corticale, rapport de vraisemblance positif de 55,7 | Gilbertson et al., 2022 (PubMed 35461720) | conforme |
+| 13 | Lot 4 · œsophagite à éosinophiles : muqueuse normale dans environ 30 % des cas | Godat, Schoepfer et Moradpour, Rev Med Suisse 2011 (revmed.ch) | conforme |
+| 14 | Lot 4 · BI-RADS 4 ou 5 : risque de malignité de plus de 2 % | ACR, atlas BI-RADS 5e édition 2013 | conforme |
+| 15 | Lot 4 · HER2 2+ : équivoque, hybridation in situ obligatoire | Wolff et al., ASCO/CAP 2018, J Clin Oncol | conforme |
+| 16 | Lot 6 · dépistage du col tous les trois ans de 21 à 70 ans | SSGO, avis d'experts n° 50 du 1.3.2018 (sggg.ch, PDF) | conforme |
+| 17 | Lot 6 · artère ombilicale : index de pulsatilité sous le 95e percentile, flux télédiastolique présent | ISUOG, lignes directrices sur le retard de croissance 2020 (Ultrasound Obstet Gynecol, doi 10.1002/uog.22134) | conforme |
+| 18 | Lot 6 · monitorage : ligne de base 110 à 160 bpm, variabilité 5 à 25 bpm | Ayres-de-Campos et al., consensus FIGO 2015, Int J Gynaecol Obstet | conforme |
+| 19 | Lot 6 · IRM prostatique négative si aucune lésion PI-RADS 3 ou plus | EAU, recommandations sur le cancer de la prostate 2026 (uroweb.org, Eur Urol 2026) | conforme |
+| 20 | Lot 6 · AFP élevée : catégorie S supérieure à S0 | EAU, recommandations sur le cancer du testicule 2026 (uroweb.org, classification S1-S3) | conforme |
