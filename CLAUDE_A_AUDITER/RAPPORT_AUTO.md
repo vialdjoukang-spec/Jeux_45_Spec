@@ -93,7 +93,7 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/05_Genetique/1_Theorie/P09-05_Examens_Genetique_5-examens_production_XAi.json`
 - 🟩 `genetique.json` : remplissage 90 % (99/110)
-- aVerifier déclarés : 1
+- aVerifier déclarés : 2
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/05_Genetique/2_Pratique/P09-05-PR_Examens_Genetique_5-examens_PRATIQUE_production_XAi.json`
 - 🟩 `genetique.json` : remplissage 100 % (10/10)
