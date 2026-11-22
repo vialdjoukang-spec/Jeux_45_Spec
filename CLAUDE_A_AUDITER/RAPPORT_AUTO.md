@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:18
+# Audit automatique — 2026-11-22 21:20
 
-16 fichier(s) : 14 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
+18 fichier(s) : 16 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -56,5 +56,12 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/01_Sang_et_hemostase/2_Pratique/P09-01-FCT-PR_Exploration_fonctionnelle_Sang_et_hemostase_2-examens_PRATIQUE_production_XAi.json`
 - 🟩 `sang_et_hemostase.json` : remplissage 100 % (4/4)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/02_Moelle_osseuse_et_ganglions/1_Theorie/P09-02_Examens_Moelle_osseuse_et_ganglions_6-examens_production_XAi.json`
+- 🟩 `moelle_osseuse_et_ganglions.json` : remplissage 91 % (115/126)
+- aVerifier déclarés : 6
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/02_Moelle_osseuse_et_ganglions/2_Pratique/P09-02-PR_Examens_Moelle_osseuse_et_ganglions_6-examens_PRATIQUE_production_XAi.json`
+- 🟩 `moelle_osseuse_et_ganglions.json` : remplissage 100 % (12/12)
 
 Signature : AAI (Anthropic AI)
