@@ -1,0 +1,45 @@
+# Veille gratuite (0 token) : détecte les nouveaux lots des IA de production, les répare, les audite, les fusionne
+# et publie sur main si tous les contrôles passent. Sinon, seul le rapport est publié. — AAI (Anthropic AI)
+name: Veille des nouveaux lots
+on:
+  push:
+    branches: [main]
+    paths:
+      - "CLAUDE_A_AUDITER/**"
+      - "POUR CLAUDE A AUDITER/**"
+      - "Production_XAi/Lots_traites/**"
+      - "!**/RAPPORT_*.md"
+  schedule:
+    - cron: "23 * * * *"   # toutes les heures : couvre les dépôts sur les branches production-xai-*
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: veille
+  cancel-in-progress: false
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, fetch-depth: 1 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Récupérer les branches de production
+        run: git fetch --depth=1 origin '+refs/heads/production-xai-*:refs/remotes/origin/production-xai-*' || true
+      - name: Veille (réparer, fusionner, auditer)
+        id: veille
+        continue-on-error: true
+        run: python projets/outils/veille.py
+      - name: Publier
+        run: |
+          git config user.name "veille-auto"
+          git config user.email "veille-auto@users.noreply.github.com"
+          if [ "${{ steps.veille.outcome }}" = "success" ]; then
+            git add -A
+          else
+            git add CLAUDE_A_AUDITER/RAPPORT_VEILLE.md
+            git checkout -- .
+          fi
+          git diff --cached --quiet || (git commit -m "Veille automatique : nouveaux lots réparés, fusionnés et audités [skip ci]" && git push)

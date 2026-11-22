@@ -131,3 +131,6 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - `conception/outils/cardio/semiologie.txt` : 13 organes (le myocarde garde le circuit pilote de l'IC gauche), temps d'examen pertinents par organe, 2 à 3 signes typiques par temps ou un signe unique assumé (`uniqueAssume`), signes atypiques en plus ; infobulle 4 rubriques.
 - Les 4 onglets du cardiovasculaire sont jouables : anatomie, physiologie, sémiologie, physiopathologie (4 paliers de pathologies avec bilan et traitement).
 - Garde-fou ajouté à `generer_json.py` : la régénération ne peut plus écraser une valeur remplie (fusion conservatrice par id, ref, nom ou position). Avant ce correctif, elle remettait les fichiers paracliniques et les défis à vide.
+
+## Veille GitHub (2026-11-22)
+- `.github/workflows/veille.yml` + `projets/outils/veille.py` : toutes les heures et à chaque dépôt, réparation mécanique, fusion, audit de fond, contrôles, publication sur main ; en cas d'échec, seul `CLAUDE_A_AUDITER/RAPPORT_VEILLE.md` est publié. Registre des lots traités : `projets/retours/veille_traites.json` (205 lots existants amorcés).

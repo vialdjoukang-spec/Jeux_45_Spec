@@ -10,4 +10,7 @@ Claude audite ensuite le fond médical, puis fusionne par champ (`fusionner_reto
 
 Ne renommez ni les chemins ni les clés ; un lot produit sur un ancien schéma reste accepté (fusion par champ).
 
+## Veille automatique (gratuite, 0 token)
+`.github/workflows/veille.yml` tourne toutes les heures et à chaque dépôt sur main. Elle lit les lots de main et de toutes les branches `production-xai-*`, répare la forme (balises markdown, BOM, virgules finales, chemins Windows), fusionne par champ, relance l'audit de fond et les contrôles, puis publie sur main. Si un contrôle échoue, elle ne publie que `RAPPORT_VEILLE.md`. Un lot déjà traité n'est jamais refusionné (`projets/retours/veille_traites.json`). Les doutes médicaux restent pour Claude.
+
 Signature : AAI (Anthropic AI)
