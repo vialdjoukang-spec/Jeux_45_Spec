@@ -1,7 +1,7 @@
 """Veille GitHub gratuite (0 token) : détecte les nouveaux lots déposés par les IA de production, les répare,
 les audite, les fusionne, puis relance l'audit de fond et les contrôles. Lancée par .github/workflows/veille.yml.
 Sources surveillées : CLAUDE_A_AUDITER/, « POUR CLAUDE A AUDITER/ », Production_XAi/Lots_traites/, sur main et sur
-toutes les branches production-xai-*. Un lot déjà traité (même empreinte) n'est jamais refusionné, ce qui évite qu'un
+toutes les branches production-xai-* (sur ces branches, seulement après le contre-audit XAi : fichier CONTRE_AUDIT_OK). Un lot déjà traité (même empreinte) n'est jamais refusionné, ce qui évite qu'un
 ancien lot écrase une valeur plus récente.
 Usage : python projets/outils/veille.py [--essai] [--amorcer]
   --amorcer : enregistre les lots existants comme déjà traités, sans rien fusionner (premier lancement).
@@ -34,11 +34,17 @@ def reparer(texte):
 # 1. Inventaire des lots, sur main et sur les branches production-xai-*
 refs = ["HEAD"] + [l.strip() for l in git("branch", "-r", "--list", "origin/production-xai-*").splitlines() if l.strip()]
 registre = json.load(open(REGISTRE, encoding="utf-8")) if os.path.exists(REGISTRE) else {}
-nouveaux, vus = [], set()
+nouveaux, vus, sans_contre_audit = [], set(), []
 for ref in refs:
-    for chemin in git("ls-tree", "-r", "--name-only", ref).splitlines():
-        if not chemin.startswith(DOSSIERS) or not chemin.endswith(".json") or "RAPPORT" in chemin:
+    arbre = git("ls-tree", "-r", "--name-only", ref).splitlines()
+    # Sur une branche production-xai-*, un lot n'est pris qu'après le contre-audit de l'orchestrateur XAi :
+    # un fichier CONTRE_AUDIT_OK (toute extension) dans son dossier ou un dossier parent le déclare.
+    valides = {os.path.dirname(c) for c in arbre if os.path.basename(c).split(".")[0] == "CONTRE_AUDIT_OK"}
+    for chemin in arbre:
+        if not chemin.startswith(DOSSIERS) or not chemin.endswith(".json") or "RAPPORT" in chemin or "EN_ATTENTE" in chemin:
             continue
+        if ref != "HEAD" and not any(chemin.startswith(v + "/") for v in valides):
+            sans_contre_audit.append(f"{ref.split('/')[-1]} › {chemin}"); continue
         brut = subprocess.run(["git", "-C", RAC, "show", f"{ref}:{chemin}"], capture_output=True).stdout
         h = hashlib.sha256(brut).hexdigest()
         if h in registre or h in vus:
@@ -51,6 +57,8 @@ if amorcer:
         registre[h] = {"chemin": chemin, "ref": ref, "etat": "existant avant la veille"}
     json.dump(registre, open(REGISTRE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print(f"amorçage : {len(nouveaux)} lots enregistrés comme déjà traités"); sys.exit(0)
+if sans_contre_audit:
+    print(f"veille : {len(sans_contre_audit)} lot(s) de branche en attente du contre-audit XAi (CONTRE_AUDIT_OK absent)")
 if not nouveaux:
     print("veille : aucun nouveau lot"); sys.exit(0)
 
@@ -84,7 +92,8 @@ with tempfile.TemporaryDirectory() as tmp:
 
 # 3. Audit de fond (corrections automatiques, tri des doutes, données fiables), lots de complément, contrôles
 etapes = [("Audit de fond", "projets/outils/audit_fond.py"), ("Lots de complément", "projets/outils/lots_complement.py"),
-          ("Audit de conception", "conception/outils/auditer_conception.py"), ("Audit de couverture", "conception/outils/auditer_couverture.py")]
+          ("Audit de conception", "conception/outils/auditer_conception.py"), ("Audit de couverture", "conception/outils/auditer_couverture.py"),
+          ("Non-perte face à main", "projets/outils/non_perte.py")]
 resultats, echec = [], False
 for nom, script in etapes:
     if essai and script.endswith(("audit_fond.py", "lots_complement.py")):
