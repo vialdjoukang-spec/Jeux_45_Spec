@@ -92,7 +92,8 @@ with tempfile.TemporaryDirectory() as tmp:
 
 # 3. Audit de fond (corrections automatiques, tri des doutes, données fiables), lots de complément, contrôles
 etapes = [("Audit de fond", "projets/outils/audit_fond.py"), ("Lots de complément", "projets/outils/lots_complement.py"),
-          ("Audit de conception", "conception/outils/auditer_conception.py"), ("Audit de couverture", "conception/outils/auditer_couverture.py")]
+          ("Audit de conception", "conception/outils/auditer_conception.py"), ("Audit de couverture", "conception/outils/auditer_couverture.py"),
+          ("Non-perte face à main", "projets/outils/non_perte.py")]
 resultats, echec = [], False
 for nom, script in etapes:
     if essai and script.endswith(("audit_fond.py", "lots_complement.py")):

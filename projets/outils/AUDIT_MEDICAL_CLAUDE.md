@@ -24,7 +24,7 @@ S'il n'y a rien en attente, la session s'arrête aussitôt.
 
 ## 2. Contrôler puis publier
 
-1. Relancer `audit_fond.py`, `lots_complement.py`, `auditer_conception.py` et `auditer_couverture.py` : tout doit passer.
+1. Relancer `audit_fond.py`, `lots_complement.py`, `auditer_conception.py` et `auditer_couverture.py` et `non_perte.py` (aucune valeur remplie sur main ne doit disparaître) : tout doit passer.
 2. Déplacer les entrées traitées de `EN_ATTENTE_AUDIT_MEDICAL.json` vers `projets/retours/audits_medicaux.json`
    (verdict, corrections, sources), puis vider la file d'attente (`[]`).
 3. Committer sur `veille/audit-medical`, pousser, ouvrir la PR vers `main`, puis la fusionner :
