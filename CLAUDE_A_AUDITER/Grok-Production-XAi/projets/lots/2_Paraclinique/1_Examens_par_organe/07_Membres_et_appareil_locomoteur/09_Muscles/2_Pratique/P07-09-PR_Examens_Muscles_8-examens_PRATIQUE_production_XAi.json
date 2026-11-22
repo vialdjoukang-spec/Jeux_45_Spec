@@ -1,0 +1,607 @@
+{
+ "_lot": {
+  "tache": "P07-09-PR",
+  "titre": "Pratique — Examens de l'organe Muscles (8 examens : 2 imagerie + 4 biologie + 1 explorations + 1 anatomopathologie)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/7_membres_et_appareil_locomoteur/muscles.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/7_membres_et_appareil_locomoteur/muscles.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "muscles__irm_musculaire",
+     "nom": "IRM musculaire (myosite)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "muscles__irm_musculaire-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "L'IRM dépiste un œdème musculaire et sert de repérage pour la biopsie, selon Lazarou (Revue Médicale Suisse, 2021).",
+        "pourquoiFaux": "La radiographie n'est pas l'examen décrit pour cet œdème ; le test d'effort oriente vers une glycogénose et une biopsie sans repérage n'est pas la conduite retenue, selon Lazarou (Revue Médicale Suisse, 2021), selon la synthèse du protocole national de diagnostic et de soins sur la glycogénose de type V, destinée au médecin traitant, mai 2019."
+       },
+       "sources": [
+        "Lazarou, Revue Médicale Suisse (2021)"
+       ],
+       "casClinique": "Un homme de 80 ans, à Genève, a depuis six semaines une faiblesse proximale, une créatine kinase à 16 000 U/l et une suspicion de myopathie inflammatoire.",
+       "options": [
+        "IRM des cuisses, notamment en séquence STIR",
+        "Radiographie isolée des deux cuisses",
+        "Test d'effort au lactate d'emblée",
+        "Aucune imagerie avant une biopsie à l'aveugle"
+       ],
+       "bonneReponse": "IRM des cuisses, notamment en séquence STIR",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "muscles__irm_musculaire-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "Lazarou décrit un hypersignal musculaire STIR suggestif d'un œdème, selon Lazarou (Revue Médicale Suisse, 2021).",
+        "pourquoiFaux": "Un signal homogène sans hypersignal STIR n'étaye pas cet œdème, selon Lazarou (Revue Médicale Suisse, 2021)."
+       },
+       "sources": [
+        "Lazarou, Revue Médicale Suisse (2021)"
+       ],
+       "consigne": "IRM des cuisses d'un patient genevois de 80 ans, faible aux ceintures, créatine kinase très élevée.",
+       "aspectRecherche": "Hypersignal musculaire STIR",
+       "reponse": "Un hypersignal musculaire STIR est suggestif d'un œdème et oriente le site d'une éventuelle biopsie.",
+       "imageOuTraceAttendu": "Coupes des cuisses en séquence STIR : hypersignal musculaire, sans qu'on en déduise à lui seul le type histologique."
+      },
+      {
+       "id": "muscles__irm_musculaire-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 55,
+       "correction": {
+        "pourquoiJuste": "L'IRM est moins spécifique que l'histologie, selon Lazarou (Revue Médicale Suisse, 2021).",
+        "pourquoiFaux": "Un hypersignal STIR n'équivaut pas à une certitude histologique."
+       },
+       "sources": [
+        "Lazarou, Revue Médicale Suisse (2021)"
+       ],
+       "erreurFrequente": "Conclure à une myosite certaine sur le seul hypersignal STIR des cuisses, sans autre bilan.",
+       "consequence": "On affirme un diagnostic moins spécifique que l'histologie et l'on peut omettre les anticorps ou la biopsie lorsqu'ils sont indiqués.",
+       "bonneConduite": "On interprète l'IRM comme un dépistage d'œdème et un repérage, puis l'on complète par le reste du bilan, y compris la biopsie hors constellation typique."
+      }
+     ]
+    },
+    {
+     "ref": "muscles__echographie_musculaire",
+     "nom": "Échographie musculaire",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "muscles__echographie_musculaire-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "L'échographie est l'examen de référence des lésions musculaires aiguës ; on la demande si les symptômes persistent cinq jours ou plus, selon Schwitzguebel, Muff, Naets, Karatzios, Saubade et Gremeaux (Revue Médicale Suisse, 2018).",
+        "pourquoiFaux": "L'IRM vient en complément pour un site profond ; le gène PYGM et la biopsie ne sont pas le premier examen d'une lésion sportive aiguë, selon Schwitzguebel, Muff, Naets, Karatzios, Saubade et Gremeaux (Revue Médicale Suisse, 2018), selon la synthèse du protocole national de diagnostic et de soins sur la glycogénose de type V, destinée au médecin traitant, mai 2019."
+       },
+       "sources": [
+        "Schwitzguebel et al., Revue Médicale Suisse (2018)"
+       ],
+       "casClinique": "Un footballeur de 24 ans, à Lausanne, a depuis six jours une douleur et une perte de force de la cuisse après un sprint, sans indication d'emblée à une chirurgie.",
+       "options": [
+        "Échographie de cuisse cherchant un hématome",
+        "IRM de toutes les loges musculaires d'emblée",
+        "Étude du gène PYGM demandée d'emblée",
+        "Biopsie musculaire pratiquée d'emblée"
+       ],
+       "bonneReponse": "Échographie de cuisse cherchant un hématome",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "muscles__echographie_musculaire-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "L'échographie recherche un hématome comme facteur de gravité des lésions de grade 2 ou 3, selon Schwitzguebel, Muff, Naets, Karatzios, Saubade et Gremeaux (Revue Médicale Suisse, 2018).",
+        "pourquoiFaux": "Une architecture conservée sans collection n'affiche pas ce facteur de gravité, selon Schwitzguebel, Muff, Naets, Karatzios, Saubade et Gremeaux (Revue Médicale Suisse, 2018)."
+       },
+       "sources": [
+        "Schwitzguebel et al., Revue Médicale Suisse (2018)"
+       ],
+       "consigne": "Échographie de la cuisse d'un sportif lausannois, douloureux et faible depuis six jours après un sprint.",
+       "aspectRecherche": "Hématome musculaire",
+       "reponse": "Un hématome est un facteur de gravité qui peut faire discuter une ponction-évacuation.",
+       "imageOuTraceAttendu": "Coupe échographique du muscle : collection intra-musculaire évoquant un hématome, à interpréter avec la clinique."
+      },
+      {
+       "id": "muscles__echographie_musculaire-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 55,
+       "correction": {
+        "pourquoiJuste": "L'échographie est l'examen de référence, mais elle est limitée en localisation profonde ; l'IRM la complète alors, selon Schwitzguebel, Muff, Naets, Karatzios, Saubade et Gremeaux (Revue Médicale Suisse, 2018).",
+        "pourquoiFaux": "L'IRM n'est pas le premier examen de toutes les lésions musculaires aiguës."
+       },
+       "sources": [
+        "Schwitzguebel et al., Revue Médicale Suisse (2018)"
+       ],
+       "erreurFrequente": "Se passer d'imagerie pour une lésion profonde des ischio-jambiers, ou à l'inverse demander une IRM d'emblée pour toute élongation superficielle.",
+       "consequence": "On sous-estime une lésion profonde, ou l'on surcharge l'IRM alors que l'échographie est l'examen de référence.",
+       "bonneConduite": "On s'appuie d'abord sur la clinique et l'échographie, et l'on réserve l'IRM aux sites profonds, notamment les ischio-jambiers."
+      }
+     ]
+    },
+    {
+     "ref": "muscles__ck_myoglobine_ldh_aldolase",
+     "nom": "CK, myoglobine, LDH, aldolase",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "muscles__ck_myoglobine_ldh_aldolase-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Le bilan de base d'une faiblesse proximale comprend les enzymes musculaires (créatine kinase, aldolase, LDH, transaminases), selon Lazarou (Revue Médicale Suisse, 2021).",
+        "pourquoiFaux": "Le test d'effort, l'IRM et le gène PYGM viennent selon le contexte, après cette caractérisation biologique, selon Lazarou (Revue Médicale Suisse, 2021), selon la synthèse du protocole national de diagnostic et de soins sur la glycogénose de type V, destinée au médecin traitant, mai 2019."
+       },
+       "sources": [
+        "Lazarou, Revue Médicale Suisse (2021)"
+       ],
+       "casClinique": "Un homme de 80 ans, à Genève, présente une faiblesse proximale depuis six semaines, sans traumatisme récent.",
+       "options": [
+        "Dosage des enzymes musculaires, dont la CK",
+        "Test d'effort au lactate demandé d'emblée",
+        "IRM corps entier, sans aucun bilan sanguin",
+        "Gène PYGM isolé, sans enzymes sanguines"
+       ],
+       "bonneReponse": "Dosage des enzymes musculaires, dont la CK",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "muscles__ck_myoglobine_ldh_aldolase-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "Une créatine kinase supérieure à 1000 U/l ou d'au moins cinq fois la normale confirme une rhabdomyolyse, selon Cabral, Edding, Portocarrero et Lerma (Disease-a-Month, 2020, résumé).",
+        "pourquoiFaux": "Une valeur dans les normes du laboratoire n'atteint pas ce seuil ; 16 000 U/l le dépasse largement, selon Cabral, Edding, Portocarrero et Lerma (Disease-a-Month, 2020, résumé)."
+       },
+       "sources": [
+        "Cabral et al., Disease-a-Month (2020), résumé"
+       ],
+       "resultat": "Créatine kinase à 16 000 U/l (plus de cinq fois la normale du laboratoire), myoglobine élevée, après une immobilisation prolongée.",
+       "decision": "On retient une rhabdomyolyse et l'on surveille la fonction rénale et les électrolytes, tout en cherchant la cause de la destruction musculaire."
+      },
+      {
+       "id": "muscles__ck_myoglobine_ldh_aldolase-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 55,
+       "correction": {
+        "pourquoiJuste": "Les taux d'enzymes musculaires ne correspondent pas à la sévérité de la maladie et sont plus bas en cas de myosite à inclusions, selon Lazarou (Revue Médicale Suisse, 2021).",
+        "pourquoiFaux": "Une créatine kinase peu élevée n'écarte pas une myopathie inflammatoire invalidante."
+       },
+       "sources": [
+        "Lazarou, Revue Médicale Suisse (2021)"
+       ],
+       "erreurFrequente": "Conclure qu'une myosite est peu sévère parce que la créatine kinase n'est que modérément élevée.",
+       "consequence": "On sous-estime une maladie dont les taux enzymatiques ne reflètent pas la sévérité, notamment une myosite à inclusions.",
+       "bonneConduite": "On interprète les enzymes avec la clinique, l'imagerie et le reste du bilan, sans les prendre pour un indice de gravité."
+      }
+     ]
+    },
+    {
+     "ref": "muscles__anticorps_des_myosites",
+     "nom": "Anticorps des myosites (anti-Jo-1, anti-HMGCR, anti-SRP, anti-Mi-2)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "muscles__anticorps_des_myosites-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "Les anticorps spécifiques et associés font partie du bilan d'une faiblesse évocatrice de myosite, selon Lazarou (Revue Médicale Suisse, 2021), selon Chizzolini (Revue Médicale Suisse, 2019).",
+        "pourquoiFaux": "Un panel non orienté va à l'encontre de la liste Top 5 de la Société Suisse de Rhumatologie (2020) ; le lactate et une biopsie isolée ne remplacent pas ce volet immunologique, selon Lazarou (Revue Médicale Suisse, 2021)."
+       },
+       "sources": [
+        "Lazarou, Revue Médicale Suisse (2021)",
+        "Chizzolini, Revue Médicale Suisse (2019)",
+        "Smarter Medicine, liste Top 5 de la Société Suisse de Rhumatologie (2020), item sur les anti-ENA"
+       ],
+       "casClinique": "Une femme de 51 ans, à Lausanne, a une faiblesse proximale, un érythème héliotrope et une créatine kinase à 4000 U/l.",
+       "options": [
+        "Anticorps des myosites selon la clinique",
+        "Panel d'auto-anticorps sans orientation",
+        "Seul un test d'effort au lactate plasmatique",
+        "Biopsie d'emblée, sans aucune sérologie"
+       ],
+       "bonneReponse": "Anticorps des myosites selon la clinique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "muscles__anticorps_des_myosites-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "Ces anticorps ne sont pas déterminants pour le diagnostic et seulement 40 % des patients, au plus, sont positifs, selon Lazarou (Revue Médicale Suisse, 2021).",
+        "pourquoiFaux": "Une sérologie positive n'est pas obligatoire pour poursuivre le bilan d'une myopathie inflammatoire, selon Lazarou (Revue Médicale Suisse, 2021)."
+       },
+       "sources": [
+        "Lazarou, Revue Médicale Suisse (2021)"
+       ],
+       "resultat": "Recherche d'anticorps spécifiques des myosites négative chez un patient faible aux ceintures, enzymes élevées.",
+       "decision": "On ne clôt pas le bilan : au plus 40 % des patients sont positifs, et l'imagerie, l'ENMG et souvent la biopsie restent indiquées."
+      },
+      {
+       "id": "muscles__anticorps_des_myosites-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Au plus 40 % des patients sont positifs, selon Lazarou (Revue Médicale Suisse, 2021). La liste Top 5 de la Société Suisse de Rhumatologie (2020) déconseille un panel d'auto-anticorps sans suspicion clinique étayée.",
+        "pourquoiFaux": "Un résultat négatif n'exclut pas une myopathie inflammatoire."
+       },
+       "sources": [
+        "Lazarou, Revue Médicale Suisse (2021)",
+        "Smarter Medicine, liste Top 5 de la Société Suisse de Rhumatologie (2020), item sur les anti-ENA"
+       ],
+       "erreurFrequente": "Écarter une myosite parce que les anticorps spécifiques sont négatifs, ou demander un large panel sans suspicion clinique.",
+       "consequence": "On manque un diagnostic chez la majorité des patients séronégatifs, ou l'on multiplie des tests non orientés.",
+       "bonneConduite": "On interprète les anticorps comme une aide au regroupement, toujours soumis à la clinique, et l'on complète par l'imagerie, l'ENMG et la biopsie si besoin."
+      }
+     ]
+    },
+    {
+     "ref": "muscles__lactate",
+     "nom": "Lactate (myopathie métabolique)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "muscles__lactate-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "Ce test d'orientation, réalisé dans un centre de référence, est particulièrement spécifique et sensible pour la maladie de McArdle, selon la synthèse du protocole national de diagnostic et de soins sur la glycogénose de type V, destinée au médecin traitant, mai 2019.",
+        "pourquoiFaux": "L'IRM et les anticorps explorent d'autres cadres ; la biopsie enzymatique n'est utile que si le diagnostic génétique n'est pas clair, selon la synthèse du protocole national de diagnostic et de soins sur la glycogénose de type V, destinée au médecin traitant, mai 2019."
+       },
+       "sources": [
+        "Synthèse du protocole national de diagnostic et de soins, glycogénose de type V (mai 2019)"
+       ],
+       "casClinique": "Un homme de 28 ans, à Berne, a depuis l'enfance des crampes et une fatigue précoce à l'effort, avec une créatine kinase déjà élevée au repos.",
+       "options": [
+        "Effort non ischémique, lactate, ammoniémie",
+        "IRM musculaire de toutes les loges d'emblée",
+        "Anticorps des myosites isolés",
+        "Aucune biologie d'effort, biopsie d'emblée"
+       ],
+       "bonneReponse": "Effort non ischémique, lactate, ammoniémie",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "muscles__lactate-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "L'absence de hausse du lactate, associée à une hyperammoniémie d'effort, oriente vers une glycogénose de type V, selon la synthèse du protocole national de diagnostic et de soins sur la glycogénose de type V, destinée au médecin traitant, mai 2019.",
+        "pourquoiFaux": "Une hausse habituelle du lactate ne correspond pas à ce profil d'orientation, selon la synthèse du protocole national de diagnostic et de soins sur la glycogénose de type V, destinée au médecin traitant, mai 2019."
+       },
+       "sources": [
+        "Synthèse du protocole national de diagnostic et de soins, glycogénose de type V (mai 2019)"
+       ],
+       "resultat": "Test d'effort non ischémique de l'avant-bras : le lactate plasmatique ne s'élève pas, l'ammoniémie s'élève.",
+       "decision": "On oriente vers une maladie de McArdle et l'on confirme par l'étude du gène PYGM."
+      },
+      {
+       "id": "muscles__lactate-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "Le diagnostic est ensuite confirmé par l'étude du gène PYGM, seul gène connu de cette maladie, selon la synthèse du protocole national de diagnostic et de soins sur la glycogénose de type V, destinée au médecin traitant, mai 2019.",
+        "pourquoiFaux": "Le profil lactate plat n'est pas, à lui seul, la confirmation."
+       },
+       "sources": [
+        "Synthèse du protocole national de diagnostic et de soins, glycogénose de type V (mai 2019)"
+       ],
+       "erreurFrequente": "Tenir le test d'effort pour une confirmation définitive, sans étude du gène PYGM.",
+       "consequence": "On pose un diagnostic de maladie de McArdle sans la confirmation génétique prévue.",
+       "bonneConduite": "On considère le test comme une orientation, puis l'on demande l'étude de PYGM."
+      }
+     ]
+    },
+    {
+     "ref": "muscles__tests_genetiques",
+     "nom": "Tests génétiques (dystrophies)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "muscles__tests_genetiques-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "Après un test d'orientation, le diagnostic de maladie de McArdle est confirmé par l'étude du gène PYGM, selon la synthèse du protocole national de diagnostic et de soins sur la glycogénose de type V, destinée au médecin traitant, mai 2019.",
+        "pourquoiFaux": "La biopsie enzymatique n'est nécessaire que si le résultat génétique n'est pas clair ; les anticorps et l'IRM explorent un autre cadre, selon la synthèse du protocole national de diagnostic et de soins sur la glycogénose de type V, destinée au médecin traitant, mai 2019."
+       },
+       "sources": [
+        "Synthèse du protocole national de diagnostic et de soins, glycogénose de type V (mai 2019)"
+       ],
+       "casClinique": "Un homme de 30 ans, à Zurich, a un test d'effort typique de maladie de McArdle : lactate plat et hyperammoniémie.",
+       "options": [
+        "Étude du gène PYGM pour confirmation",
+        "Biopsie enzymatique d'emblée, sans génétique",
+        "Anticorps des myosites isolés",
+        "IRM de repérage puis biopsie d'emblée"
+       ],
+       "bonneReponse": "Étude du gène PYGM pour confirmation",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "muscles__tests_genetiques-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "Si le diagnostic génétique n'est pas clair, la mesure enzymatique sur biopsie peut être nécessaire, selon la synthèse du protocole national de diagnostic et de soins sur la glycogénose de type V, destinée au médecin traitant, mai 2019.",
+        "pourquoiFaux": "Un variant pathogène de PYGM aurait confirmé le diagnostic sans ce recours enzymatique, selon la synthèse du protocole national de diagnostic et de soins sur la glycogénose de type V, destinée au médecin traitant, mai 2019."
+       },
+       "sources": [
+        "Synthèse du protocole national de diagnostic et de soins, glycogénose de type V (mai 2019)"
+       ],
+       "resultat": "Étude de PYGM non concluante chez un patient dont le test d'effort oriente vers une maladie de McArdle.",
+       "decision": "On mesure l'activité de la myophosphorylase sur une biopsie musculaire pour établir ou confirmer le diagnostic."
+      },
+      {
+       "id": "muscles__tests_genetiques-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 55,
+       "correction": {
+        "pourquoiJuste": "En présence d'un antécédent familial, l'étude génétique peut être directement envisagée, selon la synthèse du protocole national de diagnostic et de soins sur la glycogénose de type V, destinée au médecin traitant, mai 2019.",
+        "pourquoiFaux": "La biopsie enzymatique n'est pas le premier recours lorsque les variants familiaux sont connus."
+       },
+       "sources": [
+        "Synthèse du protocole national de diagnostic et de soins, glycogénose de type V (mai 2019)"
+       ],
+       "erreurFrequente": "Biopsier d'emblée un apparenté symptomatique dont les variants familiaux de PYGM sont déjà connus.",
+       "consequence": "On expose le patient à un geste inutile alors que l'étude génétique peut être demandée d'emblée.",
+       "bonneConduite": "En présence d'un antécédent familial, on envisage d'abord l'étude génétique."
+      }
+     ]
+    },
+    {
+     "ref": "muscles__electromyographie",
+     "nom": "Électromyographie (EMG)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "muscles__electromyographie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "L'ENMG vérifie une hypothèse clinique et aide à écarter une cause neurologique ou myasthénique, selon Genoud (Revue Médicale Suisse, 2015), selon Lazarou (Revue Médicale Suisse, 2021).",
+        "pourquoiFaux": "Les potentiels évoqués explorent le système nerveux central ; le lactate et l'IRM seuls ne remplacent pas ce volet, selon Genoud (Revue Médicale Suisse, 2015), selon Lazarou (Revue Médicale Suisse, 2021)."
+       },
+       "sources": [
+        "Genoud, Revue Médicale Suisse (2015)",
+        "Lazarou, Revue Médicale Suisse (2021)"
+       ],
+       "casClinique": "Un homme de 80 ans, à Genève, a une faiblesse proximale, une créatine kinase très élevée et une IRM des cuisses déjà demandée.",
+       "options": [
+        "ENMG pour vérifier l'hypothèse myopathique",
+        "Potentiels évoqués centraux, sans ENMG",
+        "Test d'effort au lactate, sans ENMG",
+        "Conclusion sur la seule IRM, sans ENMG"
+       ],
+       "bonneReponse": "ENMG pour vérifier l'hypothèse myopathique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "muscles__electromyographie-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "La triade classique n'est pas fréquente ; un tracé myogène avec activités spontanées est déjà contributif, selon Lazarou (Revue Médicale Suisse, 2021).",
+        "pourquoiFaux": "Exiger la triade complète ferait manquer des myopathies, selon Lazarou (Revue Médicale Suisse, 2021)."
+       },
+       "sources": [
+        "Lazarou, Revue Médicale Suisse (2021)"
+       ],
+       "resultat": "ENMG d'un patient faible aux ceintures : activités spontanées et tracé myogène, sans la triade complète.",
+       "decision": "Le tracé oriente vers une myopathie et n'écarte pas le diagnostic si la triade classique est incomplète ; on poursuit le bilan."
+      },
+      {
+       "id": "muscles__electromyographie-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "Lazarou décrit des activités spontanées et un tracé myogène dans une myopathie nécrosante, selon Lazarou (Revue Médicale Suisse, 2021).",
+        "pourquoiFaux": "Un tracé neurogène isolé orienterait vers une autre topographie, selon Genoud (Revue Médicale Suisse, 2015)."
+       },
+       "sources": [
+        "Lazarou, Revue Médicale Suisse (2021)",
+        "Genoud, Revue Médicale Suisse (2015)"
+       ],
+       "consigne": "Compte-rendu d'ENMG d'un patient genevois de 80 ans, faible aux ceintures : activités spontanées et tracé myogène.",
+       "aspectRecherche": "Tracé myogène et activités spontanées",
+       "reponse": "Ce profil oriente vers une origine musculaire et s'intègre au bilan d'une myopathie inflammatoire possible.",
+       "imageOuTraceAttendu": "Tracé de détection : activités spontanées et recrutement myogène, sans exiger la triade complète."
+      },
+      {
+       "id": "muscles__electromyographie-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 55,
+       "correction": {
+        "pourquoiJuste": "L'examen électrophysiologique vérifie toujours une hypothèse clinique et n'est pas standardisé, selon Genoud (Revue Médicale Suisse, 2015).",
+        "pourquoiFaux": "Sans hypothèse, les mesures risquent de ne pas répondre à la question."
+       },
+       "sources": [
+        "Genoud, Revue Médicale Suisse (2015)"
+       ],
+       "erreurFrequente": "Prescrire un ENMG « standard », sans hypothèse clinique partagée avec le neurologue.",
+       "consequence": "On obtient un examen peu pertinent, car il n'est pas standardisé et dépend des mesures choisies.",
+       "bonneConduite": "On formule d'abord une hypothèse de syndrome et de topographie, puis l'on construit l'examen avec le neurologue."
+      }
+     ]
+    },
+    {
+     "ref": "muscles__biopsie_musculaire",
+     "nom": "Biopsie musculaire",
+     "modalite": "Anatomopathologie / biopsie",
+     "defis": [
+      {
+       "id": "muscles__biopsie_musculaire-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 50,
+       "correction": {
+        "pourquoiJuste": "La biopsie est recommandée pour identifier une myopathie nécrosante immunomédiée, et l'IRM sert de repérage, selon Lazarou (Revue Médicale Suisse, 2021).",
+        "pourquoiFaux": "Les anticorps aident au regroupement mais ne sont pas déterminants seuls ; le lactate et une biopsie synoviale explorent d'autres cadres, selon Lazarou (Revue Médicale Suisse, 2021)."
+       },
+       "sources": [
+        "Lazarou, Revue Médicale Suisse (2021)"
+       ],
+       "casClinique": "Un homme de 80 ans, à Genève, a une faiblesse proximale, un anti-HMGCR positif sous statine, et une IRM des cuisses déjà réalisée.",
+       "options": [
+        "Biopsie musculaire guidée par l'IRM",
+        "Diagnostic sur le seul anti-HMGCR",
+        "Test d'effort à la place de la biopsie",
+        "Biopsie synoviale plutôt que musculaire"
+       ],
+       "bonneReponse": "Biopsie musculaire guidée par l'IRM",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "muscles__biopsie_musculaire-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 55,
+       "correction": {
+        "pourquoiJuste": "Lazarou décrit cette nécrose diffuse sans infarctus dans la myopathie nécrosante immunomédiée, selon Lazarou (Revue Médicale Suisse, 2021).",
+        "pourquoiFaux": "Un infiltrat limité autour de fibres nécrotiques ferait plutôt discuter une dystrophie des ceintures, selon Lazarou (Revue Médicale Suisse, 2021)."
+       },
+       "sources": [
+        "Lazarou, Revue Médicale Suisse (2021)"
+       ],
+       "consigne": "Histologie d'une biopsie à l'aiguille du quadriceps, chez un patient genevois aux anti-HMGCR positifs, anciennement sous rosuvastatine.",
+       "aspectRecherche": "Nécrose diffuse des fibres",
+       "reponse": "Une nécrose diffuse des fibres, à des stades différents et sans infarctus, oriente vers une myopathie nécrosante immunomédiée.",
+       "imageOuTraceAttendu": "Coupes musculaires : nécrose des fibres à des stades différents, sans infarctus, compatibles avec une forme nécrosante."
+      },
+      {
+       "id": "muscles__biopsie_musculaire-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Elle a moins d'implications en cas de constellation typique de dermatomyosite ou éventuellement de syndrome des antisynthétases, et elle est recommandée dans les autres contextes, selon Lazarou (Revue Médicale Suisse, 2021).",
+        "pourquoiFaux": "L'indication n'est ni systématique ni facultative dans tous les cas."
+       },
+       "sources": [
+        "Lazarou, Revue Médicale Suisse (2021)"
+       ],
+       "erreurFrequente": "Imposer une biopsie alors qu'une dermatomyosite typique, avec atteinte musculaire, est déjà caractérisée, ou à l'inverse s'en passer devant une suspicion de myopathie nécrosante.",
+       "consequence": "On expose le patient à un geste peu utile, ou l'on manque une forme nécrosante ou une myosite à inclusions.",
+       "bonneConduite": "On réserve la biopsie aux contextes où elle change l'évaluation, notamment les formes nécrosantes et la myosite à inclusions."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CK": "Créatine kinase, enzyme musculaire dont l'élévation sanguine traduit une lésion du muscle.",
+    "EMG": "Électromyographie, volet de détection à l'aiguille de l'électroneuromyographie.",
+    "ENA": "Antigènes nucléaires extractibles, cibles d'anticorps plus spécifiques après un dépistage d'anticorps antinucléaires positif.",
+    "ENMG": "Électroneuromyographie, qui étudie la conduction des nerfs et l'activité électrique des muscles.",
+    "HMGCR": "La 3-hydroxy-3-méthylglutaryl-coenzyme A réductase, cible d'anticorps dans certaines myopathies nécrosantes.",
+    "IRM": "Imagerie par résonance magnétique, qui n'utilise pas de rayonnement ionisant.",
+    "Jo-1": "Anticorps dirigé contre l'histidyl-synthétase de l'acide ribonucléique de transfert, spécifique de myosite et associé à un moins bon pronostic.",
+    "LDH": "Lactate déshydrogénase, enzyme dont l'élévation peut accompagner une lésion musculaire.",
+    "Mi-2": "Anticorps dirigé contre une composante du complexe de remodelage de la chromatine, listé parmi les auto-anticorps des myopathies inflammatoires.",
+    "PYGM": "Gène de la myophosphorylase, isoforme musculaire de la glycogène phosphorylase, seul gène connu de la maladie de McArdle.",
+    "SRP": "La particule de reconnaissance du signal (signal recognition particle), cible d'anticorps associés à un moins bon pronostic.",
+    "STIR": "Séquence d'inversion-récupération à temps d'inversion court, sensible à l'œdème musculaire."
+   }
+  }
+ }
+}
