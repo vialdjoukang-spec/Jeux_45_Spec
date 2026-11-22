@@ -1,0 +1,749 @@
+{
+ "_lot": {
+  "tache": "P04-06-PR",
+  "titre": "Pratique — Examens de l'organe Aorte thoracique et artères pulmonaires (10 examens : 7 imagerie + 2 biologie + 1 explorations)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/4_thorax/aorte_thoracique_et_arteres_pulmonaires.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/4_thorax/aorte_thoracique_et_arteres_pulmonaires.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "aorte_thoracique_et_arteres_pulmonaires__angio_ct_thoracique",
+     "nom": "Angio-CT thoracique (dissection, embolie pulmonaire)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__angio_ct_thoracique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2019), en cas de probabilité forte on passe directement à l'angio-CT, sans D-dimères.",
+        "pourquoiFaux": "Des D-dimères normaux n'écartent pas l'embolie si la probabilité est forte, la radiographie ne voit pas le thrombus, et l'angio-IRM n'est pas recommandée."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "casClinique": "Une femme de 52 ans a une dyspnée brutale après un vol long-courrier ; le score de Wells la classe en probabilité forte et elle est stable.",
+       "options": [
+        "Angio-CT thoracique",
+        "D-dimères d'abord",
+        "Radiographie seule",
+        "Angio-IRM"
+       ],
+       "bonneReponse": "Angio-CT thoracique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__angio_ct_thoracique-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des défauts centraux entourés de contraste dans les artères pulmonaires sont des thrombus.",
+        "pourquoiFaux": "Un artefact de flux est flou et disparaît sur les coupes voisines, et un ganglion hilaire est extérieur à la lumière."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "consigne": "Lisez la coupe axiale de l'angio-CT au niveau de la bifurcation pulmonaire.",
+       "aspectRecherche": "Opacification des artères pulmonaires",
+       "reponse": "Embolie pulmonaire bilatérale proximale",
+       "imageOuTraceAttendu": "Coupe axiale montrant des défauts d'opacification hypodenses au centre des artères pulmonaires droite et gauche, entourés de contraste blanc."
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__angio_ct_thoracique-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "La Société Suisse de Radiologie (Smarter Medicine 2020) recommande de ne faire un CT que si la probabilité prétest d'embolie est forte ou modérée.",
+        "pourquoiFaux": "Un D-dimère sous le seuil écarte l'embolie sans imagerie si la probabilité est faible."
+       },
+       "sources": [
+        "Société Suisse de Radiologie, Smarter Medicine 2020",
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "erreurFrequente": "Faire un angio-CT chez un patient à faible probabilité d'embolie sans doser les D-dimères.",
+       "consequence": "On irradie et on injecte inutilement, avec un risque de faux positifs.",
+       "bonneConduite": "Doser les D-dimères et ne faire l'angio-CT que s'ils dépassent le seuil."
+      }
+     ]
+    },
+    {
+     "ref": "aorte_thoracique_et_arteres_pulmonaires__angio_irm_aortique",
+     "nom": "Angio-IRM aortique",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__angio_irm_aortique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "L'angio-IRM suit l'aorte sans rayonnement ionisant, ce qui convient aux contrôles répétés d'un patient jeune.",
+        "pourquoiFaux": "Des angio-CT annuels cumuleraient une dose importante, et les examens pulmonaires ne suivent pas l'aorte."
+       },
+       "sources": [
+        "Fournier, Moix et Hugli, dissection aortique, Rev Med Suisse 2008"
+       ],
+       "casClinique": "Un homme de 34 ans, porteur d'un syndrome de Marfan, doit faire le suivi annuel de sa racine aortique dilatée.",
+       "options": [
+        "Angio-IRM aortique",
+        "Angio-CT annuel",
+        "Scintigraphie V/Q",
+        "Angiographie pulmonaire"
+       ],
+       "bonneReponse": "Angio-IRM aortique",
+       "visee": "retentissement"
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__angio_irm_aortique-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une ligne qui sépare deux chenaux de rehaussement différent est un voile intimal de dissection.",
+        "pourquoiFaux": "Un artefact de flux ne suit pas un trajet constant sur plusieurs coupes, et un thrombus mural n'a pas de second chenal circulant."
+       },
+       "sources": [
+        "Fournier, Moix et Hugli, dissection aortique, Rev Med Suisse 2008"
+       ],
+       "consigne": "Lisez la coupe sagittale oblique de l'angio-IRM de l'aorte thoracique.",
+       "aspectRecherche": "Contenu de la lumière aortique",
+       "reponse": "Dissection chronique de l'aorte descendante avec faux chenal",
+       "imageOuTraceAttendu": "Coupe sagittale oblique montrant une fine ligne sombre dans l'aorte descendante, qui sépare un chenal étroit bien rehaussé d'un chenal plus large, moins rehaussé."
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__angio_irm_aortique-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2019), l'angio-IRM n'est pas recommandée pour écarter une embolie pulmonaire.",
+        "pourquoiFaux": "L'IRM est utile pour l'aorte, pas pour l'embolie."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "erreurFrequente": "Demander une angio-IRM pour écarter une embolie pulmonaire.",
+       "consequence": "On perd du temps avec un examen peu fiable pour cette question.",
+       "bonneConduite": "Utiliser l'angio-CT ou la scintigraphie selon la situation."
+      }
+     ]
+    },
+    {
+     "ref": "aorte_thoracique_et_arteres_pulmonaires__echocardiographie_transoesophagienne",
+     "nom": "Échocardiographie transœsophagienne",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__echocardiographie_transoesophagienne-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon Fournier, Moix et Hugli (2008), l'ETO est validée pour la dissection aiguë, avec un rapport de vraisemblance positif de 14, et se fait au lit.",
+        "pourquoiFaux": "L'angio-IRM et la scintigraphie imposent un transfert, et les D-dimères ne suffisent pas à écarter une dissection."
+       },
+       "sources": [
+        "Fournier, Moix et Hugli, dissection aortique, Rev Med Suisse 2008"
+       ],
+       "casClinique": "Un homme de 66 ans, hypertendu, est en choc avec une douleur thoracique déchirante ; il est intubé et trop instable pour aller au scanner.",
+       "options": [
+        "ETO au lit",
+        "Angio-IRM",
+        "Scintigraphie V/Q",
+        "D-dimères seuls"
+       ],
+       "bonneReponse": "ETO au lit",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__echocardiographie_transoesophagienne-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Une membrane mobile dans l'aorte ascendante est un voile intimal, qui signe une dissection de type A ; l'épanchement fait craindre une rupture.",
+        "pourquoiFaux": "Un artefact de réverbération est fixe et linéaire, sans mouvement propre."
+       },
+       "sources": [
+        "Fournier, Moix et Hugli, dissection aortique, Rev Med Suisse 2008"
+       ],
+       "consigne": "Lisez la coupe d'ETO de l'aorte ascendante.",
+       "aspectRecherche": "Contenu de la lumière",
+       "reponse": "Dissection de type A : voile intimal de l'aorte ascendante",
+       "imageOuTraceAttendu": "Coupe longitudinale de l'aorte ascendante dilatée montrant une membrane fine et mobile qui ondule dans la lumière, avec un petit épanchement péricardique."
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__echocardiographie_transoesophagienne-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2019), la démarche chez le patient stable repose sur la probabilité, les D-dimères et l'angio-CT.",
+        "pourquoiFaux": "L'ETO ne voit que les thrombus proximaux."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "erreurFrequente": "Faire une ETO en première intention pour une suspicion d'embolie pulmonaire chez un patient stable.",
+       "consequence": "On fait un examen invasif peu adapté à la question.",
+       "bonneConduite": "Suivre la démarche probabilité clinique, D-dimères et angio-CT."
+      }
+     ]
+    },
+    {
+     "ref": "aorte_thoracique_et_arteres_pulmonaires__scintigraphie_de_ventilation_perfusion",
+     "nom": "Scintigraphie de ventilation-perfusion",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__scintigraphie_de_ventilation_perfusion-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2019), une scintigraphie de perfusion peut être envisagée pendant la grossesse, surtout si la radiographie est normale.",
+        "pourquoiFaux": "L'angiographie expose davantage le fœtus, l'angio-IRM n'est pas recommandée, et renoncer à l'examen serait dangereux."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "casClinique": "Une femme de 29 ans, enceinte de 20 semaines, a une suspicion d'embolie pulmonaire ; sa radiographie thoracique est normale et les D-dimères sont élevés.",
+       "options": [
+        "Scintigraphie de perfusion",
+        "Angiographie pulmonaire",
+        "Angio-IRM",
+        "Pas d'examen"
+       ],
+       "bonneReponse": "Scintigraphie de perfusion",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__scintigraphie_de_ventilation_perfusion-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des défauts de perfusion segmentaires avec une ventilation normale réalisent une haute probabilité d'embolie.",
+        "pourquoiFaux": "Des défauts présents à la fois en ventilation et en perfusion évoqueraient une maladie du parenchyme."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "consigne": "Lisez les images de ventilation et de perfusion.",
+       "aspectRecherche": "Concordance des défauts",
+       "reponse": "Haute probabilité : défauts de perfusion segmentaires non concordants",
+       "imageOuTraceAttendu": "Images planaires montrant plusieurs défauts de perfusion triangulaires à base pleurale dans les deux poumons, alors que la ventilation est homogène."
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__scintigraphie_de_ventilation_perfusion-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2019), un examen non diagnostique ne peut écarter l'embolie qu'avec une probabilité faible et une échographie veineuse négative.",
+        "pourquoiFaux": "Un résultat non diagnostique ne tranche pas."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "erreurFrequente": "Conclure à une embolie sur un examen non diagnostique.",
+       "consequence": "On anticoagule à tort un patient.",
+       "bonneConduite": "Compléter par une échographie veineuse ou un angio-CT selon la probabilité clinique."
+      }
+     ]
+    },
+    {
+     "ref": "aorte_thoracique_et_arteres_pulmonaires__angiographie_pulmonaire",
+     "nom": "Angiographie pulmonaire",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__angiographie_pulmonaire-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2019), l'angiographie est aujourd'hui surtout utilisée quand un geste endovasculaire est prévu.",
+        "pourquoiFaux": "Les autres examens ne permettent pas de traiter le thrombus."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "casClinique": "Un homme de 58 ans a une embolie pulmonaire à haut risque avec contre-indication à la thrombolyse ; l'équipe prévoit un traitement par cathéter.",
+       "options": [
+        "Angiographie pulmonaire",
+        "Scintigraphie V/Q",
+        "Angio-IRM",
+        "D-dimères"
+       ],
+       "bonneReponse": "Angiographie pulmonaire",
+       "visee": "therapeutique"
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__angiographie_pulmonaire-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une lacune avec un arrêt brutal de l'opacification sont les signes directs d'une embolie.",
+        "pourquoiFaux": "Une hypoperfusion diffuse sans lacune évoquerait une maladie du parenchyme."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "consigne": "Lisez l'angiographie sélective de l'artère pulmonaire droite.",
+       "aspectRecherche": "Opacification des branches",
+       "reponse": "Embolie : lacune et amputation du tronc du lobe inférieur",
+       "imageOuTraceAttendu": "Image en soustraction montrant une lacune claire dans l'artère du lobe inférieur droit, avec un arrêt brutal de l'opacification en aval."
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__angiographie_pulmonaire-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2019), l'angiographie est rarement faite pour le seul diagnostic, l'angio-CT offrant une précision comparable.",
+        "pourquoiFaux": "L'angiographie reste la référence historique, plus la première intention."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "erreurFrequente": "Faire une angiographie pulmonaire en première intention pour diagnostiquer une embolie.",
+       "consequence": "On expose le patient à un geste invasif plus irradiant sans gain de précision.",
+       "bonneConduite": "Utiliser l'angio-CT, de précision comparable."
+      }
+     ]
+    },
+    {
+     "ref": "aorte_thoracique_et_arteres_pulmonaires__radiographie_thoracique",
+     "nom": "Radiographie thoracique (élargissement du médiastin)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__radiographie_thoracique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "La radiographie est immédiate et peut montrer un médiastin élargi, vu dans 61,6 % des dissections selon le registre IRAD (2000).",
+        "pourquoiFaux": "La scintigraphie et le cathétérisme ne cherchent pas une dissection, et une IRM programmée n'est pas adaptée à l'urgence."
+       },
+       "sources": [
+        "Registre IRAD, Hagan et al., JAMA 2000"
+       ],
+       "casClinique": "Un homme de 70 ans a une douleur thoracique brutale irradiant dans le dos ; on cherche d'abord une autre cause pendant qu'on prépare l'imagerie.",
+       "options": [
+        "Radiographie thoracique",
+        "Scintigraphie V/Q",
+        "Cathétérisme cardiaque droit",
+        "Angio-IRM programmée"
+       ],
+       "bonneReponse": "Radiographie thoracique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__radiographie_thoracique-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un médiastin élargi avec un bouton aortique flou fait suspecter une dissection, à confirmer par l'angio-CT.",
+        "pourquoiFaux": "Un cliché couché agrandit le médiastin, ce qui impose de confirmer en coupe plutôt que de conclure sur le cliché."
+       },
+       "sources": [
+        "Registre IRAD, Hagan et al., JAMA 2000"
+       ],
+       "consigne": "Lisez ce cliché thoracique de face.",
+       "aspectRecherche": "Contour du médiastin",
+       "reponse": "Médiastin supérieur élargi avec bouton aortique flou",
+       "imageOuTraceAttendu": "Cliché de face au lit montrant un médiastin supérieur élargi, un bouton aortique mal défini et une trachée légèrement déviée vers la droite."
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__radiographie_thoracique-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon le registre IRAD (Hagan et al., 2000), la radiographie est normale dans 12,4 % des dissections aiguës.",
+        "pourquoiFaux": "Une radiographie normale ne rassure pas devant une douleur aortique typique."
+       },
+       "sources": [
+        "Registre IRAD, Hagan et al., JAMA 2000"
+       ],
+       "erreurFrequente": "Écarter une dissection aortique parce que la radiographie est normale.",
+       "consequence": "On laisse sortir un patient qui a une dissection.",
+       "bonneConduite": "Faire une imagerie en coupe si la clinique reste évocatrice."
+      }
+     ]
+    },
+    {
+     "ref": "aorte_thoracique_et_arteres_pulmonaires__echocardiographie_transthoracique",
+     "nom": "Échocardiographie transthoracique (racine aortique, cœur droit)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__echocardiographie_transthoracique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2019), chez un patient instable, une échographie au lit montrant une dysfonction droite permet de traiter une embolie si l'angio-CT n'est pas immédiatement réalisable.",
+        "pourquoiFaux": "La scintigraphie et l'IRM ne conviennent pas à un patient instable, et les D-dimères ne guident pas le traitement urgent."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "casClinique": "Une femme de 61 ans en choc, hypotendue, est suspecte d'embolie pulmonaire massive ; le scanner n'est pas disponible tout de suite.",
+       "options": [
+        "Échocardiographie transthoracique au lit",
+        "Scintigraphie V/Q",
+        "Angio-IRM",
+        "D-dimères"
+       ],
+       "bonneReponse": "Échocardiographie transthoracique au lit",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__echocardiographie_transthoracique-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un ventricule droit plus large que le gauche avec une hypokinésie de la paroi libre épargnant l'apex évoque une embolie aiguë.",
+        "pourquoiFaux": "Un ventricule droit dilaté avec une paroi épaissie évoquerait plutôt une hypertension pulmonaire chronique."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "consigne": "Lisez la coupe apicale des quatre cavités.",
+       "aspectRecherche": "Taille des ventricules",
+       "reponse": "Dilatation du ventricule droit avec signe de McConnell",
+       "imageOuTraceAttendu": "Coupe apicale montrant un ventricule droit plus large que le ventricule gauche, dont la paroi libre se contracte mal alors que l'apex reste mobile."
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__echocardiographie_transthoracique-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "L'échographie transthoracique voit mal l'aorte descendante ; l'angio-CT, l'ETO et l'IRM sont les examens validés, selon Fournier, Moix et Hugli (2008).",
+        "pourquoiFaux": "Une échographie normale ne remplace pas une imagerie validée."
+       },
+       "sources": [
+        "Fournier, Moix et Hugli, dissection aortique, Rev Med Suisse 2008"
+       ],
+       "erreurFrequente": "Écarter une dissection aortique sur une échographie transthoracique normale.",
+       "consequence": "On méconnaît une dissection de l'aorte descendante ou une petite dissection de l'ascendante.",
+       "bonneConduite": "Faire une imagerie en coupe ou une ETO si la suspicion persiste."
+      }
+     ]
+    },
+    {
+     "ref": "aorte_thoracique_et_arteres_pulmonaires__d_dimeres",
+     "nom": "D-dimères (avec score de probabilité clinique)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__d_dimeres-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2019) et Robert-Ebadi et Righini (2020), on dose les D-dimères si la probabilité est faible ou intermédiaire ; un résultat sous le seuil écarte l'embolie.",
+        "pourquoiFaux": "L'angio-CT d'emblée n'est pas indiqué à faible probabilité, et les examens invasifs non plus."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)",
+        "Robert-Ebadi et Righini, embolie pulmonaire, Rev Med Suisse 2020"
+       ],
+       "casClinique": "Une femme de 38 ans a une douleur pleurale et une tachycardie légère ; la probabilité clinique est faible.",
+       "options": [
+        "D-dimères",
+        "Angio-CT d'emblée",
+        "Angiographie pulmonaire",
+        "Cathétérisme droit"
+       ],
+       "bonneReponse": "D-dimères",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__d_dimeres-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Robert-Ebadi et Righini (2020), après 50 ans le seuil est l'âge multiplié par 10 µg/l, soit 780 µg/l à 78 ans.",
+        "pourquoiFaux": "Le seuil fixe de 500 µg/l ferait faire une imagerie inutile chez cette patiente âgée."
+       },
+       "sources": [
+        "Robert-Ebadi et Righini, embolie pulmonaire, Rev Med Suisse 2020",
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "resultat": "D-dimères à 650 µg/l chez une patiente de 78 ans à probabilité clinique faible.",
+       "decision": "Écarter l'embolie sans imagerie, car la valeur reste sous le seuil ajusté à l'âge de 780 µg/l."
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__d_dimeres-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2019), un résultat normal n'écarte pas l'embolie de façon sûre si la probabilité clinique est forte.",
+        "pourquoiFaux": "Les D-dimères servent à exclure seulement à probabilité faible ou intermédiaire."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "erreurFrequente": "Doser les D-dimères chez un patient à probabilité forte et se rassurer s'ils sont normaux.",
+       "consequence": "On méconnaît une embolie.",
+       "bonneConduite": "Passer directement à l'imagerie si la probabilité est forte."
+      }
+     ]
+    },
+    {
+     "ref": "aorte_thoracique_et_arteres_pulmonaires__nt_probnp_et_troponine",
+     "nom": "NT-proBNP et troponine (stratification de l'embolie pulmonaire)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__nt_probnp_et_troponine-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2019), on stratifie une embolie normotendue avec la dysfonction droite et la troponine.",
+        "pourquoiFaux": "Les D-dimères et les examens d'imagerie proposés n'estiment pas la gravité."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "casClinique": "Un homme de 64 ans a une embolie pulmonaire confirmée, une tension normale et un ventricule droit dilaté au CT.",
+       "options": [
+        "Troponine et NT-proBNP",
+        "D-dimères de contrôle",
+        "Scintigraphie V/Q",
+        "Angio-IRM"
+       ],
+       "bonneReponse": "Troponine et NT-proBNP",
+       "visee": "retentissement"
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__nt_probnp_et_troponine-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2019), une dysfonction droite avec une troponine élevée chez un patient normotendu définit le risque intermédiaire élevé.",
+        "pourquoiFaux": "Sans hypotension, ce n'est pas un risque élevé, mais ce n'est pas non plus un risque faible."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "resultat": "Troponine élevée et rapport VD/VG de 1,2 chez ce patient normotendu.",
+       "decision": "Classer en risque intermédiaire élevé et surveiller étroitement pour détecter une décompensation."
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__nt_probnp_et_troponine-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2019), les marqueurs servent à stratifier le risque et manquent de spécificité.",
+        "pourquoiFaux": "Le NT-proBNP monte dans de nombreuses autres situations."
+       },
+       "sources": [
+        "ESC, embolie pulmonaire aiguë (2019)"
+       ],
+       "erreurFrequente": "Diagnostiquer une embolie sur un NT-proBNP élevé.",
+       "consequence": "On attribue à l'embolie une élévation due à une insuffisance cardiaque ou rénale.",
+       "bonneConduite": "Poser le diagnostic par l'imagerie, puis utiliser les marqueurs pour la gravité."
+      }
+     ]
+    },
+    {
+     "ref": "aorte_thoracique_et_arteres_pulmonaires__catheterisme_cardiaque_droit",
+     "nom": "Cathétérisme cardiaque droit (hypertension pulmonaire)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__catheterisme_cardiaque_droit-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC et l'ERS (2022), une vitesse de plus de 3,4 m/s rend l'hypertension pulmonaire probable, et le cathétérisme droit la confirme et la classe.",
+        "pourquoiFaux": "Les autres examens ne mesurent pas les pressions pulmonaires."
+       },
+       "sources": [
+        "ESC et ERS, hypertension pulmonaire (2022)"
+       ],
+       "casClinique": "Une femme de 48 ans, sclérodermique, a une dyspnée d'effort et une vitesse de fuite tricuspide à 3,6 m/s à l'échographie.",
+       "options": [
+        "Cathétérisme cardiaque droit",
+        "Angio-IRM aortique",
+        "D-dimères",
+        "ETO"
+       ],
+       "bonneReponse": "Cathétérisme cardiaque droit",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__catheterisme_cardiaque_droit-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC et l'ERS (2022), une PAPm de plus de 20 mmHg (2,7 kPa) avec une PAPO d'au plus 15 mmHg (2,0 kPa) et des RVP de plus de 2 unités Wood définit une hypertension précapillaire.",
+        "pourquoiFaux": "Une PAPO de plus de 15 mmHg (2,0 kPa) aurait orienté vers une cause postcapillaire."
+       },
+       "sources": [
+        "ESC et ERS, hypertension pulmonaire (2022)"
+       ],
+       "resultat": "PAPm 34 mmHg (4,5 kPa), PAPO 10 mmHg (1,3 kPa), RVP 5 unités Wood.",
+       "decision": "Retenir une hypertension pulmonaire précapillaire."
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__catheterisme_cardiaque_droit-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Une PAPm de plus de 20 mmHg (2,7 kPa) avec une PAPO de plus de 15 mmHg (2,0 kPa) définit une hypertension postcapillaire, liée au cœur gauche.",
+        "pourquoiFaux": "Une PAPO normale aurait fait retenir une forme précapillaire."
+       },
+       "sources": [
+        "ESC et ERS, hypertension pulmonaire (2022)"
+       ],
+       "consigne": "Lisez les courbes de pression enregistrées au cours du cathétérisme.",
+       "aspectRecherche": "Pressions pulmonaires et d'occlusion",
+       "reponse": "Hypertension postcapillaire : PAPm et PAPO élevées",
+       "imageOuTraceAttendu": "Tracé montrant une pression artérielle pulmonaire à 50/24 mmHg (6,7/3,2 kPa) avec une moyenne de 33 mmHg (4,4 kPa), puis, ballonnet gonflé, une courbe d'occlusion à 22 mmHg (2,9 kPa) avec de grandes ondes v."
+      },
+      {
+       "id": "aorte_thoracique_et_arteres_pulmonaires__catheterisme_cardiaque_droit-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC et l'ERS (2022), le diagnostic et la classification reposent sur le cathétérisme cardiaque droit.",
+        "pourquoiFaux": "L'échographie ne distingue pas sûrement les formes pré- et postcapillaires."
+       },
+       "sources": [
+        "ESC et ERS, hypertension pulmonaire (2022)"
+       ],
+       "erreurFrequente": "Commencer un traitement spécifique de l'hypertension artérielle pulmonaire sur la seule échographie.",
+       "consequence": "On traite à tort une hypertension liée au cœur gauche, ce qui peut aggraver un œdème pulmonaire.",
+       "bonneConduite": "Confirmer et classer l'hypertension par un cathétérisme droit avant tout traitement spécifique."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CT": "Tomodensitométrie : imagerie par rayons X en coupes.",
+    "IRM": "Imagerie par résonance magnétique, sans rayons X.",
+    "ESC": "Société européenne de cardiologie.",
+    "VD": "Ventricule droit.",
+    "VD/VG": "Rapport des diamètres du ventricule droit et du ventricule gauche.",
+    "NT": "Fragment N-terminal, dans NT-proBNP.",
+    "VG": "Ventricule gauche.",
+    "ETO": "Échocardiographie transœsophagienne.",
+    "V/Q": "Ventilation et perfusion.",
+    "IRAD": "International Registry of Acute Aortic Dissection.",
+    "JAMA": "Journal of the American Medical Association.",
+    "ERS": "Société européenne de pneumologie.",
+    "PAPm": "Pression artérielle pulmonaire moyenne.",
+    "PAPO": "Pression artérielle pulmonaire d'occlusion.",
+    "RVP": "Résistance vasculaire pulmonaire.",
+    "NT-proBNP": "Fragment N-terminal du propeptide natriurétique de type B."
+   }
+  }
+ }
+}
