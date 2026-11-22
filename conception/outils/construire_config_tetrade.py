@@ -53,7 +53,11 @@ for _s, _c in REDIGES.items():
 LIENS = {"Circulation pulmonaire": {"def": "La circulation pulmonaire relie le ventricule droit aux alvéoles puis à l'oreillette gauche.",
           "pourquoi": "Son contenu complet (anatomie, physiologie, pathologies) vit dans le système cardiovasculaire pour éviter une copie.",
           "confusion": "Les échanges gazeux eux-mêmes restent décrits ici, au poumon.",
-          "retenir": "Tu ouvres Cardiovasculaire → Circulation pulmonaire pour l'embolie et l'hypertension pulmonaires."}}
+          "retenir": "Tu ouvres Cardiovasculaire → Circulation pulmonaire pour l'embolie et l'hypertension pulmonaires."},
+         "Pharynx": {"def": "Le pharynx est le carrefour musculaire où se croisent l'air et les aliments ; il assure le temps pharyngé de la déglutition.",
+          "pourquoi": "Son contenu complet (anatomie, physiologie, sémiologie, pathologies) vit dans le système respiratoire pour éviter une copie.",
+          "confusion": "La dysphagie haute (fausse route, toux au repas) vient du pharynx ; la dysphagie basse, rétrosternale, vient de l'œsophage.",
+          "retenir": "Tu ouvres Respiratoire → Pharynx pour la déglutition, l'angine, l'abcès péri-amygdalien et l'apnée obstructive."}}
 N = []
 for sysn, orgs in SYSTEMES.items():
     anc, cote, coul = RACINES[sysn]

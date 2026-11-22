@@ -1,6 +1,6 @@
 # REPRISE — à lire en entier avant toute action
 
-Dernière mise à jour : 2026-11-21 (soir) · Le système cardiovasculaire est rédigé ; voir §8.
+Dernière mise à jour : 2026-11-22 · Le digestif et hépatobiliaire est rédigé ; voir la section « Digestif » en fin de fichier.
 Auteur et décideur : Dr Vial Tato Djoukang (psychiatre, préparation de l'examen fédéral suisse). Langue : français, phrases verbales, jamais nominales.
 
 ## 1. Les 4 projets (dossier `projets/`)
@@ -74,7 +74,7 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Catalogue paraclinique : 66 organes, 601 examens listés (champs à remplir).
 
 ## 9. Méthode convenue pour la suite
-1. Système par système (cardiovasculaire et respiratoire faits ; prochain : digestif et hépatobiliaire) selon le skill `systeme-jouable-builder`.
+1. Système par système (cardiovasculaire, respiratoire et digestif faits ; prochain : rénal, neurologique ou endocrinien) selon le skill `systeme-jouable-builder`.
 2. Depuis le 2026-11-22 (soir), Vial donne son accord d'office pour ce projet : Claude produit sans attendre de validation et l'informe ensuite.
 3. Audit bloquant après chaque lot ; commit et push.
 
@@ -150,3 +150,15 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - `.github/workflows/ouvrier.yml` : toutes les 30 min, prend la tâche suivante, lance Claude Code en mode non interactif (`--max-budget-usd`), publie sur `veille/audit-medical`. L'audit médical horaire reste le verrou avant main. Rapport : `projets/ouvrier/RAPPORT_OUVRIER.md`.
 - Haiku pour le volume (compléments de présentation), Sonnet pour les systèmes (rénal, neurologique, endocrinien). Le digestif est produit par une tâche planifiée séparée.
 - Les skills utiles au travail automatique sont copiés dans `.claude/skills/` du dépôt.
+
+## Digestif (2026-11-22, tâche planifiée)
+- Le système « Digestif & hépatobiliaire » est jouable : `conception/outils/digestif/` (contenu, sémiologie, pathologies, glossaire, temps) ; registre `systemes_rediges.py` (préfixe `dg_`, couleur `#c98a2b`).
+- 12 organes rédigés en anatomie, physiologie et sémiologie (7 temps d'examen, dont le toucher rectal) ; 54 pathologies en 4 paliers, avec bilan par visée (gold standard compris), traitements dosés et source datée.
+- Le pharynx digestif renvoie au respiratoire (`LIENS` dans `construire_config_tetrade.py`) ; l'ischémie mésentérique aiguë reste au cardiovasculaire.
+- Nouvelles fenêtres canvas testées sans écran (0 erreur JS) : `hepato_r` (rapport R), `meld` (MELD et MELD-Na en unités SI), `porte` (GPVH, loi d'Ohm, seuils de Baveno VII), `osmo` (trou osmotique fécal). Les fenêtres `gazometrie` et `starling_cap` sont réutilisées.
+- Les 12 renommages `org_digest_*` → `dg_*` sont déclarés dans `projets/retours/migrations_ids.json`. Audits : conception 34/34, couverture réussie, non-perte OK.
+- Reste à faire :
+  - Vial relit `digestif/pathologies.txt`.
+  - Points à vérifier dans l'AIPS : statut suisse de l'élafibranor et du seladelpar (cholangite biliaire primitive) ; pâte de triamcinolone buccale ; norfloxacine (la ciprofloxacine est proposée en alternative).
+  - Doses tirées de la pratique courante, à recouper : IPP du Zollinger-Ellison ; thiamine à forte dose.
+  - Les volets « Embryologie et variantes » restent vides pour la plupart des organes.

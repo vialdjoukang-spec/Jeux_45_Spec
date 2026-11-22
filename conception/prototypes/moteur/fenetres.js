@@ -186,4 +186,46 @@ const MODELES={
    note.textContent='PaCO₂ = 0,863 × VCO₂ / VA = '+(paco*0.1333).toFixed(1)+' kPa (ventilation alvéolaire '+va.toFixed(1)+' l/min). PaO₂ = '+(po*0.1333).toFixed(1)+' kPa ; gradient A-a = '+((PA-po)*0.1333).toFixed(1)+' kPa. '+
     (s>=0.3?'Avec un shunt de '+S()+' %, l\'oxygène corrige mal la PaO₂ : le sang shunté ne voit jamais l\'air enrichi.':s>0.1?'Le shunt creuse le gradient A-a ; l\'oxygène corrige encore partiellement.':'Le shunt reste physiologique.')+' '+
     (D()>0.5?'L\'espace mort élevé (embolie, BPCO) élève la PaCO₂ si la ventilation n\'augmente pas.':'');}d();},
+ /* digestif : rapport R (ALAT / PAL en multiples de la norme) — type d'atteinte hépatique */
+ hepato_r(C){const x=toile(C);const note=document.createElement('p');
+  const b=boutons(C,[['Hépatite aiguë virale',{A:1500,P:160}],['Cholestase',{A:120,P:650}],['Atteinte mixte',{A:420,P:390}],['Stéatose (MASLD)',{A:75,P:90}]],o=>{A.set(o.A);P.set(o.P);d();});
+  const A=cur(C,'ALAT (U/l)',5,3000,5,1500,d),LA=cur(C,'Limite supérieure ALAT (U/l)',30,60,1,45,d),P=cur(C,'PAL (U/l)',20,1500,5,160,d),LP=cur(C,'Limite supérieure PAL (U/l)',100,150,1,130,d);C.appendChild(note);
+  function d(){const xa=A()/LA(),xp=P()/LP(),R=xa/xp,M=axes(x,520,300,40,[0,10],[0,50],'PAL (× norme)','ALAT (× norme)');
+   const zone=(k1,k2,c)=>{x.fillStyle=c;x.beginPath();const [a0,b0]=M(0,0);x.moveTo(a0,b0);for(const k of [k1,k2]){const xm=Math.min(10,50/k),[a,b]=M(xm,xm*k);x.lineTo(a,b);}x.closePath();x.fill();};
+   zone(5,1000,'rgba(224,69,43,0.10)');zone(2,5,'rgba(201,138,43,0.12)');zone(0.0001,2,'rgba(47,111,208,0.10)');
+   for(const [k,t] of [[5,'R = 5'],[2,'R = 2']]){x.strokeStyle='#3a4556';x.setLineDash([5,4]);x.beginPath();const [a0,b0]=M(0,0),xm=Math.min(10,50/k),[a,b]=M(xm,xm*k);x.moveTo(a0,b0);x.lineTo(a,b);x.stroke();x.setLineDash([]);x.fillStyle='#3a4556';x.fillText(t,a-40,b+14);}
+   const [a,bb]=M(Math.min(xp,10),Math.min(xa,50));x.fillStyle='#d11';x.beginPath();x.arc(a,bb,6,0,7);x.fill();
+   const typ=R>=5?'hépatocellulaire (cytolyse) : tu cherches les virus, les médicaments, l\'ischémie, l\'auto-immunité et la maladie de Wilson.':R<=2?'cholestatique : tu fais d\'abord une échographie pour séparer un obstacle des voies biliaires d\'une cholestase intra-hépatique.':'mixte : tu cherches surtout une hépatite médicamenteuse.';
+   note.textContent='ALAT = '+xa.toFixed(1)+' × la norme ; PAL = '+xp.toFixed(1)+' × la norme ; R = '+R.toFixed(1)+'. L\'atteinte est '+typ+(xa<3&&xp<2?' Les valeurs restent proches de la norme : tu contrôles le bilan avant de conclure.':'');}d();},
+ /* digestif : score MELD et MELD-Na (UNOS 2016) en unités SI ; mortalité à 3 mois par classe (Wiesner 2003) */
+ meld(C){const x=toile(C);const note=document.createElement('p');
+  boutons(C,[['Cirrhose compensée',{B:20,I:1.1,K:70,N:139}],['Cirrhose décompensée',{B:80,I:1.8,K:110,N:130}],['Syndrome hépatorénal',{B:150,I:2.3,K:280,N:126}],['Décompensation sévère',{B:300,I:3.5,K:200,N:128}]],o=>{B.set(o.B);I.set(o.I);K.set(o.K);N.set(o.N);d();});
+  const B=cur(C,'Bilirubine (µmol/l)',3,600,1,20,d),I=cur(C,'INR',0.8,8,0.1,1.1,d),K=cur(C,'Créatinine (µmol/l)',30,800,5,70,d),N=cur(C,'Sodium (mmol/l)',115,150,1,139,d);C.appendChild(note);
+  const CL=[['< 10',1.9],['10–19',6.0],['20–29',19.6],['30–39',52.6],['≥ 40',71.3]];
+  function d(){const bi=Math.max(1,B()/17.1),cr=Math.min(4,Math.max(1,K()/88.4)),inr=Math.max(1,I());
+   let m=10*Math.round((0.957*Math.log(cr)+0.378*Math.log(bi)+1.12*Math.log(inr)+0.643)*10)/10;
+   const na=Math.min(137,Math.max(125,N()));let mn=m>11?m+1.32*(137-na)-0.033*m*(137-na):m;m=Math.round(Math.min(40,Math.max(6,m)));mn=Math.round(Math.min(40,Math.max(6,mn)));
+   const W=520,H=300;x.clearRect(0,0,W,H);x.font='11px A';const k=mn<10?0:mn<20?1:mn<30?2:mn<40?3:4,col=getComputedStyle(C).getPropertyValue('--c')||'#c98a2b';
+   x.fillStyle='#3a4556';x.fillText('Mortalité à 3 mois selon la classe de MELD (%)',40,16);
+   CL.forEach(([t,v],i)=>{const bw=70,gx=50+i*92,h=v/80*220;x.fillStyle=i===k?col:'#c9d0d8';x.fillRect(gx,H-40-h,bw,h);x.fillStyle='#3a4556';x.fillText(t,gx+20,H-24);x.fillText(v.toFixed(0)+' %',gx+22,H-46-h);});
+   note.textContent='MELD = '+m+' ; MELD-Na = '+mn+'. '+(mn>=15?'Un MELD-Na de 15 ou plus fait discuter la greffe hépatique avec un centre suisse (Zurich, Genève ou Berne).':'Le pronostic à court terme reste favorable ; tu réévalues à chaque décompensation.')+' La créatinine compte au maximum 4 mg/dl (354 µmol/l) ; la natrémie compte entre 125 et 137 mmol/l.';}d();},
+ /* digestif : hémodynamique portale, loi d'Ohm ΔP = débit × résistance ; seuils de Baveno VII */
+ porte(C){const x=toile(C);const note=document.createElement('p');
+  boutons(C,[['Normal',{R:1,Q:1}],['Cirrhose compensée',{R:3,Q:1.1}],['Circulation hyperdynamique',{R:3.2,Q:1.7}],['Bêtabloquant non sélectif',{R:3.2,Q:1.25}],['TIPS',{R:1.6,Q:1.7}]],o=>{R.set(o.R);Q.set(o.Q);d();});
+  const R=cur(C,'Résistance intrahépatique (× normale)',0.8,6,0.1,1,d),Q=cur(C,'Débit porte (l/min)',0.5,2.5,0.05,1,d);C.appendChild(note);const r0=3.5;
+  function d(){const g=r0*R()*Q(),M=axes(x,520,300,40,[0,2.5],[0,30],'Débit porte (l/min)','GPVH (mmHg)');
+   for(const [s,t,c] of [[5,'5 : limite haute normale','#2f6fd0'],[10,'10 : HTP significative','#c98a2b'],[12,'12 : risque de rupture','#e0452b']]){const [a0,b0]=M(0,s),[a1]=M(2.5,s);x.strokeStyle=c;x.setLineDash([5,4]);x.beginPath();x.moveTo(a0,b0);x.lineTo(a1,b0);x.stroke();x.setLineDash([]);x.fillStyle=c;x.fillText(t,a1-150,b0-4);}
+   for(const [rr,c,w] of [[1,'#9aa3ad',1.5],[R(),getComputedStyle(C).getPropertyValue('--c')||'#c98a2b',2.5]]){x.strokeStyle=c;x.lineWidth=w;x.beginPath();for(let i=0;i<=50;i++){const q=2.5*i/50,[a,b]=M(q,Math.min(30,r0*rr*q));i?x.lineTo(a,b):x.moveTo(a,b);}x.stroke();}x.lineWidth=1;
+   const [a,b]=M(Q(),Math.min(30,g));x.fillStyle='#d11';x.beginPath();x.arc(a,b,6,0,7);x.fill();
+   note.textContent='GPVH = débit × résistance ≈ '+g.toFixed(1)+' mmHg ('+(g*0.1333).toFixed(2)+' kPa). '+(g<5?'La pression porte reste normale.':g<10?'Le gradient reste sous le seuil de 10 mmHg de l\'hypertension portale cliniquement significative.':g<12?'L\'hypertension portale est cliniquement significative : un bêtabloquant non sélectif (carvédilol) prévient la décompensation.':'Au-delà de 12 mmHg, les varices peuvent se rompre ; l\'objectif thérapeutique vise une baisse sous 12 mmHg ou d\'au moins 20 %.')+' Le bêtabloquant baisse le débit ; le TIPS baisse la résistance.';}d();},
+ /* digestif : trou osmotique fécal = 290 − 2 × (Na + K) des selles */
+ osmo(C){const x=toile(C);const note=document.createElement('p');
+  boutons(C,[['Choléra (sécrétoire)',{N:130,K:20}],['Laxatif osmotique',{N:30,K:25}],['Malabsorption du lactose',{N:40,K:35}],['Colite microscopique',{N:95,K:30}]],o=>{N.set(o.N);K.set(o.K);d();});
+  const N=cur(C,'Sodium fécal (mmol/l)',5,160,1,130,d),K=cur(C,'Potassium fécal (mmol/l)',5,120,1,20,d);C.appendChild(note);
+  function d(){const el=2*(N()+K()),gap=290-el,W=520,H=300;x.clearRect(0,0,W,H);x.font='11px A';const sc=220/300,y0=H-40,col=getComputedStyle(C).getPropertyValue('--c')||'#c98a2b';
+   x.fillStyle='#3a4556';x.fillText('Osmolalité fécale de référence : 290 mOsm/kg',40,16);
+   const he=Math.min(290,el)*sc;x.fillStyle='#2f6fd0';x.fillRect(180,y0-he,140,he);x.fillStyle='#fff';if(he>20)x.fillText('2 × (Na + K) = '+el,190,y0-he/2);
+   if(gap>0){x.fillStyle=col;x.fillRect(180,y0-290*sc,140,gap*sc);x.fillStyle='#3a4556';x.fillText('trou = '+gap,330,y0-290*sc+gap*sc/2);}
+   for(const [s,t] of [[290-50,'trou 50'],[290-125,'trou 125']]){x.strokeStyle='#3a4556';x.setLineDash([4,4]);x.beginPath();x.moveTo(150,y0-s*sc);x.lineTo(360,y0-s*sc);x.stroke();x.setLineDash([]);x.fillText(t,95,y0-s*sc+4);}
+   const g=Math.max(gap,0);note.textContent='Trou osmotique fécal = 290 − 2 × ('+N()+' + '+K()+') = '+gap+' mOsm/kg. '+(g>125?'Un trou supérieur à 125 signe une diarrhée osmotique : une substance non absorbée (lactose, magnésium, laxatif, sorbitol) retient l\'eau ; elle cesse à jeun.':g<50?'Un trou inférieur à 50 signe une diarrhée sécrétoire : les électrolytes expliquent toute l\'osmolalité ; elle persiste à jeun (toxine, tumeur neuroendocrine, colite microscopique, laxatif stimulant).':'Une valeur entre 50 et 125 reste intermédiaire : tu combines avec l\'épreuve de jeûne.');}d();},
  inconnu(C){C.textContent='Fenêtre à produire.';}};
