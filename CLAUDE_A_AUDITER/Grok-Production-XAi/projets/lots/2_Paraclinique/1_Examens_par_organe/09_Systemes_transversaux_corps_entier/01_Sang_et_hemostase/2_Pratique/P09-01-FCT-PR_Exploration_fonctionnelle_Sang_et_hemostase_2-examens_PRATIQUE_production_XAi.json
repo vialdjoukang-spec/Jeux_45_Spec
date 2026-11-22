@@ -1,0 +1,229 @@
+{
+ "_lot": {
+  "tache": "P09-01-FCT-PR",
+  "titre": "Pratique — Examens de l'organe Sang et hémostase — Exploration fonctionnelle (2 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/9_systemes_transversaux/sang_et_hemostase.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/9_systemes_transversaux/sang_et_hemostase.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "sang_et_hemostase__temps_de_saignement",
+     "nom": "Temps de saignement (PFA-100)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "sang_et_hemostase__temps_de_saignement-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Le PFA-100 manque de sensibilité pour dépister les troubles de l'hémostase primaire, selon Hayward et al. (2006), et des saignements cutanéo-muqueux font doser le facteur von Willebrand, selon les recommandations ASH ISTH NHF WFH (2021).",
+        "pourquoiFaux": "Un PFA-100 normal ne rassure pas, et les D-dimères ou l'anti-Xa ne répondent pas à la question."
+       },
+       "sources": [
+        "ISTH, Hayward et al., PFA-100 (2006)",
+        "ASH ISTH NHF WFH, diagnostic de la maladie de von Willebrand (2021)"
+       ],
+       "casClinique": "Une femme de 30 ans, à Yverdon, a des ménorragies et des épistaxis, avec un TP et un TCA normaux.",
+       "options": [
+        "Dosage du facteur von Willebrand",
+        "PFA-100 seul",
+        "D-dimères",
+        "Anti-Xa"
+       ],
+       "bonneReponse": "Dosage du facteur von Willebrand",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "sang_et_hemostase__temps_de_saignement-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "L'aspirine allonge le temps sur cartouche collagène-épinéphrine, selon Hayward et al. (2006).",
+        "pourquoiFaux": "Conclure à une maladie de von Willebrand ignore la prise d'aspirine."
+       },
+       "sources": [
+        "ISTH, Hayward et al., PFA-100 (2006)"
+       ],
+       "resultat": "Le temps d'occlusion dépasse l'intervalle de référence sur la seule cartouche collagène-épinéphrine chez un patient sous aspirine.",
+       "decision": "On attribue l'allongement à l'aspirine."
+      },
+      {
+       "id": "sang_et_hemostase__temps_de_saignement-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "L'appareil rapporte une non-occlusion au-delà de 300 s, et des plaquettes < 100 G/l ou un hématocrite < 25 % allongent le temps sans trouble fonctionnel, selon Hayward et al. (2006).",
+        "pourquoiFaux": "Conclure d'emblée à une thrombopathie sans vérifier les plaquettes et l'hématocrite est une erreur."
+       },
+       "sources": [
+        "ISTH, Hayward et al., PFA-100 (2006)"
+       ],
+       "consigne": "Lisez le rendu du PFA-100.",
+       "aspectRecherche": "Résultat sur les deux cartouches",
+       "reponse": "Non-occlusion au-delà de 300 s sur les deux cartouches, à confronter aux plaquettes et à l'hématocrite.",
+       "imageOuTraceAttendu": "Rendu chiffré indiquant pour chaque cartouche, collagène-épinéphrine et collagène-ADP, un temps d'occlusion en secondes, ici rapporté comme une non-occlusion au-delà de 300 s."
+      },
+      {
+       "id": "sang_et_hemostase__temps_de_saignement-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon Hayward et al. (2006), on analyse l'échantillon dans les 4 h, sans tube pneumatique.",
+        "pourquoiFaux": "Un délai ou un transport inadaptés altèrent la fonction plaquettaire mesurée."
+       },
+       "sources": [
+        "ISTH, Hayward et al., PFA-100 (2006)"
+       ],
+       "erreurFrequente": "Analyser l'échantillon du PFA-100 après 6 h et l'envoyer par tube pneumatique.",
+       "consequence": "On obtient un résultat faussé.",
+       "bonneConduite": "On analyse dans les 4 h, sans transport pneumatique."
+      }
+     ]
+    },
+    {
+     "ref": "sang_et_hemostase__thromboelastographie",
+     "nom": "Thromboélastographie (ROTEM)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "sang_et_hemostase__thromboelastographie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Pendant un saignement périopératoire sévère, le test viscoélastique guide la substitution, notamment en fibrinogène, selon l'ESAIC (2023).",
+        "pourquoiFaux": "Les autres examens ne guident pas un saignement aigu."
+       },
+       "sources": [
+        "ESAIC, saignement périopératoire sévère (2023)"
+       ],
+       "casClinique": "Un homme de 64 ans saigne massivement après une chirurgie cardiaque, au Centre hospitalier universitaire vaudois.",
+       "options": [
+        "Thromboélastométrie (ROTEM)",
+        "Électrophorèse des protéines",
+        "Ferritine",
+        "Cytométrie en flux"
+       ],
+       "bonneReponse": "Thromboélastométrie (ROTEM)",
+       "visee": "therapeutique"
+      },
+      {
+       "id": "sang_et_hemostase__thromboelastographie-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un fibrinogène ≤ 1,5 g/l pendant un saignement sévère justifie la substitution, selon l'ESAIC (2023).",
+        "pourquoiFaux": "Attendre ou transfuser seulement des concentrés érythrocytaires laisse le déficit non corrigé."
+       },
+       "sources": [
+        "ESAIC, saignement périopératoire sévère (2023)"
+       ],
+       "resultat": "Pendant un saignement sévère, le fibrinogène de Clauss vaut 1,2 g/l.",
+       "decision": "On substitue en fibrinogène."
+      },
+      {
+       "id": "sang_et_hemostase__thromboelastographie-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Dans l'hémorragie du post-partum, un FIBTEM A5 > 12 mm rend la substitution en fibrinogène inutile, selon l'ESAIC (2023).",
+        "pourquoiFaux": "Donner du fibrinogène malgré une fermeté suffisante n'apporte rien."
+       },
+       "sources": [
+        "ESAIC, saignement périopératoire sévère (2023)"
+       ],
+       "consigne": "Lisez le FIBTEM chez une femme qui saigne après l'accouchement.",
+       "aspectRecherche": "Fermeté du caillot à 5 min (A5)",
+       "reponse": "FIBTEM A5 > 12 mm : la substitution en fibrinogène est inutile.",
+       "imageOuTraceAttendu": "Tracé de thromboélastométrie en forme de fuseau, avec la fermeté du caillot en millimètres sur l'axe vertical et le temps sur l'axe horizontal, l'amplitude à 5 min dépassant 12 mm."
+      },
+      {
+       "id": "sang_et_hemostase__thromboelastographie-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Dans l'hémorragie du post-partum, un fibrinogène > 2 g/l ou un FIBTEM A5 > 12 mm rend la substitution inutile, selon l'ESAIC (2023).",
+        "pourquoiFaux": "Le fibrinogène dépasse le seuil de 2 g/l, et la substitution ne corrige rien."
+       },
+       "sources": [
+        "ESAIC, saignement périopératoire sévère (2023)"
+       ],
+       "erreurFrequente": "Substituer en fibrinogène une femme qui saigne après l'accouchement alors que son fibrinogène vaut 2,6 g/l.",
+       "consequence": "On administre un produit sanguin sans bénéfice.",
+       "bonneConduite": "On cherche et traite d'autres causes du saignement, car le fibrinogène est suffisant."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ADP": "Adénosine diphosphate : agoniste plaquettaire dont le récepteur P2Y12 est la cible du clopidogrel, du prasugrel et du ticagrélor.",
+    "ASH": "American Society of Hematology : société américaine d’hématologie.",
+    "ISTH": "International Society on Thrombosis and Haemostasis : société internationale qui publie des normes de thrombose et d’hémostase.",
+    "NHF": "National Hemophilia Foundation : fondation américaine de l’hémophilie, coautrice des recommandations de 2021 sur la maladie de von Willebrand.",
+    "WFH": "Fédération mondiale de l’hémophilie : elle publie les recommandations de prise en charge de l’hémophilie.",
+    "ESAIC": "Société européenne d’anesthésiologie et de soins intensifs : elle publie les recommandations sur le saignement périopératoire sévère.",
+    "FIBTEM": "Test de thromboélastométrie qui bloque les plaquettes pour mesurer la seule contribution du fibrinogène à la fermeté du caillot.",
+    "TP": "Taux de prothrombine (temps de Quick) : il explore les facteurs II, V, VII et X et le fibrinogène.",
+    "TCA": "Temps de céphaline activée (PTT) : il explore la voie intrinsèque, dont les facteurs VIII, IX, XI et XII.",
+    "PFA": "Platelet Function Analyzer : automate qui mesure le temps d’occlusion d’une membrane par les plaquettes sous fort cisaillement (PFA-100).",
+    "ROTEM": "Rotational thromboelastometry : appareil de thromboélastométrie qui mesure la formation et la fermeté du caillot dans le sang total.",
+    "G/l": "Gigas par litre : unité de numération, soit 10⁹ cellules par litre.",
+    "Anti-Xa": "Dosage de l’inhibition du facteur Xa, calibré pour une héparine ou un xaban donné.",
+    "D-dimères": "Produits de dégradation de la fibrine stabilisée, qui augmentent dès qu’un caillot se forme puis se lyse.",
+    "A5": "L’A5 désigne l’amplitude du caillot mesurée 5 minutes après le début de la coagulation sur le tracé viscoélastique."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Exploration fonctionnelle",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
