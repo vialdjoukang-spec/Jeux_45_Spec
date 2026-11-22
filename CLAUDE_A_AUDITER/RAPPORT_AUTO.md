@@ -1,4 +1,4 @@
-# Audit automatique — 2026-11-22 23:46
+# Audit automatique — 2026-11-22 23:47
 
 60 fichier(s) : 54 🟩 intégrables · 6 🟧 à compléter · 0 🟥 refusés.
 
@@ -46,7 +46,7 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/01_Sang_et_hemostase/1_Theorie/P09-01-BIO_Biologie_Sang_et_hemostase_11-examens_production_XAi.json`
 - 🟩 `sang_et_hemostase.json` : remplissage 92 % (222/242)
-- aVerifier déclarés : 12
+- aVerifier déclarés : 13
 
 ### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/01_Sang_et_hemostase/1_Theorie/P09-01-FCT_Exploration_fonctionnelle_Sang_et_hemostase_2-examens_production_XAi.json`
 - 🟧 `sang_et_hemostase.json` : remplissage 81 % (34/42)
