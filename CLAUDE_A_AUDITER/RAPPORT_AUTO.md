@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:15
+# Audit automatique — 2026-11-22 21:16
 
-8 fichier(s) : 7 🟩 intégrables · 1 🟧 à compléter · 0 🟥 refusés.
+10 fichier(s) : 9 🟩 intégrables · 1 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -32,5 +32,11 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/01_Poumons_et_voies_aeriennes/2_Pratique/P04-01-FCT-PR_Exploration_fonctionnelle_Poumons_et_voies_aeriennes_9-examens_PRATIQUE_production_XAi.json`
 - 🟩 `poumons_et_voies_aeriennes.json` : remplissage 100 % (18/18)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/01_Poumons_et_voies_aeriennes/2_Pratique/P04-01-HIS-PR_Anatomopathologie_biopsie_Poumons_et_voies_aeriennes_4-examens_PRATIQUE_production_XAi.json`
+- 🟩 `poumons_et_voies_aeriennes.json` : remplissage 100 % (8/8)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/01_Poumons_et_voies_aeriennes/2_Pratique/P04-01-IMG-PR_Imagerie_Poumons_et_voies_aeriennes_7-examens_PRATIQUE_production_XAi.json`
+- 🟩 `poumons_et_voies_aeriennes.json` : remplissage 100 % (14/14)
 
 Signature : AAI (Anthropic AI)
