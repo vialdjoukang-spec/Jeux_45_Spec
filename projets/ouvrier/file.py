@@ -65,8 +65,11 @@ elif sys.argv[1] == "terminer":
     t = next(x for x in F["taches"] if x["id"] == tid)
     etat = st.get("etat") if st.get("tache") == tid and st.get("etat") in ("fait", "en_cours", "bloque") else "en_cours"
     t["essais"] += 1
-    if r.get("is_error") and etat != "fait":
+    api = "API Error" in str(r.get("result", ""))          # panne d'accès à l'API : ce n'est pas un échec de la tâche
+    if r.get("is_error") and etat != "fait" and not api:
         t["echecs"] = t.get("echecs", 0) + 1
+    if api:
+        t["essais"] -= 1
     t["etat"] = "bloque" if t.get("echecs", 0) >= 3 else etat
     t["dernier"] = {"date": maint.isoformat(timespec="seconds"), "cout_usd": round(cout, 3), "resume": st.get("resume") or str(r.get("result", ""))[:300]}
     D.append({"jour": aujourd, "date": maint.isoformat(timespec="seconds"), "tache": tid, "modele": os.environ.get("MODELE", ""), "cout": round(cout, 4)})

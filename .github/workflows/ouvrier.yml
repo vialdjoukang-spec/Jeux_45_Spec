@@ -52,7 +52,9 @@ jobs:
         timeout-minutes: 120
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          WS: ${{ secrets.ANTHROPIC_WORKSPACE_ID }}
         run: |
+          if [ -n "$WS" ]; then export ANTHROPIC_CUSTOM_HEADERS="anthropic-workspace-id: $WS"; fi   # clé non rattachée à un espace de travail
           pip install -q playwright >/dev/null 2>&1 && python -m playwright install --with-deps chromium >/dev/null 2>&1 || true
           npm install -g @anthropic-ai/claude-code >/dev/null 2>&1
           claude -p "$(cat /tmp/prompt.txt)" --model "${{ steps.file.outputs.modele }}" \
