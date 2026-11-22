@@ -1,5 +1,7 @@
-# Veille gratuite (0 token) : détecte les nouveaux lots des IA de production, les répare, les audite, les fusionne
-# et publie sur main si tous les contrôles passent. Sinon, seul le rapport est publié. — AAI (Anthropic AI)
+# Veille gratuite (0 token) : détecte les nouveaux lots des IA de production, les répare, les fusionne et les audite
+# mécaniquement sur la branche veille/audit-medical. Rien n'arrive sur main sans l'audit médical de Claude,
+# qui ouvre et fusionne ensuite la PR. Fréquence : réveil toutes les 5 min, curseur adaptatif (cadence.py).
+# Signature : AAI (Anthropic AI)
 name: Veille des nouveaux lots
 on:
   push:
@@ -8,38 +10,69 @@ on:
       - "CLAUDE_A_AUDITER/**"
       - "POUR CLAUDE A AUDITER/**"
       - "Production_XAi/Lots_traites/**"
-      - "!**/RAPPORT_*.md"
+      - "!CLAUDE_A_AUDITER/RAPPORT_*.md"
+      - "!CLAUDE_A_AUDITER/EN_ATTENTE_AUDIT_MEDICAL.json"
   schedule:
-    - cron: "23 * * * *"   # toutes les heures : couvre les dépôts sur les branches production-xai-*
+    - cron: "*/5 * * * *"   # minimum GitHub ; cadence.py décide si le passage est utile
   workflow_dispatch:
 permissions:
   contents: write
 concurrency:
   group: veille
   cancel-in-progress: false
+env:
+  BRANCHE: veille/audit-medical
 jobs:
   veille:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-        with: { ref: main, fetch-depth: 1 }
-      - uses: actions/setup-python@v5
-        with: { python-version: "3.12" }
-      - name: Récupérer les branches de production
-        run: git fetch --depth=1 origin '+refs/heads/production-xai-*:refs/remotes/origin/production-xai-*' || true
-      - name: Veille (réparer, fusionner, auditer)
-        id: veille
-        continue-on-error: true
-        run: python projets/outils/veille.py
-      - name: Publier
+        with: { ref: main, fetch-depth: 0 }
+      - name: Se placer sur la branche d'audit médical
         run: |
           git config user.name "veille-auto"
           git config user.email "veille-auto@users.noreply.github.com"
-          if [ "${{ steps.veille.outcome }}" = "success" ]; then
-            git add -A
+          if git fetch origin "+refs/heads/$BRANCHE:refs/remotes/origin/$BRANCHE" 2>/dev/null \
+             && ! git merge-base --is-ancestor "origin/$BRANCHE" origin/main; then
+            git checkout -B "$BRANCHE" "origin/$BRANCHE"      # lots encore en attente d'audit médical
+            git merge --no-edit origin/main || { git merge --abort; echo "conflit avec main : Claude reprend" >&2; exit 1; }
           else
-            git add CLAUDE_A_AUDITER/RAPPORT_VEILLE.md
+            git checkout -B "$BRANCHE" origin/main             # rien en attente : on repart de main
+          fi
+      - uses: actions/cache@v4
+        with:
+          path: .veille_cadence.json
+          key: cadence-${{ github.run_id }}
+          restore-keys: cadence-
+      - name: Curseur de fréquence
+        id: cadence
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then python3 projets/outils/cadence.py .veille_cadence.json
+          else echo "due=true" >> "$GITHUB_OUTPUT"; python3 projets/outils/cadence.py .veille_cadence.json > /dev/null; fi
+      - uses: actions/setup-python@v5
+        if: steps.cadence.outputs.due == 'true'
+        with: { python-version: "3.12" }
+      - name: Récupérer les branches de production
+        if: steps.cadence.outputs.due == 'true'
+        run: git fetch --depth=1 origin '+refs/heads/production-xai-*:refs/remotes/origin/production-xai-*' || true
+      - name: Veille (réparer, fusionner, auditer)
+        id: veille
+        if: steps.cadence.outputs.due == 'true'
+        continue-on-error: true
+        run: python projets/outils/veille.py
+      - name: Publier sur la branche d'audit médical
+        if: steps.cadence.outputs.due == 'true'
+        run: |
+          if [ "${{ steps.veille.outcome }}" = "success" ]; then
+            git add -A -- . ':!.veille_cadence.json'
+          else
+            git add CLAUDE_A_AUDITER/RAPPORT_VEILLE.md      # échec : seul le rapport part, les lots seront repris
             git checkout -- .
           fi
-          git diff --cached --quiet || (git commit -m "Veille automatique : nouveaux lots réparés, fusionnés et audités [skip ci]" && git push)
+          git diff --cached --quiet || git commit -m "Veille : lots réparés et audités mécaniquement, en attente d'audit médical [skip ci]"
+          if git rev-parse -q --verify "origin/$BRANCHE" > /dev/null; then
+            git push --force-with-lease="$BRANCHE:origin/$BRANCHE" origin "$BRANCHE"
+          else
+            git push origin "$BRANCHE"
+          fi

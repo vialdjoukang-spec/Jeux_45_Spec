@@ -11,6 +11,7 @@ import hashlib, json, os, re, subprocess, sys, tempfile, datetime
 RAC = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 REGISTRE = os.path.join(RAC, "projets", "retours", "veille_traites.json")
 RAPPORT = os.path.join(RAC, "CLAUDE_A_AUDITER", "RAPPORT_VEILLE.md")
+ATTENTE = os.path.join(RAC, "CLAUDE_A_AUDITER", "EN_ATTENTE_AUDIT_MEDICAL.json")
 DOSSIERS = ("CLAUDE_A_AUDITER/", "POUR CLAUDE A AUDITER/", "Production_XAi/Lots_traites/")
 essai, amorcer = "--essai" in sys.argv, "--amorcer" in sys.argv
 git = lambda *a: subprocess.run(["git", "-C", RAC, *a], capture_output=True, text=True).stdout
@@ -55,6 +56,7 @@ if not nouveaux:
 
 # 2. Réparation, puis fusion dans l'ordre des chemins (les sous-lots d'un même organe restent groupés)
 lignes, fusionnes, refuses = [], 0, 0
+attente = json.load(open(ATTENTE, encoding="utf-8")) if os.path.exists(ATTENTE) else []
 with tempfile.TemporaryDirectory() as tmp:
     a_fusionner = []
     for ref, chemin, h, texte in sorted(nouveaux, key=lambda x: x[1]):
@@ -64,7 +66,9 @@ with tempfile.TemporaryDirectory() as tmp:
                 raise ValueError("pas de clé « fichiers »")
         except Exception as err:
             refuses += 1; lignes.append(f"- 🟥 `{chemin}` ({ref}) : illisible même après réparation ({err})")
-            registre[h] = {"chemin": chemin, "ref": ref, "etat": "refusé"}
+            registre[h] = {"chemin": chemin, "ref": ref, "etat": "refusé",
+                           "heure": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")}
+            attente.append({"chemin": chemin, "ref": ref.replace("origin/", ""), "sha256": h, "etat": "refusé", "heure": registre[h]["heure"]})
             continue
         p = os.path.join(tmp, f"{len(a_fusionner):04d}.json")
         json.dump(obj, open(p, "w", encoding="utf-8"), ensure_ascii=False)
@@ -74,7 +78,9 @@ with tempfile.TemporaryDirectory() as tmp:
         ok = r.returncode == 0 and " 0 refusés" in r.stdout
         fusionnes += ok; refuses += not ok
         lignes.append(f"- {'🟩' if ok else '🟧'} `{chemin}` ({ref.replace('origin/', '')}) : {r.stdout.strip().splitlines()[-1] if r.stdout.strip() else r.stderr.strip()[-200:]}")
-        registre[h] = {"chemin": chemin, "ref": ref, "etat": "fusionné" if ok else "partiel", "date": str(datetime.date.today())}
+        registre[h] = {"chemin": chemin, "ref": ref, "etat": "fusionné" if ok else "partiel", "date": str(datetime.date.today()),
+                      "heure": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")}
+        attente.append({"chemin": chemin, "ref": ref.replace("origin/", ""), "sha256": h, "etat": registre[h]["etat"], "heure": registre[h]["heure"]})
 
 # 3. Audit de fond (corrections automatiques, tri des doutes, données fiables), lots de complément, contrôles
 etapes = [("Audit de fond", "projets/outils/audit_fond.py"), ("Lots de complément", "projets/outils/lots_complement.py"),
@@ -93,9 +99,12 @@ open(RAPPORT, "w", encoding="utf-8").write(
     f"# Veille automatique — {datetime.datetime.now():%Y-%m-%d %H:%M}\n\n{len(nouveaux)} nouveau(x) lot(s) : "
     f"{fusionnes} fusionné(s), {refuses} refusé(s) ou partiel(s).\n\n## Lots\n" + "\n".join(lignes) +
     "\n\n## Contrôles après fusion\n" + "\n".join(resultats) +
-    ("\n\n⚠️ Un contrôle échoue : la veille n'a rien publié sur main ; Claude reprend à la main.\n" if echec else "\n\nTout est publié sur main.\n") +
-    "\nLes doutes médicaux restent listés dans `_meta.aVerifierOuverts` ; seul Claude les tranche.\n\nSignature : AAI (Anthropic AI)\n")
+    ("\n\n⚠️ Un contrôle échoue : rien n'est publié ; Claude reprend à la main.\n" if echec else
+     "\n\nLes lots réparés attendent sur la branche `veille/audit-medical`. Claude les audite médicalement, "
+     "corrige, puis ouvre et fusionne la PR vers main. Rien n'arrive sur main sans cet audit.\n") +
+    "\nSignature : AAI (Anthropic AI)\n")
 if not essai:
+    json.dump(attente, open(ATTENTE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump(registre, open(REGISTRE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"veille : {len(nouveaux)} nouveaux, {fusionnes} fusionnés, {refuses} refusés ; {'ÉCHEC' if echec else 'OK'}")
 sys.exit(1 if echec else 0)
