@@ -1,9 +1,44 @@
-# Audit automatique — 2026-11-22 21:48
+# Audit automatique — 2026-11-22 22:32
 
-10 fichier(s) : 9 🟩 intégrables · 1 🟧 à compléter · 0 🟥 refusés.
+20 fichier(s) : 18 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/02_Cou/01_Thyroide/1_Theorie/P02-01_Examens_Thyroide_10-examens_production_XAi.json`
+- 🟩 `thyroide.json` : remplissage 91 % (195/214)
+- aVerifier déclarés : 7
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/02_Cou/01_Thyroide/2_Pratique/P02-01-PR_Examens_Thyroide_10-examens_PRATIQUE_production_XAi.json`
+- 🟩 `thyroide.json` : remplissage 100 % (20/20)
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/02_Cou/02_Parathyroides/1_Theorie/P02-02_Examens_Parathyroides_7-examens_production_XAi.json`
+- 🟧 `parathyroides.json` : remplissage 91 % (137/150) · 1 marqueur(s) <…> restant(s)
+- aVerifier déclarés : 4
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/02_Cou/02_Parathyroides/2_Pratique/P02-02-PR_Examens_Parathyroides_7-examens_PRATIQUE_production_XAi.json`
+- 🟩 `parathyroides.json` : remplissage 100 % (14/14)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/11_Urgences_et_point-of-care/1_Theorie/P09-11_Examens_Urgences_et_point-of-care_9-examens_production_XAi.json`
+- 🟩 `urgences_et_point_of_care.json` : remplissage 89 % (171/193)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/11_Urgences_et_point-of-care/2_Pratique/P09-11-PR_Examens_Urgences_et_point-of-care_9-examens_PRATIQUE_production_XAi.json`
+- 🟩 `urgences_et_point_of_care.json` : remplissage 100 % (18/18)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/12_Evaluation_geriatrique_globale/1_Theorie/P09-12_Examens_Evaluation_geriatrique_globale_8-examens_production_XAi.json`
+- 🟩 `evaluation_geriatrique_globale.json` : remplissage 89 % (150/169)
+- aVerifier déclarés : 3
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/12_Evaluation_geriatrique_globale/2_Pratique/P09-12-PR_Examens_Evaluation_geriatrique_globale_8-examens_PRATIQUE_production_XAi.json`
+- 🟩 `evaluation_geriatrique_globale.json` : remplissage 100 % (16/16)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/13_Croissance_et_developpement_de_l_enfant/1_Theorie/P09-13_Examens_Croissance_et_developpement_de_l_en_8-examens_production_XAi.json`
+- 🟩 `croissance_et_developpement_de_l_enfant.json` : remplissage 88 % (150/170)
+- aVerifier déclarés : 3
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/13_Croissance_et_developpement_de_l_enfant/2_Pratique/P09-13-PR_Examens_Croissance_et_developpement_de_l_en_8-examens_PRATIQUE_production_XAi.json`
+- 🟩 `croissance_et_developpement_de_l_enfant.json` : remplissage 100 % (16/16)
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/07_Corps_entier_bilan_d_extension_et_traum/1_Theorie/P09-07_Examens_Corps_entier_bilan_d_extension_et_t_6-examens_production_XAi.json`
 - 🟩 `corps_entier.json` : remplissage 87 % (110/126)
