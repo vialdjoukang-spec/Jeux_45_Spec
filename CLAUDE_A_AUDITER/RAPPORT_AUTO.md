@@ -1,4 +1,4 @@
-# Audit automatique — 2026-11-22 23:07
+# Audit automatique — 2026-11-22 23:41
 
 48 fichier(s) : 46 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
 
@@ -80,6 +80,7 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/15_Reins/2_Pratique/P05-15-IMG-PR_Imagerie_Reins_7-examens_PRATIQUE_production_XAi.json`
 - 🟩 `reins.json` : remplissage 100 % (14/14)
+- aVerifier déclarés : 1
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/16_Ureteres/1_Theorie/P05-16_Examens_Ureteres_9-examens_production_XAi.json`
 - 🟩 `ureteres.json` : remplissage 89 % (170/192)
