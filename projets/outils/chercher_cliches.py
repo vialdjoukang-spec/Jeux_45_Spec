@@ -66,20 +66,23 @@ def anglais(t):
     return " ".join(garde)[:90]
 
 
-def get(url):
-    for essai in range(3):
+ECHECS = {"openi": 0}  # disjoncteur : Open-i coupé après 3 échecs consécutifs
+
+
+def get(url, essais=2, delai=15):
+    for essai in range(essais):
         try:
-            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=25) as r:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=delai) as r:
                 return json.load(r)
-        except Exception:
-            time.sleep(2 + 3 * essai)
-    return {}
+        except Exception as e:
+            print("   ⚠", url[:60], type(e).__name__, flush=True); time.sleep(1 + 2 * essai)
+    return None
 
 
 def commons(q):
     p = {"action": "query", "format": "json", "generator": "search", "gsrnamespace": 6, "gsrlimit": 12,
          "gsrsearch": q + " filetype:bitmap", "prop": "imageinfo", "iiprop": "url|mime|extmetadata", "iiurlwidth": 640}
-    pages = (get("https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode(p)).get("query") or {}).get("pages") or {}
+    pages = ((get("https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode(p)) or {}).get("query") or {}).get("pages") or {}
     out = []
     for pg in sorted(pages.values(), key=lambda x: x.get("index", 99)):
         ii = (pg.get("imageinfo") or [{}])[0]
@@ -94,8 +97,11 @@ def commons(q):
 
 
 def openi(q):
-    d = get("https://openi.nlm.nih.gov/api/search?" + urllib.parse.urlencode({"query": q, "m": 1, "n": PAR_REQUETE}))
-    out = []
+    if ECHECS["openi"] >= 3:
+        return []
+    d = get("https://openi.nlm.nih.gov/api/search?" + urllib.parse.urlencode({"query": q, "m": 1, "n": PAR_REQUETE}), 1, 8)
+    ECHECS["openi"] = 0 if d is not None else ECHECS["openi"] + 1
+    d, out = d or {}, []
     for it in d.get("list") or []:
         img = it.get("imgLarge") or it.get("imgThumbLarge")
         if not img:
@@ -152,6 +158,9 @@ for sous, cle in SRC:
                 time.sleep(0.3)
             img["cliches"][x["id"]] = cands
             faits += 1
+            print(f"{faits:4d} {len(cands)} {x['nom'][:60]}", flush=True)
+            os.makedirs(os.path.dirname(sortie), exist_ok=True)
+            json.dump(img, open(sortie, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
             bilan["avec_cliches"] += bool(cands)
             if not cands: bilan["sans"].append(f"{rel} › {x['nom']}")
         os.makedirs(os.path.dirname(sortie), exist_ok=True)
