@@ -1,0 +1,831 @@
+{
+ "_lot": {
+  "tache": "P01-06-FCT-PR",
+  "titre": "Pratique — Examens de l'organe Oreille et équilibre — Exploration fonctionnelle (9 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/1_tete_et_encephale/oreille_et_equilibre.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/1_tete_et_encephale/oreille_et_equilibre.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "oreille_et_equilibre__otoscopie_et_otomicroscopie",
+     "nom": "Otoscopie et otomicroscopie",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "oreille_et_equilibre__otoscopie_et_otomicroscopie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "On examine le tympan devant toute otalgie ou fièvre de l'enfant, avant toute autre exploration.",
+        "pourquoiFaux": "La tympanométrie et l'audiométrie viennent après, et le CT n'a pas sa place dans une otite simple."
+       },
+       "sources": [
+        "Plebani et al., otite moyenne aiguë (pédiatrie suisse, 2023)"
+       ],
+       "casClinique": "Un garçon de 3 ans, à Lausanne, a 39 °C et se frotte l'oreille droite depuis la veille.",
+       "options": [
+        "Otoscopie",
+        "Tympanométrie",
+        "Audiométrie",
+        "CT des rochers"
+       ],
+       "bonneReponse": "Otoscopie",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "oreille_et_equilibre__otoscopie_et_otomicroscopie-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Le bombement du tympan avec effacement de la tête du marteau signe l'OMA, selon Plebani et al. (pédiatrie suisse, 2023).",
+        "pourquoiFaux": "Un tympan seulement rouge n'aurait pas suffi."
+       },
+       "sources": [
+        "Plebani et al., otite moyenne aiguë (pédiatrie suisse, 2023)"
+       ],
+       "resultat": "Le tympan droit est bombé, avec une tête du marteau effacée.",
+       "decision": "On retient une otite moyenne aiguë."
+      },
+      {
+       "id": "oreille_et_equilibre__otoscopie_et_otomicroscopie-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Le bombement avec effacement du marteau signe l'OMA, selon Plebani et al. (pédiatrie suisse, 2023).",
+        "pourquoiFaux": "Un tympan mat et rétracté évoquerait plutôt une otite séromuqueuse."
+       },
+       "sources": [
+        "Plebani et al., otite moyenne aiguë (pédiatrie suisse, 2023)"
+       ],
+       "consigne": "Décris l'otoscopie de cet enfant fébrile.",
+       "aspectRecherche": "Tympan bombé, opaque, marteau effacé",
+       "reponse": "Otite moyenne aiguë",
+       "imageOuTraceAttendu": "Photo otoscopique d'un tympan jaunâtre, bombé, sans relief visible de la tête du marteau."
+      },
+      {
+       "id": "oreille_et_equilibre__otoscopie_et_otomicroscopie-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La rougeur seule ne suffit pas, car sa spécificité n'atteint que 15 %, selon Plebani et al. (pédiatrie suisse, 2023).",
+        "pourquoiFaux": "Les pleurs rougissent le tympan sans infection."
+       },
+       "sources": [
+        "Plebani et al., otite moyenne aiguë (pédiatrie suisse, 2023)"
+       ],
+       "erreurFrequente": "Diagnostiquer une otite moyenne aiguë sur un tympan rouge chez un enfant qui pleure.",
+       "consequence": "On prescrit des antibiotiques à tort.",
+       "bonneConduite": "On cherche le bombement du tympan."
+      }
+     ]
+    },
+    {
+     "ref": "oreille_et_equilibre__audiometrie_tonale_et_vocale",
+     "nom": "Audiométrie tonale et vocale",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "oreille_et_equilibre__audiometrie_tonale_et_vocale-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Devant une baisse d'audition, l'audiométrie mesure la perte et précise si elle est de transmission ou de perception.",
+        "pourquoiFaux": "L'imagerie ne vient qu'en cas d'asymétrie, selon NICE NG98 (2018), et la VNG teste l'équilibre."
+       },
+       "sources": [
+        "NICE NG98, perte auditive de l'adulte (2018)"
+       ],
+       "casClinique": "Un homme de 67 ans, à Winterthour, se plaint de mal entendre en groupe depuis deux ans.",
+       "options": [
+        "Audiométrie tonale et vocale",
+        "IRM des angles",
+        "CT des rochers",
+        "VNG"
+       ],
+       "bonneReponse": "Audiométrie tonale et vocale",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "oreille_et_equilibre__audiometrie_tonale_et_vocale-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une surdité brusque de moins de 30 jours demande un avis ORL dans les 24 heures, selon NICE NG98 (2018).",
+        "pourquoiFaux": "Attendre un contrôle à distance ferait perdre la fenêtre de traitement."
+       },
+       "sources": [
+        "NICE NG98, perte auditive de l'adulte (2018)"
+       ],
+       "resultat": "L'audiogramme montre une surdité de perception droite apparue en 2 jours, avec 40 dB de perte sur trois fréquences voisines.",
+       "decision": "On demande un avis ORL dans les 24 heures."
+      },
+      {
+       "id": "oreille_et_equilibre__audiometrie_tonale_et_vocale-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un écart entre conduction aérienne et osseuse signe une surdité de transmission.",
+        "pourquoiFaux": "Dans une surdité de perception, les deux courbes baissent ensemble."
+       },
+       "sources": [
+        "NICE NG98, perte auditive de l'adulte (2018)"
+       ],
+       "consigne": "Lis l'audiogramme de cette patiente qui entend mal de l'oreille gauche.",
+       "aspectRecherche": "Conduction osseuse normale, aérienne abaissée",
+       "reponse": "Surdité de transmission gauche",
+       "imageOuTraceAttendu": "Audiogramme gauche avec une courbe osseuse proche de 0 dB et une courbe aérienne vers 40 dB sur toutes les fréquences."
+      },
+      {
+       "id": "oreille_et_equilibre__audiometrie_tonale_et_vocale-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "L'audiométrie exige la coopération du patient.",
+        "pourquoiFaux": "Chez le nourrisson, on mesure l'audition par électrophysiologie, selon pédiatrie suisse (2019)."
+       },
+       "sources": [
+        "pédiatrie suisse, dépistage auditif néonatal (2019)"
+       ],
+       "erreurFrequente": "Conclure à une audition normale chez un nourrisson qui ne coopère pas à l'audiométrie.",
+       "consequence": "On manque une surdité.",
+       "bonneConduite": "On recourt aux OEA ou aux PEA."
+      }
+     ]
+    },
+    {
+     "ref": "oreille_et_equilibre__tympanometrie_et_reflexe_stapedien",
+     "nom": "Tympanométrie et réflexe stapédien",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "oreille_et_equilibre__tympanometrie_et_reflexe_stapedien-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Devant une otite séromuqueuse suspectée chez l'enfant, la tympanométrie cherche un épanchement.",
+        "pourquoiFaux": "L'imagerie et les VEMP ne répondent pas à cette question simple."
+       },
+       "sources": [
+        "Jerger, classification des tympanogrammes (1970)"
+       ],
+       "casClinique": "Une fillette de 4 ans, à Bulle, entend mal depuis un rhume il y a 6 semaines ; le tympan est mat.",
+       "options": [
+        "Tympanométrie",
+        "CT des rochers",
+        "IRM des angles",
+        "VEMP"
+       ],
+       "bonneReponse": "Tympanométrie",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "oreille_et_equilibre__tympanometrie_et_reflexe_stapedien-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une courbe plate de type B évoque un épanchement, selon Jerger (1970).",
+        "pourquoiFaux": "Un pic proche de 0 daPa serait normal."
+       },
+       "sources": [
+        "Jerger, classification des tympanogrammes (1970)"
+       ],
+       "resultat": "La tympanométrie montre une courbe plate des deux côtés.",
+       "decision": "On retient un épanchement de l'oreille moyenne."
+      },
+      {
+       "id": "oreille_et_equilibre__tympanometrie_et_reflexe_stapedien-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un pic en pression négative signe une courbe de type C, évocatrice d'une dysfonction tubaire, selon Jerger (1970).",
+        "pourquoiFaux": "Une courbe plate traduirait un épanchement."
+       },
+       "sources": [
+        "Jerger, classification des tympanogrammes (1970)"
+       ],
+       "consigne": "Lis ce tympanogramme d'un adulte qui a l'oreille bouchée en avion.",
+       "aspectRecherche": "Pic décalé en pression négative",
+       "reponse": "Courbe de type C",
+       "imageOuTraceAttendu": "Tympanogramme montrant un pic net mais décalé vers −200 daPa."
+      },
+      {
+       "id": "oreille_et_equilibre__tympanometrie_et_reflexe_stapedien-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La tympanométrie ne mesure pas l'audition, et une courbe normale n'exclut pas une surdité de perception.",
+        "pourquoiFaux": "Elle explore seulement l'oreille moyenne, selon Jerger (1970)."
+       },
+       "sources": [
+        "Jerger, classification des tympanogrammes (1970)"
+       ],
+       "erreurFrequente": "Exclure une surdité parce que le tympanogramme est normal.",
+       "consequence": "On manque une surdité de perception.",
+       "bonneConduite": "On fait une audiométrie."
+      }
+     ]
+    },
+    {
+     "ref": "oreille_et_equilibre__potentiels_evoques_auditifs",
+     "nom": "Potentiels évoqués auditifs (PEA)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "oreille_et_equilibre__potentiels_evoques_auditifs-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Après un dépistage échoué, les PEA mesurent le seuil auditif du nourrisson, selon pédiatrie suisse (2019).",
+        "pourquoiFaux": "L'audiométrie tonale exige une coopération impossible, et les autres examens ne mesurent pas le seuil."
+       },
+       "sources": [
+        "pédiatrie suisse, dépistage auditif néonatal (2019)"
+       ],
+       "casClinique": "Un nouveau-né de 5 jours, à Aarau, a échoué deux fois aux otoémissions.",
+       "options": [
+        "Potentiels évoqués auditifs",
+        "Audiométrie tonale",
+        "CT des rochers",
+        "Tympanométrie seule"
+       ],
+       "bonneReponse": "Potentiels évoqués auditifs",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "oreille_et_equilibre__potentiels_evoques_auditifs-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Les PEA détectent une neuropathie auditive que les OEA manquent, car celles-ci ne testent que la cochlée, selon pédiatrie suisse (2019).",
+        "pourquoiFaux": "Se rassurer sur des OEA présentes ferait manquer la surdité."
+       },
+       "sources": [
+        "pédiatrie suisse, dépistage auditif néonatal (2019)"
+       ],
+       "resultat": "Les PEA sont absents alors que les otoémissions sont présentes chez ce prématuré à risque.",
+       "decision": "On retient une neuropathie auditive."
+      },
+      {
+       "id": "oreille_et_equilibre__potentiels_evoques_auditifs-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des ondes I à V présentes à faible intensité indiquent une voie auditive fonctionnelle, selon pédiatrie suisse (2019).",
+        "pourquoiFaux": "Des ondes absentes ou retardées évoqueraient une surdité ou une neuropathie."
+       },
+       "sources": [
+        "pédiatrie suisse, dépistage auditif néonatal (2019)"
+       ],
+       "consigne": "Lis le tracé des PEA de ce nourrisson.",
+       "aspectRecherche": "Ondes I à V à latences normales",
+       "reponse": "PEA normaux",
+       "imageOuTraceAttendu": "Tracé montrant les ondes I à V bien formées, à des latences normales, à faible intensité de stimulation."
+      },
+      {
+       "id": "oreille_et_equilibre__potentiels_evoques_auditifs-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Les PEA demandent un enfant endormi ou calme.",
+        "pourquoiFaux": "Les artefacts musculaires masquent les ondes, selon pédiatrie suisse (2019)."
+       },
+       "sources": [
+        "pédiatrie suisse, dépistage auditif néonatal (2019)"
+       ],
+       "erreurFrequente": "Faire les PEA chez un nourrisson agité et éveillé.",
+       "consequence": "On obtient un tracé ininterprétable.",
+       "bonneConduite": "On les fait pendant le sommeil spontané ou après une sédation surveillée."
+      }
+     ]
+    },
+    {
+     "ref": "oreille_et_equilibre__otoemissions_acoustiques",
+     "nom": "Otoémissions acoustiques (dépistage néonatal)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "oreille_et_equilibre__otoemissions_acoustiques-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "On fait les OEA chez tout nouveau-né, des deux côtés, pendant la première semaine, selon pédiatrie suisse (2019).",
+        "pourquoiFaux": "Les PEA sont réservés aux enfants à risque ou aux échecs, et les autres examens ne servent pas au dépistage."
+       },
+       "sources": [
+        "pédiatrie suisse, dépistage auditif néonatal (2019)"
+       ],
+       "casClinique": "Une maternité de Lugano organise le dépistage auditif d'un nouveau-né à terme sans facteur de risque.",
+       "options": [
+        "Otoémissions acoustiques",
+        "PEA d'emblée",
+        "Audiométrie tonale",
+        "CT des rochers"
+       ],
+       "bonneReponse": "Otoémissions acoustiques",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "oreille_et_equilibre__otoemissions_acoustiques-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des OEA présentes indiquent une perte inférieure à 30 dB HL sur au moins une fréquence de 1 à 4 kHz, selon pédiatrie suisse (2019).",
+        "pourquoiFaux": "Un contrôle n'est nécessaire qu'en cas d'absence d'OEA."
+       },
+       "sources": [
+        "pédiatrie suisse, dépistage auditif néonatal (2019)"
+       ],
+       "resultat": "Les OEA sont présentes des deux côtés chez ce nouveau-né sans risque.",
+       "decision": "On retient un dépistage normal."
+      },
+      {
+       "id": "oreille_et_equilibre__otoemissions_acoustiques-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Une OEA absente impose un contrôle, puis des PEA si l'échec persiste, selon pédiatrie suisse (2019).",
+        "pourquoiFaux": "Conclure à une surdité serait prématuré, car du liquide peut obstruer le conduit."
+       },
+       "sources": [
+        "pédiatrie suisse, dépistage auditif néonatal (2019)"
+       ],
+       "consigne": "Lis le résultat du dépistage par OEA de l'oreille gauche.",
+       "aspectRecherche": "Réponse absente à gauche",
+       "reponse": "Dépistage non passé",
+       "imageOuTraceAttendu": "Écran de l'appareil de dépistage indiquant « pas de réponse » à gauche et une réponse présente à droite."
+      },
+      {
+       "id": "oreille_et_equilibre__otoemissions_acoustiques-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Les OEA manquent les surdités neurales, selon pédiatrie suisse (2019).",
+        "pourquoiFaux": "Elles ne testent que les cellules ciliées externes."
+       },
+       "sources": [
+        "pédiatrie suisse, dépistage auditif néonatal (2019)"
+       ],
+       "erreurFrequente": "Se fier aux OEA seules chez un grand prématuré à risque de surdité neurale.",
+       "consequence": "On manque une neuropathie auditive.",
+       "bonneConduite": "On complète par des PEA."
+      }
+     ]
+    },
+    {
+     "ref": "oreille_et_equilibre__videonystagmographie",
+     "nom": "Vidéonystagmographie (VNG)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "oreille_et_equilibre__videonystagmographie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Devant un vertige récurrent, la VNG objective un déficit vestibulaire et l'attribue à un côté.",
+        "pourquoiFaux": "Le CT, l'EEG et le Doppler ne testent pas la fonction vestibulaire."
+       },
+       "sources": [
+        "Bárány Society, hypofonction vestibulaire bilatérale et tests (Strupp et al., 2022)"
+       ],
+       "casClinique": "Une femme de 50 ans, à Zoug, a des vertiges récurrents depuis 6 mois ; on veut objectiver un déficit et son côté.",
+       "options": [
+        "Vidéonystagmographie",
+        "CT cérébral",
+        "EEG",
+        "Doppler des vaisseaux du cou"
+       ],
+       "bonneReponse": "Vidéonystagmographie",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "oreille_et_equilibre__videonystagmographie-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une parésie calorique de plus de 25 % signe un déficit vestibulaire, selon la Bárány Society (Strupp et al., 2022).",
+        "pourquoiFaux": "Une asymétrie inférieure à 25 % serait considérée comme normale."
+       },
+       "sources": [
+        "Bárány Society, hypofonction vestibulaire bilatérale et tests (Strupp et al., 2022)"
+       ],
+       "resultat": "L'épreuve calorique montre une parésie gauche de 40 % selon la formule de Jongkees.",
+       "decision": "On retient un déficit vestibulaire gauche."
+      },
+      {
+       "id": "oreille_et_equilibre__videonystagmographie-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des réponses plus faibles d'un côté au-delà de 25 % traduisent une parésie calorique, selon la Bárány Society (Strupp et al., 2022).",
+        "pourquoiFaux": "Des réponses symétriques seraient normales."
+       },
+       "sources": [
+        "Bárány Society, hypofonction vestibulaire bilatérale et tests (Strupp et al., 2022)"
+       ],
+       "consigne": "Lis l'épreuve calorique de cette patiente.",
+       "aspectRecherche": "Réponses gauches nettement plus faibles",
+       "reponse": "Parésie calorique gauche",
+       "imageOuTraceAttendu": "Diagramme des quatre irrigations montrant des vitesses de nystagmus réduites après stimulation de l'oreille gauche."
+      },
+      {
+       "id": "oreille_et_equilibre__videonystagmographie-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "En cas de perforation, l'épreuve calorique se fait à l'air.",
+        "pourquoiFaux": "L'eau passerait dans l'oreille moyenne."
+       },
+       "sources": [
+        "Bárány Society, hypofonction vestibulaire bilatérale et tests (Strupp et al., 2022)"
+       ],
+       "erreurFrequente": "Irriguer à l'eau une oreille dont le tympan est perforé.",
+       "consequence": "On provoque une infection et un vertige violent.",
+       "bonneConduite": "On remplace l'eau par de l'air."
+      }
+     ]
+    },
+    {
+     "ref": "oreille_et_equilibre__video_head_impulse_test",
+     "nom": "Video head impulse test (vHIT)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "oreille_et_equilibre__video_head_impulse_test-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Devant un syndrome vestibulaire aigu, le vHIT aide à distinguer une névrite vestibulaire d'un AVC de la fosse postérieure.",
+        "pourquoiFaux": "Le CT natif voit mal la fosse postérieure, et les autres examens ne testent pas le réflexe vestibulo-oculaire ; « Dans les cas de vertiges aigus, une anamnèse ciblée et un examen clinique à l'aide du test en trois étapes \"HINTS\" ou des épreuves positionnelles représentent la première démarche diagnostique, et non une imagerie primaire », selon Smarter Medicine, liste Top 5 de la Société Suisse d’Oto-Rhino-Laryngologie et de Chirurgie cervico-faciale (SSORL, 2019)."
+       },
+       "sources": [
+        "Bárány Society, hypofonction vestibulaire bilatérale et tests (Strupp et al., 2022)",
+        "Smarter Medicine, liste Top 5 SSORL (2019)"
+       ],
+       "casClinique": "Un homme de 55 ans, à Saint-Gall, a un vertige continu depuis 12 h avec nausées et un nystagmus spontané.",
+       "options": [
+        "vHIT",
+        "CT cérébral natif",
+        "Audiométrie",
+        "Tympanométrie"
+       ],
+       "bonneReponse": "vHIT",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "oreille_et_equilibre__video_head_impulse_test-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un gain inférieur à 0,7 avec saccades de rattrapage signe un déficit vestibulaire, selon la Bárány Society (Strupp et al., 2022).",
+        "pourquoiFaux": "Un gain normal dans ce contexte ferait craindre un AVC."
+       },
+       "sources": [
+        "Bárány Society, hypofonction vestibulaire bilatérale et tests (Strupp et al., 2022)"
+       ],
+       "resultat": "Le vHIT montre un gain droit à 0,45 avec des saccades de rattrapage.",
+       "decision": "On retient un déficit vestibulaire périphérique droit."
+      },
+      {
+       "id": "oreille_et_equilibre__video_head_impulse_test-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des saccades de rattrapage avec un gain bas signent un déficit du côté testé, selon la Bárány Society (Strupp et al., 2022).",
+        "pourquoiFaux": "Des courbes superposées sans saccade seraient normales."
+       },
+       "sources": [
+        "Bárány Society, hypofonction vestibulaire bilatérale et tests (Strupp et al., 2022)"
+       ],
+       "consigne": "Lis le vHIT de ce patient.",
+       "aspectRecherche": "Saccades de rattrapage à droite",
+       "reponse": "Déficit vestibulaire droit",
+       "imageOuTraceAttendu": "Courbes de vitesse de la tête et des yeux montrant un gain droit bas et des saccades correctrices après chaque impulsion vers la droite."
+      },
+      {
+       "id": "oreille_et_equilibre__video_head_impulse_test-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Un vHIT normal dans un vertige aigu fait craindre un accident vasculaire de la fosse postérieure.",
+        "pourquoiFaux": "Le réflexe vestibulo-oculaire reste normal quand la lésion est centrale."
+       },
+       "sources": [
+        "Bárány Society, hypofonction vestibulaire bilatérale et tests (Strupp et al., 2022)"
+       ],
+       "erreurFrequente": "Se rassurer sur un vHIT normal chez un patient qui a un vertige aigu continu.",
+       "consequence": "On manque un AVC de la fosse postérieure.",
+       "bonneConduite": "On cherche une cause centrale, avec une IRM si besoin."
+      }
+     ]
+    },
+    {
+     "ref": "oreille_et_equilibre__potentiels_evoques_myogeniques_vestibula",
+     "nom": "Potentiels évoqués myogéniques vestibulaires (VEMP)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "oreille_et_equilibre__potentiels_evoques_myogeniques_vestibula-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Devant une autophonie ou un vertige au bruit, les VEMP cherchent une déhiscence du canal supérieur.",
+        "pourquoiFaux": "Les autres examens ne montrent pas l'abaissement du seuil des VEMP."
+       },
+       "sources": [
+        "Rosengren et al., VEMP (2019)"
+       ],
+       "casClinique": "Une femme de 42 ans, à Bâle, entend ses pas et sa voix résonner dans l'oreille droite et a un vertige aux bruits forts.",
+       "options": [
+        "VEMP",
+        "Audiométrie seule",
+        "VNG",
+        "IRM des angles"
+       ],
+       "bonneReponse": "VEMP",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "oreille_et_equilibre__potentiels_evoques_myogeniques_vestibula-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Une déhiscence canalaire augmente l'amplitude et abaisse le seuil des VEMP, selon Rosengren et al. (2019).",
+        "pourquoiFaux": "Considérer ce résultat comme normal ferait manquer la déhiscence."
+       },
+       "sources": [
+        "Rosengren et al., VEMP (2019)"
+       ],
+       "resultat": "Les cVEMP droits ont un seuil nettement abaissé et une amplitude augmentée par rapport aux normes du laboratoire.",
+       "decision": "On retient une déhiscence probable du canal supérieur droit et l'on demande un CT des rochers."
+      },
+      {
+       "id": "oreille_et_equilibre__potentiels_evoques_myogeniques_vestibula-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Une réponse ample à faible intensité traduit un seuil abaissé, évocateur de déhiscence, selon Rosengren et al. (2019).",
+        "pourquoiFaux": "Des réponses symétriques seraient normales."
+       },
+       "sources": [
+        "Rosengren et al., VEMP (2019)"
+       ],
+       "consigne": "Lis les cVEMP de cette patiente.",
+       "aspectRecherche": "Réponse droite ample à faible intensité",
+       "reponse": "Seuil des VEMP abaissé à droite",
+       "imageOuTraceAttendu": "Tracés des cVEMP montrant à droite une onde ample obtenue à une intensité où la gauche ne répond pas."
+      },
+      {
+       "id": "oreille_et_equilibre__potentiels_evoques_myogeniques_vestibula-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "L'amplitude des VEMP diminue avec l'âge et les normes dépendent du laboratoire, selon Rosengren et al. (2019).",
+        "pourquoiFaux": "Une baisse liée à l'âge n'est pas une maladie."
+       },
+       "sources": [
+        "Rosengren et al., VEMP (2019)"
+       ],
+       "erreurFrequente": "Conclure à une atteinte vestibulaire sur des VEMP diminués chez un homme de 85 ans.",
+       "consequence": "On pose un faux diagnostic.",
+       "bonneConduite": "On interprète selon les normes de l'âge."
+      }
+     ]
+    },
+    {
+     "ref": "oreille_et_equilibre__manoeuvre_de_dix_hallpike",
+     "nom": "Manœuvre de Dix-Hallpike",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "oreille_et_equilibre__manoeuvre_de_dix_hallpike-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Des vertiges brefs déclenchés par le coucher font rechercher un VPPB du canal postérieur, et l'épreuve positionnelle précède toute imagerie, selon la Bárány Society (von Brevern et al., 2015).",
+        "pourquoiFaux": "L'imagerie n'est pas la première démarche : « Dans les cas de vertiges aigus, une anamnèse ciblée et un examen clinique à l'aide du test en trois étapes \"HINTS\" ou des épreuves positionnelles représentent la première démarche diagnostique, et non une imagerie primaire », selon Smarter Medicine, liste Top 5 de la Société Suisse d’Oto-Rhino-Laryngologie et de Chirurgie cervico-faciale (SSORL, 2019)."
+       },
+       "sources": [
+        "Bárány Society, critères du VPPB (von Brevern et al., 2015)",
+        "Smarter Medicine, liste Top 5 SSORL (2019)"
+       ],
+       "casClinique": "Une femme de 63 ans, à Montreux, a des vertiges de quelques secondes en se couchant et en se retournant au lit.",
+       "options": [
+        "Manœuvre de Dix-Hallpike",
+        "IRM cérébrale",
+        "CT des rochers",
+        "Audiométrie"
+       ],
+       "bonneReponse": "Manœuvre de Dix-Hallpike",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "oreille_et_equilibre__manoeuvre_de_dix_hallpike-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une latence de quelques secondes et une durée de moins d'une minute caractérisent le VPPB du canal postérieur, selon la Bárány Society (von Brevern et al., 2015).",
+        "pourquoiFaux": "Une imagerie n'est pas nécessaire devant ce nystagmus typique."
+       },
+       "sources": [
+        "Bárány Society, critères du VPPB (von Brevern et al., 2015)"
+       ],
+       "resultat": "La manœuvre côté droit déclenche après 3 secondes un nystagmus torsionnel et vertical vers le haut qui dure 20 secondes.",
+       "decision": "On retient un VPPB du canal postérieur droit et l'on fait une manœuvre de repositionnement."
+      },
+      {
+       "id": "oreille_et_equilibre__manoeuvre_de_dix_hallpike-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Ce nystagmus signe un VPPB du canal postérieur du côté testé, selon la Bárány Society (von Brevern et al., 2015).",
+        "pourquoiFaux": "Un nystagmus vertical pur vers le bas évoquerait une cause centrale."
+       },
+       "sources": [
+        "Bárány Society, critères du VPPB (von Brevern et al., 2015)"
+       ],
+       "consigne": "Décris le nystagmus filmé pendant la manœuvre droite.",
+       "aspectRecherche": "Nystagmus torsionnel et vertical bref",
+       "reponse": "VPPB du canal postérieur droit",
+       "imageOuTraceAttendu": "Vidéo des yeux montrant un nystagmus torsionnel battant vers l'oreille droite et vertical vers le haut, qui s'épuise en 20 secondes."
+      },
+      {
+       "id": "oreille_et_equilibre__manoeuvre_de_dix_hallpike-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Un nystagmus atypique, sans latence ou qui ne s'épuise pas, doit faire rechercher une cause centrale.",
+        "pourquoiFaux": "Le VPPB a une latence et une durée brève, selon la Bárány Society (von Brevern et al., 2015)."
+       },
+       "sources": [
+        "Bárány Society, critères du VPPB (von Brevern et al., 2015)"
+       ],
+       "erreurFrequente": "Retenir un VPPB devant un nystagmus positionnel sans latence et qui ne s'épuise pas.",
+       "consequence": "On manque une cause centrale.",
+       "bonneConduite": "On cherche une lésion centrale par IRM."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CT": "Le CT, ou scanner, est une tomodensitométrie qui produit des coupes du corps par rayons X.",
+    "IRM": "L'imagerie par résonance magnétique produit des images par un champ magnétique, sans rayons X.",
+    "NICE": "Le National Institute for Health and Care Excellence publie des recommandations cliniques britanniques.",
+    "NG98": "Recommandation NICE de 2018 sur la perte auditive de l'adulte.",
+    "SSORL": "La Société Suisse d'Oto-Rhino-Laryngologie et de Chirurgie cervico-faciale est la société savante suisse de la discipline.",
+    "HINTS": "HINTS est un examen clinique en trois étapes (impulsion de la tête, nystagmus, skew) qui distingue un vertige périphérique d'un AVC.",
+    "OMA": "L'otite moyenne aiguë est une infection aiguë de l'oreille moyenne, avec un tympan bombé.",
+    "OEA": "Les otoémissions acoustiques sont des sons émis par la cochlée, enregistrés dans le conduit auditif.",
+    "PEA": "Les potentiels évoqués auditifs enregistrent la réponse électrique des voies auditives à un son.",
+    "HL": "Le dB HL exprime un niveau auditif rapporté au seuil moyen d'une oreille normale.",
+    "VEMP": "Les potentiels évoqués myogéniques vestibulaires mesurent la réponse musculaire réflexe du saccule ou de l'utricule à un son.",
+    "cVEMP": "VEMP cervical, enregistré sur le muscle sterno-cléido-mastoïdien.",
+    "vHIT": "Le video head impulse test mesure par caméra le réflexe vestibulo-oculaire lors d'impulsions rapides de la tête.",
+    "VNG": "La vidéonystagmographie enregistre les mouvements des yeux pour analyser le nystagmus et les épreuves caloriques.",
+    "VPPB": "Le vertige positionnel paroxystique bénin est un vertige bref déclenché par les changements de position de la tête.",
+    "AVC": "L'accident vasculaire cérébral est un déficit neurologique brutal d'origine vasculaire.",
+    "ORL": "L'oto-rhino-laryngologie est la spécialité de l'oreille, du nez et de la gorge.",
+    "dB": "Le décibel est l'unité logarithmique qui mesure le niveau sonore ou la perte auditive.",
+    "daPa": "Le décapascal est l'unité de pression utilisée en tympanométrie.",
+    "kHz": "Le kilohertz mesure la fréquence d'un son, en milliers de vibrations par seconde.",
+    "EEG": "L'électroencéphalogramme enregistre l'activité électrique du cerveau."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Exploration fonctionnelle",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
