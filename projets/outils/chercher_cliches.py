@@ -41,6 +41,15 @@ FR_EN = {  # jetons médicaux FR → EN (Commons et Open-i indexent surtout en a
  "embolie": "embolism", "hémorragie": "hemorrhage", "infarctus": "infarction", "ischémie": "ischemia", "tumeur": "tumor", "cancer": "cancer",
  "obstructif": "obstructive", "restrictif": "restrictive", "courbe": "curve", "débit-volume": "flow-volume", "sus-décalage": "ST elevation",
  "granulome": "granuloma", "granulomes": "granuloma", "inflammation": "inflammation", "dilatation": "dilatation", "normal": "normal", "normale": "normal",
+ "ATM": "temporomandibular joint", "VS": "erythrocyte sedimentation", "FSC": "complete blood count", "BPCO": "COPD",
+ "TVP": "deep vein thrombosis", "AVC": "stroke", "IDM": "myocardial infarction", "CPRE": "ERCP", "TOGD": "upper gastrointestinal series",
+ "dentaire": "dental", "dents": "teeth", "orbite": "orbit", "oreille": "ear", "sinus": "sinus", "nez": "nose", "larynx": "larynx",
+ "ganglions": "lymph node", "moelle": "spinal cord", "racines": "nerve root", "vaisseaux": "vessels", "aorte": "aorta", "artères": "artery",
+ "veines": "vein", "muscles": "muscle", "nerfs": "nerve", "peau": "skin", "ongles": "nail", "os": "bone", "crâne": "skull", "main": "hand",
+ "pied": "foot", "cheville": "ankle", "coude": "elbow", "poignet": "wrist", "grossesse": "pregnancy", "fœtus": "fetus", "placenta": "placenta",
+ "testicules": "testis", "voies": "", "aériennes": "airway", "biliaires": "biliary", "vésicule": "gallbladder", "intestin": "intestine",
+ "duodénum": "duodenum", "péritoine": "peritoneum", "surrénales": "adrenal", "hypophyse": "pituitary", "méninges": "meninges",
+ "parathyroïdes": "parathyroid", "médiastin": "mediastinum", "péricarde": "pericardium", "valves": "heart valve", "coronaires": "coronary",
  "ponction": "puncture", "lombaire": "lumbar", "lcr": "cerebrospinal fluid", "articulaire": "joint", "liquide": "fluid",
 }
 VIDE = {"de", "du", "des", "la", "le", "les", "et", "avec", "sans", "en", "au", "aux", "à", "d", "l", "par", "pour", "sur"}
@@ -94,13 +103,21 @@ def openi(q):
     return out
 
 
-def requetes(x, defis):
+CONTEXTE = {"Imagerie": "radiology", "Biologie": "laboratory", "Exploration fonctionnelle": "medical test",
+            "Endoscopie": "endoscopy", "Anatomopathologie / biopsie": "histopathology"}
+
+
+def requetes(x, defis, organe=""):
     nom = x.get("nom", "")
     en = anglais(nom)
+    if len(en.split()) < 3:
+        en = " ".join(dict.fromkeys((en + " " + anglais(organe.replace("_", " "))).split()))
+    if len(en.split()) < 3:
+        en = (en + " " + CONTEXTE.get(x.get("modalite"), "medical")).strip()
     q = [en] if len(en.split()) >= 2 else [en, re.sub(r"\(.*?\)", "", nom).strip()]
     for a in (x.get("anomaliesElementaires") or [])[:1] + [d.get("aspectRecherche") for d in defis if d.get("aspectRecherche")][:2]:
         if isinstance(a, dict): a = a.get("nom") or a.get("aspect")
-        if a: q.append((anglais(nom) + " " + anglais(a)).strip())
+        if a and anglais(a): q.append((en + " " + anglais(a)).strip()[:110])
     return [s for i, s in enumerate(q) if s and s not in q[:i]][:3]
 
 
@@ -124,7 +141,7 @@ for sous, cle in SRC:
             if (len(deja) >= 3 and not tout) or faits >= limite:
                 bilan["avec_cliches"] += bool(deja); continue
             vus, cands = {c["url"] for c in deja}, list(deja)
-            for q in requetes(x, defis.get(x["id"], [])):
+            for q in requetes(x, defis.get(x["id"], []), os.path.basename(f)[:-5]):
                 for c in commons(q) + (openi(q) if len(cands) < 3 else []):
                     if c["url"] and c["url"] not in vus and len(cands) < PAR_EXAMEN:
                         vus.add(c["url"]); cands.append({**c, "requete": q, "statut": "candidat", "montre": None})
