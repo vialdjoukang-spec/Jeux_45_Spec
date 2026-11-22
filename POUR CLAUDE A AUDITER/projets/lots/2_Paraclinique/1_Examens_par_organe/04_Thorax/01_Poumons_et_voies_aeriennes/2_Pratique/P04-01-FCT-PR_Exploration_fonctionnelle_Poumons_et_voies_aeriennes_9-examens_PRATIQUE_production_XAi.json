@@ -1,0 +1,833 @@
+{
+ "_lot": {
+  "tache": "P04-01-FCT-PR",
+  "titre": "Pratique — Examens de l'organe Poumons et voies aériennes — Exploration fonctionnelle (9 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "poumons_et_voies_aeriennes__spirometrie_avec_test_de_bronchodilatati",
+     "nom": "Spirométrie avec test de bronchodilatation",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__spirometrie_avec_test_de_bronchodilatati-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon le GOLD 2025, un rapport VEMS/CVF inférieur à 0,70 après bronchodilatateur confirme la BPCO.",
+        "pourquoiFaux": "Le CT basse dose dépiste le cancer, la FeNO mesure l'inflammation éosinophilique, et l'ergospirométrie analyse une dyspnée inexpliquée."
+       },
+       "sources": [
+        "GOLD 2025"
+       ],
+       "casClinique": "Un homme de 61 ans, fumeur de 35 paquets-années, consulte à Delémont pour une dyspnée d'effort et une toux matinale.",
+       "options": [
+        "Spirométrie avec bronchodilatation",
+        "CT thoracique basse dose",
+        "FeNO",
+        "Ergospirométrie"
+       ],
+       "bonneReponse": "Spirométrie avec bronchodilatation",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__spirometrie_avec_test_de_bronchodilatati-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon le GOLD 2025, un rapport VEMS/CVF inférieur à 0,70 après bronchodilatateur confirme la BPCO chez un patient exposé et symptomatique.",
+        "pourquoiFaux": "Un rapport bas qui persiste après bronchodilatateur ne correspond ni à une spirométrie normale ni à une restriction."
+       },
+       "sources": [
+        "GOLD 2025"
+       ],
+       "resultat": "Après bronchodilatateur : VEMS 1,9 l, CVF 3,4 l, rapport VEMS/CVF 0,56.",
+       "decision": "On confirme une obstruction persistante compatible avec une BPCO."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__spirometrie_avec_test_de_bronchodilatati-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Dans l'obstruction, les bronches rétrécies ralentissent l'expiration, ce qui creuse la branche expiratoire.",
+        "pourquoiFaux": "Selon l'ERS/ATS (Stanojevic et al., 2022), une restriction donne plutôt une courbe convexe, avec un rapport VEMS/CVF normal ou élevé."
+       },
+       "sources": [
+        "ERS/ATS, interprétation des explorations fonctionnelles (Stanojevic et al., 2022)"
+       ],
+       "consigne": "Décris la courbe débit-volume de ce patient.",
+       "aspectRecherche": "Branche expiratoire concave",
+       "reponse": "La concavité de la branche expiratoire signe un trouble ventilatoire obstructif.",
+       "imageOuTraceAttendu": "Courbe débit-volume avec un pic expiratoire abaissé et une branche descendante creusée."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__spirometrie_avec_test_de_bronchodilatati-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS/ATS (Stanojevic et al., 2022), une CVF basse seule ne prouve pas une restriction, que seule une CPT basse confirme.",
+        "pourquoiFaux": "La spirométrie ne mesure pas la CPT, si bien qu'elle ne peut que suggérer une restriction."
+       },
+       "sources": [
+        "ERS/ATS, interprétation des explorations fonctionnelles (Stanojevic et al., 2022)"
+       ],
+       "erreurFrequente": "Conclure à une restriction sur une CVF basse à la spirométrie.",
+       "consequence": "On manque une obstruction avec piégeage et on lance un bilan interstitiel inutile.",
+       "bonneConduite": "On mesure la CPT par pléthysmographie avant de parler de restriction."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__plethysmographie",
+     "nom": "Pléthysmographie (volumes)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__plethysmographie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS/ATS (Stanojevic et al., 2022), seule une CPT basse confirme une restriction, et la pléthysmographie la mesure.",
+        "pourquoiFaux": "Le peak-flow suit l'asthme, la FeNO l'inflammation éosinophilique, et le test à la méthacholine l'hyperréactivité."
+       },
+       "sources": [
+        "ERS/ATS, interprétation des explorations fonctionnelles (Stanojevic et al., 2022)"
+       ],
+       "casClinique": "Une femme de 57 ans, à Fribourg, a une CVF à 65 % de la valeur prédite avec un rapport VEMS/CVF normal.",
+       "options": [
+        "Pléthysmographie",
+        "Peak-flow",
+        "FeNO",
+        "Test à la méthacholine"
+       ],
+       "bonneReponse": "Pléthysmographie",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__plethysmographie-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS/ATS (Stanojevic et al., 2022), une CPT inférieure à la LIN définit le trouble ventilatoire restrictif.",
+        "pourquoiFaux": "Une CPT basse exclut la distension, et un rapport VR/CPT normal ne plaide pas pour un piégeage."
+       },
+       "sources": [
+        "ERS/ATS, interprétation des explorations fonctionnelles (Stanojevic et al., 2022)"
+       ],
+       "resultat": "CPT au-dessous de la LIN, avec un rapport VR/CPT normal.",
+       "decision": "On retient un trouble ventilatoire restrictif simple et on cherche une maladie interstitielle ou pariétale."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__plethysmographie-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS/ATS (Stanojevic et al., 2022), une CPT élevée avec un rapport VR/CPT élevé définit la distension.",
+        "pourquoiFaux": "Une CPT élevée avec des rapports normaux correspondrait à de grands poumons normaux."
+       },
+       "sources": [
+        "ERS/ATS, interprétation des explorations fonctionnelles (Stanojevic et al., 2022)"
+       ],
+       "consigne": "Interprète ces volumes chez un emphysémateux : CPT au-dessus de la LSN et rapport VR/CPT élevé.",
+       "aspectRecherche": "CPT et rapport VR/CPT élevés",
+       "reponse": "Il s'agit d'une distension avec piégeage.",
+       "imageOuTraceAttendu": "Tableau de pléthysmographie avec une CPT et un VR élevés et un rapport VR/CPT au-dessus de la LSN."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__plethysmographie-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS/ATS (Stanojevic et al., 2022), la dilution ne mesure que le gaz qui communique avec la bouche, alors que la pléthysmographie mesure aussi l'air piégé.",
+        "pourquoiFaux": "Une CPT basse obtenue par dilution chez un emphysémateux reflète l'air non mesuré et non une vraie restriction."
+       },
+       "sources": [
+        "ERS/ATS, interprétation des explorations fonctionnelles (Stanojevic et al., 2022)"
+       ],
+       "erreurFrequente": "Mesurer les volumes par dilution à l'hélium chez un patient emphysémateux sévère.",
+       "consequence": "La méthode ignore l'air piégé et sous-estime la CPT, ce qui peut faire croire à une restriction.",
+       "bonneConduite": "On choisit la pléthysmographie dans l'emphysème et l'obstruction sévère."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__capacite_de_diffusion_du_co",
+     "nom": "Capacité de diffusion du CO (DLCO)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__capacite_de_diffusion_du_co-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La DLCO détecte une atteinte de la membrane alvéolo-capillaire avant que les volumes ne baissent, et une baisse avec une spirométrie normale fait chercher une maladie interstitielle ou vasculaire.",
+        "pourquoiFaux": "Le peak-flow suit l'asthme, la FeNO l'inflammation éosinophilique, et le test à la méthacholine l'hyperréactivité bronchique."
+       },
+       "sources": [
+        "ERS/ATS, interprétation des explorations fonctionnelles (Stanojevic et al., 2022)"
+       ],
+       "casClinique": "Une femme de 50 ans atteinte de sclérodermie, à Berne, a une spirométrie normale mais une dyspnée d'effort qui progresse.",
+       "options": [
+        "DLCO",
+        "Peak-flow",
+        "FeNO",
+        "Test à la méthacholine"
+       ],
+       "bonneReponse": "DLCO",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__capacite_de_diffusion_du_co-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS/ATS (Stanojevic et al., 2022), une DLCO corrigée inférieure à la LIN est anormale, et une baisse isolée oriente vers le lit vasculaire ou l'interstitium.",
+        "pourquoiFaux": "Une DLCO basse corrigée n'est pas expliquée par une anémie et ne se néglige pas."
+       },
+       "sources": [
+        "ERS/ATS, interprétation des explorations fonctionnelles (Stanojevic et al., 2022)"
+       ],
+       "resultat": "DLCO au-dessous de la LIN après correction pour l'hémoglobine, avec des volumes normaux.",
+       "decision": "On cherche une hypertension pulmonaire ou une atteinte interstitielle débutante, par échocardiographie et CT haute résolution."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__capacite_de_diffusion_du_co-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La DLCO baisse dans l'emphysème, qui détruit les alvéoles, alors qu'elle reste normale dans l'asthme.",
+        "pourquoiFaux": "L'asthme garde une DLCO normale, et une fibrose donnerait une restriction plutôt qu'une distension."
+       },
+       "sources": [
+        "ERS/ATS, interprétation des explorations fonctionnelles (Stanojevic et al., 2022)"
+       ],
+       "consigne": "Que conclus-tu d'une DLCO basse associée à une obstruction et une distension ?",
+       "aspectRecherche": "DLCO basse avec obstruction",
+       "reponse": "Ce profil oriente vers un emphysème.",
+       "imageOuTraceAttendu": "Compte rendu d'exploration fonctionnelle montrant un rapport VEMS/CVF bas, une CPT élevée et une DLCO abaissée."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__capacite_de_diffusion_du_co-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "L'anémie abaisse la DLCO, et la correction pour l'hémoglobine la normalise.",
+        "pourquoiFaux": "Sans correction, la valeur reflète l'anémie et non la membrane alvéolo-capillaire."
+       },
+       "sources": [
+        "ERS/ATS, interprétation des explorations fonctionnelles (Stanojevic et al., 2022)"
+       ],
+       "erreurFrequente": "Interpréter une DLCO basse sans la corriger pour l'hémoglobine chez un patient anémique.",
+       "consequence": "On croit à une atteinte de la membrane alvéolo-capillaire et on lance un bilan inutile.",
+       "bonneConduite": "On corrige la DLCO pour l'hémoglobine avant de conclure."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__test_de_provocation_bronchique",
+     "nom": "Test de provocation bronchique (méthacholine)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__test_de_provocation_bronchique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Le test de provocation révèle une hyperréactivité bronchique que la spirométrie de base ne montre pas.",
+        "pourquoiFaux": "Le CT ne pose pas l'asthme, la pléthysmographie mesure les volumes, et la gazométrie n'est pas utile chez une patiente stable."
+       },
+       "sources": [
+        "ERS, test de provocation à la méthacholine (Coates et al., 2017)"
+       ],
+       "casClinique": "Une femme de 30 ans, à Neuchâtel, tousse la nuit et à l'effort ; sa spirométrie et son test de bronchodilatation sont normaux.",
+       "options": [
+        "Test à la méthacholine",
+        "CT thoracique natif",
+        "Pléthysmographie",
+        "Gazométrie artérielle"
+       ],
+       "bonneReponse": "Test à la méthacholine",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__test_de_provocation_bronchique-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS (Coates et al., 2017), une PD20 supérieure à 400 µg est normale, et une PD20 plus basse traduit une hyperréactivité croissante.",
+        "pourquoiFaux": "Une PD20 de 60 µg est très inférieure au seuil normal et ne correspond pas à un test négatif."
+       },
+       "sources": [
+        "ERS, test de provocation à la méthacholine (Coates et al., 2017)"
+       ],
+       "resultat": "Le VEMS baisse de 20 % pour une dose cumulée de 60 µg de méthacholine.",
+       "decision": "On retient une hyperréactivité bronchique compatible avec un asthme."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__test_de_provocation_bronchique-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La PD20 est la dose de méthacholine qui fait baisser le VEMS de 20 %.",
+        "pourquoiFaux": "La dose maximale administrée ou la première baisse mesurée ne définissent pas la PD20."
+       },
+       "sources": [
+        "ERS, test de provocation à la méthacholine (Coates et al., 2017)"
+       ],
+       "consigne": "Lis cette courbe dose-réponse et donne la PD20.",
+       "aspectRecherche": "Dose qui fait baisser le VEMS de 20 %",
+       "reponse": "La PD20 se lit à la dose où la courbe franchit la baisse de 20 % du VEMS.",
+       "imageOuTraceAttendu": "Courbe du VEMS en fonction de la dose cumulée de méthacholine, avec une chute qui franchit 20 %."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__test_de_provocation_bronchique-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Un traitement inhalé récent fausse le test de provocation.",
+        "pourquoiFaux": "Le bronchodilatateur protège les bronches et masque l'hyperréactivité."
+       },
+       "sources": [
+        "ERS, test de provocation à la méthacholine (Coates et al., 2017)"
+       ],
+       "erreurFrequente": "Faire le test chez un patient qui a pris son bronchodilatateur le matin même.",
+       "consequence": "Le test devient faussement négatif et on écarte à tort un asthme.",
+       "bonneConduite": "On fait arrêter les traitements inhalés avant le test, selon les délais du protocole."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__feno",
+     "nom": "FeNO (NO exhalé)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__feno-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La FeNO est non invasive et rapide, et une valeur élevée prédit une bonne réponse aux corticoïdes inhalés.",
+        "pourquoiFaux": "Le CT irradie sans aider ici, la gazométrie n'est pas indiquée, et les précipitines cherchent une pneumopathie d'hypersensibilité."
+       },
+       "sources": [
+        "ATS, interprétation de la FeNO (Dweik et al., 2011)"
+       ],
+       "casClinique": "Un adulte de 32 ans, à Sion, a une toux et des sifflements à l'effort ; on hésite à débuter un corticoïde inhalé.",
+       "options": [
+        "FeNO",
+        "CT thoracique natif",
+        "Gazométrie artérielle",
+        "Précipitines"
+       ],
+       "bonneReponse": "FeNO",
+       "visee": "therapeutique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__feno-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ATS (Dweik et al., 2011), une FeNO supérieure à 50 ppb rend l'inflammation éosinophilique probable.",
+        "pourquoiFaux": "Une valeur inférieure à 25 ppb aurait rendu l'inflammation peu probable, ce qui n'est pas le cas ici."
+       },
+       "sources": [
+        "ATS, interprétation de la FeNO (Dweik et al., 2011)"
+       ],
+       "resultat": "FeNO 62 ppb chez un adulte non fumeur qui a des symptômes évocateurs d'asthme.",
+       "decision": "On retient une inflammation éosinophilique probable et on débute un corticoïde inhalé."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__feno-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ATS (Dweik et al., 2011), une FeNO inférieure à 25 ppb chez l'adulte rend l'inflammation éosinophilique peu probable.",
+        "pourquoiFaux": "Une valeur normale n'exclut pas pour autant un asthme non éosinophilique."
+       },
+       "sources": [
+        "ATS, interprétation de la FeNO (Dweik et al., 2011)"
+       ],
+       "consigne": "Interprète une FeNO de 18 ppb chez un adulte non fumeur.",
+       "aspectRecherche": "FeNO inférieure à 25 ppb",
+       "reponse": "L'inflammation éosinophilique est peu probable.",
+       "imageOuTraceAttendu": "Écran d'un appareil de FeNO affichant 18 ppb après une expiration lente et régulière."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__feno-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Le tabac et les corticoïdes abaissent la FeNO, si bien qu'une valeur basse ne suffit pas à exclure l'asthme.",
+        "pourquoiFaux": "La FeNO complète la spirométrie, elle ne la remplace pas."
+       },
+       "sources": [
+        "ATS, interprétation de la FeNO (Dweik et al., 2011)"
+       ],
+       "erreurFrequente": "Écarter un asthme chez un fumeur sur une FeNO basse.",
+       "consequence": "On manque un asthme, car le tabac abaisse la FeNO.",
+       "bonneConduite": "On interprète la FeNO avec le tabagisme et on s'appuie sur la spirométrie."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__test_de_marche_de_6_minutes",
+     "nom": "Test de marche de 6 minutes",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__test_de_marche_de_6_minutes-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Le test de marche montre une désaturation à l'effort que la SpO2 de repos ne révèle pas.",
+        "pourquoiFaux": "Le peak-flow suit l'asthme, la FeNO l'inflammation éosinophilique, et les antigénuries cherchent une pneumonie."
+       },
+       "sources": [
+        "ERS/ATS, tests de marche (Holland et al., 2014)"
+       ],
+       "casClinique": "Une femme de 68 ans atteinte de fibrose pulmonaire, suivie à Lugano, a une SpO2 normale au repos mais s'essouffle en marchant.",
+       "options": [
+        "Test de marche de 6 minutes",
+        "Peak-flow",
+        "FeNO",
+        "Antigénuries"
+       ],
+       "bonneReponse": "Test de marche de 6 minutes",
+       "visee": "retentissement"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__test_de_marche_de_6_minutes-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS/ATS (Holland et al., 2014), une variation d'environ 30 m est cliniquement importante dans une maladie respiratoire chronique.",
+        "pourquoiFaux": "Un gain de 35 m dépasse la variation cliniquement importante et ne doit pas être négligé."
+       },
+       "sources": [
+        "ERS/ATS, tests de marche (Holland et al., 2014)"
+       ],
+       "resultat": "La distance passe de 380 m à 415 m après douze semaines de réadaptation.",
+       "decision": "On retient une amélioration cliniquement importante et on poursuit la réadaptation."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__test_de_marche_de_6_minutes-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une désaturation à l'effort traduit une atteinte des échanges gazeux que la SpO2 de repos ne montre pas.",
+        "pourquoiFaux": "Une distance réduite sans désaturation ferait chercher aussi une cause cardiaque, musculaire ou articulaire."
+       },
+       "sources": [
+        "ERS/ATS, tests de marche (Holland et al., 2014)"
+       ],
+       "consigne": "Lis la courbe de SpO2 enregistrée pendant le test.",
+       "aspectRecherche": "Désaturation pendant la marche",
+       "reponse": "La SpO2 chute pendant l'effort, ce qui révèle une atteinte des échanges gazeux.",
+       "imageOuTraceAttendu": "Courbe de SpO2 et de fréquence cardiaque pendant six minutes de marche, avec une baisse progressive de la SpO2."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__test_de_marche_de_6_minutes-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS/ATS (Holland et al., 2014), le test se fait selon un protocole standardisé pour que les distances soient comparables.",
+        "pourquoiFaux": "La motivation, l'arthrose et l'apprentissage influencent déjà la distance, et des conditions variables ajoutent encore du bruit."
+       },
+       "sources": [
+        "ERS/ATS, tests de marche (Holland et al., 2014)"
+       ],
+       "erreurFrequente": "Comparer des tests faits dans des conditions différentes, sans standardisation.",
+       "consequence": "La différence de distance reflète les conditions du test et non l'évolution du patient.",
+       "bonneConduite": "On répète le test dans les mêmes conditions standardisées."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__ergospirometrie",
+     "nom": "Ergospirométrie (VO2max)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__ergospirometrie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS/ESTS (Brunelli et al., 2009), on mesure la VO2max avant une résection pulmonaire chez le patient à risque.",
+        "pourquoiFaux": "La FeNO et le peak-flow suivent l'asthme, et les antigénuries cherchent une pneumonie."
+       },
+       "sources": [
+        "ERS/ESTS, bilan avant résection pulmonaire (Brunelli et al., 2009)"
+       ],
+       "casClinique": "Un homme de 69 ans, à Saint-Gall, doit subir une lobectomie pour un cancer ; son VEMS et sa DLCO sont abaissés.",
+       "options": [
+        "Ergospirométrie",
+        "FeNO",
+        "Peak-flow",
+        "Antigénuries"
+       ],
+       "bonneReponse": "Ergospirométrie",
+       "visee": "therapeutique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__ergospirometrie-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS/ESTS (Brunelli et al., 2009), une VO2max inférieure à 10 ml/kg/min signe un risque élevé pour toute résection.",
+        "pourquoiFaux": "Une VO2max supérieure à 20 ml/kg/min aurait autorisé une résection jusqu'à la pneumonectomie, ce qui n'est pas le cas ici."
+       },
+       "sources": [
+        "ERS/ESTS, bilan avant résection pulmonaire (Brunelli et al., 2009)"
+       ],
+       "resultat": "VO2max 9 ml/kg/min au pic de l'effort.",
+       "decision": "Le risque opératoire est élevé pour toute résection, et on discute une alternative non chirurgicale."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__ergospirometrie-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une réserve ventilatoire épuisée montre que le poumon limite l'effort, comme dans la BPCO.",
+        "pourquoiFaux": "Un déconditionnement abaisse aussi la VO2max, mais il garde une réserve ventilatoire normale."
+       },
+       "sources": [
+        "ERS/ESTS, bilan avant résection pulmonaire (Brunelli et al., 2009)"
+       ],
+       "consigne": "Que conclus-tu d'une réserve ventilatoire épuisée au pic de l'effort ?",
+       "aspectRecherche": "Réserve ventilatoire épuisée",
+       "reponse": "La ventilation limite l'effort, ce qui oriente vers une cause respiratoire.",
+       "imageOuTraceAttendu": "Graphique de la ventilation et de la consommation d'oxygène pendant un effort croissant, avec une ventilation qui atteint la ventilation maximale."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__ergospirometrie-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Un effort insuffisant fausse le pic de consommation d'oxygène.",
+        "pourquoiFaux": "Une VO2max basse après un effort sous-maximal ne permet pas de conclure à une limitation."
+       },
+       "sources": [
+        "ERS/ESTS, bilan avant résection pulmonaire (Brunelli et al., 2009)"
+       ],
+       "erreurFrequente": "Interpréter une VO2max basse après un effort arrêté trop tôt.",
+       "consequence": "Le pic sous-estime la capacité réelle et fausse la décision chirurgicale.",
+       "bonneConduite": "On vérifie que l'effort était maximal avant d'interpréter la VO2max."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__oxymetrie_nocturne_polygraphie_et_polyso",
+     "nom": "Oxymétrie nocturne, polygraphie et polysomnographie",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__oxymetrie_nocturne_polygraphie_et_polyso-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Un ronflement avec somnolence diurne et une hypertension résistante font rechercher une apnée du sommeil par polygraphie.",
+        "pourquoiFaux": "La spirométrie et le peak-flow mesurent l'obstruction bronchique, et l'ergospirométrie la capacité d'effort."
+       },
+       "sources": [
+        "AASM, critères de l'apnée du sommeil"
+       ],
+       "casClinique": "Un chauffeur de 52 ans, à Bienne, ronfle fort, s'endort au volant et a une hypertension résistante.",
+       "options": [
+        "Polygraphie ventilatoire",
+        "Spirométrie",
+        "Peak-flow",
+        "Ergospirométrie"
+       ],
+       "bonneReponse": "Polygraphie ventilatoire",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__oxymetrie_nocturne_polygraphie_et_polyso-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'AASM, un IAH de 30 ou plus par heure définit une apnée sévère.",
+        "pourquoiFaux": "Un IAH de 34 dépasse les seuils de l'apnée légère, de 5 à 14, et modérée, de 15 à 29."
+       },
+       "sources": [
+        "AASM, critères de l'apnée du sommeil"
+       ],
+       "resultat": "IAH 34 par heure, avec des apnées accompagnées d'efforts respiratoires.",
+       "decision": "On retient une apnée obstructive sévère et on discute une ventilation en pression positive."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__oxymetrie_nocturne_polygraphie_et_polyso-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Dans l'apnée obstructive, le pharynx se ferme alors que le thorax continue de lutter.",
+        "pourquoiFaux": "L'apnée centrale interrompt aussi le débit, mais sans aucun effort respiratoire thoracique."
+       },
+       "sources": [
+        "AASM, critères de l'apnée du sommeil"
+       ],
+       "consigne": "Lis ce tracé : le débit nasal s'arrête alors que les sangles thoracique et abdominale bougent.",
+       "aspectRecherche": "Arrêt du débit avec efforts respiratoires",
+       "reponse": "C'est une apnée obstructive.",
+       "imageOuTraceAttendu": "Tracé de polygraphie montrant un débit nasal plat, des mouvements thoraco-abdominaux persistants et une désaturation secondaire."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__oxymetrie_nocturne_polygraphie_et_polyso-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "L'oxymétrie seule manque les hypopnées sans désaturation.",
+        "pourquoiFaux": "Une oxymétrie normale ne mesure ni le débit ni les efforts respiratoires."
+       },
+       "sources": [
+        "AASM, critères de l'apnée du sommeil"
+       ],
+       "erreurFrequente": "Exclure une apnée du sommeil sur une oxymétrie nocturne normale.",
+       "consequence": "On manque des hypopnées sans désaturation, et le patient reste somnolent.",
+       "bonneConduite": "On fait une polygraphie ou une polysomnographie si la clinique reste évocatrice."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__peak_flow",
+     "nom": "Peak-flow",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__peak_flow-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des mesures répétées au travail et en congé montrent le lien entre l'exposition et l'obstruction.",
+        "pourquoiFaux": "Le CT ne pose pas l'asthme, les antigénuries cherchent une pneumonie, et l'ergospirométrie analyse la capacité d'effort."
+       },
+       "sources": [
+        "GINA 2024"
+       ],
+       "casClinique": "Une boulangère de 34 ans, à Yverdon, a des sifflements qui s'améliorent pendant ses vacances.",
+       "options": [
+        "Peak-flow au travail et en congé",
+        "CT thoracique natif",
+        "Antigénuries",
+        "Ergospirométrie"
+       ],
+       "bonneReponse": "Peak-flow au travail et en congé",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__peak_flow-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon le GINA 2024, une variabilité diurne moyenne supérieure à 10 % chez l'adulte signe une variabilité excessive.",
+        "pourquoiFaux": "Une variabilité de 18 % dépasse nettement ce seuil et ne peut pas être considérée comme normale."
+       },
+       "sources": [
+        "GINA 2024"
+       ],
+       "resultat": "Variabilité diurne moyenne du DEP de 18 % sur deux semaines, chez un adulte.",
+       "decision": "On retient une variabilité excessive qui soutient le diagnostic d'asthme."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__peak_flow-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La baisse au travail relie l'obstruction à l'exposition professionnelle.",
+        "pourquoiFaux": "Un DEP stable d'un jour à l'autre ne montrerait aucune variabilité liée au travail."
+       },
+       "sources": [
+        "GINA 2024"
+       ],
+       "consigne": "Lis ce carnet de DEP sur quatre semaines.",
+       "aspectRecherche": "Baisse du DEP les jours de travail",
+       "reponse": "Le DEP baisse les jours de travail et remonte en congé, ce qui oriente vers un asthme professionnel.",
+       "imageOuTraceAttendu": "Graphique du DEP matin et soir sur quatre semaines, avec des baisses les jours ouvrables et une remontée les fins de semaine."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__peak_flow-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Le DEP dépend de l'appareil, de l'effort et de la technique.",
+        "pourquoiFaux": "Une variation due à l'appareil ne traduit pas une variation des bronches."
+       },
+       "sources": [
+        "GINA 2024"
+       ],
+       "erreurFrequente": "Comparer des mesures faites avec des débitmètres différents.",
+       "consequence": "Les écarts entre appareils imitent une variabilité qui n'existe pas.",
+       "bonneConduite": "On utilise toujours le même appareil et on retient la meilleure de trois mesures."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CT": "Tomodensitométrie : imagerie en coupes par rayons X qui mesure l'atténuation des tissus.",
+    "VEMS": "Volume expiratoire maximal en une seconde, mesuré en spirométrie.",
+    "CVF": "Capacité vitale forcée : volume total expiré pendant une expiration forcée.",
+    "LIN": "Limite inférieure de la normale : 5e percentile des valeurs d'une population saine.",
+    "CPT": "Capacité pulmonaire totale : volume d'air dans les poumons après une inspiration maximale.",
+    "DLCO": "Capacité de diffusion du monoxyde de carbone : mesure du transfert des gaz à travers la membrane alvéolo-capillaire.",
+    "CO": "Monoxyde de carbone : gaz traceur de la mesure de la diffusion pulmonaire.",
+    "PD20": "Dose de méthacholine qui fait baisser le VEMS de 20 % au test de provocation.",
+    "FeNO": "Fraction exhalée du monoxyde d'azote : marqueur de l'inflammation bronchique éosinophilique.",
+    "ppb": "Partie par milliard : unité de concentration d'un gaz.",
+    "VO2max": "Consommation maximale d'oxygène pendant un effort, exprimée en ml/kg/min.",
+    "SpO2": "Saturation pulsée en oxygène, mesurée par l'oxymètre de pouls.",
+    "IAH": "Index d'apnées-hypopnées : nombre d'apnées et d'hypopnées par heure de sommeil.",
+    "DEP": "Débit expiratoire de pointe, mesuré par le peak-flow.",
+    "BPCO": "Bronchopneumopathie chronique obstructive : obstruction bronchique persistante, surtout due au tabac.",
+    "ERS": "Société européenne de pneumologie (European Respiratory Society).",
+    "ATS": "Société thoracique américaine (American Thoracic Society).",
+    "ESTS": "Société européenne de chirurgie thoracique.",
+    "AASM": "Académie américaine de médecine du sommeil.",
+    "GOLD": "Initiative mondiale contre la BPCO, qui publie chaque année sa stratégie.",
+    "GINA": "Initiative mondiale contre l'asthme, qui publie chaque année sa stratégie.",
+    "NO": "Monoxyde d'azote : gaz produit par l'épithélium bronchique enflammé, mesuré par la FeNO.",
+    "VR": "Volume résiduel : air qui reste dans les poumons après une expiration maximale.",
+    "LSN": "Limite supérieure de la normale : 95e percentile des valeurs d'une population saine.",
+    "Réserve ventilatoire": "Différence entre la ventilation maximale possible et la ventilation atteinte au pic de l'effort."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Exploration fonctionnelle",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
