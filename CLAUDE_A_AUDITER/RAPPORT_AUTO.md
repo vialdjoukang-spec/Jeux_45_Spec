@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:42
+# Audit automatique — 2026-11-22 21:47
 
-8 fichier(s) : 7 🟩 intégrables · 1 🟧 à compléter · 0 🟥 refusés.
+14 fichier(s) : 13 🟩 intégrables · 1 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -29,5 +29,26 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/03_Hypophyse_et_hypothalamus/2_Pratique/P01-03-IMG-PR_Imagerie_Hypophyse_et_hypothalamus_1-examens_PRATIQUE_production_XAi.json`
 - 🟩 `hypophyse_et_hypothalamus.json` : remplissage 100 % (2/2)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/06_Oreille_et_equilibre/1_Theorie/P01-06-BIO_Biologie_Oreille_et_equilibre_2-examens_production_XAi.json`
+- 🟩 `oreille_et_equilibre.json` : remplissage 86 % (38/44)
+- aVerifier déclarés : 2
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/06_Oreille_et_equilibre/1_Theorie/P01-06-FCT_Exploration_fonctionnelle_Oreille_et_equilibre_9-examens_production_XAi.json`
+- 🟩 `oreille_et_equilibre.json` : remplissage 85 % (161/189)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/06_Oreille_et_equilibre/1_Theorie/P01-06-IMG_Imagerie_Oreille_et_equilibre_3-examens_production_XAi.json`
+- 🟩 `oreille_et_equilibre.json` : remplissage 94 % (59/63)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/06_Oreille_et_equilibre/2_Pratique/P01-06-BIO-PR_Biologie_Oreille_et_equilibre_2-examens_PRATIQUE_production_XAi.json`
+- 🟩 `oreille_et_equilibre.json` : remplissage 100 % (4/4)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/06_Oreille_et_equilibre/2_Pratique/P01-06-FCT-PR_Exploration_fonctionnelle_Oreille_et_equilibre_9-examens_PRATIQUE_production_XAi.json`
+- 🟩 `oreille_et_equilibre.json` : remplissage 100 % (18/18)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/06_Oreille_et_equilibre/2_Pratique/P01-06-IMG-PR_Imagerie_Oreille_et_equilibre_3-examens_PRATIQUE_production_XAi.json`
+- 🟩 `oreille_et_equilibre.json` : remplissage 100 % (6/6)
 
 Signature : AAI (Anthropic AI)
