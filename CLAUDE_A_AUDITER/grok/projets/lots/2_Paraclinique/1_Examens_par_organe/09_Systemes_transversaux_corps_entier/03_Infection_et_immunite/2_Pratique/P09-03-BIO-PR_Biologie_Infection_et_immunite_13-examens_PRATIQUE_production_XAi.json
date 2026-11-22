@@ -1,0 +1,930 @@
+{
+ "_lot": {
+  "tache": "P09-03-BIO-PR",
+  "titre": "Pratique — Examens de l'organe Infection et immunité — Biologie (13 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/9_systemes_transversaux/infection_et_immunite.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/9_systemes_transversaux/infection_et_immunite.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "infection_et_immunite__hemocultures",
+     "nom": "Hémocultures (2 à 3 paires)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "infection_et_immunite__hemocultures-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Devant un sepsis, on prélève 2 à 3 paires d'hémocultures avant l'antibiotique pour isoler le germe et obtenir l'antibiogramme, selon Martischang et al. (2017).",
+        "pourquoiFaux": "La CRP ne donne ni germe ni antibiogramme, et les sérologies ou les IgE ne répondent pas à la question."
+       },
+       "sources": [
+        "Martischang et al., hémocultures (2017)",
+        "HUG, procédure de soins, hémocultures (2025)"
+       ],
+       "casClinique": "Un homme de 74 ans, à Fribourg, a une fièvre à 39,5 °C avec frissons et une hypotension.",
+       "options": [
+        "Hémocultures (2 à 3 paires)",
+        "CRP seule",
+        "Sérologies",
+        "IgE spécifiques"
+       ],
+       "bonneReponse": "Hémocultures (2 à 3 paires)",
+       "visee": "etiologique"
+      },
+      {
+       "id": "infection_et_immunite__hemocultures-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une seule paire positive offre un mauvais rendement et peut refléter une contamination, selon les HUG (2025).",
+        "pourquoiFaux": "Traiter d'emblée sur un flacon isolé expose à un antibiotique inutile."
+       },
+       "sources": [
+        "HUG, procédure de soins, hémocultures (2025)"
+       ],
+       "resultat": "Un seul flacon sur deux paires pousse Staphylococcus epidermidis, chez un patient sans matériel étranger.",
+       "decision": "On évoque une contamination et l'on ne traite pas sur ce seul flacon."
+      },
+      {
+       "id": "infection_et_immunite__hemocultures-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Martischang et al. (2017) et le CHUV (2019), un antibiotique déjà commencé donne des faux négatifs.",
+        "pourquoiFaux": "Le prélèvement doit précéder l'antibiotique pour conserver son rendement."
+       },
+       "sources": [
+        "Martischang et al., hémocultures (2017)",
+        "CHUV, procédure de soins, hémocultures (2019)"
+       ],
+       "erreurFrequente": "Donner l'antibiotique avant de prélever les hémocultures chez un patient stable.",
+       "consequence": "On obtient des cultures faussement négatives.",
+       "bonneConduite": "On prélève les hémocultures avant tout antibiotique, sans retarder le traitement du choc."
+      }
+     ]
+    },
+    {
+     "ref": "infection_et_immunite__crp_procalcitonine_lactate",
+     "nom": "CRP, procalcitonine, lactate",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "infection_et_immunite__crp_procalcitonine_lactate-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Le lactate mesure l'hypoperfusion et entre dans la définition du choc septique, selon Singer et al. (2016).",
+        "pourquoiFaux": "La tryptase, les IgE et le complément explorent d'autres mécanismes."
+       },
+       "sources": [
+        "Sepsis-3, Singer et al. (2016)"
+       ],
+       "casClinique": "Une femme de 66 ans, à Neuchâtel, en sepsis, reste hypotendue malgré le remplissage.",
+       "options": [
+        "Lactate",
+        "Tryptase",
+        "IgE spécifiques",
+        "Complément"
+       ],
+       "bonneReponse": "Lactate",
+       "visee": "retentissement"
+      },
+      {
+       "id": "infection_et_immunite__crp_procalcitonine_lactate-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un lactate > 2 mmol/l sous vasopresseurs, sans hypovolémie, définit le choc septique, selon Singer et al. (2016).",
+        "pourquoiFaux": "Parler de sepsis sans choc ignore le besoin de vasopresseurs et le lactate élevé."
+       },
+       "sources": [
+        "Sepsis-3, Singer et al. (2016)"
+       ],
+       "resultat": "Sous noradrénaline pour maintenir une pression artérielle moyenne de 65 mmHg (8,7 kPa), après remplissage, le lactate vaut 3,4 mmol/l.",
+       "decision": "On retient un choc septique."
+      },
+      {
+       "id": "infection_et_immunite__crp_procalcitonine_lactate-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La SSMIG demande de ne pas prescrire d'antibiotique lors de la découverte isolée d'une CRP ou d'une PCT élevée, selon Smarter Medicine (2023).",
+        "pourquoiFaux": "Un marqueur inflammatoire isolé ne prouve pas une infection bactérienne."
+       },
+       "sources": [
+        "Smarter Medicine, liste Top 5 de la SSMIG, médecine hospitalière (2023)"
+       ],
+       "erreurFrequente": "Prescrire un antibiotique sur la seule découverte d'une CRP élevée chez un patient sans foyer infectieux.",
+       "consequence": "On expose à un antibiotique inutile et l'on favorise les résistances.",
+       "bonneConduite": "On cherche un foyer clinique et l'on ne traite pas un marqueur isolé."
+      }
+     ]
+    },
+    {
+     "ref": "infection_et_immunite__serologies",
+     "nom": "Sérologies (VIH, hépatites, syphilis, CMV, EBV, toxoplasmose)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "infection_et_immunite__serologies-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Un test combiné anticorps et antigène p24 dépiste le VIH, et sa fenêtre est de 6 semaines, selon l'OFSP (2025).",
+        "pourquoiFaux": "Les autres examens ne dépistent pas le VIH."
+       },
+       "sources": [
+        "OFSP, dépistage du VIH : directive (2025)"
+       ],
+       "casClinique": "Un homme de 30 ans, à Genève, consulte 8 semaines après un rapport non protégé.",
+       "options": [
+        "Test VIH de 4e génération",
+        "Hémocultures",
+        "Tryptase",
+        "Complément"
+       ],
+       "bonneReponse": "Test VIH de 4e génération",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "infection_et_immunite__serologies-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un résultat négatif n'exclut l'infection que si l'exposition remonte à plus de 6 semaines, selon l'OFSP (2025).",
+        "pourquoiFaux": "Rassurer définitivement ignore la fenêtre sérologique."
+       },
+       "sources": [
+        "OFSP, dépistage du VIH : directive (2025)"
+       ],
+       "resultat": "Le test VIH de 4e génération est négatif, 3 semaines après l'exposition.",
+       "decision": "On répète le test après 6 semaines."
+      },
+      {
+       "id": "infection_et_immunite__serologies-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La SSINF recommande d'éviter la sérologie Borrelia sans symptômes spécifiques, car elle ne renseigne pas sur l'activité de la maladie, selon Smarter Medicine (2020).",
+        "pourquoiFaux": "Une sérologie positive peut refléter une exposition ancienne."
+       },
+       "sources": [
+        "Smarter Medicine, liste Top 5 de la SSINF (2020)"
+       ],
+       "erreurFrequente": "Demander une sérologie Borrelia chez un patient fatigué sans symptôme spécifique.",
+       "consequence": "On risque un surdiagnostic et un surtraitement.",
+       "bonneConduite": "On réserve la sérologie aux symptômes évocateurs."
+      }
+     ]
+    },
+    {
+     "ref": "infection_et_immunite__pcr_ciblees_et_panels_multiplex",
+     "nom": "PCR ciblées et panels multiplex",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "infection_et_immunite__pcr_ciblees_et_panels_multiplex-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un dépistage réactif se confirme par une technique différente, et la confirmation moléculaire peut être quantitative ou qualitative, selon l'OFSP (2025).",
+        "pourquoiFaux": "Les autres examens ne confirment pas une infection par le VIH."
+       },
+       "sources": [
+        "OFSP, dépistage du VIH : directive (2025)"
+       ],
+       "casClinique": "Le dépistage VIH de 4e génération d'un homme de 30 ans, à Lausanne, revient réactif.",
+       "options": [
+        "Confirmation moléculaire du VIH",
+        "Hémocultures",
+        "Tryptase",
+        "Complément"
+       ],
+       "bonneReponse": "Confirmation moléculaire du VIH",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "infection_et_immunite__pcr_ciblees_et_panels_multiplex-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Après la confirmation sur le même échantillon, le diagnostic se vérifie sur un second échantillon, selon l'OFSP (2025).",
+        "pourquoiFaux": "Annoncer le diagnostic sans second échantillon saute une étape de la directive."
+       },
+       "sources": [
+        "OFSP, dépistage du VIH : directive (2025)"
+       ],
+       "resultat": "La PCR détecte l'ARN du VIH sur l'échantillon du dépistage réactif.",
+       "decision": "On vérifie le diagnostic sur un second échantillon avant de l'annoncer comme définitif."
+      },
+      {
+       "id": "infection_et_immunite__pcr_ciblees_et_panels_multiplex-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La SSINF recommande de ne pas tester Clostridioides difficile en l'absence de symptômes, selon Smarter Medicine (2020).",
+        "pourquoiFaux": "Un portage asymptomatique ne se traite pas."
+       },
+       "sources": [
+        "Smarter Medicine, liste Top 5 de la SSINF (2020)"
+       ],
+       "erreurFrequente": "Rechercher Clostridioides difficile chez un patient hospitalisé sans diarrhée.",
+       "consequence": "On découvre un portage et l'on traite à tort.",
+       "bonneConduite": "On réserve le test aux patients qui ont une diarrhée."
+      }
+     ]
+    },
+    {
+     "ref": "infection_et_immunite__igra_et_test_tuberculinique",
+     "nom": "IGRA et test tuberculinique",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "infection_et_immunite__igra_et_test_tuberculinique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Avant un anti-TNF, on dépiste l'infection latente, et l'IGRA n'est pas influencé par le BCG, selon la Ligue pulmonaire suisse (2024).",
+        "pourquoiFaux": "Le test tuberculinique peut être faussé par le BCG, et les autres examens ne dépistent pas l'infection latente."
+       },
+       "sources": [
+        "Ligue pulmonaire suisse, Manuel de la tuberculose (2024)"
+       ],
+       "casClinique": "Un homme de 52 ans, à Bâle, doit débuter un anti-TNF pour une maladie de Crohn ; il a été vacciné par le BCG.",
+       "options": [
+        "IGRA (QuantiFERON)",
+        "Test tuberculinique seul",
+        "Hémocultures",
+        "Complément"
+       ],
+       "bonneReponse": "IGRA (QuantiFERON)",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "infection_et_immunite__igra_et_test_tuberculinique-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Entre 0,35 et 0,75 UI/ml, le résultat est indéterminé et se répète au plus tôt après 4 semaines, selon le Kantonsspital St. Gallen (s. d.).",
+        "pourquoiFaux": "Conclure à une infection ou à son absence va au-delà du résultat."
+       },
+       "sources": [
+        "Kantonsspital St. Gallen, directive « Tuberkulöse Infektion » (s. d.)"
+       ],
+       "resultat": "Le QuantiFERON vaut 0,52 UI/ml.",
+       "decision": "On le considère comme indéterminé et on le répète au plus tôt après 4 semaines."
+      },
+      {
+       "id": "infection_et_immunite__igra_et_test_tuberculinique-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon la Ligue pulmonaire suisse (2024), aucun des deux tests ne distingue une infection latente d'une tuberculose active.",
+        "pourquoiFaux": "Un IGRA positif ne prouve pas une maladie active."
+       },
+       "sources": [
+        "Ligue pulmonaire suisse, Manuel de la tuberculose (2024)"
+       ],
+       "erreurFrequente": "Conclure à une tuberculose active sur un IGRA positif.",
+       "consequence": "On traite à tort une maladie active ou l'on manque une autre cause.",
+       "bonneConduite": "On cherche une tuberculose active par la clinique, l'imagerie et la microbiologie."
+      }
+     ]
+    },
+    {
+     "ref": "infection_et_immunite__recherche_de_paludisme",
+     "nom": "Recherche de paludisme (frottis, goutte épaisse, test rapide)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "infection_et_immunite__recherche_de_paludisme-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Toute fièvre au retour d'une zone d'endémie est un paludisme jusqu'à preuve du contraire, et la recherche se fait en urgence, selon les HUG (2021).",
+        "pourquoiFaux": "Les autres examens ne répondent pas à l'urgence."
+       },
+       "sources": [
+        "HUG, stratégie paludisme (2021)"
+       ],
+       "casClinique": "Une femme de 28 ans, à Berne, a de la fièvre 10 jours après un retour du Cameroun.",
+       "options": [
+        "Recherche de paludisme",
+        "Sérologie VIH",
+        "Tryptase",
+        "IgE spécifiques"
+       ],
+       "bonneReponse": "Recherche de paludisme",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "infection_et_immunite__recherche_de_paludisme-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une parasitémie > 2 % chez le voyageur non immun fait partie des critères de gravité, selon les HUG (2021).",
+        "pourquoiFaux": "Un traitement ambulatoire ignore ce critère de gravité."
+       },
+       "sources": [
+        "HUG, stratégie paludisme (2021)"
+       ],
+       "resultat": "Le frottis montre Plasmodium falciparum avec une parasitémie de 4 % chez une voyageuse non immune.",
+       "decision": "On retient un paludisme grave et on hospitalise."
+      },
+      {
+       "id": "infection_et_immunite__recherche_de_paludisme-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon les HUG (2021), une première recherche négative n'exclut pas le paludisme.",
+        "pourquoiFaux": "Une recherche isolée ne suffit pas."
+       },
+       "sources": [
+        "HUG, stratégie paludisme (2021)"
+       ],
+       "erreurFrequente": "Exclure le paludisme sur une seule goutte épaisse négative.",
+       "consequence": "On manque un paludisme qui peut devenir grave.",
+       "bonneConduite": "On répète la recherche deux fois, à 8 à 24 h d'intervalle."
+      }
+     ]
+    },
+    {
+     "ref": "infection_et_immunite__immunoglobulines_sous_populations_lympho",
+     "nom": "Immunoglobulines, sous-populations lymphocytaires (CD4)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "infection_et_immunite__immunoglobulines_sous_populations_lympho-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des infections bactériennes récidivantes font doser les immunoglobulines pour chercher un déficit humoral, selon l'ESID (2019).",
+        "pourquoiFaux": "Les autres examens ne cherchent pas un déficit immunitaire."
+       },
+       "sources": [
+        "ESID, critères diagnostiques (2019)"
+       ],
+       "casClinique": "Un homme de 25 ans, à Zurich, a eu quatre pneumonies en deux ans.",
+       "options": [
+        "Dosage des immunoglobulines",
+        "Tryptase",
+        "IgE spécifiques",
+        "Recherche de paludisme"
+       ],
+       "bonneReponse": "Dosage des immunoglobulines",
+       "visee": "etiologique"
+      },
+      {
+       "id": "infection_et_immunite__immunoglobulines_sous_populations_lympho-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Une IgG et une IgA < 2 DS, mesurées deux fois après 4 ans, entrent dans les critères du déficit immunitaire commun variable, selon l'ESID (2019).",
+        "pourquoiFaux": "Conclure à une cause secondaire n'a pas de base ici, puisque ces causes ont été exclues."
+       },
+       "sources": [
+        "ESID, critères diagnostiques (2019)"
+       ],
+       "resultat": "IgG et IgA sont inférieures à 2 DS pour l'âge sur deux dosages, sans perte protéique ni médicament en cause.",
+       "decision": "On évoque un déficit immunitaire commun variable."
+      },
+      {
+       "id": "infection_et_immunite__immunoglobulines_sous_populations_lympho-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESID (2019), une hypogammaglobulinémie peut être secondaire.",
+        "pourquoiFaux": "Le déficit primitif est un diagnostic d'exclusion."
+       },
+       "sources": [
+        "ESID, critères diagnostiques (2019)"
+       ],
+       "erreurFrequente": "Conclure à un déficit primitif sans exclure une perte protéique.",
+       "consequence": "On manque une cause secondaire.",
+       "bonneConduite": "On exclut une perte protéique, une infection, un médicament ou une hémopathie."
+      }
+     ]
+    },
+    {
+     "ref": "infection_et_immunite__complement",
+     "nom": "Complément (CH50, C3, C4)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "infection_et_immunite__complement-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un angio-œdème sans urticaire, familial, fait doser le C4, le C1-INH et sa fonction, selon Jindal et al. (2021).",
+        "pourquoiFaux": "La tryptase et les IgE explorent une allergie, qui donne plutôt une urticaire."
+       },
+       "sources": [
+        "Jindal et al., angio-œdème héréditaire (2021)"
+       ],
+       "casClinique": "Une femme de 22 ans, à Lugano, a des œdèmes récidivants sans urticaire ; sa mère a les mêmes.",
+       "options": [
+        "C4 et C1-INH",
+        "Tryptase",
+        "IgE spécifiques",
+        "Hémocultures"
+       ],
+       "bonneReponse": "C4 et C1-INH",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "infection_et_immunite__complement-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Ce profil oriente vers un déficit en C1q ou en C2, selon l'ESID (2019).",
+        "pourquoiFaux": "Un déficit de la voie alterne abaisserait la voie alterne."
+       },
+       "sources": [
+        "ESID, critères diagnostiques (2019)"
+       ],
+       "resultat": "Le CH50 est inférieur à 10 % du témoin, avec une voie alterne normale.",
+       "decision": "On oriente vers un déficit d'un composant précoce de la voie classique."
+      },
+      {
+       "id": "infection_et_immunite__complement-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon Jindal et al. (2021), le C4 seul manque environ 20 % des angio-œdèmes héréditaires.",
+        "pourquoiFaux": "Un C4 normal ne suffit pas."
+       },
+       "sources": [
+        "Jindal et al., angio-œdème héréditaire (2021)"
+       ],
+       "erreurFrequente": "Exclure un angio-œdème héréditaire sur un C4 normal.",
+       "consequence": "On manque le diagnostic.",
+       "bonneConduite": "On dose aussi le C1-INH et sa fonction, et l'on répète le dosage si la suspicion reste forte."
+      }
+     ]
+    },
+    {
+     "ref": "infection_et_immunite__tryptase",
+     "nom": "Tryptase (anaphylaxie)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "infection_et_immunite__tryptase-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "On prélève la tryptase pendant la réaction ou dans les 4 h, puis la valeur de base, pour prouver l'activation mastocytaire, selon Valent et al. (2012).",
+        "pourquoiFaux": "Les IgE se recherchent à distance, et les autres examens n'explorent pas l'anaphylaxie."
+       },
+       "sources": [
+        "Valent et al., activation mastocytaire (2012)"
+       ],
+       "casClinique": "Un homme de 45 ans fait un choc pendant une induction anesthésique, à l'Hôpital de l'Île à Berne.",
+       "options": [
+        "Tryptase pendant la réaction",
+        "IgE spécifiques immédiatement",
+        "Complément",
+        "Hémocultures"
+       ],
+       "bonneReponse": "Tryptase pendant la réaction",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "infection_et_immunite__tryptase-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "La valeur aiguë dépasse 1,2 × 10 + 2 = 14 µg/l, ce qui prouve l'activation, selon Valent et al. (2012).",
+        "pourquoiFaux": "Conclure à l'absence d'activation applique à tort un seuil fixe."
+       },
+       "sources": [
+        "Valent et al., activation mastocytaire (2012)"
+       ],
+       "resultat": "La tryptase de base vaut 10 µg/l et la tryptase aiguë 18 µg/l.",
+       "decision": "On retient une activation mastocytaire."
+      },
+      {
+       "id": "infection_et_immunite__tryptase-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Glover et al. (2021), l'alpha-tryptasémie héréditaire est de loin la première cause d'une tryptase de base élevée.",
+        "pourquoiFaux": "La mastocytose n'est pas la cause la plus fréquente."
+       },
+       "sources": [
+        "Glover et al., alpha-tryptasémie héréditaire (2021)"
+       ],
+       "erreurFrequente": "Attribuer une tryptase de base élevée à une mastocytose sans autre bilan.",
+       "consequence": "On porte un diagnostic excessif.",
+       "bonneConduite": "On pense d'abord à l'alpha-tryptasémie héréditaire."
+      }
+     ]
+    },
+    {
+     "ref": "infection_et_immunite__ige_specifiques_test_d_activation_des_ba",
+     "nom": "IgE spécifiques, test d'activation des basophiles",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "infection_et_immunite__ige_specifiques_test_d_activation_des_ba-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Quand les tests cutanés sont impossibles, on dose les IgE spécifiques pour chercher la sensibilisation, selon la SSAI (2021).",
+        "pourquoiFaux": "Les autres examens ne désignent pas l'allergène."
+       },
+       "sources": [
+        "SSAI, commission de diagnostic de laboratoire (2021)"
+       ],
+       "casClinique": "Une fillette de 8 ans, à Sion, a fait une urticaire et une dyspnée après une cacahuète ; les tests cutanés sont impossibles.",
+       "options": [
+        "IgE spécifiques",
+        "Tryptase de base seule",
+        "Complément",
+        "Hémocultures"
+       ],
+       "bonneReponse": "IgE spécifiques",
+       "visee": "etiologique"
+      },
+      {
+       "id": "infection_et_immunite__ige_specifiques_test_d_activation_des_ba-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une IgE positive prouve une sensibilisation, non une allergie clinique, selon la SSAI (2021).",
+        "pourquoiFaux": "Interdire l'aliment ignore la tolérance clinique."
+       },
+       "sources": [
+        "SSAI, commission de diagnostic de laboratoire (2021)"
+       ],
+       "resultat": "L'IgE spécifique à l'arachide est quantifiable chez un enfant qui en mange sans symptôme.",
+       "decision": "On retient une sensibilisation sans allergie clinique."
+      },
+      {
+       "id": "infection_et_immunite__ige_specifiques_test_d_activation_des_ba-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Hoffmann et al. (2015), ces traitements gênent le test.",
+        "pourquoiFaux": "Le test doit se faire hors traitement immunosuppresseur."
+       },
+       "sources": [
+        "Hoffmann et al., test d'activation des basophiles (2015)"
+       ],
+       "erreurFrequente": "Faire un test d'activation des basophiles sous corticoïdes systémiques.",
+       "consequence": "On obtient un résultat faussé.",
+       "bonneConduite": "On évite les corticoïdes systémiques et la ciclosporine avant le test."
+      }
+     ]
+    },
+    {
+     "ref": "infection_et_immunite__serologies_du_voyageur",
+     "nom": "Sérologies du voyageur (dengue, chikungunya, schistosomiase)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "infection_et_immunite__serologies_du_voyageur-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Pendant la première semaine, la PCR et l'antigène NS1 sont sensibles, alors que les IgM n'apparaissent que vers le 4e jour, selon le CDC Yellow Book (2026).",
+        "pourquoiFaux": "La sérologie schistosomiase ne répond pas à une fièvre aiguë d'Asie, et les IgG isolées ne servent pas au diagnostic."
+       },
+       "sources": [
+        "CDC Yellow Book, dengue (2026)"
+       ],
+       "casClinique": "Un homme de 35 ans, à Genève, a une fièvre depuis 2 jours au retour de Thaïlande ; le paludisme est exclu.",
+       "options": [
+        "Antigène NS1 et PCR dengue",
+        "Sérologie schistosomiase",
+        "IgG dengue isolées",
+        "Tryptase"
+       ],
+       "bonneReponse": "Antigène NS1 et PCR dengue",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "infection_et_immunite__serologies_du_voyageur-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un NS1 positif sur un seul prélèvement confirme la dengue chez un patient compatible, selon le CDC Yellow Book (2026).",
+        "pourquoiFaux": "Attendre la sérologie retarde le diagnostic déjà confirmé."
+       },
+       "sources": [
+        "CDC Yellow Book, dengue (2026)"
+       ],
+       "resultat": "L'antigène NS1 de la dengue est positif chez un voyageur fébrile de retour du Brésil.",
+       "decision": "On confirme la dengue et l'on surveille les signes d'alarme."
+      },
+      {
+       "id": "infection_et_immunite__serologies_du_voyageur-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon le CDC Yellow Book (2026), les anticorps d'autres flavivirus, après infection ou vaccination, donnent des faux positifs de dengue.",
+        "pourquoiFaux": "Une IgM isolée ne suffit pas en cas de flavivirus croisé."
+       },
+       "sources": [
+        "CDC Yellow Book, dengue (2026)"
+       ],
+       "erreurFrequente": "Conclure à une dengue récente sur des IgM positives chez une personne vaccinée contre la fièvre jaune.",
+       "consequence": "On porte un faux diagnostic.",
+       "bonneConduite": "On demande une PCR et l'on interprète la sérologie avec l'histoire vaccinale et les pays visités."
+      }
+     ]
+    },
+    {
+     "ref": "infection_et_immunite__antigene_cryptocoque",
+     "nom": "Antigène cryptocoque (VIH)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "infection_et_immunite__antigene_cryptocoque-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Sous 100 CD4/mm³, on dépiste l'antigène cryptococcique avant de débuter le traitement antirétroviral, selon l'OMS (2022).",
+        "pourquoiFaux": "L'encre de Chine est peu sensible et ne sert pas au dépistage, et les autres examens ne répondent pas à la question."
+       },
+       "sources": [
+        "OMS, cryptococcose chez les personnes vivant avec le VIH (2022)"
+       ],
+       "casClinique": "Une femme de 38 ans, à Lausanne, découvre une infection par le VIH avec 60 CD4/mm³, sans symptôme.",
+       "options": [
+        "Antigène cryptococcique sérique",
+        "Encre de Chine sur le LCR",
+        "Tryptase",
+        "IgE spécifiques"
+       ],
+       "bonneReponse": "Antigène cryptococcique sérique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "infection_et_immunite__antigene_cryptocoque-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Toute personne avec un antigène sérique positif est évaluée et a une ponction lombaire si possible, selon l'OMS (2022).",
+        "pourquoiFaux": "Se contenter d'un traitement oral sans ponction ignore une méningite possible."
+       },
+       "sources": [
+        "OMS, cryptococcose chez les personnes vivant avec le VIH (2022)"
+       ],
+       "resultat": "L'antigène sérique revient positif chez une patiente sans céphalée ni signe méningé.",
+       "decision": "On fait une ponction lombaire pour exclure une méningite."
+      },
+      {
+       "id": "infection_et_immunite__antigene_cryptocoque-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'OMS (2022), l'encre de Chine a une faible sensibilité, et un résultat négatif se confirme par l'antigène ou la culture.",
+        "pourquoiFaux": "Une encre de Chine négative n'exclut rien."
+       },
+       "sources": [
+        "OMS, cryptococcose chez les personnes vivant avec le VIH (2022)"
+       ],
+       "erreurFrequente": "Exclure une méningite à cryptocoque sur une encre de Chine négative.",
+       "consequence": "On manque une méningite mortelle.",
+       "bonneConduite": "On confirme par l'antigène ou la culture du LCR."
+      }
+     ]
+    },
+    {
+     "ref": "infection_et_immunite__d_glucane_et_galactomannane",
+     "nom": "β-D-glucane et galactomannane (infection fongique invasive)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "infection_et_immunite__d_glucane_et_galactomannane-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Chez le patient neutropénique, le galactomannane fournit un critère mycologique d'aspergillose probable, selon l'EORTC/MSGERC (2020).",
+        "pourquoiFaux": "Les autres examens ne recherchent pas Aspergillus."
+       },
+       "sources": [
+        "EORTC/MSGERC, définitions des infections fongiques invasives (Donnelly et al., 2020)"
+       ],
+       "casClinique": "Un homme de 58 ans, neutropénique depuis 15 jours après une chimiothérapie de leucémie, à Zurich, a une fièvre persistante et un nodule pulmonaire.",
+       "options": [
+        "Galactomannane",
+        "Antigène cryptococcique",
+        "Tryptase",
+        "Sérologie dengue"
+       ],
+       "bonneReponse": "Galactomannane",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "infection_et_immunite__d_glucane_et_galactomannane-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un galactomannane ≥ 1,0 dans le lavage est un critère mycologique, selon l'EORTC/MSGERC (2020).",
+        "pourquoiFaux": "Écarter l'aspergillose ignore un critère validé."
+       },
+       "sources": [
+        "EORTC/MSGERC, définitions des infections fongiques invasives (Donnelly et al., 2020)"
+       ],
+       "resultat": "Le galactomannane du lavage bronchoalvéolaire vaut 1,6.",
+       "decision": "On retient un critère mycologique d'aspergillose probable."
+      },
+      {
+       "id": "infection_et_immunite__d_glucane_et_galactomannane-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EORTC/MSGERC (2020), un antifongique actif sur les moisissures diminue la sensibilité du galactomannane.",
+        "pourquoiFaux": "Un test négatif sous antifongique rassure moins."
+       },
+       "sources": [
+        "EORTC/MSGERC, définitions des infections fongiques invasives (Donnelly et al., 2020)"
+       ],
+       "erreurFrequente": "Exclure une aspergillose sur un galactomannane sérique négatif chez un patient sous posaconazole.",
+       "consequence": "On manque l'infection.",
+       "bonneConduite": "On interprète le résultat avec prudence et l'on complète par le lavage ou l'imagerie."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CRP": "La protéine C réactive est une protéine produite par le foie lors de l’inflammation.",
+    "PCR": "La réaction en chaîne par polymérase amplifie un fragment de génome jusqu’à le rendre détectable.",
+    "VIH": "Le virus de l’immunodéficience humaine détruit les lymphocytes T CD4.",
+    "IGRA": "Le test de libération d’interféron gamma mesure la réponse des lymphocytes aux antigènes du bacille tuberculeux.",
+    "BCG": "Le bacille de Calmette et Guérin est le vaccin vivant atténué contre la tuberculose.",
+    "TNF": "Le facteur de nécrose tumorale est une cytokine de l’inflammation que bloquent certains traitements.",
+    "UI": "L’unité internationale exprime une quantité définie par une activité biologique de référence.",
+    "DS": "La déviation standard mesure la dispersion des valeurs autour de la moyenne.",
+    "C1-INH": "L’inhibiteur de la C1 estérase contrôle la voie classique du complément et la production de bradykinine.",
+    "QuantiFERON": "QuantiFERON désigne un test commercial de libération d’interféron gamma.",
+    "HUG": "Les Hôpitaux universitaires de Genève publient des stratégies et des procédures de soins.",
+    "CHUV": "Le Centre hospitalier universitaire vaudois publie des procédures de soins.",
+    "OFSP": "L’Office fédéral de la santé publique est l’autorité sanitaire de la Confédération.",
+    "SSINF": "La Société suisse d’infectiologie a publié une liste Top 5 de smarter medicine.",
+    "SSMIG": "La Société suisse de médecine interne générale a publié plusieurs listes Top 5 de smarter medicine.",
+    "SSAI": "La Société suisse d’allergologie et d’immunologie publie des recommandations de laboratoire.",
+    "ESID": "La Société européenne des déficits immunitaires publie des critères diagnostiques des déficits primitifs.",
+    "CMV": "Le CMV, ou cytomégalovirus, est un virus de la famille des herpès qui persiste à vie après la primo-infection.",
+    "EBV": "L’EBV, ou virus d’Epstein-Barr, est un virus de la famille des herpès qui cause la mononucléose infectieuse.",
+    "OMS": "Organisation mondiale de la santé",
+    "NS1": "Protéine non structurale 1 du virus de la dengue",
+    "LCR": "Liquide céphalorachidien",
+    "EORTC": "European Organization for Research and Treatment of Cancer",
+    "MSGERC": "Mycoses Study Group Education and Research Consortium",
+    "CDC": "Centers for Disease Control and Prevention",
+    "PCT": "Procalcitonine",
+    "ARN": "Acide ribonucléique"
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Biologie",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
