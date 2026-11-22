@@ -1,0 +1,375 @@
+{
+ "_lot": {
+  "tache": "P09-05-PR",
+  "titre": "Pratique — Examens de l'organe Génétique (5 examens : 5 biologie)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/9_systemes_transversaux/genetique.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/9_systemes_transversaux/genetique.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "genetique__caryotype",
+     "nom": "Caryotype",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "genetique__caryotype-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Devant un syndrome chromosomique évident, le caryotype confirme et distingue une trisomie libre d'une trisomie par translocation, selon Miller et al. (2010).",
+        "pourquoiFaux": "La puce ne distingue pas ce mécanisme, et l'exome ou le dépistage néonatal ne répondent pas à la question."
+       },
+       "sources": [
+        "Miller et al., puce chromosomique en première intention (2010)"
+       ],
+       "casClinique": "Un nouveau-né à Fribourg a un aspect évoquant une trisomie 21.",
+       "options": [
+        "Caryotype",
+        "Exome",
+        "Dépistage néonatal",
+        "CGH-array seule"
+       ],
+       "bonneReponse": "Caryotype",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "genetique__caryotype-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Le caryotype distingue la translocation, et le médecin veille au conseil génétique avant et après l'analyse, selon Miller et al. (2010) et la LAGH (2018).",
+        "pourquoiFaux": "Se contenter du diagnostic ignore le risque de récurrence lié à un parent porteur."
+       },
+       "sources": [
+        "Miller et al., puce chromosomique en première intention (2010)",
+        "Loi fédérale sur l'analyse génétique humaine (LAGH, 15 juin 2018)"
+       ],
+       "resultat": "Le caryotype montre une trisomie 21 par translocation robertsonienne.",
+       "decision": "On propose un caryotype aux parents et un conseil génétique."
+      },
+      {
+       "id": "genetique__caryotype-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Miller et al. (2010), le caryotype trouve une anomalie dans moins de 3 % de ces cas, contre 15 à 20 % pour la puce.",
+        "pourquoiFaux": "Le caryotype est trop peu résolutif dans cette indication."
+       },
+       "sources": [
+        "Miller et al., puce chromosomique en première intention (2010)"
+       ],
+       "erreurFrequente": "Demander un caryotype en première intention chez un enfant avec une déficience intellectuelle inexpliquée.",
+       "consequence": "On manque la plupart des causes chromosomiques.",
+       "bonneConduite": "On demande une puce à ADN en première intention."
+      }
+     ]
+    },
+    {
+     "ref": "genetique__hybridation_genomique_comparative",
+     "nom": "Hybridation génomique comparative (CGH-array)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "genetique__hybridation_genomique_comparative-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La puce à ADN est l'examen de première intention dans cette indication, selon Miller et al. (2010).",
+        "pourquoiFaux": "Le caryotype est moins résolutif, et la FISH ne cherche qu'une région."
+       },
+       "sources": [
+        "Miller et al., puce chromosomique en première intention (2010)"
+       ],
+       "casClinique": "Un garçon de 4 ans, à Lausanne, a un retard de développement inexpliqué et des malformations mineures.",
+       "options": [
+        "CGH-array",
+        "Caryotype",
+        "FISH ciblée",
+        "Dépistage néonatal"
+       ],
+       "bonneReponse": "CGH-array",
+       "visee": "etiologique"
+      },
+      {
+       "id": "genetique__hybridation_genomique_comparative-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une variation de signification incertaine exige souvent l'analyse des parents, car la plupart des variations bénignes sont héritées, selon Miller et al. (2010).",
+        "pourquoiFaux": "Conclure d'emblée à une cause ignore l'incertitude."
+       },
+       "sources": [
+        "Miller et al., puce chromosomique en première intention (2010)"
+       ],
+       "resultat": "La puce montre une duplication de 600 kb de signification incertaine.",
+       "decision": "On analyse les parents."
+      },
+      {
+       "id": "genetique__hybridation_genomique_comparative-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon Miller et al. (2010), la puce ne voit pas les remaniements équilibrés.",
+        "pourquoiFaux": "La puce mesure des quantités d'ADN, pas leur position."
+       },
+       "sources": [
+        "Miller et al., puce chromosomique en première intention (2010)"
+       ],
+       "erreurFrequente": "Chercher par puce à ADN une translocation équilibrée chez une femme qui a fait trois fausses couches.",
+       "consequence": "On manque le remaniement.",
+       "bonneConduite": "On demande un caryotype."
+      }
+     ]
+    },
+    {
+     "ref": "genetique__fish",
+     "nom": "FISH",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "genetique__fish-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La FISH sur noyaux qui ne se divisent pas rend un résultat plus rapide que le caryotype dans un syndrome reconnaissable, selon Miller et al. (2010).",
+        "pourquoiFaux": "L'exome et la puce sont plus longs, et le dépistage néonatal ne cherche pas une trisomie."
+       },
+       "sources": [
+        "Miller et al., puce chromosomique en première intention (2010)"
+       ],
+       "casClinique": "Un nouveau-né à Genève a des signes de trisomie 13, et l'équipe veut un résultat rapide.",
+       "options": [
+        "FISH",
+        "Exome",
+        "CGH-array",
+        "Dépistage néonatal"
+       ],
+       "bonneReponse": "FISH",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "genetique__fish-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Trois signaux signent une trisomie de la région, et le caryotype précise le mécanisme, selon Miller et al. (2010).",
+        "pourquoiFaux": "Conclure sans caryotype laisse une translocation possible."
+       },
+       "sources": [
+        "Miller et al., puce chromosomique en première intention (2010)"
+       ],
+       "resultat": "La FISH montre trois signaux de la sonde du chromosome 13 dans la plupart des noyaux.",
+       "decision": "On retient une trisomie 13 et l'on complète par un caryotype."
+      },
+      {
+       "id": "genetique__fish-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Miller et al. (2010), la FISH n'explore que la région de la sonde.",
+        "pourquoiFaux": "Une FISH normale ne dit rien du reste du génome."
+       },
+       "sources": [
+        "Miller et al., puce chromosomique en première intention (2010)"
+       ],
+       "erreurFrequente": "Exclure une anomalie chromosomique sur une FISH normale.",
+       "consequence": "On manque une anomalie hors de la sonde.",
+       "bonneConduite": "On choisit la puce à ADN si la question est large."
+      }
+     ]
+    },
+    {
+     "ref": "genetique__panel_de_genes_exome_genome",
+     "nom": "Panel de gènes, exome, génome",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "genetique__panel_de_genes_exome_genome-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Après une puce négative, on séquence l'exome ou le génome, qui trouve des variants ponctuels que la puce ne capte pas, selon Malinowski et al. (2020).",
+        "pourquoiFaux": "Le caryotype et la FISH ne voient pas les variants ponctuels."
+       },
+       "sources": [
+        "Malinowski et al., exome et génome (2020)"
+       ],
+       "casClinique": "Une fillette de 3 ans, à Berne, a une déficience intellectuelle et des malformations ; la puce à ADN est normale.",
+       "options": [
+        "Exome",
+        "Caryotype",
+        "FISH",
+        "Dépistage néonatal"
+       ],
+       "bonneReponse": "Exome",
+       "visee": "etiologique"
+      },
+      {
+       "id": "genetique__panel_de_genes_exome_genome-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un variant de signification incertaine ne doit pas servir à une décision clinique, selon Richards et al. (2015).",
+        "pourquoiFaux": "Annoncer un diagnostic dépasse le niveau de preuve."
+       },
+       "sources": [
+        "ACMG et AMP, classification des variants (Richards et al., 2015)"
+       ],
+       "resultat": "L'exome rapporte un variant de signification incertaine dans un gène compatible.",
+       "decision": "On ne prend aucune décision clinique sur ce variant et l'on prévoit une réanalyse."
+      },
+      {
+       "id": "genetique__panel_de_genes_exome_genome-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la LAGH (2018, art. 6), la personne doit être informée de ces possibilités.",
+        "pourquoiFaux": "L'information préalable est une obligation légale."
+       },
+       "sources": [
+        "Loi fédérale sur l'analyse génétique humaine (LAGH, 15 juin 2018)"
+       ],
+       "erreurFrequente": "Lancer un exome sans informer la personne des découvertes possibles hors de la question posée.",
+       "consequence": "On viole son droit de ne pas savoir.",
+       "bonneConduite": "On informe des informations excédentaires et du droit de ne pas être informé."
+      }
+     ]
+    },
+    {
+     "ref": "genetique__depistage_neonatal",
+     "nom": "Dépistage néonatal (carte de Guthrie)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "genetique__depistage_neonatal-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Chaque nouveau-né de Suisse se voit proposer le dépistage dès le quatrième jour, selon le Kinderspital Zürich.",
+        "pourquoiFaux": "Les autres examens ne sont pas des dépistages de population."
+       },
+       "sources": [
+        "Kinderspital Zürich, dépistage néonatal suisse (s. d.)"
+       ],
+       "casClinique": "Un nouveau-né en bonne santé, né à Coire, a 4 jours.",
+       "options": [
+        "Dépistage néonatal",
+        "Exome",
+        "Caryotype",
+        "CGH-array"
+       ],
+       "bonneReponse": "Dépistage néonatal",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "genetique__depistage_neonatal-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un test positif n'est pas un diagnostic et exige une confirmation, selon le Kinderspital Zürich.",
+        "pourquoiFaux": "Débuter un traitement à vie sans confirmation va trop loin."
+       },
+       "sources": [
+        "Kinderspital Zürich, dépistage néonatal suisse (s. d.)"
+       ],
+       "resultat": "Le dépistage néonatal revient anormal pour la phénylcétonurie.",
+       "decision": "On organise des examens de confirmation chez un spécialiste."
+      },
+      {
+       "id": "genetique__depistage_neonatal-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon le Kinderspital Zürich, l'absence d'appel correspond à un résultat normal.",
+        "pourquoiFaux": "Pas de nouvelles signifie un résultat normal."
+       },
+       "sources": [
+        "Kinderspital Zürich, dépistage néonatal suisse (s. d.)"
+       ],
+       "erreurFrequente": "Inquiéter les parents parce qu'ils n'ont reçu aucun résultat du dépistage.",
+       "consequence": "On crée une anxiété inutile.",
+       "bonneConduite": "On explique que seuls les parents d'un enfant au résultat anormal sont contactés."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ADN": "L’acide désoxyribonucléique est la molécule qui porte l’information génétique.",
+    "CGH": "L’hybridation génomique comparative compare l’ADN du patient à un ADN de référence pour repérer des pertes ou des gains de matériel chromosomique.",
+    "FISH": "L’hybridation in situ en fluorescence fixe une sonde fluorescente sur une région précise d’un chromosome pour la visualiser au microscope.",
+    "ACMG": "L’American College of Medical Genetics and Genomics est la société savante américaine de génétique médicale.",
+    "AMP": "L’Association for Molecular Pathology est la société savante américaine de pathologie moléculaire.",
+    "LAGH": "La loi fédérale sur l’analyse génétique humaine encadre en Suisse la prescription, le conseil et le consentement des analyses génétiques.",
+    "kb": "Kilobase, mille paires de bases"
+   }
+  }
+ }
+}
