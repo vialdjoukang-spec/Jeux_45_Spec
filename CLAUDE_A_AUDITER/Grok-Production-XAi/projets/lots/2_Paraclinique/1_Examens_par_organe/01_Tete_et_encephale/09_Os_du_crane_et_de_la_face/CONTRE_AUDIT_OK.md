@@ -17,3 +17,6 @@ Sources revérifiées en ligne :
 Corrections faites :
 - Radiographie du crâne : irradiation_mSv 0,04 → 0,3 (OFSP 2018 tableau 13, os du crâne) ; phrase « contre environ 0,1 mSv chez l'adulte, selon Mettler et al. (2008) » remplacée par la dose suisse de référence
 - 2 options QCM (et bonneReponse) de plus de 45 caractères raccourcies
+
+## Note pour la relecture
+- Note pour la relecture : le _meta de chaque fragment est celui du squelette de lot de main, antérieur au _meta actuel du fichier de conception (clés d'audit ajoutées depuis) ; laissé tel quel, la fusion ne reprend pas le _meta du lot.
