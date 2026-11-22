@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 23:22
+# Audit automatique — 2026-11-22 23:23
 
-40 fichier(s) : 37 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
+44 fichier(s) : 41 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -62,6 +62,18 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/01_Rachis_osseux/1_Theorie/P03-01-IMG_Imagerie_Rachis_osseux_7-examens_production_XAi.json`
 - 🟩 `rachis_osseux.json` : remplissage 92 % (135/147)
 - aVerifier déclarés : 4
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/01_Rachis_osseux/2_Pratique/P03-01-BIO-PR_Biologie_Rachis_osseux_4-examens_PRATIQUE_production_XAi.json`
+- 🟩 `rachis_osseux.json` : remplissage 100 % (8/8)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/01_Rachis_osseux/2_Pratique/P03-01-FCT-PR_Exploration_fonctionnelle_Rachis_osseux_1-examens_PRATIQUE_production_XAi.json`
+- 🟩 `rachis_osseux.json` : remplissage 100 % (2/2)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/01_Rachis_osseux/2_Pratique/P03-01-HIS-PR_Anatomopathologie_biopsie_Rachis_osseux_1-examens_PRATIQUE_production_XAi.json`
+- 🟩 `rachis_osseux.json` : remplissage 100 % (2/2)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/01_Rachis_osseux/2_Pratique/P03-01-IMG-PR_Imagerie_Rachis_osseux_7-examens_PRATIQUE_production_XAi.json`
+- 🟩 `rachis_osseux.json` : remplissage 100 % (14/14)
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/07_Corps_entier_bilan_d_extension_et_traum/1_Theorie/P09-07_Examens_Corps_entier_bilan_d_extension_et_t_6-examens_production_XAi.json`
 - 🟩 `corps_entier.json` : remplissage 87 % (110/126)
