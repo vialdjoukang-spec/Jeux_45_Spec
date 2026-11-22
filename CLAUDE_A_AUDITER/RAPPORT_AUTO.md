@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 23:17
+# Audit automatique — 2026-11-22 23:18
 
-21 fichier(s) : 18 🟩 intégrables · 2 🟧 à compléter · 1 🟥 refusés.
+25 fichier(s) : 22 🟩 intégrables · 2 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -77,5 +77,18 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 ### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/08_Articulations_et_synoviale/1_Theorie/P07-08-HIS_Anatomopathologie_biopsie_Articulations_et_synoviale_1-examens_production_XAi.json`
 - 🟧 `articulations_et_synoviale.json` : remplissage 81 % (17/21)
 - aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/08_Articulations_et_synoviale/1_Theorie/P07-08-IMG_Imagerie_Articulations_et_synoviale_3-examens_production_XAi.json`
+- 🟩 `articulations_et_synoviale.json` : remplissage 87 % (55/63)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/08_Articulations_et_synoviale/2_Pratique/P07-08-BIO-PR_Biologie_Articulations_et_synoviale_7-examens_PRATIQUE_production_XAi.json`
+- 🟩 `articulations_et_synoviale.json` : remplissage 100 % (14/14)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/08_Articulations_et_synoviale/2_Pratique/P07-08-HIS-PR_Anatomopathologie_biopsie_Articulations_et_synoviale_1-examens_PRATIQUE_production_XAi.json`
+- 🟩 `articulations_et_synoviale.json` : remplissage 100 % (2/2)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/08_Articulations_et_synoviale/2_Pratique/P07-08-IMG-PR_Imagerie_Articulations_et_synoviale_3-examens_PRATIQUE_production_XAi.json`
+- 🟩 `articulations_et_synoviale.json` : remplissage 100 % (6/6)
 
 Signature : AAI (Anthropic AI)
