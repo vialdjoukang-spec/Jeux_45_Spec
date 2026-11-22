@@ -29,3 +29,15 @@ Corrections faites :
 - P09-03-BIO-PR — sigle absent du glossaire (C3) : « None » → « glossaire[C3]=Troisième fraction du complément, commune aux voies classique et alterne. »
 - P09-03-BIO-PR — sigle absent du glossaire (C3) : « None » → « glossaire[C4]=Quatrième fraction du complément, voie classique. »
 - P09-03-BIO-PR — sigle absent du glossaire (C3) : « None » → « glossaire[CH50]=Activité hémolytique totale de la voie classique du complément. »
+
+## Seconde vérification des sources (23.11.2026 00:46, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Choc septique : lactate > 2 mmol/l sous vasopresseurs pour une PAM ≥ 65 mmHg | Sepsis-3, Singer et al. 2016 (PMC4968574) | conforme |
+| 2 | Test VIH combiné : fenêtre de 6 semaines | directive suisse de dépistage du VIH 2025 (PDF virology.uzh.ch) | conforme |
+| 3 | Tryptase pendant la réaction ou dans les 4 h, puis valeur de base | Valent et al. (formule 20 % + 2) | conforme |
+| 4 | Parasitémie > 2 % chez le non-immun : critère de gravité | HUG, stratégie paludisme 2021 (PDF hug.ch) | conforme |
+| 5 | Hémoglobine < 70 g/l : critère de gravité | HUG, stratégie paludisme 2021 | conforme |

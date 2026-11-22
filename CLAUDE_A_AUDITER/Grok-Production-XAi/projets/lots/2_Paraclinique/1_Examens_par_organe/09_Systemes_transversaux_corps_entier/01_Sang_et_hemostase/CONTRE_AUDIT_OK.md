@@ -24,3 +24,15 @@ Corrections faites :
 - P09-01-BIO-PR — sigle absent du glossaire (C3) : « None » → « glossaire[CD10]=Antigène de différenciation des lymphocytes B immatures (CALLA), recherché en cytométrie de flux. »
 - P09-01-BIO-PR — sigle absent du glossaire (C3) : « None » → « glossaire[CD19]=Antigène de surface de la lignée lymphocytaire B, recherché en cytométrie de flux. »
 - P09-01-BIO-PR — sigle absent du glossaire (C3) : « None » → « glossaire[CD22]=Antigène de surface des lymphocytes B, recherché en cytométrie de flux. »
+
+## Seconde vérification des sources (23.11.2026 00:46, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 1 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Ferritine de 30 à 50 µg/l avec saturation < 20 % : carence probable | étude Delphi suisse 2019 (Swiss Med Wkly, PubMed 31269223) | conforme |
+| 2 | Fibrinogène de Clauss ≤ 1,5 g/l : substitution | ESAIC 2023, saignement périopératoire sévère | conforme |
+| 3 | Lymphocytes B ≥ 5 × 10⁹/l pendant au moins 3 mois : LLC | iwCLL, Hallek et al. | conforme |
+| 4 | VWF < 0,30 UI/ml : maladie de von Willebrand de type 1 | ASH/ISTH/NHF/WFH 2021 (PMC7805340) | conforme |
+| 5 | Score HEMOSTOP ≥ 2 | Lovey et Stalder, Hôpital du Valais 2024 : non trouvé | non trouvé : ajouté à _lot.aVerifier |
