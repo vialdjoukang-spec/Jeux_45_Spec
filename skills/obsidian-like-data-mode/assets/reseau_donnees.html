@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Réseau de données</title>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Overpass:wght@800&display=swap" rel="stylesheet">
+<style>
+:root{--fond:#fff;--carte:#fff;--encre:#111;--doux:#555;--trait:#c9ced6}
+body[data-theme=ciel]{--fond:#e6f1fb;--carte:#fff}
+body[data-theme=champagne]{--fond:#f5ecd9;--carte:#fffaf0}
+body[data-theme=or]{--fond:#efd9a0;--carte:#fffbeb}
+body[data-theme=menthe]{--fond:#e2f4ec;--carte:#fff}
+body[data-theme=nuit]{--fond:#0f1724;--carte:#1b2535;--encre:#f3f5f8;--doux:#b8c2cf;--trait:#3b4658}
+body[data-theme=anthracite]{--fond:#24272b;--carte:#30353b;--encre:#f5f5f5;--doux:#c7c9cc;--trait:#4a5058}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--fond);color:var(--encre);font:13px/1.35 "Atkinson Hyperlegible",system-ui,sans-serif}
+#barre{position:fixed;top:0;left:0;right:0;padding:8px 12px;background:var(--fond);border-bottom:1px solid var(--trait);display:flex;gap:8px;align-items:center;z-index:5}
+#barre h1{font:800 17px Overpass,system-ui;margin:0 12px 0 0;white-space:nowrap}
+#barre button,#barre input{font:inherit;min-height:34px;border:1px solid var(--trait);border-radius:7px;background:var(--carte);color:var(--encre);padding:4px 10px;cursor:pointer}
+#barre input{cursor:text;width:220px}
+#stat{color:var(--doux);margin-left:auto;white-space:nowrap}
+canvas{position:fixed;inset:0}
+#scene{position:fixed;inset:0;transform-origin:0 0}
+.n{position:absolute;width:var(--w);padding:6px 24px 6px 10px;background:var(--carte);border:1px solid var(--trait);border-left:5px solid var(--c);border-radius:7px;cursor:pointer;transition:opacity .2s;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.n small{display:block;font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--c)}
+.n b{font-weight:700;display:block;word-break:break-word}
+.n i{font-style:normal;color:var(--doux);font-size:11.5px}
+.n .plus{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--c)}
+.n.trouve{outline:3px solid #f5b400}
+#bulle{position:fixed;z-index:9;max-width:380px;max-height:60vh;overflow:auto;background:var(--carte);color:var(--encre);border:1px solid var(--trait);border-radius:9px;padding:10px 12px;box-shadow:0 8px 24px rgba(0,0,0,.18);display:none;font-size:12.5px}
+#bulle h3{margin:0 0 6px;font:800 13px Overpass,system-ui}
+#bulle dl{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;margin:0}#bulle dt{color:var(--doux)}#bulle dd{margin:0;word-break:break-word}
+#bulle a{color:inherit}
+#legende{position:fixed;right:12px;bottom:12px;background:var(--carte);border:1px solid var(--trait);border-radius:8px;padding:8px 10px;font-size:11.5px}
+#legende span{display:inline-flex;align-items:center;gap:5px;margin-right:10px}#legende span i{width:10px;height:10px;border-radius:2px;background:var(--c);display:inline-block}
+#sig{position:fixed;left:12px;bottom:10px;color:var(--doux);font-size:11px}
+</style>
+</head>
+<body data-theme="blanc">
+<div id="barre"><h1 id="titre"></h1><button id="raz" title="Clic : replier le dernier circuit · Double-clic : tout replier">↺</button><button id="tout">Tout déplier</button><button id="cadre">Cadrer</button><button id="theme">Thème</button><input id="cherche" placeholder="Chercher un nœud…"><span id="stat"></span></div>
+<canvas id="liens"></canvas><div id="scene"></div><div id="bulle"></div><div id="legende"></div><div id="sig"></div>
+<script>
+{
+const D=/*DONNEES*/null;
+const COUL=D.couleurs,N=D.noeuds,byId={},enf={};N.forEach(n=>{byId[n.id]=n;(enf[n.parent]=enf[n.parent]||[]).push(n)});
+const racine=N.find(n=>!n.parent);document.getElementById("titre").textContent=D.titre;document.title=D.titre;
+document.getElementById("sig").textContent=D.signature||"";
+const ouvert=new Set([racine.id]),pile=[];const Q=new URLSearchParams(location.hash.slice(1));
+if(Q.has("tout"))N.forEach(n=>ouvert.add(n.id));(Q.get("ouvrir")||"").split(",").filter(Boolean).forEach(i=>{let x=byId[i];while(x){ouvert.add(x.id);x=byId[x.parent]}});
+const TH=["blanc","ciel","champagne","or","menthe","nuit","anthracite"];let th=Math.max(0,TH.indexOf(Q.get("theme")||"blanc"));document.body.dataset.theme=TH[th];
+const scene=document.getElementById("scene"),cv=document.getElementById("liens"),cx=cv.getContext("2d"),bulle=document.getElementById("bulle");
+let tx=20,ty=60,k=1;const COL=D.largeur||230,GAP=D.ecart||70,VG=8;
+const visible=n=>!n.parent||(ouvert.has(n.parent)&&visible(byId[n.parent]));
+const el={};
+N.forEach(n=>{const d=document.createElement("div");d.className="n";d.style.setProperty("--c",COUL[n.type]||"#888");d.style.setProperty("--w",COL+"px");
+  const nb=(enf[n.id]||[]).length;d.innerHTML=`<small>${n.type}</small><b>${esc(n.label)}</b>${n.resume?`<i>${esc(n.resume)}</i>`:""}${nb?`<span class=plus>${ouvert.has(n.id)?"−":"+"}</span>`:""}`;
+  d.onclick=e=>{e.stopPropagation();if(!nb)return;if(ouvert.has(n.id)){fermer(n.id)}else{ouvert.add(n.id);pile.push(n.id);poser();return cibler(n)}poser()};
+  d.onmouseenter=e=>montrer(n,e);d.onmouseleave=()=>bulle.style.display="none";scene.appendChild(d);el[n.id]=d});
+function esc(s){return String(s??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}
+function fermer(id){ouvert.delete(id);(enf[id]||[]).forEach(c=>fermer(c.id))}
+function montrer(n,e){const i=n.info||{};bulle.innerHTML=`<h3>${esc(n.label)}</h3><dl>${Object.entries(i).map(([a,b])=>`<dt>${esc(a)}</dt><dd>${/^https?:/.test(b)?`<a href="${esc(b)}">ouvrir</a>`:esc(b)}</dd>`).join("")}</dl>`;
+  bulle.style.display="block";const r=e.currentTarget.getBoundingClientRect();bulle.style.left=Math.min(innerWidth-390,r.right+10)+"px";bulle.style.top=Math.max(50,Math.min(innerHeight-bulle.offsetHeight-10,r.top))+"px"}
+function poser(){
+  N.forEach(n=>{const v=visible(n);el[n.id].style.display=v?"block":"none";const p=el[n.id].querySelector(".plus");if(p)p.textContent=ouvert.has(n.id)?"−":"+"});
+  const h={};N.forEach(n=>{if(visible(n))h[n.id]=el[n.id].offsetHeight});
+  let y=0;const pos={};
+  (function place(n,d){const cs=(enf[n.id]||[]).filter(visible);n.x=d*(COL+GAP);
+    if(!cs.length){n.y=y;y+=h[n.id]+VG;return}
+    const y0=y;cs.forEach(c=>place(c,d+1));const a=cs[0],b=cs[cs.length-1];const mid=(a.y+(b.y+h[b.id]))/2;
+    n.y=Math.max(y0,mid-h[n.id]/2);if(n.y+h[n.id]+VG>y)y=n.y+h[n.id]+VG})(racine,0);
+  N.forEach(n=>{if(visible(n)){el[n.id].style.left=n.x+"px";el[n.id].style.top=n.y+"px"}});
+  document.getElementById("stat").textContent=`${N.filter(visible).length} / ${N.length} nœuds visibles`;dessiner()}
+function cadrer(){const v=N.filter(visible);let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;v.forEach(n=>{x0=Math.min(x0,n.x);y0=Math.min(y0,n.y);x1=Math.max(x1,n.x+COL);y1=Math.max(y1,n.y+el[n.id].offsetHeight)});
+  k=Math.max(.35,Math.min(1.15,(innerWidth-60)/(x1-x0),(innerHeight-110)/(y1-y0)));tx=(innerWidth-(x1-x0)*k)/2-x0*k;ty=60+Math.max(0,(innerHeight-110-(y1-y0)*k)/2)-y0*k;dessiner()}
+function cibler(n){const cs=(enf[n.id]||[]).filter(visible);const ys=[n.y,...cs.map(c=>c.y)],ye=Math.max(n.y+el[n.id].offsetHeight,...cs.map(c=>c.y+el[c.id].offsetHeight));
+  k=Math.max(.6,Math.min(1,(innerHeight-110)/(ye-Math.min(...ys))));tx=innerWidth*.28-n.x*k;ty=60+Math.max(0,(innerHeight-110-(ye-Math.min(...ys))*k)/2)-Math.min(...ys)*k;dessiner()}
+function dessiner(){
+  scene.style.transform=`translate(${tx}px,${ty}px) scale(${k})`;const dpr=devicePixelRatio||1;cv.width=innerWidth*dpr;cv.height=innerHeight*dpr;cv.style.width=innerWidth+"px";cv.style.height=innerHeight+"px";
+  cx.setTransform(dpr*k,0,0,dpr*k,dpr*tx,dpr*ty);cx.clearRect(-tx/k,-ty/k,innerWidth/k,innerHeight/k);cx.lineWidth=1.6/k;
+  N.forEach(p=>{const cs=(enf[p.id]||[]).filter(visible);if(!cs.length||!visible(p))return;
+    const hp=el[p.id].offsetHeight,x0=p.x+COL,y0=p.y+hp/2,bx=x0+GAP*.42,c=COUL[cs[0].type]||"#888";cx.strokeStyle=c;cx.fillStyle=c;
+    const ys=cs.map(q=>q.y+el[q.id].offsetHeight/2);cx.beginPath();cx.moveTo(x0,y0);cx.lineTo(bx,y0);cx.moveTo(bx,Math.min(y0,...ys));cx.lineTo(bx,Math.max(y0,...ys));
+    ys.forEach((yy,i)=>{cx.moveTo(bx,yy);cx.lineTo(cs[i].x-3,yy)});cx.stroke();cx.beginPath();cx.arc(bx,y0,2.6,0,7);cx.fill();
+    ys.forEach((yy,i)=>{const ax=cs[i].x-1;cx.beginPath();cx.moveTo(ax,yy);cx.lineTo(ax-8,yy-4.5);cx.lineTo(ax-8,yy+4.5);cx.fill()})})}
+document.getElementById("raz").onclick=()=>{const id=pile.pop();if(id){fermer(id);poser()}};
+document.getElementById("raz").ondblclick=()=>{ouvert.clear();ouvert.add(racine.id);pile.length=0;poser();cadrer()};
+document.getElementById("cadre").onclick=cadrer;
+document.getElementById("tout").onclick=()=>{N.forEach(n=>ouvert.add(n.id));poser();cadrer()};
+document.getElementById("theme").onclick=()=>{th=(th+1)%TH.length;document.body.dataset.theme=TH[th]};
+document.getElementById("cherche").oninput=e=>{const q=e.target.value.trim().toLowerCase();N.forEach(n=>el[n.id].classList.remove("trouve"));if(q.length<2)return poser();
+  N.filter(n=>n.label.toLowerCase().includes(q)).forEach(n=>{let x=byId[n.parent];while(x){ouvert.add(x.id);x=byId[x.parent]}el[n.id].classList.add("trouve")});poser()};
+let glisse=null;addEventListener("pointerdown",e=>{if(e.target.closest(".n,#barre,#bulle"))return;glisse=[e.clientX-tx,e.clientY-ty]});
+addEventListener("pointermove",e=>{if(glisse){tx=e.clientX-glisse[0];ty=e.clientY-glisse[1];dessiner()}});addEventListener("pointerup",()=>glisse=null);
+addEventListener("wheel",e=>{if(e.target.closest("#bulle"))return;e.preventDefault();if(e.ctrlKey||e.metaKey){const f=Math.exp(-e.deltaY*.002),nk=Math.min(2.5,Math.max(.3,k*f));tx=e.clientX-(e.clientX-tx)*nk/k;ty=e.clientY-(e.clientY-ty)*nk/k;k=nk}else{tx-=e.deltaX;ty-=e.deltaY}dessiner()},{passive:false});
+addEventListener("resize",dessiner);
+document.getElementById("legende").innerHTML=Object.entries(COUL).map(([t,c])=>`<span style="--c:${c}"><i></i>${esc(t)}</span>`).join("");
+(document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{poser();const der=(Q.get("ouvrir")||"").split(",").filter(Boolean).pop();der&&byId[der]?cibler(byId[der]):cadrer();document.body.dataset.pret="1"});
+}
+</script>
+</body>
+</html>
