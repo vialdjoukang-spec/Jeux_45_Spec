@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:52
+# Audit automatique — 2026-11-22 21:53
 
-18 fichier(s) : 16 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
+24 fichier(s) : 22 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -64,5 +64,24 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/07_Nez_sinus_et_cavum/1_Theorie/P01-07-HIS_Anatomopathologie_biopsie_Nez_sinus_et_cavum_1-examens_production_XAi.json`
 - 🟩 `nez_sinus_et_cavum.json` : remplissage 90 % (19/21)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/07_Nez_sinus_et_cavum/1_Theorie/P01-07-IMG_Imagerie_Nez_sinus_et_cavum_2-examens_production_XAi.json`
+- 🟩 `nez_sinus_et_cavum.json` : remplissage 95 % (40/42)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/07_Nez_sinus_et_cavum/2_Pratique/P01-07-BIO-PR_Biologie_Nez_sinus_et_cavum_4-examens_PRATIQUE_production_XAi.json`
+- 🟩 `nez_sinus_et_cavum.json` : remplissage 100 % (8/8)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/07_Nez_sinus_et_cavum/2_Pratique/P01-07-END-PR_Endoscopie_Nez_sinus_et_cavum_2-examens_PRATIQUE_production_XAi.json`
+- 🟩 `nez_sinus_et_cavum.json` : remplissage 100 % (4/4)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/07_Nez_sinus_et_cavum/2_Pratique/P01-07-FCT-PR_Exploration_fonctionnelle_Nez_sinus_et_cavum_3-examens_PRATIQUE_production_XAi.json`
+- 🟩 `nez_sinus_et_cavum.json` : remplissage 100 % (6/6)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/07_Nez_sinus_et_cavum/2_Pratique/P01-07-HIS-PR_Anatomopathologie_biopsie_Nez_sinus_et_cavum_1-examens_PRATIQUE_production_XAi.json`
+- 🟩 `nez_sinus_et_cavum.json` : remplissage 100 % (2/2)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/07_Nez_sinus_et_cavum/2_Pratique/P01-07-IMG-PR_Imagerie_Nez_sinus_et_cavum_2-examens_PRATIQUE_production_XAi.json`
+- 🟩 `nez_sinus_et_cavum.json` : remplissage 100 % (4/4)
 
 Signature : AAI (Anthropic AI)
