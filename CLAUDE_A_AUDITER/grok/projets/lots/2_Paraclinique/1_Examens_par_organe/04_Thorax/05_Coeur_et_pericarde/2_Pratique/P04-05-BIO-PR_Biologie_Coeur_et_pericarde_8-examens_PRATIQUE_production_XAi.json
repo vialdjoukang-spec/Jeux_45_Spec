@@ -1,0 +1,591 @@
+{
+ "_lot": {
+  "tache": "P04-05-BIO-PR",
+  "titre": "Pratique — Examens de l'organe Cœur et péricarde — Biologie (8 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/4_thorax/coeur_et_pericarde.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/4_thorax/coeur_et_pericarde.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "coeur_et_pericarde__troponine_t_ou_i_haute_sensibilite",
+     "nom": "Troponine T ou I haute sensibilité (cinétique)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__troponine_t_ou_i_haute_sensibilite-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2023), on inclut ou exclut un infarctus sans sus-décalage ST par un algorithme de troponine haute sensibilité à 0 et 1 heure, option préférée.",
+        "pourquoiFaux": "La CK-MB est moins sensible, le NT-proBNP explore l'insuffisance cardiaque, et les hémocultures cherchent une bactériémie."
+       },
+       "sources": [
+        "ESC, syndromes coronariens aigus (Byrne et al., 2023)"
+       ],
+       "casClinique": "Un homme de 63 ans consulte aux urgences de Berne pour une douleur thoracique depuis deux heures ; l'ECG ne montre pas de sus-décalage ST.",
+       "options": [
+        "Troponine haute sensibilité à 0 et 1 h",
+        "CK-MB isolée",
+        "NT-proBNP",
+        "Hémocultures"
+       ],
+       "bonneReponse": "Troponine haute sensibilité à 0 et 1 h",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "coeur_et_pericarde__troponine_t_ou_i_haute_sensibilite-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la quatrième définition universelle (2018), une valeur élevée sans variation traduit une lésion chronique, fréquente dans l'insuffisance rénale.",
+        "pourquoiFaux": "Parler d'infarctus exige une hausse ou une baisse et un contexte ischémique ; une valeur stable ne remplit pas ces critères."
+       },
+       "sources": [
+        "Quatrième définition universelle de l'infarctus (Thygesen et al., 2018)"
+       ],
+       "resultat": "Troponine au-dessus du 99e percentile, identique à 0 et à 1 heure, chez un patient dialysé sans douleur typique.",
+       "decision": "Ne pas conclure à un infarctus et rechercher une lésion myocardique chronique."
+      },
+      {
+       "id": "coeur_et_pericarde__troponine_t_ou_i_haute_sensibilite-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une troponine élevée signe une lésion myocardique, mais seule une cinétique associée à une ischémie définit l'infarctus.",
+        "pourquoiFaux": "Une valeur isolée ne distingue pas un infarctus d'une lésion myocardique d'une autre origine."
+       },
+       "sources": [
+        "Quatrième définition universelle de l'infarctus (Thygesen et al., 2018)"
+       ],
+       "erreurFrequente": "Conclure à un infarctus devant toute troponine élevée.",
+       "consequence": "On méconnaît une embolie pulmonaire, un sepsis ou une myocardite, et on engage une coronarographie inutile.",
+       "bonneConduite": "Interpréter la troponine avec sa cinétique et le contexte clinique, puis chercher les autres causes de lésion myocardique."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__nt_probnp_ou_bnp",
+     "nom": "NT-proBNP ou BNP",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__nt_probnp_ou_bnp-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2021), un NT-proBNP inférieur à 125 ng/l hors contexte aigu rend une insuffisance cardiaque peu probable, ce qui oriente la suite du bilan.",
+        "pourquoiFaux": "La troponine et la CK-MB cherchent une nécrose aiguë, et la digoxinémie surveille un traitement."
+       },
+       "sources": [
+        "ESC, insuffisance cardiaque (McDonagh et al., 2021)",
+        "Vivaldo et al., Rev Med Suisse 2021"
+       ],
+       "casClinique": "Une femme de 68 ans consulte son médecin de famille à Lucerne pour une dyspnée d'effort depuis trois mois, sans signe de gravité.",
+       "options": [
+        "NT-proBNP",
+        "Troponine haute sensibilité",
+        "CK-MB",
+        "Digoxinémie"
+       ],
+       "bonneReponse": "NT-proBNP",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "coeur_et_pericarde__nt_probnp_ou_bnp-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2021) et Vivaldo et al. (2021), un NT-proBNP inférieur à 125 ng/l hors contexte aigu exclut avec une bonne valeur prédictive négative une insuffisance cardiaque.",
+        "pourquoiFaux": "Demander d'emblée une échocardiographie n'est pas nécessaire sous ce seuil, sauf forte suspicion clinique."
+       },
+       "sources": [
+        "ESC, insuffisance cardiaque (McDonagh et al., 2021)",
+        "Vivaldo et al., Rev Med Suisse 2021"
+       ],
+       "resultat": "NT-proBNP de 90 ng/l chez un patient dyspnéique en ambulatoire, sans contexte aigu.",
+       "decision": "Une insuffisance cardiaque est peu probable : chercher une autre cause de dyspnée."
+      },
+      {
+       "id": "coeur_et_pericarde__nt_probnp_ou_bnp-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2021), l'obésité diminue les concentrations de peptides natriurétiques, ce qui réduit leur valeur d'exclusion.",
+        "pourquoiFaux": "L'âge et l'insuffisance rénale élèvent les peptides natriurétiques ; l'obésité, au contraire, les abaisse."
+       },
+       "sources": [
+        "ESC, insuffisance cardiaque (McDonagh et al., 2021)"
+       ],
+       "erreurFrequente": "Exclure une insuffisance cardiaque chez un patient obèse sur un NT-proBNP bas.",
+       "consequence": "On méconnaît une insuffisance cardiaque, car l'obésité abaisse les peptides natriurétiques.",
+       "bonneConduite": "Garder une échocardiographie si la clinique reste évocatrice chez un patient obèse."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__ck_mb",
+     "nom": "CK-MB (réinfarctus)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__ck_mb-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La demi-vie courte de la CK-MB permet de voir une nouvelle hausse quand la troponine reste durablement élevée ; selon la quatrième définition universelle (2018), elle reste une alternative quand la troponine n'est pas disponible.",
+        "pourquoiFaux": "Le NT-proBNP explore l'insuffisance cardiaque, le bilan lipidique le risque à long terme et l'ionogramme les électrolytes."
+       },
+       "sources": [
+        "Quatrième définition universelle de l'infarctus (Thygesen et al., 2018)"
+       ],
+       "casClinique": "Un homme de 70 ans, au troisième jour d'un infarctus, refait une douleur thoracique ; sa troponine reste élevée depuis l'admission et le laboratoire ne fait pas de troponine en série rapprochée.",
+       "options": [
+        "CK-MB",
+        "NT-proBNP",
+        "Bilan lipidique",
+        "Ionogramme"
+       ],
+       "bonneReponse": "CK-MB",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "coeur_et_pericarde__ck_mb-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une troponine normale et une CK-MB proportionnellement basse orientent vers une origine musculaire squelettique.",
+        "pourquoiFaux": "Conclure à une nécrose myocardique sur la seule CK totale ignore la troponine, plus spécifique du myocarde."
+       },
+       "sources": [
+        "Quatrième définition universelle de l'infarctus (Thygesen et al., 2018)"
+       ],
+       "resultat": "CK totale très élevée avec une CK-MB proportionnellement basse et une troponine normale, après un marathon.",
+       "decision": "Retenir une atteinte musculaire squelettique et non un infarctus."
+      },
+      {
+       "id": "coeur_et_pericarde__ck_mb-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la quatrième définition universelle (2018), la troponine est le biomarqueur recommandé ; la CK-MB ne la remplace que si elle n'est pas disponible.",
+        "pourquoiFaux": "La CK-MB est moins sensible et moins spécifique que la troponine."
+       },
+       "sources": [
+        "Quatrième définition universelle de l'infarctus (Thygesen et al., 2018)"
+       ],
+       "erreurFrequente": "Utiliser la CK-MB à la place de la troponine haute sensibilité pour exclure un infarctus aux urgences.",
+       "consequence": "On perd en sensibilité et on risque de méconnaître un petit infarctus.",
+       "bonneConduite": "Utiliser la troponine haute sensibilité comme biomarqueur de première intention."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__hemocultures",
+     "nom": "Hémocultures (endocardite, critères de Duke)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__hemocultures-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2023), on prélève trois paires d'hémocultures, à 30 minutes d'intervalle, avant tout antibiotique devant une suspicion d'endocardite.",
+        "pourquoiFaux": "La CRP ne donne pas le germe, le PET ne se fait pas en première intention, et la coronarographie n'a pas sa place ici."
+       },
+       "sources": [
+        "ESC, endocardite (Delgado et al., 2023)"
+       ],
+       "casClinique": "Une femme de 45 ans, toxicomane, présente une fièvre à 39,5 °C et un nouveau souffle d'insuffisance tricuspide à Zurich.",
+       "options": [
+        "Trois paires d'hémocultures avant antibiotique",
+        "CRP isolée",
+        "PET au FDG d'emblée",
+        "Coronarographie"
+       ],
+       "bonneReponse": "Trois paires d'hémocultures avant antibiotique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "coeur_et_pericarde__hemocultures-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2023), Staphylococcus aureus sur deux hémocultures séparées est un critère majeur, qui impose une imagerie valvulaire.",
+        "pourquoiFaux": "Considérer ce germe comme une contamination est dangereux, car Staphylococcus aureus n'est presque jamais un contaminant."
+       },
+       "sources": [
+        "ESC, endocardite (Delgado et al., 2023)"
+       ],
+       "resultat": "Staphylococcus aureus dans deux paires d'hémocultures séparées chez un patient porteur d'une valve mécanique.",
+       "decision": "Retenir un critère majeur d'endocardite et faire une échographie transœsophagienne."
+      },
+      {
+       "id": "coeur_et_pericarde__hemocultures-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2023), une antibiothérapie préalable est la cause principale d'endocardite à hémocultures négatives.",
+        "pourquoiFaux": "Retarder les prélèvements après la première dose n'apporte rien et rend la documentation microbiologique difficile."
+       },
+       "sources": [
+        "ESC, endocardite (Delgado et al., 2023)"
+       ],
+       "erreurFrequente": "Commencer l'antibiotique avant les hémocultures chez un patient stable suspect d'endocardite.",
+       "consequence": "Les hémocultures restent négatives et on perd le germe qui guide le traitement.",
+       "bonneConduite": "Prélever les hémocultures avant l'antibiotique chez le patient stable."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__bilan_lipidique_hba1c_lp",
+     "nom": "Bilan lipidique, HbA1c, Lp(a)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__bilan_lipidique_hba1c_lp-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Le bilan lipidique fixe la cible de LDL selon le risque, et la Lp(a) précise le risque en cas d'antécédent familial précoce, selon le guide medix (2025).",
+        "pourquoiFaux": "La troponine et la CK-MB cherchent une nécrose aiguë, et les hémocultures une bactériémie."
+       },
+       "sources": [
+        "Guide medix, dyslipidémie (février 2025)"
+       ],
+       "casClinique": "Un homme de 48 ans, fumeur, consulte à Coire pour un bilan de prévention ; son père a fait un infarctus à 50 ans.",
+       "options": [
+        "Bilan lipidique avec Lp(a)",
+        "Troponine haute sensibilité",
+        "CK-MB",
+        "Hémocultures"
+       ],
+       "bonneReponse": "Bilan lipidique avec Lp(a)",
+       "visee": "etiologique"
+      },
+      {
+       "id": "coeur_et_pericarde__bilan_lipidique_hba1c_lp-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon le guide medix (2025), la cible de LDL d'un patient à très haut risque est inférieure à 1,4 mmol/l ; à 2,4 mmol/l, elle n'est pas atteinte.",
+        "pourquoiFaux": "Garder le traitement inchangé laisse le patient au-dessus de sa cible ; une cible de moins de 3 mmol/l ne vaut que pour un risque faible."
+       },
+       "sources": [
+        "Guide medix, dyslipidémie (février 2025)"
+       ],
+       "resultat": "LDL à 2,4 mmol/l six mois après un infarctus, sous statine à dose maximale.",
+       "decision": "Renforcer le traitement hypolipémiant pour atteindre la cible de moins de 1,4 mmol/l."
+      },
+      {
+       "id": "coeur_et_pericarde__bilan_lipidique_hba1c_lp-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon le guide medix (2025), au-delà de 4,5 mmol/l de triglycérides, la formule de Friedewald devient fausse.",
+        "pourquoiFaux": "Corriger le traitement sur un chiffre faux expose à un sous-traitement ou à un surtraitement."
+       },
+       "sources": [
+        "Guide medix, dyslipidémie (février 2025)"
+       ],
+       "erreurFrequente": "Interpréter un LDL calculé par la formule de Friedewald avec des triglycérides à 6 mmol/l.",
+       "consequence": "On obtient un LDL faux et on adapte mal le traitement.",
+       "bonneConduite": "Contrôler à jeun ou demander une autre méthode, comme la formule de Sampson."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__ionogramme",
+     "nom": "Ionogramme (potassium, magnésium)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__ionogramme-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Le diurétique peut abaisser le potassium et le magnésium, ce qui favorise les arythmies ventriculaires selon l'ERC (2021).",
+        "pourquoiFaux": "Le bilan lipidique, la CK-MB et les hémocultures ne cherchent pas une cause électrolytique d'arythmie."
+       },
+       "sources": [
+        "ERC, circonstances particulières (Lott et al., 2021)"
+       ],
+       "casClinique": "Une femme de 76 ans sous diurétique de l'anse présente des palpitations et des extrasystoles ventriculaires à Saint-Gall.",
+       "options": [
+        "Ionogramme avec magnésium",
+        "Bilan lipidique",
+        "CK-MB",
+        "Hémocultures"
+       ],
+       "bonneReponse": "Ionogramme avec magnésium",
+       "visee": "etiologique"
+      },
+      {
+       "id": "coeur_et_pericarde__ionogramme-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERC (2021), un potassium de 6,5 mmol/l ou plus définit une hyperkaliémie sévère, et les modifications de l'ECG imposent un traitement immédiat.",
+        "pourquoiFaux": "Recontrôler simplement le lendemain expose à une arythmie mortelle, car l'ECG est déjà modifié."
+       },
+       "sources": [
+        "ERC, circonstances particulières (Lott et al., 2021)"
+       ],
+       "resultat": "Potassium à 6,8 mmol/l avec des ondes T pointues sur l'ECG.",
+       "decision": "Traiter en urgence l'hyperkaliémie sévère sous monitorage."
+      },
+      {
+       "id": "coeur_et_pericarde__ionogramme-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "L'hémolyse libère le potassium des globules rouges et élève faussement le résultat.",
+        "pourquoiFaux": "Ignorer complètement le résultat serait aussi une erreur : on le contrôle rapidement."
+       },
+       "sources": [
+        "ERC, circonstances particulières (Lott et al., 2021)"
+       ],
+       "erreurFrequente": "Traiter une hyperkaliémie à 6,2 mmol/l sur un prélèvement hémolysé, avec un ECG normal.",
+       "consequence": "On donne un traitement hypokaliémiant à un patient dont le potassium réel est normal.",
+       "bonneConduite": "Refaire le prélèvement sans garrot prolongé avant de traiter, en gardant l'ECG pour juger l'urgence."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__dosages_medicamenteux",
+     "nom": "Dosages médicamenteux (digoxine)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__dosages_medicamenteux-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La baisse de la fonction rénale accumule la digoxine ; la digoxinémie confirme l'intoxication suspectée sur les signes digestifs, visuels et la bradycardie.",
+        "pourquoiFaux": "Le bilan lipidique, les hémocultures et la CK-MB n'explorent pas une intoxication médicamenteuse."
+       },
+       "sources": [
+        "ESC, insuffisance cardiaque (McDonagh et al., 2021)"
+       ],
+       "casClinique": "Une femme de 84 ans sous digoxine pour une fibrillation auriculaire présente des nausées, une vision jaune et une bradycardie, avec une créatinine qui a doublé.",
+       "options": [
+        "Digoxinémie",
+        "Bilan lipidique",
+        "Hémocultures",
+        "CK-MB"
+       ],
+       "bonneReponse": "Digoxinémie",
+       "visee": "complications"
+      },
+      {
+       "id": "coeur_et_pericarde__dosages_medicamenteux-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2021), la digoxinémie doit rester sous 1,2 µg/l dans l'insuffisance cardiaque ; 2,1 µg/l avec une bradycardie traduit une toxicité, aggravée par l'hypokaliémie.",
+        "pourquoiFaux": "Poursuivre le traitement en l'état expose à un bloc ou à une arythmie ventriculaire."
+       },
+       "sources": [
+        "ESC, insuffisance cardiaque (McDonagh et al., 2021)"
+       ],
+       "resultat": "Digoxinémie à 2,1 µg/l, prélevée 10 heures après la prise, chez une patiente bradycarde avec hypokaliémie.",
+       "decision": "Suspendre la digoxine, corriger le potassium et surveiller le rythme."
+      },
+      {
+       "id": "coeur_et_pericarde__dosages_medicamenteux-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Pendant la phase de distribution, la concentration sanguine ne reflète pas encore la concentration tissulaire.",
+        "pourquoiFaux": "Un prélèvement trop précoce donne une valeur haute sans valeur clinique."
+       },
+       "sources": [
+        "ESC, insuffisance cardiaque (McDonagh et al., 2021)"
+       ],
+       "erreurFrequente": "Interpréter une digoxinémie prélevée deux heures après la prise.",
+       "consequence": "On surestime la concentration et on arrête à tort le médicament.",
+       "bonneConduite": "Prélever à distance de la prise, idéalement juste avant la dose suivante, et noter l'heure de la dernière prise."
+      }
+     ]
+    },
+    {
+     "ref": "coeur_et_pericarde__liquide_pericardique",
+     "nom": "Liquide péricardique (cellules, culture, cytologie)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "coeur_et_pericarde__liquide_pericardique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESC (2025), on ponctionne pour le diagnostic quand une tuberculose est suspectée et non confirmée ; une ADA élevée l'oriente.",
+        "pourquoiFaux": "La troponine mesure une atteinte myocardique, le tilt-test explore une syncope et le bilan lipidique le risque vasculaire."
+       },
+       "sources": [
+        "ESC, myocardites et péricardites (2025)",
+        "Tuon et al., ADA et péricardite tuberculeuse, méta-analyse (2006)"
+       ],
+       "casClinique": "Un homme de 34 ans, originaire d'un pays de forte endémie tuberculeuse, présente un épanchement péricardique abondant persistant malgré le traitement anti-inflammatoire.",
+       "options": [
+        "Analyse du liquide péricardique avec ADA",
+        "Troponine haute sensibilité",
+        "Tilt-test",
+        "Bilan lipidique"
+       ],
+       "bonneReponse": "Analyse du liquide péricardique avec ADA",
+       "visee": "etiologique"
+      },
+      {
+       "id": "coeur_et_pericarde__liquide_pericardique-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon la méta-analyse de Tuon et al. (2006), une ADA supérieure à 40 U/l oriente fortement vers une tuberculose péricardique.",
+        "pourquoiFaux": "Attendre la culture seule retarde le traitement de plusieurs semaines, car les mycobactéries poussent lentement."
+       },
+       "sources": [
+        "Tuon et al., ADA et péricardite tuberculeuse, méta-analyse (2006)",
+        "ESC, myocardites et péricardites (2025)"
+       ],
+       "resultat": "ADA à 65 U/l dans un liquide péricardique lymphocytaire.",
+       "decision": "Retenir une péricardite tuberculeuse probable et discuter le traitement antituberculeux."
+      },
+      {
+       "id": "coeur_et_pericarde__liquide_pericardique-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un liquide non informatif n'exclut ni une infection ni un cancer, car la cytologie manque une partie des épanchements malins.",
+        "pourquoiFaux": "Une seule cytologie négative ne suffit pas à rassurer."
+       },
+       "sources": [
+        "ESC, myocardites et péricardites (2025)"
+       ],
+       "erreurFrequente": "Exclure un cancer sur une cytologie péricardique négative.",
+       "consequence": "On méconnaît un épanchement néoplasique et on retarde le traitement oncologique.",
+       "bonneConduite": "Interpréter le résultat avec l'imagerie et la clinique, et répéter l'analyse ou faire une biopsie si la suspicion persiste."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ECG": "Électrocardiogramme : enregistrement de l'activité électrique du cœur.",
+    "NT-proBNP": "Fragment N-terminal du précurseur du BNP, plus stable que le BNP.",
+    "BNP": "Peptide natriurétique de type B, sécrété par les ventricules sous l'effet de l'étirement.",
+    "ESC": "Société européenne de cardiologie, qui publie les recommandations européennes de pratique.",
+    "PET": "Tomographie par émission de positons, imagerie de médecine nucléaire du métabolisme.",
+    "FDG": "Fluorodésoxyglucose marqué au fluor 18, traceur du métabolisme du glucose.",
+    "LDL": "Cholestérol des lipoprotéines de basse densité, cible principale du traitement hypolipémiant.",
+    "HbA1c": "Hémoglobine glyquée, reflet de la glycémie des semaines précédentes.",
+    "Lp(a)": "Lipoprotéine (a), particule lipidique surtout déterminée génétiquement, qui augmente le risque d'athérosclérose.",
+    "CK-MB": "Isoforme MB de la créatine kinase, enzyme plus abondante dans le myocarde que dans le muscle squelettique.",
+    "ST": "Segment ST de l'électrocardiogramme, dont le sus-décalage ou le sous-décalage oriente vers une ischémie aiguë.",
+    "MB": "Isoforme de la créatine kinase propre au myocarde (M pour muscle, B pour cerveau).",
+    "ERC": "Conseil européen de réanimation (European Resuscitation Council).",
+    "ADA": "Adénosine désaminase, enzyme des lymphocytes dosée dans les épanchements.",
+    "CRP": "Protéine C réactive, marqueur de l'inflammation.",
+    "CK": "Créatine kinase, enzyme musculaire."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Biologie",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
