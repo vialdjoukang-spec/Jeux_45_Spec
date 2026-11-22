@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-22 23:11
 
-40 fichier(s) : 36 🟩 intégrables · 4 🟧 à compléter · 0 🟥 refusés.
+43 fichier(s) : 39 🟩 intégrables · 4 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -35,6 +35,17 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/02_Ongles_et_cheveux/2_Pratique/P08-02-PR_Examens_Ongles_et_cheveux_6-examens_PRATIQUE_production_XAi.json`
 - 🟩 `ongles_et_cheveux.json` : remplissage 100 % (12/12)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/03_Plaies_ulceres_et_escarres/1_Theorie/P08-03_Examens_Plaies_ulceres_et_escarres_7-examens_production_XAi.json`
+- 🟩 `plaies_ulceres_et_escarres.json` : remplissage 87 % (130/149)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/03_Plaies_ulceres_et_escarres/2_Pratique/P08-03-PR_Examens_Plaies_ulceres_et_escarres_7-examens_PRATIQUE_production_XAi.json`
+- 🟩 `plaies_ulceres_et_escarres.json` : remplissage 100 % (14/14)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/01_Sang_et_hemostase/1_Theorie/P09-01-BIO_Biologie_Sang_et_hemostase_11-examens_production_XAi.json`
+- 🟩 `sang_et_hemostase.json` : remplissage 92 % (222/242)
+- aVerifier déclarés : 12
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/01_Peau/1_Theorie/P08-01-BIO_Biologie_Peau_4-examens_production_XAi.json`
 - 🟩 `peau.json` : remplissage 91 % (80/88)
