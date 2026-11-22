@@ -1,0 +1,652 @@
+{
+ "_lot": {
+  "tache": "P09-09-PR",
+  "titre": "Pratique — Examens de l'organe Sommeil et vigilance (7 examens : 7 explorations)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/9_systemes_transversaux/sommeil_et_vigilance.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/9_systemes_transversaux/sommeil_et_vigilance.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "sommeil_et_vigilance__polysomnographie",
+     "nom": "Polysomnographie",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "sommeil_et_vigilance__polysomnographie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la SSSSC (2020), l’enfant doit être enregistré dans un centre du sommeil pédiatrique ou rompu à la pédiatrie, et l’oxymétrie n’est qu’un outil de dépistage.",
+        "pourquoiFaux": "L’oxymétrie a peu de valeur pronostique chez l’enfant, l’échelle d’Epworth mesure une somnolence déclarée de l’adulte, et l’actimétrie n’enregistre pas la respiration."
+       },
+       "sources": [
+        "SSSSC, recommandations apnées du sommeil (2020)"
+       ],
+       "casClinique": "Un garçon de 5 ans de Fribourg ronfle chaque nuit, fait des pauses respiratoires constatées par ses parents et a de grosses amygdales.",
+       "options": [
+        "Polysomnographie en centre pédiatrique",
+        "Oxymétrie nocturne à domicile",
+        "Échelle d’Epworth",
+        "Actimétrie de deux semaines"
+       ],
+       "bonneReponse": "Polysomnographie en centre pédiatrique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "sommeil_et_vigilance__polysomnographie-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La SSSSC (2020) définit le syndrome par un IAH supérieur à 5 par heure associé à une somnolence ; un IAH de 4 sans éveils respiratoires ne l’explique pas.",
+        "pourquoiFaux": "Prescrire une CPAP sur un tracé normal n’a pas de base, et répéter le même examen sans nouvel argument n’apporte rien."
+       },
+       "sources": [
+        "SSSSC, recommandations apnées du sommeil (2020)"
+       ],
+       "resultat": "Polysomnographie d’un homme de 50 ans somnolent : IAH à 4 par heure, sans désaturation ni éveils respiratoires.",
+       "decision": "On ne retient pas de syndrome d’apnées et l’on cherche une autre cause de somnolence."
+      },
+      {
+       "id": "sommeil_et_vigilance__polysomnographie-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’AASM (Berry et al., 2012), une chute du flux d’au moins 90 % pendant 10 secondes ou plus, avec un effort inspiratoire persistant, définit l’apnée obstructive.",
+        "pourquoiFaux": "Dans une apnée centrale, les sangles sont plates elles aussi, et une hypopnée garde un flux réduit d’au moins 30 % mais non aboli."
+       },
+       "sources": [
+        "Berry et al., AASM, règles de codage (2012)"
+       ],
+       "consigne": "Sur cette époque de polysomnographie de 2 minutes, nomme l’événement respiratoire.",
+       "aspectRecherche": "Apnée obstructive",
+       "reponse": "C’est une apnée obstructive : le flux est aboli alors que les sangles thoracique et abdominale continuent de bouger.",
+       "imageOuTraceAttendu": "Tracé de polysomnographie montrant un flux nasal plat pendant 25 secondes, des mouvements thoraciques et abdominaux persistants en opposition de phase, puis une désaturation de 6 % et un éveil EEG à la reprise du flux."
+      },
+      {
+       "id": "sommeil_et_vigilance__polysomnographie-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Littner et al. (AASM, 2005) placent la polysomnographie la nuit précédant les tests pour vérifier un sommeil suffisant et exclure un autre trouble.",
+        "pourquoiFaux": "Une latence courte n’est pas spécifique de la narcolepsie : un manque de sommeil ou des apnées la produisent aussi."
+       },
+       "sources": [
+        "Littner et al., AASM, MSLT et MWT (2005)",
+        "Smith et al., AASM, actigraphie (2018)"
+       ],
+       "erreurFrequente": "Faire des tests itératifs de latence d’endormissement sans polysomnographie la nuit précédente.",
+       "consequence": "Des apnées ou un sommeil insuffisant peuvent raccourcir les latences et faire conclure à tort à une narcolepsie.",
+       "bonneConduite": "On fait une polysomnographie la nuit précédant les tests, après une à deux semaines d’agenda et d’actimétrie."
+      }
+     ]
+    },
+    {
+     "ref": "sommeil_et_vigilance__polygraphie_ventilatoire",
+     "nom": "Polygraphie ventilatoire",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "sommeil_et_vigilance__polygraphie_ventilatoire-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon la SSSSC (2020), la polygraphie respiratoire, lue manuellement, confirme des apnées-hypopnées lorsque la clinique est évocatrice.",
+        "pourquoiFaux": "Les tests itératifs explorent une hypersomnie centrale, et l’actimétrie comme l’agenda n’enregistrent pas la respiration."
+       },
+       "sources": [
+        "SSSSC, recommandations apnées du sommeil (2020)"
+       ],
+       "casClinique": "Un chauffeur de 56 ans de Sion, obèse et hypertendu, ronfle fort, s’éveille en suffoquant et a un score d’Epworth de 13.",
+       "options": [
+        "Polygraphie ventilatoire",
+        "Tests itératifs de latence d’endormissement",
+        "Actimétrie",
+        "Agenda du sommeil"
+       ],
+       "bonneReponse": "Polygraphie ventilatoire",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "sommeil_et_vigilance__polygraphie_ventilatoire-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La SSSSC (2020) exige au moins 4 heures de tracé interprétable et recommande une polysomnographie en cas de résultat incertain.",
+        "pourquoiFaux": "Conclure sur 3 heures sous-estime ou surestime l’IAH, et ignorer une patiente très symptomatique laisserait passer un syndrome."
+       },
+       "sources": [
+        "SSSSC, recommandations apnées du sommeil (2020)"
+       ],
+       "resultat": "Polygraphie interprétable pendant 3 heures seulement, IAH à 7 par heure, chez une patiente très symptomatique.",
+       "decision": "On complète par une polysomnographie, car le tracé est trop court pour conclure."
+      },
+      {
+       "id": "sommeil_et_vigilance__polygraphie_ventilatoire-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’AASM (Berry et al., 2012), l’absence d’effort inspiratoire pendant l’arrêt du flux définit l’apnée centrale.",
+        "pourquoiFaux": "Une apnée obstructive garde des efforts thoraciques et abdominaux, et un artefact de capteur ne s’accompagne pas de désaturations répétées."
+       },
+       "sources": [
+        "Berry et al., AASM, règles de codage (2012)",
+        "SSSSC, recommandations apnées du sommeil (2020)"
+       ],
+       "consigne": "Sur ce tracé de polygraphie, nomme le type d’apnées répétées.",
+       "aspectRecherche": "Apnées centrales",
+       "reponse": "Ce sont des apnées centrales : le flux et les efforts thoraciques et abdominaux disparaissent ensemble.",
+       "imageOuTraceAttendu": "Tracé de polygraphie de 5 minutes montrant des arrêts du flux nasal de 15 à 20 secondes, avec des sangles thoracique et abdominale plates au même moment, suivis de désaturations et d’une reprise respiratoire en crescendo."
+      },
+      {
+       "id": "sommeil_et_vigilance__polygraphie_ventilatoire-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la SSSSC (2020), l’oxymétrie nocturne est exclusivement un outil de dépistage, et le diagnostic exige un enregistrement nocturne revu manuellement.",
+        "pourquoiFaux": "Une courbe de saturation ne montre ni le flux ni les efforts respiratoires, et elle a peu de valeur pronostique."
+       },
+       "sources": [
+        "SSSSC, recommandations apnées du sommeil (2020)"
+       ],
+       "erreurFrequente": "Poser le diagnostic d’apnées du sommeil sur une simple oxymétrie nocturne.",
+       "consequence": "On traite par excès ou l’on rassure à tort, car l’oxymétrie ne distingue ni le mécanisme ni la sévérité.",
+       "bonneConduite": "On confirme par une polygraphie ou une polysomnographie revue manuellement."
+      }
+     ]
+    },
+    {
+     "ref": "sommeil_et_vigilance__tests_iteratifs_de_latence_d_endormissem",
+     "nom": "Tests itératifs de latence d'endormissement (TILE)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "sommeil_et_vigilance__tests_iteratifs_de_latence_d_endormissem-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Littner et al. (AASM, 2005), les tests itératifs, après une polysomnographie, apportent l’argument objectif d’une narcolepsie suspectée cliniquement.",
+        "pourquoiFaux": "Le test de maintien de l’éveil juge la vigilance, la polygraphie cherche des apnées, et l’échelle d’Epworth ne pose aucun diagnostic."
+       },
+       "sources": [
+        "Littner et al., AASM, MSLT et MWT (2005)"
+       ],
+       "casClinique": "Une étudiante de 19 ans de Lausanne s’endort en cours malgré 8 heures de sommeil et perd le tonus des jambes lorsqu’elle rit.",
+       "options": [
+        "Tests itératifs de latence d’endormissement",
+        "Test de maintien de l’éveil",
+        "Polygraphie ventilatoire",
+        "Échelle d’Epworth seule"
+       ],
+       "bonneReponse": "Tests itératifs de latence d’endormissement",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "sommeil_et_vigilance__tests_iteratifs_de_latence_d_endormissem-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l’ICSD-3 de l’AASM, une latence moyenne de 8 minutes ou moins avec au moins deux SOREMP soutient le diagnostic de narcolepsie.",
+        "pourquoiFaux": "Une latence de 4 minutes n’est pas normale, et le critère exige deux SOREMP, non cinq."
+       },
+       "sources": [
+        "AASM, ICSD-3, critères de la narcolepsie",
+        "Littner et al., AASM, MSLT et MWT (2005)"
+       ],
+       "resultat": "Latence moyenne d’endormissement de 4 minutes avec trois endormissements en sommeil paradoxal, après une nuit normale.",
+       "decision": "Le critère polysomnographique de narcolepsie est rempli ; on l’intègre à la clinique pour poser le diagnostic."
+      },
+      {
+       "id": "sommeil_et_vigilance__tests_iteratifs_de_latence_d_endormissem-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l’ICSD-3 de l’AASM, une latence moyenne de 8 minutes ou moins et au moins deux SOREMP définissent le profil de narcolepsie.",
+        "pourquoiFaux": "Une hypersomnie idiopathique a une latence courte sans SOREMP, et un sujet témoin s’endort en moyenne en 10,5 minutes environ (Littner et al., AASM, 2005)."
+       },
+       "sources": [
+        "AASM, ICSD-3, critères de la narcolepsie",
+        "Littner et al., AASM, MSLT et MWT (2005)"
+       ],
+       "consigne": "Sur ce compte rendu des cinq siestes, nomme la conclusion.",
+       "aspectRecherche": "Profil de narcolepsie",
+       "reponse": "Latence moyenne courte et plusieurs SOREMP : c’est un profil de narcolepsie.",
+       "imageOuTraceAttendu": "Tableau de cinq siestes à deux heures d’intervalle, avec des latences de 3, 5, 2, 4 et 6 minutes et une entrée en sommeil paradoxal lors des siestes 1, 3 et 4."
+      },
+      {
+       "id": "sommeil_et_vigilance__tests_iteratifs_de_latence_d_endormissem-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Littner et al. (AASM, 2005) demandent de réaliser les tests avant les stimulants et les médicaments qui suppriment le sommeil paradoxal, et Smith et al. (AASM, 2018) placent l’actimétrie avant les tests.",
+        "pourquoiFaux": "Les SOREMP ne sont pas spécifiques : un manque de sommeil ou un sevrage en produisent aussi."
+       },
+       "sources": [
+        "Littner et al., AASM, MSLT et MWT (2005)",
+        "Smith et al., AASM, actigraphie (2018)"
+       ],
+       "erreurFrequente": "Faire les tests itératifs chez un patient qui dort 5 heures par nuit et prend un antidépresseur.",
+       "consequence": "Le manque de sommeil et l’arrêt brutal d’un traitement qui supprime le sommeil paradoxal produisent de faux SOREMP.",
+       "bonneConduite": "On vérifie un sommeil suffisant par agenda et actimétrie et l’on gère les traitements avant les tests."
+      }
+     ]
+    },
+    {
+     "ref": "sommeil_et_vigilance__test_de_maintien_de_l_eveil",
+     "nom": "Test de maintien de l'éveil",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "sommeil_et_vigilance__test_de_maintien_de_l_eveil-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la SSSSC (2017), le test de maintien de l’éveil, réalisé sous traitement optimal, est l’examen objectif de l’aptitude à la conduite.",
+        "pourquoiFaux": "Les tests itératifs mesurent la tendance à s’endormir, l’échelle d’Epworth seule ne tranche pas, et l’oxymétrie ne mesure pas la vigilance."
+       },
+       "sources": [
+        "SSSSC, aptitude à la conduite et somnolence (2017)"
+       ],
+       "casClinique": "Un chauffeur de bus de 52 ans de Berne, traité par CPAP pour des apnées sévères, doit prouver qu’il peut reprendre le volant.",
+       "options": [
+        "Test de maintien de l’éveil",
+        "Tests itératifs de latence d’endormissement",
+        "Échelle d’Epworth seule",
+        "Oxymétrie nocturne"
+       ],
+       "bonneReponse": "Test de maintien de l’éveil",
+       "visee": "suivi"
+      },
+      {
+       "id": "sommeil_et_vigilance__test_de_maintien_de_l_eveil-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon la SSSSC (2017), un chauffeur professionnel ne devrait s’endormir à aucun essai avant 34 minutes, et un résultat limite impose de répéter le test après optimisation.",
+        "pourquoiFaux": "Une moyenne élevée ne compense pas un essai court, et 28 minutes resterait limite même pour un permis privé."
+       },
+       "sources": [
+        "SSSSC, aptitude à la conduite et somnolence (2017)"
+       ],
+       "resultat": "Chauffeur professionnel : latences de 40, 40, 28 et 40 minutes aux quatre essais.",
+       "decision": "Le résultat est insuffisant pour un professionnel ; on optimise le traitement et l’on répète le test."
+      },
+      {
+       "id": "sommeil_et_vigilance__test_de_maintien_de_l_eveil-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la SSSSC (2017), une latence de 20 à 33 minutes est limite pour la conduite privée et une latence de 34 minutes ou plus est sûre.",
+        "pourquoiFaux": "Le résultat n’est pas sûr puisqu’un essai est inférieur à 34 minutes, et il n’est pas défavorable puisqu’aucun n’est inférieur à 20 minutes."
+       },
+       "sources": [
+        "SSSSC, aptitude à la conduite et somnolence (2017)"
+       ],
+       "consigne": "Sur ce résumé de test de maintien de l’éveil, nomme le résultat pour la conduite privée.",
+       "aspectRecherche": "Résultat limite",
+       "reponse": "Le résultat est limite, car l’essai le plus court se situe entre 20 et 33 minutes.",
+       "imageOuTraceAttendu": "Tableau de quatre essais de 40 minutes indiquant des latences d’endormissement de 40, 31, 40 et 38 minutes, sans microsommeil avant le premier endormissement."
+      },
+      {
+       "id": "sommeil_et_vigilance__test_de_maintien_de_l_eveil-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La SSSSC (2017) rappelle qu’un score bas n’exclut pas une somnolence pertinente au volant et retient le test de maintien de l’éveil pour objectiver la vigilance.",
+        "pourquoiFaux": "L’échelle mesure une somnolence déclarée, qui dépend de la perception du patient."
+       },
+       "sources": [
+        "SSSSC, aptitude à la conduite et somnolence (2017)"
+       ],
+       "erreurFrequente": "Juger l’aptitude à la conduite sur la seule échelle d’Epworth.",
+       "consequence": "Un score bas peut masquer une somnolence au volant, et un score élevé ne prouve pas l’inaptitude.",
+       "bonneConduite": "On intègre l’anamnèse, les accidents, le traitement et, au besoin, un test de maintien de l’éveil."
+      }
+     ]
+    },
+    {
+     "ref": "sommeil_et_vigilance__actimetrie",
+     "nom": "Actimétrie",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "sommeil_et_vigilance__actimetrie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon Smith et al. (AASM, 2018), l’actimétrie est suggérée pour évaluer un trouble du rythme circadien chez l’enfant et l’adulte.",
+        "pourquoiFaux": "La polysomnographie et la polygraphie étudient une seule nuit et la respiration, et le test de maintien de l’éveil juge la vigilance diurne."
+       },
+       "sources": [
+        "Smith et al., AASM, actigraphie (2018)"
+       ],
+       "casClinique": "Un adolescent de 16 ans de Genève ne s’endort pas avant 3 heures du matin et dort jusqu’à midi pendant les vacances.",
+       "options": [
+        "Actimétrie avec agenda du sommeil",
+        "Polysomnographie",
+        "Polygraphie ventilatoire",
+        "Test de maintien de l’éveil"
+       ],
+       "bonneReponse": "Actimétrie avec agenda du sommeil",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "sommeil_et_vigilance__actimetrie-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Smith et al. (AASM, 2018) décrivent des enregistrements de 72 heures à 14 jours et placent une à deux semaines d’actimétrie avant des tests itératifs.",
+        "pourquoiFaux": "Quatre jours atypiques ne reflètent pas le sommeil habituel et ne permettent pas d’exclure un manque de sommeil."
+       },
+       "sources": [
+        "Smith et al., AASM, actigraphie (2018)"
+       ],
+       "resultat": "Actimétrie de 4 jours seulement, sur une semaine de vacances, avant des tests itératifs prévus.",
+       "decision": "On prolonge l’enregistrement sur une à deux semaines de rythme habituel avant les tests."
+      },
+      {
+       "id": "sommeil_et_vigilance__actimetrie-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Smith et al. (AASM, 2018), l’actimétrie objective un décalage stable des horaires de sommeil, caractéristique d’un trouble du rythme circadien.",
+        "pourquoiFaux": "Une insomnie fragmente la nuit, et un rythme irrégulier montre des périodes de repos dispersées sur les 24 heures."
+       },
+       "sources": [
+        "Smith et al., AASM, actigraphie (2018)"
+       ],
+       "consigne": "Sur cet actogramme de 14 jours, nomme le profil.",
+       "aspectRecherche": "Retard de phase",
+       "reponse": "Le sommeil est stable mais décalé tard chaque nuit : c’est un retard de phase.",
+       "imageOuTraceAttendu": "Actogramme de 14 jours en double tracé montrant une période de repos commençant chaque nuit vers 3 heures et finissant vers 11 heures, de durée normale et régulière."
+      },
+      {
+       "id": "sommeil_et_vigilance__actimetrie-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Smith et al. (AASM, 2018) recommandent de ne pas utiliser l’actimétrie à la place de l’électromyographie pour ce diagnostic.",
+        "pourquoiFaux": "L’actimètre de poignet ne mesure pas l’activité des muscles des jambes."
+       },
+       "sources": [
+        "Smith et al., AASM, actigraphie (2018)",
+        "SSSSC, recommandations apnées du sommeil (2020)"
+       ],
+       "erreurFrequente": "Diagnostiquer des mouvements périodiques des jambes sur une actimétrie.",
+       "consequence": "On pose un diagnostic sans preuve et l’on prescrit un traitement inutile.",
+       "bonneConduite": "On objective les mouvements par l’électromyogramme des jambes lors d’une polysomnographie."
+      }
+     ]
+    },
+    {
+     "ref": "sommeil_et_vigilance__agenda_du_sommeil",
+     "nom": "Agenda du sommeil",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "sommeil_et_vigilance__agenda_du_sommeil-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon Smith et al. (AASM, 2018), l’enregistrement objectif n’est pas exigé en routine pour diagnostiquer une insomnie, et l’agenda documente le vécu du patient.",
+        "pourquoiFaux": "Sans signe d’apnées ni d’hypersomnie, la polysomnographie, la polygraphie et les tests itératifs ne sont pas indiqués d’emblée."
+       },
+       "sources": [
+        "Smith et al., AASM, actigraphie (2018)"
+       ],
+       "casClinique": "Une enseignante de 45 ans de Neuchâtel dit mal dormir depuis un an et se réveiller plusieurs fois par nuit, sans ronflement ni somnolence diurne.",
+       "options": [
+        "Agenda du sommeil",
+        "Polysomnographie",
+        "Polygraphie ventilatoire",
+        "Tests itératifs de latence d’endormissement"
+       ],
+       "bonneReponse": "Agenda du sommeil",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "sommeil_et_vigilance__agenda_du_sommeil-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un rattrapage marqué le week-end traduit un sommeil insuffisant en semaine ; Littner et al. (AASM, 2005) rappellent que le manque de sommeil fausse les tests de somnolence.",
+        "pourquoiFaux": "Faire d’emblée des tests itératifs produirait des latences courtes sans valeur, et le rattrapage n’évoque pas des apnées."
+       },
+       "sources": [
+        "Littner et al., AASM, MSLT et MWT (2005)",
+        "Smith et al., AASM, actigraphie (2018)"
+       ],
+       "resultat": "Agenda de deux semaines : 5 heures de sommeil en semaine et 10 heures le week-end, chez un patient somnolent.",
+       "decision": "On retient un manque de sommeil chronique et l’on allonge le temps de sommeil avant tout autre examen."
+      },
+      {
+       "id": "sommeil_et_vigilance__agenda_du_sommeil-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Une latence d’endormissement longue et des éveils prolongés, malgré des horaires réguliers, caractérisent l’insomnie, que l’agenda documente selon Smith et al. (AASM, 2018).",
+        "pourquoiFaux": "Un retard de phase décale tout le sommeil sans éveils prolongés, et un manque de sommeil montre des nuits courtes sans éveil au lit."
+       },
+       "sources": [
+        "Smith et al., AASM, actigraphie (2018)"
+       ],
+       "consigne": "Sur cet agenda de sommeil, nomme le profil dominant.",
+       "aspectRecherche": "Longs éveils au lit",
+       "reponse": "La patiente passe de longues périodes éveillée au lit : c’est un profil d’insomnie.",
+       "imageOuTraceAttendu": "Agenda de 14 jours en barres horizontales montrant un coucher à 22 heures, un endormissement vers minuit, deux éveils nocturnes de 45 minutes et un lever à 7 heures chaque jour."
+      },
+      {
+       "id": "sommeil_et_vigilance__agenda_du_sommeil-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La SSSSC (2020) exige un enregistrement nocturne revu manuellement pour diagnostiquer des apnées-hypopnées.",
+        "pourquoiFaux": "L’agenda dépend du souvenir du patient et n’enregistre ni la respiration ni la saturation."
+       },
+       "sources": [
+        "SSSSC, recommandations apnées du sommeil (2020)"
+       ],
+       "erreurFrequente": "Se contenter d’un agenda chez un patient qui ronfle et fait des pauses respiratoires.",
+       "consequence": "On méconnaît un syndrome d’apnées, avec son risque cardiovasculaire et d’accident.",
+       "bonneConduite": "On demande un enregistrement nocturne, polygraphie ou polysomnographie."
+      }
+     ]
+    },
+    {
+     "ref": "sommeil_et_vigilance__echelle_d_epworth",
+     "nom": "Échelle d'Epworth",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "sommeil_et_vigilance__echelle_d_epworth-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon la SSSSC (2020), l’échelle d’Epworth est brève, standardisée et quantifie la somnolence diurne déclarée.",
+        "pourquoiFaux": "La polysomnographie, le test de maintien de l’éveil et l’actimétrie sont des examens spécialisés, qui ne s’imposent pas pour une première quantification."
+       },
+       "sources": [
+        "SSSSC, recommandations apnées du sommeil (2020)",
+        "Johns, Sleep (1991)"
+       ],
+       "casClinique": "En consultation de médecine générale à Zurich, un homme de 48 ans se plaint de fatigue ; tu veux quantifier rapidement sa somnolence déclarée.",
+       "options": [
+        "Échelle d’Epworth",
+        "Polysomnographie",
+        "Test de maintien de l’éveil",
+        "Actimétrie"
+       ],
+       "bonneReponse": "Échelle d’Epworth",
+       "visee": "depistage"
+      },
+      {
+       "id": "sommeil_et_vigilance__echelle_d_epworth-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la SSSSC (2017), un score de 15 ou plus, non maîtrisé, doit faire adresser le patient à un centre accrédité.",
+        "pourquoiFaux": "Rassurer sur un score de 16 ignore le risque routier, et une simple répétition du questionnaire ne mesure pas la vigilance."
+       },
+       "sources": [
+        "SSSSC, aptitude à la conduite et somnolence (2017)"
+       ],
+       "resultat": "Score d’Epworth à 16 chez un patient apnéique dont la CPAP est mal tolérée.",
+       "decision": "On l’adresse à un centre accrédité pour évaluer l’aptitude à la conduite."
+      },
+      {
+       "id": "sommeil_et_vigilance__echelle_d_epworth-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon Johns (1991), on additionne les huit cotes de 0 à 3, soit 14 ici ; selon la SSSSC (2020), un score supérieur à 10 indique une somnolence diurne.",
+        "pourquoiFaux": "Le score maximal est de 24, non de 32, et un score de 14 n’atteint pas le seuil de 15 qui fait adresser le patient pour la conduite."
+       },
+       "sources": [
+        "Johns, Sleep (1991)",
+        "SSSSC, recommandations apnées du sommeil (2020)",
+        "SSSSC, aptitude à la conduite et somnolence (2017)"
+       ],
+       "consigne": "Sur ce questionnaire d’Epworth rempli, calcule le score et interprète-le.",
+       "aspectRecherche": "Score de 14",
+       "reponse": "Le score est de 14 sur 24 : il indique une somnolence diurne.",
+       "imageOuTraceAttendu": "Questionnaire d’Epworth à huit situations cotées de 0 à 3, avec les réponses 2, 2, 1, 3, 2, 1, 1 et 2."
+      },
+      {
+       "id": "sommeil_et_vigilance__echelle_d_epworth-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la SSSSC (2020), la somnolence est mal corrélée à l’IAH, et un score normal n’élimine pas un trouble du sommeil.",
+        "pourquoiFaux": "Le score mesure une somnolence déclarée et ne mesure pas les événements respiratoires."
+       },
+       "sources": [
+        "SSSSC, recommandations apnées du sommeil (2020)"
+       ],
+       "erreurFrequente": "Écarter des apnées du sommeil parce que le score d’Epworth est normal.",
+       "consequence": "On méconnaît un syndrome d’apnées peu somnolent mais à risque cardiovasculaire.",
+       "bonneConduite": "On décide de l’enregistrement nocturne sur la clinique et les comorbidités, quel que soit le score."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "EEG": "L’EEG, ou électroencéphalogramme, enregistre l’activité électrique du cerveau.",
+    "SSSSC": "La SSSSC, ou Swiss Society for Sleep Research, Sleep Medicine and Chronobiology, est la société suisse de recherche sur le sommeil, de médecine du sommeil et de chronobiologie.",
+    "TILE": "Les TILE, ou tests itératifs de latence d’endormissement, mesurent la vitesse d’endormissement et le passage en sommeil paradoxal lors de siestes diurnes.",
+    "AASM": "L’AASM, ou American Academy of Sleep Medicine, publie des paramètres de pratique et des recommandations sur les examens du sommeil.",
+    "IAH": "L’IAH, ou index d’apnées-hypopnées, compte les apnées et les hypopnées par heure de sommeil ou d’enregistrement.",
+    "CPAP": "La CPAP, ou pression positive continue, maintient les voies aériennes ouvertes pendant le sommeil par un masque.",
+    "MSLT": "Le MSLT, ou Multiple Sleep Latency Test, est le nom anglais des tests itératifs de latence d’endormissement.",
+    "MWT": "Le MWT, ou Maintenance of Wakefulness Test, est le nom anglais du test de maintien de l’éveil.",
+    "SOREMP": "Un SOREMP, ou endormissement en sommeil paradoxal, est une entrée en sommeil paradoxal dans les 15 minutes qui suivent l’endormissement.",
+    "ICSD-3": "L’ICSD-3 est la troisième classification internationale des troubles du sommeil, publiée par l’AASM."
+   }
+  }
+ }
+}
