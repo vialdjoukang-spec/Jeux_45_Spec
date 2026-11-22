@@ -48,7 +48,7 @@ def conserver(neuf, ancien):
     """Fusion conservatrice : le squelette régénéré garde toute valeur déjà remplie (lots fusionnés, audit)."""
     if isinstance(neuf, dict) and isinstance(ancien, dict):
         out = {k: (ancien[k] if k == "statut" and ancien.get(k) else conserver(v, ancien[k])) if k in ancien else v for k, v in neuf.items()}
-        out.update({k: v for k, v in ancien.items() if k not in neuf and v not in VIDE})
+        out.update({k: v for k, v in ancien.items() if k not in neuf})   # une clé ancienne, même vide, reste (pas de va-et-vient avec audit_fond)
         return out
     cle = lambda x: x.get("id") or x.get("ref") or x.get("nom") if isinstance(x, dict) else None
     if isinstance(neuf, list) and isinstance(ancien, list) and neuf and all(cle(x) for x in neuf):
@@ -224,7 +224,7 @@ ecrits.append(ecrire("tetrade/cardiovasculaire/anatomie3d.exemple_coeur.json", {
 
 # ---------- systèmes → organes (liste complète) ; organe déplié par espace ----------
 from systemes import SYSTEMES as SYS_O, VOLETS_ANATOMIE, VOLETS_PHYSIOLOGIE, PHYSIOLOGIE_POUMON
-from cardio import ORGANES as CV, PATHOS as CV_PATHOS, PALIERS, SEMIO as CV_SEMIO
+from systemes_rediges import SOURCES, PALIERS
 for sysn, orgs in SYS_O.items():
     ecrits.append(ecrire(f"tetrade/{slug(sysn)}/organes.json", {"_meta": {"systeme": sysn, "ordre": "haut → bas", "statut": "LISTE COMPLÈTE"},
         "organes": [{"organe": o, "ancre3D": a, "topo": t, "fichier": f"organes/{slug(o)}.json"} for o, a, t in orgs]}))
@@ -232,15 +232,16 @@ for sysn, orgs in SYS_O.items():
         rempli = {"Poumons (lobes, segments, acinus)": ("physiologie", PHYSIOLOGIE_POUMON)}.get(o)
         an = {v: [] for v in VOLETS_ANATOMIE}; ph = {v: [] for v in VOLETS_PHYSIOLOGIE}; pa = None
         if rempli and rempli[0] == "physiologie": ph = {v: [{"motCle": x[0], "texte": x[1], "fenetre": x[2]} for x in l] for v, l in rempli[1].items()}
-        if o in CV:   # cardiovasculaire : volets adaptés par type d'organe + pathologies en 4 paliers
+        S = SOURCES.get(sysn) if o in (SOURCES.get(sysn) or {}).get("organes", {}) else None
+        if S:   # système rédigé : volets adaptés par type d'organe + sémiologie + pathologies en 4 paliers
             rempli = True
-            an = {v: [{"motCle": k, "texte": t, "repere": r, "fenetre": "3d"} for k, t, r, _ in l] for v, l in CV[o]["anatomie"]}
-            ph = {v: [{"motCle": k, "texte": t, "retenir": r, "fenetre": f} for k, t, r, f in l] for v, l in CV[o]["physiologie"]}
-            pa = {PALIERS[c][0]: [{"nom": x["nom"], "bulle": x["bulle"]} for x in CV_PATHOS.get(o, []) if x["palier"] == c] for c in PALIERS}
-        ecrits.append(ecrire(f"tetrade/{slug(sysn)}/organes/{slug(o)}.json", {"_meta": {"systeme": sysn, "organe": o, "statut": ("RÉDIGÉ — à auditer" if o in CV else "EXEMPLE RÉEL") if rempli else "À REMPLIR",
+            if S["organes"][o]["anatomie"]: an = {v: [{"motCle": k, "texte": t, "repere": r, "fenetre": "3d"} for k, t, r, _ in l] for v, l in S["organes"][o]["anatomie"]}
+            if S["organes"][o]["physiologie"]: ph = {v: [{"motCle": k, "texte": t, "retenir": r, "fenetre": f} for k, t, r, f in l] for v, l in S["organes"][o]["physiologie"]}
+            pa = {PALIERS[c][0]: [{"nom": x["nom"], "bulle": x["bulle"]} for x in S["pathos"].get(o, []) if x["palier"] == c] for c in PALIERS}
+        ecrits.append(ecrire(f"tetrade/{slug(sysn)}/organes/{slug(o)}.json", {"_meta": {"systeme": sysn, "organe": o, "statut": ("RÉDIGÉ — à auditer" if S else "EXEMPLE RÉEL") if rempli else "À REMPLIR",
             "regles": ["La case garde un nom court ; le texte va en infobulle ; la courbe ou l'image 3D va en fenêtre.", "Chaque mot-clé d'anatomie ouvre une image 3D réelle (jamais de SVG).",
                        "Chaque mot-clé de physiologie ouvre une courbe calculée, un tracé ou un détail ; unités SI (kPa).", "Phrases verbales ; tout sigle figure au glossaire."]},
-            "organe": o, "ancre3D": a, "topo": t, "anatomie": an, "physiologie": ph, "semiologie": {t: sg for t, sg in CV_SEMIO.get(o, [])} if o in CV else None, "pathologies": pa, "bulle": CV[o]["bulle"] if o in CV else None, "glossaire": {}}))
+            "organe": o, "ancre3D": a, "topo": t, "anatomie": an, "physiologie": ph, "semiologie": {t: sg for t, sg in S["semio"].get(o, [])} if S else None, "pathologies": pa, "bulle": S["organes"][o]["bulle"] if S else None, "glossaire": {}}))
 
 # ---------- schémas de validation (un par famille de fichier) ----------
 SCH = {

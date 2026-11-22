@@ -5,7 +5,7 @@ Usage : python conception/outils/construire_config_tetrade.py"""
 import json, os, re, sys, unicodedata
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from systemes import SYSTEMES, PHYSIOLOGIE_POUMON, GLOSSAIRE
-from cardio import ORGANES as CV, VOLETS_BULLE as CV_VOLETS, PATHOS as CV_PATHOS, PALIERS, PALIER_BULLE, GLOSSAIRE_CV, SEMIO as CV_SEMIO, TEMPS_BULLE
+from systemes_rediges import REDIGES, SOURCES, PALIERS, PALIER_BULLE
 
 ICI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CFG = os.path.join(ICI, "prototypes", "moteur", "tetrade.json")
@@ -43,10 +43,12 @@ RETENIR = {"Fréquence respiratoire": "Une FR ≥ 30/min compte dans le score CR
  "Rapport ventilation / perfusion": "L'embolie crée de l'espace mort ; la pneumonie crée de l'effet shunt.", "Poumon et rein : équilibre acide-base": "Une compensation n'est jamais complète : un pH normal avec des valeurs anormales évoque un trouble mixte.",
  "Lecture des gaz du sang": "Tu lis toujours dans l'ordre : pH, cause primaire, compensation, gradient A-a, trou anionique.", "Gaz du sang artériel": "Tu convertis : 1 kPa = 7,5 mmHg."}
 
-# organes dont l'identifiant reste stable (circuits pilotes rattachés)
-OID = {"Cœur : myocarde et cavités": "coe"}
-for _n in CV:
-    OID.setdefault(_n, "cv_" + slug(court(_n)))
+# organes rédigés : identifiant stable (circuits pilotes rattachés) ou préfixe du système
+OID, REDIGE = {}, {}                                    # nom d'organe → id ; nom d'organe → système rédigé
+for _s, _c in REDIGES.items():
+    for _n in SOURCES[_s]["organes"]:
+        OID[_n] = _c["ids"].get(_n) or _c["prefixe"] + slug(court(_n))
+        REDIGE[_n] = _s
 # organes partagés : une seule maison, l'autre système y renvoie (validé par Vial le 2026-11-21)
 LIENS = {"Circulation pulmonaire": {"def": "La circulation pulmonaire relie le ventricule droit aux alvéoles puis à l'oreillette gauche.",
           "pourquoi": "Son contenu complet (anatomie, physiologie, pathologies) vit dans le système cardiovasculaire pour éviter une copie.",
@@ -59,10 +61,11 @@ for sysn, orgs in SYSTEMES.items():
     N.append({"id": sid, "type": "", "nature": "Système", "texte": court(sysn).replace("&", "et"), "organe": anc, "cote": cote, "couleur": coul,
               "rubriques": "systeme", "bulle": {"def": f"Le système {court(sysn).lower()} compte {len(orgs)} organes ou structures, déroulés de haut en bas.", "retenir": "Tu cliques un organe, puis tu choisis l'espace : anatomie, physiologie, sémiologie ou physiopathologie."}})
     for nom, _, topo in orgs:
-        oid = OID.get(nom) or ("pou" if nom.startswith("Poumons") else "org_" + slug(sysn)[:6] + "_" + slug(nom))
+        red = REDIGE.get(nom) == sysn
+        oid = (OID[nom] if red else None) or ("pou" if nom.startswith("Poumons") else "org_" + slug(sysn)[:6] + "_" + slug(nom))
         b = A.get(oid, {}).get("bulle") if oid == "pou" else None
-        if nom in CV: b = CV[nom]["bulle"]
-        if nom in LIENS: b = LIENS[nom]
+        if red and SOURCES[sysn]["organes"][nom]["bulle"]: b = SOURCES[sysn]["organes"][nom]["bulle"]
+        if nom in LIENS and not red: b = LIENS[nom]
         o = {"id": oid, "type": "", "nature": "Organe", "texte": court(nom), "couleur": coul, "de": [sid], "rubriques": "organe",
              "bulle": b or {"def": f"{nom} : organe du système {court(sysn).lower()}.", "retenir": "Son contenu (anatomie, physiologie, sémiologie, physiopathologie) reste à produire."},
              "topo": topo}
@@ -70,43 +73,45 @@ for sysn, orgs in SYSTEMES.items():
             o["aProduire"] = True
         N.append(o)
 
-# ---- cardiovasculaire : 14 organes → volets → mots-clés (fenêtres) ; physiopathologie → 4 paliers → pathologies ----
-COUL_CV = "#c0392b"
-def bulle_volet(vol, esp):
-    d, r = VOLET_BULLE.get(vol) or CV_VOLETS[vol]
-    return {"def": d, ("repere" if esp == "anatomie" else "retenir"): r}
-for nom, org in CV.items():
-    oid = OID[nom]
-    for esp, cle in (("anatomie", "a"), ("physiologie", "p")):
-        for i, (vol, items) in enumerate(org[esp]):
-            vid = f"{oid}_{cle}{i}"
-            N.append({"id": vid, "type": "", "nature": "Volet", "texte": court(vol), "couleur": COUL_CV, "de": [oid], "espace": esp, "bulle": bulle_volet(vol, esp)})
-            for j, (k, t, r, fen) in enumerate(items):
-                n = {"id": f"{vid}_{j}", "type": "", "nature": "Mot-clé", "texte": k, "couleur": COUL_CV, "de": [vid], "espace": esp,
-                     "bulle": {"def": t, ("repere" if esp == "anatomie" else "retenir"): r}}
-                fen = "3d" if esp == "anatomie" else fen
-                if fen: n["fenetre"] = fen
-                N.append(n)
-    for i, (temps, signes) in enumerate(CV_SEMIO.get(nom, [])):
-        tid = f"{oid}_s{i}"
-        d, p_, c_, r_ = TEMPS_BULLE[temps]
-        N.append({"id": tid, "type": "Interrogatoire" if temps == "Interrogatoire" else f"Temps {i + 1}", "texte": temps, "couleur": COUL_CV, "de": [oid],
-                  "espace": "semiologie", "bulle": {"def": d, "pourquoi": p_, "confusion": c_, "retenir": r_}})
-        for j, sg in enumerate(signes):
-            N.append({"id": f"{tid}_{j}", "type": "Signe", "texte": sg["signe"], "couleur": COUL_CV, "de": [tid], "espace": "semiologie",
-                      "presentation": sg["presentation"], "bulle": sg["bulle"], **({"uniqueAssume": sg["uniqueAssume"]} if sg.get("uniqueAssume") else {})})
-    paliers = {}
-    for p in CV_PATHOS.get(nom, []):
-        pal = p["palier"]; nomp, typ, col = PALIERS[pal]
-        if pal not in paliers:
-            paliers[pal] = f"{oid}_x{pal.lower()}"
-            d, c = PALIER_BULLE[pal]
-            N.append({"id": paliers[pal], "type": "", "nature": "Palier", "texte": nomp, "couleur": col, "de": [oid], "espace": "physiopathologie", "bulle": {"def": d, "consequence": c}})
-        N.append({"id": f"{paliers[pal]}_{slug(p['nom'])}", "type": "Diagnostic · " + typ, "nature": "Pathologie", "texte": p["nom"], "couleur": col,
-                  "de": [paliers[pal]], "espace": "physiopathologie", "rubriques": "pathologie", "bulle": p["bulle"]})
+# ---- systèmes rédigés : organes → volets → mots-clés (fenêtres) ; sémiologie ; physiopathologie → 4 paliers → pathologies ----
+for sysn, conf in REDIGES.items():
+    S, COUL = SOURCES[sysn], conf["couleur"]
+    def bulle_volet(vol, esp):
+        d, r = VOLET_BULLE.get(vol) or S["volets"][vol]
+        return {"def": d, ("repere" if esp == "anatomie" else "retenir"): r}
+    for nom, org in S["organes"].items():
+        oid = OID[nom]
+        for esp, cle in (("anatomie", "a"), ("physiologie", "p")):
+            for i, (vol, items) in enumerate(org[esp]):
+                vid = f"{oid}_{cle}{i}"
+                N.append({"id": vid, "type": "", "nature": "Volet", "texte": court(vol), "couleur": COUL, "de": [oid], "espace": esp, "bulle": bulle_volet(vol, esp)})
+                for j, (k, t, r, fen) in enumerate(items):
+                    n = {"id": f"{vid}_{j}", "type": "", "nature": "Mot-clé", "texte": k, "couleur": COUL, "de": [vid], "espace": esp,
+                         "bulle": {"def": t, ("repere" if esp == "anatomie" else "retenir"): r}}
+                    fen = "3d" if esp == "anatomie" else fen
+                    if fen: n["fenetre"] = fen
+                    N.append(n)
+        for i, (temps, signes) in enumerate(S["semio"].get(nom, [])):
+            tid = f"{oid}_s{i}"
+            d, p_, c_, r_ = S["temps"][temps]
+            N.append({"id": tid, "type": "Interrogatoire" if temps == "Interrogatoire" else f"Temps {i + 1}", "texte": temps, "couleur": COUL, "de": [oid],
+                      "espace": "semiologie", "bulle": {"def": d, "pourquoi": p_, "confusion": c_, "retenir": r_}})
+            for j, sg in enumerate(signes):
+                N.append({"id": f"{tid}_{j}", "type": "Signe", "texte": sg["signe"], "couleur": COUL, "de": [tid], "espace": "semiologie",
+                          "presentation": sg["presentation"], "bulle": sg["bulle"], **({"uniqueAssume": sg["uniqueAssume"]} if sg.get("uniqueAssume") else {})})
+        paliers = {}
+        for p in S["pathos"].get(nom, []):
+            pal = p["palier"]; nomp, typ, col = PALIERS[pal]
+            if pal not in paliers:
+                paliers[pal] = f"{oid}_x{pal.lower()}"
+                d, c = PALIER_BULLE[pal]
+                N.append({"id": paliers[pal], "type": "", "nature": "Palier", "texte": nomp, "couleur": col, "de": [oid], "espace": "physiopathologie", "bulle": {"def": d, "consequence": c}})
+            N.append({"id": f"{paliers[pal]}_{slug(p['nom'])}", "type": "Diagnostic · " + typ, "nature": "Pathologie", "texte": p["nom"], "couleur": col,
+                      "de": [paliers[pal]], "espace": "physiopathologie", "rubriques": "pathologie", "bulle": p["bulle"]})
 
 # ---- physiologie du poumon : volets → mots-clés → courbes et calculateurs ----
-for i, (vol, items) in enumerate(PHYSIOLOGIE_POUMON.items()):
+POU_REDIGE = any(n.startswith("Poumons") and o["physiologie"] for S in SOURCES.values() for n, o in S["organes"].items())
+for i, (vol, items) in enumerate({} if POU_REDIGE else PHYSIOLOGIE_POUMON.items()):
     vid = f"ph{i}"
     d, r = VOLET_BULLE[vol]
     N.append({"id": vid, "type": "", "nature": "Volet", "texte": court(vol), "couleur": "#2f6fd0", "de": ["pou"], "espace": "physiologie", "bulle": {"def": d, "retenir": r}})
@@ -127,7 +132,8 @@ for i, t, d, c in PP:
 
 # ---- sémiologie : circuits pilotes conservés (temps d'examen rattachés à l'organe) ----
 for n in ancien["noeuds"]:
-    if n["id"].startswith("cv_") or n.get("nature") in ("Palier", "Pathologie") or n["id"].startswith("coe_"):
+    if n["id"].startswith(tuple(c["prefixe"] for c in REDIGES.values()) + tuple(i + "_" for c in REDIGES.values() for i in c["ids"].values())) \
+            or n.get("nature") in ("Palier", "Pathologie"):
         continue
     if n["id"] in ("coe", "pou") or n.get("nature") in ("Système", "Organe", "Volet", "Mot-clé", "Mécanisme") or n["id"].startswith(("sys_", "org_", "an", "ph", "pp")) and not n["id"].startswith(("pt",)):
         continue
@@ -143,6 +149,6 @@ cfg.update(noeuds=N, espace="anatomie", sousTitre="Systèmes sur le corps 3D · 
                       "physiopathologie": [["def", "Ce qui se passe"], ["consequence", "Conséquence clinique"]], "systeme": [["def", "Ce que c'est"], ["retenir", "Comment l'explorer"]],
                       "organe": [["def", "Ce que c'est"], ["pourquoi", "Pourquoi ici"], ["confusion", "Confusion possible"], ["retenir", "À retenir"]],
                       "pathologie": [["def", "Ce qui se passe"], ["pourquoi", "Pourquoi ces signes"], ["confusion", "Confusion possible"], ["retenir", "À retenir"]]},
-           cible=[0, -90, 1000], dist=5400, glossaire={**ancien.get("glossaire", {}), **GLOSSAIRE, **GLOSSAIRE_CV})
+           cible=[0, -90, 1000], dist=5400, glossaire={**ancien.get("glossaire", {}), **GLOSSAIRE, **{k: v for S in SOURCES.values() for k, v in S["glossaire"].items()}})
 json.dump(cfg, open(CFG, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print("noeuds :", len(N), "| organes :", sum(1 for n in N if n.get("nature") == "Organe"), "| à produire :", sum(1 for n in N if n.get("aProduire")))
