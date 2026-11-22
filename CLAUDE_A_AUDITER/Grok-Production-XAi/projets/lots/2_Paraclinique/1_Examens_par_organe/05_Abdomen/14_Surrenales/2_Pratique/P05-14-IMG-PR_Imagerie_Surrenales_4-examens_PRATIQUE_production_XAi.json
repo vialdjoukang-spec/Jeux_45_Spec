@@ -1,0 +1,334 @@
+{
+ "_lot": {
+  "tache": "P05-14-IMG-PR",
+  "titre": "Pratique — Examens de l'organe Surrénales — Imagerie (4 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/5_abdomen/surrenales.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/5_abdomen/surrenales.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "surrenales__ct_surrenalien",
+     "nom": "CT surrénalien (densité, wash-out)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "surrenales__ct_surrenalien-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESE/ENSAT 2023, tout incidentalome demande une imagerie qui dit s'il est riche en lipides, et le CT sans injection est l'examen de première ligne.",
+        "pourquoiFaux": "La biopsie est déconseillée en première intention, et les examens nucléaires viennent après la biologie."
+       },
+       "sources": [
+        "ESE/ENSAT, incidentalomes surrénaliens (2023)"
+       ],
+       "casClinique": "Un homme de 57 ans, à Lugano, a une masse surrénale de 2,5 cm découverte sur un CT injecté fait pour une douleur lombaire.",
+       "options": [
+        "CT surrénalien sans injection",
+        "Biopsie surrénalienne",
+        "PET au Ga-68-DOTATATE",
+        "Scintigraphie MIBG"
+       ],
+       "bonneReponse": "CT surrénalien sans injection",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "surrenales__ct_surrenalien-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESE/ENSAT 2023, une masse homogène d'au plus 10 UH est bénigne et ne demande pas d'autre imagerie, quelle que soit sa taille.",
+        "pourquoiFaux": "Mesurer la densité sur un temps injecté ne permet pas d'appliquer ce seuil."
+       },
+       "sources": [
+        "ESE/ENSAT, incidentalomes surrénaliens (2023)"
+       ],
+       "consigne": "Sur le CT sans injection, la masse surrénale gauche de 2 cm, homogène, mesure 4 UH. Que conclure ?",
+       "aspectRecherche": "Densité d'au plus 10 UH sans injection",
+       "reponse": "Un adénome bénin, sans autre imagerie nécessaire",
+       "imageOuTraceAttendu": "Coupe axiale native au niveau des surrénales : nodule gauche de 2 cm, ovalaire, homogène, à contours nets, de densité 4 UH dans une région d'intérêt centrale."
+      },
+      {
+       "id": "surrenales__ct_surrenalien-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESE/ENSAT 2023, le lavage du contraste n'écarte pas le risque de façon fiable, et les métanéphrines sont nécessaires si l'imagerie n'est pas typique d'un adénome.",
+        "pourquoiFaux": "Certains phéochromocytomes lavent le contraste comme un adénome."
+       },
+       "sources": [
+        "ESE/ENSAT, incidentalomes surrénaliens (2023)"
+       ],
+       "erreurFrequente": "Écarter un phéochromocytome sur le lavage du contraste d'une masse de 25 UH.",
+       "consequence": "Un phéochromocytome est méconnu, avec un risque de crise hypertensive.",
+       "bonneConduite": "On dose les métanéphrines devant toute masse qui n'a pas une densité d'au plus 10 UH."
+      }
+     ]
+    },
+    {
+     "ref": "surrenales__irm_surrenalienne",
+     "nom": "IRM surrénalienne (déplacement chimique)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "surrenales__irm_surrenalienne-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESE/ENSAT 2023, chez la femme enceinte et la personne de moins de 40 ans, l'IRM est préférée au CT pour évaluer la masse.",
+        "pourquoiFaux": "Le CT et les examens nucléaires irradient le fœtus."
+       },
+       "sources": [
+        "ESE/ENSAT, incidentalomes surrénaliens (2023)"
+       ],
+       "casClinique": "Une femme de 28 ans, enceinte de 18 semaines, à Lausanne, a une masse surrénale découverte en échographie.",
+       "options": [
+        "IRM surrénalienne",
+        "CT surrénalien",
+        "Scintigraphie MIBG",
+        "PET au Ga-68-DOTATATE"
+       ],
+       "bonneReponse": "IRM surrénalienne",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "surrenales__irm_surrenalienne-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESE/ENSAT 2023, la chute de signal traduit des lipides intracellulaires, donc un adénome.",
+        "pourquoiFaux": "Un nodule qui ne perd pas son signal reste indéterminé."
+       },
+       "sources": [
+        "ESE/ENSAT, incidentalomes surrénaliens (2023)"
+       ],
+       "consigne": "Sur l'IRM, le nodule surrénalien droit perd nettement son signal sur la séquence en opposition de phase. Que conclure ?",
+       "aspectRecherche": "Chute de signal en opposition de phase",
+       "reponse": "Un adénome riche en lipides",
+       "imageOuTraceAttendu": "Séquences T1 en phase et en opposition de phase : nodule droit de 2 cm, de signal intermédiaire en phase, qui devient nettement plus sombre en opposition de phase, comparé à la rate."
+      },
+      {
+       "id": "surrenales__irm_surrenalienne-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESE/ENSAT 2023, un adénome pauvre en lipides peut ne pas perdre de signal, comme une lésion maligne ou un phéochromocytome.",
+        "pourquoiFaux": "Le déplacement chimique dépend de la graisse intracellulaire, absente de certains adénomes."
+       },
+       "sources": [
+        "ESE/ENSAT, incidentalomes surrénaliens (2023)"
+       ],
+       "erreurFrequente": "Conclure à une métastase parce qu'un nodule ne perd pas son signal en opposition de phase.",
+       "consequence": "Le patient reçoit un traitement de métastase pour un adénome pauvre en lipides.",
+       "bonneConduite": "On discute le dossier en équipe et on complète, par exemple par un PET au FDG ou une surveillance."
+      }
+     ]
+    },
+    {
+     "ref": "surrenales__scintigraphie_mibg",
+     "nom": "Scintigraphie MIBG",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "surrenales__scintigraphie_mibg-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EANM/SNMMI 2019, la MIBG se demande avant un traitement par I-131-MIBG ; la dose vaut 2,6 mSv pour 200 MBq selon la directive OFSP.",
+        "pourquoiFaux": "La biopsie d'un phéochromocytome est dangereuse, le Synacthène est hors sujet, et l'IRM ne dit rien de la captation."
+       },
+       "sources": [
+        "EANM/SNMMI, imagerie nucléaire du phéochromocytome et du paragangliome (2019)"
+       ],
+       "casClinique": "Un homme de 46 ans, à Genève, a un phéochromocytome sporadique gauche prouvé et on discute un traitement par I-131-MIBG ultérieur.",
+       "options": [
+        "Scintigraphie à l'I-123-MIBG",
+        "Biopsie surrénalienne",
+        "Test au Synacthène",
+        "IRM sans indication"
+       ],
+       "bonneReponse": "Scintigraphie à l'I-123-MIBG",
+       "visee": "therapeutique"
+      },
+      {
+       "id": "surrenales__scintigraphie_mibg-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EANM/SNMMI 2019, une fixation surrénale faible, symétrique et inférieure ou égale au foie est normale ; au-delà, elle est pathologique.",
+        "pourquoiFaux": "Une fixation faible et symétrique des deux côtés est physiologique."
+       },
+       "sources": [
+        "EANM/SNMMI, imagerie nucléaire du phéochromocytome et du paragangliome (2019)"
+       ],
+       "consigne": "Sur la scintigraphie à 24 heures, la surrénale gauche fixe nettement plus que le foie, la droite faiblement. Que conclure ?",
+       "aspectRecherche": "Fixation surrénale gauche supérieure au foie",
+       "reponse": "Un phéochromocytome gauche",
+       "imageOuTraceAttendu": "Images planaires antérieure et postérieure à 24 heures : foyer surrénalien gauche intense, supérieur au foie ; surrénale droite à peine visible ; fixation physiologique du foie, du cœur et des glandes salivaires."
+      },
+      {
+       "id": "surrenales__scintigraphie_mibg-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EANM/SNMMI 2019, le labétalol donne des faux négatifs et doit être arrêté plus de 10 jours avant l'injection.",
+        "pourquoiFaux": "Le labétalol bloque la captation de la MIBG par la tumeur."
+       },
+       "sources": [
+        "EANM/SNMMI, imagerie nucléaire du phéochromocytome et du paragangliome (2019)"
+       ],
+       "erreurFrequente": "Faire la scintigraphie sans arrêter le labétalol.",
+       "consequence": "L'examen est faussement négatif.",
+       "bonneConduite": "On arrête le labétalol au moins 10 jours avant, et les autres médicaments interférents 1 à 3 jours avant, en accord avec le clinicien."
+      }
+     ]
+    },
+    {
+     "ref": "surrenales__pet_au_ga_68_dotatate",
+     "nom": "PET au Ga-68-DOTATATE",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "surrenales__pet_au_ga_68_dotatate-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EANM/SNMMI 2019, le PET aux analogues de la somatostatine est l'imagerie nucléaire de premier choix en cas de mutation SDHx ou de maladie multifocale.",
+        "pourquoiFaux": "La MIBG est moins bonne dans ce contexte, l'IRM surrénalienne ne fait pas le bilan du corps entier, et la biopsie est dangereuse."
+       },
+       "sources": [
+        "EANM/SNMMI, imagerie nucléaire du phéochromocytome et du paragangliome (2019)"
+       ],
+       "casClinique": "Un homme de 35 ans, à Berne, porteur d'une mutation SDHB, a une normétanéphrine élevée et un paragangliome rétropéritonéal.",
+       "options": [
+        "PET au Ga-68-DOTATATE",
+        "Scintigraphie MIBG",
+        "IRM surrénalienne seule",
+        "Biopsie de la masse"
+       ],
+       "bonneReponse": "PET au Ga-68-DOTATATE",
+       "visee": "extension"
+      },
+      {
+       "id": "surrenales__pet_au_ga_68_dotatate-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EANM/SNMMI 2019, une fixation variable du processus unciné est fréquente, liée aux cellules à polypeptide pancréatique, et peut mimer une tumeur.",
+        "pourquoiFaux": "Conclure à une tumeur neuroendocrine du pancréas sur ce seul foyer est une erreur classique."
+       },
+       "sources": [
+        "EANM/SNMMI, imagerie nucléaire du phéochromocytome et du paragangliome (2019)"
+       ],
+       "consigne": "Sur le PET, que penser d'une fixation focale du processus unciné du pancréas, sans masse au CT associé ?",
+       "aspectRecherche": "Fixation focale de l'unciné sans masse",
+       "reponse": "Une fixation probablement physiologique",
+       "imageOuTraceAttendu": "Images de PET fusionnées au CT : fixation focale modérée de la tête du pancréas, dans le processus unciné, sans lésion visible sur le CT ; fixations intenses de la rate, des reins et des surrénales."
+      },
+      {
+       "id": "surrenales__pet_au_ga_68_dotatate-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EANM/SNMMI 2019, l'imagerie nucléaire vient après des métanéphrines élevées ; la dose retenue ici vaut environ 8,3 mSv.",
+        "pourquoiFaux": "Le PET est un examen de localisation, pas de diagnostic biologique."
+       },
+       "sources": [
+        "EANM/SNMMI, imagerie nucléaire du phéochromocytome et du paragangliome (2019)"
+       ],
+       "erreurFrequente": "Demander un PET au Ga-68-DOTATATE avant d'avoir dosé les métanéphrines.",
+       "consequence": "Une fixation fortuite mène à un bilan inutile.",
+       "bonneConduite": "On confirme d'abord biologiquement par les métanéphrines, puis on localise."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CT": "Le CT, ou tomodensitométrie, est un examen d'imagerie par rayons X en coupes.",
+    "EANM": "L'EANM est l'Association européenne de médecine nucléaire, coauteur avec la SNMMI de la recommandation de 2019 sur l'imagerie des phéochromocytomes et paragangliomes.",
+    "EANM/SNMMI": "Recommandations communes des sociétés européenne et américaine de médecine nucléaire.",
+    "ENSAT": "L'ENSAT, ou European Network for the Study of Adrenal Tumors, est le réseau européen d'étude des tumeurs surrénaliennes, coauteur des recommandations ESE 2023.",
+    "ESE": "L'ESE est la Société européenne d'endocrinologie, dont les recommandations de 2023 sur les incidentalomes surrénaliens, rédigées avec l'ENSAT, sont citées ici.",
+    "ESE/ENSAT": "Recommandations communes de la Société européenne d'endocrinologie et du réseau européen d'étude des tumeurs surrénaliennes.",
+    "FDG": "Fluorodésoxyglucose marqué au fluor 18, traceur du métabolisme du glucose.",
+    "Ga-68-DOTATATE": "Analogue de la somatostatine marqué au gallium 68, traceur de PET des tumeurs neuroendocrines.",
+    "IRM": "L'IRM, ou imagerie par résonance magnétique, reconstruit les organes grâce à un champ magnétique, sans rayons X.",
+    "MBq": "Le mégabecquerel est l'unité d'activité d'un radiopharmaceutique administré.",
+    "MIBG": "Le MIBG, ou méta-iodobenzylguanidine, est un analogue de la noradrénaline utilisé en scintigraphie des phéochromocytomes, ici marqué à l'iode 123.",
+    "mSv": "Le millisievert est l'unité de dose efficace utilisée pour exprimer l'irradiation d'un examen.",
+    "OFSP": "L'OFSP est l'Office fédéral de la santé publique suisse, qui publie les niveaux de référence diagnostiques en radiologie et en médecine nucléaire.",
+    "PET": "Le PET, ou tomographie par émission de positons, localise un traceur radioactif dans le corps, le plus souvent couplé à un CT.",
+    "SDHB": "Gène de la sous-unité B de la succinate déshydrogénase, lié aux paragangliomes héréditaires.",
+    "SDHx": "SDHx désigne les gènes des sous-unités de la succinate déshydrogénase (SDHA, SDHB, SDHC, SDHD, SDHAF2), dont les mutations prédisposent aux paragangliomes.",
+    "SNMMI": "La SNMMI est la Society of Nuclear Medicine and Molecular Imaging, coauteur de la recommandation EANM 2019.",
+    "T1": "Séquence d'IRM pondérée en T1, où la graisse est claire et l'eau sombre.",
+    "UH": "Unité Hounsfield, échelle de densité au CT, où l'eau vaut 0 et la graisse est négative."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Imagerie",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
