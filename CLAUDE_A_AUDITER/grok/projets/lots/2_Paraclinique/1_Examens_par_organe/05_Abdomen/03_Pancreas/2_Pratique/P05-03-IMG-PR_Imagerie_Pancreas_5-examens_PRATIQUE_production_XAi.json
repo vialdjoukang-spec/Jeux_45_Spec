@@ -1,0 +1,407 @@
+{
+ "_lot": {
+  "tache": "P05-03-IMG-PR",
+  "titre": "Pratique — Examens de l'organe Pancréas — Imagerie (5 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/5_abdomen/pancreas.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/5_abdomen/pancreas.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "pancreas__ct_abdominal_injecte",
+     "nom": "CT abdominal injecté (index de Balthazar)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "pancreas__ct_abdominal_injecte-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESMO 2023, le CT multiphasique est l'examen de première ligne devant une suspicion de cancer du pancréas, et il juge la résécabilité.",
+        "pourquoiFaux": "Le PET-CT ne fait que compléter, la CPRE n'est pas diagnostique, et la lipase ne cherche pas une tumeur."
+       },
+       "sources": [
+        "ESMO, recommandations sur le cancer du pancréas (2023)"
+       ],
+       "casClinique": "Un homme de 69 ans, à Genève, a un ictère indolore, une perte de 6 kg et une double dilatation canalaire à l'échographie.",
+       "options": [
+        "CT abdominal injecté",
+        "PET-CT",
+        "CPRE",
+        "Lipase"
+       ],
+       "bonneReponse": "CT abdominal injecté",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "pancreas__ct_abdominal_injecte-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Balthazar et al. 1990, le grade E vaut 4 points et une nécrose de 30 à 50 % en vaut 4 ; un index de 7 à 10 définit une pancréatite sévère.",
+        "pourquoiFaux": "Oublier la nécrose sous-estime la gravité."
+       },
+       "sources": [
+        "Balthazar et al., index de sévérité CT (1990)"
+       ],
+       "consigne": "Calculez la gravité sur ce CT réalisé au 4e jour d'une pancréatite.",
+       "aspectRecherche": "Grade de Balthazar et part de nécrose",
+       "reponse": "Grade E avec nécrose de 40 % : index 8, pancréatite sévère",
+       "imageOuTraceAttendu": "Coupe CT injectée : pancréas augmenté, deux collections péripancréatiques et une zone non rehaussée occupant environ 40 % de la glande."
+      },
+      {
+       "id": "pancreas__ct_abdominal_injecte-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'IAP/APA 2013, le premier CT se fait au plus tôt 72 à 96 h après le début des symptômes, sauf doute diagnostique.",
+        "pourquoiFaux": "Un CT précoce de routine n'apporte rien quand le diagnostic est déjà posé."
+       },
+       "sources": [
+        "IAP/APA, recommandations sur la pancréatite aiguë (2013)"
+       ],
+       "erreurFrequente": "Demander un CT dès l'admission pour une pancréatite aiguë typique.",
+       "consequence": "On irradie sans changer l'évolution et on sous-estime la nécrose.",
+       "bonneConduite": "On attend 72 à 96 h sauf doute diagnostique ou aggravation."
+      }
+     ]
+    },
+    {
+     "ref": "pancreas__irm_pancreatique_et_cholangio_irm",
+     "nom": "IRM pancréatique et cholangio-IRM",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "pancreas__irm_pancreatique_et_cholangio_irm-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon les recommandations européennes de 2018 et l'ESMO 2023, l'IRM caractérise et surveille un kyste pancréatique, car elle voit la communication canalaire et les nodules muraux.",
+        "pourquoiFaux": "Le PET-CT et la CPRE n'ont pas de rôle de première ligne, et l'échographie voit mal le pancréas."
+       },
+       "sources": [
+        "Recommandations européennes sur les néoplasies kystiques du pancréas (2018)",
+        "ESMO, recommandations sur le cancer du pancréas (2023)"
+       ],
+       "casClinique": "Une femme de 64 ans, à Lausanne, a un kyste pancréatique de 2 cm découvert par hasard au CT.",
+       "options": [
+        "IRM pancréatique et cholangio-IRM",
+        "PET-CT",
+        "CPRE",
+        "Échographie abdominale"
+       ],
+       "bonneReponse": "IRM pancréatique et cholangio-IRM",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "pancreas__irm_pancreatique_et_cholangio_irm-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon les recommandations européennes de 2018, une communication avec le canal oriente vers une néoplasie mucineuse de type TIPMP.",
+        "pourquoiFaux": "Un cystadénome séreux ne communique pas avec les canaux."
+       },
+       "sources": [
+        "Recommandations européennes sur les néoplasies kystiques du pancréas (2018)"
+       ],
+       "consigne": "Décrivez ce kyste sur la cholangio-IRM.",
+       "aspectRecherche": "Rapport du kyste avec le canal pancréatique",
+       "reponse": "Kyste communiquant avec un canal secondaire : TIPMP",
+       "imageOuTraceAttendu": "Reconstruction cholangio-IRM : grappe de kystes de la tête reliée par un fin pertuis à un canal secondaire, canal principal à 4 mm."
+      },
+      {
+       "id": "pancreas__irm_pancreatique_et_cholangio_irm-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon les recommandations européennes de 2018, l'IRM voit mal les calcifications, que le CT montre mieux.",
+        "pourquoiFaux": "Chaque technique a sa force : l'IRM pour les canaux, le CT pour le calcium."
+       },
+       "sources": [
+        "Recommandations européennes sur les néoplasies kystiques du pancréas (2018)"
+       ],
+       "erreurFrequente": "Chercher les calcifications d'une pancréatite chronique par IRM.",
+       "consequence": "On les manque.",
+       "bonneConduite": "On demande un CT, qui montre mieux les calcifications."
+      }
+     ]
+    },
+    {
+     "ref": "pancreas__echographie_abdominale",
+     "nom": "Échographie abdominale",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "pancreas__echographie_abdominale-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACG 2024, on fait une échographie chez tout patient en pancréatite aiguë pour chercher une origine biliaire.",
+        "pourquoiFaux": "Le CT ne cherche pas bien les calculs, l'écho-endoscopie vient en seconde ligne, et le test de la sueur ne vise pas cette patiente."
+       },
+       "sources": [
+        "ACG, recommandations sur la pancréatite aiguë (2024)"
+       ],
+       "casClinique": "Une femme de 47 ans, à Fribourg, a une pancréatite aiguë avec une lipase à 8 fois la normale ; elle ne boit pas d'alcool.",
+       "options": [
+        "Échographie abdominale",
+        "CT abdominal injecté",
+        "Écho-endoscopie",
+        "Test de la sueur"
+       ],
+       "bonneReponse": "Échographie abdominale",
+       "visee": "etiologique"
+      },
+      {
+       "id": "pancreas__echographie_abdominale-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACG 2024, des calculs vésiculaires en pancréatite aiguë orientent vers une origine biliaire et font discuter la cholécystectomie.",
+        "pourquoiFaux": "Un pancréas mal visible est habituel et ne change pas la conclusion."
+       },
+       "sources": [
+        "ACG, recommandations sur la pancréatite aiguë (2024)"
+       ],
+       "consigne": "Décrivez ce qui explique la pancréatite sur cette échographie.",
+       "aspectRecherche": "Contenu de la vésicule",
+       "reponse": "Calculs vésiculaires avec cône d'ombre",
+       "imageOuTraceAttendu": "Coupe échographique : vésicule contenant plusieurs calculs hyperéchogènes avec cône d'ombre postérieur, pancréas mal vu derrière les gaz."
+      },
+      {
+       "id": "pancreas__echographie_abdominale-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACG 2024, on répète l'échographie si elle n'est pas concluante, et elle manque les petits calculs cholédociens selon l'ESGE 2019.",
+        "pourquoiFaux": "Les gaz de la pancréatite gênent souvent le premier examen."
+       },
+       "sources": [
+        "ACG, recommandations sur la pancréatite aiguë (2024)",
+        "ESGE, recommandations sur la lithiase de la voie biliaire principale (2019)"
+       ],
+       "erreurFrequente": "Conclure à une pancréatite non biliaire sur une échographie normale faite le premier jour.",
+       "consequence": "On manque une origine biliaire.",
+       "bonneConduite": "On répète l'échographie ou on demande une écho-endoscopie."
+      }
+     ]
+    },
+    {
+     "ref": "pancreas__pet_ct",
+     "nom": "PET-CT",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "pancreas__pet_ct-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESMO 2023, le PET-CT peut compléter le bilan d'extension quand des métastases restent douteuses, par exemple devant un CA 19-9 élevé.",
+        "pourquoiFaux": "Les autres examens ne cherchent pas de métastases."
+       },
+       "sources": [
+        "ESMO, recommandations sur le cancer du pancréas (2023)",
+        "SSMN, directives PET-CT (2026)"
+       ],
+       "casClinique": "Un homme de 61 ans, à Zurich, a un cancer de la tête du pancréas jugé résécable au CT, mais un CA 19-9 très élevé.",
+       "options": [
+        "PET-CT",
+        "Échographie abdominale",
+        "Test de la sueur",
+        "Élastase fécale"
+       ],
+       "bonneReponse": "PET-CT",
+       "visee": "complications"
+      },
+      {
+       "id": "pancreas__pet_ct-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Le PET-CT montre des métastases hypermétaboliques que le CT décrit comme douteuses, ce qui change la stratégie selon l'ESMO 2023.",
+        "pourquoiFaux": "Une fixation physiologique du rein ou de l'intestin ne doit pas être prise pour une métastase."
+       },
+       "sources": [
+        "ESMO, recommandations sur le cancer du pancréas (2023)"
+       ],
+       "consigne": "Interprétez ce PET-CT de bilan d'extension.",
+       "aspectRecherche": "Foyers hypermétaboliques hors du pancréas",
+       "reponse": "Foyer hépatique hypermétabolique : métastase probable",
+       "imageOuTraceAttendu": "PET-CT : fixation intense de la tumeur de la tête du pancréas et petit foyer hépatique hypermétabolique non vu au CT."
+      },
+      {
+       "id": "pancreas__pet_ct-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESMO 2023, le PET-CT ne sert pas au diagnostic de la tumeur primitive, car la pancréatite auto-immune et la pancréatite chronique fixent aussi le traceur.",
+        "pourquoiFaux": "Une fixation ne distingue pas une tumeur d'une inflammation."
+       },
+       "sources": [
+        "ESMO, recommandations sur le cancer du pancréas (2023)"
+       ],
+       "erreurFrequente": "Demander un PET-CT pour prouver qu'une masse pancréatique est un cancer.",
+       "consequence": "On confond cancer et inflammation.",
+       "bonneConduite": "On obtient une preuve histologique par écho-endoscopie."
+      }
+     ]
+    },
+    {
+     "ref": "pancreas__pet_au_ga_68_dotatate",
+     "nom": "PET au Ga-68-DOTATATE (tumeurs neuroendocrines)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "pancreas__pet_au_ga_68_dotatate-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ENETS 2023, le PET au Ga-68-DOTATATE fait le bilan initial d'une TNE bien différenciée, avec un CT ou une IRM.",
+        "pourquoiFaux": "Le PET au FDG voit mal les TNE bien différenciées, et les autres examens ne font pas le bilan d'extension."
+       },
+       "sources": [
+        "ENETS, recommandations sur les tumeurs neuroendocrines pancréatiques (2023)",
+        "SSMN, directives PET-CT (2026)"
+       ],
+       "casClinique": "Une femme de 55 ans, à Berne, a une tumeur neuroendocrine pancréatique bien différenciée prouvée par biopsie.",
+       "options": [
+        "PET au Ga-68-DOTATATE",
+        "PET au FDG",
+        "Échographie abdominale",
+        "CPRE"
+       ],
+       "bonneReponse": "PET au Ga-68-DOTATATE",
+       "visee": "complications"
+      },
+      {
+       "id": "pancreas__pet_au_ga_68_dotatate-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ENETS 2023, une fixation tumorale nette montre l'expression des récepteurs et rend possible une radiothérapie interne vectorisée.",
+        "pourquoiFaux": "La fixation de la rate et des reins est physiologique."
+       },
+       "sources": [
+        "ENETS, recommandations sur les tumeurs neuroendocrines pancréatiques (2023)"
+       ],
+       "consigne": "Interprétez ce PET au Ga-68-DOTATATE.",
+       "aspectRecherche": "Fixations hors des organes physiologiques",
+       "reponse": "Foyers hépatiques fixants : métastases exprimant les récepteurs",
+       "imageOuTraceAttendu": "PET au Ga-68-DOTATATE : fixation intense de la queue du pancréas et de trois foyers hépatiques, en plus de la fixation normale de la rate et des reins."
+      },
+      {
+       "id": "pancreas__pet_au_ga_68_dotatate-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ENETS 2023, les insulinomes et les tumeurs peu différenciées expriment peu de récepteurs et se voient mal.",
+        "pourquoiFaux": "Un PET négatif n'exclut pas un insulinome."
+       },
+       "sources": [
+        "ENETS, recommandations sur les tumeurs neuroendocrines pancréatiques (2023)"
+       ],
+       "erreurFrequente": "Chercher un insulinome par PET au Ga-68-DOTATATE et conclure à l'absence de tumeur.",
+       "consequence": "On manque l'insulinome.",
+       "bonneConduite": "On localise par écho-endoscopie ou par un autre traceur adapté."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ACG": "L'ACG est le collège américain de gastroentérologie.",
+    "APA": "L'APA est l'association américaine du pancréas.",
+    "Balthazar": "L'index de Balthazar est un score CT de gravité de la pancréatite aiguë fondé sur l'inflammation et la nécrose.",
+    "CA 19-9": "Le CA 19-9 est un antigène glucidique sérique utilisé comme marqueur des cancers bilio-pancréatiques.",
+    "CPRE": "La CPRE est la cholangiopancréatographie rétrograde endoscopique, qui opacifie les canaux par la papille.",
+    "CT": "Le CT est la tomodensitométrie, qui produit des coupes du corps par rayons X.",
+    "DOTATATE": "Le DOTATATE est un analogue de la somatostatine couplé à un chélateur qui retient le gallium 68.",
+    "ENETS": "L'ENETS est la société européenne des tumeurs neuroendocrines.",
+    "ESGE": "L'ESGE est la société européenne d'endoscopie digestive.",
+    "ESMO": "L'ESMO est la société européenne d'oncologie médicale.",
+    "FDG": "Le FDG est le fluorodésoxyglucose marqué au fluor 18, un analogue du glucose utilisé en PET.",
+    "Ga-68-DOTATATE": "Le Ga-68-DOTATATE est un analogue de la somatostatine marqué au gallium 68, traceur des tumeurs neuroendocrines.",
+    "IAP": "L'IAP est l'association internationale de pancréatologie.",
+    "IAP/APA": "IAP/APA désigne les recommandations communes de l'association internationale de pancréatologie et de l'association américaine du pancréas.",
+    "IRM": "L'IRM est l'imagerie par résonance magnétique, qui produit des coupes sans rayons ionisants.",
+    "PET": "Le PET est la tomographie par émission de positons, qui cartographie la fixation d'un traceur radioactif.",
+    "PET-CT": "Le PET-CT associe une tomographie par émission de positons et un CT dans le même examen.",
+    "SSMN": "La SSMN est la Société Suisse de Médecine Nucléaire, qui publie les directives PET-CT reconnues par l'OPAS.",
+    "TIPMP": "Tumeur intracanalaire papillaire et mucineuse du pancréas.",
+    "TNE": "Tumeur neuroendocrine."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Imagerie",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}

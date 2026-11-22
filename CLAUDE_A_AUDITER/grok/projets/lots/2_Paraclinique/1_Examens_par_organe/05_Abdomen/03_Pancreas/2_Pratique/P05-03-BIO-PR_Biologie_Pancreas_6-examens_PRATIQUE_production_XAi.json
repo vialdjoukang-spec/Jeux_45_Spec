@@ -1,0 +1,460 @@
+{
+ "_lot": {
+  "tache": "P05-03-BIO-PR",
+  "titre": "Pratique — Examens de l'organe Pancréas — Biologie (6 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/5_abdomen/pancreas.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/5_abdomen/pancreas.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "pancreas__lipase",
+     "nom": "Lipase",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "pancreas__lipase-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'IAP/APA 2013, on dose la lipase d'emblée devant une douleur épigastrique aiguë pour poser le diagnostic de pancréatite avec la clinique.",
+        "pourquoiFaux": "Le CT n'est pas nécessaire si le tableau est typique, et l'élastase fécale explore la fonction chronique."
+       },
+       "sources": [
+        "IAP/APA, recommandations sur la pancréatite aiguë (2013)"
+       ],
+       "casClinique": "Un homme de 42 ans, à Bienne, a une douleur épigastrique transfixiante depuis 6 heures après un repas arrosé.",
+       "options": [
+        "Lipase",
+        "Amylase urinaire",
+        "CT abdominal injecté",
+        "Élastase fécale"
+       ],
+       "bonneReponse": "Lipase",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "pancreas__lipase-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la classification d'Atlanta révisée et l'IAP/APA 2013, deux critères sur trois suffisent : douleur typique et lipase > 3 fois la normale.",
+        "pourquoiFaux": "Exiger un CT pour confirmer retarde la prise en charge sans bénéfice."
+       },
+       "sources": [
+        "Classification d'Atlanta révisée (2012)",
+        "IAP/APA, recommandations sur la pancréatite aiguë (2013)"
+       ],
+       "resultat": "Lipase à 5 fois la limite supérieure de la normale avec une douleur épigastrique typique.",
+       "decision": "On pose le diagnostic de pancréatite aiguë sans imagerie."
+      },
+      {
+       "id": "pancreas__lipase-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'IAP 2025, le taux de lipase ne mesure pas la gravité ; la SSMIG (Smarter Medicine, 2016) recommande de ne pas faire de prises de sang à intervalles réguliers sans question clinique.",
+        "pourquoiFaux": "Une lipase qui baisse ne signifie pas que la pancréatite guérit."
+       },
+       "sources": [
+        "IAP, recommandations sur la pancréatite aiguë (2025)",
+        "Smarter Medicine, liste Top 5 de la SSMIG (2016)"
+       ],
+       "erreurFrequente": "Doser la lipase chaque jour pour suivre la gravité de la pancréatite.",
+       "consequence": "On multiplie les prises de sang sans information utile.",
+       "bonneConduite": "On suit la gravité par la clinique et les scores."
+      }
+     ]
+    },
+    {
+     "ref": "pancreas__triglycerides_calcium",
+     "nom": "Triglycérides, calcium (étiologie)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "pancreas__triglycerides_calcium-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACG 2024, les triglycérides et le calcium font partie du bilan d'une pancréatite aiguë sans calcul ni alcool.",
+        "pourquoiFaux": "Le CA 19-9, le test de la sueur et la chromogranine A ne répondent pas à cette question."
+       },
+       "sources": [
+        "ACG, recommandations sur la pancréatite aiguë (2024)"
+       ],
+       "casClinique": "Une femme de 35 ans, à Delémont, diabétique mal équilibrée, a une pancréatite aiguë sans calcul ni alcool.",
+       "options": [
+        "Triglycérides et calcium",
+        "CA 19-9",
+        "Test de la sueur",
+        "Chromogranine A"
+       ],
+       "bonneReponse": "Triglycérides et calcium",
+       "visee": "etiologique"
+      },
+      {
+       "id": "pancreas__triglycerides_calcium-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACG 2024, des triglycérides > 11,3 mmol/l rendent l'hypertriglycéridémie responsable de la pancréatite.",
+        "pourquoiFaux": "Attribuer la pancréatite à une autre cause sans preuve retarde la baisse des lipides."
+       },
+       "sources": [
+        "ACG, recommandations sur la pancréatite aiguë (2024)"
+       ],
+       "resultat": "Triglycérides à 18 mmol/l à l'admission.",
+       "decision": "On retient une pancréatite hypertriglycéridémique."
+      },
+      {
+       "id": "pancreas__triglycerides_calcium-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACG 2024, l'hypertriglycéridémie ne cause qu'environ 5 % des pancréatites, et les causes métaboliques sont souvent attribuées à tort.",
+        "pourquoiFaux": "Une élévation modérée ne suffit pas à expliquer la pancréatite."
+       },
+       "sources": [
+        "ACG, recommandations sur la pancréatite aiguë (2024)"
+       ],
+       "erreurFrequente": "Attribuer une pancréatite à des triglycérides à 4 mmol/l.",
+       "consequence": "On rate la vraie cause.",
+       "bonneConduite": "On poursuit le bilan étiologique."
+      }
+     ]
+    },
+    {
+     "ref": "pancreas__elastase_fecale",
+     "nom": "Élastase fécale (insuffisance exocrine)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "pancreas__elastase_fecale-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'UEG 2025, l'élastase fécale cherche une insuffisance pancréatique exocrine devant une stéatorrhée ou une pancréatite chronique.",
+        "pourquoiFaux": "La lipase ne mesure pas la fonction exocrine, et le test à la sécrétine est réservé aux centres."
+       },
+       "sources": [
+        "UEG, recommandations sur l'insuffisance pancréatique exocrine (2025)"
+       ],
+       "casClinique": "Un homme de 58 ans, à Sion, ancien buveur, a une pancréatite chronique, des selles grasses et une perte de poids.",
+       "options": [
+        "Élastase fécale",
+        "Lipase",
+        "CA 19-9",
+        "Test de stimulation à la sécrétine"
+       ],
+       "bonneReponse": "Élastase fécale",
+       "visee": "retentissement"
+      },
+      {
+       "id": "pancreas__elastase_fecale-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'UEG 2025, le seuil habituel est de 200 µg/g, et une valeur très basse sur des selles moulées est fiable.",
+        "pourquoiFaux": "Attendre un test invasif n'est pas nécessaire à ce niveau."
+       },
+       "sources": [
+        "UEG, recommandations sur l'insuffisance pancréatique exocrine (2025)"
+       ],
+       "resultat": "Élastase fécale à 60 µg/g sur des selles moulées.",
+       "decision": "On retient une insuffisance pancréatique exocrine et on discute la substitution enzymatique."
+      },
+      {
+       "id": "pancreas__elastase_fecale-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'UEG 2025, des selles liquides diluent l'élastase et la font paraître basse.",
+        "pourquoiFaux": "Le résultat dépend de la consistance des selles."
+       },
+       "sources": [
+        "UEG, recommandations sur l'insuffisance pancréatique exocrine (2025)"
+       ],
+       "erreurFrequente": "Doser l'élastase sur des selles liquides et conclure à une insuffisance exocrine.",
+       "consequence": "On pose un faux diagnostic.",
+       "bonneConduite": "On redose sur des selles moulées."
+      }
+     ]
+    },
+    {
+     "ref": "pancreas__ca_19_9",
+     "nom": "CA 19-9",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "pancreas__ca_19_9-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESMO 2023, le CA 19-9 reflète la masse tumorale et sert au pronostic et au suivi du cancer du pancréas.",
+        "pourquoiFaux": "L'AFP vise le CHC, la lipase la pancréatite et la chromogranine A les TNE."
+       },
+       "sources": [
+        "ESMO, recommandations sur le cancer du pancréas (2023)"
+       ],
+       "casClinique": "Une femme de 70 ans, à Bâle, a un adénocarcinome du pancréas prouvé avant chimiothérapie.",
+       "options": [
+        "CA 19-9",
+        "AFP",
+        "Lipase",
+        "Chromogranine A"
+       ],
+       "bonneReponse": "CA 19-9",
+       "visee": "therapeutique"
+      },
+      {
+       "id": "pancreas__ca_19_9-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon les recommandations européennes de 2018, un CA 19-9 > 37 kU/l est un facteur relatif de résection d'une TIPMP.",
+        "pourquoiFaux": "Ignorer ce signe expose à méconnaître une dégénérescence."
+       },
+       "sources": [
+        "Recommandations européennes sur les néoplasies kystiques du pancréas (2018)"
+       ],
+       "resultat": "CA 19-9 à 60 kU/l chez un patient porteur d'une TIPMP des canaux secondaires.",
+       "decision": "On considère un facteur relatif de résection et on discute en colloque."
+      },
+      {
+       "id": "pancreas__ca_19_9-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESMO 2023, le CA 19-9 n'est pas un test de dépistage.",
+        "pourquoiFaux": "Son élévation est fréquente dans des maladies bénignes comme la cholestase."
+       },
+       "sources": [
+        "ESMO, recommandations sur le cancer du pancréas (2023)"
+       ],
+       "erreurFrequente": "Doser le CA 19-9 pour dépister un cancer du pancréas chez un sujet asymptomatique.",
+       "consequence": "On multiplie les faux positifs.",
+       "bonneConduite": "On ne l'utilise pas comme test de dépistage."
+      }
+     ]
+    },
+    {
+     "ref": "pancreas__chromogranine_a_gastrine_insuline_peptid",
+     "nom": "Chromogranine A, gastrine, insuline, peptide C",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "pancreas__chromogranine_a_gastrine_insuline_peptid-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'Endocrine Society 2009, on dose l'insuline et le peptide C pendant l'hypoglycémie pour prouver un hyperinsulinisme endogène.",
+        "pourquoiFaux": "La chromogranine A ne fait pas le diagnostic, et les autres analyses ne répondent pas à la question."
+       },
+       "sources": [
+        "Endocrine Society, recommandations sur l'hypoglycémie (2009)"
+       ],
+       "casClinique": "Un homme de 40 ans, à Coire, a des malaises à jeun avec une glycémie capillaire à 2,4 mmol/l, corrigés par le sucre.",
+       "options": [
+        "Insuline et peptide C pendant l'hypoglycémie",
+        "Chromogranine A",
+        "HbA1c",
+        "Lipase"
+       ],
+       "bonneReponse": "Insuline et peptide C pendant l'hypoglycémie",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "pancreas__chromogranine_a_gastrine_insuline_peptid-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'Endocrine Society 2009, une glycémie < 3,0 mmol/l avec une insuline ≥ 18 pmol/l et un peptide C ≥ 0,2 nmol/l prouve un hyperinsulinisme endogène.",
+        "pourquoiFaux": "Un peptide C bas avec insuline élevée orienterait vers une insuline injectée."
+       },
+       "sources": [
+        "Endocrine Society, recommandations sur l'hypoglycémie (2009)"
+       ],
+       "resultat": "Glycémie 2,6 mmol/l, insuline 40 pmol/l et peptide C 0,6 nmol/l pendant un jeûne surveillé.",
+       "decision": "On retient un hyperinsulinisme endogène et on localise un insulinome."
+      },
+      {
+       "id": "pancreas__chromogranine_a_gastrine_insuline_peptid-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ENETS 2023, les IPP, l'insuffisance rénale et la gastrite atrophique élèvent la chromogranine A, qui ne sert pas au diagnostic.",
+        "pourquoiFaux": "Une chromogranine A élevée isolée ne prouve pas une tumeur."
+       },
+       "sources": [
+        "ENETS, recommandations sur les tumeurs neuroendocrines pancréatiques (2023)"
+       ],
+       "erreurFrequente": "Diagnostiquer une tumeur neuroendocrine sur une chromogranine A élevée chez un patient sous IPP.",
+       "consequence": "On pose un faux diagnostic.",
+       "bonneConduite": "On interprète la chromogranine A en connaissant les IPP."
+      }
+     ]
+    },
+    {
+     "ref": "pancreas__test_de_la_sueur",
+     "nom": "Test de la sueur (mucoviscidose)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "pancreas__test_de_la_sueur-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon la Cystic Fibrosis Foundation 2017, le test de la sueur confirme le diagnostic après un dépistage néonatal positif.",
+        "pourquoiFaux": "Les autres examens ne confirment pas la mucoviscidose."
+       },
+       "sources": [
+        "Cystic Fibrosis Foundation, consensus diagnostique (Farrell et al., 2017)"
+       ],
+       "casClinique": "Un nourrisson de 3 semaines, à Lausanne, a un dépistage néonatal positif pour la mucoviscidose.",
+       "options": [
+        "Test de la sueur",
+        "Élastase fécale seule",
+        "Radiographie du thorax",
+        "Lipase"
+       ],
+       "bonneReponse": "Test de la sueur",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "pancreas__test_de_la_sueur-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la Cystic Fibrosis Foundation 2017, un chlorure ≥ 60 mmol/l confirme la mucoviscidose dans un contexte compatible.",
+        "pourquoiFaux": "Une valeur de 30 à 59 mmol/l serait intermédiaire."
+       },
+       "sources": [
+        "Cystic Fibrosis Foundation, consensus diagnostique (Farrell et al., 2017)"
+       ],
+       "resultat": "Chlorure sudoral à 72 mmol/l chez cet enfant.",
+       "decision": "On confirme la mucoviscidose et on l'adresse au centre spécialisé."
+      },
+      {
+       "id": "pancreas__test_de_la_sueur-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon la Cystic Fibrosis Foundation 2017, une valeur de 30 à 59 mmol/l est intermédiaire et impose de répéter le test et de compléter par la génétique.",
+        "pourquoiFaux": "Une valeur intermédiaire n'est ni normale ni diagnostique."
+       },
+       "sources": [
+        "Cystic Fibrosis Foundation, consensus diagnostique (Farrell et al., 2017)"
+       ],
+       "erreurFrequente": "Exclure une mucoviscidose sur un chlorure sudoral à 45 mmol/l.",
+       "consequence": "On manque une pathologie liée à CFTR.",
+       "bonneConduite": "On répète le test et on complète par la génétique."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ACG": "L'ACG est le collège américain de gastroentérologie.",
+    "AFP": "Alpha-fœtoprotéine, marqueur sanguin du carcinome hépatocellulaire.",
+    "APA": "L'APA est l'association américaine du pancréas.",
+    "Atlanta": "La classification d'Atlanta révisée en 2012 définit le diagnostic et la gravité de la pancréatite aiguë.",
+    "CA 19-9": "Le CA 19-9 est un antigène glucidique sérique utilisé comme marqueur des cancers bilio-pancréatiques.",
+    "CFTR": "CFTR est le canal chlorure dont les mutations causent la mucoviscidose.",
+    "CHC": "Carcinome hépatocellulaire, cancer primitif du foie.",
+    "CT": "Le CT est la tomodensitométrie, qui produit des coupes du corps par rayons X.",
+    "ENETS": "L'ENETS est la société européenne des tumeurs neuroendocrines.",
+    "ESMO": "L'ESMO est la société européenne d'oncologie médicale.",
+    "HbA1c": "Hémoglobine glyquée, reflet de la glycémie moyenne des trois derniers mois.",
+    "IAP": "L'IAP est l'association internationale de pancréatologie.",
+    "IAP/APA": "IAP/APA désigne les recommandations communes de l'association internationale de pancréatologie et de l'association américaine du pancréas.",
+    "IPP": "Les IPP sont les inhibiteurs de la pompe à protons, qui réduisent l'acidité gastrique.",
+    "kU/l": "kU/l signifie kilo-unités par litre, unité du CA 19-9 équivalente aux U/ml.",
+    "SSMIG": "Société Suisse de Médecine Interne Générale.",
+    "TIPMP": "Tumeur intracanalaire papillaire et mucineuse du pancréas.",
+    "TNE": "Tumeur neuroendocrine.",
+    "UEG": "L'UEG est la fédération européenne de gastroentérologie."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Biologie",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
