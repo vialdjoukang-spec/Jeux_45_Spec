@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:29
+# Audit automatique — 2026-11-22 21:30
 
-28 fichier(s) : 25 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
+30 fichier(s) : 27 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -96,5 +96,12 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/05_Genetique/2_Pratique/P09-05-PR_Examens_Genetique_5-examens_PRATIQUE_production_XAi.json`
 - 🟩 `genetique.json` : remplissage 100 % (10/10)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/06_Toxicologie_et_medicaments/1_Theorie/P09-06_Examens_Toxicologie_et_medicaments_6-examens_production_XAi.json`
+- 🟩 `toxicologie_et_medicaments.json` : remplissage 90 % (119/132)
+- aVerifier déclarés : 3
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/06_Toxicologie_et_medicaments/2_Pratique/P09-06-PR_Examens_Toxicologie_et_medicaments_6-examens_PRATIQUE_production_XAi.json`
+- 🟩 `toxicologie_et_medicaments.json` : remplissage 100 % (12/12)
 
 Signature : AAI (Anthropic AI)
