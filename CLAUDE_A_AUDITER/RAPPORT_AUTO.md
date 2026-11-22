@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-22 22:59
 
-46 fichier(s) : 41 🟩 intégrables · 5 🟧 à compléter · 0 🟥 refusés.
+53 fichier(s) : 48 🟩 intégrables · 5 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -19,6 +19,29 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/01_Poumons_et_voies_aeriennes/1_Theorie/P04-01-HIS_Anatomopathologie_biopsie_Poumons_et_voies_aeriennes_4-examens_production_XAi.json`
 - 🟩 `poumons_et_voies_aeriennes.json` : remplissage 87 % (73/84)
 - aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/01_Poumons_et_voies_aeriennes/1_Theorie/P04-01-IMG_Imagerie_Poumons_et_voies_aeriennes_7-examens_production_XAi.json`
+- 🟩 `poumons_et_voies_aeriennes.json` : remplissage 90 % (132/147)
+- aVerifier déclarés : 6
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/01_Poumons_et_voies_aeriennes/2_Pratique/P04-01-BIO-PR_Biologie_Poumons_et_voies_aeriennes_9-examens_PRATIQUE_production_XAi.json`
+- 🟩 `poumons_et_voies_aeriennes.json` : remplissage 100 % (18/18)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/01_Poumons_et_voies_aeriennes/2_Pratique/P04-01-END-PR_Endoscopie_Poumons_et_voies_aeriennes_3-examens_PRATIQUE_production_XAi.json`
+- 🟩 `poumons_et_voies_aeriennes.json` : remplissage 100 % (6/6)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/01_Poumons_et_voies_aeriennes/2_Pratique/P04-01-FCT-PR_Exploration_fonctionnelle_Poumons_et_voies_aeriennes_9-examens_PRATIQUE_production_XAi.json`
+- 🟩 `poumons_et_voies_aeriennes.json` : remplissage 100 % (18/18)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/01_Poumons_et_voies_aeriennes/2_Pratique/P04-01-HIS-PR_Anatomopathologie_biopsie_Poumons_et_voies_aeriennes_4-examens_PRATIQUE_production_XAi.json`
+- 🟩 `poumons_et_voies_aeriennes.json` : remplissage 100 % (8/8)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/01_Poumons_et_voies_aeriennes/2_Pratique/P04-01-IMG-PR_Imagerie_Poumons_et_voies_aeriennes_7-examens_PRATIQUE_production_XAi.json`
+- 🟩 `poumons_et_voies_aeriennes.json` : remplissage 100 % (14/14)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/02_Plevre/1_Theorie/P04-02_Examens_Plevre_7-examens_production_XAi.json`
+- 🟩 `plevre.json` : remplissage 88 % (130/148)
+- aVerifier déclarés : 3
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/01_Poumons_et_voies_aeriennes/1_Theorie/P04-01-BIO_Biologie_Poumons_et_voies_aeriennes_9-examens_production_XAi.json`
 - 🟩 `poumons_et_voies_aeriennes.json` : remplissage 88 % (175/198)
