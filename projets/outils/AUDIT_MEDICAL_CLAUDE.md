@@ -34,6 +34,8 @@ gh api repos/vialdjoukang-spec/Jeux_45_Spec/pulls -f head=veille/audit-medical -
 gh api -X PUT repos/vialdjoukang-spec/Jeux_45_Spec/pulls/<n>/merge -f merge_method=merge
 ```
 
+GitHub met quelques secondes à calculer si la PR est fusionnable : réessayer la fusion toutes les 10 s (au plus 6 fois) tant que la réponse est « not mergeable » avec `mergeable_state` inconnu.
+
 Le corps de la PR liste les lots, les corrections médicales avec leurs sources et les doutes restés ouverts.
 La veille suivante voit que la branche est fusionnée et repart de `main`.
 
