@@ -1,0 +1,195 @@
+{
+  "_lot": {
+    "tache": "P05",
+    "titre": "Remplir les examens de la région 5. Abdomen (13 organes, 136 examens)",
+    "projet": "2_Jeux_Paraclinique",
+    "nombreFichiers": 13,
+    "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet.",
+    "aVerifier": [
+      "conception/donnees/paraclinique/topographie/5_abdomen/rate.json › rate__echographie_abdominale › seuil : l'EFSUMB (livre de cours, chapitre Rate, 2020) donne 11-12 cm comme taille normale et les aires de Gaiani et al. 1997 chez le cirrhotique, mais n'écrit pas un seuil unique à 13 cm souvent utilisé ailleurs (WFUMB 2021 non relu en texte intégral)",
+      "conception/donnees/paraclinique/topographie/5_abdomen/rate.json › rate__scintigraphie_aux_globules_rouges_denatu › irradiation_mSv : 0,95 mSv = 50 MBq (activité moyenne du RCP de TechneScan PYP, ANSM et RCP britannique du 15.12.2021) × 0,019 mSv/MBq ; ce 0,019 n'est pas le coefficient du FDG : l'erratum CIPR aux publications 80 et 53 (addenda 5 à 7, document officiel relu) fixe E = 1,9E-02 mSv/MBq pour les érythrocytes dénaturés marqués au Tc-99m, comme la CIPR 62 p. 27, et le tableau « denatured erythrocytes » du même RCP le reprend (calcul CIPR 60) ; le RCP donne aussi 1,3 mSv pour 70 MBq, activité maximale ; la CIPR 128 ne liste pas ce traceur (seulement les érythrocytes non dénaturés, 0,007 mSv/MBq) ; le guide EANM indique 1,9 µSv/MBq, dix fois plus bas, probablement une erreur d'unité ; pas de NRD adulte OFSP (1.2.2023), seulement une activité de base pédiatrique de 2,8 MBq ; RCP Swissmedic non consulté",
+      "conception/donnees/paraclinique/topographie/5_abdomen/rate.json › rate__ct_abdominal › indication : les indications non traumatiques (infarctus, abcès, lésion non tranchée à l'échographie) reposent sur la pratique courante, sans recommandation de société relue pour ces seules indications",
+      "conception/donnees/paraclinique/topographie/5_abdomen/rate.json › rate__frottis_sanguin › limite : la faible sensibilité des corps de Howell-Jolly et le seuil de 4 % des hématies piquées sont tirés de Kirkineska et al., Hippokratia 2014, revue générale et non d'une recommandation suisse"
+    ]
+  },
+  "fichiers": {
+    "conception/donnees/paraclinique/topographie/5_abdomen/rate.json": {
+      "_meta": {
+        "region": "5. Abdomen",
+        "organe": "Rate",
+        "statut": "LISTE COMPLÈTE — indication, principe, interprétation et bulle à remplir"
+      },
+      "examens": [
+        {
+          "id": "rate__echographie_abdominale",
+          "modalite": "Imagerie",
+          "nom": "Échographie abdominale",
+          "visees": [
+            "diagnostique",
+            "etiologique",
+            "complications"
+          ],
+          "signeRecherche": "Splénomégalie, épanchement, lésion focale",
+          "seuil": "Selon l'EFSUMB (livre de cours, 2e édition, chapitre Rate, 2020), une rate adulte normale mesure environ 11 à 12 cm de grand axe et 3 à 4 cm d'épaisseur ; chez le cirrhotique, Gaiani et al. 1997, cités par l'EFSUMB, retiennent une aire inférieure à 45 cm² comme normale, de 45 à 65 cm² comme une splénomégalie modérée et supérieure à 65 cm² comme une splénomégalie importante.",
+          "indication": "On la demande en première intention devant une suspicion de splénomégalie, une douleur de l'hypochondre gauche ou une hypertension portale, selon l'EFSUMB 2020 ; en traumatisme, l'E-FAST cherche tout de suite un épanchement libre selon la WSES 2017, mais elle ne remplace pas le CT pour une lésion parenchymateuse chez le blessé stable.",
+          "discriminant": "Elle mesure le grand axe de la rate au lit du patient et détecte un épanchement péritonéal, ce que la palpation détecte mal.",
+          "avantageSelectif": "Elle est disponible partout, n'irradie pas, ne demande aucun produit de contraste et convient à l'enfant et à la femme enceinte selon l'OFSP.",
+          "plutotQue": "Elle précède le CT pour une splénomégalie ou une lésion focale non traumatique ; selon la WSES 2017, l'E-FAST précède le CT chez le blessé, uniquement pour chercher un liquide libre.",
+          "limite": "Selon l'EFSUMB 2020, l'échographie en mode B ne détecte qu'environ 19 % des lésions traumatiques de la rate dans une série de 162 patients, et jusqu'à 40 % des blessés sans liquide libre ont néanmoins une lésion parenchymateuse ; elle n'est donc pas recommandée pour évaluer le parenchyme du blessé stable.",
+          "referencePour": [
+            "Mesure de la taille de la rate"
+          ],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": [
+            "Parenchyme homogène",
+            "Contours lisses et réguliers",
+            "Hile vasculaire visible",
+            "Absence de liquide péri-splénique"
+          ],
+          "precautions": "Elle n'a pas de contre-indication et convient à l'enfant et à la femme enceinte, car elle n'utilise pas de rayonnement ionisant selon l'OFSP.",
+          "irradiation_mSv": 0,
+          "delai": "rapide (< 24 h)",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "L'échographie reconstruit la rate à partir des échos d'ultrasons renvoyés par les tissus.",
+            "pourquoi": "Une rate trop grande allonge son grand axe, et un épanchement péri-splénique apparaît noir, sans écho.",
+            "confusion": "Une masse de l'hypochondre gauche fait penser à une splénomégalie, mais un kyste rénal ou une rate accessoire peuvent tromper, et la continuité avec le hile splénique tranche.",
+            "retenir": "L'échographie mesure la rate et cherche un épanchement, mais elle ne remplace pas le CT pour une lésion traumatique du parenchyme."
+          }
+        },
+        {
+          "id": "rate__ct_abdominal",
+          "modalite": "Imagerie",
+          "nom": "CT abdominal",
+          "visees": [
+            "diagnostique",
+            "complications",
+            "therapeutique"
+          ],
+          "signeRecherche": "Lésion, extravasation, épanchement",
+          "seuil": "Selon la WSES 2017, une extravasation active de produit de contraste signe une hémorragie active, et cette extravasation, présente dans environ 17 % des traumatismes de la rate, prédit un échec du traitement non opératoire dans plus de 60 % des cas.",
+          "indication": "On le demande chez le blessé stable ou stabilisé pour décrire la lésion de la rate et les lésions associées, selon la WSES 2017, qui en fait l'examen de référence et exige qu'il soit disponible sans délai ; une instabilité hémodynamique oriente vers la chirurgie sans CT. On le demande aussi pour préciser un infarctus, un abcès ou une lésion que l'échographie n'a pas tranchée.",
+          "discriminant": "Selon la WSES 2017, il montre la lésion parenchymateuse et l'extravasation de contraste avec une sensibilité et une spécificité proches de 96 à 100 %, ce que l'échographie en mode B ne fait pas.",
+          "avantageSelectif": "Selon la WSES 2017, il guide le choix entre surveillance, embolisation et chirurgie, et une phase tardive aide à séparer une hémorragie active d'une lésion vasculaire contenue.",
+          "plutotQue": "Chez le blessé stable, il remplace l'échographie pour évaluer le parenchyme, selon l'EFSUMB 2020 et la WSES 2017.",
+          "limite": "Selon la WSES 2017, on ne le fait que chez le patient stable ou qui répond au remplissage ; il peut sous-estimer une lésion du hile, et l'absence d'extravasation n'exclut pas une hémorragie dans une lésion de haut grade.",
+          "referencePour": [
+            "Lésion traumatique de la rate chez le patient stable"
+          ],
+          "smarterMedicine": "Société Suisse de Radiologie (smarter medicine, 2020) : on ne fait pas systématiquement de phase sans injection au CT abdominal avec produit de contraste, sauf si elle apporte une information diagnostique supplémentaire.",
+          "radioAnatomieNormale": [
+            "Parenchyme homogène au temps portal",
+            "Contours lisses",
+            "Artère et veine spléniques perméables",
+            "Absence d'épanchement péri-splénique"
+          ],
+          "precautions": "On contrôle le DFGe avant le produit iodé selon l'ESUR 2025 ; la dose typique vaut 7,1 mSv, soit la valeur cible abdomen-bassin de la directive OFSP R-06-06 (révision 2, 2018), 470 mGy·cm, multipliée par 0,015 mSv/(mGy·cm) selon l'AAPM Report 96 (2008).",
+          "irradiation_mSv": 7.1,
+          "delai": "rapide (< 24 h)",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "Le CT abdominal produit des coupes de l'abdomen par rayons X, le plus souvent après injection de produit iodé.",
+            "pourquoi": "Une déchirure de la rate laisse échapper le contraste, qui apparaît comme une fuite, et le sang libre se voit dans le péritoine.",
+            "confusion": "Un infarctus en coin ressemble à une lacération, mais il n'a pas de fuite de contraste, et la phase tardive sépare une hémorragie active d'une lésion vasculaire contenue.",
+            "retenir": "Chez le blessé stable, le CT injecté est l'examen de référence de la rate et se fait sans délai ; la dose typique retenue est 7,1 mSv selon la cible OFSP, alors que l'enquête suisse 2023 (Samara et al., Health Physics 2026) estime 9,9 mSv pour un CT de l'abdomen supérieur ou de l'abdomen."
+          }
+        },
+        {
+          "id": "rate__scintigraphie_aux_globules_rouges_denatu",
+          "modalite": "Imagerie",
+          "nom": "Scintigraphie aux globules rouges dénaturés (rate accessoire)",
+          "visees": [
+            "diagnostique"
+          ],
+          "signeRecherche": "Tissu splénique fonctionnel ectopique",
+          "seuil": "Selon le paramètre de pratique ACR-SNMMI et le guide européen de médecine nucléaire (EANM), une fixation focale de globules rouges dénaturés marqués au technétium 99m (Tc-99m) identifie un tissu splénique fonctionnel, même ectopique.",
+          "indication": "On la demande pour confirmer une rate accessoire, une splénose ou un reliquat splénique après splénectomie, et pour évaluer une asplénie fonctionnelle, selon l'EANM et l'ACR-SNMMI ; l'EANM préfère le CT injecté pour chercher une rate accessoire avant splénectomie, car la fixation de la rate normale peut masquer un petit foyer tout proche.",
+          "discriminant": "Elle prouve la nature splénique fonctionnelle d'une masse, ce que le CT et l'échographie décrivent seulement sur la morphologie.",
+          "avantageSelectif": "Selon l'ACR-SNMMI, les globules rouges dénaturés sont plus sensibles et plus spécifiques que le colloïde de technétium 99m, car ils sont séquestrés de préférence par le tissu splénique.",
+          "plutotQue": "On la choisit plutôt qu'une scintigraphie au colloïde, moins sensible et moins spécifique selon l'ACR-SNMMI, pour trancher une masse douteuse du hile, de la queue du pancréas ou du péritoine.",
+          "limite": "Selon l'EANM, un petit tissu tout contre la rate normale peut échapper, et l'examen ne doit pas servir à diagnostiquer une hémolyse ou une séquestration splénique.",
+          "referencePour": [
+            "Rate accessoire",
+            "Splénose",
+            "Tissu splénique résiduel fonctionnel"
+          ],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": [
+            "Fixation franche de la rate",
+            "Absence de foyer ectopique",
+            "Pas de fixation thoracique",
+            "Faible activité hépatique résiduelle"
+          ],
+          "precautions": "La grossesse est une contre-indication relative, justifiée au cas par cas selon l'EANM ; la dose efficace typique vaut 0,95 mSv, soit 50 MBq, activité moyenne du RCP de TechneScan PYP (ANSM et RCP britannique du 15.12.2021), multipliée par 0,019 mSv/MBq, coefficient des érythrocytes dénaturés marqués au Tc-99m selon l'erratum de la CIPR à la publication 80 (addenda 5 à 7 de la publication 53) et la CIPR 62.",
+          "irradiation_mSv": 0.95,
+          "delai": "programmé",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "La scintigraphie aux globules rouges dénaturés suit des hématies marquées au technétium 99m que la chaleur a rigidifiées.",
+            "pourquoi": "La rate capte ces hématies moins déformables, ce qui fait briller tout tissu splénique fonctionnel, même ectopique.",
+            "confusion": "Une masse du hile splénique ou de la queue du pancréas fait penser à une tumeur, mais une rate accessoire fixe le traceur, et la scintigraphie tranche.",
+            "retenir": "Une fixation focale prouve un tissu splénique fonctionnel, ce que le CT et l'échographie ne font pas."
+          }
+        },
+        {
+          "id": "rate__frottis_sanguin",
+          "modalite": "Biologie",
+          "nom": "Frottis sanguin (corps de Howell-Jolly)",
+          "visees": [
+            "diagnostique",
+            "complications"
+          ],
+          "signeRecherche": "Corps de Howell-Jolly intra-érythrocytaires",
+          "seuil": "Selon les recommandations de la SSI, de la CFV et de l'OFSP (2015), la présence de corps de Howell-Jolly intra-érythrocytaires est un signe évocateur d'asplénie ; Genné (Médecine et Hygiène, 2001) les décrit comme des restes d'ADN dans les globules rouges.",
+          "indication": "Selon la SSI, la CFV et l'OFSP (2015), on recherche une asplénie, notamment par ces corps, quand l'anamnèse fait état d'infections invasives à pneumocoques, d'un lymphome, d'une tumeur de l'estomac ou du pancréas, d'une opération gastrique ou d'une intervention abdominale post-traumatique, ou devant des cicatrices abdominales ; on le demande aussi après une splénectomie.",
+          "discriminant": "Il fournit, sur un prélèvement veineux, un signe morphologique d'hyposplénie que l'imagerie de taille seule ne prouve pas.",
+          "avantageSelectif": "Il est simple, disponible partout et n'irradie pas ; selon Genné (2001) et l'OFSP 2015, sa positivité fait appliquer les mesures suisses de prévention des infections de l'asplénie.",
+          "plutotQue": "Il précède la scintigraphie aux globules rouges dénaturés quand on cherche une asplénie fonctionnelle, car il est plus simple et non irradiant.",
+          "limite": "Selon Kirkineska, Perifanis et Vasiliadis (Hippokratia, 2014), la sensibilité des corps de Howell-Jolly est faible, surtout dans l'hyposplénie légère ; le compte des hématies piquées, examen de référence avec un seuil de 4 %, demande une optique de Nomarski rarement disponible.",
+          "referencePour": [],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": null,
+          "precautions": "On l'interprète avec l'anamnèse de splénectomie ou de maladie associée, selon les recommandations de la SSI, de la CFV et de l'OFSP (2015).",
+          "irradiation_mSv": 0,
+          "delai": "programmé",
+          "prelevementRef": "sang_veineux",
+          "bulle": {
+            "def": "Le frottis sanguin étale une goutte de sang pour chercher des corps de Howell-Jolly dans les globules rouges.",
+            "pourquoi": "Quand la rate ne filtre plus, des restes d'ADN restent dans les hématies et apparaissent comme des points basophiles.",
+            "confusion": "Des corps de Howell-Jolly font conclure à une asplénie, mais leur absence n'exclut pas une hyposplénie légère, et le compte des hématies piquées est plus sensible.",
+            "retenir": "La découverte de corps de Howell-Jolly doit faire appliquer les mesures suisses de prévention des infections de l'asplénie."
+          }
+        }
+      ],
+      "glossaire": {
+        "CT": "Le CT est la tomodensitométrie, qui produit des coupes du corps par rayons X.",
+        "E-FAST": "L'E-FAST est l'échographie ciblée élargie du traumatisé, qui cherche un épanchement libre dans le péritoine et le thorax.",
+        "FAST": "La FAST est l'échographie ciblée du traumatisé, limitée à la recherche d'un épanchement péritonéal.",
+        "EFSUMB": "L'EFSUMB est la fédération européenne des sociétés d'ultrasons en médecine et biologie.",
+        "WSES": "La WSES est la société mondiale de chirurgie d'urgence, qui publie des recommandations sur le traumatisme de la rate.",
+        "OFSP": "L'OFSP est l'Office fédéral de la santé publique.",
+        "R-06-06": "R-06-06 est la directive de l'OFSP qui fixe les niveaux de référence diagnostiques en tomodensitométrie.",
+        "AAPM": "L'AAPM est l'association américaine des physiciens en médecine, qui publie les facteurs de conversion de dose.",
+        "DFGe": "Le DFGe est le débit de filtration glomérulaire estimé, qui mesure la fonction rénale.",
+        "ESUR": "L'ESUR est la société européenne de radiologie urogénitale, qui publie les recommandations sur les produits de contraste.",
+        "mSv": "Le millisievert est l'unité de dose efficace, qui exprime le risque d'un rayonnement ionisant.",
+        "mGy": "Le milligray est l'unité de dose absorbée.",
+        "ACR": "L'ACR est le collège américain de radiologie.",
+        "SNMMI": "La SNMMI est la société américaine de médecine nucléaire et d'imagerie moléculaire.",
+        "ACR-SNMMI": "ACR-SNMMI désigne le paramètre de pratique commun du collège américain de radiologie et de la société américaine de médecine nucléaire.",
+        "EANM": "L'EANM est l'association européenne de médecine nucléaire.",
+        "Tc-99m": "Le Tc-99m est le technétium 99m, un radio-isotope utilisé pour marquer les globules rouges.",
+        "MBq": "Le mégabecquerel mesure l'activité d'une source radioactive.",
+        "CIPR": "La CIPR est la Commission internationale de protection radiologique, qui publie les facteurs de dose.",
+        "ANSM": "L'ANSM est l'Agence nationale de sécurité du médicament, qui publie les résumés des caractéristiques des produits en France.",
+        "RCP": "Le RCP est le résumé des caractéristiques du produit, notice officielle d'un médicament.",
+        "SSI": "La SSI est la Société suisse d'infectiologie.",
+        "CFV": "La CFV est la Commission fédérale pour les vaccinations.",
+        "Howell-Jolly": "Les corps de Howell-Jolly sont des restes d'ADN dans les globules rouges, normalement ôtés par la rate.",
+        "Nomarski": "L'optique de Nomarski est un contraste interférentiel qui permet de compter les hématies piquées.",
+        "ADN": "L'ADN est l'acide désoxyribonucléique, le matériel génétique dont des restes peuvent persister dans les globules rouges.",
+        "PYP": "Le PYP est le pyrophosphate de la trousse TechneScan PYP, utilisée pour marquer les globules rouges au technétium 99m."
+      }
+    }
+  }
+}
