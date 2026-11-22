@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:16
+# Audit automatique — 2026-11-22 21:28
 
-10 fichier(s) : 9 🟩 intégrables · 1 🟧 à compléter · 0 🟥 refusés.
+14 fichier(s) : 12 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -38,5 +38,20 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/01_Poumons_et_voies_aeriennes/2_Pratique/P04-01-IMG-PR_Imagerie_Poumons_et_voies_aeriennes_7-examens_PRATIQUE_production_XAi.json`
 - 🟩 `poumons_et_voies_aeriennes.json` : remplissage 100 % (14/14)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/05_Coeur_et_pericarde/1_Theorie/P04-05-BIO_Biologie_Coeur_et_pericarde_8-examens_production_XAi.json`
+- 🟩 `coeur_et_pericarde.json` : remplissage 87 % (153/176)
+
+### 🟧 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/05_Coeur_et_pericarde/1_Theorie/P04-05-FCT_Exploration_fonctionnelle_Coeur_et_pericarde_10-examens_production_XAi.json`
+- 🟧 `coeur_et_pericarde.json` : remplissage 82 % (172/210)
+- aVerifier déclarés : 2
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/05_Coeur_et_pericarde/1_Theorie/P04-05-HIS_Anatomopathologie_biopsie_Coeur_et_pericarde_1-examens_production_XAi.json`
+- 🟩 `coeur_et_pericarde.json` : remplissage 86 % (18/21)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/05_Coeur_et_pericarde/1_Theorie/P04-05-IMG_Imagerie_Coeur_et_pericarde_10-examens_production_XAi.json`
+- 🟩 `coeur_et_pericarde.json` : remplissage 88 % (184/210)
+- aVerifier déclarés : 4
 
 Signature : AAI (Anthropic AI)
