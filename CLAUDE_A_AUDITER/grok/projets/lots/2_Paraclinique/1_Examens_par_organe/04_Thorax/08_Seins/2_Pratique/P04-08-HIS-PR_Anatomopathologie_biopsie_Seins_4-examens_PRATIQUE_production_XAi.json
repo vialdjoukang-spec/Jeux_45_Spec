@@ -1,0 +1,331 @@
+{
+ "_lot": {
+  "tache": "P04-08-HIS-PR",
+  "titre": "Pratique — Examens de l'organe Seins — Anatomopathologie / biopsie (4 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/4_thorax/seins.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/4_thorax/seins.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "seins__microbiopsie_echoguidee",
+     "nom": "Microbiopsie échoguidée",
+     "modalite": "Anatomopathologie / biopsie",
+     "defis": [
+      {
+       "id": "seins__microbiopsie_echoguidee-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EUSOBI (Bick et al., 2020), on préfère le guidage échographique quand la lésion y est bien visible, et l'ACR (2013) impose un diagnostic tissulaire en catégorie 4.",
+        "pourquoiFaux": "La stéréotaxie sert aux lésions vues seulement en mammographie, le contrôle retarde le diagnostic, et le PET-CT ne remplace pas l'histologie."
+       },
+       "sources": [
+        "EUSOBI, procédures interventionnelles mammaires (Bick et al., 2020)",
+        "ACR, atlas BI-RADS, 5e édition (2013)"
+       ],
+       "casClinique": "Une femme de 58 ans a une masse irrégulière de 12 mm, classée BI-RADS 4, bien visible à l'échographie.",
+       "options": [
+        "Microbiopsie échoguidée",
+        "Macrobiopsie stéréotaxique",
+        "Contrôle à six mois",
+        "PET-CT"
+       ],
+       "bonneReponse": "Microbiopsie échoguidée",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "seins__microbiopsie_echoguidee-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des cellules atypiques qui infiltrent le stroma sans couche myoépithéliale définissent un carcinome invasif.",
+        "pourquoiFaux": "Un fibroadénome montrerait une prolifération mixte bien limitée avec deux couches cellulaires conservées."
+       },
+       "sources": [
+        "ASCO et CAP, récepteurs hormonaux et HER2 (Allison et al., 2020 ; Wolff et al., 2018)"
+       ],
+       "consigne": "Lisez la coupe histologique de la microbiopsie.",
+       "aspectRecherche": "Architecture tissulaire",
+       "reponse": "Carcinome canalaire invasif",
+       "imageOuTraceAttendu": "Coupe colorée à l'hématoxyline-éosine montrant des travées et des tubes de cellules atypiques qui infiltrent un stroma fibreux, sans couche myoépithéliale autour."
+      },
+      {
+       "id": "seins__microbiopsie_echoguidee-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EUSOBI (Bick et al., 2020), le radiologue vérifie toujours que l'histologie concorde avec l'aspect de la lésion.",
+        "pourquoiFaux": "Une histologie bénigne discordante n'est pas rassurante."
+       },
+       "sources": [
+        "EUSOBI, procédures interventionnelles mammaires (Bick et al., 2020)"
+       ],
+       "erreurFrequente": "Se satisfaire d'une histologie bénigne pour une masse BI-RADS 5.",
+       "consequence": "On méconnaît un cancer que la biopsie a manqué.",
+       "bonneConduite": "Vérifier la concordance radio-histologique et reprendre la biopsie si elle manque."
+      }
+     ]
+    },
+    {
+     "ref": "seins__macrobiopsie_stereotaxique",
+     "nom": "Macrobiopsie stéréotaxique",
+     "modalite": "Anatomopathologie / biopsie",
+     "defis": [
+      {
+       "id": "seins__macrobiopsie_stereotaxique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EUSOBI (Bick et al., 2020), la macrobiopsie stéréotaxique s'utilise pour des microcalcifications vues en mammographie sans traduction échographique.",
+        "pourquoiFaux": "La microbiopsie échoguidée exige une lésion visible à l'échographie, l'IRM ne donne pas d'histologie, et attendre retarde le diagnostic."
+       },
+       "sources": [
+        "EUSOBI, procédures interventionnelles mammaires (Bick et al., 2020)"
+       ],
+       "casClinique": "Une femme de 55 ans a un foyer de microcalcifications fines et linéaires, sans traduction échographique.",
+       "options": [
+        "Macrobiopsie stéréotaxique",
+        "Microbiopsie échoguidée",
+        "IRM seule",
+        "Contrôle à un an"
+       ],
+       "bonneReponse": "Macrobiopsie stéréotaxique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "seins__macrobiopsie_stereotaxique-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des calcifications visibles dans les fragments prouvent que la cible a été prélevée.",
+        "pourquoiFaux": "Des fragments sans calcification signifieraient que la cible a été manquée."
+       },
+       "sources": [
+        "EUSOBI, procédures interventionnelles mammaires (Bick et al., 2020)"
+       ],
+       "consigne": "Lisez la radiographie des fragments prélevés.",
+       "aspectRecherche": "Présence de la cible",
+       "reponse": "Calcifications présentes dans les fragments : cible atteinte",
+       "imageOuTraceAttendu": "Radiographie de plusieurs carottes tissulaires montrant de fines calcifications punctiformes groupées dans deux fragments."
+      },
+      {
+       "id": "seins__macrobiopsie_stereotaxique-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EUSOBI (Bick et al., 2020), la radiographie des fragments doit montrer les calcifications prélevées.",
+        "pourquoiFaux": "Sans contrôle, une histologie bénigne peut être faussement rassurante."
+       },
+       "sources": [
+        "EUSOBI, procédures interventionnelles mammaires (Bick et al., 2020)"
+       ],
+       "erreurFrequente": "Conclure sur l'histologie sans radiographier les fragments.",
+       "consequence": "On risque d'analyser des fragments qui ne contiennent pas la lésion.",
+       "bonneConduite": "Radiographier les fragments pour confirmer la présence des calcifications."
+      }
+     ]
+    },
+    {
+     "ref": "seins__cytoponction_de_kyste",
+     "nom": "Cytoponction de kyste",
+     "modalite": "Anatomopathologie / biopsie",
+     "defis": [
+      {
+       "id": "seins__cytoponction_de_kyste-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EUSOBI (Bick et al., 2020), on ponctionne à l'aiguille fine sous échographie un kyste douloureux qui gonfle.",
+        "pourquoiFaux": "Les autres propositions ne conviennent pas à un kyste."
+       },
+       "sources": [
+        "EUSOBI, procédures interventionnelles mammaires (Bick et al., 2020)"
+       ],
+       "casClinique": "Une femme de 46 ans a un kyste du sein douloureux, tendu, qui a augmenté de volume.",
+       "options": [
+        "Cytoponction sous échographie",
+        "Mastectomie",
+        "PET-CT",
+        "Scintigraphie osseuse"
+       ],
+       "bonneReponse": "Cytoponction sous échographie",
+       "visee": "therapeutique"
+      },
+      {
+       "id": "seins__cytoponction_de_kyste-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une masse qui persiste après la vidange doit être biopsiée, car elle peut être un papillome ou un carcinome intrakystique.",
+        "pourquoiFaux": "Un kyste simple disparaît complètement après l'aspiration."
+       },
+       "sources": [
+        "EUSOBI, procédures interventionnelles mammaires (Bick et al., 2020)"
+       ],
+       "consigne": "Lisez le contrôle échographique après la ponction.",
+       "aspectRecherche": "Contenu résiduel",
+       "reponse": "Masse résiduelle après vidange : biopsie nécessaire",
+       "imageOuTraceAttendu": "Coupe après aspiration d'un liquide brunâtre montrant un kyste affaissé, mais une petite masse tissulaire de 6 mm qui persiste sur la paroi."
+      },
+      {
+       "id": "seins__cytoponction_de_kyste-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un liquide hémorragique non traumatique fait suspecter une lésion intrakystique.",
+        "pourquoiFaux": "Seul un liquide clair d'un kyste qui disparaît peut être jeté."
+       },
+       "sources": [
+        "EUSOBI, procédures interventionnelles mammaires (Bick et al., 2020)"
+       ],
+       "erreurFrequente": "Jeter un liquide franchement hémorragique sans analyse.",
+       "consequence": "On méconnaît une lésion intrakystique.",
+       "bonneConduite": "Envoyer le liquide sanglant en cytologie et contrôler la lésion."
+      }
+     ]
+    },
+    {
+     "ref": "seins__recepteurs_hormonaux_her2_ki_67",
+     "nom": "Récepteurs hormonaux, HER2, Ki-67",
+     "modalite": "Anatomopathologie / biopsie",
+     "defis": [
+      {
+       "id": "seins__recepteurs_hormonaux_her2_ki_67-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ASCO et le CAP (2020 ; 2018), on détermine les récepteurs et HER2 sur tout cancer invasif nouvellement diagnostiqué.",
+        "pourquoiFaux": "Le PET-CT n'est pas systématique, la prolactine n'a pas d'intérêt, et le test BRCA suit des critères précis."
+       },
+       "sources": [
+        "ASCO et CAP, récepteurs hormonaux et HER2 (Allison et al., 2020 ; Wolff et al., 2018)"
+       ],
+       "casClinique": "Une femme de 62 ans a un carcinome invasif du sein prouvé par microbiopsie ; l'oncologue doit choisir le traitement.",
+       "options": [
+        "Récepteurs hormonaux et HER2 sur la biopsie",
+        "PET-CT d'emblée",
+        "Prolactine",
+        "BRCA chez toutes les patientes"
+       ],
+       "bonneReponse": "Récepteurs hormonaux et HER2 sur la biopsie",
+       "visee": "therapeutique"
+      },
+      {
+       "id": "seins__recepteurs_hormonaux_her2_ki_67-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Un marquage membranaire complet et intense dans la majorité des cellules définit HER2 3+.",
+        "pourquoiFaux": "Un marquage incomplet ou modéré serait 2+, équivoque, avec une hybridation in situ."
+       },
+       "sources": [
+        "ASCO et CAP, récepteurs hormonaux et HER2 (Allison et al., 2020 ; Wolff et al., 2018)"
+       ],
+       "consigne": "Lisez l'immunohistochimie HER2.",
+       "aspectRecherche": "Intensité et complétude du marquage membranaire",
+       "reponse": "HER2 3+ : tumeur HER2 positive",
+       "imageOuTraceAttendu": "Coupe montrant un marquage brun intense, continu tout autour de la membrane de la plupart des cellules tumorales."
+      },
+      {
+       "id": "seins__recepteurs_hormonaux_her2_ki_67-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ASCO et le CAP (Allison et al., 2020), le délai d'ischémie froide doit rester inférieur à une heure.",
+        "pourquoiFaux": "Une fixation tardive dégrade les antigènes."
+       },
+       "sources": [
+        "ASCO et CAP, récepteurs hormonaux et HER2 (Allison et al., 2020 ; Wolff et al., 2018)"
+       ],
+       "erreurFrequente": "Laisser une biopsie plusieurs heures à l'air avant de la fixer.",
+       "consequence": "Le marquage des récepteurs peut être faussement négatif.",
+       "bonneConduite": "Plonger le tissu dans le formol en moins d'une heure et le fixer de 6 à 72 heures."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ACR": "American College of Radiology, société américaine de radiologie qui publie l'atlas BI-RADS et des critères de pertinence de l'imagerie.",
+    "BI-RADS": "Breast Imaging Reporting and Data System : classification de l'ACR qui range les images du sein en catégories de 0 à 6 selon le risque de cancer.",
+    "EUSOBI": "European Society of Breast Imaging, société européenne d'imagerie du sein.",
+    "IRM": "Imagerie par résonance magnétique : imagerie en coupes fondée sur un champ magnétique, sans rayonnement ionisant.",
+    "HER2": "Récepteur 2 du facteur de croissance épidermique humain, cible des traitements anti-HER2.",
+    "Ki-67": "Protéine des cellules en division ; sa proportion estime la vitesse de prolifération de la tumeur.",
+    "ASCO": "American Society of Clinical Oncology, société américaine d'oncologie clinique.",
+    "CAP": "College of American Pathologists, collège américain des pathologistes.",
+    "BRCA1": "Gène de réparation de l'ADN dont un variant pathogène prédispose au cancer du sein et de l'ovaire.",
+    "BRCA2": "Gène de réparation de l'ADN dont un variant pathogène prédispose au cancer du sein, de l'ovaire, de la prostate et du pancréas.",
+    "ADN": "Acide désoxyribonucléique, support de l'information génétique.",
+    "BRCA": "Gènes de prédisposition au cancer du sein et de l'ovaire (BRCA1 et BRCA2).",
+    "PET-CT": "Examen qui couple un PET et un CT.",
+    "PET": "Tomographie par émission de positons.",
+    "CT": "Tomodensitométrie."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Anatomopathologie / biopsie",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
