@@ -1,0 +1,29 @@
+# Circuit d'images (0 token) : vrais clichés sous licence libre pour chaque examen et analyse — AAI (Anthropic AI)
+name: Recherche des clichés
+on:
+  workflow_dispatch:
+    inputs:
+      limite: { description: "Nombre max d'entités à traiter", default: "100000" }
+      filtre: { description: "Filtre sur le chemin (ex. 4_thorax)", default: "" }
+  push:
+    paths: ["projets/outils/chercher_cliches.py"]
+permissions:
+  contents: write
+concurrency: cliches
+jobs:
+  cliches:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Chercher les clichés
+        run: python projets/outils/chercher_cliches.py --limite "${{ github.event.inputs.limite || '100000' }}" ${{ github.event.inputs.filtre && format('--filtre {0}', github.event.inputs.filtre) || '' }}
+      - name: Publier
+        if: always()
+        run: |
+          git config user.name "cliches-auto"
+          git config user.email "cliches-auto@users.noreply.github.com"
+          git add conception/donnees/images
+          git diff --cached --quiet || (git commit -m "Clichés candidats (licence libre) [skip ci]" && git pull --rebase && git push)
