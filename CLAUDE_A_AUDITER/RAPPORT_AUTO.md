@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:36
+# Audit automatique — 2026-11-22 21:48
 
-8 fichier(s) : 7 🟩 intégrables · 1 🟧 à compléter · 0 🟥 refusés.
+10 fichier(s) : 9 🟩 intégrables · 1 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -30,5 +30,12 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/10_Psyche/2_Pratique/P09-10-PR_Examens_Psyche_7-examens_PRATIQUE_production_XAi.json`
 - 🟩 `psyche.json` : remplissage 100 % (14/14)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/11_Urgences_et_point-of-care/1_Theorie/P09-11_Examens_Urgences_et_point-of-care_9-examens_production_XAi.json`
+- 🟩 `urgences_et_point_of_care.json` : remplissage 89 % (171/193)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/11_Urgences_et_point-of-care/2_Pratique/P09-11-PR_Examens_Urgences_et_point-of-care_9-examens_PRATIQUE_production_XAi.json`
+- 🟩 `urgences_et_point_of_care.json` : remplissage 100 % (18/18)
 
 Signature : AAI (Anthropic AI)
