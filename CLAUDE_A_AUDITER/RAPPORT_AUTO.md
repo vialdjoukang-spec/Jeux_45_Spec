@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 23:11
+# Audit automatique — 2026-11-22 23:12
 
-49 fichier(s) : 44 🟩 intégrables · 5 🟧 à compléter · 0 🟥 refusés.
+52 fichier(s) : 47 🟩 intégrables · 5 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -67,6 +67,16 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/03_Infection_et_immunite/1_Theorie/P09-03-BIO_Biologie_Infection_et_immunite_13-examens_production_XAi.json`
 - 🟩 `infection_et_immunite.json` : remplissage 92 % (263/286)
 - aVerifier déclarés : 7
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/03_Infection_et_immunite/1_Theorie/P09-03-FCT_Exploration_fonctionnelle_Infection_et_immunite_1-examens_production_XAi.json`
+- 🟩 `infection_et_immunite.json` : remplissage 86 % (18/21)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/03_Infection_et_immunite/2_Pratique/P09-03-BIO-PR_Biologie_Infection_et_immunite_13-examens_PRATIQUE_production_XAi.json`
+- 🟩 `infection_et_immunite.json` : remplissage 100 % (26/26)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/03_Infection_et_immunite/2_Pratique/P09-03-FCT-PR_Exploration_fonctionnelle_Infection_et_immunite_1-examens_PRATIQUE_production_XAi.json`
+- 🟩 `infection_et_immunite.json` : remplissage 100 % (2/2)
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/01_Peau/1_Theorie/P08-01-BIO_Biologie_Peau_4-examens_production_XAi.json`
 - 🟩 `peau.json` : remplissage 91 % (80/88)
