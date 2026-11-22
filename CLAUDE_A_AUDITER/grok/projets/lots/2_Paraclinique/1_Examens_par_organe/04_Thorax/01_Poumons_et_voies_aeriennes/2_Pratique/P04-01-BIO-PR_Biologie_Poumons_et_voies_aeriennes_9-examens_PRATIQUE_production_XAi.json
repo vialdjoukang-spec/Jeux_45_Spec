@@ -1,0 +1,674 @@
+{
+ "_lot": {
+  "tache": "P04-01-BIO-PR",
+  "titre": "Pratique — Examens de l'organe Poumons et voies aériennes — Biologie (9 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "poumons_et_voies_aeriennes__gazometrie_arterielle",
+     "nom": "Gazométrie artérielle",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__gazometrie_arterielle-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "La gazométrie mesure le pH et la PaCO2, que l'oxymètre ne donne pas, et une SpO2 normale sous oxygène peut masquer une hypoventilation.",
+        "pourquoiFaux": "L'oxymétrie ignore la PaCO2, la spirométrie ne se fait pas en urgence, et la procalcitonine ne mesure pas la ventilation."
+       },
+       "sources": [
+        "BTS/ICS, ventilation de l'insuffisance respiratoire hypercapnique (Davidson et al., 2016)"
+       ],
+       "casClinique": "Une femme de 74 ans atteinte de BPCO arrive aux urgences de Neuchâtel, somnolente, avec une SpO2 de 92 % sous 4 l/min d'oxygène.",
+       "options": [
+        "Gazométrie artérielle",
+        "Oxymétrie de pouls seule",
+        "Spirométrie",
+        "Procalcitonine"
+       ],
+       "bonneReponse": "Gazométrie artérielle",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__gazometrie_arterielle-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la BTS/ICS (Davidson et al., 2016), un pH inférieur à 7,35 avec une PaCO2 supérieure à 6,5 kPa fait discuter la ventilation non invasive.",
+        "pourquoiFaux": "Augmenter seulement l'oxygène risque d'aggraver l'hypercapnie, et attendre expose à l'épuisement respiratoire."
+       },
+       "sources": [
+        "BTS/ICS, ventilation de l'insuffisance respiratoire hypercapnique (Davidson et al., 2016)"
+       ],
+       "resultat": "pH 7,28 ; PaCO2 8,2 kPa ; PaO2 7,6 kPa ; bicarbonate 29 mmol/l, chez la même patiente après optimisation du traitement.",
+       "decision": "On débute une ventilation non invasive, car l'acidose hypercapnique persiste."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__gazometrie_arterielle-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "La Société Suisse de Médecine Intensive (Smarter Medicine 2017) déconseille les examens complémentaires de routine à intervalle régulier.",
+        "pourquoiFaux": "Un patient stable ne tire aucun bénéfice d'une mesure répétée sans changement clinique."
+       },
+       "sources": [
+        "Société Suisse de Médecine Intensive, Smarter Medicine 2017"
+       ],
+       "erreurFrequente": "Répéter la gazométrie chaque matin chez un patient stable, sans question clinique.",
+       "consequence": "On multiplie les ponctions douloureuses et les coûts sans changer la prise en charge.",
+       "bonneConduite": "On ne demande la gazométrie que pour répondre à une question clinique précise."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__expectorations",
+     "nom": "Expectorations (Gram, culture, BAAR, PCR tuberculose)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__expectorations-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la Ligue pulmonaire suisse (2021), on cherche la tuberculose par microscopie et PCR sur les expectorations, et on isole le patient jusqu'au résultat de la PCR.",
+        "pourquoiFaux": "L'IGRA ne distingue pas l'infection de la maladie, la procalcitonine ne cible pas la tuberculose, et les antigénuries cherchent le pneumocoque et la légionelle."
+       },
+       "sources": [
+        "Ligue pulmonaire suisse, La tuberculose en Suisse (2021)"
+       ],
+       "casClinique": "Un homme de 35 ans arrivé en Suisse il y a six mois consulte à Bâle pour une toux depuis cinq semaines, des sueurs nocturnes et un amaigrissement.",
+       "options": [
+        "Expectorations avec BAAR et PCR",
+        "IGRA seul",
+        "Procalcitonine",
+        "Antigénuries"
+       ],
+       "bonneReponse": "Expectorations avec BAAR et PCR",
+       "visee": "etiologique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__expectorations-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Murray et Washington (1975), un crachat valable montre moins de 10 cellules épithéliales et plus de 25 leucocytes par champ.",
+        "pourquoiFaux": "Mettre ce prélèvement salivaire en culture ferait pousser la flore buccale et tromperait l'antibiothérapie."
+       },
+       "sources": [
+        "Murray et Washington, critères de qualité du crachat (1975)"
+       ],
+       "resultat": "Le crachat montre 25 cellules épithéliales et 5 leucocytes par champ au faible grossissement.",
+       "decision": "On rejette l'échantillon et on recueille un nouveau crachat."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__expectorations-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon la Ligue pulmonaire suisse (2021), la microscopie est moins sensible que la PCR, et on isole jusqu'au résultat de la PCR.",
+        "pourquoiFaux": "Une microscopie négative n'exclut pas une tuberculose pulmonaire."
+       },
+       "sources": [
+        "Ligue pulmonaire suisse, La tuberculose en Suisse (2021)"
+       ],
+       "erreurFrequente": "Lever l'isolement d'un patient suspect de tuberculose sur une microscopie négative.",
+       "consequence": "Un patient contagieux expose le personnel et les autres patients.",
+       "bonneConduite": "On garde l'isolement jusqu'au résultat de la PCR."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__antigenuries_pneumocoque_et_legionelle",
+     "nom": "Antigénuries pneumocoque et légionelle",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__antigenuries_pneumocoque_et_legionelle-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon la SSI, on demande les antigénuries chez tout adulte hospitalisé pour une pneumonie communautaire, et le test identifie la légionelle que la culture usuelle ne fait pas pousser.",
+        "pourquoiFaux": "L'IGRA dépiste l'infection tuberculeuse, l'alpha-1-antitrypsine cherche un déficit génétique, et les précipitines une pneumopathie d'hypersensibilité."
+       },
+       "sources": [
+        "SSI, recommandations sur la pneumonie communautaire",
+        "ESCMID, infections respiratoires basses (Woodhead et al., 2011)"
+       ],
+       "casClinique": "Un homme de 55 ans est hospitalisé à Lausanne pour une pneumonie sévère après un séjour à l'hôtel ; il a de la diarrhée et une hyponatrémie.",
+       "options": [
+        "Antigénurie légionelle",
+        "IGRA",
+        "Alpha-1-antitrypsine",
+        "Précipitines"
+       ],
+       "bonneReponse": "Antigénurie légionelle",
+       "visee": "etiologique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__antigenuries_pneumocoque_et_legionelle-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESCMID (Woodhead et al., 2011), le test ne détecte que le sérogroupe 1, si bien qu'un résultat négatif n'exclut pas la légionellose.",
+        "pourquoiFaux": "Arrêter le traitement sur ce seul résultat exposerait à une légionellose d'un autre sérogroupe non traitée."
+       },
+       "sources": [
+        "ESCMID, infections respiratoires basses (Woodhead et al., 2011)"
+       ],
+       "resultat": "L'antigénurie légionelle revient négative chez ce patient, toujours très suspect de légionellose.",
+       "decision": "On garde un traitement actif contre la légionelle et on demande une PCR sur l'expectoration."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__antigenuries_pneumocoque_et_legionelle-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESCMID (Woodhead et al., 2011), l'antigénurie ne donne pas d'antibiogramme.",
+        "pourquoiFaux": "Un antigène positif identifie le germe, mais ne dit rien de sa sensibilité."
+       },
+       "sources": [
+        "ESCMID, infections respiratoires basses (Woodhead et al., 2011)"
+       ],
+       "erreurFrequente": "Croire que l'antigénurie donne aussi la sensibilité du germe aux antibiotiques.",
+       "consequence": "On renonce à la culture et on manque une résistance du germe.",
+       "bonneConduite": "On garde la culture des expectorations quand elle est indiquée."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__procalcitonine_crp",
+     "nom": "Procalcitonine, CRP",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__procalcitonine_crp-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la SSI, une PCT inférieure à 0,25 µg/l permet de ne pas prescrire d'antibiotique dans une pneumonie légère en ambulatoire.",
+        "pourquoiFaux": "La gazométrie n'est pas utile sans détresse, le CT n'est pas indiqué en première intention, et les précipitines n'ont pas de place ici."
+       },
+       "sources": [
+        "SSI, recommandations sur la pneumonie communautaire",
+        "Essai ProHOSP (Schuetz et al., 2009)"
+       ],
+       "casClinique": "Une femme de 48 ans consulte son médecin de famille à Zurich pour une pneumonie légère confirmée ; elle n'a aucun signe de gravité.",
+       "options": [
+        "Procalcitonine",
+        "Gazométrie artérielle",
+        "CT thoracique natif",
+        "Précipitines"
+       ],
+       "bonneReponse": "Procalcitonine",
+       "visee": "therapeutique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__procalcitonine_crp-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la SSI, une PCT inférieure à 0,25 µg/l permet de renoncer à l'antibiotique dans une pneumonie légère ambulatoire.",
+        "pourquoiFaux": "Prescrire malgré tout exposerait aux effets indésirables et aux résistances sans bénéfice."
+       },
+       "sources": [
+        "SSI, recommandations sur la pneumonie communautaire"
+       ],
+       "resultat": "PCT 0,10 µg/l chez cette patiente qui reste stable.",
+       "decision": "On ne prescrit pas d'antibiotique et on réévalue la patiente si elle s'aggrave."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__procalcitonine_crp-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "La SSMIG (Smarter Medicine 2023) recommande de ne pas prescrire d'antibiotique lors de la découverte isolée d'une CRP ou d'une PCT élevée.",
+        "pourquoiFaux": "La CRP monte dans toute inflammation et ne prouve pas une infection bactérienne."
+       },
+       "sources": [
+        "SSMIG, Smarter Medicine 2023"
+       ],
+       "erreurFrequente": "Prescrire un antibiotique devant une CRP élevée découverte isolément, sans foyer clinique.",
+       "consequence": "On traite une inflammation non infectieuse et on favorise les résistances.",
+       "bonneConduite": "On cherche une cause clinique avant de décider d'un antibiotique."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__alpha_1_antitrypsine",
+     "nom": "Alpha-1-antitrypsine",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__alpha_1_antitrypsine-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS (Miravitlles et al., 2017), on dose l'alpha-1-antitrypsine chez tout patient atteint de BPCO, et un emphysème basal précoce évoque le déficit.",
+        "pourquoiFaux": "Les IgE explorent l'allergie, les ANCA une vascularite, et les antigénuries une pneumonie."
+       },
+       "sources": [
+        "ERS, déficit en alpha-1-antitrypsine (Miravitlles et al., 2017)"
+       ],
+       "casClinique": "Un homme de 42 ans, à Coire, a une BPCO avec un emphysème prédominant aux bases, alors qu'il a peu fumé.",
+       "options": [
+        "Alpha-1-antitrypsine",
+        "IgE totales",
+        "ANCA",
+        "Antigénuries"
+       ],
+       "bonneReponse": "Alpha-1-antitrypsine",
+       "visee": "etiologique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__alpha_1_antitrypsine-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS (Miravitlles et al., 2017), un taux inférieur à 11 µmol/l définit le déficit sévère.",
+        "pourquoiFaux": "Considérer ce taux comme limite retarderait le conseil génétique et le dépistage des apparentés."
+       },
+       "sources": [
+        "ERS, déficit en alpha-1-antitrypsine (Miravitlles et al., 2017)"
+       ],
+       "resultat": "Alpha-1-antitrypsine 8 µmol/l, avec une CRP normale.",
+       "decision": "On retient un déficit sévère, on fait le phénotypage et on propose un dépistage familial."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__alpha_1_antitrypsine-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "L'alpha-1-antitrypsine monte dans l'inflammation, ce qui peut masquer un déficit modéré.",
+        "pourquoiFaux": "Un taux normal pendant une infection ne prouve pas l'absence de déficit."
+       },
+       "sources": [
+        "ERS, déficit en alpha-1-antitrypsine (Miravitlles et al., 2017)"
+       ],
+       "erreurFrequente": "Exclure un déficit sur un taux normal mesuré pendant une infection.",
+       "consequence": "L'inflammation masque un déficit modéré, et on manque une cause génétique d'emphysème.",
+       "bonneConduite": "On dose la CRP en même temps et on recontrôle hors inflammation si le taux est limite."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__ige_totales_et_specifiques_eosinophiles",
+     "nom": "IgE totales et spécifiques, éosinophiles",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__ige_totales_et_specifiques_eosinophiles-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ISHAM (Agarwal et al., 2024), l'ABPA demande des IgE spécifiques d'Aspergillus et des IgE totales élevées.",
+        "pourquoiFaux": "La PCT cherche une infection bactérienne, l'alpha-1-antitrypsine un emphysème génétique, et l'IGRA une infection tuberculeuse."
+       },
+       "sources": [
+        "ISHAM, aspergillose bronchopulmonaire allergique (Agarwal et al., 2024)"
+       ],
+       "casClinique": "Une femme de 39 ans asthmatique, à Lausanne, reste mal contrôlée et présente des infiltrats fugaces et des bouchons muqueux bruns.",
+       "options": [
+        "IgE totales et anti-Aspergillus",
+        "Procalcitonine",
+        "Alpha-1-antitrypsine",
+        "IGRA"
+       ],
+       "bonneReponse": "IgE totales et anti-Aspergillus",
+       "visee": "etiologique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__ige_totales_et_specifiques_eosinophiles-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ISHAM (Agarwal et al., 2024), des IgE spécifiques d'au moins 0,35 kUA/l et des IgE totales d'au moins 500 UI/ml sont requises, et des éosinophiles d'au moins 0,5 G/l comptent comme critère.",
+        "pourquoiFaux": "Conclure à un simple asthme allergique ferait manquer une ABPA, qui se traite autrement."
+       },
+       "sources": [
+        "ISHAM, aspergillose bronchopulmonaire allergique (Agarwal et al., 2024)"
+       ],
+       "resultat": "IgE totales 1200 UI/ml ; IgE anti-Aspergillus 2,1 kUA/l ; éosinophiles 0,8 G/l.",
+       "decision": "Les critères biologiques de l'ABPA sont réunis, et on cherche des bronchectasies au CT."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__ige_totales_et_specifiques_eosinophiles-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Les corticoïdes oraux abaissent les éosinophiles sanguins.",
+        "pourquoiFaux": "Une valeur basse sous corticoïdes ne reflète pas le phénotype réel de l'asthme."
+       },
+       "sources": [
+        "GINA 2024"
+       ],
+       "erreurFrequente": "Interpréter les éosinophiles juste après une cure de corticoïdes oraux.",
+       "consequence": "La valeur basse fait écarter à tort un asthme éosinophilique et une biothérapie utile.",
+       "bonneConduite": "On mesure les éosinophiles à distance d'une corticothérapie orale."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__precipitines",
+     "nom": "Précipitines (pneumopathie d'hypersensibilité)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__precipitines-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ATS/JRS/ALAT (Raghu et al., 2020), on demande les précipitines devant une suspicion de pneumopathie d'hypersensibilité pour orienter la recherche de l'exposition.",
+        "pourquoiFaux": "Les antigénuries cherchent une pneumonie, l'alpha-1-antitrypsine un déficit génétique, et la PCT une infection bactérienne."
+       },
+       "sources": [
+        "ATS/JRS/ALAT, pneumopathie d'hypersensibilité (Raghu et al., 2020)"
+       ],
+       "casClinique": "Un homme de 52 ans, éleveur de pigeons dans le Jura, consulte pour une dyspnée et une toux qui s'améliorent pendant ses vacances.",
+       "options": [
+        "Précipitines aviaires",
+        "Antigénuries",
+        "Alpha-1-antitrypsine",
+        "Procalcitonine"
+       ],
+       "bonneReponse": "Précipitines aviaires",
+       "visee": "etiologique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__precipitines-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ATS/JRS/ALAT (Raghu et al., 2020), beaucoup de personnes exposées sont sensibilisées sans être malades.",
+        "pourquoiFaux": "Retenir une pneumopathie d'hypersensibilité sur ce seul résultat conduirait à un traitement inutile."
+       },
+       "sources": [
+        "ATS/JRS/ALAT, pneumopathie d'hypersensibilité (Raghu et al., 2020)"
+       ],
+       "resultat": "Précipitines anti-pigeon positives chez son frère, éleveur lui aussi, qui n'a aucun symptôme et un CT normal.",
+       "decision": "On ne pose pas de diagnostic de maladie, car l'examen prouve seulement l'exposition."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__precipitines-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ATS/JRS/ALAT (Raghu et al., 2020), les précipitines ne confirment ni n'excluent la maladie.",
+        "pourquoiFaux": "Le panel testé peut ne pas contenir l'antigène en cause."
+       },
+       "sources": [
+        "ATS/JRS/ALAT, pneumopathie d'hypersensibilité (Raghu et al., 2020)"
+       ],
+       "erreurFrequente": "Écarter la pneumopathie d'hypersensibilité parce que les précipitines sont négatives.",
+       "consequence": "On laisse le patient exposé à l'antigène et la maladie progresse.",
+       "bonneConduite": "On reprend l'anamnèse d'exposition et on complète par le CT haute résolution et le lavage."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__anca_anticorps_des_connectivites",
+     "nom": "ANCA, anticorps des connectivites",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__anca_anticorps_des_connectivites-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une hémorragie alvéolaire avec une atteinte rénale fait chercher une vascularite à ANCA, qui se traite par immunosuppression.",
+        "pourquoiFaux": "Les IgE explorent l'allergie, les précipitines une pneumopathie d'hypersensibilité, et le peak-flow l'asthme."
+       },
+       "sources": [
+        "ACR/EULAR, critères de classification des vascularites à ANCA (2022)"
+       ],
+       "casClinique": "Un homme de 60 ans, à Lucerne, présente des hémoptysies, une créatinine qui monte et une hématurie.",
+       "options": [
+        "ANCA",
+        "IgE totales",
+        "Précipitines",
+        "Peak-flow"
+       ],
+       "bonneReponse": "ANCA",
+       "visee": "etiologique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__anca_anticorps_des_connectivites-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon les critères ACR/EULAR 2022, des anti-PR3 positifs pèsent fortement dans la classification de la granulomatose avec polyangéite.",
+        "pourquoiFaux": "Retarder la prise en charge d'un syndrome pneumo-rénal menace le rein et le poumon."
+       },
+       "sources": [
+        "ACR/EULAR, critères de classification des vascularites à ANCA (2022)"
+       ],
+       "resultat": "ANCA anti-PR3 fortement positifs chez ce patient.",
+       "decision": "On évoque une granulomatose avec polyangéite et on adresse le patient en urgence pour un traitement immunosuppresseur."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__anca_anticorps_des_connectivites-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Des anticorps antinucléaires faiblement positifs se voient chez des sujets sains, et on interprète un titre faible avec prudence chez la personne âgée.",
+        "pourquoiFaux": "Un titre faible isolé ne suffit pas à poser une connectivite."
+       },
+       "sources": [
+        "ACR/EULAR, critères de classification des vascularites à ANCA (2022)"
+       ],
+       "erreurFrequente": "Retenir une connectivite sur des anticorps antinucléaires faiblement positifs chez une personne âgée.",
+       "consequence": "On étiquette à tort une fibrose et on prescrit une immunosuppression inutile.",
+       "bonneConduite": "On interprète un titre faible avec prudence, avec la clinique et les anticorps spécifiques."
+      }
+     ]
+    },
+    {
+     "ref": "poumons_et_voies_aeriennes__test_de_liberation_de_l_interferon_gamma",
+     "nom": "Test de libération de l'interféron gamma (IGRA)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "poumons_et_voies_aeriennes__test_de_liberation_de_l_interferon_gamma-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon la Ligue pulmonaire suisse (2021), on dépiste l'infection tuberculeuse avant un traitement immunosuppresseur, et l'IGRA ne réagit pas au BCG.",
+        "pourquoiFaux": "Le test tuberculinique réagit au BCG, les expectorations cherchent une maladie active chez un patient qui tousse, et la PCT ne concerne pas la tuberculose."
+       },
+       "sources": [
+        "Ligue pulmonaire suisse, La tuberculose en Suisse (2021)"
+       ],
+       "casClinique": "Une femme de 45 ans, à Genève, va commencer un traitement immunosuppresseur pour une polyarthrite rhumatoïde ; elle a été vaccinée par le BCG.",
+       "options": [
+        "IGRA",
+        "Test tuberculinique",
+        "Expectorations avec BAAR",
+        "Procalcitonine"
+       ],
+       "bonneReponse": "IGRA",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__test_de_liberation_de_l_interferon_gamma-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Le seuil de positivité est de 0,35 UI/ml selon la notice du fabricant, et une radiographie normale sans symptôme oriente vers une infection latente.",
+        "pourquoiFaux": "Commencer l'immunosuppression sans traitement préventif expose à une réactivation de la tuberculose."
+       },
+       "sources": [
+        "Notice QuantiFERON-TB Gold Plus (Qiagen, 2019)",
+        "Ligue pulmonaire suisse, La tuberculose en Suisse (2021)"
+       ],
+       "resultat": "IGRA à 1,2 UI/ml d'interféron gamma, radiographie thoracique normale et absence de symptômes.",
+       "decision": "On retient une infection tuberculeuse latente et on discute un traitement préventif avant l'immunosuppression."
+      },
+      {
+       "id": "poumons_et_voies_aeriennes__test_de_liberation_de_l_interferon_gamma-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon la Ligue pulmonaire suisse (2024), la sensibilité de l'IGRA, de 70 à 80 %, ne permet pas d'exclure une tuberculose active.",
+        "pourquoiFaux": "L'IGRA dépiste l'infection, mais ne prouve ni n'exclut la maladie."
+       },
+       "sources": [
+        "Ligue pulmonaire suisse, La tuberculose en Suisse (2021)"
+       ],
+       "erreurFrequente": "Exclure une tuberculose active parce que l'IGRA est négatif.",
+       "consequence": "On retarde le diagnostic d'une tuberculose contagieuse.",
+       "bonneConduite": "On cherche la tuberculose active par les expectorations, la PCR et la culture quand la clinique l'évoque."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CT": "Tomodensitométrie : imagerie en coupes par rayons X qui mesure l'atténuation des tissus.",
+    "IGRA": "Test de libération de l'interféron gamma : prise de sang qui dépiste une infection tuberculeuse.",
+    "PCT": "Procalcitonine : précurseur de la calcitonine qui monte dans l'infection bactérienne.",
+    "CRP": "Protéine C réactive : protéine du foie qui monte dans toute inflammation.",
+    "IgE": "Immunoglobulines E : anticorps de l'allergie immédiate.",
+    "ANCA": "Anticorps anticytoplasme des polynucléaires neutrophiles, marqueurs des vascularites des petits vaisseaux.",
+    "PR3": "Protéinase 3 : enzyme des neutrophiles, cible des ANCA de la granulomatose avec polyangéite.",
+    "PCR": "Amplification en chaîne par polymérase : détection du matériel génétique d'un agent infectieux.",
+    "BCG": "Bacille de Calmette et Guérin : vaccin vivant atténué contre la tuberculose.",
+    "UI": "Unité internationale : unité qui mesure une quantité selon son activité biologique.",
+    "kUA": "Kilo-unité d'allergène : unité de mesure des IgE spécifiques.",
+    "G/l": "Giga par litre : milliard de cellules par litre de sang.",
+    "SpO2": "Saturation pulsée en oxygène, mesurée par l'oxymètre de pouls.",
+    "PaO2": "Pression partielle artérielle en oxygène, mesurée en kPa.",
+    "PaCO2": "Pression partielle artérielle en dioxyde de carbone, mesurée en kPa.",
+    "BPCO": "Bronchopneumopathie chronique obstructive : obstruction bronchique persistante, surtout due au tabac.",
+    "SSI": "Société suisse d'infectiologie, qui publie des recommandations de prise en charge des infections.",
+    "ERS": "Société européenne de pneumologie (European Respiratory Society).",
+    "ATS": "Société thoracique américaine (American Thoracic Society).",
+    "JRS": "Société japonaise de pneumologie (Japanese Respiratory Society).",
+    "ALAT": "Association latino-américaine du thorax.",
+    "BTS": "Société thoracique britannique (British Thoracic Society).",
+    "ICS": "Société britannique de médecine intensive (Intensive Care Society).",
+    "ACR": "Collège américain de radiologie, qui publie notamment le système Lung-RADS.",
+    "EULAR": "Alliance européenne des associations de rhumatologie.",
+    "ESCMID": "Société européenne de microbiologie clinique et d'infectiologie.",
+    "ISHAM": "Société internationale de mycologie humaine et animale.",
+    "GINA": "Initiative mondiale contre l'asthme, qui publie chaque année sa stratégie.",
+    "ProHOSP": "Essai suisse multicentrique qui a guidé l'antibiothérapie des infections respiratoires basses par la procalcitonine.",
+    "QuantiFERON-TB": "Test IGRA commercial qui mesure l'interféron gamma par méthode immuno-enzymatique.",
+    "BAAR": "Bacilles acido-alcoolo-résistants : mycobactéries, dont le bacille de la tuberculose, visibles après coloration de Ziehl-Neelsen.",
+    "QuantiFERON": "Nom commercial d'un test IGRA qui mesure l'interféron gamma par méthode immuno-enzymatique.",
+    "SSMIG": "Société suisse de médecine interne générale.",
+    "ABPA": "Aspergillose bronchopulmonaire allergique : réaction allergique à Aspergillus dans les bronches de l'asthmatique."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Biologie",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
