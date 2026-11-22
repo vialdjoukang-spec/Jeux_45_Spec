@@ -133,4 +133,5 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Garde-fou ajouté à `generer_json.py` : la régénération ne peut plus écraser une valeur remplie (fusion conservatrice par id, ref, nom ou position). Avant ce correctif, elle remettait les fichiers paracliniques et les défis à vide.
 
 ## Veille GitHub (2026-11-22)
-- `.github/workflows/veille.yml` + `projets/outils/veille.py` : toutes les heures et à chaque dépôt, réparation mécanique, fusion, audit de fond, contrôles, publication sur main ; en cas d'échec, seul `CLAUDE_A_AUDITER/RAPPORT_VEILLE.md` est publié. Registre des lots traités : `projets/retours/veille_traites.json` (205 lots existants amorcés).
+- `.github/workflows/veille.yml` + `veille.py` + `cadence.py` : réveil toutes les 5 min, curseur adaptatif 5–60 min selon les lots reçus, déclenchement immédiat sur dépôt main. Réparation, fusion et contrôles sur la branche `veille/audit-medical` seulement ; file d'attente `CLAUDE_A_AUDITER/EN_ATTENTE_AUDIT_MEDICAL.json`. Registre : `projets/retours/veille_traites.json`.
+- Décision de Vial (non discutable) : Claude reste garant du contenu médical. Une tâche planifiée Claude vérifie la branche, audite médicalement (`projets/outils/AUDIT_MEDICAL_CLAUDE.md`), corrige, puis ouvre et fusionne la PR vers main.

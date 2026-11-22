@@ -1,0 +1,40 @@
+# Protocole d'audit médical par Claude (après la veille)
+
+La veille répare, fusionne et audite mécaniquement chaque nouveau lot sur la branche `veille/audit-medical`.
+Rien n'arrive sur `main` sans cet audit médical. Claude reste garant de la qualité du contenu médical.
+
+## 0. Vérifier s'il y a du travail (coût quasi nul)
+
+```
+git fetch origin main veille/audit-medical
+git merge-base --is-ancestor origin/veille/audit-medical origin/main && echo RIEN
+```
+
+S'il n'y a rien en attente, la session s'arrête aussitôt.
+
+## 1. Auditer médicalement
+
+1. Basculer sur `veille/audit-medical` et lire `CLAUDE_A_AUDITER/EN_ATTENTE_AUDIT_MEDICAL.json` puis `RAPPORT_VEILLE.md`.
+2. Lire le diff des données : `git diff origin/main...origin/veille/audit-medical -- conception/donnees SORTIES_DONNEES_FIABLES`.
+3. Contrôler chaque valeur ajoutée ou modifiée selon le skill `medical-accuracy-100` : seuils, doses (mSv), posologies,
+   indications, délais, tarifs suisses. Toute valeur douteuse se vérifie sur une source primaire ou une recommandation en vigueur.
+4. Corriger directement. Une correction qui servira encore s'ajoute à `CORRECTIONS` ou `RESOLUTIONS` dans `projets/outils/audit_fond.py`.
+5. Un doute impossible à trancher reste dans `aVerifierOuverts` avec la raison ; il ne bloque pas le reste.
+6. Un lot refusé (illisible) se répare à la main ou se renvoie à Grok par un lot de complément.
+
+## 2. Contrôler puis publier
+
+1. Relancer `audit_fond.py`, `lots_complement.py`, `auditer_conception.py` et `auditer_couverture.py` : tout doit passer.
+2. Déplacer les entrées traitées de `EN_ATTENTE_AUDIT_MEDICAL.json` vers `projets/retours/audits_medicaux.json`
+   (verdict, corrections, sources), puis vider la file d'attente (`[]`).
+3. Committer sur `veille/audit-medical`, pousser, ouvrir la PR vers `main`, puis la fusionner :
+
+```
+gh api repos/vialdjoukang-spec/Jeux_45_Spec/pulls -f head=veille/audit-medical -f base=main -f title="Audit médical : …" -f body="…"
+gh api -X PUT repos/vialdjoukang-spec/Jeux_45_Spec/pulls/<n>/merge -f merge_method=merge
+```
+
+Le corps de la PR liste les lots, les corrections médicales avec leurs sources et les doutes restés ouverts.
+La veille suivante voit que la branche est fusionnée et repart de `main`.
+
+Signature : AAI (Anthropic AI)
