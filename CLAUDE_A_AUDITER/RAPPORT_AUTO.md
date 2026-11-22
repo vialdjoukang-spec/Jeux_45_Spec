@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 22:32
+# Audit automatique — 2026-11-22 22:45
 
-50 fichier(s) : 45 🟩 intégrables · 5 🟧 à compléter · 0 🟥 refusés.
+60 fichier(s) : 55 🟩 intégrables · 5 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -102,6 +102,36 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/07_Appendice/2_Pratique/P05-07-PR_Examens_Appendice_7-examens_PRATIQUE_production_XAi.json`
 - 🟩 `appendice.json` : remplissage 100 % (14/14)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/08_Colon_rectum_et_anus/1_Theorie/P05-08-BIO_Biologie_Colon_rectum_et_anus_6-examens_production_XAi.json`
+- 🟩 `colon_rectum_et_anus.json` : remplissage 91 % (120/132)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/08_Colon_rectum_et_anus/1_Theorie/P05-08-END_Endoscopie_Colon_rectum_et_anus_4-examens_production_XAi.json`
+- 🟩 `colon_rectum_et_anus.json` : remplissage 86 % (72/84)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/08_Colon_rectum_et_anus/1_Theorie/P05-08-FCT_Exploration_fonctionnelle_Colon_rectum_et_anus_2-examens_production_XAi.json`
+- 🟩 `colon_rectum_et_anus.json` : remplissage 88 % (37/42)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/08_Colon_rectum_et_anus/1_Theorie/P05-08-HIS_Anatomopathologie_biopsie_Colon_rectum_et_anus_1-examens_production_XAi.json`
+- 🟩 `colon_rectum_et_anus.json` : remplissage 90 % (19/21)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/08_Colon_rectum_et_anus/1_Theorie/P05-08-IMG_Imagerie_Colon_rectum_et_anus_6-examens_production_XAi.json`
+- 🟩 `colon_rectum_et_anus.json` : remplissage 90 % (114/126)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/08_Colon_rectum_et_anus/2_Pratique/P05-08-BIO-PR_Biologie_Colon_rectum_et_anus_6-examens_PRATIQUE_production_XAi.json`
+- 🟩 `colon_rectum_et_anus.json` : remplissage 100 % (12/12)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/08_Colon_rectum_et_anus/2_Pratique/P05-08-END-PR_Endoscopie_Colon_rectum_et_anus_4-examens_PRATIQUE_production_XAi.json`
+- 🟩 `colon_rectum_et_anus.json` : remplissage 100 % (8/8)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/08_Colon_rectum_et_anus/2_Pratique/P05-08-FCT-PR_Exploration_fonctionnelle_Colon_rectum_et_anus_2-examens_PRATIQUE_production_XAi.json`
+- 🟩 `colon_rectum_et_anus.json` : remplissage 100 % (4/4)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/08_Colon_rectum_et_anus/2_Pratique/P05-08-HIS-PR_Anatomopathologie_biopsie_Colon_rectum_et_anus_1-examens_PRATIQUE_production_XAi.json`
+- 🟩 `colon_rectum_et_anus.json` : remplissage 100 % (2/2)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/08_Colon_rectum_et_anus/2_Pratique/P05-08-IMG-PR_Imagerie_Colon_rectum_et_anus_6-examens_PRATIQUE_production_XAi.json`
+- 🟩 `colon_rectum_et_anus.json` : remplissage 100 % (12/12)
 
 ### 🟧 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/01_Foie/1_Theorie/P05-01-BIO_Biologie_Foie_10-examens_production_XAi.json`
 - 🟧 `foie.json` : remplissage 88 % (194/220) · 2 marqueur(s) <…> restant(s)
