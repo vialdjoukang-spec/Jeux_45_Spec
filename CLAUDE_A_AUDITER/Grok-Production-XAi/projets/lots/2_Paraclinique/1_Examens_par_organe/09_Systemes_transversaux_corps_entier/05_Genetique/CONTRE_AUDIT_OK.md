@@ -17,3 +17,15 @@ Corrections faites :
 
 Remarques :
 - Résolution des sondes FISH (100 kb, Miller 2010) : texte intégral non accessible pendant le contre-audit, non relu.
+
+## Seconde vérification des sources (23.11.2026 00:46, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 1 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Puce à ADN : cause trouvée chez 15 à 20 % | Miller et al., Am J Hum Genet 2010 (PMC2869000) | conforme |
+| 2 | Caryotype : environ 3 % hors trisomie 21 | Miller et al. 2010 | conforme |
+| 3 | Caryotype : manque souvent les déséquilibres de 5 à 10 Mb | Miller et al. 2010 | conforme |
+| 4 | Exome ou génome : rendement de 28 à 68 % | Malinowski et al. 2020 (cité par des revues) | conforme, avec réserve sur l'accès au texte |
+| 5 | Plus de 99 % des variations bénignes sont héritées | non trouvé chez Miller et al. ; trouvé dans un guide ACPA 2025 | non trouvé (source nommée) : ajouté à _lot.aVerifier |
