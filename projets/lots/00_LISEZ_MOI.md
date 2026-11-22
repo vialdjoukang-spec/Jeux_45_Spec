@@ -62,81 +62,94 @@ Le nom de chaque lot dit son contenu : identifiant de tâche, sujet, système ou
 ## 2_Paraclinique
 
 ### 2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale
-- **P01-01_Examens_Encephale_29-examens.json** — Examens de l'organe Encéphale (29 examens : 15 imagerie + 6 biologie + 6 explorations + 2 anatomopathologie) (1 fichiers JSON)
+- **P01-01_Examens_Encephale_31-examens.json** — Examens de l'organe Encéphale (31 examens : 15 imagerie + 8 biologie + 6 explorations + 2 anatomopathologie) (1 fichiers JSON)
 - **P01-02_Examens_Meninges_et_LCR_7-examens.json** — Examens de l'organe Méninges et LCR (7 examens : 2 imagerie + 5 biologie) (1 fichiers JSON)
 - **P01-03_Examens_Hypophyse_et_hypothalamus_12-examens.json** — Examens de l'organe Hypophyse et hypothalamus (12 examens : 1 imagerie + 6 biologie + 5 explorations) (1 fichiers JSON)
-- **P01-04_Examens_Oeil_et_orbite_18-examens.json** — Examens de l'organe Œil et orbite (18 examens : 5 imagerie + 11 explorations + 2 biologie) (1 fichiers JSON)
-- **P01-05_Examens_Oreille_et_equilibre_11-examens.json** — Examens de l'organe Oreille et équilibre (11 examens : 2 imagerie + 9 explorations) (1 fichiers JSON)
-- **P01-06_Examens_Nez_sinus_et_cavum_8-examens.json** — Examens de l'organe Nez, sinus et cavum (8 examens : 2 imagerie + 2 endoscopies + 2 explorations + 1 biologie + 1 anatomopathologie) (1 fichiers JSON)
-- **P01-07_Examens_Cavite_buccale_et_glandes_salivaires_7-examens.json** — Examens de l'organe Cavité buccale et glandes salivaires (7 examens : 4 imagerie + 1 biologie + 2 anatomopathologie) (1 fichiers JSON)
-- **P01-08_Examens_Os_du_crane_et_de_la_face_3-examens.json** — Examens de l'organe Os du crâne et de la face (3 examens : 3 imagerie) (1 fichiers JSON)
+- **P01-04_Examens_Nerfs_craniens_8-examens.json** — Examens de l'organe Nerfs crâniens (8 examens : 2 imagerie + 4 explorations + 2 biologie) (1 fichiers JSON)
+- **P01-05_Examens_Oeil_et_orbite_22-examens.json** — Examens de l'organe Œil et orbite (22 examens : 5 imagerie + 11 explorations + 5 biologie + 1 anatomopathologie) (1 fichiers JSON)
+- **P01-06_Examens_Oreille_et_equilibre_14-examens.json** — Examens de l'organe Oreille et équilibre (14 examens : 3 imagerie + 9 explorations + 2 biologie) (1 fichiers JSON)
+- **P01-07_Examens_Nez_sinus_et_cavum_12-examens.json** — Examens de l'organe Nez, sinus et cavum (12 examens : 2 imagerie + 2 endoscopies + 3 explorations + 4 biologie + 1 anatomopathologie) (1 fichiers JSON)
+- **P01-08_Examens_Cavite_buccale_et_glandes_salivaires_11-examens.json** — Examens de l'organe Cavité buccale et glandes salivaires (11 examens : 5 imagerie + 3 biologie + 2 anatomopathologie + 1 explorations) (1 fichiers JSON)
+- **P01-09_Examens_Os_du_crane_et_de_la_face_7-examens.json** — Examens de l'organe Os du crâne et de la face (7 examens : 5 imagerie + 1 biologie + 1 anatomopathologie) (1 fichiers JSON)
+- **P01-10_Examens_Articulation_temporo-mandibulaire_et_den_4-examens.json** — Examens de l'organe Articulation temporo-mandibulaire et dents (4 examens : 3 imagerie + 1 explorations) (1 fichiers JSON)
 
 ### 2_Paraclinique/1_Examens_par_organe/02_Cou
-- **P02-01_Examens_Thyroide_8-examens.json** — Examens de l'organe Thyroïde (8 examens : 3 imagerie + 4 biologie + 1 anatomopathologie) (1 fichiers JSON)
+- **P02-01_Examens_Thyroide_10-examens.json** — Examens de l'organe Thyroïde (10 examens : 4 imagerie + 4 biologie + 1 anatomopathologie + 1 explorations) (1 fichiers JSON)
 - **P02-02_Examens_Parathyroides_7-examens.json** — Examens de l'organe Parathyroïdes (7 examens : 4 imagerie + 3 biologie) (1 fichiers JSON)
-- **P02-03_Examens_Larynx_et_pharynx_8-examens.json** — Examens de l'organe Larynx et pharynx (8 examens : 3 endoscopies + 3 imagerie + 1 biologie + 1 anatomopathologie) (1 fichiers JSON)
+- **P02-03_Examens_Larynx_et_pharynx_10-examens.json** — Examens de l'organe Larynx et pharynx (10 examens : 3 endoscopies + 3 imagerie + 2 biologie + 1 anatomopathologie + 1 explorations) (1 fichiers JSON)
 - **P02-04_Examens_Vaisseaux_du_cou_et_de_la_tete_8-examens.json** — Examens de l'organe Vaisseaux du cou et de la tête (8 examens : 5 imagerie + 1 biologie + 1 explorations + 1 anatomopathologie) (1 fichiers JSON)
-- **P02-05_Examens_Ganglions_cervicaux_4-examens.json** — Examens de l'organe Ganglions cervicaux (4 examens : 2 imagerie + 2 anatomopathologie) (1 fichiers JSON)
+- **P02-05_Examens_Ganglions_cervicaux_9-examens.json** — Examens de l'organe Ganglions cervicaux (9 examens : 3 imagerie + 2 anatomopathologie + 4 biologie) (1 fichiers JSON)
+- **P02-06_Examens_Masses_cervicales_et_kystes_5-examens.json** — Examens de l'organe Masses cervicales et kystes (5 examens : 2 imagerie + 2 anatomopathologie + 1 endoscopies) (1 fichiers JSON)
 
 ### 2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines
-- **P03-01_Examens_Rachis_osseux_6-examens.json** — Examens de l'organe Rachis osseux (6 examens : 5 imagerie + 1 anatomopathologie) (1 fichiers JSON)
+- **P03-01_Examens_Rachis_osseux_13-examens.json** — Examens de l'organe Rachis osseux (13 examens : 7 imagerie + 1 anatomopathologie + 4 biologie + 1 explorations) (1 fichiers JSON)
 - **P03-02_Examens_Moelle_epiniere_7-examens.json** — Examens de l'organe Moelle épinière (7 examens : 3 imagerie + 1 explorations + 3 biologie) (1 fichiers JSON)
-- **P03-03_Examens_Racines_et_plexus_3-examens.json** — Examens de l'organe Racines et plexus (3 examens : 2 imagerie + 1 explorations) (1 fichiers JSON)
+- **P03-03_Examens_Racines_et_plexus_9-examens.json** — Examens de l'organe Racines et plexus (9 examens : 4 imagerie + 2 explorations + 3 biologie) (1 fichiers JSON)
+- **P03-04_Examens_Queue_de_cheval_et_cone_terminal_3-examens.json** — Examens de l'organe Queue de cheval et cône terminal (3 examens : 1 imagerie + 2 explorations) (1 fichiers JSON)
 
 ### 2_Paraclinique/1_Examens_par_organe/04_Thorax
 - **P04-01_Examens_Poumons_et_voies_aeriennes_32-examens.json** — Examens de l'organe Poumons et voies aériennes (32 examens : 7 imagerie + 9 biologie + 9 explorations + 3 endoscopies + 4 anatomopathologie) (1 fichiers JSON)
 - **P04-02_Examens_Plevre_7-examens.json** — Examens de l'organe Plèvre (7 examens : 4 imagerie + 1 biologie + 1 endoscopies + 1 anatomopathologie) (1 fichiers JSON)
-- **P04-03_Examens_Mediastin_7-examens.json** — Examens de l'organe Médiastin (7 examens : 3 imagerie + 2 endoscopies + 2 biologie) (1 fichiers JSON)
-- **P04-04_Examens_Coeur_et_pericarde_29-examens.json** — Examens de l'organe Cœur et péricarde (29 examens : 10 imagerie + 8 biologie + 10 explorations + 1 anatomopathologie) (1 fichiers JSON)
-- **P04-05_Examens_Aorte_thoracique_et_arteres_pulmonaires_6-examens.json** — Examens de l'organe Aorte thoracique et artères pulmonaires (6 examens : 5 imagerie + 1 biologie) (1 fichiers JSON)
-- **P04-06_Examens_Oesophage_8-examens.json** — Examens de l'organe Œsophage (8 examens : 2 endoscopies + 3 imagerie + 2 explorations + 1 anatomopathologie) (1 fichiers JSON)
-- **P04-07_Examens_Seins_9-examens.json** — Examens de l'organe Seins (9 examens : 4 imagerie + 4 anatomopathologie + 1 biologie) (1 fichiers JSON)
-- **P04-08_Examens_Paroi_thoracique_et_cotes_4-examens.json** — Examens de l'organe Paroi thoracique et côtes (4 examens : 4 imagerie) (1 fichiers JSON)
+- **P04-03_Examens_Mediastin_11-examens.json** — Examens de l'organe Médiastin (11 examens : 3 imagerie + 2 endoscopies + 4 biologie + 2 anatomopathologie) (1 fichiers JSON)
+- **P04-04_Examens_Diaphragme_et_muscles_respiratoires_6-examens.json** — Examens de l'organe Diaphragme et muscles respiratoires (6 examens : 3 imagerie + 3 explorations) (1 fichiers JSON)
+- **P04-05_Examens_Coeur_et_pericarde_29-examens.json** — Examens de l'organe Cœur et péricarde (29 examens : 10 imagerie + 8 biologie + 10 explorations + 1 anatomopathologie) (1 fichiers JSON)
+- **P04-06_Examens_Aorte_thoracique_et_arteres_pulmonaires_10-examens.json** — Examens de l'organe Aorte thoracique et artères pulmonaires (10 examens : 7 imagerie + 2 biologie + 1 explorations) (1 fichiers JSON)
+- **P04-07_Examens_Oesophage_8-examens.json** — Examens de l'organe Œsophage (8 examens : 2 endoscopies + 3 imagerie + 2 explorations + 1 anatomopathologie) (1 fichiers JSON)
+- **P04-08_Examens_Seins_13-examens.json** — Examens de l'organe Seins (13 examens : 5 imagerie + 4 anatomopathologie + 4 biologie) (1 fichiers JSON)
+- **P04-09_Examens_Paroi_thoracique_et_cotes_6-examens.json** — Examens de l'organe Paroi thoracique et côtes (6 examens : 4 imagerie + 1 biologie + 1 explorations) (1 fichiers JSON)
 
 ### 2_Paraclinique/1_Examens_par_organe/05_Abdomen
 - **P05-01_Examens_Foie_18-examens.json** — Examens de l'organe Foie (18 examens : 6 imagerie + 10 biologie + 1 explorations + 1 anatomopathologie) (1 fichiers JSON)
 - **P05-02_Examens_Vesicule_et_voies_biliaires_10-examens.json** — Examens de l'organe Vésicule et voies biliaires (10 examens : 4 imagerie + 3 endoscopies + 3 biologie) (1 fichiers JSON)
 - **P05-03_Examens_Pancreas_13-examens.json** — Examens de l'organe Pancréas (13 examens : 5 imagerie + 1 endoscopies + 6 biologie + 1 explorations) (1 fichiers JSON)
-- **P05-04_Examens_Rate_4-examens.json** — Examens de l'organe Rate (4 examens : 3 imagerie + 1 biologie) (1 fichiers JSON)
-- **P05-05_Examens_Estomac_et_duodenum_11-examens.json** — Examens de l'organe Estomac et duodénum (11 examens : 2 endoscopies + 3 imagerie + 5 biologie + 1 anatomopathologie) (1 fichiers JSON)
+- **P05-04_Examens_Rate_10-examens.json** — Examens de l'organe Rate (10 examens : 5 imagerie + 4 biologie + 1 anatomopathologie) (1 fichiers JSON)
+- **P05-05_Examens_Estomac_et_duodenum_14-examens.json** — Examens de l'organe Estomac et duodénum (14 examens : 2 endoscopies + 5 imagerie + 6 biologie + 1 anatomopathologie) (1 fichiers JSON)
 - **P05-06_Examens_Intestin_grele_10-examens.json** — Examens de l'organe Intestin grêle (10 examens : 2 endoscopies + 3 imagerie + 4 biologie + 1 anatomopathologie) (1 fichiers JSON)
-- **P05-07_Examens_Colon_rectum_et_anus_16-examens.json** — Examens de l'organe Côlon, rectum et anus (16 examens : 4 endoscopies + 4 imagerie + 5 biologie + 2 explorations + 1 anatomopathologie) (1 fichiers JSON)
-- **P05-08_Examens_Peritoine_et_ascite_5-examens.json** — Examens de l'organe Péritoine et ascite (5 examens : 2 imagerie + 1 biologie + 1 endoscopies + 1 anatomopathologie) (1 fichiers JSON)
-- **P05-09_Examens_Aorte_abdominale_et_vaisseaux_digestifs_6-examens.json** — Examens de l'organe Aorte abdominale et vaisseaux digestifs (6 examens : 5 imagerie + 1 biologie) (1 fichiers JSON)
-- **P05-10_Examens_Veines_caves_et_systeme_porte_8-examens.json** — Examens de l'organe Veines caves et système porte (8 examens : 4 imagerie + 2 biologie + 1 explorations + 1 endoscopies) (1 fichiers JSON)
-- **P05-11_Examens_Surrenales_13-examens.json** — Examens de l'organe Surrénales (13 examens : 4 imagerie + 4 biologie + 5 explorations) (1 fichiers JSON)
-- **P05-12_Examens_Reins_18-examens.json** — Examens de l'organe Reins (18 examens : 7 imagerie + 10 biologie + 1 anatomopathologie) (1 fichiers JSON)
-- **P05-13_Examens_Ureteres_4-examens.json** — Examens de l'organe Uretères (4 examens : 3 imagerie + 1 endoscopies) (1 fichiers JSON)
+- **P05-07_Examens_Appendice_7-examens.json** — Examens de l'organe Appendice (7 examens : 3 imagerie + 3 biologie + 1 anatomopathologie) (1 fichiers JSON)
+- **P05-08_Examens_Colon_rectum_et_anus_19-examens.json** — Examens de l'organe Côlon, rectum et anus (19 examens : 4 endoscopies + 6 imagerie + 6 biologie + 2 explorations + 1 anatomopathologie) (1 fichiers JSON)
+- **P05-09_Examens_Peritoine_et_ascite_5-examens.json** — Examens de l'organe Péritoine et ascite (5 examens : 2 imagerie + 1 biologie + 1 endoscopies + 1 anatomopathologie) (1 fichiers JSON)
+- **P05-10_Examens_Paroi_abdominale_et_hernies_4-examens.json** — Examens de l'organe Paroi abdominale et hernies (4 examens : 2 imagerie + 1 explorations + 1 biologie) (1 fichiers JSON)
+- **P05-11_Examens_Aorte_abdominale_et_vaisseaux_digestifs_6-examens.json** — Examens de l'organe Aorte abdominale et vaisseaux digestifs (6 examens : 5 imagerie + 1 biologie) (1 fichiers JSON)
+- **P05-12_Examens_Retroperitoine_5-examens.json** — Examens de l'organe Rétropéritoine (5 examens : 2 imagerie + 2 biologie + 1 anatomopathologie) (1 fichiers JSON)
+- **P05-13_Examens_Veines_caves_et_systeme_porte_8-examens.json** — Examens de l'organe Veines caves et système porte (8 examens : 4 imagerie + 2 biologie + 1 explorations + 1 endoscopies) (1 fichiers JSON)
+- **P05-14_Examens_Surrenales_13-examens.json** — Examens de l'organe Surrénales (13 examens : 4 imagerie + 4 biologie + 5 explorations) (1 fichiers JSON)
+- **P05-15_Examens_Reins_18-examens.json** — Examens de l'organe Reins (18 examens : 7 imagerie + 10 biologie + 1 anatomopathologie) (1 fichiers JSON)
+- **P05-16_Examens_Ureteres_9-examens.json** — Examens de l'organe Uretères (9 examens : 5 imagerie + 1 endoscopies + 3 biologie) (1 fichiers JSON)
 
 ### 2_Paraclinique/1_Examens_par_organe/06_Pelvis
 - **P06-01_Examens_Vessie_et_uretre_12-examens.json** — Examens de l'organe Vessie et urètre (12 examens : 4 imagerie + 1 endoscopies + 3 biologie + 3 explorations + 1 anatomopathologie) (1 fichiers JSON)
 - **P06-02_Examens_Prostate_et_vesicules_seminales_6-examens.json** — Examens de l'organe Prostate et vésicules séminales (6 examens : 3 imagerie + 2 biologie + 1 anatomopathologie) (1 fichiers JSON)
-- **P06-03_Examens_Testicules_et_scrotum_7-examens.json** — Examens de l'organe Testicules et scrotum (7 examens : 1 imagerie + 4 biologie + 2 anatomopathologie) (1 fichiers JSON)
-- **P06-04_Examens_Uterus_col_ovaires_et_annexes_15-examens.json** — Examens de l'organe Utérus, col, ovaires et annexes (15 examens : 4 imagerie + 3 endoscopies + 5 biologie + 3 anatomopathologie) (1 fichiers JSON)
-- **P06-05_Examens_Grossesse_foetus_et_placenta_15-examens.json** — Examens de l'organe Grossesse, fœtus et placenta (15 examens : 3 imagerie + 8 biologie + 1 explorations + 3 anatomopathologie) (1 fichiers JSON)
-- **P06-06_Examens_Plancher_pelvien_5-examens.json** — Examens de l'organe Plancher pelvien (5 examens : 3 imagerie + 2 explorations) (1 fichiers JSON)
+- **P06-03_Examens_Testicules_et_scrotum_9-examens.json** — Examens de l'organe Testicules et scrotum (9 examens : 2 imagerie + 5 biologie + 2 anatomopathologie) (1 fichiers JSON)
+- **P06-04_Examens_Penis_et_uretre_masculin_6-examens.json** — Examens de l'organe Pénis et urètre masculin (6 examens : 2 imagerie + 3 biologie + 1 explorations) (1 fichiers JSON)
+- **P06-05_Examens_Uterus_col_ovaires_et_annexes_15-examens.json** — Examens de l'organe Utérus, col, ovaires et annexes (15 examens : 4 imagerie + 3 endoscopies + 5 biologie + 3 anatomopathologie) (1 fichiers JSON)
+- **P06-06_Examens_Vulve_vagin_et_perinee_4-examens.json** — Examens de l'organe Vulve, vagin et périnée (4 examens : 2 biologie + 1 explorations + 1 anatomopathologie) (1 fichiers JSON)
+- **P06-07_Examens_Grossesse_foetus_et_placenta_22-examens.json** — Examens de l'organe Grossesse, fœtus et placenta (22 examens : 5 imagerie + 13 biologie + 1 explorations + 3 anatomopathologie) (1 fichiers JSON)
+- **P06-08_Examens_Post-partum_et_allaitement_5-examens.json** — Examens de l'organe Post-partum et allaitement (5 examens : 2 biologie + 1 explorations + 2 imagerie) (1 fichiers JSON)
+- **P06-09_Examens_Plancher_pelvien_7-examens.json** — Examens de l'organe Plancher pelvien (7 examens : 3 imagerie + 3 explorations + 1 endoscopies) (1 fichiers JSON)
 
 ### 2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur
-- **P07-01_Examens_Epaule_4-examens.json** — Examens de l'organe Épaule (4 examens : 4 imagerie) (1 fichiers JSON)
-- **P07-02_Examens_Coude_poignet_et_main_5-examens.json** — Examens de l'organe Coude, poignet et main (5 examens : 4 imagerie + 1 explorations) (1 fichiers JSON)
-- **P07-03_Examens_Hanche_et_bassin_4-examens.json** — Examens de l'organe Hanche et bassin (4 examens : 4 imagerie) (1 fichiers JSON)
-- **P07-04_Examens_Genou_5-examens.json** — Examens de l'organe Genou (5 examens : 4 imagerie + 1 endoscopies) (1 fichiers JSON)
-- **P07-05_Examens_Cheville_et_pied_4-examens.json** — Examens de l'organe Cheville et pied (4 examens : 4 imagerie) (1 fichiers JSON)
+- **P07-01_Examens_Epaule_8-examens.json** — Examens de l'organe Épaule (8 examens : 5 imagerie + 2 explorations + 1 biologie) (1 fichiers JSON)
+- **P07-02_Examens_Coude_poignet_et_main_8-examens.json** — Examens de l'organe Coude, poignet et main (8 examens : 5 imagerie + 2 explorations + 1 biologie) (1 fichiers JSON)
+- **P07-03_Examens_Hanche_et_bassin_8-examens.json** — Examens de l'organe Hanche et bassin (8 examens : 6 imagerie + 2 biologie) (1 fichiers JSON)
+- **P07-04_Examens_Genou_8-examens.json** — Examens de l'organe Genou (8 examens : 4 imagerie + 1 endoscopies + 2 biologie + 1 explorations) (1 fichiers JSON)
+- **P07-05_Examens_Cheville_et_pied_9-examens.json** — Examens de l'organe Cheville et pied (9 examens : 5 imagerie + 2 biologie + 2 explorations) (1 fichiers JSON)
 - **P07-06_Examens_Os_longs_et_squelette_12-examens.json** — Examens de l'organe Os longs et squelette (12 examens : 8 imagerie + 3 biologie + 1 anatomopathologie) (1 fichiers JSON)
-- **P07-07_Examens_Articulations_et_synoviale_11-examens.json** — Examens de l'organe Articulations et synoviale (11 examens : 3 imagerie + 7 biologie + 1 anatomopathologie) (1 fichiers JSON)
-- **P07-08_Examens_Muscles_8-examens.json** — Examens de l'organe Muscles (8 examens : 2 imagerie + 4 biologie + 1 explorations + 1 anatomopathologie) (1 fichiers JSON)
-- **P07-09_Examens_Arteres_des_membres_9-examens.json** — Examens de l'organe Artères des membres (9 examens : 4 imagerie + 5 explorations) (1 fichiers JSON)
-- **P07-10_Examens_Veines_des_membres_5-examens.json** — Examens de l'organe Veines des membres (5 examens : 3 imagerie + 2 biologie) (1 fichiers JSON)
-- **P07-11_Examens_Nerfs_peripheriques_9-examens.json** — Examens de l'organe Nerfs périphériques (9 examens : 2 explorations + 2 imagerie + 3 biologie + 2 anatomopathologie) (1 fichiers JSON)
+- **P07-07_Examens_Tendons_et_ligaments_3-examens.json** — Examens de l'organe Tendons et ligaments (3 examens : 2 imagerie + 1 explorations) (1 fichiers JSON)
+- **P07-08_Examens_Articulations_et_synoviale_11-examens.json** — Examens de l'organe Articulations et synoviale (11 examens : 3 imagerie + 7 biologie + 1 anatomopathologie) (1 fichiers JSON)
+- **P07-09_Examens_Muscles_8-examens.json** — Examens de l'organe Muscles (8 examens : 2 imagerie + 4 biologie + 1 explorations + 1 anatomopathologie) (1 fichiers JSON)
+- **P07-10_Examens_Arteres_des_membres_9-examens.json** — Examens de l'organe Artères des membres (9 examens : 4 imagerie + 5 explorations) (1 fichiers JSON)
+- **P07-11_Examens_Veines_des_membres_8-examens.json** — Examens de l'organe Veines des membres (8 examens : 4 imagerie + 3 biologie + 1 explorations) (1 fichiers JSON)
+- **P07-12_Examens_Nerfs_peripheriques_9-examens.json** — Examens de l'organe Nerfs périphériques (9 examens : 2 explorations + 2 imagerie + 3 biologie + 2 anatomopathologie) (1 fichiers JSON)
 
 ### 2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres
 - **P08-01_Examens_Peau_13-examens.json** — Examens de l'organe Peau (13 examens : 3 imagerie + 4 biologie + 4 explorations + 2 anatomopathologie) (1 fichiers JSON)
-- **P08-02_Examens_Ongles_et_cheveux_4-examens.json** — Examens de l'organe Ongles et cheveux (4 examens : 1 biologie + 2 explorations + 1 anatomopathologie) (1 fichiers JSON)
+- **P08-02_Examens_Ongles_et_cheveux_6-examens.json** — Examens de l'organe Ongles et cheveux (6 examens : 2 biologie + 2 explorations + 1 anatomopathologie + 1 imagerie) (1 fichiers JSON)
+- **P08-03_Examens_Plaies_ulceres_et_escarres_7-examens.json** — Examens de l'organe Plaies, ulcères et escarres (7 examens : 2 explorations + 2 imagerie + 2 biologie + 1 anatomopathologie) (1 fichiers JSON)
 
 ### 2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier
 - **P09-01_Examens_Sang_et_hemostase_13-examens.json** — Examens de l'organe Sang et hémostase (13 examens : 11 biologie + 2 explorations) (1 fichiers JSON)
 - **P09-02_Examens_Moelle_osseuse_et_ganglions_6-examens.json** — Examens de l'organe Moelle osseuse et ganglions (6 examens : 4 anatomopathologie + 2 imagerie) (1 fichiers JSON)
-- **P09-03_Examens_Infection_et_immunite_11-examens.json** — Examens de l'organe Infection et immunité (11 examens : 10 biologie + 1 explorations) (1 fichiers JSON)
+- **P09-03_Examens_Infection_et_immunite_14-examens.json** — Examens de l'organe Infection et immunité (14 examens : 13 biologie + 1 explorations) (1 fichiers JSON)
 - **P09-04_Examens_Metabolisme_et_endocrinologie_11-examens.json** — Examens de l'organe Métabolisme et endocrinologie (11 examens : 7 biologie + 4 explorations) (1 fichiers JSON)
 - **P09-05_Examens_Genetique_5-examens.json** — Examens de l'organe Génétique (5 examens : 5 biologie) (1 fichiers JSON)
 - **P09-06_Examens_Toxicologie_et_medicaments_6-examens.json** — Examens de l'organe Toxicologie et médicaments (6 examens : 6 biologie) (1 fichiers JSON)
@@ -144,23 +157,26 @@ Le nom de chaque lot dit son contenu : identifiant de tâche, sujet, système ou
 - **P09-08_Examens_Systeme_lymphatique_7-examens.json** — Examens de l'organe Système lymphatique (7 examens : 4 imagerie + 2 biologie + 1 anatomopathologie) (1 fichiers JSON)
 - **P09-09_Examens_Sommeil_et_vigilance_7-examens.json** — Examens de l'organe Sommeil et vigilance (7 examens : 7 explorations) (1 fichiers JSON)
 - **P09-10_Examens_Psyche_7-examens.json** — Examens de l'organe Psyché (7 examens : 3 explorations + 3 biologie + 1 imagerie) (1 fichiers JSON)
+- **P09-11_Examens_Urgences_et_point-of-care_9-examens.json** — Examens de l'organe Urgences et point-of-care (9 examens : 2 imagerie + 4 biologie + 3 explorations) (1 fichiers JSON)
+- **P09-12_Examens_Evaluation_geriatrique_globale_8-examens.json** — Examens de l'organe Évaluation gériatrique globale (8 examens : 6 explorations + 1 biologie + 1 imagerie) (1 fichiers JSON)
+- **P09-13_Examens_Croissance_et_developpement_de_l_enfant_8-examens.json** — Examens de l'organe Croissance et développement de l'enfant (8 examens : 4 explorations + 2 imagerie + 2 biologie) (1 fichiers JSON)
 
 ### 2_Paraclinique/2_Biologie/1_Analyses_individuelles
-- **PB01_Analyses_Hematologie_30-analyses.json** — Analyses biologiques : Hematologie (30 analyses) (1 fichiers JSON)
+- **PB01_Analyses_Hematologie_31-analyses.json** — Analyses biologiques : Hematologie (31 analyses) (1 fichiers JSON)
 - **PB02_Analyses_Hemostase_18-analyses.json** — Analyses biologiques : Hemostase (18 analyses) (1 fichiers JSON)
 - **PB03_Analyses_Electrolytes_Rein_Acide-base_22-analyses.json** — Analyses biologiques : Electrolytes Rein Acide-base (22 analyses) (1 fichiers JSON)
 - **PB04_Analyses_Foie_Pancreas_Digestif_29-analyses.json** — Analyses biologiques : Foie Pancreas Digestif (29 analyses) (1 fichiers JSON)
 - **PB05_Analyses_Cardiaque_Vasculaire_Lipides_14-analyses.json** — Analyses biologiques : Cardiaque Vasculaire Lipides (14 analyses) (1 fichiers JSON)
 - **PB06_Analyses_Diabete_Thyroide_Phosphocalcique_20-analyses.json** — Analyses biologiques : Diabete Thyroide Phosphocalcique (20 analyses) (1 fichiers JSON)
-- **PB07_Analyses_Inflammation_Infection_Microbiologie_23-analyses.json** — Analyses biologiques : Inflammation Infection Microbiologie (23 analyses) (1 fichiers JSON)
-- **PB08_Analyses_Immunologie_Autoimmunite_Allergie_33-analyses.json** — Analyses biologiques : Immunologie Autoimmunite Allergie (33 analyses) (1 fichiers JSON)
+- **PB07_Analyses_Inflammation_Infection_Microbiologie_24-analyses.json** — Analyses biologiques : Inflammation Infection Microbiologie (24 analyses) (1 fichiers JSON)
+- **PB08_Analyses_Immunologie_Autoimmunite_Allergie_35-analyses.json** — Analyses biologiques : Immunologie Autoimmunite Allergie (35 analyses) (1 fichiers JSON)
 - **PB09_Analyses_Marqueurs_tumoraux_10-analyses.json** — Analyses biologiques : Marqueurs tumoraux (10 analyses) (1 fichiers JSON)
 - **PB10_Analyses_Toxicologie_Dosages_medicamenteux_20-analyses.json** — Analyses biologiques : Toxicologie Dosages medicamenteux (20 analyses) (1 fichiers JSON)
 - **PB11_Analyses_Urines_14-analyses.json** — Analyses biologiques : Urines (14 analyses) (1 fichiers JSON)
 - **PB12_Analyses_Genetique_10-analyses.json** — Analyses biologiques : Genetique (10 analyses) (1 fichiers JSON)
-- **PB13_Analyses_Microbiologie_Prelevements_locaux_12-analyses.json** — Analyses biologiques : Microbiologie Prelevements locaux (12 analyses) (1 fichiers JSON)
+- **PB13_Analyses_Microbiologie_Prelevements_locaux_15-analyses.json** — Analyses biologiques : Microbiologie Prelevements locaux (15 analyses) (1 fichiers JSON)
 - **PB14_Analyses_LCR_Liquides_de_ponction_16-analyses.json** — Analyses biologiques : LCR Liquides de ponction (16 analyses) (1 fichiers JSON)
-- **PB15_Analyses_Surrenales_Gonades_Hypophyse_Neuroendocrine_25-analyses.json** — Analyses biologiques : Surrenales Gonades Hypophyse Neuroendocrine (25 analyses) (1 fichiers JSON)
+- **PB15_Analyses_Surrenales_Gonades_Hypophyse_Neuroendocrine_26-analyses.json** — Analyses biologiques : Surrenales Gonades Hypophyse Neuroendocrine (26 analyses) (1 fichiers JSON)
 
 ### 2_Paraclinique/2_Biologie/2_Prelevements_technique
 - **PP01_Prelevements_Sang_4-prelevements.json** — Prélèvements : Sang (4 prélèvements, technique) (4 fichiers JSON)
@@ -169,41 +185,41 @@ Le nom de chaque lot dit son contenu : identifiant de tâche, sujet, système ou
 - **PP04_Prelevements_Tissus_et_divers_4-prelevements.json** — Prélèvements : Tissus et divers (4 prélèvements, technique) (4 fichiers JSON)
 
 ### 2_Paraclinique/3_Explorations_fonctionnelles/01_Tete_et_encephale
-- **PF01-1_Explorations_fonctionnelles_Tete_et_encephale_11-fiches.json** — Explorations fonctionnelles — Tête et encéphale (11 fiches) (11 fichiers JSON)
-- **PF01-2_Explorations_fonctionnelles_Tete_et_encephale_11-fiches.json** — Explorations fonctionnelles — Tête et encéphale (11 fiches) (11 fichiers JSON)
-- **PF01-3_Explorations_fonctionnelles_Tete_et_encephale_10-fiches.json** — Explorations fonctionnelles — Tête et encéphale (10 fiches) (10 fichiers JSON)
+- **PF01-1_Explorations_fonctionnelles_Tete_et_encephale_13-fiches.json** — Explorations fonctionnelles — Tête et encéphale (13 fiches) (13 fichiers JSON)
+- **PF01-2_Explorations_fonctionnelles_Tete_et_encephale_13-fiches.json** — Explorations fonctionnelles — Tête et encéphale (13 fiches) (13 fichiers JSON)
+- **PF01-3_Explorations_fonctionnelles_Tete_et_encephale_12-fiches.json** — Explorations fonctionnelles — Tête et encéphale (12 fiches) (12 fichiers JSON)
 
 ### 2_Paraclinique/3_Explorations_fonctionnelles/02_Cou
-- **PF02_Explorations_fonctionnelles_Cou_1-fiches.json** — Explorations fonctionnelles — Cou (1 fiches) (1 fichiers JSON)
+- **PF02_Explorations_fonctionnelles_Cou_3-fiches.json** — Explorations fonctionnelles — Cou (3 fiches) (3 fichiers JSON)
 
 ### 2_Paraclinique/3_Explorations_fonctionnelles/03_Rachis_moelle_et_racines
-- **PF03_Explorations_fonctionnelles_Rachis_moelle_et_racines_2-fiches.json** — Explorations fonctionnelles — Rachis, moelle et racines (2 fiches) (2 fichiers JSON)
+- **PF03_Explorations_fonctionnelles_Rachis_moelle_et_racines_6-fiches.json** — Explorations fonctionnelles — Rachis, moelle et racines (6 fiches) (6 fichiers JSON)
 
 ### 2_Paraclinique/3_Explorations_fonctionnelles/04_Thorax
-- **PF04-1_Explorations_fonctionnelles_Thorax_10-fiches.json** — Explorations fonctionnelles — Thorax (10 fiches) (10 fichiers JSON)
-- **PF04-2_Explorations_fonctionnelles_Thorax_10-fiches.json** — Explorations fonctionnelles — Thorax (10 fiches) (10 fichiers JSON)
+- **PF04-1_Explorations_fonctionnelles_Thorax_12-fiches.json** — Explorations fonctionnelles — Thorax (12 fiches) (12 fichiers JSON)
+- **PF04-2_Explorations_fonctionnelles_Thorax_12-fiches.json** — Explorations fonctionnelles — Thorax (12 fiches) (12 fichiers JSON)
 
 ### 2_Paraclinique/3_Explorations_fonctionnelles/05_Abdomen
-- **PF05_Explorations_fonctionnelles_Abdomen_9-fiches.json** — Explorations fonctionnelles — Abdomen (9 fiches) (9 fichiers JSON)
+- **PF05_Explorations_fonctionnelles_Abdomen_10-fiches.json** — Explorations fonctionnelles — Abdomen (10 fiches) (10 fichiers JSON)
 
 ### 2_Paraclinique/3_Explorations_fonctionnelles/06_Pelvis
-- **PF06_Explorations_fonctionnelles_Pelvis_5-fiches.json** — Explorations fonctionnelles — Pelvis (5 fiches) (5 fichiers JSON)
+- **PF06_Explorations_fonctionnelles_Pelvis_9-fiches.json** — Explorations fonctionnelles — Pelvis (9 fiches) (9 fichiers JSON)
 
 ### 2_Paraclinique/3_Explorations_fonctionnelles/07_Membres_et_appareil_locomoteur
-- **PF07_Explorations_fonctionnelles_Membres_et_appareil_locomoteur_8-fiches.json** — Explorations fonctionnelles — Membres et appareil locomoteur (8 fiches) (8 fichiers JSON)
+- **PF07_Explorations_fonctionnelles_Membres_et_appareil_locomoteur_14-fiches.json** — Explorations fonctionnelles — Membres et appareil locomoteur (14 fiches) (14 fichiers JSON)
 
 ### 2_Paraclinique/3_Explorations_fonctionnelles/08_Peau_et_phaneres
-- **PF08_Explorations_fonctionnelles_Peau_et_phaneres_6-fiches.json** — Explorations fonctionnelles — Peau et phanères (6 fiches) (6 fichiers JSON)
+- **PF08_Explorations_fonctionnelles_Peau_et_phaneres_7-fiches.json** — Explorations fonctionnelles — Peau et phanères (7 fiches) (7 fichiers JSON)
 
 ### 2_Paraclinique/3_Explorations_fonctionnelles/09_Systemes_transversaux_corps_entier
-- **PF09-1_Explorations_fonctionnelles_Systemes_transversaux_corps_en_8-fiches.json** — Explorations fonctionnelles — Systèmes transversaux (corps entier) (8 fiches) (8 fichiers JSON)
-- **PF09-2_Explorations_fonctionnelles_Systemes_transversaux_corps_en_8-fiches.json** — Explorations fonctionnelles — Systèmes transversaux (corps entier) (8 fiches) (8 fichiers JSON)
+- **PF09-1_Explorations_fonctionnelles_Systemes_transversaux_corps_en_15-fiches.json** — Explorations fonctionnelles — Systèmes transversaux (corps entier) (15 fiches) (15 fichiers JSON)
+- **PF09-2_Explorations_fonctionnelles_Systemes_transversaux_corps_en_14-fiches.json** — Explorations fonctionnelles — Systèmes transversaux (corps entier) (14 fiches) (14 fichiers JSON)
 
 ### 2_Paraclinique/4_Endoscopies/01_Tete_et_encephale
 - **PE01_Endoscopies_Tete_et_encephale_2-fiches.json** — Endoscopies — Tête et encéphale (2 fiches) (2 fichiers JSON)
 
 ### 2_Paraclinique/4_Endoscopies/02_Cou
-- **PE02_Endoscopies_Cou_3-fiches.json** — Endoscopies — Cou (3 fiches) (3 fichiers JSON)
+- **PE02_Endoscopies_Cou_4-fiches.json** — Endoscopies — Cou (4 fiches) (4 fichiers JSON)
 
 ### 2_Paraclinique/4_Endoscopies/04_Thorax
 - **PE04_Endoscopies_Thorax_8-fiches.json** — Endoscopies — Thorax (8 fiches) (8 fichiers JSON)
@@ -218,7 +234,7 @@ Le nom de chaque lot dit son contenu : identifiant de tâche, sujet, système ou
 - **PE07_Endoscopies_Membres_et_appareil_locomoteur_1-fiches.json** — Endoscopies — Membres et appareil locomoteur (1 fiches) (1 fichiers JSON)
 
 ### 2_Paraclinique/5_Imagerie_Images_et_Cas
-- **P23_Images_reelles_Thorax_URL_et_licences.json** — Trouver les images du pilote thorax (cliché patient + cliché normal) (8 fichiers JSON)
+- **P23_Images_reelles_Thorax_URL_et_licences.json** — Trouver les images du pilote thorax (cliché patient + cliché normal) (9 fichiers JSON)
 - **P25_Cas_cliniques_Thorax_le_bon_examen.json** — Écrire 20 cas « le bon examen » (thorax) (1 fichiers JSON)
 
 ### 2_Paraclinique/6_Formules_Criteres_SmarterMedicine

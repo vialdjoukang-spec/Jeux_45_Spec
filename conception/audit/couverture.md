@@ -21,6 +21,6 @@
 | Les 101 examens témoins sont présents | ✅ |  |
 | Chaque prélèvement liste ses examens | ✅ |  |
 
-**Couverture :** regions : 9 · organes : 66 · prelevements : 23 · Imagerie : 230 · Biologie : 197 · Exploration fonctionnelle : 105 · Endoscopie : 33 · Anatomopathologie / biopsie : 51
+**Couverture :** regions : 9 · organes : 82 · prelevements : 23 · Imagerie : 292 · Biologie : 280 · Exploration fonctionnelle : 151 · Endoscopie : 35 · Anatomopathologie / biopsie : 62
 
-- Organes du catalogue non rattachés à un système (navigation topographique seule) : Corps entier (bilan d'extension et trauma).
+- Organes du catalogue non rattachés à un système (navigation topographique seule) : Urgences et point-of-care, Évaluation gériatrique globale.

@@ -41,7 +41,7 @@ def main():
     a.add_argument("source"); a.add_argument("-o", "--sortie", default="reseau.html")
     a.add_argument("--titre"); a.add_argument("--niveaux", default=""); a.add_argument("--contenu", type=int, default=1)
     a.add_argument("--github", default=""); a.add_argument("--racine-depot", default=""); a.add_argument("--canvas")
-    a.add_argument("--signature", default=""); a.add_argument("--max-items", type=int, default=60); a.add_argument("--largeur", type=int, default=230); a.add_argument("--type-par", default="", help="champ d'un élément JSON qui donne sa couleur (ex. modalite)")
+    a.add_argument("--signature", default=""); a.add_argument("--max-items", type=int, default=60); a.add_argument("--largeur", type=int, default=230); a.add_argument("--grouper-par", default="", help="champ qui groupe les éléments d'une liste avant de les montrer (ex. modalite)"); a.add_argument("--type-par", default="", help="champ d'un élément JSON qui donne sa couleur (ex. modalite)")
     o = a.parse_args()
     niveaux = [x.strip() for x in o.niveaux.split(",") if x.strip()]
     N, types = [], []
@@ -81,6 +81,20 @@ def main():
                 return
         elif isinstance(v, list):
             items = v
+        if o.grouper_par and items and all(isinstance(x, dict) and isinstance(x.get(o.grouper_par), str) for x in items):
+            groupes = {}
+            for x in items:
+                groupes.setdefault(x[o.grouper_par], []).append(x)
+            if len(groupes) > 1:
+                for gi, (g, lst) in enumerate(groupes.items()):
+                    if g not in types:
+                        types.append(g)
+                    gid = f"{pid}/g{gi}"
+                    ajout(gid, pid, g, g, f"{len(lst)} {(sing or 'élément').lower()}{'s' if len(lst) > 1 else ''}", {o.grouper_par: g, "nombre": str(len(lst))})
+                    for i, x in enumerate(lst[:o.max_items]):
+                        inf = {k: (", ".join(map(str, y)) if isinstance(y, list) else str(y)) for k, y in x.items() if y not in (None, [], {}, "") and not isinstance(y, dict)}
+                        ajout(f"{gid}/i{i}", gid, nom_item(x, i)[:90], g, "", dict(list(inf.items())[:8]))
+                return
         for i, x in enumerate(items[:o.max_items]):
             inf = {k: (", ".join(map(str, y)) if isinstance(y, list) else str(y)) for k, y in (x.items() if isinstance(x, dict) else []) if y not in (None, [], {}, "") and not isinstance(y, dict)}
             t = x.get(o.type_par) if (o.type_par and isinstance(x, dict) and isinstance(x.get(o.type_par), str)) else None
@@ -133,6 +147,8 @@ def main():
         v = json.load(open(src, encoding="utf-8"))
         ajout("R", None, titre, "Racine", resume_json(v), {"fichier": src}); types.insert(0, "Racine")
         json_enfants(v, "R", 0, o.contenu + 1)
+    utilises = {n["type"] for n in N}
+    types = [t for t in types if t in utilises]
     coul = {t: PALETTE[i % len(PALETTE)] for i, t in enumerate(types)}
     data = {"titre": titre, "couleurs": coul, "noeuds": N, "signature": o.signature, "largeur": o.largeur}
     g = open(os.path.join(ICI, "..", "assets", "reseau_donnees.html"), encoding="utf-8").read()

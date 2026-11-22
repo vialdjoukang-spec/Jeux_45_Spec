@@ -22,13 +22,13 @@ SYSTEMES = {
   ("Fosses nasales et sinus", "crane", ["Nez, sinus et cavum"]), ("Pharynx", "crane", ["Larynx et pharynx"]), ("Larynx", "trachee", ["Larynx et pharynx"]),
   ("Trachée", "trachee", ["Poumons et voies aériennes"]), ("Bronches et bronchioles", "poumon_d", ["Poumons et voies aériennes"]),
   ("Poumons (lobes, segments, acinus)", "poumon_d", ["Poumons et voies aériennes"]), ("Circulation pulmonaire", "poumon_d", ["Aorte thoracique et artères pulmonaires"]),
-  ("Plèvre", "poumon_d", ["Plèvre"]), ("Diaphragme et muscles respiratoires", "diaphragme", ["Poumons et voies aériennes"]),
+  ("Plèvre", "poumon_d", ["Plèvre"]), ("Diaphragme et muscles respiratoires", "diaphragme", ["Poumons et voies aériennes", "Diaphragme et muscles respiratoires"]),
   ("Paroi thoracique", "cage", ["Paroi thoracique et côtes"]), ("Centres respiratoires et chémorécepteurs", "cerveau", ["Encéphale"])],
  "Neurologique": [
   ("Méninges et LCR", "cerveau", ["Méninges et LCR"]), ("Hémisphères cérébraux (lobes, cortex)", "cerveau", ["Encéphale"]), ("Noyaux gris centraux et thalamus", "cerveau", ["Encéphale"]),
   ("Système limbique et hypothalamus", "cerveau", ["Encéphale", "Hypophyse et hypothalamus"]), ("Tronc cérébral", "cerveau", ["Encéphale"]), ("Cervelet", "cerveau", ["Encéphale"]),
-  ("Nerfs crâniens (I à XII)", "cerveau", ["Encéphale"]), ("Vascularisation cérébrale (polygone de Willis, sinus veineux)", "cerveau", ["Vaisseaux du cou et de la tête", "Encéphale"]),
-  ("Moelle épinière", "rachis", ["Moelle épinière"]), ("Racines et plexus", "rachis", ["Racines et plexus"]), ("Nerfs périphériques", "femur", ["Nerfs périphériques"]),
+  ("Nerfs crâniens (I à XII)", "cerveau", ["Encéphale", "Nerfs crâniens"]), ("Vascularisation cérébrale (polygone de Willis, sinus veineux)", "cerveau", ["Vaisseaux du cou et de la tête", "Encéphale"]),
+  ("Moelle épinière", "rachis", ["Moelle épinière"]), ("Racines et plexus", "rachis", ["Racines et plexus", "Queue de cheval et cône terminal"]), ("Nerfs périphériques", "femur", ["Nerfs périphériques"]),
   ("Jonction neuromusculaire", None, ["Muscles"]), ("Système nerveux autonome", "rachis", ["Nerfs périphériques"])],
  "Psyché (psychiatrie)": [
   ("Fonctions cognitives (attention, mémoire, fonctions exécutives)", "cerveau", ["Psyché"]), ("Perception et pensée", "cerveau", ["Psyché"]),
@@ -40,33 +40,33 @@ SYSTEMES = {
   ("Surrénales", "reins", ["Surrénales"]), ("Gonades (ovaires, testicules)", "bassin", ["Utérus, col, ovaires et annexes", "Testicules et scrotum"]),
   ("Tissu adipeux et métabolisme énergétique", None, ["Métabolisme et endocrinologie"]), ("Métabolisme phosphocalcique et osseux", "femur", ["Os longs et squelette"])],
  "Digestif & hépatobiliaire": [
-  ("Cavité buccale et glandes salivaires", "crane", ["Cavité buccale et glandes salivaires"]), ("Pharynx", "crane", ["Larynx et pharynx"]), ("Œsophage", "oesophage", ["Œsophage"]),
+  ("Cavité buccale et glandes salivaires", "crane", ["Cavité buccale et glandes salivaires", "Articulation temporo-mandibulaire et dents"]), ("Pharynx", "crane", ["Larynx et pharynx"]), ("Œsophage", "oesophage", ["Œsophage"]),
   ("Estomac", "estomac", ["Estomac et duodénum"]), ("Duodénum", "estomac", ["Estomac et duodénum"]), ("Foie", "foie", ["Foie"]), ("Vésicule et voies biliaires", "foie", ["Vésicule et voies biliaires"]),
-  ("Pancréas exocrine", "pancreas", ["Pancréas"]), ("Jéjunum et iléon", "grele", ["Intestin grêle"]), ("Côlon", "colon", ["Côlon, rectum et anus"]),
-  ("Rectum et canal anal", "colon", ["Côlon, rectum et anus"]), ("Péritoine", "grele", ["Péritoine et ascite"]), ("Vascularisation digestive et système porte", "foie", ["Aorte abdominale et vaisseaux digestifs", "Veines caves et système porte"])],
+  ("Pancréas exocrine", "pancreas", ["Pancréas"]), ("Jéjunum et iléon", "grele", ["Intestin grêle"]), ("Côlon", "colon", ["Côlon, rectum et anus", "Appendice"]),
+  ("Rectum et canal anal", "colon", ["Côlon, rectum et anus"]), ("Péritoine", "grele", ["Péritoine et ascite", "Paroi abdominale et hernies"]), ("Vascularisation digestive et système porte", "foie", ["Aorte abdominale et vaisseaux digestifs", "Veines caves et système porte"])],
  "Rénal & uro-génital": [
-  ("Reins (néphron, glomérule, tubule)", "reins", ["Reins"]), ("Uretères", "reins", ["Uretères"]), ("Vessie", "vessie", ["Vessie et urètre"]), ("Urètre", "vessie", ["Vessie et urètre"]),
-  ("Prostate et vésicules séminales", "vessie", ["Prostate et vésicules séminales"]), ("Testicules, épididymes et voies spermatiques", "bassin", ["Testicules et scrotum"])],
+  ("Reins (néphron, glomérule, tubule)", "reins", ["Reins"]), ("Uretères", "reins", ["Uretères", "Rétropéritoine"]), ("Vessie", "vessie", ["Vessie et urètre"]), ("Urètre", "vessie", ["Vessie et urètre", "Pénis et urètre masculin"]),
+  ("Prostate et vésicules séminales", "vessie", ["Prostate et vésicules séminales"]), ("Testicules, épididymes et voies spermatiques", "bassin", ["Testicules et scrotum", "Pénis et urètre masculin"])],
  "Hématologique & oncologique": [
   ("Moelle osseuse (hématopoïèse)", "bassin", ["Moelle osseuse et ganglions"]), ("Sang : globules rouges", None, ["Sang et hémostase"]), ("Sang : globules blancs", None, ["Sang et hémostase"]),
-  ("Plaquettes et hémostase", None, ["Sang et hémostase"]), ("Rate", "rate", ["Rate"]), ("Ganglions lymphatiques", None, ["Moelle osseuse et ganglions", "Ganglions cervicaux"]), ("Thymus", "coeur", ["Médiastin"])],
+  ("Plaquettes et hémostase", None, ["Sang et hémostase"]), ("Rate", "rate", ["Rate"]), ("Ganglions lymphatiques", None, ["Moelle osseuse et ganglions", "Ganglions cervicaux", "Corps entier (bilan d'extension et trauma)", "Masses cervicales et kystes"]), ("Thymus", "coeur", ["Médiastin"])],
  "Infectieux & immunitaire": [
   ("Barrières (peau, muqueuses, microbiote)", None, ["Peau", "Infection et immunité"]), ("Immunité innée", None, ["Infection et immunité"]), ("Immunité adaptative (lymphocytes B et T)", None, ["Infection et immunité"]),
   ("Complément", None, ["Infection et immunité"]), ("Organes lymphoïdes (moelle, thymus, rate, ganglions, MALT)", "rate", ["Moelle osseuse et ganglions", "Rate"])],
  "Locomoteur & rhumatologique": [
-  ("Crâne et face", "crane", ["Os du crâne et de la face"]), ("Rachis", "rachis", ["Rachis osseux"]), ("Ceinture scapulaire et épaule", "humerus", ["Épaule"]), ("Coude, poignet et main", "humerus", ["Coude, poignet et main"]),
+  ("Crâne et face", "crane", ["Os du crâne et de la face", "Articulation temporo-mandibulaire et dents"]), ("Rachis", "rachis", ["Rachis osseux"]), ("Ceinture scapulaire et épaule", "humerus", ["Épaule"]), ("Coude, poignet et main", "humerus", ["Coude, poignet et main"]),
   ("Bassin et hanche", "bassin", ["Hanche et bassin"]), ("Genou", "femur", ["Genou"]), ("Cheville et pied", "femur", ["Cheville et pied"]), ("Os (tissu osseux)", "femur", ["Os longs et squelette"]),
-  ("Articulations et synoviale", "femur", ["Articulations et synoviale"]), ("Muscles striés squelettiques", "femur", ["Muscles"]), ("Tendons, ligaments et bourses", "femur", ["Articulations et synoviale"])],
- "Dermatologique": [("Épiderme", None, ["Peau"]), ("Derme et hypoderme", None, ["Peau"]), ("Annexes : poils et cheveux", None, ["Ongles et cheveux"]), ("Annexes : ongles", None, ["Ongles et cheveux"]), ("Glandes sudorales et sébacées", None, ["Peau"]), ("Muqueuses", None, ["Peau"])],
+  ("Articulations et synoviale", "femur", ["Articulations et synoviale"]), ("Muscles striés squelettiques", "femur", ["Muscles"]), ("Tendons, ligaments et bourses", "femur", ["Articulations et synoviale", "Tendons et ligaments"])],
+ "Dermatologique": [("Épiderme", None, ["Peau"]), ("Derme et hypoderme", None, ["Peau", "Plaies, ulcères et escarres"]), ("Annexes : poils et cheveux", None, ["Ongles et cheveux"]), ("Annexes : ongles", None, ["Ongles et cheveux"]), ("Glandes sudorales et sébacées", None, ["Peau"]), ("Muqueuses", None, ["Peau"])],
  "Ophtalmologique & ORL": [
   ("Paupières et voies lacrymales", "crane", ["Œil et orbite"]), ("Globe oculaire (cornée, cristallin, rétine)", "crane", ["Œil et orbite"]), ("Voies optiques", "cerveau", ["Œil et orbite", "Encéphale"]),
   ("Oreille externe et moyenne", "crane", ["Oreille et équilibre"]), ("Oreille interne (cochlée, vestibule)", "crane", ["Oreille et équilibre"]), ("Nez et sinus", "crane", ["Nez, sinus et cavum"]),
-  ("Cavité buccale et pharynx", "crane", ["Cavité buccale et glandes salivaires", "Larynx et pharynx"]), ("Larynx", "trachee", ["Larynx et pharynx"]), ("Glandes salivaires", "crane", ["Cavité buccale et glandes salivaires"])],
+  ("Cavité buccale et pharynx", "crane", ["Cavité buccale et glandes salivaires", "Larynx et pharynx", "Masses cervicales et kystes"]), ("Larynx", "trachee", ["Larynx et pharynx"]), ("Glandes salivaires", "crane", ["Cavité buccale et glandes salivaires"])],
  "Gynéco-obstétrical": [
-  ("Seins", "coeur", ["Seins"]), ("Ovaires", "bassin", ["Utérus, col, ovaires et annexes"]), ("Trompes", "bassin", ["Utérus, col, ovaires et annexes"]), ("Utérus et col", "bassin", ["Utérus, col, ovaires et annexes"]),
-  ("Vagin et vulve", "bassin", ["Utérus, col, ovaires et annexes"]), ("Plancher pelvien", "bassin", ["Plancher pelvien"]), ("Placenta et unité fœto-placentaire", "bassin", ["Grossesse, fœtus et placenta"])],
+  ("Seins", "coeur", ["Seins", "Post-partum et allaitement"]), ("Ovaires", "bassin", ["Utérus, col, ovaires et annexes"]), ("Trompes", "bassin", ["Utérus, col, ovaires et annexes"]), ("Utérus et col", "bassin", ["Utérus, col, ovaires et annexes"]),
+  ("Vagin et vulve", "bassin", ["Utérus, col, ovaires et annexes", "Vulve, vagin et périnée"]), ("Plancher pelvien", "bassin", ["Plancher pelvien"]), ("Placenta et unité fœto-placentaire", "bassin", ["Grossesse, fœtus et placenta", "Post-partum et allaitement"])],
  "Pédiatrique (croissance et développement)": [
-  ("Croissance staturo-pondérale", None, ["Os longs et squelette"]), ("Développement psychomoteur", "cerveau", ["Encéphale"]), ("Puberté", "bassin", ["Métabolisme et endocrinologie"]),
+  ("Croissance staturo-pondérale", None, ["Os longs et squelette", "Croissance et développement de l'enfant"]), ("Développement psychomoteur", "cerveau", ["Encéphale", "Croissance et développement de l'enfant"]), ("Puberté", "bassin", ["Métabolisme et endocrinologie", "Croissance et développement de l'enfant"]),
   ("Adaptation néonatale (vie extra-utérine)", "coeur", ["Grossesse, fœtus et placenta", "Cœur et péricarde"]), ("Génétique et dysmorphies", None, ["Génétique"])],
 }
 

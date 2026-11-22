@@ -8,7 +8,7 @@ FAMILLES = {
         "Leucocytes", "Neutrophiles", "Lymphocytes", "Monocytes", "Éosinophiles", "Basophiles", "Thrombocytes",
         "Frottis sanguin (schistocytes, blastes, sphérocytes)", "Vitesse de sédimentation (VS)", "Ferritine", "Fer sérique",
         "Transferrine et coefficient de saturation", "Vitamine B12", "Holotranscobalamine", "Acide folique", "Haptoglobine",
-        "Bilirubine libre", "Test de Coombs direct", "Cytométrie en flux (immunophénotypage)", "JAK2 V617F, CALR, MPL", "Électrophorèse de l'hémoglobine", "Typage sanguin ABO-Rhésus et recherche d'agglutinines irrégulières"]),
+        "Bilirubine libre", "Test de Coombs direct", "Test de Kleihauer", "Cytométrie en flux (immunophénotypage)", "JAK2 V617F, CALR, MPL", "Électrophorèse de l'hémoglobine", "Typage sanguin ABO-Rhésus et recherche d'agglutinines irrégulières"]),
     "02_Hemostase": ("sang_veineux", [
         "TP (Quick) et INR", "aPTT", "Fibrinogène", "D-dimères", "Temps de thrombine", "Activité anti-Xa",
         "Facteur VIII", "Facteur IX", "Facteur de von Willebrand (antigène et activité)", "Antithrombine", "Protéine C", "Protéine S",
@@ -37,14 +37,14 @@ FAMILLES = {
         "Cortisol sérique", "ACTH", "Cortisol salivaire nocturne | salive",
         "Cortisol libre urinaire de 24 h | urine", "Aldostérone", "Rénine", "Métanéphrines plasmatiques libres", "Métanéphrines urinaires | urine",
         "DHEA-S", "17-OH-progestérone", "Testostérone", "SHBG", "LH", "FSH", "Œstradiol", "Progestérone", "Prolactine",
-        "β-hCG", "AMH", "IGF-1", "Hormone de croissance (GH)", "Copeptine", "Chromogranine A", "Gastrine", "Rapport sFlt-1/PlGF"]),
+        "β-hCG", "AMH", "IGF-1", "Hormone de croissance (GH)", "Copeptine", "Chromogranine A", "Gastrine", "Rapport sFlt-1/PlGF", "Fibronectine fœtale | prelevements_genitaux_et_uretraux"]),
     "07_Inflammation_Infection_Microbiologie": ("sang_veineux", [
         "CRP", "Procalcitonine", "Hémocultures | hemocultures", "Test VIH combiné (antigène p24 et anticorps)", "Charge virale VIH",
         "Lymphocytes T CD4", "Syphilis : TPPA et VDRL/RPR", "Sérologie CMV", "Sérologie EBV", "Sérologie toxoplasmose", "Sérologie rubéole",
         "Sérologie varicelle-zona", "Sérologie de la borréliose (avec immunoblot)", "Test de libération d'interféron gamma (IGRA)",
         "Galactomannane aspergillaire", "β-D-glucane", "Antigènes urinaires pneumocoque et légionelle | urine",
         "Recherche de paludisme (frottis, goutte épaisse, test rapide)", "PCR respiratoire multiplex | ecouvillons_nasopharynges_et_de_gorge",
-        "Test rapide du streptocoque A | ecouvillons_nasopharynges_et_de_gorge", "Sérologie parvovirus B19", "Recherche de microfilaires", "Précipitines (pneumopathie d'hypersensibilité)"]),
+        "Test rapide du streptocoque A | ecouvillons_nasopharynges_et_de_gorge", "Sérologie parvovirus B19", "Recherche de microfilaires", "Sérologies du voyageur (dengue, chikungunya, schistosomiase)", "Précipitines (pneumopathie d'hypersensibilité)"]),
     "08_Immunologie_Autoimmunite_Allergie": ("sang_veineux", [
         "Anticorps antinucléaires (ANA)", "Anticorps anti-ADN natif", "Anticorps anti-ENA", "ANCA (anti-PR3, anti-MPO)", "Anticorps anti-MBG",
         "Anticorps anti-PLA2R", "Facteur rhumatoïde", "Anticorps anti-CCP", "Complément C3", "Complément C4", "CH50",
@@ -52,7 +52,7 @@ FAMILLES = {
         "Immunofixation sérique et urinaire", "Chaînes légères libres sériques (kappa, lambda)", "Cryoglobulines",
         "Anticorps des myosites (anti-Jo-1, anti-HMGCR, anti-SRP, anti-Mi-2)", "Anticorps anti-récepteur de l'acétylcholine", "Anticorps anti-MuSK",
         "Anticorps anti-AQP4", "Anticorps anti-MOG", "Anticorps anti-neuronaux (encéphalites auto-immunes)", "Anticorps anti-gangliosides", "Anticorps anti-MAG",
-        "Anticorps anti-facteur intrinsèque", "Anticorps anti-cellules pariétales", "Auto-anticorps hépatiques (anti-muscle lisse, anti-LKM1, AMA)", "HLA-B27", "Électrophorèse des protéines urinaires | urine", "Immunofluorescence indirecte cutanée (dermatoses bulleuses)"]),
+        "Anticorps anti-facteur intrinsèque", "Anticorps anti-cellules pariétales", "Auto-anticorps hépatiques (anti-muscle lisse, anti-LKM1, AMA)", "HLA-B27", "Anticorps anti-SSA et anti-SSB", "Enzyme de conversion de l'angiotensine (ECA)", "Électrophorèse des protéines urinaires | urine", "Immunofluorescence indirecte cutanée (dermatoses bulleuses)"]),
     "09_Marqueurs_tumoraux": ("sang_veineux", [
         "PSA total et libre", "ACE", "CA 19-9", "CA-125", "HE4", "CA 15-3", "AFP", "LDH", "NSE", "β2-microglobuline"]),
     "10_Toxicologie_Dosages_medicamenteux": ("sang_veineux", [
@@ -72,7 +72,7 @@ FAMILLES = {
         "Expectorations : Gram, culture, BAAR, PCR tuberculose | expectorations_et_lavage_bronchoalveolaire", "PCR Chlamydia trachomatis et gonocoque | prelevements_genitaux_et_uretraux",
         "Prélèvement vaginal : examen direct, pH, culture | prelevements_genitaux_et_uretraux", "Frottis cervical et test HPV | prelevements_genitaux_et_uretraux",
         "PCR HSV et VZV sur lésion", "Examen mycologique direct et culture | cheveux_et_ongles", "Prélèvement conjonctival (culture, PCR)",
-        "Spermogramme et spermoculture | sperme", "Uricult (culture d'urine) | urine"]),
+        "Spermogramme et spermoculture | sperme", "Uricult (culture d'urine) | urine", "Culture de pus ou de prélèvement profond (abcès, plaie, otorrhée)", "Streptocoque B (frottis vagino-rectal) | prelevements_genitaux_et_uretraux", "Cytologie d'un écoulement mamelonnaire"]),
     "14_LCR_Liquides_de_ponction": ("liquide_cephalorachidien", [
         "LCR : cellules et formule", "LCR : protéines", "LCR : glucose et rapport LCR/sang", "LCR : lactate", "LCR : Gram, culture, PCR multiplex",
         "LCR : bandes oligoclonales et index IgG", "LCR : xanthochromie (spectrophotométrie)", "LCR : cytologie", "LCR : Aβ42, tau, p-tau",
@@ -125,6 +125,13 @@ ALIAS = {
     "liquide d ascite albumine et polynucleaires": ["ascite"], "liquide synovial cellules et cristaux": ["liquide synovial"],
     "liquide pericardique cellules culture cytologie": ["liquide pericardique"], "humeur aqueuse pcr": ["chambre anterieure"],
     "phosphatase alcaline osseuse": ["remodelage"],
+    "anticorps anti ssa et anti ssb": ["anti ssa"], "enzyme de conversion de l angiotensine": ["enzyme de conversion"],
+    "culture de pus ou de prelevement profond": ["culture d abces", "prelevement profond", "otorrhee"], "streptocoque b": ["streptocoque b"],
+    "cytologie d un ecoulement mamelonnaire": ["ecoulement mamelonnaire"], "serologies du voyageur": ["serologies du voyageur"],
+    "fibronectine foetale": ["fibronectine"], "test de kleihauer": ["kleihauer"],
+    "serologie ebv": ["serologies ebv", "mononucleose", "ebv"], "serologie cmv": ["cmv"], "test de liberation d interferon gamma": ["igra", "interferon gamma"],
+    "liquide synovial cellules et cristaux": ["liquide synovial", "ponction articulaire", "ponction de hanche", "ponction du 1er metatarso"],
+    "prelevement vaginal examen direct ph culture": ["prelevements vaginaux", "prelevement vaginal"],
 }
 
 

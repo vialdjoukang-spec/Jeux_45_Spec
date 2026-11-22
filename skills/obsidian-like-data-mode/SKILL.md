@@ -21,7 +21,7 @@ When they are not on disk, clone the repository (`git clone https://github.com/v
 python scripts/data_vers_reseau.py <dossier|fichier.json> -o reseau.html \
   --titre "Paraclinique — segmentation des lots" \
   --niveaux "Thème,Région ou famille,Lot" \
-  --type-par modalite --contenu 2 \
+  --grouper-par modalite --type-par modalite --contenu 2 \
   --github https://github.com/<user>/<repo>/blob/main/ --racine-depot <repo> \
   --canvas reseau.canvas --signature "AAI (Anthropic AI)"
 ```
@@ -34,7 +34,9 @@ python scripts/data_vers_reseau.py <dossier|fichier.json> -o reseau.html \
 - The page is self-contained: data inline, Atkinson Hyperlegible for text, no SVG.
 
 ## 2. What the page does
-- **Progressive reveal:** at load only the root and its first level show. A click unfolds a box and frames its children; a second click folds it.
+- **Stable tree:** a parent keeps its place and its children start at its height, so opening a box only pushes what lies below it. The clicked box never moves on screen, and folding a box keeps the memory of what was open beneath it, so reopening restores the same view.
+- **Progressive reveal:** at load only the root and its first level show. A click unfolds a box and a second click folds it.
+- **No explosion:** `--grouper-par modalite` inserts one box per group (Imagerie, Biologie…) between a file and its items, so a 30-item list unfolds in two short steps.
 - **One ↺ button:** a click folds the last opened circuit, and a double-click folds everything.
 - **Navigation:**
   - « Tout déplier » unfolds every box, and « Cadrer » fits the visible network to the screen ;

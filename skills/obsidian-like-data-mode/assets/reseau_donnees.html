@@ -38,7 +38,7 @@ canvas{position:fixed;inset:0}
 </style>
 </head>
 <body data-theme="blanc">
-<div id="barre"><h1 id="titre"></h1><button id="raz" title="Clic : replier le dernier circuit · Double-clic : tout replier">↺</button><button id="tout">Tout déplier</button><button id="cadre">Cadrer</button><button id="theme">Thème</button><input id="cherche" placeholder="Chercher un nœud…"><span id="stat"></span></div>
+<div id="barre"><h1 id="titre"></h1><button id="raz" title="Clic : replier le dernier circuit ouvert · Double-clic : tout replier">↺</button><button id="tout">Tout déplier</button><button id="cadre">Cadrer</button><button id="theme">Thème</button><input id="cherche" placeholder="Chercher un nœud…"><span id="stat"></span></div>
 <canvas id="liens"></canvas><div id="scene"></div><div id="bulle"></div><div id="legende"></div><div id="sig"></div>
 <script>
 {
@@ -55,7 +55,9 @@ const visible=n=>!n.parent||(ouvert.has(n.parent)&&visible(byId[n.parent]));
 const el={};
 N.forEach(n=>{const d=document.createElement("div");d.className="n";d.style.setProperty("--c",COUL[n.type]||"#888");d.style.setProperty("--w",COL+"px");
   const nb=(enf[n.id]||[]).length;d.innerHTML=`<small>${n.type}</small><b>${esc(n.label)}</b>${n.resume?`<i>${esc(n.resume)}</i>`:""}${nb?`<span class=plus>${ouvert.has(n.id)?"−":"+"}</span>`:""}`;
-  d.onclick=e=>{e.stopPropagation();if(!nb)return;if(ouvert.has(n.id)){fermer(n.id)}else{ouvert.add(n.id);pile.push(n.id);poser();return cibler(n)}poser()};
+  d.onclick=e=>{e.stopPropagation();if(!nb)return;const sx=n.x*k+tx,sy=n.y*k+ty;
+    if(ouvert.has(n.id)){ouvert.delete(n.id)}else{ouvert.add(n.id);pile.push(n.id)}
+    poser();tx=sx-n.x*k;ty=sy-n.y*k;dessiner()};
   d.onmouseenter=e=>montrer(n,e);d.onmouseleave=()=>bulle.style.display="none";scene.appendChild(d);el[n.id]=d});
 function esc(s){return String(s??"").replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}
 function fermer(id){ouvert.delete(id);(enf[id]||[]).forEach(c=>fermer(c.id))}
@@ -66,9 +68,9 @@ function poser(){
   const h={};N.forEach(n=>{if(visible(n))h[n.id]=el[n.id].offsetHeight});
   let y=0;const pos={};
   (function place(n,d){const cs=(enf[n.id]||[]).filter(visible);n.x=d*(COL+GAP);
-    if(!cs.length){n.y=y;y+=h[n.id]+VG;return}
-    const y0=y;cs.forEach(c=>place(c,d+1));const a=cs[0],b=cs[cs.length-1];const mid=(a.y+(b.y+h[b.id]))/2;
-    n.y=Math.max(y0,mid-h[n.id]/2);if(n.y+h[n.id]+VG>y)y=n.y+h[n.id]+VG})(racine,0);
+    // disposition stable : le parent garde sa place, ses enfants commencent à sa hauteur ; ouvrir ne pousse que ce qui est dessous
+    n.y=y;const fin=n.y+h[n.id]+VG;if(!cs.length){y=fin;return}
+    cs.forEach(c=>place(c,d+1));if(y<fin)y=fin})(racine,0);
   N.forEach(n=>{if(visible(n)){el[n.id].style.left=n.x+"px";el[n.id].style.top=n.y+"px"}});
   document.getElementById("stat").textContent=`${N.filter(visible).length} / ${N.length} nœuds visibles`;dessiner()}
 function cadrer(){const v=N.filter(visible);let x0=1e9,y0=1e9,x1=-1e9,y1=-1e9;v.forEach(n=>{x0=Math.min(x0,n.x);y0=Math.min(y0,n.y);x1=Math.max(x1,n.x+COL);y1=Math.max(y1,n.y+el[n.id].offsetHeight)});
@@ -83,7 +85,7 @@ function dessiner(){
     const ys=cs.map(q=>q.y+el[q.id].offsetHeight/2);cx.beginPath();cx.moveTo(x0,y0);cx.lineTo(bx,y0);cx.moveTo(bx,Math.min(y0,...ys));cx.lineTo(bx,Math.max(y0,...ys));
     ys.forEach((yy,i)=>{cx.moveTo(bx,yy);cx.lineTo(cs[i].x-3,yy)});cx.stroke();cx.beginPath();cx.arc(bx,y0,2.6,0,7);cx.fill();
     ys.forEach((yy,i)=>{const ax=cs[i].x-1;cx.beginPath();cx.moveTo(ax,yy);cx.lineTo(ax-8,yy-4.5);cx.lineTo(ax-8,yy+4.5);cx.fill()})})}
-document.getElementById("raz").onclick=()=>{const id=pile.pop();if(id){fermer(id);poser()}};
+document.getElementById("raz").onclick=()=>{let id;while((id=pile.pop())&&!ouvert.has(id));if(id){const n=byId[id],sx=n.x*k+tx,sy=n.y*k+ty;ouvert.delete(id);poser();tx=sx-n.x*k;ty=sy-n.y*k;dessiner()}};
 document.getElementById("raz").ondblclick=()=>{ouvert.clear();ouvert.add(racine.id);pile.length=0;poser();cadrer()};
 document.getElementById("cadre").onclick=cadrer;
 document.getElementById("tout").onclick=()=>{N.forEach(n=>ouvert.add(n.id));poser();cadrer()};

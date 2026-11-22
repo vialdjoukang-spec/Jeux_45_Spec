@@ -20,7 +20,7 @@ Organes encore à produire (backlog, non bloquant) : 121
 | Chaque mot-clé à fenêtre ouvre un modèle existant (3D, courbe, calculateur) | ✅ |  |
 | Chaque mot-clé ouvre une fenêtre (image 3D en anatomie, courbe ou détail en physiologie) | ✅ | 30 mots-clés |
 | Chaque case d'espace appartient à l'un des 4 espaces | ✅ |  |
-| Chaque analyse biologique est unique (296 analyses individuelles) | ✅ |  |
+| Chaque analyse biologique est unique (304 analyses individuelles) | ✅ |  |
 | Chaque examen biologique d'organe renvoie à ses analyses (valeurs dans une source unique) | ✅ |  |
 | La fenêtre de clichés montre la radio-anatomie normale à droite | ✅ |  |
 | Chaque technique d'imagerie a ses 5 champs (discriminant, préférence, alternative, limite) | ✅ |  |
@@ -28,7 +28,7 @@ Organes encore à produire (backlog, non bloquant) : 121
 | Les 19 disciplines-outils couvrent les lettres A à S | ✅ |  |
 | Les lentilles cliniques incluent pédiatrie, gériatrie, femme/grossesse, chirurgie, psychiatrie | ✅ |  |
 | L'arbre de cours transversal compte 9 parties | ✅ |  |
-| Les 565 JSON se lisent sans erreur | ✅ |  |
+| Les 623 JSON se lisent sans erreur | ✅ |  |
 | Aucun nom de fichier ne garde un joker (<systeme>, <organe>…) | ✅ |  |
 | Plan tetrade : aucune image SVG | ✅ |  |
 | Plan tetrade : audit interne réussi | ✅ |  |
