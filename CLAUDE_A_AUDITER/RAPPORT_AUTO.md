@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:47
+# Audit automatique — 2026-11-22 21:52
 
-14 fichier(s) : 13 🟩 intégrables · 1 🟧 à compléter · 0 🟥 refusés.
+18 fichier(s) : 16 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -50,5 +50,19 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/06_Oreille_et_equilibre/2_Pratique/P01-06-IMG-PR_Imagerie_Oreille_et_equilibre_3-examens_PRATIQUE_production_XAi.json`
 - 🟩 `oreille_et_equilibre.json` : remplissage 100 % (6/6)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/07_Nez_sinus_et_cavum/1_Theorie/P01-07-BIO_Biologie_Nez_sinus_et_cavum_4-examens_production_XAi.json`
+- 🟩 `nez_sinus_et_cavum.json` : remplissage 88 % (77/88)
+- aVerifier déclarés : 2
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/07_Nez_sinus_et_cavum/1_Theorie/P01-07-END_Endoscopie_Nez_sinus_et_cavum_2-examens_production_XAi.json`
+- 🟩 `nez_sinus_et_cavum.json` : remplissage 86 % (36/42)
+- aVerifier déclarés : 1
+
+### 🟧 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/07_Nez_sinus_et_cavum/1_Theorie/P01-07-FCT_Exploration_fonctionnelle_Nez_sinus_et_cavum_3-examens_production_XAi.json`
+- 🟧 `nez_sinus_et_cavum.json` : remplissage 84 % (53/63)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/07_Nez_sinus_et_cavum/1_Theorie/P01-07-HIS_Anatomopathologie_biopsie_Nez_sinus_et_cavum_1-examens_production_XAi.json`
+- 🟩 `nez_sinus_et_cavum.json` : remplissage 90 % (19/21)
 
 Signature : AAI (Anthropic AI)
