@@ -1,11 +1,359 @@
-# Couverture en clichés — 2026-11-22 19:54
+# Couverture en clichés — 2026-11-22 20:09
 
-8/32 entités ont au moins un candidat.
+772/1124 entités ont au moins un candidat.
 
 ## Sans aucun candidat (requête à affiner)
+- paraclinique/topographie/1_tete_et_encephale/articulation_temporo_mandibulaire_et_den.json › IRM des ATM (disque articulaire)
+- paraclinique/topographie/1_tete_et_encephale/cavite_buccale_et_glandes_salivaires.json › Prélèvement de lésion buccale (culture, PCR HSV)
+- paraclinique/topographie/1_tete_et_encephale/encephale.json › SPECT de perfusion cérébrale
+- paraclinique/topographie/1_tete_et_encephale/encephale.json › Artériographie cérébrale (DSA)
+- paraclinique/topographie/1_tete_et_encephale/encephale.json › Biomarqueurs de neurodégénérescence (Aβ42, tau, p-tau, NfL)
+- paraclinique/topographie/1_tete_et_encephale/encephale.json › Bilan de démence réversible (TSH, B12, folates, VIH, syphilis, calcium)
+- paraclinique/topographie/1_tete_et_encephale/encephale.json › EEG standard
+- paraclinique/topographie/1_tete_et_encephale/encephale.json › EEG de sommeil et EEG prolongé
+- paraclinique/topographie/1_tete_et_encephale/encephale.json › Bilan neuropsychologique (MoCA, MMSE, batteries)
+- paraclinique/topographie/1_tete_et_encephale/hypophyse_et_hypothalamus.json › ACTH, cortisol
+- paraclinique/topographie/1_tete_et_encephale/hypophyse_et_hypothalamus.json › TSH, T4 libre
+- paraclinique/topographie/1_tete_et_encephale/hypophyse_et_hypothalamus.json › HGPO avec dosage de GH (acromégalie)
+- paraclinique/topographie/1_tete_et_encephale/meninges_et_lcr.json › LCR : Gram, culture, PCR multiplex (méningite/encéphalite), antigènes
+- paraclinique/topographie/1_tete_et_encephale/nerfs_craniens.json › ENMG faciale et réflexe de clignement (blink reflex)
+- paraclinique/topographie/1_tete_et_encephale/nerfs_craniens.json › Glycémie, HbA1c (mononeuropathie diabétique)
+- paraclinique/topographie/1_tete_et_encephale/nez_sinus_et_cavum.json › Nasofibroscopie
+- paraclinique/topographie/1_tete_et_encephale/nez_sinus_et_cavum.json › Rhinoscopie
+- paraclinique/topographie/1_tete_et_encephale/nez_sinus_et_cavum.json › Rhinomanométrie
+- paraclinique/topographie/1_tete_et_encephale/nez_sinus_et_cavum.json › Olfactométrie
+- paraclinique/topographie/1_tete_et_encephale/nez_sinus_et_cavum.json › Prick-tests (rhinite allergique)
+- paraclinique/topographie/1_tete_et_encephale/nez_sinus_et_cavum.json › Écouvillon nasopharyngé (PCR virales, SARS-CoV-2, grippe, VRS)
+- paraclinique/topographie/1_tete_et_encephale/nez_sinus_et_cavum.json › IgE spécifiques (rhinite allergique)
+- paraclinique/topographie/1_tete_et_encephale/nez_sinus_et_cavum.json › ANCA (granulomatose avec polyangéite)
+- paraclinique/topographie/1_tete_et_encephale/nez_sinus_et_cavum.json › Biopsie du cavum
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › Angiographie à la fluorescéine et au vert d'indocyanine
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › Rétinophotographie
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › CT et IRM orbitaires
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › Acuité visuelle
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › Réfraction
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › Lampe à fente
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › Tonométrie
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › Pachymétrie
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › Gonioscopie
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › Champ visuel (Goldmann, Humphrey)
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › Vision des couleurs (Ishihara)
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › Électrorétinogramme
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › Prélèvement conjonctival (culture, PCR)
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › Ponction de chambre antérieure
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › VS et CRP (artérite à cellules géantes)
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › Sérologies (toxoplasmose, syphilis) et HLA-B27 (uvéite)
+- paraclinique/topographie/1_tete_et_encephale/oeil_et_orbite.json › Biopsie de l'artère temporale (neuropathie optique ischémique)
+- paraclinique/topographie/1_tete_et_encephale/oreille_et_equilibre.json › Audiométrie tonale et vocale
+- paraclinique/topographie/1_tete_et_encephale/oreille_et_equilibre.json › Tympanométrie et réflexe stapédien
+- paraclinique/topographie/1_tete_et_encephale/oreille_et_equilibre.json › Potentiels évoqués auditifs (PEA)
+- paraclinique/topographie/1_tete_et_encephale/oreille_et_equilibre.json › Vidéonystagmographie (VNG)
+- paraclinique/topographie/1_tete_et_encephale/oreille_et_equilibre.json › Potentiels évoqués myogéniques vestibulaires (VEMP)
+- paraclinique/topographie/2_cou/ganglions_cervicaux.json › Biopsie ou exérèse ganglionnaire (histologie, cytométrie, culture mycobactérienne)
+- paraclinique/topographie/2_cou/ganglions_cervicaux.json › FSC et frottis sanguin (lymphocytes activés, blastes)
+- paraclinique/topographie/2_cou/ganglions_cervicaux.json › Sérologies EBV, CMV, toxoplasmose, VIH
+- paraclinique/topographie/2_cou/ganglions_cervicaux.json › LDH
+- paraclinique/topographie/2_cou/larynx_et_pharynx.json › IRM cervicale
+- paraclinique/topographie/2_cou/larynx_et_pharynx.json › PET-CT (cancers ORL)
+- paraclinique/topographie/2_cou/larynx_et_pharynx.json › Test de mononucléose (EBV)
+- paraclinique/topographie/2_cou/larynx_et_pharynx.json › Biopsie laryngée ou pharyngée
+- paraclinique/topographie/2_cou/larynx_et_pharynx.json › Bilan de déglutition (vidéofluoroscopie, FEES)
+- paraclinique/topographie/2_cou/masses_cervicales_et_kystes.json › Panendoscopie ORL (recherche du primitif)
+- paraclinique/topographie/2_cou/parathyroides.json › Scintigraphie au sestamibi (SPECT-CT)
+- paraclinique/topographie/2_cou/parathyroides.json › CT 4D
+- paraclinique/topographie/2_cou/parathyroides.json › Calcium total et ionisé, phosphate, PTH
+- paraclinique/topographie/2_cou/parathyroides.json › 25-OH-vitamine D
+- paraclinique/topographie/2_cou/thyroide.json › Échographie thyroïdienne (classification EU-TIRADS)
+- paraclinique/topographie/2_cou/thyroide.json › Scintigraphie thyroïdienne (Tc-99m, iode-123)
+- paraclinique/topographie/2_cou/thyroide.json › Anticorps anti-TPO, anti-thyroglobuline, anti-récepteur de la TSH (TRAb)
+- paraclinique/topographie/2_cou/thyroide.json › Laryngoscopie avant et après thyroïdectomie (cordes vocales)
+- paraclinique/topographie/2_cou/vaisseaux_du_cou_et_de_la_tete.json › PET-CT des gros vaisseaux (vascularite)
+- paraclinique/topographie/2_cou/vaisseaux_du_cou_et_de_la_tete.json › VS et CRP (artérite à cellules géantes)
+- paraclinique/topographie/2_cou/vaisseaux_du_cou_et_de_la_tete.json › Doppler transcrânien (retentissement hémodynamique)
+- paraclinique/topographie/3_rachis_moelle_et_racines/moelle_epiniere.json › Anticorps anti-AQP4 et anti-MOG
+- paraclinique/topographie/3_rachis_moelle_et_racines/rachis_osseux.json › Radiographie du rachis entier (EOS, scoliose)
+- paraclinique/topographie/3_rachis_moelle_et_racines/rachis_osseux.json › Scintigraphie osseuse
+- paraclinique/topographie/3_rachis_moelle_et_racines/rachis_osseux.json › Ostéodensitométrie (DXA)
+- paraclinique/topographie/3_rachis_moelle_et_racines/rachis_osseux.json › Ponction-biopsie vertébrale (spondylodiscite, tumeur)
+- paraclinique/topographie/3_rachis_moelle_et_racines/rachis_osseux.json › CRP, VS, hémocultures (spondylodiscite)
+- paraclinique/topographie/3_rachis_moelle_et_racines/rachis_osseux.json › HLA-B27 (spondylarthrite axiale)
+- paraclinique/topographie/3_rachis_moelle_et_racines/rachis_osseux.json › Électrophorèse des protéines (myélome)
+- paraclinique/topographie/3_rachis_moelle_et_racines/rachis_osseux.json › Calcium, phosphatase alcaline, PTH, 25-OH-vitamine D (fracture de fragilité)
+- paraclinique/topographie/3_rachis_moelle_et_racines/racines_et_plexus.json › Myélo-CT (contre-indication à l'IRM)
+- paraclinique/topographie/3_rachis_moelle_et_racines/racines_et_plexus.json › Électroneuromyographie (ENMG)
+- paraclinique/topographie/3_rachis_moelle_et_racines/racines_et_plexus.json › Potentiels évoqués somesthésiques
+- paraclinique/topographie/3_rachis_moelle_et_racines/racines_et_plexus.json › Sérologie de la borréliose (radiculite)
+- paraclinique/topographie/3_rachis_moelle_et_racines/racines_et_plexus.json › Glycémie, HbA1c (plexopathie diabétique)
+- paraclinique/topographie/4_thorax/aorte_thoracique_et_arteres_pulmonaires.json › Scintigraphie de ventilation-perfusion
+- paraclinique/topographie/4_thorax/aorte_thoracique_et_arteres_pulmonaires.json › Angiographie pulmonaire
+- paraclinique/topographie/4_thorax/aorte_thoracique_et_arteres_pulmonaires.json › Radiographie thoracique (élargissement du médiastin)
+- paraclinique/topographie/4_thorax/aorte_thoracique_et_arteres_pulmonaires.json › Échocardiographie transthoracique (racine aortique, cœur droit)
+- paraclinique/topographie/4_thorax/aorte_thoracique_et_arteres_pulmonaires.json › D-dimères (avec score de probabilité clinique)
+- paraclinique/topographie/4_thorax/aorte_thoracique_et_arteres_pulmonaires.json › NT-proBNP et troponine (stratification de l'embolie pulmonaire)
+- paraclinique/topographie/4_thorax/aorte_thoracique_et_arteres_pulmonaires.json › Cathétérisme cardiaque droit (hypertension pulmonaire)
+- paraclinique/topographie/4_thorax/coeur_et_pericarde.json › Échocardiographie de stress (effort, dobutamine)
+- paraclinique/topographie/4_thorax/coeur_et_pericarde.json › Scintigraphie de perfusion myocardique (SPECT)
+- paraclinique/topographie/4_thorax/coeur_et_pericarde.json › Scintigraphie aux diphosphonates (amylose à transthyrétine)
+- paraclinique/topographie/4_thorax/coeur_et_pericarde.json › CK-MB (réinfarctus)
+- paraclinique/topographie/4_thorax/coeur_et_pericarde.json › Bilan lipidique, HbA1c, Lp(a)
+- paraclinique/topographie/4_thorax/coeur_et_pericarde.json › Holter ECG 24 h à 7 jours
+- paraclinique/topographie/4_thorax/coeur_et_pericarde.json › Massage du sinus carotidien
+- paraclinique/topographie/4_thorax/diaphragme_et_muscles_respiratoires.json › Radioscopie dynamique (sniff test)
+- paraclinique/topographie/4_thorax/diaphragme_et_muscles_respiratoires.json › Radiographie thoracique (coupole surélevée)
+- paraclinique/topographie/4_thorax/diaphragme_et_muscles_respiratoires.json › Spirométrie couchée et assise (chute de la CV)
+- paraclinique/topographie/4_thorax/diaphragme_et_muscles_respiratoires.json › ENMG du nerf phrénique
+- paraclinique/topographie/4_thorax/mediastin.json › EBUS et EUS
+- paraclinique/topographie/4_thorax/mediastin.json › Biopsie ganglionnaire par EBUS (sarcoïdose : granulome)
+- paraclinique/topographie/4_thorax/oesophage.json › Œsophagogastroduodénoscopie (OGD) avec biopsies
+- paraclinique/topographie/4_thorax/oesophage.json › PET-CT (stadification)
+- paraclinique/topographie/4_thorax/oesophage.json › pH-métrie et impédancemétrie de 24 h
+- paraclinique/topographie/4_thorax/paroi_thoracique_et_cotes.json › Scintigraphie osseuse
+- paraclinique/topographie/4_thorax/paroi_thoracique_et_cotes.json › CK et troponine (douleur pariétale ou cardiaque : tri)
+- paraclinique/topographie/4_thorax/plevre.json › Liquide pleural : critères de Light, pH, glucose, LDH, protéines, cellules, Gram, culture, cytologie, ADA, triglycérides
 - paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json › Échographie pulmonaire (lignes B, condensation)
 - paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json › Expectorations (Gram, culture, BAAR, PCR tuberculose)
 - paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json › Procalcitonine, CRP
 - paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json › Alpha-1-antitrypsine
+- paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json › ANCA, anticorps des connectivites
+- paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json › Test de libération de l'interféron gamma (IGRA)
+- paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json › Capacité de diffusion du CO (DLCO)
+- paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json › Ergospirométrie (VO2max)
+- paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json › Oxymétrie nocturne, polygraphie et polysomnographie
+- paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json › Bronchoscopie avec lavage bronchoalvéolaire
+- paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json › EBUS (échoendoscopie bronchique) avec ponction ganglionnaire
+- paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json › Bronchoscopie de navigation
+- paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json › Cryobiopsie
+- paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json › Biopsie chirurgicale (VATS)
+- paraclinique/topographie/4_thorax/seins.json › Mammographie (classification BI-RADS)
+- paraclinique/topographie/4_thorax/seins.json › Récepteurs hormonaux, HER2, Ki-67
+- paraclinique/topographie/4_thorax/seins.json › Recherche génétique BRCA1/2 (conseil génétique)
+- paraclinique/topographie/4_thorax/seins.json › Culture d'abcès du sein
+- paraclinique/topographie/5_abdomen/aorte_abdominale_et_vaisseaux_digestifs.json › Angio-CT abdominal (ischémie mésentérique, anévrisme)
+- paraclinique/topographie/5_abdomen/aorte_abdominale_et_vaisseaux_digestifs.json › Artériographie
+- paraclinique/topographie/5_abdomen/aorte_abdominale_et_vaisseaux_digestifs.json › Lactate
+- paraclinique/topographie/5_abdomen/appendice.json › IRM sans injection (grossesse, enfant)
+- paraclinique/topographie/5_abdomen/appendice.json › Leucocytes et CRP (score d'Alvarado, score AIR)
+- paraclinique/topographie/5_abdomen/colon_rectum_et_anus.json › Colo-CT (coloscopie virtuelle)
+- paraclinique/topographie/5_abdomen/colon_rectum_et_anus.json › ACE (suivi du cancer colorectal)
+- paraclinique/topographie/5_abdomen/colon_rectum_et_anus.json › Biopsies coliques (MICI, colite microscopique, cancer : statut MMR/MSI, RAS)
+- paraclinique/topographie/5_abdomen/estomac_et_duodenum.json › Gastroscopie (OGD) avec biopsies (classification de Sydney, Helicobacter)
+- paraclinique/topographie/5_abdomen/estomac_et_duodenum.json › Radiographie de l'abdomen debout (pneumopéritoine, si CT indisponible)
+- paraclinique/topographie/5_abdomen/estomac_et_duodenum.json › Test respiratoire à l'urée C13
+- paraclinique/topographie/5_abdomen/estomac_et_duodenum.json › Vitamine B12
+- paraclinique/topographie/5_abdomen/foie.json › Élastographie (FibroScan, CAP pour la stéatose)
+- paraclinique/topographie/5_abdomen/foie.json › ASAT, ALAT, GGT, phosphatase alcaline, bilirubine totale et conjuguée
+- paraclinique/topographie/5_abdomen/foie.json › Albumine, TP/INR (fonction de synthèse)
+- paraclinique/topographie/5_abdomen/foie.json › Alpha-1-antitrypsine
+- paraclinique/topographie/5_abdomen/foie.json › Auto-anticorps (ANA, anti-muscle lisse, anti-LKM1, AMA)
+- paraclinique/topographie/5_abdomen/foie.json › AFP (carcinome hépatocellulaire)
+- paraclinique/topographie/5_abdomen/foie.json › Scores FIB-4, MELD, Child-Pugh
+- paraclinique/topographie/5_abdomen/intestin_grele.json › Échographie des anses (maladie de Crohn)
+- paraclinique/topographie/5_abdomen/intestin_grele.json › Folates, vitamine B12, fer, vitamine D (malabsorption)
+- paraclinique/topographie/5_abdomen/pancreas.json › PET au Ga-68-DOTATATE (tumeurs neuroendocrines)
+- paraclinique/topographie/5_abdomen/pancreas.json › Écho-endoscopie avec ponction
+- paraclinique/topographie/5_abdomen/peritoine_et_ascite.json › Liquide d'ascite : gradient albumine sérum-ascite, protéines, polynucléaires (≥ 250/mm³ = infection), culture en flacons d'hémoculture, cytologie, amylase, triglycérides, ADA
+- paraclinique/topographie/5_abdomen/rate.json › Échographie abdominale
+- paraclinique/topographie/5_abdomen/rate.json › Scintigraphie aux globules rouges dénaturés (rate accessoire)
+- paraclinique/topographie/5_abdomen/rate.json › PET-CT (lymphome splénique)
+- paraclinique/topographie/5_abdomen/rate.json › Sérologies EBV, CMV (splénomégalie infectieuse)
+- paraclinique/topographie/5_abdomen/reins.json › Échodoppler des artères rénales
+- paraclinique/topographie/5_abdomen/reins.json › Scintigraphie DMSA (cicatrices)
+- paraclinique/topographie/5_abdomen/reins.json › Créatinine, urée, DFG (CKD-EPI)
+- paraclinique/topographie/5_abdomen/reins.json › Calcium, phosphate, PTH (troubles minéraux)
+- paraclinique/topographie/5_abdomen/reins.json › Électrophorèse des protéines urinaires
+- paraclinique/topographie/5_abdomen/reins.json › Complément C3, C4, ANCA, anti-MBG, anti-PLA2R, ANA
+- paraclinique/topographie/5_abdomen/retroperitoine.json › IgG4 sériques (fibrose rétropéritonéale)
+- paraclinique/topographie/5_abdomen/surrenales.json › Scintigraphie MIBG
+- paraclinique/topographie/5_abdomen/surrenales.json › PET au Ga-68-DOTATATE
+- paraclinique/topographie/5_abdomen/surrenales.json › Cortisol, ACTH
+- paraclinique/topographie/5_abdomen/surrenales.json › DHEA-S, 17-OH-progestérone
+- paraclinique/topographie/5_abdomen/surrenales.json › Cortisol salivaire nocturne et cortisol libre urinaire
+- paraclinique/topographie/5_abdomen/ureteres.json › Échographie (dilatation)
+- paraclinique/topographie/5_abdomen/ureteres.json › Scintigraphie MAG3 (obstruction fonctionnelle)
+- paraclinique/topographie/5_abdomen/veines_caves_et_systeme_porte.json › Bilan de thrombophilie (thrombose portale)
+- paraclinique/topographie/5_abdomen/veines_caves_et_systeme_porte.json › JAK2 V617F (syndrome myéloprolifératif)
+- paraclinique/topographie/5_abdomen/veines_caves_et_systeme_porte.json › Gastroscopie (varices œsophagiennes)
+- paraclinique/topographie/5_abdomen/vesicule_et_voies_biliaires.json › Échographie abdominale
+- paraclinique/topographie/5_abdomen/vesicule_et_voies_biliaires.json › CT abdominal
+- paraclinique/topographie/5_abdomen/vesicule_et_voies_biliaires.json › Scintigraphie hépatobiliaire (HIDA)
+- paraclinique/topographie/5_abdomen/vesicule_et_voies_biliaires.json › Bilirubine, phosphatase alcaline, GGT
+- paraclinique/topographie/5_abdomen/vesicule_et_voies_biliaires.json › CA 19-9
+- paraclinique/topographie/5_abdomen/vesicule_et_voies_biliaires.json › IgG4 (cholangite sclérosante IgG4)
+- paraclinique/topographie/6_pelvis/grossesse_foetus_et_placenta.json › IRM fœtale
+- paraclinique/topographie/6_pelvis/grossesse_foetus_et_placenta.json › Test prénatal non invasif (ADN fœtal libre)
+- paraclinique/topographie/6_pelvis/grossesse_foetus_et_placenta.json › Dépistage combiné du 1er trimestre (PAPP-A, β-hCG libre, clarté nucale)
+- paraclinique/topographie/6_pelvis/grossesse_foetus_et_placenta.json › Sérologies (toxoplasmose, rubéole, syphilis, VIH, hépatite B)
+- paraclinique/topographie/6_pelvis/grossesse_foetus_et_placenta.json › HGPO 75 g (diabète gestationnel)
+- paraclinique/topographie/6_pelvis/grossesse_foetus_et_placenta.json › Liquide amniotique (caryotype, PCR)
+- paraclinique/topographie/6_pelvis/grossesse_foetus_et_placenta.json › Test de Kleihauer (hémorragie fœto-maternelle)
+- paraclinique/topographie/6_pelvis/grossesse_foetus_et_placenta.json › FSC, ferritine, TSH de la grossesse
+- paraclinique/topographie/6_pelvis/grossesse_foetus_et_placenta.json › Bilan HELLP (plaquettes, ASAT, ALAT, LDH, haptoglobine)
+- paraclinique/topographie/6_pelvis/grossesse_foetus_et_placenta.json › Cardiotocographie (CTG)
+- paraclinique/topographie/6_pelvis/grossesse_foetus_et_placenta.json › Biopsie de trophoblaste (choriocentèse)
+- paraclinique/topographie/6_pelvis/plancher_pelvien.json › Cystoscopie (fistule)
+- paraclinique/topographie/6_pelvis/post_partum_et_allaitement.json › TSH (thyroïdite du post-partum)
+- paraclinique/topographie/6_pelvis/post_partum_et_allaitement.json › EPDS (échelle de dépression postnatale d'Édimbourg)
+- paraclinique/topographie/6_pelvis/prostate_et_vesicules_seminales.json › IRM prostatique multiparamétrique (PI-RADS)
+- paraclinique/topographie/6_pelvis/prostate_et_vesicules_seminales.json › Échographie transrectale
+- paraclinique/topographie/6_pelvis/prostate_et_vesicules_seminales.json › PET-PSMA
+- paraclinique/topographie/6_pelvis/prostate_et_vesicules_seminales.json › Culture d'urine et de sperme (prostatite)
+- paraclinique/topographie/6_pelvis/testicules_et_scrotum.json › AFP, β-hCG, LDH (marqueurs tumoraux)
+- paraclinique/topographie/6_pelvis/testicules_et_scrotum.json › Testostérone, LH, FSH
+- paraclinique/topographie/6_pelvis/testicules_et_scrotum.json › Bandelette et culture d'urine, PCR Chlamydia et gonocoque (orchi-épididymite)
+- paraclinique/topographie/6_pelvis/uterus_col_ovaires_et_annexes.json › Échographie pelvienne endovaginale et sus-pubienne
+- paraclinique/topographie/6_pelvis/uterus_col_ovaires_et_annexes.json › Colposcopie
+- paraclinique/topographie/6_pelvis/uterus_col_ovaires_et_annexes.json › Hystéroscopie
+- paraclinique/topographie/6_pelvis/uterus_col_ovaires_et_annexes.json › Cœlioscopie diagnostique
+- paraclinique/topographie/6_pelvis/uterus_col_ovaires_et_annexes.json › Prélèvements vaginaux (examen direct, pH, culture, PCR IST)
+- paraclinique/topographie/6_pelvis/uterus_col_ovaires_et_annexes.json › FSH, LH, œstradiol, progestérone, AMH, prolactine, testostérone
+- paraclinique/topographie/6_pelvis/uterus_col_ovaires_et_annexes.json › CA-125, HE4 (masse annexielle, score ROMA)
+- paraclinique/topographie/6_pelvis/vessie_et_uretre.json › Uricult et culture d'urine (critères de Kass)
+- paraclinique/topographie/6_pelvis/vessie_et_uretre.json › Cytologie urinaire
+- paraclinique/topographie/6_pelvis/vessie_et_uretre.json › PCR Chlamydia et gonocoque sur premier jet
+- paraclinique/topographie/6_pelvis/vessie_et_uretre.json › Débitmétrie
+- paraclinique/topographie/6_pelvis/vessie_et_uretre.json › Bilan urodynamique complet (cystomanométrie, profil urétral)
+- paraclinique/topographie/6_pelvis/vessie_et_uretre.json › Calendrier mictionnel
+- paraclinique/topographie/6_pelvis/vulve_vagin_et_perinee.json › PCR HSV (ulcération vulvaire)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/arteres_des_membres.json › Artériographie
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/arteres_des_membres.json › Mesure transcutanée de l'oxygène (TcPO2)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/articulations_et_synoviale.json › Échographie articulaire (synovite, doppler)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/articulations_et_synoviale.json › HLA-B27
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/articulations_et_synoviale.json › CRP, VS
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/cheville_et_pied.json › Ponction du 1er métatarso-phalangien (cristaux d'urate)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/cheville_et_pied.json › Acide urique (à distance de la crise)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/cheville_et_pied.json › Monofilament et diapason (pied diabétique)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/cheville_et_pied.json › Index de pression systolique (pied diabétique)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/coude_poignet_et_main.json › Échographie (tendons, canal carpien)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/coude_poignet_et_main.json › CT (fracture du scaphoïde)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/coude_poignet_et_main.json › IRM du poignet
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/coude_poignet_et_main.json › ENMG (canal carpien, nerf ulnaire)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/coude_poignet_et_main.json › Ponction articulaire et bursale (bursite septique, goutte)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/epaule.json › ENMG (plexus brachial, nerf suprascapulaire)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/epaule.json › Ponction articulaire (arthrite septique, microcristaux)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/genou.json › Radiographie du genou (face, profil, défilé fémoropatellaire, en charge)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/genou.json › Arthroscopie
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/genou.json › CRP
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/hanche_et_bassin.json › CRP, VS, leucocytes, hémocultures (arthrite septique de l'enfant : critères de Kocher)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/hanche_et_bassin.json › Ponction de hanche échoguidée
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/muscles.json › CK, myoglobine, LDH, aldolase
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/muscles.json › Anticorps des myosites (anti-Jo-1, anti-HMGCR, anti-SRP, anti-Mi-2)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/nerfs_peripheriques.json › Échographie nerveuse
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/nerfs_peripheriques.json › Glycémie, HbA1c, B12, TSH, électrophorèse des protéines (bilan de polyneuropathie)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/os_longs_et_squelette.json › Ostéodensitométrie (DXA : T-score, Z-score)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/os_longs_et_squelette.json › Calcium, phosphate, phosphatase alcaline, PTH, 25-OH-vitamine D
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/os_longs_et_squelette.json › Marqueurs du remodelage (CTX, P1NP)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/os_longs_et_squelette.json › Électrophorèse des protéines et chaînes légères libres (myélome)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/veines_des_membres.json › Bilan de thrombophilie (antithrombine, protéines C et S, facteur V Leiden, prothrombine G20210A, anticorps antiphospholipides)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/veines_des_membres.json › Anticorps anti-PF4/héparine (thrombopénie sous héparine)
+- paraclinique/topographie/7_membres_et_appareil_locomoteur/veines_des_membres.json › Score de Wells et règle PERC (probabilité clinique)
+- paraclinique/topographie/8_peau_et_phaneres/ongles_et_cheveux.json › Ferritine, TSH, zinc (chute de cheveux)
+- paraclinique/topographie/8_peau_et_phaneres/ongles_et_cheveux.json › Biopsie du cuir chevelu
+- paraclinique/topographie/8_peau_et_phaneres/peau.json › PCR HSV/VZV sur frottis de vésicule
+- paraclinique/topographie/8_peau_et_phaneres/plaies_ulceres_et_escarres.json › Index de pression systolique et TcPO2 (ulcère artériel)
+- paraclinique/topographie/9_systemes_transversaux/croissance_et_developpement_de_l_enfant.json › Courbes de croissance (poids, taille, périmètre crânien, IMC)
+- paraclinique/topographie/9_systemes_transversaux/croissance_et_developpement_de_l_enfant.json › TSH, IGF-1, anticorps anti-transglutaminase (petite taille)
+- paraclinique/topographie/9_systemes_transversaux/evaluation_geriatrique_globale.json › Mini Nutritional Assessment (MNA)
+- paraclinique/topographie/9_systemes_transversaux/evaluation_geriatrique_globale.json › ADL et IADL (autonomie)
+- paraclinique/topographie/9_systemes_transversaux/evaluation_geriatrique_globale.json › Échelle de dépression gériatrique (GDS)
+- paraclinique/topographie/9_systemes_transversaux/evaluation_geriatrique_globale.json › Revue de la médication (critères de Beers, START/STOPP)
+- paraclinique/topographie/9_systemes_transversaux/evaluation_geriatrique_globale.json › Albumine, 25-OH-vitamine D, B12 (fragilité)
+- paraclinique/topographie/9_systemes_transversaux/infection_et_immunite.json › Sérologies (VIH, hépatites, syphilis, CMV, EBV, toxoplasmose)
+- paraclinique/topographie/9_systemes_transversaux/infection_et_immunite.json › IGRA et test tuberculinique
+- paraclinique/topographie/9_systemes_transversaux/infection_et_immunite.json › Complément (CH50, C3, C4)
+- paraclinique/topographie/9_systemes_transversaux/metabolisme_et_endocrinologie.json › Glycémie à jeun, HbA1c, peptide C, auto-anticorps du diabète (anti-GAD, IA-2)
+- paraclinique/topographie/9_systemes_transversaux/metabolisme_et_endocrinologie.json › HGPO 75 g
+- paraclinique/topographie/9_systemes_transversaux/metabolisme_et_endocrinologie.json › Holter glycémique (mesure continue du glucose)
+- paraclinique/topographie/9_systemes_transversaux/moelle_osseuse_et_ganglions.json › Biopsie ostéomédullaire
+- paraclinique/topographie/9_systemes_transversaux/moelle_osseuse_et_ganglions.json › Caryotype médullaire, FISH, biologie moléculaire
+- paraclinique/topographie/9_systemes_transversaux/moelle_osseuse_et_ganglions.json › PET-CT (lymphome : score de Deauville)
+- paraclinique/topographie/9_systemes_transversaux/moelle_osseuse_et_ganglions.json › CT thoraco-abdominopelvien
+- paraclinique/topographie/9_systemes_transversaux/psyche.json › Échelles psychométriques (PHQ-9, GAD-7, HAM-D, MADRS, YMRS, PANSS, AUDIT, MoCA)
+- paraclinique/topographie/9_systemes_transversaux/psyche.json › Bilan organique d'un premier épisode psychiatrique (FSC, ionogramme, calcium, TSH, B12, glycémie, VIH, syphilis, toxicologie)
+- paraclinique/topographie/9_systemes_transversaux/sang_et_hemostase.json › Ferritine, fer, transferrine, B12, folates
+- paraclinique/topographie/9_systemes_transversaux/sang_et_hemostase.json › TP/INR, TCA, fibrinogène, D-dimères
+- paraclinique/topographie/9_systemes_transversaux/sang_et_hemostase.json › Temps de saignement (PFA-100)
+- paraclinique/topographie/9_systemes_transversaux/sang_et_hemostase.json › Thromboélastographie (ROTEM)
+- paraclinique/topographie/9_systemes_transversaux/sommeil_et_vigilance.json › Polysomnographie
+- paraclinique/topographie/9_systemes_transversaux/sommeil_et_vigilance.json › Polygraphie ventilatoire
+- paraclinique/topographie/9_systemes_transversaux/urgences_et_point_of_care.json › Échographie au lit du patient (POCUS : protocole RUSH, BLUE)
+- paraclinique/biologie/analyses/01_hematologie.json › VGM
+- paraclinique/biologie/analyses/01_hematologie.json › TCMH
+- paraclinique/biologie/analyses/01_hematologie.json › CCMH
+- paraclinique/biologie/analyses/01_hematologie.json › RDW
+- paraclinique/biologie/analyses/01_hematologie.json › JAK2 V617F, CALR, MPL
+- paraclinique/biologie/analyses/02_hemostase.json › TP (Quick) et INR
+- paraclinique/biologie/analyses/02_hemostase.json › Mutation de la prothrombine G20210A
+- paraclinique/biologie/analyses/02_hemostase.json › Anticorps anticardiolipine et anti-β2-glycoprotéine I
+- paraclinique/biologie/analyses/02_hemostase.json › Anticorps anti-PF4/héparine (TIH)
+- paraclinique/biologie/analyses/03_electrolytes_rein_acide-base.json › DFG estimé (CKD-EPI)
+- paraclinique/biologie/analyses/03_electrolytes_rein_acide-base.json › PaO2
+- paraclinique/biologie/analyses/03_electrolytes_rein_acide-base.json › PaCO2
+- paraclinique/biologie/analyses/03_electrolytes_rein_acide-base.json › SaO2
+- paraclinique/biologie/analyses/04_foie_pancreas_digestif.json › ASAT
+- paraclinique/biologie/analyses/04_foie_pancreas_digestif.json › ALAT
+- paraclinique/biologie/analyses/04_foie_pancreas_digestif.json › GGT
+- paraclinique/biologie/analyses/04_foie_pancreas_digestif.json › Alpha-1-antitrypsine
+- paraclinique/biologie/analyses/04_foie_pancreas_digestif.json › Test respiratoire à l'urée C13
+- paraclinique/biologie/analyses/04_foie_pancreas_digestif.json › Hépatite B : AgHBs, anti-HBs, anti-HBc, ADN du VHB
+- paraclinique/biologie/analyses/04_foie_pancreas_digestif.json › Hépatite C : anti-VHC et ARN du VHC
+- paraclinique/biologie/analyses/04_foie_pancreas_digestif.json › Hépatite E : IgM anti-VHE et ARN
+- paraclinique/biologie/analyses/04_foie_pancreas_digestif.json › IgG4 sériques
+- paraclinique/biologie/analyses/05_cardiaque_vasculaire_lipides.json › CK
+- paraclinique/biologie/analyses/05_cardiaque_vasculaire_lipides.json › CK-MB
+- paraclinique/biologie/analyses/06_diabete_thyroide_phosphocalcique.json › HbA1c
+- paraclinique/biologie/analyses/06_diabete_thyroide_phosphocalcique.json › TSH
+- paraclinique/biologie/analyses/06_diabete_thyroide_phosphocalcique.json › TRAb (anti-récepteur de la TSH)
+- paraclinique/biologie/analyses/06_diabete_thyroide_phosphocalcique.json › PTH
+- paraclinique/biologie/analyses/06_diabete_thyroide_phosphocalcique.json › 25-OH-vitamine D
+- paraclinique/biologie/analyses/06_diabete_thyroide_phosphocalcique.json › P1NP
+- paraclinique/biologie/analyses/06_diabete_thyroide_phosphocalcique.json › HGPO 75 g (hyperglycémie provoquée orale)
+- paraclinique/biologie/analyses/07_inflammation_infection_microbiologie.json › CRP
+- paraclinique/biologie/analyses/07_inflammation_infection_microbiologie.json › Charge virale VIH
+- paraclinique/biologie/analyses/07_inflammation_infection_microbiologie.json › Lymphocytes T CD4
+- paraclinique/biologie/analyses/07_inflammation_infection_microbiologie.json › Syphilis : TPPA et VDRL/RPR
+- paraclinique/biologie/analyses/07_inflammation_infection_microbiologie.json › Sérologie CMV
+- paraclinique/biologie/analyses/07_inflammation_infection_microbiologie.json › Sérologie EBV
+- paraclinique/biologie/analyses/07_inflammation_infection_microbiologie.json › Test de libération d'interféron gamma (IGRA)
+- paraclinique/biologie/analyses/07_inflammation_infection_microbiologie.json › Recherche de paludisme (frottis, goutte épaisse, test rapide)
+- paraclinique/biologie/analyses/07_inflammation_infection_microbiologie.json › PCR respiratoire multiplex
+- paraclinique/biologie/analyses/07_inflammation_infection_microbiologie.json › Test rapide du streptocoque A
+- paraclinique/biologie/analyses/07_inflammation_infection_microbiologie.json › Sérologie parvovirus B19
+- paraclinique/biologie/analyses/08_immunologie_autoimmunite_allergie.json › ANCA (anti-PR3, anti-MPO)
+- paraclinique/biologie/analyses/08_immunologie_autoimmunite_allergie.json › Anticorps anti-PLA2R
+- paraclinique/biologie/analyses/08_immunologie_autoimmunite_allergie.json › CH50
+- paraclinique/biologie/analyses/08_immunologie_autoimmunite_allergie.json › Anticorps des myosites (anti-Jo-1, anti-HMGCR, anti-SRP, anti-Mi-2)
+- paraclinique/biologie/analyses/08_immunologie_autoimmunite_allergie.json › Anticorps anti-AQP4
+- paraclinique/biologie/analyses/08_immunologie_autoimmunite_allergie.json › Auto-anticorps hépatiques (anti-muscle lisse, anti-LKM1, AMA)
+- paraclinique/biologie/analyses/08_immunologie_autoimmunite_allergie.json › HLA-B27
+- paraclinique/biologie/analyses/08_immunologie_autoimmunite_allergie.json › Enzyme de conversion de l'angiotensine (ECA)
+- paraclinique/biologie/analyses/09_marqueurs_tumoraux.json › CA-125
+- paraclinique/biologie/analyses/09_marqueurs_tumoraux.json › HE4
+- paraclinique/biologie/analyses/09_marqueurs_tumoraux.json › LDH
+- paraclinique/biologie/analyses/09_marqueurs_tumoraux.json › NSE
+- paraclinique/biologie/analyses/09_marqueurs_tumoraux.json › β2-microglobuline
+- paraclinique/biologie/analyses/10_toxicologie_dosages_medicamenteux.json › CDT (transferrine carboxy-déficiente)
+- paraclinique/biologie/analyses/12_genetique.json › Mutation HFE (hémochromatose)
+- paraclinique/biologie/analyses/12_genetique.json › Pharmacogénétique (CYP2D6, CYP2C19, HLA-B*57:01, HLA-B*15:02)
+- paraclinique/biologie/analyses/13_microbiologie_prelevements_locaux.json › Expectorations : Gram, culture, BAAR, PCR tuberculose
+- paraclinique/biologie/analyses/13_microbiologie_prelevements_locaux.json › PCR HSV et VZV sur lésion
+- paraclinique/biologie/analyses/14_lcr_liquides_de_ponction.json › LCR : lactate
+- paraclinique/biologie/analyses/14_lcr_liquides_de_ponction.json › LCR : Gram, culture, PCR multiplex
+- paraclinique/biologie/analyses/14_lcr_liquides_de_ponction.json › LCR : bandes oligoclonales et index IgG
+- paraclinique/biologie/analyses/14_lcr_liquides_de_ponction.json › LCR : xanthochromie (spectrophotométrie)
+- paraclinique/biologie/analyses/14_lcr_liquides_de_ponction.json › Neurofilaments à chaîne légère (NfL)
+- paraclinique/biologie/analyses/14_lcr_liquides_de_ponction.json › Liquide pleural : protéines et LDH (critères de Light)
+- paraclinique/biologie/analyses/14_lcr_liquides_de_ponction.json › Liquide pleural : pH, glucose, cellules
+- paraclinique/biologie/analyses/14_lcr_liquides_de_ponction.json › Liquide d'ascite : albumine (gradient) et polynucléaires
+- paraclinique/biologie/analyses/14_lcr_liquides_de_ponction.json › Liquide synovial : cellules et cristaux
+- paraclinique/biologie/analyses/14_lcr_liquides_de_ponction.json › Humeur aqueuse (ponction de chambre antérieure) : PCR
+- paraclinique/biologie/analyses/15_surrenales_gonades_hypophyse_neuroendocrine.json › Cortisol salivaire nocturne
+- paraclinique/biologie/analyses/15_surrenales_gonades_hypophyse_neuroendocrine.json › DHEA-S
+- paraclinique/biologie/analyses/15_surrenales_gonades_hypophyse_neuroendocrine.json › 17-OH-progestérone
+- paraclinique/biologie/analyses/15_surrenales_gonades_hypophyse_neuroendocrine.json › SHBG
+- paraclinique/biologie/analyses/15_surrenales_gonades_hypophyse_neuroendocrine.json › FSH
+- paraclinique/biologie/analyses/15_surrenales_gonades_hypophyse_neuroendocrine.json › AMH
+- paraclinique/biologie/analyses/15_surrenales_gonades_hypophyse_neuroendocrine.json › IGF-1
+- paraclinique/biologie/analyses/15_surrenales_gonades_hypophyse_neuroendocrine.json › Hormone de croissance (GH)
+- paraclinique/biologie/analyses/15_surrenales_gonades_hypophyse_neuroendocrine.json › Rapport sFlt-1/PlGF
 
 Signature : AAI (Anthropic AI)
