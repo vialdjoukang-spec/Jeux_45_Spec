@@ -36,7 +36,13 @@ jobs:
           if git fetch origin "+refs/heads/$BRANCHE:refs/remotes/origin/$BRANCHE" 2>/dev/null \
              && ! git merge-base --is-ancestor "origin/$BRANCHE" origin/main; then
             git checkout -B "$BRANCHE" "origin/$BRANCHE"      # lots encore en attente d'audit médical
-            git merge --no-edit origin/main || { git merge --abort; echo "conflit avec main : Claude reprend" >&2; exit 1; }
+            if ! git merge --no-edit origin/main; then
+              # seuls les fichiers de suivi de la veille peuvent être résolus d'office (version de la branche) ;
+              # tout autre conflit touche des données : on s'arrête et Claude reprend
+              autres=$(git diff --name-only --diff-filter=U | grep -v -e '^CLAUDE_A_AUDITER/RAPPORT_' -e '^CLAUDE_A_AUDITER/EN_ATTENTE_AUDIT_MEDICAL.json$' -e '^projets/retours/veille_traites.json$' || true)
+              if [ -n "$autres" ]; then git merge --abort; echo "conflit de données avec main : $autres" >&2; exit 1; fi
+              git checkout --ours -- $(git diff --name-only --diff-filter=U) && git add -A && git commit --no-edit -q
+            fi
           else
             git checkout -B "$BRANCHE" origin/main             # rien en attente : on repart de main
           fi
