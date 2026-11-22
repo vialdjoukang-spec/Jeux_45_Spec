@@ -50,6 +50,8 @@ FR_EN = {  # jetons médicaux FR → EN (Commons et Open-i indexent surtout en a
  "testicules": "testis", "voies": "", "aériennes": "airway", "biliaires": "biliary", "vésicule": "gallbladder", "intestin": "intestine",
  "duodénum": "duodenum", "péritoine": "peritoneum", "surrénales": "adrenal", "hypophyse": "pituitary", "méninges": "meninges",
  "parathyroïdes": "parathyroid", "médiastin": "mediastinum", "péricarde": "pericardium", "valves": "heart valve", "coronaires": "coronary",
+ "cryobiopsie": "cryobiopsy", "transbronchique": "transbronchial", "ergospirométrie": "cardiopulmonary exercise test",
+ "oxymétrie": "oximetry", "nocturne": "nocturnal", "polygraphie": "polygraphy", "méthacholine": "methacholine", "provocation": "challenge",
  "ponction": "puncture", "lombaire": "lumbar", "lcr": "cerebrospinal fluid", "articulaire": "joint", "liquide": "fluid",
 }
 VIDE = {"de", "du", "des", "la", "le", "les", "et", "avec", "sans", "en", "au", "aux", "à", "d", "l", "par", "pour", "sur"}
@@ -57,8 +59,10 @@ VIDE = {"de", "du", "des", "la", "le", "les", "et", "avec", "sans", "en", "au", 
 
 def anglais(t):
     mots = re.findall(r"[\wœéèêàâîôûç'-]+", t or "")
-    garde = [FR_EN[m.lower()] if m.lower() in FR_EN else m for m in mots
-             if m.lower() in FR_EN or (m.isupper() and len(m) > 1) or re.search(r"\d", m)]
+    tr = lambda m: FR_EN.get(m, FR_EN.get(m.lower()))
+    garde = [tr(m) if tr(m) is not None else m for m in mots
+             if tr(m) is not None or (m.isupper() and len(m) > 1) or re.search(r"\d", m)]
+    garde = [g for g in garde if g]
     return " ".join(garde)[:90]
 
 
