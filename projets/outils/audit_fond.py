@@ -15,32 +15,37 @@ COMPLEMENT = ["synonymes", "aspectNormal", "anomaliesElementaires", "syndromesPa
 CORRECTIONS = [
     ("colon_rectum_et_anus__colo_ct", "irradiation_mSv", 7.6, 4.4),
     ("plaies_ulceres_et_escarres__irm", "smarterMedicine", re.compile(r"MAOP"), None),
+    ("encephale__angio_ct_des_vaisseaux_intracraniens", "irradiation_mSv", 3.5, 1.9),
+    ("encephale__ct_de_perfusion", "irradiation_mSv", 4.0, 4.5),
+    ("encephale__spectroscopie_irm", "seuil", re.compile(r"^Rapport Cho/NAA >1,5-2"),
+     "Un rapport Cho/NAA augmenté, un pic de lactate ou de lipides orientent vers une lésion tumorale ou nécrotique ; le seuil dépend du centre et de la séquence."),
+    ("encephale__potentiels_evoques_visuels_auditifs_some", "seuil", re.compile(r"^Latence P100 >115 ms"),
+     "Une latence P100 allongée au-delà des normes du laboratoire, ou une asymétrie entre les deux yeux, signe un ralentissement de la conduction visuelle."),
+    ("meninges_et_lcr__lcr_bandes_oligoclonales_et_index_igg", "seuil", re.compile(r"^Présence de bandes oligoclonales ou index IgG élevé$"),
+     "Au moins deux bandes oligoclonales propres au LCR, ou un index IgG supérieur à 0,7, signent une synthèse intrathécale d'IgG, selon Tibbling et al. (1977) et les critères de McDonald 2017."),
 ]
+RESOLUTIONS = {  # justification de Claude ajoutée dans _meta.resolutionsClaude
+    "encephale__angio_ct_des_vaisseaux_intracraniens": "irradiation_mSv : 1,9 mSv mesurés par dosimètres LiF-TLD pour l'angio-CT intracrânien (Cohnen et al., AJNR 2006).",
+    "encephale__ct_de_perfusion": "irradiation_mSv : 4,5 mSv = protocole standard (4,47 ± 0,85 mSv, 391 patients, cohorte d'AVC 2021) ; 2,2 mSv en basse dose.",
+    "encephale__spectroscopie_irm": "seuil : chiffre retiré faute de seuil universel ; formulation qualitative.",
+    "encephale__potentiels_evoques_visuels_auditifs_some": "seuil : 115 ms retiré, renvoi aux normes du laboratoire.",
+    "meninges_et_lcr__lcr_bandes_oligoclonales_et_index_igg": "seuil : index IgG > 0,7 (Tibbling 1977) et ≥ 2 bandes (McDonald 2017), valeurs classiques.",
+    "oeil_et_orbite__fond_d_oeil": "indication : seuil 180/110 non relu dans le texte intégral, remplacé par « hypertension sévère ou urgence hypertensive ».",
+}
 REMPLACEMENTS_TEXTE = [  # (motif, remplacement) dans toutes les chaînes
     (re.compile(r"Vitamine B12 de 150 à 300 pmol/l"), "Vitamine B12 de 150 à 250 pmol/l"),
     (re.compile(r"une valeur entre 150 et 220 pmol/l constitue une zone grise, et une valeur supérieure à 220 pmol/l rend la carence peu probable, selon Bruttin et al\. \(2021, Revue Médicale Suisse\)"),
      "une valeur entre 150 et 250 pmol/l constitue une zone grise où l'on dose l'acide méthylmalonique (traitement au-delà de 270 nmol/l), selon mediX (2023)"),
     (re.compile(r"Rythme irrégulier de la démence"), "Rythme irrégulier du trouble neurocognitif majeur (démence)"),
+    (re.compile(r"une pression artérielle supérieure ou égale à 180/110 mmHg \(24,0/14,7 kPa\)"), "une hypertension sévère ou une urgence hypertensive"),
 ]
 AJOUTS = [  # (id, champ, phrase ajoutée si absente)
     ("os_longs_et_squelette__biopsie_osseuse", "precautions",
      "La biopsie elle-même n'irradie pas ; guidée par CT, elle expose à la dose de ce CT."),
 ]
 # 2. Doutes encore ouverts après audit (repérés par l'id de l'examen et le champ) : ils restent dans aVerifier.
-OUVERTS = {
-    ("encephale__angio_ct_des_vaisseaux_intracraniens", "irradiation_mSv"), ("encephale__ct_de_perfusion", "irradiation_mSv"),
-    ("encephale__spectroscopie_irm", "seuil"), ("encephale__anticorps_anti_neuronaux", "precautions"),
-    ("encephale__potentiels_evoques_visuels_auditifs_some", "seuil"), ("hypophyse_et_hypothalamus__irm_hypophysaire_dynamique", "radioAnatomieNormale"),
-    ("hypophyse_et_hypothalamus__acth_cortisol", "limite"), ("hypophyse_et_hypothalamus__tsh_t4_libre", "bulle.confusion"),
-    ("hypophyse_et_hypothalamus__lh_fsh_testosterone_oestradiol", "seuil"), ("hypophyse_et_hypothalamus__test_de_stimulation_a_l_arginine_copepti", "seuil"),
-    ("meninges_et_lcr__cisternographie", "irradiation_mSv"), ("meninges_et_lcr__lcr_bandes_oligoclonales_et_index_igg", "seuil"),
-    ("meninges_et_lcr__lcr_xanthochromie_spectrophotometrie", "limite"), ("nez_sinus_et_cavum__rhinomanometrie", "seuil"),
-    ("nez_sinus_et_cavum__ecouvillon_nasopharynge", "seuil"), ("oeil_et_orbite__fond_d_oeil", "indication"),
-    ("ganglions_cervicaux__biopsie_ou_exerese_ganglionnaire", "precautions"), ("foie__echodoppler_portal", "seuil"),
-    ("foie__serologies_hepatites_a_b_c_d_e", "precautions"), ("prostate_et_vesicules_seminales__irm_prostatique_multiparametrique", "indication"),
-    ("prostate_et_vesicules_seminales__psa_total_et_libre", "seuil"), ("prostate_et_vesicules_seminales__culture_d_urine_et_de_sperme", "seuil"),
-    ("coude_poignet_et_main__enmg", "seuil"), ("nerfs_peripheriques__glycemie_hba1c_b12_tsh_electrophorese_de", "seuil"),
-    ("sang_et_hemostase__temps_de_saignement", "seuil"),
+OUVERTS = {  # après l'audit du 2026-11-22 : un seul doute reste ouvert (aucune dose efficace publiée retrouvée)
+    ("meninges_et_lcr__cisternographie", "irradiation_mSv"),
 }
 VIDES = (None, "", [], {})
 
@@ -90,6 +95,9 @@ for f in sorted(glob.glob(os.path.join(TOPO, "*", "*.json"))):
     for n in dict.fromkeys(notes):
         (ouverts if cle_note(n) in OUVERTS else acceptes).append(n)
     meta["aVerifierOuverts"], meta["justificationsAcceptees"] = ouverts, list(dict.fromkeys(acceptes))
+    res = [f"{i} › {t}" for i, t in RESOLUTIONS.items() if i in idx]
+    if res:
+        meta["resolutionsClaude"] = res
     meta["auditFond"] = "Audit Claude du 2026-11-22 : corrections appliquées, justifications acceptées, doutes ouverts listés."
     bilan["acceptees"] += len(meta["justificationsAcceptees"]); bilan["ouvertes"] += len(ouverts)
     json.dump(d, open(f, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
