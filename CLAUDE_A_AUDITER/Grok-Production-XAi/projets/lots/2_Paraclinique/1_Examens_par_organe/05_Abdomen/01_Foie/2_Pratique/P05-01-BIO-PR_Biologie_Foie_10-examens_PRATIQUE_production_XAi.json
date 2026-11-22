@@ -1,0 +1,740 @@
+{
+ "_lot": {
+  "tache": "P05-01-BIO-PR",
+  "titre": "Pratique — Examens de l'organe Foie — Biologie (10 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/5_abdomen/foie.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/5_abdomen/foie.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "foie__asat_alat_ggt_phosphatase_alcaline_bilir",
+     "nom": "ASAT, ALAT, GGT, phosphatase alcaline, bilirubine totale et conjuguée",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "foie__asat_alat_ggt_phosphatase_alcaline_bilir-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACG 2017, ASAT, ALAT, GGT, phosphatase alcaline et bilirubine séparent une atteinte hépatocellulaire d'une atteinte cholestatique et orientent la suite.",
+        "pourquoiFaux": "La lipase explore le pancréas, l'AFP et les auto-anticorps viennent après l'orientation initiale."
+       },
+       "sources": [
+        "ACG, recommandations sur les tests hépatiques anormaux (2017)"
+       ],
+       "casClinique": "Un homme de 45 ans, à Lucerne, consulte pour un ictère indolore apparu depuis une semaine.",
+       "options": [
+        "Tests hépatiques complets",
+        "Lipase seule",
+        "AFP",
+        "Auto-anticorps"
+       ],
+       "bonneReponse": "Tests hépatiques complets",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "foie__asat_alat_ggt_phosphatase_alcaline_bilir-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACG 2017, un rapport R > 5 indique une atteinte hépatocellulaire, qui fait chercher une hépatite virale, toxique ou auto-immune.",
+        "pourquoiFaux": "Un rapport R < 2 orienterait vers une cholestase et une échographie biliaire."
+       },
+       "sources": [
+        "ACG, recommandations sur les tests hépatiques anormaux (2017)"
+       ],
+       "resultat": "ALAT à 12 fois la normale, PAL à 1,5 fois la normale : rapport R à 8.",
+       "decision": "Atteinte hépatocellulaire : on demande les sérologies virales et on revoit les médicaments."
+      },
+      {
+       "id": "foie__asat_alat_ggt_phosphatase_alcaline_bilir-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACG 2017, les tests hépatiques mesurent la souffrance du foie et non sa fonction, et une cirrhose avancée peut avoir des transaminases normales.",
+        "pourquoiFaux": "Des transaminases normales ne renseignent pas sur le stade de fibrose."
+       },
+       "sources": [
+        "ACG, recommandations sur les tests hépatiques anormaux (2017)",
+        "EASL-EASD-EASO, recommandations sur la MASLD (2024)"
+       ],
+       "erreurFrequente": "Exclure une cirrhose parce que les transaminases sont normales.",
+       "consequence": "On méconnaît une cirrhose compensée.",
+       "bonneConduite": "On évalue la fibrose par FIB-4 et élastographie."
+      }
+     ]
+    },
+    {
+     "ref": "foie__albumine_tp_inr",
+     "nom": "Albumine, TP/INR (fonction de synthèse)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "foie__albumine_tp_inr-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2017, un INR ≥ 1,5 avec une encéphalopathie définit une insuffisance hépatique aiguë, qui impose un contact avec un centre de greffe.",
+        "pourquoiFaux": "La GGT ne mesure pas la synthèse, et les examens d'imagerie ne jugent pas la gravité d'une hépatite aiguë."
+       },
+       "sources": [
+        "EASL, recommandations sur l'insuffisance hépatique aiguë (2017)"
+       ],
+       "casClinique": "Une femme de 24 ans, à Berne, a pris 15 g de paracétamol il y a 48 heures ; elle est un peu confuse.",
+       "options": [
+        "INR et albumine",
+        "GGT seule",
+        "Élastographie",
+        "Échographie de contraste"
+       ],
+       "bonneReponse": "INR et albumine",
+       "visee": "retentissement"
+      },
+      {
+       "id": "foie__albumine_tp_inr-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2017, l'association d'un INR ≥ 1,5 et d'une encéphalopathie sans hépatopathie préalable définit l'insuffisance hépatique aiguë.",
+        "pourquoiFaux": "Attendre la remontée des transaminases ou corriger l'INR par plasma masque l'évolution sans traiter la cause."
+       },
+       "sources": [
+        "EASL, recommandations sur l'insuffisance hépatique aiguë (2017)"
+       ],
+       "resultat": "INR à 2,1 et encéphalopathie de grade 2 chez une patiente sans hépatopathie connue.",
+       "decision": "On pose une insuffisance hépatique aiguë et on contacte un centre de transplantation."
+      },
+      {
+       "id": "foie__albumine_tp_inr-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une carence en vitamine K ou un anticoagulant allongent l'INR sans atteinte de la synthèse hépatique.",
+        "pourquoiFaux": "Un INR qui se corrige après vitamine K oriente vers une carence et non vers une insuffisance hépatique."
+       },
+       "sources": [
+        "EASL, recommandations sur l'insuffisance hépatique aiguë (2017)",
+        "Pugh et al., score de Child-Pugh (1973)"
+       ],
+       "erreurFrequente": "Attribuer un INR allongé à une insuffisance hépatique chez un patient dénutri sous antibiotiques.",
+       "consequence": "On surestime la gravité hépatique.",
+       "bonneConduite": "On teste la correction par vitamine K."
+      }
+     ]
+    },
+    {
+     "ref": "foie__serologies_hepatites_a_b_c_d_e",
+     "nom": "Sérologies hépatites A, B, C, D, E",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "foie__serologies_hepatites_a_b_c_d_e-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'OFSP et Hépatite Suisse 2024, les sérologies identifient le virus en cause devant toute cytolyse inexpliquée.",
+        "pourquoiFaux": "La biopsie n'est plus nécessaire au diagnostic viral, et l'IRM ou la céruloplasmine ne répondent pas à cette question."
+       },
+       "sources": [
+        "OFSP et Hépatite Suisse, guide des hépatites (2024)"
+       ],
+       "casClinique": "Un homme de 38 ans, à Zurich, a une cytolyse inexpliquée à 6 fois la normale après un séjour en Asie.",
+       "options": [
+        "Sérologies des hépatites",
+        "IRM hépatique",
+        "Ponction-biopsie hépatique",
+        "Céruloplasmine"
+       ],
+       "bonneReponse": "Sérologies des hépatites",
+       "visee": "etiologique"
+      },
+      {
+       "id": "foie__serologies_hepatites_a_b_c_d_e-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'OFSP et Hépatite Suisse 2024, des anti-VHC positifs imposent une recherche d'ARN du VHC, car ils persistent après guérison.",
+        "pourquoiFaux": "Traiter sur la seule sérologie expose à traiter une infection guérie."
+       },
+       "sources": [
+        "OFSP et Hépatite Suisse, guide des hépatites (2024)"
+       ],
+       "resultat": "Anti-VHC positifs chez une femme de 50 ans asymptomatique.",
+       "decision": "On demande l'ARN du VHC pour prouver une infection active."
+      },
+      {
+       "id": "foie__serologies_hepatites_a_b_c_d_e-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2018, les IgM anti-VHE peuvent manquer chez l'immunodéprimé, chez qui seule la PCR fait le diagnostic.",
+        "pourquoiFaux": "Une sérologie négative n'exclut pas l'infection quand l'immunité humorale est déprimée."
+       },
+       "sources": [
+        "EASL, recommandations sur l'hépatite E (2018)"
+       ],
+       "erreurFrequente": "Exclure une hépatite E chez un greffé rénal parce que les IgM anti-VHE sont négatives.",
+       "consequence": "On méconnaît une hépatite E chronique.",
+       "bonneConduite": "On demande une PCR du VHE."
+      }
+     ]
+    },
+    {
+     "ref": "foie__ferritine_saturation_de_la_transferrine",
+     "nom": "Ferritine, saturation de la transferrine",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "foie__ferritine_saturation_de_la_transferrine-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2022, on demande la ferritine et la saturation dans le bilan de tout test hépatique perturbé, et le tableau évoque une hémochromatose.",
+        "pourquoiFaux": "La céruloplasmine vise la maladie de Wilson, l'AFP le CHC, et les anti-transglutaminase la maladie cœliaque."
+       },
+       "sources": [
+        "EASL, recommandations sur l'hémochromatose (2022)"
+       ],
+       "casClinique": "Un homme de 48 ans, à Delémont, a une ALAT légèrement élevée et des douleurs articulaires des métacarpo-phalangiennes.",
+       "options": [
+        "Ferritine et saturation de la transferrine",
+        "Céruloplasmine",
+        "AFP",
+        "Anti-transglutaminase"
+       ],
+       "bonneReponse": "Ferritine et saturation de la transferrine",
+       "visee": "etiologique"
+      },
+      {
+       "id": "foie__ferritine_saturation_de_la_transferrine-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2022, une saturation > 50 % avec une ferritine > 300 µg/l chez l'homme fait rechercher une hémochromatose par génotypage HFE.",
+        "pourquoiFaux": "Une biopsie d'emblée n'est pas nécessaire, car le génotype typique suffit souvent."
+       },
+       "sources": [
+        "EASL, recommandations sur l'hémochromatose (2022)"
+       ],
+       "resultat": "Saturation de la transferrine à 62 % et ferritine à 650 µg/l chez cet homme.",
+       "decision": "On recherche la mutation HFE C282Y."
+      },
+      {
+       "id": "foie__ferritine_saturation_de_la_transferrine-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2022, la ferritine monte aussi dans l'inflammation, l'alcool et le syndrome métabolique ; la saturation s'élève en premier dans l'hémochromatose.",
+        "pourquoiFaux": "Une ferritine élevée avec une saturation normale oriente vers une cause métabolique."
+       },
+       "sources": [
+        "EASL, recommandations sur l'hémochromatose (2022)"
+       ],
+       "erreurFrequente": "Conclure à une hémochromatose sur une ferritine élevée isolée chez un patient obèse.",
+       "consequence": "On pose un faux diagnostic.",
+       "bonneConduite": "On regarde la saturation de la transferrine."
+      }
+     ]
+    },
+    {
+     "ref": "foie__ceruloplasmine_cuivre_urinaire",
+     "nom": "Céruloplasmine, cuivre urinaire",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "foie__ceruloplasmine_cuivre_urinaire-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2025, une hépatopathie inexpliquée du sujet jeune avec des signes neurologiques fait doser la céruloplasmine et le cuivre urinaire.",
+        "pourquoiFaux": "La ferritine, l'AFP et l'élastographie ne cherchent pas la maladie de Wilson."
+       },
+       "sources": [
+        "EASL, recommandations sur la maladie de Wilson (2025)"
+       ],
+       "casClinique": "Une étudiante de 19 ans, à Lausanne, a une cytolyse inexpliquée et un tremblement récent.",
+       "options": [
+        "Céruloplasmine et cuivre urinaire",
+        "Ferritine",
+        "AFP",
+        "Élastographie"
+       ],
+       "bonneReponse": "Céruloplasmine et cuivre urinaire",
+       "visee": "etiologique"
+      },
+      {
+       "id": "foie__ceruloplasmine_cuivre_urinaire-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2025, une céruloplasmine < 0,1 g/l et un cuivre urinaire > 1,6 µmol/24 h évoquent fortement une maladie de Wilson.",
+        "pourquoiFaux": "Attendre une biopsie avant d'agir retarde un traitement efficace."
+       },
+       "sources": [
+        "EASL, recommandations sur la maladie de Wilson (2025)"
+       ],
+       "resultat": "Céruloplasmine à 0,08 g/l et cuivre urinaire à 2,5 µmol/24 h.",
+       "decision": "On retient une maladie de Wilson probable et on calcule le score de Leipzig."
+      },
+      {
+       "id": "foie__ceruloplasmine_cuivre_urinaire-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2025, jusqu'à 20 % des patients ont une céruloplasmine normale, et une inflammation l'élève faussement.",
+        "pourquoiFaux": "Une céruloplasmine normale isolée ne suffit pas à écarter la maladie."
+       },
+       "sources": [
+        "EASL, recommandations sur la maladie de Wilson (2025)"
+       ],
+       "erreurFrequente": "Exclure une maladie de Wilson sur une céruloplasmine normale.",
+       "consequence": "On manque un Wilson.",
+       "bonneConduite": "On complète par le cuivre urinaire et le score de Leipzig."
+      }
+     ]
+    },
+    {
+     "ref": "foie__alpha_1_antitrypsine",
+     "nom": "Alpha-1-antitrypsine",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "foie__alpha_1_antitrypsine-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2024 et l'ERS 2017, une hépatopathie inexpliquée avec un emphysème précoce fait doser l'alpha-1-antitrypsine.",
+        "pourquoiFaux": "Les autres analyses ne cherchent pas ce déficit génétique."
+       },
+       "sources": [
+        "ERS, recommandations sur le déficit en alpha-1-antitrypsine (2017)",
+        "EASL, recommandations sur les maladies cholestatiques génétiques (2024)"
+       ],
+       "casClinique": "Un homme de 40 ans, non fumeur, à Coire, a une cytolyse chronique et un emphysème débutant.",
+       "options": [
+        "Alpha-1-antitrypsine",
+        "Céruloplasmine",
+        "AFP",
+        "IgM"
+       ],
+       "bonneReponse": "Alpha-1-antitrypsine",
+       "visee": "etiologique"
+      },
+      {
+       "id": "foie__alpha_1_antitrypsine-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS 2017, une valeur < 11 µmol/l définit un déficit sévère et impose un phénotypage ou un génotypage.",
+        "pourquoiFaux": "Conclure sans typage ne précise pas l'allèle en cause ni le conseil familial."
+       },
+       "sources": [
+        "ERS, recommandations sur le déficit en alpha-1-antitrypsine (2017)"
+       ],
+       "resultat": "Alpha-1-antitrypsine à 6 µmol/l.",
+       "decision": "On demande un phénotypage ou un génotypage."
+      },
+      {
+       "id": "foie__alpha_1_antitrypsine-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ERS 2017, l'alpha-1-antitrypsine est une protéine de l'inflammation qui peut masquer un déficit modéré pendant une infection.",
+        "pourquoiFaux": "Une valeur normale en phase inflammatoire ne prouve pas l'absence de déficit."
+       },
+       "sources": [
+        "ERS, recommandations sur le déficit en alpha-1-antitrypsine (2017)"
+       ],
+       "erreurFrequente": "Doser l'alpha-1-antitrypsine pendant une pneumonie et la juger normale.",
+       "consequence": "On manque un déficit modéré.",
+       "bonneConduite": "On redose à distance de l'infection ou on fait un génotypage."
+      }
+     ]
+    },
+    {
+     "ref": "foie__auto_anticorps",
+     "nom": "Auto-anticorps (ANA, anti-muscle lisse, anti-LKM1, AMA)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "foie__auto_anticorps-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2017, des AMA > 1:40 avec une PAL ≥ 1,5 fois la normale affirment une cholangite biliaire primitive.",
+        "pourquoiFaux": "Les autres analyses ne répondent pas à une cholestase chronique de la femme d'âge moyen."
+       },
+       "sources": [
+        "EASL, recommandations sur la cholangite biliaire primitive (2017)"
+       ],
+       "casClinique": "Une femme de 55 ans, à Genève, a un prurit et une phosphatase alcaline à 2 fois la normale depuis 8 mois.",
+       "options": [
+        "Anticorps antimitochondries",
+        "Anti-transglutaminase",
+        "Sérologie VHE",
+        "AFP"
+       ],
+       "bonneReponse": "Anticorps antimitochondries",
+       "visee": "etiologique"
+      },
+      {
+       "id": "foie__auto_anticorps-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2025, ANA ≥ 1:80 et IgG > 1,1 fois la normale valent chacun 2 points du score simplifié, et la biopsie reste nécessaire pour affirmer le diagnostic.",
+        "pourquoiFaux": "Traiter sans histologie ou ignorer ces marqueurs sont deux erreurs symétriques."
+       },
+       "sources": [
+        "EASL, recommandations sur l'hépatite auto-immune (2025)"
+       ],
+       "resultat": "ANA à 1:160, IgG à 1,3 fois la normale, sérologies virales négatives et cytolyse chronique.",
+       "decision": "On retient une hépatite auto-immune probable et on demande une biopsie."
+      },
+      {
+       "id": "foie__auto_anticorps-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2025, des ANA à titre faible sont fréquents dans la population générale.",
+        "pourquoiFaux": "Un auto-anticorps faible isolé ne suffit pas, et une hépatite auto-immune peut même être séronégative."
+       },
+       "sources": [
+        "EASL, recommandations sur l'hépatite auto-immune (2025)"
+       ],
+       "erreurFrequente": "Conclure à une hépatite auto-immune sur des ANA à 1:40 isolés.",
+       "consequence": "On pose un faux diagnostic.",
+       "bonneConduite": "On interprète les ANA avec les IgG, l'histologie et l'exclusion des autres causes."
+      }
+     ]
+    },
+    {
+     "ref": "foie__igg_igm",
+     "nom": "IgG, IgM",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "foie__igg_igm-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2025, on demande les IgG avec les auto-anticorps devant une hépatopathie inexpliquée, car elles entrent dans le score simplifié de l'hépatite auto-immune.",
+        "pourquoiFaux": "Les autres analyses ne cherchent pas une hépatite auto-immune."
+       },
+       "sources": [
+        "EASL, recommandations sur l'hépatite auto-immune (2025)"
+       ],
+       "casClinique": "Une femme de 30 ans, à Neuchâtel, a une hépatite aiguë sans cause virale ni médicamenteuse.",
+       "options": [
+        "IgG avec auto-anticorps",
+        "Lipase",
+        "AFP",
+        "Test de la sueur"
+       ],
+       "bonneReponse": "IgG avec auto-anticorps",
+       "visee": "etiologique"
+      },
+      {
+       "id": "foie__igg_igm-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2025, la normalisation des IgG et des transaminases définit la réponse biochimique au traitement.",
+        "pourquoiFaux": "Arrêter le traitement dès la normalisation expose à une rechute."
+       },
+       "sources": [
+        "EASL, recommandations sur l'hépatite auto-immune (2025)"
+       ],
+       "resultat": "Sous traitement d'hépatite auto-immune, les IgG et les transaminases se normalisent.",
+       "decision": "On retient une rémission biochimique et on poursuit le traitement d'entretien."
+      },
+      {
+       "id": "foie__igg_igm-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2025, des IgG normales n'excluent pas une hépatite auto-immune.",
+        "pourquoiFaux": "Un seul critère normal ne suffit pas à écarter la maladie."
+       },
+       "sources": [
+        "EASL, recommandations sur l'hépatite auto-immune (2025)"
+       ],
+       "erreurFrequente": "Exclure une hépatite auto-immune parce que les IgG sont normales.",
+       "consequence": "On manque le diagnostic.",
+       "bonneConduite": "On complète par les auto-anticorps et la biopsie."
+      }
+     ]
+    },
+    {
+     "ref": "foie__afp",
+     "nom": "AFP (carcinome hépatocellulaire)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "foie__afp-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2025, on dose l'AFP au diagnostic d'un CHC pour estimer le pronostic, et une valeur très élevée pèse dans la décision de greffe.",
+        "pourquoiFaux": "Le CA 19-9 et l'ACE ne sont pas des marqueurs du CHC, et la calprotectine explore l'intestin."
+       },
+       "sources": [
+        "EASL, recommandations sur le carcinome hépatocellulaire (2025)"
+       ],
+       "casClinique": "Un homme de 62 ans, à Bâle, a un CHC confirmé de 4 cm, candidat possible à la greffe.",
+       "options": [
+        "AFP",
+        "CA 19-9",
+        "ACE",
+        "Calprotectine fécale"
+       ],
+       "bonneReponse": "AFP",
+       "visee": "therapeutique"
+      },
+      {
+       "id": "foie__afp-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2025, le diagnostic du CHC repose sur l'imagerie, et l'AFP seule ne fait pas le diagnostic.",
+        "pourquoiFaux": "Conclure au CHC sur l'AFP seule ou l'ignorer sont deux erreurs."
+       },
+       "sources": [
+        "EASL, recommandations sur le carcinome hépatocellulaire (2025)",
+        "EASL, recommandations sur le carcinome hépatocellulaire (2018)"
+       ],
+       "resultat": "AFP à 35 µg/l chez un cirrhotique dont l'échographie montre un nodule de 12 mm.",
+       "decision": "On caractérise le nodule par CT ou IRM multiphasique."
+      },
+      {
+       "id": "foie__afp-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2018, beaucoup de petits CHC ne sécrètent pas d'AFP, dont la sensibilité n'est que d'environ 60 % au seuil de 20 µg/l.",
+        "pourquoiFaux": "Une AFP normale n'exclut pas un CHC."
+       },
+       "sources": [
+        "EASL, recommandations sur le carcinome hépatocellulaire (2018)"
+       ],
+       "erreurFrequente": "Rassurer un cirrhotique porteur d'un nodule parce que l'AFP est normale.",
+       "consequence": "On manque un petit CHC.",
+       "bonneConduite": "On caractérise tout nodule par l'imagerie."
+      }
+     ]
+    },
+    {
+     "ref": "foie__scores_fib_4_meld_child_pugh",
+     "nom": "Scores FIB-4, MELD, Child-Pugh",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "foie__scores_fib_4_meld_child_pugh-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL-EASD-EASO 2024, le FIB-4 est la première étape d'évaluation de la fibrose chez le patient à risque métabolique.",
+        "pourquoiFaux": "Le MELD ne s'utilise qu'en cas de cirrhose, et la biopsie et le gradient ne sont pas des examens de première ligne."
+       },
+       "sources": [
+        "EASL-EASD-EASO, recommandations sur la MASLD (2024)"
+       ],
+       "casClinique": "Une femme de 56 ans, obèse et hypertendue, à Fribourg, a une stéatose échographique.",
+       "options": [
+        "FIB-4",
+        "Ponction-biopsie hépatique",
+        "MELD",
+        "Mesure du gradient de pression hépatique"
+       ],
+       "bonneReponse": "FIB-4",
+       "visee": "retentissement"
+      },
+      {
+       "id": "foie__scores_fib_4_meld_child_pugh-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL-EASD-EASO 2024, un FIB-4 < 1,3 exclut une fibrose avancée, avec un seuil de 2,0 après 65 ans.",
+        "pourquoiFaux": "Demander d'emblée une élastographie ou une biopsie n'est pas nécessaire sous ce seuil."
+       },
+       "sources": [
+        "EASL-EASD-EASO, recommandations sur la MASLD (2024)"
+       ],
+       "resultat": "FIB-4 à 1,1 chez un patient de 50 ans à risque métabolique.",
+       "decision": "On exclut une fibrose avancée et on refait le calcul plus tard."
+      },
+      {
+       "id": "foie__scores_fib_4_meld_child_pugh-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL-EASD-EASO 2024, le seuil d'exclusion du FIB-4 passe à 2,0 après 65 ans, car l'âge entre dans le calcul.",
+        "pourquoiFaux": "Le seuil adulte surestime le risque chez le sujet âgé."
+       },
+       "sources": [
+        "EASL-EASD-EASO, recommandations sur la MASLD (2024)"
+       ],
+       "erreurFrequente": "Appliquer le seuil de 1,3 du FIB-4 chez un patient de 72 ans.",
+       "consequence": "On envoie trop de patients âgés en élastographie.",
+       "bonneConduite": "On utilise le seuil de 2,0 après 65 ans."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ACE": "Antigène carcinoembryonnaire, marqueur tumoral surtout colorectal.",
+    "ACG": "L'ACG est le collège américain de gastroentérologie.",
+    "AFP": "L'AFP est l'alpha-fœtoprotéine, une protéine fœtale que certaines tumeurs du foie produisent à nouveau.",
+    "ALAT": "L'ALAT est l'alanine aminotransférase, une enzyme surtout hépatique qui s'élève en cas de cytolyse.",
+    "AMA": "Les AMA sont les anticorps antimitochondries, marqueurs de la cholangite biliaire primitive.",
+    "ANA": "Les ANA sont les anticorps antinucléaires, dirigés contre le noyau des cellules.",
+    "ARN": "L'ARN est l'acide ribonucléique, matériel génétique du VHC et du VHE.",
+    "ASAT": "L'ASAT est l'aspartate aminotransférase, une enzyme du foie, du muscle et du globule rouge.",
+    "C282Y": "Mutation principale du gène HFE, responsable de l'hémochromatose à l'état homozygote.",
+    "CA 19-9": "Antigène carbohydrate 19-9, marqueur tumoral biliaire et pancréatique.",
+    "CHC": "Le CHC est le carcinome hépatocellulaire, cancer primitif du foie qui naît le plus souvent sur une cirrhose.",
+    "Child-Pugh": "Le score de Child-Pugh classe la cirrhose en A, B ou C selon la bilirubine, l'albumine, l'INR, l'ascite et l'encéphalopathie.",
+    "CT": "Le CT est la tomodensitométrie, qui produit des coupes du corps par rayons X.",
+    "EASL": "L'EASL est l'association européenne pour l'étude du foie, qui publie les recommandations européennes d'hépatologie.",
+    "EASL-EASD-EASO": "Recommandation commune des sociétés européennes du foie, du diabète et de l'obésité.",
+    "EASO": "L'EASO est l'association européenne pour l'étude de l'obésité.",
+    "ERS": "L'ERS est la société européenne de pneumologie.",
+    "FIB-4": "Le FIB-4 est un score de fibrose calculé à partir de l'âge, de l'ASAT, de l'ALAT et des plaquettes.",
+    "GGT": "La GGT est la gamma-glutamyl-transférase, une enzyme qui s'élève dans la cholestase et la consommation d'alcool.",
+    "HFE": "HFE est le gène dont la mutation p.C282Y homozygote cause la plupart des hémochromatoses.",
+    "IgG": "Les IgG sont les immunoglobulines G, anticorps de la réponse immunitaire tardive et durable.",
+    "IgM": "Les IgM sont les immunoglobulines M, anticorps de la réponse immunitaire précoce.",
+    "INR": "L'INR est le rapport normalisé international, qui exprime le temps de coagulation de façon comparable entre laboratoires.",
+    "IRM": "L'IRM est l'imagerie par résonance magnétique, qui produit des coupes sans rayons ionisants.",
+    "LKM1": "Les anti-LKM1 sont des anticorps anti-microsomes de foie et de rein de type 1, marqueurs de l'hépatite auto-immune de type 2.",
+    "MASLD": "Maladie stéatosique du foie associée à un dysfonctionnement métabolique.",
+    "MELD": "Le MELD est un score de gravité de la cirrhose calculé à partir de la bilirubine, de l'INR et de la créatinine.",
+    "OFSP": "L'OFSP est l'Office fédéral de la santé publique.",
+    "PAL": "La PAL est la phosphatase alcaline, une enzyme des canaux biliaires et de l'os.",
+    "PCR": "La PCR est une technique d'amplification génétique qui détecte l'ADN ou l'ARN d'un virus.",
+    "TP": "Le TP est le taux de prothrombine, qui mesure la coagulation dépendant des facteurs produits par le foie.",
+    "VHC": "Le VHC est le virus de l'hépatite C, transmis surtout par le sang.",
+    "VHE": "Le VHE est le virus de l'hépatite E, transmis surtout par la viande de porc peu cuite en Europe."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Biologie",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}

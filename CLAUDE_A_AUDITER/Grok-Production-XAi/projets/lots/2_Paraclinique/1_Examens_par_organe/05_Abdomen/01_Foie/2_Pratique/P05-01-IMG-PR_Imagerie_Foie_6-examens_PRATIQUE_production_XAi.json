@@ -1,0 +1,478 @@
+{
+ "_lot": {
+  "tache": "P05-01-IMG-PR",
+  "titre": "Pratique — Examens de l'organe Foie — Imagerie (6 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/5_abdomen/foie.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/5_abdomen/foie.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "foie__echographie_abdominale",
+     "nom": "Échographie abdominale",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "foie__echographie_abdominale-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "L'échographie est l'examen de première intention devant des tests hépatiques perturbés : elle n'irradie pas et cherche une stéatose, une cirrhose ou un obstacle biliaire, selon l'EASL 2025 et l'EFSUMB 2018.",
+        "pourquoiFaux": "Le CT et l'IRM se réservent à la caractérisation d'un nodule, et la biopsie vient après les tests non invasifs."
+       },
+       "sources": [
+        "EASL, recommandations sur le carcinome hépatocellulaire (2025)",
+        "EFSUMB, Course Book, 2e édition (2018)"
+       ],
+       "casClinique": "Une femme de 52 ans, à Fribourg, a des transaminases à deux fois la normale découvertes lors d'un bilan de routine.",
+       "options": [
+        "Échographie abdominale",
+        "CT abdominal triphasique",
+        "IRM hépatique",
+        "Ponction-biopsie hépatique"
+       ],
+       "bonneReponse": "Échographie abdominale",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "foie__echographie_abdominale-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EFSUMB 2018, une surface nodulaire a une valeur prédictive positive proche de 100 % pour la cirrhose, et une veine porte > 12,5 mm l'évoque.",
+        "pourquoiFaux": "Un foie brillant et homogène évoque une stéatose, et non une cirrhose."
+       },
+       "sources": [
+        "EFSUMB, Course Book, 2e édition (2018)"
+       ],
+       "consigne": "Décrivez ce qui affirme une cirrhose sur cette échographie du foie.",
+       "aspectRecherche": "Contour du foie et calibre porte",
+       "reponse": "Surface nodulaire et veine porte > 12,5 mm",
+       "imageOuTraceAttendu": "Coupe échographique d'un foie à surface bosselée, avec une veine porte élargie et une rate augmentée de volume."
+      },
+      {
+       "id": "foie__echographie_abdominale-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL-EASD-EASO, l'échographie détecte mal une stéatose touchant moins de 20 % des hépatocytes.",
+        "pourquoiFaux": "Une échographie normale ne prouve pas l'absence de graisse, et la répéter n'améliore pas sa sensibilité."
+       },
+       "sources": [
+        "EASL-EASD-EASO, recommandations sur la stéatose (2016)",
+        "EASL-EASD-EASO, recommandations sur la MASLD (2024)"
+       ],
+       "erreurFrequente": "Exclure une stéatose sur une échographie jugée normale.",
+       "consequence": "On manque une stéatose légère.",
+       "bonneConduite": "On s'aide du CAP de l'élastographie ou de la fraction de graisse IRM si le doute persiste."
+      }
+     ]
+    },
+    {
+     "ref": "foie__echographie_de_contraste",
+     "nom": "Échographie de contraste (CEUS)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "foie__echographie_de_contraste-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la WFUMB-EFSUMB 2020, l'échographie de contraste caractérise un nodule quand le CT ou l'IRM sont contre-indiqués ou non concluants, car les microbulles ne sont pas néphrotoxiques.",
+        "pourquoiFaux": "Le CT exige un produit iodé, la biopsie n'est pas la première étape, et l'AFP seule ne fait pas le diagnostic selon l'EASL 2025."
+       },
+       "sources": [
+        "WFUMB-EFSUMB, recommandations sur l'échographie de contraste du foie (2020)",
+        "EASL, recommandations sur le carcinome hépatocellulaire (2025)"
+       ],
+       "casClinique": "Un homme de 64 ans, à Neuchâtel, cirrhotique, a un nodule de 18 mm et une insuffisance rénale sévère qui contre-indique le produit iodé ; l'IRM n'est pas disponible avant plusieurs semaines.",
+       "options": [
+        "Échographie de contraste",
+        "CT abdominal triphasique",
+        "Ponction-biopsie hépatique",
+        "Dosage de l'AFP seul"
+       ],
+       "bonneReponse": "Échographie de contraste",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "foie__echographie_de_contraste-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la WFUMB-EFSUMB 2020, un lavage précoce, avant 60 secondes, évoque une métastase, alors qu'un lavage tardif et discret évoque un CHC.",
+        "pourquoiFaux": "Un CHC se lave en général tardivement, et un hémangiome se remplit au lieu de se laver."
+       },
+       "sources": [
+        "WFUMB-EFSUMB, recommandations sur l'échographie de contraste du foie (2020)"
+       ],
+       "consigne": "Interprétez la cinétique de cette lésion après injection de microbulles.",
+       "aspectRecherche": "Rehaussement artériel puis moment du lavage",
+       "reponse": "Lavage précoce, avant 60 s : profil de métastase",
+       "imageOuTraceAttendu": "Séquence d'échographie de contraste d'une lésion hépatique qui se rehausse en couronne à la phase artérielle, puis devient franchement hypoéchogène avant 60 secondes."
+      },
+      {
+       "id": "foie__echographie_de_contraste-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "L'échographie de contraste n'explore qu'une ou deux lésions par injection et ne fait pas de bilan d'extension ; l'EASL 2025 préfère le CT ou l'IRM en première ligne pour le CHC.",
+        "pourquoiFaux": "Répéter les injections ne remplace pas une imagerie en coupes du foie entier."
+       },
+       "sources": [
+        "WFUMB-EFSUMB, recommandations sur l'échographie de contraste du foie (2020)",
+        "EASL, recommandations sur le carcinome hépatocellulaire (2025)"
+       ],
+       "erreurFrequente": "Faire le bilan d'extension d'un CHC par échographie de contraste.",
+       "consequence": "On sous-estime le stade.",
+       "bonneConduite": "On fait le bilan d'extension par CT ou IRM."
+      }
+     ]
+    },
+    {
+     "ref": "foie__elastographie",
+     "nom": "Élastographie (FibroScan, CAP pour la stéatose)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "foie__elastographie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL-EASD-EASO 2024, un FIB-4 ≥ 1,3 chez un patient à risque métabolique fait mesurer la rigidité du foie par élastographie.",
+        "pourquoiFaux": "La biopsie se réserve aux discordances, et le gradient de pression est un examen invasif de centre de référence."
+       },
+       "sources": [
+        "EASL-EASD-EASO, recommandations sur la MASLD (2024)"
+       ],
+       "casClinique": "Un homme de 58 ans, diabétique de type 2, à Sion, a une stéatose échographique et un FIB-4 à 1,8.",
+       "options": [
+        "Élastographie",
+        "Ponction-biopsie hépatique",
+        "IRM hépatique",
+        "Mesure du gradient de pression hépatique"
+       ],
+       "bonneReponse": "Élastographie",
+       "visee": "retentissement"
+      },
+      {
+       "id": "foie__elastographie-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon le consensus Baveno VII 2022, une rigidité ≥ 25 kPa affirme une hypertension portale cliniquement significative dans la cirrhose virale ou alcoolique.",
+        "pourquoiFaux": "Une valeur < 8 kPa exclurait une fibrose avancée, et une valeur entre 12 et 25 kPa n'affirme pas l'hypertension portale."
+       },
+       "sources": [
+        "Consensus Baveno VII (2022)",
+        "EASL-EASD-EASO, recommandations sur la MASLD (2024)"
+       ],
+       "consigne": "Interprétez ce compte rendu d'élastographie chez un patient à jeun, sans hépatite aiguë.",
+       "aspectRecherche": "Valeur de rigidité en kPa",
+       "reponse": "Rigidité de 26 kPa : hypertension portale cliniquement significative",
+       "imageOuTraceAttendu": "Écran d'élastographie impulsionnelle qui affiche une rigidité médiane de 26 kPa, avec dix mesures valides et un écart interquartile faible."
+      },
+      {
+       "id": "foie__elastographie-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Baveno VII 2022, une hépatite aiguë, une cholestase, une congestion ou un repas récent surestiment la rigidité.",
+        "pourquoiFaux": "Conclure à une cirrhose sur une valeur mesurée dans ces conditions expose à un faux diagnostic."
+       },
+       "sources": [
+        "Consensus Baveno VII (2022)"
+       ],
+       "erreurFrequente": "Mesurer la rigidité du foie juste après un repas ou en pleine hépatite aiguë.",
+       "consequence": "On surestime la fibrose.",
+       "bonneConduite": "On mesure à jeun, à distance d'une hépatite aiguë ou d'une cholestase."
+      }
+     ]
+    },
+    {
+     "ref": "foie__ct_abdominal_triphasique",
+     "nom": "CT abdominal triphasique",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "foie__ct_abdominal_triphasique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2025, le CT multiphasique caractérise le nodule par les critères LI-RADS et fait en même temps le bilan d'extension, quand l'IRM n'est pas possible.",
+        "pourquoiFaux": "L'échographie de contraste ne fait pas de bilan d'extension, l'AFP ne fait pas le diagnostic, et la biopsie n'est pas nécessaire si le profil est typique."
+       },
+       "sources": [
+        "EASL, recommandations sur le carcinome hépatocellulaire (2025)"
+       ],
+       "casClinique": "Un homme de 67 ans, à Bâle, cirrhotique alcoolique, a un nodule de 22 mm à l'échographie de dépistage ; l'IRM est contre-indiquée par un stimulateur ancien.",
+       "options": [
+        "CT abdominal triphasique",
+        "Échographie de contraste",
+        "Dosage de l'AFP",
+        "Ponction-biopsie hépatique"
+       ],
+       "bonneReponse": "CT abdominal triphasique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "foie__ct_abdominal_triphasique-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2025, un nodule ≥ 10 mm chez un cirrhotique qui se rehausse au temps artériel et se lave au temps portal ou tardif affirme un CHC sans biopsie.",
+        "pourquoiFaux": "Un hémangiome se remplit au lieu de se laver, et une métastase est rare sur foie de cirrhose."
+       },
+       "sources": [
+        "EASL, recommandations sur le carcinome hépatocellulaire (2025)"
+       ],
+       "consigne": "Lisez les trois temps de ce CT chez un cirrhotique.",
+       "aspectRecherche": "Rehaussement artériel et lavage",
+       "reponse": "Nodule de 15 mm avec rehaussement artériel et lavage portal : CHC",
+       "imageOuTraceAttendu": "Trois coupes du même niveau : nodule hyperdense au temps artériel, hypodense au temps portal, entouré d'une capsule rehaussée au temps tardif."
+      },
+      {
+       "id": "foie__ct_abdominal_triphasique-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La Société Suisse de Radiologie (Smarter Medicine, 2020) recommande de ne pas réaliser systématiquement une phase sans injection au CT abdominal injecté.",
+        "pourquoiFaux": "Ajouter des passages par habitude irradie davantage sans changer la décision."
+       },
+       "sources": [
+        "Smarter Medicine, liste Top 5 de la SSR (2020)"
+       ],
+       "erreurFrequente": "Demander systématiquement une acquisition sans injection en plus des temps injectés.",
+       "consequence": "On augmente la dose sans gain diagnostique.",
+       "bonneConduite": "On ne fait la phase sans injection que si elle apporte une information."
+      }
+     ]
+    },
+    {
+     "ref": "foie__irm_hepatique",
+     "nom": "IRM hépatique (contraste hépatospécifique)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "foie__irm_hepatique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL 2025, l'IRM au produit hépatospécifique sépare le mieux l'hyperplasie nodulaire focale, l'adénome et le CHC, sans irradier une patiente jeune.",
+        "pourquoiFaux": "Le CT irradie et caractérise moins bien, la biopsie vient en dernier recours, et l'AFP n'aide pas ici."
+       },
+       "sources": [
+        "EASL, recommandations sur le carcinome hépatocellulaire (2025)"
+       ],
+       "casClinique": "Une femme de 35 ans, à Lausanne, a un nodule hépatique de 3 cm découvert par hasard, sans hépatopathie connue.",
+       "options": [
+        "IRM hépatique",
+        "CT abdominal triphasique",
+        "Ponction-biopsie hépatique",
+        "Dosage de l'AFP"
+       ],
+       "bonneReponse": "IRM hépatique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "foie__irm_hepatique-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La rétention du produit hépatospécifique traduit des hépatocytes fonctionnels et des canaux biliaires, typiques de l'hyperplasie nodulaire focale.",
+        "pourquoiFaux": "Un CHC ou une métastase apparaissent en hyposignal à la phase hépatobiliaire."
+       },
+       "sources": [
+        "EASL, recommandations sur le carcinome hépatocellulaire (2025)"
+       ],
+       "consigne": "Interprétez le signal de cette lésion à la phase hépatobiliaire.",
+       "aspectRecherche": "Signal par rapport au foie à 20 minutes",
+       "reponse": "Lésion iso- à hypersignal : hyperplasie nodulaire focale",
+       "imageOuTraceAttendu": "IRM pondérée T1, 20 minutes après gadoxétate : lésion qui retient le produit autant ou plus que le foie, avec une cicatrice centrale en hyposignal."
+      },
+      {
+       "id": "foie__irm_hepatique-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EASL-EASD-EASO 2024, une fraction de graisse IRM ≥ 5 % définit une stéatose et la quantifie.",
+        "pourquoiFaux": "L'échographie reste qualitative et manque les stéatoses légères."
+       },
+       "sources": [
+        "EASL-EASD-EASO, recommandations sur la MASLD (2024)"
+       ],
+       "erreurFrequente": "Juger une stéatose sur l'échographie seule quand une mesure chiffrée est nécessaire.",
+       "consequence": "On ne suit pas la stéatose de façon fiable.",
+       "bonneConduite": "On mesure la fraction de graisse par IRM."
+      }
+     ]
+    },
+    {
+     "ref": "foie__echodoppler_portal",
+     "nom": "Échodoppler portal",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "foie__echodoppler_portal-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon le consensus Baveno VII 2022, l'échodoppler cherche une thrombose porte devant une décompensation, et il montre le sens et la vitesse du flux.",
+        "pourquoiFaux": "Le gradient est invasif, l'élastographie ne cherche pas de thrombose, et le transit n'explore pas le foie."
+       },
+       "sources": [
+        "Consensus Baveno VII (2022)",
+        "EFSUMB, Course Book, 2e édition (2018)"
+       ],
+       "casClinique": "Un homme de 60 ans, cirrhotique, à Genève, a une ascite qui augmente brusquement et une fièvre modérée.",
+       "options": [
+        "Échodoppler portal",
+        "Mesure du gradient de pression hépatique",
+        "Transit œsogastroduodénal",
+        "Élastographie"
+       ],
+       "bonneReponse": "Échodoppler portal",
+       "visee": "complications"
+      },
+      {
+       "id": "foie__echodoppler_portal-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EFSUMB 2018, un flux porte inversé et des collatérales porto-systémiques affirment une hypertension portale.",
+        "pourquoiFaux": "Un flux hépatopète est normal, et l'absence de flux évoquerait plutôt une thrombose."
+       },
+       "sources": [
+        "EFSUMB, Course Book, 2e édition (2018)"
+       ],
+       "consigne": "Décrivez le flux porte sur ce Doppler couleur.",
+       "aspectRecherche": "Sens du flux dans la veine porte",
+       "reponse": "Flux hépatofuge : hypertension portale",
+       "imageOuTraceAttendu": "Doppler couleur de la veine porte codée en bleu, le flux s'éloignant du foie, avec une veine ombilicale reperméabilisée."
+      },
+      {
+       "id": "foie__echodoppler_portal-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EFSUMB 2018, la valeur prédictive négative du Doppler pour l'hypertension portale est faible et sa précision globale ne dépasse pas environ 60 %.",
+        "pourquoiFaux": "Un flux porte normal n'exclut pas une hypertension portale cliniquement significative."
+       },
+       "sources": [
+        "EFSUMB, Course Book, 2e édition (2018)",
+        "Consensus Baveno VII (2022)"
+       ],
+       "erreurFrequente": "Exclure une hypertension portale sur un Doppler normal.",
+       "consequence": "On méconnaît une hypertension portale.",
+       "bonneConduite": "On s'appuie sur l'élastographie et les plaquettes selon Baveno VII."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "AFP": "L'AFP est l'alpha-fœtoprotéine, une protéine fœtale que certaines tumeurs du foie produisent à nouveau.",
+    "Baveno VII": "Baveno VII est la conférence de consensus internationale de 2021, publiée en 2022, sur l'hypertension portale.",
+    "CAP": "Le CAP est le paramètre d'atténuation contrôlée, qui chiffre la stéatose en dB/m lors de l'élastographie.",
+    "CEUS": "La CEUS est l'échographie de contraste, qui injecte des microbulles de gaz pour suivre le rehaussement d'une lésion.",
+    "CHC": "Le CHC est le carcinome hépatocellulaire, cancer primitif du foie qui naît le plus souvent sur une cirrhose.",
+    "CT": "Le CT est la tomodensitométrie, qui produit des coupes du corps par rayons X.",
+    "EASL": "L'EASL est l'association européenne pour l'étude du foie, qui publie les recommandations européennes d'hépatologie.",
+    "EASL-EASD-EASO": "Recommandation commune des sociétés européennes du foie, du diabète et de l'obésité.",
+    "EASO": "L'EASO est l'association européenne pour l'étude de l'obésité.",
+    "EFSUMB": "L'EFSUMB est la fédération européenne des sociétés d'échographie en médecine et en biologie.",
+    "FIB-4": "Le FIB-4 est un score de fibrose calculé à partir de l'âge, de l'ASAT, de l'ALAT et des plaquettes.",
+    "FibroScan": "Le FibroScan est l'appareil d'élastographie impulsionnelle qui mesure la rigidité du foie en kPa.",
+    "IRM": "L'IRM est l'imagerie par résonance magnétique, qui produit des coupes sans rayons ionisants.",
+    "kPa": "Le kilopascal est l'unité SI de pression ; 1 kPa vaut environ 7,5 mmHg.",
+    "LI-RADS": "Le LI-RADS est un système de classement des nodules hépatiques chez le patient à risque de CHC.",
+    "MASLD": "Maladie stéatosique du foie associée à un dysfonctionnement métabolique.",
+    "SSR": "Société Suisse de Radiologie.",
+    "T1": "Séquence d'IRM pondérée en T1, où la graisse est claire et l'eau sombre.",
+    "VII": "Chiffre romain sept, ici la septième conférence de consensus de Baveno (2022).",
+    "WFUMB-EFSUMB": "Recommandation commune des fédérations mondiale et européenne d'échographie."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Imagerie",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}

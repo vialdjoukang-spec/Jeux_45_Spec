@@ -1,0 +1,134 @@
+{
+ "_lot": {
+  "tache": "P05-01-FCT-PR",
+  "titre": "Pratique — Examens de l'organe Foie — Exploration fonctionnelle (1 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/5_abdomen/foie.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/5_abdomen/foie.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "foie__mesure_du_gradient_de_pression_hepatique",
+     "nom": "Mesure du gradient de pression hépatique veineuse",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "foie__mesure_du_gradient_de_pression_hepatique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon le consensus Baveno VII 2022, le gradient se mesure dans un centre de référence quand les tests non invasifs restent en zone grise.",
+        "pourquoiFaux": "Le Doppler a une faible valeur prédictive négative, et l'AFP et le transit ne mesurent pas la pression portale."
+       },
+       "sources": [
+        "Consensus Baveno VII (2022)"
+       ],
+       "casClinique": "Un homme de 59 ans, cirrhotique compensé, à Berne, a une élastographie à 19 kPa et des plaquettes à 140 G/l ; l'équipe doit décider d'un bêtabloquant.",
+       "options": [
+        "Mesure du gradient de pression hépatique",
+        "Échodoppler portal",
+        "AFP",
+        "Transit œsogastroduodénal"
+       ],
+       "bonneReponse": "Mesure du gradient de pression hépatique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "foie__mesure_du_gradient_de_pression_hepatique-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Baveno VII 2022, un gradient ≥ 10 mmHg (1,3 kPa) définit une hypertension portale cliniquement significative.",
+        "pourquoiFaux": "Un gradient entre 5 et 10 mmHg (0,7 à 1,3 kPa) indique une hypertension portale sans ce caractère significatif."
+       },
+       "sources": [
+        "Consensus Baveno VII (2022)"
+       ],
+       "resultat": "Gradient de pression veineuse hépatique à 12 mmHg (1,6 kPa).",
+       "decision": "On retient une hypertension portale cliniquement significative."
+      },
+      {
+       "id": "foie__mesure_du_gradient_de_pression_hepatique-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Le gradient se calcule en soustrayant la pression libre de la pression bloquée ; 12 mmHg (1,6 kPa) dépasse le seuil de 10 mmHg (1,3 kPa) de Baveno VII 2022.",
+        "pourquoiFaux": "Lire la seule pression bloquée surestime le gradient."
+       },
+       "sources": [
+        "Consensus Baveno VII (2022)"
+       ],
+       "consigne": "Lisez ce tracé de pression des veines sus-hépatiques.",
+       "aspectRecherche": "Différence entre pression bloquée et pression libre",
+       "reponse": "Bloquée 20 mmHg (2,7 kPa), libre 8 mmHg (1,1 kPa) : gradient de 12 mmHg (1,6 kPa)",
+       "imageOuTraceAttendu": "Tracé de pression avec un plateau libre à 8 mmHg (1,1 kPa), puis un plateau bloqué stable à 20 mmHg (2,7 kPa) après gonflement du ballonnet."
+      },
+      {
+       "id": "foie__mesure_du_gradient_de_pression_hepatique-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon Baveno VII 2022, le gradient sous-estime l'hypertension portale présinusoïdale, comme dans la cholangite biliaire primitive.",
+        "pourquoiFaux": "Un gradient normal ne contredit pas des varices dans ce contexte."
+       },
+       "sources": [
+        "Consensus Baveno VII (2022)"
+       ],
+       "erreurFrequente": "Exclure une hypertension portale sur un gradient normal chez une patiente atteinte de cholangite biliaire primitive avec varices.",
+       "consequence": "On méconnaît une hypertension portale présinusoïdale.",
+       "bonneConduite": "On interprète le gradient selon le niveau de l'obstacle."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "AFP": "L'AFP est l'alpha-fœtoprotéine, une protéine fœtale que certaines tumeurs du foie produisent à nouveau.",
+    "Baveno VII": "Baveno VII est la conférence de consensus internationale de 2021, publiée en 2022, sur l'hypertension portale.",
+    "G/l": "G/l signifie giga par litre, soit un milliard de cellules par litre de sang.",
+    "kPa": "Le kilopascal est l'unité SI de pression ; 1 kPa vaut environ 7,5 mmHg.",
+    "mmHg": "Le millimètre de mercure est l'unité usuelle de pression ; 1 mmHg vaut environ 0,133 kPa.",
+    "VII": "Chiffre romain sept, ici la septième conférence de consensus de Baveno (2022)."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Exploration fonctionnelle",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
