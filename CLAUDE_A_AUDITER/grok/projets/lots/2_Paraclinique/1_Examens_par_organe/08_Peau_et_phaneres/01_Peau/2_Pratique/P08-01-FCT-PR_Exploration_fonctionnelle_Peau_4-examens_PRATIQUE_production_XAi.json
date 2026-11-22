@@ -1,0 +1,394 @@
+{
+ "_lot": {
+  "tache": "P08-01-FCT-PR",
+  "titre": "Pratique — Examens de l'organe Peau — Exploration fonctionnelle (4 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/8_peau_et_phaneres/peau.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/8_peau_et_phaneres/peau.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "peau__tests_epicutanes",
+     "nom": "Tests épicutanés (patch tests)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "peau__tests_epicutanes-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Les tests épicutanés identifient l'allergène d'un eczéma de contact, une hypersensibilité retardée de type IV, selon la ligne directrice de l'ESCD (Uter et al., 2026).",
+        "pourquoiFaux": "Les prick-tests explorent l'allergie immédiate à IgE, la lampe de Wood une fluorescence, et les phototests une photodermatose."
+       },
+       "sources": [
+        "ESCD, tests épicutanés (Uter et al., 2026)"
+       ],
+       "casClinique": "Une coiffeuse de 24 ans, à Neuchâtel, a un eczéma des mains récidivant malgré les gants.",
+       "options": [
+        "Tests épicutanés",
+        "Prick-tests",
+        "Lampe de Wood",
+        "Phototests"
+       ],
+       "bonneReponse": "Tests épicutanés",
+       "visee": "etiologique"
+      },
+      {
+       "id": "peau__tests_epicutanes-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des vésicules sur un érythème infiltré correspondent à une réaction ++ selon l'ICDRG, ce qui rend le test positif, selon la ligne directrice de l'ESCD (Uter et al., 2026).",
+        "pourquoiFaux": "Conclure à une irritation néglige l'infiltration et les vésicules, et une réaction positive ne dispense pas d'en vérifier la pertinence."
+       },
+       "sources": [
+        "ESCD, tests épicutanés (Uter et al., 2026)"
+       ],
+       "resultat": "À la lecture du troisième jour, le sulfate de nickel donne un érythème infiltré avec des vésicules.",
+       "decision": "On retient une réaction ++ au nickel et l'on en recherche la pertinence clinique."
+      },
+      {
+       "id": "peau__tests_epicutanes-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La cotation ICDRG classe en ++ l'érythème infiltré avec vésicules, selon la ligne directrice de l'ESCD (Uter et al., 2026).",
+        "pourquoiFaux": "Une réaction + n'a pas de vésicules, et une réaction irritative n'est pas infiltrée."
+       },
+       "sources": [
+        "ESCD, tests épicutanés (Uter et al., 2026)"
+       ],
+       "consigne": "Cote la réaction visible sous la chambre n° 4.",
+       "aspectRecherche": "Érythème infiltré avec papules et vésicules",
+       "reponse": "C'est une réaction ++ selon l'ICDRG : le test est positif.",
+       "imageOuTraceAttendu": "Photographie du dos à J3 montrant, sous une chambre, une plaque érythémateuse infiltrée couverte de papules et de vésicules."
+      },
+      {
+       "id": "peau__tests_epicutanes-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon la ligne directrice de l'ESCD (Uter et al., 2026), sans lecture vers le septième jour, on manque 7 % à 30 % des sensibilisations aux corticoïdes, à l'or, aux acrylates et aux aminosides.",
+        "pourquoiFaux": "Deux lectures précoces suffisent pour la plupart des allergènes, mais pas pour ceux qui réagissent tard."
+       },
+       "sources": [
+        "ESCD, tests épicutanés (Uter et al., 2026)"
+       ],
+       "erreurFrequente": "Lire les tests seulement au deuxième et au troisième jour chez un patient suspect d'allergie aux corticoïdes.",
+       "consequence": "On manque 7 % à 30 % des sensibilisations tardives, dont celles aux corticoïdes.",
+       "bonneConduite": "On ajoute une lecture vers le septième jour."
+      }
+     ]
+    },
+    {
+     "ref": "peau__prick_tests",
+     "nom": "Prick-tests",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "peau__prick_tests-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Les prick-tests montrent en 20 minutes une sensibilisation immédiate à IgE, utile dans la rhinoconjonctivite, selon les standards de l'EAACI (Heinzerling et al., 2013).",
+        "pourquoiFaux": "Les tests épicutanés explorent l'hypersensibilité retardée, les phototests la photosensibilité, et la biopsie n'est pas indiquée."
+       },
+       "sources": [
+        "EAACI, prick-tests (Heinzerling et al., 2013)"
+       ],
+       "casClinique": "Un homme de 22 ans, à Saint-Gall, a une rhinite et une conjonctivite chaque printemps.",
+       "options": [
+        "Prick-tests",
+        "Tests épicutanés",
+        "Phototests",
+        "Biopsie au punch"
+       ],
+       "bonneReponse": "Prick-tests",
+       "visee": "etiologique"
+      },
+      {
+       "id": "peau__prick_tests-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une papule d'au moins 3 mm avec des témoins valides rend le test positif, selon les standards de l'EAACI (Heinzerling et al., 2013).",
+        "pourquoiFaux": "Conclure à un test ininterprétable ignore des témoins valides, et une papule de 6 mm n'est pas douteuse."
+       },
+       "sources": [
+        "EAACI, prick-tests (Heinzerling et al., 2013)"
+       ],
+       "resultat": "Le prick aux pollens de graminées donne une papule de 6 mm ; le témoin positif réagit et le témoin négatif reste muet.",
+       "decision": "On retient une sensibilisation aux graminées, concordante avec les symptômes printaniers."
+      },
+      {
+       "id": "peau__prick_tests-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une papule d'au moins 3 mm lue 15 à 20 minutes après la piqûre rend le test positif, selon les standards de l'EAACI (Heinzerling et al., 2013).",
+        "pourquoiFaux": "Une lecture à 48 heures concerne les tests épicutanés, et un témoin histamine positif prouve que la peau réagit."
+       },
+       "sources": [
+        "EAACI, prick-tests (Heinzerling et al., 2013)"
+       ],
+       "consigne": "Lis cette planche de prick-tests et conclus.",
+       "aspectRecherche": "Papule de 7 mm aux acariens, témoins valides",
+       "reponse": "Le prick aux acariens est positif ; les témoins sont valides.",
+       "imageOuTraceAttendu": "Photographie de l'avant-bras à 15 minutes : papule érythémateuse de 7 mm au site des acariens, papule au témoin histamine, rien au témoin négatif."
+      },
+      {
+       "id": "peau__prick_tests-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon les standards de l'EAACI (Heinzerling et al., 2013), on arrête les antihistaminiques de deuxième génération 7 jours avant les prick-tests.",
+        "pourquoiFaux": "Interpréter un test sous antihistaminique fait conclure à tort à l'absence d'allergie."
+       },
+       "sources": [
+        "EAACI, prick-tests (Heinzerling et al., 2013)"
+       ],
+       "erreurFrequente": "Faire des prick-tests chez un patient qui a pris de la cétirizine la veille.",
+       "consequence": "Le témoin positif reste muet et le test devient faussement négatif.",
+       "bonneConduite": "On arrête les antihistaminiques de deuxième génération 7 jours avant."
+      }
+     ]
+    },
+    {
+     "ref": "peau__lampe_de_wood",
+     "nom": "Lampe de Wood",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "peau__lampe_de_wood-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Devant un intertrigo suspect d'érythrasma, la lampe de Wood montre une fluorescence rouge corail, selon Dyer et Foy (2022).",
+        "pourquoiFaux": "Les prick-tests, l'échographie et la sérologie syphilis ne caractérisent pas un intertrigo."
+       },
+       "sources": [
+        "Dyer et Foy, lampe de Wood (2022)"
+       ],
+       "casClinique": "Un homme obèse de 58 ans, à Delémont, a une plaque brune bien limitée des plis inguinaux.",
+       "options": [
+        "Lampe de Wood",
+        "Prick-tests",
+        "Échographie cutanée",
+        "Sérologie syphilis"
+       ],
+       "bonneReponse": "Lampe de Wood",
+       "visee": "etiologique"
+      },
+      {
+       "id": "peau__lampe_de_wood-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Une fluorescence verte des cheveux signe une teigne à Microsporum, selon Dyer et Foy (2022).",
+        "pourquoiFaux": "Une fluorescence rouge corail signerait un érythrasma, et l'absence de fluorescence n'exclurait pas une teigne à Trichophyton."
+       },
+       "sources": [
+        "Dyer et Foy, lampe de Wood (2022)"
+       ],
+       "resultat": "Sous lampe de Wood, les cheveux de la plaque alopécique d'un enfant fluorescent en vert.",
+       "decision": "On retient une teigne à Microsporum et l'on confirme par l'examen mycologique."
+      },
+      {
+       "id": "peau__lampe_de_wood-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La lampe de Wood accentue la dépigmentation du vitiligo, qui apparaît blanc-bleu bien limitée, selon Dyer et Foy (2022).",
+        "pourquoiFaux": "Une hypopigmentation post-inflammatoire reste moins contrastée, et un érythrasma fluoresce en rouge corail."
+       },
+       "sources": [
+        "Dyer et Foy, lampe de Wood (2022)"
+       ],
+       "consigne": "Décris l'aspect sous lampe de Wood et conclus.",
+       "aspectRecherche": "Dépigmentation blanc-bleu bien limitée",
+       "reponse": "C'est une dépigmentation blanc-bleu nette, accentuée par la lampe, typique d'un vitiligo.",
+       "imageOuTraceAttendu": "Photographie du dos de la main sous lumière de Wood montrant des plages d'un blanc bleuté éclatant, aux bords nets."
+      },
+      {
+       "id": "peau__lampe_de_wood-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la BAD (Fuller et al., 2014), la plupart des teignes à Trichophyton restent négatives à la lampe de Wood.",
+        "pourquoiFaux": "L'absence de fluorescence ne sert qu'à orienter et n'exclut pas la mycose."
+       },
+       "sources": [
+        "BAD, teignes (Fuller et al., 2014)"
+       ],
+       "erreurFrequente": "Écarter une teigne du cuir chevelu parce que la lampe de Wood ne montre aucune fluorescence.",
+       "consequence": "On manque une teigne à Trichophyton, souvent non fluorescente.",
+       "bonneConduite": "On fait un examen mycologique direct et une culture."
+      }
+     ]
+    },
+    {
+     "ref": "peau__phototests",
+     "nom": "Phototests",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "peau__phototests-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Les phototests reproduisent la photodermatose et montrent l'urticaire qui précède l'érythème, selon la ligne directrice de l'EDF (Faurschou et Wulf, 2010).",
+        "pourquoiFaux": "Les tests épicutanés et les prick-tests n'irradient pas, et la lampe de Wood n'explore pas la photosensibilité."
+       },
+       "sources": [
+        "EDF, phototests (Faurschou et Wulf, 2010)"
+       ],
+       "casClinique": "Une femme de 45 ans, à Coire, développe en quelques minutes des papules ortiées sur les zones exposées au soleil.",
+       "options": [
+        "Phototests",
+        "Tests épicutanés",
+        "Prick-tests",
+        "Lampe de Wood"
+       ],
+       "bonneReponse": "Phototests",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "peau__phototests-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une DEM anormalement basse évoque surtout une dermatite actinique chronique, selon la ligne directrice de l'EDF (Faurschou et Wulf, 2010).",
+        "pourquoiFaux": "L'urticaire solaire garde souvent une DEM normale, et un eczéma de contact simple ne baisse pas la DEM."
+       },
+       "sources": [
+        "EDF, phototests (Faurschou et Wulf, 2010)"
+       ],
+       "resultat": "La DEM UVB est nettement abaissée chez un homme âgé avec un eczéma chronique des zones exposées.",
+       "decision": "On retient une dermatite actinique chronique."
+      },
+      {
+       "id": "peau__phototests-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La DEM se lit vers 22 à 26 heures, et un érythème aux doses les plus faibles signe une DEM abaissée, selon la ligne directrice de l'EDF (Faurschou et Wulf, 2010).",
+        "pourquoiFaux": "Une réponse normale n'apparaîtrait qu'aux doses moyennes, et une urticaire se lirait dans les minutes qui suivent."
+       },
+       "sources": [
+        "EDF, phototests (Faurschou et Wulf, 2010)"
+       ],
+       "consigne": "Lis la planche de phototests à 24 heures.",
+       "aspectRecherche": "Érythème aux plus faibles doses d'UVB",
+       "reponse": "La DEM UVB est abaissée : le seuil d'érythème est anormalement bas.",
+       "imageOuTraceAttendu": "Photographie du dos avec une rangée de carrés irradiés par doses croissantes d'UVB, tous érythémateux, y compris les plus faibles."
+      },
+      {
+       "id": "peau__phototests-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon la ligne directrice de l'EDF (Faurschou et Wulf, 2010), un traitement immunosuppresseur local ou général donne des faux négatifs.",
+        "pourquoiFaux": "Un test négatif sous traitement ne permet pas d'écarter une photodermatose."
+       },
+       "sources": [
+        "EDF, phototests (Faurschou et Wulf, 2010)"
+       ],
+       "erreurFrequente": "Faire des phototests chez un patient sous corticoïdes systémiques.",
+       "consequence": "On obtient des faux négatifs, car l'immunosuppression bloque la réaction.",
+       "bonneConduite": "On reporte les tests après l'arrêt du traitement et 4 semaines sans soleil ni solarium."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "BAD": "La British Association of Dermatologists est la société britannique de dermatologie.",
+    "DEM": "La dose érythémale minimale est la plus petite dose d'UV qui provoque un érythème à peine visible.",
+    "EAACI": "L'European Academy of Allergy and Clinical Immunology est la société européenne d'allergologie.",
+    "EDF": "L'European Dermatology Forum publie des lignes directrices européennes de dermatologie.",
+    "ESCD": "L'European Society of Contact Dermatitis est la société européenne de l'eczéma de contact.",
+    "ICDRG": "International Contact Dermatitis Research Group : groupe qui a fixé la cotation des tests épicutanés.",
+    "IgE": "Les immunoglobulines E sont les anticorps de l'allergie immédiate.",
+    "UV": "Le rayonnement ultraviolet est un rayonnement non ionisant, divisé en UVA et UVB.",
+    "UVA": "Les UVA sont les ultraviolets de grande longueur d'onde, de 315 à 400 nm.",
+    "UVB": "Les UVB sont les ultraviolets de courte longueur d'onde, de 280 à 315 nm, qui causent le coup de soleil.",
+    "J3": "Troisième jour après la pose des tests."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Exploration fonctionnelle",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
