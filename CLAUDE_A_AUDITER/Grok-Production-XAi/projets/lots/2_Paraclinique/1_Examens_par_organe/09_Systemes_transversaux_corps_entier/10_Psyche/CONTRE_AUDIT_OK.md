@@ -17,3 +17,15 @@ Sources revérifiées en ligne :
 
 Corrections faites :
 - aucune
+
+## Seconde vérification des sources (23.11.2026 00:49, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | AUDIT : 8 ou plus = consommation à risque ; zone II de 8 à 15, conseil simple | OMS, manuel AUDIT 2001 (Babor et al., iris.who.int) | conforme |
+| 2 | AUDIT : seuil abaissable à 7 chez la femme et après 65 ans | OMS, manuel AUDIT 2001 | conforme |
+| 3 | Lithium : seuil d'alerte du laboratoire à 1,2 mmol/l | AGNP, Hiemke et al., Pharmacopsychiatry 2017 | conforme |
+| 4 | Scores normaux : PHQ-9 < 5, GAD-7 < 5, MoCA ≥ 26 | Kroenke et al. 2001 ; Spitzer et al. 2006 ; Nasreddine et al. 2005 (consignes MoCA) | conforme |
+| 5 | MMPI-2 : échelles cliniques sous une note T de 65 = non pathologique | Butcher et Pope, 1992 (PDF de l'article) | conforme |

@@ -22,3 +22,15 @@ Corrections faites :
 
 Remarques :
 - Les visées « therapeutique » de la scintigraphie aux leucocytes et du PET restent à l’appréciation de l’audit médical.
+
+## Seconde vérification des sources (23.11.2026 00:49, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | eFAST : spécificité de 94 à 100 %, sensibilité de 28 à 100 % | directive S3 Polytrauma de la DGU (texte long 187-023, degum.de), citée aussi par raducation.de | conforme |
+| 2 | Myélome : plus d'une lésion focale d'au moins 5 mm à l'IRM | Rajkumar et al., Lancet Oncol 2014 (critères IMWG) | conforme |
+| 3 | Lésion unique, infiltration diffuse ou doute : contrôle IRM en 3 à 6 mois | Rajkumar et al., Lancet Oncol 2014 | conforme |
+| 4 | TEP-CT : hyperfixation seule insuffisante, ostéolyse d'au moins 5 mm requise sur le CT | Rajkumar et al., Lancet Oncol 2014 | conforme |
+| 5 | Porteurs d'un variant TP53 : IRM corps entier sans gadolinium chaque année | Frebourg et al., Eur J Hum Genet 2020 (ERN GENTURIS) et fiche rapide GENTURIS | conforme |

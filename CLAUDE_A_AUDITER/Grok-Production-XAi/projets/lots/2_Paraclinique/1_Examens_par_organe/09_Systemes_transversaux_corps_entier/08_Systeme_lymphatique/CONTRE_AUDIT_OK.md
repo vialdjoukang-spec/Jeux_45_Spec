@@ -20,3 +20,15 @@ Corrections faites :
 Remarques :
 - prelevementRef « biopsies_tissulaires » sur la biopsie ganglionnaire : la règle le réserve à la biologie ; laissé à trancher par l’audit médical.
 - syndromesParacliniques « Lymphome » cite « Population monoclonale » et « Immunophénotype anormal », qui relèvent de l’immunohistochimie et ne figurent pas dans anomaliesElementaires ; laissé tel quel.
+
+## Seconde vérification des sources (23.11.2026 00:49, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Lymphoscintigraphie au Nanocoll : 80 MBq = 0,16 mSv, ou 20 MBq par injection = 0,04 mSv | OFSP, directive NRD de médecine nucléaire V2 du 1.2.2023 (drw-nuk.pdf, téléchargé à nouveau) | conforme |
+| 2 | Pseudochylothorax : cholestérol > 5,18 mmol/l avec cristaux | BTS, Roberts et al., Thorax 2023 | conforme |
+| 3 | Chylothorax : triglycérides > 1,24 mmol/l, cholestérol bas, sans cristaux | BTS, Roberts et al., Thorax 2023 | conforme |
+| 4 | Ganglion cervical métastatique : rapport petit axe sur grand axe > 0,5, hile absent | Ahuja et Ying, Cancer Imaging 2008 (PMC2324368) | conforme |
+| 5 | Filariose nocturne : prélèvement entre 22 h et 2 h ; antigène de W. bancrofti à toute heure | OMS, documents du programme d'élimination de la filariose lymphatique (iris.who.int) | conforme |
