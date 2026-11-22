@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 22:32
+# Audit automatique — 2026-11-22 22:50
 
-20 fichier(s) : 18 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
+24 fichier(s) : 22 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -18,6 +18,20 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/02_Cou/02_Parathyroides/2_Pratique/P02-02-PR_Examens_Parathyroides_7-examens_PRATIQUE_production_XAi.json`
 - 🟩 `parathyroides.json` : remplissage 100 % (14/14)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/02_Cou/03_Larynx_et_pharynx/1_Theorie/P02-03_Examens_Larynx_et_pharynx_10-examens_production_XAi.json`
+- 🟩 `larynx_et_pharynx.json` : remplissage 89 % (189/212)
+- aVerifier déclarés : 7
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/02_Cou/03_Larynx_et_pharynx/2_Pratique/P02-03-PR_Examens_Larynx_et_pharynx_10-examens_PRATIQUE_production_XAi.json`
+- 🟩 `larynx_et_pharynx.json` : remplissage 100 % (20/20)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/02_Cou/04_Vaisseaux_du_cou_et_de_la_tete/1_Theorie/P02-04_Examens_Vaisseaux_du_cou_et_de_la_tete_8-examens_production_XAi.json`
+- 🟩 `vaisseaux_du_cou_et_de_la_tete.json` : remplissage 91 % (153/169)
+- aVerifier déclarés : 6
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/02_Cou/04_Vaisseaux_du_cou_et_de_la_tete/2_Pratique/P02-04-PR_Examens_Vaisseaux_du_cou_et_de_la_tete_8-examens_PRATIQUE_production_XAi.json`
+- 🟩 `vaisseaux_du_cou_et_de_la_tete.json` : remplissage 100 % (16/16)
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/11_Urgences_et_point-of-care/1_Theorie/P09-11_Examens_Urgences_et_point-of-care_9-examens_production_XAi.json`
 - 🟩 `urgences_et_point_of_care.json` : remplissage 89 % (171/193)
