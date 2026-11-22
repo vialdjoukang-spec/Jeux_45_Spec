@@ -27,3 +27,15 @@ Corrections faites :
 - P05-14-FCT-PR — libellé > 45 car. : « Indice de latéralisation et indice de freination controlatérale » → « Latéralisation et freination controlatérale »
 - P05-14-IMG-PR — libellé > 45 car. : « Fixation focale du processus unciné sans masse » → « Fixation focale de l'unciné sans masse »
 - P05-14-FCT-PR — nom d'entité rétabli à l'identique du squelette (R1) : « Cortisol salivaire nocturne et urinaire » → « Cortisol salivaire nocturne et cortisol libre urinaire »
+
+## Seconde vérification des sources (23.11.2026 00:40, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Freinage à 1 mg chez tout incidentalome | ESE/ENSAT 2023 | conforme |
+| 2 | Masse ≥ 4 cm, hétérogène ou > 20 UH : risque de malignité, discussion pluridisciplinaire | ESE/ENSAT 2023 | conforme |
+| 3 | PET au Ga-68 : 0,021 mSv/MBq, 200 MBq au plus | RCP SomaKit TOC (EMA) ; EANM/SNMMI 2019 (100 à 200 MBq) | conforme (4,2 mSv) |
+| 4 | CT d'atténuation : valeur cible 270 mGy·cm (25e percentile) | OFSP, directive de médecine nucléaire (drw-nuk.pdf du 23.11.2026, tableau 3.3) | conforme |
+| 5 | Dose totale du PET au Ga-68 : environ 8,3 mSv | calcul 4,2 + 4,05 | conforme |

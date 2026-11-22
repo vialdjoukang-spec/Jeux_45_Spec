@@ -19,3 +19,15 @@ Corrections faites :
 - P05-11-PR — libellé > 45 car. : « Accélération focale avec rapport rénal/aortique élevé » → « Accélération focale et rapport rénal élevé »
 - P05-11-PR — libellé > 45 car. : « Succession de sténoses et de dilatations dans le tiers moyen » → « Sténoses et dilatations du tiers moyen »
 - P05-11-PR — libellé > 45 car. : « Spasme diffus des branches, aspect en chapelet » → « Spasme diffus des branches en chapelet »
+
+## Seconde vérification des sources (23.11.2026 00:40, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Dépistage unique chez l'homme de 65 à 75 ans fumeur ou ancien fumeur (grade B) | EviPrev 2021 (tableau des recommandations, eviprev.ch) | conforme |
+| 2 | Femmes fumeuses de 65 à 75 ans : données insuffisantes | EviPrev 2021 | conforme |
+| 3 | Anévrisme : diamètre d'au moins 30 mm | ESVS 2024 (Eur J Vasc Endovasc Surg) | conforme |
+| 4 | Surveillance annuelle de 40 à 49 mm chez l'homme | ESVS 2024 | conforme |
+| 5 | Angio-CT abdominal : 450 mGy·cm, 6,75 mSv | OFSP R-06-06 rév. 2, protocole 11 (angiographie CT abdomen-bassin) | conforme |

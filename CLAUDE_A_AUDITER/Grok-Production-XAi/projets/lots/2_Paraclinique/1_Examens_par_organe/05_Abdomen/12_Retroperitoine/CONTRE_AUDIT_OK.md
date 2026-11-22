@@ -21,3 +21,15 @@ Corrections faites :
 
 Remarques :
 - Point laissé à la décision de l'audit médical : prelevementRef « biopsies_tissulaires » sur la biopsie scanoguidée (la règle 4.1 réserve ce champ à la biologie).
+
+## Seconde vérification des sources (23.11.2026 00:40, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Hausse de créatinine d'au moins 26,5 µmol/l en 48 h : insuffisance rénale aiguë | KDIGO 2012 | conforme |
+| 2 | Biopsie scanoguidée : 762,5 mGy·cm | Berny et al. 2023, enquête française (PMC11265189) | conforme (moyenne ajustée, 141 gestes) |
+| 3 | Biopsie scanoguidée : environ 11,4 mSv | calcul 762,5 × 0,015 (AAPM 96) | conforme (11,44) |
+| 4 | CT abdomen-bassin : 7,1 mSv | OFSP R-06-06 rév. 2, protocole 8 | conforme |
+| 5 | MDM2 : liposarcome bien différencié ou dédifférencié | TARPSWG 2021 | conforme sur le principe (non chiffré) |

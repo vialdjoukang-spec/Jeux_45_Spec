@@ -22,3 +22,15 @@ Corrections faites :
 
 Remarques :
 - Dose du gradient porte (5,4 mSv, Hari et al. 2017) : calcul documenté en entrée à vérifier, conservé.
+
+## Seconde vérification des sources (23.11.2026 00:40, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Doppler : sensibilité 0,89, spécificité 0,68 pour le Budd-Chiari | EASL 2025 (J Hepatol) ; méta-analyse Br J Radiol 2020 (PubMed 32150462) | conforme |
+| 2 | CT : sensibilité 0,89, spécificité 0,72 pour le Budd-Chiari | même méta-analyse (PubMed 32150462) | conforme |
+| 3 | Endoscopie dans les 12 heures | Baveno VII 2022 ; ESGE 2022 | conforme |
+| 4 | Rigidité ≥ 20 kPa ou plaquettes ≤ 150 × 10⁹/l : endoscopie si pas de bêtabloquant | Baveno VII 2022 ; ESGE 2022 | conforme |
+| 5 | Gradient et biopsie transjugulaire : dose médiane 5,4 mSv | Hari et al., Liver Int 2017 (doi 10.1111/liv.13215) | conforme |
