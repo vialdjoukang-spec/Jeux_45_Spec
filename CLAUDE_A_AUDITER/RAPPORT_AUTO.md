@@ -1,9 +1,20 @@
-# Audit automatique — 2026-11-22 21:37
+# Audit automatique — 2026-11-22 23:06
 
-24 fichier(s) : 23 🟩 intégrables · 1 🟧 à compléter · 0 🟥 refusés.
+27 fichier(s) : 25 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/09_Peritoine_et_ascite/1_Theorie/P05-09_Examens_Peritoine_et_ascite_5-examens_production_XAi.json`
+- 🟧 `peritoine_et_ascite.json` : remplissage 85 % (90/106)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/09_Peritoine_et_ascite/2_Pratique/P05-09-PR_Examens_Peritoine_et_ascite_5-examens_PRATIQUE_production_XAi.json`
+- 🟩 `peritoine_et_ascite.json` : remplissage 100 % (10/10)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/10_Paroi_abdominale_et_hernies/1_Theorie/P05-10_Examens_Paroi_abdominale_et_hernies_4-examens_production_XAi.json`
+- 🟩 `paroi_abdominale_et_hernies.json` : remplissage 88 % (75/85)
+- aVerifier déclarés : 3
 
 ### 🟧 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/09_Peritoine_et_ascite/1_Theorie/P05-09_Examens_Peritoine_et_ascite_5-examens_production_XAi.json`
 - 🟧 `peritoine_et_ascite.json` : remplissage 85 % (90/106)
