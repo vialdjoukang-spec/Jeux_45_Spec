@@ -1,0 +1,455 @@
+{
+ "_lot": {
+  "tache": "P05-08-BIO-PR",
+  "titre": "Pratique — Examens de l'organe Côlon, rectum et anus — Biologie (6 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/5_abdomen/colon_rectum_et_anus.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/5_abdomen/colon_rectum_et_anus.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "colon_rectum_et_anus__test_immunologique_fecal",
+     "nom": "Test immunologique fécal (FIT)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "colon_rectum_et_anus__test_immunologique_fecal-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'OPAS, le FIT tous les deux ans, de 50 à 74 ans, est une méthode de dépistage remboursée.",
+        "pourquoiFaux": "La calprotectine cherche une inflammation, l'ACE sert au suivi d'un cancer connu et le colo-CT n'est pas un dépistage remboursé."
+       },
+       "sources": [
+        "OPAS, article 12e lettre d (teneur en vigueur depuis le 1er juillet 2026)"
+       ],
+       "casClinique": "Un homme de 56 ans, à Berne, sans symptôme ni antécédent familial, demande un dépistage du cancer colorectal.",
+       "options": [
+        "Test immunologique fécal (FIT)",
+        "Calprotectine fécale",
+        "ACE",
+        "Colo-CT"
+       ],
+       "bonneReponse": "Test immunologique fécal (FIT)",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "colon_rectum_et_anus__test_immunologique_fecal-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon les standards Swiss Cancer Screening 2020, le seuil est d'au plus 20 µg/g, et selon l'OPAS un test positif conduit à une coloscopie.",
+        "pourquoiFaux": "Refaire un FIT ou attendre retarde le diagnostic d'un cancer ou d'un adénome."
+       },
+       "sources": [
+        "Swiss Cancer Screening, standards suisses de qualité du dépistage colorectal (2020)",
+        "OPAS, article 12e lettre d (teneur en vigueur depuis le 1er juillet 2026)"
+       ],
+       "resultat": "FIT quantitatif à 38 µg/g chez une femme de 63 ans asymptomatique, seuil du programme 15 µg/g.",
+       "decision": "Test positif : coloscopie."
+      },
+      {
+       "id": "colon_rectum_et_anus__test_immunologique_fecal-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La liste Top 5 de la Société Suisse de Chirurgie demande d'éviter le dépistage colorectal chez l'asymptomatique dont l'espérance de vie est inférieure à dix ans.",
+        "pourquoiFaux": "Dépister n'a de sens que si le patient vit assez longtemps pour en bénéficier."
+       },
+       "sources": [
+        "Société Suisse de Chirurgie, liste Top 5 (smarter medicine)"
+       ],
+       "erreurFrequente": "Proposer un FIT à un homme de 86 ans asymptomatique dont l'espérance de vie est inférieure à dix ans.",
+       "consequence": "On expose à une coloscopie sans bénéfice.",
+       "bonneConduite": "On renonce au dépistage chez ce patient asymptomatique."
+      }
+     ]
+    },
+    {
+     "ref": "colon_rectum_et_anus__calprotectine_fecale",
+     "nom": "Calprotectine fécale",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "colon_rectum_et_anus__calprotectine_fecale-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ECCO-ESGAR-ESP-IBUS 2025, la calprotectine est le marqueur le plus sensible de l'inflammation intestinale au bilan d'une MICI suspectée.",
+        "pourquoiFaux": "L'ACE suit un cancer, le FIT dépiste et le lactate juge une ischémie."
+       },
+       "sources": [
+        "ECCO-ESGAR-ESP-IBUS, recommandation sur le diagnostic des MICI (2025)"
+       ],
+       "casClinique": "Une femme de 24 ans, à Lausanne, a une diarrhée glaireuse depuis six semaines ; ses coprocultures sont négatives.",
+       "options": [
+        "Calprotectine fécale",
+        "ACE",
+        "Test immunologique fécal (FIT)",
+        "Lactate"
+       ],
+       "bonneReponse": "Calprotectine fécale",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "colon_rectum_et_anus__calprotectine_fecale-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ECCO-ESGAR-ESP-IBUS 2025, au seuil de 50 µg/g la sensibilité est de 87 % et la spécificité de 92 % pour une MICI.",
+        "pourquoiFaux": "Conclure à un intestin irritable malgré ce taux ferait manquer une MICI."
+       },
+       "sources": [
+        "ECCO-ESGAR-ESP-IBUS, recommandation sur le diagnostic des MICI (2025)"
+       ],
+       "resultat": "Calprotectine fécale à 420 µg/g chez cette patiente, infections écartées.",
+       "decision": "Inflammation intestinale probable : iléo-coloscopie avec biopsies."
+      },
+      {
+       "id": "colon_rectum_et_anus__calprotectine_fecale-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ECCO-ESGAR-ESP-IBUS 2025, la calprotectine s'élève aussi dans les infections, qu'il faut écarter au diagnostic.",
+        "pourquoiFaux": "La calprotectine dit « inflammation », pas « MICI »."
+       },
+       "sources": [
+        "ECCO-ESGAR-ESP-IBUS, recommandation sur le diagnostic des MICI (2025)"
+       ],
+       "erreurFrequente": "Affirmer une MICI sur une calprotectine élevée sans examen des selles pour une infection.",
+       "consequence": "On traite une colite infectieuse comme une MICI.",
+       "bonneConduite": "On écarte d'abord une infection intestinale."
+      }
+     ]
+    },
+    {
+     "ref": "colon_rectum_et_anus__coproculture_pcr_multiplex_des_selles_to",
+     "nom": "Coproculture, PCR multiplex des selles, toxines de Clostridioides difficile",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "colon_rectum_et_anus__coproculture_pcr_multiplex_des_selles_to-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESCMID 2016, on recherche Clostridioides difficile sur selle non moulée avec un algorithme en deux étapes.",
+        "pourquoiFaux": "La calprotectine ne nomme pas le germe, l'ACE et le FIT sont hors sujet."
+       },
+       "sources": [
+        "ESCMID, guide du diagnostic de l'infection à Clostridioides difficile (2016)"
+       ],
+       "casClinique": "Un homme de 72 ans, hospitalisé à Genève, a une diarrhée liquide après une semaine d'antibiotiques.",
+       "options": [
+        "Coproculture, PCR des selles, toxines",
+        "Calprotectine fécale",
+        "ACE",
+        "Test immunologique fécal (FIT)"
+       ],
+       "bonneReponse": "Coproculture, PCR des selles, toxines",
+       "visee": "etiologique"
+      },
+      {
+       "id": "colon_rectum_et_anus__coproculture_pcr_multiplex_des_selles_to-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESCMID 2016, un premier test positif suivi d'un dosage des toxines négatif peut correspondre à une infection ou à un portage.",
+        "pourquoiFaux": "Traiter d'office ou écarter d'office sans regarder la clinique sont deux erreurs."
+       },
+       "sources": [
+        "ESCMID, guide du diagnostic de l'infection à Clostridioides difficile (2016)"
+       ],
+       "resultat": "GDH positive, toxines A et B négatives chez ce patient.",
+       "decision": "Infection ou portage : décision sur l'évaluation clinique."
+      },
+      {
+       "id": "colon_rectum_et_anus__coproculture_pcr_multiplex_des_selles_to-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESCMID 2016, on ne teste pas une selle moulée sauf iléus paralytique, et la liste Top 5 de la Société Suisse d'Infectiologie demande de ne pas tester en l'absence de symptômes.",
+        "pourquoiFaux": "Pas de symptôme, pas de test."
+       },
+       "sources": [
+        "ESCMID, guide du diagnostic de l'infection à Clostridioides difficile (2016)",
+        "Société Suisse d'Infectiologie, liste Top 5 (smarter medicine)"
+       ],
+       "erreurFrequente": "Rechercher C. difficile sur une selle moulée chez un patient sans diarrhée.",
+       "consequence": "On traite un simple portage.",
+       "bonneConduite": "On ne teste qu'une selle non moulée d'un patient symptomatique."
+      }
+     ]
+    },
+    {
+     "ref": "colon_rectum_et_anus__parasitologie_des_selles",
+     "nom": "Parasitologie des selles",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "colon_rectum_et_anus__parasitologie_des_selles-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ECCO-ESGAR-ESP-IBUS 2025, la recherche d'œufs et de parasites fait partie de l'analyse des selles au diagnostic d'une MICI.",
+        "pourquoiFaux": "L'ACE, le lactate et le FIT ne cherchent pas une infection qui imite une MICI."
+       },
+       "sources": [
+        "ECCO-ESGAR-ESP-IBUS, recommandation sur le diagnostic des MICI (2025)"
+       ],
+       "casClinique": "Un homme de 30 ans, à Zurich, est en cours de diagnostic d'une MICI ; coproculture et recherche de C. difficile sont demandées.",
+       "options": [
+        "Parasitologie des selles",
+        "ACE",
+        "Lactate",
+        "Test immunologique fécal (FIT)"
+       ],
+       "bonneReponse": "Parasitologie des selles",
+       "visee": "etiologique"
+      },
+      {
+       "id": "colon_rectum_et_anus__parasitologie_des_selles-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ECCO-ESGAR-ESP-IBUS 2025, on écarte les pathogènes qui imitent une MICI avant de la confirmer par l'endoscopie et l'histologie.",
+        "pourquoiFaux": "S'arrêter aux selles négatives retarde le diagnostic."
+       },
+       "sources": [
+        "ECCO-ESGAR-ESP-IBUS, recommandation sur le diagnostic des MICI (2025)"
+       ],
+       "resultat": "Parasitologie et coproculture négatives, calprotectine élevée chez ce patient.",
+       "decision": "Infection écartée : poursuivre le bilan de MICI par iléo-coloscopie."
+      },
+      {
+       "id": "colon_rectum_et_anus__parasitologie_des_selles-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ECCO-ESGAR-ESP-IBUS 2025, la parasitologie s'ajoute aux autres examens de selles et ne les remplace pas.",
+        "pourquoiFaux": "Chaque examen de selles cherche des germes différents."
+       },
+       "sources": [
+        "ECCO-ESGAR-ESP-IBUS, recommandation sur le diagnostic des MICI (2025)"
+       ],
+       "erreurFrequente": "Demander la parasitologie à la place de la coproculture au diagnostic d'une MICI.",
+       "consequence": "On manque une infection bactérienne.",
+       "bonneConduite": "On associe parasitologie, coproculture et recherche de C. difficile."
+      }
+     ]
+    },
+    {
+     "ref": "colon_rectum_et_anus__ace",
+     "nom": "ACE (suivi du cancer colorectal)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "colon_rectum_et_anus__ace-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESMO 2020, l'ACE fait partie du bilan avant la chirurgie d'un cancer du côlon et se surveille ensuite.",
+        "pourquoiFaux": "La calprotectine et le FIT ne servent pas au bilan d'un cancer prouvé, et le lactate juge une ischémie."
+       },
+       "sources": [
+        "ESMO, recommandations sur le cancer du côlon localisé (2020)"
+       ],
+       "casClinique": "Une femme de 66 ans, à Lugano, a un cancer du côlon sigmoïde prouvé par biopsie ; on prépare la chirurgie.",
+       "options": [
+        "ACE",
+        "Calprotectine fécale",
+        "Test immunologique fécal (FIT)",
+        "Lactate"
+       ],
+       "bonneReponse": "ACE",
+       "visee": "retentissement"
+      },
+      {
+       "id": "colon_rectum_et_anus__ace-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESMO 2020, l'ACE se surveille avec l'histoire, l'examen et le CT pendant le suivi, et il ne suffit pas seul au diagnostic.",
+        "pourquoiFaux": "Ignorer la hausse retarde la détection d'une récidive ; traiter sur l'ACE seul est prématuré."
+       },
+       "sources": [
+        "ESMO, recommandations sur le cancer du côlon localisé (2020)"
+       ],
+       "resultat": "ACE à 9 µg/l 18 mois après la colectomie, contre 2 µg/l à six mois.",
+       "decision": "Chercher une récidive par l'imagerie et l'examen clinique."
+      },
+      {
+       "id": "colon_rectum_et_anus__ace-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESMO 2020, l'ACE seul ne suffit pas au diagnostic, car sa sensibilité et sa spécificité sont trop basses.",
+        "pourquoiFaux": "L'ACE suit un cancer connu, il ne le diagnostique pas."
+       },
+       "sources": [
+        "ESMO, recommandations sur le cancer du côlon localisé (2020)"
+       ],
+       "erreurFrequente": "Diagnostiquer un cancer colorectal sur un ACE élevé sans biopsie.",
+       "consequence": "On pose un diagnostic faux.",
+       "bonneConduite": "On cherche la lésion et on la biopsie."
+      }
+     ]
+    },
+    {
+     "ref": "colon_rectum_et_anus__lactate",
+     "nom": "Lactate (ischémie colique)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "colon_rectum_et_anus__lactate-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACG (2015), le bilan initial d'une ischémie colique suspectée comprend le lactate, la LDH, la CK et l'amylase.",
+        "pourquoiFaux": "L'ACE suit un cancer, le FIT dépiste et la calprotectine n'est pas un examen d'urgence."
+       },
+       "sources": [
+        "ACG, recommandation sur l'ischémie colique (Brandt et al., 2015)"
+       ],
+       "casClinique": "Une femme de 79 ans, à Fribourg, a une douleur abdominale brutale et des rectorragies ; on suspecte une ischémie colique et l'on prépare le bilan sanguin initial.",
+       "options": [
+        "Lactate",
+        "ACE",
+        "Test immunologique fécal (FIT)",
+        "Calprotectine fécale"
+       ],
+       "bonneReponse": "Lactate",
+       "visee": "retentissement"
+      },
+      {
+       "id": "colon_rectum_et_anus__lactate-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon une étude citée par l'ACG (2015), un lactate supérieur à 2,5 mmol/l fait partie des facteurs de risque de forte mortalité périopératoire.",
+        "pourquoiFaux": "Négliger ce facteur sous-estime le risque opératoire."
+       },
+       "sources": [
+        "ACG, recommandation sur l'ischémie colique (Brandt et al., 2015)"
+       ],
+       "resultat": "Lactate à 3,4 mmol/l avant une colectomie pour ischémie colique grave.",
+       "decision": "Risque de forte mortalité périopératoire : surveillance intensive."
+      },
+      {
+       "id": "colon_rectum_et_anus__lactate-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACG (2015), aucun marqueur biologique n'a assez de preuves pour diagnostiquer une ischémie colique ; le CT est l'imagerie de choix.",
+        "pourquoiFaux": "Le lactate juge la gravité, il ne fait pas le diagnostic."
+       },
+       "sources": [
+        "ACG, recommandation sur l'ischémie colique (Brandt et al., 2015)"
+       ],
+       "erreurFrequente": "Affirmer une ischémie colique sur un lactate élevé.",
+       "consequence": "On manque un autre diagnostic.",
+       "bonneConduite": "On confirme par le CT injecté."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ACE": "L'ACE, ou antigène carcinoembryonnaire, est un marqueur tumoral sanguin utilisé dans le bilan et le suivi d'un cancer colorectal.",
+    "ACG": "Collège américain de gastroentérologie.",
+    "CK": "Créatine kinase, enzyme sanguine libérée par une lésion musculaire.",
+    "CT": "Le CT est la tomodensitométrie, qui produit des coupes du corps par rayons X.",
+    "ECCO-ESGAR-ESP-IBUS": "Recommandation commune de 2025 sur le diagnostic des MICI, signée par l'ECCO, l'ESGAR, l'ESP et l'IBUS.",
+    "ESCMID": "L'ESCMID est la société européenne de microbiologie clinique et des maladies infectieuses.",
+    "ESMO": "L'ESMO est la société européenne d'oncologie médicale.",
+    "FIT": "Le FIT est le test immunologique fécal, qui dose l'hémoglobine humaine dans les selles.",
+    "GDH": "La GDH, ou glutamate déshydrogénase, est une enzyme de Clostridioides difficile recherchée comme premier test sensible dans l'algorithme de l'ESCMID 2016.",
+    "IBUS": "L'IBUS est le groupe international d'échographie intestinale, co-signataire de la recommandation de 2025 sur le diagnostic des MICI.",
+    "LDH": "Lactate déshydrogénase, enzyme sanguine libérée lors d'une souffrance cellulaire.",
+    "MICI": "Les MICI sont les maladies inflammatoires chroniques de l'intestin, principalement la maladie de Crohn et la rectocolite hémorragique.",
+    "OPAS": "L'OPAS est l'ordonnance suisse sur les prestations de l'assurance des soins, qui fixe notamment le dépistage du cancer du côlon.",
+    "PCR": "La PCR est une amplification moléculaire utilisée pour détecter le matériel génétique d'un pathogène dans les selles."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Biologie",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}

@@ -1,0 +1,217 @@
+{
+ "_lot": {
+  "tache": "P05-08-FCT-PR",
+  "titre": "Pratique — Examens de l'organe Côlon, rectum et anus — Exploration fonctionnelle (2 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/5_abdomen/colon_rectum_et_anus.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/5_abdomen/colon_rectum_et_anus.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "colon_rectum_et_anus__manometrie_anorectale",
+     "nom": "Manométrie anorectale",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "colon_rectum_et_anus__manometrie_anorectale-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'IAPWG 2019, la manométrie est indiquée pour l'incontinence fécale et après un traumatisme obstétrical pour quantifier la fonction sphinctérienne.",
+        "pourquoiFaux": "Le colo-CT cherche une tumeur, le transit étudie la constipation et l'ACE suit un cancer."
+       },
+       "sources": [
+        "IAPWG, protocole et classification de Londres (2019)"
+       ],
+       "casClinique": "Une femme de 35 ans, à Winterthour, a une incontinence fécale après un accouchement difficile ; on veut quantifier la fonction sphinctérienne.",
+       "options": [
+        "Manométrie anorectale",
+        "Colo-CT (coloscopie virtuelle)",
+        "Temps de transit colique",
+        "ACE"
+       ],
+       "bonneReponse": "Manométrie anorectale",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "colon_rectum_et_anus__manometrie_anorectale-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESNM 2019, il faut au moins deux examens d'évacuation anormaux pour diagnostiquer un trouble fonctionnel de la défécation.",
+        "pourquoiFaux": "Conclure sur un seul tracé expose à un faux diagnostic."
+       },
+       "sources": [
+        "ESNM, recommandations sur la constipation fonctionnelle de l'adulte (2019)"
+       ],
+       "resultat": "Dyssynergie à la manométrie, test d'expulsion du ballonnet normal.",
+       "decision": "Pas de diagnostic sur ce seul test : on complète."
+      },
+      {
+       "id": "colon_rectum_et_anus__manometrie_anorectale-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESNM 2019, un tracé de dyssynergie peut se voir chez des volontaires sains à cause de la position et de la gêne.",
+        "pourquoiFaux": "Lire ce tracé comme un diagnostic certain oublie ces faux positifs."
+       },
+       "sources": [
+        "ESNM, recommandations sur la constipation fonctionnelle de l'adulte (2019)"
+       ],
+       "consigne": "Interprétez ce tracé de manométrie à la poussée.",
+       "aspectRecherche": "Pression anale à la poussée",
+       "reponse": "Hausse paradoxale de la pression anale : dyssynergie, à confirmer par un second test",
+       "imageOuTraceAttendu": "Tracé de manométrie haute résolution : à l'effort de poussée, la pression rectale monte et la pression du canal anal monte aussi au lieu de baisser."
+      },
+      {
+       "id": "colon_rectum_et_anus__manometrie_anorectale-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'IAPWG 2019, une pathologie organique doit avoir été écartée avant la manométrie.",
+        "pourquoiFaux": "Le fonctionnel se pose après l'organique."
+       },
+       "sources": [
+        "IAPWG, protocole et classification de Londres (2019)"
+       ],
+       "erreurFrequente": "Faire une manométrie avant d'avoir écarté une pathologie organique.",
+       "consequence": "On attribue à un trouble fonctionnel une lésion organique.",
+       "bonneConduite": "On écarte d'abord une pathologie organique."
+      }
+     ]
+    },
+    {
+     "ref": "colon_rectum_et_anus__temps_de_transit_colique",
+     "nom": "Temps de transit colique (marqueurs radio-opaques)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "colon_rectum_et_anus__temps_de_transit_colique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESNM 2019, les marqueurs radio-opaques mesurent le transit après échec des mesures de première ligne et exclusion d'un trouble de l'évacuation.",
+        "pourquoiFaux": "Le colo-CT cherche une tumeur, la calprotectine une inflammation et l'anuscopie une lésion anale."
+       },
+       "sources": [
+        "ESNM, recommandations sur la constipation fonctionnelle de l'adulte (2019)"
+       ],
+       "casClinique": "Un homme de 47 ans, à Bâle, a une constipation chronique rebelle ; manométrie et test du ballonnet sont normaux.",
+       "options": [
+        "Temps de transit colique",
+        "Colo-CT (coloscopie virtuelle)",
+        "Calprotectine fécale",
+        "Anuscopie"
+       ],
+       "bonneReponse": "Temps de transit colique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "colon_rectum_et_anus__temps_de_transit_colique-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESNM 2019, un transit colique lent n'est pas interprétable en cas d'obstacle à l'évacuation.",
+        "pourquoiFaux": "Conclure à une inertie colique conduit à un traitement inadapté."
+       },
+       "sources": [
+        "ESNM, recommandations sur la constipation fonctionnelle de l'adulte (2019)"
+       ],
+       "resultat": "Transit colique lent chez une patiente dont manométrie et ballonnet sont anormaux.",
+       "decision": "Résultat non fiable : on prend d'abord en charge le trouble de l'évacuation."
+      },
+      {
+       "id": "colon_rectum_et_anus__temps_de_transit_colique-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESNM 2019, un transit ralenti peut seulement refléter une stase d'aval et un trouble de l'évacuation.",
+        "pourquoiFaux": "Lire ce cliché comme une inertie de tout le côlon serait une erreur."
+       },
+       "sources": [
+        "ESNM, recommandations sur la constipation fonctionnelle de l'adulte (2019)"
+       ],
+       "consigne": "Interprétez ce cliché de transit colique.",
+       "aspectRecherche": "Répartition des marqueurs",
+       "reponse": "Marqueurs regroupés dans le rectosigmoïde : stase d'aval possible",
+       "imageOuTraceAttendu": "Radiographie de l'abdomen : la plupart des marqueurs radio-opaques sont groupés dans le rectum et le sigmoïde, le côlon droit est vide."
+      },
+      {
+       "id": "colon_rectum_et_anus__temps_de_transit_colique-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ESNM 2019, les protocoles ne sont pas standardisés et varient beaucoup selon les centres.",
+        "pourquoiFaux": "Un résultat ne vaut que pour son protocole."
+       },
+       "sources": [
+        "ESNM, recommandations sur la constipation fonctionnelle de l'adulte (2019)"
+       ],
+       "erreurFrequente": "Comparer deux transits faits selon des protocoles différents.",
+       "consequence": "On conclut à tort à un changement.",
+       "bonneConduite": "On garde le même protocole et on le précise."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ACE": "L'ACE, ou antigène carcinoembryonnaire, est un marqueur tumoral sanguin utilisé dans le bilan et le suivi d'un cancer colorectal.",
+    "CT": "Le CT est la tomodensitométrie, qui produit des coupes du corps par rayons X.",
+    "ESNM": "L'ESNM est la société européenne de neurogastroentérologie et de motilité.",
+    "IAPWG": "L'IAPWG est le groupe de travail international sur la physiologie anorectale, qui a publié le protocole et la classification de Londres en 2019."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Exploration fonctionnelle",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
