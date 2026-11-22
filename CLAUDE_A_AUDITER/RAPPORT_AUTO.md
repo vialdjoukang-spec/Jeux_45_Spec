@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-22 23:23
 
-48 fichier(s) : 45 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
+50 fichier(s) : 47 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -88,6 +88,13 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/03_Racines_et_plexus/2_Pratique/P03-03-PR_Examens_Racines_et_plexus_9-examens_PRATIQUE_production_XAi.json`
 - 🟩 `racines_et_plexus.json` : remplissage 100 % (18/18)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/04_Queue_de_cheval_et_cone_terminal/1_Theorie/P03-04_Examens_Queue_de_cheval_et_cone_terminal_3-examens_production_XAi.json`
+- 🟩 `queue_de_cheval_et_cone_terminal.json` : remplissage 87 % (55/63)
+- aVerifier déclarés : 3
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/04_Queue_de_cheval_et_cone_terminal/2_Pratique/P03-04-PR_Examens_Queue_de_cheval_et_cone_terminal_3-examens_PRATIQUE_production_XAi.json`
+- 🟩 `queue_de_cheval_et_cone_terminal.json` : remplissage 100 % (6/6)
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/07_Corps_entier_bilan_d_extension_et_traum/1_Theorie/P09-07_Examens_Corps_entier_bilan_d_extension_et_t_6-examens_production_XAi.json`
 - 🟩 `corps_entier.json` : remplissage 87 % (110/126)
