@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-22 23:11
 
-38 fichier(s) : 34 🟩 intégrables · 4 🟧 à compléter · 0 🟥 refusés.
+40 fichier(s) : 36 🟩 intégrables · 4 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -29,6 +29,12 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/01_Peau/2_Pratique/P08-01-IMG-PR_Imagerie_Peau_3-examens_PRATIQUE_production_XAi.json`
 - 🟩 `peau.json` : remplissage 100 % (6/6)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/02_Ongles_et_cheveux/1_Theorie/P08-02_Examens_Ongles_et_cheveux_6-examens_production_XAi.json`
+- 🟩 `ongles_et_cheveux.json` : remplissage 89 % (114/128)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/02_Ongles_et_cheveux/2_Pratique/P08-02-PR_Examens_Ongles_et_cheveux_6-examens_PRATIQUE_production_XAi.json`
+- 🟩 `ongles_et_cheveux.json` : remplissage 100 % (12/12)
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/01_Peau/1_Theorie/P08-01-BIO_Biologie_Peau_4-examens_production_XAi.json`
 - 🟩 `peau.json` : remplissage 91 % (80/88)
