@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:48
+# Audit automatique — 2026-11-22 21:51
 
-3 fichier(s) : 0 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
+4 fichier(s) : 0 🟩 intégrables · 4 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -26,5 +26,14 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟧 `plevre.json` : remplissage 24 % (35/148) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees
 - 🟧 `seins.json` : remplissage 24 % (45/190) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees · 4 élément(s) non rendu(s)
 - aVerifier déclarés : 4
+
+### 🟧 `CLAUDE_A_AUDITER/grok/Production_XAi/Lots_a_produire/complement_presentation/LOT_COMPLEMENT_6_pelvis_production_XAi.json`
+- 🟧 `grossesse_foetus_et_placenta.json` : remplissage 23 % (75/323) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees · 7 élément(s) non rendu(s)
+- 🟧 `plancher_pelvien.json` : remplissage 24 % (25/105) · champs absents (ancien schéma ?) : avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees · 2 élément(s) non rendu(s)
+- 🟧 `prostate_et_vesicules_seminales.json` : remplissage 23 % (30/128) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees
+- 🟧 `testicules_et_scrotum.json` : remplissage 23 % (35/151) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees · 2 élément(s) non rendu(s)
+- 🟧 `uterus_col_ovaires_et_annexes.json` : remplissage 23 % (75/320) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees
+- 🟧 `vessie_et_uretre.json` : remplissage 24 % (60/255) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees
+- aVerifier déclarés : 2
 
 Signature : AAI (Anthropic AI)
