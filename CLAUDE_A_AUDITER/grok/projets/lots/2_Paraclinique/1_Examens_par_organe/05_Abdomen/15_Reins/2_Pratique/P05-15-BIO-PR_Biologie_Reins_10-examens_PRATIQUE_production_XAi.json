@@ -1,0 +1,728 @@
+{
+ "_lot": {
+  "tache": "P05-15-BIO-PR",
+  "titre": "Pratique — Examens de l'organe Reins — Biologie (10 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/5_abdomen/reins.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/5_abdomen/reins.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "reins__creatinine_uree_dfg",
+     "nom": "Créatinine, urée, DFG (CKD-EPI)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "reins__creatinine_uree_dfg-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2012, la créatinine et la diurèse définissent l'insuffisance rénale aiguë.",
+        "pourquoiFaux": "La cystatine seule n'est pas l'examen de base, la biopsie est hors propos, et l'électrophorèse cherche une gammapathie."
+       },
+       "sources": [
+        "KDIGO, insuffisance rénale aiguë (2012)"
+       ],
+       "casClinique": "Un homme de 68 ans, à Fribourg, a une diarrhée depuis trois jours et des urines rares.",
+       "options": [
+        "Créatinine, urée et DFGe",
+        "Cystatine C seule",
+        "Biopsie rénale",
+        "Électrophorèse des protéines urinaires"
+       ],
+       "bonneReponse": "Créatinine, urée et DFGe",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "reins__creatinine_uree_dfg-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2012, une hausse d'au moins 26,5 µmol/l en 48 heures définit une insuffisance rénale aiguë ; ici, la hausse est de 33 µmol/l.",
+        "pourquoiFaux": "Attendre que la créatinine sorte de la norme retarde le diagnostic."
+       },
+       "sources": [
+        "KDIGO, insuffisance rénale aiguë (2012)"
+       ],
+       "resultat": "Créatinine 95 µmol/l il y a deux jours, 128 µmol/l aujourd'hui.",
+       "decision": "On retient une insuffisance rénale aiguë."
+      },
+      {
+       "id": "reins__creatinine_uree_dfg-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2024, on continue ce traitement sauf hausse de la créatinine de plus de 30 % dans les quatre semaines.",
+        "pourquoiFaux": "Une baisse modérée du DFG est attendue et hémodynamique."
+       },
+       "sources": [
+        "KDIGO, évaluation et prise en charge de la maladie rénale chronique (2024)"
+       ],
+       "erreurFrequente": "Arrêter un inhibiteur de l'enzyme de conversion dès que la créatinine monte de 15 % en deux semaines.",
+       "consequence": "Le patient perd une protection rénale et cardiovasculaire.",
+       "bonneConduite": "On poursuit le traitement tant que la hausse ne dépasse pas 30 % en quatre semaines."
+      }
+     ]
+    },
+    {
+     "ref": "reins__ionogramme_bicarbonates_gazometrie",
+     "nom": "Ionogramme, bicarbonates, gazométrie",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "reins__ionogramme_bicarbonates_gazometrie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Une hyperkaliémie menace le cœur, et KDIGO 2012 la cite parmi les urgences qui peuvent imposer une suppléance.",
+        "pourquoiFaux": "Les autres examens ne mesurent pas le potassium."
+       },
+       "sources": [
+        "KDIGO, insuffisance rénale aiguë (2012)"
+       ],
+       "casClinique": "Une femme de 74 ans, en MRC de stade G4, à Sion, a une faiblesse musculaire et prend un épargneur de potassium.",
+       "options": [
+        "Ionogramme avec potassium",
+        "Analyse de calcul",
+        "Scintigraphie au MAG3",
+        "Électrophorèse urinaire"
+       ],
+       "bonneReponse": "Ionogramme avec potassium",
+       "visee": "complications"
+      },
+      {
+       "id": "reins__ionogramme_bicarbonates_gazometrie-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2024, on envisage un traitement pharmacologique quand l'acidose a des conséquences possibles, par exemple un bicarbonate sous 18 mmol/l chez l'adulte.",
+        "pourquoiFaux": "Traiter au-delà de la norme supérieure du bicarbonate est déconseillé."
+       },
+       "sources": [
+        "KDIGO, évaluation et prise en charge de la maladie rénale chronique (2024)"
+       ],
+       "resultat": "MRC de stade G4 ; bicarbonate veineux 16 mmol/l, contrôlé.",
+       "decision": "On discute un traitement de l'acidose métabolique."
+      },
+      {
+       "id": "reins__ionogramme_bicarbonates_gazometrie-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2024, le traitement de l'acidose se surveille pour éviter un bicarbonate au-dessus de la norme et des effets sur la tension, le potassium ou le volume.",
+        "pourquoiFaux": "Le bicarbonate de sodium apporte du sodium."
+       },
+       "sources": [
+        "KDIGO, évaluation et prise en charge de la maladie rénale chronique (2024)"
+       ],
+       "erreurFrequente": "Poursuivre le bicarbonate oral jusqu'à un bicarbonate sérique au-dessus de la norme.",
+       "consequence": "Le patient fait une surcharge hydrosodée et sa tension monte.",
+       "bonneConduite": "On surveille le traitement pour que le bicarbonate ne dépasse pas la limite supérieure et que la tension, le potassium et le volume restent stables."
+      }
+     ]
+    },
+    {
+     "ref": "reins__calcium_phosphate_pth",
+     "nom": "Calcium, phosphate, PTH (troubles minéraux)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "reins__calcium_phosphate_pth-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2017, on commence la surveillance du calcium, du phosphate et de la PTH à partir du stade G3a chez l'adulte.",
+        "pourquoiFaux": "Les examens d'imagerie et la biopsie n'explorent pas les troubles minéraux."
+       },
+       "sources": [
+        "KDIGO, troubles minéraux et osseux de la maladie rénale chronique (2017)"
+       ],
+       "casClinique": "Un homme de 59 ans, à Berne, vient d'entrer en MRC de stade G3a.",
+       "options": [
+        "Calcium, phosphate et PTH",
+        "Scintigraphie au DMSA",
+        "Biopsie rénale",
+        "Uro-CT"
+       ],
+       "bonneReponse": "Calcium, phosphate et PTH",
+       "visee": "suivi"
+      },
+      {
+       "id": "reins__calcium_phosphate_pth-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2017, l'intervalle raisonnable est de 3 à 6 mois au stade G4.",
+        "pourquoiFaux": "Doser tous les ans comme au stade G3a laisse passer une dérive."
+       },
+       "sources": [
+        "KDIGO, troubles minéraux et osseux de la maladie rénale chronique (2017)"
+       ],
+       "resultat": "MRC de stade G4 ; calcium et phosphate stables depuis un an.",
+       "decision": "On contrôle le calcium et le phosphate tous les 3 à 6 mois."
+      },
+      {
+       "id": "reins__calcium_phosphate_pth-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2017, on interprète les valeurs ensemble, pas un chiffre isolé.",
+        "pourquoiFaux": "Un phosphate isolé varie avec les repas et l'heure."
+       },
+       "sources": [
+        "KDIGO, troubles minéraux et osseux de la maladie rénale chronique (2017)"
+       ],
+       "erreurFrequente": "Corriger un phosphate isolé sans regarder le calcium ni la tendance.",
+       "consequence": "Le traitement est mal ajusté.",
+       "bonneConduite": "On lit le calcium, le phosphate et la PTH ensemble et dans le temps."
+      }
+     ]
+    },
+    {
+     "ref": "reins__bandelette_urinaire_sediment_urinaire",
+     "nom": "Bandelette urinaire, sédiment urinaire",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "reins__bandelette_urinaire_sediment_urinaire-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'AUA/SUFU 2020, une bandelette positive doit être confirmée au microscope avant tout bilan.",
+        "pourquoiFaux": "L'imagerie, l'endoscopie et la biopsie viennent après la confirmation."
+       },
+       "sources": [
+        "AUA/SUFU, microhématurie (2020)"
+       ],
+       "casClinique": "Une femme de 47 ans, à Neuchâtel, a une bandelette positive pour le sang à un contrôle.",
+       "options": [
+        "Sédiment urinaire au microscope",
+        "Uro-CT d'emblée",
+        "Cystoscopie d'emblée",
+        "Biopsie rénale"
+       ],
+       "bonneReponse": "Sédiment urinaire au microscope",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "reins__bandelette_urinaire_sediment_urinaire-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'AUA/SUFU 2020, au moins 3 hématies par champ définissent une microhématurie.",
+        "pourquoiFaux": "Moins de 3 hématies ne définissent pas une microhématurie."
+       },
+       "sources": [
+        "AUA/SUFU, microhématurie (2020)"
+       ],
+       "resultat": "Sédiment : 5 hématies par champ à fort grossissement, sans infection.",
+       "decision": "On retient une microhématurie et on la stratifie selon le risque."
+      },
+      {
+       "id": "reins__bandelette_urinaire_sediment_urinaire-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'AUA/SUFU 2020, au moins 20 % des bandelettes positives n'ont pas d'hématies au microscope.",
+        "pourquoiFaux": "La myoglobine ou l'hémoglobine libre colorent la bandelette sans hématies."
+       },
+       "sources": [
+        "AUA/SUFU, microhématurie (2020)"
+       ],
+       "erreurFrequente": "Lancer un bilan urologique complet sur une bandelette positive, sans microscopie.",
+       "consequence": "Le patient subit un bilan invasif inutile.",
+       "bonneConduite": "On confirme d'abord par le sédiment."
+      }
+     ]
+    },
+    {
+     "ref": "reins__rapports_albumine_creatinine_et_proteine",
+     "nom": "Rapports albumine/créatinine et protéines/créatinine urinaires",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "reins__rapports_albumine_creatinine_et_proteine-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2024, on mesure l'albuminurie, de préférence par le rapport sur la première urine du matin, chez toute personne à risque.",
+        "pourquoiFaux": "Les autres examens ne dépistent pas l'albuminurie."
+       },
+       "sources": [
+        "KDIGO, évaluation et prise en charge de la maladie rénale chronique (2024)"
+       ],
+       "casClinique": "Un homme de 55 ans, diabétique de type 2, à Lugano, a un DFGe normal.",
+       "options": [
+        "Rapport albumine/créatinine urinaire",
+        "Électrophorèse urinaire",
+        "Cystatine C",
+        "Biopsie rénale"
+       ],
+       "bonneReponse": "Rapport albumine/créatinine urinaire",
+       "visee": "depistage"
+      },
+      {
+       "id": "reins__rapports_albumine_creatinine_et_proteine-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2024, la catégorie A2 va de 3 à 30 mg/mmol.",
+        "pourquoiFaux": "Une valeur isolée ne suffit pas à affirmer la chronicité."
+       },
+       "sources": [
+        "KDIGO, évaluation et prise en charge de la maladie rénale chronique (2024)"
+       ],
+       "resultat": "Rapport albumine/créatinine 12 mg/mmol, confirmé à trois mois.",
+       "decision": "On classe l'albuminurie en A2."
+      },
+      {
+       "id": "reins__rapports_albumine_creatinine_et_proteine-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2024, l'effort, la fièvre, une infection ou une hématurie élèvent transitoirement le rapport.",
+        "pourquoiFaux": "La protéinurie d'effort disparaît en quelques jours."
+       },
+       "sources": [
+        "KDIGO, évaluation et prise en charge de la maladie rénale chronique (2024)"
+       ],
+       "erreurFrequente": "Classer un rapport élevé fait au lendemain d'un marathon.",
+       "consequence": "Le patient est étiqueté à tort.",
+       "bonneConduite": "On répète le dosage à distance de l'effort, de la fièvre et d'une infection."
+      }
+     ]
+    },
+    {
+     "ref": "reins__electrophorese_des_proteines_urinaires",
+     "nom": "Électrophorèse des protéines urinaires",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "reins__electrophorese_des_proteines_urinaires-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2024, ce profil fait chercher une gammapathie par électrophorèse et immunofixation, avec les chaînes légères sériques.",
+        "pourquoiFaux": "Les autres examens ne cherchent pas de protéine monoclonale."
+       },
+       "sources": [
+        "KDIGO, évaluation et prise en charge de la maladie rénale chronique (2024)"
+       ],
+       "casClinique": "Une femme de 71 ans, à Genève, a une insuffisance rénale inexpliquée et un rapport protéines/créatinine bien plus élevé que son albuminurie.",
+       "options": [
+        "Électrophorèse et immunofixation urinaires",
+        "Scintigraphie au MAG3",
+        "Échodoppler rénal",
+        "Analyse de calcul"
+       ],
+       "bonneReponse": "Électrophorèse et immunofixation urinaires",
+       "visee": "etiologique"
+      },
+      {
+       "id": "reins__electrophorese_des_proteines_urinaires-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2024, une protéinurie disproportionnée par rapport à l'albuminurie fait chercher une gammapathie.",
+        "pourquoiFaux": "Une protéinurie glomérulaire est surtout faite d'albumine."
+       },
+       "sources": [
+        "KDIGO, évaluation et prise en charge de la maladie rénale chronique (2024)"
+       ],
+       "resultat": "Rapport protéines/créatinine 150 mg/mmol ; rapport albumine/créatinine 20 mg/mmol.",
+       "decision": "On cherche des chaînes légères monoclonales."
+      },
+      {
+       "id": "reins__electrophorese_des_proteines_urinaires-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2024, une électrophorèse urinaire peut être faussement rassurante ; les chaînes légères sériques restent nécessaires.",
+        "pourquoiFaux": "Les chaînes légères sont réabsorbées par le tubule et peuvent échapper à l'urine."
+       },
+       "sources": [
+        "KDIGO, évaluation et prise en charge de la maladie rénale chronique (2024)"
+       ],
+       "erreurFrequente": "Écarter un myélome sur une électrophorèse urinaire normale.",
+       "consequence": "Une gammapathie à expression rénale est méconnue.",
+       "bonneConduite": "On dose aussi les chaînes légères libres sériques et l'immunofixation du sérum."
+      }
+     ]
+    },
+    {
+     "ref": "reins__natriurese_fraction_d_excretion_du_sodiu",
+     "nom": "Natriurèse, fraction d'excrétion du sodium et de l'urée",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "reins__natriurese_fraction_d_excretion_du_sodiu-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2012, les indices urinaires aident à distinguer les causes d'une insuffisance rénale aiguë.",
+        "pourquoiFaux": "La biopsie, l'uro-CT et les anti-PLA2R ne répondent pas à cette question."
+       },
+       "sources": [
+        "KDIGO, insuffisance rénale aiguë (2012)"
+       ],
+       "casClinique": "Un homme de 80 ans, à Bâle, a une insuffisance rénale aiguë après une gastro-entérite, sans diurétique.",
+       "options": [
+        "Sodium urinaire et fraction excrétée du sodium",
+        "Biopsie rénale",
+        "Uro-CT",
+        "Anti-PLA2R"
+       ],
+       "bonneReponse": "Sodium urinaire et fraction excrétée du sodium",
+       "visee": "etiologique"
+      },
+      {
+       "id": "reins__natriurese_fraction_d_excretion_du_sodiu-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2012, ces indices aident sans définir l'insuffisance rénale aiguë, et les diurétiques rendent l'interprétation difficile.",
+        "pourquoiFaux": "La fraction excrétée de l'urée est moins influencée par le diurétique, mais aucun seuil unique n'est fixé."
+       },
+       "sources": [
+        "KDIGO, insuffisance rénale aiguë (2012)"
+       ],
+       "resultat": "Insuffisance rénale aiguë ; furosémide reçu ce matin ; sodium urinaire élevé.",
+       "decision": "On ne conclut pas à une nécrose tubulaire sur ce seul indice."
+      },
+      {
+       "id": "reins__natriurese_fraction_d_excretion_du_sodiu-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2012, les indices urinaires complètent le contexte sans définir l'insuffisance rénale aiguë.",
+        "pourquoiFaux": "Une obstruction ou une MRC préexistante faussent aussi les indices."
+       },
+       "sources": [
+        "KDIGO, insuffisance rénale aiguë (2012)"
+       ],
+       "erreurFrequente": "Poser un diagnostic de cause prérénale sur une fraction excrétée basse seule.",
+       "consequence": "Une autre cause est méconnue.",
+       "bonneConduite": "On interprète l'indice avec le sédiment, l'examen et la réponse au remplissage."
+      }
+     ]
+    },
+    {
+     "ref": "reins__complement_c3_c4_anca_anti_mbg_anti_pla2",
+     "nom": "Complément C3, C4, ANCA, anti-MBG, anti-PLA2R, ANA",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "reins__complement_c3_c4_anca_anti_mbg_anti_pla2-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2021, une glomérulonéphrite rapidement progressive fait chercher sans délai les ANCA, les anti-MBG et les ANA.",
+        "pourquoiFaux": "Les autres examens ne cherchent pas la cause immunologique et retardent le traitement."
+       },
+       "sources": [
+        "KDIGO, maladies glomérulaires (2021)"
+       ],
+       "casClinique": "Un homme de 62 ans, à Zurich, a une hémoptysie, une hématurie et une créatinine qui double en une semaine.",
+       "options": [
+        "ANCA et anti-MBG en urgence",
+        "Analyse de calcul",
+        "Scintigraphie au DMSA",
+        "Échodoppler rénal programmé"
+       ],
+       "bonneReponse": "ANCA et anti-MBG en urgence",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "reins__complement_c3_c4_anca_anti_mbg_anti_pla2-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2021, un dosage anti-PLA2R positif, lu dans le contexte, peut suffire au diagnostic présomptif.",
+        "pourquoiFaux": "Une baisse inexpliquée du DFG ferait reconsidérer la biopsie."
+       },
+       "sources": [
+        "KDIGO, maladies glomérulaires (2021)"
+       ],
+       "resultat": "Syndrome néphrotique ; anti-PLA2R nettement positifs ; DFGe normal.",
+       "decision": "On peut retenir une glomérulopathie membraneuse sans biopsie."
+      },
+      {
+       "id": "reins__complement_c3_c4_anca_anti_mbg_anti_pla2-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2021, le traitement ne doit pas attendre si l'état du patient l'impose.",
+        "pourquoiFaux": "La biopsie peut être faite ensuite et reste informative."
+       },
+       "sources": [
+        "KDIGO, maladies glomérulaires (2021)"
+       ],
+       "erreurFrequente": "Attendre la biopsie avant de traiter une glomérulonéphrite à ANCA chez un patient qui s'aggrave.",
+       "consequence": "Le rein est perdu.",
+       "bonneConduite": "On commence le traitement si l'état l'impose, puis on biopsie."
+      }
+     ]
+    },
+    {
+     "ref": "reins__cystatine_c",
+     "nom": "Cystatine C",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "reins__cystatine_c-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2024, la cystatine C se demande quand le DFGe créatinine est peu fiable et qu'une décision en dépend.",
+        "pourquoiFaux": "Les autres examens n'estiment pas le DFG."
+       },
+       "sources": [
+        "KDIGO, évaluation et prise en charge de la maladie rénale chronique (2024)"
+       ],
+       "casClinique": "Un culturiste de 30 ans, à Lausanne, a une créatinine un peu élevée et une décision de traitement en dépend.",
+       "options": [
+        "Cystatine C",
+        "Biopsie rénale",
+        "Uro-CT",
+        "Scintigraphie au DMSA"
+       ],
+       "bonneReponse": "Cystatine C",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "reins__cystatine_c-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2024, on utilise l'équation combinée quand le DFGe créatinine est moins exact et que le DFG influe sur une décision.",
+        "pourquoiFaux": "Classer en G3a sur la créatinine seule pourrait être faux."
+       },
+       "sources": [
+        "KDIGO, évaluation et prise en charge de la maladie rénale chronique (2024)"
+       ],
+       "resultat": "DFGe créatinine 55 ml/min/1,73 m² ; masse musculaire très élevée ; cystatine C disponible.",
+       "decision": "On estime le DFG par l'équation combinée créatinine-cystatine C."
+      },
+      {
+       "id": "reins__cystatine_c-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2024, la cystatine C peut être influencée par l'inflammation, la thyroïde et certains traitements.",
+        "pourquoiFaux": "Aucun marqueur n'est parfait ; l'équation combinée réduit l'erreur."
+       },
+       "sources": [
+        "KDIGO, évaluation et prise en charge de la maladie rénale chronique (2024)"
+       ],
+       "erreurFrequente": "Se fier à la cystatine C seule chez un patient sous forte corticothérapie.",
+       "consequence": "Le DFG est mal estimé.",
+       "bonneConduite": "On combine les deux marqueurs et on tient compte du contexte."
+      }
+     ]
+    },
+    {
+     "ref": "reins__analyse_de_calcul_urinaire",
+     "nom": "Analyse de calcul urinaire",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "reins__analyse_de_calcul_urinaire-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, on analyse le calcul de tout premier épisode par spectroscopie infrarouge ou diffraction des rayons X.",
+        "pourquoiFaux": "L'analyse chimique humide est obsolète, et l'imagerie ne donne pas la composition."
+       },
+       "sources": [
+        "EAU, lithiase urinaire (2026)"
+       ],
+       "casClinique": "Une femme de 36 ans, à Bienne, vient d'expulser son premier calcul.",
+       "options": [
+        "Analyse du calcul par spectroscopie infrarouge",
+        "Analyse chimique humide",
+        "Uro-CT",
+        "Biopsie rénale"
+       ],
+       "bonneReponse": "Analyse du calcul par spectroscopie infrarouge",
+       "visee": "etiologique"
+      },
+      {
+       "id": "reins__analyse_de_calcul_urinaire-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, une récidive précoce après un traitement complet justifie une nouvelle analyse, car la composition peut changer.",
+        "pourquoiFaux": "Se fier à l'ancienne analyse peut fausser la prévention."
+       },
+       "sources": [
+        "EAU, lithiase urinaire (2026)"
+       ],
+       "resultat": "Récidive précoce après une urétéroscopie qui avait tout enlevé.",
+       "decision": "On répète l'analyse du nouveau calcul."
+      },
+      {
+       "id": "reins__analyse_de_calcul_urinaire-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, l'analyse exige de récupérer un fragment, d'où la filtration des urines.",
+        "pourquoiFaux": "Sans calcul, on ne peut pas adapter la prévention."
+       },
+       "sources": [
+        "EAU, lithiase urinaire (2026)"
+       ],
+       "erreurFrequente": "Ne pas demander au patient de filtrer ses urines.",
+       "consequence": "Le calcul est perdu et la prévention reste empirique.",
+       "bonneConduite": "On donne un filtre et on explique comment récupérer le fragment."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "A2": "La catégorie A2 correspond à une albuminurie de 3 à 30 mg/mmol, modérément augmentée, selon KDIGO 2024.",
+    "ANA": "Les ANA, ou anticorps antinucléaires, orientent vers une maladie auto-immune, notamment un lupus, dans le bilan d'une glomérulonéphrite, selon KDIGO 2021.",
+    "ANCA": "Les ANCA, ou anticorps anti-cytoplasme des polynucléaires, orientent vers une vascularite pauci-immune, selon KDIGO 2021.",
+    "anti-MBG": "Anticorps dirigés contre la membrane basale glomérulaire.",
+    "anti-PLA2R": "Anticorps dirigés contre le récepteur de la phospholipase A2, marqueurs de glomérulopathie membraneuse.",
+    "AUA": "American Urological Association, société américaine d'urologie.",
+    "AUA/SUFU": "Recommandations communes de l'Association américaine d'urologie et de la société d'urodynamique.",
+    "C3": "Le C3 est une protéine du complément dont la baisse oriente vers certaines glomérulonéphrites, selon KDIGO 2021.",
+    "C4": "Le C4 est une protéine du complément dont la baisse, souvent avec le C3, oriente vers une consommation classique, notamment lupique, selon KDIGO 2021.",
+    "CKD-EPI": "CKD-EPI, ou Chronic Kidney Disease Epidemiology Collaboration, désigne l'équation validée utilisée pour estimer le DFG à partir de la créatinine et, le cas échéant, de la cystatine C.",
+    "CT": "Le CT, ou tomodensitométrie, est un examen d'imagerie par rayons X en coupes.",
+    "DFG": "Le DFG, ou débit de filtration glomérulaire, mesure la fonction de filtration des reins, en ml/min/1,73 m².",
+    "DFGe": "Le DFGe, ou débit de filtration glomérulaire estimé, est calculé à partir de la créatinine, de la cystatine C, ou des deux.",
+    "DMSA": "Le DMSA, ou acide dimercaptosuccinique, est le traceur de la scintigraphie corticale, ici marqué au technétium 99m.",
+    "EAU": "L'EAU est l'Association européenne d'urologie, dont les recommandations 2026 sur la lithiase, le carcinome rénal, le carcinome urothélial de la voie excrétrice supérieure, le cancer de la vessie n'infiltrant pas le muscle et les traumatismes urologiques sont citées ici.",
+    "G3a": "Le stade G3a correspond à un DFG de 45 à 59 ml/min/1,73 m², selon KDIGO 2024.",
+    "G4": "Le stade G4 correspond à un DFG de 15 à 29 ml/min/1,73 m², selon KDIGO 2024.",
+    "KDIGO": "Organisation internationale qui publie des recommandations de néphrologie.",
+    "MAG3": "Le MAG3, ou mercaptoacétyltriglycine, est le traceur tubulaire de la scintigraphie dynamique, ici marqué au technétium 99m.",
+    "MBG": "La MBG, ou membrane basale glomérulaire, est la cible des anticorps anti-MBG, responsables d'une glomérulonéphrite rapidement progressive, selon KDIGO 2021.",
+    "MRC": "Maladie rénale chronique, atteinte rénale ou DFG abaissé depuis au moins trois mois.",
+    "PLA2R": "Le PLA2R, ou récepteur de type M de la phospholipase A2, est l'antigène cible des anticorps de la glomérulopathie membraneuse primitive, selon KDIGO 2021.",
+    "PTH": "La PTH, ou parathormone, est l'hormone parathyroïdienne qui régule le calcium et le phosphate, surveillée à partir du stade G3a selon KDIGO 2017.",
+    "SUFU": "Society of Urodynamics, Female Pelvic Medicine and Urogenital Reconstruction, société américaine associée à l'AUA.",
+    "Uro-CT": "CT des voies urinaires avec un temps excrétoire après injection."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Biologie",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
