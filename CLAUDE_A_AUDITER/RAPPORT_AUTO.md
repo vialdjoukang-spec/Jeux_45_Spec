@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-22 23:12
 
-56 fichier(s) : 50 🟩 intégrables · 6 🟧 à compléter · 0 🟥 refusés.
+60 fichier(s) : 54 🟩 intégrables · 6 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -89,6 +89,20 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/04_Metabolisme_et_endocrinologie/2_Pratique/P09-04-FCT-PR_Exploration_fonctionnelle_Metabolisme_et_endocrinologie_4-examens_PRATIQUE_production_XAi.json`
 - 🟩 `metabolisme_et_endocrinologie.json` : remplissage 100 % (8/8)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/05_Genetique/1_Theorie/P09-05_Examens_Genetique_5-examens_production_XAi.json`
+- 🟩 `genetique.json` : remplissage 90 % (99/110)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/05_Genetique/2_Pratique/P09-05-PR_Examens_Genetique_5-examens_PRATIQUE_production_XAi.json`
+- 🟩 `genetique.json` : remplissage 100 % (10/10)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/06_Toxicologie_et_medicaments/1_Theorie/P09-06_Examens_Toxicologie_et_medicaments_6-examens_production_XAi.json`
+- 🟩 `toxicologie_et_medicaments.json` : remplissage 90 % (119/132)
+- aVerifier déclarés : 3
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/06_Toxicologie_et_medicaments/2_Pratique/P09-06-PR_Examens_Toxicologie_et_medicaments_6-examens_PRATIQUE_production_XAi.json`
+- 🟩 `toxicologie_et_medicaments.json` : remplissage 100 % (12/12)
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/01_Peau/1_Theorie/P08-01-BIO_Biologie_Peau_4-examens_production_XAi.json`
 - 🟩 `peau.json` : remplissage 91 % (80/88)
