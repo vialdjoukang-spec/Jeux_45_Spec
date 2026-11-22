@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-22 23:23
 
-44 fichier(s) : 41 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
+48 fichier(s) : 45 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -74,6 +74,20 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/01_Rachis_osseux/2_Pratique/P03-01-IMG-PR_Imagerie_Rachis_osseux_7-examens_PRATIQUE_production_XAi.json`
 - 🟩 `rachis_osseux.json` : remplissage 100 % (14/14)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/02_Moelle_epiniere/1_Theorie/P03-02_Examens_Moelle_epiniere_7-examens_production_XAi.json`
+- 🟩 `moelle_epiniere.json` : remplissage 90 % (135/150)
+- aVerifier déclarés : 5
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/02_Moelle_epiniere/2_Pratique/P03-02-PR_Examens_Moelle_epiniere_7-examens_PRATIQUE_production_XAi.json`
+- 🟩 `moelle_epiniere.json` : remplissage 100 % (14/14)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/03_Racines_et_plexus/1_Theorie/P03-03_Examens_Racines_et_plexus_9-examens_production_XAi.json`
+- 🟩 `racines_et_plexus.json` : remplissage 90 % (173/192)
+- aVerifier déclarés : 9
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/03_Racines_et_plexus/2_Pratique/P03-03-PR_Examens_Racines_et_plexus_9-examens_PRATIQUE_production_XAi.json`
+- 🟩 `racines_et_plexus.json` : remplissage 100 % (18/18)
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/07_Corps_entier_bilan_d_extension_et_traum/1_Theorie/P09-07_Examens_Corps_entier_bilan_d_extension_et_t_6-examens_production_XAi.json`
 - 🟩 `corps_entier.json` : remplissage 87 % (110/126)
