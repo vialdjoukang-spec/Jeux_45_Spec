@@ -12,6 +12,10 @@ git merge-base --is-ancestor origin/veille/audit-medical origin/main && echo RIE
 
 S'il n'y a rien en attente, la session s'arrête aussitôt.
 
+## 0 bis. Ce que contient la branche
+
+La branche reçoit deux sources : les lots réparés par la veille, et le travail de l'ouvrier en chaîne (`.github/workflows/ouvrier.yml`), qui exécute par l'API Anthropic les tâches de `projets/ouvrier/FILE_PROCESSUS.json` (systèmes rédigés, lots de compléments). Lis `projets/ouvrier/RAPPORT_OUVRIER.md` : tout ce que l'ouvrier a écrit passe par le même audit médical que les lots de Grok. Une tâche marquée « fait » que ton audit refuse repasse à « en_cours » dans la file, avec la raison dans son résumé.
+
 ## 1. Auditer médicalement
 
 1. Basculer sur `veille/audit-medical` et lire `CLAUDE_A_AUDITER/EN_ATTENTE_AUDIT_MEDICAL.json` puis `RAPPORT_VEILLE.md`.

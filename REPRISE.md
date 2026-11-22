@@ -143,3 +143,10 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Nouvelles fenêtres testées sans écran (0 erreur) : `voies_centrales` (obstacles fixes et variables, Poiseuille), `compliance` (poumon, paroi, CRF ; fibrose, emphysème, obésité, pneumothorax), `vq` (shunt, espace mort, FiO₂).
 - `projets/retours/migrations_ids.json` déclare les renommages d'identifiants assumés pour la garde `non_perte.py`.
 - `.github/workflows/regeneration.yml` : toute modification des sources sur main régénère réseau, JSON et sorties fiables, puis lance les contrôles ; il publie seulement si tout passe (rapport `CLAUDE_A_AUDITER/RAPPORT_REGENERATION.md`).
+
+## Ouvrier en chaîne par l'API Anthropic (2026-11-23)
+- Vial a un crédit API Anthropic de 200 USD qui expire le 27.11.2026 (non cumulable ; nouveau crédit à cette date). Secret GitHub : `ANTHROPIC_API_KEY`.
+- `projets/ouvrier/FILE_PROCESSUS.json` : file de tâches (état, essais, modèle, budget). `file.py` répartit le crédit restant sur les jours restants (plafond journalier, réserve de 8 USD) et journalise chaque dollar dans `depense.json`.
+- `.github/workflows/ouvrier.yml` : toutes les 30 min, prend la tâche suivante, lance Claude Code en mode non interactif (`--max-budget-usd`), publie sur `veille/audit-medical`. L'audit médical horaire reste le verrou avant main. Rapport : `projets/ouvrier/RAPPORT_OUVRIER.md`.
+- Haiku pour le volume (compléments de présentation), Sonnet pour les systèmes (rénal, neurologique, endocrinien). Le digestif est produit par une tâche planifiée séparée.
+- Les skills utiles au travail automatique sont copiés dans `.claude/skills/` du dépôt.

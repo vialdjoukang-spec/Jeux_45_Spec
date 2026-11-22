@@ -1,0 +1,81 @@
+# Ouvrier en chaîne : prend la tâche suivante de projets/ouvrier/FILE_PROCESSUS.json, l'exécute avec Claude par l'API
+# Anthropic (secret ANTHROPIC_API_KEY), sous plafond de dépense, et publie sur la branche veille/audit-medical.
+# Rien n'arrive sur main sans l'audit médical horaire de Claude. Signature : AAI (Anthropic AI)
+name: Ouvrier en chaîne (API Anthropic)
+on:
+  schedule:
+    - cron: "7,37 * * * *"   # toutes les 30 min ; file.py applique le plafond journalier
+  push:
+    branches: [main]
+    paths: ["projets/ouvrier/FILE_PROCESSUS.json"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: veille            # même groupe que la veille : jamais deux écritures simultanées sur la branche
+  cancel-in-progress: false
+env:
+  BRANCHE: veille/audit-medical
+jobs:
+  ouvrier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, fetch-depth: 0 }
+      - name: Se placer sur la branche d'audit médical
+        run: |
+          git config user.name "ouvrier-auto"
+          git config user.email "ouvrier-auto@users.noreply.github.com"
+          if git fetch origin "+refs/heads/$BRANCHE:refs/remotes/origin/$BRANCHE" 2>/dev/null \
+             && ! git merge-base --is-ancestor "origin/$BRANCHE" origin/main; then
+            git checkout -B "$BRANCHE" "origin/$BRANCHE"
+            if ! git merge --no-edit origin/main; then
+              autres=$(git diff --name-only --diff-filter=U | grep -v -e '^CLAUDE_A_AUDITER/RAPPORT_' -e '^CLAUDE_A_AUDITER/EN_ATTENTE_AUDIT_MEDICAL.json$' -e '^projets/retours/veille_traites.json$' -e '^projets/ouvrier/' || true)
+              if [ -n "$autres" ]; then git merge --abort; echo "conflit de données avec main : $autres" >&2; exit 1; fi
+              git checkout --ours -- $(git diff --name-only --diff-filter=U) && git add -A && git commit --no-edit -q
+            fi
+          else
+            git checkout -B "$BRANCHE" origin/main
+          fi
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Prendre la tâche suivante
+        id: file
+        run: python projets/ouvrier/file.py prendre
+      - uses: actions/setup-node@v4
+        if: steps.file.outputs.tache != ''
+        with: { node-version: "22" }
+      - name: Exécuter la tâche avec Claude
+        if: steps.file.outputs.tache != ''
+        continue-on-error: true
+        timeout-minutes: 120
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          pip install -q playwright >/dev/null 2>&1 && python -m playwright install --with-deps chromium >/dev/null 2>&1 || true
+          npm install -g @anthropic-ai/claude-code >/dev/null 2>&1
+          claude -p "$(cat /tmp/prompt.txt)" --model "${{ steps.file.outputs.modele }}" \
+            --max-budget-usd "${{ steps.file.outputs.budget }}" --output-format json \
+            --dangerously-skip-permissions > /tmp/resultat.json 2> /tmp/erreurs.txt || true
+          tail -c 1500 /tmp/erreurs.txt || true
+      - name: Enregistrer le coût et l'état
+        if: steps.file.outputs.tache != ''
+        env:
+          MODELE: ${{ steps.file.outputs.modele }}
+        run: python projets/ouvrier/file.py terminer "${{ steps.file.outputs.tache }}" /tmp/resultat.json
+      - name: Publier sur la branche d'audit médical
+        if: steps.file.outputs.tache != ''
+        run: |
+          git add -A
+          git diff --cached --quiet || git commit -q -m "Ouvrier : ${{ steps.file.outputs.tache }} (en attente d'audit médical) [skip ci]"
+          for i in 1 2 3; do
+            if git rev-parse -q --verify "origin/$BRANCHE" > /dev/null; then
+              git pull --rebase -q origin "$BRANCHE" && git push -q origin "$BRANCHE" && exit 0
+            else
+              git push -q origin "$BRANCHE" && exit 0
+            fi
+            git rebase --abort 2>/dev/null || true; sleep 10; git fetch -q origin
+          done
+          git push -q origin "HEAD:refs/heads/ouvrier/sauvegarde-${{ github.run_id }}"   # rien ne se perd
+          echo "branche d'audit occupée : travail sauvegardé sur ouvrier/sauvegarde-${{ github.run_id }}" >&2; exit 1
