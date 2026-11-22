@@ -1,0 +1,254 @@
+{
+ "_lot": {
+  "tache": "P08-01-IMG-PR",
+  "titre": "Pratique — Examens de l'organe Peau — Imagerie (3 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/8_peau_et_phaneres/peau.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/8_peau_et_phaneres/peau.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "peau__dermatoscopie",
+     "nom": "Dermatoscopie",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "peau__dermatoscopie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "La dermatoscopie analyse en quelques secondes une lésion pigmentée qui diffère des autres, selon les recommandations suisses sur le mélanome (Mangana et al., 2025).",
+        "pourquoiFaux": "L'échographie mesure l'épaisseur sans analyser le pigment, la lampe de Wood cherche une fluorescence, et la biopsie au punch ne convient pas à une lésion pigmentée suspecte, qu'on excise en entier."
+       },
+       "sources": [
+        "Recommandations suisses sur le mélanome (Mangana et al., 2025)"
+       ],
+       "casClinique": "Un homme de 52 ans, à Lausanne, montre une lésion pigmentée du dos qui diffère de ses autres naevus.",
+       "options": [
+        "Dermatoscopie",
+        "Échographie cutanée",
+        "Lampe de Wood",
+        "Biopsie au punch"
+       ],
+       "bonneReponse": "Dermatoscopie",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "peau__dermatoscopie-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Le réseau atypique et le voile bleu-blanc valent chacun 2 points, et un score d'au moins 3 points rend la lésion suspecte, selon Argenziano et al. (1998).",
+        "pourquoiFaux": "Conclure à un naevus bénin ignore deux critères majeurs, et demander une simple surveillance retarde l'exérèse nécessaire."
+       },
+       "sources": [
+        "Liste en 7 points (Argenziano et al., 1998)"
+       ],
+       "consigne": "Compte les points de la liste en 7 points et conclus.",
+       "aspectRecherche": "Réseau atypique et voile bleu-blanc",
+       "reponse": "Le score atteint 4 points : la lésion est suspecte de mélanome et doit être excisée.",
+       "imageOuTraceAttendu": "Vue dermatoscopique d'une lésion pigmentée asymétrique avec un réseau irrégulier épaissi et une zone bleu-blanc centrale."
+      },
+      {
+       "id": "peau__dermatoscopie-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon Haenssle et al. (2010), la liste en 7 points manque des mélanomes, et les recommandations suisses (Mangana et al., 2025) font exciser toute lésion qui change ou qui diffère.",
+        "pourquoiFaux": "Se fier au seul score ignore l'évolution clinique, qui reste un critère d'exérèse indépendant."
+       },
+       "sources": [
+        "Haenssle et al., suivi dermatoscopique (2010)",
+        "Recommandations suisses sur le mélanome (Mangana et al., 2025)"
+       ],
+       "erreurFrequente": "Rassurer un patient parce que la lésion n'a aucun critère de la liste en 7 points.",
+       "consequence": "On peut manquer un mélanome peu structuré, car la liste n'a atteint que 62 % de sensibilité dans un suivi prospectif.",
+       "bonneConduite": "On excise aussi une lésion qui change ou qui diffère des autres, même sans critère dermatoscopique."
+      }
+     ]
+    },
+    {
+     "ref": "peau__photographie_corporelle_totale",
+     "nom": "Photographie corporelle totale",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "peau__photographie_corporelle_totale-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Chez le patient à haut risque avec de nombreux naevus, on suit la peau par photographie corporelle totale, selon les recommandations suisses sur le mélanome (Mangana et al., 2025).",
+        "pourquoiFaux": "Exciser tous les naevus est inutile et mutilant, et la TEP-CT et l'échographie ganglionnaire servent au bilan d'un mélanome déjà prouvé."
+       },
+       "sources": [
+        "Recommandations suisses sur le mélanome (Mangana et al., 2025)"
+       ],
+       "casClinique": "Une femme de 34 ans, à Zurich, porte plus de 100 naevus et a un antécédent familial de mélanome.",
+       "options": [
+        "Photographie corporelle totale",
+        "Exérèse de tous les naevus",
+        "TEP-CT",
+        "Échographie des ganglions"
+       ],
+       "bonneReponse": "Photographie corporelle totale",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "peau__photographie_corporelle_totale-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une lésion nouvelle ou qui change entre deux examens justifie l'excision, selon les recommandations suisses sur le mélanome (Mangana et al., 2025).",
+        "pourquoiFaux": "Attendre le contrôle suivant laisse évoluer une lésion nouvelle chez un patient à haut risque."
+       },
+       "sources": [
+        "Recommandations suisses sur le mélanome (Mangana et al., 2025)"
+       ],
+       "consigne": "Compare les deux photographies prises à un an d'intervalle et conclus.",
+       "aspectRecherche": "Lésion nouvelle sur le flanc gauche",
+       "reponse": "Une lésion nouvelle est apparue : elle justifie une dermatoscopie et l'excision.",
+       "imageOuTraceAttendu": "Deux photographies du dos superposables, dont la seconde montre une petite lésion pigmentée absente sur la première."
+      },
+      {
+       "id": "peau__photographie_corporelle_totale-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une photographie où la personne est reconnaissable est une donnée personnelle, et les données de santé exigent consentement et protection, selon la LPD en vigueur depuis 2023.",
+        "pourquoiFaux": "Le secret médical ne suffit pas : le stockage hors du dossier sécurisé expose les données sans base légale."
+       },
+       "sources": [
+        "Loi fédérale sur la protection des données (LPD, 2023)"
+       ],
+       "erreurFrequente": "Photographier tout le corps sans consentement écrit et conserver les images sur un téléphone personnel.",
+       "consequence": "On viole la protection des données de santé, car ces images intimes identifient le patient.",
+       "bonneConduite": "On recueille le consentement éclairé et l'on conserve les images dans le dossier médical sécurisé."
+      }
+     ]
+    },
+    {
+     "ref": "peau__echographie_cutanee_haute_frequence",
+     "nom": "Échographie cutanée haute fréquence",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "peau__echographie_cutanee_haute_frequence-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "L'échographie haute fréquence mesure avant l'opération l'épaisseur et l'extension d'une tumeur cutanée, selon l'EFSUMB (Alfageme et al., 2021).",
+        "pourquoiFaux": "La dermatoscopie ne voit pas la profondeur, le CT irradie et résout mal la peau, et la lampe de Wood ne mesure rien."
+       },
+       "sources": [
+        "EFSUMB, échographie cutanée (Alfageme et al., 2021)"
+       ],
+       "casClinique": "Un homme de 68 ans, à Sion, va être opéré d'un carcinome basocellulaire nodulaire de la joue, dont on veut connaître la profondeur.",
+       "options": [
+        "Échographie cutanée haute fréquence",
+        "Dermatoscopie",
+        "CT du visage",
+        "Lampe de Wood"
+       ],
+       "bonneReponse": "Échographie cutanée haute fréquence",
+       "visee": "retentissement"
+      },
+      {
+       "id": "peau__echographie_cutanee_haute_frequence-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une tumeur cutanée apparaît hypoéchogène sous la couche kératinisée, et le Doppler montre sa vascularisation, selon l'EFSUMB (Alfageme et al., 2021).",
+        "pourquoiFaux": "Un kyste serait anéchogène avec un renforcement postérieur, et une peau normale garderait des couches régulières."
+       },
+       "sources": [
+        "EFSUMB, échographie cutanée (Alfageme et al., 2021)"
+       ],
+       "consigne": "Décris la lésion visible sur cette coupe.",
+       "aspectRecherche": "Lésion hypoéchogène dermique vascularisée",
+       "reponse": "C'est une lésion hypoéchogène du derme, vascularisée en Doppler, compatible avec une tumeur dont on mesure l'épaisseur maximale.",
+       "imageOuTraceAttendu": "Coupe échographique à 20 MHz montrant une ligne épidermique hyperéchogène, puis une plage ovalaire hypoéchogène dans le derme avec des signaux Doppler couleur."
+      },
+      {
+       "id": "peau__echographie_cutanee_haute_frequence-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon les recommandations suisses sur le mélanome (Mangana et al., 2025), la biopsie du ganglion sentinelle reste la méthode la plus sensible pour les micrométastases.",
+        "pourquoiFaux": "Une échographie normale ne prouve pas l'absence de micrométastase et ne fixe pas le stade."
+       },
+       "sources": [
+        "Recommandations suisses sur le mélanome (Mangana et al., 2025)"
+       ],
+       "erreurFrequente": "Remplacer la biopsie du ganglion sentinelle par une échographie normale chez un mélanome de 1,2 mm.",
+       "consequence": "On manque des micrométastases ganglionnaires, que l'échographie ne détecte pas.",
+       "bonneConduite": "On fait la biopsie du ganglion sentinelle, méthode la plus sensible, puis l'échographie sert au suivi."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CT": "Le CT, ou tomodensitométrie, produit des coupes du corps par rayons X.",
+    "EFSUMB": "L'European Federation of Societies for Ultrasound in Medicine and Biology fédère les sociétés européennes d'échographie.",
+    "LPD": "La loi fédérale sur la protection des données règle en Suisse le traitement des données personnelles.",
+    "MHz": "Le mégahertz mesure la fréquence de la sonde ; une fréquence élevée donne une image plus fine mais moins profonde.",
+    "TEP-CT": "Tomographie par émission de positons couplée au scanner : imagerie du métabolisme du glucose.",
+    "Liste en 7 points": "La liste en 7 points est un score dermatoscopique de mélanome à trois critères majeurs et quatre critères mineurs."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Imagerie",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
