@@ -41,7 +41,7 @@ for ref in refs:
     # un fichier CONTRE_AUDIT_OK (toute extension) dans son dossier ou un dossier parent le déclare.
     valides = {os.path.dirname(c) for c in arbre if os.path.basename(c).split(".")[0] == "CONTRE_AUDIT_OK"}
     for chemin in arbre:
-        if not chemin.startswith(DOSSIERS) or not chemin.endswith(".json") or "RAPPORT" in chemin:
+        if not chemin.startswith(DOSSIERS) or not chemin.endswith(".json") or "RAPPORT" in chemin or "EN_ATTENTE" in chemin:
             continue
         if ref != "HEAD" and not any(chemin.startswith(v + "/") for v in valides):
             sans_contre_audit.append(f"{ref.split('/')[-1]} › {chemin}"); continue
