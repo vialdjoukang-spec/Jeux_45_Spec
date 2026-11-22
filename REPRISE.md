@@ -126,3 +126,8 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - `projets/outils/audit_fond.py` (0 token, relançable) applique les corrections de Claude, range les notes : `_meta.justificationsAcceptees` (299) et `_meta.aVerifierOuverts` (25), puis publie **`SORTIES_DONNEES_FIABLES/`** : 554 examens sur 820, cœur clinique rempli et aucun doute ouvert. Le jeu charge ce dossier.
 - `projets/outils/lots_complement.py` prépare pour Grok `Production_XAi/Lots_a_produire/complement_presentation/` (7 lots, 464 examens, 5 champs de présentation). Retour : `fusionner_retours.py`, puis `audit_fond.py`.
 - Les dépôts de Grok arrivent sur des branches `production-xai-*` : Claude les lit directement. Suppression de branches et envoi d'étiquettes refusés depuis la session cloud (HTTP 403) : anciennes branches laissées en place.
+
+## Sémiologie cardiovasculaire (2026-11-22)
+- `conception/outils/cardio/semiologie.txt` : 13 organes (le myocarde garde le circuit pilote de l'IC gauche), temps d'examen pertinents par organe, 2 à 3 signes typiques par temps ou un signe unique assumé (`uniqueAssume`), signes atypiques en plus ; infobulle 4 rubriques.
+- Les 4 onglets du cardiovasculaire sont jouables : anatomie, physiologie, sémiologie, physiopathologie (4 paliers de pathologies avec bilan et traitement).
+- Garde-fou ajouté à `generer_json.py` : la régénération ne peut plus écraser une valeur remplie (fusion conservatrice par id, ref, nom ou position). Avant ce correctif, elle remettait les fichiers paracliniques et les défis à vide.

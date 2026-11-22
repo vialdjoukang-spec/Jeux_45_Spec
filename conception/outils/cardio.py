@@ -15,7 +15,7 @@ PALIER_BULLE = {
 def _lignes(nom):
     for l in open(os.path.join(ICI, nom), encoding="utf-8"):
         l = l.rstrip("\n")
-        if l.strip() and not (l.startswith("#") and not l.startswith(("# ORG ", "# PATHO "))):
+        if l.strip() and not (l.startswith("#") and not l.startswith(("# ORG ", "# PATHO ", "# SEMIO "))):
             yield l
 
 
@@ -78,3 +78,38 @@ if os.path.exists(_g):
         if " = " in _l and not _l.startswith("#"):
             _k, _v = _l.rstrip("\n").split(" = ", 1)
             GLOSSAIRE_CV[_k.strip()] = _v.strip()
+
+
+# ---- sémiologie par organe (cardio/semiologie.txt) ----
+TEMPS_BULLE = {
+    "Interrogatoire": ("Tu fais raconter les symptômes, leur début, leur rythme et ce qui les soulage.", "Les mots du patient orientent l'examen avant tout geste.", "Un symptôme vague peut venir d'un autre organe : tu cherches le contexte.", "Un symptôme bien décrit vaut souvent plus qu'un signe isolé."),
+    "Inspection": ("Tu regardes le patient avant de le toucher : couleur, gonflement, veines, mouvements.", "Beaucoup de signes vasculaires se voient à distance.", "Un éclairage pauvre cache la cyanose et les marbrures.", "Tu compares toujours les deux côtés."),
+    "Palpation": ("Tu palpes les pouls, la peau, les masses et les zones douloureuses.", "La main perçoit la force, la symétrie et le retard des pouls.", "Tes propres pulsations dans le bout des doigts peuvent te tromper : tu palpes avec la pulpe de plusieurs doigts.", "Un pouls absent situe l'obstacle en amont."),
+    "Percussion": ("Tu tapes sur la paroi pour juger de ce qu'elle recouvre.", "La matité révèle le liquide ou un organe plein.", "Une paroi épaisse amortit le son.", "Tu compares toujours les deux côtés."),
+    "Auscultation": ("Tu écoutes le cœur et les vaisseaux à la membrane puis au pavillon.", "Les bruits naissent des valves et des flux turbulents.", "Un bruit respiratoire ou un frottement peuvent imiter un souffle.", "Tu situes chaque bruit dans le cycle cardiaque."),
+    "Mesures au lit": ("Tu mesures ce que la main ne suffit pas à juger : PA aux deux bras, IPS, SpO₂.", "Un chiffre confirme ou chiffre un signe clinique.", "Une mesure unique et mal faite trompe.", "Tu répètes la mesure avant de conclure."),
+}
+
+
+def _semio():
+    out, org = {}, None
+    for l in _lignes("semiologie.txt"):
+        if l.startswith("# SEMIO "):
+            org = out.setdefault(l[8:].strip(), [])
+        elif l.startswith("T "):
+            org.append((l[2:].strip(), []))
+        elif l.startswith("- "):
+            p = [x.strip() for x in l[2:].split("|")]
+            sg = {"signe": p[0], "presentation": "atypique" if p[1] == "a" else "typique",
+                  "bulle": dict(zip(["def", "pourquoi", "confusion", "retenir"], p[2:6]))}
+            if p[1] == "u":   # signe unique assumé : ce temps d'examen n'a qu'un signe typique fiable pour cet organe
+                sg["uniqueAssume"] = "Ce temps d'examen n'apporte qu'un signe typique fiable pour cet organe ; les autres y restent atypiques."
+            org[-1][1].append(sg)
+        else:
+            raise ValueError("Ligne illisible (semiologie.txt) : " + l)
+    return out
+
+
+SEMIO = _semio()
+for _o in SEMIO:
+    assert _o in ORGANES, "Sémiologie d'un organe inconnu : " + _o

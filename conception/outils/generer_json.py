@@ -41,9 +41,33 @@ def squelette(d):
             "elements": [el], "glossaire": {}}
 
 
+VIDE = (None, "", [], {})
+
+
+def conserver(neuf, ancien):
+    """Fusion conservatrice : le squelette régénéré garde toute valeur déjà remplie (lots fusionnés, audit)."""
+    if isinstance(neuf, dict) and isinstance(ancien, dict):
+        out = {k: (ancien[k] if k == "statut" and ancien.get(k) else conserver(v, ancien[k])) if k in ancien else v for k, v in neuf.items()}
+        out.update({k: v for k, v in ancien.items() if k not in neuf and v not in VIDE})
+        return out
+    cle = lambda x: x.get("id") or x.get("ref") or x.get("nom") if isinstance(x, dict) else None
+    if isinstance(neuf, list) and isinstance(ancien, list) and neuf and all(cle(x) for x in neuf):
+        idx = {cle(x): x for x in ancien if cle(x)}
+        return [conserver(x, idx[cle(x)]) if cle(x) in idx else x for x in neuf]
+    if isinstance(neuf, list) and isinstance(ancien, list) and any(isinstance(x, dict) for x in neuf + ancien):
+        # éléments sans identifiant (ex. défis du squelette, id nul) : appariement par position, rien de rempli ne se perd
+        return [conserver(neuf[i], ancien[i]) if i < len(ancien) else neuf[i] for i in range(len(neuf))] + ancien[len(neuf):]
+    return ancien if neuf in VIDE and ancien not in VIDE else neuf
+
+
 def ecrire(chemin, obj):
     p = os.path.join(OUT, chemin)
     os.makedirs(os.path.dirname(p), exist_ok=True)
+    if os.path.exists(p):   # ne jamais écraser un champ rempli (lots fusionnés, audit de fond)
+        try:
+            obj = conserver(obj, json.load(open(p, encoding="utf-8")))
+        except ValueError:
+            pass
     json.dump(obj, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     return chemin
 
@@ -200,7 +224,7 @@ ecrits.append(ecrire("tetrade/cardiovasculaire/anatomie3d.exemple_coeur.json", {
 
 # ---------- systèmes → organes (liste complète) ; organe déplié par espace ----------
 from systemes import SYSTEMES as SYS_O, VOLETS_ANATOMIE, VOLETS_PHYSIOLOGIE, PHYSIOLOGIE_POUMON
-from cardio import ORGANES as CV, PATHOS as CV_PATHOS, PALIERS
+from cardio import ORGANES as CV, PATHOS as CV_PATHOS, PALIERS, SEMIO as CV_SEMIO
 for sysn, orgs in SYS_O.items():
     ecrits.append(ecrire(f"tetrade/{slug(sysn)}/organes.json", {"_meta": {"systeme": sysn, "ordre": "haut → bas", "statut": "LISTE COMPLÈTE"},
         "organes": [{"organe": o, "ancre3D": a, "topo": t, "fichier": f"organes/{slug(o)}.json"} for o, a, t in orgs]}))
@@ -216,7 +240,7 @@ for sysn, orgs in SYS_O.items():
         ecrits.append(ecrire(f"tetrade/{slug(sysn)}/organes/{slug(o)}.json", {"_meta": {"systeme": sysn, "organe": o, "statut": ("RÉDIGÉ — à auditer" if o in CV else "EXEMPLE RÉEL") if rempli else "À REMPLIR",
             "regles": ["La case garde un nom court ; le texte va en infobulle ; la courbe ou l'image 3D va en fenêtre.", "Chaque mot-clé d'anatomie ouvre une image 3D réelle (jamais de SVG).",
                        "Chaque mot-clé de physiologie ouvre une courbe calculée, un tracé ou un détail ; unités SI (kPa).", "Phrases verbales ; tout sigle figure au glossaire."]},
-            "organe": o, "ancre3D": a, "topo": t, "anatomie": an, "physiologie": ph, "pathologies": pa, "bulle": CV[o]["bulle"] if o in CV else None, "glossaire": {}}))
+            "organe": o, "ancre3D": a, "topo": t, "anatomie": an, "physiologie": ph, "semiologie": {t: sg for t, sg in CV_SEMIO.get(o, [])} if o in CV else None, "pathologies": pa, "bulle": CV[o]["bulle"] if o in CV else None, "glossaire": {}}))
 
 # ---------- schémas de validation (un par famille de fichier) ----------
 SCH = {

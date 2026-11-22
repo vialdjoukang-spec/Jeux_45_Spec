@@ -5,7 +5,7 @@ Usage : python conception/outils/construire_config_tetrade.py"""
 import json, os, re, sys, unicodedata
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from systemes import SYSTEMES, PHYSIOLOGIE_POUMON, GLOSSAIRE
-from cardio import ORGANES as CV, VOLETS_BULLE as CV_VOLETS, PATHOS as CV_PATHOS, PALIERS, PALIER_BULLE, GLOSSAIRE_CV
+from cardio import ORGANES as CV, VOLETS_BULLE as CV_VOLETS, PATHOS as CV_PATHOS, PALIERS, PALIER_BULLE, GLOSSAIRE_CV, SEMIO as CV_SEMIO, TEMPS_BULLE
 
 ICI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CFG = os.path.join(ICI, "prototypes", "moteur", "tetrade.json")
@@ -87,6 +87,14 @@ for nom, org in CV.items():
                 fen = "3d" if esp == "anatomie" else fen
                 if fen: n["fenetre"] = fen
                 N.append(n)
+    for i, (temps, signes) in enumerate(CV_SEMIO.get(nom, [])):
+        tid = f"{oid}_s{i}"
+        d, p_, c_, r_ = TEMPS_BULLE[temps]
+        N.append({"id": tid, "type": "Interrogatoire" if temps == "Interrogatoire" else f"Temps {i + 1}", "texte": temps, "couleur": COUL_CV, "de": [oid],
+                  "espace": "semiologie", "bulle": {"def": d, "pourquoi": p_, "confusion": c_, "retenir": r_}})
+        for j, sg in enumerate(signes):
+            N.append({"id": f"{tid}_{j}", "type": "Signe", "texte": sg["signe"], "couleur": COUL_CV, "de": [tid], "espace": "semiologie",
+                      "presentation": sg["presentation"], "bulle": sg["bulle"], **({"uniqueAssume": sg["uniqueAssume"]} if sg.get("uniqueAssume") else {})})
     paliers = {}
     for p in CV_PATHOS.get(nom, []):
         pal = p["palier"]; nomp, typ, col = PALIERS[pal]
