@@ -21,3 +21,15 @@ Corrections faites :
 - P08-03 — entrée levée : précaution réécrite d'après l'ESUR v10, relue (PDF esur.org) : « conception/donnees/paraclinique/topographie/8_peau_et_phaneres/plaies_ulceres_et_escarres.json › plaies_ulceres_et_escarres__irm › precautions : consignes de l'ESUR (version 10, 2018) sur le gadolinium rappelées de mémoi » → « None »
 - P08-03 — sigle absent du glossaire (C3) : « None » → « glossaire[DFG]=Débit de filtration glomérulaire, estimé à partir de la créatinine, en ml/min/1,73 m². »
 - P08-03 — libellé > 45 car. : « Artériopathie oblitérante des membres inférieurs » → « Artériopathie des membres inférieurs »
+
+## Seconde vérification des sources (23.11.2026 00:46, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Néoplasie dans 2 % à 10 % des ulcères de jambe | DGPL, Valesky et al. 2024, S2k (texte AWMF/JDDG) | conforme |
+| 2 | Biopsie d'un ulcère sans tendance à guérir après 6 semaines | DGPL, Valesky et al. 2024 | conforme |
+| 3 | Score de Braden de 10 à 12 : risque élevé | échelle de Braden (formulaire de 1988) | conforme |
+| 4 | IPS de 0,9 à 1,3, index orteil-bras ≥ 0,70, ondes triphasiques ou biphasiques : artériopathie peu probable | IWGDF/ESVS/SVS 2023 (iwgdfguidelines.org) | conforme |
+| 5 | HbA1c ≥ 6,5 % ou glycémie à jeun ≥ 7,0 mmol/l : diabète | ADA, Standards of Care | conforme |

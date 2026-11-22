@@ -28,3 +28,15 @@ Corrections faites :
 - P08-01-HIS-PR — libellé > 45 car. : « Biopsie au punch avec immunofluorescence directe » → « Biopsie au punch avec IFD »
 - P08-01-HIS-PR — sigle absent du glossaire (C3) : « None » → « glossaire[IFD]=Immunofluorescence directe, sur biopsie, qui montre des dépôts d'anticorps ou de complément dans le tissu. »
 - P08-01-BIO-PR — sigle absent du glossaire (C3) : « None » → « glossaire[IFI]=Immunofluorescence indirecte, sur coupe ou cellule, qui détecte des anticorps circulants. »
+
+## Seconde vérification des sources (23.11.2026 00:46, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Sans lecture vers le 7e jour, 7 % à 30 % des sensibilisations manquées (corticoïdes, or, acrylates, aminosides) | ESCD, Uter et al., Contact Dermatitis 2026 (PMC13441402) | conforme |
+| 2 | Sérologie de la pemphigoïde : 77 % en immunofluorescence indirecte, 70 % en ELISA anti-BP180 | Meijer et al., JAMA Dermatol 2019 | conforme |
+| 3 | Marges de reprise : 0,5 cm in situ, 1 cm sous 2 mm, 2 cm au-delà | recommandations suisses sur le mélanome, Swiss Med Wkly (smw.ch, PDF) | conforme |
+| 4 | Ulcération : ganglion sentinelle dès 0,8 mm | même texte : ≥ 1 mm, ou 0,8 à < 1 mm avec ulcération, ≥ 1 mitose/mm² ou microsatellites | conforme |
+| 5 | Dermoscopie : sensibilité de 76 % à 92 % (spécificité fixée à 80 %), spécificité de 75 % à 95 % (sensibilité fixée à 80 %) | Dinnes et al., Cochrane 2018, mélanome (PMC6517096) | conforme |
