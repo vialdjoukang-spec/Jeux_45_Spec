@@ -1,0 +1,651 @@
+{
+ "_lot": {
+  "tache": "P09-07",
+  "titre": "Examens de l'organe Corps entier (bilan d'extension et trauma) (6 examens : 6 imagerie)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet.",
+  "aVerifier": [
+   "conception/donnees/paraclinique/topographie/9_systemes_transversaux/corps_entier.json › corps_entier__ct_corps_entier › irradiation_mSv : 12,5 mSv calculé en additionnant trois valeurs cibles OFSP R-06-06 rév. 2 (15.06.2018), car la directive n’a pas de protocole « corps entier » ou « polytraumatisme » : crâne 750 mGy·cm × 0,0021 = 1,575 mSv, colonne cervicale 300 mGy·cm × 0,0059 = 1,77 mSv, thorax-abdomen-bassin 610 mGy·cm × 0,015 = 9,15 mSv (facteur du tronc, AAPM Report 96, 2008) ; somme 12,495 mSv, arrondie à 12,5. Un protocole à plusieurs acquisitions de contraste augmenterait la dose, non chiffrée ici.",
+   "conception/donnees/paraclinique/topographie/9_systemes_transversaux/corps_entier.json › corps_entier__pet_ct_corps_entier › irradiation_mSv : 8,8 mSv = 4,75 mSv (250 MBq de FDG au NRD 3D × 0,019 mSv/MBq, Mettler et al., 2008 ; l’OFSP indique 4,8 mSv pour 250 MBq) + 4,05 mSv (270 mGy·cm, valeur cible OFSP du 1.2.2023, tableau 3.3, « tumeur TEP corps entier », 25e percentile × 0,015, facteur du tronc AAPM 96). Appliquer 0,015 à un DLP qui inclut la tête est une approximation et peut surestimer légèrement la contribution céphalique.",
+   "conception/donnees/paraclinique/topographie/9_systemes_transversaux/corps_entier.json › corps_entier__scintigraphie_aux_leucocytes_marques › irradiation_mSv : 8,1 mSv = 740 MBq × 0,011 mSv/MBq, activité habituelle et coefficient de Mettler et al. (2008) pour les leucocytes marqués au Tc-99m. L’OFSP (1.2.2023) ne publie pas de NRD pour les leucocytes autologues ; les 8,8 mSv pour 800 MBq concernent les anticorps antigranulocytes, un traceur différent."
+  ]
+ },
+ "fichiers": {
+  "conception/donnees/paraclinique/topographie/9_systemes_transversaux/corps_entier.json": {
+   "_meta": {
+    "region": "9. Systèmes transversaux (corps entier)",
+    "organe": "Corps entier (bilan d'extension et trauma)",
+    "statut": "LISTE COMPLÈTE — indication, principe, interprétation et bulle à remplir",
+    "regles": [
+     "Biologie : les valeurs de référence vivent dans biologie/analyses ; ici, tu dis pourquoi on demande l'analyse pour cet organe et ce qu'on y cherche."
+    ]
+   },
+   "examens": [
+    {
+     "id": "corps_entier__ct_corps_entier",
+     "modalite": "Imagerie",
+     "nom": "CT corps entier (polytraumatisme)",
+     "visees": [
+      "diagnostique",
+      "complications"
+     ],
+     "signeRecherche": "Lésions traumatiques de plusieurs régions",
+     "seuil": "Une lésion viscérale, vasculaire, osseuse ou cérébrale compatible avec le mécanisme et le tableau clinique rend l’examen positif ; chez le blessé grave, la sensibilité du CT corps entier atteint 85 à 92 % et sa spécificité 95 à 99 %, selon Stengel et al. (2012), cités par la directive S3 Polytrauma de la DGU (2022).",
+     "indication": "On le demande chez l’adulte suspect de blessure grave ou de polytraumatisme en présence d’un trouble des fonctions vitales (circulation, respiration, conscience ou neurologie), d’un examen ou d’une imagerie pathologique du thorax, de l’abdomen, du bassin ou du rachis, d’une fracture d’au moins deux os longs, ou d’un mécanisme à haute énergie, notamment une chute de plus de 4 m ou une compression du thorax ou de l’abdomen (directive S3 Polytrauma de la DGU, 2022). On le réalise rapidement, dès que le blessé n’est plus en situation d’intervention, d’opération ou de réanimation immédiate et que la pression artérielle systolique n’est pas inférieure à 8,0 kPa (60 mmHg) ; en deçà, ou sous réanimation, on stabilise d’abord le patient (directive S3 Polytrauma de la DGU, 2022). Chez l’enfant de moins de 16 ans, on ne le fait pas de principe et on limite le CT aux régions qui doivent être explorées (NICE, recommandation NG39, 2016).",
+     "discriminant": "Il montre en un seul examen la tête jusqu’au bassin inclus, avec un CT crânien sans injection, et offre chez le blessé grave la plus haute exactitude diagnostique parmi les techniques d’imagerie, selon Stengel et al. (2012), cités par la directive S3 Polytrauma de la DGU (2022).",
+     "avantageSelectif": "Réalisé à temps avec un protocole de traumatologie, il oriente le traitement, y compris lorsque la pression systolique se situe entre 8,0 et 12,0 kPa (60 et 90 mmHg), à condition que la circulation reste efficace pour le produit de contraste (directive S3 Polytrauma de la DGU, 2022).",
+     "plutotQue": "Dès que les critères de blessure grave sont réunis, il remplace le recours isolé à des clichés du thorax et du bassin ou à un CT limité à une région (directive S3 Polytrauma de la DGU, 2022). L’ESER (2020) rapporte aussi, chez les plus gravement atteints, une baisse de la mortalité par rapport à un CT sélectif.",
+     "limite": "Un traumatisme mineur ou localisé, sans argument clinique de traumatisme majeur, ne justifie pas un CT corps entier de principe (Smarter Medicine, Société Suisse de Chirurgie, 2018). Un eFAST négatif n’élimine pas une lésion et ne dispense pas du CT indiqué (directive S3 Polytrauma de la DGU, 2022) (NICE, recommandation NG39, 2016).",
+     "referencePour": [],
+     "smarterMedicine": "Éviter la tomodensitométrie «corps entier» systématique chez les patients présentant un traumatisme mineur ou localisé (Smarter Medicine, Société Suisse de Chirurgie, 2018).",
+     "radioAnatomieNormale": [
+      "Champ du vertex à mi-cuisse",
+      "Topogramme du vertex aux orteils",
+      "Tête jusqu’au bassin inclus",
+      "CT crânien sans injection"
+     ],
+     "precautions": "Chez la femme en âge de procréer, on fait un test de grossesse dans le bilan de salle de déchocage (directive S3 Polytrauma de la DGU, 2022). On n’entreprend pas le CT sous réanimation, et on le reporte tant que la pression systolique reste inférieure à 8,0 kPa (60 mmHg) ou qu’une intervention immédiate s’impose (directive S3 Polytrauma de la DGU, 2022). La dose typique de 12,5 mSv additionne les valeurs cibles (directive OFSP R-06-06, révision 2, 15.06.2018) : 750 mGy·cm × 0,0021 = 1,575 mSv pour le crâne, 300 mGy·cm × 0,0059 = 1,77 mSv pour la colonne cervicale, et 610 mGy·cm × 0,015 = 9,15 mSv pour le thorax-abdomen-bassin, avec les facteurs adultes (AAPM, Report 96, 2008), y compris le facteur du tronc. Chez l’enfant de moins de 16 ans, on ne le fait pas de principe (NICE, recommandation NG39, 2016).",
+     "irradiation_mSv": 12.5,
+     "delai": "urgence (< 1 h)",
+     "prelevementRef": null,
+     "synonymes": [
+      "Body-scanner",
+      "Scanner corps entier",
+      "CT polytraumatisme",
+      "Tomodensitométrie corps entier",
+      "Whole-body CT",
+      "Trauma-scan"
+     ],
+     "aspectNormal": "Le CT normal ne montre ni épanchement, ni hématome, ni extravasation de contraste, ni fracture, ni pneumothorax, de la tête jusqu’au bassin.",
+     "anomaliesElementaires": [
+      {
+       "anomalie": "Extravasation de produit de contraste",
+       "signification": "Elle traduit un saignement actif ; selon la directive S3 Polytrauma de la DGU (2022), elle marque la gravité d’une lésion du bassin sans imposer toujours une angiographie."
+      },
+      {
+       "anomalie": "Hémopéritoine",
+       "signification": "Il traduit un saignement intra-abdominal, qui fait chercher une lésion de la rate ou du foie."
+      },
+      {
+       "anomalie": "Pneumothorax",
+       "signification": "Il peut évoluer vers un pneumothorax sous tension s’il n’est pas traité, selon la directive S3 Polytrauma de la DGU (2022)."
+      },
+      {
+       "anomalie": "Hématome intracrânien",
+       "signification": "Il impose un avis neurochirurgical et peut changer l’ordre des priorités du traitement."
+      },
+      {
+       "anomalie": "Fracture du rachis",
+       "signification": "Elle fait évaluer la stabilité et le risque d’atteinte de la moelle avant toute mobilisation."
+      },
+      {
+       "anomalie": "Hématome médiastinal",
+       "signification": "Il fait chercher une lésion de l’aorte thoracique."
+      }
+     ],
+     "syndromesParacliniques": [
+      {
+       "syndrome": "Choc hémorragique traumatique",
+       "anomaliesQuiLeComposent": [
+        "Hémopéritoine",
+        "Extravasation de produit de contraste",
+        "Hématome rétropéritonéal"
+       ]
+      },
+      {
+       "syndrome": "Traumatisme thoracique grave",
+       "anomaliesQuiLeComposent": [
+        "Pneumothorax",
+        "Hémothorax",
+        "Contusion pulmonaire"
+       ]
+      },
+      {
+       "syndrome": "Traumatisme crânien grave",
+       "anomaliesQuiLeComposent": [
+        "Hématome intracrânien",
+        "Œdème cérébral",
+        "Fracture du crâne"
+       ]
+      }
+     ],
+     "pathologiesAssociees": [
+      {
+       "pathologie": "Fracture de côtes",
+       "anomalieTypique": "Trait de fracture costal"
+      },
+      {
+       "pathologie": "Lésion de la rate",
+       "anomalieTypique": "Lacération splénique et hémopéritoine"
+      },
+      {
+       "pathologie": "Fracture du bassin",
+       "anomalieTypique": "Fracture de l’anneau pelvien"
+      },
+      {
+       "pathologie": "Hématome sous-dural",
+       "anomalieTypique": "Collection hyperdense en croissant"
+      },
+      {
+       "pathologie": "Rupture traumatique de l’aorte",
+       "anomalieTypique": "Hématome médiastinal et faux anévrisme"
+      }
+     ],
+     "bulle": {
+      "def": "Le CT corps entier explore, en un passage de traumatologie, la tête jusqu’au bassin inclus, avec un CT crânien sans injection.",
+      "pourquoi": "Chez le blessé grave, il repère rapidement les lésions qui menacent le pronostic vital et oriente l’hémostase, la chirurgie ou la réanimation.",
+      "confusion": "On le confond avec un CT limité à une région : il n’est indiqué que si le tableau ou le mécanisme fait craindre des lésions de plusieurs territoires.",
+      "retenir": "On le fait sans délai chez le blessé grave stable assez pour le produit de contraste, et on ne l’étend pas au traumatisme mineur ou localisé."
+     }
+    },
+    {
+     "id": "corps_entier__efast",
+     "modalite": "Imagerie",
+     "nom": "eFAST (échographie de traumatologie)",
+     "visees": [
+      "diagnostique"
+     ],
+     "signeRecherche": "Liquide libre des séreuses traumatiques",
+     "seuil": "La présence de liquide libre dans l’espace hépato-rénal, l’espace spléno-rénal, le cul-de-sac de Douglas, le péricarde ou les récessus pleuraux rend l’examen positif ; la spécificité est élevée, de 94 à 100 %, alors que la sensibilité varie de 28 à 100 % (directive S3 Polytrauma de la DGU, 2022). Un examen négatif n’exclut pas une lésion intra-abdominale ou intra-thoracique (directive S3 Polytrauma de la DGU, 2022) (NICE, recommandation NG39, 2016).",
+     "indication": "On la réalise dans le bilan primaire en salle de déchocage après un traumatisme thoracique ou abdominal, fermé ou pénétrant (directive S3 Polytrauma de la DGU, 2022) (ESER, 2020). L’eFAST étend la FAST, limitée au péritoine et au péricarde, à l’exploration des plèvres (directive S3 Polytrauma de la DGU, 2022). On la fait en même temps que les autres gestes, sans retarder le CT corps entier lorsqu’il est indiqué (directive S3 Polytrauma de la DGU, 2022) (ESER, 2020).",
+     "discriminant": "Elle détecte rapidement, au lit du blessé, un épanchement qui exige un geste immédiat, notamment un pneumothorax, un hémothorax, un épanchement péricardique ou une hémorragie intra-abdominale ou pelvienne (directive S3 Polytrauma de la DGU, 2022) (ESER, 2020).",
+     "avantageSelectif": "Elle est rapide, non irradiante, et ses résultats positifs peuvent modifier le traitement tout de suite, même lorsqu’un CT est déjà prévu (directive S3 Polytrauma de la DGU, 2022).",
+     "plutotQue": "Elle précède ou accompagne le CT corps entier dans le bilan primaire, mais elle ne le remplace pas lorsque celui-ci est indiqué, et elle ne doit pas le retarder (directive S3 Polytrauma de la DGU, 2022) (ESER, 2020). Le NICE (NG39, 2016) précise aussi qu’on ne s’en sert pas pour décider si un CT est nécessaire chez un blessé grave.",
+     "limite": "Sa sensibilité est variable, et un résultat négatif n’élimine pas une lésion intra-abdominale, intra-thoracique ou rétropéritonéale (directive S3 Polytrauma de la DGU, 2022) (NICE, recommandation NG39, 2016). Plus la gravité globale des lésions est élevée, plus l’examen peut être imprécis (directive S3 Polytrauma de la DGU, 2022).",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": [
+      "Espace hépato-rénal (Morison)",
+      "Espace spléno-rénal (Koller)",
+      "Cul-de-sac de Douglas, sus-pubien",
+      "Péricarde, voie sous-xiphoïdienne",
+      "Récessus pleuraux basaux",
+      "Récessus pleuraux antérieurs"
+     ],
+     "precautions": "L’examinateur doit être formé, et le déroulement doit être standardisé, afin de ne pas retarder le CT corps entier du blessé grave (directive S3 Polytrauma de la DGU, 2022). Pour surveiller une lésion d’organe déjà vue au CT et qui ne relève pas d’une opération immédiate, on fait une échographie standard du thorax et de l’abdomen, et non une eFAST (directive S3 Polytrauma de la DGU, 2022).",
+     "irradiation_mSv": 0,
+     "delai": "urgence (< 1 h)",
+     "prelevementRef": null,
+     "synonymes": [
+      "FAST étendue",
+      "Échographie FAST",
+      "Échographie de traumatologie",
+      "E-FAST",
+      "Focused assessment with sonography for trauma"
+     ],
+     "aspectNormal": "L’examen normal ne montre pas de liquide libre dans les six fenêtres, et le glissement pleural est visible des deux côtés.",
+     "anomaliesElementaires": [
+      {
+       "anomalie": "Liquide libre hépato-rénal",
+       "signification": "Il traduit un hémopéritoine ; la spécificité de l’examen atteint 94 à 100 %, selon la directive S3 Polytrauma de la DGU (2022)."
+      },
+      {
+       "anomalie": "Épanchement péricardique",
+       "signification": "Il fait craindre une tamponnade chez le blessé thoracique instable."
+      },
+      {
+       "anomalie": "Glissement pleural aboli",
+       "signification": "Il évoque un pneumothorax, mais un eFAST thoracique négatif ne l’exclut pas, selon le NICE (NG39, 2016)."
+      },
+      {
+       "anomalie": "Liquide du cul-de-sac de Douglas",
+       "signification": "Il traduit un épanchement intrapéritonéal déclive, qui oriente vers un saignement."
+      },
+      {
+       "anomalie": "Épanchement pleural basal",
+       "signification": "Il évoque un hémothorax chez le blessé."
+      }
+     ],
+     "syndromesParacliniques": [
+      {
+       "syndrome": "Hémopéritoine échographique",
+       "anomaliesQuiLeComposent": [
+        "Liquide libre hépato-rénal",
+        "Liquide spléno-rénal",
+        "Liquide du cul-de-sac de Douglas"
+       ]
+      },
+      {
+       "syndrome": "Tamponnade traumatique",
+       "anomaliesQuiLeComposent": [
+        "Épanchement péricardique",
+        "Compression des cavités droites"
+       ]
+      }
+     ],
+     "pathologiesAssociees": [
+      {
+       "pathologie": "Lésion de la rate",
+       "anomalieTypique": "Liquide spléno-rénal"
+      },
+      {
+       "pathologie": "Lésion du foie",
+       "anomalieTypique": "Liquide hépato-rénal"
+      },
+      {
+       "pathologie": "Hémothorax",
+       "anomalieTypique": "Épanchement pleural basal"
+      },
+      {
+       "pathologie": "Pneumothorax",
+       "anomalieTypique": "Glissement pleural aboli"
+      },
+      {
+       "pathologie": "Tamponnade péricardique",
+       "anomalieTypique": "Épanchement péricardique"
+      }
+     ],
+     "bulle": {
+      "def": "L’eFAST est une échographie ciblée qui cherche du liquide libre dans le péritoine, le péricarde et les plèvres, ainsi qu’un pneumothorax, chez un blessé.",
+      "pourquoi": "Un épanchement abondant se voit tout de suite et peut imposer un drainage ou une opération avant même le CT.",
+      "confusion": "Un examen négatif rassure à tort : il n’élimine ni une petite hémorragie ni une lésion d’organe solide sans épanchement franc.",
+      "retenir": "On la fait dans le bilan primaire, sans retarder le CT indiqué, et on ne s’en sert pas pour décider si ce CT est nécessaire."
+     }
+    },
+    {
+     "id": "corps_entier__pet_ct_corps_entier",
+     "modalite": "Imagerie",
+     "nom": "PET-CT corps entier",
+     "visees": [
+      "diagnostique",
+      "therapeutique"
+     ],
+     "signeRecherche": "Foyers extra-physiologiques de FDG",
+     "seuil": "Un foyer de FDG situé en dehors des sites physiologiques, lu avec le CT, oriente vers une tumeur, une métastase, une infection ou une inflammation (directives cliniques de la SSMN, 1.4.2026) (Boellaard et al., 2015).",
+     "indication": "On le demande pour la stadification et la restadification des lymphomes malins et du myélome, surtout si des localisations extramédullaires sont suspectées, ainsi que, après un bilan non conclusif, pour une fièvre d’origine inconnue ou une vascularite des gros vaisseaux (directives cliniques de la SSMN, 1.4.2026). Pour la stadification du lymphome et du myélome, le PET-CT au FDG est un examen de première instance (directives cliniques de la SSMN, 1.4.2026).",
+     "discriminant": "Il cartographie, en un examen, l’extension métabolique d’une maladie qui fixe le FDG, dans tout le corps, et guide le choix ou la révision du traitement (directives cliniques de la SSMN, 1.4.2026).",
+     "avantageSelectif": "Dans les indications de première instance, il est généralement indiqué et il est très probable qu’il contribue de manière significative au diagnostic, au concept thérapeutique et à la prise en charge (directives cliniques de la SSMN, 1.4.2026).",
+     "plutotQue": "Pour le myélome, le CT corps entier de faible dose reste le premier choix pour les ostéolyses, et l’IRM corps entier vient ensuite si ce CT est négatif ; le PET-CT peut les remplacer si l’IRM est impossible ou contre-indiquée (Hillengass et al., 2019). Pour une fièvre d’origine inconnue à faible probabilité d’infection, il vient souvent avant la scintigraphie aux leucocytes (Signore et al., EANM, 2018).",
+     "limite": "La fixation physiologique élevée du FDG dans le cerveau limite la détection des métastases cérébrales (Boellaard et al., 2015). Une infection, une inflammation ou une fracture fixe aussi le FDG, et une simple hyperfixation, sans ostéolyse d’au moins 5 mm visible sur le CT, ne suffit pas à retenir une lésion osseuse de myélome (Rajkumar et al., Lancet Oncology, 2014).",
+     "referencePour": [],
+     "smarterMedicine": "Pas de PET dans le suivi des patients asymptomatiques lorsqu’il y a une rémission complète après un traitement, sauf s’il existe des preuves élevées de l’utilité d’un PET (Smarter Medicine, Société suisse d’oncologie médicale, 2024).",
+     "radioAnatomieNormale": [
+      "Fixation physiologique élevée du cerveau",
+      "Reins et vessie",
+      "Myocarde et muscles, fixation variable",
+      "Graisse brune, fixation variable",
+      "Os cortical sans fixation"
+     ],
+     "precautions": "La dose typique de 8,8 mSv additionne 4,75 mSv pour 250 MBq de FDG au NRD des acquisitions 3D (directive de l’OFSP sur les NRD en médecine nucléaire, 1.2.2023), avec le coefficient de 0,019 mSv/MBq (Mettler et al., Radiology, 2008), et 4,05 mSv pour le CT à la valeur cible de 270 mGy·cm du protocole « tumeur TEP corps entier » (directive de l’OFSP sur les NRD en médecine nucléaire, 1.2.2023), multipliée par le facteur du tronc 0,015 (AAPM, Report 96, 2008). On discute l’indication chez la femme enceinte, car l’examen irradie.",
+     "irradiation_mSv": 8.8,
+     "delai": "programmé",
+     "prelevementRef": null,
+     "synonymes": [
+      "PET-CT au FDG",
+      "TEP-TDM",
+      "TEP-scanner",
+      "PET/CT",
+      "Tomographie par émission de positons"
+     ],
+     "aspectNormal": "Le PET-CT normal montre une fixation physiologique du cerveau, des reins et de la vessie, et une fixation variable du myocarde, des muscles et de la graisse brune.",
+     "anomaliesElementaires": [
+      {
+       "anomalie": "Foyer hypermétabolique ganglionnaire",
+       "signification": "Il oriente vers un lymphome, une métastase ou une inflammation, que la biopsie tranche."
+      },
+      {
+       "anomalie": "Foyer hypermétabolique osseux",
+       "signification": "Il évoque une métastase ou une localisation de myélome, mais une fracture fixe aussi le FDG."
+      },
+      {
+       "anomalie": "Fixation de la paroi des gros vaisseaux",
+       "signification": "Elle évoque une vascularite des gros vaisseaux, que la SSMN (2026) retient comme indication."
+      },
+      {
+       "anomalie": "Foyer autour d’un implant vasculaire",
+       "signification": "Il fait suspecter une infection du greffon, indication retenue par la SSMN (2026)."
+      }
+     ],
+     "syndromesParacliniques": [
+      {
+       "syndrome": "Maladie lymphomateuse étendue",
+       "anomaliesQuiLeComposent": [
+        "Foyers ganglionnaires étagés",
+        "Fixation splénique diffuse",
+        "Foyers osseux"
+       ]
+      },
+      {
+       "syndrome": "Maladie métastatique",
+       "anomaliesQuiLeComposent": [
+        "Foyers hépatiques",
+        "Foyers osseux multiples",
+        "Foyers ganglionnaires à distance"
+       ]
+      }
+     ],
+     "pathologiesAssociees": [
+      {
+       "pathologie": "Lymphome de Hodgkin",
+       "anomalieTypique": "Foyers ganglionnaires hypermétaboliques"
+      },
+      {
+       "pathologie": "Myélome avec atteinte extramédullaire",
+       "anomalieTypique": "Foyers osseux et tissulaires"
+      },
+      {
+       "pathologie": "Vascularite des gros vaisseaux",
+       "anomalieTypique": "Fixation de la paroi aortique"
+      },
+      {
+       "pathologie": "Infection d’un greffon vasculaire",
+       "anomalieTypique": "Foyer autour de la prothèse"
+      },
+      {
+       "pathologie": "Fièvre d’origine inconnue",
+       "anomalieTypique": "Foyer infectieux ou inflammatoire révélé"
+      }
+     ],
+     "bulle": {
+      "def": "Le PET-CT corps entier associe la carte de fixation du FDG, un analogue du glucose, et un CT qui localise chaque foyer.",
+      "pourquoi": "Les tissus tumoraux, infectieux ou inflammatoires consomment beaucoup de glucose et concentrent le FDG, ce qui rend visibles des foyers que le CT seul peut manquer.",
+      "confusion": "Une fracture, une infection ou une inflammation fixe aussi le FDG, et seule la confrontation au CT et au tableau clinique permet d’interpréter un foyer.",
+      "retenir": "En Suisse, c’est un examen de première instance pour la stadification du lymphome et du myélome, selon les directives de la SSMN de 2026."
+     }
+    },
+    {
+     "id": "corps_entier__irm_corps_entier",
+     "modalite": "Imagerie",
+     "nom": "IRM corps entier (myélome, syndromes de prédisposition)",
+     "visees": [
+      "diagnostique"
+     ],
+     "signeRecherche": "Lésions focales médullaires d’au moins 5 mm",
+     "seuil": "Plus d’une lésion focale, chacune d’au moins 5 mm, sur l’IRM constitue un biomarqueur de myélome à traiter (Rajkumar et al., Lancet Oncology, 2014). Hillengass et al. (2019) retiennent aussi 5 mm comme diamètre minimal habituel d’une lésion focale, du fait de l’épaisseur de coupe.",
+     "indication": "Après un CT corps entier de faible dose négatif, et en l’absence d’un autre événement qui définit le myélome, on demande une IRM corps entier, ou à défaut une IRM du rachis et du bassin, pour exclure des lésions focales (Hillengass et al., 2019). On la demande aussi chaque année, sans gadolinium, pour la surveillance des porteurs d’un variant constitutionnel pathogène de TP53, dont le syndrome de Li-Fraumeni (Frebourg et al., 2020, réseau GENTURIS).",
+     "discriminant": "Elle détecte les lésions focales médullaires, même sans ostéolyse corticale, et c’est l’étape suivante recommandée lorsque le CT corps entier de faible dose est négatif, précisément pour exclure un événement qui définit le myélome (Hillengass et al., 2019).",
+     "avantageSelectif": "Elle n’irradie pas, ce qui convient à une surveillance annuelle, et les protocoles de surveillance des variants TP53 se font sans gadolinium (Frebourg et al., 2020, réseau GENTURIS).",
+     "plutotQue": "Le CT corps entier de faible dose reste le premier choix pour identifier les ostéolyses ; l’IRM vient ensuite si ce CT est négatif (Hillengass et al., 2019). Le PET-CT peut remplacer l’IRM si celle-ci est impossible ou contre-indiquée (Hillengass et al., 2019).",
+     "limite": "Elle est moins disponible que le CT, et si elle ne peut pas être réalisée en entier, une IRM du rachis et du bassin reste une alternative acceptable (Hillengass et al., 2019). Une infiltration diffuse, une lésion focale unique ou un aspect douteux imposent un contrôle en 3 à 6 mois plutôt qu’un diagnostic immédiat de myélome (Rajkumar et al., Lancet Oncology, 2014).",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": [
+      "Champ du vertex aux genoux",
+      "Membres inférieurs entiers si possible",
+      "À défaut, rachis et bassin"
+     ],
+     "precautions": "On vérifie l’absence de matériel ferromagnétique non compatible et on recueille une éventuelle grossesse, car le champ magnétique et le matériel d’accompagnement imposent des précautions, même si l’examen n’irradie pas. Pour la surveillance d’un variant TP53, on réalise l’IRM corps entier sans gadolinium (Frebourg et al., 2020, réseau GENTURIS).",
+     "irradiation_mSv": 0,
+     "delai": "programmé",
+     "prelevementRef": null,
+     "synonymes": [
+      "IRM du corps entier",
+      "Whole-body MRI",
+      "WB-IRM",
+      "IRM squelettique corps entier"
+     ],
+     "aspectNormal": "L’IRM normale montre une moelle osseuse de signal homogène, sans lésion focale, du vertex jusqu’aux genoux.",
+     "anomaliesElementaires": [
+      {
+       "anomalie": "Lésion focale médullaire de 5 mm ou plus",
+       "signification": "Selon Rajkumar et al. (2014), plus d’une lésion de ce type suffit à définir un myélome à traiter."
+      },
+      {
+       "anomalie": "Infiltration médullaire diffuse",
+       "signification": "Selon Hillengass et al. (2019), elle traduit une infiltration plasmocytaire diffuse, qui ne suffit pas seule au diagnostic."
+      },
+      {
+       "anomalie": "Lésion focale unique",
+       "signification": "Selon Rajkumar et al. (2014), elle impose un contrôle en 3 à 6 mois avant de conclure."
+      },
+      {
+       "anomalie": "Masse tissulaire extra-osseuse",
+       "signification": "Elle évoque un plasmocytome ou une tumeur chez un porteur d’un variant TP53."
+      }
+     ],
+     "syndromesParacliniques": [
+      {
+       "syndrome": "Atteinte osseuse du myélome",
+       "anomaliesQuiLeComposent": [
+        "Lésions focales médullaires multiples",
+        "Infiltration médullaire diffuse",
+        "Fractures vertébrales"
+       ]
+      }
+     ],
+     "pathologiesAssociees": [
+      {
+       "pathologie": "Myélome multiple",
+       "anomalieTypique": "Lésions focales médullaires multiples"
+      },
+      {
+       "pathologie": "Myélome indolent",
+       "anomalieTypique": "Infiltration médullaire diffuse"
+      },
+      {
+       "pathologie": "Plasmocytome solitaire",
+       "anomalieTypique": "Lésion focale unique"
+      },
+      {
+       "pathologie": "Syndrome de Li-Fraumeni",
+       "anomalieTypique": "Tumeur découverte en surveillance"
+      }
+     ],
+     "bulle": {
+      "def": "L’IRM corps entier explore la moelle osseuse de l’ensemble du squelette, sans rayons X, à la recherche de lésions focales.",
+      "pourquoi": "Une lésion focale médullaire peut définir un myélome à traiter, même si le CT ne montre pas encore d’ostéolyse.",
+      "confusion": "Une lésion unique, une infiltration diffuse ou un doute ne suffisent pas à poser le diagnostic : il faut plus d’une lésion d’au moins 5 mm, ou un contrôle en 3 à 6 mois, selon Rajkumar et al. (2014).",
+      "retenir": "On la demande après un CT de faible dose négatif dans le myélome, selon Hillengass et al. (2019), et chaque année sans gadolinium chez les porteurs d’un variant TP53, selon Frebourg et al. (2020)."
+     }
+    },
+    {
+     "id": "corps_entier__scintigraphie_osseuse_corps_entier",
+     "modalite": "Imagerie",
+     "nom": "Scintigraphie osseuse corps entier",
+     "visees": [
+      "diagnostique"
+     ],
+     "signeRecherche": "Foyers d’hyperfixation ostéoblastique",
+     "seuil": "Une hyperfixation focale, surtout si elle est multiple et d’allure métastatique, rend l’examen positif, mais la spécificité est basse et l’interprétation exige le contexte clinique et, souvent, une imagerie morphologique (Van den Wyngaert et al., EANM, 2016).",
+     "indication": "On la demande pour rechercher des métastases osseuses ostéoblastiques, notamment d’un cancer de la prostate, du sein, du poumon ou du rein, et pour des indications bénignes telles que l’évaluation d’une maladie de Paget ou d’une arthropathie (Van den Wyngaert et al., EANM, 2016).",
+     "discriminant": "Elle cartographie, en un examen, l’activité ostéoblastique de tout le squelette et reste très sensible à une formation osseuse active, maligne ou bénigne (Van den Wyngaert et al., EANM, 2016).",
+     "avantageSelectif": "Elle est largement disponible et explore l’ensemble du squelette après une seule injection de bisphosphonate marqué au Tc-99m (Van den Wyngaert et al., EANM, 2016).",
+     "plutotQue": "L’IRM est plus sensible que la scintigraphie planaire pour les métastases vertébrales (Van den Wyngaert et al., EANM, 2016). Pour le myélome, on oriente d’abord vers un CT corps entier de faible dose, une IRM ou un PET-CT, plutôt que vers un bilan osseux conventionnel (Hillengass et al., 2019).",
+     "limite": "Sa spécificité est basse, et elle est en général moins sensible que l’IRM corps entier pour les métastases vertébrales (Van den Wyngaert et al., EANM, 2016). Elle peut manquer des lésions ostéolytiques peu ostéoblastiques, typiques du myélome (Hillengass et al., 2019).",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": [
+      "Squelette selon l’activité ostéoblastique",
+      "Élimination rénale et vésicale"
+     ],
+     "precautions": "Chez la femme enceinte ou qui allaite, on reporte l’examen si la question clinique le permet (Van den Wyngaert et al., EANM, 2016). La dose typique de 4,0 mSv correspond à l’activité du NRD de 700 MBq de Tc-99m MDP, DPD ou HDP (directive de l’OFSP sur les NRD en médecine nucléaire, 1.2.2023), avec le coefficient de 0,0057 mSv/MBq (publication 80 de la CIPR, citée par Van den Wyngaert et al., EANM, 2016) (Mettler et al., Radiology, 2008). Un SPECT-CT ciblé, non compris dans cette dose, a une valeur cible pelvienne de 130 mGy·cm (directive de l’OFSP sur les NRD en médecine nucléaire, 1.2.2023).",
+     "irradiation_mSv": 4.0,
+     "delai": "programmé",
+     "prelevementRef": null,
+     "synonymes": [
+      "Scintigraphie squelettique",
+      "Scintigraphie osseuse aux bisphosphonates",
+      "Bone scan",
+      "Scintigraphie au Tc-99m MDP"
+     ],
+     "aspectNormal": "Selon Van den Wyngaert et al. (EANM, 2016), l’examen normal montre une fixation symétrique et homogène du squelette, avec les reins et la vessie visibles.",
+     "anomaliesElementaires": [
+      {
+       "anomalie": "Hyperfixation focale",
+       "signification": "Selon l’EANM (2016), elle traduit une activité ostéoblastique accrue, de cause tumorale, traumatique ou dégénérative."
+      },
+      {
+       "anomalie": "Foyers multiples et dispersés",
+       "signification": "Ils évoquent des métastases osseuses, surtout sur le squelette axial."
+      },
+      {
+       "anomalie": "Hypofixation focale",
+       "signification": "Selon l’EANM (2016), elle peut traduire une lésion purement lytique, comme dans le myélome."
+      },
+      {
+       "anomalie": "Superscan",
+       "signification": "Selon l’EANM (2016), une fixation osseuse homogène et intense avec des reins peu visibles évoque une atteinte diffuse ou une hyperparathyroïdie."
+      }
+     ],
+     "syndromesParacliniques": [
+      {
+       "syndrome": "Métastases osseuses ostéoblastiques",
+       "anomaliesQuiLeComposent": [
+        "Foyers multiples et dispersés",
+        "Atteinte du squelette axial",
+        "Superscan"
+       ]
+      }
+     ],
+     "pathologiesAssociees": [
+      {
+       "pathologie": "Métastases d’un cancer de la prostate",
+       "anomalieTypique": "Foyers multiples du squelette axial"
+      },
+      {
+       "pathologie": "Métastases d’un cancer du sein",
+       "anomalieTypique": "Foyers multiples et dispersés"
+      },
+      {
+       "pathologie": "Fracture de fatigue",
+       "anomalieTypique": "Hyperfixation focale linéaire"
+      },
+      {
+       "pathologie": "Maladie de Paget",
+       "anomalieTypique": "Hyperfixation intense d’un os entier"
+      },
+      {
+       "pathologie": "Hyperparathyroïdie",
+       "anomalieTypique": "Superscan"
+      }
+     ],
+     "bulle": {
+      "def": "La scintigraphie osseuse corps entier cartographie la fixation d’un bisphosphonate marqué au Tc-99m, qui se dépose là où l’os se remanie, selon Van den Wyngaert et al. (EANM, 2016).",
+      "pourquoi": "Une métastase ostéoblastique, une fracture ou une maladie de Paget augmentent le remodelage osseux et apparaissent comme un foyer d’hyperfixation.",
+      "confusion": "Une arthrose, une fracture ou une inflammation fixent aussi le traceur, et seule la confrontation à la clinique et à une imagerie morphologique permet d’interpréter un foyer.",
+      "retenir": "L’examen est sensible à l’activité ostéoblastique de tout le squelette, mais peu spécifique, et il n’est plus l’imagerie de première intention du myélome."
+     }
+    },
+    {
+     "id": "corps_entier__scintigraphie_aux_leucocytes_marques",
+     "modalite": "Imagerie",
+     "nom": "Scintigraphie aux leucocytes marqués (foyer infectieux)",
+     "visees": [
+      "diagnostique",
+      "therapeutique"
+     ],
+     "signeRecherche": "Foyer infectieux fixant les leucocytes",
+     "seuil": "Une augmentation franche de la fixation, en intensité ou en étendue, entre les images tardives (3 à 4 h) et les images très tardives (20 à 24 h) signe une infection (Signore et al., EANM, 2018).",
+     "indication": "On la demande pour une ostéomyélite des os périphériques, une suspicion de descellement septique d’une prothèse, une infection de matériel orthopédique, ou la recherche d’un foyer chez un patient fébrile à forte probabilité d’infection (Signore et al., EANM, 2018).",
+     "discriminant": "Les leucocytes marqués migrent vers le foyer infectieux par chimiotactisme, ce qui permet de distinguer une infection d’un descellement aseptique ou d’une inflammation non infectieuse (Signore et al., EANM, 2018).",
+     "avantageSelectif": "Lorsque la probabilité d’infection est élevée, elle est préférée pour localiser un foyer occulte, alors que le PET-CT au FDG vient souvent en premier si cette probabilité est faible (Signore et al., EANM, 2018).",
+     "plutotQue": "Pour une spondylodiscite, le PET-CT au FDG associé à l’IRM est préféré, car les leucocytes marqués manquent souvent de fixation au siège d’une infection vertébrale (Signore et al., EANM, 2018). Pour une fièvre d’origine inconnue à faible probabilité d’infection, le PET-CT au FDG est aussi l’examen de première intention (Signore et al., EANM, 2018).",
+     "limite": "Elle exige un marquage ex vivo des leucocytes du patient, des acquisitions à plusieurs temps, et sa sensibilité varie selon le siège, le germe et le caractère aigu ou chronique de l’infection (Signore et al., EANM, 2018). Les anticorps antigranulocytes, autre technique de la même recommandation, n’ont en Europe d’autorisation que pour les infections musculosquelettiques périphériques (Signore et al., EANM, 2018).",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": [
+      "Rate, foie et moelle osseuse fixants",
+      "Fixation stable de 3–4 h à 20–24 h"
+     ],
+     "precautions": "Le marquage des leucocytes autologues exige des conditions stériles (Signore et al., EANM, 2018). La dose typique de 8,1 mSv correspond à 740 MBq de leucocytes marqués au Tc-99m, activité habituelle et coefficient 0,011 mSv/MBq (Mettler et al., Radiology, 2008) ; l’OFSP ne publie pas de NRD pour les leucocytes autologues, seulement 8,8 mSv pour 800 MBq d’anticorps antigranulocytes (directive de l’OFSP sur les NRD en médecine nucléaire, 1.2.2023). On discute l’indication chez la femme enceinte, car l’examen irradie.",
+     "irradiation_mSv": 8.1,
+     "delai": "programmé",
+     "prelevementRef": null,
+     "synonymes": [
+      "Scintigraphie aux globules blancs marqués",
+      "Leucocytes marqués au Tc-99m HMPAO",
+      "Scintigraphie leucocytaire",
+      "WBC scan"
+     ],
+     "aspectNormal": "Selon Signore et al. (EANM, 2018), l’examen normal montre une fixation de la rate, du foie et de la moelle osseuse, sans augmentation entre 3 à 4 h et 20 à 24 h.",
+     "anomaliesElementaires": [
+      {
+       "anomalie": "Fixation croissante entre 4 h et 24 h",
+       "signification": "Selon Signore et al. (EANM, 2018), une hausse nette d’intensité ou d’étendue signe une infection."
+      },
+      {
+       "anomalie": "Fixation décroissante dans le temps",
+       "signification": "Selon Signore et al. (EANM, 2018), elle classe l’examen comme négatif."
+      },
+      {
+       "anomalie": "Fixation sans activité médullaire en regard",
+       "signification": "Selon Signore et al. (EANM, 2018), elle confirme l’ostéomyélite sur la scintigraphie de moelle couplée."
+      }
+     ],
+     "syndromesParacliniques": [
+      {
+       "syndrome": "Infection ostéoarticulaire",
+       "anomaliesQuiLeComposent": [
+        "Fixation croissante entre 4 h et 24 h",
+        "Fixation sans activité médullaire en regard"
+       ]
+      }
+     ],
+     "pathologiesAssociees": [
+      {
+       "pathologie": "Infection de prothèse articulaire",
+       "anomalieTypique": "Fixation périprothétique croissante"
+      },
+      {
+       "pathologie": "Ostéomyélite du pied diabétique",
+       "anomalieTypique": "Fixation osseuse croissante"
+      },
+      {
+       "pathologie": "Infection d’un greffon vasculaire",
+       "anomalieTypique": "Fixation le long de la prothèse"
+      },
+      {
+       "pathologie": "Fièvre d’origine inconnue",
+       "anomalieTypique": "Foyer infectieux croissant"
+      }
+     ],
+     "bulle": {
+      "def": "La scintigraphie aux leucocytes marqués suit, sur tout le corps, la migration de leucocytes autologues marqués au Tc-99m HMPAO ou à l’indium 111, selon Signore et al. (EANM, 2018).",
+      "pourquoi": "Les leucocytes se concentrent dans un foyer infectieux par chimiotactisme, et cette fixation augmente entre les images de 3 à 4 h et celles de 20 à 24 h, selon Signore et al. (EANM, 2018).",
+      "confusion": "Une fixation précoce isolée, sans augmentation au temps tardif, peut traduire une moelle osseuse ou une inflammation non infectieuse, et non une infection active.",
+      "retenir": "On la réserve surtout aux infections ostéoarticulaires périphériques et aux foyers de haute probabilité, et on lui préfère le PET-CT au FDG dans la spondylodiscite."
+     }
+    }
+   ],
+   "glossaire": {
+    "PET": "Le PET, ou tomographie par émission de positons, cartographie dans le corps un traceur radioactif comme le FDG.",
+    "PET/CT": "PET/CT est une autre écriture du PET-CT, qui associe la tomographie par émission de positons et un CT.",
+    "TEP": "La TEP, ou tomographie par émission de positons, est l’examen qui cartographie un traceur émetteur de positons ; on l’écrit aussi PET.",
+    "TEP-TDM": "La TEP-TDM est le nom français du PET-CT, qui associe la TEP et une tomodensitométrie.",
+    "TDM": "La TDM, ou tomodensitométrie, est le nom français du CT.",
+    "E-FAST": "E-FAST est une autre écriture de l’eFAST, l’échographie ciblée du blessé étendue aux plèvres.",
+    "WB-IRM": "WB-IRM est l’abréviation d’IRM corps entier, de l’anglais whole-body.",
+    "MRI": "MRI est le sigle anglais de l’IRM, magnetic resonance imaging.",
+    "WBC": "WBC est le sigle anglais des leucocytes, white blood cells, employé pour la scintigraphie aux leucocytes marqués.",
+    "SI": "Le SI, ou Système international d’unités, fixe les unités légales en Suisse, comme le kPa ou la mmol/l.",
+    "IRM": "L’IRM, ou imagerie par résonance magnétique, est un examen d’imagerie qui n’utilise pas de rayons X et explore notamment la moelle osseuse.",
+    "CT": "Le CT, ou tomodensitométrie, est un examen d’imagerie qui reconstruit des coupes du corps à partir de rayons X.",
+    "OFSP": "L’OFSP, ou Office fédéral de la santé publique, est l’autorité suisse qui publie notamment les niveaux de référence diagnostiques.",
+    "FDG": "Le FDG, ou fluorodésoxyglucose marqué au fluor 18, est un analogue du glucose utilisé comme traceur du PET-CT.",
+    "eFAST": "L’eFAST, ou extended focused assessment with sonography for trauma, est une échographie ciblée qui cherche du liquide libre dans le péritoine, le péricarde et la plèvre, ainsi qu’un pneumothorax, chez un blessé.",
+    "FAST": "La FAST, ou focused assessment with sonography for trauma, est l’échographie ciblée du péritoine et du péricarde, avant l’extension aux plèvres qui définit l’eFAST.",
+    "PET-CT": "Le PET-CT associe une tomographie par émission de positons, qui cartographie un traceur, et un CT qui localise chaque foyer.",
+    "NRD": "Le NRD, ou niveau de référence diagnostique, est une valeur de comparaison pour la dose ou l’activité administrée, et non une limite réglementaire.",
+    "R-06-06": "R-06-06 est la directive de l’OFSP qui fixe les niveaux de référence diagnostiques en tomodensitométrie.",
+    "AAPM": "L’AAPM, ou American Association of Physicists in Medicine, publie des facteurs qui convertissent le DLP en dose efficace.",
+    "SSMN": "La SSMN, ou Société Suisse de Médecine Nucléaire, publie les directives cliniques suisses des examens PET-CT.",
+    "EANM": "L’EANM, ou European Association of Nuclear Medicine, est la société européenne de médecine nucléaire.",
+    "DGU": "La DGU, ou Deutsche Gesellschaft für Unfallchirurgie, est la société allemande de chirurgie traumatologique, auteure de la directive S3 Polytrauma.",
+    "S3": "Une directive S3 est une recommandation de l’AWMF élaborée de façon systématique, avec un consensus représentatif des sociétés concernées.",
+    "NICE": "Le NICE, ou National Institute for Health and Care Excellence, est l’institut britannique qui publie des recommandations de pratique clinique.",
+    "NG39": "NG39 est la recommandation du NICE sur l’évaluation et la prise en charge initiale d’un traumatisme majeur, lue dans sa version de 2016.",
+    "ESER": "L’ESER, ou European Society of Emergency Radiology, est la société européenne de radiologie d’urgence.",
+    "GENTURIS": "GENTURIS est le réseau européen de référence pour les syndromes de prédisposition génétique aux tumeurs.",
+    "TP53": "TP53 est le gène dont un variant constitutionnel pathogène définit les cancers héréditaires liés à TP53, dont le syndrome de Li-Fraumeni.",
+    "kPa": "Le kPa, ou kilopascal, est l’unité SI de pression ; 1 mmHg vaut 133,322 Pa selon l’ordonnance fédérale sur les unités.",
+    "mmHg": "Le mmHg, ou millimètre de mercure, est une unité de pression encore utilisée pour la pression artérielle, à côté du kPa.",
+    "mSv": "Le mSv, ou millisievert, est l’unité de dose efficace utilisée pour comparer l’irradiation des examens.",
+    "mGy·cm": "Le mGy·cm est l’unité du produit dose-longueur d’un examen CT.",
+    "MBq": "Le MBq, ou mégabecquerel, est l’unité d’activité d’un traceur radioactif injecté.",
+    "Tc-99m": "Le Tc-99m, ou technétium 99 métastable, est l’isotope le plus utilisé pour marquer les traceurs de scintigraphie.",
+    "MDP": "Le MDP, ou méthylène diphosphonate, est un bisphosphonate marqué au Tc-99m qui se fixe sur l’os en remaniement.",
+    "DPD": "Le DPD, ou acide dicarboxypropane diphosphonique, est un bisphosphonate marqué au Tc-99m utilisé comme le MDP.",
+    "HDP": "Le HDP, ou hydroxyméthylène diphosphonate, est un bisphosphonate marqué au Tc-99m utilisé comme le MDP.",
+    "HMPAO": "Le HMPAO, ou hexaméthylpropylène amine oxime, est la molécule qui permet de marquer les leucocytes au Tc-99m.",
+    "SPECT": "Le SPECT, ou tomographie d’émission monophotonique, reconstruit en coupes la répartition d’un traceur de scintigraphie.",
+    "CIPR": "La CIPR, ou Commission internationale de protection radiologique, publie les coefficients de dose des traceurs.",
+    "SPECT-CT": "Le SPECT-CT associe une tomoscintigraphie, qui localise le traceur en coupes, et un CT qui situe chaque foyer.",
+    "AWMF": "L’AWMF est l’association allemande des sociétés médicales scientifiques, qui publie les directives cliniques allemandes, dont celles de niveau S3.",
+    "DLP": "Le DLP, ou produit dose-longueur, exprime en mGy·cm la dose délivrée par un CT sur toute la longueur explorée.",
+    "mGy": "Le mGy, ou milligray, est l’unité de dose absorbée ; multiplié par la longueur explorée, il donne le DLP en mGy·cm."
+   }
+  }
+ }
+}
