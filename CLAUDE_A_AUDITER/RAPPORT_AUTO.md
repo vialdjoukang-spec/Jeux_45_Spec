@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:12
+# Audit automatique — 2026-11-22 21:17
 
-4 fichier(s) : 4 🟩 intégrables · 0 🟧 à compléter · 0 🟥 refusés.
+6 fichier(s) : 5 🟩 intégrables · 1 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -18,5 +18,11 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/08_Systeme_lymphatique/2_Pratique/P09-08-PR_Examens_Systeme_lymphatique_7-examens_PRATIQUE_production_XAi.json`
 - 🟩 `systeme_lymphatique.json` : remplissage 100 % (14/14)
+
+### 🟧 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/09_Sommeil_et_vigilance/1_Theorie/P09-09_Examens_Sommeil_et_vigilance_7-examens_production_XAi.json`
+- 🟧 `sommeil_et_vigilance.json` : remplissage 82 % (121/147)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/09_Sommeil_et_vigilance/2_Pratique/P09-09-PR_Examens_Sommeil_et_vigilance_7-examens_PRATIQUE_production_XAi.json`
+- 🟩 `sommeil_et_vigilance.json` : remplissage 100 % (14/14)
 
 Signature : AAI (Anthropic AI)
