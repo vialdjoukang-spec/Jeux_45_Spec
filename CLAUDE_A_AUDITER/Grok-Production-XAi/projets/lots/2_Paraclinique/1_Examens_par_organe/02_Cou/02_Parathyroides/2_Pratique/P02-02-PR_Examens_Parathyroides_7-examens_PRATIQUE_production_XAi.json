@@ -1,0 +1,526 @@
+{
+ "_lot": {
+  "tache": "P02-02-PR",
+  "titre": "Pratique — Examens de l'organe Parathyroïdes (7 examens : 4 imagerie + 3 biologie)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/2_cou/parathyroides.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/2_cou/parathyroides.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "parathyroides__echographie_cervicale",
+     "nom": "Échographie cervicale",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "parathyroides__echographie_cervicale-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la Revue médicale suisse (2015), les examens recommandés une fois l’opération décidée sont l’échographie cervicale couplée à la scintigraphie au sestamibi.",
+        "pourquoiFaux": "L’IRM cérébrale et la radiographie ne localisent pas une parathyroïde, et sans localisation une exploration bilatérale est nécessaire."
+       },
+       "sources": [
+        "Köhler Ballan et Philippe, l’hyperparathyroïdie primaire asymptomatique en 2014, Rev Med Suisse (2015)"
+       ],
+       "casClinique": "À Genève, une femme de 58 ans a une HPT1 confirmée et une indication opératoire ; le chirurgien veut localiser l’adénome.",
+       "options": [
+        "Échographie et scintigraphie au sestamibi",
+        "IRM cérébrale",
+        "Radiographie du cou",
+        "Aucun examen"
+       ],
+       "bonneReponse": "Échographie et scintigraphie au sestamibi",
+       "visee": "etiologique"
+      },
+      {
+       "id": "parathyroides__echographie_cervicale-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’EANM (2021), une parathyroïde hyperfonctionnelle est hypoéchogène, ovale, bien limitée et séparée de la thyroïde par du tissu échogène.",
+        "pourquoiFaux": "Ce n’est pas un nodule thyroïdien, car la lésion est séparée de la thyroïde."
+       },
+       "sources": [
+        "Petranović Ovčariček et al., recommandations EANM sur l’imagerie parathyroïdienne, Eur J Nucl Med Mol Imaging (2021)"
+       ],
+       "consigne": "Sur cette échographie, décris la lésion et conclus.",
+       "aspectRecherche": "Nodule hypoéchogène rétrothyroïdien",
+       "reponse": "Une lésion ovale de 12 mm, hypoéchogène, est située sous le pôle inférieur du lobe droit et séparée de la thyroïde par une ligne échogène : c’est un adénome parathyroïdien probable.",
+       "imageOuTraceAttendu": "Coupe longitudinale du lobe thyroïdien droit : nodule ovale de 12 mm, hypoéchogène, sous le pôle inférieur, séparé de la thyroïde par une fine ligne brillante, artère qui y pénètre au Doppler."
+      },
+      {
+       "id": "parathyroides__echographie_cervicale-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’EANM (2021), la ponction a donné une fibrose dans 77 % des adénomes ponctionnés et doublé la durée de l’opération ; elle est réservée à des cas très choisis.",
+        "pourquoiFaux": "La ponction n’est pas nécessaire quand l’imagerie est concordante."
+       },
+       "sources": [
+        "Petranović Ovčariček et al., recommandations EANM sur l’imagerie parathyroïdienne, Eur J Nucl Med Mol Imaging (2021)"
+       ],
+       "erreurFrequente": "Faire une cytoponction systématique de la lésion parathyroïdienne vue à l’échographie.",
+       "consequence": "On crée une fibrose qui rend l’opération plus difficile et peut imiter un cancer.",
+       "bonneConduite": "On réserve la ponction à de rares cas choisis, quand l’imagerie est atypique ou douteuse."
+      }
+     ]
+    },
+    {
+     "ref": "parathyroides__scintigraphie_au_sestamibi",
+     "nom": "Scintigraphie au sestamibi (SPECT-CT)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "parathyroides__scintigraphie_au_sestamibi-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’EANM (2021), le couple sestamibi et échographie est l’imagerie préopératoire la plus répandue, et la sensibilité vient surtout de la scintigraphie ; la SPECT-CT améliore la localisation.",
+        "pourquoiFaux": "La radiographie et la densitométrie ne localisent pas l’adénome, et l’échographie seule dépend de l’opérateur."
+       },
+       "sources": [
+        "Petranović Ovčariček et al., recommandations EANM sur l’imagerie parathyroïdienne, Eur J Nucl Med Mol Imaging (2021)"
+       ],
+       "casClinique": "À Bâle, un homme de 66 ans a une HPT1 avec indication opératoire ; l’échographie ne montre rien.",
+       "options": [
+        "Scintigraphie au sestamibi en SPECT-CT",
+        "Radiographie du thorax",
+        "Densitométrie osseuse",
+        "Échographie répétée seule"
+       ],
+       "bonneReponse": "Scintigraphie au sestamibi en SPECT-CT",
+       "visee": "etiologique"
+      },
+      {
+       "id": "parathyroides__scintigraphie_au_sestamibi-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’EANM (2021), le traceur est retenu plus longtemps par la parathyroïde hyperfonctionnelle qu’il ne l’est par la thyroïde, ce qui la fait ressortir sur les images tardives.",
+        "pourquoiFaux": "Ce n’est pas la thyroïde normale, qui lave le traceur."
+       },
+       "sources": [
+        "Petranović Ovčariček et al., recommandations EANM sur l’imagerie parathyroïdienne, Eur J Nucl Med Mol Imaging (2021)"
+       ],
+       "consigne": "Sur ces images précoces et tardives, repère l’anomalie.",
+       "aspectRecherche": "Foyer persistant sur images tardives",
+       "reponse": "La thyroïde s’efface à 2 heures, mais un foyer reste sous le lobe gauche : c’est une parathyroïde hyperfonctionnelle.",
+       "imageOuTraceAttendu": "Scintigraphie au sestamibi, image précoce à 10 minutes avec fixation thyroïdienne diffuse, image tardive à 2 heures avec un foyer arrondi persistant sous le pôle inférieur gauche."
+      },
+      {
+       "id": "parathyroides__scintigraphie_au_sestamibi-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon la Revue médicale suisse (2015), l’imagerie n’est pas diagnostique de l’HPT1 ; si la localisation échoue, une cervicotomie exploratrice bilatérale est indiquée.",
+        "pourquoiFaux": "Une imagerie négative ne remet pas en cause un diagnostic biologique."
+       },
+       "sources": [
+        "Köhler Ballan et Philippe, l’hyperparathyroïdie primaire asymptomatique en 2014, Rev Med Suisse (2015)"
+       ],
+       "erreurFrequente": "Conclure qu’il n’y a pas d’HPT1 parce que la scintigraphie est négative.",
+       "consequence": "On renonce à tort à une opération indiquée.",
+       "bonneConduite": "On garde le diagnostic biologique et l’on complète l’imagerie, ou l’on propose une exploration bilatérale."
+      }
+     ]
+    },
+    {
+     "ref": "parathyroides__pet_choline",
+     "nom": "PET-choline",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "parathyroides__pet_choline-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l’EANM (2021), la PET-CT à la fluorocholine est une imagerie de seconde ligne efficace quand l’imagerie standard est négative ou douteuse.",
+        "pourquoiFaux": "Répéter un examen négatif apporte peu, et les autres examens ne cherchent pas une parathyroïde."
+       },
+       "sources": [
+        "Petranović Ovčariček et al., recommandations EANM sur l’imagerie parathyroïdienne, Eur J Nucl Med Mol Imaging (2021)"
+       ],
+       "casClinique": "À Zurich, une HPT1 opérable a une échographie et une scintigraphie au sestamibi négatives.",
+       "options": [
+        "PET-CT à la fluorocholine",
+        "Répéter la scintigraphie",
+        "Radiographie du cou",
+        "IRM du genou"
+       ],
+       "bonneReponse": "PET-CT à la fluorocholine",
+       "visee": "etiologique"
+      },
+      {
+       "id": "parathyroides__pet_choline-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l’EANM (2021), la choline marquée s’accumule dans les parathyroïdes hyperfonctionnelles, avec une sensibilité groupée de 95 % par patient.",
+        "pourquoiFaux": "Ce n’est pas un ganglion médiastinal, qui siégerait plus bas."
+       },
+       "sources": [
+        "Petranović Ovčariček et al., recommandations EANM sur l’imagerie parathyroïdienne, Eur J Nucl Med Mol Imaging (2021)"
+       ],
+       "consigne": "Sur cette PET-CT, repère le foyer utile et conclus.",
+       "aspectRecherche": "Foyer rétrothyroïdien",
+       "reponse": "Un petit foyer intense est situé derrière le lobe droit, sur une lésion de 8 mm au CT : c’est un adénome parathyroïdien probable.",
+       "imageOuTraceAttendu": "PET-CT à la fluorocholine, coupe axiale du cou : foyer intense de 8 mm en arrière du lobe thyroïdien droit, sans fixation thyroïdienne focale."
+      },
+      {
+       "id": "parathyroides__pet_choline-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’EANM (2021), un foyer intrathyroïdien correspond le plus souvent à un nodule thyroïdien, et l’on recommande de le confronter à une scintigraphie thyroïdienne.",
+        "pourquoiFaux": "Tout foyer de fluorocholine n’est pas une parathyroïde."
+       },
+       "sources": [
+        "Petranović Ovčariček et al., recommandations EANM sur l’imagerie parathyroïdienne, Eur J Nucl Med Mol Imaging (2021)"
+       ],
+       "erreurFrequente": "Opérer un foyer intrathyroïdien de la PET-choline en le prenant pour un adénome parathyroïdien.",
+       "consequence": "On risque de retirer un nodule thyroïdien et de laisser l’adénome.",
+       "bonneConduite": "On confronte le foyer à l’échographie et à la scintigraphie thyroïdienne."
+      }
+     ]
+    },
+    {
+     "ref": "parathyroides__ct_4d",
+     "nom": "CT 4D",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "parathyroides__ct_4d-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l’EANM (2021), le CT 4D est utile si l’imagerie précédente est négative ou si l’anatomie est remaniée ; avant une réintervention, sa sensibilité était de 88 %, contre 21 % pour l’échographie.",
+        "pourquoiFaux": "Le CT standard a peu de valeur pour les parathyroïdes, et l’échographie est peu sensible dans un cou opéré."
+       },
+       "sources": [
+        "Petranović Ovčariček et al., recommandations EANM sur l’imagerie parathyroïdienne, Eur J Nucl Med Mol Imaging (2021)"
+       ],
+       "casClinique": "À Lausanne, une femme déjà opérée sans succès d’une HPT1 doit être réopérée ; son cou est remanié.",
+       "options": [
+        "CT 4D",
+        "CT cervical standard",
+        "Échographie seule",
+        "Radiographie du cou"
+       ],
+       "bonneReponse": "CT 4D",
+       "visee": "etiologique"
+      },
+      {
+       "id": "parathyroides__ct_4d-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l’EANM (2021), une prise et un lavage rapides du contraste sont typiques d’un adénome, et le sillon trachéo-œsophagien est un siège ectopique fréquent des parathyroïdes supérieures.",
+        "pourquoiFaux": "Un ganglion ne se rehausse pas avec ce schéma."
+       },
+       "sources": [
+        "Petranović Ovčariček et al., recommandations EANM sur l’imagerie parathyroïdienne, Eur J Nucl Med Mol Imaging (2021)"
+       ],
+       "consigne": "Sur ces trois phases, décris la lésion.",
+       "aspectRecherche": "Prise artérielle précoce",
+       "reponse": "La lésion du sillon trachéo-œsophagien gauche prend fortement le contraste en phase artérielle et se lave en phase veineuse : c’est un adénome.",
+       "imageOuTraceAttendu": "CT 4D, coupes axiales en phases sans injection, artérielle et veineuse : nodule de 9 mm dans le sillon trachéo-œsophagien gauche, très rehaussé en phase artérielle, moins dense en phase veineuse."
+      },
+      {
+       "id": "parathyroides__ct_4d-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’EANM (2021), la dose thyroïdienne du CT 4D est environ 57 fois celle d’une SPECT au sestamibi, d’où la prudence chez le sujet jeune.",
+        "pourquoiFaux": "Le CT 4D n’est pas l’examen de première ligne d’une patiente jeune."
+       },
+       "sources": [
+        "Petranović Ovčariček et al., recommandations EANM sur l’imagerie parathyroïdienne, Eur J Nucl Med Mol Imaging (2021)"
+       ],
+       "erreurFrequente": "Prescrire un CT 4D en première intention chez une patiente de 25 ans.",
+       "consequence": "On délivre une forte dose de rayons à la thyroïde.",
+       "bonneConduite": "On commence par l’échographie et la scintigraphie, et l’on réserve le CT 4D aux échecs."
+      }
+     ]
+    },
+    {
+     "ref": "parathyroides__calcium_total_et_ionise_phosphate_pth",
+     "nom": "Calcium total et ionisé, phosphate, PTH",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "parathyroides__calcium_total_et_ionise_phosphate_pth-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l’ANZBMS (2021), la PTH se dose toujours en même temps que le calcium, car le diagnostic de l’HPT1 est biologique.",
+        "pourquoiFaux": "L’imagerie ne pose pas le diagnostic et ne vient qu’après la décision opératoire (Rev Med Suisse, 2015)."
+       },
+       "sources": [
+        "Milat et al., position ANZBMS sur l’hyperparathyroïdie primaire, Clin Endocrinol (2021)",
+        "Köhler Ballan et Philippe, l’hyperparathyroïdie primaire asymptomatique en 2014, Rev Med Suisse (2015)"
+       ],
+       "casClinique": "À Fribourg, une calcémie élevée est découverte par hasard chez une femme de 62 ans.",
+       "options": [
+        "PTH dosée avec le calcium",
+        "Scintigraphie au sestamibi",
+        "Échographie cervicale",
+        "CT 4D"
+       ],
+       "bonneReponse": "PTH dosée avec le calcium",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "parathyroides__calcium_total_et_ionise_phosphate_pth-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la Revue médicale suisse (2015), une calcémie de plus de 0,25 mmol/l au-dessus de la norme est une indication à la parathyroïdectomie.",
+        "pourquoiFaux": "L’absence de complication ne suffit pas à surveiller seulement."
+       },
+       "sources": [
+        "Köhler Ballan et Philippe, l’hyperparathyroïdie primaire asymptomatique en 2014, Rev Med Suisse (2015)"
+       ],
+       "resultat": "HPT1 confirmée chez un homme de 70 ans ; calcium 0,30 mmol/l au-dessus de la limite supérieure, sans complication.",
+       "decision": "On retient une indication opératoire et l’on demande l’imagerie de localisation."
+      },
+      {
+       "id": "parathyroides__calcium_total_et_ionise_phosphate_pth-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’ANZBMS (2021), la correction par l’albumine peut créer une fausse hypercalcémie quand l’albumine est sous 30 g/l ou que la fonction rénale est altérée ; le calcium ionisé est la référence.",
+        "pourquoiFaux": "Le calcium corrigé n’est pas fiable dans cette situation."
+       },
+       "sources": [
+        "Milat et al., position ANZBMS sur l’hyperparathyroïdie primaire, Clin Endocrinol (2021)"
+       ],
+       "erreurFrequente": "Conclure à une hypercalcémie sur un calcium corrigé par l’albumine chez une patiente à 25 g/l d’albumine.",
+       "consequence": "La correction peut surestimer le calcium et créer une fausse hypercalcémie.",
+       "bonneConduite": "On dose le calcium ionisé."
+      }
+     ]
+    },
+    {
+     "ref": "parathyroides__25_oh_vitamine_d",
+     "nom": "25-OH-vitamine D",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "parathyroides__25_oh_vitamine_d-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la Revue médicale suisse (2015), il faut exclure les causes secondaires d’une PTH élevée, comme une carence en 25-OH-vitamine D, avant de conclure.",
+        "pourquoiFaux": "L’imagerie ne pose pas le diagnostic, et la calcitonine n’a pas de rapport avec la PTH."
+       },
+       "sources": [
+        "Köhler Ballan et Philippe, l’hyperparathyroïdie primaire asymptomatique en 2014, Rev Med Suisse (2015)"
+       ],
+       "casClinique": "À Sion, une PTH élevée est trouvée avec un calcium normal chez une femme de 50 ans.",
+       "options": [
+        "25-OH-vitamine D",
+        "Scintigraphie au sestamibi",
+        "Calcitonine",
+        "CT 4D"
+       ],
+       "bonneReponse": "25-OH-vitamine D",
+       "visee": "etiologique"
+      },
+      {
+       "id": "parathyroides__25_oh_vitamine_d-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la Revue médicale suisse (2015), la cible minimale est de plus de 50 nmol/l, et une carence se substitue prudemment par 600 à 1000 UI par jour sous contrôle de la calcémie.",
+        "pourquoiFaux": "Laisser la carence brouille le bilan, mais une forte dose sans contrôle risque d’aggraver l’hypercalcémie."
+       },
+       "sources": [
+        "Köhler Ballan et Philippe, l’hyperparathyroïdie primaire asymptomatique en 2014, Rev Med Suisse (2015)"
+       ],
+       "resultat": "25-OH-vitamine D à 30 nmol/l chez une patiente avec une HPT1 légère.",
+       "decision": "On substitue prudemment avec 600 à 1000 UI de cholécalciférol par jour, en surveillant la calcémie."
+      },
+      {
+       "id": "parathyroides__25_oh_vitamine_d-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon Smarter Medicine (MIG ambulatoire, 2021), il ne faut pas mesurer la vitamine D 25(OH) par habitude chez les personnes sans facteur de risque de carence.",
+        "pourquoiFaux": "Un dosage de routine n’est pas recommandé."
+       },
+       "sources": [
+        "Smarter Medicine, Société Suisse de Médecine Interne Générale, médecine ambulatoire, liste Top 5 (2021)"
+       ],
+       "erreurFrequente": "Doser la vitamine D chaque année chez des adultes en bonne santé sans facteur de risque.",
+       "consequence": "On multiplie des dosages inutiles.",
+       "bonneConduite": "On réserve le dosage aux personnes à risque ou à un contexte précis comme l’HPT1."
+      }
+     ]
+    },
+    {
+     "ref": "parathyroides__calciurie_de_24_h",
+     "nom": "Calciurie de 24 h",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "parathyroides__calciurie_de_24_h-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la Revue médicale suisse (2015), l’excrétion urinaire du calcium se mesure toujours devant une suspicion d’HPT1, pour reconnaître une HHF.",
+        "pourquoiFaux": "L’imagerie et l’opération sont prématurées : une HHF ne s’opère pas."
+       },
+       "sources": [
+        "Köhler Ballan et Philippe, l’hyperparathyroïdie primaire asymptomatique en 2014, Rev Med Suisse (2015)"
+       ],
+       "casClinique": "À Neuchâtel, un homme de 40 ans a une hypercalcémie modérée ancienne, une PTH normale et un père dans le même cas.",
+       "options": [
+        "Calciurie et rapport de clairance",
+        "Scintigraphie au sestamibi",
+        "Parathyroïdectomie d’emblée",
+        "CT 4D"
+       ],
+       "bonneReponse": "Calciurie et rapport de clairance",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "parathyroides__calciurie_de_24_h-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’ANZBMS (2021), un rapport sous 0,01 est spécifique de l’HHF ; selon la Revue médicale suisse (2015), 80 % des HHF ont un rapport sous 0,01.",
+        "pourquoiFaux": "Un rapport aussi bas ne correspond pas à une HPT1, où il dépasse le plus souvent 0,02."
+       },
+       "sources": [
+        "Milat et al., position ANZBMS sur l’hyperparathyroïdie primaire, Clin Endocrinol (2021)",
+        "Köhler Ballan et Philippe, l’hyperparathyroïdie primaire asymptomatique en 2014, Rev Med Suisse (2015)"
+       ],
+       "resultat": "Rapport de clairance du calcium sur la créatinine à 0,008 chez ce patient.",
+       "decision": "On évoque une HHF et l’on ne propose pas d’opération sans avis spécialisé."
+      },
+      {
+       "id": "parathyroides__calciurie_de_24_h-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’ANZBMS (2021), le recueil se fait après normalisation de la vitamine D et arrêt des médicaments qui modifient la calciurie, comme les thiazidiques.",
+        "pourquoiFaux": "Une calciurie basse dans ces conditions n’a pas de valeur."
+       },
+       "sources": [
+        "Milat et al., position ANZBMS sur l’hyperparathyroïdie primaire, Clin Endocrinol (2021)"
+       ],
+       "erreurFrequente": "Recueillir la calciurie de 24 h sous thiazidique et avec une carence en vitamine D.",
+       "consequence": "La calciurie est faussement basse et fait évoquer à tort une HHF.",
+       "bonneConduite": "On corrige la vitamine D et l’on arrête le thiazidique avant le recueil."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "PET": "Le PET, ou tomographie par émission de positons, cartographie dans le corps un traceur radioactif comme le FDG.",
+    "IRM": "L’IRM, ou imagerie par résonance magnétique, est un examen d’imagerie qui n’utilise pas de rayons X.",
+    "CT": "Le CT, ou tomodensitométrie, est un examen d’imagerie qui reconstruit des coupes du corps à partir de rayons X.",
+    "FDG": "Le FDG, ou fluorodésoxyglucose marqué au fluor 18, est un analogue du glucose utilisé comme traceur du PET-CT.",
+    "PTH": "La PTH, ou parathormone, est l’hormone des glandes parathyroïdes qui élève le calcium sanguin.",
+    "HPT1": "L’HPT1 est l’hyperparathyroïdie primaire, due le plus souvent à un adénome parathyroïdien.",
+    "HHF": "L’HHF est l’hypercalcémie hypocalciurique familiale, maladie héréditaire du récepteur du calcium.",
+    "EANM": "L’EANM est l’association européenne de médecine nucléaire.",
+    "ANZBMS": "L’ANZBMS est la société australienne et néo-zélandaise de recherche sur l’os et les minéraux.",
+    "SPECT": "La SPECT est la tomoscintigraphie, qui reconstruit en coupes l’image d’un traceur gamma.",
+    "SPECT-CT": "La SPECT-CT associe une tomoscintigraphie et un CT pour localiser précisément le traceur.",
+    "CT 4D": "Le CT 4D est un CT en plusieurs phases, sans injection puis artérielle et veineuse, qui suit la prise de contraste dans le temps.",
+    "4D": "4D désigne la quatrième dimension, le temps, ajoutée aux trois phases d’un CT parathyroïdien.",
+    "MIG": "La MIG est la médecine interne générale ; la Société Suisse de Médecine Interne Générale publie des listes Smarter Medicine.",
+    "OH": "OH désigne le groupe hydroxyle, comme dans la 25-OH-vitamine D, forme de réserve de la vitamine D.",
+    "UI": "L’UI, ou unité internationale, mesure l’activité d’une vitamine ou d’une hormone.",
+    "PET-CT": "La PET-CT associe une tomographie par émission de positons et un CT."
+   }
+  }
+ }
+}

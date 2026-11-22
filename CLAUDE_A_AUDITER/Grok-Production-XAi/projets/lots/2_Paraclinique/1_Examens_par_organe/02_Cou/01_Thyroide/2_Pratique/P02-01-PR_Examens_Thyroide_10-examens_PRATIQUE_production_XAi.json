@@ -1,0 +1,749 @@
+{
+ "_lot": {
+  "tache": "P02-01-PR",
+  "titre": "Pratique — Examens de l'organe Thyroïde (10 examens : 4 imagerie + 4 biologie + 1 anatomopathologie + 1 explorations)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/2_cou/thyroide.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/2_cou/thyroide.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "thyroide__echographie_thyroidienne",
+     "nom": "Échographie thyroïdienne (classification EU-TIRADS)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "thyroide__echographie_thyroidienne-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l’EU-TIRADS (2017), l’échographie est une étape obligatoire du bilan d’un nodule et sert à choisir les nodules à ponctionner.",
+        "pourquoiFaux": "La scintigraphie est réservée aux TSH basses (ATA, 2015) ; le CT et l’IRM ne classent pas le risque d’un nodule."
+       },
+       "sources": [
+        "Russ et al., EU-TIRADS, recommandations de l’European Thyroid Association, Eur Thyroid J (2017)",
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "casClinique": "À Neuchâtel, une femme de 45 ans a un nodule thyroïdien palpable ; sa TSH est normale.",
+       "options": [
+        "Échographie thyroïdienne",
+        "Scintigraphie thyroïdienne",
+        "CT cervical",
+        "IRM du cou"
+       ],
+       "bonneReponse": "Échographie thyroïdienne",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "thyroide__echographie_thyroidienne-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’EU-TIRADS (2017), un seul signe de haut risque classe le nodule EU-TIRADS 5, et la cytoponction se fait au-delà de 10 mm.",
+        "pourquoiFaux": "Ce n’est pas un EU-TIRADS 3, qui est ovale, isoéchogène et sans signe de haut risque."
+       },
+       "sources": [
+        "Russ et al., EU-TIRADS, recommandations de l’European Thyroid Association, Eur Thyroid J (2017)"
+       ],
+       "consigne": "Sur cette échographie, classe le nodule et décide d’une ponction.",
+       "aspectRecherche": "Microcalcifications",
+       "reponse": "Le nodule de 14 mm est très hypoéchogène, plus haut que large et contient des microcalcifications : EU-TIRADS 5, à ponctionner.",
+       "imageOuTraceAttendu": "Coupe transversale du lobe droit : nodule solide de 14 mm, très hypoéchogène, plus haut que large, contours irréguliers, fins points brillants sans cône d’ombre."
+      },
+      {
+       "id": "thyroide__echographie_thyroidienne-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon la SSED (2025), il ne faut pas prescrire d’échographie systématique dans ce cas, car elle ne change pas le traitement.",
+        "pourquoiFaux": "L’échographie n’apporte rien au traitement d’une hypothyroïdie sans anomalie palpable."
+       },
+       "sources": [
+        "Smarter Medicine, Société suisse d’endocrinologie et de diabétologie, liste Top 5 (2025)"
+       ],
+       "erreurFrequente": "Prescrire une échographie thyroïdienne chez une patiente hypothyroïdienne dont la thyroïde est normale à la palpation.",
+       "consequence": "On découvre de petits nodules sans intérêt, qui entraînent des examens et un surtraitement.",
+       "bonneConduite": "On traite l’hypothyroïdie sans échographie si la palpation est normale."
+      }
+     ]
+    },
+    {
+     "ref": "thyroide__scintigraphie_thyroidienne",
+     "nom": "Scintigraphie thyroïdienne (Tc-99m, iode-123)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "thyroide__scintigraphie_thyroidienne-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’ATA (2015), une TSH basse devant un nodule fait faire une scintigraphie pour savoir s’il est chaud, car un nodule chaud ne se ponctionne pas.",
+        "pourquoiFaux": "La cytoponction d’emblée risque d’être inutile si le nodule est autonome ; le CT et la calcitonine ne disent pas s’il fonctionne."
+       },
+       "sources": [
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "casClinique": "À Sion, un homme de 62 ans a un nodule de 25 mm et une TSH basse.",
+       "options": [
+        "Scintigraphie thyroïdienne",
+        "Cytoponction d’emblée",
+        "CT cervical",
+        "Calcitonine"
+       ],
+       "bonneReponse": "Scintigraphie thyroïdienne",
+       "visee": "etiologique"
+      },
+      {
+       "id": "thyroide__scintigraphie_thyroidienne-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’EANM (2019), une zone hyperactive qui freine le reste de la glande traduit un nodule autonome, et un nodule chaud a une valeur prédictive négative de cancer de 96 à 99 %.",
+        "pourquoiFaux": "Ce n’est pas un Basedow, qui donne une hyperfixation diffuse et homogène."
+       },
+       "sources": [
+        "Giovanella et al., recommandation EANM/SNMMI sur la scintigraphie thyroïdienne, Eur J Nucl Med Mol Imaging (2019)"
+       ],
+       "consigne": "Sur cette scintigraphie, décris le nodule et conclus.",
+       "aspectRecherche": "Nodule chaud",
+       "reponse": "Le nodule du lobe gauche fixe intensément et éteint le reste de la glande : c’est un nodule autonome, presque jamais malin.",
+       "imageOuTraceAttendu": "Scintigraphie au Tc-99m de face : fixation intense et arrondie au pôle inférieur gauche, reste de la thyroïde à peine visible."
+      },
+      {
+       "id": "thyroide__scintigraphie_thyroidienne-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’EANM (2019), la surcharge iodée de l’amiodarone réduit la captation, et les traceurs habituels ne sont pas utiles.",
+        "pourquoiFaux": "Une fixation basse sous amiodarone ne prouve pas une thyroïdite."
+       },
+       "sources": [
+        "Giovanella et al., recommandation EANM/SNMMI sur la scintigraphie thyroïdienne, Eur J Nucl Med Mol Imaging (2019)"
+       ],
+       "erreurFrequente": "Demander une scintigraphie chez un patient sous amiodarone.",
+       "consequence": "L’examen est ininterprétable à cause de la surcharge iodée.",
+       "bonneConduite": "On choisit un autre examen, car la fixation du traceur est effondrée sous amiodarone."
+      }
+     ]
+    },
+    {
+     "ref": "thyroide__ct_cervicothoracique",
+     "nom": "CT cervicothoracique (goitre plongeant)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "thyroide__ct_cervicothoracique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’ATA (2015), une imagerie en coupes injectée complète l’échographie quand on suspecte une tumeur invasive ou une atteinte ganglionnaire étendue.",
+        "pourquoiFaux": "La scintigraphie et la radiographie ne précisent pas l’invasion, et l’échographie seule ne suffit pas pour planifier l’opération."
+       },
+       "sources": [
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "casClinique": "À Lausanne, un cancer papillaire envahit cliniquement la trachée et s’accompagne de gros ganglions cervicaux.",
+       "options": [
+        "CT cervico-thoracique injecté",
+        "Scintigraphie thyroïdienne",
+        "Échographie seule",
+        "Radiographie du thorax"
+       ],
+       "bonneReponse": "CT cervico-thoracique injecté",
+       "visee": "retentissement"
+      },
+      {
+       "id": "thyroide__ct_cervicothoracique-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’EU-TIRADS (2017), l’extension rétrosternale et la déviation de la trachée sont des éléments à signaler dans le compte rendu.",
+        "pourquoiFaux": "Ce n’est pas une adénopathie médiastinale, car la masse est en continuité avec la thyroïde."
+       },
+       "sources": [
+        "Russ et al., EU-TIRADS, recommandations de l’European Thyroid Association, Eur Thyroid J (2017)"
+       ],
+       "consigne": "Sur cette coupe coronale, décris le goitre.",
+       "aspectRecherche": "Extension rétrosternale",
+       "reponse": "Le goitre descend sous le manubrium sternal et refoule la trachée vers la droite : c’est un goitre plongeant.",
+       "imageOuTraceAttendu": "CT coronal injecté : masse thyroïdienne gauche hétérogène qui descend derrière le sternum jusqu’à la crosse aortique, trachée déviée à droite."
+      },
+      {
+       "id": "thyroide__ct_cervicothoracique-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l’ATA (2015), l’iode injecté est éliminé en 4 à 8 semaines chez la plupart des patients, ce qui retarde l’imagerie et le traitement par iode radioactif.",
+        "pourquoiFaux": "L’injection reste souvent justifiée, mais son délai doit être prévu."
+       },
+       "sources": [
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "erreurFrequente": "Faire un CT injecté sans prévenir l’équipe qui prévoit un traitement par iode radioactif.",
+       "consequence": "Le traitement est retardé de plusieurs semaines.",
+       "bonneConduite": "On discute l’injection avec l’équipe et l’on prévoit le délai."
+      }
+     ]
+    },
+    {
+     "ref": "thyroide__scintigraphie_a_l_iode_131_corps_entier",
+     "nom": "Scintigraphie à l'iode 131 corps entier (suivi du cancer)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "thyroide__scintigraphie_a_l_iode_131_corps_entier-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l’ATA (2015), une scintigraphie diagnostique est utile quand l’étendue du reliquat est incertaine et que le résultat peut changer la décision de traiter.",
+        "pourquoiFaux": "La calcitonine sert au cancer médullaire, le CT cérébral n’est pas indiqué, et les anti-TPO ne suivent pas un cancer."
+       },
+       "sources": [
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "casClinique": "À Genève, après une thyroïdectomie pour cancer papillaire, le compte rendu ne permet pas de savoir ce qui reste de la thyroïde.",
+       "options": [
+        "Scintigraphie corps entier à l’iode",
+        "Calcitonine",
+        "CT cérébral",
+        "Anticorps anti-TPO"
+       ],
+       "bonneReponse": "Scintigraphie corps entier à l’iode",
+       "visee": "sortie"
+      },
+      {
+       "id": "thyroide__scintigraphie_a_l_iode_131_corps_entier-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l’ATA (2015), une fixation hors de la loge thyroïdienne traduit une maladie résiduelle, ici à distance.",
+        "pourquoiFaux": "L’estomac et la vessie fixent normalement l’iode ; ce n’est pas le cas des poumons."
+       },
+       "sources": [
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "consigne": "Sur cette scintigraphie corps entier, repère la fixation anormale.",
+       "aspectRecherche": "Fixation pulmonaire ou osseuse",
+       "reponse": "En plus de la loge thyroïdienne, les deux poumons fixent de façon diffuse : ce sont des métastases fixant l’iode.",
+       "imageOuTraceAttendu": "Scintigraphie corps entier de face et de dos : fixation de la loge thyroïdienne, de l’estomac et de la vessie, et fixation diffuse des deux champs pulmonaires."
+      },
+      {
+       "id": "thyroide__scintigraphie_a_l_iode_131_corps_entier-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’ATA (2015), après la première scintigraphie post-thérapeutique, les patients à risque faible ou intermédiaire en réponse excellente n’ont pas besoin de scintigraphie de routine.",
+        "pourquoiFaux": "La scintigraphie répétée n’ajoute rien quand la Tg est indétectable et l’échographie normale."
+       },
+       "sources": [
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "erreurFrequente": "Refaire une scintigraphie corps entier chaque année chez un patient à faible risque en réponse excellente.",
+       "consequence": "On irradie sans bénéfice.",
+       "bonneConduite": "On suit la Tg, les Ac anti-Tg et l’échographie du cou."
+      }
+     ]
+    },
+    {
+     "ref": "thyroide__tsh_t4_libre_t3_libre",
+     "nom": "TSH, T4 libre, T3 libre",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "thyroide__tsh_t4_libre_t3_libre-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon la NIV (2022), la TSH est le premier test ; une TSH normale exclut presque une dysthyroïdie primaire, avec une valeur prédictive négative de 99,7 %.",
+        "pourquoiFaux": "Le trio d’emblée, l’échographie et les anticorps ne sont pas des tests de première intention."
+       },
+       "sources": [
+        "NIV, recommandation néerlandaise sur les dosages biologiques des dysthyroïdies (2022)"
+       ],
+       "casClinique": "À Fribourg, une femme de 35 ans fatiguée demande « un bilan de la thyroïde ».",
+       "options": [
+        "TSH seule",
+        "TSH, T4 libre et T3 libre",
+        "Échographie thyroïdienne",
+        "Anticorps anti-TPO"
+       ],
+       "bonneReponse": "TSH seule",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "thyroide__tsh_t4_libre_t3_libre-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la SSED (2025), une hypothyroïdie infraclinique est souvent transitoire, et l’on recontrôle au minimum après 3 mois ; un traitement peut se discuter au-delà de 10 mUI/l.",
+        "pourquoiFaux": "Prescrire de la lévothyroxine sur une seule valeur va contre la recommandation suisse."
+       },
+       "sources": [
+        "Smarter Medicine, Société suisse d’endocrinologie et de diabétologie, liste Top 5 (2025)"
+       ],
+       "resultat": "TSH à 7 mUI/l, T4 libre normale, chez un homme de 60 ans sans symptôme.",
+       "decision": "On ne traite pas et l’on recontrôle la TSH au moins 3 mois plus tard."
+      },
+      {
+       "id": "thyroide__tsh_t4_libre_t3_libre-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la NIV (2022), une TSH indétectable avec une T4 libre normale fait doser la T3 libre pour chercher une T3-toxicose.",
+        "pourquoiFaux": "Une T4 libre normale n’exclut pas une hyperthyroïdie par excès de T3."
+       },
+       "sources": [
+        "NIV, recommandation néerlandaise sur les dosages biologiques des dysthyroïdies (2022)"
+       ],
+       "erreurFrequente": "Conclure à une hyperthyroïdie infraclinique devant une TSH effondrée et une T4 libre normale sans doser la T3 libre.",
+       "consequence": "On méconnaît une T3-toxicose.",
+       "bonneConduite": "On dose la T3 libre quand la TSH est effondrée avec une T4 libre normale."
+      }
+     ]
+    },
+    {
+     "ref": "thyroide__anticorps_anti_tpo_anti_thyroglobuline_a",
+     "nom": "Anticorps anti-TPO, anti-thyroglobuline, anti-récepteur de la TSH (TRAb)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "thyroide__anticorps_anti_tpo_anti_thyroglobuline_a-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’ETA (2018), le dosage des anticorps anti-récepteur de la TSH est recommandé pour le diagnostic de la maladie de Basedow.",
+        "pourquoiFaux": "La calcitonine et la thyroglobuline ne trouvent pas la cause d’une thyrotoxicose, et la cytoponction n’est pas indiquée."
+       },
+       "sources": [
+        "Kahaly et al., recommandations 2018 de l’European Thyroid Association sur la maladie de Basedow, Eur Thyroid J (2018)"
+       ],
+       "casClinique": "À Bienne, une femme de 30 ans a une thyrotoxicose, un goitre diffus et une exophtalmie.",
+       "options": [
+        "Anticorps anti-récepteur de la TSH",
+        "Calcitonine",
+        "Thyroglobuline",
+        "Cytoponction"
+       ],
+       "bonneReponse": "Anticorps anti-récepteur de la TSH",
+       "visee": "etiologique"
+      },
+      {
+       "id": "thyroide__anticorps_anti_tpo_anti_thyroglobuline_a-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’ETA (2018), en cas de TRAb toujours élevés après 12 à 18 mois, on peut poursuivre le traitement en redosant 12 mois plus tard, ou choisir l’iode radioactif ou la thyroïdectomie.",
+        "pourquoiFaux": "Arrêter le traitement malgré des TRAb élevés ne suit pas la recommandation."
+       },
+       "sources": [
+        "Kahaly et al., recommandations 2018 de l’European Thyroid Association sur la maladie de Basedow, Eur Thyroid J (2018)"
+       ],
+       "resultat": "TRAb toujours élevés après 18 mois de méthimazole pour une maladie de Basedow.",
+       "decision": "On discute de poursuivre le méthimazole avec un nouveau dosage 12 mois plus tard, ou de passer à l’iode radioactif ou à la chirurgie."
+      },
+      {
+       "id": "thyroide__anticorps_anti_tpo_anti_thyroglobuline_a-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon la SSED (2025), les mesures répétées des Ac anti-TPO n’apportent pas d’information supplémentaire et doivent être évitées.",
+        "pourquoiFaux": "Le taux des Ac anti-TPO ne guide pas le traitement."
+       },
+       "sources": [
+        "Smarter Medicine, Société suisse d’endocrinologie et de diabétologie, liste Top 5 (2025)"
+       ],
+       "erreurFrequente": "Redoser chaque année les Ac anti-TPO d’une patiente atteinte de thyroïdite de Hashimoto connue.",
+       "consequence": "On fait un examen qui ne change ni le diagnostic ni le suivi.",
+       "bonneConduite": "On suit la TSH, sans redoser les Ac anti-TPO."
+      }
+     ]
+    },
+    {
+     "ref": "thyroide__thyroglobuline",
+     "nom": "Thyroglobuline (suivi du cancer)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "thyroide__thyroglobuline-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’ATA (2015), la thyroglobuline se dose avec les Ac anti-Tg à chaque mesure dans le suivi d’un cancer différencié.",
+        "pourquoiFaux": "La calcitonine sert au cancer médullaire, les anti-TPO à la thyroïdite, et la scintigraphie thyroïdienne n’est pas un examen de suivi."
+       },
+       "sources": [
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "casClinique": "À Berne, une femme opérée et traitée par iode radioactif pour un cancer papillaire à faible risque vient pour son suivi à 1 an.",
+       "options": [
+        "Thyroglobuline et Ac anti-Tg",
+        "Calcitonine",
+        "Anticorps anti-TPO",
+        "Scintigraphie thyroïdienne"
+       ],
+       "bonneReponse": "Thyroglobuline et Ac anti-Tg",
+       "visee": "sortie"
+      },
+      {
+       "id": "thyroide__thyroglobuline-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’ATA (2015), une Tg sous 0,2 µg/l sous traitement, sans anticorps et avec une imagerie négative, définit une réponse excellente qui allège le suivi.",
+        "pourquoiFaux": "Une scintigraphie de contrôle ou un freinage plus fort ne sont pas justifiés."
+       },
+       "sources": [
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "resultat": "Tg à 0,1 µg/l sous lévothyroxine, Ac anti-Tg négatifs, échographie du cou normale.",
+       "decision": "C’est une réponse excellente : on espace le suivi et l’on allège le freinage de la TSH."
+      },
+      {
+       "id": "thyroide__thyroglobuline-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l’ATA (2015), les Ac anti-Tg, présents chez environ 25 % des patients, abaissent faussement la Tg mesurée.",
+        "pourquoiFaux": "Une Tg basse n’a de valeur qu’en l’absence d’anticorps."
+       },
+       "sources": [
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "erreurFrequente": "Se rassurer d’une Tg indétectable sans regarder les Ac anti-Tg.",
+       "consequence": "On manque une récidive, car les anticorps font paraître la Tg faussement basse.",
+       "bonneConduite": "On dose toujours les Ac anti-Tg avec la Tg, dans le même laboratoire."
+      }
+     ]
+    },
+    {
+     "ref": "thyroide__calcitonine",
+     "nom": "Calcitonine (cancer médullaire)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "thyroide__calcitonine-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l’ATA (2015), la calcitonine peut se doser quand un résultat élevé changerait la chirurgie, par exemple avec une cytologie suspecte qui n’évoque pas un cancer papillaire.",
+        "pourquoiFaux": "La thyroglobuline, les anti-TPO et la T3 libre ne cherchent pas un cancer médullaire."
+       },
+       "sources": [
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "casClinique": "À Lugano, une cytoponction de nodule est suspecte de malignité mais n’évoque pas un cancer papillaire ; on prévoit l’opération.",
+       "options": [
+        "Calcitonine",
+        "Thyroglobuline",
+        "Anticorps anti-TPO",
+        "T3 libre"
+       ],
+       "bonneReponse": "Calcitonine",
+       "visee": "etiologique"
+      },
+      {
+       "id": "thyroide__calcitonine-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l’ATA (2015), une calcitonine basale au-dessus de 50 à 100 pg/ml, soit 50 à 100 ng/l, fait souvent porter le diagnostic de cancer médullaire.",
+        "pourquoiFaux": "On ne peut pas attendre un simple contrôle à 1 an avec une valeur aussi élevée."
+       },
+       "sources": [
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "resultat": "Calcitonine basale à 180 ng/l chez un patient porteur d’un nodule.",
+       "decision": "Le cancer médullaire est probable : on adapte le bilan et la chirurgie."
+      },
+      {
+       "id": "thyroide__calcitonine-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’ATA (2015), le dosage systématique n’est ni recommandé ni déconseillé, faute de données solides sur la survie et sur les méthodes.",
+        "pourquoiFaux": "Le dosage de routine n’est pas une recommandation établie."
+       },
+       "sources": [
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "erreurFrequente": "Doser la calcitonine chez tous les porteurs de nodule en pensant que c’est recommandé.",
+       "consequence": "On multiplie des résultats difficiles à interpréter.",
+       "bonneConduite": "On la dose de façon ciblée, quand elle peut changer la conduite."
+      }
+     ]
+    },
+    {
+     "ref": "thyroide__cytoponction_echoguidee",
+     "nom": "Cytoponction échoguidée (classification de Bethesda)",
+     "modalite": "Anatomopathologie / biopsie",
+     "defis": [
+      {
+       "id": "thyroide__cytoponction_echoguidee-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’EU-TIRADS (2017), un nodule EU-TIRADS 4 se ponctionne au-delà de 15 mm.",
+        "pourquoiFaux": "La surveillance seule ne convient pas à cette taille, la scintigraphie est inutile avec une TSH normale, et l’opération d’emblée est excessive."
+       },
+       "sources": [
+        "Russ et al., EU-TIRADS, recommandations de l’European Thyroid Association, Eur Thyroid J (2017)"
+       ],
+       "casClinique": "À Coire, un nodule de 18 mm, ovale et légèrement hypoéchogène, est découvert ; la TSH est normale.",
+       "options": [
+        "Cytoponction échoguidée",
+        "Surveillance sans ponction",
+        "Scintigraphie thyroïdienne",
+        "Thyroïdectomie d’emblée"
+       ],
+       "bonneReponse": "Cytoponction échoguidée",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "thyroide__cytoponction_echoguidee-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’ATA (2015), un résultat non diagnostique impose de refaire la ponction sous échographie, avec si possible une évaluation sur place.",
+        "pourquoiFaux": "Un résultat non diagnostique n’est pas un résultat bénin."
+       },
+       "sources": [
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "consigne": "Lis ce compte rendu de cytologie et donne la conduite.",
+       "aspectRecherche": "Bethesda I non diagnostique",
+       "reponse": "Le prélèvement est non diagnostique, Bethesda I : on refait une ponction sous échographie.",
+       "imageOuTraceAttendu": "Compte rendu de cytologie : « matériel hémorragique, moins de six groupes de cellules folliculaires, prélèvement non diagnostique (Bethesda I) »."
+      },
+      {
+       "id": "thyroide__cytoponction_echoguidee-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’EU-TIRADS (2017), un premier résultat bénin d’un nodule EU-TIRADS 5 se contrôle par une nouvelle ponction dans les 3 mois.",
+        "pourquoiFaux": "Une seule cytologie bénigne ne suffit pas devant des signes échographiques de haut risque."
+       },
+       "sources": [
+        "Russ et al., EU-TIRADS, recommandations de l’European Thyroid Association, Eur Thyroid J (2017)"
+       ],
+       "erreurFrequente": "Classer comme bénin un nodule EU-TIRADS 5 sur une première cytologie bénigne.",
+       "consequence": "On risque un faux négatif.",
+       "bonneConduite": "On refait la cytoponction dans les 3 mois."
+      }
+     ]
+    },
+    {
+     "ref": "thyroide__laryngoscopie_avant_et_apres_thyroidecto",
+     "nom": "Laryngoscopie avant et après thyroïdectomie (cordes vocales)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "thyroide__laryngoscopie_avant_et_apres_thyroidecto-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’AAO-HNS (2013), on examine la mobilité des cordes vocales avant l’opération, même si la voix est normale, après une chirurgie du cou à risque pour le nerf, comme une endartériectomie carotidienne.",
+        "pourquoiFaux": "Une voix normale ne suffit pas, et le CT ou la scintigraphie ne montrent pas la mobilité des cordes vocales."
+       },
+       "sources": [
+        "Chandrasekhar et al., recommandation AAO-HNS sur la voix après chirurgie thyroïdienne, Otolaryngol Head Neck Surg (2013)"
+       ],
+       "casClinique": "À Aarau, une femme opérée d’une endartériectomie carotidienne doit avoir une thyroïdectomie ; sa voix est normale.",
+       "options": [
+        "Laryngoscopie préopératoire",
+        "Aucun examen",
+        "CT cervical",
+        "Scintigraphie thyroïdienne"
+       ],
+       "bonneReponse": "Laryngoscopie préopératoire",
+       "visee": "retentissement"
+      },
+      {
+       "id": "thyroide__laryngoscopie_avant_et_apres_thyroidecto-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’AAO-HNS (2013), un changement de voix entre 2 semaines et 2 mois après l’opération fait examiner la mobilité des cordes vocales, et une anomalie fait adresser à l’ORL.",
+        "pourquoiFaux": "Attendre une récupération spontanée sans examen retarde la prise en charge."
+       },
+       "sources": [
+        "Chandrasekhar et al., recommandation AAO-HNS sur la voix après chirurgie thyroïdienne, Otolaryngol Head Neck Surg (2013)"
+       ],
+       "resultat": "Voix enrouée 3 semaines après une thyroïdectomie totale.",
+       "decision": "On examine la mobilité des cordes vocales et l’on adresse à l’ORL si elle est anormale."
+      },
+      {
+       "id": "thyroide__laryngoscopie_avant_et_apres_thyroidecto-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’ATA (2015), seul l’examen du larynx après l’opération permet de connaître une paralysie des cordes vocales.",
+        "pourquoiFaux": "Ce n’est pas un larynx normal, où les deux cordes se rejoignent."
+       },
+       "sources": [
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "consigne": "Sur cette image de nasofibroscopie, décris les cordes vocales.",
+       "aspectRecherche": "Corde vocale immobile",
+       "reponse": "La corde vocale gauche reste immobile à la phonation : c’est une paralysie récurrentielle gauche.",
+       "imageOuTraceAttendu": "Vue endoscopique du larynx en phonation : corde vocale droite qui vient au contact de la ligne médiane, corde vocale gauche fixe en position paramédiane, fente glottique résiduelle."
+      },
+      {
+       "id": "thyroide__laryngoscopie_avant_et_apres_thyroidecto-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l’ATA (2015), une paralysie ancienne peut ne donner aucun symptôme vocal grâce à la compensation, et une atteinte méconnue expose à une paralysie bilatérale.",
+        "pourquoiFaux": "L’écoute de la voix seule ne repère pas ces paralysies."
+       },
+       "sources": [
+        "Haugen et al., recommandations 2015 de l’American Thyroid Association sur les nodules et le cancer différencié, Thyroid (2016)"
+       ],
+       "erreurFrequente": "Renoncer à l’examen du larynx avant une reprise chirurgicale parce que la voix est normale.",
+       "consequence": "On méconnaît une paralysie ancienne compensée et l’on risque une paralysie bilatérale.",
+       "bonneConduite": "On examine les cordes vocales avant toute reprise de chirurgie thyroïdienne."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "IRM": "L’IRM, ou imagerie par résonance magnétique, est un examen d’imagerie qui n’utilise pas de rayons X.",
+    "CT": "Le CT, ou tomodensitométrie, est un examen d’imagerie qui reconstruit des coupes du corps à partir de rayons X.",
+    "TSH": "La TSH, ou thyréostimuline, est l’hormone hypophysaire qui commande la thyroïde ; c’est le premier dosage du bilan thyroïdien.",
+    "ORL": "L’ORL, ou oto-rhino-laryngologie, est la spécialité de l’oreille, du nez, de la gorge et du cou.",
+    "EU-TIRADS": "L’EU-TIRADS est le score européen de risque de malignité des nodules thyroïdiens à l’échographie, de 1 à 5.",
+    "TIRADS": "Le TIRADS est un système de classement échographique du risque de malignité d’un nodule thyroïdien.",
+    "ETA": "L’ETA, ou European Thyroid Association, est la société européenne de thyroïdologie.",
+    "ATA": "L’ATA, ou American Thyroid Association, est la société américaine de thyroïdologie.",
+    "EANM": "L’EANM est l’association européenne de médecine nucléaire.",
+    "EANM/SNMMI": "EANM/SNMMI désigne une recommandation commune des sociétés européenne et américaine de médecine nucléaire.",
+    "SNMMI": "La SNMMI est la société américaine de médecine nucléaire et d’imagerie moléculaire.",
+    "AAO-HNS": "L’AAO-HNS est l’académie américaine d’oto-rhino-laryngologie et de chirurgie cervico-faciale.",
+    "NIV": "La NIV est la société néerlandaise de médecine interne, qui publie des recommandations cliniques.",
+    "SSED": "La SSED est la Société suisse d’endocrinologie et de diabétologie.",
+    "T4": "La T4, ou thyroxine, est la principale hormone produite par la thyroïde ; on dose sa fraction libre.",
+    "T3": "La T3, ou triiodothyronine, est l’hormone thyroïdienne active ; on dose sa fraction libre.",
+    "TPO": "La TPO, ou thyroperoxydase, est l’enzyme thyroïdienne visée par les anticorps de la thyroïdite de Hashimoto.",
+    "Ac": "Ac est l’abréviation d’anticorps.",
+    "TRAb": "Les TRAb sont les anticorps anti-récepteur de la TSH ; leurs formes stimulantes causent la maladie de Basedow.",
+    "Tg": "La Tg, ou thyroglobuline, est une protéine de la thyroïde ; elle sert de marqueur après traitement d’un cancer.",
+    "Bethesda": "Bethesda est la classification en six catégories des résultats de cytoponction thyroïdienne.",
+    "Tc-99m": "Le Tc-99m, ou technétium 99m, est un traceur radioactif de courte période, utilisé en scintigraphie."
+   }
+  }
+ }
+}
