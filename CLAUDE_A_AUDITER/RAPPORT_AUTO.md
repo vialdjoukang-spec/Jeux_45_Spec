@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:41
+# Audit automatique — 2026-11-22 21:45
 
-32 fichier(s) : 29 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
+34 fichier(s) : 31 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -97,6 +97,13 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/05_Coeur_et_pericarde/2_Pratique/P04-05-IMG-PR_Imagerie_Coeur_et_pericarde_10-examens_PRATIQUE_production_XAi.json`
 - 🟩 `coeur_et_pericarde.json` : remplissage 100 % (20/20)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/06_Aorte_thoracique_et_arteres_pulmonaires/1_Theorie/P04-06_Examens_Aorte_thoracique_et_arteres_pulmona_10-examens_production_XAi.json`
+- 🟩 `aorte_thoracique_et_arteres_pulmonaires.json` : remplissage 85 % (181/212)
+- aVerifier déclarés : 3
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/06_Aorte_thoracique_et_arteres_pulmonaires/2_Pratique/P04-06-PR_Examens_Aorte_thoracique_et_arteres_pulmona_10-examens_PRATIQUE_production_XAi.json`
+- 🟩 `aorte_thoracique_et_arteres_pulmonaires.json` : remplissage 100 % (20/20)
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/07_Oesophage/1_Theorie/P04-07_Examens_Oesophage_8-examens_production_XAi.json`
 - 🟩 `oesophage.json` : remplissage 86 % (145/168)
