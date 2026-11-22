@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-22 23:01
 
-70 fichier(s) : 62 🟩 intégrables · 8 🟧 à compléter · 0 🟥 refusés.
+73 fichier(s) : 65 🟩 intégrables · 8 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -98,6 +98,16 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/05_Coeur_et_pericarde/2_Pratique/P04-05-FCT-PR_Exploration_fonctionnelle_Coeur_et_pericarde_10-examens_PRATIQUE_production_XAi.json`
 - 🟩 `coeur_et_pericarde.json` : remplissage 100 % (20/20)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/05_Coeur_et_pericarde/2_Pratique/P04-05-HIS-PR_Anatomopathologie_biopsie_Coeur_et_pericarde_1-examens_PRATIQUE_production_XAi.json`
+- 🟩 `coeur_et_pericarde.json` : remplissage 100 % (2/2)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/05_Coeur_et_pericarde/2_Pratique/P04-05-IMG-PR_Imagerie_Coeur_et_pericarde_10-examens_PRATIQUE_production_XAi.json`
+- 🟩 `coeur_et_pericarde.json` : remplissage 100 % (20/20)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/06_Aorte_thoracique_et_arteres_pulmonaires/1_Theorie/P04-06_Examens_Aorte_thoracique_et_arteres_pulmona_10-examens_production_XAi.json`
+- 🟩 `aorte_thoracique_et_arteres_pulmonaires.json` : remplissage 85 % (181/212)
+- aVerifier déclarés : 3
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/01_Poumons_et_voies_aeriennes/1_Theorie/P04-01-BIO_Biologie_Poumons_et_voies_aeriennes_9-examens_production_XAi.json`
 - 🟩 `poumons_et_voies_aeriennes.json` : remplissage 88 % (175/198)
