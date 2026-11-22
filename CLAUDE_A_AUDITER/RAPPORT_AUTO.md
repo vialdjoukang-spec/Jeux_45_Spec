@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 23:18
+# Audit automatique — 2026-11-22 23:55
 
-27 fichier(s) : 23 🟩 intégrables · 3 🟧 à compléter · 1 🟥 refusés.
+31 fichier(s) : 27 🟩 intégrables · 3 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -97,5 +97,19 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/09_Muscles/2_Pratique/P07-09-PR_Examens_Muscles_8-examens_PRATIQUE_production_XAi.json`
 - 🟩 `muscles.json` : remplissage 100 % (16/16)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/10_Arteres_des_membres/1_Theorie/P07-10_Examens_Arteres_des_membres_9-examens_production_XAi.json`
+- 🟩 `arteres_des_membres.json` : remplissage 86 % (163/189)
+- aVerifier déclarés : 6
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/10_Arteres_des_membres/2_Pratique/P07-10-PR_Examens_Arteres_des_membres_9-examens_PRATIQUE_production_XAi.json`
+- 🟩 `arteres_des_membres.json` : remplissage 100 % (18/18)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/11_Veines_des_membres/1_Theorie/P07-11_Examens_Veines_des_membres_8-examens_production_XAi.json`
+- 🟩 `veines_des_membres.json` : remplissage 88 % (150/171)
+- aVerifier déclarés : 5
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/11_Veines_des_membres/2_Pratique/P07-11-PR_Examens_Veines_des_membres_8-examens_PRATIQUE_production_XAi.json`
+- 🟩 `veines_des_membres.json` : remplissage 100 % (16/16)
 
 Signature : AAI (Anthropic AI)
