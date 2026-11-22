@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:39
+# Audit automatique — 2026-11-22 21:41
 
-30 fichier(s) : 27 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
+32 fichier(s) : 29 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -104,5 +104,12 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/07_Oesophage/2_Pratique/P04-07-PR_Examens_Oesophage_8-examens_PRATIQUE_production_XAi.json`
 - 🟩 `oesophage.json` : remplissage 100 % (16/16)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/09_Paroi_thoracique_et_cotes/1_Theorie/P04-09_Examens_Paroi_thoracique_et_cotes_6-examens_production_XAi.json`
+- 🟩 `paroi_thoracique_et_cotes.json` : remplissage 85 % (108/127)
+- aVerifier déclarés : 4
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/09_Paroi_thoracique_et_cotes/2_Pratique/P04-09-PR_Examens_Paroi_thoracique_et_cotes_6-examens_PRATIQUE_production_XAi.json`
+- 🟩 `paroi_thoracique_et_cotes.json` : remplissage 100 % (12/12)
 
 Signature : AAI (Anthropic AI)
