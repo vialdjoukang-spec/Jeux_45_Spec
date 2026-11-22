@@ -1,4 +1,4 @@
-# Audit automatique — 2026-11-22 23:12
+# Audit automatique — 2026-11-22 23:46
 
 60 fichier(s) : 54 🟩 intégrables · 6 🟧 à compléter · 0 🟥 refusés.
 
@@ -32,6 +32,7 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/02_Ongles_et_cheveux/1_Theorie/P08-02_Examens_Ongles_et_cheveux_6-examens_production_XAi.json`
 - 🟩 `ongles_et_cheveux.json` : remplissage 89 % (114/128)
+- aVerifier déclarés : 1
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/08_Peau_et_phaneres/02_Ongles_et_cheveux/2_Pratique/P08-02-PR_Examens_Ongles_et_cheveux_6-examens_PRATIQUE_production_XAi.json`
 - 🟩 `ongles_et_cheveux.json` : remplissage 100 % (12/12)
