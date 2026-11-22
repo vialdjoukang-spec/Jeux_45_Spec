@@ -1,0 +1,132 @@
+{
+ "_lot": {
+  "tache": "P05-03-FCT-PR",
+  "titre": "Pratique — Examens de l'organe Pancréas — Exploration fonctionnelle (1 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/5_abdomen/pancreas.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/5_abdomen/pancreas.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "pancreas__test_de_stimulation_a_la_secretine",
+     "nom": "Test de stimulation à la sécrétine (exceptionnel)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "pancreas__test_de_stimulation_a_la_secretine-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'UEG 2025, le test à la sécrétine se demande exceptionnellement, en centre spécialisé, quand une insuffisance légère reste suspectée malgré une élastase normale.",
+        "pourquoiFaux": "Les autres examens ne mesurent pas la sécrétion pancréatique."
+       },
+       "sources": [
+        "UEG, recommandations sur l'insuffisance pancréatique exocrine (2025)"
+       ],
+       "casClinique": "Une femme de 38 ans, à Genève, a une diarrhée graisseuse évocatrice malgré une élastase fécale normale ; on suspecte une insuffisance exocrine légère.",
+       "options": [
+        "Test de stimulation à la sécrétine",
+        "CA 19-9",
+        "Test de la sueur",
+        "PET-CT"
+       ],
+       "bonneReponse": "Test de stimulation à la sécrétine",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "pancreas__test_de_stimulation_a_la_secretine-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'UEG 2025, une sécrétion de bicarbonate ou d'enzymes diminuée après sécrétine prouve une insuffisance exocrine, même légère.",
+        "pourquoiFaux": "Une élastase normale ne contredit pas ce résultat dans une forme légère."
+       },
+       "sources": [
+        "UEG, recommandations sur l'insuffisance pancréatique exocrine (2025)"
+       ],
+       "resultat": "Le bicarbonate du suc duodénal reste bas après sécrétine.",
+       "decision": "On retient une insuffisance pancréatique exocrine."
+      },
+      {
+       "id": "pancreas__test_de_stimulation_a_la_secretine-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'UEG 2025, une réponse diminuée à la sécrétine traduit une insuffisance exocrine.",
+        "pourquoiFaux": "Une hausse nette et rapide du bicarbonate serait normale."
+       },
+       "sources": [
+        "UEG, recommandations sur l'insuffisance pancréatique exocrine (2025)"
+       ],
+       "consigne": "Lisez la courbe de bicarbonate du suc duodénal après sécrétine.",
+       "aspectRecherche": "Pic de bicarbonate après stimulation",
+       "reponse": "Pic bas et tardif : sécrétion exocrine diminuée",
+       "imageOuTraceAttendu": "Courbe du bicarbonate dans les prélèvements duodénaux successifs après injection de sécrétine, avec un pic bas qui reste sous la valeur attendue."
+      },
+      {
+       "id": "pancreas__test_de_stimulation_a_la_secretine-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'UEG 2025, le test demande une intubation duodénale, dure longtemps et n'existe que dans quelques centres.",
+        "pourquoiFaux": "L'élastase fécale suffit dans la plupart des cas."
+       },
+       "sources": [
+        "UEG, recommandations sur l'insuffisance pancréatique exocrine (2025)"
+       ],
+       "erreurFrequente": "Proposer le test à la sécrétine en première intention devant une stéatorrhée.",
+       "consequence": "On impose un geste invasif inutile.",
+       "bonneConduite": "On commence par l'élastase fécale."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CA 19-9": "Le CA 19-9 est un antigène glucidique sérique utilisé comme marqueur des cancers bilio-pancréatiques.",
+    "CT": "Le CT est la tomodensitométrie, qui produit des coupes du corps par rayons X.",
+    "PET-CT": "Le PET-CT associe une tomographie par émission de positons et un CT dans le même examen.",
+    "UEG": "L'UEG est la fédération européenne de gastroentérologie."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Exploration fonctionnelle",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
