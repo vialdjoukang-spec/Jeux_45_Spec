@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 23:01
+# Audit automatique — 2026-11-22 23:02
 
-76 fichier(s) : 68 🟩 intégrables · 8 🟧 à compléter · 0 🟥 refusés.
+84 fichier(s) : 76 🟩 intégrables · 8 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -118,6 +118,33 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/07_Oesophage/2_Pratique/P04-07-PR_Examens_Oesophage_8-examens_PRATIQUE_production_XAi.json`
 - 🟩 `oesophage.json` : remplissage 100 % (16/16)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/08_Seins/1_Theorie/P04-08-BIO_Biologie_Seins_4-examens_production_XAi.json`
+- 🟩 `seins.json` : remplissage 85 % (75/88)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/08_Seins/1_Theorie/P04-08-HIS_Anatomopathologie_biopsie_Seins_4-examens_production_XAi.json`
+- 🟩 `seins.json` : remplissage 86 % (72/84)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/08_Seins/1_Theorie/P04-08-IMG_Imagerie_Seins_5-examens_production_XAi.json`
+- 🟩 `seins.json` : remplissage 86 % (90/105)
+- aVerifier déclarés : 3
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/08_Seins/2_Pratique/P04-08-BIO-PR_Biologie_Seins_4-examens_PRATIQUE_production_XAi.json`
+- 🟩 `seins.json` : remplissage 100 % (8/8)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/08_Seins/2_Pratique/P04-08-HIS-PR_Anatomopathologie_biopsie_Seins_4-examens_PRATIQUE_production_XAi.json`
+- 🟩 `seins.json` : remplissage 100 % (8/8)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/08_Seins/2_Pratique/P04-08-IMG-PR_Imagerie_Seins_5-examens_PRATIQUE_production_XAi.json`
+- 🟩 `seins.json` : remplissage 100 % (10/10)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/09_Paroi_thoracique_et_cotes/1_Theorie/P04-09_Examens_Paroi_thoracique_et_cotes_6-examens_production_XAi.json`
+- 🟩 `paroi_thoracique_et_cotes.json` : remplissage 85 % (108/127)
+- aVerifier déclarés : 4
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/09_Paroi_thoracique_et_cotes/2_Pratique/P04-09-PR_Examens_Paroi_thoracique_et_cotes_6-examens_PRATIQUE_production_XAi.json`
+- 🟩 `paroi_thoracique_et_cotes.json` : remplissage 100 % (12/12)
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/01_Poumons_et_voies_aeriennes/1_Theorie/P04-01-BIO_Biologie_Poumons_et_voies_aeriennes_9-examens_production_XAi.json`
 - 🟩 `poumons_et_voies_aeriennes.json` : remplissage 88 % (175/198)
