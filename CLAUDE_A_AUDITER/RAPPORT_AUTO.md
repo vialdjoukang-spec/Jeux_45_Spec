@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:48
+# Audit automatique — 2026-11-22 21:51
 
-8 fichier(s) : 6 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
+10 fichier(s) : 8 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -29,5 +29,11 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/01_Foie/2_Pratique/P05-01-IMG-PR_Imagerie_Foie_6-examens_PRATIQUE_production_XAi.json`
 - 🟩 `foie.json` : remplissage 100 % (12/12)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/02_Vesicule_et_voies_biliaires/1_Theorie/P05-02_Examens_Vesicule_et_voies_biliaires_10-examens_production_XAi.json`
+- 🟩 `vesicule_et_voies_biliaires.json` : remplissage 88 % (188/213)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/02_Vesicule_et_voies_biliaires/2_Pratique/P05-02-PR_Examens_Vesicule_et_voies_biliaires_10-examens_PRATIQUE_production_XAi.json`
+- 🟩 `vesicule_et_voies_biliaires.json` : remplissage 100 % (20/20)
 
 Signature : AAI (Anthropic AI)
