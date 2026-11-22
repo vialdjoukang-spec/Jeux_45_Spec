@@ -1,0 +1,174 @@
+{
+ "_lot": {
+  "tache": "P06-07-FCT-PR",
+  "titre": "Pratique — Examens de l'organe Grossesse, fœtus et placenta — Exploration fonctionnelle (1 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/6_pelvis/grossesse_foetus_et_placenta.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/6_pelvis/grossesse_foetus_et_placenta.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "grossesse_foetus_et_placenta__cardiotocographie",
+     "nom": "Cardiotocographie (CTG)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "grossesse_foetus_et_placenta__cardiotocographie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "La cardiotocographie enregistre le cœur fœtal et les contractions pendant le travail, selon le consensus FIGO de 2015.",
+        "pourquoiFaux": "Les autres examens ne surveillent pas le travail."
+       },
+       "sources": [
+        "FIGO, consensus sur le monitorage (2015)"
+       ],
+       "casClinique": "Une femme en travail à terme doit être surveillée pour le bien-être fœtal.",
+       "options": [
+        "Cardiotocographie",
+        "IRM fœtale",
+        "Doppler ombilical seul",
+        "HGPO"
+       ],
+       "bonneReponse": "Cardiotocographie",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "grossesse_foetus_et_placenta__cardiotocographie-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une décélération prolongée de plus de 5 minutes rend le tracé pathologique, ce qui commande une action immédiate, selon le consensus FIGO de 2015.",
+        "pourquoiFaux": "Un tracé suspect manquerait d'un caractère normal sans caractère pathologique."
+       },
+       "sources": [
+        "FIGO, consensus sur le monitorage (2015)"
+       ],
+       "resultat": "Le tracé montre une décélération prolongée de 7 minutes.",
+       "decision": "Classer le tracé comme pathologique et agir immédiatement."
+      },
+      {
+       "id": "grossesse_foetus_et_placenta__cardiotocographie-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une ligne de base entre 110 et 160 battements, une variabilité de 5 à 25 et l'absence de décélération répétitive définissent un tracé normal, selon le consensus FIGO de 2015.",
+        "pourquoiFaux": "Une ligne de base sous 100 battements serait pathologique."
+       },
+       "sources": [
+        "FIGO, consensus sur le monitorage (2015)"
+       ],
+       "consigne": "Lisez ce tracé enregistré pendant le travail.",
+       "aspectRecherche": "Ligne de base et variabilité",
+       "reponse": "Tracé normal",
+       "imageOuTraceAttendu": "Tracé montrant une ligne de base à 135 battements par minute, une variabilité de 10 battements, des accélérations et aucune décélération."
+      },
+      {
+       "id": "grossesse_foetus_et_placenta__cardiotocographie-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La grille FIGO de 2015 concerne le travail, pas la surveillance anténatale, selon le consensus FIGO de 2015.",
+        "pourquoiFaux": "Le contexte clinique reste indispensable."
+       },
+       "sources": [
+        "FIGO, consensus sur le monitorage (2015)"
+       ],
+       "erreurFrequente": "Appliquer la grille FIGO du travail à un tracé anténatal.",
+       "consequence": "On interprète le tracé avec une grille inadaptée.",
+       "bonneConduite": "Réserver cette grille au monitorage pendant le travail."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ABO": "Système de groupes sanguins A, B, AB et O.",
+    "ADN": "Acide désoxyribonucléique, support de l'information génétique ; ici, fragments libres circulant dans le sang maternel.",
+    "AFP": "Alpha-fœtoprotéine, ancien marqueur sérique de dépistage des aneuploïdies (test AFP-plus).",
+    "AOS": "Assurance obligatoire des soins, assurance de base suisse.",
+    "IRM": "Imagerie par résonance magnétique.",
+    "CTG": "Cardiotocographie, enregistrement du rythme cardiaque fœtal et des contractions.",
+    "DGGG": "Société allemande de gynécologie et d'obstétrique.",
+    "FIGO": "Fédération internationale de gynécologie et d'obstétrique.",
+    "FMF": "Fetal Medicine Foundation, fondation qui certifie des logiciels de calcul de risque du premier trimestre.",
+    "G108": "Voie tissulaire G108 du Royal College of Pathologists, document de septembre 2022 sur l'examen du placenta.",
+    "HAPO": "Hyperglycemia and Adverse Pregnancy Outcome, étude de référence sur l'hyperglycémie de la grossesse.",
+    "HGPO": "Hyperglycémie provoquée par voie orale, épreuve de charge en glucose.",
+    "HbA1c": "Hémoglobine glyquée, reflet de la glycémie des semaines précédentes.",
+    "IADPSG": "International Association of Diabetes in Pregnancy Study Groups, groupe qui a fixé les seuils de diabète gestationnel repris par la SSGO.",
+    "ISSHP": "International Society for the Study of Hypertension in Pregnancy, société internationale de l'hypertension de la grossesse.",
+    "ISUOG": "Société internationale d'échographie en obstétrique et gynécologie.",
+    "NICE": "Institut national britannique pour la santé et l'excellence des soins.",
+    "OFSP": "Office fédéral de la santé publique.",
+    "OeGGG": "Société autrichienne de gynécologie et d'obstétrique.",
+    "PAPP-A": "Pregnancy-associated plasma protein A, marqueur sérique du test combiné du premier trimestre.",
+    "PCR": "Amplification en chaîne par polymérase, technique d'amplification des acides nucléiques.",
+    "PlGF": "Facteur de croissance placentaire, marqueur angiogénique utilisé avec le sFlt-1.",
+    "RhD": "Antigène D du système rhésus, ou gène RHD recherché chez le fœtus dans le sang maternel ; les deux graphies désignent le même facteur.",
+    "SSGO": "Société suisse de gynécologie et d'obstétrique.",
+    "SSUM": "Société suisse d'ultrason en médecine.",
+    "SSUM-GO": "Section de gynécologie et d'obstétrique de la Société suisse d'ultrason en médecine.",
+    "TPNI": "Test prénatal non invasif, analyse de l'ADN libre dans le sang maternel.",
+    "UI/l": "Unité internationale par litre, unité de concentration utilisée notamment pour la hCG.",
+    "VIH": "Virus de l'immunodéficience humaine.",
+    "hCG": "Hormone chorionique gonadotrope, témoin d'un trophoblaste actif.",
+    "sFlt-1": "Forme soluble de la tyrosine kinase 1 de type fms, facteur antiangiogénique dosé avec le PlGF.",
+    "SA": "Semaines d'aménorrhée, comptées depuis le premier jour des dernières règles.",
+    "FSC": "Formule sanguine complète.",
+    "TSH": "Thyréostimuline, hormone hypophysaire qui stimule la thyroïde.",
+    "HELLP": "Hémolyse, élévation des enzymes hépatiques et thrombopénie, forme grave de la pré-éclampsie.",
+    "ASAT": "Aspartate aminotransférase, transaminase hépatique.",
+    "ALAT": "Alanine aminotransférase, transaminase hépatique.",
+    "LDH": "Lactate déshydrogénase, enzyme libérée lors d'une hémolyse.",
+    "AgHBs": "Antigène de surface du virus de l'hépatite B.",
+    "HBs": "Antigène de surface du virus de l'hépatite B, cible des anticorps anti-HBs.",
+    "HBc": "Antigène de la capside du virus de l'hépatite B, cible des anticorps anti-HBc.",
+    "VHB": "Virus de l'hépatite B.",
+    "TPPA": "Test d'agglutination passive de Treponema pallidum, test tréponémique de la syphilis.",
+    "VDRL/RPR": "Tests non tréponémiques de la syphilis (Venereal Disease Research Laboratory et Rapid Plasma Reagin).",
+    "VGM": "Volume globulaire moyen des érythrocytes.",
+    "mUI/l": "Milli-unité internationale par litre."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Exploration fonctionnelle",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
