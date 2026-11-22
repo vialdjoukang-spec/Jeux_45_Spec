@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:35
+# Audit automatique — 2026-11-22 21:39
 
-22 fichier(s) : 20 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
+26 fichier(s) : 23 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -45,6 +45,19 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/02_Plevre/2_Pratique/P04-02-PR_Examens_Plevre_7-examens_PRATIQUE_production_XAi.json`
 - 🟩 `plevre.json` : remplissage 100 % (14/14)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/03_Mediastin/1_Theorie/P04-03-BIO_Biologie_Mediastin_4-examens_production_XAi.json`
+- 🟩 `mediastin.json` : remplissage 86 % (76/88)
+
+### 🟧 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/03_Mediastin/1_Theorie/P04-03-END_Endoscopie_Mediastin_2-examens_production_XAi.json`
+- 🟧 `mediastin.json` : remplissage 83 % (35/42)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/03_Mediastin/1_Theorie/P04-03-HIS_Anatomopathologie_biopsie_Mediastin_2-examens_production_XAi.json`
+- 🟩 `mediastin.json` : remplissage 86 % (36/42)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/03_Mediastin/1_Theorie/P04-03-IMG_Imagerie_Mediastin_3-examens_production_XAi.json`
+- 🟩 `mediastin.json` : remplissage 87 % (55/63)
+- aVerifier déclarés : 2
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/05_Coeur_et_pericarde/1_Theorie/P04-05-BIO_Biologie_Coeur_et_pericarde_8-examens_production_XAi.json`
 - 🟩 `coeur_et_pericarde.json` : remplissage 87 % (153/176)
