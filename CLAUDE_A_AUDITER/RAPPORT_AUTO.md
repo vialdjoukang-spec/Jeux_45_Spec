@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:28
+# Audit automatique — 2026-11-22 21:32
 
-18 fichier(s) : 16 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
+20 fichier(s) : 18 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -38,6 +38,13 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/01_Poumons_et_voies_aeriennes/2_Pratique/P04-01-IMG-PR_Imagerie_Poumons_et_voies_aeriennes_7-examens_PRATIQUE_production_XAi.json`
 - 🟩 `poumons_et_voies_aeriennes.json` : remplissage 100 % (14/14)
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/02_Plevre/1_Theorie/P04-02_Examens_Plevre_7-examens_production_XAi.json`
+- 🟩 `plevre.json` : remplissage 88 % (130/148)
+- aVerifier déclarés : 3
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/02_Plevre/2_Pratique/P04-02-PR_Examens_Plevre_7-examens_PRATIQUE_production_XAi.json`
+- 🟩 `plevre.json` : remplissage 100 % (14/14)
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/05_Coeur_et_pericarde/1_Theorie/P04-05-BIO_Biologie_Coeur_et_pericarde_8-examens_production_XAi.json`
 - 🟩 `coeur_et_pericarde.json` : remplissage 87 % (153/176)
