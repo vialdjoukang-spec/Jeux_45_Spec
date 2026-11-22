@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-22 23:06
 
-27 fichier(s) : 25 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
+30 fichier(s) : 28 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -15,6 +15,16 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/10_Paroi_abdominale_et_hernies/1_Theorie/P05-10_Examens_Paroi_abdominale_et_hernies_4-examens_production_XAi.json`
 - 🟩 `paroi_abdominale_et_hernies.json` : remplissage 88 % (75/85)
 - aVerifier déclarés : 3
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/10_Paroi_abdominale_et_hernies/2_Pratique/P05-10-PR_Examens_Paroi_abdominale_et_hernies_4-examens_PRATIQUE_production_XAi.json`
+- 🟩 `paroi_abdominale_et_hernies.json` : remplissage 100 % (8/8)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/11_Aorte_abdominale_et_vaisseaux_digestifs/1_Theorie/P05-11_Examens_Aorte_abdominale_et_vaisseaux_diges_6-examens_production_XAi.json`
+- 🟩 `aorte_abdominale_et_vaisseaux_digestifs.json` : remplissage 90 % (114/127)
+- aVerifier déclarés : 2
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/11_Aorte_abdominale_et_vaisseaux_digestifs/2_Pratique/P05-11-PR_Examens_Aorte_abdominale_et_vaisseaux_diges_6-examens_PRATIQUE_production_XAi.json`
+- 🟩 `aorte_abdominale_et_vaisseaux_digestifs.json` : remplissage 100 % (12/12)
 
 ### 🟧 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/09_Peritoine_et_ascite/1_Theorie/P05-09_Examens_Peritoine_et_ascite_5-examens_production_XAi.json`
 - 🟧 `peritoine_et_ascite.json` : remplissage 85 % (90/106)
