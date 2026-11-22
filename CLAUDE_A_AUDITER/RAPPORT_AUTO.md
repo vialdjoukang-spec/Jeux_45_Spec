@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 21:50
+# Audit automatique — 2026-11-22 21:53
 
-40 fichier(s) : 37 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
+42 fichier(s) : 38 🟩 intégrables · 4 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -70,6 +70,13 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/03_Mediastin/2_Pratique/P04-03-IMG-PR_Imagerie_Mediastin_3-examens_PRATIQUE_production_XAi.json`
 - 🟩 `mediastin.json` : remplissage 100 % (6/6)
+
+### 🟧 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/04_Diaphragme_et_muscles_respiratoires/1_Theorie/P04-04_Examens_Diaphragme_et_muscles_respiratoires_6-examens_production_XAi.json`
+- 🟧 `diaphragme_et_muscles_respiratoires.json` : remplissage 83 % (105/126)
+- aVerifier déclarés : 2
+
+### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/04_Diaphragme_et_muscles_respiratoires/2_Pratique/P04-04-PR_Examens_Diaphragme_et_muscles_respiratoires_6-examens_PRATIQUE_production_XAi.json`
+- 🟩 `diaphragme_et_muscles_respiratoires.json` : remplissage 100 % (12/12)
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/04_Thorax/05_Coeur_et_pericarde/1_Theorie/P04-05-BIO_Biologie_Coeur_et_pericarde_8-examens_production_XAi.json`
 - 🟩 `coeur_et_pericarde.json` : remplissage 87 % (153/176)
