@@ -17,3 +17,6 @@ Corrections faites :
 - Smarter Medicine du CT : paraphrase remplacée par le texte exact de la liste Top 5 SSR 2020
 - SSR ajouté au glossaire
 - 2 étiquettes de plus de 45 caractères raccourcies
+
+## Note pour la relecture
+- Note pour la relecture : le _meta de chaque fragment est celui du squelette de lot de main, antérieur au _meta actuel du fichier de conception (clés d'audit ajoutées depuis) ; laissé tel quel, la fusion ne reprend pas le _meta du lot.

@@ -24,3 +24,6 @@ Sources revérifiées en ligne :
 Corrections faites :
 - referencePour de 56 caractères raccourci
 - option QCM (et bonneReponse) de 62 caractères raccourcie
+
+## Note pour la relecture
+- Note pour la relecture : le _meta de chaque fragment est celui du squelette de lot de main, antérieur au _meta actuel du fichier de conception (clés d'audit ajoutées depuis) ; laissé tel quel, la fusion ne reprend pas le _meta du lot.
