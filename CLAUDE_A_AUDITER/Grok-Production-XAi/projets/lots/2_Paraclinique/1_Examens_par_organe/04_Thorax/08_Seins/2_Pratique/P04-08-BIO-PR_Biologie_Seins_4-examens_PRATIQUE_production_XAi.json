@@ -1,0 +1,323 @@
+{
+ "_lot": {
+  "tache": "P04-08-BIO-PR",
+  "titre": "Pratique — Examens de l'organe Seins — Biologie (4 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/4_thorax/seins.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/4_thorax/seins.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "seins__recherche_genetique_brca1_2",
+     "nom": "Recherche génétique BRCA1/2 (conseil génétique)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "seins__recherche_genetique_brca1_2-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la directive suisse du SAKK (Stoll et al., 2021), on teste une femme atteinte d'un cancer du sein à 40 ans ou moins, ou d'un cancer triple négatif à 60 ans ou moins.",
+        "pourquoiFaux": "Les autres examens ne cherchent pas une prédisposition héréditaire."
+       },
+       "sources": [
+        "SAKK, directive suisse sur les tests génétiques (Stoll et al., 2021)"
+       ],
+       "casClinique": "Une femme de 38 ans a un cancer du sein triple négatif.",
+       "options": [
+        "Conseil génétique et test BRCA",
+        "Prolactine",
+        "PET-CT",
+        "Cytologie de l'écoulement"
+       ],
+       "bonneReponse": "Conseil génétique et test BRCA",
+       "visee": "etiologique"
+      },
+      {
+       "id": "seins__recherche_genetique_brca1_2-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EUSOBI (Marcon et al., 2024), on fait une IRM annuelle dès 25 ans chez la femme à haut risque génétique.",
+        "pourquoiFaux": "Une mammographie seule tous les deux ans dès 50 ans serait insuffisante."
+       },
+       "sources": [
+        "EUSOBI, dépistage du cancer du sein (Marcon et al., 2024)"
+       ],
+       "resultat": "Variant pathogène de BRCA1 chez une femme de 30 ans en bonne santé.",
+       "decision": "Proposer une IRM mammaire annuelle et discuter des mesures de réduction du risque."
+      },
+      {
+       "id": "seins__recherche_genetique_brca1_2-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon Stoll et al. (2021), le conseil avant et après le test est obligatoire, et l'assurance ne rembourse qu'après ce conseil (OPAS, art. 12d).",
+        "pourquoiFaux": "Le conseil fait partie de l'examen."
+       },
+       "sources": [
+        "SAKK, directive suisse sur les tests génétiques (Stoll et al., 2021)"
+       ],
+       "erreurFrequente": "Faire le test BRCA sans conseil génétique préalable.",
+       "consequence": "La patiente n'est pas préparée au résultat, et l'analyse n'est pas remboursée.",
+       "bonneConduite": "Organiser un conseil génétique avant et après le test, avec un consentement éclairé."
+      }
+     ]
+    },
+    {
+     "ref": "seins__prolactine",
+     "nom": "Prolactine (galactorrhée)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "seins__prolactine-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'Endocrine Society (2011), on dose la prolactine devant une galactorrhée avec des troubles des règles.",
+        "pourquoiFaux": "La cytologie et la mammographie ne cherchent pas une cause hormonale, et le PET-CT n'a pas sa place."
+       },
+       "sources": [
+        "Endocrine Society, hyperprolactinémie (Melmed et al., 2011)"
+       ],
+       "casClinique": "Une femme de 28 ans a une galactorrhée bilatérale et des règles irrégulières depuis six mois ; le test de grossesse est négatif.",
+       "options": [
+        "Prolactine",
+        "Cytologie de l'écoulement",
+        "Mammographie",
+        "PET-CT"
+       ],
+       "bonneReponse": "Prolactine",
+       "visee": "etiologique"
+      },
+      {
+       "id": "seins__prolactine-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'Endocrine Society (2011), une prolactine de plus de 250 µg/l indique habituellement un prolactinome.",
+        "pourquoiFaux": "Une hypothyroïdie ou un médicament donnent plutôt des élévations modérées."
+       },
+       "sources": [
+        "Endocrine Society, hyperprolactinémie (Melmed et al., 2011)"
+       ],
+       "resultat": "Prolactine à 310 µg/l chez cette patiente, sans médicament en cause.",
+       "decision": "Retenir un prolactinome probable et demander une IRM hypophysaire."
+      },
+      {
+       "id": "seins__prolactine-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'Endocrine Society (2011), un très gros adénome avec une prolactine peu élevée impose un dosage après dilution.",
+        "pourquoiFaux": "Une prolactine modérée ne suffit pas à écarter un prolactinome volumineux."
+       },
+       "sources": [
+        "Endocrine Society, hyperprolactinémie (Melmed et al., 2011)"
+       ],
+       "erreurFrequente": "Conclure à un petit adénome devant une prolactine modérée et un macroadénome de 4 cm.",
+       "consequence": "On méconnaît un prolactinome géant dont la valeur est faussement basse.",
+       "bonneConduite": "Refaire le dosage après dilution pour écarter un effet crochet."
+      }
+     ]
+    },
+    {
+     "ref": "seins__cytologie_d_un_ecoulement_mamelonnaire",
+     "nom": "Cytologie d'un écoulement mamelonnaire",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "seins__cytologie_d_un_ecoulement_mamelonnaire-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACR (2022), un écoulement spontané, unilatéral, d'un seul pore et sanglant est pathologique et relève de l'échographie et de la mammographie.",
+        "pourquoiFaux": "La cytologie n'est pas recommandée, la prolactine vise une galactorrhée bilatérale, et ne rien faire serait une faute."
+       },
+       "sources": [
+        "ACR Appropriateness Criteria, écoulement mamelonnaire (2022)"
+       ],
+       "casClinique": "Une femme de 52 ans a un écoulement spontané, sanglant, d'un seul pore du sein gauche.",
+       "options": [
+        "Échographie et mammographie diagnostique",
+        "Cytologie de l'écoulement seule",
+        "Prolactine",
+        "Rien"
+       ],
+       "bonneReponse": "Échographie et mammographie diagnostique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "seins__cytologie_d_un_ecoulement_mamelonnaire-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACR (2022), la cytologie n'a pas fait la preuve de sa capacité à distinguer une lésion bénigne d'une lésion maligne.",
+        "pourquoiFaux": "Rassurer sur la cytologie seule laisserait passer un papillome ou un cancer."
+       },
+       "sources": [
+        "ACR Appropriateness Criteria, écoulement mamelonnaire (2022)"
+       ],
+       "resultat": "Cytologie de l'écoulement sans cellule atypique chez cette patiente.",
+       "decision": "Poursuivre l'imagerie, car une cytologie négative n'exclut pas un cancer."
+      },
+      {
+       "id": "seins__cytologie_d_un_ecoulement_mamelonnaire-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'ACR (2022), seul l'écoulement spontané, unilatéral, d'un seul pore, clair ou sanglant est pathologique.",
+        "pourquoiFaux": "Un écoulement provoqué et bilatéral n'appelle pas d'examen du sein."
+       },
+       "sources": [
+        "ACR Appropriateness Criteria, écoulement mamelonnaire (2022)"
+       ],
+       "erreurFrequente": "Demander une cytologie pour un écoulement bilatéral, multipore, provoqué par la pression.",
+       "consequence": "On fait un examen inutile pour un écoulement physiologique.",
+       "bonneConduite": "Rassurer et rechercher une cause hormonale ou médicamenteuse si l'écoulement est laiteux."
+      }
+     ]
+    },
+    {
+     "ref": "seins__culture_d_abces_du_sein",
+     "nom": "Culture d'abcès du sein",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "seins__culture_d_abces_du_sein-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'Academy of Breastfeeding Medicine (2022), la ponction sous échographie est le traitement de première intention, et l'on envoie le pus en culture.",
+        "pourquoiFaux": "La mammographie et le PET-CT ne traitent pas l'abcès, et l'allaitement peut se poursuivre."
+       },
+       "sources": [
+        "Academy of Breastfeeding Medicine, protocole 36, spectre de la mastite (2022)",
+        "EUSOBI, procédures interventionnelles mammaires (Bick et al., 2020)"
+       ],
+       "casClinique": "Une femme qui allaite depuis trois semaines a une masse chaude, fluctuante et fébrile du sein droit ; l'échographie montre une collection.",
+       "options": [
+        "Ponction sous échographie avec culture du pus",
+        "Mammographie",
+        "PET-CT",
+        "Arrêt définitif de l'allaitement"
+       ],
+       "bonneReponse": "Ponction sous échographie avec culture du pus",
+       "visee": "therapeutique"
+      },
+      {
+       "id": "seins__culture_d_abces_du_sein-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'Academy of Breastfeeding Medicine (2022), on cherche le SARM et l'on guide l'antibiotique sur la culture.",
+        "pourquoiFaux": "Une antibiothérapie standard contre le staphylocoque sensible serait inefficace."
+       },
+       "sources": [
+        "Academy of Breastfeeding Medicine, protocole 36, spectre de la mastite (2022)"
+       ],
+       "resultat": "Culture positive à Staphylococcus aureus résistant à la méticilline.",
+       "decision": "Adapter l'antibiotique à l'antibiogramme."
+      },
+      {
+       "id": "seins__culture_d_abces_du_sein-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un abcès non puerpéral récidivant doit faire écarter un cancer.",
+        "pourquoiFaux": "La culture seule ne suffit pas dans cette situation."
+       },
+       "sources": [
+        "EUSOBI, procédures interventionnelles mammaires (Bick et al., 2020)"
+       ],
+       "erreurFrequente": "Traiter à répétition un abcès non puerpéral qui récidive sans autre exploration.",
+       "consequence": "On méconnaît un cancer inflammatoire ou une autre lésion.",
+       "bonneConduite": "Faire une imagerie et une biopsie si l'abcès récidive hors allaitement."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ACR": "American College of Radiology, société américaine de radiologie qui publie l'atlas BI-RADS et des critères de pertinence de l'imagerie.",
+    "BI-RADS": "Breast Imaging Reporting and Data System : classification de l'ACR qui range les images du sein en catégories de 0 à 6 selon le risque de cancer.",
+    "EUSOBI": "European Society of Breast Imaging, société européenne d'imagerie du sein.",
+    "IRM": "Imagerie par résonance magnétique : imagerie en coupes fondée sur un champ magnétique, sans rayonnement ionisant.",
+    "BRCA1": "Gène de réparation de l'ADN dont un variant pathogène prédispose au cancer du sein et de l'ovaire.",
+    "BRCA2": "Gène de réparation de l'ADN dont un variant pathogène prédispose au cancer du sein, de l'ovaire, de la prostate et du pancréas.",
+    "SAKK": "Groupe suisse de recherche clinique sur le cancer, qui publie la directive suisse de conseil et de test génétique.",
+    "OPAS": "Ordonnance sur les prestations de l'assurance des soins, qui fixe les prestations remboursées par l'assurance obligatoire.",
+    "ADN": "Acide désoxyribonucléique, support de l'information génétique.",
+    "BRCA": "Gènes de prédisposition au cancer du sein et de l'ovaire (BRCA1 et BRCA2).",
+    "BRCA1/2": "Gènes BRCA1 et BRCA2.",
+    "SARM": "Staphylococcus aureus résistant à la méticilline.",
+    "PET-CT": "Examen qui couple un PET et un CT.",
+    "PET": "Tomographie par émission de positons.",
+    "CT": "Tomodensitométrie."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Biologie",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
