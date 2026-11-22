@@ -74,9 +74,9 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Catalogue paraclinique : 66 organes, 601 examens listés (champs à remplir).
 
 ## 9. Méthode convenue pour la suite
-1. Système par système (cardiovasculaire fait ; prochain : sémiologie cardiovasculaire, puis respiratoire) : proposer la liste des organes, les volets adaptés, les fenêtres de courbes et les 4 paliers de pathologies.
-2. Attendre la validation de Vial.
-3. Produire le contenu ; audit bloquant après chaque lot ; commit et push.
+1. Système par système (cardiovasculaire et respiratoire faits ; prochain : digestif et hépatobiliaire) selon le skill `systeme-jouable-builder`.
+2. Depuis le 2026-11-22 (soir), Vial donne son accord d'office pour ce projet : Claude produit sans attendre de validation et l'informe ensuite.
+3. Audit bloquant après chaque lot ; commit et push.
 
 ## 10. En attente
 - Pilote Jeux_45_Spec : `python scripts/produire_fiches_claude.py pilote --spec CAR --n 2` (schéma `scripts/schema_fiche.json` : `glossaire` et `examens.items.visee` obligatoires). Vial envoie les 2 fiches pour audit.
@@ -135,3 +135,11 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 ## Veille GitHub (2026-11-22)
 - `.github/workflows/veille.yml` + `veille.py` + `cadence.py` : réveil toutes les 5 min, curseur adaptatif 5–60 min selon les lots reçus, déclenchement immédiat sur dépôt main. Réparation, fusion et contrôles sur la branche `veille/audit-medical` seulement ; file d'attente `CLAUDE_A_AUDITER/EN_ATTENTE_AUDIT_MEDICAL.json`. Registre : `projets/retours/veille_traites.json`.
 - Décision de Vial (non discutable) : Claude reste garant du contenu médical. Une tâche planifiée Claude vérifie la branche, audite médicalement (`projets/outils/AUDIT_MEDICAL_CLAUDE.md`), corrige, puis ouvre et fusionne la PR vers main.
+
+## Moteur de système générique et respiratoire (2026-11-23)
+- `conception/outils/systeme_source.py` lit n'importe quel dossier de système (contenu, semiologie, pathologies, glossaire, temps) ; `systemes_rediges.py` est le registre (dossier, préfixe d'identifiant, couleur, identifiants stables). Ajouter un système = un dossier de textes + une ligne au registre. `cardio.py` reste un simple pont de compatibilité.
+- Respiratoire rédigé (`conception/outils/respi/`) : 10 organes (la circulation pulmonaire reste dans le cardiovasculaire), sémiologie de 9 organes (le poumon garde son circuit pilote de pneumonie), 41 pathologies en 4 paliers, 41 sigles. La physiologie historique du poumon (volets ph0–ph4) est migrée dans la source ; la régulation part vers l'organe « Centres respiratoires et chémorécepteurs ».
+- Pharynx : rédigé côté respiratoire ; le pharynx digestif deviendra un lien vers lui (comme la circulation pulmonaire).
+- Nouvelles fenêtres testées sans écran (0 erreur) : `voies_centrales` (obstacles fixes et variables, Poiseuille), `compliance` (poumon, paroi, CRF ; fibrose, emphysème, obésité, pneumothorax), `vq` (shunt, espace mort, FiO₂).
+- `projets/retours/migrations_ids.json` déclare les renommages d'identifiants assumés pour la garde `non_perte.py`.
+- `.github/workflows/regeneration.yml` : toute modification des sources sur main régénère réseau, JSON et sorties fiables, puis lance les contrôles ; il publie seulement si tout passe (rapport `CLAUDE_A_AUDITER/RAPPORT_REGENERATION.md`).

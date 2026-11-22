@@ -1,0 +1,57 @@
+# Régénération gratuite (0 token) : quand une source rédigée change (textes d'un système, scripts de conception),
+# reconstruit le réseau, les JSON et les sorties fiables, puis lance tous les contrôles. Publie seulement si tout passe
+# et si aucune valeur remplie ne disparaît (non_perte.py). Sinon, publie seulement le rapport.
+# Signature : AAI (Anthropic AI)
+name: Régénération après modification des sources
+on:
+  push:
+    branches: [main]
+    paths:
+      - "conception/outils/**"
+      - "conception/prototypes/moteur/fenetres.js"
+      - "projets/outils/audit_fond.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: regeneration
+  cancel-in-progress: false
+jobs:
+  regenerer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main, fetch-depth: 0 }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Régénérer et contrôler
+        id: regen
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          {
+            echo "# Régénération automatique — $(date -u '+%Y-%m-%d %H:%M') UTC"; echo
+            python conception/outils/construire_config_tetrade.py
+            python conception/outils/generer_json.py | tail -1
+            python projets/outils/audit_fond.py | tail -1
+            python projets/outils/lots_complement.py | tail -1
+            python conception/outils/auditer_conception.py | tail -1
+            python conception/outils/auditer_couverture.py | tail -1
+            python projets/outils/non_perte.py origin/main | tail -3
+          } 2>&1 | tee /tmp/rapport.txt
+          ! grep -q "ÉCHEC" /tmp/rapport.txt
+      - name: Publier
+        run: |
+          git config user.name "regeneration-auto"
+          git config user.email "regeneration-auto@users.noreply.github.com"
+          mkdir -p CLAUDE_A_AUDITER
+          { cat /tmp/rapport.txt; echo; echo "Signature : AAI (Anthropic AI)"; } > CLAUDE_A_AUDITER/RAPPORT_REGENERATION.md
+          if [ "${{ steps.regen.outcome }}" = "success" ]; then
+            git add -A
+          else
+            git add CLAUDE_A_AUDITER/RAPPORT_REGENERATION.md
+            git checkout -- .
+          fi
+          git diff --cached --quiet || git commit -m "Régénération automatique après modification des sources [skip ci]"
+          git pull --rebase -q origin main && git push origin HEAD:main
