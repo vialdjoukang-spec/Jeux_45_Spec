@@ -1,0 +1,663 @@
+{
+ "_lot": {
+  "tache": "P05-16-PR",
+  "titre": "Pratique — Examens de l'organe Uretères (9 examens : 5 imagerie + 1 endoscopies + 3 biologie)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/5_abdomen/ureteres.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/5_abdomen/ureteres.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "ureteres__uro_ct",
+     "nom": "Uro-CT",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "ureteres__uro_ct-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, l'uro-CT a la meilleure exactitude pour la voie excrétrice supérieure, avec une sensibilité groupée de 92 % et une spécificité de 95 %.",
+        "pourquoiFaux": "Le CT natif ne voit pas les lacunes, le MAG3 ne voit pas l'urothélium, et l'échographie manque les petites tumeurs de l'uretère."
+       },
+       "sources": [
+        "EAU, carcinome urothélial de la voie excrétrice supérieure (2026)"
+       ],
+       "casClinique": "Un homme de 69 ans, à Lausanne, a une hématurie macroscopique et une cytologie urinaire suspecte ; la vessie est normale en cystoscopie.",
+       "options": [
+        "Uro-CT",
+        "CT natif basse dose",
+        "Scintigraphie au MAG3",
+        "Échographie seule"
+       ],
+       "bonneReponse": "Uro-CT",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "ureteres__uro_ct-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, une lacune ou un épaississement de la voie excrétrice oriente vers une tumeur.",
+        "pourquoiFaux": "Un calcul est dense dès le temps sans injection, ce qui n'est pas le cas ici."
+       },
+       "sources": [
+        "EAU, carcinome urothélial de la voie excrétrice supérieure (2026)"
+       ],
+       "consigne": "Au temps excrétoire, l'uretère pelvien gauche montre une lacune irrégulière de 10 mm avec dilatation d'amont. Que conclure ?",
+       "aspectRecherche": "Lacune urétérale irrégulière",
+       "reponse": "Une tumeur urothéliale de l'uretère probable",
+       "imageOuTraceAttendu": "Reconstruction coronale au temps excrétoire : lacune irrégulière de 10 mm dans l'uretère pelvien gauche, avec épaississement pariétal et dilatation de l'uretère et des cavités en amont."
+      },
+      {
+       "id": "ureteres__uro_ct-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, chez un blessé hypovolémique, un temps tardif à cinq minutes peut manquer une plaie de la voie excrétrice.",
+        "pourquoiFaux": "L'excrétion est retardée en état de choc, et la fuite apparaît plus tard."
+       },
+       "sources": [
+        "EAU, traumatismes urologiques (2026)"
+       ],
+       "erreurFrequente": "Se contenter d'un temps tardif à cinq minutes chez un blessé hypovolémique suspect de plaie urétérale.",
+       "consequence": "La plaie est manquée.",
+       "bonneConduite": "On répète des clichés plus tardifs ou on complète par une urographie rétrograde."
+      }
+     ]
+    },
+    {
+     "ref": "ureteres__echographie",
+     "nom": "Échographie (dilatation)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "ureteres__echographie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, l'échographie est l'imagerie de première ligne, et la fièvre impose une imagerie immédiate.",
+        "pourquoiFaux": "L'uro-CT programmé retarde le diagnostic, le MAG3 ne se fait pas en urgence, et l'urétéroscopie est un geste."
+       },
+       "sources": [
+        "EAU, lithiase urinaire (2026)"
+       ],
+       "casClinique": "Une femme de 33 ans, à Genève, a une colique néphrétique gauche et de la fièvre.",
+       "options": [
+        "Échographie en urgence",
+        "Uro-CT programmé",
+        "Scintigraphie au MAG3",
+        "Urétéroscopie"
+       ],
+       "bonneReponse": "Échographie en urgence",
+       "visee": "complications"
+      },
+      {
+       "id": "ureteres__echographie-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, l'échographie identifie la dilatation et, vessie pleine, les calculs de la jonction urétéro-vésicale.",
+        "pourquoiFaux": "Un calcul de l'uretère lombaire est souvent invisible ; ici, la vessie pleine fait fenêtre."
+       },
+       "sources": [
+        "EAU, lithiase urinaire (2026)"
+       ],
+       "consigne": "Sur l'échographie, les cavités gauches sont dilatées et un calcul de 6 mm siège à la jonction urétéro-vésicale, vessie pleine. Que conclure ?",
+       "aspectRecherche": "Dilatation et calcul juxtavésical",
+       "reponse": "Un calcul obstructif de la jonction urétéro-vésicale gauche",
+       "imageOuTraceAttendu": "Coupe du rein gauche : cavités dilatées ; coupe pelvienne vessie pleine : image hyperéchogène de 6 mm avec cône d'ombre à la jonction urétéro-vésicale gauche."
+      },
+      {
+       "id": "ureteres__echographie-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, une dilatation physiologique de grossesse peut imiter une obstruction.",
+        "pourquoiFaux": "L'utérus comprime l'uretère droit en fin de grossesse."
+       },
+       "sources": [
+        "EAU, lithiase urinaire (2026)"
+       ],
+       "erreurFrequente": "Conclure à une obstruction chez une femme enceinte de 30 semaines sur une dilatation droite modérée.",
+       "consequence": "Une intervention inutile est proposée.",
+       "bonneConduite": "On interprète la dilatation avec la clinique et on complète si besoin par une IRM."
+      }
+     ]
+    },
+    {
+     "ref": "ureteres__ureteropyelographie_retrograde",
+     "nom": "Urétéropyélographie rétrograde",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "ureteres__ureteropyelographie_retrograde-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, une urographie rétrograde est la meilleure méthode de confirmation si un doute persiste après le CT.",
+        "pourquoiFaux": "L'urographie intraveineuse est peu fiable, l'échographie ne montre pas la fuite, et le DMSA explore le cortex."
+       },
+       "sources": [
+        "EAU, traumatismes urologiques (2026)"
+       ],
+       "casClinique": "Un homme de 40 ans, à Fribourg, opéré du bassin, a une collection et un uro-CT non conclusif pour une plaie urétérale.",
+       "options": [
+        "Urétéropyélographie rétrograde",
+        "Urographie intraveineuse",
+        "Échographie seule",
+        "Scintigraphie au DMSA"
+       ],
+       "bonneReponse": "Urétéropyélographie rétrograde",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "ureteres__ureteropyelographie_retrograde-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, une fuite de contraste à l'opacification confirme la plaie quand le CT reste douteux ; la dose vaut environ 1,6 mSv selon Hart et al. (2010).",
+        "pourquoiFaux": "Un reflux pyélo-veineux reste dans le rein et ne forme pas de nappe le long de l'uretère."
+       },
+       "sources": [
+        "EAU, traumatismes urologiques (2026)",
+        "Hart et al., HPA-CRCE-012 (2010)"
+       ],
+       "consigne": "Sur l'opacification rétrograde, le contraste sort de l'uretère pelvien droit et s'accumule à côté. Que conclure ?",
+       "aspectRecherche": "Fuite de contraste hors de l'uretère",
+       "reponse": "Une plaie de l'uretère pelvien droit",
+       "imageOuTraceAttendu": "Cliché de fluoroscopie : cathéter dans le méat droit ; opacification de l'uretère pelvien avec une fuite de contraste en nappe à côté de l'uretère, et opacification incomplète en amont."
+      },
+      {
+       "id": "ureteres__ureteropyelographie_retrograde-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, la cytologie de barbotage se fait de préférence avant l'injection du contraste.",
+        "pourquoiFaux": "Le contraste altère les cellules urothéliales."
+       },
+       "sources": [
+        "EAU, carcinome urothélial de la voie excrétrice supérieure (2026)"
+       ],
+       "erreurFrequente": "Injecter le contraste avant de prélever la cytologie sélective d'une suspicion de tumeur.",
+       "consequence": "La cytologie est moins fiable.",
+       "bonneConduite": "On prélève la cytologie sélective avant l'injection."
+      }
+     ]
+    },
+    {
+     "ref": "ureteres__scintigraphie_mag3",
+     "nom": "Scintigraphie MAG3 (obstruction fonctionnelle)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "ureteres__scintigraphie_mag3-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la SNMMI/EANM 2018, le test au diurétique distingue une dilatation obstructive d'une dilatation non obstructive ; la dose vaut 0,7 mSv.",
+        "pourquoiFaux": "Le DMSA ne mesure pas l'écoulement, le CT ne donne pas la fonction, et le sédiment ne voit pas l'obstacle."
+       },
+       "sources": [
+        "SNMMI/EANM, scintigraphie rénale de l'adulte (Blaufox, 2018)"
+       ],
+       "casClinique": "Une femme de 52 ans, à Berne, a une dilatation de l'uretère gauche après une chirurgie pelvienne ; on veut savoir si elle est obstructive.",
+       "options": [
+        "Scintigraphie au MAG3 avec diurétique",
+        "Scintigraphie au DMSA",
+        "CT natif basse dose",
+        "Sédiment urinaire"
+       ],
+       "bonneReponse": "Scintigraphie au MAG3 avec diurétique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "ureteres__scintigraphie_mag3-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon la SNMMI/EANM 2018, une courbe qui ne descend pas après diurétique traduit une dilatation obstructive.",
+        "pourquoiFaux": "Une décroissance franche après diurétique écarte l'obstruction."
+       },
+       "sources": [
+        "SNMMI/EANM, scintigraphie rénale de l'adulte (Blaufox, 2018)"
+       ],
+       "consigne": "Après furosémide, l'activité reste bloquée dans le bassinet et l'uretère gauches et la courbe monte encore. Que conclure ?",
+       "aspectRecherche": "Courbe gauche ascendante après diurétique",
+       "reponse": "Une obstruction de l'uretère gauche",
+       "imageOuTraceAttendu": "Courbes activité-temps : rein droit avec élimination rapide après furosémide ; rein gauche avec courbe ascendante et stase dans l'uretère en fin d'examen."
+      },
+      {
+       "id": "ureteres__scintigraphie_mag3-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la SNMMI/EANM 2018, une hydratation insuffisante ou un mauvais moment d'injection du diurétique rendent la courbe difficile à interpréter.",
+        "pourquoiFaux": "Un faible débit urinaire ralentit l'élimination même sans obstacle."
+       },
+       "sources": [
+        "SNMMI/EANM, scintigraphie rénale de l'adulte (Blaufox, 2018)"
+       ],
+       "erreurFrequente": "Conclure à une obstruction alors que le diurétique a été injecté trop tard et que la patiente était peu hydratée.",
+       "consequence": "Une intervention inutile est proposée.",
+       "bonneConduite": "On répète l'examen chez une patiente hydratée, avec un moment d'injection du diurétique respecté."
+      }
+     ]
+    },
+    {
+     "ref": "ureteres__ct_abdominal_natif_basse_dose",
+     "nom": "CT abdominal natif basse dose (calcul)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "ureteres__ct_abdominal_natif_basse_dose-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, le CT sans injection confirme le calcul, et la dose réduite garde une sensibilité de 86 % pour les calculs urétéraux de moins de 3 mm et de 100 % au-delà si le BMI est inférieur à 30 kg/m².",
+        "pourquoiFaux": "L'injection est inutile pour un calcul, l'urographie est dépassée, et le MAG3 ne voit pas le calcul."
+       },
+       "sources": [
+        "EAU, lithiase urinaire (2026)"
+       ],
+       "casClinique": "Un homme de 37 ans, à Zurich, a une colique néphrétique droite, un BMI de 24 kg/m² et une échographie non conclusive.",
+       "options": [
+        "CT abdominal natif basse dose",
+        "Uro-CT avec injection",
+        "Urographie intraveineuse",
+        "Scintigraphie au MAG3"
+       ],
+       "bonneReponse": "CT abdominal natif basse dose",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "ureteres__ct_abdominal_natif_basse_dose-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, le CT sans injection confirme et localise le calcul ; l'anneau tissulaire le distingue d'un phlébolithe.",
+        "pourquoiFaux": "Un phlébolithe est pelvien, sans anneau ni dilatation."
+       },
+       "sources": [
+        "EAU, lithiase urinaire (2026)"
+       ],
+       "consigne": "Sur le CT basse dose, une densité calcique de 4 mm siège dans l'uretère droit, entourée d'un anneau tissulaire, avec dilatation en amont. Que conclure ?",
+       "aspectRecherche": "Calcul urétéral avec anneau tissulaire",
+       "reponse": "Un calcul de l'uretère droit obstructif",
+       "imageOuTraceAttendu": "Coupes axiales natives basse dose : image calcique de 4 mm dans l'uretère droit au croisement des vaisseaux iliaques, avec un fin anneau tissulaire, une dilatation d'amont et une infiltration périrénale droite."
+      },
+      {
+       "id": "ureteres__ct_abdominal_natif_basse_dose-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, la très bonne sensibilité du protocole à dose réduite est rapportée chez les patients de BMI inférieur à 30 kg/m².",
+        "pourquoiFaux": "Le bruit d'image augmente avec la corpulence et masque les petits calculs."
+       },
+       "sources": [
+        "EAU, lithiase urinaire (2026)"
+       ],
+       "erreurFrequente": "Faire un CT basse dose chez un patient de BMI 38 kg/m² sans adapter le protocole.",
+       "consequence": "Un petit calcul est manqué.",
+       "bonneConduite": "On adapte le protocole à la corpulence."
+      }
+     ]
+    },
+    {
+     "ref": "ureteres__ureteroscopie",
+     "nom": "Urétéroscopie",
+     "modalite": "Endoscopie",
+     "defis": [
+      {
+       "id": "ureteres__ureteroscopie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, l'urétéroscopie se demande quand l'imagerie et la cytologie ne suffisent pas au diagnostic ou à la stratification du risque.",
+        "pourquoiFaux": "Un nouvel uro-CT n'apporte pas l'histologie, et les autres examens ne voient pas la muqueuse."
+       },
+       "sources": [
+        "EAU, carcinome urothélial de la voie excrétrice supérieure (2026)"
+       ],
+       "casClinique": "Une femme de 66 ans, à Bâle, a une lacune urétérale à l'uro-CT et une cytologie non conclusive.",
+       "options": [
+        "Urétéroscopie avec biopsie",
+        "Nouvel uro-CT",
+        "Scintigraphie au MAG3",
+        "Échographie"
+       ],
+       "bonneReponse": "Urétéroscopie avec biopsie",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "ureteres__ureteroscopie-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, l'inspection complète cartographie la tumeur, estime sa taille et sa multifocalité, et permet la biopsie, qui donne le grade dans plus de 90 % des cas.",
+        "pourquoiFaux": "Un petit prélèvement peut manquer le chorion et sous-stader la tumeur."
+       },
+       "sources": [
+        "EAU, carcinome urothélial de la voie excrétrice supérieure (2026)"
+       ],
+       "consigne": "L'endoscopiste voit dans l'uretère lombaire une lésion papillaire de 8 mm, sans autre lésion jusqu'aux calices. Que retenir ?",
+       "aspectRecherche": "Lésion papillaire unique cartographiée",
+       "reponse": "Une tumeur urothéliale unifocale à biopsier",
+       "imageOuTraceAttendu": "Compte rendu d'urétéroscopie souple : lésion papillaire de 8 mm de l'uretère lombaire droit, muqueuse normale ailleurs, bassinet et calices explorés sans autre lésion ; biopsie faite."
+      },
+      {
+       "id": "ureteres__ureteroscopie-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, une biopsie urétéroscopique augmente le risque de récidive vésicale.",
+        "pourquoiFaux": "Les cellules tumorales peuvent s'implanter dans la vessie."
+       },
+       "sources": [
+        "EAU, carcinome urothélial de la voie excrétrice supérieure (2026)"
+       ],
+       "erreurFrequente": "Biopsier une lésion urétérale en oubliant que la biopsie augmente le risque de récidive vésicale.",
+       "consequence": "La surveillance vésicale est insuffisante.",
+       "bonneConduite": "On organise une surveillance vésicale adaptée après l'urétéroscopie."
+      }
+     ]
+    },
+    {
+     "ref": "ureteres__sediment_urinaire",
+     "nom": "Sédiment urinaire (hématurie)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "ureteres__sediment_urinaire-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'AUA/SUFU 2020, une bandelette positive doit être confirmée au microscope avant tout bilan.",
+        "pourquoiFaux": "L'imagerie et l'endoscopie ne se discutent qu'après confirmation."
+       },
+       "sources": [
+        "AUA/SUFU, microhématurie (2020)"
+       ],
+       "casClinique": "Un homme de 58 ans, à Sion, a une bandelette positive pour le sang à un contrôle de routine.",
+       "options": [
+        "Sédiment urinaire au microscope",
+        "Uro-CT d'emblée",
+        "Urétéroscopie",
+        "Scintigraphie au MAG3"
+       ],
+       "bonneReponse": "Sédiment urinaire au microscope",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "ureteres__sediment_urinaire-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'AUA/SUFU 2020, au moins 3 hématies par champ définissent une microhématurie.",
+        "pourquoiFaux": "Moins de 3 hématies ne suffisent pas."
+       },
+       "sources": [
+        "AUA/SUFU, microhématurie (2020)"
+       ],
+       "resultat": "Sédiment : 6 hématies par champ à fort grossissement, sans infection, à deux reprises.",
+       "decision": "On retient une microhématurie et on organise le bilan selon le risque."
+      },
+      {
+       "id": "ureteres__sediment_urinaire-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'AUA/SUFU 2020, au moins 20 % des bandelettes positives n'ont pas d'hématies au microscope.",
+        "pourquoiFaux": "La myoglobine ou l'hémoglobine libre colorent la bandelette."
+       },
+       "sources": [
+        "AUA/SUFU, microhématurie (2020)"
+       ],
+       "erreurFrequente": "Lancer un uro-CT sur une bandelette positive sans microscopie.",
+       "consequence": "Le patient est irradié pour rien.",
+       "bonneConduite": "On confirme d'abord par le sédiment."
+      }
+     ]
+    },
+    {
+     "ref": "ureteres__culture_d_urine",
+     "nom": "Culture d'urine (pyélonéphrite obstructive)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "ureteres__culture_d_urine-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon la Société Suisse d'Infectiologie, une pyélonéphrite demande bandelette, culture et deux paires d'hémocultures ; l'EAU demande une culture avec antibiogramme dans toute pyélonéphrite.",
+        "pourquoiFaux": "Traiter sans prélever ou prélever après le traitement fait perdre le germe, et le sédiment seul ne donne pas l'antibiogramme."
+       },
+       "sources": [
+        "Société Suisse d'Infectiologie, recommandation sur les infections urinaires (ssi.guidelines.ch)",
+        "EAU, infections urologiques (version en ligne)"
+       ],
+       "casClinique": "Une femme de 48 ans, à Neuchâtel, a une fièvre à 39 °C, une douleur lombaire droite et une dilatation des cavités à l'échographie.",
+       "options": [
+        "Uroculture et hémocultures avant antibiotique",
+        "Antibiotique sans prélèvement",
+        "Culture après 48 heures de traitement",
+        "Sédiment seul"
+       ],
+       "bonneReponse": "Uroculture et hémocultures avant antibiotique",
+       "visee": "etiologique"
+      },
+      {
+       "id": "ureteres__culture_d_urine-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la Société Suisse d'Infectiologie, au moins 10⁵ UFC/ml sans symptôme définit une bactériurie asymptomatique, qu'on ne cherche qu'en grossesse ou avant un geste endo-urologique.",
+        "pourquoiFaux": "Le seuil de 10³ UFC/ml s'applique aux patients symptomatiques avec leucocyturie."
+       },
+       "sources": [
+        "Société Suisse d'Infectiologie, recommandation sur les infections urinaires (ssi.guidelines.ch)"
+       ],
+       "resultat": "Femme sans symptôme, non enceinte, sans geste prévu ; culture à 10⁵ UFC/ml d'Escherichia coli.",
+       "decision": "On retient une bactériurie asymptomatique et on ne traite pas."
+      },
+      {
+       "id": "ureteres__culture_d_urine-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU, une fièvre persistante après 48 à 72 heures ou une hydronéphrose imposent une imagerie en coupes, et l'obstruction doit être recherchée et traitée.",
+        "pourquoiFaux": "La culture identifie le germe mais ne lève pas l'obstacle."
+       },
+       "sources": [
+        "EAU, infections urologiques (version en ligne)"
+       ],
+       "erreurFrequente": "Se contenter de la culture et de l'antibiotique chez un patient qui reste fébrile après 72 heures de traitement d'une pyélonéphrite sur calcul.",
+       "consequence": "Une obstruction infectée ou un abcès évolue vers le sepsis.",
+       "bonneConduite": "On fait une imagerie en coupes et on draine l'obstacle si besoin."
+      }
+     ]
+    },
+    {
+     "ref": "ureteres__creatinine",
+     "nom": "Créatinine (retentissement)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "ureteres__creatinine-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Selon l'EAU 2026, la créatinine fait partie du bilan d'une lithiase, et un rein unique impose une imagerie immédiate.",
+        "pourquoiFaux": "L'analyse de calcul vient après l'expulsion, le DMSA explore les cicatrices, et une cystatine programmée retarde la décision."
+       },
+       "sources": [
+        "EAU, lithiase urinaire (2026)",
+        "KDIGO, insuffisance rénale aiguë (2012)"
+       ],
+       "casClinique": "Un homme de 61 ans, à Lugano, porteur d'un rein unique, a une colique néphrétique et des urines rares.",
+       "options": [
+        "Créatinine en urgence",
+        "Analyse de calcul",
+        "Scintigraphie au DMSA",
+        "Cystatine C programmée"
+       ],
+       "bonneReponse": "Créatinine en urgence",
+       "visee": "retentissement"
+      },
+      {
+       "id": "ureteres__creatinine-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon KDIGO 2012, une hausse d'au moins 26,5 µmol/l en 48 heures définit une insuffisance rénale aiguë ; ici, la hausse est de 44 µmol/l.",
+        "pourquoiFaux": "Attendre que la valeur dépasse la norme retarde la prise en charge."
+       },
+       "sources": [
+        "KDIGO, insuffisance rénale aiguë (2012)"
+       ],
+       "resultat": "Calcul sur rein unique ; créatinine 88 µmol/l hier, 132 µmol/l aujourd'hui.",
+       "decision": "On retient une insuffisance rénale aiguë obstructive, on fait une imagerie immédiate et on discute le drainage."
+      },
+      {
+       "id": "ureteres__creatinine-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Le rein controlatéral compense ; la SNMMI/EANM 2018 réserve au MAG3 la mesure de la fonction séparée.",
+        "pourquoiFaux": "La créatinine reflète la fonction globale des deux reins."
+       },
+       "sources": [
+        "SNMMI/EANM, scintigraphie rénale de l'adulte (Blaufox, 2018)"
+       ],
+       "erreurFrequente": "Se rassurer sur une créatinine normale devant un calcul urétéral obstructif unilatéral.",
+       "consequence": "La souffrance du rein bloqué est méconnue.",
+       "bonneConduite": "On juge le retentissement par l'imagerie et, au besoin, par la fonction séparée au MAG3."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "AUA": "American Urological Association, société américaine d'urologie.",
+    "AUA/SUFU": "Recommandations communes de l'Association américaine d'urologie et de la société d'urodynamique.",
+    "BMI": "Le BMI, ou indice de masse corporelle, s'exprime en kg/m² ; au-delà de 30, un CT lithiasique à dose réduite est moins sensible pour les petits calculs, selon l'EAU 2026.",
+    "CT": "Le CT, ou tomodensitométrie, est un examen d'imagerie par rayons X en coupes.",
+    "DMSA": "Le DMSA, ou acide dimercaptosuccinique, est le traceur de la scintigraphie corticale, ici marqué au technétium 99m.",
+    "EANM": "L'EANM est l'Association européenne de médecine nucléaire, coauteur avec la SNMMI des recommandations de scintigraphie rénale citées ici.",
+    "EAU": "L'EAU est l'Association européenne d'urologie, dont les recommandations 2026 sur la lithiase, le carcinome urothélial de la voie excrétrice supérieure, le cancer de la vessie n'infiltrant pas le muscle et les traumatismes urologiques sont citées ici.",
+    "HPA-CRCE-012": "Le rapport HPA-CRCE-012 (Hart et al., 2010) catalogue les doses efficaces, notamment en colonnes E60 (CIPR 60) et E103 (CIPR 103).",
+    "IRM": "L'IRM, ou imagerie par résonance magnétique, reconstruit les organes grâce à un champ magnétique, sans rayons X.",
+    "KDIGO": "Organisation internationale qui publie des recommandations de néphrologie.",
+    "MAG3": "Le MAG3, ou mercaptoacétyltriglycine, est le traceur tubulaire de la scintigraphie dynamique, ici marqué au technétium 99m.",
+    "mSv": "Le millisievert est l'unité de dose efficace utilisée pour exprimer l'irradiation d'un examen.",
+    "SNMMI": "La SNMMI est la Society of Nuclear Medicine and Molecular Imaging, coauteur des recommandations de scintigraphie DMSA (2022) et de scintigraphie rénale de l'adulte (2018).",
+    "SNMMI/EANM": "Recommandations communes des sociétés américaine et européenne de médecine nucléaire.",
+    "SUFU": "Society of Urodynamics, Female Pelvic Medicine and Urogenital Reconstruction, société américaine associée à l'AUA.",
+    "UFC": "Unité formant colonie, unité de compte des bactéries en culture.",
+    "Uro-CT": "CT des voies urinaires avec un temps excrétoire après injection."
+   }
+  }
+ }
+}
