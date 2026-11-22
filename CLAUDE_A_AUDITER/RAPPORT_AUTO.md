@@ -1,9 +1,23 @@
-# Audit automatique — 2026-11-22 21:51
+# Audit automatique — 2026-11-22 22:33
 
-4 fichier(s) : 0 🟩 intégrables · 4 🟧 à compléter · 0 🟥 refusés.
+5 fichier(s) : 0 🟩 intégrables · 5 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/Production_XAi/Lots_a_produire/complement_presentation/LOT_COMPLEMENT_7_membres_et_appareil_locomoteur_production_XAi.json`
+- 🟧 `arteres_des_membres.json` : remplissage 24 % (45/189) · champs absents (ancien schéma ?) : avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees
+- 🟧 `articulations_et_synoviale.json` : remplissage 23 % (55/238) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees
+- 🟧 `cheville_et_pied.json` : remplissage 24 % (20/84) · champs absents (ancien schéma ?) : avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees · 5 élément(s) non rendu(s)
+- 🟧 `coude_poignet_et_main.json` : remplissage 24 % (25/105) · champs absents (ancien schéma ?) : avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees · 3 élément(s) non rendu(s)
+- 🟧 `epaule.json` : remplissage 24 % (20/84) · champs absents (ancien schéma ?) : avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees · 4 élément(s) non rendu(s)
+- 🟧 `genou.json` : remplissage 24 % (25/105) · champs absents (ancien schéma ?) : avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees · 3 élément(s) non rendu(s)
+- 🟧 `hanche_et_bassin.json` : remplissage 24 % (20/84) · champs absents (ancien schéma ?) : avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees · 4 élément(s) non rendu(s)
+- 🟧 `muscles.json` : remplissage 23 % (40/172) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees
+- 🟧 `nerfs_peripheriques.json` : remplissage 23 % (45/192) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees
+- 🟧 `os_longs_et_squelette.json` : remplissage 24 % (60/255) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees
+- 🟧 `veines_des_membres.json` : remplissage 23 % (25/107) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees · 3 élément(s) non rendu(s)
+- aVerifier déclarés : 2
 
 ### 🟧 `CLAUDE_A_AUDITER/grok/Production_XAi/Lots_a_produire/complement_presentation/LOT_COMPLEMENT_2_cou_production_XAi.json`
 - 🟧 `ganglions_cervicaux.json` : remplissage 24 % (20/84) · champs absents (ancien schéma ?) : avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees · 5 élément(s) non rendu(s)
