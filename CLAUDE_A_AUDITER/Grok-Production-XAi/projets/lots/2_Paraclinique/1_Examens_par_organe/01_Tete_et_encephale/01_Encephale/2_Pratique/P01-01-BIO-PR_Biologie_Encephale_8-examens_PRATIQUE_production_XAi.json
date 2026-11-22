@@ -1,0 +1,598 @@
+{
+ "_lot": {
+  "tache": "P01-01-BIO-PR",
+  "titre": "Pratique — Examens de l'organe Encéphale — Biologie (8 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/1_tete_et_encephale/encephale.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/1_tete_et_encephale/encephale.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "encephale__ponction_lombaire",
+     "nom": "Ponction lombaire (voir LCR)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "encephale__ponction_lombaire-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La ponction lombaire s'impose devant une suspicion de méningite ; sans déficit focal, crise récente, GCS < 10 ni immunosuppression sévère, aucun CT préalable n'est indiqué, selon l'ESCMID 2016.",
+        "pourquoiFaux": "L'EEG, le PET et le DaTSCAN n'analysent pas le LCR."
+       },
+       "sources": [
+        "ESCMID, méningite bactérienne aiguë (2016)"
+       ],
+       "casClinique": "Un homme de 35 ans, à Lausanne, a de la fièvre, une raideur de nuque et une confusion, sans déficit focal ni crise.",
+       "options": [
+        "Ponction lombaire",
+        "EEG standard",
+        "PET-FDG cérébral",
+        "DaTSCAN"
+       ],
+       "bonneReponse": "Ponction lombaire",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "encephale__ponction_lombaire-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Plus de 4 cellules/µl, plus de 0,45 g/l de protéines et un rapport nettement inférieur à 0,6 sont anormaux, selon Swiss Memory Clinics 2024.",
+        "pourquoiFaux": "Attendre la culture pour traiter laisse évoluer une méningite bactérienne."
+       },
+       "sources": [
+        "Swiss Memory Clinics, recommandations (2024)"
+       ],
+       "resultat": "Le LCR montre 850 cellules/µl, des protéines à 2,1 g/l et un rapport glucose LCR/sang à 0,2.",
+       "decision": "Retenir une méningite et traiter"
+      },
+      {
+       "id": "encephale__ponction_lombaire-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Le CT préalable ne doit jamais retarder l'antibiothérapie, selon l'ESCMID 2016.",
+        "pourquoiFaux": "Il n'est indiqué qu'en cas de déficit focal, de crises récentes, de GCS < 10 ou d'immunosuppression sévère, selon l'ESCMID 2016."
+       },
+       "sources": [
+        "ESCMID, méningite bactérienne aiguë (2016)"
+       ],
+       "erreurFrequente": "Retarder l'antibiothérapie pour obtenir d'abord un CT avant la ponction.",
+       "consequence": "Le pronostic de la méningite s'aggrave pendant l'attente.",
+       "bonneConduite": "On ne fait le CT qu'en présence des critères et on ne retarde jamais l'antibiothérapie."
+      }
+     ]
+    },
+    {
+     "ref": "encephale__ammoniemie",
+     "nom": "Ammoniémie",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "encephale__ammoniemie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "On dose l'ammoniémie pour rechercher une encéphalopathie hépatique, selon le catalogue Medics (Ammoniak/Ammonium).",
+        "pourquoiFaux": "Les autres examens ne cherchent pas de cause métabolique."
+       },
+       "sources": [
+        "Medics, catalogue d'analyses (Ammoniak/Ammonium)"
+       ],
+       "casClinique": "Un homme de 58 ans, à Genève, cirrhotique, devient confus et somnolent.",
+       "options": [
+        "Ammoniémie",
+        "DaTSCAN",
+        "Potentiels évoqués",
+        "PET amyloïde"
+       ],
+       "bonneReponse": "Ammoniémie",
+       "visee": "etiologique"
+      },
+      {
+       "id": "encephale__ammoniemie-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Au-delà de 60 µmol/l chez l'homme, l'ammoniémie est élevée, selon le catalogue Medics (Ammoniak/Ammonium).",
+        "pourquoiFaux": "Juger cette valeur normale fait manquer une cause traitable de confusion."
+       },
+       "sources": [
+        "Medics, catalogue d'analyses (Ammoniak/Ammonium)"
+       ],
+       "resultat": "L'ammoniémie de ce patient vaut 95 µmol/l, sur un prélèvement correct.",
+       "decision": "Retenir une hyperammoniémie"
+      },
+      {
+       "id": "encephale__ammoniemie-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un transport retardé ou non refroidi élève faussement le résultat, selon le catalogue Medics (Ammoniak/Ammonium).",
+        "pourquoiFaux": "Le prélèvement doit parvenir congelé au laboratoire, selon le catalogue Medics (Ammoniak/Ammonium)."
+       },
+       "sources": [
+        "Medics, catalogue d'analyses (Ammoniak/Ammonium)"
+       ],
+       "erreurFrequente": "Envoyer le tube d'ammoniémie à température ambiante par le courrier interne.",
+       "consequence": "Le résultat peut être faussement élevé.",
+       "bonneConduite": "On prélève sur EDTA, on centrifuge, on sépare et on congèle le plasma sans délai."
+      }
+     ]
+    },
+    {
+     "ref": "encephale__toxicologie_sanguine_et_urinaire",
+     "nom": "Toxicologie sanguine et urinaire",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "encephale__toxicologie_sanguine_et_urinaire-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La toxicologie se demande devant un coma inexpliqué ou une suspicion d'intoxication ; un immunodosage positif reste ensuite à confirmer, selon Kale (American Family Physician, 2019).",
+        "pourquoiFaux": "Les autres examens ne cherchent pas de substance exogène."
+       },
+       "sources": [
+        "Kale, Urine Drug Tests (American Family Physician, 2019)"
+       ],
+       "casClinique": "Une femme de 24 ans, à Bâle, est retrouvée comateuse dans un festival ; la glycémie est normale.",
+       "options": [
+        "Toxicologie sanguine et urinaire",
+        "DaTSCAN",
+        "Bilan neuropsychologique",
+        "PET amyloïde"
+       ],
+       "bonneReponse": "Toxicologie sanguine et urinaire",
+       "visee": "etiologique"
+      },
+      {
+       "id": "encephale__toxicologie_sanguine_et_urinaire-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un immunodosage positif reste présomptif jusqu'à la confirmation par chromatographie et spectrométrie de masse, selon Kale (American Family Physician, 2019).",
+        "pourquoiFaux": "Conclure définitivement sur l'immunodosage expose aux faux positifs."
+       },
+       "sources": [
+        "Kale, Urine Drug Tests (American Family Physician, 2019)"
+       ],
+       "resultat": "L'immunodosage urinaire revient positif aux amphétamines.",
+       "decision": "Le considérer comme présomptif et le faire confirmer"
+      },
+      {
+       "id": "encephale__toxicologie_sanguine_et_urinaire-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un immunodosage ne détecte pas toutes les substances, selon Kale (American Family Physician, 2019).",
+        "pourquoiFaux": "Il peut aussi donner des faux négatifs, selon Kale (American Family Physician, 2019)."
+       },
+       "sources": [
+        "Kale, Urine Drug Tests (American Family Physician, 2019)"
+       ],
+       "erreurFrequente": "Exclure une intoxication sur un dépistage urinaire négatif.",
+       "consequence": "On manque une substance que le test ne détecte pas.",
+       "bonneConduite": "On interprète le résultat avec la clinique et l'on demande une analyse ciblée si besoin."
+      }
+     ]
+    },
+    {
+     "ref": "encephale__biomarqueurs_de_neurodegenerescence",
+     "nom": "Biomarqueurs de neurodégénérescence (Aβ42, tau, p-tau, NfL)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "encephale__biomarqueurs_de_neurodegenerescence-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "On dose les biomarqueurs du LCR pour un diagnostic précoce et différentiel de maladie d'Alzheimer, selon Swiss Memory Clinics 2024.",
+        "pourquoiFaux": "L'EEG, le Doppler et l'ammoniémie ne mesurent pas les dépôts amyloïdes ni tau."
+       },
+       "sources": [
+        "Swiss Memory Clinics, recommandations (2024)"
+       ],
+       "casClinique": "Une femme de 66 ans, à Berne, a des troubles de mémoire progressifs depuis deux ans ; l'IRM est peu contributive.",
+       "options": [
+        "Biomarqueurs du LCR",
+        "EEG standard",
+        "Doppler transcrânien",
+        "Ammoniémie"
+       ],
+       "bonneReponse": "Biomarqueurs du LCR",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "encephale__biomarqueurs_de_neurodegenerescence-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La baisse d'Aβ42 et la hausse de p-tau181 et de tau totale forment ce profil, selon Swiss Memory Clinics 2022 (Popp et al.).",
+        "pourquoiFaux": "La NfL seule serait un marqueur non spécifique de lésion axonale, selon Swiss Memory Clinics 2022 (Popp et al.)."
+       },
+       "sources": [
+        "Swiss Memory Clinics, biomarqueurs (Popp et al., 2022)"
+       ],
+       "resultat": "Le LCR montre une Aβ42 basse, une p-tau181 et une tau totale élevées.",
+       "decision": "Retenir un profil de maladie d'Alzheimer"
+      },
+      {
+       "id": "encephale__biomarqueurs_de_neurodegenerescence-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "On informe le patient avant et après l'examen des biomarqueurs, selon Swiss Memory Clinics 2022 (Popp et al.).",
+        "pourquoiFaux": "On respecte aussi la préanalyse du LCR pour éviter de faux résultats."
+       },
+       "sources": [
+        "Swiss Memory Clinics, biomarqueurs (Popp et al., 2022)"
+       ],
+       "erreurFrequente": "Faire doser les biomarqueurs sans en parler au patient.",
+       "consequence": "Le patient reçoit un résultat lourd sans y être préparé.",
+       "bonneConduite": "On informe le patient avant et après l'examen."
+      }
+     ]
+    },
+    {
+     "ref": "encephale__anticorps_anti_neuronaux",
+     "nom": "Anticorps anti-neuronaux (encéphalites auto-immunes)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "encephale__anticorps_anti_neuronaux-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "On recherche ces anticorps devant une encéphalite subaiguë de moins de 3 mois avec crises ou syndrome psychiatrique atypique, selon Graus et al. (Lancet Neurol, 2016).",
+        "pourquoiFaux": "Les autres examens ne cherchent pas de cause auto-immune."
+       },
+       "sources": [
+        "Graus et al., encéphalite auto-immune (Lancet Neurol, 2016)"
+       ],
+       "casClinique": "Une femme de 27 ans, à Zurich, a depuis trois semaines des troubles psychiatriques, des crises et des mouvements anormaux.",
+       "options": [
+        "Anticorps anti-neuronaux (sérum et LCR)",
+        "DaTSCAN",
+        "Bilan neuropsychologique seul",
+        "PET amyloïde"
+       ],
+       "bonneReponse": "Anticorps anti-neuronaux (sérum et LCR)",
+       "visee": "etiologique"
+      },
+      {
+       "id": "encephale__anticorps_anti_neuronaux-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une positivité confirmée dans le LCR signe une encéphalite auto-immune, selon Graus et al. (Lancet Neurol, 2016).",
+        "pourquoiFaux": "Attendre d'autres tests retarde un traitement efficace."
+       },
+       "sources": [
+        "Graus et al., encéphalite auto-immune (Lancet Neurol, 2016)"
+       ],
+       "resultat": "Les anticorps anti-NMDAR reviennent positifs dans le LCR.",
+       "decision": "Retenir une encéphalite auto-immune et la traiter"
+      },
+      {
+       "id": "encephale__anticorps_anti_neuronaux-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "On ne retarde pas le traitement en attendant le résultat, selon Graus et al. (Lancet Neurol, 2016).",
+        "pourquoiFaux": "Un résultat négatif n'exclut d'ailleurs pas une encéphalite auto-immune, selon Graus et al. (Lancet Neurol, 2016)."
+       },
+       "sources": [
+        "Graus et al., encéphalite auto-immune (Lancet Neurol, 2016)"
+       ],
+       "erreurFrequente": "Attendre le résultat des anticorps avant tout traitement.",
+       "consequence": "L'encéphalite progresse pendant l'attente.",
+       "bonneConduite": "On ne retarde pas le traitement en attendant le résultat."
+      }
+     ]
+    },
+    {
+     "ref": "encephale__bilan_de_demence_reversible",
+     "nom": "Bilan de démence réversible (TSH, B12, folates, VIH, syphilis, calcium)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "encephale__bilan_de_demence_reversible-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Le bilan de base de tout trouble cognitif comprend TSH, B12, acide folique, calcium corrigé, sodium, glucose, créatinine et formule sanguine, selon Swiss Memory Clinics 2024.",
+        "pourquoiFaux": "Les examens spécialisés ne viennent qu'après ce bilan de base."
+       },
+       "sources": [
+        "Swiss Memory Clinics, recommandations (2024)"
+       ],
+       "casClinique": "Un homme de 74 ans, à Neuchâtel, consulte pour un trouble cognitif récent.",
+       "options": [
+        "TSH, B12, folates, calcium et sodium",
+        "PET amyloïde d'emblée",
+        "Vidéo-EEG",
+        "Biopsie cérébrale"
+       ],
+       "bonneReponse": "TSH, B12, folates, calcium et sodium",
+       "visee": "etiologique"
+      },
+      {
+       "id": "encephale__bilan_de_demence_reversible-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une valeur hors des intervalles de TSH fait partie des anomalies recherchées, selon Swiss Memory Clinics 2024.",
+        "pourquoiFaux": "Poser d'emblée une démence neurodégénérative néglige une cause traitable."
+       },
+       "sources": [
+        "Swiss Memory Clinics, recommandations (2024)"
+       ],
+       "resultat": "La TSH de ce patient est nettement augmentée.",
+       "decision": "Traiter la cause thyroïdienne et réévaluer la cognition"
+      },
+      {
+       "id": "encephale__bilan_de_demence_reversible-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Les sérologies syphilis et borréliose et le test VIH ne s'ajoutent qu'en cas de suspicion spécifique, selon Swiss Memory Clinics 2024.",
+        "pourquoiFaux": "Le bilan de base reste indispensable."
+       },
+       "sources": [
+        "Swiss Memory Clinics, recommandations (2024)"
+       ],
+       "erreurFrequente": "Demander de routine les sérologies syphilis, borréliose et VIH à tout trouble cognitif.",
+       "consequence": "On multiplie les tests sans indication.",
+       "bonneConduite": "On ne les ajoute qu'en cas de suspicion spécifique."
+      }
+     ]
+    },
+    {
+     "ref": "encephale__glycemie_natremie_calcemie",
+     "nom": "Glycémie, natrémie, calcémie (encéphalopathie métabolique)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "encephale__glycemie_natremie_calcemie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Vomissements et somnolence profonde sont des symptômes graves d'hyponatrémie, selon le guide européen de l'hyponatrémie (ESICM, ESE et ERBP, Spasovski et al., 2014).",
+        "pourquoiFaux": "Les examens d'imagerie fonctionnelle ne cherchent pas de cause métabolique."
+       },
+       "sources": [
+        "ESICM/ESE/ERBP, guide de l'hyponatrémie (Spasovski et al., 2014)"
+       ],
+       "casClinique": "Une femme de 81 ans, à Fribourg, sous diurétique thiazidique, vomit et devient somnolente.",
+       "options": [
+        "Natrémie et glycémie",
+        "PET-FDG cérébral",
+        "DaTSCAN",
+        "Potentiels évoqués"
+       ],
+       "bonneReponse": "Natrémie et glycémie",
+       "visee": "etiologique"
+      },
+      {
+       "id": "encephale__glycemie_natremie_calcemie-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Avec des symptômes graves, on perfuse sans attendre 150 ml de NaCl hypertonique à 3 % en 20 min, selon le guide européen de l'hyponatrémie (ESICM, ESE et ERBP, Spasovski et al., 2014).",
+        "pourquoiFaux": "Attendre le bilan étiologique laisse évoluer l'œdème cérébral."
+       },
+       "sources": [
+        "ESICM/ESE/ERBP, guide de l'hyponatrémie (Spasovski et al., 2014)"
+       ],
+       "resultat": "La natrémie vaut 118 mmol/l et la patiente a fait une crise convulsive.",
+       "decision": "Perfuser 150 ml de NaCl à 3 % en 20 min"
+      },
+      {
+       "id": "encephale__glycemie_natremie_calcemie-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "La hausse se limite à 10 mmol/l les premières 24 h, puis à 8 mmol/l par 24 h, selon le guide européen de l'hyponatrémie (ESICM, ESE et ERBP, Spasovski et al., 2014).",
+        "pourquoiFaux": "Avec des symptômes graves, on vise d'abord une hausse de 5 mmol/l, selon le guide européen de l'hyponatrémie (ESICM, ESE et ERBP, Spasovski et al., 2014)."
+       },
+       "sources": [
+        "ESICM/ESE/ERBP, guide de l'hyponatrémie (Spasovski et al., 2014)"
+       ],
+       "erreurFrequente": "Remonter la natrémie de 16 mmol/l en 24 h.",
+       "consequence": "On dépasse la limite de correction recommandée.",
+       "bonneConduite": "On limite la hausse à 10 mmol/l pendant les premières 24 h."
+      }
+     ]
+    },
+    {
+     "ref": "encephale__alcoolemie_et_ethanol",
+     "nom": "Alcoolémie et éthanol (trouble de conscience)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "encephale__alcoolemie_et_ethanol-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "On n'attribue un trouble de conscience à l'intoxication qu'après avoir exclu une lésion traumatique importante, selon le guide NICE NG232 sur le traumatisme crânien (2023).",
+        "pourquoiFaux": "L'alcoolémie seule ne suffit pas à expliquer la somnolence après une chute."
+       },
+       "sources": [
+        "NICE NG232, traumatisme crânien (2023)"
+       ],
+       "casClinique": "Un homme de 45 ans, à Lucerne, sent l'alcool, a chuté et reste somnolent.",
+       "options": [
+        "Alcoolémie et évaluation des critères de CT",
+        "Alcoolémie seule",
+        "EEG standard",
+        "PET-FDG cérébral"
+       ],
+       "bonneReponse": "Alcoolémie et évaluation des critères de CT",
+       "visee": "etiologique"
+      },
+      {
+       "id": "encephale__alcoolemie_et_ethanol-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Un taux de 0,8 gramme pour mille ou plus dans le sang est qualifié, selon l'ordonnance de l'Assemblée fédérale concernant les taux limites d'alcool admis en matière de circulation routière (RS 741.13).",
+        "pourquoiFaux": "Le seuil de 0,5 gramme pour mille ne définit que l'état d'ébriété."
+       },
+       "sources": [
+        "Ordonnance sur les taux limites d'alcool, RS 741.13 (2012, état 2016)"
+       ],
+       "resultat": "Un conducteur a une alcoolémie de 0,9 gramme pour mille.",
+       "decision": "Retenir un taux d'alcool qualifié"
+      },
+      {
+       "id": "encephale__alcoolemie_et_ethanol-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "L'intoxication est un facteur de risque, et un trouble de conscience n'est attribué à l'alcool qu'après exclusion d'une lésion importante, selon le guide NICE NG232 sur le traumatisme crânien (2023).",
+        "pourquoiFaux": "Attendre la baisse de l'alcoolémie retarde le diagnostic."
+       },
+       "sources": [
+        "NICE NG232, traumatisme crânien (2023)"
+       ],
+       "erreurFrequente": "Laisser « cuver » un blessé alcoolisé somnolent sans évaluer les critères de CT.",
+       "consequence": "On manque un hématome intracrânien.",
+       "bonneConduite": "On exclut d'abord une lésion traumatique importante."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CT": "Tomodensitométrie : imagerie par rayons X en coupes qui mesure l’atténuation des tissus.",
+    "IRM": "Imagerie par résonance magnétique : technique d’imagerie non irradiante qui utilise les champs magnétiques et les ondes radio.",
+    "PET": "Positron Emission Tomography : imagerie métabolique par traceurs émetteurs de positons.",
+    "FDG": "Fluorodésoxyglucose : traceur de PET qui mesure le métabolisme glucidique.",
+    "SPECT": "Single Photon Emission Computed Tomography : imagerie scintigraphique en coupes qui mesure la perfusion ou la fixation de traceurs.",
+    "DaTSCAN": "Examen SPECT au ioflupane-123I qui visualise les transporteurs de la dopamine striatale.",
+    "LCR": "Liquide céphalo-rachidien : liquide qui baigne le système nerveux central, prélevé par ponction lombaire.",
+    "Aβ42": "Peptide amyloïde bêta 42 : marqueur dont la baisse dans le LCR indique des dépôts amyloïdes cérébraux.",
+    "p-tau": "Tau phosphorylée : marqueur dont l’élévation dans le LCR reflète la pathologie neurofibrillaire.",
+    "NfL": "Neurofilament light chain : chaîne légère des neurofilaments, marqueur non spécifique de lésion axonale.",
+    "TSH": "Hormone thyréostimulante : dosage sanguin qui explore la fonction thyroïdienne.",
+    "NMDAR": "Récepteur N-méthyl-D-aspartate : cible fréquente des anticorps dans les encéphalites auto-immunes.",
+    "EEG": "Électroencéphalogramme : enregistrement de l’activité électrique cérébrale par électrodes de surface.",
+    "ESCMID": "European Society of Clinical Microbiology and Infectious Diseases : société européenne qui a publié en 2016 la recommandation sur la méningite bactérienne.",
+    "GCS": "Glasgow Coma Scale : échelle de 3 à 15 points qui évalue le niveau de conscience.",
+    "VIH": "Virus de l’immunodéficience humaine : virus dont on recherche l’infection par un test sérologique.",
+    "B12": "Vitamine B12 (cobalamine) : vitamine dont la carence peut causer des troubles cognitifs réversibles.",
+    "EDTA": "Acide éthylène-diamine-tétra-acétique : anticoagulant du tube de prélèvement violet.",
+    "PET-FDG": "Tomographie par émission de positons au fluorodésoxyglucose : elle mesure le métabolisme cérébral du glucose.",
+    "ESICM": "La European Society of Intensive Care Medicine est la société européenne de médecine intensive.",
+    "ESE": "La European Society of Endocrinology est la société européenne d'endocrinologie.",
+    "ERBP": "European Renal Best Practice publie les recommandations de la société européenne de néphrologie.",
+    "NICE": "Le National Institute for Health and Care Excellence publie les recommandations cliniques britanniques.",
+    "NG232": "NG232 est le numéro du guide NICE sur le traumatisme crânien.",
+    "RS": "Le Recueil systématique rassemble le droit fédéral suisse en vigueur.",
+    "NaCl": "Le chlorure de sodium est le sel des solutés salés, isotoniques ou hypertoniques.",
+    "ESICM/ESE/ERBP": "Ces trois sociétés européennes ont publié ensemble le guide de l'hyponatrémie."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Biologie",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}

@@ -1,0 +1,578 @@
+{
+ "_lot": {
+  "tache": "P01-01-FCT-PR",
+  "titre": "Pratique — Examens de l'organe Encéphale — Exploration fonctionnelle (6 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/1_tete_et_encephale/encephale.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/1_tete_et_encephale/encephale.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "encephale__eeg_standard",
+     "nom": "EEG standard",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "encephale__eeg_standard-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Après une première crise, on fait l'EEG le plus tôt possible, idéalement dans les 72 h, selon le guide NICE NG217 sur les épilepsies (2022).",
+        "pourquoiFaux": "Les autres examens ne cherchent pas d'activité épileptiforme."
+       },
+       "sources": [
+        "NICE NG217, épilepsies (2022)"
+       ],
+       "casClinique": "Un homme de 30 ans, à Sion, a fait une première crise tonico-clonique hier.",
+       "options": [
+        "EEG de veille rapide",
+        "DaTSCAN",
+        "PET amyloïde",
+        "Doppler transcrânien"
+       ],
+       "bonneReponse": "EEG de veille rapide",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "encephale__eeg_standard-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une anomalie épileptiforme a une spécificité suffisante pour soutenir un diagnostic provisoire, selon le guide NICE NG217 sur les épilepsies (2022).",
+        "pourquoiFaux": "Écarter l'épilepsie sur un EEG serait l'erreur inverse."
+       },
+       "sources": [
+        "NICE NG217, épilepsies (2022)"
+       ],
+       "resultat": "L'EEG de ce patient montre des pointes-ondes temporales.",
+       "decision": "Soutenir le diagnostic provisoire d'épilepsie"
+      },
+      {
+       "id": "encephale__eeg_standard-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des potentiels épileptiformes soutiennent le diagnostic d'épilepsie, selon le guide NICE NG217 sur les épilepsies (2022).",
+        "pourquoiFaux": "Un simple ralentissement diffus ne serait pas épileptiforme."
+       },
+       "sources": [
+        "NICE NG217, épilepsies (2022)"
+       ],
+       "consigne": "Lis ce tracé EEG.",
+       "aspectRecherche": "Pointes-ondes",
+       "reponse": "Activité épileptiforme",
+       "imageOuTraceAttendu": "Tracé EEG de veille montrant des pointes-ondes répétées sur les électrodes temporales gauches."
+      },
+      {
+       "id": "encephale__eeg_standard-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "« Ne pas pratiquer d’électroencéphalographie (EEG) pour les céphalées », selon Smarter Medicine, liste Top 5 de la Société Suisse de Neurologie (SSN, 2018).",
+        "pourquoiFaux": "Un EEG normal n'exclut pas non plus une épilepsie, selon le guide NICE NG217 sur les épilepsies (2022)."
+       },
+       "sources": [
+        "Smarter Medicine, liste Top 5 SSN (2018)",
+        "NICE NG217, épilepsies (2022)"
+       ],
+       "erreurFrequente": "Demander un EEG pour des céphalées.",
+       "consequence": "On fait un examen inutile.",
+       "bonneConduite": "On ne fait pas d'EEG pour des céphalées."
+      }
+     ]
+    },
+    {
+     "ref": "encephale__eeg_de_sommeil_et_eeg_prolonge",
+     "nom": "EEG de sommeil et EEG prolongé",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "encephale__eeg_de_sommeil_et_eeg_prolonge-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Si l'EEG de routine est normal, on envisage un EEG après privation de sommeil, selon le guide NICE NG217 sur les épilepsies (2022).",
+        "pourquoiFaux": "Répéter le même EEG ou faire une imagerie fonctionnelle n'augmente pas le rendement."
+       },
+       "sources": [
+        "NICE NG217, épilepsies (2022)"
+       ],
+       "casClinique": "Une femme de 19 ans, à Lugano, a des épisodes évocateurs de crises ; l'EEG de routine est normal.",
+       "options": [
+        "EEG après privation de sommeil",
+        "Répéter un EEG de veille identique",
+        "PET-FDG cérébral",
+        "DaTSCAN"
+       ],
+       "bonneReponse": "EEG après privation de sommeil",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "encephale__eeg_de_sommeil_et_eeg_prolonge-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Si les deux EEG sont normaux et que le doute persiste, on envisage un EEG ambulatoire, selon le guide NICE NG217 sur les épilepsies (2022).",
+        "pourquoiFaux": "Exclure l'épilepsie sur ces deux EEG serait une erreur."
+       },
+       "sources": [
+        "NICE NG217, épilepsies (2022)"
+       ],
+       "resultat": "L'EEG de routine et l'EEG de sommeil sont normaux, et le doute persiste.",
+       "decision": "Envisager un EEG ambulatoire jusqu'à 48 h"
+      },
+      {
+       "id": "encephale__eeg_de_sommeil_et_eeg_prolonge-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un enregistrement de sommeil augmente un peu la sensibilité, selon le guide NICE NG217 sur les épilepsies (2022).",
+        "pourquoiFaux": "Les figures normales du sommeil ne sont pas des pointes-ondes."
+       },
+       "sources": [
+        "NICE NG217, épilepsies (2022)"
+       ],
+       "consigne": "Lis cet EEG de sommeil.",
+       "aspectRecherche": "Anomalies du sommeil",
+       "reponse": "Activité épileptiforme",
+       "imageOuTraceAttendu": "Tracé EEG de sommeil léger montrant des pointes-ondes généralisées absentes sur l'EEG de veille."
+      },
+      {
+       "id": "encephale__eeg_de_sommeil_et_eeg_prolonge-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "On n'utilise pas l'EEG pour exclure une épilepsie, selon le guide NICE NG217 sur les épilepsies (2022).",
+        "pourquoiFaux": "Le diagnostic reste clinique."
+       },
+       "sources": [
+        "NICE NG217, épilepsies (2022)"
+       ],
+       "erreurFrequente": "Conclure à l'absence d'épilepsie après un EEG de sommeil normal.",
+       "consequence": "On écarte un diagnostic encore possible.",
+       "bonneConduite": "On garde le diagnostic clinique et l'on envisage un enregistrement plus long."
+      }
+     ]
+    },
+    {
+     "ref": "encephale__video_eeg",
+     "nom": "Vidéo-EEG",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "encephale__video_eeg-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La vidéo-EEG caractérise des événements paroxystiques et distingue une crise épileptique d'une crise non épileptique, selon la recommandation ILAE-IFCN 2022 (Tatum et al.).",
+        "pourquoiFaux": "Un EEG court enregistre rarement l'événement."
+       },
+       "sources": [
+        "ILAE-IFCN, vidéo-EEG (Tatum et al., 2022)"
+       ],
+       "casClinique": "Une femme de 32 ans, à Genève, a des épisodes paroxystiques fréquents résistant au traitement ; leur nature est incertaine.",
+       "options": [
+        "Vidéo-EEG",
+        "EEG de veille de 20 min",
+        "PET amyloïde",
+        "Doppler transcrânien"
+       ],
+       "bonneReponse": "Vidéo-EEG",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "encephale__video_eeg-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La vidéo-EEG distingue une crise épileptique d'une crise non épileptique, selon la recommandation ILAE-IFCN 2022 (Tatum et al.).",
+        "pourquoiFaux": "Augmenter les antiépileptiques ne traite pas un événement non épileptique."
+       },
+       "sources": [
+        "ILAE-IFCN, vidéo-EEG (Tatum et al., 2022)"
+       ],
+       "resultat": "L'épisode typique est enregistré sans aucun corrélat EEG.",
+       "decision": "Évoquer une crise non épileptique"
+      },
+      {
+       "id": "encephale__video_eeg-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La corrélation électro-clinique confirme une crise épileptique, selon la recommandation ILAE-IFCN 2022 (Tatum et al.).",
+        "pourquoiFaux": "Un événement sans décharge serait non épileptique."
+       },
+       "sources": [
+        "ILAE-IFCN, vidéo-EEG (Tatum et al., 2022)"
+       ],
+       "consigne": "Lis cet enregistrement vidéo-EEG.",
+       "aspectRecherche": "Crise avec corrélat EEG",
+       "reponse": "Crise épileptique focale",
+       "imageOuTraceAttendu": "Vidéo-EEG montrant une décharge rythmique temporale droite qui commence avant les automatismes visibles."
+      },
+      {
+       "id": "encephale__video_eeg-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "On informe des risques de crise pendant le sevrage et l'on surveille en continu.",
+        "pourquoiFaux": "La vidéo-EEG nécessite une hospitalisation, selon la recommandation ILAE-IFCN 2022 (Tatum et al.)."
+       },
+       "sources": [
+        "ILAE-IFCN, vidéo-EEG (Tatum et al., 2022)"
+       ],
+       "erreurFrequente": "Réduire les antiépileptiques sans surveillance continue.",
+       "consequence": "Une crise grave peut survenir sans prise en charge.",
+       "bonneConduite": "On informe le patient et l'on assure une surveillance continue."
+      }
+     ]
+    },
+    {
+     "ref": "encephale__potentiels_evoques_visuels_auditifs_some",
+     "nom": "Potentiels évoqués visuels, auditifs, somesthésiques, moteurs",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "encephale__potentiels_evoques_visuels_auditifs_some-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Les potentiels évoqués visuels donnent une information diagnostique sur l'intégrité fonctionnelle du système visuel, selon le standard ISCEV des potentiels évoqués visuels (Odom et al., 2016).",
+        "pourquoiFaux": "Les autres examens n'explorent pas la conduction des voies optiques."
+       },
+       "sources": [
+        "ISCEV, standard des potentiels évoqués visuels (Odom et al., 2016)"
+       ],
+       "casClinique": "Une femme de 29 ans, à Bienne, a une baisse visuelle passée ; on cherche une atteinte des voies optiques.",
+       "options": [
+        "Potentiels évoqués visuels",
+        "DaTSCAN",
+        "Ammoniémie",
+        "CT de perfusion"
+       ],
+       "bonneReponse": "Potentiels évoqués visuels",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "encephale__potentiels_evoques_visuels_auditifs_some-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une latence monoculaire anormale, une fois l'œil et la rétine exclus, indique une atteinte unilatérale du nerf optique, selon le guide 9B de l'American Clinical Neurophysiology Society (2008).",
+        "pourquoiFaux": "Chaque laboratoire établit ses propres normes, et la comparaison entre les deux yeux augmente la sensibilité, selon le standard ISCEV des potentiels évoqués visuels (Odom et al., 2016)."
+       },
+       "sources": [
+        "ACNS, Guideline 9B, potentiels évoqués visuels (2008)",
+        "ISCEV, standard des potentiels évoqués visuels (Odom et al., 2016)"
+       ],
+       "resultat": "La P100 est allongée à gauche au-delà des normes du laboratoire ; l'examen de l'œil gauche est normal.",
+       "decision": "Retenir une atteinte du nerf optique gauche"
+      },
+      {
+       "id": "encephale__potentiels_evoques_visuels_auditifs_some-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "L'allongement de la P100 est l'indice le plus fiable d'anomalie, selon le guide 9B de l'American Clinical Neurophysiology Society (2008).",
+        "pourquoiFaux": "Une baisse d'amplitude est plus sensible aux facteurs techniques et à la coopération, selon le guide 9B de l'American Clinical Neurophysiology Society (2008)."
+       },
+       "sources": [
+        "ACNS, Guideline 9B, potentiels évoqués visuels (2008)"
+       ],
+       "consigne": "Lis ce tracé de PEV.",
+       "aspectRecherche": "P100 allongée",
+       "reponse": "Conduction visuelle ralentie",
+       "imageOuTraceAttendu": "Tracé de PEV par damier montrant une onde P100 nettement plus tardive à gauche qu'à droite, au-delà des normes du laboratoire."
+      },
+      {
+       "id": "encephale__potentiels_evoques_visuels_auditifs_some-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une anomalie de latence n'indique une atteinte des voies visuelles qu'après exclusion d'une maladie oculaire ou rétinienne, selon le guide 9B de l'American Clinical Neurophysiology Society (2008).",
+        "pourquoiFaux": "La taille du damier, le contraste, la réfraction ou la fixation modifient aussi la P100, selon le standard ISCEV des potentiels évoqués visuels (Odom et al., 2016)."
+       },
+       "sources": [
+        "ACNS, Guideline 9B, potentiels évoqués visuels (2008)",
+        "ISCEV, standard des potentiels évoqués visuels (Odom et al., 2016)"
+       ],
+       "erreurFrequente": "Conclure à une atteinte du nerf optique sur une P100 allongée sans examiner l'œil.",
+       "consequence": "On attribue au nerf une anomalie de l'œil ou de la rétine.",
+       "bonneConduite": "On exclut d'abord une maladie de l'œil ou de la rétine."
+      }
+     ]
+    },
+    {
+     "ref": "encephale__bilan_neuropsychologique",
+     "nom": "Bilan neuropsychologique (MoCA, MMSE, batteries)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "encephale__bilan_neuropsychologique-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "On le demande devant une plainte cognitive ou un doute de démence, selon Swiss Memory Clinics 2024.",
+        "pourquoiFaux": "Les autres examens ne quantifient pas les fonctions cognitives."
+       },
+       "sources": [
+        "Swiss Memory Clinics, recommandations (2024)"
+       ],
+       "casClinique": "Un homme de 70 ans, à Winterthour, se plaint de sa mémoire.",
+       "options": [
+        "Bilan neuropsychologique",
+        "DaTSCAN",
+        "Artériographie cérébrale",
+        "Vidéo-EEG"
+       ],
+       "bonneReponse": "Bilan neuropsychologique",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "encephale__bilan_neuropsychologique-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Un score MoCA inférieur à 26 points signale un déficit, selon Swiss Memory Clinics 2024.",
+        "pourquoiFaux": "Rassurer sans bilan néglige un trouble cognitif."
+       },
+       "sources": [
+        "Swiss Memory Clinics, recommandations (2024)"
+       ],
+       "resultat": "Le MoCA de ce patient vaut 22 points.",
+       "decision": "Retenir un déficit cognitif à explorer"
+      },
+      {
+       "id": "encephale__bilan_neuropsychologique-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un MoCA inférieur à 26 points signale un déficit cognitif, selon Swiss Memory Clinics 2024.",
+        "pourquoiFaux": "Un score de 26 ou plus serait dans la norme."
+       },
+       "sources": [
+        "Swiss Memory Clinics, recommandations (2024)"
+       ],
+       "consigne": "Lis cette fiche MoCA.",
+       "aspectRecherche": "MoCA < 26",
+       "reponse": "Déficit cognitif",
+       "imageOuTraceAttendu": "Fiche MoCA indiquant 21 points sur 30, avec des pertes au rappel différé et aux fonctions exécutives."
+      },
+      {
+       "id": "encephale__bilan_neuropsychologique-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Le bilan neuropsychologique ne donne pas seul le diagnostic étiologique.",
+        "pourquoiFaux": "Le bilan de base cherche les causes réversibles, selon Swiss Memory Clinics 2024."
+       },
+       "sources": [
+        "Swiss Memory Clinics, recommandations (2024)"
+       ],
+       "erreurFrequente": "Poser le diagnostic étiologique sur le seul score cognitif.",
+       "consequence": "On confond déficit et cause.",
+       "bonneConduite": "On intègre le score au bilan clinique, biologique et d'imagerie."
+      }
+     ]
+    },
+    {
+     "ref": "encephale__mesure_de_pression_intracranienne",
+     "nom": "Mesure de pression intracrânienne",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "encephale__mesure_de_pression_intracranienne-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "La mesure guide le traitement d'une hypertension intracrânienne au-delà de 22 mmHg, selon la Brain Trauma Foundation (4e édition, 2016).",
+        "pourquoiFaux": "Les autres examens ne mesurent pas la PIC en continu."
+       },
+       "sources": [
+        "Brain Trauma Foundation, traumatisme crânien grave (4e édition, 2016)"
+       ],
+       "casClinique": "Un homme de 25 ans, à Berne, a un traumatisme crânien grave ; il est intubé et sédaté.",
+       "options": [
+        "Mesure de la pression intracrânienne",
+        "Bilan neuropsychologique",
+        "DaTSCAN",
+        "PET amyloïde"
+       ],
+       "bonneReponse": "Mesure de la pression intracrânienne",
+       "visee": "therapeutique"
+      },
+      {
+       "id": "encephale__mesure_de_pression_intracranienne-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une PIC soutenue au-delà de 22 mmHg (≈ 2,9 kPa) fait traiter, selon la Brain Trauma Foundation (4e édition, 2016).",
+        "pourquoiFaux": "Surveiller sans agir laisse s'aggraver l'hypertension intracrânienne."
+       },
+       "sources": [
+        "Brain Trauma Foundation, traumatisme crânien grave (4e édition, 2016)"
+       ],
+       "resultat": "La PIC reste à 26 mmHg (≈ 3,5 kPa) depuis 15 min.",
+       "decision": "Traiter l'hypertension intracrânienne"
+      },
+      {
+       "id": "encephale__mesure_de_pression_intracranienne-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une PIC au-delà de 22 mmHg de façon soutenue définit le seuil de traitement, selon la Brain Trauma Foundation (4e édition, 2016).",
+        "pourquoiFaux": "Un pic bref à la toux ne serait pas une élévation soutenue."
+       },
+       "sources": [
+        "Brain Trauma Foundation, traumatisme crânien grave (4e édition, 2016)"
+       ],
+       "consigne": "Lis cette courbe de PIC.",
+       "aspectRecherche": "PIC > 22 mmHg soutenue",
+       "reponse": "Hypertension intracrânienne",
+       "imageOuTraceAttendu": "Courbe de PIC sur une heure montrant une pression stable entre 25 et 28 mmHg."
+      },
+      {
+       "id": "encephale__mesure_de_pression_intracranienne-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "« N’utilisez pas en place des équipements invasifs (cathéters, sondes, drains) si aucun bénéfice n’est attendu pour le patient, et ré-évaluer la pertinence de leur maintien, dans le but d’une ablation la plus précoce possible », selon Smarter Medicine, liste Top 5 de la Société Suisse de Médecine Intensive (SSMI, 2017).",
+        "pourquoiFaux": "Le capteur garde sa place tant qu'il guide le traitement."
+       },
+       "sources": [
+        "Smarter Medicine, liste Top 5 SSMI (2017)"
+       ],
+       "erreurFrequente": "Laisser le capteur en place des jours sans réévaluer son utilité.",
+       "consequence": "On expose le patient à l'infection sans bénéfice.",
+       "bonneConduite": "On réévalue chaque jour la pertinence du maintien."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CT": "Tomodensitométrie : imagerie par rayons X en coupes qui mesure l’atténuation des tissus.",
+    "PET": "Positron Emission Tomography : imagerie métabolique par traceurs émetteurs de positons.",
+    "FDG": "Fluorodésoxyglucose : traceur de PET qui mesure le métabolisme glucidique.",
+    "MMSE": "Mini-Mental State Examination : score cognitif sur 30 points utilisé dans les conditions de prise en charge du PET.",
+    "SPECT": "Single Photon Emission Computed Tomography : imagerie scintigraphique en coupes qui mesure la perfusion ou la fixation de traceurs.",
+    "DaTSCAN": "Examen SPECT au ioflupane-123I qui visualise les transporteurs de la dopamine striatale.",
+    "EEG": "Électroencéphalogramme : enregistrement de l’activité électrique cérébrale par électrodes de surface.",
+    "Pointes-ondes": "Potentiels épileptiformes caractéristiques formés d’une pointe suivie d’une onde lente.",
+    "PEV": "Potentiels évoqués visuels : réponse électrique du cortex visuel à une stimulation visuelle.",
+    "SSN": "La Société Suisse de Neurologie est la société savante suisse de la discipline.",
+    "MoCA": "Montreal Cognitive Assessment : test de dépistage cognitif recommandé par les Swiss Memory Clinics.",
+    "PIC": "Pression intracrânienne : pression mesurée à l’intérieur de la boîte crânienne.",
+    "ILAE-IFCN": "Ligue internationale contre l’épilepsie et Fédération internationale de neurophysiologie clinique : elles ont publié en 2022 les normes de la vidéo-EEG.",
+    "kPa": "Kilopascal : unité SI de pression ; 1 kPa vaut environ 7,5 mmHg.",
+    "PET-FDG": "Tomographie par émission de positons au fluorodésoxyglucose : elle mesure le métabolisme cérébral du glucose.",
+    "IFCN": "Fédération internationale de neurophysiologie clinique : elle publie les normes des potentiels évoqués et de la stimulation magnétique.",
+    "P100": "Onde P100 : composante positive des potentiels évoqués visuels dont on mesure la latence ; un allongement au-delà de 115 ms est le seuil retenu ici.",
+    "NICE": "Le National Institute for Health and Care Excellence publie les recommandations cliniques britanniques.",
+    "NG217": "NG217 est le numéro du guide NICE sur les épilepsies.",
+    "SSMI": "La Société Suisse de Médecine Intensive est la société savante suisse des soins intensifs.",
+    "ACNS": "L'American Clinical Neurophysiology Society publie des guides de neurophysiologie clinique.",
+    "ISCEV": "L'International Society for Clinical Electrophysiology of Vision standardise l'électrophysiologie visuelle."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Exploration fonctionnelle",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
