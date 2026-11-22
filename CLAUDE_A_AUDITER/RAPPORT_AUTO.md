@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-22 23:18
 
-25 fichier(s) : 22 🟩 intégrables · 2 🟧 à compléter · 1 🟥 refusés.
+27 fichier(s) : 23 🟩 intégrables · 3 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -90,5 +90,12 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/08_Articulations_et_synoviale/2_Pratique/P07-08-IMG-PR_Imagerie_Articulations_et_synoviale_3-examens_PRATIQUE_production_XAi.json`
 - 🟩 `articulations_et_synoviale.json` : remplissage 100 % (6/6)
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/09_Muscles/1_Theorie/P07-09_Examens_Muscles_8-examens_production_XAi.json`
+- 🟧 `muscles.json` : remplissage 85 % (146/172)
+- aVerifier déclarés : 4
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/09_Muscles/2_Pratique/P07-09-PR_Examens_Muscles_8-examens_PRATIQUE_production_XAi.json`
+- 🟩 `muscles.json` : remplissage 100 % (16/16)
 
 Signature : AAI (Anthropic AI)
