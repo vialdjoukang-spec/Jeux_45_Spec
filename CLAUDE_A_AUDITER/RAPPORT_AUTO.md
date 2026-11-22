@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 23:16
+# Audit automatique — 2026-11-22 23:20
 
-32 fichier(s) : 29 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
+36 fichier(s) : 33 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -32,6 +32,20 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/02_Cou/04_Vaisseaux_du_cou_et_de_la_tete/2_Pratique/P02-04-PR_Examens_Vaisseaux_du_cou_et_de_la_tete_8-examens_PRATIQUE_production_XAi.json`
 - 🟩 `vaisseaux_du_cou_et_de_la_tete.json` : remplissage 100 % (16/16)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/02_Cou/05_Ganglions_cervicaux/1_Theorie/P02-05_Examens_Ganglions_cervicaux_9-examens_production_XAi.json`
+- 🟩 `ganglions_cervicaux.json` : remplissage 90 % (174/193)
+- aVerifier déclarés : 6
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/02_Cou/05_Ganglions_cervicaux/2_Pratique/P02-05-PR_Examens_Ganglions_cervicaux_9-examens_PRATIQUE_production_XAi.json`
+- 🟩 `ganglions_cervicaux.json` : remplissage 100 % (18/18)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/02_Cou/06_Masses_cervicales_et_kystes/1_Theorie/P02-06_Examens_Masses_cervicales_et_kystes_5-examens_production_XAi.json`
+- 🟩 `masses_cervicales_et_kystes.json` : remplissage 90 % (94/105)
+- aVerifier déclarés : 3
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/02_Cou/06_Masses_cervicales_et_kystes/2_Pratique/P02-06-PR_Examens_Masses_cervicales_et_kystes_5-examens_PRATIQUE_production_XAi.json`
+- 🟩 `masses_cervicales_et_kystes.json` : remplissage 100 % (10/10)
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/07_Corps_entier_bilan_d_extension_et_traum/1_Theorie/P09-07_Examens_Corps_entier_bilan_d_extension_et_t_6-examens_production_XAi.json`
 - 🟩 `corps_entier.json` : remplissage 87 % (110/126)
