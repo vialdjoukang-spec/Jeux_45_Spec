@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-22 23:07
 
-46 fichier(s) : 44 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
+48 fichier(s) : 46 🟩 intégrables · 2 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -80,6 +80,13 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/15_Reins/2_Pratique/P05-15-IMG-PR_Imagerie_Reins_7-examens_PRATIQUE_production_XAi.json`
 - 🟩 `reins.json` : remplissage 100 % (14/14)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/16_Ureteres/1_Theorie/P05-16_Examens_Ureteres_9-examens_production_XAi.json`
+- 🟩 `ureteres.json` : remplissage 89 % (170/192)
+- aVerifier déclarés : 7
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/16_Ureteres/2_Pratique/P05-16-PR_Examens_Ureteres_9-examens_PRATIQUE_production_XAi.json`
+- 🟩 `ureteres.json` : remplissage 100 % (18/18)
 
 ### 🟧 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/05_Abdomen/09_Peritoine_et_ascite/1_Theorie/P05-09_Examens_Peritoine_et_ascite_5-examens_production_XAi.json`
 - 🟧 `peritoine_et_ascite.json` : remplissage 85 % (90/106)
