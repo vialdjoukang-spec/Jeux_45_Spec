@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 23:16
+# Audit automatique — 2026-11-22 23:17
 
-17 fichier(s) : 16 🟩 intégrables · 0 🟧 à compléter · 1 🟥 refusés.
+21 fichier(s) : 18 🟩 intégrables · 2 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -62,5 +62,20 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/06_Os_longs_et_squelette/2_Pratique/P07-06-IMG-PR_Imagerie_Os_longs_et_squelette_8-examens_PRATIQUE_production_XAi.json`
 - 🟩 `os_longs_et_squelette.json` : remplissage 100 % (16/16)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/07_Tendons_et_ligaments/1_Theorie/P07-07_Examens_Tendons_et_ligaments_3-examens_production_XAi.json`
+- 🟩 `tendons_et_ligaments.json` : remplissage 89 % (56/63)
+- aVerifier déclarés : 2
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/07_Tendons_et_ligaments/2_Pratique/P07-07-PR_Examens_Tendons_et_ligaments_3-examens_PRATIQUE_production_XAi.json`
+- 🟩 `tendons_et_ligaments.json` : remplissage 100 % (6/6)
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/08_Articulations_et_synoviale/1_Theorie/P07-08-BIO_Biologie_Articulations_et_synoviale_7-examens_production_XAi.json`
+- 🟧 `articulations_et_synoviale.json` : remplissage 84 % (129/154)
+- aVerifier déclarés : 2
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/08_Articulations_et_synoviale/1_Theorie/P07-08-HIS_Anatomopathologie_biopsie_Articulations_et_synoviale_1-examens_production_XAi.json`
+- 🟧 `articulations_et_synoviale.json` : remplissage 81 % (17/21)
+- aVerifier déclarés : 1
 
 Signature : AAI (Anthropic AI)
