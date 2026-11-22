@@ -1,0 +1,563 @@
+{
+ "_lot": {
+  "tache": "P08-03-PR",
+  "titre": "Pratique — Examens de l'organe Plaies, ulcères et escarres (7 examens : 2 explorations + 2 imagerie + 2 biologie + 1 anatomopathologie)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/8_peau_et_phaneres/plaies_ulceres_et_escarres.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/8_peau_et_phaneres/plaies_ulceres_et_escarres.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "plaies_ulceres_et_escarres__index_de_pression_systolique_et_tcpo2",
+     "nom": "Index de pression systolique et TcPO2 (ulcère artériel)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "plaies_ulceres_et_escarres__index_de_pression_systolique_et_tcpo2-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "On mesure l'IPS avant toute compression pour exclure une artériopathie qui la contre-indiquerait, selon la DGPL (Valesky et al., 2024).",
+        "pourquoiFaux": "L'IRM et la biopsie ne précèdent pas la compression, et l'échelle de Braden évalue le risque d'escarre."
+       },
+       "sources": [
+        "DGPL, ligne directrice S2k sur l'ulcère veineux (Valesky et al., 2024)"
+       ],
+       "casClinique": "Une femme de 74 ans, à Bienne, a un ulcère de la cheville gauche ; on envisage des bandages de compression.",
+       "options": [
+        "IPS au Doppler",
+        "IRM de la jambe",
+        "Biopsie du bord",
+        "Échelle de Braden"
+       ],
+       "bonneReponse": "IPS au Doppler",
+       "visee": "therapeutique"
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__index_de_pression_systolique_et_tcpo2-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un IPS < 0,5 contre-indique la compression médicale, selon la DGPL (Valesky et al., 2024).",
+        "pourquoiFaux": "Comprimer malgré cet IPS aggrave l'ischémie, et attendre la cicatrisation spontanée retarde la revascularisation."
+       },
+       "sources": [
+        "DGPL, ligne directrice S2k sur l'ulcère veineux (Valesky et al., 2024)"
+       ],
+       "resultat": "L'IPS vaut 0,45 chez un patient qui a un ulcère de jambe.",
+       "decision": "On renonce à la compression et l'on demande un avis angiologique."
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__index_de_pression_systolique_et_tcpo2-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Des ondes monophasiques signalent une artériopathie, alors que des ondes triphasiques ou biphasiques la rendent moins probable, selon l'IWGDF (Fitridge et al., 2023).",
+        "pourquoiFaux": "Une onde triphasique serait normale, et un IPS isolé ne dispense pas de lire la forme de l'onde."
+       },
+       "sources": [
+        "IWGDF, ESVS et SVS, artériopathie du pied diabétique (Fitridge et al., 2023)"
+       ],
+       "consigne": "Lis ce tracé Doppler de l'artère pédieuse.",
+       "aspectRecherche": "Onde monophasique amortie",
+       "reponse": "L'onde est monophasique : on suspecte une artériopathie significative en amont.",
+       "imageOuTraceAttendu": "Tracé Doppler pulsé de l'artère pédieuse montrant une onde unique, lente et arrondie, sans reflux diastolique."
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__index_de_pression_systolique_et_tcpo2-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'IWGDF (Fitridge et al., 2023), aucune valeur d'IPS n'exclut une artériopathie, et la pression d'orteil ou la TcPO2 restent interprétables.",
+        "pourquoiFaux": "Un IPS élevé traduit souvent des artères incompressibles et non une bonne perfusion."
+       },
+       "sources": [
+        "IWGDF, ESVS et SVS, artériopathie du pied diabétique (Fitridge et al., 2023)"
+       ],
+       "erreurFrequente": "Rassurer un patient diabétique dont l'IPS vaut 1,5.",
+       "consequence": "On manque une artériopathie masquée par des artères calcifiées incompressibles.",
+       "bonneConduite": "On mesure la pression d'orteil ou la TcPO2."
+      }
+     ]
+    },
+    {
+     "ref": "plaies_ulceres_et_escarres__echelle_de_braden",
+     "nom": "Échelle de Braden (risque d'escarre)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "plaies_ulceres_et_escarres__echelle_de_braden-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "On évalue dès l'admission le risque d'escarre de façon structurée, selon la ligne directrice EPUAP, NPIAP et PPPIA (2019), et l'échelle de Braden chiffre ce risque.",
+        "pourquoiFaux": "L'IRM, la TcPO2 et la biopsie ne mesurent pas le risque d'escarre."
+       },
+       "sources": [
+        "EPUAP, NPIAP et PPPIA, ligne directrice internationale sur les escarres (2019)",
+        "Échelle de Braden (Braden et Bergstrom, 1988)"
+       ],
+       "casClinique": "Un homme de 86 ans, à Martigny, est hospitalisé alité après une fracture du col du fémur.",
+       "options": [
+        "Échelle de Braden",
+        "IRM du sacrum",
+        "TcPO2",
+        "Biopsie cutanée"
+       ],
+       "bonneReponse": "Échelle de Braden",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__echelle_de_braden-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un score de 10 à 12 correspond à un risque élevé, selon l'échelle de Braden (1988).",
+        "pourquoiFaux": "Un risque faible correspondrait à 15 à 18 points, et attendre une rougeur avant d'agir laisse l'escarre s'installer."
+       },
+       "sources": [
+        "Échelle de Braden (Braden et Bergstrom, 1988)"
+       ],
+       "resultat": "Le score de Braden vaut 11.",
+       "decision": "On classe le patient à risque élevé et l'on met en place la prévention : support adapté, changements de position et nutrition."
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__echelle_de_braden-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un total de 13 à 14 points correspond à un risque modéré, selon l'échelle de Braden (1988).",
+        "pourquoiFaux": "Un total de 14 n'est ni un risque faible, qui commence à 15, ni un risque élevé, qui s'arrête à 12."
+       },
+       "sources": [
+        "Échelle de Braden (Braden et Bergstrom, 1988)"
+       ],
+       "consigne": "Calcule le score de cette grille et classe le risque.",
+       "aspectRecherche": "Total de 14 points",
+       "reponse": "Le total vaut 14 points : le risque est modéré.",
+       "imageOuTraceAttendu": "Grille de Braden remplie : perception 3, humidité 2, activité 2, mobilité 2, nutrition 3, friction 2."
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__echelle_de_braden-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la ligne directrice EPUAP, NPIAP et PPPIA (2019), l'évaluation structurée du risque complète l'examen de la peau et le jugement clinique.",
+        "pourquoiFaux": "Un score rassurant à l'entrée ne protège pas d'une dégradation ultérieure."
+       },
+       "sources": [
+        "EPUAP, NPIAP et PPPIA, ligne directrice internationale sur les escarres (2019)"
+       ],
+       "erreurFrequente": "Ne plus examiner la peau d'un patient dont le score de Braden vaut 19.",
+       "consequence": "On manque une escarre débutante, car l'échelle prédit un risque sans voir la peau.",
+       "bonneConduite": "On garde l'examen de la peau et le jugement clinique à côté du score."
+      }
+     ]
+    },
+    {
+     "ref": "plaies_ulceres_et_escarres__echodoppler_veineux",
+     "nom": "Échodoppler veineux (ulcère veineux)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "plaies_ulceres_et_escarres__echodoppler_veineux-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "L'écho-Doppler veineux couleur est l'examen de référence du diagnostic initial de l'ulcère veineux, selon la DGPL (Valesky et al., 2024).",
+        "pourquoiFaux": "La phlébographie et l'IRM ne viennent qu'en second, et la biopsie se discute seulement après six semaines sans cicatrisation."
+       },
+       "sources": [
+        "DGPL, ligne directrice S2k sur l'ulcère veineux (Valesky et al., 2024)"
+       ],
+       "casClinique": "Une femme de 66 ans, à Thoune, a un ulcère au-dessus de la malléole interne avec des varices et une dermite ocre.",
+       "options": [
+        "Écho-Doppler veineux couleur",
+        "Phlébographie",
+        "IRM de la jambe",
+        "Biopsie du bord"
+       ],
+       "bonneReponse": "Écho-Doppler veineux couleur",
+       "visee": "etiologique"
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__echodoppler_veineux-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un reflux de plus de 0,5 s dans une veine superficielle est pathologique, selon l'ESVS (De Maeseneer et al., 2022).",
+        "pourquoiFaux": "Un reflux bref de moins de 0,5 s serait physiologique, et le seuil de 1 s s'applique aux veines profondes."
+       },
+       "sources": [
+        "ESVS, maladie veineuse chronique (De Maeseneer et al., 2022)"
+       ],
+       "consigne": "Lis cette mesure à la jonction saphéno-fémorale.",
+       "aspectRecherche": "Reflux de 2 s après compression",
+       "reponse": "Le reflux dure 2 s, au-delà du seuil de 0,5 s : la grande veine saphène est incontinente.",
+       "imageOuTraceAttendu": "Tracé Doppler de la grande veine saphène à la jonction montrant, après relâchement de la compression du mollet, un flux inversé durant 2 s."
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__echodoppler_veineux-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la DGPL (Valesky et al., 2024), on ne prive pas le patient de compression ni de soins locaux en attendant l'écho-Doppler.",
+        "pourquoiFaux": "L'attente de l'examen ne justifie pas de retarder le traitement de base."
+       },
+       "sources": [
+        "DGPL, ligne directrice S2k sur l'ulcère veineux (Valesky et al., 2024)"
+       ],
+       "erreurFrequente": "Suspendre la compression en attendant l'écho-Doppler, prévu dans trois semaines.",
+       "consequence": "On laisse l'ulcère s'aggraver sans traitement efficace.",
+       "bonneConduite": "On poursuit les soins locaux et la compression, après avoir exclu une artériopathie par l'IPS."
+      }
+     ]
+    },
+    {
+     "ref": "plaies_ulceres_et_escarres__irm",
+     "nom": "IRM (ostéite sous-jacente)",
+     "modalite": "Imagerie",
+     "defis": [
+      {
+       "id": "plaies_ulceres_et_escarres__irm-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "On fait une IRM quand le diagnostic d'ostéomyélite reste douteux après la clinique, la radiographie et la biologie, selon l'IWGDF et l'IDSA (Senneville et al., 2023).",
+        "pourquoiFaux": "Une radiographie répétée le lendemain ne montre pas encore de lésion, l'écouvillon ramène la colonisation, et l'échelle de Braden mesure le risque d'escarre."
+       },
+       "sources": [
+        "IWGDF et IDSA, infection du pied diabétique (Senneville et al., 2023)"
+       ],
+       "casClinique": "Un homme diabétique de 63 ans, à Aarau, a un ulcère plantaire ; le test de contact osseux est douteux et la radiographie normale.",
+       "options": [
+        "IRM du pied",
+        "Nouvelle radiographie à J1",
+        "Écouvillon superficiel",
+        "Échelle de Braden"
+       ],
+       "bonneReponse": "IRM du pied",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__irm-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "L'œdème médullaire avec remplacement du signal graisseux au contact d'une plaie oriente vers une ostéomyélite, selon l'IWGDF et l'IDSA (Senneville et al., 2023).",
+        "pourquoiFaux": "Un œdème isolé sans atteinte T1 peut être réactif, et un pied de Charcot donne surtout des atteintes articulaires du médio-pied."
+       },
+       "sources": [
+        "IWGDF et IDSA, infection du pied diabétique (Senneville et al., 2023)"
+       ],
+       "consigne": "Décris le signal de la tête du premier métatarsien sous l'ulcère.",
+       "aspectRecherche": "Hyposignal T1 et hypersignal STIR",
+       "reponse": "La moelle est en hyposignal T1 et en hypersignal STIR au contact de l'ulcère : on suspecte une ostéomyélite.",
+       "imageOuTraceAttendu": "Coupes IRM du pied : en T1, perte du signal graisseux de la tête du premier métatarsien ; en STIR, hypersignal de la même région, avec un trajet de l'ulcère jusqu'à l'os."
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__irm-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Selon l'IWGDF et l'IDSA (Senneville et al., 2023), l'œdème médullaire réactif d'un pied de Charcot réduit la spécificité de l'IRM.",
+        "pourquoiFaux": "L'œdème médullaire seul ne suffit pas à prouver une infection."
+       },
+       "sources": [
+        "IWGDF et IDSA, infection du pied diabétique (Senneville et al., 2023)"
+       ],
+       "erreurFrequente": "Conclure à une ostéomyélite sur un œdème médullaire du médio-pied chez un patient atteint de pied de Charcot.",
+       "consequence": "On traite à tort par des antibiotiques prolongés un œdème réactif.",
+       "bonneConduite": "On confronte l'IRM au contexte, à la présence d'une plaie en regard et, au besoin, à une biopsie osseuse."
+      }
+     ]
+    },
+    {
+     "ref": "plaies_ulceres_et_escarres__culture_d_un_prelevement_profond",
+     "nom": "Culture d'un prélèvement profond (infection de plaie)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "plaies_ulceres_et_escarres__culture_d_un_prelevement_profond-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "On prélève de préférence un fragment tissulaire par curetage ou biopsie, plus sensible et plus spécifique que l'écouvillon, selon l'IWGDF et l'IDSA (Senneville et al., 2023).",
+        "pourquoiFaux": "L'écouvillon ramène la colonisation, l'IRM ne donne pas le germe, et l'HbA1c ne documente pas l'infection."
+       },
+       "sources": [
+        "IWGDF et IDSA, infection du pied diabétique (Senneville et al., 2023)"
+       ],
+       "casClinique": "Une femme diabétique de 70 ans, à Schaffhouse, a un ulcère du pied chaud, rouge et purulent.",
+       "options": [
+        "Culture d'un fragment tissulaire profond",
+        "Écouvillon superficiel",
+        "IRM d'emblée",
+        "Hémoglobine glyquée seule"
+       ],
+       "bonneReponse": "Culture d'un fragment tissulaire profond",
+       "visee": "etiologique"
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__culture_d_un_prelevement_profond-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "La culture donne le germe et sa sensibilité, ce qui guide l'antibiothérapie, selon l'IWGDF et l'IDSA (Senneville et al., 2023).",
+        "pourquoiFaux": "Garder un traitement empirique inactif fait échouer la prise en charge, et ignorer le germe multirésistant expose les autres patients."
+       },
+       "sources": [
+        "IWGDF et IDSA, infection du pied diabétique (Senneville et al., 2023)"
+       ],
+       "resultat": "La culture tissulaire d'un ulcère infecté pousse un Staphylococcus aureus résistant à la méticilline.",
+       "decision": "On adapte l'antibiothérapie à l'antibiogramme et l'on applique les mesures d'hygiène."
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__culture_d_un_prelevement_profond-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon l'IWGDF et l'IDSA (Senneville et al., 2023), on ne traite pas un ulcère cliniquement non infecté par une antibiothérapie systémique ou locale.",
+        "pourquoiFaux": "La culture d'une plaie chronique est souvent positive par colonisation."
+       },
+       "sources": [
+        "IWGDF et IDSA, infection du pied diabétique (Senneville et al., 2023)"
+       ],
+       "erreurFrequente": "Prescrire des antibiotiques sur une culture positive d'une plaie sans aucun signe d'infection.",
+       "consequence": "On traite une simple colonisation et l'on sélectionne des résistances.",
+       "bonneConduite": "On ne traite pas par antibiotiques une plaie cliniquement non infectée."
+      }
+     ]
+    },
+    {
+     "ref": "plaies_ulceres_et_escarres__glycemie_hba1c_albumine",
+     "nom": "Glycémie, HbA1c, albumine (cicatrisation)",
+     "modalite": "Biologie",
+     "defis": [
+      {
+       "id": "plaies_ulceres_et_escarres__glycemie_hba1c_albumine-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Un ulcère plantaire indolore fait chercher un diabète méconnu par l'HbA1c ou la glycémie à jeun, selon l'ADA (2026).",
+        "pourquoiFaux": "L'albumine ne pose pas de diagnostic, la biopsie ne se discute qu'après six semaines sans guérison, et l'échelle de Braden mesure le risque d'escarre."
+       },
+       "sources": [
+        "ADA, Standards of Care in Diabetes (2026)"
+       ],
+       "casClinique": "Un homme de 58 ans, à Olten, sans antécédent connu, a un ulcère indolore sous la tête du premier métatarsien.",
+       "options": [
+        "HbA1c et glycémie à jeun",
+        "Albumine seule",
+        "Biopsie du bord",
+        "Échelle de Braden"
+       ],
+       "bonneReponse": "HbA1c et glycémie à jeun",
+       "visee": "etiologique"
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__glycemie_hba1c_albumine-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Deux résultats anormaux, HbA1c ≥ 6,5 % et glycémie à jeun ≥ 7,0 mmol/l, confirment le diabète, selon l'ADA (2026).",
+        "pourquoiFaux": "Attendre un nouveau contrôle à trois mois retarde le traitement, et une seule valeur n'aurait pas suffi sans symptômes."
+       },
+       "sources": [
+        "ADA, Standards of Care in Diabetes (2026)"
+       ],
+       "resultat": "L'HbA1c vaut 7,8 % et la glycémie à jeun 9,1 mmol/l chez ce patient sans diabète connu.",
+       "decision": "On pose le diagnostic de diabète et l'on organise sa prise en charge avec celle du pied."
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__glycemie_hba1c_albumine-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la prise de position de l'ASPEN (Evans et al., 2021), l'albumine baisse avec l'inflammation et n'est pas un marqueur valide de l'état nutritionnel.",
+        "pourquoiFaux": "Une albumine qui remonte peut traduire la fin de l'inflammation plutôt qu'une meilleure nutrition."
+       },
+       "sources": [
+        "ASPEN, protéines viscérales et nutrition (Evans et al., 2021)"
+       ],
+       "erreurFrequente": "Juger l'état nutritionnel d'un patient avec une escarre infectée sur sa seule albumine basse.",
+       "consequence": "On attribue à la dénutrition une baisse due surtout à l'inflammation.",
+       "bonneConduite": "On fait une évaluation nutritionnelle complète : poids, apports, perte de poids et examen clinique."
+      }
+     ]
+    },
+    {
+     "ref": "plaies_ulceres_et_escarres__biopsie_du_bord_de_l_ulcere",
+     "nom": "Biopsie du bord de l'ulcère (cancer, pyoderma gangrenosum)",
+     "modalite": "Anatomopathologie / biopsie",
+     "defis": [
+      {
+       "id": "plaies_ulceres_et_escarres__biopsie_du_bord_de_l_ulcere-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Sans tendance à guérir après six semaines de traitement conforme et avec une étiologie incertaine, on biopsie l'ulcère, selon la DGPL (Valesky et al., 2024).",
+        "pourquoiFaux": "Répéter l'écho-Doppler ou renforcer la compression ne répond pas au doute diagnostique, et l'écouvillon ne cherche pas un cancer."
+       },
+       "sources": [
+        "DGPL, ligne directrice S2k sur l'ulcère veineux (Valesky et al., 2024)"
+       ],
+       "casClinique": "Une femme de 79 ans, à Locarno, a un ulcère de jambe veineux traité depuis huit semaines par compression, sans aucune amélioration, au bord bourgeonnant.",
+       "options": [
+        "Biopsie du bord de l'ulcère",
+        "Nouvel écho-Doppler",
+        "Écouvillon superficiel",
+        "Augmentation de la compression"
+       ],
+       "bonneReponse": "Biopsie du bord de l'ulcère",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__biopsie_du_bord_de_l_ulcere-2",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 3,
+       "points": 30,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Un ulcère chronique peut cacher un carcinome, que seule l'histologie révèle, selon la DGPL (Valesky et al., 2024).",
+        "pourquoiFaux": "Un tissu de granulation n'a pas d'atypies, et un pyoderma gangrenosum montre un infiltrat neutrophilique sans cellule tumorale."
+       },
+       "sources": [
+        "DGPL, ligne directrice S2k sur l'ulcère veineux (Valesky et al., 2024)",
+        "Consensus Delphi sur le pyoderma gangrenosum (Maverakis et al., 2018)"
+       ],
+       "consigne": "Décris la biopsie du bord de cet ulcère chronique.",
+       "aspectRecherche": "Prolifération épidermoïde invasive",
+       "reponse": "On voit des massifs de cellules épidermoïdes atypiques qui envahissent le derme : c'est un carcinome épidermoïde sur ulcère.",
+       "imageOuTraceAttendu": "Coupe histologique colorée à l'hématoxyline-éosine du bord d'un ulcère, montrant des travées de kératinocytes atypiques avec des globes cornés envahissant le derme."
+      },
+      {
+       "id": "plaies_ulceres_et_escarres__biopsie_du_bord_de_l_ulcere-3",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Selon la DGPL (Valesky et al., 2024), on prélève le bord de l'ulcère avec l'épiderme intact en plus de l'ulcération.",
+        "pourquoiFaux": "Un fond nécrotique ou fibrineux n'est pas représentatif."
+       },
+       "sources": [
+        "DGPL, ligne directrice S2k sur l'ulcère veineux (Valesky et al., 2024)"
+       ],
+       "erreurFrequente": "Biopsier seulement le fond fibrineux de l'ulcère.",
+       "consequence": "On risque un faux négatif, car la lésion siège souvent au bord.",
+       "bonneConduite": "On prélève aussi le bord de l'ulcère avec son épiderme intact."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "IPS": "Index de pression systolique : rapport de la pression systolique à la cheville sur celle du bras.",
+    "TcPO2": "Pression transcutanée en oxygène : oxygène mesuré à travers la peau par une électrode chauffée.",
+    "IWGDF": "International Working Group on the Diabetic Foot : groupe international d'experts du pied diabétique.",
+    "ESVS": "Société européenne de chirurgie vasculaire (European Society for Vascular Surgery).",
+    "SVS": "Société américaine de chirurgie vasculaire (Society for Vascular Surgery).",
+    "IDSA": "Société américaine d'infectiologie (Infectious Diseases Society of America).",
+    "DGPL": "Société allemande de phlébologie et de lymphologie (Deutsche Gesellschaft für Phlebologie und Lymphologie).",
+    "S2k": "Niveau de ligne directrice allemande fondé sur un consensus formel d'experts.",
+    "EPUAP": "European Pressure Ulcer Advisory Panel : groupe européen d'experts des escarres.",
+    "NPIAP": "National Pressure Injury Advisory Panel : groupe américain d'experts des escarres.",
+    "PPPIA": "Pan Pacific Pressure Injury Alliance : alliance des pays du Pacifique pour les escarres.",
+    "ADA": "Société américaine du diabète (American Diabetes Association).",
+    "ASPEN": "Société américaine de nutrition parentérale et entérale (American Society for Parenteral and Enteral Nutrition).",
+    "HbA1c": "Hémoglobine glyquée : reflet de la glycémie moyenne des deux à trois derniers mois.",
+    "STIR": "Short tau inversion recovery : séquence d'IRM qui supprime la graisse et fait ressortir l'œdème.",
+    "T1": "Pondération d'IRM où la graisse apparaît blanche ; elle montre bien l'anatomie et la moelle osseuse.",
+    "IRM": "Imagerie par résonance magnétique : imagerie en coupes sans rayons X, fondée sur un champ magnétique.",
+    "J1": "Premier jour après l'examen précédent."
+   }
+  }
+ }
+}
