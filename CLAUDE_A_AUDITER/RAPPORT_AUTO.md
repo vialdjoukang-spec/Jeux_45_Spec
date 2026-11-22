@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 22:37
+# Audit automatique — 2026-11-22 22:46
 
-50 fichier(s) : 47 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
+54 fichier(s) : 51 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -30,6 +30,13 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/01_Encephale/2_Pratique/P01-01-IMG-PR_Imagerie_Encephale_15-examens_PRATIQUE_production_XAi.json`
 - 🟩 `encephale.json` : remplissage 100 % (30/30)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/04_Nerfs_craniens/1_Theorie/P01-04_Examens_Nerfs_craniens_8-examens_production_XAi.json`
+- 🟩 `nerfs_craniens.json` : remplissage 89 % (151/170)
+- aVerifier déclarés : 5
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/04_Nerfs_craniens/2_Pratique/P01-04-PR_Examens_Nerfs_craniens_8-examens_PRATIQUE_production_XAi.json`
+- 🟩 `nerfs_craniens.json` : remplissage 100 % (16/16)
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/05_Oeil_et_orbite/1_Theorie/P01-05-BIO_Biologie_Oeil_et_orbite_5-examens_production_XAi.json`
 - 🟩 `oeil_et_orbite.json` : remplissage 88 % (97/110)
@@ -89,6 +96,13 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/09_Os_du_crane_et_de_la_face/2_Pratique/P01-09-PR_Examens_Os_du_crane_et_de_la_face_7-examens_PRATIQUE_production_XAi.json`
 - 🟩 `os_du_crane_et_de_la_face.json` : remplissage 100 % (14/14)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/10_Articulation_temporo-mandibulaire_et_den/1_Theorie/P01-10_Examens_Articulation_temporo-mandibulaire_e_4-examens_production_XAi.json`
+- 🟩 `articulation_temporo_mandibulaire_et_den.json` : remplissage 89 % (75/84)
+- aVerifier déclarés : 4
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/10_Articulation_temporo-mandibulaire_et_den/2_Pratique/P01-10-PR_Examens_Articulation_temporo-mandibulaire_e_4-examens_PRATIQUE_production_XAi.json`
+- 🟩 `articulation_temporo_mandibulaire_et_den.json` : remplissage 100 % (8/8)
 
 ### 🟩 `CLAUDE_A_AUDITER/grok/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/02_Meninges_et_LCR/1_Theorie/P01-02_Examens_Meninges_et_LCR_7-examens_production_XAi.json`
 - 🟩 `meninges_et_lcr.json` : remplissage 90 % (137/152)
