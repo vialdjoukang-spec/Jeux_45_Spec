@@ -1,0 +1,466 @@
+{
+  "_lot": {
+    "tache": "P05",
+    "titre": "Remplir les examens de la région 5. Abdomen (13 organes, 136 examens)",
+    "projet": "2_Jeux_Paraclinique",
+    "nombreFichiers": 13,
+    "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet.",
+    "aVerifier": [
+      "conception/donnees/paraclinique/topographie/5_abdomen/surrenales.json › surrenales__ct_surrenalien › irradiation_mSv : 7,1 mSv = valeur cible OFSP R-06-06 révision 2 (15.06.2018), protocole 8 « abdomen-bassin », 470 mGy·cm × 0,015 (AAPM Report 96, 2008, adulte) ; il n'existe pas de protocole OFSP dédié à la surrénale ; un CT surrénalien limité au haut de l'abdomen, surtout sans injection, peut être plus bas, et un protocole de lavage en plusieurs temps plus haut ; l'enquête suisse 2023 (Samara et al., Health Physics 2026) donne 9,90 mSv pour un CT de l'abdomen ou de l'abdomen supérieur, chiffre d'enquête et non une valeur cible",
+      "conception/donnees/paraclinique/topographie/5_abdomen/surrenales.json › surrenales__scintigraphie_mibg › irradiation_mSv : 2,6 mSv = dose efficace due au radiopharmaceutique, tableau 1.1 de la directive OFSP de médecine nucléaire, pour l'activité de référence de 200 MBq d'I-123-MIBG ; cette valeur ne comprend pas un éventuel SPECT/CT. L'EANM/SNMMI 2019 recommande 370 MBq chez l'adulte de 70 kg (coefficient 0,013 mSv/MBq, soit environ 4,8 mSv), activité supérieure au NRD suisse, qui n'a pas été retenue",
+      "conception/donnees/paraclinique/topographie/5_abdomen/surrenales.json › surrenales__pet_au_ga_68_dotatate › irradiation_mSv : 8,3 mSv = 4,2 mSv de traceur (200 MBq × 0,021 mSv/MBq, tableau SomaKit TOC) + 4,05 mSv de CT cible (270 mGy·cm × 0,015), arrondi depuis 8,25 mSv ; l'EANM 2017 cite 0,0257 mSv/MBq pour le Ga-68-DOTATATE (soit 5,14 mSv pour 200 MBq de traceur seul) ; il n'existe pas de NRD OFSP relu en mSv pour ce traceur",
+      "conception/donnees/paraclinique/topographie/5_abdomen/surrenales.json › surrenales__catheterisme_des_veines_surrenaliennes › irradiation_mSv : 6,4 mSv = dose efficace médiane calculée par Fuss et al., European Journal of Endocrinology 2018 (quatre centres allemands, 656 examens), à partir du produit dose-surface ; les médianes par centre vont de 3,2 à 29 mSv, et la méthode est une approximation ; il n'existe pas de NRD OFSP relu en mSv pour cet examen"
+    ]
+  },
+  "fichiers": {
+    "conception/donnees/paraclinique/topographie/5_abdomen/surrenales.json": {
+      "_meta": {
+        "region": "5. Abdomen",
+        "organe": "Surrénales",
+        "statut": "LISTE COMPLÈTE — indication, principe, interprétation et bulle à remplir"
+      },
+      "examens": [
+        {
+          "id": "surrenales__ct_surrenalien",
+          "modalite": "Imagerie",
+          "nom": "CT surrénalien (densité, wash-out)",
+          "visees": [
+            "diagnostique",
+            "etiologique"
+          ],
+          "signeRecherche": "Densité sans injection, aspect homogène, lavage du contraste",
+          "seuil": "Selon les recommandations ESE/ENSAT 2023, une masse homogène de densité inférieure ou égale à 10 unités Hounsfield sans injection est bénigne et ne nécessite pas d'imagerie supplémentaire. Les seuils classiques d'un lavage absolu de 60 % ou relatif de 40 % reposent, selon la même source, sur une preuve très faible et manquent une partie des tumeurs malignes ; ils ne suffisent pas à affirmer la bénignité.",
+          "indication": "Selon les recommandations ESE/ENSAT 2023, tout incidentalome surrénalien doit avoir une imagerie dédiée pour savoir s'il est homogène et riche en lipides, donc bénin ; le CT sans injection est l'examen de première ligne s'il n'a pas déjà été fait. Chez la femme enceinte et chez la personne de moins de 40 ans, la même source demande une évaluation urgente de la masse, en préférant l'IRM au CT.",
+          "discriminant": "Il mesure la densité en unités Hounsfield, ce que l'IRM ne fait pas, et il est le premier examen recommandé par l'ESE/ENSAT 2023 pour reconnaître un adénome riche en lipides.",
+          "avantageSelectif": "Une densité inférieure ou égale à 10 unités Hounsfield sur une masse homogène écarte, selon l'ESE/ENSAT 2023, le besoin de toute autre imagerie.",
+          "plutotQue": "Il précède l'IRM, réservée à une imagerie complémentaire quand la densité est entre 11 et 20 unités Hounsfield et que la masse fait moins de 4 cm, ou quand on veut éviter l'irradiation, selon l'ESE/ENSAT 2023. Un CT avec lavage du contraste n'est plus l'outil de choix pour affirmer la bénignité.",
+          "limite": "Il irradie. Selon l'ESE/ENSAT 2023, une masse de 4 cm ou plus, hétérogène ou de densité supérieure à 20 unités Hounsfield, comporte un risque pertinent de malignité et doit être discutée en réunion pluridisciplinaire ; le lavage du contraste ne permet pas d'écarter ce risque de façon fiable.",
+          "referencePour": [
+            "Incidentalome surrénalien",
+            "Adénome corticosurrénalien"
+          ],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": null,
+          "precautions": "On contrôle le DFGe avant un produit iodé, s'il est utilisé, selon l'ESUR 2025. La dose typique vaut 7,1 mSv, soit la valeur cible de l'abdomen-bassin (protocole 8) de la directive OFSP R-06-06 (révision 2, 2018), 470 mGy·cm, multipliée par 0,015 mSv/(mGy·cm) selon l'AAPM Report 96 (2008). Il n'existe pas de protocole OFSP dédié à la surrénale.",
+          "irradiation_mSv": 7.1,
+          "delai": "programmé",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "Le CT surrénalien est un scanner centré sur les surrénales, d'abord sans injection, parfois complété de temps après produit iodé pour mesurer le lavage du contraste.",
+            "pourquoi": "Un adénome riche en graisse a une densité basse, égale ou inférieure à 10 unités Hounsfield, selon les recommandations ESE/ENSAT 2023.",
+            "confusion": "Une densité plus haute fait penser à une tumeur maligne, mais un adénome pauvre en lipides donne le même aspect, et l'IRM en déplacement chimique peut aider.",
+            "retenir": "Une masse homogène à 10 unités Hounsfield ou moins est bénigne et n'a pas besoin d'autre imagerie."
+          }
+        },
+        {
+          "id": "surrenales__irm_surrenalienne",
+          "modalite": "Imagerie",
+          "nom": "IRM surrénalienne (déplacement chimique)",
+          "visees": [
+            "diagnostique"
+          ],
+          "signeRecherche": "Perte de signal en opposition de phase (déplacement chimique)",
+          "seuil": "Selon les recommandations ESE/ENSAT 2023, un adénome riche en lipides intra-cellulaires perd habituellement du signal sur les images en opposition de phase par rapport aux images en phase ; les lésions malignes et les phéochromocytomes, dépourvus de cette graisse, conservent leur signal. Une simple comparaison visuelle suffit le plus souvent.",
+          "indication": "Selon les recommandations ESE/ENSAT 2023, on la demande comme imagerie complémentaire d'une masse homogène de moins de 4 cm dont la densité sans injection est entre 11 et 20 unités Hounsfield, lorsque le bilan hormonal ne montre pas d'excès significatif, afin d'éviter une surveillance répétée. On la préfère au CT chez l'enfant, l'adolescent et la femme enceinte s'il faut une imagerie surrénalienne dédiée.",
+          "discriminant": "Elle montre la graisse microscopique intra-cellulaire par déplacement chimique, ce que le CT ne fait qu'estimer par la densité, et elle n'irradie pas.",
+          "avantageSelectif": "Elle n'utilise pas de rayons X. L'ESE/ENSAT 2023 la retient comme alternative au CT de contrôle à 6-12 mois pour une masse encore indéterminée.",
+          "plutotQue": "Le CT sans injection reste le premier examen, selon l'ESE/ENSAT 2023. On choisit l'IRM plutôt que le CT avec lavage du contraste, dont les seuils classiques n'écartent pas de façon fiable une tumeur maligne.",
+          "limite": "Selon l'ESE/ENSAT 2023, un adénome pauvre en lipides, comme une lésion maligne ou un phéochromocytome, peut ne pas perdre de signal. L'examen est plus long et moins disponible en urgence.",
+          "referencePour": [
+            "Adénome corticosurrénalien",
+            "Incidentalome surrénalien"
+          ],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": null,
+          "precautions": "On contrôle le DFGe avant un produit gadoliné, s'il est utilisé, selon l'ESUR 2025. L'examen n'irradie pas.",
+          "irradiation_mSv": 0,
+          "delai": "programmé",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "L'IRM surrénalienne en déplacement chimique compare des images en phase et en opposition de phase pour détecter la graisse microscopique dans la glande.",
+            "pourquoi": "Un adénome riche en lipides s'assombrit en opposition de phase, selon les recommandations ESE/ENSAT 2023.",
+            "confusion": "L'absence de perte de signal fait penser à une lésion maligne, mais un adénome pauvre en graisse et un phéochromocytome donnent le même aspect.",
+            "retenir": "On la réserve aux masses encore indéterminées après le CT sans injection, ou pour éviter d'irradier."
+          }
+        },
+        {
+          "id": "surrenales__scintigraphie_mibg",
+          "modalite": "Imagerie",
+          "nom": "Scintigraphie MIBG",
+          "visees": [
+            "diagnostique",
+            "therapeutique"
+          ],
+          "signeRecherche": "Fixation pathologique de l'I-123-MIBG",
+          "seuil": "Selon la recommandation EANM/SNMMI 2019, une fixation accrue ou asymétrique du I-123-MIBG dans une surrénale agrandie est anormale et évoque souvent un phéochromocytome ; toute fixation extra-surrénalienne anormale doit faire chercher un paragangliome ou une métastase.",
+          "indication": "Selon la recommandation EANM/SNMMI 2019, on la demande pour localiser un phéochromocytome sporadique non métastatique, ou avant un traitement par I-131-MIBG. Pour un paragangliome extra-surrénalien, une maladie multifocale ou métastatique, ou une mutation SDHx, le PET au Ga-68-DOTATATE est préféré. L'imagerie nucléaire ne se discute qu'après des métanéphrines élevées.",
+          "discriminant": "Elle montre les cellules chromaffines qui captent le MIBG, ce que le CT et l'IRM ne font pas, et elle prépare un éventuel traitement par I-131-MIBG, selon l'EANM/SNMMI 2019.",
+          "avantageSelectif": "Selon l'EANM/SNMMI 2019, le I-123-MIBG est nettement préféré au I-131-MIBG pour le diagnostic, et il reste utile dans le phéochromocytome sporadique non métastatique.",
+          "plutotQue": "On lui préfère le PET au Ga-68-DOTATATE en cas de maladie extra-surrénalienne, multifocale, métastatique ou liée à SDHx, selon l'EANM/SNMMI 2019. Elle vient après le CT ou l'IRM et après les métanéphrines.",
+          "limite": "Elle est moins sensible que le PET à la F-18-DOPA dans le phéochromocytome sporadique non métastatique, selon l'EANM/SNMMI 2019. Plusieurs médicaments (antidépresseurs, sympathomimétiques, certains antihypertenseurs) gênent la captation. L'examen irradie.",
+          "referencePour": [
+            "Phéochromocytome",
+            "Paragangliome"
+          ],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": null,
+          "precautions": "Selon l'EANM/SNMMI 2019, on bloque la thyroïde par de l'iodure de potassium avant l'injection, on injecte lentement, et on interrompt les médicaments qui gênent la captation. La dose efficace due au traceur vaut 2,6 mSv pour l'activité de référence OFSP de 200 MBq d'I-123-MIBG (directive de médecine nucléaire, dose efficace du traceur).",
+          "irradiation_mSv": 2.6,
+          "delai": "programmé",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "La scintigraphie au I-123-MIBG utilise un analogue de la noradrénaline qui se fixe dans les cellules chromaffines de la surrénale et des paragangliomes.",
+            "pourquoi": "Une tumeur qui capte le traceur apparaît comme un foyer, selon la recommandation EANM/SNMMI 2019.",
+            "confusion": "Une surrénale qui fixe un peu le traceur peut être normale (jusqu'à 80 % des cas), et seule une fixation accrue ou asymétrique sur une glande agrandie est suspecte.",
+            "retenir": "Elle se discute après des métanéphrines élevées, pas comme premier examen d'une masse surrénale."
+          }
+        },
+        {
+          "id": "surrenales__pet_au_ga_68_dotatate",
+          "modalite": "Imagerie",
+          "nom": "PET au Ga-68-DOTATATE",
+          "visees": [
+            "diagnostique",
+            "therapeutique"
+          ],
+          "signeRecherche": "Fixation des récepteurs de la somatostatine",
+          "seuil": "Selon la recommandation EANM/SNMMI 2019, tout foyer non physiologique de Ga-68-DOTATATE est décrit ; l'examen est particulièrement performant dans les paragangliomes extra-surrénaliens, multifocaux ou métastatiques et en cas de mutation SDHx.",
+          "indication": "Selon la recommandation EANM/SNMMI 2019, c'est l'imagerie nucléaire de premier choix pour un paragangliome extra-surrénalien, une maladie multifocale ou métastatique, ou une mutation SDHx, et pour sélectionner un traitement par radioligand. Les directives cliniques SSMN 2026 le retiennent aussi comme examen de première instance pour le bilan d'extension des tumeurs neuroendocrines différenciées. Il vient après la confirmation biochimique.",
+          "discriminant": "Il cartographie les récepteurs de la somatostatine de tout le corps en un examen, mieux que la scintigraphie MIBG dans les formes extra-surrénaliennes, multifocales, métastatiques ou SDHx, selon l'EANM/SNMMI 2019.",
+          "avantageSelectif": "Selon l'EANM/SNMMI 2019, il est plus sensible que le MIBG dans ces situations et prépare un éventuel traitement par lutétium-177-DOTATATE.",
+          "plutotQue": "On le choisit plutôt que le MIBG en cas de maladie extra-surrénalienne, multifocale, métastatique ou liée à SDHx. Pour un phéochromocytome sporadique non métastatique, l'EANM/SNMMI 2019 place plutôt la F-18-DOPA ou le I-123-MIBG en première ligne.",
+          "limite": "Il irradie, y compris par le CT associé. Il n'existe pas de NRD OFSP relu en mSv pour ce traceur. La dose typique retenue est 8,3 mSv : 4,2 mSv pour 200 MBq de traceur (0,021 mSv/MBq, tableau de dosimétrie du RCP SomaKit TOC de l'EMA, borne haute de l'activité EANM/SNMMI 2019) plus 4,05 mSv de CT cible (270 mGy·cm × 0,015).",
+          "referencePour": [
+            "Paragangliome",
+            "Phéochromocytome métastatique"
+          ],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": null,
+          "precautions": "On exclut une grossesse. L'activité recommandée chez l'adulte est de 2 MBq/kg (100 à 200 MBq) selon l'EANM/SNMMI 2019. Selon le RCP de SomaKit TOC de l'EMA, le traceur délivre 0,021 mSv/MBq, soit 4,2 mSv pour l'activité maximale de 200 MBq, d'après le tableau de dosimétrie. Pour le CT d'atténuation d'un protocole corps entier, la valeur cible OFSP (directive du 1.2.2023) est de 270 mGy·cm, soit 4,05 mSv avec le facteur 0,015, et une dose totale calculée de 8,3 mSv. L'enquête suisse 2023 (Samara et al., Health Physics 2026) n'est citée qu'en comparaison.",
+          "irradiation_mSv": 8.3,
+          "delai": "programmé",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "Le PET au Ga-68-DOTATATE utilise un peptide qui se fixe sur les récepteurs de la somatostatine des tumeurs neuroendocrines, des phéochromocytomes et des paragangliomes.",
+            "pourquoi": "Une tumeur riche en ces récepteurs apparaît comme un foyer, selon la recommandation EANM/SNMMI 2019.",
+            "confusion": "Une fixation du pancréas, de la rate ou des surrénales peut être physiologique, et seule une fixation non physiologique est retenue.",
+            "retenir": "C'est l'imagerie nucléaire de choix des formes extra-surrénaliennes, multifocales, métastatiques ou SDHx."
+          }
+        },
+        {
+          "id": "surrenales__cortisol_acth",
+          "modalite": "Biologie",
+          "nom": "Cortisol, ACTH",
+          "visees": [
+            "diagnostique",
+            "etiologique"
+          ],
+          "signeRecherche": "Cortisol bas avec ACTH élevée, ou cortisol non freinable avec ACTH basse",
+          "seuil": "Selon les recommandations de l'Endocrine Society 2016, un cortisol du matin inférieur à 140 nmol/l (5 µg/dl), associé à une ACTH plasmatique supérieure à deux fois la limite haute du laboratoire, rend une insuffisance surrénale primaire très probable, en attendant le test au Synacthène. Selon l'ESE/ENSAT 2023, en cas de sécrétion autonome légère de cortisol, l'indépendance vis-à-vis de l'ACTH doit être confirmée.",
+          "indication": "On les demande devant des signes d'insuffisance surrénale (hypotension, hyponatrémie, hyperkaliémie, hyperpigmentation), selon l'Endocrine Society 2016, et pour préciser le niveau de l'axe après un test de freinage à la dexaméthasone non freiné, selon l'ESE/ENSAT 2023. En cas de crise surrénale, l'Endocrine Society 2016 recommande de traiter d'emblée par hydrocortisone, sans attendre les résultats.",
+          "discriminant": "L'ACTH distingue une insuffisance primaire (ACTH élevée) d'une insuffisance secondaire (ACTH basse ou inappropriée), ce que le seul cortisol ne fait pas, selon l'Endocrine Society 2016.",
+          "avantageSelectif": "Un prélèvement du matin suffit souvent à orienter fortement le diagnostic, avant un test de stimulation, selon l'Endocrine Society 2016.",
+          "plutotQue": "Le test au Synacthène confirme l'insuffisance surrénale primaire, selon l'Endocrine Society 2016. Le test de freinage à 1 mg reste le test de dépistage de la sécrétion autonome de cortisol, selon l'ESE/ENSAT 2023.",
+          "limite": "Selon l'Endocrine Society 2016, le cortisol de base seul ne suffit en général pas, sauf résultat tout à fait univoque, et le dosage dépend de l'heure, de la protéine de liaison et de la méthode.",
+          "referencePour": [
+            "Insuffisance surrénale primaire",
+            "Sécrétion autonome de cortisol"
+          ],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": null,
+          "precautions": "Un prélèvement veineux du matin suffit ; l'ACTH exige un tube adapté et une acheminement rapide.",
+          "irradiation_mSv": 0,
+          "delai": "rapide (< 24 h)",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "Le cortisol et l'ACTH mesurent l'hormone du cortisol et l'hormone hypophysaire qui la commande.",
+            "pourquoi": "Si la surrénale échoue, le cortisol baisse et l'ACTH monte ; si le freinage est perdu, le cortisol reste haut et l'ACTH s'abaisse, selon l'Endocrine Society 2016 et l'ESE/ENSAT 2023.",
+            "confusion": "Un cortisol bas du matin fait penser à une insuffisance, mais un prélèvement trop tardif ou une maladie aiguë fausse le chiffre, et le test au Synacthène confirme.",
+            "retenir": "En crise surrénale, on traite d'abord par hydrocortisone, selon l'Endocrine Society 2016."
+          }
+        },
+        {
+          "id": "surrenales__metanephrines_plasmatiques_libres_ou_uri",
+          "modalite": "Biologie",
+          "nom": "Métanéphrines plasmatiques libres ou urinaires",
+          "visees": [
+            "diagnostique",
+            "depistage"
+          ],
+          "signeRecherche": "Métanéphrine ou normétanéphrine élevées",
+          "seuil": "Selon les recommandations ESE/ENSAT 2023, on mesure les métanéphrines plasmatiques libres ou les métanéphrines urinaires fractionnées. Tout résultat positif exige un suivi, et l'imagerie nucléaire ne se discute qu'après cette confirmation, selon l'EANM/SNMMI 2019. On interprète les valeurs par rapport aux normes du laboratoire, en tenant compte des facteurs préanalytiques.",
+          "indication": "Selon les recommandations ESE/ENSAT 2023, on les demande pour exclure un phéochromocytome chez tout patient dont la masse surrénale n'a pas les traits typiques d'un adénome bénin, et chez le patient atteint d'un cancer extra-surrénalien dont la masse pourrait être une métastase. Il faut les avoir exclues avant une biopsie surrénalienne, selon la même source.",
+          "discriminant": "Elles détectent la sécrétion de catécholamines d'un phéochromocytome, que la densité au CT ne permet pas d'affirmer ni d'écarter à elle seule, selon l'ESE/ENSAT 2023.",
+          "avantageSelectif": "Un prélèvement de plasma ou une recueil d'urines suffit, sans irradiation, et c'est le test biochimique requis avant toute imagerie nucléaire, selon l'EANM/SNMMI 2019.",
+          "plutotQue": "Elles précèdent le CT, l'IRM, le MIBG et le PET au DOTATATE pour le diagnostic de phéochromocytome. On ne les demande pas automatiquement si l'imagerie est typique d'un adénome bénin, selon l'ESE/ENSAT 2023.",
+          "limite": "Selon l'EANM/SNMMI 2019, le stress, une maladie grave et certains médicaments peuvent donner un faux positif. Un phéochromocytome silencieux reste possible si seules les catécholamines brutes sont dosées : ce sont bien les métanéphrines qu'il faut mesurer.",
+          "referencePour": [
+            "Phéochromocytome"
+          ],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": null,
+          "precautions": "Pour le plasma, le prélèvement se fait en général allongé, au calme ; on signale les médicaments interférents. Une recueil urinaire de 24 heures doit être complète.",
+          "irradiation_mSv": 0,
+          "delai": "programmé",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "Les métanéphrines sont les produits stables de dégradation de l'adrénaline et de la noradrénaline, mesurés dans le plasma ou les urines.",
+            "pourquoi": "Un phéochromocytome les élève souvent en continu, même entre les crises, selon les recommandations ESE/ENSAT 2023.",
+            "confusion": "Une poussée tensionnelle fait penser à un phéochromocytome, mais un stress ou un médicament peut élever les métanéphrines, et le contrôle se fait au calme.",
+            "retenir": "On les dose avant une biopsie ou une imagerie nucléaire d'une masse qui n'est pas typiquement bénigne."
+          }
+        },
+        {
+          "id": "surrenales__aldosterone_et_renine",
+          "modalite": "Biologie",
+          "nom": "Aldostérone et rénine (rapport)",
+          "visees": [
+            "diagnostique",
+            "depistage"
+          ],
+          "signeRecherche": "Aldostérone inappropriée avec rénine basse, rapport élevé",
+          "seuil": "Selon les recommandations de l'Endocrine Society 2025, le dépistage repose sur l'aldostérone sérique ou plasmatique, la rénine (concentration ou activité) et leur rapport, interprétés avec la kaliémie, car une kaliémie basse peut faussement abaisser l'aldostérone. Il n'est pas livré ici de seuil numérique unique, la source guidant d'abord par le rapport et le contexte clinique.",
+          "indication": "Selon les recommandations ESE/ENSAT 2023, on le demande en cas d'hypertension concomitante ou d'hypokaliémie inexpliquée devant un incidentalome. Les recommandations de l'Endocrine Society 2025 suggèrent ce dépistage chez toute personne hypertendue, le matin, en position assise, sans restriction sodée les jours précédents.",
+          "discriminant": "Il montre une aldostérone qui reste élevée alors que la rénine est basse, ce qui distingue un hyperaldostéronisme primaire d'un hyperaldostéronisme secondaire, selon l'Endocrine Society 2025.",
+          "avantageSelectif": "Un prélèvement du matin suffit pour orienter vers un test de confirmation ou, selon la probabilité, vers une latéralisation, d'après l'Endocrine Society 2025.",
+          "plutotQue": "Il précède le test de charge sodée, indiqué quand la probabilité de forme latéralisée est intermédiaire, et le cathétérisme des veines surrénaliennes, selon l'Endocrine Society 2025. On ne le confond pas avec le seul ionogramme.",
+          "limite": "Selon l'Endocrine Society 2025, une kaliémie basse peut abaisser l'aldostérone et fausser le rapport. Certains antihypertenseurs modifient rénine et aldostérone ; l'interprétation appartient à un centre habitué.",
+          "referencePour": [
+            "Hyperaldostéronisme primaire"
+          ],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": null,
+          "precautions": "Prélèvement du matin, patient assis, sans régime désodé les jours précédents, avec dosage de la kaliémie sur le même prélèvement, selon l'Endocrine Society 2025.",
+          "irradiation_mSv": 0,
+          "delai": "programmé",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "L'aldostérone et la rénine mesurent l'hormone qui retient le sel et l'enzyme qui la commande, puis on calcule leur rapport.",
+            "pourquoi": "Quand la surrénale produit trop d'aldostérone toute seule, la rénine s'abaisse et le rapport monte, selon l'Endocrine Society 2025.",
+            "confusion": "Une hypertension avec une kaliémie basse fait penser à cet excès, mais un diurétique ou un prélèvement mal préparé donne le même tableau, et le rapport s'interprète avec le contexte.",
+            "retenir": "On le demande devant une masse surrénale s'il y a une hypertension ou une hypokaliémie inexpliquée, selon l'ESE/ENSAT 2023."
+          }
+        },
+        {
+          "id": "surrenales__dhea_s_17_oh_progesterone",
+          "modalite": "Biologie",
+          "nom": "DHEA-S, 17-OH-progestérone",
+          "visees": [
+            "diagnostique",
+            "etiologique"
+          ],
+          "signeRecherche": "Androgènes ou précurseurs élevés",
+          "seuil": "Selon les recommandations ESE/ENSAT 2023, on mesure les stéroïdes sexuels et les précurseurs de la stéroïdogenèse, idéalement par profil stéroïdien en spectrométrie de masse, lorsque l'imagerie ou la clinique font craindre un corticosurrénalome. En cas d'hyperplasie bilatérale sans sécrétion autonome de cortisol, on mesure la 17-hydroxyprogestérone pour écarter une hyperplasie congénitale des surrénales par déficit en 21-hydroxylase. Les normes dépendent de l'âge, du sexe et du laboratoire.",
+          "indication": "On les demande devant une masse surrénale suspecte de corticosurrénalome (imagerie ou signes d'androgénie), selon l'ESE/ENSAT 2023 (R.2.8), et la 17-hydroxyprogestérone en cas d'hyperplasie bilatérale sans sécrétion autonome de cortisol (R.6.1.4).",
+          "discriminant": "Ils montrent une production androgénique ou un bloc enzymatique, ce que le cortisol et l'aldostérone seuls ne font pas, selon l'ESE/ENSAT 2023.",
+          "avantageSelectif": "Un prélèvement suffit à orienter vers un corticosurrénalome ou vers une hyperplasie congénitale, avant une discussion chirurgicale ou génétique, selon l'ESE/ENSAT 2023.",
+          "plutotQue": "Ils complètent le CT, le test de freinage et les métanéphrines, et ne remplacent pas l'imagerie pour juger de la malignité.",
+          "limite": "La DHEA-S baisse avec l'âge, et une valeur basse n'affirme pas une insuffisance surrénale à elle seule. Sans spectrométrie de masse, certains interférences analytiques persistent.",
+          "referencePour": [
+            "Corticosurrénalome",
+            "Hyperplasie congénitale des surrénales"
+          ],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": null,
+          "precautions": "Un prélèvement veineux suffit ; on précise l'âge, le sexe et, chez la femme, le temps du cycle.",
+          "irradiation_mSv": 0,
+          "delai": "programmé",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "La DHEA-S et la 17-hydroxyprogestérone sont des stéroïdes surrénaliens, androgène de dégradation et précurseur du cortisol.",
+            "pourquoi": "Un corticosurrénalome peut les élever, et un déficit en 21-hydroxylase accumule la 17-hydroxyprogestérone, selon l'ESE/ENSAT 2023.",
+            "confusion": "Une pilosité récente fait penser à un excès d'androgènes, mais un kyste ovarien peut donner le même tableau, et le profil stéroïdien oriente.",
+            "retenir": "On les dose si l'imagerie ou la clinique font craindre un corticosurrénalome, ou en cas d'hyperplasie bilatérale."
+          }
+        },
+        {
+          "id": "surrenales__test_de_freinage_a_la_dexamethasone_1_mg",
+          "modalite": "Exploration fonctionnelle",
+          "nom": "Test de freinage à la dexaméthasone 1 mg",
+          "visees": [
+            "diagnostique",
+            "depistage"
+          ],
+          "signeRecherche": "Cortisol du matin non freiné après 1 mg de dexaméthasone",
+          "seuil": "Selon les recommandations ESE/ENSAT 2023, un cortisol sérique après dexaméthasone inférieur ou égal à 50 nmol/l (1,8 µg/dl) écarte une sécrétion autonome de cortisol. Au-dessus de 50 nmol/l, chez un patient sans signes de syndrome de Cushing patent, on parle de sécrétion autonome légère (MACS), sans autre strate selon le chiffre, et l'on confirme l'indépendance vis-à-vis de l'ACTH. Le résultat s'interprète aussi comme une variable continue.",
+          "indication": "Selon les recommandations ESE/ENSAT 2023, tout patient atteint d'un incidentalome surrénalien doit avoir ce test, sauf fragilité et espérance de vie limitée. L'Endocrine Society 2025 le suggère aussi chez toute personne atteinte d'hyperaldostéronisme primaire qui a un adénome surrénalien.",
+          "discriminant": "Il teste si le cortisol s'arrête quand on donne un glucocorticoïde de synthèse, ce que le seul cortisol de base ne prouve pas, selon l'ESE/ENSAT 2023.",
+          "avantageSelectif": "C'est, selon l'ESE/ENSAT 2023, le test de référence pour exclure une sécrétion autonome de cortisol devant un incidentalome.",
+          "plutotQue": "Il précède le cortisol salivaire nocturne et le cortisol libre urinaire, que certains ajoutent quand on suspecte un phénotype plus avancé, selon l'ESE/ENSAT 2023. Il ne remplace pas le test au Synacthène pour l'insuffisance surrénale.",
+          "limite": "Selon l'ESE/ENSAT 2023, le test peut ne pas être justifié chez le patient très fragile. Les inducteurs enzymatiques, les estrogènes (augmentation de la transcortine) et un oubli de prise faussent le résultat.",
+          "referencePour": [
+            "Sécrétion autonome légère de cortisol",
+            "Syndrome de Cushing"
+          ],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": null,
+          "precautions": "On prend 1 mg de dexaméthasone à minuit et l'on dose le cortisol le matin suivant. On signale les estrogènes et les inducteurs enzymatiques.",
+          "irradiation_mSv": 0,
+          "delai": "programmé",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "Le test de freinage à 1 mg consiste à prendre de la dexaméthasone à minuit et à doser le cortisol le matin.",
+            "pourquoi": "Si la surrénale travaille toute seule, le cortisol ne descend pas à 50 nmol/l ou moins, selon les recommandations ESE/ENSAT 2023.",
+            "confusion": "Un cortisol encore mesurable fait penser à un Cushing, mais des estrogènes ou un oubli de comprimé donnent le même aspect, et l'on contrôle les conditions du test.",
+            "retenir": "C'est le test de dépistage de tout incidentalome surrénalien, sauf grande fragilité."
+          }
+        },
+        {
+          "id": "surrenales__cortisol_salivaire_nocturne_et_cortisol_",
+          "modalite": "Exploration fonctionnelle",
+          "nom": "Cortisol salivaire nocturne et cortisol libre urinaire",
+          "visees": [
+            "diagnostique"
+          ],
+          "signeRecherche": "Cortisol salivaire tardif ou cortisol libre urinaire élevés",
+          "seuil": "Selon les recommandations ESE/ENSAT 2023, ces résultats s'interprètent selon la méthode utilisée ; chez la plupart des patients sans syndrome de Cushing patent, ils restent dans l'intervalle de référence du laboratoire. Un résultat pathologique peut alors indiquer un phénotype plus avancé.",
+          "indication": "Selon les recommandations ESE/ENSAT 2023, certains les ajoutent au test de freinage à 1 mg lorsque l'on veut mieux juger le degré de sécrétion de cortisol, notamment s'il existe des signes de syndrome de Cushing patent. Ils ne remplacent pas le test de freinage pour le dépistage d'un incidentalome.",
+          "discriminant": "Le cortisol salivaire nocturne reflète le cortisol libre en fin de soirée, et le cortisol libre urinaire la production de 24 heures, ce que le seul test de freinage ne quantifie pas de la même façon, selon l'ESE/ENSAT 2023.",
+          "avantageSelectif": "Ils sont non invasifs. Un résultat pathologique, alors que le test de freinage est déjà anormal, oriente vers un excès plus franc, selon l'ESE/ENSAT 2023.",
+          "plutotQue": "Le test de freinage à 1 mg reste le test de première ligne de l'incidentalome, selon l'ESE/ENSAT 2023. On ne les utilise pas seuls pour écarter une sécrétion autonome légère.",
+          "limite": "Selon l'ESE/ENSAT 2023, ils sont le plus souvent normaux en l'absence de syndrome de Cushing patent, même si le test de freinage est anormal. Un recueil urinaire incomplet, le tabac, un horaire de sommeil décalé ou une méthode de dosage peu spécifique faussent le résultat.",
+          "referencePour": [
+            "Syndrome de Cushing"
+          ],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": null,
+          "precautions": "La salive se recueille tard le soir, sans manger, boire ou fumer juste avant ; les urines de 24 heures doivent être complètes.",
+          "irradiation_mSv": 0,
+          "delai": "programmé",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "Le cortisol salivaire nocturne se mesure dans la salive en fin de soirée, et le cortisol libre urinaire dans les urines de 24 heures.",
+            "pourquoi": "Un excès franc de cortisol peut les élever, alors qu'ils restent souvent normaux dans une sécrétion autonome légère, selon l'ESE/ENSAT 2023.",
+            "confusion": "Une fatigue et une prise de poids font penser à un Cushing, mais un recueil mal fait ou un travail de nuit fausse le chiffre, et le test de freinage reste le premier test de l'incidentalome.",
+            "retenir": "On les ajoute pour juger un phénotype plus avancé, pas pour remplacer le freinage à 1 mg."
+          }
+        },
+        {
+          "id": "surrenales__test_au_synacthene",
+          "modalite": "Exploration fonctionnelle",
+          "nom": "Test au Synacthène",
+          "visees": [
+            "diagnostique"
+          ],
+          "signeRecherche": "Pic de cortisol insuffisant après 250 µg de Synacthène",
+          "seuil": "Selon les recommandations de l'Endocrine Society 2016, un pic de cortisol inférieur à 500 nmol/l (18 µg/dl) à 30 ou 60 minutes après 250 µg de cosyntropine (Synacthène) par voie veineuse ou intramusculaire, chez l'adulte, indique une insuffisance surrénale ; le seuil dépend de la méthode de dosage.",
+          "indication": "Selon l'Endocrine Society 2016, c'est le test de confirmation de l'insuffisance surrénale primaire lorsque l'état du patient le permet. En cas de symptômes graves ou de crise surrénale, on traite d'emblée par hydrocortisone à dose de stress, sans attendre ce test.",
+          "discriminant": "Il stimule directement la surrénale par un analogue de l'ACTH, ce que le seul cortisol de base ne fait pas, selon l'Endocrine Society 2016.",
+          "avantageSelectif": "Selon l'Endocrine Society 2016, le test standard à 250 µg est préféré aux autres tests pour établir le diagnostic d'insuffisance surrénale primaire, et il peut se faire à toute heure.",
+          "plutotQue": "On le choisit plutôt que le test à 1 µg, réservé à une pénurie de produit, selon l'Endocrine Society 2016. Si le test n'est pas faisable, un cortisol du matin inférieur à 140 nmol/l (5 µg/dl) avec l'ACTH oriente de façon provisoire.",
+          "limite": "Selon l'Endocrine Society 2016, il n'est pas le meilleur test d'une insuffisance secondaire récente, car la surrénale peut encore répondre. Le seuil de 500 nmol/l dépend de la méthode.",
+          "referencePour": [
+            "Insuffisance surrénale primaire"
+          ],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": null,
+          "precautions": "On injecte 250 µg de Synacthène par voie veineuse ou intramusculaire et l'on dose le cortisol à 30 ou 60 minutes. En crise, on traite d'abord, selon l'Endocrine Society 2016.",
+          "irradiation_mSv": 0,
+          "delai": "rapide (< 24 h)",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "Le test au Synacthène injecte un analogue de l'ACTH et mesure la montée du cortisol.",
+            "pourquoi": "Une surrénale saine dépasse 500 nmol/l, selon les recommandations de l'Endocrine Society 2016.",
+            "confusion": "Un cortisol qui monte peu fait penser à une insuffisance, mais un dosage par une méthode différente peut déplacer le seuil, et l'on se réfère au laboratoire.",
+            "retenir": "En crise surrénale, on donne l'hydrocortisone sans attendre le test."
+          }
+        },
+        {
+          "id": "surrenales__test_de_charge_sodee",
+          "modalite": "Exploration fonctionnelle",
+          "nom": "Test de charge sodée (hyperaldostéronisme)",
+          "visees": [
+            "diagnostique"
+          ],
+          "signeRecherche": "Aldostérone non freinée après une charge en sodium",
+          "seuil": "Selon les recommandations de l'Endocrine Society 2025, un test de suppression de l'aldostérone se discute lorsque le dépistage indique une probabilité intermédiaire de forme latéralisée et que l'on envisage une chirurgie. L'aldostérone qui ne se laisse pas freiner par une charge en sodium soutient le diagnostic ; l'interprétation se fait dans un centre habitué, selon le protocole local relu.",
+          "indication": "Selon l'Endocrine Society 2025, on le demande après un dépistage positif, quand la probabilité de forme latéralisée est intermédiaire et que le patient est candidat à une chirurgie. Si le dépistage indique déjà une haute probabilité, ce test n'est pas indispensable avant l'imagerie et le cathétérisme.",
+          "discriminant": "Il met l'aldostérone à l'épreuve d'une charge en sodium, ce que le seul rapport aldostérone/rénine ne fait pas, selon l'Endocrine Society 2025.",
+          "avantageSelectif": "Il affine le diagnostic avant d'exposer le patient à un cathétérisme, dans le groupe de probabilité intermédiaire, selon l'Endocrine Society 2025.",
+          "plutotQue": "Il vient après l'aldostérone et la rénine, et avant le cathétérisme des veines surrénaliennes lorsque l'on vise une chirurgie, selon l'Endocrine Society 2025.",
+          "limite": "Il est contre-indiqué ou risqué en cas d'hypertension sévère non contrôlée, d'insuffisance rénale, d'insuffisance cardiaque ou d'hypokaliémie non corrigée. Les protocoles (perfusion saline ou charge orale) varient selon les centres.",
+          "referencePour": [
+            "Hyperaldostéronisme primaire"
+          ],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": null,
+          "precautions": "On corrige la kaliémie et l'on surveille la pression et la fonction rénale pendant la charge en sodium. L'examen se fait dans un centre habitué.",
+          "irradiation_mSv": 0,
+          "delai": "programmé",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "Le test de charge sodée consiste à donner beaucoup de sodium, par la bouche ou en perfusion, puis à doser l'aldostérone.",
+            "pourquoi": "Une surrénale autonome continue à produire de l'aldostérone malgré le sel, selon l'Endocrine Society 2025.",
+            "confusion": "Un rapport aldostérone/rénine déjà élevé fait penser que le diagnostic est sûr, mais une probabilité intermédiaire justifie encore ce test avant un geste.",
+            "retenir": "On le réserve au bilan d'un hyperaldostéronisme, pas au dépistage de première ligne."
+          }
+        },
+        {
+          "id": "surrenales__catheterisme_des_veines_surrenaliennes",
+          "modalite": "Exploration fonctionnelle",
+          "nom": "Cathétérisme des veines surrénaliennes",
+          "visees": [
+            "diagnostique",
+            "therapeutique"
+          ],
+          "signeRecherche": "Latéralisation de la sécrétion d'aldostérone",
+          "seuil": "Selon les recommandations de l'Endocrine Society 2025, le cathétérisme, associé à un CT, sert à distinguer une forme unilatérale, chirurgicale, d'une forme bilatérale, médicale. Les rapports de latéralisation s'interprètent dans un centre habitué, selon le protocole (avec ou sans stimulation par le Synacthène).",
+          "indication": "Selon l'Endocrine Society 2025, on le demande, avec un CT, avant de décider d'un traitement chirurgical ou médical, chez les patients dont le dépistage ou le test de suppression indique une haute probabilité de forme latéralisée, et qui désirent une chirurgie. L'ESE/ENSAT 2023 rappelle que toute chirurgie surrénalienne se discute en réunion pluridisciplinaire.",
+          "discriminant": "Il mesure l'aldostérone de chaque veine surrénalienne, ce que le CT, qui voit un nodule mais pas la fonction, ne peut pas affirmer, selon l'Endocrine Society 2025.",
+          "avantageSelectif": "Il est, selon l'Endocrine Society 2025, l'examen de latéralisation retenu avant de choisir entre surrénalectomie unilatérale et traitement médical.",
+          "plutotQue": "Il vient après le dépistage, et après un test de suppression lorsque la probabilité n'est que intermédiaire. Un CT seul ne suffit pas à décider de l'opération, selon l'Endocrine Society 2025.",
+          "limite": "Il est invasif et irradie. Selon Fuss et al. (European Journal of Endocrinology, 2018, quatre centres allemands, 656 examens), la dose efficace médiane calculée vaut 6,4 mSv, avec une large variation entre centres (médianes de 3,2 à 29 mSv). L'échec d'un côté, surtout à gauche moins souvent qu'à droite, peut rendre l'examen non conclusif.",
+          "referencePour": [
+            "Hyperaldostéronisme primaire unilatéral"
+          ],
+          "smarterMedicine": null,
+          "radioAnatomieNormale": null,
+          "precautions": "Examen de centre expert, par abord veineux, sous scopie, avec un produit iodé : on contrôle le DFGe selon l'ESUR 2025. La dose typique retenue est 6,4 mSv (médiane de Fuss et al., 2018). On corrige la kaliémie.",
+          "irradiation_mSv": 6.4,
+          "delai": "programmé",
+          "prelevementRef": null,
+          "bulle": {
+            "def": "Le cathétérisme des veines surrénaliennes prélève le sang de chaque surrénale, sous contrôle radiologique, pour doser l'aldostérone et le cortisol.",
+            "pourquoi": "Si une seule glande produit l'excès, le rapport d'un côté à l'autre s'élève, et une opération peut être discutée, selon l'Endocrine Society 2025.",
+            "confusion": "Un nodule vu au CT fait croire que c'est lui le responsable, mais l'autre glande peut sécréter autant, et le cathétérisme tranche.",
+            "retenir": "On le réserve aux patients candidats à une chirurgie, dans un centre habitué."
+          }
+        }
+      ],
+      "glossaire": {
+        "ESE": "L'ESE est la Société européenne d'endocrinologie, dont les recommandations de 2023 sur les incidentalomes surrénaliens, rédigées avec l'ENSAT, sont citées ici.",
+        "ENSAT": "L'ENSAT, ou European Network for the Study of Adrenal Tumors, est le réseau européen d'étude des tumeurs surrénaliennes, coauteur des recommandations ESE 2023.",
+        "ESUR": "L'ESUR est la Société européenne de radiologie uro-génitale, dont les recommandations de 2025 encadrent l'usage des produits de contraste iodés et gadolinés.",
+        "OFSP": "L'OFSP est l'Office fédéral de la santé publique suisse, qui publie les niveaux de référence diagnostiques en radiologie et en médecine nucléaire.",
+        "R-06-06": "La directive R-06-06 de l'OFSP fixe les niveaux de référence diagnostiques et les valeurs cibles pour le CT, ici dans sa révision 2 du 15 juin 2018.",
+        "AAPM": "L'AAPM est l'Association américaine des physiciens en médecine, dont le rapport 96 de 2008 fournit le facteur 0,015 mSv par mGy·cm pour l'abdomen-bassin adulte.",
+        "EANM": "L'EANM est l'Association européenne de médecine nucléaire, coauteur avec la SNMMI de la recommandation de 2019 sur l'imagerie des phéochromocytomes et paragangliomes.",
+        "SNMMI": "La SNMMI est la Society of Nuclear Medicine and Molecular Imaging, coauteur de la recommandation EANM 2019.",
+        "SSMN": "La SSMN est la Société suisse de médecine nucléaire, dont les directives cliniques PET/CT du 1er avril 2026 sont citées ici.",
+        "CT": "Le CT, ou tomodensitométrie, est un examen d'imagerie par rayons X en coupes.",
+        "IRM": "L'IRM, ou imagerie par résonance magnétique, reconstruit les organes grâce à un champ magnétique, sans rayons X.",
+        "PET": "Le PET, ou tomographie par émission de positons, localise un traceur radioactif dans le corps, le plus souvent couplé à un CT.",
+        "TOC": "TOC désigne le kit SomaKit TOC, spécialité de Ga-68-DOTATOC dont le résumé des caractéristiques de l'EMA fournit le coefficient de dose du traceur.",
+        "EMA": "L'EMA est l'Agence européenne des médicaments, qui publie le résumé des caractéristiques du SomaKit TOC.",
+        "RCP": "Le RCP, ou résumé des caractéristiques du produit, est le document officiel de dosimétrie et d'usage d'un médicament, ici le SomaKit TOC.",
+        "MIBG": "Le MIBG, ou méta-iodobenzylguanidine, est un analogue de la noradrénaline utilisé en scintigraphie des phéochromocytomes, ici marqué à l'iode 123.",
+        "DOTATATE": "Le DOTATATE, ou oxodotréotide, est un peptide analogue de la somatostatine, ici marqué au gallium 68 pour le PET.",
+        "Ga-68": "Le Ga-68, ou gallium 68, est un radionucléide émetteur de positons utilisé pour marquer le DOTATATE.",
+        "I-123": "L'I-123, ou iode 123, est le radionucléide qui marque le MIBG pour la scintigraphie diagnostique.",
+        "I-131": "L'I-131, ou iode 131, sert surtout au traitement par MIBG, rarement au diagnostic.",
+        "SDHx": "SDHx désigne les gènes des sous-unités de la succinate déshydrogénase (SDHA, SDHB, SDHC, SDHD, SDHAF2), dont les mutations prédisposent aux paragangliomes.",
+        "ACTH": "L'ACTH, ou adrénocorticotrophine, est l'hormone hypophysaire qui stimule la production de cortisol par la surrénale.",
+        "MACS": "La MACS, ou mild autonomous cortisol secretion, est la sécrétion autonome légère de cortisol, définie par un cortisol après dexaméthasone supérieur à 50 nmol/l en l'absence de syndrome de Cushing patent.",
+        "DHEA-S": "La DHEA-S, ou déhydroépiandrostérone sulfate, est un androgène de dégradation produit par la surrénale.",
+        "DFGe": "Le DFGe, ou débit de filtration glomérulaire estimé, est la mesure de la fonction rénale que l'on contrôle avant d'injecter un produit iodé ou gadoliné.",
+        "mSv": "Le millisievert est l'unité de dose efficace utilisée pour exprimer l'irradiation d'un examen.",
+        "mGy": "Le milligray est l'unité de dose absorbée ; le produit dose-longueur du CT s'exprime en mGy·cm.",
+        "MBq": "Le mégabecquerel est l'unité d'activité d'un radiopharmaceutique administré.",
+        "nmol": "La nanomole est l'unité de quantité de matière utilisée ici pour le cortisol (nmol/l).",
+        "NRD": "Le NRD, ou niveau de référence diagnostique, est la valeur publiée par l'OFSP pour comparer les doses ou les activités administrées.",
+        "F-18-DOPA": "La F-18-DOPA, ou fluorodopa marquée au fluor 18, est un traceur PET des tumeurs chromaffines, placé en première ligne du phéochromocytome sporadique non métastatique par l'EANM/SNMMI 2019.",
+        "OH": "OH, dans 17-OH-progestérone, désigne le groupe hydroxy de la 17-hydroxyprogestérone, précurseur du cortisol dosé pour écarter une hyperplasie congénitale des surrénales."
+      }
+    }
+  }
+}
