@@ -1,0 +1,26 @@
+# Surveillance gratuite de CLAUDE_A_AUDITER : audit automatique (0 token) à chaque dépôt — AAI (Anthropic AI)
+name: Audit automatique des lots déposés
+on:
+  push:
+    paths:
+      - "CLAUDE_A_AUDITER/**"
+      - "!CLAUDE_A_AUDITER/RAPPORT_AUTO.md"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: audit-auto
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Audit (0 token)
+        run: python projets/outils/audit_auto.py CLAUDE_A_AUDITER -o CLAUDE_A_AUDITER/RAPPORT_AUTO.md
+      - name: Publier le rapport
+        run: |
+          git config user.name "audit-auto"
+          git config user.email "audit-auto@users.noreply.github.com"
+          git add CLAUDE_A_AUDITER/RAPPORT_AUTO.md
+          git diff --cached --quiet || (git commit -m "Rapport d'audit automatique [skip ci]" && git push)
