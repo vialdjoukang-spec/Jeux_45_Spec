@@ -1,0 +1,305 @@
+{
+ "_lot": {
+  "producteur": "Production XAI (équipe Grok, Athéna)",
+  "tache": "P02",
+  "titre": "Remplir les examens de la région 2. Cou (5 organes, 35 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 5,
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet.",
+  "aVerifier": [
+   "conception/donnees/paraclinique/topographie/2_cou/vaisseaux_du_cou_et_de_la_tete.json › vaisseaux_du_cou_et_de_la_tete__angio_ct_des_troncs_supra_aortiques › irradiation_mSv : 1,5 mSv calculé avec la valeur cible OFSP R-06-06 révision 2 (15.06.2018) du protocole 5 « Angiographie CT (angiographie de la carotide) », 260 mGy·cm × 0,0059 mSv/(mGy·cm) (facteur cou adulte, AAPM Report 96, 2008) = 1,534 mSv, arrondi à 1,5 mSv ; au NRD, 360 × 0,0059 = 2,12 mSv. Le facteur 0,0059 suppose le fantôme tête de 16 cm, alors que les DLP des protocoles 4 à 15 de R-06-06 se réfèrent au fantôme corps de 32 cm : appliquer 0,0059 directement peut donc sous-estimer la dose, sans facteur de conversion relu pour corriger ce point.",
+   "conception/donnees/paraclinique/topographie/2_cou/vaisseaux_du_cou_et_de_la_tete.json › vaisseaux_du_cou_et_de_la_tete__angio_irm_cervicale › delai : rapide retenu comme alternative à l'angio-CT pour le bilan des sténoses ; l'ESVS 2023 ne fixe pas ce délai en heures.",
+   "conception/donnees/paraclinique/topographie/2_cou/vaisseaux_du_cou_et_de_la_tete.json › vaisseaux_du_cou_et_de_la_tete__pet_ct_des_gros_vaisseaux › irradiation_mSv : 8,8 mSv = NRD OFSP du FDG en 3D, 250 MBq pour 70 kg (directive NRD médecine nucléaire V2, 1.2.2023) × 0,019 mSv/MBq (CIPR 106, citée par l'EANM, Boellaard et al., 2015) = 4,75 mSv, plus le CT de localisation à la valeur cible OFSP « Tumeur TEP corps entier » (25e percentile), 270 mGy·cm × 0,015 mSv/(mGy·cm) = 4,05 mSv ; la directive n'a pas de protocole propre à la vascularite ; au NRD du CT (760 mGy·cm), le CT seul ferait 11,4 mSv.",
+   "conception/donnees/paraclinique/topographie/2_cou/vaisseaux_du_cou_et_de_la_tete.json › vaisseaux_du_cou_et_de_la_tete__doppler_transcranien › seuil : l'odds ratio 6,14 et le critère « réserve cérébrale vasculaire altérée » viennent du tableau 8 des recommandations de l'ESVS 2023, relu ; la définition opérationnelle (manoeuvre et valeur seuil) est renvoyée par cette ligne directrice à la section 3.10.1, absente du texte récupéré, qui s'arrêtait à la section 3.8.3, et n'a donc pas été affirmée.",
+   "conception/donnees/paraclinique/topographie/2_cou/vaisseaux_du_cou_et_de_la_tete.json › vaisseaux_du_cou_et_de_la_tete__biopsie_de_l_artere_temporale › limite : la longueur minimale de prélèvement et le rôle des lésions skip n'ont pas été affirmés, faute d'avoir relu une recommandation qui les chiffre (la mise à jour EULAR 2018 de Hellmich et al. et la ligne directrice BSR 2020 n'ont pas pu être obtenues en texte intégral stable)."
+  ]
+ },
+ "fichiers": {
+  "conception/donnees/paraclinique/topographie/2_cou/vaisseaux_du_cou_et_de_la_tete.json": {
+   "_meta": {
+    "region": "2. Cou",
+    "organe": "Vaisseaux du cou et de la tête",
+    "statut": "LISTE COMPLÈTE — indication, principe, interprétation et bulle à remplir"
+   },
+   "examens": [
+    {
+     "id": "vaisseaux_du_cou_et_de_la_tete__echodoppler_des_troncs_supra_aortiques",
+     "modalite": "Imagerie",
+     "nom": "Échodoppler des troncs supra-aortiques",
+     "visees": [
+      "diagnostique",
+      "therapeutique"
+     ],
+     "signeRecherche": "Sténose ou occlusion des TSA",
+     "seuil": "Une sténose d'au moins 50 % mesurée selon la méthode NASCET, ou une occlusion, oriente le bilan, selon les recommandations de l'ESVS 2023 (Naylor et al.). Les comptes rendus doivent préciser la méthode de mesure utilisée, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "indication": "On l'utilise en première intention pour évaluer l'étendue et la sévérité des sténoses carotidiennes extracrâniennes, selon les recommandations de l'ESVS 2023 (Naylor et al.). Après un AIT ou un AVC du territoire carotidien, on le demande rapidement : le patient est conduit immédiatement en Stroke Unit ou en Stroke Center, où l'imagerie neurovasculaire est disponible 24 heures sur 24, selon les recommandations de la Société cérébrovasculaire suisse (Kägi et al., 2021), et la chirurgie carotidienne du patient récemment symptomatique ne doit pas être retardée, selon les recommandations de l'ESVS 2023 (Naylor et al.). On ne pratique pas d'imagerie des carotides pour une syncope simple sans autre symptôme neurologique, selon la liste Top 5 de la Société suisse de neurologie (smarter medicine, 2018).",
+     "discriminant": "Il montre le degré de sténose et l'aspect de la plaque à la bifurcation, au bas coût et sans irradiation, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "avantageSelectif": "Il est accessible, peu coûteux et constitue l'examen de première ligne, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "plutotQue": "Il précède l'angio-CT et l'angio-IRM ; avant une endartériectomie, on corrobore toutefois l'estimation échographique par un angio-CT, une angio-IRM, ou un second échodoppler fait par un autre opérateur, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "limite": "Il n'explore pas en un seul temps la crosse aortique, l'artère carotide interne distale et la circulation intracrânienne, que l'angio-CT ou l'angio-IRM visualisent ensemble, notamment si un stenting est envisagé, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "referencePour": [],
+     "smarterMedicine": "On ne pratique pas d'imagerie des carotides pour une syncope simple sans autre symptôme neurologique, selon la liste Top 5 de la Société suisse de neurologie (smarter medicine, 2018).",
+     "radioAnatomieNormale": null,
+     "precautions": "Il n'irradie pas et n'utilise pas de produit de contraste iodé, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "irradiation_mSv": 0,
+     "delai": "rapide (< 24 h)",
+     "prelevementRef": null,
+     "bulle": {
+      "def": "L'échodoppler des troncs supra-aortiques étudie, par ultrasons, le calibre et les flux des artères carotides et vertébrales, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+      "pourquoi": "Une sténose d'au moins 50 % d'une artère extracrânienne entre dans les causes d'AVC par athérosclérose des gros vaisseaux, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+      "confusion": "Une syncope simple n'est pas un déficit focal et ne justifie pas une imagerie des carotides, selon la liste Top 5 de la Société suisse de neurologie (smarter medicine, 2018).",
+      "retenir": "C'est l'examen de première ligne des sténoses carotidiennes ; avant une endartériectomie, on le confirme par un second examen, selon les recommandations de l'ESVS 2023 (Naylor et al.)."
+     }
+    },
+    {
+     "id": "vaisseaux_du_cou_et_de_la_tete__angio_ct_des_troncs_supra_aortiques",
+     "modalite": "Imagerie",
+     "nom": "Angio-CT des troncs supra-aortiques",
+     "visees": [
+      "diagnostique",
+      "therapeutique"
+     ],
+     "signeRecherche": "Sténose ou occlusion des TSA",
+     "seuil": "Une sténose d'au moins 50 % mesurée selon la méthode NASCET, ou une occlusion, oriente le bilan, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "indication": "Dans un AVC ischémique aigu, on demande une imagerie artérielle pour repérer une occlusion accessible à un traitement endovasculaire ; si cette imagerie manque, une angiographie cérébrale diagnostique peut suivre, selon les recommandations de la Société cérébrovasculaire suisse (Michel et al., 2021). En cas d'occlusion extracrânienne isolée, on envisage un traitement endovasculaire s'il existe une discordance neuroradiologique ou clinico-neuroradiologique, selon les recommandations de la Société cérébrovasculaire suisse (Michel et al., 2021). En dehors de l'urgence, on s'en sert pour corroborer l'échodoppler avant une endartériectomie, et on l'associe à l'échodoppler avant un stenting, car il montre aussi la crosse et la circulation intra- et extracrânienne, selon les recommandations de l'ESVS 2023 (Naylor et al.). On ne pratique pas d'imagerie des carotides pour une syncope simple sans autre symptôme neurologique, selon la liste Top 5 de la Société suisse de neurologie (smarter medicine, 2018).",
+     "discriminant": "Il visualise en un seul examen la crosse aortique, les troncs supra-aortiques, la bifurcation, l'artère carotide interne distale et la circulation intracrânienne, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "avantageSelectif": "Il est disponible dans la filière de l'AVC aigu et complète l'échodoppler lorsque l'on envisage une revascularisation, selon les recommandations de la Société cérébrovasculaire suisse (Michel et al., 2021), selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "plutotQue": "On ne recourt plus à l'angiographie intra-artérielle de première intention, car elle a pu causer des AVC dans les essais ; on la réserve aux discordances entre examens non invasifs, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "limite": "Il irradie et nécessite un produit de contraste iodé, que l'on n'injecte pas en cas d'hyperthyroïdie manifeste, selon les recommandations de l'ESUR 2025. Sa sensibilité pour une sténose, comparée à l'angiographie, est de 75 à 85 %, pour une spécificité de 93 à 96 %, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "referencePour": [],
+     "smarterMedicine": "On ne pratique pas d'imagerie des carotides pour une syncope simple sans autre symptôme neurologique, selon la liste Top 5 de la Société suisse de neurologie (smarter medicine, 2018).",
+     "radioAnatomieNormale": null,
+     "precautions": "En cas de DFGe inférieur à 30 ml/min/1,73 m² avant une injection veineuse, on envisage une autre technique sans produit de contraste iodé, ou on hydrate par voie veineuse, selon les recommandations de l'ESUR 2025. On n'injecte pas de contraste iodé en cas d'hyperthyroïdie manifeste, selon les recommandations de l'ESUR 2025. Chez la femme enceinte, on ne l'injecte que si l'examen radiologique est indispensable, et on contrôle la thyroïde du nouveau-né dans la première semaine, selon les recommandations de l'ESUR 2025. L'allaitement peut être poursuivi, selon les recommandations de l'ESUR 2025. On compare la dose au NRD de l'angiographie CT de la carotide, de 11 mGy et 360 mGy·cm, et à sa valeur cible, de 8 mGy et 260 mGy·cm, selon les NRD OFSP R-06-06, révision 2 (15.06.2018).",
+     "irradiation_mSv": 1.5,
+     "delai": "urgence (< 1 h)",
+     "prelevementRef": null,
+     "bulle": {
+      "def": "L'angio-CT des troncs supra-aortiques opacifie les artères du cou et de la crosse après injection de produit de contraste iodé, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+      "pourquoi": "Dans l'AVC aigu, seule une imagerie artérielle permet d'identifier une occlusion accessible et d'envisager un traitement endovasculaire, y compris en cas d'occlusion extracrânienne isolée avec une discordance neuroradiologique ou clinico-neuroradiologique, selon les recommandations de la Société cérébrovasculaire suisse (Michel et al., 2021).",
+      "confusion": "Une syncope simple n'est pas une indication, selon la liste Top 5 de la Société suisse de neurologie (smarter medicine, 2018). Une sténose vue à l'échodoppler doit être confirmée avant une endartériectomie, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+      "retenir": "On le demande en urgence dans l'AVC aigu pour l'imagerie artérielle, selon les recommandations de la Société cérébrovasculaire suisse (Michel et al., 2021), et pour confirmer l'échodoppler avant une revascularisation, selon les recommandations de l'ESVS 2023 (Naylor et al.)."
+     }
+    },
+    {
+     "id": "vaisseaux_du_cou_et_de_la_tete__angio_irm_cervicale",
+     "modalite": "Imagerie",
+     "nom": "Angio-IRM cervicale",
+     "visees": [
+      "diagnostique"
+     ],
+     "signeRecherche": "Sténose ou occlusion des TSA",
+     "seuil": "Une sténose d'au moins 50 % mesurée selon la méthode NASCET, ou une occlusion, oriente le bilan, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "indication": "On la demande, comme l'échodoppler ou l'angio-CT, pour évaluer l'étendue et la sévérité des sténoses carotidiennes extracrâniennes, selon les recommandations de l'ESVS 2023 (Naylor et al.). Avant une endartériectomie, elle peut corroborer l'échodoppler ; avant un stenting, elle fournit aussi des informations sur la crosse et la circulation intra- et extracrânienne, selon les recommandations de l'ESVS 2023 (Naylor et al.). On ne pratique pas d'imagerie des carotides pour une syncope simple sans autre symptôme neurologique, selon la liste Top 5 de la Société suisse de neurologie (smarter medicine, 2018).",
+     "discriminant": "L'angio-IRM avec gadolinium détecte une sténose avec une sensibilité de 94 à 95 % et une spécificité de 92 à 93 % par rapport à l'angiographie, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "avantageSelectif": "Elle n'utilise pas de rayons X et peut remplacer l'angio-CT lorsque le produit de contraste iodé pose problème, tout en couvrant la crosse et les vaisseaux intra- et extracrâniens, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "plutotQue": "On la préfère à l'angio-IRM sans contraste en temps de vol, moins précise, lorsque l'on peut injecter un gadolinium, selon les recommandations de l'ESVS 2023 (Naylor et al.). On ne recourt à l'angiographie intra-artérielle que s'il existe des discordances entre examens non invasifs, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "limite": "L'angio-IRM en temps de vol, sans gadolinium, est moins précise que l'acquisition avec contraste, selon les recommandations de l'ESVS 2023 (Naylor et al.). Le gadolinium impose les précautions de l'ESUR, notamment pendant la grossesse, selon les recommandations de l'ESUR 2025.",
+     "referencePour": [],
+     "smarterMedicine": "On ne pratique pas d'imagerie des carotides pour une syncope simple sans autre symptôme neurologique, selon la liste Top 5 de la Société suisse de neurologie (smarter medicine, 2018).",
+     "radioAnatomieNormale": null,
+     "precautions": "Lorsqu'on injecte un gadolinium, on choisit un chélate macrocyclique à la plus petite dose utile si l'IRM de la femme enceinte est indispensable, selon les recommandations de l'ESUR 2025. L'allaitement peut être poursuivi après un chélate macrocyclique, selon les recommandations de l'ESUR 2025. En cas de DFGe inférieur à 30 ml/min/1,73 m², on pèse l'indication d'un chélate macrocyclique, selon les recommandations de l'ESUR 2025. On ne donne pas de gadolinium à une femme enceinte ou qui allaite si elle a aussi une insuffisance rénale, selon les recommandations de l'ESUR 2025.",
+     "irradiation_mSv": 0,
+     "delai": "rapide (< 24 h)",
+     "prelevementRef": null,
+     "bulle": {
+      "def": "L'angio-IRM cervicale image les artères du cou, avec ou sans gadolinium, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+      "pourquoi": "Elle évalue les sténoses extracrâniennes sans rayons X et peut confirmer l'échodoppler avant une revascularisation, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+      "confusion": "Une angio-IRM sans contraste en temps de vol est moins précise qu'une acquisition avec gadolinium, selon les recommandations de l'ESVS 2023 (Naylor et al.). Une syncope simple n'est pas une indication, selon la liste Top 5 de la Société suisse de neurologie (smarter medicine, 2018).",
+      "retenir": "C'est une alternative non irradiante à l'angio-CT pour les troncs supra-aortiques, selon les recommandations de l'ESVS 2023 (Naylor et al.)."
+     }
+    },
+    {
+     "id": "vaisseaux_du_cou_et_de_la_tete__echographie_des_arteres_temporales",
+     "modalite": "Imagerie",
+     "nom": "Échographie des artères temporales (signe du halo)",
+     "visees": [
+      "diagnostique"
+     ],
+     "signeRecherche": "Signe du halo mural hypoechogène",
+     "seuil": "Le signe du halo est un épaississement pariétal homogène et hypoéchogène de l'artère temporale, selon les critères de classification ACR/EULAR 2022 (Ponte et al.). Ce signe, comme une biopsie temporale positive, compte pour 5 points dans les critères de classification, selon les critères de classification ACR/EULAR 2022 (Ponte et al.).",
+     "indication": "On l'envisage comme premier examen d'imagerie, en incluant les artères temporales et axillaires, chez tout patient suspect d'artérite à cellules géantes, selon les recommandations de l'EULAR 2023 (Dejaco et al.). On ne retarde pas le traitement pour l'obtenir ; en cas de forte suspicion avec des signes ischémiques, notamment une baisse transitoire de la vue ou une claudication de la mâchoire, on traite d'emblée, selon les recommandations de l'EULAR 2023 (Dejaco et al.). On la réalise de préférence avant le début des glucocorticoïdes, ou dans les 72 heures qui suivent, selon les recommandations de l'EULAR 2023 (Dejaco et al.). Si la suspicion clinique est élevée et l'imagerie positive, on peut porter le diagnostic sans biopsie ni autre examen, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "discriminant": "Pour le diagnostic, sa sensibilité groupée est de 88 % et sa spécificité de 96 % lorsque le diagnostic clinique sert de référence, dans les études à faible risque de biais, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "avantageSelectif": "Elle est le premier examen d'imagerie, peu consommatrice de ressources, souvent rapidement disponible et non irradiante, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "plutotQue": "Elle précède la biopsie de l'artère temporale lorsque l'expertise et la disponibilité sont là ; la biopsie reste une alternative adéquate si l'échographie n'est pas rapidement réalisable ou si l'opérateur n'est pas formé, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "limite": "Elle doit être faite par un spécialiste formé, avec un appareil adapté, selon les recommandations de l'EULAR 2023 (Dejaco et al.). Si le résultat est non concluant, ou si la suspicion et l'imagerie ne concordent pas, d'autres examens sont nécessaires, selon les recommandations de l'EULAR 2023 (Dejaco et al.). L'épaisseur intima-média des artères temporales diminue déjà après une semaine de glucocorticoïdes, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": null,
+     "precautions": "Elle n'irradie pas, mais on ne retarde pas le traitement glucocorticoïde pour l'obtenir, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "irradiation_mSv": 0,
+     "delai": "rapide (< 24 h)",
+     "prelevementRef": null,
+     "bulle": {
+      "def": "L'échographie des artères temporales cherche un halo, c'est-à-dire un épaississement pariétal homogène et hypoéchogène, selon les critères de classification ACR/EULAR 2022 (Ponte et al.). L'examen standard inclut aussi les artères axillaires, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+      "pourquoi": "C'est le premier examen d'imagerie de l'artérite à cellules géantes, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+      "confusion": "Un halo limité ou une paroi à peine épaissie n'a pas la même valeur qu'un épaississement étendu de plusieurs vaisseaux ; en cas de doute, d'autres examens s'imposent, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+      "retenir": "On l'obtient tôt, sans retarder les glucocorticoïdes, et une imagerie positive peut suffire si la suspicion clinique est élevée, selon les recommandations de l'EULAR 2023 (Dejaco et al.)."
+     }
+    },
+    {
+     "id": "vaisseaux_du_cou_et_de_la_tete__pet_ct_des_gros_vaisseaux",
+     "modalite": "Imagerie",
+     "nom": "PET-CT des gros vaisseaux (vascularite)",
+     "visees": [
+      "diagnostique"
+     ],
+     "signeRecherche": "Fixation vasculaire du FDG > foie",
+     "seuil": "Une fixation vasculaire de grade 3, supérieure à celle du foie, est considérée comme positive pour une vascularite des gros vaisseaux active ; un grade 2, égal au foie, est seulement possiblement positif, selon la recommandation procédurale de l'EANM et de la SNMMI (Slart et al., 2018).",
+     "indication": "On le demande en cas de suspicion de vascularite des gros vaisseaux et pour le suivi thérapeutique, sur ordre d'un spécialiste en rhumatologie, immunologie clinique, médecine interne générale, angiologie ou chirurgie vasculaire, selon les directives cliniques de la SSMN (1er avril 2026). C'est la première alternative d'imagerie à l'échographie pour les artères extracrâniennes, selon les recommandations de l'EULAR 2023 (Dejaco et al.). Pour les artères crâniennes, le PET-CT au FDG ou une IRM à haute résolution peuvent aussi remplacer l'échographie, selon les recommandations de l'EULAR 2023 (Dejaco et al.). On le réalise de préférence avant les glucocorticoïdes, ou au plus tard dans les 72 heures qui suivent leur début ; dans une étude, la sensibilité restait inchangée à 72 heures sous 60 mg de prednisone, mais tombait à 36 % après 10 jours, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "discriminant": "Il détecte l'inflammation murale des artères extracrâniennes, y compris l'aorte, et peut révéler une infection ou une tumeur, surtout si les symptômes sont atypiques, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "avantageSelectif": "C'est la première alternative à l'échographie pour les vaisseaux extracrâniens, avec une sensibilité de 76 % et une spécificité de 95 % lorsque le diagnostic clinique sert de référence, dans les études à faible risque de biais, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "plutotQue": "C'est la première alternative à l'échographie pour les artères extracrâniennes ; l'IRM ou le CT peuvent servir si le PET n'est pas disponible, le CT venant en dernier, car rien n'indique qu'il soit plus performant que l'IRM alors qu'il irradie, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "limite": "Les glucocorticoïdes diminuent la fixation pariétale du FDG, selon la recommandation procédurale de l'EANM et de la SNMMI (Slart et al., 2018). L'athérosclérose peut aussi fixer le traceur et gêner l'interprétation, selon la recommandation procédurale de l'EANM et de la SNMMI (Slart et al., 2018).",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": [
+      "Aorte sans fixation supérieure au foie",
+      "Artères carotides sans grade 3",
+      "Artères subclavières sans grade 3",
+      "Artères axillaires sans grade 3",
+      "Foie comme bruit de fond"
+     ],
+     "precautions": "Le patient jeûne au moins 6 heures avant l'injection, selon la recommandation procédurale de l'EANM et de la SNMMI (Slart et al., 2018). Une glycémie inférieure à 11 mmol/l est acceptable, selon la recommandation procédurale de l'EANM et de la SNMMI (Slart et al., 2018) ; les recommandations de l'EULAR 2023 (Dejaco et al.) préfèrent une valeur inférieure à 7 mmol/l et acceptent jusqu'à 10 mmol/l. On pèse l'indication chez la femme enceinte, selon l'EANM (Boellaard et al., 2015). En cas d'allaitement, on limite le contact avec l'enfant pendant 12 heures après l'injection, selon l'EANM (Boellaard et al., 2015). On installe le patient en décubitus, les bras le long du corps, selon la recommandation procédurale de l'EANM et de la SNMMI (Slart et al., 2018).",
+     "irradiation_mSv": 8.8,
+     "delai": "programmé",
+     "prelevementRef": null,
+     "bulle": {
+      "def": "Le PET-CT des gros vaisseaux image la fixation du FDG dans la paroi artérielle, du sommet du crâne au moins jusqu'à mi-cuisse, de préférence jusque sous les genoux, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+      "pourquoi": "Il montre l'inflammation des artères extracrâniennes et de l'aorte, que l'échographie temporale seule peut manquer, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+      "confusion": "Une fixation égale au foie (grade 2) n'est que possiblement positive, alors qu'une fixation supérieure au foie (grade 3) l'est, selon la recommandation procédurale de l'EANM et de la SNMMI (Slart et al., 2018). L'athérosclérose peut imiter une vascularite, selon la recommandation procédurale de l'EANM et de la SNMMI (Slart et al., 2018).",
+      "retenir": "On le réserve surtout aux vaisseaux extracrâniens, de préférence avant les glucocorticoïdes ou au plus tard dans les 72 heures qui suivent leur début, selon les recommandations de l'EULAR 2023 (Dejaco et al.)."
+     }
+    },
+    {
+     "id": "vaisseaux_du_cou_et_de_la_tete__vs_et_crp",
+     "modalite": "Biologie",
+     "nom": "VS et CRP (artérite à cellules géantes)",
+     "visees": [
+      "diagnostique"
+     ],
+     "signeRecherche": "VS ≥ 50 mm/h ou CRP ≥ 10 mg/l",
+     "seuil": "Une VS maximale d'au moins 50 mm/h ou une CRP maximale d'au moins 10 mg/l, mesurées avant le traitement, compte pour 3 points dans les critères de classification, qui exigent aussi un âge d'au moins 50 ans et un total d'au moins 6 points, selon les critères de classification ACR/EULAR 2022 (Ponte et al.). Ces critères servent à classer les cas en recherche et ne sont pas faits pour poser le diagnostic individuel, selon les critères de classification ACR/EULAR 2022 (Ponte et al.).",
+     "indication": "On les dose lorsque l'on suspecte une artérite à cellules géantes, maladie définie comme la vascularite systémique la plus fréquente à partir de 50 ans, selon les critères de classification ACR/EULAR 2022 (Ponte et al.). Ils entrent dans l'estimation de la probabilité clinique, selon les recommandations de l'EULAR 2023 (Dejaco et al.). En cas de forte suspicion avec des signes ischémiques, on ne retarde pas le traitement pour attendre un résultat, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "discriminant": "Dans la cohorte DCVAS, 90,3 % des cas d'artérite à cellules géantes avaient une CRP d'au moins 10 mg/l et 73,8 % une VS d'au moins 50 mm/h, selon les critères de classification ACR/EULAR 2022 (Ponte et al.).",
+     "avantageSelectif": "Ces dosages sont rapidement disponibles et font partie des données cliniques et biologiques qui fondent la probabilité avant l'imagerie, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "plutotQue": "Ils ne remplacent ni l'échographie des artères temporales et axillaires, ni une autre imagerie ou une biopsie lorsque le diagnostic reste incertain, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "limite": "Dans la même cohorte, une fraction des cas n'atteignait pas ces seuils ; des marqueurs au-dessous des seuils n'excluent donc pas le diagnostic, selon les critères de classification ACR/EULAR 2022 (Ponte et al.). En suivi, les marqueurs biologiques d'activité peuvent être peu fiables, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": null,
+     "precautions": "Un prélèvement veineux suffit. Des valeurs au-dessous des seuils n'excluent pas une artérite à cellules géantes, selon les critères de classification ACR/EULAR 2022 (Ponte et al.). On ne retarde pas le traitement en cas de forte suspicion avec des signes ischémiques, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "irradiation_mSv": 0,
+     "delai": "rapide (< 24 h)",
+     "prelevementRef": "sang_veineux",
+     "bulle": {
+      "def": "La VS mesure la chute des hématies en une heure et la CRP est une protéine de l'inflammation ; une VS d'au moins 50 mm/h ou une CRP d'au moins 10 mg/l entre dans les critères de classification, selon les critères de classification ACR/EULAR 2022 (Ponte et al.).",
+      "pourquoi": "Ces marqueurs aident à estimer la probabilité d'une artérite à cellules géantes avant l'imagerie, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+      "confusion": "Des valeurs élevées se voient aussi dans d'autres maladies, et des valeurs plus basses n'excluent pas le diagnostic, selon les critères de classification ACR/EULAR 2022 (Ponte et al.).",
+      "retenir": "On les dose d'emblée en cas de suspicion, sans retarder les glucocorticoïdes s'il existe des signes ischémiques, selon les recommandations de l'EULAR 2023 (Dejaco et al.)."
+     }
+    },
+    {
+     "id": "vaisseaux_du_cou_et_de_la_tete__doppler_transcranien",
+     "modalite": "Exploration fonctionnelle",
+     "nom": "Doppler transcrânien (retentissement hémodynamique)",
+     "visees": [
+      "retentissement"
+     ],
+     "signeRecherche": "Réserve cérébrale vasculaire altérée",
+     "seuil": "Une réserve cérébrale vasculaire altérée est un critère de risque élevé d'AVC ipsilatéral en cas de sténose carotidienne asymptomatique de 70 à 99 %, avec un rapport de cotes de 6,14 dans la méta-analyse retenue par l'ESVS, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "indication": "On l'utilise pour préciser le retentissement hémodynamique d'une sténose carotidienne asymptomatique et pour identifier les patients à risque plus élevé sous meilleur traitement médical, chez qui une endartériectomie ou un stenting peut être envisagé, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "discriminant": "Il évalue la réserve cérébrale vasculaire, que le seul degré de sténose cervicale ne donne pas, selon les recommandations de l'ESVS 2023 (Naylor et al.). Il peut aussi détecter au moins un signal microembolique spontané pendant au moins une heure d'enregistrement, autre critère de risque élevé pour une sténose de 50 à 99 %, avec un rapport de cotes de 7,46, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "avantageSelectif": "Il n'irradie pas et aide à stratifier le risque au-delà du pourcentage de sténose, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "plutotQue": "Il complète l'échodoppler cervical, qui reste l'examen de première ligne pour mesurer la sténose, selon les recommandations de l'ESVS 2023 (Naylor et al.). Il ne remplace pas l'imagerie morphologique des troncs supra-aortiques, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "limite": "Il ne mesure pas le degré de sténose selon la méthode NASCET, qui reste celle retenue pour décider d'une revascularisation, selon les recommandations de l'ESVS 2023 (Naylor et al.). La réserve cérébrale vasculaire altérée n'est qu'un des critères de risque élevé, à interpréter avec les autres, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": null,
+     "precautions": "Il n'irradie pas et n'utilise pas de produit de contraste iodé, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+     "irradiation_mSv": 0,
+     "delai": "programmé",
+     "prelevementRef": null,
+     "bulle": {
+      "def": "Le Doppler transcrânien étudie, par les fenêtres osseuses, les flux des artères intracrâniennes et la réserve cérébrale vasculaire, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+      "pourquoi": "Une réserve cérébrale vasculaire altérée augmente le risque d'AVC ipsilatéral en cas de sténose asymptomatique serrée, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+      "confusion": "Un signal microembolique spontané est un autre critère de risque obtenu par le même examen, mais il témoigne d'une embolie plutôt que d'un retentissement hémodynamique, selon les recommandations de l'ESVS 2023 (Naylor et al.).",
+      "retenir": "On s'en sert pour le retentissement d'une sténose asymptomatique, en complément de l'imagerie cervicale, selon les recommandations de l'ESVS 2023 (Naylor et al.)."
+     }
+    },
+    {
+     "id": "vaisseaux_du_cou_et_de_la_tete__biopsie_de_l_artere_temporale",
+     "modalite": "Anatomopathologie / biopsie",
+     "nom": "Biopsie de l'artère temporale",
+     "visees": [
+      "diagnostique"
+     ],
+     "signeRecherche": "Vasculite de l'artère temporale",
+     "seuil": "Une vasculite définitive sur la biopsie de l'artère temporale, tout comme un signe du halo échographique, compte pour 5 points dans les critères de classification, selon les critères de classification ACR/EULAR 2022 (Ponte et al.). L'artérite à cellules géantes est définie comme une artérite granulomateuse des vaisseaux de moyen et de gros calibre, selon les critères de classification ACR/EULAR 2022 (Ponte et al.).",
+     "indication": "On la demande lorsque l'échographie n'est pas rapidement disponible ou que l'expertise manque, car elle reste alors une alternative adéquate, selon les recommandations de l'EULAR 2023 (Dejaco et al.). Elle est aussi indiquée lorsque le résultat de l'imagerie est non concluant, ou lorsque la suspicion clinique et l'imagerie ne permettent pas à elles seules de conclure, selon les recommandations de l'EULAR 2023 (Dejaco et al.). On ne retarde pas le traitement glucocorticoïde pour l'obtenir, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "discriminant": "Elle fournit une preuve histologique de vasculite, selon les critères de classification ACR/EULAR 2022 (Ponte et al.).",
+     "avantageSelectif": "Elle reste utile si l'imagerie n'est pas disponible, non concluante, ou discordante avec la clinique, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "plutotQue": "Elle n'est plus exigée si la suspicion clinique est élevée et l'imagerie positive, selon les recommandations de l'EULAR 2023 (Dejaco et al.). L'échographie des artères temporales et axillaires est le premier examen d'imagerie lorsque l'expertise est là, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "limite": "Une biopsie négative n'écarte pas le diagnostic si la suspicion demeure ; d'autres examens sont alors nécessaires, selon les recommandations de l'EULAR 2023 (Dejaco et al.). Ces critères de classification ne servent pas à poser le diagnostic individuel, selon les critères de classification ACR/EULAR 2022 (Ponte et al.).",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": null,
+     "precautions": "On ne retarde pas le traitement glucocorticoïde pour l'obtenir, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+     "irradiation_mSv": 0,
+     "delai": "programmé",
+     "prelevementRef": null,
+     "bulle": {
+      "def": "La biopsie de l'artère temporale prélève un segment de l'artère pour chercher une vasculite, selon les critères de classification ACR/EULAR 2022 (Ponte et al.).",
+      "pourquoi": "Elle apporte une preuve histologique lorsque l'imagerie manque, est non concluante ou discordante, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+      "confusion": "Une biopsie négative n'exclut pas une artérite à cellules géantes si la suspicion clinique reste élevée ; il faut alors d'autres examens, selon les recommandations de l'EULAR 2023 (Dejaco et al.).",
+      "retenir": "On peut s'en passer si la suspicion est élevée et l'imagerie positive, et on ne retarde jamais les glucocorticoïdes pour l'attendre, selon les recommandations de l'EULAR 2023 (Dejaco et al.)."
+     }
+    }
+   ],
+   "glossaire": {
+    "TSA": "Les TSA, ou troncs supra-aortiques, sont les artères qui naissent de la crosse aortique et vascularisent la tête, le cou et les bras.",
+    "NASCET": "La méthode NASCET mesure une sténose carotidienne en rapportant le diamètre résiduel au diamètre de l'artère carotide interne saine, au-dessus de la sténose, là où les parois sont parallèles.",
+    "ESVS": "L'ESVS est la Société européenne de chirurgie vasculaire.",
+    "AVC": "Un AVC, ou accident vasculaire cérébral, est un déficit neurologique focal d'origine vasculaire qui dure plus de 24 heures, ou qui entraîne la mort en moins de 24 heures.",
+    "AIT": "Un AIT, ou accident ischémique transitoire, est un épisode de dysfonction focale du cerveau, de la rétine ou de la moelle, d'origine vasculaire non traumatique, qui dure moins de 24 heures.",
+    "SSN": "La SSN est la Société suisse de neurologie.",
+    "CT": "Le CT, ou tomodensitométrie, est une imagerie par rayons X en coupes.",
+    "IRM": "L'IRM, ou imagerie par résonance magnétique, étudie les tissus grâce à un champ magnétique, sans rayons X.",
+    "PET-CT": "Le PET-CT combine une tomographie par émission de positons et un CT réalisé dans le même examen.",
+    "PET": "Le PET, ou tomographie par émission de positons, image un traceur radioactif dans le corps.",
+    "FDG": "Le FDG, ou fluorodésoxyglucose marqué au fluor-18, est un analogue du glucose utilisé comme traceur du PET.",
+    "EANM": "L'EANM est l'Association européenne de médecine nucléaire.",
+    "SNMMI": "La SNMMI est la Société de médecine nucléaire et d'imagerie moléculaire.",
+    "SSMN": "La SSMN est la Société suisse de médecine nucléaire.",
+    "OPAS": "L'OPAS est l'ordonnance suisse sur les prestations de l'assurance obligatoire des soins.",
+    "EULAR": "L'EULAR est l'Alliance européenne des associations de rhumatologie.",
+    "ACR": "L'ACR est l'American College of Rheumatology, qui a copublié les critères de classification 2022 de l'artérite à cellules géantes.",
+    "VS": "La VS, ou vitesse de sédimentation, mesure en millimètres par heure la chute des hématies dans un tube.",
+    "CRP": "La CRP, ou protéine C réactive, est une protéine de l'inflammation dosée dans le sang, en milligrammes par litre en Suisse.",
+    "mm/h": "Le mm/h, ou millimètre par heure, est l'unité de la vitesse de sédimentation.",
+    "mg/l": "Le mg/l, ou milligramme par litre, est l'unité suisse usuelle de la CRP.",
+    "mmol/l": "Le mmol/l, ou millimole par litre, est l'unité de concentration de la glycémie en Suisse.",
+    "DFGe": "Le DFGe, ou débit de filtration glomérulaire estimé, évalue la fonction rénale, en ml/min/1,73 m².",
+    "ESUR": "L'ESUR est la Société européenne de radiologie urogénitale, dont le comité de sécurité des produits de contraste publie des recommandations.",
+    "NRD": "Un NRD, ou niveau de référence diagnostique, est une valeur de dose à ne pas dépasser de façon répétée sans justification ni optimisation.",
+    "OFSP": "L'OFSP est l'Office fédéral de la santé publique suisse.",
+    "R-06-06": "La directive R-06-06 de l'OFSP fixe les niveaux de référence diagnostiques et les valeurs cibles en tomodensitométrie.",
+    "mGy·cm": "Le mGy·cm, ou milligray-centimètre, est l'unité du produit dose-longueur d'un CT.",
+    "Dose efficace": "La dose efficace, exprimée en mSv, estime le risque d'irradiation de l'ensemble du corps.",
+    "mSv": "Le mSv, ou millisievert, est l'unité de la dose efficace.",
+    "MBq": "Le MBq, ou mégabecquerel, est l'unité d'activité d'un radiopharmaceutique.",
+    "AAPM": "L'AAPM est l'Association américaine des physiciens médicaux, qui a publié des facteurs de conversion de dose CT.",
+    "CIPR": "La CIPR est la Commission internationale de protection radiologique, qui publie les coefficients de dose.",
+    "ICRP": "L'ICRP est le nom anglais de la Commission internationale de protection radiologique.",
+    "DRW": "Les DRW sont les niveaux de référence diagnostiques suisses en médecine nucléaire, publiés par l'OFSP.",
+    "Gadolinium": "Le gadolinium est le métal des produits de contraste utilisés en IRM.",
+    "Chélate macrocyclique": "Un chélate macrocyclique est une forme de gadolinium dont le ligand cyclique retient plus solidement le métal.",
+    "Fibrose néphrogénique systémique": "La fibrose néphrogénique systémique est une complication rare du gadolinium chez le patient qui a une insuffisance rénale sévère.",
+    "Signe du halo": "Le signe du halo est un épaississement pariétal artériel homogène et hypoéchogène, typique de l'artérite à cellules géantes à l'échographie.",
+    "Artérite à cellules géantes": "L'artérite à cellules géantes est une artérite granulomateuse des vaisseaux de moyen et de gros calibre, la plus fréquente des vascularites systémiques à partir de 50 ans.",
+    "DCVAS": "DCVAS est l'étude Diagnostic and Classification Criteria in Vasculitis, à partir de laquelle ont été dérivés les critères ACR/EULAR 2022.",
+    "ACR/EULAR": "ACR/EULAR désigne les critères de classification publiés conjointement en 2022 par l'American College of Rheumatology et l'Alliance européenne des associations de rhumatologie.",
+    "Zielwert": "Le Zielwert est la valeur cible suisse de dose, définie comme le 25e percentile des doses observées dans les relevés de l'OFSP."
+   }
+  }
+ }
+}
