@@ -17,6 +17,7 @@ Le détail est dans `references/sources.md` (licence, taille, accès). L'essenti
 - **TotalSegmentator (Hôpital universitaire de Bâle)** offre 1 228 CT cliniques avec 117 structures déjà segmentées, plus 616 IRM. C'est la voie la plus rapide pour un organe en situation dans le corps.
 - **Visible Human / Visible Korean** offrent des corps entiers en cryosections couleur. On les utilise pour une vue en couleurs réelles.
 - **Medical Segmentation Decathlon, IXI, OpenNeuro, BigBrain** couvrent les organes ciblés, l'IRM cérébrale et le cerveau à 20 µm.
+- **Si aucune source listée ne couvre la structure**, cherche le volume sur le web (WebSearch « <organe> NIfTI dataset », « micro-CT <organe> open data ») ; après deux recherches vaines, lance le skill `deep-research`. Garde seulement un volume réel avec une licence lisible.
 
 ## 2. Chaîne de fabrication
 1. **Télécharger.** Le shell du bac à sable n'atteint ni Zenodo ni l'ESRF. Fais donc tourner le téléchargement dans GitHub Actions (Internet gratuit), sur l'ordinateur de l'utilisateur, ou commence par le sous-ensemble de 102 sujets de TotalSegmentator.
@@ -26,9 +27,9 @@ Le détail est dans `references/sources.md` (licence, taille, accès). L'essenti
 5. **Vérifier.** Ouvre une capture de face et une de profil. Contrôle la latéralité sur une structure asymétrique : la pointe du cœur doit être à gauche du patient et le foie à droite. Contrôle aussi les volumes affichés par le script (poumon ≈ 2–3 L, rein ≈ 150 mL).
 
 ## 3. Règles
-- Ne produis jamais de SVG ni de forme dessinée à la main : chaque surface vient d'un voxel réel.
+- **Pas de SVG**, jamais, ni de forme dessinée à la main : chaque surface vient d'un voxel réel.
 - Occulte toujours les organes génitaux externes : retire leurs étiquettes avec `--garder`, ou coupe le maillage du bassin.
-- Écris dans `source=` la provenance exacte et la licence, par exemple « TotalSegmentator v2, sujet s0011, CC BY 4.0 ».
+- Écris dans `source=` la provenance exacte et la licence, par exemple « TotalSegmentator v2, sujet s0011 » suivi de la licence lue sur la fiche Zenodo.
 - Garde un `.glb` au-dessous de ~15 Mo par organe (option `--faces`), pour qu'il s'ouvre vite sur un téléphone.
 - Signe tes productions : AAI (Anthropic AI).
 
