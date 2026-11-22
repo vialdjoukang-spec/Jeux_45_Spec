@@ -21,13 +21,21 @@ def feuilles(x, p=""):
     elif x not in VIDE:
         yield p
 
+# renommages d'identifiants assumés (ancien préfixe → nouveau) : un chemin renommé n'est pas une perte
+MIGR_F = os.path.join(RAC, "projets", "retours", "migrations_ids.json")
+MIGR = json.load(open(MIGR_F, encoding="utf-8")) if os.path.exists(MIGR_F) else {}
+def migrer(chemin):
+    for a, n in MIGR.items():
+        chemin = chemin.replace("[" + a, "[" + n)
+    return chemin
+
 git = lambda *a: subprocess.run(["git", "-C", RAC, *a], capture_output=True, text=True)
 pertes = []
 for chemin in git("ls-tree", "-r", "--name-only", REF, "--", "conception/donnees", "SORTIES_DONNEES_FIABLES").stdout.split("\n"):
     if not chemin.endswith(".json"):
         continue
     try:
-        avant = set(feuilles(json.loads(git("show", f"{REF}:{chemin}").stdout)))
+        avant = {migrer(f) for f in feuilles(json.loads(git("show", f"{REF}:{chemin}").stdout))}
     except ValueError:
         continue
     local = os.path.join(RAC, chemin)

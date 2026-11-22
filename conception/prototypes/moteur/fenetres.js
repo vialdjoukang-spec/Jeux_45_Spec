@@ -148,4 +148,42 @@ const MODELES={
    const cl=v=>v>1.4?'artères incompressibles : mesure la pression d\'orteil':v>0.9?'normal':v>0.4?'AOMI':'ischémie sévère';
    note.innerHTML=`IPS = PAS cheville / PAS humérale la plus haute (${b} mmHg). Droite <b>${r[0].toFixed(2)}</b> (${cl(r[0])}) ; gauche <b>${r[1].toFixed(2)}</b> (${cl(r[1])}).`+(Math.abs(Bd()-Bg())>15?' Une différence de plus de 15 mmHg entre les bras évoque une sténose sous-clavière.':'');}d();},
  '3d'(C){C.innerHTML='<iframe src="anatomie.html" style="width:760px;height:460px;border:0;border-radius:8px"></iframe>';},
+ /* voies aériennes centrales : boucles débit-volume des obstacles + loi de Poiseuille (enfant / adulte) */
+ voies_centrales(C){const x=toile(C);const note=document.createElement('p'),note2=document.createElement('p');let mode='normal';
+  boutons(C,[['Normal','normal'],['Obstacle fixe','fixe'],['Extrathoracique variable','extra'],['Intrathoracique variable','intra']],v=>{mode=v;d();});
+  const E=curseur(C,'Épaisseur de l\'œdème (mm)',0,1.5,0.1,1,d);C.appendChild(note);C.appendChild(note2);
+  function boucle(ex,ins){const pts=[];for(let i=0;i<=100;i++){const v=5*i/100;let f=i<12?9*i/12:9*Math.pow((5-v)/4.4,1);pts.push([v,Math.min(f,ex)]);}for(let i=100;i>=0;i--){const v=5*i/100;pts.push([v,Math.max(-5.4*Math.sin(Math.PI*i/100),-ins)]);}return pts;}
+  function d(){const P=axes(x,520,300,40,[0,6],[-6,10],'Volume expiré (l)','Débit (l/s ; + expiration, − inspiration)');
+   const lim={normal:[99,99],fixe:[3,3],extra:[99,2.2],intra:[3,99]}[mode],ref=boucle(99,99),cu=boucle(...lim);
+   for(const [pts,col,w] of [[ref,'#9aa3ad',1.5],[cu,getComputedStyle(C).getPropertyValue('--c')||'#2f6fd0',2.5]]){x.strokeStyle=col;x.lineWidth=w;x.beginPath();pts.forEach(([v,f],i)=>{const [a,c]=P(v,f);i?x.lineTo(a,c):x.moveTo(a,c);});x.stroke();}
+   note.textContent={normal:'La boucle est normale : un pic expiratoire précoce, puis une décroissance linéaire ; l\'inspiration dessine un demi-cercle.',
+    fixe:'Un obstacle fixe (sténose trachéale cicatricielle) écrête les deux branches : plateau expiratoire ET inspiratoire.',
+    extra:'Un obstacle extrathoracique variable (paralysie des cordes vocales, laryngomalacie) se ferme à l\'inspiration, quand la pression dans la trachée cervicale devient négative : seule la branche inspiratoire forme un plateau.',
+    intra:'Un obstacle intrathoracique variable (trachéomalacie, tumeur de la trachée basse) se ferme à l\'expiration, quand la pression pleurale devient positive : seule la branche expiratoire forme un plateau.'}[mode];
+   const e=E(),rE=2,rA=6.5,fE=Math.pow(rE/Math.max(0.1,rE-e),4),fA=Math.pow(rA/(rA-e),4);
+   note2.textContent='Loi de Poiseuille : la résistance varie comme 1 / r⁴. Un œdème de '+e.toFixed(1)+' mm multiplie la résistance par '+fE.toFixed(1)+' dans la sous-glotte d\'un nourrisson (rayon ≈ 2 mm) et seulement par '+fA.toFixed(1)+' chez l\'adulte (rayon ≈ 6,5 mm).';}d();},
+ /* courbes pression-volume du poumon, de la paroi et du système respiratoire ; la CRF est le volume où elles s'équilibrent */
+ compliance(C){const x=toile(C);const note=document.createElement('p');let sc='normal';
+  const SC={normal:{VR:1.5,CPT:6,a:12,Vr:3.8,Ccw:0.2},fibrose:{VR:1.0,CPT:4.0,a:15,Vr:3.8,Ccw:0.2},emphyseme:{VR:2.8,CPT:7.5,a:6,Vr:3.8,Ccw:0.2},obesite:{VR:1.3,CPT:5.6,a:12,Vr:2.8,Ccw:0.1},pneumothorax:{VR:1.5,CPT:6,a:12,Vr:3.8,Ccw:0.2,ptx:1}};
+  boutons(C,[['Normal','normal'],['Fibrose','fibrose'],['Emphysème','emphyseme'],['Obésité','obesite'],['Pneumothorax','pneumothorax']],v=>{sc=v;d();});C.appendChild(note);
+  function d(){const s=SC[sc],PL=V=>-s.a*Math.log(1-(V-s.VR)/(s.CPT-s.VR)),PW=V=>(V-s.Vr)/s.Ccw,PRS=V=>PL(V)+PW(V);
+   const P=axes(x,520,300,40,[-20,40],[0,8],'Pression (cmH₂O)','Volume (l)');const col=getComputedStyle(C).getPropertyValue('--c')||'#2f6fd0';
+   const trace=(f,c,w,v0,v1)=>{x.strokeStyle=c;x.lineWidth=w;x.beginPath();let k=0;for(let V=v0;V<=v1;V+=0.02){const p=f(V);if(p<-20||p>40)continue;const [a,b]=P(p,V);k++?x.lineTo(a,b):x.moveTo(a,b);}x.stroke();};
+   trace(PL,col,2.5,s.VR+0.001,s.CPT-0.001);trace(PW,'#c98a2b',2,0.5,7.9);if(!s.ptx)trace(PRS,'#3a4556',1.5,s.VR+0.001,s.CPT-0.001);
+   x.fillStyle=col;x.fillText('poumon',P(18,s.CPT-0.4)[0],P(18,s.CPT-0.4)[1]);x.fillStyle='#c98a2b';x.fillText('paroi',P(-17,s.Vr-2)[0],P(-17,s.Vr-2)[1]);
+   if(s.ptx){note.textContent='Pneumothorax : l\'air sépare le poumon de la paroi. Le poumon se rétracte vers son volume minimal ('+s.VR.toFixed(1)+' l) ; la paroi s\'expand vers son volume de repos ('+s.Vr.toFixed(1)+' l) : l\'hémithorax atteint paraît plus large.';return;}
+   let lo=s.VR+0.001,hi=s.CPT-0.001;for(let i=0;i<60;i++){const m=(lo+hi)/2;PRS(m)>0?hi=m:lo=m;}const crf=(lo+hi)/2,[a,b]=P(0,crf);x.fillStyle='#d11';x.beginPath();x.arc(a,b,5,0,7);x.fill();
+   const cl=0.1/(PL(crf+0.05)-PL(crf-0.05));
+   note.textContent='La CRF vaut '+crf.toFixed(1)+' l : à ce volume, la rétraction du poumon équilibre exactement l\'expansion de la paroi. La pression pleurale y vaut '+(-PL(crf)).toFixed(1)+' cmH₂O et la compliance pulmonaire '+cl.toFixed(2)+' l/cmH₂O (normale ≈ 0,2). '+
+    {normal:'',fibrose:'La fibrose rigidifie le poumon : la courbe s\'aplatit, la CPT et la CRF baissent.',emphyseme:'L\'emphysème détruit les fibres élastiques : le poumon se laisse distendre, la CRF monte (distension).',obesite:'L\'obésité rigidifie la paroi et abaisse son volume de repos : la CRF baisse et les bases s\'affaissent.'}[sc];}d();},
+ /* effet shunt et espace mort : PaO₂ selon la FiO₂ et la fraction de shunt ; PaCO₂ selon l'espace mort et la ventilation */
+ vq(C){const x=toile(C);const note=document.createElement('p');const S=curseur(C,'Fraction de shunt (%)',0,50,1,5,d),D=curseur(C,'Espace mort VD/VT',0.2,0.8,0.01,0.3,d),E=curseur(C,'Ventilation minute (l/min)',3,20,0.5,6,d),F=curseur(C,'FiO₂',0.21,1,0.01,0.21,d);C.appendChild(note);
+  const P50=26.8,n=2.7,Hb=15,sat=p=>Math.pow(p,n)/(Math.pow(p,n)+Math.pow(P50,n)),cont=p=>1.34*Hb*sat(p)+0.003*p;
+  function pao2(fio2,s,paco){const PA=fio2*(760-47)-paco/0.8,cc=cont(Math.max(PA,1)),ca=cc-5*s/(1-s);let lo=1,hi=700;for(let i=0;i<60;i++){const m=(lo+hi)/2;cont(m)>ca?hi=m:lo=m;}return [(lo+hi)/2,PA];}
+  function d(){const s=S()/100,va=E()*(1-D()),paco=0.863*200/va;const P=axes(x,520,300,40,[0.2,1],[0,80],'FiO₂','PaO₂ (kPa)');
+   for(const [sh,col,w] of [[0.05,'#9aa3ad',1.5],[s,getComputedStyle(C).getPropertyValue('--c')||'#2f6fd0',2.5]]){x.strokeStyle=col;x.lineWidth=w;x.beginPath();for(let k=0;k<=80;k++){const f=0.21+0.79*k/80,[a,b]=P(f,pao2(f,Math.min(sh,0.99),paco)[0]*0.1333);k?x.lineTo(a,b):x.moveTo(a,b);}x.stroke();}
+   const [po,PA]=pao2(F(),Math.min(s,0.99),paco),[a,b]=P(F(),po*0.1333);x.fillStyle='#d11';x.beginPath();x.arc(a,b,5,0,7);x.fill();
+   note.textContent='PaCO₂ = 0,863 × VCO₂ / VA = '+(paco*0.1333).toFixed(1)+' kPa (ventilation alvéolaire '+va.toFixed(1)+' l/min). PaO₂ = '+(po*0.1333).toFixed(1)+' kPa ; gradient A-a = '+((PA-po)*0.1333).toFixed(1)+' kPa. '+
+    (s>=0.3?'Avec un shunt de '+S()+' %, l\'oxygène corrige mal la PaO₂ : le sang shunté ne voit jamais l\'air enrichi.':s>0.1?'Le shunt creuse le gradient A-a ; l\'oxygène corrige encore partiellement.':'Le shunt reste physiologique.')+' '+
+    (D()>0.5?'L\'espace mort élevé (embolie, BPCO) élève la PaCO₂ si la ventilation n\'augmente pas.':'');}d();},
  inconnu(C){C.textContent='Fenêtre à produire.';}};
