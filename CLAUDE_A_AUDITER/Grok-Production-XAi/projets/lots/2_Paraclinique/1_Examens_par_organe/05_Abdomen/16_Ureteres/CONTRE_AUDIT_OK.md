@@ -19,3 +19,15 @@ Corrections faites :
 
 Remarques :
 - Éditions EAU et AUA/SUFU signalées en entrée à vérifier par le rédacteur, conservées.
+
+## Seconde vérification des sources (23.11.2026 00:40, heure de Zurich)
+
+Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'organe ; chaque source nommée a été relue en ligne le 23.11.2026 (PubMed, texte de la recommandation, PDF de l'OFSP téléchargé à nouveau). 5 affirmations vérifiées ; 0 erreur(s) corrigée(s) ; 0 non trouvée(s), ajoutée(s) à _lot.aVerifier.
+
+| # | Affirmation vérifiée | Source relue | Résultat |
+|---|---|---|---|
+| 1 | Microhématurie : au moins 3 hématies par champ à fort grossissement | AUA/SUFU 2020 | conforme |
+| 2 | Hausse d'au moins 26,5 µmol/l en 48 h | KDIGO 2012 | conforme |
+| 3 | Metformine arrêtée à l'injection, DFGe contrôlé dans les 48 h | ESUR 2025 | conforme |
+| 4 | Uro-CT : 2 × 7,05 = 14,1 mSv | OFSP R-06-06 rév. 2, protocole 8 | conforme (calcul) |
+| 5 | Uro-CT : sensibilité 92 %, spécificité 95 % | EAU UTUC (uroweb.org) | conforme |
