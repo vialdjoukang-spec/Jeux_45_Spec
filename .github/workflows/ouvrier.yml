@@ -54,6 +54,7 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           WS: ${{ secrets.ANTHROPIC_WORKSPACE_ID }}
         run: |
+          [ -z "$WS" ] && [ -f projets/ouvrier/workspace_id.txt ] && WS=$(tr -d ' \r\n' < projets/ouvrier/workspace_id.txt)   # identifiant d'espace de travail (pas un secret)
           if [ -n "$WS" ]; then export ANTHROPIC_CUSTOM_HEADERS="anthropic-workspace-id: $WS"; fi   # clé non rattachée à un espace de travail
           pip install -q playwright >/dev/null 2>&1 && python -m playwright install --with-deps chromium >/dev/null 2>&1 || true
           npm install -g @anthropic-ai/claude-code >/dev/null 2>&1
