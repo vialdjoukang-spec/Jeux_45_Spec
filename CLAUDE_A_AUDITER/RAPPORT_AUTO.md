@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 23:20
+# Audit automatique — 2026-11-22 23:22
 
-36 fichier(s) : 33 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
+40 fichier(s) : 37 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -46,6 +46,22 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/02_Cou/06_Masses_cervicales_et_kystes/2_Pratique/P02-06-PR_Examens_Masses_cervicales_et_kystes_5-examens_PRATIQUE_production_XAi.json`
 - 🟩 `masses_cervicales_et_kystes.json` : remplissage 100 % (10/10)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/01_Rachis_osseux/1_Theorie/P03-01-BIO_Biologie_Rachis_osseux_4-examens_production_XAi.json`
+- 🟩 `rachis_osseux.json` : remplissage 92 % (81/88)
+- aVerifier déclarés : 2
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/01_Rachis_osseux/1_Theorie/P03-01-FCT_Exploration_fonctionnelle_Rachis_osseux_1-examens_production_XAi.json`
+- 🟩 `rachis_osseux.json` : remplissage 86 % (18/21)
+- aVerifier déclarés : 2
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/01_Rachis_osseux/1_Theorie/P03-01-HIS_Anatomopathologie_biopsie_Rachis_osseux_1-examens_production_XAi.json`
+- 🟩 `rachis_osseux.json` : remplissage 90 % (19/21)
+- aVerifier déclarés : 2
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/03_Rachis_moelle_et_racines/01_Rachis_osseux/1_Theorie/P03-01-IMG_Imagerie_Rachis_osseux_7-examens_production_XAi.json`
+- 🟩 `rachis_osseux.json` : remplissage 92 % (135/147)
+- aVerifier déclarés : 4
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/09_Systemes_transversaux_corps_entier/07_Corps_entier_bilan_d_extension_et_traum/1_Theorie/P09-07_Examens_Corps_entier_bilan_d_extension_et_t_6-examens_production_XAi.json`
 - 🟩 `corps_entier.json` : remplissage 87 % (110/126)
