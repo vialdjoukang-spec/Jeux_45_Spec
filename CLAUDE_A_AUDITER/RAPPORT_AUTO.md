@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-22 23:15
 
-9 fichier(s) : 8 🟩 intégrables · 0 🟧 à compléter · 1 🟥 refusés.
+13 fichier(s) : 12 🟩 intégrables · 0 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -35,5 +35,19 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/04_Genou/2_Pratique/P07-04-PR_Examens_Genou_8-examens_PRATIQUE_production_XAi.json`
 - 🟩 `genou.json` : remplissage 100 % (16/16)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/05_Cheville_et_pied/1_Theorie/P07-05_Examens_Cheville_et_pied_9-examens_production_XAi.json`
+- 🟩 `cheville_et_pied.json` : remplissage 86 % (165/191)
+- aVerifier déclarés : 2
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/05_Cheville_et_pied/2_Pratique/P07-05-PR_Examens_Cheville_et_pied_9-examens_PRATIQUE_production_XAi.json`
+- 🟩 `cheville_et_pied.json` : remplissage 100 % (18/18)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/06_Os_longs_et_squelette/1_Theorie/P07-06-BIO_Biologie_Os_longs_et_squelette_3-examens_production_XAi.json`
+- 🟩 `os_longs_et_squelette.json` : remplissage 89 % (59/66)
+- aVerifier déclarés : 2
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/06_Os_longs_et_squelette/1_Theorie/P07-06-HIS_Anatomopathologie_biopsie_Os_longs_et_squelette_1-examens_production_XAi.json`
+- 🟩 `os_longs_et_squelette.json` : remplissage 90 % (19/21)
 
 Signature : AAI (Anthropic AI)
