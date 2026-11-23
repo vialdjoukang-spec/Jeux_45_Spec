@@ -1,0 +1,245 @@
+{
+ "_lot": {
+  "tache": "PF02-PR",
+  "titre": "Pratique — Explorations fonctionnelles — Cou (3 fiches)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 3,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet.",
+  "aVerifier": [
+   "conception/donnees/pratique/paraclinique/explorations/bilan_de_deglutition.json : (repris de larynx_et_pharynx__bilan_de_deglutition) larynx_et_pharynx__bilan_de_deglutition › irradiation_mSv : 0,2 mSv vient d'une seule série hospitalière (Zammit-Maempel 2007, résumé) ; l'OFSP 2018 (tableau 17) ne donne que 8,0 mSv pour la radioscopie conventionnelle en général, non retenu car non spécifique ; la FEES n'irradie pas. (la pratique en dépend)",
+   "conception/donnees/pratique/paraclinique/explorations/bilan_de_deglutition.json : valeurs chiffrées reprises de la fiche contre-auditée larynx_et_pharynx__bilan_de_deglutition sans relecture du passage dans cette passe (0,2) ; aucune relecture faite (seuil de volume atteint avant la vérification des explorations) ; à relire avant fusion.",
+   "conception/donnees/pratique/paraclinique/explorations/doppler_transcranien.json : valeurs chiffrées reprises de la fiche contre-auditée encephale__doppler_transcranien sans relecture du passage dans cette passe (120, 200) ; aucune relecture faite (seuil de volume atteint avant la vérification des explorations) ; à relire avant fusion.",
+   "conception/donnees/pratique/paraclinique/explorations/laryngoscopie_avant_et_apres_thyroidecto.json : valeurs chiffrées reprises de la fiche contre-auditée thyroide__laryngoscopie_avant_et_apres_thyroidecto sans relecture du passage dans cette passe (2, 1, 10, 25) ; aucune relecture faite (seuil de volume atteint avant la vérification des explorations) ; à relire avant fusion.",
+   "conception/donnees/paraclinique/explorations/bilan_de_deglutition.json : 0,2 mSv concordant avec Zammit-Maempel et al. (Dysphagia 2007, PMID 17024550 : dose efficace 0,2 mSv), d'après une recherche web du 23.11.2026.",
+   "conception/donnees/paraclinique/explorations/doppler_transcranien.json : 120–200 et > 200 cm/s concordants avec Abdulazim et al. (Neurocrit Care 2023, PMC10542310), d'après une recherche web du 23.11.2026.",
+   "conception/donnees/paraclinique/explorations/laryngoscopie_avant_et_apres_thyroidecto.json : « 2 semaines à 2 mois » concordant avec le guide AAO-HNSF 2013 (Chandrasekhar et al.), d'après une recherche web du 23.11.2026."
+  ]
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/explorations/bilan_de_deglutition.json": {
+   "_meta": {
+    "source": "paraclinique/explorations/bilan_de_deglutition.json",
+    "genre": "exploration",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste.",
+     "La théorie de ce fichier est un gabarit : tu crées une entité par élément produit dans la théorie, avec ses défis."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "bilan_de_deglutition",
+     "nom": "Bilan de déglutition (vidéofluoroscopie, FEES)",
+     "defis": [
+      {
+       "id": "bilan_de_deglutition__lire_le_trace",
+       "type": "lire_le_trace",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Aspiration sous les cordes vocales : elle signe une fausse route et un risque de pneumonie (ESO et ESSD, 2021).",
+        "pourquoiFaux": "Piège : on se fie au seul examen au lit : il manque des aspirations."
+       },
+       "sources": [
+        "ESO et ESSD, 2021",
+        "Zammit-Maempel et al., 2007 ; ESO et ESSD, 2021",
+        "Zammit-Maempel et al., 2007"
+       ],
+       "descriptionDuTrace": "Bilan de déglutition (vidéofluoroscopie, FEES) : l'opérateur décrit l'aspect suivant, aspiration sous les cordes vocales.",
+       "question": "Quel diagnostic cet aspect évoque-t-il ?",
+       "reponse": "Dysphagie après un AVC"
+      },
+      {
+       "id": "bilan_de_deglutition__indication",
+       "type": "indication",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "On le fait en plus de l’examen clinique au lit, qui manque de fiabilité, notamment après un AVC (ESO et ESSD, 2021).",
+        "pourquoiFaux": "Répondre non serait faux : la FEES se fait au lit, se répète facilement et teste la sensibilité du pharynx et la gestion des sécrétions (ESO et ESSD, 2021)."
+       },
+       "sources": [
+        "ESO et ESSD, 2021",
+        "Zammit-Maempel et al., 2007 ; ESO et ESSD, 2021",
+        "Zammit-Maempel et al., 2007"
+       ],
+       "casClinique": "Un homme de 73 ans, hospitalisé à Sion pour un AVC, tousse pendant les repas ; le test clinique au lit est douteux.",
+       "faireOuNon": "Oui",
+       "justification": "Après un AVC, l'examen clinique au lit manque de fiabilité ; le bilan instrumental de la déglutition le complète."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "AVC": "L’AVC est l’accident vasculaire cérébral.",
+    "ESO": "L’ESO est l’organisation européenne de l’accident vasculaire cérébral.",
+    "ESSD": "L’ESSD est la société européenne des troubles de la déglutition.",
+    "FEES": "La FEES est l’examen endoscopique de la déglutition par un nasofibroscope."
+   }
+  },
+  "conception/donnees/pratique/paraclinique/explorations/doppler_transcranien.json": {
+   "_meta": {
+    "source": "paraclinique/explorations/doppler_transcranien.json",
+    "genre": "exploration",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste.",
+     "La théorie de ce fichier est un gabarit : tu crées une entité par élément produit dans la théorie, avec ses défis."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "doppler_transcranien",
+     "nom": "Doppler transcrânien",
+     "defis": [
+      {
+       "id": "doppler_transcranien__lire_le_trace",
+       "type": "lire_le_trace",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Vitesse ACM > 200 cm/s : elle signe un vasospasme sévère, selon Abdulazim et al. (Neurocrit Care, 2023).",
+        "pourquoiFaux": "Piège : une hyperémie peut accélérer les vitesses sans vasospasme ; le rapport Lindegaard aide à trancher."
+       },
+       "sources": [
+        "Abdulazim et al., Neurocrit Care 2023",
+        "Neurocrit Care, 2023",
+        "AHA/ASA 2023"
+       ],
+       "descriptionDuTrace": "Doppler transcrânien : l'opérateur décrit l'aspect suivant, vitesse ACM > 200 cm/s.",
+       "question": "Quel diagnostic cet aspect évoque-t-il ?",
+       "reponse": "Vasospasme après hémorragie méningée"
+      },
+      {
+       "id": "doppler_transcranien__indication",
+       "type": "indication",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "On le demande pour surveiller un vasospasme après une hémorragie sous-arachnoïdienne (AHA/ASA 2023, classe IIa), rechercher un shunt droit-gauche (test aux microbulles) ou évaluer des sténoses intracrâniennes.",
+        "pourquoiFaux": "Répondre non serait faux : il est portable, répétable et non invasif pour le monitorage en réanimation."
+       },
+       "sources": [
+        "Abdulazim et al., Neurocrit Care 2023",
+        "Neurocrit Care, 2023",
+        "AHA/ASA 2023"
+       ],
+       "casClinique": "Une femme de 49 ans est aux soins intensifs de Zurich au 5e jour d'une hémorragie sous-arachnoïdienne anévrismale.",
+       "faireOuNon": "Oui",
+       "justification": "Le Doppler transcrânien surveille le vasospasme après une hémorragie sous-arachnoïdienne."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ACM": "Artère cérébrale moyenne : vaisseau principal exploré en Doppler transcrânien.",
+    "AHA": "Association américaine de cardiologie (American Heart Association).",
+    "ASA": "American Stroke Association : société américaine qui, avec l’American Heart Association, publie les recommandations sur l’hémorragie sous-arachnoïdienne."
+   }
+  },
+  "conception/donnees/pratique/paraclinique/explorations/laryngoscopie_avant_et_apres_thyroidecto.json": {
+   "_meta": {
+    "source": "paraclinique/explorations/laryngoscopie_avant_et_apres_thyroidecto.json",
+    "genre": "exploration",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste.",
+     "La théorie de ce fichier est un gabarit : tu crées une entité par élément produit dans la théorie, avec ses défis."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "laryngoscopie_avant_et_apres_thyroidecto",
+     "nom": "Laryngoscopie avant et après thyroïdectomie (cordes vocales)",
+     "defis": [
+      {
+       "id": "laryngoscopie_avant_et_apres_thyroidecto__lire_le_trace",
+       "type": "lire_le_trace",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Corde vocale immobile : elle traduit une paralysie du nerf laryngé récurrent (ATA, 2015).",
+        "pourquoiFaux": "Piège : on se fie à une voix normale : une paralysie ancienne peut être compensée."
+       },
+       "sources": [
+        "AAO-HNS, 2013",
+        "ATA, 2015"
+       ],
+       "descriptionDuTrace": "Laryngoscopie avant et après thyroïdectomie (cordes vocales) : l'opérateur décrit l'aspect suivant, corde vocale immobile.",
+       "question": "Quel diagnostic cet aspect évoque-t-il ?",
+       "reponse": "Paralysie récurrentielle postopératoire"
+      },
+      {
+       "id": "laryngoscopie_avant_et_apres_thyroidecto__indication",
+       "type": "indication",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 75,
+       "correction": {
+        "pourquoiJuste": "Avant l’opération, on l’indique si la voix est anormale, ou si elle est normale mais après une chirurgie du cou à risque pour le nerf, ou devant un cancer avec extension extrathyroïdienne (AAO-HNS, 2013).",
+        "pourquoiFaux": "Répondre non serait faux : c’est le seul moyen de connaître le taux de paralysie des cordes vocales après chirurgie thyroïdienne (ATA, 2015)."
+       },
+       "sources": [
+        "AAO-HNS, 2013",
+        "ATA, 2015"
+       ],
+       "casClinique": "Une femme de 51 ans doit être opérée d'un goitre à Lausanne ; elle a déjà subi une chirurgie du cou et sa voix est normale.",
+       "faireOuNon": "Oui",
+       "justification": "Avant une thyroïdectomie, on regarde les cordes vocales même si la voix est normale lorsqu'une chirurgie du cou antérieure a pu léser le nerf."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "AAO": "L'AAO est l'American Academy of Ophthalmology.",
+    "AAO-HNS": "L’AAO-HNS est l’académie américaine d’oto-rhino-laryngologie et de chirurgie cervico-faciale.",
+    "ATA": "L’ATA, ou American Thyroid Association, est la société américaine de thyroïdologie."
+   }
+  }
+ }
+}
