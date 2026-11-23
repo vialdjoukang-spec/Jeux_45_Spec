@@ -45,13 +45,13 @@ let P=null,i=0,score=0,choix={},fini=false,t0=0,tick=null,boites={};
 const lire=k=>{try{return JSON.parse(localStorage.getItem(k)||'{}')}catch(e){return {}}},ecrire=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 const esc=s=>String(s??'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 async function charger(p){P=await (await fetch('arenes/'+p+'.json')).json();boites=lire('arene_'+p);score=0;$('score').textContent=0;
- $('liste').innerHTML=P.questions.map((q,j)=>`<li data-j="${j}"><b>${j+1}</b>${esc(q.titre).slice(0,38)}<i>${boites[q.id]??0}</i></li>`).join('');
+ $('liste').innerHTML=P.questions.map((q,j)=>`<li data-j="${j}"><b>${j+1}</b>Question ${j+1}<i>${boites[q.id]??0}</i></li>`).join('');
  $('liste').onclick=e=>{const li=e.target.closest('li');if(li)montrer(+li.dataset.j);};
  // répétition espacée : on commence par la question de la plus petite boîte
  montrer(P.questions.map((q,j)=>[boites[q.id]??0,j]).sort((a,b)=>a[0]-b[0])[0][1]);}
 function montrer(j){i=j;const q=P.questions[j];choix={};fini=false;document.body.classList.remove('fini');
  document.querySelectorAll('#liste li').forEach(l=>l.classList.toggle('cur',+l.dataset.j===j));
- $('titre').textContent=q.titre;$('ss').textContent=P.nom+' · question '+(j+1)+' / '+P.questions.length;$('format').textContent=FMT[q.format]||'';
+ $('titre').textContent='Question '+(j+1);$('ss').textContent=P.nom+' · question '+(j+1)+' / '+P.questions.length;$('format').textContent=FMT[q.format]||'';
  $('stem').textContent=q.stem;$('prompt').textContent=q.prompt;$('res').innerHTML='';$('echelle').hidden=true;$('src').textContent='';
  $('opts').innerHTML=q.options.map(o=>`<div class="opt" data-k="${esc(o.k)}"><span class="k">${esc(o.k)}</span><div><div>${esc(o.t)}</div><div class="why">${esc(o.why)}</div></div>${q.format==='Kprim'?'<span class="vf"><button data-v="1">Vrai</button><button data-v="0">Faux</button></span>':''}</div>`).join('');
  $('opts').onclick=e=>{if(fini)return;const d=e.target.closest('.opt');if(!d)return;const k=d.dataset.k;
@@ -60,7 +60,7 @@ function montrer(j){i=j;const q=P.questions[j];choix={};fini=false;document.body
   else{choix[k]=!choix[k];d.classList.toggle('sel',!!choix[k]);}};
  clearInterval(tick);t0=Date.now();const T=TEMPS[q.format]||90;
  tick=setInterval(()=>{const r=Math.max(0,T-Math.round((Date.now()-t0)/1000));$('chrono').textContent='⏱ '+r+' s';$('chrono').classList.toggle('rouge',r<=15);if(!r)valider();},250);}
-function valider(){if(fini)return;fini=true;clearInterval(tick);const q=P.questions[i];document.body.classList.add('fini');let pts=0,max=1,juste=false;
+function valider(){if(fini)return;fini=true;clearInterval(tick);const q=P.questions[i];$('titre').textContent=q.titre;document.body.classList.add('fini');let pts=0,max=1,juste=false;
  q.options.forEach(o=>{const d=document.querySelector(`.opt[data-k="${CSS.escape(o.k)}"]`);
   const pris=q.format==='Kprim'?choix[o.k]===o.ok:!!choix[o.k];const c=q.format==='Kprim'?(pris?'bon':'faux'):(o.ok?'bon':(choix[o.k]?'faux':''));if(c)d.classList.add(c);});
  if(q.format==='A'){juste=q.options.some(o=>o.ok&&choix[o.k]);pts=juste?1:0;}
