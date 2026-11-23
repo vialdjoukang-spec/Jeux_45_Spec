@@ -37,6 +37,14 @@ for f in sorted(glob.glob("content/items/*/**/*.json", recursive=True)):
             continue
         paquets[p].append(q(it.get("id") or f"{d['entite']}_{i}", "Kprim" if it["format"].startswith("K") else "A", d["entite"], it["stem"], it["prompt"],
                             opts, it.get("ladder"), it.get("sources"), f))
+CORR = {os.path.basename(f)[:-5]: json.load(open(f, encoding="utf-8")) for f in glob.glob("conception/donnees/corrections/*.json")}
+for L in paquets.values():                     # correction enrichie : thème, notions abordées (cours en fenêtre), SSP et algorithme
+    for q in L:
+        ent = os.path.basename(os.path.dirname(q["origine"])); c = CORR.get(ent)
+        if c:
+            rub = q["id"].split("__")[-1].split("-")[0] if "__" in q["id"] else ""
+            ns = [n for n in c["notions"] if rub in n.get("rubriques", [])] or c["notions"]
+            q["correction"] = {"theme": c["theme"], "ssp": c["ssp"], "notions": ns, "autres": [n for n in c["notions"] if n not in ns], "pec": c.get("pec", {})}
 idx = []
 for p, L in sorted(paquets.items()):
     json.dump({"nom": noms[p], "questions": L}, open(f"{OUT}/{p}.json", "w", encoding="utf-8"), ensure_ascii=False)
