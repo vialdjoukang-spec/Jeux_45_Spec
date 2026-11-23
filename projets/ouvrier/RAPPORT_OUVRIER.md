@@ -1,12 +1,10 @@
-# Ouvrier automatique — 2026-11-23 17:37 UTC
+# Ouvrier automatique — 2026-11-23 21:59 UTC
 
-Dernier passage : **T2_recup_lot600** → fait (0.00 USD).
+Dernier passage : **END_C_pilote** → fait (0.28 USD).
 
-msgbatch_016PU6XSwP53bkdXeSXfrvSs : 600 fiches écrites, 0 échecs (relancer « soumettre » les reprend).
-arènes : 45 | tuiles : 4121 | questions cibles : 123514 | fiches : 779
+Les 3 corrections END ont été produites en direct (0 erreur de schéma, 24 à 28 mille tokens de sortie chacune) et contrôlées : 0 case muette, toutes les références pec et notion valides, tous les plans de prise en charge complets avec sources suisses (AIPS) puis européennes. Un seul défaut isolé (une posologie de prednisone sans chiffre) a été corrigé à la main, donc SYS_C n'a pas été modifié et un seul essai a suffi. L'arène 45 a été reconstruite : 45 spécialités, 60 questions, 2862 pathologies canoniques.
 
-
-**Crédit** : 50.12 USD dépensés, 49.88 USD disponibles avant le 27.11.2026 ; aujourd'hui 50.12 / 25.00 USD.
+**Crédit** : 50.40 USD dépensés, 141.60 USD disponibles avant le 27.11.2026 ; aujourd'hui 50.40 / 192.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -32,10 +30,18 @@ arènes : 45 | tuiles : 4121 | questions cibles : 123514 | fiches : 779
 | SSP_etendus | fait | 1 | 1.933 |
 | F5_cas_thorax | fait | 1 | 1.21 |
 | T2_recup_lot600 | fait | 1 | 0.0 |
+| END_C_pilote | fait | 1 | 0.276 |
+| V1_fusions | a_faire | 0 |  |
+| END_N_lot | a_faire | 0 |  |
+| END_N_recup | a_faire | 0 |  |
+| END_Q_lot | a_faire | 0 |  |
+| END_Q_recup | a_faire | 0 |  |
+| END_C_lot | a_faire | 0 |  |
+| END_C_recup | a_faire | 0 |  |
 | T3_pec_fiches_existantes | a_faire | 0 |  |
 | T4_reprise_rejets | a_faire | 0 |  |
-| T5_items_valides | a_faire | 0 |  |
+| T5_items_valides | sans_objet | 0 |  |
 | T7_transversal_lecons | a_faire | 0 |  |
-| T6_vague_urgences | a_faire | 0 |  |
+| T6_vague_urgences | sans_objet | 0 |  |
 
 Signature : AAI (Anthropic AI)
