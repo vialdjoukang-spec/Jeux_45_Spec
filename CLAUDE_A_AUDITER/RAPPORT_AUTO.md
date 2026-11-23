@@ -1,12 +1,21 @@
-# Audit automatique — 2026-11-23 01:41
+# Audit automatique — 2026-11-23 02:34
 
-3 fichier(s) : 0 🟩 intégrables · 2 🟧 à compléter · 1 🟥 refusés.
+5 fichier(s) : 0 🟩 intégrables · 4 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
 
 ### 🟥 `CLAUDE_A_AUDITER/EN_ATTENTE_AUDIT_MEDICAL.json`
 - Format inconnu : la clé « fichiers » manque (format lot attendu).
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/6_Formules_Criteres_SmarterMedicine/P21_Formules_et_Criteres_diagnostiques_production_XAi.json`
+- 🟧 `calculs.json` : remplissage 0 % (0/0)
+- 🟧 `criteres.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 13
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/6_Formules_Criteres_SmarterMedicine/P22_SmarterMedicine_recommandations_suisses_production_XAi.json`
+- 🟧 `smarter_medicine.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 5
 
 ### 🟧 `CLAUDE_A_AUDITER/ouvrier/LOT_COMPLEMENT_1_tete_et_encephale_rempli.json`
 - 🟧 `cavite_buccale_et_glandes_salivaires.json` : remplissage 24 % (35/148) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees · 4 élément(s) non rendu(s)
