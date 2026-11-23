@@ -1,9 +1,9 @@
-# Ouvrier automatique — 2026-11-23 02:20 UTC
+# Ouvrier automatique — 2026-11-23 02:22 UTC
 
-Dernier passage : **j45_pilote_fiches** → fait (0.00 USD).
+Dernier passage : **j45_lot_CAR** → fait (0.00 USD).
 
-F1_1-E01 (CAR) : 0 erreur(s), 8976 tokens de sortie, 53 s → /home/runner/work/Jeux_45_Spec/Jeux_45_Spec/content/fiches/CAR/F1_1-E01.json
-F1_10-E03 (CAR) : 1 erreur(s), 9020 tokens de sortie, 58 s → /home/runner/work/Jeux_45_Spec/Jeux_45_Spec/content/fiches/CAR/F1_10-E03.json
+173 fiche(s) à produire, de F1_16-E02 à S9_6-E10.
+Batch msgbatch_01CZYim7ZgfZqNEL2WYvVWYX : 173 fiches.
 
 
 **Crédit** : 0.83 USD dépensés, 99.17 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.83 / 25.00 USD.
@@ -15,6 +15,8 @@ F1_10-E03 (CAR) : 1 erreur(s), 9020 tokens de sortie, 58 s → /home/runner/work
 | complement_2 | fait | 1 | 0.035 |
 | complement_4 | fait | 1 | 0.111 |
 | j45_pilote_fiches | fait | 3 | 0.0 |
+| j45_lot_CAR | fait | 1 | 0.0 |
+| j45_recup_CAR | a_faire | 0 |  |
 | complement_5 | a_faire | 0 |  |
 | complement_6 | a_faire | 0 |  |
 | complement_7 | a_faire | 0 |  |
