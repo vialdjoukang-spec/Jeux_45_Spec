@@ -1,9 +1,9 @@
-# Ouvrier automatique — 2026-11-23 23:36 UTC
+# Ouvrier automatique — 2026-11-23 23:38 UTC
 
-Dernier passage : **END_N_lot** → en_cours (0.00 USD).
+Dernier passage : **END_N_lot** → fait (0.00 USD).
 
- self._make_status_error_from_response(response) from None
-anthropic.BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': "requests.0.custom_id: String should match pattern '^[a-zA-Z0-9_-]{1,64}$'"}, 'request_id': 'req_011ChLjmm7rMCj4X1ekhLgXZ'}
+notions : 325 entité(s) à produire.
+lot msgbatch_01EQEtoFQ1CRmhFG58U6S4r6
 
 
 **Crédit** : 50.62 USD dépensés, 141.38 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.00 / 141.38 USD.
@@ -34,7 +34,7 @@ anthropic.BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type':
 | T2_recup_lot600 | fait | 1 | 0.0 |
 | END_C_pilote | fait | 1 | 0.276 |
 | V1_fusions | fait | 1 | 0.223 |
-| END_N_lot | en_cours | 1 | 0.0 |
+| END_N_lot | fait | 1 | 0.0 |
 | END_N_recup | a_faire | 0 |  |
 | END_Q_lot | a_faire | 0 |  |
 | END_Q_recup | a_faire | 0 |  |
