@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-23 01:14
 
-12 fichier(s) : 0 🟩 intégrables · 11 🟧 à compléter · 1 🟥 refusés.
+14 fichier(s) : 0 🟩 intégrables · 13 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -103,6 +103,12 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟧 `coelioscopie_diagnostique.json` : remplissage 0 % (0/0)
 - 🟧 `hysteroscopie.json` : remplissage 0 % (0/0)
 - aVerifier déclarés : 2
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/07_Membres_et_appareil_locomoteur/1_Theorie/PE07_Endoscopies_Membres_et_appareil_locomoteur_1-fiches_production_XAi.json`
+- 🟧 `arthroscopie.json` : remplissage 0 % (0/0)
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/07_Membres_et_appareil_locomoteur/2_Pratique/PE07-PR_Endoscopies_Membres_et_appareil_locomoteur_1-fiches_PRATIQUE_production_XAi.json`
+- 🟧 `arthroscopie.json` : remplissage 0 % (0/0)
 
 ### 🟧 `CLAUDE_A_AUDITER/ouvrier/LOT_COMPLEMENT_3_rachis_moelle_et_racines_rempli.json`
 - 🟧 `moelle_epiniere.json` : remplissage 23 % (35/150) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees
