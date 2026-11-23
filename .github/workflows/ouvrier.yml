@@ -86,7 +86,7 @@ jobs:
           for i in 1 2 3; do
             if git rev-parse -q --verify "origin/$BRANCHE" > /dev/null; then
               git fetch -q origin "+refs/heads/$BRANCHE:refs/remotes/origin/$BRANCHE"
-              git merge --no-edit -q "origin/$BRANCHE" && git push -q origin "$BRANCHE" && exit 0   # fusion, jamais de rebase : l'historique de main reste intact
+              { git merge --no-edit -q "origin/$BRANCHE" || python3 projets/ouvrier/fusion_file.py; } && git push -q origin "$BRANCHE" && exit 0   # fusion, jamais de rebase ; conflit de suivi résolu par script
             else
               git push -q origin "$BRANCHE" && exit 0
             fi
