@@ -83,6 +83,8 @@ def fiche(c):
     if not p:
         return None
     f = json.load(open(p[0], encoding="utf-8"))
+    if (f.get("audit") or {}).get("rejector") != "pass" and not os.environ.get("ITEMS_SANS_AUDIT"):
+        return None                                  # une question ne dérive que d'une fiche auditée : pas d'argent sur une erreur
     return {k: f[k] for k in ("premiersGestes", "drapeauxRouges", "discriminants", "examens", "traitement", "chiffresCles", "ladder", "pieges") if k in f}
 
 
