@@ -7,7 +7,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Lettre | Rédigées | Total |
 |---|---|---|
 | A | 12 | 12 |
-| B | 3 | 12 |
+| B | 6 | 12 |
 | C | 0 | 12 |
 | D | 0 | 12 |
 | E | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **51** | **228** |
+| **Total** | **54** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
