@@ -60,6 +60,10 @@ AJOUTS = [  # (id, champ, phrase ajoutée si absente)
 OUVERTS = {  # après l'audit du 2026-11-22 : un seul doute reste ouvert (aucune dose efficace publiée retrouvée)
     ("meninges_et_lcr__cisternographie", "irradiation_mSv"),
     ("hanche_et_bassin__radiographie_du_bassin_de_l_enfant", "irradiation_mSv"),
+    # audit du 2026-11-23 (F2_examens_vides) : doses laissées à null faute de valeur sourcée
+    ("aorte_thoracique_et_arteres_pulmonaires__catheterisme_cardiaque_droit", "irradiation_mSv"),
+    ("mediastin__biopsie_de_masse_mediastinale", "irradiation_mSv"),
+    ("ureteres__scintigraphie_mag3", "irradiation_mSv"),
 }
 VIDES = (None, "", [], {})
 

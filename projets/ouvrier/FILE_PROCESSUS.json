@@ -246,16 +246,40 @@
     "date": "2026-11-23T12:44:09+00:00",
     "cout_usd": 0.26,
     "resume": "Le pilote de trois fiches (anesthésie, néphrologie avec choc septique/acidose lactique, médecine intensive) donne 0 erreur de schéma, 10 à 11,5 mille tokens de sortie et une priseEnCharge complète ; un premier essai avait une fiche tronquée et des posologies vagues, donc j'ai ajouté au prompt une règle de complétude et de posologie chiffrée (option --id ajoutée au script). Le lot de 600 fiches est soumis (msgbatch_016PU6XSwP53bkdXeSXfrvSs, enregistré dans scripts/batchs_fiches.json) ; je l'estime à environ 50 à 60 USD, au-dessus des 15 USD prévus pour T1 mais sous le plafond total de 100 USD (16,7 déjà dépensés), donc Vial doit confirmer ce coût. Les fiches pilotes sont sous content/fiches/ et T2 doit récupérer le lot."
-   }
+   },
+   "decision_vial": "2026-11-23 : Vial confirme le coût du lot de 600 fiches (≈ 50–60 USD), dans le plafond total de 100 USD ; les fiches doivent se conformer aux stratégies en vigueur."
+  },
+  {
+   "id": "END_pilote_notions_questions",
+   "titre": "45 Spec Endocrinologie : pilote Notions → Questions (3 pathologies)",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 4,
+   "etat": "a_faire",
+   "essais": 0,
+   "prompt": "Lis projets/ouvrier/MISSION_45SPEC.md et l'en-tête de scripts/produire_notions_questions.py. Exécute : python scripts/produire_notions_questions.py notions pilote --spec END --id E05.9_hyperthyroidie,E10.1_acidocetose,D35.0_pheochromo --n 3 ; contrôle chaque fichier de content/notions/END/ (0 erreur, 25 à 70 notions, 15 rubriques, notions suisses présentes, aucune redite). Puis python scripts/produire_notions_questions.py questions pilote --spec END --id E05.9_hyperthyroidie,E10.1_acidocetose,D35.0_pheochromo --n 3 ; contrôle content/questions/END/ : 0 erreur, type A à 5 options, Kprim à 4 affirmations, menu long 12 à 20 options, au moins une série progressive où aucun mot ne trahit le diagnostic, notions de poids ≥ 2 couvertes deux fois sous deux angles. Si un défaut se répète, corrige les consignes SYS_N ou SYS_Q du script, supprime les fichiers fautifs et refais le pilote (2 essais au plus). Lance enfin python scripts/couverture_notions.py. Ne montre jamais le contenu des questions dans le résumé (effet de surprise) : donne seulement les nombres. Mets « fait » quand les 3 pathologies ont notions et questions sans erreur."
   },
   {
    "id": "F2_examens_vides",
    "titre": "Paraclinique F2 : compléter les 41 examens vides",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 3,
+   "etat": "fait",
+   "essais": 1,
+   "prompt": "Lis projets/ouvrier/MISSION_45SPEC.md (règles constantes). Dans conception/donnees/paraclinique/topographie/*/*.json, 41 examens ont leurs champs vides (discriminant vide). Remplis pour chacun : visees, signeRecherche, seuil, indication, discriminant, avantageSelectif, plutotQue, limite, precautions, irradiation_mSv (0 hors rayons X), delai, et bulle {def, pourquoi, confusion, retenir}, au niveau et dans le style exact des examens déjà remplis du même fichier (phrases verbales, chaque chiffre suivi de sa source datée « selon <société> (<document>, <année>) », recommandations suisses d'abord : OFSP, SSMI, SSED, SSC, Swissmedic, puis ESC, ERS, EAU, ADA, EAACI…). Vérifie chaque seuil par une recherche web ; ce qui reste incertain va dans le champ aVerifier de l'examen. Ne touche à aucun examen déjà rempli. Lance ensuite python3 conception/outils/paraclinique/construire_reseau_paraclinique.py (il doit afficher 0 à compléter) et python3 projets/outils/jauges.py. Mets « fait » quand les 41 sont remplis.",
+   "dernier": {
+    "date": "2026-11-23T13:42:42+00:00",
+    "cout_usd": 0.684,
+    "resume": "Les 41 examens vides sont remplis dans 11 fichiers de topographie, au style des examens déjà remplis, sans toucher aux autres ; le réseau affiche 0 à compléter et les jauges sont recalculées (Paraclinique 78 %). La vérification web n'a pas été faite examen par examen (budget) : chaque examen porte un champ aVerifier qui liste les seuils cités de mémoire à recontrôler, et les doses d'irradiation de la radiographie et du CT viennent de la page HUG, pas du rapport OFSP 2018. Plusieurs examens (cathétérisme, EBUS, biopsie de masse, MAG3) ont une irradiation à null faute de valeur vérifiée."
+   }
+  },
+  {
+   "id": "SSP_etendus",
+   "titre": "Catalogue étendu des Situations as Starting Points (G, S, F, O) au-delà des 248 SSP PROFILES",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 5,
    "etat": "a_faire",
    "essais": 0,
-   "prompt": "Lis projets/ouvrier/MISSION_45SPEC.md (règles constantes). Dans conception/donnees/paraclinique/topographie/*/*.json, 41 examens ont leurs champs vides (discriminant vide). Remplis pour chacun : visees, signeRecherche, seuil, indication, discriminant, avantageSelectif, plutotQue, limite, precautions, irradiation_mSv (0 hors rayons X), delai, et bulle {def, pourquoi, confusion, retenir}, au niveau et dans le style exact des examens déjà remplis du même fichier (phrases verbales, chaque chiffre suivi de sa source datée « selon <société> (<document>, <année>) », recommandations suisses d'abord : OFSP, SSMI, SSED, SSC, Swissmedic, puis ESC, ERS, EAU, ADA, EAACI…). Vérifie chaque seuil par une recherche web ; ce qui reste incertain va dans le champ aVerifier de l'examen. Ne touche à aucun examen déjà rempli. Lance ensuite python3 conception/outils/paraclinique/construire_reseau_paraclinique.py (il doit afficher 0 à compléter) et python3 projets/outils/jauges.py. Mets « fait » quand les 41 sont remplis."
+   "prompt": "Lis projets/ouvrier/MISSION_45SPEC.md. Les 248 SSP officiels PROFILES 2 (data/references/catalogue_248.json : 16 G, 113 S, 44 F, 75 O) sont des points de départ du diagnostic, mais l'ISFM en a omis énormément. Dresse le catalogue ÉTENDU des points de départ manquants, sans doublon avec les 248 (compare le sens, pas seulement le mot), dans data/ssp_etendus/ : G.json (plaintes et symptômes généraux), S_<systeme>.json pour CHACUN des 14 systèmes de conception/outils/systemes.py (signes et symptômes par système), F_<famille>.json (anomalies d'examens complémentaires : hématologie, chimie sanguine, gazométrie et équilibre acido-basique, endocrinologie, urine, LCR et liquides de ponction, microbiologie et sérologie, immunologie, ECG et rythme, imagerie thoracique, imagerie abdominale, neuro-imagerie, imagerie ostéo-articulaire, explorations fonctionnelles, anatomopathologie), O.json (autres situations : prévention, médico-légal, social, éthique, communication, situations particulières). Chaque entrée : code (G-X01, S-CV-X01, F-HEM-X01, O-X01), intitule (français, style SSP), intituleEN, categorie, systeme ou famille, typeDepart (plainte, signe, résultat, situation), parentOfficiel (code SSP PROFILES le plus proche ou null), pourquoi (une phrase : pourquoi c'est un point de départ diagnostique utile à l'examen fédéral), pathologies (5 à 12 diagnostics différentiels principaux, du plus fréquent au plus grave). Vise l'exhaustivité clinique : des dizaines de G, plusieurs dizaines par système, et plusieurs centaines de F. Écris aussi data/ssp_etendus/INDEX.json (comptes par catégorie). Mets « fait » quand tous les fichiers existent et sont valides."
   },
   {
    "id": "F5_cas_thorax",
@@ -275,7 +299,8 @@
    "etat": "a_faire",
    "essais": 0,
    "fin": "lots_recuperes",
-   "suivi": "batchs_fiches.json"
+   "suivi": "batchs_fiches.json",
+   "prompt": "Lis projets/ouvrier/MISSION_45SPEC.md (règles constantes). Récupère le lot (python scripts/produire_fiches_claude.py recuperer), puis contrôle chaque fiche contre les stratégies en vigueur de Vial, à 0 token par script : 0 erreur de schéma ; priseEnCharge holistique complète (but, moyens avec accueil, pharmacologique chiffré, non pharmacologique par catégorie dont social et assurances, transversal ; conduite urgence | hors urgence avec étapes qui fait quoi d'abord, en même temps, ensuite ; pronostic ; surveillance avec critères de sortie ; prévention 1re, 2e, 3e) ; examens avec visée (1re intention, gold standard, retentissement, étiologique, complications, thérapeutique, sortie) et attendu chiffré ; presentation.atypique remplie ; glossaire couvrant chaque sigle employé ; aucune posologie vague (« selon protocole », « selon l'AIPS ») ; sources suisses d'abord. Une fiche non conforme ou tronquée part dans la liste de T4 (reprise en lot, moitié prix) au lieu d'être corrigée une à une. Lance ensuite python scripts/ebaucher_arenes.py. Mets « fait » quand toutes les fiches du lot sont récupérées et triées (conformes / à reprendre), avec le décompte dans le résumé."
   },
   {
    "id": "T3_pec_fiches_existantes",
