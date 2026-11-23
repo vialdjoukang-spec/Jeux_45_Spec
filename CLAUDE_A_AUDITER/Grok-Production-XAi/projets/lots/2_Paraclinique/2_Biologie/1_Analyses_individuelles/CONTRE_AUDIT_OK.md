@@ -170,3 +170,33 @@ Corrections (54 lignes, journal audit/athena/corrections.jsonl, tour t14 ; scrip
 - Phrase fausse : Kleihauer « pas d'érythrocytes fœtaux attendus » → < 1 ‱ (6966) ; anticoagulant lupique : transport en moins de 4 h (2716).
 - aVerifier : 4 entrées rectifiées (lignes néonatales ASAT/ALAT, calprotectine « sans valeur », D-dimères pédiatriques, apoB pédiatrique).
 - Pratiques : aucun défi touché.
+
+## PB08-PB09
+
+Contre-audit croisé interne terminé le 23.11.2026 (heure de Zurich).
+Verdict : conforme après correction
+
+Fichiers couverts :
+- 1_Theorie/PB08_Analyses_Immunologie_Autoimmunite_Allergie_35-analyses_production_XAi.json (35 analyses)
+- 1_Theorie/PB09_Analyses_Marqueurs_tumoraux_10-analyses_production_XAi.json (10 analyses)
+- 2_Pratique/PB08-PR_Analyses_Immunologie_Autoimmunite_Allergie_35-analyses_PRATIQUE_production_XAi.json (70 défis)
+- 2_Pratique/PB09-PR_Analyses_Marqueurs_tumoraux_10-analyses_PRATIQUE_production_XAi.json (20 défis)
+
+Contrôles : outil controle PASS 4/4 (7 avertissements SOURCE_RÉPÉTÉE, vérifiés) ; concordance chiffre ↔ fiche nommée de l'analyse : PB08 534/542, PB09 224/224, écarts restants vérifiés à la main (chiffres tirés d'une autre fiche Lucerne citée, ou faux positifs : « B12 », « type 2 ») ; 72 fiches HUG chiffrées réextraites avec l'extracteur corrigé : identiques aux copies du rédacteur, aucune valeur « < x » manquée ; réponses des défis ≤ 45 caractères, cohérentes avec l'intervalle de l'âge et du sexe ; citation Smarter Medicine PSA (SSMIG 2014, n° 2) mot pour mot ; « ne sert pas au dépistage » seulement là où la source le dit.
+
+Reprises des fiches organes : plus de 15 sources rouvertes (Aringer 2019, Shiboski 2016, Aletaha 2010, Valent 2012, Glover 2021, Jindal 2021, ESID 2019, ISHAM 2024, van Doorn 2023, Van den Bergh 2021, HAS 2025, RMS 2021, Meijer 2019, Wiendl 2023, Graus 2016, Crouser/ATS 2020, EASL 2025 HAI, EASL 2017 CBP, ESMO 2020, ESGE 2025, EAU 2026 prostate et testicule) ; 148/160 chiffres retrouvés, reste vérifié à la main.
+
+Corrections (36, journal audit/athena/corrections.jsonl, tour t13 ; script audit/athena/t13/corr_t13.py) :
+- LDH 135–225 / 135–214 U/l attribuée au CHUV dès 18 ans : le document CHUV n'a pas de LDH ; valeurs de Lucerne, dès 16 ans.
+- ACE > 5 µg/l « après résection » → valeur préopératoire (ESMO 2020).
+- CA 19-9 : source « ESGE 2025, adénocarcinome pancréatique » → recommandation ESGE sur les sténoses biliaires ; « redoser après drainage » remplacé par ce que dit le texte (baisse plus lente et moindre en cas de cause maligne).
+- AFP, catégories S1–S3 « après orchidectomie » → avant chimiothérapie (EAU).
+- NSE : réserve levée, valeurs de l'Inselspital (2026) : < 17 µg/l dès 18 ans, tranches pédiatriques ; aVerifier et défi mis à jour.
+- EASL 2025 HAI : « ANA faibles fréquents dans la population générale » non soutenu → titres faibles chez ~20 % des MASLD et hépatites virales ; seuils de titre valables en immunofluorescence sur coupes de rongeur, plus hauts sur HEp-2 ; défi : seuils ELISA validés localement.
+- EASL 2017 CBP : « PAL ≥ 1,5 × N » absent → PAL élevée avec AMA > 1:40.
+- ATS 2020 (ECA) : sensibilité 22–86 %, spécificité 54–95 % et « ne recommande pas l'ECA » absents du texte → ECA > 1,5 × limite supérieure comme élément d'appui (tableau 1) ; défi corrigé.
+- ESID 2019 : « hémopathie » → « cancer » (malignancy).
+
+Réserves déclarées : HE4 reste au répertoire Medics (aucune valeur USZ, Insel, Bâle, CHUV ni HUG trouvée) ; anti-neuronaux, MuSK et MOG au répertoire de Lucerne (vérifiés) ; Aletaha 2010 (seuils finaux 0–3 / ≥ 6) vérifié en partie seulement ; entrées « augmentation » de C3, C4, CH50 seulement « au-dessus de la limite », laissées.
+
+Honnêteté du rédacteur : bonne. Les fiches laboratoire étaient exactes et les réserves déclarées ; les erreurs venaient surtout des reprises de fiches organes non rouvertes (déclaré par le rédacteur) et d'une attribution LDH fausse.
