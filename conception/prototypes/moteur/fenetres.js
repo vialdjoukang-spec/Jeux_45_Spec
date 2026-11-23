@@ -277,4 +277,79 @@ const MODELES={
    x.strokeStyle='#7a8696';x.beginPath();for(let i=0;i<=40;i++){const dm=i/2,[a,b]=P(dm,va(dm));i?x.lineTo(a,b):x.moveTo(a,b);}x.stroke();x.lineWidth=1;x.fillStyle='#3a4556';x.fillText('fibre myélinisée : environ 6 m/s par µm',200,50);x.fillText('fibre amyélinique : environ 1 m/s',250,P(10,va(10))[1]-8);
    const v=D()>3?vm(D(),Mo()):va(D()),[a,b]=P(D(),Math.min(130,v));x.fillStyle='#d11';x.beginPath();x.arc(a,b,6,0,7);x.fill();
    note.textContent='Vitesse estimée = '+v.toFixed(1)+' m/s. '+(D()<=3?'Cette fine fibre amyélinique conduit lentement : elle porte la douleur brûlante et le système autonome.':Mo()>=30?'La démyélinisation ralentit la conduction (vitesse sous 70 % de la limite inférieure) et allonge les latences : tu vois une neuropathie démyélinisante (Guillain-Barré, CIDP, Charcot-Marie-Tooth de type 1).':'La conduction saltatoire, de nœud de Ranvier en nœud, reste rapide.')+' Amplitude du potentiel : '+AM+' % de la normale. Dans l\'atteinte axonale, la vitesse reste normale mais l\'amplitude diminue (ici '+(AM<70?'effondrée : atteinte axonale':'conservée')+').';}d();},
+ /* endocrinien : rétrocontrôle TSH – T4 libre (relation log-linéaire schématique, pente d'environ 4 décades de TSH par décade de T4 libre) */
+ en_tsh_t4(C){const x=toile(C);const note=document.createElement('p');
+  boutons(C,[['Normal',{t:15,s:1.5}],['Hypothyroïdie primaire',{t:6,s:60}],['Hyperthyroïdie primaire',{t:40,s:0.01}],['Hypothyroïdie centrale',{t:7,s:1.2}],['Hypothyroïdie fruste',{t:14,s:8}]],o=>{T.set(o.t);S.set(Math.log10(o.s));d();});
+  const T=cur(C,'T4 libre (pmol/l)',3,45,1,15,d),S=cur(C,'log10 de la TSH (−2 = 0,01 ; 0 = 1 ; 2 = 100 mU/l)',-2,2,0.05,0.18,d);C.appendChild(note);
+  function d(){const W=520,H=300,m=45;x.clearRect(0,0,W,H);x.font='11px A';const X=t=>m+t/45*(W-m-15),Y=l=>H-m-(l+2)/4*(H-m-15);
+   x.strokeStyle='#e3e7ec';x.fillStyle='#3a4556';for(const l of [-2,-1,0,1,2]){x.beginPath();x.moveTo(m,Y(l));x.lineTo(W-15,Y(l));x.stroke();x.textAlign='right';x.fillText(String(Math.pow(10,l)).replace('.',','),m-5,Y(l)+4);}
+   x.textAlign='left';for(let t=0;t<=40;t+=10)x.fillText(t,X(t)-6,H-m+14);x.fillText('T4 libre (pmol/l)',W-120,H-8);x.fillText('TSH (mU/l, échelle logarithmique)',6,12);
+   x.fillStyle='rgba(47,111,208,0.10)';x.fillRect(X(12),Y(Math.log10(4)),X(22)-X(12),Y(Math.log10(0.4))-Y(Math.log10(4)));x.fillStyle='#3a4556';x.fillText('zone normale',X(12)+4,Y(Math.log10(4))+12);
+   x.strokeStyle=getComputedStyle(C).getPropertyValue('--c')||'#d9731a';x.lineWidth=2.5;x.beginPath();for(let i=0;i<=84;i++){const t=3+i*0.5,l=Math.max(-2,Math.min(2,4.88-4*Math.log10(t)));i?x.lineTo(X(t),Y(l)):x.moveTo(X(t),Y(l));}x.stroke();x.lineWidth=1;
+   const t=T(),l=S(),s=Math.pow(10,l);x.fillStyle='#d11';x.beginPath();x.arc(X(t),Y(l),6,0,7);x.fill();
+   const bas=t<12,haut=t>22;let m1;
+   if(bas)m1=s>4?'Hypothyroïdie primaire : la glande ne répond plus à une TSH élevée. Tu cherches une thyroïdite de Hashimoto (anticorps anti-TPO).':'Hypothyroïdie centrale : la TSH reste basse ou normale malgré une T4 libre basse, car l\'hypophyse ne réagit plus. Tu explores les autres axes hypophysaires et tu règles la lévothyroxine sur la T4 libre.';
+   else if(haut)m1=s<0.4?'Hyperthyroïdie primaire : l\'excès d\'hormone freine la TSH. Tu cherches une maladie de Basedow, un adénome toxique ou une thyroïdite.':'TSH inadaptée à une T4 libre élevée : tu penses à un adénome à TSH, à une résistance aux hormones thyroïdiennes, à une interférence du dosage ou à une prise récente de lévothyroxine avant le prélèvement.';
+   else m1=s>4?'Hypothyroïdie fruste (subclinique) : TSH élevée avec T4 libre normale. Tu répètes le dosage à 2 ou 3 mois avant de traiter.':s<0.4?'Hyperthyroïdie fruste : TSH basse avec T4 libre normale. Tu doses aussi la T3 libre et tu cherches la cause.':'Les dosages restent dans la zone normale du rétrocontrôle.';
+   note.textContent='T4 libre = '+t+' pmol/l ; TSH = '+(s<1?s.toFixed(2):s.toFixed(1))+' mU/l. '+m1+' Une variation de T4 libre du simple au double change la TSH d\'environ 10 à 100 fois : la TSH est le meilleur détecteur précoce.';}d();},
+ /* endocrinien : seuils diagnostiques de la glycémie à jeun, de l'hyperglycémie provoquée et de l'HbA1c ; HOMA-IR ; glycémie moyenne estimée */
+ en_glycemie(C){const x=toile(C);const note=document.createElement('p');
+  boutons(C,[['Normal',{g:5.0,a:5.3,h:5.5,i:8}],['Prédiabète',{g:6.2,a:6.0,h:8.8,i:15}],['Diabète de type 2',{g:8.4,a:7.8,h:14,i:22}],['Hypoglycémie avec insuline élevée',{g:2.4,a:5.2,h:4,i:20}]],o=>{G.set(o.g);A.set(o.a);H2.set(o.h);I.set(o.i);d();});
+  const G=cur(C,'Glycémie à jeun (mmol/l)',2,15,0.1,5,d),H2=cur(C,'Glycémie à 2 h de l\'hyperglycémie provoquée (mmol/l)',3,20,0.1,5.5,d),A=cur(C,'HbA1c (%)',4,12,0.1,5.3,d),I=cur(C,'Insuline à jeun (mUI/l)',2,60,1,8,d);C.appendChild(note);
+  const virg=v=>String(v).replace('.',',');
+  function d(){const W=520,H=300;x.clearRect(0,0,W,H);x.font='11px A';
+   const L=[['Glycémie à jeun (mmol/l)',G(),2,12,5.6,7.0],['Glycémie à 2 h (mmol/l)',H2(),3,16,7.8,11.1],['HbA1c (%)',A(),4,12,5.7,6.5]];let z=[];
+   L.forEach(([n,v,mn,mx,s1,s2],i)=>{const y=45+i*80,X=u=>40+(Math.min(mx,Math.max(mn,u))-mn)/(mx-mn)*440;x.fillStyle='#3a4556';x.fillText(n,40,y-10);
+    x.fillStyle='rgba(31,122,77,0.35)';x.fillRect(X(mn),y,X(s1)-X(mn),22);x.fillStyle='rgba(224,160,43,0.45)';x.fillRect(X(s1),y,X(s2)-X(s1),22);x.fillStyle='rgba(224,69,43,0.40)';x.fillRect(X(s2),y,X(mx)-X(s2),22);
+    x.fillStyle='#3a4556';x.fillText(virg(s1),X(s1)-8,y+38);x.fillText(virg(s2),X(s2)-8,y+38);x.fillText(virg(v),X(v)-8,y-10+0);
+    x.fillStyle='#d11';x.beginPath();x.moveTo(X(v),y+24);x.lineTo(X(v)-6,y+34);x.lineTo(X(v)+6,y+34);x.fill();z.push(v>=s2?2:v>=s1?1:0);});
+   const g=G(),homa=g*I()/22.5,eag=1.59*A()-2.59,nd=z.filter(k=>k==2).length,pire=Math.max(...z);
+   const c=g<3.0?'Hypoglycémie : une glycémie sous 3,0 mmol/l avec une insuline de 3 mUI/l ou plus évoque un hyperinsulinisme endogène (insulinome) ou la prise d\'une sulfonylurée ou d\'insuline ; tu fais un jeûne surveillé.':nd>=2?'Au moins deux critères atteignent le seuil du diabète : le diagnostic est confirmé.':nd==1?'Un seul critère atteint le seuil du diabète : tu le confirmes par un second test, sauf s\'il y a des symptômes ou une glycémie supérieure à 11,1 mmol/l.':pire==1?'Prédiabète : tu proposes une perte de poids de 5 à 7 % et de l\'activité physique, et tu contrôles chaque année.':'Les trois valeurs restent normales (seuils de l\'American Diabetes Association ; l\'OMS place le seuil de la glycémie à jeun anormale à 6,1 mmol/l).';
+   note.textContent=c+' HOMA-IR = '+g.toFixed(1)+' × '+I()+' / 22,5 = '+homa.toFixed(1)+(homa>2.5?' : une valeur supérieure à 2,5 évoque une insulinorésistance (seuil variable selon les populations).':' : valeur dans la plage habituelle.')+' La glycémie moyenne estimée pour une HbA1c de '+A()+' % vaut environ '+eag.toFixed(1)+' mmol/l.';}d();},
+ /* endocrinien : courbe parathormone – calcium ionisé (sigmoïde schématique), calcium corrigé par l'albumine */
+ en_calcium(C){const x=toile(C);const note=document.createElement('p');
+  boutons(C,[['Normal',{c:1.22,p:3.5}],['Hyperparathyroïdie primaire',{c:1.45,p:12}],['Hypercalcémie maligne',{c:1.6,p:0.8}],['Hypoparathyroïdie',{c:0.95,p:0.9}],['Carence en vitamine D ou insuffisance rénale',{c:1.0,p:25}]],o=>{Ca.set(o.c);P.set(o.p);d();});
+  const Ca=cur(C,'Calcium ionisé (mmol/l)',0.8,1.8,0.01,1.22,d),P=cur(C,'Parathormone (pmol/l)',0.5,30,0.1,3.5,d),T=cur(C,'Calcium total (mmol/l)',1.5,3.5,0.01,2.35,d),Al=cur(C,'Albumine (g/l)',15,50,1,40,d);C.appendChild(note);
+  const f=c=>0.8+20/(1+Math.exp((c-1.05)*12));
+  function d(){const A=axes(x,520,300,40,[0.8,1.8],[0,30],'Calcium ionisé (mmol/l)','PTH (pmol/l)');
+   x.fillStyle='rgba(47,111,208,0.10)';const [a0,b0]=A(1.15,30),[a1,b1]=A(1.30,0);x.fillRect(a0,b0,a1-a0,b1-b0);x.fillStyle='#3a4556';x.fillText('calcium normal',a0+2,b0+12);
+   x.strokeStyle=getComputedStyle(C).getPropertyValue('--c')||'#d9731a';x.lineWidth=2.5;x.beginPath();for(let i=0;i<=100;i++){const c=0.8+i/100,[a,b]=A(c,f(c));i?x.lineTo(a,b):x.moveTo(a,b);}x.stroke();x.lineWidth=1;
+   const c=Ca(),p=P(),[a,b]=A(c,p);x.fillStyle='#d11';x.beginPath();x.arc(a,b,6,0,7);x.fill();
+   const cc=T()+0.02*(40-Al()),att=f(c);let m1;
+   if(c>1.30)m1=p>2.0?'Calcium haut avec parathormone non freinée : hyperparathyroïdie primaire (ou hypercalcémie hypocalciurique familiale si la calciurie est basse).':'Calcium haut avec parathormone freinée : hypercalcémie indépendante de la parathormone ; tu cherches un cancer (PTHrP, métastases osseuses), un excès de vitamine D, une granulomatose ou une prise de thiazidique.';
+   else if(c<1.15)m1=p<2.0?'Calcium bas avec parathormone basse ou inadaptée : hypoparathyroïdie (chirurgie cervicale, auto-immunité) ou hypomagnésémie sévère.':'Calcium bas avec parathormone haute : réponse normale de la glande ; tu cherches une carence en vitamine D, une insuffisance rénale ou une malabsorption (hyperparathyroïdie secondaire).';
+   else m1=p>6.9?'Calcium normal avec parathormone élevée : début d\'hyperparathyroïdie primaire normocalcémique ou secondaire.':'Calcium et parathormone normaux.';
+   note.textContent='Calcium ionisé = '+c.toFixed(2)+' mmol/l ; parathormone attendue environ '+att.toFixed(1)+' pmol/l ; mesurée '+p.toFixed(1)+'. '+m1+' Calcium corrigé = '+T().toFixed(2)+' + 0,02 × (40 − '+Al()+') = '+cc.toFixed(2)+' mmol/l (norme 2,15 à 2,55). Courbe schématique : les seuils varient selon le laboratoire.';}d();},
+ /* endocrinien : rythme circadien du cortisol, tests de dépistage du syndrome de Cushing et de l'insuffisance surrénalienne */
+ en_cortisol(C){const x=toile(C);const note=document.createElement('p');let dex=false;
+  boutons(C,[['Normal',{p:400,n:60,x:0}],['Syndrome de Cushing',{p:550,n:400,x:0}],['Insuffisance surrénalienne',{p:80,n:30,x:0}],['Freinage 1 mg : réponse normale',{p:30,n:20,x:1}],['Freinage 1 mg : Cushing',{p:450,n:380,x:1}]],o=>{Pc.set(o.p);Nd.set(o.n);dex=!!o.x;d();});
+  const Pc=cur(C,'Cortisol de 8 h (nmol/l)',10,800,10,400,d),Nd=cur(C,'Cortisol de minuit (nmol/l)',10,600,10,60,d);C.appendChild(note);
+  const sm=u=>u*u*(3-2*u);
+  function cort(h,pk,nd){const tt=(h-8+24)%24,v18=nd+(pk-nd)*Math.exp(-18/5.5);return tt<=18?nd+(pk-nd)*Math.exp(-tt/5.5):v18+(pk-v18)*sm((tt-18)/6);}
+  function d(){const A=axes(x,520,300,45,[0,24],[0,800],'Heure','Cortisol (nmol/l)'),pk=Pc(),nd=Nd();
+   x.strokeStyle=getComputedStyle(C).getPropertyValue('--c')||'#d9731a';x.lineWidth=2.5;x.beginPath();for(let i=0;i<=96;i++){const h=i/4,[a,b]=A(h,cort(h,pk,nd));i?x.lineTo(a,b):x.moveTo(a,b);}x.stroke();x.lineWidth=1;
+   for(const [v,t] of [[140,'140 : insuffisance probable'],[300,'300 : insuffisance exclue'],[50,'50 : seuil du freinage']]){const [a0,b0]=A(0,v),[a1]=A(24,v);x.strokeStyle='#c9d0d8';x.setLineDash([4,4]);x.beginPath();x.moveTo(a0,b0);x.lineTo(a1,b0);x.stroke();x.setLineDash([]);x.fillStyle='#3a4556';x.fillText(t,a0+8,b0-3);}
+   const [a8,b8]=A(8,pk);x.fillStyle='#d11';x.beginPath();x.arc(a8,b8,6,0,7);x.fill();const [a0,b0]=A(0,nd);x.beginPath();x.arc(a0,b0,6,0,7);x.fill();
+   let m1;
+   if(dex)m1=pk<50?'Après 1 mg de dexaméthasone à 23 h, le cortisol de 8 h est freiné (sous 50 nmol/l) : l\'axe est normal, le syndrome de Cushing est improbable.':'Le cortisol de 8 h reste supérieur à 50 nmol/l après 1 mg de dexaméthasone : le freinage échoue, ce qui évoque un syndrome de Cushing (faux positifs : œstrogènes, inducteurs enzymatiques, dépression sévère, alcool). Tu complètes par la cortisolurie et le cortisol salivaire de minuit.';
+   else if(pk<140)m1='Un cortisol de 8 h sous 140 nmol/l rend l\'insuffisance surrénalienne très probable : tu doses l\'ACTH et tu fais un test au Synacthène ; en cas de malaise, tu donnes l\'hydrocortisone sans attendre.';
+   else if(pk>300&&nd<207)m1='Un cortisol de 8 h supérieur à 300 nmol/l exclut l\'insuffisance surrénalienne, et le rythme est conservé (minuit sous 207 nmol/l).';
+   else if(nd>=207)m1='Un cortisol de minuit supérieur à 207 nmol/l chez un patient éveillé (ou un rythme aplati) évoque un syndrome de Cushing : tu confirmes par le cortisol salivaire de minuit, la cortisolurie des 24 heures ou le freinage à 1 mg.';
+   else m1='Un cortisol de 8 h entre 140 et 300 nmol/l reste indéterminé : le test au Synacthène tranche.';
+   note.textContent='Cortisol de 8 h = '+pk+' nmol/l ; de minuit = '+nd+' nmol/l. '+m1+' Les prises d\'œstrogènes élèvent la transcortine (protéine porteuse) et faussent le dosage sérique total ; un traitement par hydrocortisone doit être suspendu 24 heures avant le dosage.';}d();},
+ /* endocrinien : osmolalité plasmatique, hormone antidiurétique, osmolalité urinaire et diurèse (charge osmolaire de 600 mOsm/j) */
+ en_adh(C){const x=toile(C);const note=document.createElement('p');
+  boutons(C,[['Normal',{n:140,g:5,u:5,a:40,r:100}],['Déshydratation',{n:148,g:5,u:10,a:100,r:100}],['Diabète insipide central',{n:147,g:5,u:5,a:0,r:100}],['Diabète insipide néphrogénique',{n:147,g:5,u:5,a:100,r:5}],['SIADH',{n:122,g:5,u:4,a:60,r:100}],['Polydipsie primaire',{n:133,g:5,u:3,a:0,r:100}]],o=>{Na.set(o.n);Gl.set(o.g);Ur.set(o.u);Ad.set(o.a);Re.set(o.r);d();});
+  const Na=cur(C,'Natrémie (mmol/l)',110,160,1,140,d),Gl=cur(C,'Glycémie (mmol/l)',3,30,0.5,5,d),Ur=cur(C,'Urée (mmol/l)',2,40,0.5,5,d),Ad=cur(C,'Hormone antidiurétique sécrétée (% du maximum)',0,100,5,40,d),Re=cur(C,'Réponse du rein à l\'hormone (%)',0,100,5,100,d);C.appendChild(note);
+  const att=po=>Math.max(0,Math.min(100,(po-280)/20*100));
+  function d(){const A=axes(x,520,300,45,[260,320],[0,100],'Osmolalité plasmatique (mOsm/kg)','ADH (% du max.)');
+   x.strokeStyle=getComputedStyle(C).getPropertyValue('--c')||'#d9731a';x.lineWidth=2.5;x.beginPath();for(let i=0;i<=60;i++){const p=260+i,[a,b]=A(p,att(p));i?x.lineTo(a,b):x.moveTo(a,b);}x.stroke();x.lineWidth=1;
+   const po=2*Na()+Gl()+Ur(),ad=Ad(),e=ad/100*Re()/100,uo=50+1100*e,di=600/uo;const [a,b]=A(Math.max(260,Math.min(320,po)),ad);x.fillStyle='#d11';x.beginPath();x.arc(a,b,6,0,7);x.fill();x.fillStyle='#3a4556';x.fillText('seuil de sécrétion : 280',A(280,0)[0]+4,A(280,0)[1]-6);
+   let m1;
+   if(po<275&&uo>100&&ad>att(po)+15)m1='L\'hormone antidiurétique reste sécrétée malgré une osmolalité plasmatique basse et l\'urine reste concentrée (supérieure à 100 mOsm/kg) : SIADH si le patient est euvolémique et sans diurétique ni insuffisance surrénalienne ou thyroïdienne.';
+   else if(po<275&&uo<=100)m1='L\'hormone est freinée comme il convient et l\'urine est diluée : polydipsie primaire ; le patient boit plus que ses reins n\'éliminent, tu limites l\'eau et tu cherches un trouble psychiatrique ou un médicament.';
+   else if(po>295&&e<0.25)m1=Re()<ad?'Le rein ne répond plus à l\'hormone sécrétée : diabète insipide néphrogénique (lithium, hypercalcémie, hypokaliémie, génétique).':'Le cerveau ne sécrète plus d\'hormone : diabète insipide central ; la desmopressine corrige l\'urine.';
+   else if(po>295)m1='L\'osmolalité plasmatique élevée stimule fortement l\'hormone antidiurétique et le rein concentre l\'urine : réponse normale à la déshydratation.';
+   else m1='L\'osmolalité plasmatique reste dans la plage normale (275 à 295 mOsm/kg) et la sécrétion suit la courbe attendue.';
+   note.textContent='Osmolalité plasmatique = 2 × '+Na()+' + '+Gl()+' + '+Ur()+' = '+po.toFixed(0)+' mOsm/kg. Osmolalité urinaire estimée = '+uo.toFixed(0)+' mOsm/kg ; diurèse estimée = 600 / '+uo.toFixed(0)+' = '+di.toFixed(1)+' l par jour. '+m1;}d();},
  inconnu(C){C.textContent='Fenêtre à produire.';}};
