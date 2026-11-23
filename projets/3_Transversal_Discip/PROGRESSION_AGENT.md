@@ -16,7 +16,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | H | 12 | 12 |
 | I | 12 | 12 |
 | J | 12 | 12 |
-| K | 9 | 12 |
+| K | 12 | 12 |
 | L | 0 | 12 |
 | M | 0 | 12 |
 | N | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **153** | **228** |
+| **Total** | **156** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -226,6 +226,13 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_K-S3-02** : Critères SUVA de reconnaissance de la surdité professionnelle et barème d'indemnisation (indemnité pour atteinte à l'intégrité).
 - **TRANS_K-S3-03** : Statut du burn-out dans la CIM-11 (QD85, « phénomène lié au travail », non classé comme maladie) et codage suisse en 2026 (CIM-10-GM utilisée pour la facturation).
 - **TRANS_K-S3-03** : Base de l'obligation de l'employeur de protéger la personnalité du travailleur (art. 328 CO) et du harcèlement psychologique (jurisprudence du Tribunal fédéral) ; rôle des inspections cantonales du travail sur les risques psychosociaux (art. 6 LTr, art. 2 OLT3).
+- **TRANS_K-S4-01** : Classement CIRC actuel des agents cités (benzène, poussières de bois, amines aromatiques comme la 2-naphtylamine et la benzidine, amiante, silice) : groupe 1 confirmé.
+- **TRANS_K-S4-01** : Durées de latence et durées d'exposition minimales retenues par la SUVA pour reconnaître l'adénocarcinome de l'ethmoïde lié au bois et le cancer de la vessie lié aux amines aromatiques.
+- **TRANS_K-S4-02** : Limites de dose de l'ORaP (RS 814.501, en vigueur depuis le 1.1.2018) : dose efficace de 20 mSv par an pour les personnes professionnellement exposées, dose équivalente au cristallin de 20 mSv par an, dose à la peau et aux extrémités de 500 mSv par an, 1 mSv pour l'enfant à naître dès l'annonce de la grossesse.
+- **TRANS_K-S4-02** : Catégories A et B des personnes professionnellement exposées et fréquence de lecture des dosimètres (mensuelle ?).
+- **TRANS_K-S4-03** : Exigences médicales minimales de l'annexe 1 OAC pour le 2e groupe (vision, diabète sous insuline, épilepsie, SAOS) en vigueur en 2026.
+- **TRANS_K-S4-03** : Rôle de l'Office fédéral de l'aviation civile (OFAC) et des médecins examinateurs aéronautiques (AME) pour les pilotes selon les règles EASA appliquées en Suisse.
+- **TRANS_K-S4-03** : Droit d'aviser l'autorité cantonale d'un conducteur inapte (art. 15d al. 3 LCR) sans levée du secret.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -239,4 +246,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : K (9/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
