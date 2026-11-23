@@ -26,6 +26,7 @@ REGISTRE = os.path.join(RACINE, "registre_fiches.csv")
 SCHEMA = json.load(open(os.path.join(RACINE, "scripts", "schema_fiche.json"), encoding="utf-8"))
 SPEC = json.load(open(os.path.join(RACINE, "data", "references", "entite_specialites.json"), encoding="utf-8"))
 MODELE_DEFAUT = "claude-sonnet-5-5"
+OPTIONS = os.path.join(RACINE, "scripts", "api_options.json")   # appris au pilote : le modèle accepte-t-il thinking désactivé ?
 DEBUT = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
 FREQ = {"TF": 1, "F": 2, None: 3, "MF": 4, "R": 5}   # None = entités issues de la table des urgences, sans strate de fréquence
 CODE_SPEC = {k: v["code"] for k, v in SPEC["specialites"].items()}
@@ -46,7 +47,8 @@ RÈGLES BLOQUANTES
 11. glossaire : chaque sigle, score ou terme technique que tu emploies (ex. « atypique », « CURB-65 », « ARNI ») reçoit sa définition en une phrase verbale ; aucun terme ne renvoie hors du jeu.
 12. presentation.atypique : les présentations trompeuses (sujet âgé, enfant, grossesse, immunodépression), chacune avec son mécanisme ; elles s'affichent en rouge.
 13. examens : « examen » reste un nom court ; « attendu » donne le signe paraclinique précis recherché et son seuil (ex. « FEVG ≤ 40 % ») ; « visee » range l'examen : diagnostique (1re intention ou gold standard), retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation.
-Tu réponds UNIQUEMENT en appelant l'outil emettre_fiche."""
+14. LONGUEUR (bloquant) : la fiche entière tient en 6 000 tokens environ, sinon elle est tronquée et rejetée. Chaque « pourquoi », « signification », « attendu », « elementQuiTranche » ou « correction » tient en UNE phrase de 25 mots au plus. Quantités : premiersGestes 4 à 6 ; drapeauxRouges 3 à 5 ; discriminants 3 à 5 ; examens 4 à 8 ; traitement 3 à 6 ; chiffresCles 3 à 5 ; pieges 3 ou 4 ; notionsCouvertes une entrée par rubrique, de 2 phrases (poids 1) à 4 phrases (poids 3 ou plus) ; glossaire limité aux termes employés ; sources 2 à 5. Tu remplis TOUS les champs du schéma, dans son ordre.
+Tu réponds UNIQUEMENT en appelant l'outil emettre_fiche, sans réflexion préalable longue."""
 
 OUTIL = {"name": "emettre_fiche", "description": "Émet la fiche de raisonnement de l'entité.",
          "input_schema": {k: v for k, v in SCHEMA.items() if k != "title"}}
@@ -81,7 +83,9 @@ def message(c):
 
 
 def params(c, modele):
-    return {"model": modele, "max_tokens": 16000,
+    opt = json.load(open(OPTIONS)) if os.path.exists(OPTIONS) else {}
+    extra = {"thinking": {"type": "disabled"}} if opt.get("thinking_desactivable", True) else {}
+    return {"model": modele, "max_tokens": 16000, **extra,
             "system": [{"type": "text", "text": SYSTEME, "cache_control": {"type": "ephemeral"}}],
             "tools": [OUTIL], "tool_choice": {"type": "auto"},
             "messages": [{"role": "user", "content": message(c)}]}
@@ -145,7 +149,13 @@ def pilote(a):
         print(params(cs[0], a.modele)["messages"][0]["content"][:2500]); return
     cl = client()
     for c in cs:
-        t = time.time(); m = cl.messages.create(**params(c, a.modele))
+        t = time.time()
+        try:
+            m = cl.messages.create(**params(c, a.modele))
+        except Exception as ex:                       # paramètre « thinking » refusé : on l'apprend une fois pour toutes
+            if "thinking" not in str(ex):
+                raise
+            json.dump({"thinking_desactivable": False}, open(OPTIONS, "w")); m = cl.messages.create(**params(c, a.modele))
         b = next((x for x in m.content if x.type == "tool_use"), None)   # Sonnet 5.5 n'accepte pas l'appel d'outil forcé
         if b is None:
             print(f"{c['id']} : le modèle n'a pas appelé l'outil ; fiche non écrite"); continue

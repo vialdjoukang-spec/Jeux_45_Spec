@@ -98,6 +98,15 @@ elif sys.argv[1] == "terminer":
     st = json.load(open(STAT, encoding="utf-8")) if os.path.exists(STAT) else {}
     t = next(x for x in F["taches"] if x["id"] == tid)
     etat = st.get("etat") if st.get("tache") == tid and st.get("etat") in ("fait", "en_cours", "bloque") else "en_cours"
+    if res == "-":                                     # tâche de type script : l'état vient du code de sortie et de la condition de fin
+        ok = open("/tmp/script_ok").read().strip() == "0" if os.path.exists("/tmp/script_ok") else False
+        r["is_error"] = not ok
+        if ok and t.get("fin") == "lots_recuperes":
+            suivi = os.path.join(os.path.dirname(os.path.dirname(ICI)), "scripts", t.get("suivi", "batchs_fiches.json"))
+            lots = json.load(open(suivi)) if os.path.exists(suivi) else []
+            etat = "fait" if lots and all(x.get("recupere") for x in lots) else "en_cours"
+        else:
+            etat = "fait" if ok else "en_cours"
     t["essais"] += 1
     api = "API Error" in str(r.get("result", ""))          # panne d'accès à l'API : ce n'est pas un échec de la tâche
     if r.get("is_error") and etat != "fait" and not api:
