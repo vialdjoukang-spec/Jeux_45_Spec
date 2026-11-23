@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MedSuisse Arena 45</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Fraunces:opsz,wght@9..144,600&family=Material+Symbols+Rounded:opsz,wght,FILL@24,400,0..1&display=swap" rel="stylesheet">
+<style>
+/* VOICE clinique et sobre · IDEA un carnet d'examen fédéral : la vignette d'abord, rien autour qui trahisse le diagnostic
+   PICTURE la carte de brouillard des pathologies et le duel · COLOUR rouge suisse en accent, encre bleu nuit, papier blanc
+   TYPE Fraunces pour les titres, Atkinson Hyperlegible pour tout le contenu · LAYOUT sommaire latéral numéroté, colonne contenue */
+:root{color-scheme:light dark;--bg:light-dark(#f7f6f2,#12151b);--carte:light-dark(#fff,#1b1f28);--ink:light-dark(#18202e,#e9ebf1);--sous:light-dark(#5a6275,#9aa3b6);
+--trait:light-dark(#e3e0d8,#2b3140);--rouge:#c8102e;--ok:#1f8a4c;--ko:#c0392b;--bleu:light-dark(#1e3a8a,#8fb0ff);--brume:light-dark(#eceae4,#222734)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Atkinson Hyperlegible",sans-serif;overflow-x:clip}
+.ms{font-family:"Material Symbols Rounded";font-weight:400;font-style:normal;font-size:20px;line-height:1;display:inline-block;vertical-align:-4px;font-variation-settings:"FILL" 0}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;margin:0}
+aside{position:fixed;inset:0 auto 0 0;width:270px;border-right:1px solid var(--trait);background:var(--carte);display:flex;flex-direction:column}
+.marque{display:flex;gap:10px;align-items:center;padding:18px 16px 12px;border-bottom:1px solid var(--trait)}
+.croix{width:30px;height:30px;border-radius:7px;background:var(--rouge);color:#fff;display:grid;place-items:center}
+.marque b{font-family:Fraunces,serif;font-size:17px;display:block}.marque small{color:var(--sous);font-size:12px}
+#nav{overflow:auto;padding:8px;flex:1}#nav a{display:grid;grid-template-columns:22px 24px 1fr;gap:8px;align-items:center;padding:7px 8px;border-radius:8px;color:inherit;text-decoration:none;font-size:13.5px}
+#nav a:hover{background:var(--brume)}#nav a.cur{background:color-mix(in srgb,var(--rouge) 10%,transparent)}#nav a b{color:var(--sous);font-size:12px;text-align:right}
+#nav i{grid-column:3;display:block;height:3px;border-radius:9px;background:var(--trait);margin-top:3px;overflow:hidden}#nav i em{display:block;height:100%;background:var(--ok)}
+#duelSide{display:none;padding:18px 16px;gap:14px;flex-direction:column}
+.duel aside #nav,.duel aside .marque small{display:none}.duel #duelSide{display:flex}
+.pane{background:var(--brume);border-radius:10px;padding:12px 14px}.pane b{display:block;font-size:26px;font-family:Fraunces,serif}.pane span{color:var(--sous);font-size:12.5px}
+main{margin-left:270px;padding:28px clamp(16px,4vw,48px) 90px}.col{max-width:820px;margin:auto}
+.hero{display:flex;gap:16px;align-items:center;margin-bottom:18px}.hero .ms{font-size:44px;color:var(--rouge)}.hero h1{font-size:30px;line-height:1.1}.hero p{margin:4px 0 0;color:var(--sous)}
+.kpi{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:14px 0 22px}.kpi div{background:var(--carte);border:1px solid var(--trait);border-radius:10px;padding:12px}
+.kpi b{font:600 24px Fraunces,serif;display:block}.kpi span{font-size:12.5px;color:var(--sous)}
+.brouillard{display:grid;grid-template-columns:repeat(auto-fill,minmax(52px,1fr));gap:6px;margin:10px 0 20px}
+.brouillard div{aspect-ratio:1;border-radius:8px;background:var(--brume);display:grid;place-items:center;color:var(--sous);font-size:11px;position:relative}
+.brouillard div.vu{background:color-mix(in srgb,var(--ok) 22%,var(--carte));color:var(--ink)}.brouillard div .ms{font-size:16px}
+.btn{font:700 15px "Atkinson Hyperlegible";border:0;border-radius:999px;padding:12px 22px;min-height:44px;cursor:pointer;background:var(--rouge);color:#fff;display:inline-flex;gap:8px;align-items:center}
+.btn.sec{background:transparent;color:var(--ink);border:1px solid var(--trait)}.btn:focus-visible,.opt:focus-visible{outline:3px solid var(--bleu);outline-offset:2px}
+.note{color:var(--sous);font-size:13px}
+.stem{background:var(--carte);border:1px solid var(--trait);border-left:4px solid var(--bleu);border-radius:10px;padding:16px 18px;margin:12px 0;font-size:15.5px}
+.q{font-weight:700;margin:14px 0 8px}.tag{display:inline-block;font-size:12px;border:1px solid var(--trait);border-radius:99px;padding:2px 9px;color:var(--sous);margin-right:6px}
+.opts{display:grid;gap:8px}.opts.long{grid-template-columns:1fr 1fr}
+.opt{display:flex;gap:10px;align-items:flex-start;background:var(--carte);border:1px solid var(--trait);border-radius:10px;padding:10px 12px;cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+.opt.sel{border-color:var(--bleu);box-shadow:0 0 0 1px var(--bleu)}.opt .k{font-weight:700;min-width:20px}.opt.bon{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 8%,var(--carte))}.opt.faux{border-color:var(--ko);background:color-mix(in srgb,var(--ko) 8%,var(--carte))}
+.why{display:none;color:var(--sous);font-size:13.5px;margin-top:4px}.corrige .why{display:block}
+.vf{margin-left:auto;display:flex;gap:6px}.vf button{font:700 12px "Atkinson Hyperlegible";padding:5px 10px;border-radius:99px;border:1px solid var(--trait);background:transparent;color:inherit;cursor:pointer;min-height:32px}.vf button.on{background:var(--bleu);color:#fff;border-color:var(--bleu)}
+.actions{display:flex;gap:10px;margin:16px 0;flex-wrap:wrap}
+.revele{background:var(--carte);border:1px solid var(--trait);border-radius:12px;padding:18px;margin-top:8px}.revele h2{font-size:24px;margin:4px 0 10px}
+.echelle{display:grid;grid-template-columns:140px 1fr;gap:6px 12px;font-size:14px;margin-top:12px}.echelle dt{font-weight:700;color:var(--bleu)}.echelle dd{margin:0}
+ul.notions{list-style:none;padding:0;margin:8px 0}ul.notions li{display:flex;gap:8px;padding:4px 0;font-size:14px}ul.notions .ms{color:var(--ok)}
+#vide{display:none}
+@media(max-width:860px){aside{position:static;width:auto;height:auto;border-right:0;border-bottom:1px solid var(--trait)}#nav{max-height:220px}main{margin:0}.kpi{grid-template-columns:repeat(2,minmax(0,1fr))}.opts.long{grid-template-columns:1fr}.echelle{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:no-preference){.opt,.brouillard div{transition:background .2s,border-color .2s}}
+</style></head><body>
+<aside><div class="marque"><span class="croix"><span class="ms">add</span></span><div><b>MedSuisse Arena 45</b><small>45 spécialités · examen fédéral</small></div></div>
+<nav id="nav" aria-label="Spécialités"></nav>
+<div id="duelSide" aria-live="polite"><div class="pane"><span>Série en cours</span><b id="dEtape">—</b></div><div class="pane"><span>Temps restant</span><b id="dChrono">—</b></div><div class="pane"><span>Score de la série</span><b id="dScore">0</b></div>
+<button class="btn sec" id="abandon"><span class="ms">close</span>Quitter la série</button><p class="note">Aucun intitulé n'apparaît ici pendant la série : le diagnostic se mérite.</p></div></aside>
+<main><div class="col" id="vue"></div></main>
+<script>
+{
+const $=s=>document.querySelector(s),esc=t=>String(t??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const MARCHES=[["zeroD","Zéro diagnostic"],["mechanism","Mécanisme"],["semiology","Sémiologie"],["discriminant","Discriminant"],["decision","Décision"],["trap","Piège"],["anchor","Ancre"]];
+const TEMPS={A:90,Kprim:120,MenuLong:150};
+const lire=()=>{try{return JSON.parse(localStorage.getItem('arene45')||'{}')}catch(e){return {}}},ecrire=v=>{try{localStorage.setItem('arene45',JSON.stringify(v))}catch(e){}};
+let SPECS=[],cur=null,deck=null,serie=null,k=0,choix={},score=0,tick=null,t0=0,etat=lire();etat.vues=etat.vues||{};
+async function json(u){try{const r=await fetch(u);return r.ok?r.json():null}catch(e){return null}}
+function nav(){$('#nav').innerHTML=SPECS.map((s,i)=>`<a href="#${s.code}" data-c="${s.code}" class="${cur&&cur.code===s.code?'cur':''}"><b>${i+1}</b><span class="ms">${s.icone}</span><span>${esc(s.nom)}<i><em style="width:${s.notions?Math.round(100*s.cochees/s.notions):0}%"></em></i></span></a>`).join('');}
+async function ouvrir(code){cur=SPECS.find(s=>s.code===code)||SPECS[0];deck=await json('decks/'+cur.code+'.json');nav();accueil();}
+function accueil(){document.body.classList.remove('duel');clearInterval(tick);const s=cur,vues=etat.vues[s.code]||[],n=deck?deck.series.length:0;
+ const tuiles=Array.from({length:s.pathologies||0},(_,i)=>i<vues.length?`<div class="vu" title="Pathologie rencontrée"><span class="ms">check</span></div>`:`<div><span class="ms">lock</span></div>`).join('');
+ $('#vue').innerHTML=`<div class="hero"><span class="ms">${s.icone}</span><div><h1>${esc(s.nom)}</h1><p>Les pathologies restent dans le brouillard jusqu'à ce qu'une série te les fasse diagnostiquer.</p></div></div>
+ <div class="kpi"><div><b>${s.pathologies}</b><span>pathologies à rencontrer</span></div><div><b>${s.cochees}/${s.notions}</b><span>notions cochées après audit</span></div><div><b>${s.questions}</b><span>questions prêtes</span></div><div><b>${vues.length}</b><span>séries réussies</span></div></div>
+ <h3>Carte de brouillard</h3><div class="brouillard">${tuiles||'<p class="note">La production de cette spécialité n’a pas commencé.</p>'}</div>
+ <div class="actions"><button class="btn" id="go" ${n?'':'disabled'}><span class="ms">swords</span>Lancer une série (zéro spoiler)</button></div>
+ <p class="note">${n?`${n} série(s) disponible(s). Une série suit le même patient d'étape en étape ; la pathologie, les notions et la correction complète se révèlent à la fin.`:'Aucune question n’est encore prête pour cette spécialité.'}</p>`;
+ const g=$('#go');if(g)g.onclick=lancer;}
+function lancer(){const vues=etat.vues[cur.code]||[],libres=deck.series.filter(x=>!vues.includes(x.id));serie=(libres.length?libres:deck.series)[Math.floor(Math.random()*(libres.length||deck.series.length))];k=0;score=0;document.body.classList.add('duel');etape();}
+function etape(){const q=serie.questions[k];choix={};$('#dEtape').textContent=`${k+1} / ${serie.questions.length}`;$('#dScore').textContent=score;
+ const fmt={A:'Une seule réponse',Kprim:'Vrai ou faux (Kprim)',MenuLong:'Menu long : une à trois réponses'}[q.format];
+ const opts=q.format==='Kprim'?q.statements.map((s,i)=>({key:String(i+1),text:s.text,correct:s.true,why:s.why})):q.options;
+ $('#vue').innerHTML=`<div><span class="tag">${fmt}</span><span class="tag">Étape ${k+1} sur ${serie.questions.length}</span></div><div class="stem">${esc(q.stem)}</div><div class="q">${esc(q.prompt)}</div>
+ <div class="opts ${q.format==='MenuLong'?'long':''}" id="opts">${opts.map(o=>`<div class="opt" tabindex="0" data-k="${esc(o.key)}"><span class="k">${esc(o.key)}</span><div><div>${esc(o.text)}</div><div class="why">${esc(o.why)}</div></div>${q.format==='Kprim'?'<span class="vf"><button data-v="1">Vrai</button><button data-v="0">Faux</button></span>':''}</div>`).join('')}</div>
+ <div class="actions"><button class="btn" id="val"><span class="ms">check</span>Valider</button></div><div id="res"></div>`;
+ $('#opts').onclick=e=>{const d=e.target.closest('.opt');if(!d||$('#vue').classList.contains('corrige'))return;const key=d.dataset.k;
+  if(q.format==='Kprim'){const b=e.target.closest('button');if(!b)return;choix[key]=b.dataset.v==='1';d.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));}
+  else if(q.format==='A'){choix={[key]:true};document.querySelectorAll('.opt').forEach(x=>x.classList.toggle('sel',x===d));}
+  else{choix[key]=!choix[key];d.classList.toggle('sel',!!choix[key]);}};
+ $('#val').onclick=()=>valider(q,opts);$('#vue').classList.remove('corrige');clearInterval(tick);t0=Date.now();const T=TEMPS[q.format]||90;
+ tick=setInterval(()=>{const r=Math.max(0,T-Math.round((Date.now()-t0)/1000));$('#dChrono').textContent=r+' s';if(!r)valider(q,opts);},250);}
+function valider(q,opts){if($('#vue').classList.contains('corrige'))return;clearInterval(tick);$('#vue').classList.add('corrige');let pts=0;
+ opts.forEach(o=>{const d=document.querySelector(`.opt[data-k="${CSS.escape(o.key)}"]`),pris=q.format==='Kprim'?choix[o.key]===o.correct:!!choix[o.key];
+  const c=q.format==='Kprim'?(pris?'bon':'faux'):(o.correct?'bon':(choix[o.key]?'faux':''));if(c)d.classList.add(c);});
+ if(q.format==='A')pts=opts.some(o=>o.correct&&choix[o.key])?1:0;
+ else if(q.format==='Kprim'){const n=opts.filter(o=>choix[o.key]===o.correct).length;pts=n===4?1:n===3?.5:0;}
+ else{const b=opts.filter(o=>o.correct),m=b.filter(o=>!choix[o.key]).length,f=opts.filter(o=>!o.correct&&choix[o.key]).length;pts=Math.max(0,(b.length-m-f)/b.length);}
+ score+=pts;$('#dScore').textContent=score.toFixed(1).replace('.0','').replace('.',',');
+ $('#res').innerHTML=`<p class="q" style="color:${pts>=1?'var(--ok)':'var(--ko)'}">${pts>=1?'Juste':'À revoir'} : ${String(pts).replace('.',',')} point</p><div class="actions"><button class="btn" id="suite"><span class="ms">arrow_forward</span>${k+1<serie.questions.length?'Étape suivante':'Révéler le diagnostic'}</button></div>`;
+ $('#suite').onclick=()=>{k++;k<serie.questions.length?etape():fin();};}
+function fin(){clearInterval(tick);const n=serie.questions.length,ok=score/n>=.75,r=serie.revele||{};
+ if(ok){const v=etat.vues[cur.code]=etat.vues[cur.code]||[];if(!v.includes(serie.id))v.push(serie.id);ecrire(etat);}
+ const vues=[...new Set(serie.questions.flatMap(q=>q.notions||[]))],dern=serie.questions[n-1].ladder||{};
+ document.body.classList.remove('duel');
+ $('#vue').innerHTML=`<div class="revele"><span class="tag">${ok?'Série réussie : cours débloqué':'Série à reprendre : remédiation programmée'}</span><span class="tag">${String(score.toFixed(1)).replace('.0','').replace('.',',')} / ${n}</span>
+ <h2>${esc(r.pathologie||'Pathologie')}</h2>${r.cim10?`<p class="note">CIM-10 ${esc(r.cim10)}</p>`:''}
+ <h3>Notions explorées par cette série</h3><ul class="notions">${vues.map(id=>`<li><span class="ms">check_circle</span>${esc((r.notions||{})[id]||id)}</li>`).join('')}</ul>
+ <h3>Correction en 7 marches</h3><dl class="echelle">${MARCHES.filter(([m])=>dern[m]).map(([m,l])=>`<dt>${l}</dt><dd>${esc(dern[m])}</dd>`).join('')}</dl>
+ <div class="actions"><button class="btn" id="re"><span class="ms">swords</span>Série suivante</button><button class="btn sec" id="carte"><span class="ms">map</span>Retour à la carte</button></div></div>`;
+ $('#re').onclick=lancer;$('#carte').onclick=accueil;}
+$('#abandon').onclick=accueil;
+window.addEventListener('hashchange',()=>{const c=location.hash.slice(1);if(c&&(!cur||c!==cur.code)&&!document.body.classList.contains('duel'))ouvrir(c);});
+(async()=>{const d=await json('specs.json');SPECS=(d&&d.specs)||[];const c=location.hash.slice(1)||'END';await ouvrir(SPECS.some(s=>s.code===c)?c:'END');document.title='MedSuisse Arena 45';document.documentElement.dataset.pret='1';})();
+}
+</script></body></html>

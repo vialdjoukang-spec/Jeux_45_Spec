@@ -1,0 +1,25 @@
+name: PROFILES 2 (Bible de l'examen)
+on:
+  workflow_dispatch:
+  schedule: [{cron: "17 3 1 * *"}]   # contrôle mensuel d'une nouvelle version
+permissions: {contents: write}
+jobs:
+  profiles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Télécharger PROFILES 2 (unige.ch) et extraire le texte
+        run: |
+          sudo apt-get -qq install -y poppler-utils > /dev/null
+          mkdir -p data/references/profiles
+          curl -sSfL "https://www.unige.ch/medecine/index.php/download_file/view/7228/3131" -o data/references/profiles/PROFILES_2.pdf
+          pdftotext -layout data/references/profiles/PROFILES_2.pdf data/references/profiles/PROFILES_2.txt
+          sha256sum data/references/profiles/PROFILES_2.pdf | tee data/references/profiles/SHA256.txt
+          wc -l data/references/profiles/PROFILES_2.txt
+      - name: Publier
+        run: |
+          git config user.name "profiles-bot"; git config user.email "profiles-bot@users.noreply.github.com"
+          git add data/references/profiles
+          git diff --cached --quiet && exit 0
+          git commit -qm "PROFILES 2 (1.11.2023) : PDF officiel et texte extrait [skip ci]"
+          for i in 1 2 3; do git pull -q --no-rebase origin main && git push -q && exit 0; sleep 5; done
