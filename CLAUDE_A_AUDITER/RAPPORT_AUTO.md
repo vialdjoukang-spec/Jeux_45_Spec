@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-23 03:19
+# Audit automatique — 2026-11-23 03:33
 
-16 fichier(s) : 9 🟩 intégrables · 6 🟧 à compléter · 1 🟥 refusés.
+20 fichier(s) : 13 🟩 intégrables · 6 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -36,6 +36,14 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟧 `07_inflammation_infection_microbiologie.json` : remplissage 99 % (403/408) · 1 marqueur(s) <…> restant(s)
 - aVerifier déclarés : 11
 
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/1_Theorie/PB08_Analyses_Immunologie_Autoimmunite_Allergie_35-analyses_production_XAi.json`
+- 🟩 `08_immunologie_autoimmunite_allergie.json` : remplissage 99 % (588/595)
+- aVerifier déclarés : 10
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/1_Theorie/PB09_Analyses_Marqueurs_tumoraux_10-analyses_production_XAi.json`
+- 🟩 `09_marqueurs_tumoraux.json` : remplissage 98 % (167/170)
+- aVerifier déclarés : 7
+
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/2_Pratique/PB01-PR_Analyses_Hematologie_31-analyses_PRATIQUE_production_XAi.json`
 - 🟩 `01_hematologie.json` : remplissage 100 % (62/62)
 - aVerifier déclarés : 1
@@ -62,6 +70,14 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/2_Pratique/PB07-PR_Analyses_Inflammation_Infection_Microbiologie_24-analyses_PRATIQUE_production_XAi.json`
 - 🟩 `07_inflammation_infection_microbiologie.json` : remplissage 100 % (48/48)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/2_Pratique/PB08-PR_Analyses_Immunologie_Autoimmunite_Allergie_35-analyses_PRATIQUE_production_XAi.json`
+- 🟩 `08_immunologie_autoimmunite_allergie.json` : remplissage 100 % (70/70)
+- aVerifier déclarés : 2
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/2_Pratique/PB09-PR_Analyses_Marqueurs_tumoraux_10-analyses_PRATIQUE_production_XAi.json`
+- 🟩 `09_marqueurs_tumoraux.json` : remplissage 100 % (20/20)
 - aVerifier déclarés : 1
 
 ### 🟧 `CLAUDE_A_AUDITER/ouvrier/LOT_COMPLEMENT_3_rachis_moelle_et_racines_rempli.json`
