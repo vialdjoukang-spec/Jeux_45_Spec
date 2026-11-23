@@ -6,7 +6,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 | Lettre | Rédigées | Total |
 |---|---|---|
-| A | 10 | 12 |
+| A | 12 | 12 |
 | B | 0 | 12 |
 | C | 0 | 12 |
 | D | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **46** | **228** |
+| **Total** | **48** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -49,6 +49,10 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_A-S3-03** : Droit de passage : base légale exacte selon LAMal (art. 71) et pratique LCA.
 - **TRANS_A-S4-01** : Gratuité de la procédure cantonale et montant des frais en matière AI (art. 69 al. 1bis LAI).
 - **TRANS_A-S4-01** : Contenu exact des arrêts cités (ATF 125 V 351, 130 V 352, 137 V 210, 141 V 281, 143 V 409/418).
+- **TRANS_A-S4-02** : Présence exacte de la gonarthrose du travail à genoux dans l'annexe 1 OLAA (travaux listés).
+- **TRANS_A-S4-02** : Nom officiel de la fondation EFA.
+- **TRANS_A-S4-03** : Plafond de 90 % du gain assuré pour la rente complémentaire LAA (art. 20 LAA) : à confirmer.
+- **TRANS_A-S4-03** : Surveillance de la LAA par l'OFSP (et non l'OFAS) : à confirmer.
 - **TRANS_F-S1-01** : Numéro de l'article du Code de déontologie FMH consacré au secret (art. 11 ?).
 - **TRANS_F-S1-01** : Peine exacte de l'art. 321 CP après l'harmonisation des peines (en vigueur 2023) : « trois ans au plus ou peine pécuniaire » à confirmer.
 - **TRANS_F-S1-01** : Caractère de plainte (délit poursuivi sur plainte) de l'art. 321 CP.
