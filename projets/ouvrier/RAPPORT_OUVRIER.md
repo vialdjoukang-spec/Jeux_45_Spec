@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-23 21:59 UTC
+# Ouvrier automatique — 2026-11-23 22:38 UTC
 
-Dernier passage : **END_C_pilote** → fait (0.28 USD).
+Dernier passage : **V1_fusions** → fait (0.22 USD).
 
-Les 3 corrections END ont été produites en direct (0 erreur de schéma, 24 à 28 mille tokens de sortie chacune) et contrôlées : 0 case muette, toutes les références pec et notion valides, tous les plans de prise en charge complets avec sources suisses (AIPS) puis européennes. Un seul défaut isolé (une posologie de prednisone sans chiffre) a été corrigé à la main, donc SYS_C n'a pas été modifié et un seul essai a suffi. L'arène 45 a été reconstruite : 45 spécialités, 60 questions, 2862 pathologies canoniques.
+Les 4 fichiers content/pathologies/fusions_CAR.json, fusions_PNE.json, fusions_NEP.json et fusions_GAS.json existent, au format de fusions_END.json. Le nombre de pathologies passe de 95 à 66 en CAR, de 48 à 34 en PNE, de 48 à 37 en NEP et de 109 à 86 en GAS (300 → 223 au total). Les complications graves distinctes (perforation, mégacôlon toxique, phéochromocytome, thrombose de stent, FPIES, exacerbation de BPCO) et les grappes ambiguës restent à part ; les fusions sont à valider par Claude.
 
-**Crédit** : 50.40 USD dépensés, 141.60 USD disponibles avant le 27.11.2026 ; aujourd'hui 50.40 / 192.00 USD.
+**Crédit** : 50.62 USD dépensés, 141.38 USD disponibles avant le 27.11.2026 ; aujourd'hui 50.62 / 192.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -31,7 +31,7 @@ Les 3 corrections END ont été produites en direct (0 erreur de schéma, 24 à 
 | F5_cas_thorax | fait | 1 | 1.21 |
 | T2_recup_lot600 | fait | 1 | 0.0 |
 | END_C_pilote | fait | 1 | 0.276 |
-| V1_fusions | a_faire | 0 |  |
+| V1_fusions | fait | 1 | 0.223 |
 | END_N_lot | a_faire | 0 |  |
 | END_N_recup | a_faire | 0 |  |
 | END_Q_lot | a_faire | 0 |  |
@@ -41,7 +41,13 @@ Les 3 corrections END ont été produites en direct (0 erreur de schéma, 24 à 
 | T3_pec_fiches_existantes | a_faire | 0 |  |
 | T4_reprise_rejets | a_faire | 0 |  |
 | T5_items_valides | sans_objet | 0 |  |
-| T7_transversal_lecons | a_faire | 0 |  |
+| T7_transversal_lecons | sans_objet | 0 |  |
 | T6_vague_urgences | sans_objet | 0 |  |
+| V2_N_lot | a_faire | 0 |  |
+| V2_N_recup | a_faire | 0 |  |
+| V2_Q_lot | a_faire | 0 |  |
+| V2_Q_recup | a_faire | 0 |  |
+| V2_C_lot | a_faire | 0 |  |
+| V2_C_recup | a_faire | 0 |  |
 
 Signature : AAI (Anthropic AI)

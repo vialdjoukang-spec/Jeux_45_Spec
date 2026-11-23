@@ -344,9 +344,14 @@
    "titre": "Vague 1 : valider les pathologies canoniques de CAR, PNE, NEP, GAS",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 3,
-   "etat": "a_faire",
-   "essais": 0,
-   "prompt": "Lis projets/ouvrier/MISSION_45SPEC.md et content/pathologies/fusions_END.json (exemple validé par Claude). Pour chacune des spécialités CAR, PNE, NEP et GAS, liste les grappes proposées par canoniques() de scripts/produire_notions_questions.py (python3 -c \"import sys;sys.path.insert(0,'scripts');import produire_notions_questions as P;[print(c['id'],'|',c['entite']['nom'],'|',len(c['portes'])) for c in P.canoniques('CAR')]\"), repère les grappes qui désignent la même maladie (même pathologie dans plusieurs SSP) et celles qui mélangent deux maladies différentes, puis écris content/pathologies/fusions_<SPEC>.json au même format (groupes {nom, entites:[entiteId…]}). Ne fusionne jamais deux maladies distinctes ; une complication grave et distincte (ex. crise aiguë) reste une pathologie à part. Mets « fait » quand les 4 fichiers existent ; donne le nombre de pathologies avant et après."
+   "etat": "fait",
+   "essais": 1,
+   "prompt": "Lis projets/ouvrier/MISSION_45SPEC.md et content/pathologies/fusions_END.json (exemple validé par Claude). Pour chacune des spécialités CAR, PNE, NEP et GAS, liste les grappes proposées par canoniques() de scripts/produire_notions_questions.py (python3 -c \"import sys;sys.path.insert(0,'scripts');import produire_notions_questions as P;[print(c['id'],'|',c['entite']['nom'],'|',len(c['portes'])) for c in P.canoniques('CAR')]\"), repère les grappes qui désignent la même maladie (même pathologie dans plusieurs SSP) et celles qui mélangent deux maladies différentes, puis écris content/pathologies/fusions_<SPEC>.json au même format (groupes {nom, entites:[entiteId…]}). Ne fusionne jamais deux maladies distinctes ; une complication grave et distincte (ex. crise aiguë) reste une pathologie à part. Mets « fait » quand les 4 fichiers existent ; donne le nombre de pathologies avant et après.",
+   "dernier": {
+    "date": "2026-11-23T22:38:59+00:00",
+    "cout_usd": 0.223,
+    "resume": "Les 4 fichiers content/pathologies/fusions_CAR.json, fusions_PNE.json, fusions_NEP.json et fusions_GAS.json existent, au format de fusions_END.json. Le nombre de pathologies passe de 95 à 66 en CAR, de 48 à 34 en PNE, de 48 à 37 en NEP et de 109 à 86 en GAS (300 → 223 au total). Les complications graves distinctes (perforation, mégacôlon toxique, phéochromocytome, thrombose de stent, FPIES, exacerbation de BPCO) et les grappes ambiguës restent à part ; les fusions sont à valider par Claude."
+   }
   },
   {
    "id": "END_N_lot",
