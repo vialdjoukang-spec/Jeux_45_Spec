@@ -105,7 +105,7 @@ def message_utilisateur(c):
 def params(c, modele):
     return {"model": modele, "max_tokens": 4000 * c["poids"] + 2000,
             "system": [{"type": "text", "text": SYSTEME, "cache_control": {"type": "ephemeral"}}],
-            "tools": [OUTIL], "tool_choice": {"type": "tool", "name": "emettre_items"},
+            "tools": [OUTIL], "tool_choice": {"type": "auto"},
             "messages": [{"role": "user", "content": message_utilisateur(c)}]}
 
 
@@ -180,7 +180,9 @@ def cmd_pilote(args):
     cl = client()
     for c in cibles:
         t = time.time(); m = cl.messages.create(**params(c, args.modele))
-        bloc = next(b for b in m.content if b.type == "tool_use")
+        bloc = next((b for b in m.content if b.type == "tool_use"), None)
+        if bloc is None:
+            print(f"{c['id']} : le modèle n'a pas appelé l'outil ; items non écrits"); continue
         err = valider(bloc.input, c); ecrire(c, bloc.input, args.modele, m.usage.model_dump(), err)
         print(f"{c['id']}: {len(bloc.input.get('items', []))} item(s), {len(err)} erreur(s), "
               f"{m.usage.output_tokens} tokens de sortie, {time.time()-t:.0f} s → {chemin_sortie(c)}")
