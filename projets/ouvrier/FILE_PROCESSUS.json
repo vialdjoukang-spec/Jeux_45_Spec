@@ -244,6 +244,15 @@
    "prompt": "Lis d'abord projets/ouvrier/MISSION_45SPEC.md et applique ses règles constantes. Exécute T1 : python scripts/produire_fiches_claude.py pilote --n 3 sur trois spécialités variées (dont une urgence vitale), contrôle chaque fiche (0 erreur de schéma, moins de 16 000 tokens de sortie, priseEnCharge complète, posologies suisses), corrige le prompt si nécessaire et refais le pilote, puis lance python scripts/produire_fiches_claude.py soumettre --max 600. Mets « fait » quand le lot est soumis et batchs_fiches.json committé."
   },
   {
+   "id": "F2_examens_vides",
+   "titre": "Paraclinique F2 : compléter les 41 examens vides",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 3,
+   "etat": "a_faire",
+   "essais": 0,
+   "prompt": "Lis projets/ouvrier/MISSION_45SPEC.md (règles constantes). Dans conception/donnees/paraclinique/topographie/*/*.json, 41 examens ont leurs champs vides (discriminant vide). Remplis pour chacun : visees, signeRecherche, seuil, indication, discriminant, avantageSelectif, plutotQue, limite, precautions, irradiation_mSv (0 hors rayons X), delai, et bulle {def, pourquoi, confusion, retenir}, au niveau et dans le style exact des examens déjà remplis du même fichier (phrases verbales, chaque chiffre suivi de sa source datée « selon <société> (<document>, <année>) », recommandations suisses d'abord : OFSP, SSMI, SSED, SSC, Swissmedic, puis ESC, ERS, EAU, ADA, EAACI…). Vérifie chaque seuil par une recherche web ; ce qui reste incertain va dans le champ aVerifier de l'examen. Ne touche à aucun examen déjà rempli. Lance ensuite python3 conception/outils/paraclinique/construire_reseau_paraclinique.py (il doit afficher 0 à compléter) et python3 projets/outils/jauges.py. Mets « fait » quand les 41 sont remplis."
+  },
+  {
    "id": "T2_recup_lot600",
    "titre": "45 Spec T2 : récupération du lot des 600 fiches",
    "commande": "python scripts/produire_fiches_claude.py recuperer && python scripts/ebaucher_arenes.py",
