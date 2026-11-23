@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-23 01:24
+# Audit automatique — 2026-11-23 02:29
 
-8 fichier(s) : 3 🟩 intégrables · 4 🟧 à compléter · 1 🟥 refusés.
+12 fichier(s) : 6 🟩 intégrables · 5 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -20,6 +20,14 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟧 `03_electrolytes_rein_acide-base.json` : remplissage 99 % (372/374) · 2 marqueur(s) <…> restant(s)
 - aVerifier déclarés : 17
 
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/1_Theorie/PB04_Analyses_Foie_Pancreas_Digestif_29-analyses_production_XAi.json`
+- 🟧 `04_foie_pancreas_digestif.json` : remplissage 100 % (491/493) · 9 marqueur(s) <…> restant(s)
+- aVerifier déclarés : 19
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/1_Theorie/PB05_Analyses_Cardiaque_Vasculaire_Lipides_14-analyses_production_XAi.json`
+- 🟩 `05_cardiaque_vasculaire_lipides.json` : remplissage 99 % (236/238)
+- aVerifier déclarés : 11
+
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/2_Pratique/PB01-PR_Analyses_Hematologie_31-analyses_PRATIQUE_production_XAi.json`
 - 🟩 `01_hematologie.json` : remplissage 100 % (62/62)
 - aVerifier déclarés : 1
@@ -31,6 +39,14 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/2_Pratique/PB03-PR_Analyses_Electrolytes_Rein_Acide-base_22-analyses_PRATIQUE_production_XAi.json`
 - 🟩 `03_electrolytes_rein_acide-base.json` : remplissage 100 % (44/44)
 - aVerifier déclarés : 2
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/2_Pratique/PB04-PR_Analyses_Foie_Pancreas_Digestif_29-analyses_PRATIQUE_production_XAi.json`
+- 🟩 `04_foie_pancreas_digestif.json` : remplissage 100 % (58/58)
+- aVerifier déclarés : 3
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/2_Pratique/PB05-PR_Analyses_Cardiaque_Vasculaire_Lipides_14-analyses_PRATIQUE_production_XAi.json`
+- 🟩 `05_cardiaque_vasculaire_lipides.json` : remplissage 100 % (28/28)
+- aVerifier déclarés : 1
 
 ### 🟧 `CLAUDE_A_AUDITER/ouvrier/LOT_COMPLEMENT_3_rachis_moelle_et_racines_rempli.json`
 - 🟧 `moelle_epiniere.json` : remplissage 23 % (35/150) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees
