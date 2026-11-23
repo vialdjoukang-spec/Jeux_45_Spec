@@ -1,6 +1,6 @@
 # Jauges « jouable » des 4 jeux
 
-Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **23.11.2026 17:43**.
+Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **23.11.2026 18:36**.
 
 ## Tétrade Fondation — 35 %
 
@@ -52,7 +52,7 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 
 | Date | Tétrade | Paraclinique | Transversal | 45 Spec |
 |---|---:|---:|---:|---:|
-| 23.11.2026 17:43 | 35 % | 95 % | 10 % | 2 % |
+| 23.11.2026 18:36 | 35 % | 95 % | 10 % | 2 % |
 | 23.11.2026 14:53 | 35 % | 78 % | 10 % | 2 % |
 | 23.11.2026 13:44 | 35 % | 77 % | 10 % | 2 % |
 | 23.11.2026 13:44 | 65 % | 77 % | 25 % | 16 % |
