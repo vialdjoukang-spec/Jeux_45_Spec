@@ -26,7 +26,7 @@ red = len(re.findall(r'^\s+"[^"]+": \{"dossier"', open("conception/outils/system
 interp = J("conception/prototypes/moteur/interpretations.json"); n_int = sum(len(v) for k, v in interp.items() if k != "_meta" and isinstance(v, dict))
 i3d = J("conception/prototypes/moteur/anatomie3d/index.json")["organes"] if os.path.exists("conception/prototypes/moteur/anatomie3d/index.json") else {}
 o3d = sum(1 for v in i3d.values() if v.get("statut") == "produit")
-arene = os.path.exists("conception/prototypes/moteur/arene.js")
+arene = os.path.exists("conception/prototypes/moteur/arene.html")
 T = jeu("Tétrade Fondation", [("systèmes rédigés", red, 14, 45), ("interprétations de courbes", n_int, 119, 10), ("organes en 3D réelle", o3d, 124, 15), ("puzzles sur le moteur d'arène", int(arene), 1, 30)])
 
 # 2. Paraclinique
