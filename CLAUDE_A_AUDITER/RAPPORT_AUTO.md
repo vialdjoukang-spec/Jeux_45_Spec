@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-22 22:46
+# Audit automatique — 2026-11-23 00:08
 
-54 fichier(s) : 51 🟩 intégrables · 3 🟧 à compléter · 0 🟥 refusés.
+58 fichier(s) : 54 🟩 intégrables · 4 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -30,6 +30,19 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/01_Encephale/2_Pratique/P01-01-IMG-PR_Imagerie_Encephale_15-examens_PRATIQUE_production_XAi.json`
 - 🟩 `encephale.json` : remplissage 100 % (30/30)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/02_Meninges_et_LCR/1_Theorie/P01-02_Examens_Meninges_et_LCR_7-examens_production_XAi.json`
+- 🟩 `meninges_et_lcr.json` : remplissage 90 % (137/152)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/02_Meninges_et_LCR/2_Pratique/P01-02-PR_Examens_Meninges_et_LCR_7-examens_PRATIQUE_production_XAi.json`
+- 🟩 `meninges_et_lcr.json` : remplissage 100 % (14/14)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/03_Hypophyse_et_hypothalamus/1_Theorie/P01-03-BIO_Biologie_Hypophyse_et_hypothalamus_6-examens_production_XAi.json`
+- 🟩 `hypophyse_et_hypothalamus.json` : remplissage 91 % (120/132)
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/03_Hypophyse_et_hypothalamus/1_Theorie/P01-03-FCT_Exploration_fonctionnelle_Hypophyse_et_hypothalamus_5-examens_production_XAi.json`
+- 🟧 `hypophyse_et_hypothalamus.json` : remplissage 84 % (88/105)
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/04_Nerfs_craniens/1_Theorie/P01-04_Examens_Nerfs_craniens_8-examens_production_XAi.json`
 - 🟩 `nerfs_craniens.json` : remplissage 89 % (151/170)
