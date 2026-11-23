@@ -78,6 +78,7 @@ for(const x of[bb.min.x,bb.max.x])for(const y of[bb.min.y,bb.max.y])for(const z 
 const marge=C.marge??10;L-=marge;Rr+=marge;document.documentElement.style.setProperty('--cx',((L+Rr)/2/W*100)+'%');
 /* ---------- graphe ---------- */
 await document.fonts.load('12.5px A');await document.fonts.load('700 10px A');await document.fonts.ready;
+const organeDe=n=>{for(let m=n;m;m=byId[m.de[0]])if(ORG.has(m.id))return m.id;return null;};const ORG=new Set(Object.keys((await fetch(new URL('anatomie3d/index.json',import.meta.url)).then(r=>r.json()).catch(()=>({organes:{}}))).organes));
 const N=C.noeuds,byId=Object.fromEntries(N.map(n=>[n.id,n]));
 N.forEach(n=>{n.de=n.de||[];n.enf=[];});N.forEach(n=>n.de.forEach(p=>byId[p].enf.push(n.id)));
 const prof=n=>n._p??(n._p=n.de.length?1+Math.max(...n.de.map(p=>prof(byId[p]))):0);N.forEach(prof);
@@ -112,7 +113,7 @@ const ouvert=new Set(),pile=[];
 let espace=Q.get('espace')||C.espace||'anatomie';
 const visible=n=>(!n.espace||n.espace===espace)&&(!n.de.length||n.de.some(p=>ouvert.has(p)&&visible(byId[p])));
 function replier(id){ouvert.delete(id);for(const c of byId[id].enf)replier(c);}
-for(const n of N)n.el.onclick=()=>{if(n.fenetre){ouvrirFenetre(n.fenetre,n.texte,n.couleur);return;}if(!n.enf.length&&!n.aFen)return;if(ouvert.has(n.id))replier(n.id);else{ouvert.add(n.id);pile.push(n.id);}dessiner();};
+for(const n of N)n.el.onclick=()=>{if(n.fenetre){ouvrirFenetre(n.fenetre,n.texte,n.couleur,organeDe(n));return;}if(!n.enf.length&&!n.aFen)return;if(ouvert.has(n.id))replier(n.id);else{ouvert.add(n.id);pile.push(n.id);}dessiner();};
 let tmr=null;repli.onclick=()=>{clearTimeout(tmr);tmr=setTimeout(()=>{while(pile.length){const id=pile.pop();if(ouvert.has(id)){replier(id);break;}}dessiner();},240);};
 repli.ondblclick=()=>{clearTimeout(tmr);ouvert.clear();pile.length=0;dessiner();};
 /* ---------- traits : horizontale (ou oblique) puis verticale qui groupe ---------- */
@@ -205,7 +206,7 @@ const ESP=[['anatomie','Anatomie'],['physiologie','Physiologie'],['semiologie','
 espaces.innerHTML=ESP.map(([k,l])=>'<button data-e="'+k+'">'+l+'</button>').join('');
 const majEsp=()=>espaces.querySelectorAll('button').forEach(b=>b.classList.toggle('actif',b.dataset.e===espace));
 espaces.querySelectorAll('button').forEach(b=>b.onclick=()=>{espace=b.dataset.e;majEsp();dessiner();});majEsp();
-if(Q.get('fenetre')){const n=byId[Q.get('fenetre')];setTimeout(()=>ouvrirFenetre(n.fenetre,n.texte,n.couleur),0);}
+if(Q.get('fenetre')){const n=byId[Q.get('fenetre')];setTimeout(()=>ouvrirFenetre(n.fenetre,n.texte,n.couleur,organeDe(n)),0);}
 addEventListener('wheel',e=>{if(e.target.closest('#bulle,#fdet'))return;oy-=e.deltaY*0.6;dessiner();},{passive:true});
 setTheme();if(Q.get('bulle'))montrer(byId[Q.get('bulle')]);document.title='PRET';
 </script></body></html>
