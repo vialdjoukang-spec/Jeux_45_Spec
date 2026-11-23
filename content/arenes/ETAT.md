@@ -1,13 +1,13 @@
 # État des 45 arènes (généré par scripts/ebaucher_arenes.py)
 
-Tuiles (une entité peut ouvrir plusieurs arènes) : 4121 · questions cibles : 123514 · fiches produites : 2.
+Tuiles (une entité peut ouvrir plusieurs arènes) : 4121 · questions cibles : 123514 · fiches produites : 175.
 
 | Code | Spécialité | Tuiles | Questions cibles | Fiches produites |
 |---|---|---|---|---|
 | ALL | Allergologie et immunologie clinique | 54 | 1656 | 0 |
 | ANE | Anesthésiologie | 7 | 200 | 0 |
 | ANG | Angiologie | 67 | 2059 | 0 |
-| CAR | Cardiologie | 175 | 5423 | 2 |
+| CAR | Cardiologie | 175 | 5423 | 175 |
 | CHI | Chirurgie | 126 | 3858 | 0 |
 | CCT | Chirurgie cardiaque et vasculaire thoracique | 15 | 463 | 0 |
 | CMA | Chirurgie de la main | 12 | 384 | 0 |

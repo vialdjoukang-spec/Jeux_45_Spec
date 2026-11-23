@@ -1,15 +1,12 @@
-# Ouvrier automatique — 2026-11-23 02:30 UTC
+# Ouvrier automatique — 2026-11-23 02:37 UTC
 
-Dernier passage : **j45_pilote_items_haiku** → en_cours (0.00 USD).
+Dernier passage : **j45_recup_CAR** → fait (0.00 USD).
 
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/Jeux_45_Spec/Jeux_45_Spec/scripts/produire_items_claude.py", line 140, in ecrire
-    for k, it in enumerate(items_obj["items"], 1):
-                           ~~~~~~~~~^^^^^^^^^
-KeyError: 'items'
+msgbatch_01CZYim7ZgfZqNEL2WYvVWYX : 173 fiches écrites, 0 échecs (relancer « soumettre » les reprend).
+arènes : 45 | tuiles : 4121 | questions cibles : 123514 | fiches : 175
 
 
-**Crédit** : 0.95 USD dépensés, 99.05 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.95 / 25.00 USD.
+**Crédit** : 8.79 USD dépensés, 91.21 USD disponibles avant le 27.11.2026 ; aujourd'hui 8.79 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -20,8 +17,8 @@ KeyError: 'items'
 | j45_pilote_fiches | fait | 3 | 0.0 |
 | j45_lot_CAR | fait | 1 | 0.0 |
 | j45_pilote_items | fait | 1 | 0.0 |
-| j45_pilote_items_haiku | en_cours | 1 | 0.0 |
-| j45_recup_CAR | a_faire | 0 |  |
+| j45_pilote_items_haiku | attente_decision | 1 | 0.0 |
+| j45_recup_CAR | fait | 1 | 0.0 |
 | complement_5 | a_faire | 0 |  |
 | complement_6 | a_faire | 0 |  |
 | complement_7 | a_faire | 0 |  |
