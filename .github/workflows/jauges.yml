@@ -1,0 +1,33 @@
+name: Jauges des 4 jeux
+on:
+  schedule: [{cron: "*/5 * * * *"}]
+  push:
+    branches: [main, veille/audit-medical]
+    paths-ignore: ["projets/JAUGES.md", "projets/jauges.json"]
+  workflow_dispatch:
+concurrency: {group: jauges, cancel-in-progress: true}
+permissions: {contents: write}
+jobs:
+  jauges:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main, fetch-depth: 0}
+      - name: Mesurer main + branche d'audit (travail de l'agent compris)
+        run: |
+          git config user.name "jauges-bot"; git config user.email "jauges-bot@users.noreply.github.com"
+          git checkout -q -b mesure
+          git merge -q --no-edit origin/veille/audit-medical 2>/dev/null || git merge --abort 2>/dev/null || true
+          python3 projets/outils/jauges.py
+          cp projets/JAUGES.md projets/jauges.json /tmp/
+      - name: Publier si une jauge a bougé
+        run: |
+          git checkout -q -f main
+          for i in 1 2 3 4; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            cp /tmp/JAUGES.md /tmp/jauges.json projets/
+            git add projets/JAUGES.md projets/jauges.json
+            git diff --cached --quiet && exit 0
+            git commit -qm "Jauges : $(python3 -c "import json;print(' · '.join(f\"{j['nom']} {j['pct']} %\" for j in json.load(open('projets/jauges.json'))['jeux']))") [skip ci]"
+            git push -q origin main && exit 0; sleep 7
+          done
