@@ -246,7 +246,8 @@
     "date": "2026-11-23T12:44:09+00:00",
     "cout_usd": 0.26,
     "resume": "Le pilote de trois fiches (anesthésie, néphrologie avec choc septique/acidose lactique, médecine intensive) donne 0 erreur de schéma, 10 à 11,5 mille tokens de sortie et une priseEnCharge complète ; un premier essai avait une fiche tronquée et des posologies vagues, donc j'ai ajouté au prompt une règle de complétude et de posologie chiffrée (option --id ajoutée au script). Le lot de 600 fiches est soumis (msgbatch_016PU6XSwP53bkdXeSXfrvSs, enregistré dans scripts/batchs_fiches.json) ; je l'estime à environ 50 à 60 USD, au-dessus des 15 USD prévus pour T1 mais sous le plafond total de 100 USD (16,7 déjà dépensés), donc Vial doit confirmer ce coût. Les fiches pilotes sont sous content/fiches/ et T2 doit récupérer le lot."
-   }
+   },
+   "decision_vial": "2026-11-23 : Vial confirme le coût du lot de 600 fiches (≈ 50–60 USD), dans le plafond total de 100 USD ; les fiches doivent se conformer aux stratégies en vigueur."
   },
   {
    "id": "END_pilote_notions_questions",
@@ -284,7 +285,8 @@
    "etat": "a_faire",
    "essais": 0,
    "fin": "lots_recuperes",
-   "suivi": "batchs_fiches.json"
+   "suivi": "batchs_fiches.json",
+   "prompt": "Lis projets/ouvrier/MISSION_45SPEC.md (règles constantes). Récupère le lot (python scripts/produire_fiches_claude.py recuperer), puis contrôle chaque fiche contre les stratégies en vigueur de Vial, à 0 token par script : 0 erreur de schéma ; priseEnCharge holistique complète (but, moyens avec accueil, pharmacologique chiffré, non pharmacologique par catégorie dont social et assurances, transversal ; conduite urgence | hors urgence avec étapes qui fait quoi d'abord, en même temps, ensuite ; pronostic ; surveillance avec critères de sortie ; prévention 1re, 2e, 3e) ; examens avec visée (1re intention, gold standard, retentissement, étiologique, complications, thérapeutique, sortie) et attendu chiffré ; presentation.atypique remplie ; glossaire couvrant chaque sigle employé ; aucune posologie vague (« selon protocole », « selon l'AIPS ») ; sources suisses d'abord. Une fiche non conforme ou tronquée part dans la liste de T4 (reprise en lot, moitié prix) au lieu d'être corrigée une à une. Lance ensuite python scripts/ebaucher_arenes.py. Mets « fait » quand toutes les fiches du lot sont récupérées et triées (conformes / à reprendre), avec le décompte dans le résumé."
   },
   {
    "id": "T3_pec_fiches_existantes",

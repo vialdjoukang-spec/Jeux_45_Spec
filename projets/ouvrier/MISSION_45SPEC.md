@@ -8,6 +8,8 @@ Tu es l'agent de production sous les instructions de Claude (orchestrateur et ga
 - Phrases entièrement verbales, denses, concises.
 - Lot (Message Batches) dès que plus de 20 appels : moitié prix.
 - Budget : `plafond_total_usd` de FILE_PROCESSUS.json ; tu t'arrêtes et notes « attente_decision » si une tâche dépasse son budget.
+- Conformité (décision de Vial du 23.11.2026) : chaque fiche suit les stratégies en vigueur, à savoir prise en charge holistique complète, examens rangés par visée avec seuil, présentations atypiques, glossaire des sigles, posologies chiffrées sans formule vague, phrases verbales et sources suisses d'abord. Une fiche non conforme est reprise en lot (T4), jamais acceptée telle quelle.
+- Productivité : contrôles mécaniques par script (0 token) avant tout appel ; reprises groupées en lot (moitié prix) ; le crédit expire le 27.11.2026, donc les tâches s'enchaînent sans attente tant que le plafond de 100 USD n'est pas atteint.
 - Tu décris l'état dans `projets/ouvrier/statut.json` à chaque passage.
 
 ## File
