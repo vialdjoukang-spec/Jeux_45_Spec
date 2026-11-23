@@ -1,15 +1,15 @@
 # Jauges « jouable » des 4 jeux
 
-Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **23.11.2026 13:40**.
+Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **23.11.2026 13:41**.
 
-## Tétrade Fondation — 25 %
+## Tétrade Fondation — 35 % (+10)
 
-`█████░░░░░░░░░░░░░░░`
+`███████░░░░░░░░░░░░░`
 
 | Critère | Fait | Cible | Poids |
 |---|---:|---:|---:|
 | systèmes rédigés | 6 | 14 | 45 |
-| interprétations de courbes | 4 | 119 | 10 |
+| interprétations de courbes | 119 | 119 | 10 |
 | organes en 3D réelle | 46 | 124 | 15 |
 | puzzles sur le moteur d'arène | 0 | 1 | 30 |
 
@@ -52,6 +52,7 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 
 | Date | Tétrade | Paraclinique | Transversal | 45 Spec |
 |---|---:|---:|---:|---:|
+| 23.11.2026 13:41 | 35 % | 59 % | 10 % | 1 % |
 | 23.11.2026 13:40 | 25 % | 59 % | 10 % | 1 % |
 
 Signature : AAI (Anthropic AI)
