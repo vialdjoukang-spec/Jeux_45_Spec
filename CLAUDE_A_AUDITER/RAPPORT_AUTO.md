@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-23 01:13
 
-4 fichier(s) : 0 🟩 intégrables · 3 🟧 à compléter · 1 🟥 refusés.
+6 fichier(s) : 0 🟩 intégrables · 5 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -16,6 +16,20 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 ### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/01_Tete_et_encephale/2_Pratique/PE01-PR_Endoscopies_Tete_et_encephale_2-fiches_PRATIQUE_production_XAi.json`
 - 🟧 `nasofibroscopie.json` : remplissage 0 % (0/0)
 - 🟧 `rhinoscopie.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 2
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/02_Cou/1_Theorie/PE02_Endoscopies_Cou_4-fiches_production_XAi.json`
+- 🟧 `laryngoscopie_directe_en_suspension.json` : remplissage 0 % (0/0)
+- 🟧 `laryngoscopie_indirecte_et_nasofibroscop.json` : remplissage 0 % (0/0)
+- 🟧 `panendoscopie_orl.json` : remplissage 0 % (0/0)
+- 🟧 `videostroboscopie.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 4
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/02_Cou/2_Pratique/PE02-PR_Endoscopies_Cou_4-fiches_PRATIQUE_production_XAi.json`
+- 🟧 `laryngoscopie_directe_en_suspension.json` : remplissage 0 % (0/0)
+- 🟧 `laryngoscopie_indirecte_et_nasofibroscop.json` : remplissage 0 % (0/0)
+- 🟧 `panendoscopie_orl.json` : remplissage 0 % (0/0)
+- 🟧 `videostroboscopie.json` : remplissage 0 % (0/0)
 - aVerifier déclarés : 2
 
 ### 🟧 `CLAUDE_A_AUDITER/ouvrier/LOT_COMPLEMENT_3_rachis_moelle_et_racines_rempli.json`
