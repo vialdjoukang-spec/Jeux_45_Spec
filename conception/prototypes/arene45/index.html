@@ -43,7 +43,7 @@ main{margin-left:270px;padding:28px clamp(16px,3vw,40px) 90px}.col{max-width:110
 .why{display:none;color:var(--sous);font-size:13.5px;margin-top:4px}.corrige .why{display:block}
 .vf{margin-left:auto;display:flex;gap:6px;flex:0 0 auto}.vf button{font:700 12px "Atkinson Hyperlegible";padding:5px 10px;border-radius:99px;border:1px solid var(--trait);background:transparent;color:inherit;cursor:pointer;min-height:32px}.vf button.on{background:var(--bleu);color:#fff;border-color:var(--bleu)}
 .actions{display:flex;gap:10px;margin:16px 0;flex-wrap:wrap}
-.revele{background:var(--carte);border:1px solid var(--trait);border-radius:12px;padding:18px;margin-top:8px}.revele h2{font-size:24px;margin:4px 0 10px}
+.revele{background:transparent;border:1px solid var(--trait);border-radius:12px;padding:18px;margin-top:8px}.revele h2{font-size:24px;margin:4px 0 10px}
 .echelle{display:grid;grid-template-columns:140px 1fr;gap:6px 12px;font-size:14px;margin-top:12px}.echelle dt{font-weight:700;color:var(--bleu)}.echelle dd{margin:0}
 ul.notions{list-style:none;padding:0;margin:8px 0}ul.notions li{display:flex;gap:8px;padding:4px 0;font-size:14px}ul.notions .ms{color:var(--ok)}
 #vide{display:none}
@@ -56,6 +56,7 @@ ul.notions{list-style:none;padding:0;margin:8px 0}ul.notions li{display:flex;gap
 <div id="duelSide" aria-live="polite"><div class="pane"><span>Série en cours</span><b id="dEtape">—</b></div><div class="pane"><span>Temps restant</span><b id="dChrono">—</b></div><div class="pane"><span>Score de la série</span><b id="dScore">0</b></div>
 <button class="btn sec" id="abandon"><span class="ms">close</span>Quitter la série</button><p class="note">Aucun intitulé n'apparaît ici pendant la série : le diagnostic se mérite.</p></div></aside>
 <main><div class="col" id="vue"></div></main>
+<script src="correction.js" data-base=""></script>
 <script>
 {
 const $=s=>document.querySelector(s),esc=t=>String(t??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -103,7 +104,7 @@ function fin(){clearInterval(tick);const n=serie.questions.length,ok=score/n>=.7
  $('#vue').innerHTML=`<div class="revele"><span class="tag">${ok?'Série réussie : cours débloqué':'Série à reprendre : remédiation programmée'}</span><span class="tag">${String(score.toFixed(1)).replace('.0','').replace('.',',')} / ${n}</span>
  <h2>${esc(r.pathologie||'Pathologie')}</h2>${r.cim10?`<p class="note">CIM-10 ${esc(r.cim10)}</p>`:''}
  <h3>Notions explorées par cette série</h3><ul class="notions">${vues.map(id=>`<li><span class="ms">check_circle</span>${esc((r.notions||{})[id]||id)}</li>`).join('')}</ul>
- <h3>Correction en 7 marches</h3><dl class="echelle">${MARCHES.filter(([m])=>dern[m]).map(([m,l])=>`<dt>${l}</dt><dd>${esc(dern[m])}</dd>`).join('')}</dl>
+ ${serie.correction&&window.Correction?Correction.rendre(serie.correction,MARCHES.filter(([m])=>dern[m]).map(([m])=>[m,dern[m]])):`<h3>Correction en 7 marches</h3><dl class="echelle">${MARCHES.filter(([m])=>dern[m]).map(([m,l])=>`<dt>${l}</dt><dd>${esc(dern[m])}</dd>`).join('')}</dl>`}
  <div class="actions"><button class="btn" id="re"><span class="ms">swords</span>Série suivante</button><button class="btn sec" id="carte"><span class="ms">map</span>Retour à la carte</button></div></div>`;
  $('#re').onclick=lancer;$('#carte').onclick=accueil;}
 $('#abandon').onclick=accueil;

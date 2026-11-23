@@ -21,6 +21,33 @@ try:
     canon = {c: len(P.canoniques(c)) for c in [v["code"] for v in ref.values()]}
 except Exception as ex:      # la carte reste utilisable sans la chaîne de production
     print("canoniques indisponibles :", ex); canon = {}
+def imbriquer(plat):
+    """Arbre à plat (id, parent) → arbre imbriqué {t, i, e, pec, notion} lu par l'interface."""
+    if not plat:
+        return None
+    if isinstance(plat, dict):
+        return plat
+    par = {}
+    for x in plat:
+        par.setdefault(x.get("parent"), []).append(x)
+    def n(x):
+        return {k: v for k, v in {"t": x["t"], "i": x.get("i"), "pec": x.get("pec"), "notion": x.get("notion"),
+                                  "e": [n(y) for y in par.get(x["id"], [])]}.items() if v}
+    return n(par[None][0])
+
+
+def correction(cid, spec):
+    """Correction enrichie d'une pathologie : produite (content/corrections) ou référence d'or (conception/donnees/corrections)."""
+    f = f"content/corrections/{spec}/{cid}.json"
+    if not os.path.exists(f):
+        return None
+    d = json.load(open(f, encoding="utf-8"))
+    return {"theme": d["theme"], "ssp": {**d["ssp"], "algorithme": imbriquer(d["ssp"]["algorithme"])},
+            "notions": [{"id": x["id"], "titre": x["titre"], "rubriques": x.get("rubriques", []), "comment": x["comment"], "sources": x.get("sources", []),
+                         "cours": {k: v for k, v in {"tableau": x.get("tableau"), "arbre": imbriquer(x.get("arbre")), "points": x.get("points")}.items() if v}} for x in d["notions"]],
+            "pec": {p["cle"]: p for p in d.get("priseEnCharge", [])}}
+
+
 specs = []
 for k, v in ref.items():
     c = v["code"]; N = [json.load(open(f, encoding="utf-8")) for f in glob.glob(f"content/notions/{c}/*.json")]
@@ -37,11 +64,16 @@ for k, v in ref.items():
             deck.append({"id": f"P{i + 1:03d}-{sid}", "progressive": not sid.startswith("isolee_"),
                          "questions": [{kk: q[kk] for kk in ("format", "situation", "diagnosticMasque", "stem", "prompt", "options", "statements", "notions", "angle", "difficulte", "ladder", "sources") if kk in q} for q in qs],
                          "revele": {"pathologie": d["entite"], "cim10": d.get("cim10"), "notions": {n["id"]: n["enonce"] for n in json.load(open(f.replace("questions", "notions"), encoding="utf-8"))["notions"]} if os.path.exists(f.replace("questions", "notions")) else {}},
-                         "audite": (d.get("audit") or {}).get("rejector") == "pass"})
+                         "audite": (d.get("audit") or {}).get("rejector") == "pass",
+                         "correction": correction(os.path.basename(f)[:-5], c)})
     if deck:
         json.dump({"code": c, "series": deck}, open(f"{OUT}/decks/{c}.json", "w", encoding="utf-8"), ensure_ascii=False)
     specs.append({"code": c, "nom": v["nom"], "icone": ICONES.get(c, "medical_services"), "pathologies": canon.get(c, 0),
                   "notions": len(notions), "cochees": sum(n.get("couverture", {}).get("cochee", False) for n in notions),
                   "questions": sum(len(s["questions"]) for s in deck), "series": len(deck)})
+G = {k: v for k, v in json.load(open("conception/donnees/glossaire_sigles.json", encoding="utf-8")).items() if not k.startswith("_")}
+json.dump(G, open(f"{OUT}/sigles.json", "w", encoding="utf-8"), ensure_ascii=False)
+import shutil
+shutil.copy("conception/prototypes/commun/correction.js", f"{OUT}/correction.js")
 json.dump({"specs": specs}, open(f"{OUT}/specs.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"arène 45 : {len(specs)} spécialités, {sum(s['questions'] for s in specs)} questions, {sum(s['pathologies'] for s in specs)} pathologies canoniques")

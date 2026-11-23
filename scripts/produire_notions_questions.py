@@ -18,7 +18,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import produire_fiches_claude as PF  # noqa: E402  (cibles, client, options apprises, rivaux)
 
 R = PF.RACINE; MODELE = PF.MODELE_DEFAUT
-DOS = {"notions": os.path.join(R, "content", "notions"), "questions": os.path.join(R, "content", "questions")}
+DOS = {"notions": os.path.join(R, "content", "notions"), "questions": os.path.join(R, "content", "questions"), "correction": os.path.join(R, "content", "corrections")}
+PEC = {k: v for k, v in json.load(open(os.path.join(R, "conception", "donnees", "schemas", "prise_en_charge.json"), encoding="utf-8")).items() if not k.startswith(("$", "_", "title"))}
 SUIVI = os.path.join(R, "scripts", "batchs_notions_questions.json")
 RUBRIQUES = ["definition", "epidemiology", "basicSciences", "anamnesis", "clinicalExam", "presumptionRedFlags", "workupGoldStandard",
              "workupAlternatives", "positiveDiagnosis", "acuteManagement", "chronicManagement", "hospitalizationComplications",
@@ -53,6 +54,20 @@ QUESTION = O({
     "ladder": O({k: S() for k in ("zeroD", "mechanism", "semiology", "discriminant", "decision", "trap", "anchor")}),
     "sources": L(S(), 1, 4)})
 SCH_QUESTIONS = O({"questions": L(QUESTION, 16, 24)})
+CELLULE = {"anyOf": [S(), L(O({"t": S("Terme surligné"), "i": S("POURQUOI, en une à deux phrases : mécanisme, essai ou conséquence, et pourquoi pas les autres.")}), 1, 6)]}
+NOEUD = O({"id": S("n1, n2…"), "parent": {"anyOf": [S(), {"type": "null"}]}, "t": S("Texte court de la case"),
+           "i": S("Pourquoi, seuil ou définition : aucune case muette."), "pec": {"anyOf": [S("Clé d'un plan de priseEnCharge ci-dessous"), {"type": "null"}]},
+           "notion": {"anyOf": [S("id d'une notion de cours ci-dessous"), {"type": "null"}]}})
+SCH_CORRECTION = O({
+    "theme": S(),
+    "notions": L(O({"id": S("c1, c2…"), "titre": S(), "rubriques": L({"type": "string", "enum": RUBRIQUES}, 1, 4),
+                    "comment": S("Une phrase verbale : comment raisonner."),
+                    "tableau": {"anyOf": [O({"colonnes": L(S(), 2, 6), "lignes": L(L(CELLULE, 2, 6), 2, 20, "La 1re colonne répète la classe sur chaque ligne de ses sous-classes.")}), {"type": "null"}]},
+                    "arbre": {"anyOf": [L(NOEUD, 3, 30, "Arbre décisionnel à plat : chaque nœud cite son parent (null pour la racine)."), {"type": "null"}]},
+                    "points": L(S(), 1, 5), "sources": L(S(), 1, 4)}), 4, 9),
+    "ssp": O({"code": S(), "nom": S(), "officiel": {"type": "boolean"}, "algorithme": L(NOEUD, 6, 40, "Algorithme décisionnel du SSP à plat ; chaque feuille porte un « i » et, si c'est un aboutissement thérapeutique, une clé « pec ».")}),
+    "priseEnCharge": L(O({"cle": S(), "titre": S(), **PEC["properties"]}, ["cle", "titre"] + PEC["required"]), 1, 4)})
+
 
 REGLES = """RÈGLES BLOQUANTES (examen fédéral suisse de médecine humaine, format PROFILES)
 1. Français ; chaque phrase contient un verbe conjugué ; aucune phrase nominale.
@@ -69,7 +84,7 @@ Tu réponds UNIQUEMENT en appelant l'outil emettre_notions."""
 
 SYS_Q = f"""Tu es examinateur de l'examen fédéral suisse. À partir de la liste des notions d'une pathologie, tu écris des QUESTIONS de niveau examen qui explorent les contours de chaque notion.
 {REGLES}
-5. Formats : A = exactement 5 options dont une seule juste, distracteurs plausibles du même registre ; Kprim = exactement 4 affirmations vrai/faux ; MenuLong = 12 à 20 options homogènes (diagnostics, examens ou molécules), une à trois justes.
+5. Formats, dans la proportion de l'examen fédéral : environ 70 % de type A (exactement 5 options dont une seule juste, distracteurs plausibles du même registre), 20 % de Kprim (exactement 4 affirmations vrai/faux) et 10 % de menu long (12 à 20 options homogènes : diagnostics, examens ou molécules ; une à trois justes).
 6. Situation as Starting Point d'abord : la majorité des vignettes partent d'une plainte, d'un signe ou d'un résultat, et le diagnostic n'y figure pas (diagnosticMasque = true) ; aucun mot de la vignette, du titre ou de la question ne trahit le diagnostic.
 7. Écris au moins une SÉRIE progressive de 3 à 5 étapes : le même patient, suivi du premier contact à la sortie ou au suivi, chaque étape révélant de nouvelles données ; le diagnostic reste masqué jusqu'à ce qu'une étape demande de le poser.
 8. Chaque question cite 1 à 6 notions couvertes ; chaque notion de poids 2 ou 3 est couverte au moins deux fois sous deux angles différents (direct, application, piège).
@@ -77,6 +92,12 @@ SYS_Q = f"""Tu es examinateur de l'examen fédéral suisse. À partir de la list
 8ter. COUVERTURE OBLIGATOIRE (contrôle automatique après ta réponse) : avant d'émettre, dresse mentalement la liste de TOUTES les notions de poids 2 ou 3 ; chacune doit figurer dans le champ « notions » d'au moins DEUX questions, dont les « angle » diffèrent (par ex. direct puis application ou piège). Répartis-les : une question en cite 3 à 6, JAMAIS plus de 6 (le schéma rejette 7 ou plus). Les notions de poids 1 se glissent dans les Kprim et les menus longs. Vérifie à la fin que aucune notion de poids ≥ 2 n'est citée une seule fois.
 9. ladder : zéro-D → mécanisme → sémiologie → discriminant → décision → piège → ancre, une phrase chacun.
 Tu réponds UNIQUEMENT en appelant l'outil emettre_questions."""
+SYS_C = f"""Tu es examinateur de l'examen fédéral suisse et pédagogue. Tu écris la CORRECTION ENRICHIE d'une pathologie, qui sert de révision après chaque question.
+{REGLES}
+5. notions : 4 à 9 notions de cours, ordonnées simplement ; chacune a une phrase « comment » et, si c'est utile, un TABLEAU (ex. classe | sous-classe | chef de file | discriminant | particularité) dont chaque discriminant et chaque particularité est une cellule {{t, i}} où « i » dit POURQUOI (et pourquoi pas les autres), ou un ARBRE (escalade, démarche) dont chaque case porte son « i ».
+6. ssp : le SSP de départ le plus représentatif parmi les portes d'entrée (officiel PROFILES ou additionnel) et son algorithme décisionnel complet ; aucune case muette ; les aboutissements thérapeutiques renvoient à un plan « pec » ; une case qui sort du cadre dit vers quel SSP elle renvoie.
+7. priseEnCharge : 1 à 4 plans (par exemple urgence, forme non compliquée, long cours) au schéma holistique : but, moyens (accueil, pharmacologique avec posologies suisses, non pharmacologique, disciplines transversales), conduite en équipe urgence | hors urgence, pronostic, surveillance et critères de sortie, prévention ; dense et concis.
+Tu réponds UNIQUEMENT en appelant l'outil emettre_correction."""
 
 
 def cle(s):
@@ -127,12 +148,15 @@ def message(etape, c):
     if etape == "notions":
         return base + f"\n\nPlan attendu : {'monographique' if c['circuit'] != 'NON_MONOGRAPHIQUE' else 'non_monographique'}."
     n = json.load(open(chemin("notions", c), encoding="utf-8"))
+    if etape == "correction":
+        return base + "\n\nNOTIONS DE LA PATHOLOGIE (à reprendre en cours ordonnés) :\n" + "\n".join(f"{x['id']} [{x['rubrique']}] {x['enonce']}" for x in n["notions"])
     return base + "\n\nNOTIONS À COUVRIR :\n" + "\n".join(f"{x['id']} [{x['rubrique']}, {x['nature']}, poids {x['poids']}] {x['enonce']}" for x in n["notions"])
 
 
 def params(etape, c):
     opt = json.load(open(PF.OPTIONS)) if os.path.exists(PF.OPTIONS) else {}
-    sch, sysp, nom = (SCH_NOTIONS, SYS_N, "emettre_notions") if etape == "notions" else (SCH_QUESTIONS, SYS_Q, "emettre_questions")
+    sch, sysp, nom = {"notions": (SCH_NOTIONS, SYS_N, "emettre_notions"), "questions": (SCH_QUESTIONS, SYS_Q, "emettre_questions"),
+                      "correction": (SCH_CORRECTION, SYS_C, "emettre_correction")}[etape]
     return {"model": MODELE, "max_tokens": 60000, **({"thinking": {"type": "disabled"}} if opt.get("thinking_desactivable", True) else {}),
             "system": [{"type": "text", "text": sysp, "cache_control": {"type": "ephemeral"}}],
             "tools": [{"name": nom, "description": "Émet le résultat structuré.", "input_schema": sch}], "tool_choice": {"type": "auto"},
@@ -142,7 +166,7 @@ def params(etape, c):
 def valider(etape, d, c):
     import jsonschema
     try:
-        jsonschema.validate(d, SCH_NOTIONS if etape == "notions" else SCH_QUESTIONS)
+        jsonschema.validate(d, {"notions": SCH_NOTIONS, "questions": SCH_QUESTIONS, "correction": SCH_CORRECTION}[etape])
     except jsonschema.ValidationError as ex:
         return [f"SCHEMA: {ex.message[:160]}"]
     err = []
@@ -153,6 +177,20 @@ def valider(etape, d, c):
         manque = set(RUBRIQUES) - {n["rubrique"] for n in d["notions"]} if d["plan"] == "monographique" else set()
         if manque:
             err.append(f"rubriques sans notion : {sorted(manque)}")
+        return err
+    if etape == "correction":
+        cles = {p["cle"] for p in d["priseEnCharge"]}; ids_n = {n["id"] for n in d["notions"]}
+        for nom, arbre in [("ssp", d["ssp"]["algorithme"])] + [(n["id"], n["arbre"] or []) for n in d["notions"]]:
+            ids = {x["id"] for x in arbre}; parents = {x["parent"] for x in arbre}
+            for x in arbre:
+                if x["parent"] and x["parent"] not in ids:
+                    err.append(f"{nom} : parent inconnu {x['parent']}")
+                if x["id"] not in parents and not (x["i"] or x["pec"] or x["notion"]):
+                    err.append(f"{nom} : feuille muette « {x['t'][:30]} »")
+                if x["pec"] and x["pec"] not in cles:
+                    err.append(f"{nom} : plan pec inconnu {x['pec']}")
+                if x["notion"] and x["notion"] not in ids_n:
+                    err.append(f"{nom} : notion inconnue {x['notion']}")
         return err
     nid = {n["id"] for n in json.load(open(chemin("notions", c), encoding="utf-8"))["notions"]}
     mots = [m for m in cle(c["entite"]["nom"]).split() if len(m) > 4][:3]
@@ -186,7 +224,7 @@ def ecrire(etape, c, d, usage, err):
 def selection(etape, a):
     cs = [c for c in canoniques(a.spec) if not a.id or any(x in c["id"] for x in a.id.split(","))]
     cs = [c for c in cs if not os.path.exists(chemin(etape, c))]
-    if etape == "questions":
+    if etape in ("questions", "correction"):
         cs = [c for c in cs if os.path.exists(chemin("notions", c))]
     cs.sort(key=lambda c: (c["freq"], c["id"]))
     return cs[: a.max] if a.max else cs
@@ -230,6 +268,6 @@ def recuperer(etape, a):
 
 
 if __name__ == "__main__":
-    ap = argparse.ArgumentParser(); ap.add_argument("etape", choices=["notions", "questions"]); ap.add_argument("mode", choices=["pilote", "soumettre", "recuperer"])
+    ap = argparse.ArgumentParser(); ap.add_argument("etape", choices=["notions", "questions", "correction"]); ap.add_argument("mode", choices=["pilote", "soumettre", "recuperer"])
     ap.add_argument("--spec"); ap.add_argument("--id"); ap.add_argument("--n", type=int, default=3); ap.add_argument("--max", type=int)
     a = ap.parse_args(); {"pilote": pilote, "soumettre": soumettre, "recuperer": recuperer}[a.mode](a.etape, a)
