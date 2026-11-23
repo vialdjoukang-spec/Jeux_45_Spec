@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-23 01:20
 
-20 fichier(s) : 0 🟩 intégrables · 19 🟧 à compléter · 1 🟥 refusés.
+22 fichier(s) : 0 🟩 intégrables · 21 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -101,6 +101,18 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟧 `vision_des_couleurs.json` : remplissage 0 % (0/0)
 - 🟧 `electroretinogramme.json` : remplissage 0 % (0/0)
 - aVerifier déclarés : 13
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/02_Cou/1_Theorie/PF02_Explorations_fonctionnelles_Cou_3-fiches_production_XAi.json`
+- 🟧 `bilan_de_deglutition.json` : remplissage 0 % (0/0)
+- 🟧 `doppler_transcranien.json` : remplissage 0 % (0/0)
+- 🟧 `laryngoscopie_avant_et_apres_thyroidecto.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 7
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/02_Cou/2_Pratique/PF02-PR_Explorations_fonctionnelles_Cou_3-fiches_PRATIQUE_production_XAi.json`
+- 🟧 `bilan_de_deglutition.json` : remplissage 0 % (0/0)
+- 🟧 `doppler_transcranien.json` : remplissage 0 % (0/0)
+- 🟧 `laryngoscopie_avant_et_apres_thyroidecto.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 7
 
 ### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/01_Tete_et_encephale/1_Theorie/PE01_Endoscopies_Tete_et_encephale_2-fiches_production_XAi.json`
 - 🟧 `nasofibroscopie.json` : remplissage 0 % (0/0)
