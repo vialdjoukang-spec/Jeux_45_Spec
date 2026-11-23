@@ -138,3 +138,16 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_S-S4-03** : Liste des hôpitaux suisses de référence pour les maladies hautement infectieuses.
 - **TRANS_S-S4-03** : Pourcentage de contamination retiré par le déshabillage (souvent cité 80 à 90 %), non écrit faute de source primaire.
 - **TRANS_S-S4-03** : Oxime disponible en Suisse (pralidoxime ou obidoxime) et stock d'antidotes de l'armée.
+
+## Conventions de format utilisées (pour l'audit et le moteur de jeu)
+
+- `parties` : 9 chaînes de texte (une par clé « 1. Cadre » … « 9. Exercices et répétition »).
+- `items[].type` : « A » (5 options), « Kprim » (4 affirmations), « menu long » (12 à 20 options). Répartition par leçon : 4 A + 1 Kprim, ou 3 A + 1 Kprim + 1 menu long (≈ 70 / 20 / 10 %).
+- `bonneReponse` : lettre (« A » à « E », ou « A » à « T » pour le menu long) ; liste de 4 booléens pour Kprim.
+- `explicationParOption` : clés « A »… pour A et menu long, « 1 »… « 4 » pour Kprim (chaque explication Kprim commence par « Vrai » ou « Faux », contrôlé par script).
+- `bulle` : {def, pourquoi, confusion, retenir}. `liensSSP` : codes du catalogue PROFILES (ex. « F1.18 »).
+- `_meta` ajoutés : `signature`, `aVerifier`, `sources`.
+
+## Arrêt et reprise
+
+L'agent s'est arrêté après la lettre B (ordre suivi : S, F, Q, puis A, B). Reprise suggérée : C, D, E, G, H, I, J, K, L, M, N, O, P, R.
