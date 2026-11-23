@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-23 11:47 UTC
+# Ouvrier automatique — 2026-11-23 12:44 UTC
 
-Dernier passage : **interpretations_courbes** → fait (1.19 USD).
+Dernier passage : **T1_pilote_pec_et_lot600** → fait (0.26 USD).
 
-Les 119 entrées d'interpretations.json (34 fenêtres, tous les scénarios) sont rédigées avec le skill concept-corelator, au niveau de ne_ppc, qui reste inchangé. Le vérificateur donne 119/119 et 0 défaut. Les doutes (seuils de prédiabète, doses de lévothyroxine, de vitamine D, de desmopressine, d'amiodarone, protocole NaCl 3 %, seuils de transfusion, etc.) sont notés dans le champ _a_verifier des entrées concernées : Dr Vial doit les relire.
+Le pilote de trois fiches (anesthésie, néphrologie avec choc septique/acidose lactique, médecine intensive) donne 0 erreur de schéma, 10 à 11,5 mille tokens de sortie et une priseEnCharge complète ; un premier essai avait une fiche tronquée et des posologies vagues, donc j'ai ajouté au prompt une règle de complétude et de posologie chiffrée (option --id ajoutée au script). Le lot de 600 fiches est soumis (msgbatch_016PU6XSwP53bkdXeSXfrvSs, enregistré dans scripts/batchs_fiches.json) ; je l'estime à environ 50 à 60 USD, au-dessus des 15 USD prévus pour T1 mais sous le plafond total de 100 USD (16,7 déjà dépensés), donc Vial doit confirmer ce coût. Les fiches pilotes sont sous content/fiches/ et T2 doit récupérer le lot.
 
-**Crédit** : 16.72 USD dépensés, 83.28 USD disponibles avant le 27.11.2026 ; aujourd'hui 16.72 / 25.00 USD.
+**Crédit** : 16.98 USD dépensés, 83.02 USD disponibles avant le 27.11.2026 ; aujourd'hui 16.98 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -24,5 +24,11 @@ Les 119 entrées d'interpretations.json (34 fenêtres, tous les scénarios) sont
 | neuro | fait | 1 | 2.202 |
 | endocrino | fait | 1 | 3.138 |
 | interpretations_courbes | fait | 1 | 1.185 |
+| T1_pilote_pec_et_lot600 | fait | 1 | 0.26 |
+| T2_recup_lot600 | a_faire | 0 |  |
+| T3_pec_fiches_existantes | a_faire | 0 |  |
+| T4_reprise_rejets | a_faire | 0 |  |
+| T5_items_valides | a_faire | 0 |  |
+| T6_vague_urgences | a_faire | 0 |  |
 
 Signature : AAI (Anthropic AI)

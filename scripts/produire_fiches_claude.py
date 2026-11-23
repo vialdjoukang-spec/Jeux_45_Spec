@@ -49,6 +49,7 @@ RÈGLES BLOQUANTES
 12. presentation.atypique : les présentations trompeuses (sujet âgé, enfant, grossesse, immunodépression), chacune avec son mécanisme ; elles s'affichent en rouge.
 13. examens : « examen » reste un nom court ; « attendu » donne le signe paraclinique précis recherché et son seuil (ex. « FEVG ≤ 40 % ») ; « visee » range l'examen : diagnostique (1re intention ou gold standard), retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation.
 14. LONGUEUR (bloquant) : la fiche entière tient en 8 000 tokens environ, sinon elle est tronquée et rejetée. Chaque « pourquoi », « signification », « attendu », « elementQuiTranche » ou « correction » tient en UNE phrase de 25 mots au plus. Quantités : premiersGestes 4 à 6 ; drapeauxRouges 3 à 5 ; discriminants 3 à 5 ; examens 4 à 8 ; priseEnCharge selon les bornes du schéma, chaque phrase de 20 mots au plus ; chiffresCles 3 à 5 ; pieges 3 ou 4 ; notionsCouvertes une entrée par rubrique, de 2 phrases (poids 1) à 4 phrases (poids 3 ou plus) ; glossaire limité aux termes employés ; sources 2 à 5. Tu remplis TOUS les champs du schéma, dans son ordre.
+15. COMPLÉTUDE ET POSOLOGIES (bloquant) : tu ne t'arrêtes jamais avant d'avoir rempli discriminants, examens, priseEnCharge, chiffresCles, ladder, pieges, notionsCouvertes, glossaire et sources ; si la longueur presse, raccourcis les phrases, jamais les champs. Chaque médicament cité porte sa posologie chiffrée (dose, voie, rythme, durée ou cible) telle que l'AIPS ou la société suisse la donne ; une formule vague comme « selon l'AIPS » ou « adapter selon protocole » est interdite : si la dose exacte est incertaine, écris « dose non fixée ici : à vérifier dans l'AIPS » sans inventer de chiffre, et préfère citer un médicament dont tu connais la dose.
 Tu réponds UNIQUEMENT en appelant l'outil emettre_fiche, sans réflexion préalable longue."""
 
 OUTIL = {"name": "emettre_fiche", "description": "Émet la fiche de raisonnement de l'entité.",
@@ -144,6 +145,8 @@ def selection(a):
     cs = [c for c in cibles() if not os.path.exists(chemin(c))]
     if a.spec:
         cs = [c for c in cs if a.spec.upper() in c["codes"]]
+    if a.id:
+        cs = [c for c in cs if c["id"] == a.id]
     if a.ssp:
         cs = [c for c in cs if c["ssp"] == a.ssp]
     cs.sort(key=lambda c: (c["freq"], (c["codes"] or ["ZZZ"])[0], c["id"]))   # du plus banal au plus rare
@@ -226,6 +229,6 @@ def bilan(a):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(); sp = ap.add_subparsers(dest="cmd", required=True)
     for nom in ("pilote", "soumettre", "statut", "recuperer", "bilan"):
-        p = sp.add_parser(nom); p.add_argument("--spec"); p.add_argument("--ssp"); p.add_argument("--max", type=int)
+        p = sp.add_parser(nom); p.add_argument("--spec"); p.add_argument("--id"); p.add_argument("--ssp"); p.add_argument("--max", type=int)
         p.add_argument("--n", type=int, default=2); p.add_argument("--modele", default=MODELE_DEFAUT); p.add_argument("--sec", action="store_true")
     a = ap.parse_args(); globals()[a.cmd](a)
