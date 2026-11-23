@@ -15,7 +15,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | G | 12 | 12 |
 | H | 12 | 12 |
 | I | 12 | 12 |
-| J | 6 | 12 |
+| J | 9 | 12 |
 | K | 0 | 12 |
 | L | 0 | 12 |
 | M | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **138** | **228** |
+| **Total** | **141** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -225,6 +225,13 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_J-S2-02** : Statut 2026 du bezlotoxumab (retrait du marché annoncé) et accès suisse à la transplantation de microbiote fécal.
 - **TRANS_J-S2-03** : Recommandations Swissnoso en vigueur sur l'antibioprophylaxie : céfazoline 2 g IV dans les 60 minutes avant l'incision, 3 g si poids ≥ 120 kg, réinjection après 4 heures ; durée maximale 24 heures.
 - **TRANS_J-S2-03** : Programme Swissnoso de surveillance des infections du site opératoire (participation obligatoire ANQ) et module d'intervention SSI.
+- **TRANS_J-S3-01** : Recommandations nationales Swissnoso sur les EPC (2018, mise à jour ?) et dépistage à l'admission des patients hospitalisés à l'étranger dans les 12 derniers mois.
+- **TRANS_J-S3-01** : Déclaration obligatoire des EPC par les laboratoires à l'OFSP depuis le 1.1.2016 : formulation et délai.
+- **TRANS_J-S3-01** : Schéma de décolonisation du SARM : mupirocine nasale 2 % deux fois par jour et toilette à la chlorhexidine pendant 5 jours (pratique usuelle, variable selon les hôpitaux).
+- **TRANS_J-S3-02** : Recommandations OFSP en vigueur en 2026 pour le personnel de santé (Plan de vaccination suisse, chapitre « Personnel de santé ») : cible anti-HBs ≥ 100 UI/L, recommandation COVID-19, hépatite A et méningocoques pour certains personnels.
+- **TRANS_J-S3-02** : Base légale permettant à un employeur hospitalier d'exiger une vaccination ou d'écarter un soignant non immun de certains postes (LTr, OPA, droit cantonal).
+- **TRANS_J-S3-03** : Indications de la prophylaxie antifongique par posaconazole (300 mg par jour, comprimés gastro-résistants, après une dose de charge) selon ECIL et l'AIPS suisse : induction de LAM ou SMD, maladie du greffon contre l'hôte sous immunosuppression.
+- **TRANS_J-S3-03** : Recommandations suisses ou ECIL sur les chambres à air filtré HEPA et la gestion des chantiers hospitaliers.
 - **TRANS_Q-S1-01** : Articles exacts de l'ORaP pour les limites (art. 56 et 57 ?) et pour la grossesse.
 - **TRANS_Q-S1-01** : Rôle de la SUVA dans la radioprotection industrielle.
 - **TRANS_Q-S1-02** : Statut actuel du Swiss Medical Board (dissous ?) en 2026.
@@ -262,4 +269,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : J (6/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : J (9/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
