@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-23 01:20
 
-17 fichier(s) : 0 🟩 intégrables · 16 🟧 à compléter · 1 🟥 refusés.
+20 fichier(s) : 0 🟩 intégrables · 19 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -41,6 +41,53 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - aVerifier déclarés : 12
 
 ### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/01_Tete_et_encephale/1_Theorie/PF01-3_Explorations_fonctionnelles_Tete_et_encephale_12-fiches_production_XAi.json`
+- 🟧 `refraction.json` : remplissage 0 % (0/0)
+- 🟧 `test_d_hypoglycemie_insulinique.json` : remplissage 0 % (0/0)
+- 🟧 `test_de_schirmer.json` : remplissage 0 % (0/0)
+- 🟧 `test_de_restriction_hydrique.json` : remplissage 0 % (0/0)
+- 🟧 `test_de_stimulation_a_l_arginine_copepti.json` : remplissage 0 % (0/0)
+- 🟧 `tonometrie.json` : remplissage 0 % (0/0)
+- 🟧 `tympanometrie_et_reflexe_stapedien.json` : remplissage 0 % (0/0)
+- 🟧 `video_head_impulse_test.json` : remplissage 0 % (0/0)
+- 🟧 `video_eeg.json` : remplissage 0 % (0/0)
+- 🟧 `videonystagmographie.json` : remplissage 0 % (0/0)
+- 🟧 `vision_des_couleurs.json` : remplissage 0 % (0/0)
+- 🟧 `electroretinogramme.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 13
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/01_Tete_et_encephale/2_Pratique/PF01-1-PR_Explorations_fonctionnelles_Tete_et_encephale_13-fiches_PRATIQUE_production_XAi.json`
+- 🟧 `acuite_visuelle.json` : remplissage 0 % (0/0)
+- 🟧 `audiometrie_tonale_et_vocale.json` : remplissage 0 % (0/0)
+- 🟧 `bilan_neuropsychologique.json` : remplissage 0 % (0/0)
+- 🟧 `champ_visuel.json` : remplissage 0 % (0/0)
+- 🟧 `debit_salivaire.json` : remplissage 0 % (0/0)
+- 🟧 `eeg_de_sommeil_et_eeg_prolonge.json` : remplissage 0 % (0/0)
+- 🟧 `eeg_standard.json` : remplissage 0 % (0/0)
+- 🟧 `enmg_faciale_et_reflexe_de_clignement.json` : remplissage 0 % (0/0)
+- 🟧 `examen_dentaire_et_parodontal.json` : remplissage 0 % (0/0)
+- 🟧 `examen_des_nerfs_craniens.json` : remplissage 0 % (0/0)
+- 🟧 `fond_d_oeil.json` : remplissage 0 % (0/0)
+- 🟧 `gonioscopie.json` : remplissage 0 % (0/0)
+- 🟧 `gustometrie.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 15
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/01_Tete_et_encephale/2_Pratique/PF01-2-PR_Explorations_fonctionnelles_Tete_et_encephale_13-fiches_PRATIQUE_production_XAi.json`
+- 🟧 `hgpo_avec_dosage_de_gh.json` : remplissage 0 % (0/0)
+- 🟧 `lampe_a_fente.json` : remplissage 0 % (0/0)
+- 🟧 `manoeuvre_de_dix_hallpike.json` : remplissage 0 % (0/0)
+- 🟧 `mesure_de_pression_intracranienne.json` : remplissage 0 % (0/0)
+- 🟧 `olfactometrie.json` : remplissage 0 % (0/0)
+- 🟧 `otoscopie_et_otomicroscopie.json` : remplissage 0 % (0/0)
+- 🟧 `otoemissions_acoustiques.json` : remplissage 0 % (0/0)
+- 🟧 `pachymetrie.json` : remplissage 0 % (0/0)
+- 🟧 `potentiels_evoques_auditifs.json` : remplissage 0 % (0/0)
+- 🟧 `potentiels_evoques_myogeniques_vestibula.json` : remplissage 0 % (0/0)
+- 🟧 `potentiels_evoques_visuels_auditifs_some.json` : remplissage 0 % (0/0)
+- 🟧 `prick_tests.json` : remplissage 0 % (0/0)
+- 🟧 `rhinomanometrie.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 12
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/01_Tete_et_encephale/2_Pratique/PF01-3-PR_Explorations_fonctionnelles_Tete_et_encephale_12-fiches_PRATIQUE_production_XAi.json`
 - 🟧 `refraction.json` : remplissage 0 % (0/0)
 - 🟧 `test_d_hypoglycemie_insulinique.json` : remplissage 0 % (0/0)
 - 🟧 `test_de_schirmer.json` : remplissage 0 % (0/0)
