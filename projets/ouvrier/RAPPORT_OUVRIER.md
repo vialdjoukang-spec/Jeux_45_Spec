@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-23 06:57 UTC
+# Ouvrier automatique — 2026-11-23 11:47 UTC
 
-Dernier passage : **endocrino** → fait (3.14 USD).
+Dernier passage : **interpretations_courbes** → fait (1.19 USD).
 
-Le système Endocrinien & métabolique est rédigé en entier : 10 organes (anatomie, physiologie, sémiologie en 9 temps d'examen), 80 pathologies en 4 paliers avec bilan par visée, traitements dosés et sources datées, glossaire de 90 sigles. Cinq fenêtres de calcul nouvelles (en_tsh_t4, en_glycemie, en_calcium, en_cortisol, en_adh) passent sans erreur JS et les 10 renommages d'identifiants sont déclarés ; les audits donnent auditer_conception 34/34, couverture réussie et non_perte OK. Une relecture médicale indépendante a relevé 9 points, tous corrigés ; restent à confirmer dans l'AIPS le statut suisse de la métyrapone, de la métréleptine, du sélpercatinib et du burosumab, ce qui revient à l'audit médical horaire.
+Les 119 entrées d'interpretations.json (34 fenêtres, tous les scénarios) sont rédigées avec le skill concept-corelator, au niveau de ne_ppc, qui reste inchangé. Le vérificateur donne 119/119 et 0 défaut. Les doutes (seuils de prédiabète, doses de lévothyroxine, de vitamine D, de desmopressine, d'amiodarone, protocole NaCl 3 %, seuils de transfusion, etc.) sont notés dans le champ _a_verifier des entrées concernées : Dr Vial doit les relire.
 
-**Crédit** : 15.54 USD dépensés, 84.46 USD disponibles avant le 27.11.2026 ; aujourd'hui 15.54 / 25.00 USD.
+**Crédit** : 16.72 USD dépensés, 83.28 USD disponibles avant le 27.11.2026 ; aujourd'hui 16.72 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -23,5 +23,6 @@ Le système Endocrinien & métabolique est rédigé en entier : 10 organes (anat
 | renal | fait | 1 | 1.206 |
 | neuro | fait | 1 | 2.202 |
 | endocrino | fait | 1 | 3.138 |
+| interpretations_courbes | fait | 1 | 1.185 |
 
 Signature : AAI (Anthropic AI)

@@ -219,6 +219,85 @@
     "cout_usd": 3.138,
     "resume": "Le système Endocrinien & métabolique est rédigé en entier : 10 organes (anatomie, physiologie, sémiologie en 9 temps d'examen), 80 pathologies en 4 paliers avec bilan par visée, traitements dosés et sources datées, glossaire de 90 sigles. Cinq fenêtres de calcul nouvelles (en_tsh_t4, en_glycemie, en_calcium, en_cortisol, en_adh) passent sans erreur JS et les 10 renommages d'identifiants sont déclarés ; les audits donnent auditer_conception 34/34, couverture réussie et non_perte OK. Une relecture médicale indépendante a relevé 9 points, tous corrigés ; restent à confirmer dans l'AIPS le statut suisse de la métyrapone, de la métréleptine, du sélpercatinib et du burosumab, ce qui revient à l'audit médical horaire."
    }
+  },
+  {
+   "id": "interpretations_courbes",
+   "titre": "Interprétations corrélées des 115 scénarios de fenêtres",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 8,
+   "etat": "fait",
+   "essais": 1,
+   "prompt": "Complète conception/prototypes/moteur/interpretations.json avec le skill .claude/skills/concept-corelator : une entrée par fenêtre de courbe de fenetres.js et par étiquette de bouton (« _ » si aucun bouton), au niveau de la référence ne_ppc, que tu ne modifies pas. Lance python3 projets/outils/verifier_interpretations.py pour obtenir la liste des entrées manquantes et pour valider. Travaille par lots de 15 fenêtres, committe après chaque lot qui passe, et décris l'état dans projets/ouvrier/statut.json. Applique medical-accuracy-100 : seuils et doses selon les recommandations actuelles ; tout doute va dans le champ _a_verifier de l'entrée. Mets « fait » seulement quand le vérificateur donne 119/119 et 0 défaut.",
+   "dernier": {
+    "date": "2026-11-23T11:47:25+00:00",
+    "cout_usd": 1.185,
+    "resume": "Les 119 entrées d'interpretations.json (34 fenêtres, tous les scénarios) sont rédigées avec le skill concept-corelator, au niveau de ne_ppc, qui reste inchangé. Le vérificateur donne 119/119 et 0 défaut. Les doutes (seuils de prédiabète, doses de lévothyroxine, de vitamine D, de desmopressine, d'amiodarone, protocole NaCl 3 %, seuils de transfusion, etc.) sont notés dans le champ _a_verifier des entrées concernées : Dr Vial doit les relire."
+   }
+  },
+  {
+   "id": "T1_pilote_pec_et_lot600",
+   "titre": "45 Spec T1 : pilote du schéma holistique puis lot des 600 fiches fréquentes",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 15,
+   "etat": "a_faire",
+   "essais": 0,
+   "prompt": "Lis d'abord projets/ouvrier/MISSION_45SPEC.md et applique ses règles constantes. Exécute T1 : python scripts/produire_fiches_claude.py pilote --n 3 sur trois spécialités variées (dont une urgence vitale), contrôle chaque fiche (0 erreur de schéma, moins de 16 000 tokens de sortie, priseEnCharge complète, posologies suisses), corrige le prompt si nécessaire et refais le pilote, puis lance python scripts/produire_fiches_claude.py soumettre --max 600. Mets « fait » quand le lot est soumis et batchs_fiches.json committé."
+  },
+  {
+   "id": "T2_recup_lot600",
+   "titre": "45 Spec T2 : récupération du lot des 600 fiches",
+   "commande": "python scripts/produire_fiches_claude.py recuperer && python scripts/ebaucher_arenes.py",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 5,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "lots_recuperes",
+   "suivi": "batchs_fiches.json"
+  },
+  {
+   "id": "T3_pec_fiches_existantes",
+   "titre": "45 Spec T3 : prise en charge holistique ajoutée aux fiches existantes",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 8,
+   "etat": "a_faire",
+   "essais": 0,
+   "prompt": "Lis d'abord projets/ouvrier/MISSION_45SPEC.md et applique ses règles constantes. Exécute T3 : ajoute un mode « pec » à scripts/produire_fiches_claude.py qui, en lot, demande seulement le bloc priseEnCharge (schéma conception/donnees/schemas/prise_en_charge.json) pour chaque fiche qui ne l'a pas, et l'insère sans toucher au reste ; teste-le sur 2 fiches en direct, puis soumets le lot ; à la récupération (passage suivant), mets audit.rejector à null pour que Claude réaudite. Mets « fait » quand toutes les fiches ont priseEnCharge."
+  },
+  {
+   "id": "T4_reprise_rejets",
+   "titre": "45 Spec T4 : reprise des fiches tronquées ou en erreur",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 6,
+   "etat": "a_faire",
+   "essais": 0,
+   "prompt": "Lis d'abord projets/ouvrier/MISSION_45SPEC.md et applique ses règles constantes. Exécute T4 : repère les fiches dont controles.erreurs n'est pas vide ou audit.rejector == 'rejet', déplace-les dans content/fiches/_archives/ en gardant le motif, puis resoumets-les en lot avec le schéma actuel et récupère-les. Mets « fait » quand aucune fiche active n'est en erreur."
+  },
+  {
+   "id": "T5_items_valides",
+   "titre": "45 Spec T5 : items A/K' des fiches validées",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 10,
+   "etat": "a_faire",
+   "essais": 0,
+   "prompt": "Lis d'abord projets/ouvrier/MISSION_45SPEC.md et applique ses règles constantes. Exécute T5 : python scripts/produire_items_claude.py sur les fiches audit.rejector == 'pass', Cardiologie d'abord, en lot ; vérifie la forme de chaque item. Mets « fait » quand toutes les fiches validées ont leurs items."
+  },
+  {
+   "id": "T7_transversal_lecons",
+   "titre": "Transversal : rédaction des 228 leçons A → S (lot)",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 16,
+   "etat": "a_faire",
+   "essais": 0,
+   "prompt": "Lis projets/ouvrier/MISSION_45SPEC.md (règles constantes). Les 228 leçons de conception/donnees/tetrade/transversales/lecons/<lettre>/*.json sont des gabarits vides (statut « À REMPLIR »). Écris un script scripts/produire_lecons_claude.py calqué sur produire_fiches_claude.py (Message Batches, outil à schéma, en-tête d'espace de travail, réparation, registre) qui remplit chaque leçon en gardant ses clés : cas d'ouverture suisse concret, les 9 parties en phrases verbales denses, décision finale, items QCM avec explication par option, glossaire. Pratique suisse d'abord (lois fédérales, ASSM, OFSP, Swissmedic, 144/REGA). Teste 2 leçons en direct (S d'abord), puis soumets le lot complet et récupère-le au passage suivant. Mets « fait » quand les 228 leçons sont remplies et valides."
+  },
+  {
+   "id": "T6_vague_urgences",
+   "titre": "45 Spec T6 : deuxième vague, 400 urgences vitales",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 22,
+   "etat": "a_faire",
+   "essais": 0,
+   "prompt": "Lis d'abord projets/ouvrier/MISSION_45SPEC.md et applique ses règles constantes. Exécute T6 seulement si plafond_total_usd moins la dépense dépasse 25 USD : soumets en lot les 400 fiches suivantes en privilégiant urgenceVitale (ajoute un filtre --urgence au script si nécessaire), puis récupère-les au passage suivant. Sinon mets « sans_objet »."
   }
  ],
  "_note": "L'état vivant de la file se trouve sur la branche veille/audit-medical ; cette copie de main sert de déclencheur.",
