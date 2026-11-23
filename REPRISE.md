@@ -179,3 +179,14 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
   - À vérifier dans l'AIPS : statut suisse du budésonide à libération ciblée (néphropathie à IgA), du cyclosilicate sodique de zirconium et du pivmécillinam ; doses de rituximab et de cyclophosphamide à confirmer avec un néphrologue.
   - Les volets « Embryologie et variantes » restent vides ; les uro-génitaux féminins vivent au système gynéco-obstétrical, la néphrologie de l'enfant (reflux, valves urétrales) reste à ajouter au pédiatrique.
   - Le jeu 3D montre un seul modèle pour tous les organes (limite connue).
+
+## Neurologique (2026-11-23, ouvrier automatique)
+- Le système « Neurologique » est jouable : `conception/outils/neuro/` (contenu, sémiologie, pathologies, glossaire, temps) ; registre `systemes_rediges.py` (préfixe `ne_`, couleur `#8e5cc4`).
+- 13 organes rédigés en anatomie, physiologie et sémiologie ; 78 pathologies en 4 paliers avec bilan par visée (gold standard compris), traitements dosés et source datée (ESO 2021 et 2023, AHA/ASA 2022 et 2023, ESCMID 2016, EFNS 2010, EAN/PNS 2023, MDS 2015, ILAE 2017, ESC 2018).
+- « Système limbique et hypothalamus » ne rédige que le limbique ; l'hypothalamus et ses axes restent à l'endocrinien (renvoi dans l'organe).
+- Nouvelles fenêtres canvas testées sans écran (0 erreur JS) : `ne_ppc` (PPC = PAM − PIC, autorégulation), `ne_glasgow` (score de Glasgow), `ne_conduction` (vitesse de conduction, démyélinisation et atteinte axonale).
+- Les 13 renommages `org_neurol_*` → `ne_*` sont déclarés dans `projets/retours/migrations_ids.json`. Audits : conception 34/34, couverture réussie, non-perte OK.
+- Reste à faire :
+  - Vial relit `neuro/pathologies.txt`.
+  - À vérifier dans l'AIPS : statut suisse de la ténectéplase (AVC), de l'amifampridine (Lambert-Eaton), de l'hémine, de l'andexanet alfa et du vaccin recombinant du zona ; dose de la nimodipine dans le syndrome de vasoconstriction (avis d'expert).
+  - Les volets « Embryologie et variantes » restent vides ; la 3D montre un seul modèle pour tous les organes ; les anticorps anti-amyloïde (Alzheimer) ne sont pas traités faute de statut suisse vérifié.
