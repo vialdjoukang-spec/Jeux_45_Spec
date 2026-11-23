@@ -36,3 +36,35 @@ Corrections faites (journal corrections.jsonl, tour t10) :
 - Les critères de Light ont été relus dans Yang 2025 et non dans l'article original.
 - Wells : « absence de diagnostic alternatif » est gardé comme dans le résumé relu.
 - Le texte intégral de Lim 2003 et celui de Stiell 2001 n'ont pas pu être téléchargés.
+
+## Complément P21 — contre-audit du 23.11.2026, 04:30 (heure de Zurich)
+Verdict : conforme après correction. Le fichier contient maintenant 21 formules et 48 critères.
+
+Existant : les 16 formules, les 28 critères, les métadonnées, les 13 entrées d'origine d'aVerifier et les clés de glossaire sont strictement identiques à la version contre-auditée de cette branche, comparés champ par champ. Le complément n'a fait qu'ajouter.
+
+Ajouts revérifiés un par un dans la source relue :
+- Formules : Cockcroft-Gault (Durden 2026, tableau 1 ; Di Gioia 2025) ; CKD-EPI 2021 (142, κ 0,7 et 0,9, α −0,241 et −0,302, exposant −1,200, 0,9938 puissance âge, 1,012 ; Durden 2026, Martey 2025, Sedoud 2026, concordants) ; Friedewald (diviseur 5 en mg/dl et 2,2 en mmol/l, limites 150, 200 et 400 mg/dl ; Arrobas Velilla 2023) ; HOMA-IR (/22,5 et /405 ; Moriyama 2025, Snouda 2026) ; APRI (formule et seuil OMS 2015 > 2 ; Mpisa 2026) ; Saravanan 2026 (seuils OMS 2024 « abaissés », sans chiffre).
+- Critères : KDIGO 2012, définition et stades (PDF original) ; Duke-ISCVID 2023 (tableaux 1 et 2 originaux) ; McDonald 2017 (Rocca 2024, tableau 2) ; Rome IV (page de la Rome Foundation) ; TG18 cholécystite (Erinanc 2026, Morgan 2025 : 91,2 et 96,9 %) et cholangite (Hudgi 2022, tableau 1) ; Jones 2015 (Rwebembera 2026, Jeong 2024 : VS 60 et 30 mm, CRP 3,0 mg/dl) ; Kawasaki (Rădulescu 2025, Lupu 2025) ; ISSHP 2021 ; Fleischner 2017 (Masci 2026, tableau 2) ; CHA2DS2-VASc (APHRS 2026, tableau 3) ; Glasgow-Blatchford ; Alvarado (WSES 2020 : < 5, 99 %) ; sPESI ; 4T ; Ottawa ; Alberti 2009 (Williams 2024, Dutt 2025) ; GASA 1,1 g/dl (BSG 2021, tableau 1) ; Berlin (Yoon 2026, tableau 1).
+- Conversions recalculées, toutes justes : 88,4 µmol/l par mg/dl de créatinine ; 0,0113 pour les triglycérides (1,7 / 2,3 / 4,5 mmol/l) ; 0,1333 kPa par mmHg (18,7/12 ; 17,3/11,3 ; 13,3-14,5 ; 12,0-13,2 ; 40 kPa) ; CRP 3,0 mg/dl = 30 mg/l ; 405 = 22,5 × 18 ; 26,5 µmol/l = 0,3 mg/dl.
+- Toutes les références PubMed des sources secondaires correspondent aux textes enregistrés (auteurs et numéro).
+
+Discordances tranchées par le rédacteur, revérifiées :
+- Syncope du Glasgow-Blatchford à 2 points : confirmée (Orpen-Palmer 2023 et tableau 2 d'Alali et Barkun 2023). Elsabani 2024, qui imprime 1 point, n'est plus cité.
+- Délai des 4T : le tableau 1 original de Lo et al. (2006), relu en texte intégral, dit « < 4 days without recent exposure ». Le texte dit maintenant « en moins de 4 jours ».
+- Tour de taille d'Alberti « 94 cm ou plus » : choix gardé (tableau de Dutt 2025 adapté d'Alberti ; Williams 2024 imprime « > »). L'original n'a pas été lu.
+- Plaquettes de l'ISSHP : le tableau 1 original de l'ISSHP 2021 (PDF isshp.org) dit « < 150,000/μL », comme Witkowski 2026. Le seuil est maintenant écrit : 150 G/l. Le « < 100 000 » d'Akankwasa 2026 est le seuil de l'ACOG.
+
+Corrections (journal corrections.jsonl, tour t12 ; script audit/athena/t12/corr_t12.py) :
+- 4T : la case 0 du délai devient « en moins de 4 jours », et Lo 2006 est cité dans la règle.
+- Glasgow-Blatchford : l'urée « plus de 25 » devient « 25 ou plus », d'après le tableau 1 de Laursen et al. (2015), calculé selon l'article original. Une conversion kPa est mise en forme, et Elsabani est remplacé par Alali et Barkun.
+- ISSHP 2021 : le seuil de plaquettes et la mention CIVD et hémolyse sont ajoutés. « Dysfonction utéro-placentaire isolée » devient « retard de croissance fœtal isolé » pour l'ACOG, ce que dit le tableau d'Akankwasa. L'original est cité.
+- Duke-ISCVID 2023 : trois conditions omises sont rétablies (Coxiella isolée d'une seule hémoculture ; PET-CT au moins 3 mois après l'implantation d'une prothèse ; critère chirurgical seulement sans critère d'imagerie et sans confirmation histologique ou microbiologique).
+- McDonald : la phrase sur la révision de 2024 est attribuée à Samara et Ontaneda (2025), qui est ajouté aux sources.
+- Ottawa : les éléments étaient formulés comme une « capacité » au lieu de l'« incapacité » de faire quatre pas, et la règle de décision manquait. Les éléments, la zone des 6 cm distaux, la règle (douleur de la zone et l'un des éléments) et les exclusions sont réécrits d'après le guide des règles d'Ottawa des urgences du NHS écossais.
+- Glossaire : CIVD et NHS sont ajoutés. aVerifier : 3 entrées du complément mises à jour et 1 entrée de traçabilité ajoutée.
+
+Réserves :
+- Plusieurs originaux restent non lus (Lancet, Chest, Circulation, Radiology, NEJM, JAMA). Les formules et critères viennent d'articles en libre accès qui les reproduisent, et l'attribution le dit.
+- Jones 2015 : la fièvre n'est pas chiffrée. Les sources se contredisent (Rwebembera imprime > 38,5 et > 38,0 ; le CDC imprime ≥ 38,5 dans les deux populations).
+- Le guide d'Ottawa du NHS écossais est un document de service, daté de 2012 et sans auteur nommé.
+- Les seuils biologiques de la forme incomplète de Kawasaki, le seuil OMS 2024 de l'APRI et les grades TG18 restent non rédigés, comme le rédacteur l'a déclaré.
