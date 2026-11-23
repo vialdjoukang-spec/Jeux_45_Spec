@@ -1,10 +1,10 @@
 // Fenêtres de détail : courbes et calculateurs calculés (canvas 2D, jamais de SVG) + vue 3D.
-export function ouvrirFenetre(type, titre, couleur){
+export function ouvrirFenetre(type, titre, couleur, organe){
   let f=document.getElementById('fdet');if(f)f.remove();
   f=document.createElement('div');f.id='fdet';f.style.setProperty('--c',couleur||'#2f6fd0');
   f.innerHTML=`<div class=fh><b>${titre}</b><button title="Fermer">✕</button></div><div class=fc></div>`;document.body.appendChild(f);
   f.querySelector('button').onclick=()=>f.remove();const C=f.querySelector('.fc');
-  (MODELES[type]||MODELES.inconnu)(C);panneau(C,type)(C.dataset.sc||'');const fr=()=>C.querySelectorAll('p').forEach(p=>{const w=document.createTreeWalker(p,4);for(let n;n=w.nextNode();){const v=n.nodeValue.replace(/(\d)\.(\d)/g,'$1,$2');if(v!==n.nodeValue)n.nodeValue=v;}});fr();new MutationObserver(fr).observe(C,{subtree:true,childList:true,characterData:true});return f;}
+  C.dataset.organe=organe||'';(MODELES[type]||MODELES.inconnu)(C);panneau(C,type)(C.dataset.sc||'');const fr=()=>C.querySelectorAll('p').forEach(p=>{const w=document.createTreeWalker(p,4);for(let n;n=w.nextNode();){const v=n.nodeValue.replace(/(\d)\.(\d)/g,'$1,$2');if(v!==n.nodeValue)n.nodeValue=v;}});fr();new MutationObserver(fr).observe(C,{subtree:true,childList:true,characterData:true});return f;}
 const kPa=mm=>mm*0.1333, mm=k=>k/0.1333;
 function axes(x,W,H,m,xr,yr,xl,yl){x.clearRect(0,0,W,H);x.strokeStyle='#8a94a3';x.lineWidth=1;x.font='11px A';x.fillStyle='#3a4556';
  x.beginPath();x.moveTo(m,H-m);x.lineTo(W-10,H-m);x.moveTo(m,H-m);x.lineTo(m,10);x.stroke();
@@ -352,6 +352,23 @@ const MODELES={
    else if(po>295)m1='L\'osmolalité plasmatique élevée stimule fortement l\'hormone antidiurétique et le rein concentre l\'urine : réponse normale à la déshydratation.';
    else m1='L\'osmolalité plasmatique reste dans la plage normale (275 à 295 mOsm/kg) et la sécrétion suit la courbe attendue.';
    note.textContent='Osmolalité plasmatique = 2 × '+Na()+' + '+Gl()+' + '+Ur()+' = '+po.toFixed(0)+' mOsm/kg. Osmolalité urinaire estimée = '+uo.toFixed(0)+' mOsm/kg ; diurèse estimée = 600 / '+uo.toFixed(0)+' = '+di.toFixed(1)+' l par jour. '+m1;}d();},
+
+ '3d'(C){const oid=C.dataset.organe;if(!oid){C.textContent='Organe non identifié.';return;}
+  C.innerHTML=`<div class=v3d style="position:relative;width:min(520px,80vw);height:360px;border-radius:6px;background:radial-gradient(#2a2f3a,#12151b)"><span class=att style="position:absolute;inset:0;display:grid;place-items:center;color:#aab">Chargement du modèle 3D…</span></div><div class=boutons style="margin-top:6px"><button data-v=face>Face</button><button data-v=profil>Profil</button><button data-v=dessus>Dessus</button><button data-v=rot>Rotation ⏯</button></div><div class=src style="font-size:11px;color:var(--sous);max-width:520px"></div>`;
+  (async()=>{const [THREE,{GLTFLoader},{OrbitControls}]=await Promise.all([import('three'),import('three/addons/loaders/GLTFLoader.js'),import('three/addons/controls/OrbitControls.js')]);
+   const base=new URL('anatomie3d/',import.meta.url),idx=await (await fetch(new URL('index.json',base))).json(),inf=idx.organes[oid];const Z=C.querySelector('.v3d');
+   if(!inf||inf.statut!=='produit'){Z.querySelector('.att').textContent='Modèle 3D à produire (Z-Anatomy / TotalSegmentator).';return;}
+   const W=Z.clientWidth,H=Z.clientHeight,r=new THREE.WebGLRenderer({antialias:true,alpha:true,preserveDrawingBuffer:true});r.setPixelRatio(Math.min(2,devicePixelRatio));r.setSize(W,H);Z.appendChild(r.domElement);
+   const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(35,W/H,1,5000);sc.add(new THREE.HemisphereLight(0xffffff,0x334,1.1));const dl=new THREE.DirectionalLight(0xffffff,1.6);dl.position.set(1,2,3);sc.add(dl);
+   const g=(await new GLTFLoader().loadAsync(new URL(oid+'.glb',base).href)).scene;const col=new THREE.Color(C.closest('#fdet').style.getPropertyValue('--c')||'#b22234');
+   g.traverse(o=>{if(o.isMesh){o.geometry.computeVertexNormals();o.material=new THREE.MeshPhysicalMaterial({color:col,roughness:.45,clearcoat:.4,side:THREE.DoubleSide});}});
+   g.rotation.x=-Math.PI/2;sc.add(g);const R=new THREE.Box3().setFromObject(g).getSize(new THREE.Vector3()).length();
+   const ctl=new OrbitControls(cam,r.domElement);ctl.enableDamping=true;ctl.autoRotate=true;ctl.autoRotateSpeed=1.6;
+   const vue=v=>{const d=R*1.5;cam.position.set(...({face:[0,0,d],profil:[d,0,0],dessus:[0,d,.001]})[v]);ctl.target.set(0,0,0);ctl.update();};vue('face');
+   C.querySelectorAll('.boutons button').forEach(b=>b.onclick=()=>b.dataset.v==='rot'?ctl.autoRotate=!ctl.autoRotate:vue(b.dataset.v));
+   Z.querySelector('.att').remove();C.querySelector('.src').textContent=`Maillage réel : ${inf.source}. ${inf.faces} faces, ${inf.taille_mm.join(' × ')} mm.`;
+   (function boucle(){if(!Z.isConnected){r.dispose();return;}ctl.update();r.render(sc,cam);requestAnimationFrame(boucle);})();if(typeof window!=='undefined')window.__v3d=1;
+  })().catch(e=>{C.querySelector('.v3d').textContent='Échec du chargement 3D : '+e.message;});},
  inconnu(C){C.textContent='Fenêtre à produire.';}};
 
 // Interprétation corrélée sous chaque courbe : physiopathologie → sémiologie → explorations → thérapeutique, liens entre disciplines, définitions.

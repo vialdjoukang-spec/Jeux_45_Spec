@@ -35,6 +35,7 @@ def corps():
 
 def plan():
     c = json.load(open(os.path.join(MOT, "tetrade.json"), encoding="utf-8")); N = c["noeuds"]; B = {n["id"]: n for n in N}
+    global B3; B3 = B
     kids = collections.defaultdict(list)
     for n in N:
         for d in n.get("de") or []:
@@ -58,9 +59,22 @@ def plan():
         fen = next((k for k in desc(sid) if B[k].get("fenetre") not in (None, "3d") and B[k].get("espace") == "physiologie"), None)
         if fen:
             cap.append((f"Fenêtre de courbe : {B[fen]['texte']}", f"cfg=tetrade.json&espace=physiologie&ouvrir={sid}&fenetre={fen}", 2))
+        f3 = next(iter(sorted((k for k in desc(sid) if B[k].get("fenetre") == "3d" and ORG3D.get(org3d(k), {}).get("statut") == "produit"), key=lambda k: org3d(k) != org)), None)
+        if f3:
+            cap.append((f"Organe 3D réel rotatif : {ORG3D[org3d(f3)]['nom']}", f"cfg=tetrade.json&espace={B[f3].get('espace','anatomie')}&ouvrir={sid}&fenetre={f3}", 2))
         S = SOURCES[nom]
         P.append({"nom": nom, "couleur": conf["couleur"], "stat": f"{len(S['organes'])} organes · {sum(len(v) for v in S['pathos'].values())} pathologies", "captures": cap})
     return P
+
+
+ORG3D = json.load(open(os.path.join(MOT, "anatomie3d", "index.json"), encoding="utf-8"))["organes"] if os.path.exists(os.path.join(MOT, "anatomie3d", "index.json")) else {}
+
+
+def org3d(k):
+    m = B3[k]
+    while m and m["id"] not in ORG3D:
+        m = B3.get((m.get("de") or [None])[0])
+    return m["id"] if m else None
 
 
 def captures(P):
@@ -78,7 +92,10 @@ def captures(P):
             for i, s in enumerate(P):
                 for j, (_, cfg, _k) in enumerate(s["captures"]):
                     pg.goto("about:blank"); pg.goto("http://localhost:8765/reseau3d.html#" + cfg + "&capture")
-                    pg.wait_for_function("document.title==='PRET'", timeout=120000); pg.wait_for_timeout(1500)
+                    pg.wait_for_function("document.title==='PRET'", timeout=120000)
+                    if "Organe 3D" in s["captures"][j][0]:
+                        pg.wait_for_function("window.__v3d===1", timeout=90000); pg.wait_for_timeout(2500)
+                    pg.wait_for_timeout(1500)
                     png = f"/tmp/cap_{i}_{j}.png"; pg.screenshot(path=png)
                     Image.open(png).convert("RGB").save(os.path.join(CAT, "img", f"cap_{i}_{j}.jpg"), quality=82, optimize=True)
                     print("capture", s["nom"], j, flush=True)
