@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-23 12:44 UTC
+# Ouvrier automatique — 2026-11-23 13:42 UTC
 
-Dernier passage : **T1_pilote_pec_et_lot600** → fait (0.26 USD).
+Dernier passage : **F2_examens_vides** → fait (0.68 USD).
 
-Le pilote de trois fiches (anesthésie, néphrologie avec choc septique/acidose lactique, médecine intensive) donne 0 erreur de schéma, 10 à 11,5 mille tokens de sortie et une priseEnCharge complète ; un premier essai avait une fiche tronquée et des posologies vagues, donc j'ai ajouté au prompt une règle de complétude et de posologie chiffrée (option --id ajoutée au script). Le lot de 600 fiches est soumis (msgbatch_016PU6XSwP53bkdXeSXfrvSs, enregistré dans scripts/batchs_fiches.json) ; je l'estime à environ 50 à 60 USD, au-dessus des 15 USD prévus pour T1 mais sous le plafond total de 100 USD (16,7 déjà dépensés), donc Vial doit confirmer ce coût. Les fiches pilotes sont sous content/fiches/ et T2 doit récupérer le lot.
+Les 41 examens vides sont remplis dans 11 fichiers de topographie, au style des examens déjà remplis, sans toucher aux autres ; le réseau affiche 0 à compléter et les jauges sont recalculées (Paraclinique 78 %). La vérification web n'a pas été faite examen par examen (budget) : chaque examen porte un champ aVerifier qui liste les seuils cités de mémoire à recontrôler, et les doses d'irradiation de la radiographie et du CT viennent de la page HUG, pas du rapport OFSP 2018. Plusieurs examens (cathétérisme, EBUS, biopsie de masse, MAG3) ont une irradiation à null faute de valeur vérifiée.
 
-**Crédit** : 16.98 USD dépensés, 83.02 USD disponibles avant le 27.11.2026 ; aujourd'hui 16.98 / 25.00 USD.
+**Crédit** : 17.67 USD dépensés, 82.33 USD disponibles avant le 27.11.2026 ; aujourd'hui 17.67 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -25,10 +25,13 @@ Le pilote de trois fiches (anesthésie, néphrologie avec choc septique/acidose 
 | endocrino | fait | 1 | 3.138 |
 | interpretations_courbes | fait | 1 | 1.185 |
 | T1_pilote_pec_et_lot600 | fait | 1 | 0.26 |
+| F2_examens_vides | fait | 1 | 0.684 |
+| F5_cas_thorax | a_faire | 0 |  |
 | T2_recup_lot600 | a_faire | 0 |  |
 | T3_pec_fiches_existantes | a_faire | 0 |  |
 | T4_reprise_rejets | a_faire | 0 |  |
 | T5_items_valides | a_faire | 0 |  |
+| T7_transversal_lecons | a_faire | 0 |  |
 | T6_vague_urgences | a_faire | 0 |  |
 
 Signature : AAI (Anthropic AI)
