@@ -1,10 +1,12 @@
-# Ouvrier automatique — 2026-11-23 16:43 UTC
+# Ouvrier automatique — 2026-11-23 17:37 UTC
 
-Dernier passage : **F5_cas_thorax** → fait (1.21 USD).
+Dernier passage : **T2_recup_lot600** → fait (0.00 USD).
 
-Les 17 cas thorax_04 à thorax_20 existent au format Econome (6 options, 2 à 4 nécessaires, « why » sourcé, correction en 7 marches), et le paquet paraclinique_thorax compte 20 questions. Les seuils ont été vérifiés par recherche web (Light, Fleischner, GINA, ESC, BTS, ESMO, ACR) ; le texte intégral des recommandations suisses n'était pas accessible, donc les sources sont ESC, ERS, ATS, BTS, GOLD, GINA, ESMO et Fleischner, ce qui demande un audit médical de Claude. Les arènes et les jauges ont été reconstruites (Paraclinique 95 %).
+msgbatch_016PU6XSwP53bkdXeSXfrvSs : 600 fiches écrites, 0 échecs (relancer « soumettre » les reprend).
+arènes : 45 | tuiles : 4121 | questions cibles : 123514 | fiches : 779
 
-**Crédit** : 21.90 USD dépensés, 78.10 USD disponibles avant le 27.11.2026 ; aujourd'hui 21.90 / 25.00 USD.
+
+**Crédit** : 50.12 USD dépensés, 49.88 USD disponibles avant le 27.11.2026 ; aujourd'hui 50.12 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -29,7 +31,7 @@ Les 17 cas thorax_04 à thorax_20 existent au format Econome (6 options, 2 à 4 
 | F2_examens_vides | fait | 1 | 0.684 |
 | SSP_etendus | fait | 1 | 1.933 |
 | F5_cas_thorax | fait | 1 | 1.21 |
-| T2_recup_lot600 | a_faire | 0 |  |
+| T2_recup_lot600 | fait | 1 | 0.0 |
 | T3_pec_fiches_existantes | a_faire | 0 |  |
 | T4_reprise_rejets | a_faire | 0 |  |
 | T5_items_valides | a_faire | 0 |  |
