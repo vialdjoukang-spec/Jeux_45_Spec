@@ -74,11 +74,12 @@ jobs:
           git diff --cached --quiet || git commit -q -m "Ouvrier : ${{ steps.file.outputs.tache }} (en attente d'audit médical) [skip ci]"
           for i in 1 2 3; do
             if git rev-parse -q --verify "origin/$BRANCHE" > /dev/null; then
-              git pull --rebase -q origin "$BRANCHE" && git push -q origin "$BRANCHE" && exit 0
+              git fetch -q origin "+refs/heads/$BRANCHE:refs/remotes/origin/$BRANCHE"
+              git merge --no-edit -q "origin/$BRANCHE" && git push -q origin "$BRANCHE" && exit 0   # fusion, jamais de rebase : l'historique de main reste intact
             else
               git push -q origin "$BRANCHE" && exit 0
             fi
-            git rebase --abort 2>/dev/null || true; sleep 10; git fetch -q origin
+            git merge --abort 2>/dev/null || true; sleep 10
           done
           git push -q origin "HEAD:refs/heads/ouvrier/sauvegarde-${{ github.run_id }}"   # rien ne se perd
           echo "branche d'audit occupée : travail sauvegardé sur ouvrier/sauvegarde-${{ github.run_id }}" >&2; exit 1
