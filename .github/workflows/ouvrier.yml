@@ -54,7 +54,8 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           pip install -q anthropic jsonschema
-          bash /tmp/commande.sh 2>&1 | tee /tmp/sortie_script.txt | tail -40
+          set +e; bash /tmp/commande.sh > /tmp/sortie_script.txt 2>&1; echo $? > /tmp/script_ok; set -e
+          tail -40 /tmp/sortie_script.txt
           python projets/ouvrier/file.py comptabiliser
       - name: Exécuter la tâche avec Claude
         if: steps.file.outputs.mode == 'claude'
