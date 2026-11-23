@@ -2,7 +2,7 @@
 
 Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **23.11.2026 13:44**.
 
-## Tétrade Fondation — 65 % (+40)
+## Tétrade Fondation — 65 % (+30)
 
 `█████████████░░░░░░░`
 
@@ -53,6 +53,7 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 | Date | Tétrade | Paraclinique | Transversal | 45 Spec |
 |---|---:|---:|---:|---:|
 | 23.11.2026 13:44 | 65 % | 77 % | 25 % | 16 % |
+| 23.11.2026 13:41 | 35 % | 59 % | 10 % | 1 % |
 | 23.11.2026 13:40 | 25 % | 59 % | 10 % | 1 % |
 
 Signature : AAI (Anthropic AI)
