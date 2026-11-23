@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-23 15:06 UTC
+# Ouvrier automatique — 2026-11-23 15:57 UTC
 
-Dernier passage : **END_pilote_notions_questions** → fait (0.27 USD).
+Dernier passage : **SSP_etendus** → fait (1.93 USD).
 
-Les 3 pathologies (hyperthyroïdie, acidocétose, phéochromocytome) ont leurs notions (68, 65 et 70, 15 rubriques, 0 erreur) et leurs questions (20 chacune, 0 erreur, formats A à 5 options, Kprim à 4 affirmations, menus de 13 à 15 options, séries progressives à diagnostic masqué). J'ai ajouté la règle 8ter à SYS_Q (couverture deux fois sous deux angles, 6 notions au plus par question) après un premier essai où 18 notions de poids ≥ 2 manquaient ; au second essai, il n'en manque plus que 2 (hyperthyroïdie), à reprendre en lot. La couverture donne 203 notions, 0 cochée, 174 en attente d'audit, 60 questions.
+J'ai créé data/ssp_etendus/ avec 1094 points de départ hors des 248 SSP officiels : G.json (45), 14 fichiers S_<système> (485), 15 fichiers F_<famille> (483, y compris gazométrie, ECG, imageries, anatomopathologie), O.json (81) et INDEX.json (comptes par fichier, type et catégorie). Chaque entrée porte code, intitulé FR/EN, catégorie, type de départ, parent officiel (ou null), justification et 5 à 12 diagnostics différentiels ; un script a vérifié l'unicité des codes et l'absence de doublon exact avec les 248. Le contenu vient des connaissances cliniques générales sans vérification contre les sources suisses : une relecture médicale ligne à ligne par l'audit horaire reste nécessaire, et le critère de sens (doublon proche d'un SSP officiel) n'a été contrôlé qu'à la main.
 
-**Crédit** : 18.76 USD dépensés, 81.24 USD disponibles avant le 27.11.2026 ; aujourd'hui 18.76 / 25.00 USD.
+**Crédit** : 20.69 USD dépensés, 79.31 USD disponibles avant le 27.11.2026 ; aujourd'hui 20.69 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -27,7 +27,7 @@ Les 3 pathologies (hyperthyroïdie, acidocétose, phéochromocytome) ont leurs n
 | T1_pilote_pec_et_lot600 | fait | 1 | 0.26 |
 | END_pilote_notions_questions | fait | 2 | 0.272 |
 | F2_examens_vides | fait | 1 | 0.684 |
-| SSP_etendus | a_faire | 0 |  |
+| SSP_etendus | fait | 1 | 1.933 |
 | F5_cas_thorax | a_faire | 0 |  |
 | T2_recup_lot600 | a_faire | 0 |  |
 | T3_pec_fiches_existantes | a_faire | 0 |  |
