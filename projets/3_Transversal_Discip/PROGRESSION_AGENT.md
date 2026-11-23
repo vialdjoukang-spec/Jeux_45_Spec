@@ -24,8 +24,8 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | P | 0 | 12 |
 | Q | 12 | 12 |
 | R | 0 | 12 |
-| S | 1 | 12 |
-| **Total** | **124** | **228** |
+| S | 12 | 12 |
+| **Total** | **135** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -143,29 +143,6 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_E-S4-02** : Droit d'aviser l'APEA des personnes soumises au secret professionnel (art. 314c al. 2 CC, en vigueur depuis le 1.1.2019).
 - **TRANS_E-S4-03** : Proportion de femmes dans les essais cardiovasculaires (souvent citée autour de 30 à 40 %) et de patients de 75 ans et plus : chiffres non écrits faute de source unique vérifiée.
 - **TRANS_E-S4-03** : Exigences actuelles de Swissmedic et des commissions d'éthique suisses sur l'analyse par sexe et l'inclusion des personnes âgées dans les essais (ICH E7, guidance SAGER).
-- **TRANS_F-S1-01** : Numéro de l'article du Code de déontologie FMH consacré au secret (art. 11 ?).
-- **TRANS_F-S1-01** : Peine exacte de l'art. 321 CP après l'harmonisation des peines (en vigueur 2023) : « trois ans au plus ou peine pécuniaire » à confirmer.
-- **TRANS_F-S1-01** : Caractère de plainte (délit poursuivi sur plainte) de l'art. 321 CP.
-- **TRANS_F-S1-02** : Âge pratique de 12 à 14 ans cité pour la capacité des mineurs : valeur d'usage, non légale.
-- **TRANS_F-S1-03** : Date de la dernière version des directives ASSM « Directives anticipées » (2009, révision ?).
-- **TRANS_F-S2-01** : Durées maximales cantonales du placement médical (NE, VD, GE, FR) : non chiffrées dans le texte.
-- **TRANS_F-S2-01** : Date de la dernière révision des directives ASSM « Mesures de contrainte en médecine ».
-- **TRANS_F-S2-02** : Cantons qui ajoutent une obligation d'aviser pour les médecins (droit cantonal) : non listés.
-- **TRANS_F-S2-02** : Statut des auxiliaires (art. 314c al. 2 CC) : la fiche bernoise indique qu'ils doivent être déliés ; confirmer dans le texte fédéral.
-- **TRANS_F-S3-01** : Liste et villes des consultations spécialisées MGF en Suisse.
-- **TRANS_F-S3-01** : Date de la lettre d'experts SSGO sur les MGF.
-- **TRANS_F-S3-01** : Nombre estimé de femmes concernées en Suisse : volontairement non chiffré.
-- **TRANS_F-S3-02** : Lettre exacte de l'art. 40 LPMéd sur l'assurance RC (let. h) à confirmer.
-- **TRANS_F-S3-02** : Délai de prescription applicable aux hôpitaux publics selon les lois cantonales de responsabilité (alignement sur le CO variable).
-- **TRANS_F-S3-03** : Exonération de la participation aux coûts liée à la maternité pour les interruptions (art. 64 al. 7 LAMal, dès la 13e semaine ?) : non chiffrée dans le texte.
-- **TRANS_F-S3-03** : Affirmation « l'un des taux les plus bas d'Europe » : à confirmer par les données OFS récentes.
-- **TRANS_F-S4-01** : Autorité de recours contre les mesures limitatives de liberté en psychiatrie (juge selon art. 439 al. 1 ch. 5 CC ou APEA selon art. 385) : la répartition exacte est à confirmer.
-- **TRANS_F-S4-02** : Délais sans crise exigés en épilepsie pour le premier et le deuxième groupe selon les recommandations suisses actuelles (Ligue contre l'épilepsie / SGRM).
-- **TRANS_F-S4-02** : Limite de 0,1 ‰ pour les conducteurs professionnels et les nouveaux conducteurs : confirmer la liste exacte des catégories concernées.
-- **TRANS_F-S4-03** : Âge de 16 ans pour déclarer soi-même sa volonté (art. 8 LTx) : à confirmer.
-- **TRANS_F-S4-03** : Date d'entrée en vigueur du consentement présumé : l'OFSP mentionne le premier semestre 2028 et la FAQ OFSP « 2026 au plus tôt » ; garder « au plus tôt en 2028 » sous réserve.
-- **TRANS_F-S4-03** : Nom exact du service de suivi des donneurs vivants (SOL-DHR) et de Transfusion CRS Suisse pour le registre des cellules souches.
-- **TRANS_F-S4-03** : Article de la LTx sur l'interdiction de prélèvement en l'absence de proches.
 - **TRANS_G-S1-01** : Chiffres d'incidence et de prévalence du diabète en Suisse utilisés dans les exercices : valeurs pédagogiques arrondies, à remplacer par les données Obsan les plus récentes si on les présente comme réelles.
 - **TRANS_G-S1-02** : Délai de déclaration clinique de la tuberculose par le médecin (1 semaine ?) : absent de l'extrait consulté de la liste alphabétique OFSP du 15.12.2025.
 - **TRANS_G-S1-02** : Déclaration clinique du Covid-19 et de l'influenza saisonnière par le médecin ou seulement par le laboratoire en 2026 : à confirmer dans le guide de déclaration OFSP.
@@ -279,4 +256,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : J (3/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12), S (1/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : J (3/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
