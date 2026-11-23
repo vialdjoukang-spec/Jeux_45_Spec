@@ -30,7 +30,7 @@ Organes encore à produire (backlog, non bloquant) : 57
 | Les 19 disciplines-outils couvrent les lettres A à S | ✅ |  |
 | Les lentilles cliniques incluent pédiatrie, gériatrie, femme/grossesse, chirurgie, psychiatrie | ✅ |  |
 | L'arbre de cours transversal compte 9 parties | ✅ |  |
-| Les 1704 JSON se lisent sans erreur | ✅ |  |
+| Les 1705 JSON se lisent sans erreur | ✅ |  |
 | Aucun nom de fichier ne garde un joker (<systeme>, <organe>…) | ✅ |  |
 | Plan tetrade : aucune image SVG | ✅ |  |
 | Plan tetrade : audit interne réussi | ✅ |  |
