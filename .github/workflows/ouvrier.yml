@@ -46,8 +46,18 @@ jobs:
       - uses: actions/setup-node@v4
         if: steps.file.outputs.tache != ''
         with: { node-version: "22" }
+      - name: Exécuter une tâche de type script (fiches et items du 45 Spec)
+        if: steps.file.outputs.mode == 'script'
+        continue-on-error: true
+        timeout-minutes: 120
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          pip install -q anthropic jsonschema
+          bash /tmp/commande.sh 2>&1 | tee /tmp/sortie_script.txt | tail -40
+          python projets/ouvrier/file.py comptabiliser
       - name: Exécuter la tâche avec Claude
-        if: steps.file.outputs.tache != ''
+        if: steps.file.outputs.mode == 'claude'
         continue-on-error: true
         timeout-minutes: 120
         env:
@@ -66,7 +76,7 @@ jobs:
         if: steps.file.outputs.tache != ''
         env:
           MODELE: ${{ steps.file.outputs.modele }}
-        run: python projets/ouvrier/file.py terminer "${{ steps.file.outputs.tache }}" /tmp/resultat.json
+        run: python projets/ouvrier/file.py terminer "${{ steps.file.outputs.tache }}" ${{ steps.file.outputs.mode == 'script' && '-' || '/tmp/resultat.json' }}
       - name: Publier sur la branche d'audit médical
         if: steps.file.outputs.tache != ''
         run: |

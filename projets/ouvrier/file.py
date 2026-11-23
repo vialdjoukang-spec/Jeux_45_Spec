@@ -24,7 +24,8 @@ def sortie(**kv):
 def budget():
     b = F["budget"]
     total = sum(x["cout"] for x in D)
-    reste = b["credit_usd"] - b["reserve_usd"] - total
+    plafond = min(b["credit_usd"] - b["reserve_usd"], b.get("plafond_total_usd", b["credit_usd"]))   # Vial : au plus la moitié du crédit
+    reste = plafond - total
     fin = datetime.datetime.fromisoformat(b["expire"])
     jours = max(1, math.ceil((fin - maint).total_seconds() / 86400))
     jour = sum(x["cout"] for x in D if x["jour"] == aujourd)
@@ -51,13 +52,46 @@ if sys.argv[1] == "prendre":
     b = round(min(t["budget_usd"], F["budget"]["plafond_par_passage_usd"], dispo, reste), 2)
     if b < 0.5:
         sortie(tache="", raison=f"plafond du jour atteint ({jour:.2f} / {pj:.2f} USD)"); sys.exit(0)
-    open("/tmp/prompt.txt", "w", encoding="utf-8").write(PREAMBULE % (t["id"], t["prompt"]))
-    sortie(tache=t["id"], modele=t["modele"], budget=b)
+    if t.get("commande"):                       # tâche de type script : appel direct de l'API par un script du dépôt
+        open("/tmp/commande.sh", "w", encoding="utf-8").write(t["commande"] + "\n")
+        sortie(tache=t["id"], modele=t.get("modele", ""), budget=b, mode="script")
+    else:
+        open("/tmp/prompt.txt", "w", encoding="utf-8").write(PREAMBULE % (t["id"], t["prompt"]))
+        sortie(tache=t["id"], modele=t["modele"], budget=b, mode="claude")
+
+# prix par million de tokens (platform.claude.com, novembre 2026) : entrée, lecture de cache, sortie ; lot = moitié prix
+PRIX = {"claude-sonnet-5-5": (2.0, 0.10, 10.0), "claude-haiku-5-5": (0.10, 0.01, 0.50), "claude-opus-5-5": (4.0, 0.20, 20.0)}
+REGISTRES = ["registre_fiches.csv", "registre_production.csv"]
+
+
+def cout_registres():
+    """Coût cumulé des appels faits par les scripts de production (fiches, items), lu dans leurs registres."""
+    import csv
+    rac = os.path.dirname(os.path.dirname(ICI)); total = 0.0
+    for nom in REGISTRES:
+        p = os.path.join(rac, nom)
+        if not os.path.exists(p):
+            continue
+        for r in csv.DictReader(open(p, encoding="utf-8"), delimiter=";"):
+            pi, pc, po = PRIX.get(r.get("modele", ""), PRIX["claude-sonnet-5-5"])
+            f = 0.5 if "lot" in (r.get("mode") or "lot") else 1.0
+            n = lambda k: float(r.get(k) or 0)
+            total += f * (n("in") * pi + n("cache_lu") * pc + n("out") * po) / 1e6
+    return total
+
+
+if sys.argv[1] == "comptabiliser":
+    deja = sum(x["cout"] for x in D if x.get("source") == "registres")
+    neuf = round(cout_registres() - deja, 4)
+    if neuf > 0:
+        D.append({"jour": aujourd, "date": maint.isoformat(timespec="seconds"), "tache": "scripts de production", "source": "registres", "cout": neuf})
+        json.dump(D, open(DEP, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print(f"registres : {neuf:.4f} USD ajoutés")
 
 elif sys.argv[1] == "terminer":
     tid, res = sys.argv[2], sys.argv[3]
     try:
-        r = json.load(open(res, encoding="utf-8"))
+        r = json.load(open(res, encoding="utf-8")) if res != "-" else {"is_error": False, "total_cost_usd": 0, "result": open("/tmp/sortie_script.txt", encoding="utf-8").read()[-300:]}
     except Exception as e:
         r = {"is_error": True, "total_cost_usd": 0, "result": f"sortie illisible : {e}"}
     cout = float(r.get("total_cost_usd") or 0)
