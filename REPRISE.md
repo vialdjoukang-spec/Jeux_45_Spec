@@ -208,6 +208,14 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - **Claude (abonnement)** : Paraclinique (F3 clichés : 352 entités vides relancées ; analyses chiffrées déclarées « sans objet »), audit médical, fusion des branches, republication des arènes, rapport de progression le 24.11 au matin.
 - Outils clés : `scripts/produire_notions_questions.py` (notions | questions | correction), `conception/prototypes/commun/correction.js`, `projets/JAUGES.md` (jauges toutes les 5 min).
 
+## 24.11.2026 00:31 — consigne de Vial : continuer sans interruption jusqu'à l'achèvement des 4 jeux
+- Si le crédit API s'épuise : reprise dans 48 h (nouveau crédit API + forfait ULTRA).
+- Agents sur abonnement, chacun doté des 5 skills (perfect-skill-user-organizer-collector, ultra-competent-fast-doctor, autonomous-skill-creator, pipeline-autonomous-builder, i-never-waste-token ; registre `.claude/skills/REGISTRE.md`) :
+  - rédacteur Transversal (C → R) et auditeur Transversal (S, F, Q, A, B ; 109 points) sur `agent/transversal` ; Claude fusionne sur main après l'audit ;
+  - constructeur Tétrade (hématologie-oncologie, puis infectieux-immunitaire) sur `agent/tetrade`.
+- API : 45 Spec, vague 1 puis vague 2 jusqu'au plafond de 192 USD.
+- Claude : Paraclinique (clichés), audits, fusions, rondes de nuit toutes les 2 h, rapport à 07:30.
+
 ## Hématologique & oncologique (2026-11-24, agent Tétrade, branche `agent/tetrade`)
 - Le système « Hématologique & oncologique » est jouable : `conception/outils/hemato/` (contenu, sémiologie, pathologies, glossaire, temps) ; registre `systemes_rediges.py` (préfixe `he_`, couleur `#a33`).
 - 6 organes rédigés en anatomie, physiologie et sémiologie (5 temps d'examen) ; le **thymus** garde sa maison dans l'endocrinien et devient un renvoi (`LIENS` dans `construire_config_tetrade.py`).
@@ -217,3 +225,10 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Les 6 renommages `org_hemato_*` → `he_*` sont déclarés dans `projets/retours/migrations_ids.json`. Audits : conception 34/34, couverture réussie, non-perte OK, interprétations 0 défaut.
 - Anomalie préexistante sur main (non corrigée ici) : `generer_json.py` dédoublonne l'analyse IGRA (apostrophe droite ou courbe) dans `2_cou/ganglions_cervicaux.json`, et `non_perte.py` le compte comme une perte ; l'agent a restauré ces 2 fichiers depuis main avant chaque commit.
 - Reste à faire : audit médical de Claude (`hemato/pathologies.txt`, interprétations `he_*`), puis relecture de Vial ; points `aVerifier` listés dans `projets/1_Jeux_Tetrade_Fondation/PROGRESSION_AGENT.md`.
+
+## Infectieux & immunitaire (2026-11-24, agent Tétrade, branche `agent/tetrade`)
+- Le système « Infectieux & immunitaire » est jouable : `conception/outils/infectio/` ; registre (préfixe `ii_`, couleur `#16897b`).
+- 4 organes rédigés (barrières, immunité innée, immunité adaptative, complément), 4 temps d'examen ; « Organes lymphoïdes » renvoie vers ses maisons (moelle, rate, ganglions : hématologique ; thymus : endocrinien ; MALT décrit aux barrières).
+- 17 pathologies en 4 paliers (3 TF, 5 F, 5 U, 4 R ; le complément n'a pas de palier « très fréquent ») ; le choc septique (cardiovasculaire), les méningites (neurologique), la fièvre méditerranéenne familiale et l'angio-œdème bradykinique aux IEC restent dans leurs maisons.
+- Nouvelle fenêtre `ii_anticorps` (IgM et IgG, réponse primaire et secondaire, déficit humoral), testée sans écran, 0 erreur JS ; 4 interprétations.
+- Les 4 renommages `org_infect_*` → `ii_*` sont déclarés dans `migrations_ids.json`.
