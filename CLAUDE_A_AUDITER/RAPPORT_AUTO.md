@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-23 01:24
 
-24 fichier(s) : 0 🟩 intégrables · 23 🟧 à compléter · 1 🟥 refusés.
+26 fichier(s) : 0 🟩 intégrables · 25 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -131,6 +131,36 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟧 `score_de_schober_et_mesures_cliniques_de.json` : remplissage 0 % (0/0)
 - 🟧 `electroneuromyographie.json` : remplissage 0 % (0/0)
 - aVerifier déclarés : 8
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/04_Thorax/1_Theorie/PF04-1_Explorations_fonctionnelles_Thorax_12-fiches_production_XAi.json`
+- 🟧 `capacite_de_diffusion_du_co.json` : remplissage 0 % (0/0)
+- 🟧 `catheterisme_cardiaque_droit.json` : remplissage 0 % (0/0)
+- 🟧 `controle_de_pacemaker_et_de_defibrillate.json` : remplissage 0 % (0/0)
+- 🟧 `ecg_12_derivations.json` : remplissage 0 % (0/0)
+- 🟧 `enmg_du_nerf_phrenique.json` : remplissage 0 % (0/0)
+- 🟧 `enregistreur_d_evenements_et_moniteur_im.json` : remplissage 0 % (0/0)
+- 🟧 `ergospirometrie.json` : remplissage 0 % (0/0)
+- 🟧 `feno.json` : remplissage 0 % (0/0)
+- 🟧 `holter_ecg_24_h_a_7_jours.json` : remplissage 0 % (0/0)
+- 🟧 `manometrie_oesophagienne_haute_resolutio.json` : remplissage 0 % (0/0)
+- 🟧 `massage_du_sinus_carotidien.json` : remplissage 0 % (0/0)
+- 🟧 `oxymetrie_nocturne_polygraphie_et_polyso.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 13
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/04_Thorax/1_Theorie/PF04-2_Explorations_fonctionnelles_Thorax_12-fiches_production_XAi.json`
+- 🟧 `palpation_reproduisant_la_douleur.json` : remplissage 0 % (0/0)
+- 🟧 `peak_flow.json` : remplissage 0 % (0/0)
+- 🟧 `plethysmographie.json` : remplissage 0 % (0/0)
+- 🟧 `pressions_inspiratoire_et_expiratoire_ma.json` : remplissage 0 % (0/0)
+- 🟧 `spirometrie_avec_test_de_bronchodilatati.json` : remplissage 0 % (0/0)
+- 🟧 `spirometrie_couchee_et_assise.json` : remplissage 0 % (0/0)
+- 🟧 `test_de_marche_de_6_minutes.json` : remplissage 0 % (0/0)
+- 🟧 `test_de_provocation_bronchique.json` : remplissage 0 % (0/0)
+- 🟧 `tilt_test.json` : remplissage 0 % (0/0)
+- 🟧 `ph_metrie_et_impedancemetrie_de_24_h.json` : remplissage 0 % (0/0)
+- 🟧 `epreuve_d_effort.json` : remplissage 0 % (0/0)
+- 🟧 `etude_electrophysiologique_endocavitaire.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 14
 
 ### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/01_Tete_et_encephale/1_Theorie/PE01_Endoscopies_Tete_et_encephale_2-fiches_production_XAi.json`
 - 🟧 `nasofibroscopie.json` : remplissage 0 % (0/0)
