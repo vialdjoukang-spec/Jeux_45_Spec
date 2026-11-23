@@ -2,7 +2,7 @@
 
 Ce dossier ne contient que les données qui ont passé l'audit de fond de Claude : un examen y entre si son cœur clinique est rempli (visees, signeRecherche, seuil, indication, discriminant, avantageSelectif, plutotQue, limite, precautions, irradiation_mSv, delai) et si aucun doute ne reste ouvert sur lui. La liste aCompleter de chaque fichier nomme les examens fiables auxquels il manque encore les champs de présentation (synonymes, aspectNormal, anomaliesElementaires, syndromesParacliniques, pathologiesAssociees) : ils partent en lot de complément. Le jeu peut les charger telles quelles. Les sources de travail restent dans `conception/donnees/` ; ce dossier est régénéré par `python projets/outils/audit_fond.py`.
 
-Mise à jour : 2026-11-23 · 777 examens fiables sur 820 · 0 à compléter en présentation · 502 justifications acceptées · 3 doutes encore ouverts.
+Mise à jour : 2026-11-23 · 815 examens fiables sur 820 · 38 à compléter en présentation · 502 justifications acceptées · 6 doutes encore ouverts.
 
 | Organe | Examens | Fiables | Doutes ouverts |
 |---|---|---|---|
@@ -12,7 +12,7 @@ Mise à jour : 2026-11-23 · 777 examens fiables sur 820 · 0 à compléter en p
 | Hypophyse et hypothalamus | 12 | 12 | 0 |
 | Méninges et LCR | 7 | 6 | 2 |
 | Nerfs crâniens | 8 | 8 | 0 |
-| Nez, sinus et cavum | 12 | 11 | 0 |
+| Nez, sinus et cavum | 12 | 12 | 0 |
 | Œil et orbite | 22 | 22 | 0 |
 | Oreille et équilibre | 14 | 14 | 0 |
 | Os du crâne et de la face | 7 | 7 | 0 |
@@ -26,15 +26,15 @@ Mise à jour : 2026-11-23 · 777 examens fiables sur 820 · 0 à compléter en p
 | Queue de cheval et cône terminal | 3 | 3 | 0 |
 | Rachis osseux | 13 | 13 | 0 |
 | Racines et plexus | 9 | 9 | 0 |
-| Aorte thoracique et artères pulmonaires | 10 | 6 | 0 |
+| Aorte thoracique et artères pulmonaires | 10 | 9 | 1 |
 | Cœur et péricarde | 29 | 29 | 0 |
 | Diaphragme et muscles respiratoires | 6 | 6 | 0 |
-| Médiastin | 11 | 7 | 0 |
+| Médiastin | 11 | 10 | 1 |
 | Œsophage | 8 | 8 | 0 |
-| Paroi thoracique et côtes | 6 | 4 | 0 |
+| Paroi thoracique et côtes | 6 | 6 | 0 |
 | Plèvre | 7 | 7 | 0 |
 | Poumons et voies aériennes | 32 | 32 | 0 |
-| Seins | 13 | 10 | 0 |
+| Seins | 13 | 13 | 0 |
 | Aorte abdominale et vaisseaux digestifs | 6 | 6 | 0 |
 | Appendice | 7 | 7 | 0 |
 | Côlon, rectum et anus | 19 | 19 | 0 |
@@ -42,13 +42,13 @@ Mise à jour : 2026-11-23 · 777 examens fiables sur 820 · 0 à compléter en p
 | Foie | 18 | 18 | 0 |
 | Intestin grêle | 10 | 10 | 0 |
 | Pancréas | 13 | 13 | 0 |
-| Paroi abdominale et hernies | 4 | 0 | 0 |
+| Paroi abdominale et hernies | 4 | 4 | 0 |
 | Péritoine et ascite | 5 | 5 | 0 |
 | Rate | 10 | 10 | 0 |
 | Reins | 18 | 18 | 0 |
 | Rétropéritoine | 5 | 5 | 0 |
 | Surrénales | 13 | 13 | 0 |
-| Uretères | 9 | 4 | 0 |
+| Uretères | 9 | 8 | 1 |
 | Veines caves et système porte | 8 | 8 | 0 |
 | Vésicule et voies biliaires | 10 | 10 | 0 |
 | Grossesse, fœtus et placenta | 22 | 22 | 0 |
@@ -79,14 +79,14 @@ Mise à jour : 2026-11-23 · 777 examens fiables sur 820 · 0 à compléter en p
 | Croissance et développement de l'enfant | 8 | 8 | 0 |
 | Évaluation gériatrique globale | 8 | 8 | 0 |
 | Génétique | 5 | 5 | 0 |
-| Infection et immunité | 14 | 13 | 0 |
-| Métabolisme et endocrinologie | 11 | 7 | 0 |
+| Infection et immunité | 14 | 14 | 0 |
+| Métabolisme et endocrinologie | 11 | 11 | 0 |
 | Moelle osseuse et ganglions | 6 | 6 | 0 |
-| Psyché | 7 | 0 | 0 |
+| Psyché | 7 | 7 | 0 |
 | Sang et hémostase | 13 | 13 | 0 |
 | Sommeil et vigilance | 7 | 7 | 0 |
 | Système lymphatique | 7 | 7 | 0 |
-| Toxicologie et médicaments | 6 | 0 | 0 |
+| Toxicologie et médicaments | 6 | 6 | 0 |
 | Urgences et point-of-care | 9 | 9 | 0 |
 
 Signature : AAI (Anthropic AI)
