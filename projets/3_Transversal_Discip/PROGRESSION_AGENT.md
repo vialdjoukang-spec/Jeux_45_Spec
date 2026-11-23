@@ -16,7 +16,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | H | 12 | 12 |
 | I | 12 | 12 |
 | J | 12 | 12 |
-| K | 6 | 12 |
+| K | 9 | 12 |
 | L | 0 | 12 |
 | M | 0 | 12 |
 | N | 0 | 12 |
@@ -25,41 +25,11 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **150** | **228** |
+| **Total** | **153** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
-- **TRANS_A-S1-01** : Montant futur de la franchise minimale (projet mis en consultation le 13.3.2026, non adopté).
-- **TRANS_A-S1-01** : Conditions exactes d'exemption de la franchise pour les programmes de dépistage du cancer du sein.
-- **TRANS_A-S1-02** : Gain assuré maximal LAA en 2026 (148 200 francs depuis 2016, adaptation éventuelle).
-- **TRANS_A-S1-02** : Part des travailleurs assurés par la SUVA (« environ la moitié »).
-- **TRANS_A-S1-03** : Recommandation FMH précise sur la durée maximale d'une attestation rétroactive.
-- **TRANS_A-S1-03** : Existence et nom des modèles cantonaux de certificat détaillé (ex. « certificat d'aptitude au travail » bâlois).
-- **TRANS_A-S2-01** : Disposition exacte sur l'information préalable de l'assuré et la levée du secret pour la communication du médecin (art. 3b LAI).
-- **TRANS_A-S2-01** : Durée de l'incapacité moyenne d'au moins 40 % pendant une année (art. 28 LAI) : formulation exacte.
-- **TRANS_A-S2-01** : Statut actuel de Compasso.
-- **TRANS_A-S2-02** : Nom exact de l'outil d'évaluation du bénéfice (OLUTool) et catégories A à D en 2026.
-- **TRANS_A-S2-02** : Taux de rabais par catégorie fixés depuis le 1.1.2024.
-- **TRANS_A-S2-03** : Arrêt de principe du Tribunal fédéral sur l'art. 6 al. 2 LAA révisé (ATF 146 V 51 ?).
-- **TRANS_A-S3-01** : Référence de l'arrêt de principe sur la procédure structurée (ATF 141 V 281, 2015) et son extension aux troubles psychiques (ATF 143 V 409 et 418, 2017).
-- **TRANS_A-S3-01** : Nom officiel exact de la COQEM.
-- **TRANS_A-S3-02** : Abattement forfaitaire sur le revenu d'invalide fixé par le RAI depuis le 1.1.2024 (10 % ?) et règles complémentaires.
-- **TRANS_A-S3-02** : Méthode mixte pour les personnes à temps partiel : formulation actuelle après 2018.
-- **TRANS_A-S3-03** : Modalités typiques des assurances collectives (80 % pendant 720 jours sur 900) : pratique courante, non légale.
-- **TRANS_A-S3-03** : Droit de passage : base légale exacte selon LAMal (art. 71) et pratique LCA.
-- **TRANS_A-S4-01** : Gratuité de la procédure cantonale et montant des frais en matière AI (art. 69 al. 1bis LAI).
-- **TRANS_A-S4-01** : Contenu exact des arrêts cités (ATF 125 V 351, 130 V 352, 137 V 210, 141 V 281, 143 V 409/418).
-- **TRANS_A-S4-02** : Présence exacte de la gonarthrose du travail à genoux dans l'annexe 1 OLAA (travaux listés).
-- **TRANS_A-S4-02** : Nom officiel de la fondation EFA.
-- **TRANS_A-S4-03** : Plafond de 90 % du gain assuré pour la rente complémentaire LAA (art. 20 LAA) : à confirmer.
-- **TRANS_A-S4-03** : Surveillance de la LAA par l'OFSP (et non l'OFAS) : à confirmer.
-- **TRANS_B-S1-02** : Usage actuel du score AGLA versus SCORE2 dans les recommandations suisses 2025-2026.
-- **TRANS_B-S1-03** : Rattachement institutionnel actuel de Cochrane Suisse (Unisanté, Lausanne).
-- **TRANS_B-S3-01** : Essais suisses sur la procalcitonine (ProHOSP, Schuetz P et al., JAMA 2009) : référence à confirmer.
-- **TRANS_B-S3-02** : Marge de non-infériorité de 1,46 citée dans le cas : valeur fictive inspirée des essais d'AOD (ex. ROCKET-AF 1,46) ; confirmer si l'on veut la présenter comme réelle.
-- **TRANS_B-S4-01** : Statut actuel du Swiss Medical Board en 2026 et portée de son rapport de 2014 sur la mammographie.
-- **TRANS_B-S4-02** : Nom exact de la société suisse de diabétologie (SSED / SGED) et usage de GRADE dans ses recommandations.
-- **TRANS_B-S4-03** : Date d'entrée en vigueur de la LEMO (1.1.2020) et nom exact du registre national.
+- **TRANS_A-S4-01** : Contenu des ATF cités comme distracteurs ou repères (130 V 352 de 2004, 137 V 210 de 2011, 143 V 409/418 de 2017) : cohérent avec la doctrine connue mais non relu sur bger.ch (base inaccessible pendant l'audit). Vérifiés : ATF 125 V 351 (critères de valeur probante, guide FMH) et le changement de pratique de 2015 (arrêt 9C_492/2014 publié ATF 141 V 281, circulaire OFAS du 7.7.2015).
 - **TRANS_C-S1-01** : Titre exact et année du guide ASSM sur la communication dans la pratique médicale (2013 ?).
 - **TRANS_C-S1-01** : Durée moyenne de parole spontanée de 92 secondes (Langewitz et al., BMJ 2002, policlinique de Bâle) : chiffre à confirmer dans l'article original.
 - **TRANS_C-S1-02** : Proportion de patients qui oublient 40 à 80 % de l'information médicale reçue (Kessels 2003) : chiffre classique, à confirmer.
@@ -250,6 +220,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_K-S2-02** : Moment de prélèvement recommandé pour chaque indicateur (fin de poste, fin de semaine).
 - **TRANS_K-S2-03** : Article de l'OLT1 qui définit les situations de risque imposant l'examen médical obligatoire avant le travail de nuit (art. 45 OLT1 ?) et périodicité de deux ans.
 - **TRANS_K-S2-03** : Classification du travail posté avec perturbation circadienne comme « probablement cancérogène » (groupe 2A) par le CIRC (monographie 124, 2019).
+- **TRANS_K-S3-01** : Interdiction de l'amiante en Suisse depuis 1990 et fonctionnement 2026 de la Fondation pour les victimes de l'amiante (EFA) et du programme de surveillance post-exposition de la SUVA.
+- **TRANS_K-S3-01** : Recommandations suisses sur le dépistage par scanner thoracique faible dose chez les anciens travailleurs exposés à l'amiante et fumeurs.
+- **TRANS_K-S3-02** : Seuils SUVA en vigueur : niveau d'exposition au bruit à partir duquel la SUVA effectue des examens audiométriques (85 dB(A) LEX,8h) et à partir duquel les protecteurs d'ouïe sont obligatoires.
+- **TRANS_K-S3-02** : Critères SUVA de reconnaissance de la surdité professionnelle et barème d'indemnisation (indemnité pour atteinte à l'intégrité).
+- **TRANS_K-S3-03** : Statut du burn-out dans la CIM-11 (QD85, « phénomène lié au travail », non classé comme maladie) et codage suisse en 2026 (CIM-10-GM utilisée pour la facturation).
+- **TRANS_K-S3-03** : Base de l'obligation de l'employeur de protéger la personnalité du travailleur (art. 328 CO) et du harcèlement psychologique (jurisprudence du Tribunal fédéral) ; rôle des inspections cantonales du travail sur les risques psychosociaux (art. 6 LTr, art. 2 OLT3).
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -263,4 +239,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : K (6/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : K (9/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
