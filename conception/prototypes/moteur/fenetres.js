@@ -4,7 +4,7 @@ export function ouvrirFenetre(type, titre, couleur){
   f=document.createElement('div');f.id='fdet';f.style.setProperty('--c',couleur||'#2f6fd0');
   f.innerHTML=`<div class=fh><b>${titre}</b><button title="Fermer">✕</button></div><div class=fc></div>`;document.body.appendChild(f);
   f.querySelector('button').onclick=()=>f.remove();const C=f.querySelector('.fc');
-  (MODELES[type]||MODELES.inconnu)(C);const fr=()=>C.querySelectorAll('p').forEach(p=>{const w=document.createTreeWalker(p,4);for(let n;n=w.nextNode();){const v=n.nodeValue.replace(/(\d)\.(\d)/g,'$1,$2');if(v!==n.nodeValue)n.nodeValue=v;}});fr();new MutationObserver(fr).observe(C,{subtree:true,childList:true,characterData:true});return f;}
+  (MODELES[type]||MODELES.inconnu)(C);panneau(C,type)(C.dataset.sc||'');const fr=()=>C.querySelectorAll('p').forEach(p=>{const w=document.createTreeWalker(p,4);for(let n;n=w.nextNode();){const v=n.nodeValue.replace(/(\d)\.(\d)/g,'$1,$2');if(v!==n.nodeValue)n.nodeValue=v;}});fr();new MutationObserver(fr).observe(C,{subtree:true,childList:true,characterData:true});return f;}
 const kPa=mm=>mm*0.1333, mm=k=>k/0.1333;
 function axes(x,W,H,m,xr,yr,xl,yl){x.clearRect(0,0,W,H);x.strokeStyle='#8a94a3';x.lineWidth=1;x.font='11px A';x.fillStyle='#3a4556';
  x.beginPath();x.moveTo(m,H-m);x.lineTo(W-10,H-m);x.moveTo(m,H-m);x.lineTo(m,10);x.stroke();
@@ -16,7 +16,7 @@ function curseur(C,lab,min,max,pas,val,cb){const d=document.createElement('label
  C.appendChild(d);const i=d.querySelector('input'),o=d.querySelector('output');i.oninput=()=>{o.textContent=i.value;cb();};return ()=>+i.value;}
 /* curseur pilotable par les boutons de scénario */
 function cur(C,lab,min,max,pas,val,cb){const g=curseur(C,lab,min,max,pas,val,cb),d=C.lastElementChild,i=d.querySelector('input'),o=d.querySelector('output');g.set=v=>{i.value=v;o.textContent=v;};return g;}
-function boutons(C,liste,cb){const b=document.createElement('div');b.className='boutons';C.appendChild(b);for(const [l,v] of liste){const e=document.createElement('button');e.textContent=l;e.onclick=()=>cb(v);b.appendChild(e);}return b;}
+function boutons(C,liste,cb){const b=document.createElement('div');b.className='boutons';C.appendChild(b);if(liste.length&&!C.dataset.sc)C.dataset.sc=liste[0][0];for(const [l,v] of liste){const e=document.createElement('button');e.textContent=l;e.onclick=()=>{cb(v);C.dispatchEvent(new CustomEvent('scenario',{detail:l}));};b.appendChild(e);}return b;}
 /* moteur hémodynamique unique (élastance variable, couplage ventriculo-artériel) : Ees(VTS − V0) = Ea × VES + gradient */
 const H0={EDV:120,Ees:2.75,Ea:1.6,V0:10,A:0.31,k:0.03,G:0,FC:70};
 export function hemo(o){const p=Object.assign({},H0,o||{}),ESV=(p.Ea*p.EDV+p.Ees*p.V0+p.G)/(p.Ees+p.Ea),VES=Math.max(1,p.EDV-ESV),Pa=p.Ea*VES;
@@ -353,3 +353,17 @@ const MODELES={
    else m1='L\'osmolalité plasmatique reste dans la plage normale (275 à 295 mOsm/kg) et la sécrétion suit la courbe attendue.';
    note.textContent='Osmolalité plasmatique = 2 × '+Na()+' + '+Gl()+' + '+Ur()+' = '+po.toFixed(0)+' mOsm/kg. Osmolalité urinaire estimée = '+uo.toFixed(0)+' mOsm/kg ; diurèse estimée = 600 / '+uo.toFixed(0)+' = '+di.toFixed(1)+' l par jour. '+m1;}d();},
  inconnu(C){C.textContent='Fenêtre à produire.';}};
+
+// Interprétation corrélée sous chaque courbe : physiopathologie → sémiologie → explorations → thérapeutique, liens entre disciplines, définitions.
+// Contenu dans interpretations.json (fenêtre → scénario), audité médicalement ; le panneau suit le scénario choisi.
+let INTERP=null;
+async function chargerInterp(){if(INTERP)return INTERP;try{INTERP=await (await fetch(new URL('interpretations.json',import.meta.url))).json();}catch(e){INTERP={};}return INTERP;}
+function panneau(C,type){
+ if(!document.getElementById('interp-css')){const st=document.createElement('style');st.id='interp-css';st.textContent='.interp{margin-top:10px;border-top:2px solid var(--c,#2f6fd0);padding-top:6px}.interp summary{font-weight:700;cursor:pointer}.interp p{margin:6px 0}.interp dl{margin:6px 0;font-size:.92em}.interp dt{font-weight:700;display:inline}.interp dt::after{content:" : "}.interp dd{display:inline;margin:0}.interp dd::after{content:"";display:block;margin-bottom:3px}';document.head.appendChild(st);}
+ const d=document.createElement('details');d.open=true;d.className='interp';C.appendChild(d);
+ const L=[['Vers la physiopathologie','physio'],['Conséquence sémiologique','semio'],['Trouvailles exploratoires et diagnostiques','explo'],['Approche thérapeutique justifiée','ther']];
+ const maj=async k=>{const I=(await chargerInterp())[type];const e=I&&(I[k]||I._||I[Object.keys(I)[0]]);if(!e){d.style.display='none';return;}d.style.display='';
+  d.innerHTML='<summary>Interprétation corrélée'+(I[k]?' : '+k:'')+'</summary>'+L.map(([l,c])=>e[c]?'<p><b>'+l+'</b> : '+e[c]+'</p>':'').join('')
+   +(e.liens&&e.liens.length?'<p><b>Liens entre disciplines</b> : '+e.liens.map(x=>x[0]+' : '+x[1]).join(' ; ')+'</p>':'')
+   +(e.def&&e.def.length?'<dl>'+e.def.map(([t,x])=>'<dt>'+t+'</dt><dd>'+x+'</dd>').join('')+'</dl>':'');};
+ C.addEventListener('scenario',ev=>maj(ev.detail));return maj;}
