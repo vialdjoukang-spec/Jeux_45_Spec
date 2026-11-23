@@ -1,4 +1,4 @@
-# Veille automatique — 2026-11-23 11:33
+# Veille automatique — 2026-11-23 22:53
 
 19 nouveau(x) lot(s) : 19 fusionné(s), 0 refusé(s) ou partiel(s).
 
@@ -24,8 +24,8 @@
 - 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/6_Formules_Criteres_SmarterMedicine/P22_SmarterMedicine_recommandations_suisses_production_XAi.json` (production-xai-athena-formules) : 1 fusionnés, 0 refusés → projets/retours/rapport_fusion.md
 
 ## Contrôles après fusion
-- Audit de fond : {'corrections': 0, 'acceptees': 502, 'ouvertes': 3, 'fiables': 790, 'examens': 820, 'aCompleter': 0}
-- Lots de complément : 0 examens à compléter, lots dans Production_XAi/Lots_a_produire/complement_presentation
+- Audit de fond : {'corrections': 0, 'acceptees': 502, 'ouvertes': 6, 'fiables': 815, 'examens': 820, 'aCompleter': 27}
+- Lots de complément : 27 examens à compléter, lots dans Production_XAi/Lots_a_produire/complement_presentation
 - Audit de conception : RÉUSSI 34/34
 - Audit de couverture : RÉUSSI {'regions': 9, 'organes': 82, 'prelevements': 23, 'Imagerie': 292, 'Biologie': 280, 'Exploration fonctionnelle': 151, 'Endoscopie': 35, 'Anatomopathologie / biopsie': 62}
 - Non-perte face à main : non-perte : ÉCHEC (2 fichier(s) en perte)
