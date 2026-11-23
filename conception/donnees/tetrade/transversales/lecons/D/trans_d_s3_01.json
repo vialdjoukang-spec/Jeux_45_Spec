@@ -1,11 +1,23 @@
 {
  "_meta": {
-  "statut": "À REMPLIR",
+  "statut": "RÉDIGÉ — à auditer par Claude",
   "discipline": "D — Digitalisation & Cybersanté",
   "regles": [
    "La leçon commence par un cas suisse concret et finit par une décision à prendre.",
    "Phrases verbales ; tout sigle figure au glossaire.",
    "Elle renvoie aux SSP sans les recopier."
+  ],
+  "signature": "AAI (Anthropic AI)",
+  "aVerifier": [
+   "Date d'entrée en vigueur de l'ODim (26.5.2021) et obligations actuelles du mandataire suisse (CH-REP) faute d'actualisation de l'accord de reconnaissance mutuelle avec l'UE.",
+   "Position suisse 2026 sur la régulation de l'IA (ratification de la convention du Conseil de l'Europe, adaptation sectorielle) et éventuelle reprise du règlement européen sur l'IA pour les dispositifs médicaux."
+  ],
+  "sources": [
+   "Ordonnance sur les dispositifs médicaux (ODim), RS 812.213",
+   "Règlement (UE) 2017/745 (MDR), annexe VIII, règle 11",
+   "Collins GS et al. TRIPOD+AI statement. BMJ 2024;385:e078378",
+   "Liu X et al. CONSORT-AI extension. Nat Med 2020;26:1364",
+   "Swissmedic, page « Logiciels dispositifs médicaux » (consultée le 23.11.2026)"
   ]
  },
  "id": "TRANS_D-S3-01",
@@ -13,57 +25,141 @@
  "lettre": "D",
  "sousOnglet": "TRANS_D_SUB_4",
  "strate": "MF",
- "casDOuverture": null,
+ "casDOuverture": "À Lausanne, un fournisseur propose à ton service d'urgences un logiciel d'intelligence artificielle qui détecte les fractures sur les radiographies, avec une « sensibilité de 98 % » mesurée sur ses propres données. Le chef de service te demande d'évaluer si l'outil peut être utilisé chez vos patients. Tu dois décider quelles questions poser avant toute adoption.",
  "parties": {
-  "1. Cadre": null,
-  "2. Notions fondamentales": null,
-  "3. Outils et méthodes": null,
-  "4. Décisions et seuils": null,
-  "5. Applications par système": null,
-  "6. Particularités par terrain": null,
-  "7. Pièges et confusions": null,
-  "8. Pratique suisse": null,
-  "9. Exercices et répétition": null
+  "1. Cadre": "Un logiciel qui sert à diagnostiquer, surveiller, prédire ou traiter une maladie est un dispositif médical, qu'il utilise ou non l'intelligence artificielle. En Suisse, l'ODim, alignée sur le règlement européen (MDR), exige une évaluation de conformité, un marquage et une surveillance après commercialisation. Le marquage prouve la conformité réglementaire, pas l'utilité clinique dans un service donné. Le médecin évalue donc l'outil comme un test diagnostique ou un modèle de prédiction, avec les mêmes exigences de preuve.",
+  "2. Notions fondamentales": "La règle 11 du MDR classe la plupart des logiciels d'aide à la décision en classe IIa, ou plus haut (IIb, III) lorsqu'une erreur peut causer une détérioration grave ou la mort ; une classe IIa ou plus exige l'intervention d'un organisme notifié. La validation interne mesure la performance sur des données proches de celles d'entraînement, alors que la validation externe la mesure sur une autre population, un autre hôpital ou une autre période. La discrimination (aire sous la courbe ROC, sensibilité, spécificité) dit si le modèle sépare malades et non-malades ; la calibration dit si les probabilités prédites correspondent aux fréquences observées. L'utilité clinique dit si l'outil améliore les décisions et les résultats pour le patient.",
+  "3. Outils et méthodes": "Le médecin pose des questions précises : sur quelles données l'outil a-t-il été entraîné, et ressemblent-elles à nos patients (âge, sexe, origine, appareils) ? A-t-il été validé de façon externe et prospective ? Quelle est sa performance au point de décision choisi, avec intervalles de confiance ? Quelles erreurs commet-il, et chez qui ? Comment s'intègre-t-il au flux de travail ? Il vérifie le statut réglementaire (marquage, classe, mandataire suisse) et la conformité à la protection des données. Il s'appuie sur les grilles de qualité des études d'IA (TRIPOD+AI pour les modèles, CONSORT-AI pour les essais) et prévoit une phase pilote locale.",
+  "4. Décisions et seuils": "Le médecin adopte l'outil seulement s'il dispose d'une validation externe dans une population comparable, d'un statut réglementaire conforme et d'un plan de surveillance locale. Il définit à l'avance le rôle de l'outil (second lecteur, triage, alerte) et la règle de décision en cas de désaccord avec le clinicien. Il refuse un outil validé seulement sur les données du fabricant. Il prévoit une réévaluation périodique, car la performance peut dériver. Il annonce à Swissmedic tout incident grave lié au dispositif.",
+  "5. Applications par système": "En radiologie, l'IA détecte fractures, nodules pulmonaires et hémorragies cérébrales. En dermatologie, elle classe les lésions pigmentées, avec un risque de biais sur peau foncée. En cardiologie, elle analyse l'ECG et détecte la fibrillation auriculaire. En ophtalmologie, elle dépiste la rétinopathie diabétique. En soins intensifs, des modèles prédisent le sepsis, avec des performances souvent décevantes en validation externe.",
+  "6. Particularités par terrain": "Chez l'enfant, de nombreux outils n'ont pas été validés, et leur usage sort alors de l'indication prévue. Chez la personne âgée polymorbide, les modèles entraînés sur des populations plus jeunes peuvent se tromper. Dans un petit hôpital, les appareils et les protocoles d'imagerie diffèrent de ceux du centre d'entraînement. Chez les populations sous-représentées dans les données, la performance peut chuter.",
+  "7. Pièges et confusions": "Le premier piège consiste à confondre marquage réglementaire et preuve d'utilité clinique. Le deuxième consiste à accepter une performance mesurée seulement sur les données d'entraînement. Le troisième consiste à ignorer la calibration. Le quatrième est le biais d'automatisation : le clinicien suit l'outil même quand il se trompe. Le dernier consiste à utiliser un outil hors de son indication prévue (autre population, autre usage) sans le savoir.",
+  "8. Pratique suisse": "En Suisse, Swissmedic surveille les dispositifs médicaux mis sur le marché, reçoit les annonces d'incidents graves et peut intervenir. L'ODim, en vigueur depuis 2021, reprend les exigences du MDR ; faute d'actualisation de l'accord avec l'Union européenne, les fabricants étrangers doivent désigner un mandataire en Suisse. La protection des données (nLPD) s'applique aux données traitées par l'outil. Le médecin qui utilise l'outil garde la responsabilité de sa décision clinique.",
+  "9. Exercices et répétition": "Pour t'exercer, lis la publication d'un outil d'IA et remplis une grille : population, validation externe, discrimination, calibration, utilité clinique, statut réglementaire. Rejoue le cas d'ouverture et rédige les cinq questions au fournisseur. La notion revient dans les leçons D sur les biais algorithmiques et la responsabilité, et dans l'onglet B sur les tests diagnostiques."
  },
- "decisionFinale": null,
+ "decisionFinale": "Le médecin demande au fournisseur la classe et le marquage du logiciel, le mandataire suisse, la validation externe sur une population comparable, la sensibilité et la spécificité avec intervalles de confiance, les erreurs par sous-groupe et la conformité à la protection des données ; faute de validation externe, il refuse l'adoption directe et propose une phase pilote locale en second lecteur, avec évaluation de la performance réelle avant toute généralisation.",
  "items": [
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Genève, un logiciel d'IA porte un marquage de conformité. Que prouve ce marquage ?",
+   "options": [
+    "Que l'outil améliore les résultats des patients de ton hôpital",
+    "Que l'outil répond aux exigences réglementaires de sécurité et de performance déclarées",
+    "Que l'outil ne commet jamais d'erreur",
+    "Que l'outil a été validé dans chaque population",
+    "Que l'assurance obligatoire le rembourse"
+   ],
+   "bonneReponse": "B",
+   "explicationParOption": {
+    "A": "L'utilité locale doit être démontrée séparément.",
+    "B": "Le marquage atteste la conformité réglementaire, pas l'utilité dans un contexte précis.",
+    "C": "Aucun outil n'est infaillible.",
+    "D": "La validation dans chaque population n'est pas exigée par le marquage.",
+    "E": "Le remboursement relève d'autres procédures."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Berne, un modèle prédit un risque de 20 % de sepsis chez des patients qui, en réalité, présentent un sepsis dans 5 % des cas. Quelle propriété est défaillante ?",
+   "options": [
+    "La discrimination",
+    "La calibration",
+    "La sensibilité",
+    "La reproductibilité",
+    "La spécificité"
+   ],
+   "bonneReponse": "B",
+   "explicationParOption": {
+    "A": "La discrimination concerne la capacité à classer, pas l'exactitude des probabilités.",
+    "B": "La calibration compare les probabilités prédites aux fréquences observées ; ici le modèle surestime.",
+    "C": "La sensibilité porte sur la détection des malades à un seuil donné.",
+    "D": "Rien n'indique un défaut de reproductibilité.",
+    "E": "La spécificité porte sur les non-malades à un seuil donné."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "Kprim",
+   "enonce": "À Lausanne, tu évalues un logiciel d'aide au diagnostic. Indique si chaque affirmation est vraie ou fausse.",
+   "options": [
+    "Un logiciel d'aide à la décision diagnostique est un dispositif médical.",
+    "La validation externe mesure la performance sur une autre population.",
+    "Une sensibilité mesurée sur les données d'entraînement suffit pour l'adoption.",
+    "Le biais d'automatisation pousse le clinicien à suivre l'outil même quand il se trompe."
+   ],
+   "bonneReponse": [
+    true,
+    true,
+    false,
+    true
+   ],
+   "explicationParOption": {
+    "1": "Vrai : sa finalité médicale le qualifie de dispositif médical.",
+    "2": "Vrai : elle teste la généralisation.",
+    "3": "Faux : la performance interne surestime souvent la performance réelle.",
+    "4": "Vrai : ce biais exige des règles de décision claires."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Zurich, un outil de dermatologie validé sur des peaux claires est utilisé chez des patients de phototype foncé. Quel est le principal risque ?",
+   "options": [
+    "Aucun, l'IA est neutre",
+    "Une baisse de performance et des diagnostics manqués dans cette population",
+    "Une amélioration de la performance",
+    "Un risque uniquement juridique",
+    "Un risque uniquement financier"
+   ],
+   "bonneReponse": "B",
+   "explicationParOption": {
+    "A": "Les modèles reproduisent les limites de leurs données d'entraînement.",
+    "B": "La sous-représentation dans les données entraîne une performance plus faible.",
+    "C": "Rien ne permet d'attendre une amélioration.",
+    "D": "Le risque est d'abord clinique.",
+    "E": "Le risque est d'abord clinique."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Fribourg, un logiciel de triage radiologique a manqué une hémorragie cérébrale, et le patient a subi un retard de traitement grave. Quelle démarche réglementaire s'impose ?",
+   "options": [
+    "Aucune",
+    "Annoncer l'incident grave à Swissmedic",
+    "Supprimer le logiciel sans rien dire",
+    "Changer de fournisseur",
+    "Informer uniquement la presse"
+   ],
+   "bonneReponse": "B",
+   "explicationParOption": {
+    "A": "L'incident grave lié à un dispositif doit être annoncé.",
+    "B": "La matériovigilance impose d'annoncer les incidents graves à Swissmedic.",
+    "C": "Le retrait sans annonce empêche l'analyse et la protection d'autres patients.",
+    "D": "Le changement ne remplace pas l'annonce.",
+    "E": "La presse n'est pas un canal de vigilance."
+   }
   }
  ],
- "liensSSP": [],
- "bulle": null,
- "glossaire": {}
+ "liensSSP": [
+  "O7.4",
+  "S8.8",
+  "F2.4"
+ ],
+ "bulle": {
+  "def": "Un logiciel d'IA à finalité médicale est un dispositif médical soumis à l'ODim.",
+  "pourquoi": "Son marquage prouve la conformité réglementaire, mais pas son utilité dans une population donnée.",
+  "confusion": "On confond marquage et preuve clinique, et performance interne et performance réelle.",
+  "retenir": "Le médecin exige une validation externe, vérifie la calibration, pilote localement et annonce les incidents à Swissmedic."
+ },
+ "glossaire": {
+  "IA": "L'intelligence artificielle désigne des systèmes informatiques qui apprennent des données pour produire des prédictions ou des décisions.",
+  "ODim": "L'ordonnance sur les dispositifs médicaux règle leur mise sur le marché et leur surveillance en Suisse.",
+  "MDR": "Le règlement européen 2017/745 règle les dispositifs médicaux dans l'Union européenne.",
+  "ROC": "La courbe ROC représente la sensibilité en fonction de un moins la spécificité pour différents seuils.",
+  "TRIPOD+AI": "Cette grille décrit la publication des modèles de prédiction, y compris ceux fondés sur l'IA.",
+  "CONSORT-AI": "Cette extension de CONSORT décrit la publication des essais randomisés qui testent une IA.",
+  "CH-REP": "Le mandataire suisse représente en Suisse un fabricant étranger de dispositifs médicaux.",
+  "Swissmedic": "L'Institut suisse des produits thérapeutiques autorise et surveille les médicaments et dispositifs médicaux.",
+  "nLPD": "La loi fédérale révisée sur la protection des données est en vigueur depuis le 1er septembre 2023.",
+  "ECG": "L'électrocardiogramme enregistre l'activité électrique du cœur.",
+  "SSP": "Une situation de départ (Situation as Starting Point) structure le catalogue PROFILES de l'examen fédéral."
+ }
 }
