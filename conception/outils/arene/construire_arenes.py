@@ -44,7 +44,7 @@ for L in paquets.values():                     # correction enrichie : thème, n
         if c:
             rub = q["id"].split("__")[-1].split("-")[0] if "__" in q["id"] else ""
             ns = [n for n in c["notions"] if rub in n.get("rubriques", [])] or c["notions"]
-            q["correction"] = {"theme": c["theme"], "ssp": c["ssp"], "notions": ns, "autres": [n for n in c["notions"] if n not in ns]}
+            q["correction"] = {"theme": c["theme"], "ssp": c["ssp"], "notions": ns, "autres": [n for n in c["notions"] if n not in ns], "pec": c.get("pec", {})}
 idx = []
 for p, L in sorted(paquets.items()):
     json.dump({"nom": noms[p], "questions": L}, open(f"{OUT}/{p}.json", "w", encoding="utf-8"), ensure_ascii=False)
