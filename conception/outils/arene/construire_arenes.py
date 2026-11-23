@@ -50,4 +50,6 @@ for p, L in sorted(paquets.items()):
     json.dump({"nom": noms[p], "questions": L}, open(f"{OUT}/{p}.json", "w", encoding="utf-8"), ensure_ascii=False)
     idx.append({"paquet": p, "nom": noms[p], "n": len(L)})
 json.dump(idx, open(f"{OUT}/index.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+G = {k: v for k, v in json.load(open("conception/donnees/glossaire_sigles.json", encoding="utf-8")).items() if not k.startswith("_")}
+json.dump(G, open(f"{OUT}/sigles.json", "w", encoding="utf-8"), ensure_ascii=False)
 print("arènes :", ", ".join(f"{x['paquet']} ({x['n']})" for x in idx))

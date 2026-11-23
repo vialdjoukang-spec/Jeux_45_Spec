@@ -33,6 +33,14 @@ La branche reçoit deux sources : les lots réparés par la veille, et le travai
 3. Lance `python scripts/generer_reflexes.py` (cartes réflexes des seules fiches `pass`, 0 token) puis `python scripts/ebaucher_arenes.py` (état des arènes).
 4. Une fiche non encore auditée peut rejoindre main : seules les fiches `pass` deviennent jouables et servent de base aux questions.
 
+
+## 1 ter. Notions, questions et corrections (`content/notions|questions|corrections/<SPEC>/*.json`)
+
+1. Audite au plus 5 pathologies par passage, la plus fréquente d'abord : la liste des notions (aucune erreur, aucun angle mort suisse), puis chaque question (une seule réponse juste en type A, Kprim cohérent, aucun indice du diagnostic dans une vignette masquée), puis la correction (pourquoi exacts, posologies suisses, aucune case muette).
+2. Corrige directement ce qui est faux, puis écris `audit.rejector` (`"pass"` ou `"rejet"` avec `audit.motif`) dans le fichier de questions et dans le fichier de correction.
+3. Lance ensuite `python3 scripts/couverture_notions.py` puis `python3 conception/outils/arene45/construire_arene45.py`, pour cocher les notions et rendre les séries jouables.
+4. Ne recopie jamais le contenu d'une question dans un rapport ni dans un message : Vial joue ces questions sans les avoir vues.
+
 ## 2. Contrôler puis publier
 
 1. Relancer `audit_fond.py`, `lots_complement.py`, `auditer_conception.py` et `auditer_couverture.py` et `non_perte.py` (aucune valeur remplie sur main ne doit disparaître) : tout doit passer.
