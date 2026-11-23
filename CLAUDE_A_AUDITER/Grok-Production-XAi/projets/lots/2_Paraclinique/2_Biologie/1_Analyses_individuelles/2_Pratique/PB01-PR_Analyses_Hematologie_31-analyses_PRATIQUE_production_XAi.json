@@ -1,0 +1,1475 @@
+{
+  "_lot": {
+    "tache": "PB01-PR",
+    "titre": "Pratique — Analyses biologiques : Hematologie (31 analyses)",
+    "projet": "2_Jeux_Paraclinique",
+    "nombreFichiers": 1,
+    "signature": "AAI (Anthropic AI)",
+    "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet.",
+    "aVerifier": [
+      "conception/donnees/pratique/paraclinique/biologie/analyses/01_hematologie.json › frottis_sanguin-1 › mode : mode « Lecture d'image et de tracé » sans image jointe (recherche d'images hors périmètre) ; défi rédigé en texte"
+    ]
+  },
+  "fichiers": {
+    "conception/donnees/pratique/paraclinique/biologie/analyses/01_hematologie.json": {
+      "_meta": {
+        "source": "paraclinique/biologie/analyses/01_hematologie.json",
+        "genre": "analyse",
+        "projet": "2_Jeux_Paraclinique",
+        "modes": [
+          "Arène « le bon examen »",
+          "Aventure par type d'examen",
+          "Lecture d'image et de tracé"
+        ],
+        "statut": "À REMPLIR",
+        "regles": [
+          "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+          "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+          "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+          "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+          "mode : un des modes du projet (voir _meta.modes).",
+          "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+        ]
+      },
+      "entites": [
+        {
+          "ref": "hemoglobine",
+          "nom": "Hémoglobine",
+          "defis": [
+            {
+              "id": "hemoglobine-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Chez la femme non enceinte, l'anémie commence sous 120 g/l selon l'OMS (2024).",
+                "pourquoiFaux": "Le seuil de 130 g/l vaut pour l'homme, et 105 à 110 g/l pour la grossesse."
+              },
+              "sources": [
+                "OMS, seuils d'hémoglobine pour l'anémie (2024)"
+              ],
+              "contexte": "Une femme de 38 ans, à Neuchâtel, consulte pour une fatigue ; elle n'est pas enceinte.",
+              "valeurAvecUnite": "Hémoglobine 112 g/l",
+              "question": "Que signifie ce résultat ?",
+              "reponse": "Anémie (seuil femme 120 g/l)"
+            },
+            {
+              "id": "hemoglobine-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le garrot de plus d'une minute hémoconcentre l'échantillon selon Quadrimed (2026).",
+                "pourquoiFaux": "Corriger le chiffre à la main ou ignorer le garrot laisse un résultat faux."
+              },
+              "sources": [
+                "Quadrimed, le bilan sanguin (2026)"
+              ],
+              "situation": "Une infirmière prélève la formule après 3 minutes de garrot chez un patient aux veines difficiles.",
+              "piege": "Un garrot prolongé élève l'hémoglobine et l'hématocrite.",
+              "bonneConduite": "Refaire le prélèvement avec un garrot de moins d'une minute."
+            }
+          ]
+        },
+        {
+          "ref": "hematocrite",
+          "nom": "Hématocrite",
+          "defis": [
+            {
+              "id": "hematocrite-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Un hématocrite > 55 % ou une Hb > 180 g/l imposent un adressage immédiat selon Ars Medici (2025).",
+                "pourquoiFaux": "Attendre 4 semaines ou attribuer tout au tabac retarde une polyglobulie à risque thrombotique."
+              },
+              "sources": [
+                "Ars Medici 19/2025, anomalies de la formule sanguine"
+              ],
+              "contexte": "Un fumeur de 55 ans, à Davos, a une hémoglobine à 182 g/l et des céphalées.",
+              "valeurAvecUnite": "Hématocrite 56 %",
+              "question": "Quelle conduite ce chiffre impose-t-il ?",
+              "reponse": "Adressage immédiat"
+            },
+            {
+              "id": "hematocrite-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "La déshydratation élève relativement les globules rouges selon Ars Medici (2025).",
+                "pourquoiFaux": "Demander d'emblée une recherche de JAK2 ignore la cause la plus fréquente."
+              },
+              "sources": [
+                "Ars Medici 19/2025, anomalies de la formule sanguine"
+              ],
+              "situation": "Un patient vomit depuis deux jours et arrive déshydraté aux urgences de Sion.",
+              "piege": "L'hématocrite élevé peut n'être qu'une hémoconcentration.",
+              "bonneConduite": "Réhydrater puis recontrôler avant de parler de polyglobulie."
+            }
+          ]
+        },
+        {
+          "ref": "erythrocytes",
+          "nom": "Érythrocytes",
+          "defis": [
+            {
+              "id": "erythrocytes-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Des érythrocytes nombreux et petits évoquent un trait thalassémique, que l'HbA2 confirme selon la BSH (2023).",
+                "pourquoiFaux": "Le fer en perfusion et la recherche de JAK2 ne répondent pas à ce profil."
+              },
+              "sources": [
+                "British Society for Haematology, hémoglobinopathies (2023)",
+                "CHUV, Laboratoire central d'hématologie, intervalles de référence (2026)"
+              ],
+              "contexte": "Un homme de 30 ans d'origine italienne, à Lugano, a une hémoglobine normale.",
+              "valeurAvecUnite": "Érythrocytes 6,1 T/l, VGM 68 fl",
+              "question": "Quel examen ce profil fait-il demander ?",
+              "reponse": "Dosage de l'HbA2"
+            },
+            {
+              "id": "erythrocytes-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Quadrimed (2026) signale qu'un tube EDTA mal rempli fausse les numérations.",
+                "pourquoiFaux": "Analyser quand même ou ajouter du sang d'un autre tube rend le résultat inutilisable."
+              },
+              "sources": [
+                "Quadrimed, le bilan sanguin (2026)"
+              ],
+              "situation": "Un tube EDTA de formule arrive à moitié rempli au laboratoire de Fribourg.",
+              "piege": "Un tube EDTA mal rempli fausse la numération.",
+              "bonneConduite": "Refaire le prélèvement avec un tube rempli au trait."
+            }
+          ]
+        },
+        {
+          "ref": "vgm",
+          "nom": "VGM",
+          "defis": [
+            {
+              "id": "vgm-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "L'alcool est une cause fréquente de macrocytose selon Quadrimed (2026).",
+                "pourquoiFaux": "La carence en fer donne un VGM bas, et la thalassémie aussi."
+              },
+              "sources": [
+                "Quadrimed, le bilan sanguin (2026)"
+              ],
+              "contexte": "Un homme de 62 ans, à Bienne, boit trois verres de vin par jour ; son hémoglobine est normale.",
+              "valeurAvecUnite": "VGM 104 fl",
+              "question": "Quelle cause est la plus probable ?",
+              "reponse": "Consommation d'alcool"
+            },
+            {
+              "id": "vgm-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "mediX (2023) note qu'une carence en fer peut masquer la macrocytose d'une carence en B12.",
+                "pourquoiFaux": "Conclure qu'un VGM normal exclut une carence en B12 fait manquer une atteinte neurologique."
+              },
+              "sources": [
+                "mediX, carence en vitamine B12 (2023)"
+              ],
+              "situation": "Une femme a une carence en fer connue et des paresthésies ; son VGM est normal.",
+              "piege": "La carence en fer peut masquer la macrocytose d'une carence en B12.",
+              "bonneConduite": "Doser la vitamine B12 malgré le VGM normal."
+            }
+          ]
+        },
+        {
+          "ref": "tcmh",
+          "nom": "TCMH",
+          "defis": [
+            {
+              "id": "tcmh-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Une TCMH < 27 pg avec ferritine normale fait doser l'HbA2 selon la BSH (2023).",
+                "pourquoiFaux": "Le fer n'est pas indiqué avec une ferritine normale, et le Coombs ne cherche pas une thalassémie."
+              },
+              "sources": [
+                "British Society for Haematology, hémoglobinopathies (2023)"
+              ],
+              "contexte": "Une femme de 25 ans, enceinte de 12 semaines, à Genève, a une microcytose ; ferritine 85 µg/l.",
+              "valeurAvecUnite": "TCMH 24 pg",
+              "question": "Quel examen faut-il demander ?",
+              "reponse": "Électrophorèse de l'hémoglobine"
+            },
+            {
+              "id": "tcmh-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "La BSH (2023) recommande la TCMH parce qu'elle est plus stable que le VGM.",
+                "pourquoiFaux": "Le RDW et la CCMH ne sont pas les indices de dépistage retenus."
+              },
+              "sources": [
+                "British Society for Haematology, hémoglobinopathies (2023)"
+              ],
+              "situation": "Un laboratoire veut dépister une thalassémie et hésite entre le VGM et la TCMH.",
+              "piege": "Le VGM varie davantage selon l'échantillon.",
+              "bonneConduite": "Utiliser la TCMH, plus stable, pour le dépistage."
+            }
+          ]
+        },
+        {
+          "ref": "ccmh",
+          "nom": "CCMH",
+          "defis": [
+            {
+              "id": "ccmh-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Une CCMH élevée fait chercher des sphérocytes, que seul le frottis montre.",
+                "pourquoiFaux": "La ferritine et l'électrophorèse ne montrent pas les sphérocytes."
+              },
+              "sources": [
+                "Revue médicale suisse, anémie hémolytique aux urgences (2020)",
+                "CHUV, Laboratoire central d'hématologie, intervalles de référence (2026)"
+              ],
+              "contexte": "Un garçon de 9 ans, à Lausanne, a une anémie avec ictère ; sa mère a été splénectomisée.",
+              "valeurAvecUnite": "CCMH 372 g/l",
+              "question": "Quel examen ce résultat fait-il demander ?",
+              "reponse": "Frottis sanguin"
+            },
+            {
+              "id": "ccmh-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "Le CHUV (2026) calcule la CCMH par le rapport Hb/Ht : toute erreur sur l'un la fausse.",
+                "pourquoiFaux": "Interpréter la CCMH seule propage l'erreur de mesure."
+              },
+              "sources": [
+                "CHUV, Laboratoire central d'hématologie, intervalles de référence (2026)"
+              ],
+              "situation": "Un résultat de CCMH aberrant suit une hémoglobine mal mesurée.",
+              "piege": "La CCMH est calculée à partir de l'hémoglobine et de l'hématocrite.",
+              "bonneConduite": "Contrôler l'hémoglobine et l'hématocrite avant d'interpréter la CCMH."
+            }
+          ]
+        },
+        {
+          "ref": "rdw",
+          "nom": "RDW",
+          "defis": [
+            {
+              "id": "rdw-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "Un RDW > 20 % fait suspecter une myélodysplasie selon la Revue médicale suisse (2013).",
+                "pourquoiFaux": "Une carence en fer pure donne un VGM bas, et la thalassémie un RDW souvent normal."
+              },
+              "sources": [
+                "Revue médicale suisse, nouveaux paramètres de la formule sanguine (2013)"
+              ],
+              "contexte": "Une femme de 86 ans, à Yverdon, a une anémie macrocytaire et 90 G/l de plaquettes.",
+              "valeurAvecUnite": "RDW 23 %",
+              "question": "Quel diagnostic ce chiffre fait-il suspecter ?",
+              "reponse": "Syndrome myélodysplasique"
+            },
+            {
+              "id": "rdw-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Un RDW élevé révèle une anisocytose des anémies mixtes selon les HUG (2019).",
+                "pourquoiFaux": "Conclure à une anémie normocytaire simple fait manquer les deux carences."
+              },
+              "sources": [
+                "HUG, mise à jour sur l'anémie (2019)"
+              ],
+              "situation": "Un VGM normal est rendu chez une patiente à double carence en fer et en folates.",
+              "piege": "Un VGM normal peut cacher deux populations de globules.",
+              "bonneConduite": "Regarder le RDW et le frottis avant de conclure."
+            }
+          ]
+        },
+        {
+          "ref": "reticulocytes",
+          "nom": "Réticulocytes",
+          "defis": [
+            {
+              "id": "reticulocytes-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "Après une hémorragie aiguë, les réticulocytes restent normaux 48 à 72 h selon la Revue médicale suisse (2013).",
+                "pourquoiFaux": "Ce chiffre ne signe ni une aplasie ni une carence : la moelle n'a pas encore répondu."
+              },
+              "sources": [
+                "Revue médicale suisse, nouveaux paramètres de la formule sanguine (2013)"
+              ],
+              "contexte": "Un homme de 40 ans, à Berne, a saigné abondamment d'un ulcère il y a 12 heures.",
+              "valeurAvecUnite": "Réticulocytes 60 G/l",
+              "question": "Comment lire ce résultat ?",
+              "reponse": "Attendu avant 48 à 72 h"
+            },
+            {
+              "id": "reticulocytes-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "La Revue médicale suisse (2013) décrit une hausse des réticulocytes 48 h après la B12.",
+                "pourquoiFaux": "Un dosage le lendemain conclut à tort à un échec du traitement."
+              },
+              "sources": [
+                "Revue médicale suisse, nouveaux paramètres de la formule sanguine (2013)"
+              ],
+              "situation": "Un patient a reçu de la vitamine B12 hier ; on veut juger la réponse ce matin.",
+              "piege": "La réponse réticulocytaire n'apparaît qu'après environ 48 h.",
+              "bonneConduite": "Doser les réticulocytes au moins 48 h après le traitement."
+            }
+          ]
+        },
+        {
+          "ref": "leucocytes",
+          "nom": "Leucocytes",
+          "defis": [
+            {
+              "id": "leucocytes-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Une leucocytose > 30 G/l sans infection impose un avis spécialisé rapide selon Ars Medici (2025).",
+                "pourquoiFaux": "Un antibiotique d'épreuve ou un simple contrôle dans 6 mois retardent le diagnostic."
+              },
+              "sources": [
+                "Ars Medici 19/2025, anomalies de la formule sanguine"
+              ],
+              "contexte": "Un homme de 70 ans, à Zurich, sans infection, a une formule de contrôle.",
+              "valeurAvecUnite": "Leucocytes 34 G/l",
+              "question": "Quelle conduite ce chiffre impose-t-il ?",
+              "reponse": "Avis spécialisé rapide"
+            },
+            {
+              "id": "leucocytes-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Quadrimed (2026) signale que le sang capillaire élève leucocytes et plaquettes.",
+                "pourquoiFaux": "Conclure d'emblée à une infection surinterprète un artefact."
+              },
+              "sources": [
+                "Quadrimed, le bilan sanguin (2026)"
+              ],
+              "situation": "Un enfant est prélevé au doigt et ses leucocytes sont un peu élevés.",
+              "piege": "Le prélèvement capillaire élève les leucocytes.",
+              "bonneConduite": "Interpréter avec prudence ou contrôler sur sang veineux."
+            }
+          ]
+        },
+        {
+          "ref": "neutrophiles",
+          "nom": "Neutrophiles",
+          "defis": [
+            {
+              "id": "neutrophiles-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Des neutrophiles < 0,5 G/l avec fièvre sont une urgence selon Ars Medici (2025).",
+                "pourquoiFaux": "Attendre 48 h ou donner un antipyrétique seul expose à un sepsis grave."
+              },
+              "sources": [
+                "Ars Medici 19/2025, anomalies de la formule sanguine"
+              ],
+              "contexte": "Une patiente de 52 ans, à Bâle, sous chimiothérapie, a 38,6 °C.",
+              "valeurAvecUnite": "Neutrophiles 0,3 G/l",
+              "question": "Que faut-il faire ?",
+              "reponse": "Prise en charge en urgence"
+            },
+            {
+              "id": "neutrophiles-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "La Revue médicale suisse (2020) décrit cette neutropénie physiologique sans examen complémentaire.",
+                "pourquoiFaux": "Une ponction de moelle d'emblée est inutile chez ce patient asymptomatique."
+              },
+              "sources": [
+                "Revue médicale suisse, répartition leucocytaire (2020)"
+              ],
+              "situation": "Un homme africain de 28 ans, en bonne santé, a une neutropénie modérée stable.",
+              "piege": "La neutropénie ethnique bénigne n'augmente pas le risque infectieux.",
+              "bonneConduite": "Reconnaître une neutropénie ethnique bénigne sans bilan inutile."
+            }
+          ]
+        },
+        {
+          "ref": "lymphocytes",
+          "nom": "Lymphocytes",
+          "defis": [
+            {
+              "id": "lymphocytes-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Une lymphocytose persistante fait faire une cytométrie selon la Revue médicale suisse (2020).",
+                "pourquoiFaux": "Une sérologie EBV ne prouve pas une clonalité, et un myélogramme n'est pas le premier pas."
+              },
+              "sources": [
+                "Revue médicale suisse, répartition leucocytaire (2020)",
+                "iwCLL, Hallek et al., Blood (2018)"
+              ],
+              "contexte": "Une femme de 75 ans, à Sion, a une lymphocytose persistante sur trois contrôles.",
+              "valeurAvecUnite": "Lymphocytes 11,1 G/l",
+              "question": "Quel examen faut-il demander ?",
+              "reponse": "Cytométrie en flux"
+            },
+            {
+              "id": "lymphocytes-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "La Revue médicale suisse (2013) décrit les lymphocytes atypiques de type Pfeiffer au frottis.",
+                "pourquoiFaux": "Conclure à une leucémie sans frottis est une erreur."
+              },
+              "sources": [
+                "Revue médicale suisse, nouveaux paramètres de la formule sanguine (2013)"
+              ],
+              "situation": "Un étudiant fébrile a une angine ; l'automate signale des lymphocytes anormaux.",
+              "piege": "Des lymphocytes atypiques réactifs ressemblent à des cellules malignes.",
+              "bonneConduite": "Faire lire le frottis pour reconnaître des cellules de Pfeiffer."
+            }
+          ]
+        },
+        {
+          "ref": "monocytes",
+          "nom": "Monocytes",
+          "defis": [
+            {
+              "id": "monocytes-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "La convalescence élève les monocytes selon Quadrimed (2026).",
+                "pourquoiFaux": "Sans persistance, ce chiffre n'impose ni biopsie de moelle ni cytométrie."
+              },
+              "sources": [
+                "Quadrimed, le bilan sanguin (2026)"
+              ],
+              "contexte": "Un homme de 66 ans, à Aarau, se remet d'une pneumonie depuis 10 jours.",
+              "valeurAvecUnite": "Monocytes 1,1 G/l",
+              "question": "Comment lire ce résultat ?",
+              "reponse": "Monocytose de convalescence"
+            },
+            {
+              "id": "monocytes-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) prévoient une lecture au microscope si nécessaire.",
+                "pourquoiFaux": "Accepter le chiffre automatique sans relecture peut manquer une myélodysplasie."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)",
+                "Quadrimed, le bilan sanguin (2026)"
+              ],
+              "situation": "L'automate rend une répartition douteuse chez un patient à monocytose persistante.",
+              "piege": "La répartition automatique peut se tromper sur les cellules anormales.",
+              "bonneConduite": "Demander une relecture du frottis au microscope."
+            }
+          ]
+        },
+        {
+          "ref": "eosinophiles",
+          "nom": "Éosinophiles",
+          "defis": [
+            {
+              "id": "eosinophiles-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Au-delà de 1,5 G/l on parle d'hyperéosinophilie selon la Revue médicale suisse (2020).",
+                "pourquoiFaux": "Une éosinophilie simple va de 0,7 à 1,5 G/l, et une éosinopénie est < 0,05 G/l."
+              },
+              "sources": [
+                "Revue médicale suisse, répartition leucocytaire (2020)"
+              ],
+              "contexte": "Un homme de 45 ans, à Zurich, prend un nouvel antiépileptique depuis 3 semaines.",
+              "valeurAvecUnite": "Éosinophiles 1,8 G/l",
+              "question": "Comment qualifier ce résultat ?",
+              "reponse": "Hyperéosinophilie"
+            },
+            {
+              "id": "eosinophiles-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Les corticoïdes donnent une éosinopénie selon la Revue médicale suisse (2020).",
+                "pourquoiFaux": "Arrêter la surveillance sur ce chiffre bas ignore l'effet du médicament."
+              },
+              "sources": [
+                "Revue médicale suisse, répartition leucocytaire (2020)"
+              ],
+              "situation": "Un patient sous prednisone reçoit une formule pour suivre son asthme éosinophilique.",
+              "piege": "Les corticoïdes abaissent les éosinophiles.",
+              "bonneConduite": "Tenir compte du traitement avant de conclure à une rémission."
+            }
+          ]
+        },
+        {
+          "ref": "basophiles",
+          "nom": "Basophiles",
+          "defis": [
+            {
+              "id": "basophiles-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Basophilie et neutrophilie font chercher une leucémie myéloïde chronique selon la Revue médicale suisse (2020).",
+                "pourquoiFaux": "Une allergie ne donne pas de splénomégalie avec neutrophilie massive."
+              },
+              "sources": [
+                "Revue médicale suisse, répartition leucocytaire (2020)"
+              ],
+              "contexte": "Un homme de 58 ans, à Lucerne, a des neutrophiles à 25 G/l et une rate palpable.",
+              "valeurAvecUnite": "Basophiles 0,4 G/l",
+              "question": "Quel diagnostic faut-il évoquer ?",
+              "reponse": "Leucémie myéloïde chronique"
+            },
+            {
+              "id": "basophiles-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) prévoient une lecture au microscope quand la répartition automatique est douteuse.",
+                "pourquoiFaux": "Lancer une biologie moléculaire sans confirmation est prématuré."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Un compte automatique de basophiles est élevé chez un patient sans plainte.",
+              "piege": "Les basophiles sont rares et leur compte automatique peut se tromper.",
+              "bonneConduite": "Faire confirmer la basophilie au frottis avant d'explorer."
+            }
+          ]
+        },
+        {
+          "ref": "thrombocytes",
+          "nom": "Thrombocytes",
+          "defis": [
+            {
+              "id": "thrombocytes-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Une pseudothrombopénie à l'EDTA s'exclut d'abord sur frottis et tube citraté selon la Revue médicale suisse (2013).",
+                "pourquoiFaux": "Transfuser ou commencer des corticoïdes avant ce contrôle traite peut-être un artefact."
+              },
+              "sources": [
+                "Revue médicale suisse, nouveaux paramètres de la formule sanguine (2013)",
+                "Quadrimed, le bilan sanguin (2026)"
+              ],
+              "contexte": "Un homme de 50 ans, à Lausanne, sans saignement, a un bilan de routine.",
+              "valeurAvecUnite": "Plaquettes 42 G/l",
+              "question": "Quel est le premier geste ?",
+              "reponse": "Frottis et tube citraté"
+            },
+            {
+              "id": "thrombocytes-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "La Revue médicale suisse (2013) corrige le compte citraté de 10 % pour la dilution.",
+                "pourquoiFaux": "Lire le chiffre brut sous-estime légèrement les plaquettes."
+              },
+              "sources": [
+                "Revue médicale suisse, nouveaux paramètres de la formule sanguine (2013)"
+              ],
+              "situation": "Le compte est refait sur tube citraté et rend 180 G/l.",
+              "piege": "Le citrate dilue l'échantillon.",
+              "bonneConduite": "Corriger le chiffre de +10 % ou utiliser un tube Thromboexact."
+            }
+          ]
+        },
+        {
+          "ref": "frottis_sanguin",
+          "nom": "Frottis sanguin (schistocytes, blastes, sphérocytes)",
+          "defis": [
+            {
+              "id": "frottis_sanguin-1",
+              "type": "interpreter",
+              "mode": "Lecture d'image et de tracé",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Schistocytes et thrombopénie font suspecter un PTT ou un SHU selon Quadrimed (2026).",
+                "pourquoiFaux": "Une thrombopénie immune ne donne pas de schistocytes, et une carence ne donne pas cette urgence."
+              },
+              "sources": [
+                "Quadrimed, le bilan sanguin (2026)",
+                "Revue médicale suisse, nouveaux paramètres de la formule sanguine (2013)"
+              ],
+              "contexte": "Une femme de 34 ans, à Genève, a des plaquettes à 18 G/l, une anémie et une confusion.",
+              "valeurAvecUnite": "Schistocytes au frottis",
+              "question": "Quel diagnostic faut-il évoquer ?",
+              "reponse": "Microangiopathie thrombotique"
+            },
+            {
+              "id": "frottis_sanguin-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le CHUV (2026) fixe une stabilité de 6 h pour la recherche de schistocytes.",
+                "pourquoiFaux": "Lire un tube trop ancien crée des artefacts de forme."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses (2026)"
+              ],
+              "situation": "Un tube pour recherche de schistocytes attend 9 heures avant analyse.",
+              "piege": "La morphologie s'altère après 6 heures à température ambiante.",
+              "bonneConduite": "Analyser dans les 6 h ou refaire le prélèvement."
+            }
+          ]
+        },
+        {
+          "ref": "vitesse_de_sedimentation",
+          "nom": "Vitesse de sédimentation (VS)",
+          "defis": [
+            {
+              "id": "vitesse_de_sedimentation-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Une VS ≥ 50 mm/h après 50 ans vaut 3 points dans les critères ACR/EULAR 2022.",
+                "pourquoiFaux": "Ce chiffre seul ne suffit pas : il faut 6 points pour classer l'artérite."
+              },
+              "sources": [
+                "ACR/EULAR, artérite à cellules géantes (2022)"
+              ],
+              "contexte": "Une femme de 72 ans, à Neuchâtel, a des céphalées temporales récentes.",
+              "valeurAvecUnite": "VS 64 mm/h",
+              "question": "Combien de points vaut ce résultat ?",
+              "reponse": "3 points ACR/EULAR"
+            },
+            {
+              "id": "vitesse_de_sedimentation-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Le CHUV (2026) exige un tube de VS plein jusqu'au trait.",
+                "pourquoiFaux": "Analyser quand même donne un résultat non interprétable."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses (2026)"
+              ],
+              "situation": "Le tube de VS n'est rempli qu'aux deux tiers.",
+              "piege": "Un tube mal rempli fausse la VS.",
+              "bonneConduite": "Refaire le prélèvement en remplissant le tube jusqu'au trait."
+            }
+          ]
+        },
+        {
+          "ref": "ferritine",
+          "nom": "Ferritine",
+          "defis": [
+            {
+              "id": "ferritine-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Une ferritine < 15 µg/l signe l'épuisement des réserves selon mediX (2022).",
+                "pourquoiFaux": "Ce chiffre n'est ni normal ni compatible avec une surcharge."
+              },
+              "sources": [
+                "mediX, carence en fer (2022)"
+              ],
+              "contexte": "Une femme de 29 ans, à Fribourg, est fatiguée ; CRP normale.",
+              "valeurAvecUnite": "Ferritine 12 µg/l",
+              "question": "Que montre ce résultat ?",
+              "reponse": "Réserves en fer épuisées"
+            },
+            {
+              "id": "ferritine-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le CHUV (2026) demande d'arrêter le fer 15 jours avant la ferritine.",
+                "pourquoiFaux": "Doser sous traitement surestime les réserves."
+              },
+              "sources": [
+                "CHUV, Laboratoire central d'hématologie, intervalles de référence (2026)"
+              ],
+              "situation": "Une patiente prend du fer oral depuis une semaine et doit faire un contrôle.",
+              "piege": "Une prise de fer récente fausse la ferritine.",
+              "bonneConduite": "Arrêter le fer 15 jours avant le dosage."
+            }
+          ]
+        },
+        {
+          "ref": "fer_serique",
+          "nom": "Fer sérique",
+          "defis": [
+            {
+              "id": "fer_serique-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le fer sérique est désuet pour diagnostiquer la carence selon mediX (2022).",
+                "pourquoiFaux": "L'inflammation abaisse aussi le fer ; conclure à une carence sur ce seul chiffre est faux."
+              },
+              "sources": [
+                "mediX, carence en fer (2022)"
+              ],
+              "contexte": "Un homme de 60 ans, à Bulle, a une polyarthrite active et une anémie.",
+              "valeurAvecUnite": "Fer sérique 4 µmol/l",
+              "question": "Ce résultat prouve-t-il une carence en fer ?",
+              "reponse": "Non : il faut la ferritine"
+            },
+            {
+              "id": "fer_serique-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) prélèvent fer et transferrine chez un patient à jeun.",
+                "pourquoiFaux": "Un prélèvement non à jeun ajoute une variation évitable."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)",
+                "Revue médicale suisse, marqueurs du fer (2013)"
+              ],
+              "situation": "Un dosage de fer est prélevé l'après-midi, après le repas.",
+              "piege": "Le fer sérique varie selon le moment et les apports.",
+              "bonneConduite": "Prélever le fer et la transferrine à jeun."
+            }
+          ]
+        },
+        {
+          "ref": "transferrine_et_coefficient_de_saturatio",
+          "nom": "Transferrine et coefficient de saturation",
+          "defis": [
+            {
+              "id": "transferrine_et_coefficient_de_saturatio-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "Une saturation ≤ 20 % est diagnostique de carence même en insuffisance cardiaque selon mediX (2022).",
+                "pourquoiFaux": "Une ferritine normale ne suffit pas à exclure la carence dans ce contexte."
+              },
+              "sources": [
+                "mediX, carence en fer (2022)"
+              ],
+              "contexte": "Une femme de 70 ans, à Berne, a une insuffisance cardiaque ; ferritine 140 µg/l.",
+              "valeurAvecUnite": "Saturation de la transferrine 16 %",
+              "question": "Que conclure ?",
+              "reponse": "Carence en fer"
+            },
+            {
+              "id": "transferrine_et_coefficient_de_saturatio-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "mediX (2022) rappelle que l'inflammation baisse la saturation malgré des réserves pleines.",
+                "pourquoiFaux": "Traiter par fer sur la saturation seule peut être inutile."
+              },
+              "sources": [
+                "mediX, carence en fer (2022)"
+              ],
+              "situation": "Un bilan martial est fait au cours d'une infection aiguë.",
+              "piege": "L'inflammation abaisse la saturation même si les réserves sont pleines.",
+              "bonneConduite": "Lire la saturation avec la ferritine et la CRP."
+            }
+          ]
+        },
+        {
+          "ref": "vitamine_b12",
+          "nom": "Vitamine B12",
+          "defis": [
+            {
+              "id": "vitamine_b12-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Entre 150 et 250 pmol/l, mediX (2023) fait doser l'acide méthylmalonique.",
+                "pourquoiFaux": "Conclure à une valeur normale ou traiter sans confirmation ignorent la zone grise."
+              },
+              "sources": [
+                "mediX, carence en vitamine B12 (2023)"
+              ],
+              "contexte": "Un homme de 68 ans, à Sion, sous metformine depuis 6 ans, a des paresthésies.",
+              "valeurAvecUnite": "Vitamine B12 190 pmol/l",
+              "question": "Quel examen faut-il ajouter ?",
+              "reponse": "Acide méthylmalonique"
+            },
+            {
+              "id": "vitamine_b12-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "mediX (2023) préfère l'holotranscobalamine chez la femme enceinte.",
+                "pourquoiFaux": "Conclure à une carence sur la B12 totale surdiagnostique."
+              },
+              "sources": [
+                "mediX, carence en vitamine B12 (2023)"
+              ],
+              "situation": "Une femme enceinte de 20 semaines a une B12 basse sans symptôme.",
+              "piege": "La grossesse abaisse faussement la B12 sérique.",
+              "bonneConduite": "Doser plutôt l'holotranscobalamine."
+            }
+          ]
+        },
+        {
+          "ref": "holotranscobalamine",
+          "nom": "Holotranscobalamine",
+          "defis": [
+            {
+              "id": "holotranscobalamine-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) dosent l'holotranscobalamine si la B12 est entre 148 et 221 pmol/l.",
+                "pourquoiFaux": "Sous 148 ou au-dessus de 221 pmol/l, ce dosage n'est pas fait."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Un homme de 58 ans, à Genève, a une B12 limite et une neuropathie.",
+              "valeurAvecUnite": "B12 170 pmol/l",
+              "question": "Le laboratoire dosera-t-il l'holo-TC ?",
+              "reponse": "Oui : B12 entre 148 et 221"
+            },
+            {
+              "id": "holotranscobalamine-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) ne réalisent pas l'analyse en cas d'hémolyse.",
+                "pourquoiFaux": "Envoyer le tube quand même ne donnera aucun résultat."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Le tube pour l'holotranscobalamine arrive hémolysé.",
+              "piege": "L'hémolyse empêche le dosage.",
+              "bonneConduite": "Refaire un prélèvement sans hémolyse."
+            }
+          ]
+        },
+        {
+          "ref": "acide_folique",
+          "nom": "Acide folique",
+          "defis": [
+            {
+              "id": "acide_folique-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) donnent 8 à 60 nmol/l, et l'alcoolisme expose à cette carence selon mediX (2023).",
+                "pourquoiFaux": "Ce chiffre n'est pas normal, et il n'exclut pas une carence en B12 associée."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)",
+                "mediX, carence en vitamine B12 (2023)"
+              ],
+              "contexte": "Un homme de 55 ans, à Lausanne, alcoolique, a une macrocytose.",
+              "valeurAvecUnite": "Folates 5 nmol/l",
+              "question": "Comment lire ce résultat ?",
+              "reponse": "Carence en folates"
+            },
+            {
+              "id": "acide_folique-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le CHUV (2026) transporte les folates à l'abri de la lumière.",
+                "pourquoiFaux": "Laisser le tube exposé abaisse faussement le résultat."
+              },
+              "sources": [
+                "CHUV, Laboratoire central d'hématologie, intervalles de référence (2026)"
+              ],
+              "situation": "Un tube pour folates reste exposé à la lumière sur un plateau.",
+              "piege": "La lumière dégrade les folates.",
+              "bonneConduite": "Acheminer le tube à l'abri de la lumière."
+            }
+          ]
+        },
+        {
+          "ref": "haptoglobine",
+          "nom": "Haptoglobine",
+          "defis": [
+            {
+              "id": "haptoglobine-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Une haptoglobine effondrée est un marqueur très sensible d'hémolyse selon la Revue médicale suisse (2018).",
+                "pourquoiFaux": "Une hépatite ou une carence martiale n'effondrent pas l'haptoglobine."
+              },
+              "sources": [
+                "Revue médicale suisse, anémie hémolytique et cancer (2018)",
+                "Revue médicale suisse, anémie hémolytique aux urgences (2020)"
+              ],
+              "contexte": "Une femme de 45 ans, à Bâle, a une anémie, des LDH élevées et un ictère.",
+              "valeurAvecUnite": "Haptoglobine < 0,1 g/l",
+              "question": "Que signe ce résultat ?",
+              "reponse": "Hémolyse"
+            },
+            {
+              "id": "haptoglobine-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "L'haptoglobine est une protéine de la phase aiguë selon le Conseil scientifique du Luxembourg (2026).",
+                "pourquoiFaux": "Exclure l'hémolyse sur ce seul chiffre est un piège."
+              },
+              "sources": [
+                "Conseil scientifique du Luxembourg, marqueurs de l'inflammation (2026)"
+              ],
+              "situation": "Un patient a une pneumonie et une hémolyse suspectée ; son haptoglobine est normale.",
+              "piege": "L'inflammation élève l'haptoglobine et peut masquer l'hémolyse.",
+              "bonneConduite": "Lire l'haptoglobine avec la CRP, les LDH et les réticulocytes."
+            }
+          ]
+        },
+        {
+          "ref": "bilirubine_libre",
+          "nom": "Bilirubine libre",
+          "defis": [
+            {
+              "id": "bilirubine_libre-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le jeûne déclenche les poussées d'ictère du syndrome de Gilbert selon Medics (2026).",
+                "pourquoiFaux": "Une hémolyse abaisserait l'haptoglobine, et une cholestase élèverait la conjuguée."
+              },
+              "sources": [
+                "Medics, syndrome de Gilbert (2026)",
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Un étudiant de 20 ans, à Fribourg, a un subictère après un jeûne ; Hb et haptoglobine normales.",
+              "valeurAvecUnite": "Bilirubine libre 35 µmol/l",
+              "question": "Quel diagnostic est le plus probable ?",
+              "reponse": "Syndrome de Gilbert"
+            },
+            {
+              "id": "bilirubine_libre-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) prélèvent la bilirubine à jeun et sans garrot.",
+                "pourquoiFaux": "Accepter ce tube expose à un résultat faux."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "La bilirubine est prélevée avec un garrot serré chez un patient non à jeun.",
+              "piege": "Garrot et repas faussent le dosage.",
+              "bonneConduite": "Prélever à jeun, sans garrot ou garrot desserré."
+            }
+          ]
+        },
+        {
+          "ref": "test_de_coombs_direct",
+          "nom": "Test de Coombs direct",
+          "defis": [
+            {
+              "id": "test_de_coombs_direct-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Un Coombs IgG positif oriente vers des anticorps chauds selon la Revue médicale suisse (2020).",
+                "pourquoiFaux": "Le C3d isolé oriente vers les agglutinines froides, et la sphérocytose héréditaire a un Coombs négatif."
+              },
+              "sources": [
+                "Revue médicale suisse, anémie hémolytique aux urgences (2020)"
+              ],
+              "contexte": "Une femme de 64 ans, à Lugano, a une hémolyse avec microsphérocytes.",
+              "valeurAvecUnite": "Coombs direct positif IgG",
+              "question": "Quel diagnostic est le plus probable ?",
+              "reponse": "AHAI à anticorps chauds"
+            },
+            {
+              "id": "test_de_coombs_direct-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "La Revue médicale suisse (2020) ne retient le test comme témoin d'auto-immunité qu'en dehors d'une transfusion de moins de 4 mois.",
+                "pourquoiFaux": "Lire le test comme chez un patient non transfusé expose à une erreur."
+              },
+              "sources": [
+                "Revue médicale suisse, anémie hémolytique aux urgences (2020)"
+              ],
+              "situation": "Un patient transfusé il y a 2 mois a un Coombs à interpréter.",
+              "piege": "Après une transfusion récente, un test positif ne prouve plus l'auto-immunité.",
+              "bonneConduite": "Signaler la transfusion récente avant toute interprétation."
+            }
+          ]
+        },
+        {
+          "ref": "test_de_kleihauer",
+          "nom": "Test de Kleihauer",
+          "defis": [
+            {
+              "id": "test_de_kleihauer-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le pour mille multiplié par 5 donne les millilitres transfusés selon la SSGO (avis n° 94, 2026).",
+                "pourquoiFaux": "5 ml et 40 ml résultent d'un mauvais facteur de calcul."
+              },
+              "sources": [
+                "SSGO, avis d'experts n° 94 (2026)"
+              ],
+              "contexte": "Une femme RhD négatif, à Berne, accouche d'un enfant RhD positif.",
+              "valeurAvecUnite": "Érythrocytes fœtaux 4 ‰",
+              "question": "Quel volume de sang fœtal est passé ?",
+              "reponse": "20 ml"
+            },
+            {
+              "id": "test_de_kleihauer-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "La SSGO (avis n° 94, 2026) fixe 10 µg d'anti-D par ml de sang RhD positif.",
+                "pourquoiFaux": "Une dose fixe sans calcul peut être insuffisante."
+              },
+              "sources": [
+                "SSGO, avis d'experts n° 94 (2026)"
+              ],
+              "situation": "On calcule 20 ml de sang fœtal RhD positif passé chez la mère.",
+              "piege": "La dose d'anti-D dépend du volume.",
+              "bonneConduite": "Prévoir 10 µg d'anti-D par ml, soit 200 µg."
+            }
+          ]
+        },
+        {
+          "ref": "cytometrie_en_flux",
+          "nom": "Cytométrie en flux (immunophénotypage)",
+          "defis": [
+            {
+              "id": "cytometrie_en_flux-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Des lymphocytes B clonaux ≥ 5 G/l pendant 3 mois définissent la LLC selon Hallek et al. (2018).",
+                "pourquoiFaux": "Sous 5 G/l sans adénopathie on parlerait de lymphocytose B monoclonale."
+              },
+              "sources": [
+                "iwCLL, Hallek et al., Blood (2018)"
+              ],
+              "contexte": "Un homme de 72 ans, à Zurich, a des lymphocytes à 8 G/l depuis 4 mois.",
+              "valeurAvecUnite": "Lymphocytes B clonaux 6 G/l",
+              "question": "Quel diagnostic est posé ?",
+              "reponse": "Leucémie lymphoïde chronique"
+            },
+            {
+              "id": "cytometrie_en_flux-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le CHUV (2026) fixe une stabilité de 24 h à température ambiante.",
+                "pourquoiFaux": "Un tube trop ancien ne permet pas une analyse fiable."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses (2026)"
+              ],
+              "situation": "Un tube pour cytométrie est prélevé un vendredi soir et attend 48 h.",
+              "piege": "Le prélèvement n'est stable que 24 h à température ambiante.",
+              "bonneConduite": "Acheminer dans les 24 h, en semaine."
+            }
+          ]
+        },
+        {
+          "ref": "jak2_v617f_calr_mpl",
+          "nom": "JAK2 V617F, CALR, MPL",
+          "defis": [
+            {
+              "id": "jak2_v617f_calr_mpl-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "L'Hb > 165 g/l et la mutation JAK2 sont deux critères majeurs selon l'OMS (2022).",
+                "pourquoiFaux": "Il manque la moelle ou une EPO basse pour poser le diagnostic complet."
+              },
+              "sources": [
+                "OMS, classification des néoplasies myéloïdes (2022)"
+              ],
+              "contexte": "Un homme de 60 ans, à Coire, non fumeur, a une Hb à 178 g/l et un prurit à l'eau.",
+              "valeurAvecUnite": "JAK2 V617F présente",
+              "question": "Combien de critères majeurs de Vaquez ?",
+              "reponse": "Deux critères majeurs"
+            },
+            {
+              "id": "jak2_v617f_calr_mpl-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Ars Medici (2025) réserve la recherche de JAK2 aux thrombocytoses persistantes sans cause réactive.",
+                "pourquoiFaux": "Demander JAK2 d'emblée coûte sans répondre à la cause fréquente."
+              },
+              "sources": [
+                "Ars Medici 19/2025, anomalies de la formule sanguine"
+              ],
+              "situation": "Une thrombocytose est découverte et un JAK2 est demandé d'emblée.",
+              "piege": "La thrombocytose est d'abord réactionnelle : inflammation, saignement, carence en fer.",
+              "bonneConduite": "Exclure une cause réactive avant la biologie moléculaire."
+            }
+          ]
+        },
+        {
+          "ref": "electrophorese_de_l_hemoglobine",
+          "nom": "Électrophorèse de l'hémoglobine",
+          "defis": [
+            {
+              "id": "electrophorese_de_l_hemoglobine-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Une HbA2 ≥ 3,5 % avec TCMH < 27 pg signe le trait bêta selon la BSH (2023).",
+                "pourquoiFaux": "Un trait HbE donne plus de 15 %, et une alpha-thalassémie une HbA2 normale."
+              },
+              "sources": [
+                "British Society for Haematology, hémoglobinopathies (2023)"
+              ],
+              "contexte": "Une femme de 27 ans, à Lausanne, a une TCMH à 23 pg et une ferritine normale.",
+              "valeurAvecUnite": "HbA2 4,8 %",
+              "question": "Quel diagnostic est posé ?",
+              "reponse": "Bêta-thalassémie hétérozygote"
+            },
+            {
+              "id": "electrophorese_de_l_hemoglobine-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "La BSH (2023) et mediX (2022) imposent d'exclure la carence en fer avant de conclure.",
+                "pourquoiFaux": "Conclure à l'absence de thalassémie ici est un faux négatif possible."
+              },
+              "sources": [
+                "British Society for Haematology, hémoglobinopathies (2023)",
+                "mediX, carence en fer (2022)"
+              ],
+              "situation": "Une électrophorèse est faite chez une patiente à ferritine très basse.",
+              "piege": "La carence en fer abaisse l'HbA2 et peut masquer un trait bêta.",
+              "bonneConduite": "Corriger la carence avant de conclure sur l'HbA2."
+            }
+          ]
+        },
+        {
+          "ref": "typage_sanguin_abo_rhesus_et_recherche_d",
+          "nom": "Typage sanguin ABO-Rhésus et recherche d'agglutinines irrégulières",
+          "defis": [
+            {
+              "id": "typage_sanguin_abo_rhesus_et_recherche_d-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "La recherche d'anticorps est valable 96 h au plus selon les HUG (2026).",
+                "pourquoiFaux": "Un résultat négatif ancien ne protège pas d'un anticorps apparu depuis."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Un patient opéré à Genève doit être transfusé ; sa recherche d'anticorps date de 5 jours.",
+              "valeurAvecUnite": "Recherche d'anticorps négative, 120 h",
+              "question": "Peut-on transfuser avec ce résultat ?",
+              "reponse": "Non : refaire la recherche"
+            },
+            {
+              "id": "typage_sanguin_abo_rhesus_et_recherche_d-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "L'ASMT et Transfusion CRS Suisse (2026) exigent deux déterminations indépendantes concordantes.",
+                "pourquoiFaux": "Deux tubes d'une même ponction ne détectent pas une erreur d'identité."
+              },
+              "sources": [
+                "Recommandations ASMT et Transfusion CRS Suisse, analyses de médecine transfusionnelle chez le patient (2026)",
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Deux tubes de groupe sont prélevés au même moment par la même personne.",
+              "piege": "Deux déterminations doivent venir de prélèvements indépendants.",
+              "bonneConduite": "Faire un second prélèvement indépendant."
+            }
+          ]
+        }
+      ],
+      "glossaire": {
+        "Hb": "Hémoglobine, protéine des globules rouges qui transporte l'oxygène.",
+        "Ht": "Hématocrite, part du volume sanguin occupée par les globules rouges.",
+        "VGM": "Volume globulaire moyen, taille moyenne des globules rouges (MCV en anglais).",
+        "TCMH": "Teneur corpusculaire moyenne en hémoglobine (MCH en anglais).",
+        "CCMH": "Concentration corpusculaire moyenne en hémoglobine (MCHC en anglais).",
+        "RDW": "Indice de distribution de la taille des globules rouges (anisocytose).",
+        "EDTA": "Anticoagulant des tubes mauves ou violets, utilisé pour la formule sanguine.",
+        "G/l": "Giga par litre, soit 10⁹ cellules par litre.",
+        "T/l": "Téra par litre, soit 10¹² cellules par litre.",
+        "fl": "Femtolitre, 10⁻¹⁵ litre, unité du VGM.",
+        "pg": "Picogramme, 10⁻¹² gramme, unité de la TCMH.",
+        "Ret-He": "Contenu en hémoglobine des réticulocytes.",
+        "HFR": "Fraction des réticulocytes les plus immatures.",
+        "VPM": "Volume plaquettaire moyen (MPV en anglais).",
+        "PNN": "Polynucléaires neutrophiles.",
+        "PNE": "Polynucléaires éosinophiles.",
+        "EPO": "Érythropoïétine, hormone rénale qui stimule les globules rouges.",
+        "BPCO": "Bronchopneumopathie chronique obstructive.",
+        "CRP": "Protéine C réactive, marqueur de l'inflammation.",
+        "VS": "Vitesse de sédimentation des globules rouges.",
+        "ESR": "Sigle anglais de la vitesse de sédimentation.",
+        "TSAT": "Saturation de la transferrine en fer.",
+        "Holo-TC": "Holotranscobalamine, forme active de la vitamine B12.",
+        "SA": "Semaines d'aménorrhée.",
+        "AHAI": "Anémie hémolytique auto-immune.",
+        "TDA": "Test direct à l'antiglobuline, ou test de Coombs direct.",
+        "IgG": "Immunoglobuline G, anticorps des réactions dites chaudes.",
+        "C3d": "Fragment du complément fixé sur les hématies, typique des anticorps froids.",
+        "LDH": "Lactate déshydrogénase, enzyme libérée par les cellules détruites.",
+        "PTT": "Purpura thrombotique thrombocytopénique.",
+        "SHU": "Syndrome hémolytique et urémique.",
+        "LLC": "Leucémie lymphoïde chronique.",
+        "MBL": "Lymphocytose B monoclonale, clone B < 5 G/l sans organomégalie.",
+        "CD4": "Marqueur des lymphocytes T auxiliaires, suivi dans l'infection par le VIH.",
+        "CD19": "Marqueur des lymphocytes B.",
+        "VIH": "Virus de l'immunodéficience humaine.",
+        "EBV": "Virus d'Epstein-Barr, responsable de la mononucléose.",
+        "FACS": "Tri cellulaire par fluorescence, ancien nom courant de la cytométrie en flux.",
+        "JAK2": "Gène d'une kinase dont la mutation V617F active les néoplasies myéloprolifératives.",
+        "CALR": "Gène de la calréticuline, muté dans certaines thrombocytémies et myélofibroses.",
+        "MPL": "Gène du récepteur de la thrombopoïétine.",
+        "HbA2": "Hémoglobine mineure de l'adulte, élevée dans le trait bêta-thalassémique.",
+        "HbF": "Hémoglobine fœtale.",
+        "HbS": "Hémoglobine de la drépanocytose.",
+        "HbE": "Variant d'hémoglobine fréquent en Asie du Sud-Est.",
+        "RhD": "Antigène D du système rhésus.",
+        "RHD": "Gène de l'antigène D, génotypé chez le fœtus.",
+        "RAI": "Recherche d'anticorps irréguliers anti-érythrocytaires.",
+        "ABO": "Système de groupes sanguins A, B, AB et O.",
+        "ASMT": "Association suisse de médecine transfusionnelle.",
+        "CRS": "Croix-Rouge suisse.",
+        "SSGO": "Société suisse de gynécologie et d'obstétrique.",
+        "OMS": "Organisation mondiale de la santé.",
+        "CHUV": "Centre hospitalier universitaire vaudois.",
+        "HUG": "Hôpitaux universitaires de Genève.",
+        "BSH": "British Society for Haematology.",
+        "EACS": "Société clinique européenne du sida.",
+        "ACR/EULAR": "Sociétés américaine et européenne de rhumatologie.",
+        "iwCLL": "Groupe de travail international sur la LLC.",
+        "AINS": "Anti-inflammatoires non stéroïdiens.",
+        "GB": "Globules blancs.",
+        "GR": "Globules rouges.",
+        "PLT": "Sigle anglais des plaquettes.",
+        "IDR": "Indice de distribution des érythrocytes.",
+        "MCV": "Sigle anglais du VGM.",
+        "MCH": "Sigle anglais de la TCMH.",
+        "MCHC": "Sigle anglais de la CCMH.",
+        "Hct": "Sigle anglais de l'hématocrite.",
+        "FSC": "Formule sanguine complète.",
+        "Ret": "Réticulocytes.",
+        "Hp": "Haptoglobine.",
+        "MMS": "Acide méthylmalonique.",
+        "SARS-CoV-2": "Coronavirus responsable de la COVID-19.",
+        "AVK": "Antivitamines K.",
+        "ADN": "Acide désoxyribonucléique.",
+        "LCR": "Liquide céphalorachidien.",
+        "Pseudothrombopénie": "Fausse baisse des plaquettes due à leur agrégation dans le tube.",
+        "Schistocytes": "Fragments de globules rouges détruits mécaniquement.",
+        "Sphérocytes": "Globules rouges sphériques, sans pâleur centrale.",
+        "Corps de Howell-Jolly": "Restes de noyau dans les hématies, signe d'asplénie.",
+        "Anisocytose": "Inégalité de taille des globules rouges.",
+        "Agranulocytose": "Neutrophiles < 0,5 G/l.",
+        "Déviation à gauche": "Excès de neutrophiles non segmentés, immatures.",
+        "Polyglobulie": "Excès de globules rouges.",
+        "Cellules de Pfeiffer": "Lymphocytes activés de la mononucléose.",
+        "V617F": "Mutation du gène JAK2 qui remplace la valine 617 par une phénylalanine.",
+        "B9": "Autre nom de l'acide folique.",
+        "W515": "Position 515 du récepteur MPL, siège de mutations.",
+        "SI": "Système international d'unités.",
+        "Charge allélique": "Part des copies du gène portant la mutation."
+      }
+    }
+  }
+}
