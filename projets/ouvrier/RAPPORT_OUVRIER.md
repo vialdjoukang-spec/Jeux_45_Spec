@@ -1,18 +1,20 @@
-# Ouvrier automatique — 2026-11-23 02:18 UTC
+# Ouvrier automatique — 2026-11-23 02:20 UTC
 
-Dernier passage : **complement_4** → fait (0.11 USD).
+Dernier passage : **j45_pilote_fiches** → fait (0.00 USD).
 
-Les 70 examens du lot thorax (aorte et artères pulmonaires, cœur et péricarde, médiastin, œsophage, paroi thoracique, plèvre, seins) ont reçu leurs cinq champs de présentation, en suivant l'exemple dermatoscopie et sans toucher aux autres champs, vérifié par script. Le fichier est écrit dans CLAUDE_A_AUDITER/ouvrier/LOT_COMPLEMENT_4_thorax_rempli.json. Aucune source n'a été consultée en ligne : aucun seuil chiffré ni référence n'a été ajouté, et les points à vérifier figurent dans « aVerifier ». Seul le champ aspectNormal de « Récepteurs hormonaux, HER2, Ki-67 » reste vide, car cet examen n'a pas d'aspect normal à décrire.
+F1_1-E01 (CAR) : 0 erreur(s), 8976 tokens de sortie, 53 s → /home/runner/work/Jeux_45_Spec/Jeux_45_Spec/content/fiches/CAR/F1_1-E01.json
+F1_10-E03 (CAR) : 1 erreur(s), 9020 tokens de sortie, 58 s → /home/runner/work/Jeux_45_Spec/Jeux_45_Spec/content/fiches/CAR/F1_10-E03.json
 
-**Crédit** : 0.64 USD dépensés, 99.36 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.64 / 25.00 USD.
+
+**Crédit** : 0.83 USD dépensés, 99.17 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.83 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
 | complement_3 | fait | 1 | 0.03 |
 | complement_1 | fait | 1 | 0.133 |
-| j45_pilote_fiches | attente_decision | 2 | 0.0 |
 | complement_2 | fait | 1 | 0.035 |
 | complement_4 | fait | 1 | 0.111 |
+| j45_pilote_fiches | fait | 3 | 0.0 |
 | complement_5 | a_faire | 0 |  |
 | complement_6 | a_faire | 0 |  |
 | complement_7 | a_faire | 0 |  |
