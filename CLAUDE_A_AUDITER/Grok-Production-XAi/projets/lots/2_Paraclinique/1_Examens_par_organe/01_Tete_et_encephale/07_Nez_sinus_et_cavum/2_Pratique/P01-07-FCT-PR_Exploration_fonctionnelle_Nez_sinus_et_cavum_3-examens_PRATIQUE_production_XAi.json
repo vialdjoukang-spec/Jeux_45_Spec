@@ -1,0 +1,305 @@
+{
+ "_lot": {
+  "tache": "P01-07-FCT-PR",
+  "titre": "Pratique — Examens de l'organe Nez, sinus et cavum — Exploration fonctionnelle (3 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 1,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet."
+ },
+ "fichiers": {
+  "conception/donnees/pratique/paraclinique/topographie/1_tete_et_encephale/nez_sinus_et_cavum.json": {
+   "_meta": {
+    "source": "paraclinique/topographie/1_tete_et_encephale/nez_sinus_et_cavum.json",
+    "genre": "examen",
+    "projet": "2_Jeux_Paraclinique",
+    "modes": [
+     "Arène « le bon examen »",
+     "Aventure par type d'examen",
+     "Lecture d'image et de tracé"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+     "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+     "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+     "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+     "mode : un des modes du projet (voir _meta.modes).",
+     "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+    ]
+   },
+   "entites": [
+    {
+     "ref": "nez_sinus_et_cavum__rhinomanometrie",
+     "nom": "Rhinomanométrie",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "nez_sinus_et_cavum__rhinomanometrie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Avant une chirurgie de la cloison, la rhinomanométrie objective l'obstruction et permet d'en suivre l'effet.",
+        "pourquoiFaux": "Le CT ne mesure pas le débit, et les autres tests explorent l'odorat ou l'allergie."
+       },
+       "sources": [
+        "Consensus de Riga sur la rhinomanométrie (Vogt et al., 2018)"
+       ],
+       "casClinique": "Un homme de 35 ans, à Zurich, doit être opéré de la cloison ; on veut objectiver l'obstruction.",
+       "options": [
+        "Rhinomanométrie",
+        "CT des sinus",
+        "Olfactométrie",
+        "Prick-tests"
+       ],
+       "bonneReponse": "Rhinomanométrie",
+       "visee": "therapeutique"
+      },
+      {
+       "id": "nez_sinus_et_cavum__rhinomanometrie-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une résistance qui ne baisse pas après décongestion traduit un obstacle squelettique, comme une déviation de la cloison.",
+        "pourquoiFaux": "Une obstruction muqueuse aurait baissé après vasoconstricteur ; la résistance s'exprime sur une échelle logarithmique, selon le consensus de Riga (Vogt et al., 2018)."
+       },
+       "sources": [
+        "Consensus de Riga sur la rhinomanométrie (Vogt et al., 2018)"
+       ],
+       "resultat": "La résistance nasale gauche reste élevée après vasoconstricteur.",
+       "decision": "On retient une obstruction squelettique fixe."
+      },
+      {
+       "id": "nez_sinus_et_cavum__rhinomanometrie-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une résistance qui ne change pas après décongestion signe un obstacle fixe.",
+        "pourquoiFaux": "Une courbe qui se normalise traduirait une obstruction muqueuse, selon le consensus de Riga (Vogt et al., 2018)."
+       },
+       "sources": [
+        "Consensus de Riga sur la rhinomanométrie (Vogt et al., 2018)"
+       ],
+       "consigne": "Lis la rhinomanométrie avant et après vasoconstricteur.",
+       "aspectRecherche": "Résistance gauche fixe après décongestion",
+       "reponse": "Obstruction squelettique gauche",
+       "imageOuTraceAttendu": "Courbes pression-débit montrant à gauche une résistance élevée qui ne change pas après vasoconstricteur, et une droite normale."
+      },
+      {
+       "id": "nez_sinus_et_cavum__rhinomanometrie-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Le vasoconstricteur fausse la mesure de base.",
+        "pourquoiFaux": "La comparaison avant et après décongestion est le principe du test, selon le consensus de Riga (Vogt et al., 2018)."
+       },
+       "sources": [
+        "Consensus de Riga sur la rhinomanométrie (Vogt et al., 2018)"
+       ],
+       "erreurFrequente": "Mesurer la résistance de base juste après des gouttes vasoconstrictrices.",
+       "consequence": "On masque l'obstruction muqueuse.",
+       "bonneConduite": "On mesure d'abord sans vasoconstricteur, puis après pour le test de décongestion."
+      }
+     ]
+    },
+    {
+     "ref": "nez_sinus_et_cavum__olfactometrie",
+     "nom": "Olfactométrie",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "nez_sinus_et_cavum__olfactometrie-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Devant une perte d'odorat post-virale, l'olfactométrie chiffre le seuil, la discrimination et l'identification.",
+        "pourquoiFaux": "L'IRM n'est pas la première étape, et les autres tests ne mesurent pas l'odorat."
+       },
+       "sources": [
+        "Oleszkiewicz et al., normes des Sniffin' Sticks (2019)"
+       ],
+       "casClinique": "Une femme de 40 ans, à Berne, a perdu l'odorat après une infection virale il y a 3 mois.",
+       "options": [
+        "Olfactométrie",
+        "IRM d'emblée",
+        "Rhinomanométrie",
+        "Prick-tests"
+       ],
+       "bonneReponse": "Olfactométrie",
+       "visee": "diagnostique"
+      },
+      {
+       "id": "nez_sinus_et_cavum__olfactometrie-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un score TDI de 16 ou moins définit une anosmie fonctionnelle, selon Oleszkiewicz et al. (2019).",
+        "pourquoiFaux": "Une hyposmie correspondrait à un score entre 16 et 30,75."
+       },
+       "sources": [
+        "Oleszkiewicz et al., normes des Sniffin' Sticks (2019)"
+       ],
+       "resultat": "Le score TDI est à 14 chez cette patiente de 40 ans.",
+       "decision": "On retient une anosmie fonctionnelle."
+      },
+      {
+       "id": "nez_sinus_et_cavum__olfactometrie-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Un score TDI inférieur à 30,75 définit une hyposmie, à comparer aux normes de l'âge, selon Oleszkiewicz et al. (2019).",
+        "pourquoiFaux": "Ignorer l'âge surestimerait le trouble, car les scores baissent avec l'âge."
+       },
+       "sources": [
+        "Oleszkiewicz et al., normes des Sniffin' Sticks (2019)"
+       ],
+       "consigne": "Lis le profil olfactif de ce patient de 70 ans.",
+       "aspectRecherche": "Score TDI de 27, sous le seuil",
+       "reponse": "Hyposmie",
+       "imageOuTraceAttendu": "Profil des Sniffin' Sticks montrant un score TDI de 27, comparé aux normes de l'âge."
+      },
+      {
+       "id": "nez_sinus_et_cavum__olfactometrie-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Avant 10 ans, les scores atteignent environ la moitié de ceux de l'adulte jeune, selon Oleszkiewicz et al. (2019).",
+        "pourquoiFaux": "Les normes adultes ne s'appliquent pas à l'enfant."
+       },
+       "sources": [
+        "Oleszkiewicz et al., normes des Sniffin' Sticks (2019)"
+       ],
+       "erreurFrequente": "Interpréter le score d'un enfant de 7 ans avec les normes de l'adulte.",
+       "consequence": "On conclut à tort à une hyposmie.",
+       "bonneConduite": "On compare aux normes de l'âge."
+      }
+     ]
+    },
+    {
+     "ref": "nez_sinus_et_cavum__prick_tests",
+     "nom": "Prick-tests (rhinite allergique)",
+     "modalite": "Exploration fonctionnelle",
+     "defis": [
+      {
+       "id": "nez_sinus_et_cavum__prick_tests-1",
+       "type": "bon_examen",
+       "mode": "Arène « le bon examen »",
+       "niveau": 1,
+       "points": 10,
+       "tempsSec": 45,
+       "correction": {
+        "pourquoiJuste": "Les prick-tests sont l'examen de première intention pour identifier l'allergène d'une rhinite, selon le document de position de l'EAACI sur les outils diagnostiques en rhinologie (2011).",
+        "pourquoiFaux": "Les IgE totales ne nomment pas l'allergène, et l'imagerie ou la rhinomanométrie ne cherchent pas la cause."
+       },
+       "sources": [
+        "EAACI, outils diagnostiques en rhinologie (2011)"
+       ],
+       "casClinique": "Un étudiant de 22 ans, à Fribourg, éternue et a le nez qui coule chaque printemps.",
+       "options": [
+        "Prick-tests",
+        "IgE totales",
+        "CT des sinus",
+        "Rhinomanométrie"
+       ],
+       "bonneReponse": "Prick-tests",
+       "visee": "etiologique"
+      },
+      {
+       "id": "nez_sinus_et_cavum__prick_tests-2",
+       "type": "seuil_decision",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une papule de 3 mm ou plus lue à 15–20 minutes définit un test positif, selon l'EAACI (Heinzerling et al., 2013).",
+        "pourquoiFaux": "Sans symptômes concordants, on parlerait de sensibilisation et non d'allergie, selon le document de position de la WAO (Ansotegui et al., 2020)."
+       },
+       "sources": [
+        "EAACI, prick-tests (Heinzerling et al., 2013)",
+        "WAO, diagnostic des allergies IgE (Ansotegui et al., 2020)"
+       ],
+       "resultat": "Le prick-test aux pollens de graminées forme une papule de 6 mm à 15 minutes, le témoin positif réagit et le témoin négatif reste plat.",
+       "decision": "On retient une sensibilisation aux graminées, concordante avec les symptômes."
+      },
+      {
+       "id": "nez_sinus_et_cavum__prick_tests-3",
+       "type": "lecture",
+       "mode": "Lecture d'image et de tracé",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Une papule de 3 mm ou plus avec des témoins valides signe une sensibilisation, selon l'EAACI (Heinzerling et al., 2013).",
+        "pourquoiFaux": "Une papule absente au témoin positif rendrait le test ininterprétable."
+       },
+       "sources": [
+        "EAACI, prick-tests (Heinzerling et al., 2013)"
+       ],
+       "consigne": "Lis cette planche de prick-tests sur l'avant-bras.",
+       "aspectRecherche": "Papule de 6 mm aux graminées seules",
+       "reponse": "Sensibilisation aux graminées",
+       "imageOuTraceAttendu": "Avant-bras montrant une papule de 6 mm au point des graminées, une papule au témoin histamine et aucune réaction ailleurs."
+      },
+      {
+       "id": "nez_sinus_et_cavum__prick_tests-4",
+       "type": "piege",
+       "mode": "Aventure par type d'examen",
+       "niveau": 2,
+       "points": 20,
+       "tempsSec": 60,
+       "correction": {
+        "pourquoiJuste": "Les antihistaminiques de deuxième génération doivent être arrêtés 7 jours avant les prick-tests, selon l'EAACI (Heinzerling et al., 2013).",
+        "pourquoiFaux": "Le témoin positif ne réagirait pas."
+       },
+       "sources": [
+        "EAACI, prick-tests (Heinzerling et al., 2013)"
+       ],
+       "erreurFrequente": "Faire des prick-tests chez une patiente qui prend de la cétirizine tous les jours.",
+       "consequence": "On obtient des faux négatifs.",
+       "bonneConduite": "On arrête l'antihistaminique 7 jours avant le test."
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CT": "Le CT, ou scanner, est une tomodensitométrie qui produit des coupes du corps par rayons X.",
+    "IRM": "L'imagerie par résonance magnétique produit des images par un champ magnétique, sans rayons X.",
+    "TDI": "Le score TDI additionne le seuil, la discrimination et l'identification des odeurs.",
+    "EAACI": "L'Académie européenne d'allergologie et d'immunologie clinique publie des recommandations en allergologie.",
+    "WAO": "La World Allergy Organization est la fédération mondiale des sociétés d'allergologie.",
+    "IgE": "Les immunoglobulines E sont les anticorps responsables des allergies immédiates."
+   },
+   "_fragment": {
+    "cle": "entites",
+    "champ": "modalite",
+    "valeur": "Exploration fonctionnelle",
+    "reassemblage": "projets/outils/fusionner_retours.py remet chaque élément à sa place par son id (ou ref)"
+   }
+  }
+ }
+}
