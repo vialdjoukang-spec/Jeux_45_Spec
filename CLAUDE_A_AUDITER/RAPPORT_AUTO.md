@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-23 01:20
+# Audit automatique — 2026-11-23 01:24
 
-22 fichier(s) : 0 🟩 intégrables · 21 🟧 à compléter · 1 🟥 refusés.
+24 fichier(s) : 0 🟩 intégrables · 23 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -113,6 +113,24 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟧 `doppler_transcranien.json` : remplissage 0 % (0/0)
 - 🟧 `laryngoscopie_avant_et_apres_thyroidecto.json` : remplissage 0 % (0/0)
 - aVerifier déclarés : 7
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/03_Rachis_moelle_et_racines/1_Theorie/PF03_Explorations_fonctionnelles_Rachis_moelle_et_racines_6-fiches_production_XAi.json`
+- 🟧 `examen_de_la_sensibilite_perineale_et_du.json` : remplissage 0 % (0/0)
+- 🟧 `mesure_du_residu_post_mictionnel.json` : remplissage 0 % (0/0)
+- 🟧 `potentiels_evoques_somesthesiques.json` : remplissage 0 % (0/0)
+- 🟧 `potentiels_evoques_somesthesiques_et_mot.json` : remplissage 0 % (0/0)
+- 🟧 `score_de_schober_et_mesures_cliniques_de.json` : remplissage 0 % (0/0)
+- 🟧 `electroneuromyographie.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 8
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/03_Rachis_moelle_et_racines/2_Pratique/PF03-PR_Explorations_fonctionnelles_Rachis_moelle_et_racines_6-fiches_PRATIQUE_production_XAi.json`
+- 🟧 `examen_de_la_sensibilite_perineale_et_du.json` : remplissage 0 % (0/0)
+- 🟧 `mesure_du_residu_post_mictionnel.json` : remplissage 0 % (0/0)
+- 🟧 `potentiels_evoques_somesthesiques.json` : remplissage 0 % (0/0)
+- 🟧 `potentiels_evoques_somesthesiques_et_mot.json` : remplissage 0 % (0/0)
+- 🟧 `score_de_schober_et_mesures_cliniques_de.json` : remplissage 0 % (0/0)
+- 🟧 `electroneuromyographie.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 8
 
 ### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/01_Tete_et_encephale/1_Theorie/PE01_Endoscopies_Tete_et_encephale_2-fiches_production_XAi.json`
 - 🟧 `nasofibroscopie.json` : remplissage 0 % (0/0)
