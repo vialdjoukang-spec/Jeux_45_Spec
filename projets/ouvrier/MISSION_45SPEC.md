@@ -31,3 +31,9 @@ Signature : AAI (Anthropic AI)
 - Question-guide : « Sur cette pathologie, en contexte suisse, que pourrait-on demander au candidat qu'il ne saurait pas ? »
 - Vial ne doit JAMAIS voir le contenu des questions avant de jouer : dans tes résumés, donne seulement des nombres.
 - Outils : scripts/produire_notions_questions.py (notions puis questions, pilote ou lot), scripts/couverture_notions.py, conception/outils/arene45/construire_arene45.py.
+
+## Correction enrichie (23.11.2026, décidée par Vial)
+Chaque pathologie reçoit un fichier conception/donnees/corrections/<entité>.json au format de la référence d'or F1_1-E01.json :
+thème ; notions abordées (titre, phrase « comment », cours en fenêtre : tableau ordonné — par exemple classe, chef de file, indication discriminante, particularité clinique — puis points clés, sources) ; rubriques couvertes ; SSP de départ (officiel PROFILES ou additionnel) avec son algorithme décisionnel en arbre {t, e:[…]}.
+Phrases verbales, concises ; recommandations suisses puis européennes.
+- (v2, Vial) Tableaux de cours : classe → sous-classes sur des lignes distinctes ; chaque discriminant et chaque particularité est une cellule {t, i} où « i » dit POURQUOI (mécanisme, essai, conséquence), et pourquoi pas les autres classes ; feuilles de l'algorithme reliées à un plan de prise en charge complet et concis (« pec » : but, moyens avec posologies, conduite en équipe urgence | hors urgence, cibles, pronostic, surveillance et critères de sortie, prévention). Référence : conception/donnees/corrections/F1_1-E01.json.

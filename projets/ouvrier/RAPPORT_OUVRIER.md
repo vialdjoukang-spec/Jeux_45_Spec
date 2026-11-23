@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-23 13:42 UTC
+# Ouvrier automatique — 2026-11-23 15:06 UTC
 
-Dernier passage : **F2_examens_vides** → fait (0.68 USD).
+Dernier passage : **END_pilote_notions_questions** → fait (0.27 USD).
 
-Les 41 examens vides sont remplis dans 11 fichiers de topographie, au style des examens déjà remplis, sans toucher aux autres ; le réseau affiche 0 à compléter et les jauges sont recalculées (Paraclinique 78 %). La vérification web n'a pas été faite examen par examen (budget) : chaque examen porte un champ aVerifier qui liste les seuils cités de mémoire à recontrôler, et les doses d'irradiation de la radiographie et du CT viennent de la page HUG, pas du rapport OFSP 2018. Plusieurs examens (cathétérisme, EBUS, biopsie de masse, MAG3) ont une irradiation à null faute de valeur vérifiée.
+Les 3 pathologies (hyperthyroïdie, acidocétose, phéochromocytome) ont leurs notions (68, 65 et 70, 15 rubriques, 0 erreur) et leurs questions (20 chacune, 0 erreur, formats A à 5 options, Kprim à 4 affirmations, menus de 13 à 15 options, séries progressives à diagnostic masqué). J'ai ajouté la règle 8ter à SYS_Q (couverture deux fois sous deux angles, 6 notions au plus par question) après un premier essai où 18 notions de poids ≥ 2 manquaient ; au second essai, il n'en manque plus que 2 (hyperthyroïdie), à reprendre en lot. La couverture donne 203 notions, 0 cochée, 174 en attente d'audit, 60 questions.
 
-**Crédit** : 17.67 USD dépensés, 82.33 USD disponibles avant le 27.11.2026 ; aujourd'hui 17.67 / 25.00 USD.
+**Crédit** : 18.76 USD dépensés, 81.24 USD disponibles avant le 27.11.2026 ; aujourd'hui 18.76 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -25,7 +25,9 @@ Les 41 examens vides sont remplis dans 11 fichiers de topographie, au style des 
 | endocrino | fait | 1 | 3.138 |
 | interpretations_courbes | fait | 1 | 1.185 |
 | T1_pilote_pec_et_lot600 | fait | 1 | 0.26 |
+| END_pilote_notions_questions | fait | 2 | 0.272 |
 | F2_examens_vides | fait | 1 | 0.684 |
+| SSP_etendus | a_faire | 0 |  |
 | F5_cas_thorax | a_faire | 0 |  |
 | T2_recup_lot600 | a_faire | 0 |  |
 | T3_pec_fiches_existantes | a_faire | 0 |  |
