@@ -49,11 +49,11 @@ h1{font:700 22px Georgia,serif;margin:0 0 4px}.sous{color:var(--sous);font-size:
 .arbre ul[hidden]{display:none!important}.arbre ul>li::before,.arbre ul>li::after,.arbre ul::before{border-color:#1d4ed8!important;border-width:2.5px!important}
 .noeud{border:1.5px solid #1d4ed8;color:#0f172a}.noeud.racine{background:#fde8ea;border-color:#c8102e;color:#9b0d23;font-weight:700}.noeud.feuille{border:1.5px dashed #64748b;cursor:default}
 .noeud.pec{min-width:200px;border:1.5px solid #c8102e;background:#fff5f5;cursor:pointer}.noeud.pec::after{content:" ▸ prise en charge";color:#c8102e;font-weight:700;font-size:12px}
-.fenetre table td,.fenetre table th{border:1px solid #a9bccd}.fenetre th{background:#eef4fb;color:#1e3a8a;font-weight:700}
-.cl{color:#c8102e;font-weight:700}.sc{color:#9b1c31;font-weight:700}.mol{color:#1d4ed8;font-weight:700}
-.hi{display:inline-block;margin:2px 3px 2px 0;padding:1px 7px;border-radius:6px;cursor:help;border-bottom:2px dotted currentColor}.hi.d{background:#fff3c4;color:#7a4b00}.hi.p{background:#fde8ea;color:#9b0d23}.hi.n{background:#e6f4ea;color:#14532d}
-#bulle{position:fixed;z-index:60;max-width:340px;background:#0f172a;color:#fff;font-size:13px;line-height:1.45;padding:10px 12px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.25);display:none}
-.pecw h4{font:700 14px Georgia,serif;color:#c8102e;margin:14px 0 4px}.pecw .ok{color:#1f8a4c;font-weight:700}.etape b{color:#1d4ed8}
+.fenetre table td,.fenetre table th{border:1px solid #a9bccd}.fenetre th{background:#f3f6f9;font-weight:700}
+.cl{font-weight:700;font-style:italic}.sc{font-weight:700}.mol{font-weight:400}
+.hi{display:block;margin:3px 0;cursor:help;text-decoration:underline dotted 1.5px;text-underline-offset:3px}.hi::before{content:'• '}.hi:hover,.hi:focus{color:#1d4ed8}
+#bulle{position:fixed;z-index:70;max-width:340px;background:#0f172a;color:#fff;font-size:13px;line-height:1.45;padding:10px 12px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.25);display:none}
+.pecw h4{font:700 15px Georgia,serif;margin:14px 0 4px}.pecw .ok{font-weight:700;font-style:italic}
 </style></head><body>
 <nav><h2>Arène commune</h2><select id="paquet"></select><ol id="liste"></ol><div class="maitrise" id="maitrise" title="Boîtes de Leitner : 0 à 4"></div><div class="fonds" id="fonds" title="Fond de page"></div></nav>
 <main><div class="col">
@@ -113,7 +113,7 @@ function valider(){if(fini)return;fini=true;clearInterval(tick);const q=P.questi
 let NOT={};
 function arbre(n,p){const e=n.e||[],id='a'+Math.random().toString(36).slice(2,8),ouvert=p<1;
  const cl=p===0?'racine':e.length?(ouvert?'':'ferme'):(n.pec?'pec':'feuille');
- return `<li><span class="noeud ${cl}" ${e.length?`data-a="${id}"`:''} ${n.pec?`data-pec="${n.pec}"`:''}>${esc(n.t)}</span>${e.length?`<ul ${ouvert?'':'hidden'} id="${id}">${e.map(x=>arbre(x,p+1)).join('')}</ul>`:''}</li>`;}
+ return `<li><span class="noeud ${cl}" ${e.length?`data-a="${id}"`:''} ${n.pec?`data-pec="${n.pec}"`:''} ${n.i?`data-i="${esc(n.i)}"`:''}>${esc(n.t)}${n.i?' <small>ⓘ</small>':''}</span>${e.length?`<ul ${ouvert?'':'hidden'} id="${id}">${e.map(x=>arbre(x,p+1)).join('')}</ul>`:''}</li>`;}
 const cel=(x,k,j)=>Array.isArray(x)?x.map(o=>`<span class="hi ${j>=3&&k.length>4?(j===3?'d':'p'):(j===1?'d':'p')}" data-i="${esc(o.i)}" tabindex="0">${esc(o.t)}</span>`).join(' '):(x&&x.t?`<span class="hi d" data-i="${esc(x.i)}">${esc(x.t)}</span>`:esc(x));
 function tableau(t){const L=t.lignes;let h=`<table><thead><tr>${t.colonnes.map(x=>`<th>${esc(x)}</th>`).join('')}</tr></thead><tbody>`;
  L.forEach((l,r)=>{h+='<tr>';l.forEach((x,j)=>{if(j===0&&typeof x==='string'){if(r>0&&L[r-1][0]===x)return;let n=1;while(L[r+n]&&L[r+n][0]===x)n++;h+=`<td rowspan="${n}" class="cl">${esc(x)}</td>`;return;}
@@ -129,16 +129,16 @@ function pecHtml(P){const L=(a,f)=>(a||[]).map(f).join('');const v=c=>c?`<ul>${L
  <p><span class="cl">Sortie</span> : ${esc(P.surveillance.sortie)}</p><h4>Prévention</h4><ul>${['primaire','secondaire','tertiaire'].filter(k=>P.prevention[k]).map(k=>`<li><span class="cl">${k}</span> : ${esc(P.prevention[k])}</li>`).join('')}</ul></div>`;}
 let PEC={};
 function fenetre(n){const c=n.cours||{},t=c.tableau;$('fenetreCorps').innerHTML=`<button class="fermer" id="fermer">Fermer</button><h3>${esc(n.titre)}</h3><p>${esc(n.comment)}</p>
- ${t?tableau(t):''}
+ ${t?tableau(t):''}${c.arbre?`<p class="sous">Clique une case pour déplier ; survole ou touche-la pour lire le pourquoi.</p><div class="algo"><ul class="arbre">${arbre(c.arbre,0)}</ul></div>`:''}
  ${c.points?`<ul>${c.points.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}<p class="src">Sources : ${esc((n.sources||[]).join(' ; '))}</p>`;$('fenetre').classList.add('ouverte');$('fermer').onclick=()=>$('fenetre').classList.remove('ouverte');}
 document.addEventListener('click',e=>{const b=e.target.closest('.notion');if(b&&NOT[b.dataset.n])fenetre(NOT[b.dataset.n]);
  const pz=e.target.closest('.noeud.pec');if(pz&&PEC[pz.dataset.pec]){$('fenetreCorps').innerHTML='<button class="fermer" id="fermer">Fermer</button>'+pecHtml(PEC[pz.dataset.pec]);$('fenetre').classList.add('ouverte');$('fermer').onclick=()=>$('fenetre').classList.remove('ouverte');}
- const hi=e.target.closest('.hi');if(hi){montrerBulle(hi);return;}else $('bulle').style.display='none';
+ const hi=e.target.closest('[data-i]');if(hi){montrerBulle(hi);if(hi.classList.contains('hi'))return;}else $('bulle').style.display='none';
  const a=e.target.closest('.noeud');if(a&&a.dataset.a){const u=document.getElementById(a.dataset.a);if(u){u.hidden=!u.hidden;a.classList.toggle('ferme',u.hidden);}}
  if(e.target.id==='fenetre')$('fenetre').classList.remove('ouverte');});
 function montrerBulle(el){const b=$('bulle');b.textContent=el.dataset.i;b.style.display='block';const r=el.getBoundingClientRect();
  let x=Math.min(r.left,innerWidth-350),y=r.bottom+8;if(y+b.offsetHeight>innerHeight)y=r.top-b.offsetHeight-8;b.style.left=Math.max(8,x)+'px';b.style.top=Math.max(8,y)+'px';}
-document.addEventListener('mouseover',e=>{const hi=e.target.closest('.hi');if(hi)montrerBulle(hi);});document.addEventListener('mouseout',e=>{if(e.target.closest('.hi'))$('bulle').style.display='none';});
+document.addEventListener('mouseover',e=>{const hi=e.target.closest('[data-i]');if(hi)montrerBulle(hi);});document.addEventListener('mouseout',e=>{if(e.target.closest('[data-i]'))$('bulle').style.display='none';});
 const FONDS=[['ciel','#e3f2fd','Bleu ciel'],['blanc','#ffffff','Blanc'],['vert','#e8f5e9','Vert pâle'],['or','#fbf3d9','Or pâle'],['champagne','#f7ecdc','Champagne']];
 const fond=f=>{document.documentElement.dataset.fond=f;try{localStorage.setItem('fond',f)}catch(e){}};
 $('fonds').innerHTML=FONDS.map(([k,c,l])=>`<button style="background:${c}" title="${l}" data-f="${k}"></button>`).join('');$('fonds').onclick=e=>{const b=e.target.closest('button');if(b)fond(b.dataset.f);};
