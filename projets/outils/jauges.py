@@ -36,6 +36,7 @@ ex = [e for _, d in lire_tout("conception/donnees/paraclinique/topographie/*/*.j
 rempli = sum(1 for e in ex if e.get("discriminant") and e.get("seuil"))
 ent = cli = 0
 for _, d in lire_tout("conception/donnees/images/paraclinique/**/*.json"):
+    so = d.get("sansObjet") or {}; ent += len(so); cli += len(so)
     for c in (d.get("cliches") or {}).values() if isinstance(d.get("cliches"), dict) else d.get("cliches") or []:
         ent += 1; cli += bool(c.get("candidats") if isinstance(c, dict) else c)
 cas = len(glob.glob("conception/donnees/paraclinique/cas/**/*.json", recursive=True))
