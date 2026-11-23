@@ -16,7 +16,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | H | 12 | 12 |
 | I | 12 | 12 |
 | J | 12 | 12 |
-| K | 0 | 12 |
+| K | 3 | 12 |
 | L | 0 | 12 |
 | M | 0 | 12 |
 | N | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **144** | **228** |
+| **Total** | **147** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -238,30 +238,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_J-S4-02** : Déclaration clinique obligatoire de la MCJ à l'OFSP et rôle du Centre national de référence des maladies à prions (NRPE, Zurich).
 - **TRANS_J-S4-03** : Valeur maximale de Legionella spp. dans l'eau des douches (1000 UFC/L, art. 9 OPBD) et objectif « non détectable » pour les unités à haut risque selon le module 12 OSAV/OFSP (2018).
 - **TRANS_J-S4-03** : Délai et modalités de déclaration de la légionellose (déclaration clinique et laboratoire à l'OFSP).
-- **TRANS_Q-S1-01** : Articles exacts de l'ORaP pour les limites (art. 56 et 57 ?) et pour la grossesse.
-- **TRANS_Q-S1-01** : Rôle de la SUVA dans la radioprotection industrielle.
-- **TRANS_Q-S1-02** : Statut actuel du Swiss Medical Board (dissous ?) en 2026.
-- **TRANS_Q-S1-02** : Le titre de la leçon mentionne « sinusite » et « bilan annuel » : la liste SSMIG 2014 ne contient pas ces deux items sous cette forme ; vérifier si une autre liste (médecine de famille, mfe) est visée.
-- **TRANS_Q-S1-03** : Dose moyenne annuelle de la population suisse et part du radon et du médical selon l'OFSP (non chiffrée dans le texte).
-- **TRANS_Q-S1-03** : Dose d'un vol transatlantique aller-retour (0,05 à 0,1 mSv selon la route).
-- **TRANS_Q-S1-03** : Dose fœtale d'un CT abdomino-pelvien (10 à 50 mGy selon protocole).
-- **TRANS_Q-S2-01** : Recommandation actuelle de l'ESUR sur le contrôle de la TSH néonatale après contraste iodé pendant la grossesse.
-- **TRANS_Q-S2-01** : Nom exact de la société suisse de radiologie pédiatrique.
-- **TRANS_Q-S2-02** : Présence des « bilans quotidiens chez le patient stable » dans la liste hospitalière SSMIG 2016 (la liste 2023 ne la contient pas).
-- **TRANS_Q-S2-03** : Réduction « d'environ un tiers » des radiographies par les règles d'Ottawa : chiffre variable selon les études (30 à 40 %).
-- **TRANS_Q-S2-03** : Fiabilité de NEXUS après 65 ans selon les études récentes.
-- **TRANS_Q-S3-01** : Seuil institutionnel de suivi cutané après procédure interventionnelle (3 ou 5 Gy de kerma au point de référence selon les recommandations).
-- **TRANS_Q-S3-01** : Facteur « deux à trois fois » pour le risque pédiatrique par unité de dose.
-- **TRANS_Q-S3-02** : Contenu exact de la liste hospitalière SSMIG 2016 (sondes, analyses quotidiennes, transfusion, benzodiazépines, IPP).
-- **TRANS_Q-S3-02** : Seuils transfusionnels selon la recommandation AABB 2023 (70 g/L ; 75 en chirurgie cardiaque ; 80 en orthopédie ou maladie cardiovasculaire).
-- **TRANS_Q-S3-03** : Mesures de Swissmedic sur les agents gadolinés linéaires (alignement sur l'EMA 2017).
-- **TRANS_Q-S3-03** : Recommandation ESUR actuelle sur l'hydratation (volume et durée) en 2025-2026.
-- **TRANS_Q-S4-01** : Excès de risque de cancer de l'enfance par 10 mGy in utero (souvent cité 0,06 % ou « quelques pour mille ») : formuler avec la valeur CIPR 84 exacte.
-- **TRANS_Q-S4-01** : Obligation de déclaration à l'OFSP d'une irradiation de grossesse méconnue selon l'ORaP (seuils).
-- **TRANS_Q-S4-02** : Domaines exacts soumis aux audits cliniques obligatoires selon l'ORaP et calendrier.
-- **TRANS_Q-S4-02** : Date des derniers NRD CT publiés par l'OFSP (directive R-06-06 ?).
-- **TRANS_Q-S4-03** : Seuils ACR pour les nodules thyroïdiens fortuits au CT (1 cm avant 35 ans, 1,5 cm après 35 ans) à confirmer dans le white paper 2015.
-- **TRANS_Q-S4-03** : Recommandations ESE 2023 : critères exacts d'arrêt de l'imagerie (< 4 cm et ≤ 10 UH).
+- **TRANS_K-S1-01** : Valeurs indicatives suisses pour le port de charges (SECO, commentaire de l'art. 25 OLT3 ; méthode des indicateurs clés) et outils SUVA de 2026.
+- **TRANS_K-S1-01** : Part des TMS parmi les causes d'absence au travail en Suisse (enquête européenne et suisse sur les conditions de travail, SECO) : chiffre non cité.
+- **TRANS_K-S1-02** : Limites de l'OProMa pour le port de charges (jusqu'au 6e mois : 5 kg régulièrement, 10 kg occasionnellement ; dès le 7e mois : interdiction) et pour le bruit (85 dB(A)) : à confirmer dans le RS 822.111.52.
+- **TRANS_K-S1-02** : Interdiction de travailler entre 20 h et 6 h pendant les 8 semaines précédant l'accouchement (art. 35a al. 4 LTr) et interdiction d'occuper l'accouchée pendant 8 semaines (art. 35a al. 3 LTr).
+- **TRANS_K-S1-03** : Formulation de l'art. 9 LAA : al. 1 (substances nocives ou travaux de la liste de l'annexe 1 OLAA, cause exclusive ou prépondérante, soit plus de 50 %) et al. 2 (autres maladies, cause exclusive ou nettement prépondérante, jurisprudence 75 %).
+- **TRANS_K-S1-03** : Procédure de déclaration : déclaration de sinistre par l'employeur à l'assureur LAA ; obligations du médecin (rapport médical, art. 54a LAA ?).
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -275,4 +257,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : K (3/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
