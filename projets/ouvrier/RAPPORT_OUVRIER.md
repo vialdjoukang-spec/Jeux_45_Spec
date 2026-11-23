@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-23 04:44 UTC
+# Ouvrier automatique — 2026-11-23 05:53 UTC
 
-Dernier passage : **renal** → fait (1.21 USD).
+Dernier passage : **neuro** → fait (2.20 USD).
 
-Le système Rénal & uro-génital est rédigé : 6 organes en anatomie, physiologie et sémiologie, 35 pathologies en 4 paliers avec bilan par visée, traitements dosés et sources datées, 59 sigles au glossaire. Deux nouvelles fenêtres (dfg, fena) sont testées sans écran avec 0 erreur, et les 6 renommages d'identifiants sont déclarés dans migrations_ids.json. Les audits donnent 34/34, couverture réussie et non-perte OK ; Vial relira pathologies.txt et vérifiera quelques statuts suisses dans l'AIPS (listés dans REPRISE.md).
+Le système Neurologique est rédigé en entier : 13 organes (anatomie, physiologie, sémiologie), 78 pathologies en 4 paliers avec bilan par visée, traitements dosés et sources, glossaire et temps d'examen ; l'hypothalamus reste à l'endocrinien. Trois fenêtres de calcul nouvelles (ne_ppc, ne_glasgow, ne_conduction) passent sans erreur JS, les 13 renommages d'identifiants sont déclarés, et les audits donnent auditer_conception 34/34, couverture réussie et non_perte OK. Mon relu médical porte sur les doses et seuils ; restent à confirmer dans l'AIPS le statut suisse de la ténectéplase, de l'amifampridine, de l'hémine et de l'andexanet, ce qui revient à l'audit médical horaire.
 
-**Crédit** : 10.19 USD dépensés, 89.81 USD disponibles avant le 27.11.2026 ; aujourd'hui 10.19 / 25.00 USD.
+**Crédit** : 12.40 USD dépensés, 87.60 USD disponibles avant le 27.11.2026 ; aujourd'hui 12.40 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -21,7 +21,7 @@ Le système Rénal & uro-génital est rédigé : 6 organes en anatomie, physiolo
 | complement_6 | sans_objet | 0 |  |
 | complement_7 | sans_objet | 0 |  |
 | renal | fait | 1 | 1.206 |
-| neuro | a_faire | 0 |  |
+| neuro | fait | 1 | 2.202 |
 | endocrino | a_faire | 0 |  |
 
 Signature : AAI (Anthropic AI)
