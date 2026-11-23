@@ -40,7 +40,7 @@ for chemin in git("ls-tree", "-r", "--name-only", REF, "--", "conception/donnees
         continue
     local = os.path.join(RAC, chemin)
     apres = set(feuilles(json.load(open(local, encoding="utf-8")))) if os.path.exists(local) else set()
-    perdu = avant - apres
+    perdu = {f for f in avant - apres if not f.startswith("/_meta/aCompleter")}  # liste de tâches : elle se vide quand le complément est fusionné
     if perdu:
         pertes.append((chemin, len(perdu), sorted(perdu)[:3]))
 for c, n, ex in pertes:

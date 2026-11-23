@@ -1,38 +1,9 @@
-# Rapport de fusion — 2026-11-22 22:21
+# Rapport de fusion — 2026-11-23 00:35
 
-32 fusionnés, 0 refusés.
+3 fusionnés, 0 refusés.
 
-- ✅ conception/donnees/paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json : fragment Biologie (9 éléments)
-- ✅ conception/donnees/paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json : fragment Endoscopie (3 éléments)
-- ✅ conception/donnees/paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json : fragment Exploration fonctionnelle (9 éléments)
-- ✅ conception/donnees/paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json : fragment Anatomopathologie / biopsie (4 éléments)
-- ✅ conception/donnees/paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json : fragment Imagerie (7 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json : fragment Biologie (9 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json : fragment Endoscopie (3 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json : fragment Exploration fonctionnelle (9 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json : fragment Anatomopathologie / biopsie (4 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/4_thorax/poumons_et_voies_aeriennes.json : fragment Imagerie (7 éléments)
-- ✅ conception/donnees/paraclinique/topographie/8_peau_et_phaneres/peau.json : fragment Biologie (4 éléments)
-- ✅ conception/donnees/paraclinique/topographie/8_peau_et_phaneres/peau.json : fragment Exploration fonctionnelle (4 éléments)
-- ✅ conception/donnees/paraclinique/topographie/8_peau_et_phaneres/peau.json : fragment Anatomopathologie / biopsie (2 éléments)
-- ✅ conception/donnees/paraclinique/topographie/8_peau_et_phaneres/peau.json : fragment Imagerie (3 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/8_peau_et_phaneres/peau.json : fragment Biologie (4 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/8_peau_et_phaneres/peau.json : fragment Exploration fonctionnelle (4 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/8_peau_et_phaneres/peau.json : fragment Anatomopathologie / biopsie (2 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/8_peau_et_phaneres/peau.json : fragment Imagerie (3 éléments)
-- ✅ conception/donnees/paraclinique/topographie/8_peau_et_phaneres/ongles_et_cheveux.json : fusion par champ (6 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/8_peau_et_phaneres/ongles_et_cheveux.json : fusion par champ (6 éléments)
-- ✅ conception/donnees/paraclinique/topographie/8_peau_et_phaneres/plaies_ulceres_et_escarres.json : fusion par champ (7 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/8_peau_et_phaneres/plaies_ulceres_et_escarres.json : fusion par champ (7 éléments)
-- ✅ conception/donnees/paraclinique/topographie/9_systemes_transversaux/sang_et_hemostase.json : fragment Biologie (11 éléments)
-- ✅ conception/donnees/paraclinique/topographie/9_systemes_transversaux/sang_et_hemostase.json : fragment Exploration fonctionnelle (2 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/9_systemes_transversaux/sang_et_hemostase.json : fragment Biologie (11 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/9_systemes_transversaux/sang_et_hemostase.json : fragment Exploration fonctionnelle (2 éléments)
-- ✅ conception/donnees/paraclinique/topographie/9_systemes_transversaux/corps_entier.json : fusion par champ (6 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/9_systemes_transversaux/corps_entier.json : fusion par champ (6 éléments)
-- ✅ conception/donnees/paraclinique/topographie/9_systemes_transversaux/systeme_lymphatique.json : fusion par champ (7 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/9_systemes_transversaux/systeme_lymphatique.json : fusion par champ (7 éléments)
-- ✅ conception/donnees/paraclinique/topographie/9_systemes_transversaux/sommeil_et_vigilance.json : fusion par champ (7 éléments)
-- ✅ conception/donnees/pratique/paraclinique/topographie/9_systemes_transversaux/sommeil_et_vigilance.json : fusion par champ (7 éléments)
+- ✅ conception/donnees/paraclinique/topographie/3_rachis_moelle_et_racines/moelle_epiniere.json : fusion par champ (7 éléments)
+- ✅ conception/donnees/paraclinique/topographie/3_rachis_moelle_et_racines/rachis_osseux.json : fusion par champ (6 éléments)
+- ✅ conception/donnees/paraclinique/topographie/3_rachis_moelle_et_racines/racines_et_plexus.json : fusion par champ (3 éléments)
 
 Signature : AAI (Anthropic AI)
