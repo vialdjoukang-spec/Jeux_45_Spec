@@ -1,0 +1,1178 @@
+{
+  "_lot": {
+    "tache": "PB05",
+    "titre": "Analyses biologiques : Cardiaque Vasculaire Lipides (14 analyses)",
+    "projet": "2_Jeux_Paraclinique",
+    "nombreFichiers": 1,
+    "signature": "AAI (Anthropic AI)",
+    "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet.",
+    "aVerifier": [
+      "conception/donnees/paraclinique/biologie/analyses/05_cardiaque_vasculaire_lipides.json › apolipoproteine_b, homocysteine › organes : vide sur le squelette d'origine et non modifiable par consigne ; l'outil de contrôle peut le signaler comme champ vide",
+      "conception/donnees/paraclinique/biologie/analyses/05_cardiaque_vasculaire_lipides.json › toutes les analyses à valeur unique › parametres : analyse non composite : un seul paramètre, l'analyse elle-même",
+      "conception/donnees/paraclinique/biologie/analyses/05_cardiaque_vasculaire_lipides.json › troponine_t_hypersensible › augmentation : l'item « myosite » est tiré de la fiche troponine I du CHUV, qui réserve la TnI aux TnT non interprétables",
+      "conception/donnees/paraclinique/biologie/analyses/05_cardiaque_vasculaire_lipides.json › myoglobine, ck_mb, apolipoproteine_b, homocysteine › sources : valeurs de Medics (laboratoire privé partenaire de l'Inselspital) ; pas de valeur pédiatrique de myoglobine",
+      "conception/donnees/paraclinique/biologie/analyses/05_cardiaque_vasculaire_lipides.json › bnp › sources : BNP : Clinique de La Source (sous-traité) et Viollier ; ni HUG ni CHUV ne publient de fiche BNP relue ; pas de seuil « > 400 » dans Vivaldo 2021",
+      "conception/donnees/paraclinique/biologie/analyses/05_cardiaque_vasculaire_lipides.json › cholesterol_total, ldl_cholesterol, hdl_cholesterol, triglycerides, lp, apolipoproteine_b › valeursReference.enfant : aucune valeur pédiatrique relue (HUG 2021 et GSLA 2023 : cibles adultes)",
+      "conception/donnees/paraclinique/biologie/analyses/05_cardiaque_vasculaire_lipides.json › cholesterol_total, ldl_cholesterol › diminution : traitement hypolipémiant : causes thérapeutiques et non pathologiques ; escalade statine → ézétimibe → anti-PCSK9 lue dans medix 2025",
+      "conception/donnees/paraclinique/biologie/analyses/05_cardiaque_vasculaire_lipides.json › lp › grossesse / diminution : pas de valeur gravidique de Lp(a) ; la « diminution » ne décrit qu'une variation de méthode",
+      "conception/donnees/paraclinique/biologie/analyses/05_cardiaque_vasculaire_lipides.json › troponine_t_hypersensible, troponine_i_hypersensible › seuils : ESC 2023 lu dans ses données supplémentaires (tableau S4, PDF public de l'Uniklinik Ulm) ; texte principal (Eur Heart J) bloqué depuis le box ; définition universelle 2018 lue dans sa synthèse (Cardiol J 2021) seulement ; aucun seuil suisse de TnI hs publié (CHUV : seuils propres au dosage)",
+      "conception/donnees/paraclinique/biologie/analyses/05_cardiaque_vasculaire_lipides.json › hdl_cholesterol › diminution : aucune cause pathologique de HDL bas trouvée dans HUG 2021, medix 2025, GSLA 2023, Soma-Pillay 2016 ; le champ donne la lecture du risque (≤ 1 mmol/l)",
+      "conception/donnees/paraclinique/biologie/analyses/05_cardiaque_vasculaire_lipides.json › nt_probnp, bnp › grossesse : Soma-Pillay chiffre la hausse du peptide natriurétique auriculaire (ANP), pas du BNP ni du NT-proBNP ; aucun seuil gravidique de BNP ou de NT-proBNP relu"
+    ]
+  },
+  "fichiers": {
+    "conception/donnees/paraclinique/biologie/analyses/05_cardiaque_vasculaire_lipides.json": {
+      "_meta": {
+        "famille": "05_Cardiaque_Vasculaire_Lipides",
+        "statut": "LISTE COMPLÈTE — une analyse = une fiche ; valeurs SI suisses à remplir",
+        "regles": [
+          "Source unique des valeurs de référence biologiques.",
+          "Unités SI suisses ; valeurs par âge, sexe et grossesse quand elles diffèrent.",
+          "Causes de hausse et de baisse : des plus fréquentes aux plus graves."
+        ]
+      },
+      "analyses": [
+        {
+          "id": "troponine_t_hypersensible",
+          "nom": "Troponine T hypersensible",
+          "prelevement": "sang_veineux",
+          "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+          "unite": "ng/l",
+          "valeursReference": {
+            "adulteHomme": "Moins de 14 ng/l dès 1 an, selon les intervalles de référence de chimie clinique du CHUV (2024) ; les HUG (2026) rendent le 99e percentile.",
+            "adulteFemme": "Moins de 14 ng/l dès 1 an, selon les intervalles de référence de chimie clinique du CHUV (2024).",
+            "enfant": "Moins de 14 ng/l dès l'âge de 1 an, selon les intervalles de référence de chimie clinique du CHUV (2024).",
+            "grossesse": "Le CHUV (2024) ne donne pas de valeur propre à la grossesse ; le seuil de 14 ng/l s'applique.",
+            "sujetAge": "Moins de 14 ng/l, sans seuil propre au sujet âgé, selon les intervalles de référence de chimie clinique du CHUV (2024) ; les seuils de l'algorithme 0 h/1 h valent quel que soit l'âge, le sexe et la fonction rénale, selon l'ESC (2023, syndromes coronariens aigus)."
+          },
+          "seuilsCritiques": "Avec le dosage Elecsys (Roche), l'infarctus est exclu si la TnT hs est < 5 ng/l et la douleur dure depuis plus de 3 h, ou < 12 ng/l avec une variation à 1 h < 3 ng/l ; il est probable si ≥ 52 ng/l ou variation ≥ 5 ng/l, selon l'ESC (2023, syndromes coronariens aigus).",
+          "variationsPhysiologiques": "Le dosage hypersensible détecte la troponine chez plus de 20 % des personnes en bonne santé, avec un coefficient de variation ≤ 20 % au 99e percentile, selon le répertoire des analyses des HUG (2026).",
+          "augmentation": [
+            "Infarctus du myocarde : hausse et/ou baisse avec au moins une valeur au-dessus du 99e percentile, selon la synthèse de la quatrième définition universelle de l'infarctus (Cardiol J, 2021).",
+            "Lésion myocardique non ischémique : myocardite, Takotsubo, décompensation cardiaque, selon la Revue médicale suisse (2019, troponine hors infarctus).",
+            "Causes systémiques : sepsis, accident vasculaire cérébral, insuffisance rénale chronique, chirurgie, selon la Revue médicale suisse (2019, troponine hors infarctus).",
+            "Myosite, qui peut gêner la lecture de la TnT et faire préférer la TnI, selon le catalogue des analyses du CHUV (2026)."
+          ],
+          "diminution": [
+            "Baisse d'une valeur élevée : avec une hausse ou une baisse, elle signe une lésion aiguë et non chronique, selon la synthèse de la quatrième définition universelle de l'infarctus (Cardiol J, 2021)."
+          ],
+          "interferences": "En cas de myosite ou d'interférence, le CHUV (2026) dose la troponine I à la place de la troponine T.",
+          "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
+          "organes": [
+            "Aorte thoracique et artères pulmonaires",
+            "Cœur et péricarde",
+            "Paroi thoracique et côtes",
+            "Urgences et point-of-care"
+          ],
+          "synonymes": [
+            "hs-cTnT",
+            "TnT hs",
+            "Troponine T ultrasensible",
+            "Troponine T hs"
+          ],
+          "parametres": [
+            {
+              "nom": "Troponine T hypersensible",
+              "unite": "ng/l",
+              "valeurs": "Moins de 14 ng/l, selon les intervalles de référence de chimie clinique du CHUV (2024)."
+            }
+          ],
+          "anomaliesElementaires": [
+            {
+              "anomalie": "TnT hs < 12 ng/l et Δ1 h < 3 ng/l",
+              "signification": "Elle classe le patient dans la zone d'exclusion, selon Mueller et al. (2016, algorithme 0 h/1 h)."
+            },
+            {
+              "anomalie": "TnT hs ≥ 52 ng/l ou Δ1 h ≥ 5 ng/l",
+              "signification": "Elle classe le patient dans la zone d'inclusion, selon Mueller et al. (2016, algorithme 0 h/1 h)."
+            },
+            {
+              "anomalie": "TnT > 99e percentile sans variation",
+              "signification": "Sans hausse ni baisse, elle définit une lésion myocardique chronique, selon la synthèse de la quatrième définition universelle de l'infarctus (Cardiol J, 2021)."
+            }
+          ],
+          "syndromesParacliniques": [
+            {
+              "syndrome": "Lésion myocardique aiguë",
+              "anomaliesQuiLeComposent": [
+                "Troponine > 99e percentile",
+                "Hausse ou baisse des valeurs"
+              ]
+            },
+            {
+              "syndrome": "Infarctus de type 1",
+              "anomaliesQuiLeComposent": [
+                "Troponine > 99e percentile",
+                "Hausse ou baisse",
+                "Symptômes ou ECG ischémique"
+              ]
+            }
+          ],
+          "pathologiesAssociees": [
+            {
+              "pathologie": "Infarctus du myocarde",
+              "anomalieTypique": "Troponine qui monte ou baisse"
+            },
+            {
+              "pathologie": "Myocardite",
+              "anomalieTypique": "Troponine élevée"
+            },
+            {
+              "pathologie": "Insuffisance rénale chronique",
+              "anomalieTypique": "Troponine élevée stable"
+            }
+          ],
+          "bulle": {
+            "def": "La troponine T est une protéine du muscle cardiaque ; son dosage hypersensible détecte de très faibles lésions.",
+            "pourquoi": "Une valeur au-dessus du 99e percentile définit une lésion myocardique, selon la synthèse de la quatrième définition universelle de l'infarctus (Cardiol J, 2021).",
+            "confusion": "Une troponine élevée n'est pas toujours un infarctus : myocardite, sepsis ou insuffisance rénale l'élèvent aussi, selon la Revue médicale suisse (2019, troponine hors infarctus).",
+            "retenir": "Les seuils 0 h/1 h sont propres à chaque dosage, selon Universimed (2023, algorithme 0 h/1 h)."
+          }
+        },
+        {
+          "id": "troponine_i_hypersensible",
+          "nom": "Troponine I hypersensible",
+          "prelevement": "sang_veineux",
+          "tube": "Tube vert à héparinate de lithium de 2,6 ml ; stable 8 h à température ambiante et 24 h au réfrigérateur, selon le catalogue des analyses du CHUV (2026).",
+          "unite": "ng/l",
+          "valeursReference": {
+            "adulteHomme": "Le seuil est le 99e percentile de la limite supérieure de référence du dosage employé ; les seuils de décision sont propres à chaque dosage, selon l'ESC (2023, syndromes coronariens aigus), et diffèrent de ceux de la troponine T, selon le catalogue des analyses du CHUV (2026).",
+            "adulteFemme": "Le seuil est le 99e percentile de la limite supérieure de référence du dosage employé ; les seuils de décision sont propres à chaque dosage, selon l'ESC (2023, syndromes coronariens aigus), et diffèrent de ceux de la troponine T, selon le catalogue des analyses du CHUV (2026).",
+            "enfant": "Le CHUV (2026) ne publie pas de seuil pédiatrique : on applique le 99e percentile propre au dosage employé, selon l'ESC (2023, syndromes coronariens aigus).",
+            "grossesse": "Le CHUV (2026) ne publie pas de seuil propre à la grossesse : on applique le 99e percentile propre au dosage employé, selon l'ESC (2023, syndromes coronariens aigus).",
+            "sujetAge": "Pas de seuil propre au sujet âgé : les seuils de l'algorithme 0 h/1 h valent quel que soit l'âge, le sexe et la fonction rénale, selon l'ESC (2023, syndromes coronariens aigus)."
+          },
+          "seuilsCritiques": "Les seuils sont propres à chaque dosage : avec l'Architect (Abbott), exclusion si < 4 ng/l et douleur depuis plus de 3 h, ou < 5 ng/l avec une variation à 1 h < 2 ng/l ; inclusion si ≥ 64 ng/l ou variation ≥ 6 ng/l, selon l'ESC (2023, syndromes coronariens aigus).",
+          "variationsPhysiologiques": "Le dosage hypersensible détecte la troponine chez plus de 20 % des personnes en bonne santé, selon le répertoire des analyses des HUG (2026).",
+          "augmentation": [
+            "Infarctus du myocarde : hausse et/ou baisse avec au moins une valeur au-dessus du 99e percentile, selon la synthèse de la quatrième définition universelle de l'infarctus (Cardiol J, 2021).",
+            "Lésion myocardique non ischémique ou systémique, selon la Revue médicale suisse (2019, troponine hors infarctus)."
+          ],
+          "diminution": [
+            "Baisse d'une valeur élevée : avec une hausse ou une baisse, elle signe une lésion aiguë, selon la synthèse de la quatrième définition universelle de l'infarctus (Cardiol J, 2021)."
+          ],
+          "interferences": "Le CHUV (2026) réserve la troponine I aux situations où la troponine T n'est pas interprétable, comme une myosite ou une interférence.",
+          "delaiResultat": "Du lundi au vendredi de 8 h à 17 h ; une demande reçue après 16 h passe au jour ouvrable suivant, selon le catalogue des analyses du CHUV (2026).",
+          "organes": [
+            "Aorte thoracique et artères pulmonaires",
+            "Cœur et péricarde",
+            "Paroi thoracique et côtes",
+            "Urgences et point-of-care"
+          ],
+          "synonymes": [
+            "hs-cTnI",
+            "TnI hs",
+            "Troponine I ultrasensible",
+            "Troponine I hs"
+          ],
+          "parametres": [
+            {
+              "nom": "Troponine I hypersensible",
+              "unite": "ng/l",
+              "valeurs": "Seuil propre au dosage utilisé, selon Universimed (2023, algorithme 0 h/1 h)."
+            }
+          ],
+          "anomaliesElementaires": [
+            {
+              "anomalie": "TnI > 99e percentile",
+              "signification": "Elle définit une lésion myocardique, selon la synthèse de la quatrième définition universelle de l'infarctus (Cardiol J, 2021)."
+            },
+            {
+              "anomalie": "TnI élevée qui monte ou baisse",
+              "signification": "Elle signe une lésion myocardique aiguë, selon la synthèse de la quatrième définition universelle de l'infarctus (Cardiol J, 2021)."
+            }
+          ],
+          "syndromesParacliniques": [
+            {
+              "syndrome": "Lésion myocardique aiguë",
+              "anomaliesQuiLeComposent": [
+                "Troponine > 99e percentile",
+                "Hausse ou baisse des valeurs"
+              ]
+            }
+          ],
+          "pathologiesAssociees": [
+            {
+              "pathologie": "Infarctus du myocarde",
+              "anomalieTypique": "Troponine qui monte ou baisse"
+            },
+            {
+              "pathologie": "Myosite",
+              "anomalieTypique": "TnI préférée à la TnT"
+            }
+          ],
+          "bulle": {
+            "def": "La troponine I est une autre protéine du muscle cardiaque ; au CHUV, elle remplace la troponine T quand celle-ci n'est pas interprétable.",
+            "pourquoi": "La troponine T hs reste au CHUV l'examen de choix du syndrome coronarien aigu, selon le catalogue des analyses du CHUV (2026).",
+            "confusion": "Les seuils de la TnI ne sont pas ceux de la TnT, selon le catalogue des analyses du CHUV (2026).",
+            "retenir": "Chaque dosage a ses propres seuils 0 h/1 h, selon Universimed (2023, algorithme 0 h/1 h)."
+          }
+        },
+        {
+          "id": "ck",
+          "nom": "CK",
+          "prelevement": "sang_veineux",
+          "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+          "unite": "U/l",
+          "valeursReference": {
+            "adulteHomme": "47 à 222 U/l, selon le répertoire des analyses des HUG (2026) ; 25 à 190 U/l selon les intervalles de référence de chimie clinique du CHUV (2024).",
+            "adulteFemme": "33 à 187 U/l, selon le répertoire des analyses des HUG (2026) ; 25 à 140 U/l selon les intervalles de référence de chimie clinique du CHUV (2024).",
+            "enfant": "De 4 mois à 1 an, 24 à 170 U/l chez le garçon et 26 à 240 U/l chez la fille ; après 1 an, intervalle adulte, selon le répertoire des analyses des HUG (2026).",
+            "grossesse": "Les HUG (2026) ne donnent pas d'intervalle propre à la grossesse ; l'intervalle adulte féminin de 33 à 187 U/l s'applique.",
+            "sujetAge": "47 à 222 U/l chez l'homme et 33 à 187 U/l chez la femme ; les HUG (2026) ne donnent pas d'intervalle propre au sujet âgé."
+          },
+          "seuilsCritiques": "Les seuils de rhabdomyolyse varient entre 1000 et 5000 U/l ; la mortalité peut atteindre 60 % quand s'additionnent plusieurs facteurs de risque, dont un pic de CK > 40 000 U/l, selon la Revue médicale suisse (2020, rhabdomyolyse).",
+          "variationsPhysiologiques": "Un effort physique intense avant la prise de sang élève les enzymes musculaires, selon l'Institut de chimie clinique de l'USZ (2026).",
+          "augmentation": [
+            "Rhabdomyolyse : effort, traumatisme, alcool et médicaments, selon la Revue médicale suisse (2020, rhabdomyolyse).",
+            "Myopathies inflammatoires, sans lien avec la sévérité, selon la Revue médicale suisse (2021, myopathies inflammatoires).",
+            "Résorption d'un hématome, avec la LDH, selon la stratégie des HUG sur l'élévation des tests hépatiques (2017).",
+            "Hémolyse du prélèvement, selon l'Institut de chimie clinique de l'USZ (2026)."
+          ],
+          "diminution": [
+            "Après un pic à 48 h, la CK baisse d'environ 40 % par jour et se normalise en 3 à 5 jours, selon la Revue médicale suisse (2020, rhabdomyolyse)."
+          ],
+          "interferences": "On prélève sans garrot ou avec un garrot desserré, selon le répertoire des analyses des HUG (2026). Une hémolyse élève la CK, selon l'Institut de chimie clinique de l'USZ (2026).",
+          "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
+          "organes": [
+            "Cœur et péricarde",
+            "Muscles",
+            "Paroi thoracique et côtes"
+          ],
+          "synonymes": [
+            "Créatine kinase",
+            "CPK",
+            "Créatine phosphokinase",
+            "CK totale"
+          ],
+          "parametres": [
+            {
+              "nom": "CK totale",
+              "unite": "U/l",
+              "valeurs": "47 à 222 U/l chez l'homme, 33 à 187 U/l chez la femme, selon le répertoire des analyses des HUG (2026)."
+            }
+          ],
+          "anomaliesElementaires": [
+            {
+              "anomalie": "CK > 1000 à 5000 U/l",
+              "signification": "Ces seuils ont été utilisés pour définir la rhabdomyolyse, selon la Revue médicale suisse (2020, rhabdomyolyse)."
+            },
+            {
+              "anomalie": "Pic de CK > 40 000 U/l",
+              "signification": "Il fait partie des facteurs de risque d'insuffisance rénale aiguë, selon la Revue médicale suisse (2020, rhabdomyolyse)."
+            },
+            {
+              "anomalie": "CK élevée après effort",
+              "signification": "L'effort intense élève les enzymes musculaires, selon l'Institut de chimie clinique de l'USZ (2026)."
+            }
+          ],
+          "syndromesParacliniques": [
+            {
+              "syndrome": "Rhabdomyolyse",
+              "anomaliesQuiLeComposent": [
+                "CK très élevée",
+                "Urines foncées",
+                "Bandelette positive pour le sang"
+              ]
+            },
+            {
+              "syndrome": "Myopathie inflammatoire",
+              "anomaliesQuiLeComposent": [
+                "CK élevée",
+                "Aldolase élevée",
+                "LDH, ASAT, ALAT élevées"
+              ]
+            }
+          ],
+          "pathologiesAssociees": [
+            {
+              "pathologie": "Rhabdomyolyse",
+              "anomalieTypique": "CK très élevée"
+            },
+            {
+              "pathologie": "Myopathie inflammatoire",
+              "anomalieTypique": "CK élevée"
+            }
+          ],
+          "bulle": {
+            "def": "La créatine kinase est une enzyme du muscle ; son dosage pose le diagnostic de rhabdomyolyse, selon la Revue médicale suisse (2020, rhabdomyolyse).",
+            "pourquoi": "Le pic de CK est lié linéairement à la quantité de muscle lésé, selon la Revue médicale suisse (2020, rhabdomyolyse).",
+            "confusion": "Une CK élevée après un effort intense n'est pas forcément une maladie, selon l'Institut de chimie clinique de l'USZ (2026).",
+            "retenir": "Pic à 48 h, puis baisse d'environ 40 % par jour."
+          }
+        },
+        {
+          "id": "ck_mb",
+          "nom": "CK-MB",
+          "prelevement": "sang_veineux",
+          "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+          "unite": "U/l",
+          "valeursReference": {
+            "adulteHomme": "5 à 19 U/l, selon le répertoire des analyses des HUG (2026) ; moins de 6 % de la CK totale selon les intervalles de référence de chimie clinique du CHUV (2024).",
+            "adulteFemme": "5 à 19 U/l, selon le répertoire des analyses des HUG (2026).",
+            "enfant": "5 à 19 U/l pour tout âge, selon le répertoire des analyses des HUG (2026).",
+            "grossesse": "Les HUG (2026) donnent un intervalle unique sans valeur propre à la grossesse.",
+            "sujetAge": "5 à 19 U/l pour tout âge, selon le répertoire des analyses des HUG (2026)."
+          },
+          "seuilsCritiques": "Le CHUV (2024) rapporte la CK-MB à la CK totale : moins de 6 % est attendu.",
+          "variationsPhysiologiques": "Les HUG (2026) donnent un intervalle unique pour tout âge et dosent la CK totale en parallèle.",
+          "augmentation": [
+            "Infarctus du myocarde, avec une CK-MB détectable dès 3 à 8 h, selon le répertoire des analyses de Medics (2026).",
+            "Insuffisance cardiaque et myocardite, selon le répertoire des analyses de Medics (2026).",
+            "Rhabdomyolyse et accident vasculaire cérébral, selon le répertoire des analyses de Medics (2026)."
+          ],
+          "diminution": [
+            "Une part sous 6 % de la CK totale est la norme du CHUV (2024) ; la MB étant propre au myocarde, elle aide à situer l'origine d'une CK totale élevée, selon le répertoire des analyses de Medics (2026)."
+          ],
+          "interferences": "Les HUG (2026) réservent l'analyse aux soins intensifs et à la cardiologie.",
+          "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
+          "organes": [
+            "Cœur et péricarde"
+          ],
+          "synonymes": [
+            "Créatine kinase MB",
+            "CPK-MB",
+            "CKMB"
+          ],
+          "parametres": [
+            {
+              "nom": "CK-MB",
+              "unite": "U/l",
+              "valeurs": "5 à 19 U/l, selon le répertoire des analyses des HUG (2026)."
+            }
+          ],
+          "anomaliesElementaires": [
+            {
+              "anomalie": "CK-MB > 6 % de la CK totale",
+              "signification": "Elle dépasse la limite du CHUV (2024) et oriente vers une origine cardiaque."
+            },
+            {
+              "anomalie": "CK-MB élevée avec CK très haute",
+              "signification": "Elle peut venir d'une rhabdomyolyse, selon le répertoire des analyses de Medics (2026)."
+            }
+          ],
+          "syndromesParacliniques": [
+            {
+              "syndrome": "Lésion myocardique",
+              "anomaliesQuiLeComposent": [
+                "CK-MB élevée",
+                "Troponine élevée"
+              ]
+            }
+          ],
+          "pathologiesAssociees": [
+            {
+              "pathologie": "Infarctus du myocarde",
+              "anomalieTypique": "CK-MB élevée"
+            },
+            {
+              "pathologie": "Myocardite",
+              "anomalieTypique": "CK-MB élevée"
+            }
+          ],
+          "bulle": {
+            "def": "La CK-MB est l'isoenzyme de la créatine kinase propre au muscle cardiaque, selon le répertoire des analyses de Medics (2026).",
+            "pourquoi": "Elle aide à situer l'origine d'une CK totale élevée, selon le répertoire des analyses de Medics (2026).",
+            "confusion": "Une CK-MB élevée n'est pas toujours cardiaque : rhabdomyolyse et AVC l'élèvent aussi, selon le répertoire des analyses de Medics (2026).",
+            "retenir": "Aux HUG, l'analyse est réservée aux soins intensifs et à la cardiologie."
+          }
+        },
+        {
+          "id": "myoglobine",
+          "nom": "Myoglobine",
+          "prelevement": "sang_veineux",
+          "tube": "Sérum, 1 ml au minimum, selon le répertoire des analyses de Medics (2026).",
+          "unite": "µg/l",
+          "valeursReference": {
+            "adulteHomme": "28 à 72 µg/l, selon le répertoire des analyses de Medics (2026).",
+            "adulteFemme": "25 à 58 µg/l, selon le répertoire des analyses de Medics (2026).",
+            "enfant": "L'Hôpital cantonal de Lucerne (2026) ne dispose pas de valeurs de référence spécifiques à l'enfant.",
+            "grossesse": "Medics (2026) ne donne pas d'intervalle propre à la grossesse ; l'intervalle féminin de 25 à 58 µg/l s'applique.",
+            "sujetAge": "28 à 72 µg/l chez l'homme et 25 à 58 µg/l chez la femme, sans intervalle propre au sujet âgé, selon le répertoire des analyses de Medics (2026)."
+          },
+          "seuilsCritiques": "Le pic de myoglobine est bien corrélé à la survenue d'une insuffisance rénale aiguë, mais son usage se limite à la phase précoce, selon la Revue médicale suisse (2020, rhabdomyolyse).",
+          "variationsPhysiologiques": "La myoglobine monte moins de 3 h après un infarctus, culmine en 4 à 12 h et se normalise vers 24 h, selon le répertoire des analyses de Medics (2026).",
+          "augmentation": [
+            "Infarctus du myocarde, très précocement, selon le répertoire des analyses de Medics (2026).",
+            "Atteinte du muscle squelettique et rhabdomyolyse, selon le répertoire des analyses de Medics (2026).",
+            "Choc, intoxication alcoolique et myocardite, selon le répertoire des analyses de Medics (2026)."
+          ],
+          "diminution": [
+            "Retour à la normale en environ 24 h, selon le répertoire des analyses de Medics (2026), du fait d'une demi-vie de 2 à 4 h, selon la Revue médicale suisse (2020, rhabdomyolyse)."
+          ],
+          "interferences": "La myoglobine n'est pas propre au cœur, car elle est aussi présente dans le muscle squelettique, selon le répertoire des analyses de Medics (2026).",
+          "delaiResultat": "Analyse quotidienne du lundi au vendredi, selon le répertoire des analyses de Medics (2026).",
+          "organes": [
+            "Muscles"
+          ],
+          "synonymes": [
+            "Myoglobinémie",
+            "Myoglobine sérique"
+          ],
+          "parametres": [
+            {
+              "nom": "Myoglobine",
+              "unite": "µg/l",
+              "valeurs": "28 à 72 µg/l chez l'homme, 25 à 58 µg/l chez la femme, selon le répertoire des analyses de Medics (2026)."
+            }
+          ],
+          "anomaliesElementaires": [
+            {
+              "anomalie": "Myoglobine élevée très tôt",
+              "signification": "Elle est l'un des premiers marqueurs à monter après un infarctus, selon le répertoire des analyses de Medics (2026)."
+            },
+            {
+              "anomalie": "Myoglobine normale après 24 h",
+              "signification": "Elle n'exclut pas une lésion plus ancienne, car elle se normalise vite, selon le répertoire des analyses de Medics (2026)."
+            }
+          ],
+          "syndromesParacliniques": [
+            {
+              "syndrome": "Rhabdomyolyse",
+              "anomaliesQuiLeComposent": [
+                "Myoglobine élevée",
+                "CK très élevée",
+                "Urines couleur thé"
+              ]
+            }
+          ],
+          "pathologiesAssociees": [
+            {
+              "pathologie": "Rhabdomyolyse",
+              "anomalieTypique": "Myoglobine élevée"
+            },
+            {
+              "pathologie": "Infarctus du myocarde",
+              "anomalieTypique": "Myoglobine précoce"
+            }
+          ],
+          "bulle": {
+            "def": "La myoglobine est une protéine du muscle cardiaque et squelettique, selon le répertoire des analyses de Medics (2026).",
+            "pourquoi": "Elle passe vite dans le sang lors d'une lésion musculaire et en ressort vite, selon la Revue médicale suisse (2020, rhabdomyolyse).",
+            "confusion": "Une myoglobine élevée n'est pas propre au cœur, selon le répertoire des analyses de Medics (2026).",
+            "retenir": "Utile surtout à la phase précoce, vu sa demi-vie de 2 à 4 h."
+          }
+        },
+        {
+          "id": "nt_probnp",
+          "nom": "NT-proBNP",
+          "prelevement": "sang_veineux",
+          "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+          "unite": "ng/l",
+          "valeursReference": {
+            "adulteHomme": "Moins de 115 ng/l de 18 à 45 ans, 172 de 45 à 55 ans, 263 de 55 à 65 ans, 349 de 65 à 75 ans, selon les intervalles de référence de chimie clinique du CHUV (2024).",
+            "adulteFemme": "Mêmes limites par âge, de moins de 115 ng/l avant 45 ans à moins de 349 ng/l de 65 à 75 ans, selon les intervalles de référence de chimie clinique du CHUV (2024).",
+            "enfant": "De moins de 299 ng/l de 10 jours à 1 an à moins de 135 ng/l de 17 à 18 ans, selon l'âge, selon les intervalles de référence de chimie clinique du CHUV (2024).",
+            "grossesse": "Le peptide natriurétique auriculaire augmente de 40 % au 3e trimestre ; les peptides natriurétiques sont plus élevés en cas d'hypertension chronique ou de prééclampsie, selon Soma-Pillay et al. (2016).",
+            "sujetAge": "Moins de 738 ng/l après 75 ans, selon les intervalles de référence de chimie clinique du CHUV (2024) ; seuil de 1800 ng/l après 75 ans, selon le répertoire des analyses des HUG (2026)."
+          },
+          "seuilsCritiques": "Seuil de 300 ng/l sans tenir compte de l'âge, ou de 450, 900 et 1800 ng/l avant 50, de 50 à 75 et après 75 ans, selon le répertoire des analyses des HUG (2026).",
+          "variationsPhysiologiques": "Les peptides natriurétiques augmentent avec l'âge et dans de nombreuses maladies non cardiaques, selon la Revue médicale suisse (2021, insuffisance cardiaque).",
+          "augmentation": [
+            "Insuffisance cardiaque, que l'on exclut sous 125 pg/ml hors contexte aigu et sous 300 pg/ml en aigu, selon la Revue médicale suisse (2021, insuffisance cardiaque).",
+            "Âge et maladies non cardiaques, selon la Revue médicale suisse (2021, insuffisance cardiaque)."
+          ],
+          "diminution": [
+            "Absence d'insuffisance cardiaque : sous 125 pg/ml hors contexte aigu, l'IC est exclue, selon la Revue médicale suisse (2021, insuffisance cardiaque)."
+          ],
+          "interferences": "Sous sacubitril/valsartan, on suit le NT-proBNP et non le BNP, selon la Revue médicale suisse (2021, insuffisance cardiaque).",
+          "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
+          "organes": [
+            "Aorte thoracique et artères pulmonaires",
+            "Cœur et péricarde"
+          ],
+          "synonymes": [
+            "Peptide natriurétique de type B N-terminal",
+            "NT-pro-BNP",
+            "Pro-BNP"
+          ],
+          "parametres": [
+            {
+              "nom": "NT-proBNP",
+              "unite": "ng/l",
+              "valeurs": "Moins de 115 ng/l de 18 à 45 ans, selon les intervalles de référence de chimie clinique du CHUV (2024)."
+            }
+          ],
+          "anomaliesElementaires": [
+            {
+              "anomalie": "NT-proBNP < 125 ng/l hors aigu",
+              "signification": "Il exclut une insuffisance cardiaque, selon la Revue médicale suisse (2021, insuffisance cardiaque)."
+            },
+            {
+              "anomalie": "NT-proBNP < 300 ng/l en aigu",
+              "signification": "Il exclut une insuffisance cardiaque aiguë, selon la Revue médicale suisse (2021, insuffisance cardiaque)."
+            },
+            {
+              "anomalie": "NT-proBNP > 1800 ng/l après 75 ans",
+              "signification": "Il dépasse le seuil d'âge des HUG (2026)."
+            }
+          ],
+          "syndromesParacliniques": [
+            {
+              "syndrome": "Insuffisance cardiaque aiguë",
+              "anomaliesQuiLeComposent": [
+                "Dyspnée aiguë",
+                "NT-proBNP au-dessus du seuil d'âge"
+              ]
+            }
+          ],
+          "pathologiesAssociees": [
+            {
+              "pathologie": "Insuffisance cardiaque",
+              "anomalieTypique": "NT-proBNP élevé"
+            }
+          ],
+          "bulle": {
+            "def": "Le NT-proBNP est un fragment libéré avec le BNP par le cœur ; il sert au diagnostic de l'insuffisance cardiaque.",
+            "pourquoi": "Il a une excellente valeur prédictive négative, d'où son usage préféré, selon la Revue médicale suisse (2021, insuffisance cardiaque).",
+            "confusion": "Le seuil aigu n'est pas le seuil chronique : 300 contre 125 pg/ml, selon la Revue médicale suisse (2021, insuffisance cardiaque).",
+            "retenir": "Un même patient se suit toujours avec le même peptide."
+          }
+        },
+        {
+          "id": "bnp",
+          "nom": "BNP",
+          "prelevement": "sang_veineux",
+          "tube": "Tube EDTA violet de 2,7 ml, ajout possible jusqu'à 4 h après le prélèvement, selon la Clinique de La Source (2026).",
+          "unite": "pg/ml",
+          "valeursReference": {
+            "adulteHomme": "Moins de 100 pg/ml chez l'adulte, selon la Clinique de La Source (2026).",
+            "adulteFemme": "Moins de 100 pg/ml chez l'adulte, selon la Clinique de La Source (2026).",
+            "enfant": "La Clinique de La Source (2026) ne publie qu'une valeur adulte.",
+            "grossesse": "Le peptide natriurétique auriculaire augmente de 40 % au 3e trimestre ; les peptides natriurétiques sont plus élevés en cas d'hypertension chronique ou de prééclampsie, selon Soma-Pillay et al. (2016).",
+            "sujetAge": "Les taux augmentent avec l'âge, selon la Revue médicale suisse (2021, insuffisance cardiaque)."
+          },
+          "seuilsCritiques": "On exclut une insuffisance cardiaque si le BNP est < 35 pg/ml hors contexte aigu et < 100 pg/ml en aigu, selon la Revue médicale suisse (2021, insuffisance cardiaque).",
+          "variationsPhysiologiques": "Les taux augmentent avec l'âge et dans de nombreuses maladies non cardiaques, selon la Revue médicale suisse (2021, insuffisance cardiaque).",
+          "augmentation": [
+            "Insuffisance cardiaque, selon la Revue médicale suisse (2021, insuffisance cardiaque).",
+            "Traitement par sacubitril/valsartan, qui inhibe la dégradation du BNP, selon la Revue médicale suisse (2021, insuffisance cardiaque)."
+          ],
+          "diminution": [
+            "Prise de biotine, qui fausse le dosage et peut donner des résultats faussement bas, selon Viollier (2026)."
+          ],
+          "interferences": "La biotine perturbe le dosage, selon Viollier (2026) ; sous sacubitril/valsartan, on suit le NT-proBNP, selon la Revue médicale suisse (2021, insuffisance cardiaque).",
+          "delaiResultat": "1 jour en moyenne, du lundi au vendredi, selon la Clinique de La Source (2026).",
+          "organes": [
+            "Cœur et péricarde"
+          ],
+          "synonymes": [
+            "Peptide natriurétique de type B",
+            "Brain natriuretic peptide"
+          ],
+          "parametres": [
+            {
+              "nom": "BNP",
+              "unite": "pg/ml",
+              "valeurs": "Moins de 100 pg/ml chez l'adulte, selon la Clinique de La Source (2026)."
+            }
+          ],
+          "anomaliesElementaires": [
+            {
+              "anomalie": "BNP < 35 pg/ml hors aigu",
+              "signification": "Il exclut une insuffisance cardiaque, selon la Revue médicale suisse (2021, insuffisance cardiaque)."
+            },
+            {
+              "anomalie": "BNP < 100 pg/ml en aigu",
+              "signification": "Il exclut une insuffisance cardiaque aiguë, selon la Revue médicale suisse (2021, insuffisance cardiaque)."
+            },
+            {
+              "anomalie": "BNP haut sous sacubitril/valsartan",
+              "signification": "Il reflète le traitement ; on suit plutôt le NT-proBNP, selon la Revue médicale suisse (2021, insuffisance cardiaque)."
+            }
+          ],
+          "syndromesParacliniques": [
+            {
+              "syndrome": "Insuffisance cardiaque",
+              "anomaliesQuiLeComposent": [
+                "Dyspnée",
+                "BNP au-dessus du seuil"
+              ]
+            }
+          ],
+          "pathologiesAssociees": [
+            {
+              "pathologie": "Insuffisance cardiaque",
+              "anomalieTypique": "BNP élevé"
+            }
+          ],
+          "bulle": {
+            "def": "Le BNP est un peptide natriurétique libéré par le cœur ; il sert au diagnostic de l'insuffisance cardiaque, selon la Revue médicale suisse (2021, insuffisance cardiaque).",
+            "pourquoi": "Une valeur basse exclut l'insuffisance cardiaque, avec des seuils différents en aigu et hors aigu, selon la Revue médicale suisse (2021, insuffisance cardiaque).",
+            "confusion": "Sous sacubitril/valsartan, le BNP monte par le traitement lui-même ; on suit le NT-proBNP, selon la Revue médicale suisse (2021, insuffisance cardiaque).",
+            "retenir": "Exclusion : < 35 pg/ml hors aigu, < 100 pg/ml en aigu."
+          }
+        },
+        {
+          "id": "cholesterol_total",
+          "nom": "Cholestérol total",
+          "prelevement": "sang_veineux",
+          "tube": "Tube vert Hémogard de 2 ml, patient non à jeun possible, selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+          "unite": "mmol/l",
+          "valeursReference": {
+            "adulteHomme": "Pas de cible ; une valeur ≥ 5 mmol/l indique un risque cardiovasculaire plus élevé, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+            "adulteFemme": "Pas de cible ; une valeur ≥ 5 mmol/l indique un risque plus élevé, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+            "enfant": "Les HUG (2021) et le GSLA (2023) fixent des cibles adultes selon le risque, sans valeur pédiatrique.",
+            "grossesse": "Le cholestérol total augmente pendant la grossesse, selon Soma-Pillay et al. (2016).",
+            "sujetAge": "La même lecture s'applique ; le GSLA (2023) garde les mêmes cibles de prévention secondaire après 70 ans."
+          },
+          "seuilsCritiques": "Une valeur ≥ 5 mmol/l impose de chercher d'autres facteurs de risque cardiovasculaire, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+          "variationsPhysiologiques": "Le cholestérol postprandial varie au plus de 0,2 mmol/l, sans portée clinique, selon le guide medix (2025, hyperlipidémie).",
+          "augmentation": [
+            "Hypercholestérolémie secondaire : hypothyroïdie, cholestase, syndrome néphrotique, anorexie, selon le guide medix (2025, hyperlipidémie).",
+            "Causes génétiques et mode de vie, selon le guide medix (2025, hyperlipidémie).",
+            "Grossesse, selon Soma-Pillay et al. (2016)."
+          ],
+          "diminution": [
+            "Traitement hypolipémiant, qui vise une baisse du LDL d'au moins 50 % à risque élevé ou très élevé, selon les objectifs du GSLA (2023) repris par Risch."
+          ],
+          "interferences": "Pour la plupart des bilans, le jeûne n'est pas nécessaire : il modifie les triglycérides d'environ 0,3 mmol/l en moyenne, selon l'aide à l'interprétation du bilan lipidique des HUG (2021). Le prélèvement se fait couché, car la posture debout fausse les lipoprotéines, selon l'Institut de chimie clinique de l'USZ (2026).",
+          "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
+          "organes": [
+            "Cœur et péricarde",
+            "Métabolisme et endocrinologie",
+            "Psyché",
+            "Pénis et urètre masculin"
+          ],
+          "synonymes": [
+            "Cholestérolémie",
+            "CT",
+            "Cholestérol sérique"
+          ],
+          "parametres": [
+            {
+              "nom": "Cholestérol total",
+              "unite": "mmol/l",
+              "valeurs": "Pas de cible ; ≥ 5 mmol/l : risque plus élevé, selon l'aide à l'interprétation du bilan lipidique des HUG (2021)."
+            }
+          ],
+          "anomaliesElementaires": [
+            {
+              "anomalie": "Cholestérol total ≥ 5 mmol/l",
+              "signification": "Il indique un risque cardiovasculaire plus élevé, selon l'aide à l'interprétation du bilan lipidique des HUG (2021)."
+            }
+          ],
+          "syndromesParacliniques": [
+            {
+              "syndrome": "Dyslipidémie",
+              "anomaliesQuiLeComposent": [
+                "Cholestérol total ≥ 5 mmol/l",
+                "LDL au-dessus de la cible"
+              ]
+            }
+          ],
+          "pathologiesAssociees": [
+            {
+              "pathologie": "Hypothyroïdie",
+              "anomalieTypique": "Hypercholestérolémie secondaire"
+            },
+            {
+              "pathologie": "Syndrome néphrotique",
+              "anomalieTypique": "Hypercholestérolémie secondaire"
+            }
+          ],
+          "bulle": {
+            "def": "Le cholestérol total additionne le cholestérol de toutes les lipoprotéines du plasma.",
+            "pourquoi": "Il sert au calcul du LDL et du non-HDL, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+            "confusion": "Le cholestérol total n'a pas de cible thérapeutique : on traite selon le LDL et le risque, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+            "retenir": "Devant une hypercholestérolémie, on dose la TSH, selon le guide medix (2025, hyperlipidémie)."
+          }
+        },
+        {
+          "id": "ldl_cholesterol",
+          "nom": "LDL-cholestérol",
+          "prelevement": "sang_veineux",
+          "tube": "Tube vert Hémogard de 2 ml, patient non à jeun possible, selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+          "unite": "mmol/l",
+          "valeursReference": {
+            "adulteHomme": "Cible < 3,0 mmol/l si risque faible, < 2,6 si modéré, < 1,8 si haut et < 1,4 si très haut, avec baisse ≥ 50 %, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+            "adulteFemme": "Mêmes cibles selon le risque, de < 3,0 à < 1,4 mmol/l, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+            "enfant": "Les HUG (2021) et le GSLA (2023) fixent des cibles adultes selon le risque, sans valeur pédiatrique.",
+            "grossesse": "Le LDL augmente jusqu'à 50 % au terme de la grossesse, selon Soma-Pillay et al. (2016).",
+            "sujetAge": "Après 70 ans, les cibles de prévention secondaire restent celles de l'adulte plus jeune, selon les objectifs du GSLA (2023) repris par Risch."
+          },
+          "seuilsCritiques": "Risque très élevé : cible < 1,4 mmol/l et baisse d'au moins 50 %, selon les objectifs du GSLA (2023) repris par Risch.",
+          "variationsPhysiologiques": "Chez le diabétique mal contrôlé, le LDL postprandial peut être plus bas, d'où un dosage à jeun recommandé, selon le guide medix (2025, hyperlipidémie).",
+          "augmentation": [
+            "Hypothyroïdie, cholestase, syndrome néphrotique, anorexie, selon le guide medix (2025, hyperlipidémie).",
+            "Grossesse, jusqu'à +50 % au terme, selon Soma-Pillay et al. (2016)."
+          ],
+          "diminution": [
+            "Traitement hypolipémiant : statine, puis ézétimibe et inhibiteur de PCSK9 si la cible n'est pas atteinte, selon le guide medix (2025, hyperlipidémie).",
+            "Erreur de calcul quand les triglycérides dépassent 4,5 mmol/l, selon le guide medix (2025, hyperlipidémie)."
+          ],
+          "interferences": "Friedewald : LDL = CT − HDL − TG/2,2, valable seulement si TG < 3,5 mmol/l, selon le répertoire des analyses des HUG (2026) ; le CHUV (2024) calcule si TG < 4,5 mmol/l.",
+          "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
+          "organes": [
+            "Cœur et péricarde",
+            "Métabolisme et endocrinologie",
+            "Psyché",
+            "Pénis et urètre masculin"
+          ],
+          "synonymes": [
+            "LDL-C",
+            "Cholestérol LDL",
+            "LDL calculé"
+          ],
+          "parametres": [
+            {
+              "nom": "LDL-cholestérol",
+              "unite": "mmol/l",
+              "valeurs": "Cible selon le risque, de < 3,0 à < 1,4 mmol/l, selon l'aide à l'interprétation du bilan lipidique des HUG (2021)."
+            }
+          ],
+          "anomaliesElementaires": [
+            {
+              "anomalie": "LDL au-dessus de la cible du risque",
+              "signification": "Il justifie d'intensifier la prévention, selon l'aide à l'interprétation du bilan lipidique des HUG (2021)."
+            },
+            {
+              "anomalie": "LDL calculé avec TG > 4,5 mmol/l",
+              "signification": "Le calcul est faux ; on contrôle à jeun ou on dose le LDL direct, selon le guide medix (2025, hyperlipidémie)."
+            }
+          ],
+          "syndromesParacliniques": [
+            {
+              "syndrome": "Hypercholestérolémie",
+              "anomaliesQuiLeComposent": [
+                "LDL au-dessus de la cible",
+                "Cholestérol total ≥ 5 mmol/l"
+              ]
+            }
+          ],
+          "pathologiesAssociees": [
+            {
+              "pathologie": "Hypercholestérolémie familiale",
+              "anomalieTypique": "LDL élevé"
+            },
+            {
+              "pathologie": "Hypothyroïdie",
+              "anomalieTypique": "LDL élevé secondaire"
+            }
+          ],
+          "bulle": {
+            "def": "Le LDL-cholestérol est le cholestérol transporté par les lipoprotéines de basse densité, souvent calculé par la formule de Friedewald.",
+            "pourquoi": "C'est la cible principale du traitement, fixée selon le risque cardiovasculaire, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+            "confusion": "Le LDL calculé est faux si les triglycérides sont trop élevés, selon le guide medix (2025, hyperlipidémie).",
+            "retenir": "Très haut risque : < 1,4 mmol/l avec baisse ≥ 50 %."
+          }
+        },
+        {
+          "id": "hdl_cholesterol",
+          "nom": "HDL-cholestérol",
+          "prelevement": "sang_veineux",
+          "tube": "Tube vert Hémogard de 2 ml, patient non à jeun possible, selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+          "unite": "mmol/l",
+          "valeursReference": {
+            "adulteHomme": "Pas de cible ; une valeur ≤ 1 mmol/l indique un risque cardiovasculaire plus élevé, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+            "adulteFemme": "Pas de cible ; ≤ 1 mmol/l indique un risque plus élevé, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+            "enfant": "Les HUG (2021) et le GSLA (2023) fixent des cibles adultes selon le risque, sans valeur pédiatrique.",
+            "grossesse": "Le HDL augmente dans la première moitié de la grossesse, baisse au 3e trimestre et reste 15 % au-dessus des valeurs hors grossesse, selon Soma-Pillay et al. (2016).",
+            "sujetAge": "La même lecture s'applique, selon l'aide à l'interprétation du bilan lipidique des HUG (2021)."
+          },
+          "seuilsCritiques": "Une valeur ≤ 1 mmol/l impose de chercher d'autres facteurs de risque cardiovasculaire, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+          "variationsPhysiologiques": "Le HDL monte puis baisse pendant la grossesse, tout en restant 15 % plus haut, selon Soma-Pillay et al. (2016).",
+          "augmentation": [
+            "Grossesse, avec un HDL 15 % plus haut qu'hors grossesse, selon Soma-Pillay et al. (2016)."
+          ],
+          "diminution": [
+            "Une valeur ≤ 1 mmol/l indique un risque cardiovasculaire plus élevé et fait chercher d'autres facteurs de risque, selon l'aide à l'interprétation du bilan lipidique des HUG (2021)."
+          ],
+          "interferences": "Pour la plupart des bilans, le jeûne n'est pas nécessaire : il modifie les triglycérides d'environ 0,3 mmol/l en moyenne, selon l'aide à l'interprétation du bilan lipidique des HUG (2021). Sur un échantillon très lipémique, le HDL ne peut pas être mesuré après ultracentrifugation, selon l'Institut de chimie clinique de l'USZ (2026).",
+          "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
+          "organes": [
+            "Cœur et péricarde",
+            "Métabolisme et endocrinologie",
+            "Pénis et urètre masculin"
+          ],
+          "synonymes": [
+            "HDL-C",
+            "Cholestérol HDL",
+            "Bon cholestérol"
+          ],
+          "parametres": [
+            {
+              "nom": "HDL-cholestérol",
+              "unite": "mmol/l",
+              "valeurs": "Pas de cible ; ≤ 1 mmol/l : risque plus élevé, selon l'aide à l'interprétation du bilan lipidique des HUG (2021)."
+            }
+          ],
+          "anomaliesElementaires": [
+            {
+              "anomalie": "HDL ≤ 1 mmol/l",
+              "signification": "Il indique un risque cardiovasculaire plus élevé, selon l'aide à l'interprétation du bilan lipidique des HUG (2021)."
+            }
+          ],
+          "syndromesParacliniques": [
+            {
+              "syndrome": "Dyslipidémie athérogène",
+              "anomaliesQuiLeComposent": [
+                "HDL ≤ 1 mmol/l",
+                "Triglycérides > 1,7 mmol/l"
+              ]
+            }
+          ],
+          "pathologiesAssociees": [
+            {
+              "pathologie": "Dyslipidémie",
+              "anomalieTypique": "HDL ≤ 1 mmol/l"
+            }
+          ],
+          "bulle": {
+            "def": "Le HDL-cholestérol est le cholestérol transporté par les lipoprotéines de haute densité.",
+            "pourquoi": "Il sert au calcul du LDL et du non-HDL, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+            "confusion": "Le HDL n'a pas de cible thérapeutique : une valeur basse fait chercher d'autres facteurs de risque, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+            "retenir": "Non-HDL = cholestérol total − HDL."
+          }
+        },
+        {
+          "id": "triglycerides",
+          "nom": "Triglycérides",
+          "prelevement": "sang_veineux",
+          "tube": "Tube vert Hémogard de 2 ml, patient non à jeun possible, selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+          "unite": "mmol/l",
+          "valeursReference": {
+            "adulteHomme": "Pas de cible ; < 1,7 mmol/l indique un risque cardiovasculaire plus faible, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+            "adulteFemme": "Pas de cible ; < 1,7 mmol/l indique un risque plus faible, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+            "enfant": "Les HUG (2021) et le GSLA (2023) fixent des cibles adultes selon le risque, sans valeur pédiatrique.",
+            "grossesse": "Les triglycérides augmentent pendant la grossesse, par synthèse hépatique accrue et baisse de la lipoprotéine lipase, selon Soma-Pillay et al. (2016).",
+            "sujetAge": "La même lecture s'applique, selon l'aide à l'interprétation du bilan lipidique des HUG (2021)."
+          },
+          "seuilsCritiques": "Au-delà de 4,5 mmol/l, le LDL calculé est faux, selon le guide medix (2025, hyperlipidémie) ; une hypertriglycéridémie excessive expose à la pancréatite, selon le guide medix (2025, hyperlipidémie).",
+          "variationsPhysiologiques": "Pour la plupart des bilans, le jeûne n'est pas nécessaire : il modifie les triglycérides d'environ 0,3 mmol/l en moyenne, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+          "augmentation": [
+            "Alcoolisme, obésité, insuffisance rénale chronique et diabète de type 2 mal contrôlé, selon le guide medix (2025, hyperlipidémie).",
+            "Médicaments : corticostéroïdes, contraceptifs oraux, thiazides, selon le guide medix (2025, hyperlipidémie).",
+            "Grossesse, selon Soma-Pillay et al. (2016)."
+          ],
+          "diminution": [
+            "Traitement de l'hypertriglycéridémie, utile surtout pour éviter les pancréatites quand elle est excessive, selon le guide medix (2025, hyperlipidémie)."
+          ],
+          "interferences": "Pour la plupart des bilans, le jeûne n'est pas nécessaire : il modifie les triglycérides d'environ 0,3 mmol/l en moyenne, selon l'aide à l'interprétation du bilan lipidique des HUG (2021). Une lipémie marquée trouble les mesures par turbidimétrie et absorption, selon l'Institut de chimie clinique de l'USZ (2026).",
+          "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
+          "organes": [
+            "Cœur et péricarde",
+            "Métabolisme et endocrinologie",
+            "Pancréas",
+            "Plèvre",
+            "Pénis et urètre masculin",
+            "Péritoine et ascite",
+            "Système lymphatique"
+          ],
+          "synonymes": [
+            "Triglycéridémie",
+            "TG",
+            "TGL"
+          ],
+          "parametres": [
+            {
+              "nom": "Triglycérides",
+              "unite": "mmol/l",
+              "valeurs": "Pas de cible ; < 1,7 mmol/l : risque plus faible, selon l'aide à l'interprétation du bilan lipidique des HUG (2021)."
+            }
+          ],
+          "anomaliesElementaires": [
+            {
+              "anomalie": "Triglycérides > 1,7 mmol/l",
+              "signification": "Ils imposent de chercher d'autres facteurs de risque, selon l'aide à l'interprétation du bilan lipidique des HUG (2021)."
+            },
+            {
+              "anomalie": "Triglycérides > 4,5 mmol/l",
+              "signification": "Le LDL calculé n'est plus fiable, selon le guide medix (2025, hyperlipidémie)."
+            }
+          ],
+          "syndromesParacliniques": [
+            {
+              "syndrome": "Dyslipidémie athérogène",
+              "anomaliesQuiLeComposent": [
+                "Triglycérides > 1,7 mmol/l",
+                "HDL ≤ 1 mmol/l"
+              ]
+            }
+          ],
+          "pathologiesAssociees": [
+            {
+              "pathologie": "Pancréatite aiguë",
+              "anomalieTypique": "Hypertriglycéridémie excessive"
+            },
+            {
+              "pathologie": "Diabète de type 2 mal contrôlé",
+              "anomalieTypique": "Triglycérides élevés"
+            }
+          ],
+          "bulle": {
+            "def": "Les triglycérides sont les graisses transportées surtout par les lipoprotéines riches en triglycérides.",
+            "pourquoi": "Une valeur sous 1,7 mmol/l indique un risque plus faible, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+            "confusion": "Un bilan non à jeun reste valable ; l'effet moyen du repas est d'environ 0,3 mmol/l, selon l'aide à l'interprétation du bilan lipidique des HUG (2021).",
+            "retenir": "Alcool et hypertriglycéridémie : attention à la pancréatite, selon le guide medix (2025, hyperlipidémie)."
+          }
+        },
+        {
+          "id": "lp",
+          "nom": "Lp(a)",
+          "prelevement": "sang_veineux",
+          "tube": "Tube vert Hémogard de 2 ml, selon le répertoire des analyses des HUG (2026) ; tube sérum rouge de 4,9 ml, envoyé congelé, au CHUV (2026).",
+          "unite": "mg/l",
+          "valeursReference": {
+            "adulteHomme": "Une valeur > 300 mg/l est élevée, selon le répertoire des analyses des HUG (2026).",
+            "adulteFemme": "Une valeur > 300 mg/l est élevée, selon le répertoire des analyses des HUG (2026).",
+            "enfant": "Les HUG (2026) donnent un seul seuil, sans valeur pédiatrique.",
+            "grossesse": "La Lp(a) dépend notamment des hormones sexuelles ; le seuil de 300 mg/l reste celui de la fiche, selon le répertoire des analyses des HUG (2026).",
+            "sujetAge": "La Lp(a) dépend de l'âge, selon le répertoire des analyses des HUG (2026) ; le seuil de 300 mg/l reste celui de la fiche."
+          },
+          "seuilsCritiques": "Une Lp(a) > 50 mg/dl ou 120 nmol/l compte comme facteur de risque, selon le guide medix (2025, hyperlipidémie).",
+          "variationsPhysiologiques": "La Lp(a) dépend de l'âge, de la génétique, des hormones, de l'inflammation et de la méthode, selon le répertoire des analyses des HUG (2026).",
+          "augmentation": [
+            "Déterminisme génétique, selon le répertoire des analyses des HUG (2026).",
+            "Inflammation et facteurs hormonaux, selon le répertoire des analyses des HUG (2026)."
+          ],
+          "diminution": [
+            "Une valeur plus basse dans un autre laboratoire peut tenir à la méthode, dont dépend le résultat, selon le répertoire des analyses des HUG (2026)."
+          ],
+          "interferences": "La méthode de dosage modifie le résultat, selon le répertoire des analyses des HUG (2026) ; au CHUV (2026), le sérum part congelé après un seul cycle de congélation.",
+          "delaiResultat": "Analyse 2 fois par semaine au CHUV (2026).",
+          "organes": [
+            "Cœur et péricarde",
+            "Métabolisme et endocrinologie"
+          ],
+          "synonymes": [
+            "Lipoprotéine (a)",
+            "Lipoprotéine petit a",
+            "Lp petit a"
+          ],
+          "parametres": [
+            {
+              "nom": "Lp(a)",
+              "unite": "mg/l",
+              "valeurs": "Élevée au-delà de 300 mg/l, selon le répertoire des analyses des HUG (2026)."
+            }
+          ],
+          "anomaliesElementaires": [
+            {
+              "anomalie": "Lp(a) > 300 mg/l",
+              "signification": "Elle est élevée, selon le répertoire des analyses des HUG (2026)."
+            },
+            {
+              "anomalie": "Lp(a) > 50 mg/dl ou 120 nmol/l",
+              "signification": "Elle compte comme facteur de risque, selon le guide medix (2025, hyperlipidémie)."
+            }
+          ],
+          "syndromesParacliniques": [
+            {
+              "syndrome": "Risque athérogène génétique",
+              "anomaliesQuiLeComposent": [
+                "Lp(a) élevée",
+                "Athérosclérose prématurée"
+              ]
+            }
+          ],
+          "pathologiesAssociees": [
+            {
+              "pathologie": "Athérosclérose prématurée",
+              "anomalieTypique": "Lp(a) élevée"
+            }
+          ],
+          "bulle": {
+            "def": "La Lp(a) est une lipoprotéine dont le taux dépend surtout de la génétique, selon le répertoire des analyses des HUG (2026).",
+            "pourquoi": "On la dose devant une dyslipidémie ou une athérosclérose prématurée, selon le catalogue des analyses du CHUV (2026).",
+            "confusion": "Les unités diffèrent (mg/dl, mg/l, nmol/l) et la méthode change le résultat, selon le répertoire des analyses des HUG (2026).",
+            "retenir": "Plus de 50 mg/dl ou 120 nmol/l : facteur de risque, selon le guide medix (2025, hyperlipidémie)."
+          }
+        },
+        {
+          "id": "apolipoproteine_b",
+          "nom": "Apolipoprotéine B",
+          "prelevement": "sang_veineux",
+          "tube": "Tube jaune Hémogard de 3,5 ml, envoyé centrifugé et décanté, selon le répertoire des analyses des HUG (2026) ; tube sérum rouge de 4,9 ml au CHUV (2026).",
+          "unite": "g/l",
+          "valeursReference": {
+            "adulteHomme": "0,66 à 1,44 g/l, selon le répertoire des analyses de Medics (2026).",
+            "adulteFemme": "0,60 à 1,41 g/l, selon le répertoire des analyses de Medics (2026).",
+            "enfant": "Medics (2026) ne publie que des intervalles adultes.",
+            "grossesse": "Medics (2026) ne donne pas d'intervalle propre à la grossesse ; l'intervalle adulte féminin s'applique.",
+            "sujetAge": "Après 70 ans, les cibles de prévention secondaire restent celles de l'adulte plus jeune, selon les objectifs du GSLA (2023) repris par Risch."
+          },
+          "seuilsCritiques": "Cibles d'apoB : < 0,65 g/l si risque très élevé, < 0,8 g/l si élevé, < 1 g/l si modéré, selon les objectifs du GSLA (2023) repris par Risch.",
+          "variationsPhysiologiques": "L'intervalle est un peu plus bas chez la femme, selon le répertoire des analyses de Medics (2026).",
+          "augmentation": [
+            "Hyper- et dyslipoprotéinémies, dont l'hyperlipoprotéinémie familiale combinée, selon le répertoire des analyses de Medics (2026)."
+          ],
+          "diminution": [
+            "Hypo- et abêtalipoprotéinémie, selon le répertoire des analyses de Medics (2026)."
+          ],
+          "interferences": "Les prescripteurs externes envoient le prélèvement centrifugé et décanté, selon le répertoire des analyses des HUG (2026).",
+          "delaiResultat": "5 jours, selon le répertoire des analyses des HUG (2026) ; 1 fois par semaine au CHUV (2026).",
+          "organes": [],
+          "synonymes": [
+            "ApoB",
+            "ApoB-100",
+            "Apolipoprotéine B-100"
+          ],
+          "parametres": [
+            {
+              "nom": "Apolipoprotéine B",
+              "unite": "g/l",
+              "valeurs": "0,66 à 1,44 g/l chez l'homme, 0,60 à 1,41 g/l chez la femme, selon le répertoire des analyses de Medics (2026)."
+            }
+          ],
+          "anomaliesElementaires": [
+            {
+              "anomalie": "ApoB > 0,65 g/l à très haut risque",
+              "signification": "Elle dépasse la cible du risque très élevé, selon les objectifs du GSLA (2023) repris par Risch."
+            },
+            {
+              "anomalie": "ApoB très basse",
+              "signification": "Elle oriente vers une hypo- ou abêtalipoprotéinémie, selon le répertoire des analyses de Medics (2026)."
+            }
+          ],
+          "syndromesParacliniques": [
+            {
+              "syndrome": "Hyperlipoprotéinémie combinée",
+              "anomaliesQuiLeComposent": [
+                "ApoB élevée",
+                "Triglycérides élevés",
+                "LDL élevé"
+              ]
+            }
+          ],
+          "pathologiesAssociees": [
+            {
+              "pathologie": "Hyperlipoprotéinémie combinée",
+              "anomalieTypique": "ApoB élevée"
+            },
+            {
+              "pathologie": "Abêtalipoprotéinémie",
+              "anomalieTypique": "ApoB très basse"
+            }
+          ],
+          "bulle": {
+            "def": "L'apoB-100 est la principale protéine des lipoprotéines athérogènes non HDL et la seule du LDL, selon le répertoire des analyses de Medics (2026).",
+            "pourquoi": "Elle sert de marqueur de risque et de cible secondaire, surtout en cas d'hypertriglycéridémie, de diabète ou de LDL très bas, selon le répertoire des analyses de Medics (2026).",
+            "confusion": "L'apoB compte les particules athérogènes, ce que le LDL calculé ne fait pas quand les triglycérides sont élevés, selon le répertoire des analyses de Medics (2026).",
+            "retenir": "Cible à très haut risque : < 0,65 g/l."
+          }
+        },
+        {
+          "id": "homocysteine",
+          "nom": "Homocystéine",
+          "prelevement": "sang_veineux",
+          "tube": "Tube vert Hémogard de 2 ml, patient à jeun, selon le répertoire des analyses des HUG (2026) ; tube EDTA violet de 2,6 ml sur glace pilée, à jeun depuis 12 h, au CHUV (2026).",
+          "unite": "µmol/l",
+          "valeursReference": {
+            "adulteHomme": "7,0 à 22,3 µmol/l, selon le répertoire des analyses des HUG (2026) ; 5,0 à 15,0 µmol/l selon les intervalles de référence de chimie clinique du CHUV (2024) ; moins de 12,0 µmol/l selon le répertoire des analyses de Medics (2026).",
+            "adulteFemme": "7,0 à 22,3 µmol/l, selon le répertoire des analyses des HUG (2026) ; 5,0 à 15,0 µmol/l selon les intervalles de référence de chimie clinique du CHUV (2024).",
+            "enfant": "Les HUG (2026) donnent un intervalle unique de 7,0 à 22,3 µmol/l pour tout âge.",
+            "grossesse": "Les HUG (2026) ne donnent pas d'intervalle propre à la grossesse ; l'intervalle unique s'applique.",
+            "sujetAge": "7,0 à 22,3 µmol/l pour tout âge, selon le répertoire des analyses des HUG (2026)."
+          },
+          "seuilsCritiques": "Une valeur élevée est un facteur de risque cardiovasculaire, selon le répertoire des analyses de Medics (2026).",
+          "variationsPhysiologiques": "Le prélèvement se fait à jeun, 8 à 12 h sans manger, selon le répertoire des analyses de Medics (2026).",
+          "augmentation": [
+            "Déficit génétique en enzymes du métabolisme de l'homocystéine (CBS, MS, MTHFR), selon le répertoire des analyses de Medics (2026).",
+            "Carence alimentaire en vitamines B6, B12 et folates, selon le répertoire des analyses de Medics (2026).",
+            "Insuffisance rénale chronique, selon le répertoire des analyses de Medics (2026).",
+            "Médicaments : méthotrexate, phénytoïne, protoxyde d'azote, selon le répertoire des analyses de Medics (2026)."
+          ],
+          "diminution": [
+            "Substitution d'une carence en vitamine B12 : la hausse de l'homocystéine due à la carence se normalise en 3 mois, selon le guide medix (2023, carence en vitamine B12)."
+          ],
+          "interferences": "Le CHUV (2026) met le tube sur glace pilée et le centrifuge à 4 °C sans délai ; si le sérum n'est pas séparé dans les 30 min, l'homocystéine monte d'environ 10 % par heure, selon le répertoire des analyses de Medics (2026).",
+          "delaiResultat": "Analyse 1 fois par semaine au CHUV (2026), sauf urgence.",
+          "organes": [],
+          "synonymes": [
+            "Homocystéinémie",
+            "Homocystéine totale",
+            "tHcy",
+            "Hcy"
+          ],
+          "parametres": [
+            {
+              "nom": "Homocystéine totale",
+              "unite": "µmol/l",
+              "valeurs": "5,0 à 15,0 µmol/l, selon les intervalles de référence de chimie clinique du CHUV (2024)."
+            }
+          ],
+          "anomaliesElementaires": [
+            {
+              "anomalie": "Homocystéine élevée",
+              "signification": "Elle est un facteur de risque cardiovasculaire, selon le répertoire des analyses de Medics (2026)."
+            },
+            {
+              "anomalie": "Homocystéine haute et B12 basse",
+              "signification": "Elle oriente vers une carence en vitamine B, selon le répertoire des analyses de Medics (2026)."
+            }
+          ],
+          "syndromesParacliniques": [
+            {
+              "syndrome": "Hyperhomocystéinémie",
+              "anomaliesQuiLeComposent": [
+                "Homocystéine élevée",
+                "Carence en B12 ou folates"
+              ]
+            }
+          ],
+          "pathologiesAssociees": [
+            {
+              "pathologie": "Carence en vitamine B12",
+              "anomalieTypique": "Homocystéine élevée"
+            },
+            {
+              "pathologie": "Insuffisance rénale chronique",
+              "anomalieTypique": "Homocystéine élevée"
+            }
+          ],
+          "bulle": {
+            "def": "L'homocystéine est un acide aminé soufré issu de la déméthylation de la méthionine, selon le répertoire des analyses de Medics (2026).",
+            "pourquoi": "Son excès peut léser la paroi des artères, ce qui en fait un facteur de risque cardiovasculaire, selon le répertoire des analyses de Medics (2026).",
+            "confusion": "Les intervalles varient beaucoup entre laboratoires, de moins de 12 à 22,3 µmol/l.",
+            "retenir": "Prélèvement à jeun, tube sur glace."
+          }
+        }
+      ],
+      "glossaire": {
+        "ALAT": "Alanine aminotransférase, enzyme surtout hépatique.",
+        "ApoB": "Apolipoprotéine B, protéine des lipoprotéines athérogènes.",
+        "ApoB-100": "Forme principale de l'apolipoprotéine B, seule apolipoprotéine des LDL.",
+        "ASAT": "Aspartate aminotransférase, enzyme du foie, du cœur et du muscle.",
+        "AVC": "Accident vasculaire cérébral.",
+        "B12": "Vitamine B12 (cobalamine).",
+        "B6": "Vitamine B6 (pyridoxine).",
+        "BNP": "Peptide natriurétique de type B.",
+        "CBS": "Cystathionine bêta-synthase, enzyme du métabolisme de l'homocystéine.",
+        "CHUV": "Centre hospitalier universitaire vaudois, Lausanne.",
+        "CK": "Créatine kinase, enzyme du muscle.",
+        "CK-MB": "Isoenzyme MB de la créatine kinase, propre au myocarde.",
+        "CKMB": "Isoenzyme MB de la créatine kinase.",
+        "CPK": "Créatine phosphokinase, autre nom de la CK.",
+        "CPK-MB": "Isoenzyme MB de la créatine kinase.",
+        "CT": "Cholestérol total.",
+        "ECG": "Électrocardiogramme.",
+        "EDTA": "Anticoagulant des tubes violets ou mauves.",
+        "GSLA": "Groupe de travail suisse lipides et athérosclérose (AGLA).",
+        "HDL": "Lipoprotéines de haute densité.",
+        "HDL-C": "Cholestérol des HDL.",
+        "HUG": "Hôpitaux universitaires de Genève.",
+        "IC": "Insuffisance cardiaque.",
+        "LDH": "Lactate déshydrogénase.",
+        "LDL": "Lipoprotéines de basse densité ; leur cholestérol est la cible du traitement.",
+        "LDL-C": "Cholestérol des LDL.",
+        "MB": "Isoenzyme muscle-cerveau de la créatine kinase.",
+        "MS": "Méthionine synthase.",
+        "MTHFR": "Méthylènetétrahydrofolate réductase.",
+        "Non-HDL": "Cholestérol non-HDL : cholestérol total moins HDL.",
+        "NT-pro-BNP": "Fragment N-terminal du précurseur du BNP.",
+        "NT-proBNP": "Fragment N-terminal du précurseur du BNP.",
+        "PCSK9": "Proprotéine convertase subtilisine/kexine de type 9, cible de médicaments hypolipémiants.",
+        "Pro-BNP": "Précurseur du peptide natriurétique de type B.",
+        "RMS": "Revue médicale suisse.",
+        "TG": "Triglycérides.",
+        "TGL": "Triglycérides.",
+        "TnI": "Troponine I cardiaque.",
+        "TnT": "Troponine T cardiaque.",
+        "TSH": "Thyréostimuline, dosée pour exclure une hypothyroïdie.",
+        "USZ": "Hôpital universitaire de Zurich.",
+        "ESC": "Société européenne de cardiologie."
+      }
+    }
+  }
+}

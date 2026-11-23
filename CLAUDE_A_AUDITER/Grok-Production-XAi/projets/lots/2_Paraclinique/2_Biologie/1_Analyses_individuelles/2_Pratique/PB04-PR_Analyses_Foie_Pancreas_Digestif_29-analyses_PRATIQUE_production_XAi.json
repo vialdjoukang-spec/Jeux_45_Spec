@@ -1,0 +1,1393 @@
+{
+  "_lot": {
+    "tache": "PB04-PR",
+    "titre": "Pratique — Analyses biologiques : Foie Pancreas Digestif (29 analyses)",
+    "projet": "2_Jeux_Paraclinique",
+    "nombreFichiers": 1,
+    "signature": "AAI (Anthropic AI)",
+    "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet.",
+    "aVerifier": [
+      "conception/donnees/pratique/paraclinique/biologie/analyses/04_foie_pancreas_digestif.json › test_immunochimique_de_sang_occulte_feca-1 › bonneConduite : « explorer le côlon » découle de l'indication de dépistage (OPAS, fiche HUG) ; aucune recommandation suisse de coloscopie après FIT positif relue",
+      "conception/donnees/pratique/paraclinique/biologie/analyses/04_foie_pancreas_digestif.json › igg4_seriques-1 › reponse : diagnostic à confirmer par l'histologie ; le cas sert à illustrer le critère ≥ 1,35 g/l",
+      "conception/donnees/pratique/paraclinique/biologie/analyses/04_foie_pancreas_digestif.json › toutes › cas : contextes suisses inventés pour le jeu ; seules les valeurs et règles citées viennent des sources"
+    ]
+  },
+  "fichiers": {
+    "conception/donnees/pratique/paraclinique/biologie/analyses/04_foie_pancreas_digestif.json": {
+      "_meta": {
+        "source": "paraclinique/biologie/analyses/04_foie_pancreas_digestif.json",
+        "genre": "analyse",
+        "projet": "2_Jeux_Paraclinique",
+        "modes": [
+          "Arène « le bon examen »",
+          "Aventure par type d'examen",
+          "Lecture d'image et de tracé"
+        ],
+        "statut": "À REMPLIR",
+        "regles": [
+          "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+          "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+          "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+          "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+          "mode : un des modes du projet (voir _meta.modes).",
+          "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+        ]
+      },
+      "entites": [
+        {
+          "ref": "asat",
+          "nom": "ASAT",
+          "defis": [
+            {
+              "id": "asat-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Un rapport ASAT/ALAT > 2 se voit dans 70 % des hépatites alcooliques, selon la stratégie des HUG (2017).",
+                "pourquoiFaux": "Une hépatite virale aiguë élève surtout l'ALAT ; une atteinte ischémique dépasse souvent 10 à 50 fois la norme."
+              },
+              "sources": [
+                "HUG, stratégie « Élévation des tests hépatiques » (2017)"
+              ],
+              "contexte": "Un homme de 52 ans, à Fribourg, consulte pour un ictère ; il boit beaucoup d'alcool. ALAT 61 U/l.",
+              "valeurAvecUnite": "ASAT 168 U/l",
+              "question": "Que suggère le rapport ASAT/ALAT ?",
+              "reponse": "Une hépatite alcoolique"
+            },
+            {
+              "id": "asat-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "L'hémolyse élève l'ASAT, la CK et la LDH, selon l'USZ (2026).",
+                "pourquoiFaux": "Interpréter le résultat tel quel confond un artefact avec une cytolyse."
+              },
+              "sources": [
+                "Hôpital universitaire de Zurich, préanalytique et valeurs d'alarme (2026)"
+              ],
+              "situation": "Un tube de bilan hépatique arrive très hémolysé au laboratoire d'un hôpital régional vaudois.",
+              "piege": "Lire une ASAT élevée comme une atteinte du foie.",
+              "bonneConduite": "Refaire le prélèvement sans hémolyse avant d'interpréter l'ASAT."
+            }
+          ]
+        },
+        {
+          "ref": "alat",
+          "nom": "ALAT",
+          "defis": [
+            {
+              "id": "alat-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Les hépatites virales aiguës élèvent l'ALAT de 5 à plus de 10 fois la norme, selon les HUG (2017).",
+                "pourquoiFaux": "Une hausse < 5 fois la norme, la plus fréquente en ambulatoire, est loin de ce niveau."
+              },
+              "sources": [
+                "HUG, stratégie « Élévation des tests hépatiques » (2017)",
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Une étudiante de 24 ans, à Genève, a de la fièvre et un ictère au retour d'un séjour.",
+              "valeurAvecUnite": "ALAT 1250 U/l",
+              "question": "Quel est le profil de cette ALAT ?",
+              "reponse": "Cytolyse > 10 fois la norme"
+            },
+            {
+              "id": "alat-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Une myopathie ou une rhabdomyolyse élève aussi l'ALAT, selon les HUG (2017) ; l'effort intense libère les enzymes musculaires, selon l'USZ (2026).",
+                "pourquoiFaux": "Lancer un bilan d'hépatite sans écarter l'origine musculaire est prématuré."
+              },
+              "sources": [
+                "HUG, stratégie « Élévation des tests hépatiques » (2017)",
+                "Hôpital universitaire de Zurich, préanalytique et valeurs d'alarme (2026)"
+              ],
+              "situation": "Un marathonien de 35 ans a une ALAT à 95 U/l au lendemain d'une course, sans autre signe hépatique.",
+              "piege": "Conclure d'emblée à une hépatopathie.",
+              "bonneConduite": "Doser la CK et refaire le bilan à distance de l'effort."
+            }
+          ]
+        },
+        {
+          "ref": "ggt",
+          "nom": "GGT",
+          "defis": [
+            {
+              "id": "ggt-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Une GGT normale avec une PAL élevée oriente vers une origine extra-hépatique, selon les HUG (2017).",
+                "pourquoiFaux": "Une cholestase élèverait aussi la GGT, très sensible du foie."
+              },
+              "sources": [
+                "HUG, stratégie « Élévation des tests hépatiques » (2017)"
+              ],
+              "contexte": "Une femme de 45 ans, à Neuchâtel, a une phosphatase alcaline à 190 U/l sur un bilan de routine.",
+              "valeurAvecUnite": "GGT 22 U/l",
+              "question": "D'où vient la phosphatase alcaline ?",
+              "reponse": "D'une source hors du foie"
+            },
+            {
+              "id": "ggt-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Un garrot prolongé abaisse faussement la GGT, selon l'USZ (2026).",
+                "pourquoiFaux": "Penser que seule l'hémolyse compte ignore l'effet de la stase."
+              },
+              "sources": [
+                "Hôpital universitaire de Zurich, préanalytique et valeurs d'alarme (2026)",
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Un patient arrive pour une GGT ; l'infirmière laisse le garrot serré deux minutes en cherchant la veine.",
+              "piege": "Croire que le garrot n'a pas d'effet sur la GGT.",
+              "bonneConduite": "Prélever sans garrot prolongé, ou le desserrer dès que la veine est piquée."
+            }
+          ]
+        },
+        {
+          "ref": "phosphatase_alcaline",
+          "nom": "Phosphatase alcaline",
+          "defis": [
+            {
+              "id": "phosphatase_alcaline-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "La PAL monte au 3e trimestre ; l'EASL (2023) donne 133 à 418 U/l à ce stade.",
+                "pourquoiFaux": "Parler de cholestase sur la PAL seule ignore sa hausse physiologique au 3e trimestre."
+              },
+              "sources": [
+                "EASL, recommandations sur les maladies du foie et la grossesse (2023)",
+                "HUG, stratégie « Élévation des tests hépatiques » (2017)"
+              ],
+              "contexte": "Une femme de 31 ans, enceinte de 34 semaines, à Lausanne, a un bilan sans plainte.",
+              "valeurAvecUnite": "PAL 280 U/l",
+              "question": "Comment lire cette PAL ?",
+              "reponse": "Hausse physiologique de la grossesse"
+            },
+            {
+              "id": "phosphatase_alcaline-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "La PAL monte physiologiquement à l'adolescence, selon les HUG (2017) ; de 11 à 13 ans, l'intervalle est de 129 à 417 U/l, contre 24,8 à 102 U/l chez l'adulte, selon les HUG (2026).",
+                "pourquoiFaux": "Demander une imagerie du foie sur ce seul chiffre est inutile."
+              },
+              "sources": [
+                "HUG, stratégie « Élévation des tests hépatiques » (2017)",
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Un garçon de 12 ans a une PAL à 320 U/l sur un bilan pré-opératoire.",
+              "piege": "Appliquer l'intervalle de l'adulte.",
+              "bonneConduite": "Lire la PAL avec l'intervalle propre à l'âge, qui est plus haut à l'adolescence."
+            }
+          ]
+        },
+        {
+          "ref": "bilirubine_totale",
+          "nom": "Bilirubine totale",
+          "defis": [
+            {
+              "id": "bilirubine_totale-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "La maladie de Gilbert touche 5 % de la population, s'aggrave au jeûne et reste sous 70 µmol/l, selon les HUG (2017).",
+                "pourquoiFaux": "Une cholestase élèverait la bilirubine conjuguée et la PAL."
+              },
+              "sources": [
+                "HUG, stratégie « Élévation des tests hépatiques » (2017)"
+              ],
+              "contexte": "Un homme de 22 ans, à Bienne, a un subictère après trois jours de jeûne ; transaminases normales.",
+              "valeurAvecUnite": "Bilirubine totale 48 µmol/l, non conjuguée",
+              "question": "Quel diagnostic évoquer ?",
+              "reponse": "Une maladie de Gilbert"
+            },
+            {
+              "id": "bilirubine_totale-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "La bilirubine doit être protégée de la lumière, selon le CHUV (2026).",
+                "pourquoiFaux": "Se fier à un tube exposé à la lumière donne un résultat faussé."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses (2026)"
+              ],
+              "situation": "Un tube pour bilirubine néonatale reste deux heures au soleil sur un chariot.",
+              "piege": "Croire que la lumière n'altère pas la bilirubine.",
+              "bonneConduite": "Protéger le tube de la lumière jusqu'à l'analyse."
+            }
+          ]
+        },
+        {
+          "ref": "bilirubine_conjuguee",
+          "nom": "Bilirubine conjuguée",
+          "defis": [
+            {
+              "id": "bilirubine_conjuguee-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Une hausse de la bilirubine conjuguée avec la PAL signe une cholestase, selon les HUG (2017).",
+                "pourquoiFaux": "Une hémolyse ou une maladie de Gilbert élèvent la fraction non conjuguée."
+              },
+              "sources": [
+                "HUG, stratégie « Élévation des tests hépatiques » (2017)"
+              ],
+              "contexte": "Une femme de 60 ans, à Sion, a un ictère et des urines foncées ; PAL 410 U/l.",
+              "valeurAvecUnite": "Bilirubine conjuguée 62 µmol/l",
+              "question": "Quel mécanisme évoquer ?",
+              "reponse": "Une cholestase"
+            },
+            {
+              "id": "bilirubine_conjuguee-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Le CHUV (2026) demande de protéger les tubes de bilirubine de la lumière.",
+                "pourquoiFaux": "Interpréter un tube exposé à la lumière donne un résultat faussé."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses (2026)"
+              ],
+              "situation": "Un tube pour bilirubine conjuguée attend plusieurs heures près d'une fenêtre.",
+              "piege": "Ignorer l'exposition à la lumière.",
+              "bonneConduite": "Protéger le tube de la lumière."
+            }
+          ]
+        },
+        {
+          "ref": "albumine",
+          "nom": "Albumine",
+          "defis": [
+            {
+              "id": "albumine-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "L'albumine baisse dans la malnutrition et les maladies critiques ; sa demi-vie est de près de 3 semaines, selon les HUG (2017).",
+                "pourquoiFaux": "Parler d'hépatopathie sans autre anomalie du foie ignore les causes non hépatiques de baisse."
+              },
+              "sources": [
+                "HUG, stratégie « Élévation des tests hépatiques » (2017)"
+              ],
+              "contexte": "Un homme de 78 ans, hospitalisé à Berne depuis 4 semaines pour une pneumonie compliquée.",
+              "valeurAvecUnite": "Albumine 26 g/l",
+              "question": "Comment lire cette albumine ?",
+              "reponse": "Maladie aiguë et apports réduits"
+            },
+            {
+              "id": "albumine-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "L'albumine baisse par hémodilution pendant la grossesse, selon Soma-Pillay (2016) ; l'EASL (2023) donne 28 à 37 g/l.",
+                "pourquoiFaux": "Une perfusion d'albumine n'a pas d'indication sur ce seul chiffre."
+              },
+              "sources": [
+                "Soma-Pillay et al., changements physiologiques de la grossesse (2016)",
+                "EASL, recommandations sur les maladies du foie et la grossesse (2023)"
+              ],
+              "situation": "Une femme enceinte de 30 semaines a une albumine à 30 g/l.",
+              "piege": "Conclure à une dénutrition.",
+              "bonneConduite": "Lire l'albumine avec l'intervalle gravidique, plus bas par hémodilution."
+            }
+          ]
+        },
+        {
+          "ref": "proteines_totales",
+          "nom": "Protéines totales",
+          "defis": [
+            {
+              "id": "proteines_totales-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "La posture debout fausse les protéines totales, selon l'USZ (2026) ; l'intervalle du CHUV va de 59 à 80 g/l chez la femme.",
+                "pourquoiFaux": "Parler d'emblée de gammapathie ignore l'erreur préanalytique."
+              },
+              "sources": [
+                "Hôpital universitaire de Zurich, préanalytique et valeurs d'alarme (2026)",
+                "CHUV, intervalles de référence de chimie clinique (2024)"
+              ],
+              "contexte": "Une femme de 50 ans, à Zurich, est prélevée debout après une longue attente.",
+              "valeurAvecUnite": "Protéines totales 84 g/l",
+              "question": "Quelle explication évoquer d'abord ?",
+              "reponse": "Effet de la posture debout"
+            },
+            {
+              "id": "proteines_totales-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "La posture debout fausse le dosage des protéines et des lipoprotéines, selon l'USZ (2026).",
+                "pourquoiFaux": "Doser sans noter la posture rend le suivi incomparable."
+              },
+              "sources": [
+                "Hôpital universitaire de Zurich, préanalytique et valeurs d'alarme (2026)"
+              ],
+              "situation": "Un patient ambulatoire est prélevé debout au guichet.",
+              "piege": "Croire que la position ne joue pas.",
+              "bonneConduite": "Prélever le patient assis ou couché après quelques minutes de repos."
+            }
+          ]
+        },
+        {
+          "ref": "prealbumine",
+          "nom": "Préalbumine",
+          "defis": [
+            {
+              "id": "prealbumine-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Sous 0,20 g/l, la préalbumine plaide pour une dénutrition ; il faut au moins 2 valeurs et un séjour de plus d'une semaine, selon la RMS (2018).",
+                "pourquoiFaux": "Avec une CRP normale, l'inflammation n'explique pas la baisse."
+              },
+              "sources": [
+                "Revue médicale suisse, dénutrition en médecine interne (2018)",
+                "CHUV, intervalles de référence de chimie clinique (2024)"
+              ],
+              "contexte": "Une femme de 82 ans, à Lugano, hospitalisée depuis 10 jours, mange peu ; CRP normale.",
+              "valeurAvecUnite": "Préalbumine 0,14 g/l",
+              "question": "Comment lire ce résultat ?",
+              "reponse": "Un argument pour une dénutrition"
+            },
+            {
+              "id": "prealbumine-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "La préalbumine doit être pondérée par l'inflammation, selon la RMS (2018).",
+                "pourquoiFaux": "Conclure à une dénutrition sur une valeur isolée en pleine inflammation surestime le risque."
+              },
+              "sources": [
+                "Revue médicale suisse, dénutrition en médecine interne (2018)"
+              ],
+              "situation": "Un patient a une pneumonie active avec une CRP élevée ; on demande une préalbumine pour juger de sa nutrition.",
+              "piege": "Lire la préalbumine sans tenir compte de l'inflammation.",
+              "bonneConduite": "Interpréter la préalbumine avec la CRP, et la répéter à distance."
+            }
+          ]
+        },
+        {
+          "ref": "ammoniemie",
+          "nom": "Ammoniémie",
+          "defis": [
+            {
+              "id": "ammoniemie-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Au-delà de 50 µmol/l après 28 jours de vie, l'ammonium est élevé, selon le CHUV (2024) ; l'USZ (2026) alerte dès 80 µmol/l.",
+                "pourquoiFaux": "Un taux normal de l'adulte reste sous 50 µmol/l."
+              },
+              "sources": [
+                "CHUV, intervalles de référence de chimie clinique (2024)",
+                "Hôpital universitaire de Zurich, préanalytique et valeurs d'alarme (2026)"
+              ],
+              "contexte": "Un homme de 58 ans, cirrhotique, à Genève, est confus depuis la veille.",
+              "valeurAvecUnite": "Ammonium 95 µmol/l",
+              "question": "Comment lire ce taux ?",
+              "reponse": "Au-dessus du seuil d'alarme"
+            },
+            {
+              "id": "ammoniemie-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le CHUV (2026) interdit le capillaire et exige la glace et une analyse rapide.",
+                "pourquoiFaux": "Un capillaire laissé 40 minutes à l'air ambiant ne respecte pas ces conditions."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses (2026)"
+              ],
+              "situation": "Un prélèvement d'ammonium est fait au doigt, puis laissé 40 minutes à température ambiante.",
+              "piege": "Croire que le mode de prélèvement est sans effet.",
+              "bonneConduite": "Prélever en veineux, sans garrot, sur glace pilée, au laboratoire dans les 15 minutes."
+            }
+          ]
+        },
+        {
+          "ref": "lipase",
+          "nom": "Lipase",
+          "defis": [
+            {
+              "id": "lipase-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Une lipase > 3 fois la norme est l'un des 2 critères sur 3 de la pancréatite aiguë, selon l'IAP/APA (2013) ; la norme du CHUV est de 13 à 60 U/l.",
+                "pourquoiFaux": "Une lipase sous 3 fois la norme ne remplirait pas ce critère."
+              },
+              "sources": [
+                "IAP/APA, recommandations sur la pancréatite aiguë (2013)",
+                "CHUV, intervalles de référence de chimie clinique (2024)"
+              ],
+              "contexte": "Une femme de 46 ans, à Fribourg, a une douleur épigastrique transfixiante depuis 6 h.",
+              "valeurAvecUnite": "Lipase 640 U/l",
+              "question": "Que permet ce résultat ?",
+              "reponse": "Un critère de pancréatite aiguë"
+            },
+            {
+              "id": "lipase-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "La lipase et l'amylase peuvent s'être normalisées en cas de présentation tardive, selon l'IAP/APA (2013).",
+                "pourquoiFaux": "Clore le diagnostic sur une enzyme normale méconnaît sa cinétique."
+              },
+              "sources": [
+                "IAP/APA, recommandations sur la pancréatite aiguë (2013)"
+              ],
+              "situation": "Un patient consulte 5 jours après le début d'une douleur évocatrice de pancréatite ; lipase normale.",
+              "piege": "Exclure la pancréatite sur cette lipase.",
+              "bonneConduite": "Chercher les autres critères, surtout l'imagerie, si la présentation est tardive."
+            }
+          ]
+        },
+        {
+          "ref": "amylase",
+          "nom": "Amylase",
+          "defis": [
+            {
+              "id": "amylase-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "La norme du CHUV est de 13 à 53 U/l ; plus de 3 fois la norme est un critère de pancréatite, selon l'IAP/APA (2013).",
+                "pourquoiFaux": "Une hausse modérée sous 3 fois la norme ne suffit pas à ce critère."
+              },
+              "sources": [
+                "CHUV, intervalles de référence de chimie clinique (2024)",
+                "IAP/APA, recommandations sur la pancréatite aiguë (2013)"
+              ],
+              "contexte": "Un homme de 39 ans, à Lausanne, a une douleur épigastrique et des vomissements après un repas arrosé.",
+              "valeurAvecUnite": "Amylase pancréatique 220 U/l",
+              "question": "Comment lire cette amylase ?",
+              "reponse": "Au-delà de 3 fois la norme"
+            },
+            {
+              "id": "amylase-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "L'amylase peut se normaliser plus tôt en présentation tardive, selon l'IAP/APA (2013).",
+                "pourquoiFaux": "Exclure la pancréatite sur l'amylase seule est une erreur."
+              },
+              "sources": [
+                "IAP/APA, recommandations sur la pancréatite aiguë (2013)"
+              ],
+              "situation": "Un patient se présente 4 jours après le début des douleurs ; amylase normale, lipase encore élevée.",
+              "piege": "Préférer l'amylase à la lipase pour juger d'une présentation tardive.",
+              "bonneConduite": "Se fier à la lipase et à l'imagerie dans ce cas."
+            }
+          ]
+        },
+        {
+          "ref": "ceruloplasmine",
+          "nom": "Céruloplasmine",
+          "defis": [
+            {
+              "id": "ceruloplasmine-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Une céruloplasmine < 10 mg/dl (0,10 g/l) est très évocatrice de maladie de Wilson, selon l'EASL et l'ERN (2025).",
+                "pourquoiFaux": "Une valeur normale n'exclut pas la maladie, mais une valeur si basse l'oriente fortement."
+              },
+              "sources": [
+                "EASL et ERN, recommandations sur la maladie de Wilson (2025)"
+              ],
+              "contexte": "Un jeune homme de 19 ans, à Bâle, a des transaminases élevées et un tremblement.",
+              "valeurAvecUnite": "Céruloplasmine 0,08 g/l",
+              "question": "Quel diagnostic évoquer ?",
+              "reponse": "Une maladie de Wilson"
+            },
+            {
+              "id": "ceruloplasmine-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "Jusqu'à 20 % des patients ont une céruloplasmine normale ; la néphélométrie peut la surestimer, selon l'EASL et l'ERN (2025).",
+                "pourquoiFaux": "Se contenter d'une céruloplasmine normale méconnaît ce piège de méthode."
+              },
+              "sources": [
+                "EASL et ERN, recommandations sur la maladie de Wilson (2025)"
+              ],
+              "situation": "Une adolescente a une céruloplasmine normale par néphélométrie, mais un tableau évocateur de Wilson.",
+              "piege": "Exclure la maladie de Wilson sur ce résultat.",
+              "bonneConduite": "Compléter par la cuprurie de 24 h et un avis spécialisé."
+            }
+          ]
+        },
+        {
+          "ref": "cuivre_urinaire",
+          "nom": "Cuivre urinaire",
+          "defis": [
+            {
+              "id": "cuivre_urinaire-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Une cuprurie > 100 µg (1,6 µmol) par 24 h chez l'adulte est très évocatrice, selon l'EASL et l'ERN (2025).",
+                "pourquoiFaux": "Une cuprurie normale chez l'adulte est sous 1,6 µmol par 24 h."
+              },
+              "sources": [
+                "EASL et ERN, recommandations sur la maladie de Wilson (2025)"
+              ],
+              "contexte": "Un adulte de 28 ans, à Genève, a une hépatite inexpliquée.",
+              "valeurAvecUnite": "Cuivre urinaire 3,2 µmol/24 h",
+              "question": "Comment lire ce résultat ?",
+              "reponse": "Très évocateur de maladie de Wilson"
+            },
+            {
+              "id": "cuivre_urinaire-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "L'USZ (2026) demande un récipient sans métal et tout le volume de 24 h.",
+                "pourquoiFaux": "Un recueil incomplet ou contaminé fausse la cuprurie."
+              },
+              "sources": [
+                "Hôpital universitaire de Zurich, préanalytique et valeurs d'alarme (2026)",
+                "EASL et ERN, recommandations sur la maladie de Wilson (2025)"
+              ],
+              "situation": "Un patient recueille ses urines de 24 h dans une bouteille en verre ordinaire et oublie une miction.",
+              "piege": "Croire que le récipient et le volume complet n'importent pas.",
+              "bonneConduite": "Recueillir toutes les urines de 24 h dans un récipient sans métal, en notant l'heure et le volume."
+            }
+          ]
+        },
+        {
+          "ref": "alpha_1_antitrypsine",
+          "nom": "Alpha-1-antitrypsine",
+          "defis": [
+            {
+              "id": "alpha_1_antitrypsine-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Sous 11 µM (0,5 g/l), le déficit est sévère et favorise l'emphysème, selon l'ERS (2017).",
+                "pourquoiFaux": "Un taux de 0,87 à 1,93 g/l serait normal, selon les HUG (2026)."
+              },
+              "sources": [
+                "ERS, déficit en alpha-1-antitrypsine (2017)",
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Un homme de 44 ans, ancien fumeur, à Neuchâtel, a un emphysème précoce.",
+              "valeurAvecUnite": "AAT 0,35 g/l",
+              "question": "Comment lire ce taux ?",
+              "reponse": "Déficit sévère en AAT"
+            },
+            {
+              "id": "alpha_1_antitrypsine-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "L'AAT est une protéine de la phase aiguë ; l'inflammation peut masquer un déficit intermédiaire, selon l'ERS (2017).",
+                "pourquoiFaux": "Conclure à un taux normal ignore l'effet de l'inflammation."
+              },
+              "sources": [
+                "ERS, déficit en alpha-1-antitrypsine (2017)",
+                "HUG, stratégie « Élévation des tests hépatiques » (2017)"
+              ],
+              "situation": "Une patiente avec une pneumonie fébrile et une CRP élevée a une AAT à 1,2 g/l.",
+              "piege": "Exclure un déficit sur ce seul taux.",
+              "bonneConduite": "Doser la CRP en même temps et contrôler hors inflammation, ou génotyper."
+            }
+          ]
+        },
+        {
+          "ref": "calprotectine_fecale",
+          "nom": "Calprotectine fécale",
+          "defis": [
+            {
+              "id": "calprotectine_fecale-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Au-delà de 160 µg/g, la calprotectine est élevée et oriente vers une maladie organique, selon l'Hôpital cantonal de Lucerne (2026).",
+                "pourquoiFaux": "Un trouble fonctionnel donne en général une valeur sous 80 µg/g."
+              },
+              "sources": [
+                "Hôpital cantonal de Lucerne, répertoire des analyses (2026)",
+                "CHUV, catalogue des analyses (2026)"
+              ],
+              "contexte": "Un homme de 27 ans, à Lucerne, a une diarrhée glaireuse depuis 6 semaines.",
+              "valeurAvecUnite": "Calprotectine 420 µg/g",
+              "question": "Comment lire ce résultat ?",
+              "reponse": "Inflammation intestinale"
+            },
+            {
+              "id": "calprotectine_fecale-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Les AINS élèvent la calprotectine, selon l'Hôpital cantonal de Lucerne (2026).",
+                "pourquoiFaux": "Lancer une coloscopie sans tenir compte des AINS peut être évitable."
+              },
+              "sources": [
+                "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+              ],
+              "situation": "Une patiente prend de l'ibuprofène tous les jours pour des lombalgies ; calprotectine à 190 µg/g.",
+              "piege": "Conclure d'emblée à une MICI.",
+              "bonneConduite": "Tenir compte des AINS et recontrôler après leur arrêt si possible."
+            }
+          ]
+        },
+        {
+          "ref": "elastase_fecale",
+          "nom": "Élastase fécale",
+          "defis": [
+            {
+              "id": "elastase_fecale-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Sous 100 µg/g, l'élastase reflète une insuffisance pancréatique modérée ou sévère, selon les HUG (2026).",
+                "pourquoiFaux": "Au-dessus de 200 µg/g, l'insuffisance serait exclue."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Un homme de 55 ans, à Sion, a une diarrhée graisseuse et a perdu 6 kg.",
+              "valeurAvecUnite": "Élastase fécale 70 µg/g",
+              "question": "Comment lire ce résultat ?",
+              "reponse": "Insuffisance pancréatique sévère"
+            },
+            {
+              "id": "elastase_fecale-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Entre 100 et 200 µg/g, l'élastase peut refléter une insuffisance légère à modérée, selon les HUG (2026).",
+                "pourquoiFaux": "Parler d'insuffisance sévère surestime le résultat."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Une patiente a une élastase à 150 µg/g.",
+              "piege": "Conclure à une insuffisance pancréatique franche.",
+              "bonneConduite": "Retenir une insuffisance possible, légère à modérée, et la confronter à la clinique."
+            }
+          ]
+        },
+        {
+          "ref": "test_immunochimique_de_sang_occulte_feca",
+          "nom": "Test immunochimique de sang occulte fécal (FIT)",
+          "defis": [
+            {
+              "id": "test_immunochimique_de_sang_occulte_feca-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Le test détecte du sang dans les selles, selon les HUG (2026) ; dans le dépistage du cancer du côlon, sa cause doit être cherchée.",
+                "pourquoiFaux": "Le test ne donne pas la cause du saignement : il ne vaut pas diagnostic."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Un homme de 62 ans, à Genève, fait un test de dépistage sans symptôme.",
+              "valeurAvecUnite": "Sang occulte présent",
+              "question": "Quelle conduite proposer ?",
+              "reponse": "Explorer le côlon"
+            },
+            {
+              "id": "test_immunochimique_de_sang_occulte_feca-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) exigent que le flacon arrive au laboratoire dans les 7 jours.",
+                "pourquoiFaux": "Accepter l'échantillon expose à un résultat non fiable."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Un patient ambulatoire rapporte son flacon de test 10 jours après le prélèvement.",
+              "piege": "Analyser l'échantillon comme s'il était frais.",
+              "bonneConduite": "Refaire le prélèvement : le flacon doit arriver dans les 7 jours."
+            }
+          ]
+        },
+        {
+          "ref": "antigene_helicobacter_pylori_fecal",
+          "nom": "Antigène Helicobacter pylori fécal",
+          "defis": [
+            {
+              "id": "antigene_helicobacter_pylori_fecal-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "L'antigène fécal monoclonal signe une infection active, avant ou après traitement, selon Maastricht VI (2022).",
+                "pourquoiFaux": "La sérologie, elle, ne distingue pas infection active et ancienne."
+              },
+              "sources": [
+                "Maastricht VI (Florence), prise en charge d'Helicobacter pylori (2022)"
+              ],
+              "contexte": "Une femme de 32 ans, à Berne, a une dyspepsie sans signe d'alarme.",
+              "valeurAvecUnite": "Antigène H. pylori fécal positif",
+              "question": "Que signifie ce résultat ?",
+              "reponse": "Une infection active"
+            },
+            {
+              "id": "antigene_helicobacter_pylori_fecal-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Les IPP doivent être arrêtés 14 jours avant, selon Maastricht VI (2022).",
+                "pourquoiFaux": "Un test négatif sous IPP peut être faussement rassurant."
+              },
+              "sources": [
+                "Maastricht VI (Florence), prise en charge d'Helicobacter pylori (2022)"
+              ],
+              "situation": "Un patient sous oméprazole depuis 3 mois fait un test antigénique fécal de contrôle.",
+              "piege": "Faire le test sans arrêter l'IPP.",
+              "bonneConduite": "Arrêter l'IPP 14 jours avant le test."
+            }
+          ]
+        },
+        {
+          "ref": "test_respiratoire_a_l_uree_c13",
+          "nom": "Test respiratoire à l'urée C13",
+          "defis": [
+            {
+              "id": "test_respiratoire_a_l_uree_c13-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Entre 3 et 5 ‰, le laboratoire des HUG (2026) demande de refaire le test.",
+                "pourquoiFaux": "Positif au-delà de 5 ‰, négatif sous 2 ‰ : 4 ‰ n'est ni l'un ni l'autre."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Un homme de 41 ans, à Genève, contrôle son éradication de H. pylori.",
+              "valeurAvecUnite": "DOB 4 ‰",
+              "question": "Comment lire ce résultat ?",
+              "reponse": "Zone douteuse, test à refaire"
+            },
+            {
+              "id": "test_respiratoire_a_l_uree_c13-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) exigent l'arrêt des antibiotiques 4 semaines avant le test.",
+                "pourquoiFaux": "Un test fait trop tôt peut être faussement négatif."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)",
+                "Maastricht VI (Florence), prise en charge d'Helicobacter pylori (2022)"
+              ],
+              "situation": "Un patient a fini un traitement antibiotique il y a 10 jours et vient pour le test à l'urée.",
+              "piege": "Faire le test tout de suite.",
+              "bonneConduite": "Reporter le test à 4 semaines après l'arrêt des antibiotiques."
+            }
+          ]
+        },
+        {
+          "ref": "anticorps_anti_transglutaminase_iga",
+          "nom": "Anticorps anti-transglutaminase IgA",
+          "defis": [
+            {
+              "id": "anticorps_anti_transglutaminase_iga-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "À 10 fois la norme ou plus, avec des EMA positifs sur un second sérum, on peut se passer de biopsie, selon l'ESPGHAN (2020) ; la norme de Medics est < 7 U/ml.",
+                "pourquoiFaux": "Une biopsie n'est plus obligatoire chez l'enfant dans ce cas."
+              },
+              "sources": [
+                "ESPGHAN, diagnostic de la maladie cœliaque (2020)",
+                "Medics, répertoire des analyses (2026)"
+              ],
+              "contexte": "Une fillette de 7 ans, à Lausanne, a un retard de croissance ; IgA totales normales.",
+              "valeurAvecUnite": "Anti-tTG IgA 140 U/ml",
+              "question": "Quelle conduite proposer ?",
+              "reponse": "EMA sur un second sérum"
+            },
+            {
+              "id": "anticorps_anti_transglutaminase_iga-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "L'ESPGHAN (2020) prévoit les prélèvements sous régime contenant du gluten ; les anticorps baissent avec le régime, selon Medics (2026).",
+                "pourquoiFaux": "Un test négatif sous régime n'exclut pas la maladie."
+              },
+              "sources": [
+                "ESPGHAN, diagnostic de la maladie cœliaque (2020)",
+                "Medics, répertoire des analyses (2026)"
+              ],
+              "situation": "Un adulte suit un régime sans gluten depuis 6 mois avant le bilan sérologique.",
+              "piege": "Doser les anticorps sous régime sans gluten.",
+              "bonneConduite": "Faire le bilan sous alimentation contenant du gluten."
+            }
+          ]
+        },
+        {
+          "ref": "iga_totales",
+          "nom": "IgA totales",
+          "defis": [
+            {
+              "id": "iga_totales-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Après 3 ans, des IgA < 0,2 g/l rendent les tests IgA non fiables : on passe à un test IgG, selon l'ESPGHAN (2020).",
+                "pourquoiFaux": "Conclure à l'absence de maladie cœliaque est faux avec si peu d'IgA."
+              },
+              "sources": [
+                "ESPGHAN, diagnostic de la maladie cœliaque (2020)"
+              ],
+              "contexte": "Un garçon de 9 ans, à Fribourg, a des anti-tTG IgA négatifs malgré une diarrhée chronique.",
+              "valeurAvecUnite": "IgA totales 0,05 g/l",
+              "question": "Que faut-il faire ?",
+              "reponse": "Faire un test IgG"
+            },
+            {
+              "id": "iga_totales-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Les IgA sont plus basses chez le petit enfant, selon Medics (2026).",
+                "pourquoiFaux": "Parler de déficit en IgA sur l'intervalle adulte est faux."
+              },
+              "sources": [
+                "Medics, répertoire des analyses (2026)"
+              ],
+              "situation": "Un enfant de 2 ans a des IgA à 0,25 g/l.",
+              "piege": "Lire ce taux avec l'intervalle adulte.",
+              "bonneConduite": "Lire les IgA avec l'intervalle de l'âge, de 0,20 à 1,00 g/l à cet âge."
+            }
+          ]
+        },
+        {
+          "ref": "serologie_hepatite_a",
+          "nom": "Sérologie hépatite A (IgM anti-VHA)",
+          "defis": [
+            {
+              "id": "serologie_hepatite_a-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Des IgM anti-VHA positives signent une hépatite A récente, selon Medisyn (2023).",
+                "pourquoiFaux": "Des IgG positives seules signeraient une protection."
+              },
+              "sources": [
+                "Medisyn, interprétation des sérologies des hépatites (2023)",
+                "HUG, stratégie « Élévation des tests hépatiques » (2017)"
+              ],
+              "contexte": "Un homme de 35 ans, à Zurich, a un ictère et une ALAT à 1800 U/l.",
+              "valeurAvecUnite": "IgM anti-VHA positives",
+              "question": "Que signifie ce résultat ?",
+              "reponse": "Hépatite A aiguë ou subaiguë"
+            },
+            {
+              "id": "serologie_hepatite_a-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) bloquent une nouvelle prescription pendant 48 h.",
+                "pourquoiFaux": "Répéter l'analyse si tôt n'apporte rien."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Un médecin redemande une sérologie IgM anti-VHA le lendemain de la première.",
+              "piege": "Croire que le laboratoire refera l'analyse.",
+              "bonneConduite": "Attendre au moins 48 h avant une nouvelle prescription."
+            }
+          ]
+        },
+        {
+          "ref": "hepatite_b_aghbs_anti_hbs_anti_hbc_adn_d",
+          "nom": "Hépatite B : AgHBs, anti-HBs, anti-HBc, ADN du VHB",
+          "defis": [
+            {
+              "id": "hepatite_b_aghbs_anti_hbs_anti_hbc_adn_d-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "De 10 à 100 UI/l, la protection est partielle ; une dose de rappel est indiquée, selon Medisyn (2023).",
+                "pourquoiFaux": "Au-delà de 100 UI/l seulement, la protection est acquise."
+              },
+              "sources": [
+                "Medisyn, interprétation des sérologies des hépatites (2023)"
+              ],
+              "contexte": "Une infirmière de 29 ans, à Genève, vaccinée, fait un contrôle d'immunité.",
+              "valeurAvecUnite": "Anti-HBs 45 UI/l, anti-HBc négatifs",
+              "question": "Comment lire ce résultat ?",
+              "reponse": "Protection partielle"
+            },
+            {
+              "id": "hepatite_b_aghbs_anti_hbs_anti_hbc_adn_d-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "Les anti-HBc ne se forment pas après le vaccin : ils signent une infection, selon Medisyn (2023).",
+                "pourquoiFaux": "Rassurer sans mesurer l'ADN peut manquer une infection active."
+              },
+              "sources": [
+                "Medisyn, interprétation des sérologies des hépatites (2023)",
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Un patient a un anti-HBc isolé positif ; le médecin pense à une trace du vaccin.",
+              "piege": "Attribuer l'anti-HBc au vaccin.",
+              "bonneConduite": "Mesurer l'ADN du VHB pour juger de l'activité."
+            }
+          ]
+        },
+        {
+          "ref": "hepatite_c_anti_vhc_et_arn_du_vhc",
+          "nom": "Hépatite C : anti-VHC et ARN du VHC",
+          "defis": [
+            {
+              "id": "hepatite_c_anti_vhc_et_arn_du_vhc-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Des anticorps positifs avec un antigène négatif signent une hépatite C passée, selon Medisyn (2023).",
+                "pourquoiFaux": "Une infection active donnerait un antigène positif."
+              },
+              "sources": [
+                "Medisyn, interprétation des sérologies des hépatites (2023)"
+              ],
+              "contexte": "Un homme de 48 ans, à Lausanne, a des anti-VHC positifs ; l'antigène du VHC est négatif.",
+              "valeurAvecUnite": "Anti-VHC positifs, antigène négatif",
+              "question": "Comment lire ce résultat ?",
+              "reponse": "Hépatite C ancienne"
+            },
+            {
+              "id": "hepatite_c_anti_vhc_et_arn_du_vhc-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Les anticorps anti-VHC apparaissent environ 3 mois après l'infection, selon les HUG (2026).",
+                "pourquoiFaux": "Une sérologie négative si tôt n'exclut rien."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Une patiente a eu un risque d'exposition au VHC il y a 3 semaines ; anti-VHC négatifs.",
+              "piege": "Exclure l'infection.",
+              "bonneConduite": "Refaire la sérologie à distance ou rechercher l'ARN."
+            }
+          ]
+        },
+        {
+          "ref": "hepatite_d_anticorps_anti_vhd",
+          "nom": "Hépatite D : anticorps anti-VHD",
+          "defis": [
+            {
+              "id": "hepatite_d_anticorps_anti_vhd-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Chez un porteur de l'AgHBs, des anti-VHD positifs signent une infection delta, selon les HUG (2026).",
+                "pourquoiFaux": "Une hépatite D ne touche pas un patient sans AgHBs."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Un homme de 40 ans, porteur connu de l'AgHBs, à Genève, voit ses transaminases monter.",
+              "valeurAvecUnite": "Anti-VHD positifs",
+              "question": "Que signifie ce résultat ?",
+              "reponse": "Une infection delta"
+            },
+            {
+              "id": "hepatite_d_anticorps_anti_vhd-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) réservent l'analyse aux malades AgHBs positifs, sauf greffe.",
+                "pourquoiFaux": "Doser chez un patient AgHBs négatif n'a pas d'utilité."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Un médecin demande des anti-VHD chez un patient AgHBs négatif, sans greffe.",
+              "piege": "Lancer l'analyse sans indication.",
+              "bonneConduite": "Réserver la demande aux porteurs de l'AgHBs ou à la greffe du foie."
+            }
+          ]
+        },
+        {
+          "ref": "hepatite_e_igm_anti_vhe_et_arn",
+          "nom": "Hépatite E : IgM anti-VHE et ARN",
+          "defis": [
+            {
+              "id": "hepatite_e_igm_anti_vhe_et_arn-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "L'hépatite E est une zoonose en Suisse, selon les HUG (2017), et une cause fréquente d'hépatite aiguë en Europe, selon l'EASL (2018).",
+                "pourquoiFaux": "Une hépatite E n'est pas réservée aux voyageurs."
+              },
+              "sources": [
+                "HUG, stratégie « Élévation des tests hépatiques » (2017)",
+                "EASL, recommandations sur l'hépatite E (2018), résumé"
+              ],
+              "contexte": "Un homme de 63 ans, à Berne, a une hépatite aiguë sans voyage ; il mange de la charcuterie crue.",
+              "valeurAvecUnite": "IgM anti-VHE positives",
+              "question": "Quel diagnostic retenir ?",
+              "reponse": "Hépatite E aiguë"
+            },
+            {
+              "id": "hepatite_e_igm_anti_vhe_et_arn-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "La sérologie peut être négative : une PCR peut être nécessaire, selon les HUG (2017).",
+                "pourquoiFaux": "S'arrêter à la sérologie peut manquer le diagnostic."
+              },
+              "sources": [
+                "HUG, stratégie « Élévation des tests hépatiques » (2017)",
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Une hépatite aiguë inexpliquée a une sérologie VHE négative.",
+              "piege": "Exclure l'hépatite E.",
+              "bonneConduite": "Chercher l'ARN du VHE dans le sang ou les selles."
+            }
+          ]
+        },
+        {
+          "ref": "igg4_seriques",
+          "nom": "IgG4 sériques",
+          "defis": [
+            {
+              "id": "igg4_seriques-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "Des IgG4 ≥ 1,35 g/l font partie des critères de cette maladie, avec l'atteinte d'organe et l'histologie, selon Hao (2016).",
+                "pourquoiFaux": "Le taux seul ne suffit pas : l'atteinte d'organe et l'histologie complètent les critères."
+              },
+              "sources": [
+                "Hao et al., valeur diagnostique des IgG4 sériques, Medicine (2016)"
+              ],
+              "contexte": "Un homme de 66 ans, à Zurich, a un ictère et une masse de la tête du pancréas.",
+              "valeurAvecUnite": "IgG4 2,4 g/l",
+              "question": "Que suggère ce résultat ?",
+              "reponse": "Une maladie associée aux IgG4"
+            },
+            {
+              "id": "igg4_seriques-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Beaucoup de patients ont des IgG4 élevées sans cette maladie, selon Yu (2015).",
+                "pourquoiFaux": "Traiter sur ce seul chiffre est une erreur."
+              },
+              "sources": [
+                "Yu et al., performance diagnostique des IgG4 sériques, Medicine (2015)",
+                "Medics, répertoire des analyses (2026)"
+              ],
+              "situation": "Un patient allergique a des IgG4 à 1,5 g/l sans atteinte d'organe.",
+              "piege": "Poser le diagnostic de maladie associée aux IgG4.",
+              "bonneConduite": "Rechercher une atteinte d'organe et une preuve histologique avant de conclure."
+            }
+          ]
+        },
+        {
+          "ref": "test_respiratoire_a_l_hydrogene",
+          "nom": "Test respiratoire à l'hydrogène",
+          "defis": [
+            {
+              "id": "test_respiratoire_a_l_hydrogene-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Une hausse ≥ 20 ppm au-dessus de la base après 60 minutes signe une malabsorption du lactose, selon Hammer (2022).",
+                "pourquoiFaux": "Une malabsorption n'est pas encore une intolérance : il faut évaluer les symptômes."
+              },
+              "sources": [
+                "Hammer et al., recommandation européenne sur les tests respiratoires (2022)"
+              ],
+              "contexte": "Une femme de 34 ans, à Lausanne, a des ballonnements après le lait.",
+              "valeurAvecUnite": "Hausse de H2 de 32 ppm à 60 min",
+              "question": "Que montre ce résultat ?",
+              "reponse": "Malabsorption du lactose"
+            },
+            {
+              "id": "test_respiratoire_a_l_hydrogene-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Les antibiotiques modifient la formation de H2 et le tabac est proscrit, selon Hammer (2022).",
+                "pourquoiFaux": "Un résultat fait dans ces conditions n'est pas interprétable."
+              },
+              "sources": [
+                "Hammer et al., recommandation européenne sur les tests respiratoires (2022)"
+              ],
+              "situation": "Un patient arrive pour un test à l'hydrogène ; il a fini des antibiotiques il y a 5 jours et vient de fumer.",
+              "piege": "Faire le test quand même.",
+              "bonneConduite": "Reporter le test de 1 à 4 semaines, sans tabac le jour du test."
+            }
+          ]
+        }
+      ],
+      "glossaire": {
+        "AAT": "Alpha-1-antitrypsine, protéine qui protège le poumon des enzymes de l'inflammation.",
+        "ADN": "Acide désoxyribonucléique ; ici, matériel génétique du virus de l'hépatite B mesuré dans le sang.",
+        "AgHBs": "Antigène de surface du virus de l'hépatite B.",
+        "AINS": "Anti-inflammatoires non stéroïdiens.",
+        "ALAT": "Alanine aminotransférase, enzyme surtout hépatique.",
+        "ALP": "Phosphatase alcaline (abréviation anglaise).",
+        "Alpha-1-AT": "Alpha-1-antitrypsine.",
+        "ALT": "Alanine aminotransférase (ALAT).",
+        "Anti-HAV": "Anticorps contre le virus de l'hépatite A.",
+        "Anti-HBc": "Anticorps contre l'antigène HBc, signe d'une infection.",
+        "Anti-HBs": "Anticorps contre l'antigène HBs, signe de protection.",
+        "Anti-HCV": "Anticorps contre le virus de l'hépatite C.",
+        "Anti-tTG": "Anticorps anti-transglutaminase tissulaire.",
+        "Anti-VHC": "Anticorps contre le virus de l'hépatite C.",
+        "Anti-VHD": "Anticorps contre le virus de l'hépatite D.",
+        "APA": "American Pancreatic Association.",
+        "ARN": "Acide ribonucléique ; ici, matériel génétique des virus des hépatites C et E.",
+        "ASAT": "Aspartate aminotransférase, enzyme du foie, du cœur et du muscle.",
+        "AST": "Aspartate aminotransférase (ASAT).",
+        "BPCO": "Bronchopneumopathie chronique obstructive.",
+        "C13": "Carbone 13, isotope stable non radioactif qui marque l'urée du test respiratoire.",
+        "CBP": "Cholangite biliaire primitive.",
+        "CHUV": "Centre hospitalier universitaire vaudois, Lausanne.",
+        "CK": "Créatine kinase, enzyme du muscle.",
+        "CRP": "Protéine C réactive, marqueur de l'inflammation.",
+        "CSP": "Cholangite sclérosante primitive.",
+        "DOB": "Delta over baseline : hausse du 13CO2 expiré entre 0 et 20 minutes.",
+        "EASL": "European Association for the Study of the Liver.",
+        "EDTA": "Anticoagulant des tubes violets ou mauves.",
+        "ELISA": "Dosage immuno-enzymatique sur support solide.",
+        "EMA": "Anticorps anti-endomysium.",
+        "EMA-IgA": "Anticorps IgA anti-endomysium.",
+        "ERN": "Réseau européen de référence pour les maladies rares.",
+        "ERS": "European Respiratory Society.",
+        "ESPGHAN": "Société européenne de gastro-entérologie, hépatologie et nutrition pédiatriques.",
+        "FIT": "Test immunochimique de recherche de sang occulte dans les selles.",
+        "Gamma-GT": "Gamma-glutamyltransférase.",
+        "GGT": "Gamma-glutamyltransférase, enzyme du foie et des voies biliaires.",
+        "GOT": "Ancien nom de l'ASAT.",
+        "GPT": "Ancien nom de l'ALAT.",
+        "GT": "Glutamyltransférase, dans « gamma-GT ».",
+        "H2": "Hydrogène gazeux, mesuré dans l'air expiré.",
+        "HBc": "Antigène de la capside du virus de l'hépatite B.",
+        "HBs": "Antigène de surface du virus de l'hépatite B.",
+        "HBV": "Virus de l'hépatite B (abréviation anglaise).",
+        "HCV": "Virus de l'hépatite C (abréviation anglaise).",
+        "HEV": "Virus de l'hépatite E (abréviation anglaise).",
+        "HpSA": "Antigène d'Helicobacter pylori dans les selles.",
+        "HUG": "Hôpitaux universitaires de Genève.",
+        "IAP": "International Association of Pancreatology.",
+        "IgA": "Immunoglobulines A, anticorps des muqueuses.",
+        "IgG": "Immunoglobulines G, principaux anticorps du sang.",
+        "IgG4": "Sous-classe 4 des immunoglobulines G.",
+        "IgM": "Immunoglobulines M, premiers anticorps formés lors d'une infection.",
+        "IPP": "Inhibiteurs de la pompe à protons, médicaments anti-acides.",
+        "LDH": "Lactate déshydrogénase.",
+        "MICI": "Maladies inflammatoires chroniques de l'intestin : maladie de Crohn et rectocolite hémorragique.",
+        "MM": "Génotype normal de l'alpha-1-antitrypsine (PI*MM).",
+        "NH4": "Ion ammonium.",
+        "OBTI": "Test immunologique de sang occulte fécal du fabricant Hexagon.",
+        "OFSP": "Office fédéral de la santé publique.",
+        "OMS": "Organisation mondiale de la santé.",
+        "OPAS": "Ordonnance sur les prestations de l'assurance des soins.",
+        "PA": "Phosphatase alcaline.",
+        "PAL": "Phosphatase alcaline.",
+        "PCR": "Amplification en chaîne par polymérase, technique qui détecte et mesure un virus.",
+        "PI": "Inhibiteur de protéase : désigne le génotype de l'alpha-1-antitrypsine (PI*MM, PI*ZZ).",
+        "PiZZ": "Génotype homozygote Z de l'alpha-1-antitrypsine, cause du déficit sévère.",
+        "RMS": "Revue médicale suisse.",
+        "TGA-IgA": "Anticorps IgA anti-transglutaminase de type 2.",
+        "TP": "Protéines totales.",
+        "TTR": "Transthyrétine, autre nom de la préalbumine.",
+        "UBT": "Test respiratoire à l'urée marquée.",
+        "UI": "Unité internationale.",
+        "USZ": "Hôpital universitaire de Zurich.",
+        "VHA": "Virus de l'hépatite A.",
+        "VHB": "Virus de l'hépatite B.",
+        "VHC": "Virus de l'hépatite C.",
+        "VHD": "Virus de l'hépatite D (delta).",
+        "VHE": "Virus de l'hépatite E.",
+        "VIH": "Virus de l'immunodéficience humaine."
+      }
+    }
+  }
+}
