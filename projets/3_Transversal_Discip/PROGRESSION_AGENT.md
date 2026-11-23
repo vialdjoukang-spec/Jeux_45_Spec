@@ -15,7 +15,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | G | 12 | 12 |
 | H | 12 | 12 |
 | I | 12 | 12 |
-| J | 9 | 12 |
+| J | 12 | 12 |
 | K | 0 | 12 |
 | L | 0 | 12 |
 | M | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **141** | **228** |
+| **Total** | **144** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -232,6 +232,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_J-S3-02** : Base légale permettant à un employeur hospitalier d'exiger une vaccination ou d'écarter un soignant non immun de certains postes (LTr, OPA, droit cantonal).
 - **TRANS_J-S3-03** : Indications de la prophylaxie antifongique par posaconazole (300 mg par jour, comprimés gastro-résistants, après une dose de charge) selon ECIL et l'AIPS suisse : induction de LAM ou SMD, maladie du greffon contre l'hôte sous immunosuppression.
 - **TRANS_J-S3-03** : Recommandations suisses ou ECIL sur les chambres à air filtré HEPA et la gestion des chantiers hospitaliers.
+- **TRANS_J-S4-01** : Obligation de déclaration des éclosions nosocomiales au médecin cantonal selon l'ordonnance sur les épidémies (OEp, art. 12 ? déclaration des foyers inhabituels) et délai.
+- **TRANS_J-S4-01** : Recommandations Swissnoso 2026 sur la gestion d'une éclosion à EPC (dépistage hebdomadaire des contacts, cohortage, personnel dédié).
+- **TRANS_J-S4-02** : Référence et contenu de l'ordonnance suisse sur la prévention de la maladie de Creutzfeldt-Jakob lors des interventions médico-chirurgicales (OMCJ, RS 818.101.21 ?, 2002) : stérilisation à la vapeur à 134 °C pendant 18 minutes des dispositifs médicaux réutilisables invasifs.
+- **TRANS_J-S4-02** : Déclaration clinique obligatoire de la MCJ à l'OFSP et rôle du Centre national de référence des maladies à prions (NRPE, Zurich).
+- **TRANS_J-S4-03** : Valeur maximale de Legionella spp. dans l'eau des douches (1000 UFC/L, art. 9 OPBD) et objectif « non détectable » pour les unités à haut risque selon le module 12 OSAV/OFSP (2018).
+- **TRANS_J-S4-03** : Délai et modalités de déclaration de la légionellose (déclaration clinique et laboratoire à l'OFSP).
 - **TRANS_Q-S1-01** : Articles exacts de l'ORaP pour les limites (art. 56 et 57 ?) et pour la grossesse.
 - **TRANS_Q-S1-01** : Rôle de la SUVA dans la radioprotection industrielle.
 - **TRANS_Q-S1-02** : Statut actuel du Swiss Medical Board (dissous ?) en 2026.
@@ -269,4 +275,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : J (9/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
