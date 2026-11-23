@@ -1,0 +1,1150 @@
+{
+  "_lot": {
+    "tache": "PB07-PR",
+    "titre": "Pratique — Analyses biologiques : Inflammation Infection Microbiologie (24 analyses)",
+    "projet": "2_Jeux_Paraclinique",
+    "nombreFichiers": 1,
+    "signature": "AAI (Anthropic AI)",
+    "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet.",
+    "aVerifier": [
+      "conception/donnees/pratique/paraclinique/biologie/analyses/07_inflammation_infection_microbiologie.json › toutes les entités › contexte : cas cliniques suisses inventés pour l'exercice ; les valeurs et seuils viennent des fiches citées"
+    ]
+  },
+  "fichiers": {
+    "conception/donnees/pratique/paraclinique/biologie/analyses/07_inflammation_infection_microbiologie.json": {
+      "_meta": {
+        "source": "paraclinique/biologie/analyses/07_inflammation_infection_microbiologie.json",
+        "genre": "analyse",
+        "projet": "2_Jeux_Paraclinique",
+        "modes": [
+          "Arène « le bon examen »",
+          "Aventure par type d'examen",
+          "Lecture d'image et de tracé"
+        ],
+        "statut": "À REMPLIR",
+        "regles": [
+          "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+          "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+          "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+          "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+          "mode : un des modes du projet (voir _meta.modes).",
+          "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+        ]
+      },
+      "entites": [
+        {
+          "ref": "crp",
+          "nom": "CRP",
+          "defis": [
+            {
+              "id": "crp-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Une baisse de moins de 50 % au 4e jour peut annoncer une complication ou un échec, selon la recommandation luxembourgeoise (2026).",
+                "pourquoiFaux": "Une baisse de 17 % n'est pas une bonne réponse au traitement."
+              },
+              "sources": [
+                "Conseil scientifique luxembourgeois, marqueurs biologiques de l'inflammation (2026)"
+              ],
+              "contexte": "Un homme de 67 ans, à Sion, est traité depuis 4 jours pour une pneumonie communautaire.",
+              "valeurAvecUnite": "CRP 180 mg/l à J0, 150 mg/l à J4",
+              "question": "Comment lire cette évolution ?",
+              "reponse": "Baisse insuffisante, risque d'échec"
+            },
+            {
+              "id": "crp-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "« Ne pas prescrire d’antibiotique lors de la découverte isolée d’une Protéine C-réactive (CRP) ou d’une Procalcitonine (PCT) élevée. », selon Smarter Medicine (2023).",
+                "pourquoiFaux": "La CRP n'est spécifique ni de l'infection ni de l'organe, selon la recommandation luxembourgeoise (2026)."
+              },
+              "sources": [
+                "Smarter Medicine, Top 5 de la Société suisse de médecine interne générale, hospitalière (2023)",
+                "Conseil scientifique luxembourgeois, marqueurs biologiques de l'inflammation (2026)"
+              ],
+              "situation": "Une CRP à 25 mg/l est découverte chez un patient hospitalisé sans fièvre ni foyer infectieux.",
+              "piege": "Prescrire un antibiotique sur la seule CRP.",
+              "bonneConduite": "Chercher la cause sans antibiotique d'emblée."
+            }
+          ]
+        },
+        {
+          "ref": "procalcitonine",
+          "nom": "Procalcitonine",
+          "defis": [
+            {
+              "id": "procalcitonine-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "À 10 µg/l ou plus, la réponse inflammatoire est presque toujours due à un sepsis bactérien sévère ou à un choc septique, selon le CHUV (2026).",
+                "pourquoiFaux": "Une PCT < 0,5 µg/l rendrait le sepsis peu probable, selon le CHUV (2026)."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses de laboratoire (2026)",
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Une femme de 72 ans, à Genève, a de la fièvre et une hypotension aux urgences.",
+              "valeurAvecUnite": "PCT 14 µg/l",
+              "question": "Que suggère cette valeur ?",
+              "reponse": "Sepsis sévère ou choc septique"
+            },
+            {
+              "id": "procalcitonine-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Moins de 6 heures après l'agression bactérienne, la PCT peut rester basse, selon le CHUV (2026).",
+                "pourquoiFaux": "Une PCT trop précoce peut être faussement rassurante."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses de laboratoire (2026)",
+                "Conseil scientifique luxembourgeois, marqueurs biologiques de l'inflammation (2026)"
+              ],
+              "situation": "Une PCT prélevée 3 heures après le début de la fièvre revient à 0,2 µg/l.",
+              "piege": "Exclure définitivement une infection bactérienne.",
+              "bonneConduite": "Refaire la PCT 6 à 24 heures plus tard."
+            }
+          ]
+        },
+        {
+          "ref": "hemocultures",
+          "nom": "Hémocultures",
+          "defis": [
+            {
+              "id": "hemocultures-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Les staphylocoques à coagulase négative sont des contaminants courants des hémocultures, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Une seule paire positive pour ce germe ne suffit pas à affirmer une bactériémie."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "contexte": "Un homme de 60 ans, à Lausanne, fébrile, a 2 paires d'hémocultures ; une seule pousse.",
+              "valeurAvecUnite": "Staph. coagulase négatif, 1 paire sur 2",
+              "question": "Comment interpréter ?",
+              "reponse": "Contaminant probable"
+            },
+            {
+              "id": "hemocultures-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Le CHUV (2026) indique que plus de 10 ml augmente les faux positifs et interdit le frigo.",
+                "pourquoiFaux": "Le surremplissage et le froid faussent la culture."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses de laboratoire (2026)"
+              ],
+              "situation": "Une infirmière remplit chaque flacon d'hémoculture avec 15 ml et les range au frigo pour la nuit.",
+              "piege": "Croire que plus de sang et le froid améliorent la culture.",
+              "bonneConduite": "Mettre 8 à 10 ml par flacon et garder à température ambiante, envoi dans les 24 heures."
+            }
+          ]
+        },
+        {
+          "ref": "test_vih_combine",
+          "nom": "Test VIH combiné (antigène p24 et anticorps)",
+          "defis": [
+            {
+              "id": "test_vih_combine-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Un test de 4e génération négatif documenté une semaine avant le début est demandé, selon l'EACS (2023).",
+                "pourquoiFaux": "Si une infection aiguë était suspectée, il faudrait ajouter un test ARN, selon l'EACS (2023)."
+              },
+              "sources": [
+                "EACS, European AIDS Clinical Society Guidelines 12.0 (2023)"
+              ],
+              "contexte": "Un homme de 28 ans, à Zurich, veut débuter une prophylaxie pré-exposition.",
+              "valeurAvecUnite": "Test VIH combiné négatif il y a 1 semaine",
+              "question": "Peut-on débuter la PrEP ?",
+              "reponse": "Oui, test de 4e génération négatif"
+            },
+            {
+              "id": "test_vih_combine-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Un test positif entraîne des analyses complémentaires, selon le CHUV (2026).",
+                "pourquoiFaux": "Un dépistage positif n'est pas un diagnostic confirmé."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses de laboratoire (2026)",
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Un test VIH combiné revient positif chez une patiente de 35 ans.",
+              "piege": "Annoncer le diagnostic sur ce seul résultat.",
+              "bonneConduite": "Attendre les analyses de confirmation (PCR, immunodot)."
+            }
+          ]
+        },
+        {
+          "ref": "charge_virale_vih",
+          "nom": "Charge virale VIH",
+          "defis": [
+            {
+              "id": "charge_virale_vih-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Une charge virale < 50 copies/ml pendant au moins 6 mois définit la suppression, selon l'EACS (2023).",
+                "pourquoiFaux": "Une charge détectable aurait fait rechercher un échec virologique."
+              },
+              "sources": [
+                "EACS, European AIDS Clinical Society Guidelines 12.0 (2023)"
+              ],
+              "contexte": "Un homme de 44 ans, à Bâle, sous traitement antirétroviral depuis un an.",
+              "valeurAvecUnite": "ARN VIH-1 < 50 copies/ml depuis 8 mois",
+              "question": "Comment qualifier ce résultat ?",
+              "reponse": "Suppression virale"
+            },
+            {
+              "id": "charge_virale_vih-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) bloquent une nouvelle prescription avant 48 heures.",
+                "pourquoiFaux": "Une demande trop rapprochée est refusée et retarde la prise en charge."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Un médecin redemande une charge virale VIH le lendemain d'un premier prélèvement.",
+              "piege": "Croire que deux demandes rapprochées seront traitées.",
+              "bonneConduite": "Respecter le délai minimal de 48 heures entre deux prescriptions."
+            }
+          ]
+        },
+        {
+          "ref": "lymphocytes_t_cd4",
+          "nom": "Lymphocytes T CD4",
+          "defis": [
+            {
+              "id": "lymphocytes_t_cd4-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Sous 200 cellules/µl (< 15 %), les vaccins vivants sont contre-indiqués, selon l'EACS (2023).",
+                "pourquoiFaux": "Au-dessus de 200/µl avec une charge indétectable, la vaccination redeviendrait possible."
+              },
+              "sources": [
+                "EACS, European AIDS Clinical Society Guidelines 12.0 (2023)"
+              ],
+              "contexte": "Une femme de 39 ans, à Genève, vivant avec le VIH, doit se rendre en zone de fièvre jaune.",
+              "valeurAvecUnite": "CD4 160 cellules/µl",
+              "question": "Peut-on la vacciner contre la fièvre jaune ?",
+              "reponse": "Non, vaccin vivant contre-indiqué"
+            },
+            {
+              "id": "lymphocytes_t_cd4-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le CHUV (2026) exige une arrivée dans les 20 heures, du lundi au jeudi ; le sang est stable 24 heures.",
+                "pourquoiFaux": "Un tube trop vieux ne peut pas être analysé."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses de laboratoire (2026)"
+              ],
+              "situation": "Un tube EDTA pour CD4 prélevé le vendredi soir est envoyé au CHUV pour le lundi.",
+              "piege": "Croire que le délai d'arrivée est indifférent.",
+              "bonneConduite": "Prélever du lundi au jeudi pour une arrivée dans les 20 heures."
+            }
+          ]
+        },
+        {
+          "ref": "syphilis_tppa_et_vdrl_rpr",
+          "nom": "Syphilis : TPPA et VDRL/RPR",
+          "defis": [
+            {
+              "id": "syphilis_tppa_et_vdrl_rpr-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "L'absence de baisse de 4 fois du titre (par exemple de 1:16 à 1:4) est une réponse insuffisante, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Une baisse de 2 fois ne suffit pas à juger la réponse adéquate."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "contexte": "Un homme de 33 ans, à Lausanne, a été traité pour une syphilis il y a 6 mois.",
+              "valeurAvecUnite": "RPR 1:16 avant, 1:8 à 6 mois",
+              "question": "La réponse est-elle suffisante ?",
+              "reponse": "Non, baisse < 4 fois"
+            },
+            {
+              "id": "syphilis_tppa_et_vdrl_rpr-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "L'IDSA/ASM (2024) demande un suivi sériel avec le même test et dans le même laboratoire.",
+                "pourquoiFaux": "Des titres de tests différents ne se comparent pas."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "situation": "Un RPR de contrôle est fait dans un autre laboratoire et avec un autre test que le premier.",
+              "piege": "Comparer directement les deux titres.",
+              "bonneConduite": "Suivre les titres avec le même test, dans le même laboratoire."
+            }
+          ]
+        },
+        {
+          "ref": "serologie_cmv",
+          "nom": "Sérologie CMV",
+          "defis": [
+            {
+              "id": "serologie_cmv-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Des IgG anti-CMV indiquent une exposition passée, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Des IgM négatives ne vont pas avec une infection récente."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "contexte": "Un patient de 55 ans, à Berne, est évalué avant une greffe rénale.",
+              "valeurAvecUnite": "IgG anti-CMV positives, IgM négatives",
+              "question": "Que signifie ce profil ?",
+              "reponse": "Exposition passée au CMV"
+            },
+            {
+              "id": "serologie_cmv-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "Des IgM anti-CMV faussement positives surviennent en cas d'infection à EBV, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Conclure au CMV méconnaît ce faux positif."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "situation": "Une patiente avec une mononucléose à EBV a des IgM anti-CMV positives.",
+              "piege": "Conclure à une co-infection récente à CMV.",
+              "bonneConduite": "Interpréter les IgM anti-CMV avec prudence."
+            }
+          ]
+        },
+        {
+          "ref": "serologie_ebv",
+          "nom": "Sérologie EBV",
+          "defis": [
+            {
+              "id": "serologie_ebv-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Des IgM VCA sans IgG EBNA évoquent une primo-infection récente, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Des IgG EBNA positives indiqueraient une infection ancienne."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "contexte": "Une étudiante de 19 ans, à Fribourg, a une angine fébrile et de la fatigue.",
+              "valeurAvecUnite": "IgM VCA positives, IgG EBNA négatives",
+              "question": "Que conclure ?",
+              "reponse": "Primo-infection récente à EBV"
+            },
+            {
+              "id": "serologie_ebv-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Les anticorps hétérophiles n'apparaissent qu'après 6 à 10 jours et manquent chez environ 10 % des patients, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Un test hétérophile précoce et négatif n'exclut pas l'EBV."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "situation": "Un test hétérophile est négatif au 4e jour d'un tableau de mononucléose.",
+              "piege": "Exclure l'EBV sur ce seul test.",
+              "bonneConduite": "Demander la sérologie spécifique VCA/EBNA."
+            }
+          ]
+        },
+        {
+          "ref": "serologie_toxoplasmose",
+          "nom": "Sérologie toxoplasmose",
+          "defis": [
+            {
+              "id": "serologie_toxoplasmose-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Chez la femme enceinte avec IgM et IgG positives, on demande un test d'avidité, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Des IgM ne datent pas seules l'infection."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "contexte": "Une femme de 27 ans, à Neuchâtel, enceinte de 12 semaines, a une sérologie de contrôle.",
+              "valeurAvecUnite": "IgM et IgG anti-Toxoplasma positives",
+              "question": "Quel examen ajouter ?",
+              "reponse": "Avidité des IgG"
+            },
+            {
+              "id": "serologie_toxoplasmose-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "22 % des patients sida avec encéphalite toxoplasmique n'ont pas d'IgG, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Une sérologie négative n'exclut pas la maladie chez l'immunodéprimé."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "situation": "Un patient sida avec abcès cérébraux a une sérologie toxoplasmique IgG négative.",
+              "piege": "Exclure une toxoplasmose cérébrale.",
+              "bonneConduite": "Garder la toxoplasmose dans le diagnostic."
+            }
+          ]
+        },
+        {
+          "ref": "serologie_rubeole",
+          "nom": "Sérologie rubéole",
+          "defis": [
+            {
+              "id": "serologie_rubeole-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Des IgG chez une personne sans symptôme indiquent une immunité à vie, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Des IgG négatives auraient indiqué l'absence d'immunité."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "contexte": "Une femme de 30 ans, à Lugano, projette une grossesse.",
+              "valeurAvecUnite": "IgG anti-rubéole positives",
+              "question": "Est-elle protégée ?",
+              "reponse": "Oui, immunité à vie"
+            },
+            {
+              "id": "serologie_rubeole-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Hors de ce contexte, des IgM positives peuvent être faussement positives, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Un faux positif inquiète à tort et entraîne des examens inutiles."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "situation": "Des IgM anti-rubéole sont demandées chez une femme sans exposition ni éruption.",
+              "piege": "Croire qu'une IgM positive prouve la rubéole.",
+              "bonneConduite": "Réserver la sérologie aux expositions et tableaux évocateurs."
+            }
+          ]
+        },
+        {
+          "ref": "serologie_varicelle_zona",
+          "nom": "Sérologie varicelle-zona",
+          "defis": [
+            {
+              "id": "serologie_varicelle_zona-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Des IgG positives avec IgM négatives suggèrent une exposition passée ou une vaccination, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Des IgG et IgM négatives indiqueraient l'absence d'immunité."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "contexte": "Une soignante de 26 ans, à Coire, ne se souvient pas avoir eu la varicelle.",
+              "valeurAvecUnite": "IgG anti-VZV positives, IgM négatives",
+              "question": "Que conclure ?",
+              "reponse": "Exposition passée ou vaccination"
+            },
+            {
+              "id": "serologie_varicelle_zona-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "La sérologie n'est en général pas recommandée pour l'infection aiguë, selon l'IDSA/ASM (2024) ; le CHUV (2026) réserve les IgM à une PCR négative.",
+                "pourquoiFaux": "Les IgM peuvent manquer ou monter pour d'autres raisons."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)",
+                "CHUV, catalogue des analyses de laboratoire (2026)"
+              ],
+              "situation": "Un enfant a une éruption typique de varicelle ; on demande une sérologie IgM.",
+              "piege": "Diagnostiquer la varicelle aiguë par la sérologie.",
+              "bonneConduite": "Rechercher le virus par PCR ; les IgM ne sont utiles que si la PCR est négative."
+            }
+          ]
+        },
+        {
+          "ref": "serologie_de_la_borreliose",
+          "nom": "Sérologie de la borréliose (avec immunoblot)",
+          "defis": [
+            {
+              "id": "serologie_de_la_borreliose-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Signes neurologiques, pléiocytose du LCR et anticorps intrathécaux définissent la neuroborréliose certaine, selon l'EFNS (2010).",
+                "pourquoiFaux": "Deux critères seulement feraient parler de neuroborréliose possible."
+              },
+              "sources": [
+                "EFNS, recommandation sur la neuroborréliose de Lyme (2010)"
+              ],
+              "contexte": "Un homme de 48 ans, à Berne, a une paralysie faciale après une piqûre de tique.",
+              "valeurAvecUnite": "Pléiocytose du LCR, anticorps intrathécaux",
+              "question": "Quel diagnostic retenir ?",
+              "reponse": "Neuroborréliose certaine"
+            },
+            {
+              "id": "serologie_de_la_borreliose-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "« Réalisation d’une sérologie Borrelia sans symptômes spécifiques » est à éviter, selon Smarter Medicine (2020).",
+                "pourquoiFaux": "Une sérologie positive sans signe évocateur peut refléter une exposition ancienne ou une réaction croisée, selon les HUG (2026)."
+              },
+              "sources": [
+                "Smarter Medicine, Top 5 de la Société suisse d'infectiologie (2020)",
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Une patiente fatiguée sans signe spécifique demande une sérologie de Lyme.",
+              "piege": "Prescrire la sérologie pour rassurer.",
+              "bonneConduite": "Ne pas faire de sérologie sans symptôme spécifique."
+            }
+          ]
+        },
+        {
+          "ref": "test_de_liberation_d_interferon_gamma",
+          "nom": "Test de libération d'interféron gamma (IGRA)",
+          "defis": [
+            {
+              "id": "test_de_liberation_d_interferon_gamma-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Le test est demandé devant une suspicion d'infection tuberculeuse, selon le CHUV (2026).",
+                "pourquoiFaux": "Un IGRA négatif n'aurait pas montré d'infection tuberculeuse."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Un homme de 50 ans, à Genève, doit débuter un traitement immunosuppresseur.",
+              "valeurAvecUnite": "IGRA positif",
+              "question": "Que suggère ce résultat ?",
+              "reponse": "Infection tuberculeuse"
+            },
+            {
+              "id": "test_de_liberation_d_interferon_gamma-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "L'IGRA peut être faussement positif après une IDR, selon l'EACS (2023).",
+                "pourquoiFaux": "L'ordre inverse expose à un faux positif."
+              },
+              "sources": [
+                "EACS, European AIDS Clinical Society Guidelines 12.0 (2023)"
+              ],
+              "situation": "On prévoit une intradermoréaction et un IGRA ; l'IDR est faite en premier.",
+              "piege": "Croire que l'ordre des tests est indifférent.",
+              "bonneConduite": "Faire l'IGRA avant l'intradermoréaction."
+            }
+          ]
+        },
+        {
+          "ref": "galactomannane_aspergillaire",
+          "nom": "Galactomannane aspergillaire",
+          "defis": [
+            {
+              "id": "galactomannane_aspergillaire-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Un index ≥ 0,5 est positif et confirmé par LFA le jour même, selon les HUG (2026).",
+                "pourquoiFaux": "Un index ≤ 0,49 aurait été négatif, selon les HUG (2026)."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)",
+                "CHUV, catalogue des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Un patient de 58 ans, à Lausanne, en aplasie après chimiothérapie, a une fièvre persistante.",
+              "valeurAvecUnite": "Galactomannane sérique 1,1",
+              "question": "Que conclure ?",
+              "reponse": "Positif, aspergillose suspectée"
+            },
+            {
+              "id": "galactomannane_aspergillaire-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le test est souvent trop demandé chez les non-immunodéprimés, selon l'IDSA/ASM (2024) ; les HUG (2026) le réservent aux hospitalisés immunosupprimés.",
+                "pourquoiFaux": "Ce test sans indication expose à des résultats sans valeur."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)",
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Un galactomannane est demandé chez une patiente non immunodéprimée avec une toux banale.",
+              "piege": "Demander le test « au cas où ».",
+              "bonneConduite": "Réserver le test aux patients à risque, immunodéprimés."
+            }
+          ]
+        },
+        {
+          "ref": "d_glucane",
+          "nom": "β-D-glucane",
+          "defis": [
+            {
+              "id": "d_glucane-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Une valeur ≥ 7,00 pg/ml est positive, selon les HUG (2026) ; elle évoque une infection fongique invasive ou une pneumocystose, selon le CHUV (2026).",
+                "pourquoiFaux": "Une valeur sous 7,00 pg/ml aurait été négative."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)",
+                "CHUV, catalogue des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Un patient greffé de 45 ans, à Genève, a une pneumonie hypoxémiante.",
+              "valeurAvecUnite": "Bêta-D-glucane 85 pg/ml",
+              "question": "Comment lire ce résultat ?",
+              "reponse": "Positif"
+            },
+            {
+              "id": "d_glucane-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "Le test est réservé à certains services et hors liste OFSP, selon les HUG (2026).",
+                "pourquoiFaux": "Le prescrire hors cadre expose à un refus et à des frais pour le patient."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Un médecin d'un service de médecine générale prescrit un bêta-D-glucane aux HUG.",
+              "piege": "Croire que le test est ouvert à tous les services.",
+              "bonneConduite": "Passer par un service autorisé et informer le patient du non-remboursement possible."
+            }
+          ]
+        },
+        {
+          "ref": "antigenes_urinaires_pneumocoque_et_legio",
+          "nom": "Antigènes urinaires pneumocoque et légionelle",
+          "defis": [
+            {
+              "id": "antigenes_urinaires_pneumocoque_et_legio-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "Le test ne détecte que L. pneumophila sérogroupe 1, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Un test négatif ne couvre pas les autres sérogroupes."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "contexte": "Un homme de 62 ans, à Lugano, a une pneumonie sévère après un séjour à l'hôtel.",
+              "valeurAvecUnite": "Antigène urinaire Legionella négatif",
+              "question": "La légionellose est-elle exclue ?",
+              "reponse": "Non, sérogroupe 1 seulement"
+            },
+            {
+              "id": "antigenes_urinaires_pneumocoque_et_legio-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Le CHUV (2026) exclut l'UriSponge ; au-delà de 48 heures, la sensibilité baisse.",
+                "pourquoiFaux": "Ce prélèvement expose à un faux négatif."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses de laboratoire (2026)"
+              ],
+              "situation": "Une urine pour antigène pneumocoque est mise dans un tube UriSponge et envoyée après 3 jours.",
+              "piege": "Croire que tout tube d'urine convient.",
+              "bonneConduite": "Utiliser un tube à urine sans UriSponge et envoyer dans les 24 heures."
+            }
+          ]
+        },
+        {
+          "ref": "recherche_de_paludisme",
+          "nom": "Recherche de paludisme (frottis, goutte épaisse, test rapide)",
+          "defis": [
+            {
+              "id": "recherche_de_paludisme-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Un test rapide positif se confirme par frottis et goutte épaisse, qui donnent l'espèce et la parasitémie, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Le test rapide seul ne chiffre pas la parasitémie."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)",
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Une femme de 34 ans, à Bâle, rentre du Cameroun avec 39,5 °C.",
+              "valeurAvecUnite": "Test antigénique P. falciparum positif",
+              "question": "Que faire ensuite ?",
+              "reponse": "Frottis et goutte épaisse"
+            },
+            {
+              "id": "recherche_de_paludisme-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) ne font le test antigénique qu'avec un frottis et une goutte épaisse.",
+                "pourquoiFaux": "Le test rapide manque les faibles parasitémies et certaines espèces, selon l'IDSA/ASM (2024)."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)",
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "situation": "Un test antigénique du paludisme est demandé seul, sans frottis ni goutte épaisse.",
+              "piege": "Croire que le test rapide suffit.",
+              "bonneConduite": "Demander frottis et goutte épaisse, si possible au pic fébrile."
+            }
+          ]
+        },
+        {
+          "ref": "pcr_respiratoire_multiplex",
+          "nom": "PCR respiratoire multiplex",
+          "defis": [
+            {
+              "id": "pcr_respiratoire_multiplex-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Le panel détecte l'influenza A, à déclaration obligatoire, selon les HUG (2026).",
+                "pourquoiFaux": "Un panel négatif n'aurait pas exclu toutes les causes bactériennes."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Un patient greffé de 52 ans, à Genève, a de la fièvre et une toux.",
+              "valeurAvecUnite": "PCR respiratoire : influenza A positif",
+              "question": "Que conclure ?",
+              "reponse": "Grippe, à déclarer"
+            },
+            {
+              "id": "pcr_respiratoire_multiplex-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "Les panels syndromiques détectent moins bien B. pertussis qu'une PCR ciblée, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Le panel négatif peut méconnaître une coqueluche."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "situation": "Un adolescent a une toux quinteuse depuis 3 semaines ; le panel multiplex revient négatif.",
+              "piege": "Exclure la coqueluche sur ce panel.",
+              "bonneConduite": "Demander une PCR ciblée de B. pertussis."
+            }
+          ]
+        },
+        {
+          "ref": "test_rapide_du_streptocoque_a",
+          "nom": "Test rapide du streptocoque A",
+          "defis": [
+            {
+              "id": "test_rapide_du_streptocoque_a-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Chez l'enfant, un test rapide négatif doit être confirmé par culture ou test moléculaire, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Arrêter au test rapide négatif expose à manquer une angine streptococcique."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "contexte": "Un garçon de 7 ans, à Sion, a une angine fébrile.",
+              "valeurAvecUnite": "Test rapide streptocoque A négatif",
+              "question": "Que faire ?",
+              "reponse": "Confirmer par culture ou PCR"
+            },
+            {
+              "id": "test_rapide_du_streptocoque_a-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "La précision dépend d'une bonne technique de prélèvement, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Un mauvais frottis donne un faux négatif."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "situation": "Un frottis de gorge est fait en touchant à peine la langue.",
+              "piege": "Croire que tout frottis est fiable.",
+              "bonneConduite": "Bien frotter les amygdales et le pharynx postérieur."
+            }
+          ]
+        },
+        {
+          "ref": "serologie_parvovirus_b19",
+          "nom": "Sérologie parvovirus B19",
+          "defis": [
+            {
+              "id": "serologie_parvovirus_b19-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "IgM et IgG positives suggèrent une infection dans les 3 derniers mois, avec risque pour le fœtus, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Des IgG seules auraient indiqué une immunité ancienne."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "contexte": "Une enseignante de 31 ans, à Neuchâtel, enceinte de 16 semaines, a été en contact avec un enfant malade.",
+              "valeurAvecUnite": "IgM et IgG anti-B19 positives",
+              "question": "Que conclure ?",
+              "reponse": "Infection récente, risque fœtal"
+            },
+            {
+              "id": "serologie_parvovirus_b19-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "Les IgM apparaissent 10 à 12 jours après l'infection, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Un dosage trop précoce peut être faussement rassurant."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)"
+              ],
+              "situation": "Une sérologie B19 est faite 3 jours après un contact.",
+              "piege": "Conclure à l'absence d'infection si les IgM sont négatives.",
+              "bonneConduite": "Refaire la sérologie plus tard, après 10 à 12 jours."
+            }
+          ]
+        },
+        {
+          "ref": "recherche_de_microfilaires",
+          "nom": "Recherche de microfilaires",
+          "defis": [
+            {
+              "id": "recherche_de_microfilaires-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Loa loa se recherche de jour, entre 10 h et 14 h, selon le CHUV (2026).",
+                "pourquoiFaux": "W. bancrofti se recherche de nuit, selon le CHUV (2026)."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Un homme de 40 ans, à Genève, venu du Gabon, a un œdème migrant du bras.",
+              "valeurAvecUnite": "Microfilaires vues sur un prélèvement à 12 h",
+              "question": "Quelle filaire évoquer ?",
+              "reponse": "Loa loa"
+            },
+            {
+              "id": "recherche_de_microfilaires-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) fixent ces horaires pour les microfilaires nocturnes.",
+                "pourquoiFaux": "Un prélèvement à la mauvaise heure peut manquer les microfilaires."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)",
+                "CHUV, catalogue des analyses de laboratoire (2026)"
+              ],
+              "situation": "Une recherche de filariose lymphatique est prélevée à 9 h du matin.",
+              "piege": "Croire que l'heure ne compte pas.",
+              "bonneConduite": "Prélever de nuit, entre 22 h et 24 h, sur un sujet au repos."
+            }
+          ]
+        },
+        {
+          "ref": "serologies_du_voyageur",
+          "nom": "Sérologies du voyageur (dengue, chikungunya, schistosomiase)",
+          "defis": [
+            {
+              "id": "serologies_du_voyageur-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le NS1 est détectable dès le 1er jour, avant les IgM qui apparaissent à 3–5 jours, selon l'IDSA/ASM (2024).",
+                "pourquoiFaux": "Des IgM négatives au 2e jour n'excluent pas la dengue."
+              },
+              "sources": [
+                "IDSA/ASM, guide d'utilisation du laboratoire de microbiologie (2024)",
+                "CHUV, catalogue des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Une femme de 25 ans, à Zurich, rentre de Thaïlande avec 2 jours de fièvre.",
+              "valeurAvecUnite": "Dengue : NS1 positif, IgM négatives",
+              "question": "Que conclure ?",
+              "reponse": "Dengue en phase virémique"
+            },
+            {
+              "id": "serologies_du_voyageur-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le CHUV (2026) fixe ces conditions de recueil.",
+                "pourquoiFaux": "Une urine mal recueillie peut manquer les œufs."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses de laboratoire (2026)"
+              ],
+              "situation": "Une recherche de Schistosoma haematobium est faite sur une urine du matin, au repos.",
+              "piege": "Croire que l'heure et l'effort sont indifférents.",
+              "bonneConduite": "Recueillir l'urine entre 10 h et 14 h après un effort, au moins 50 ml."
+            }
+          ]
+        },
+        {
+          "ref": "precipitines",
+          "nom": "Précipitines (pneumopathie d'hypersensibilité)",
+          "defis": [
+            {
+              "id": "precipitines-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Les IgG sériques identifient l'exposition en cause de la pneumopathie d'hypersensibilité, selon l'ATS/JRS/ALAT (2020).",
+                "pourquoiFaux": "À elles seules, elles ne prouvent pas la maladie."
+              },
+              "sources": [
+                "ATS/JRS/ALAT, recommandation sur la pneumopathie d'hypersensibilité (2020)"
+              ],
+              "contexte": "Un éleveur de pigeons de 55 ans, à Fribourg, a une dyspnée progressive.",
+              "valeurAvecUnite": "IgG spécifiques anti-aviaires positives",
+              "question": "Que montrent ces IgG ?",
+              "reponse": "Une exposition, pas la maladie"
+            },
+            {
+              "id": "precipitines-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "L'ATS/JRS/ALAT (2020) demande un interrogatoire détaillé des expositions.",
+                "pourquoiFaux": "Sans interrogatoire, le panel d'antigènes peut manquer l'exposition en cause."
+              },
+              "sources": [
+                "ATS/JRS/ALAT, recommandation sur la pneumopathie d'hypersensibilité (2020)"
+              ],
+              "situation": "On prescrit des précipitines sans interroger le patient sur ses expositions.",
+              "piege": "Croire que la sérologie remplace l'interrogatoire.",
+              "bonneConduite": "Faire un interrogatoire soigneux, idéalement par questionnaire validé."
+            }
+          ]
+        }
+      ],
+      "glossaire": {
+        "ADN": "Acide désoxyribonucléique.",
+        "AIDS": "Sigle anglais du sida.",
+        "ALAT": "Association latino-américaine du thorax (dans ATS/JRS/ALAT).",
+        "ARN": "Acide ribonucléique ; ici, matériel génétique du VIH.",
+        "ASM": "American Society for Microbiology.",
+        "ATS": "American Thoracic Society.",
+        "B19": "Parvovirus B19, cause de l'érythème infectieux.",
+        "BDG": "1,3-bêta-D-glucane, composant de la paroi des champignons.",
+        "CD3": "Marqueur de tous les lymphocytes T.",
+        "CD4": "Marqueur des lymphocytes T auxiliaires, cibles du VIH.",
+        "CD8": "Marqueur des lymphocytes T cytotoxiques.",
+        "CHUV": "Centre hospitalier universitaire vaudois (Lausanne).",
+        "CMV": "Cytomégalovirus.",
+        "COPAN": "Fabricant des milieux de transport des frottis.",
+        "CRP": "Protéine C réactive, marqueur de l'inflammation.",
+        "EACS": "European AIDS Clinical Society, société européenne du VIH.",
+        "EBNA": "Antigène nucléaire de l'EBV.",
+        "EBV": "Virus d'Epstein-Barr.",
+        "ECLIA": "Dosage par électrochimiluminescence.",
+        "EDTA": "Anticoagulant des tubes violets ou mauves.",
+        "EFNS": "Fédération européenne des sociétés de neurologie.",
+        "EIA": "Dosage immuno-enzymatique.",
+        "ELISA": "Dosage immuno-enzymatique sur support solide.",
+        "Epstein-Barr": "Virus d'Epstein-Barr, cause de la mononucléose.",
+        "ESwab": "Écouvillon avec milieu de transport liquide.",
+        "FEIA": "Dosage immuno-enzymatique par fluorescence.",
+        "HHV-4": "Herpèsvirus humain 4, autre nom de l'EBV.",
+        "HHV-5": "Herpèsvirus humain 5, autre nom du CMV.",
+        "HHV-6": "Herpèsvirus humain 6.",
+        "HIV": "Sigle anglais du VIH.",
+        "HRP-2": "Protéine riche en histidine 2 de P. falciparum, cible des tests rapides.",
+        "HUG": "Hôpitaux universitaires de Genève.",
+        "IDR": "Intradermoréaction à la tuberculine.",
+        "IDSA": "Infectious Diseases Society of America.",
+        "IgE": "Immunoglobulines E, anticorps de l'allergie.",
+        "IgG": "Immunoglobulines G, anticorps tardifs et durables.",
+        "IgM": "Immunoglobulines M, anticorps précoces.",
+        "IGRA": "Test de libération d'interféron gamma.",
+        "IMC": "Indice de masse corporelle.",
+        "JRS": "Société japonaise de pneumologie.",
+        "LBA": "Lavage bronchoalvéolaire.",
+        "LCR": "Liquide céphalorachidien.",
+        "LFA": "Test immunochromatographique à flux latéral.",
+        "NS1": "Protéine non structurale 1 du virus de la dengue.",
+        "OFSP": "Office fédéral de la santé publique.",
+        "PCR": "Amplification en chaîne par polymérase, qui détecte le matériel génétique d'un microbe.",
+        "PCT": "Procalcitonine, marqueur de l'infection bactérienne.",
+        "PPD": "Tuberculine purifiée utilisée pour l'IDR.",
+        "PrEP": "Prophylaxie pré-exposition au VIH.",
+        "QuantiFERON-TB": "Nom commercial d'un IGRA.",
+        "RPR": "Rapid plasma reagin, test non tréponémique de la syphilis.",
+        "SARS-CoV-2": "Coronavirus responsable de la COVID-19.",
+        "TPHA": "Hémagglutination à T. pallidum, test tréponémique.",
+        "TPPA": "Agglutination de particules à T. pallidum, test tréponémique.",
+        "UI": "Unité internationale.",
+        "UR": "Unité relative du dosage des anticorps.",
+        "UriSponge": "Tube de recueil urinaire à éponge, exclu pour les antigènes urinaires.",
+        "VCA": "Antigène de capside virale de l'EBV.",
+        "VDRL": "Venereal Disease Research Laboratory, test non tréponémique de la syphilis.",
+        "VIH": "Virus de l'immunodéficience humaine.",
+        "VIH-1": "Virus de l'immunodéficience humaine de type 1.",
+        "VIH-2": "Virus de l'immunodéficience humaine de type 2.",
+        "VRS": "Virus respiratoire syncytial.",
+        "VS": "Vitesse de sédimentation.",
+        "VZV": "Virus varicelle-zona."
+      }
+    }
+  }
+}
