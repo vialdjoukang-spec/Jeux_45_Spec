@@ -4,10 +4,11 @@
   "credit_usd": 200,
   "expire": "2026-11-27T00:00:00+01:00",
   "reserve_usd": 8,
-  "plafond_par_passage_usd": 15,
+  "plafond_par_passage_usd": 90,
   "espace_de_travail": "Default (projets/ouvrier/workspace_id.txt)",
   "test": "2026-11-23 00:55",
-  "plafond_total_usd": 100
+  "plafond_total_usd": 192,
+  "note_vial": "23.11.2026 21:07 : Vial autorise le crédit entier (200 USD moins 8 de réserve), car il expire le 27.11."
  },
  "taches": [
   {
@@ -333,18 +334,27 @@
    "prompt": "Lis projets/ouvrier/MISSION_45SPEC.md (toutes les règles, v1 à v3) et la référence d'or conception/donnees/corrections/F1_1-E01.json. Exécute python scripts/produire_notions_questions.py correction pilote --spec END --id E05.9_hyperthyroidie,E10.1_acidocetose,D35.0_pheochromo --n 3, puis contrôle chaque fichier de content/corrections/END/ : 0 erreur, aucune case muette, chaque discriminant et chaque particularité porte un pourquoi, posologies suisses, plans de prise en charge complets. Si un défaut se répète, corrige SYS_C dans le script, supprime les fichiers fautifs et refais le pilote (2 essais au plus). Lance ensuite python3 conception/outils/arene45/construire_arene45.py. Ne recopie jamais le contenu des questions ni des corrections dans ton résumé : donne seulement des nombres. Mets « fait » quand les 3 corrections sont valides."
   },
   {
-   "id": "END_N_lot",
-   "titre": "Endocrinologie : notions des 86 autres pathologies (lot)",
-   "commande": "python scripts/produire_notions_questions.py notions soumettre --spec END",
+   "id": "V1_fusions",
+   "titre": "Vague 1 : valider les pathologies canoniques de CAR, PNE, NEP, GAS",
    "modele": "claude-sonnet-5-5",
-   "budget_usd": 6,
+   "budget_usd": 3,
+   "etat": "a_faire",
+   "essais": 0,
+   "prompt": "Lis projets/ouvrier/MISSION_45SPEC.md et content/pathologies/fusions_END.json (exemple validé par Claude). Pour chacune des spécialités CAR, PNE, NEP et GAS, liste les grappes proposées par canoniques() de scripts/produire_notions_questions.py (python3 -c \"import sys;sys.path.insert(0,'scripts');import produire_notions_questions as P;[print(c['id'],'|',c['entite']['nom'],'|',len(c['portes'])) for c in P.canoniques('CAR')]\"), repère les grappes qui désignent la même maladie (même pathologie dans plusieurs SSP) et celles qui mélangent deux maladies différentes, puis écris content/pathologies/fusions_<SPEC>.json au même format (groupes {nom, entites:[entiteId…]}). Ne fusionne jamais deux maladies distinctes ; une complication grave et distincte (ex. crise aiguë) reste une pathologie à part. Mets « fait » quand les 4 fichiers existent ; donne le nombre de pathologies avant et après."
+  },
+  {
+   "id": "END_N_lot",
+   "titre": "Vague 1 (END,CAR,PNE,NEP,GAS) : notions de 386 pathologies (lot unique)",
+   "commande": "python scripts/produire_notions_questions.py notions soumettre --spec END,CAR,PNE,NEP,GAS",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 20,
    "etat": "a_faire",
    "essais": 0,
    "fin": "une_fois"
   },
   {
    "id": "END_N_recup",
-   "titre": "Endocrinologie : récupération des notions",
+   "titre": "Vague 1 : récupération des notions",
    "commande": "python scripts/produire_notions_questions.py notions recuperer",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
@@ -355,17 +365,17 @@
   },
   {
    "id": "END_Q_lot",
-   "titre": "Endocrinologie : questions des 86 autres pathologies (lot)",
-   "commande": "python scripts/produire_notions_questions.py questions soumettre --spec END",
+   "titre": "Vague 1 (END,CAR,PNE,NEP,GAS) : questions (lot unique)",
+   "commande": "python scripts/produire_notions_questions.py questions soumettre --spec END,CAR,PNE,NEP,GAS",
    "modele": "claude-sonnet-5-5",
-   "budget_usd": 20,
+   "budget_usd": 80,
    "etat": "a_faire",
    "essais": 0,
    "fin": "une_fois"
   },
   {
    "id": "END_Q_recup",
-   "titre": "Endocrinologie : récupération des questions",
+   "titre": "Vague 1 : récupération des questions",
    "commande": "python scripts/produire_notions_questions.py questions recuperer",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
@@ -376,17 +386,17 @@
   },
   {
    "id": "END_C_lot",
-   "titre": "Endocrinologie : corrections enrichies des 86 autres pathologies (lot)",
-   "commande": "python scripts/produire_notions_questions.py correction soumettre --spec END",
+   "titre": "Vague 1 (END,CAR,PNE,NEP,GAS) : corrections enrichies (lot unique)",
+   "commande": "python scripts/produire_notions_questions.py correction soumettre --spec END,CAR,PNE,NEP,GAS",
    "modele": "claude-sonnet-5-5",
-   "budget_usd": 10,
+   "budget_usd": 35,
    "etat": "a_faire",
    "essais": 0,
    "fin": "une_fois"
   },
   {
    "id": "END_C_recup",
-   "titre": "Endocrinologie : récupération des corrections, couverture et arène",
+   "titre": "Vague 1 : récupération des corrections, couverture et arène",
    "commande": "python scripts/produire_notions_questions.py correction recuperer && python scripts/couverture_notions.py && python conception/outils/arene45/construire_arene45.py",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
