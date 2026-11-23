@@ -1,15 +1,18 @@
-# Ouvrier automatique — 2026-11-23 00:41 UTC
+# Ouvrier automatique — 2026-11-23 01:16 UTC
 
-Dernier passage : **complement_1** → fait (0.13 USD).
+Dernier passage : **j45_pilote_fiches** → en_cours (0.00 USD).
 
-J'ai rempli les cinq champs vides de 93 examens sur 94 du lot tête et encéphale, au format de l'exemple peau__dermatoscopie, et j'ai écrit le résultat dans CLAUDE_A_AUDITER/ouvrier/LOT_COMPLEMENT_1_tete_et_encephale_rempli.json. L'examen « Test de stimulation à l'arginine-copeptine » reste vide, faute de source fiable pour son interprétation. Aucune source n'a été consultée en ligne pendant cette exécution : les citations d'auteurs restent à ajouter et à vérifier, et les points à contrôler sont notés dans aVerifier.
+raise self._make_status_error_from_response(response) from None
+anthropic.BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'tool_choice: type "tool" and "any" are not supported for this model.'}, 'request_id': 'req_011ChJycYpK6d7W8B3YLDq9L'}
 
-**Crédit** : 0.16 USD dépensés, 191.84 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.16 / 48.00 USD.
+
+**Crédit** : 0.16 USD dépensés, 99.84 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.16 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
 | complement_3 | fait | 1 | 0.03 |
 | complement_1 | fait | 1 | 0.133 |
+| j45_pilote_fiches | en_cours | 1 | 0.0 |
 | complement_2 | a_faire | 0 |  |
 | complement_4 | a_faire | 0 |  |
 | complement_5 | a_faire | 0 |  |
