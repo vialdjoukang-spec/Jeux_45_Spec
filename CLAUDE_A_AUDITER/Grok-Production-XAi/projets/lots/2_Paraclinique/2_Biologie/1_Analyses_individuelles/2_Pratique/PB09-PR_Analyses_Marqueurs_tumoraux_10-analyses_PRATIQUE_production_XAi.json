@@ -1,0 +1,500 @@
+{
+  "_lot": {
+    "tache": "PB09-PR",
+    "titre": "Pratique — Analyses biologiques : Marqueurs tumoraux (10 analyses)",
+    "projet": "2_Jeux_Paraclinique",
+    "nombreFichiers": 1,
+    "signature": "AAI (Anthropic AI)",
+    "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet.",
+    "aVerifier": [
+      "conception/donnees/pratique/paraclinique/biologie/analyses/09_marqueurs_tumoraux.json › toutes › contexte / situation : cas cliniques et villes suisses fictifs ; seules les valeurs et règles citées viennent des sources"
+    ]
+  },
+  "fichiers": {
+    "conception/donnees/pratique/paraclinique/biologie/analyses/09_marqueurs_tumoraux.json": {
+      "_meta": {
+        "source": "paraclinique/biologie/analyses/09_marqueurs_tumoraux.json",
+        "genre": "analyse",
+        "projet": "2_Jeux_Paraclinique",
+        "modes": [
+          "Arène « le bon examen »",
+          "Aventure par type d'examen",
+          "Lecture d'image et de tracé"
+        ],
+        "statut": "À REMPLIR",
+        "regles": [
+          "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
+          "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
+          "Les cas cliniques sont suisses (âge, contexte, système de soins) ; les valeurs sont en unités SI.",
+          "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
+          "mode : un des modes du projet (voir _meta.modes).",
+          "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+        ]
+      },
+      "entites": [
+        {
+          "ref": "psa_total_et_libre",
+          "nom": "PSA total et libre",
+          "defis": [
+            {
+              "id": "psa_total_et_libre-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) donnent 0,04 à 3,60 µg/l de 50 à 59 ans ; l'EAU (2026) retient le plus souvent 3,0 ng/ml au dépistage, ce qui fait discuter un contrôle.",
+                "pourquoiFaux": "Lire 3,40 µg/l comme hors norme applique un seuil d'une autre tranche d'âge."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)",
+                "EAU, recommandations sur le cancer de la prostate (2026)"
+              ],
+              "contexte": "Un homme de 55 ans, à Lausanne, a un PSA de contrôle demandé après discussion avec son médecin.",
+              "valeurAvecUnite": "PSA total 3,40 µg/l",
+              "question": "Le résultat sort-il de l'intervalle de l'âge ?",
+              "reponse": "Non, il est sous 3,60 µg/l"
+            },
+            {
+              "id": "psa_total_et_libre-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "L'EAU (2026) demande d'attendre au moins un mois après une biopsie avant de redoser le PSA.",
+                "pourquoiFaux": "Un dosage trop précoce peut être faussement élevé."
+              },
+              "sources": [
+                "EAU, recommandations sur le cancer de la prostate (2026)"
+              ],
+              "situation": "Un homme a une biopsie prostatique il y a dix jours ; on veut redoser son PSA.",
+              "piege": "Redoser tout de suite.",
+              "bonneConduite": "Attendre au moins un mois après la biopsie."
+            }
+          ]
+        },
+        {
+          "ref": "ace",
+          "nom": "ACE",
+          "defis": [
+            {
+              "id": "ace-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le seuil des HUG (2026) est de 4,6 µg/l chez le fumeur, et l'ACE seul ne suffit pas au diagnostic, selon l'ESMO (2020).",
+                "pourquoiFaux": "Appliquer le seuil du non-fumeur, 3,0 µg/l, ignore le tabac."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)",
+                "ESMO, cancer colorectal localisé (2020)"
+              ],
+              "contexte": "Un homme de 60 ans, à Bâle, fumeur, sans tumeur connue, a un ACE dosé dans un bilan de fatigue.",
+              "valeurAvecUnite": "ACE 4,2 µg/l",
+              "question": "Comment lire ce résultat ?",
+              "reponse": "Normal chez un fumeur"
+            },
+            {
+              "id": "ace-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Selon l'Hôpital cantonal de Lucerne (2026), les trousses visent des épitopes différents et ne sont pas comparables.",
+                "pourquoiFaux": "Une variation pourrait venir de la méthode et non de la maladie."
+              },
+              "sources": [
+                "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+              ],
+              "situation": "Une patiente suivie pour un cancer du côlon change de laboratoire entre deux contrôles d'ACE.",
+              "piege": "Comparer directement les deux valeurs.",
+              "bonneConduite": "Faire le suivi avec le même système de dosage."
+            }
+          ]
+        },
+        {
+          "ref": "ca_19_9",
+          "nom": "CA 19-9",
+          "defis": [
+            {
+              "id": "ca_19_9-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "Une cholestase élève le CA 19-9 sans tumeur, et sa baisse après drainage est plus lente si la cause est maligne, selon l'ESGE (2025).",
+                "pourquoiFaux": "Conclure au cancer sur cette valeur ignore la cholestase."
+              },
+              "sources": [
+                "ESGE, sténoses biliaires (2025)",
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Un homme de 67 ans, à Genève, a un ictère obstructif par sténose biliaire.",
+              "valeurAvecUnite": "CA 19-9 450 kU/l avec bilirubine élevée",
+              "question": "Que faire avant de conclure ?",
+              "reponse": "Redoser après drainage biliaire"
+            },
+            {
+              "id": "ca_19_9-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Environ 10 % des personnes sont Lewis négatives et ne produisent pas de CA 19-9, selon l'ESMO (2022).",
+                "pourquoiFaux": "Un marqueur jamais produit ne peut pas signaler une récidive."
+              },
+              "sources": [
+                "ESMO, cancers des voies biliaires (2022)"
+              ],
+              "situation": "Un patient opéré d'un cancer du pancréas garde un CA 19-9 indétectable depuis toujours.",
+              "piege": "Croire à une rémission prouvée par le marqueur.",
+              "bonneConduite": "Suivre par l'imagerie, le marqueur pouvant être non sécrété."
+            }
+          ]
+        },
+        {
+          "ref": "ca_125",
+          "nom": "CA-125",
+          "defis": [
+            {
+              "id": "ca_125-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "La valeur dépasse 35 kU/l, seuil des HUG (2026), mais l'endométriose élève le CA 125, selon le consensus ESGO, ISUOG, IOTA et ESGE (2021).",
+                "pourquoiFaux": "Conclure au cancer ignore les causes bénignes."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)",
+                "ESGO, ISUOG, IOTA et ESGE, tumeurs ovariennes (2021)"
+              ],
+              "contexte": "Une femme de 32 ans, à Fribourg, a des douleurs pelviennes cycliques et un kyste ovarien.",
+              "valeurAvecUnite": "CA 125 78 kU/l",
+              "question": "Ce résultat prouve-t-il un cancer ?",
+              "reponse": "Non, l'endométriose l'élève aussi"
+            },
+            {
+              "id": "ca_125-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "L'Hôpital cantonal de Lucerne (2026) n'interprète les contrôles que sur le même système.",
+                "pourquoiFaux": "Une différence pourrait venir de la méthode."
+              },
+              "sources": [
+                "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+              ],
+              "situation": "Une patiente suivie pour un cancer de l'ovaire fait doser son CA 125 dans un autre laboratoire.",
+              "piege": "Comparer les valeurs de deux systèmes.",
+              "bonneConduite": "Suivre le CA 125 avec le même système de dosage."
+            }
+          ]
+        },
+        {
+          "ref": "he4",
+          "nom": "HE4",
+          "defis": [
+            {
+              "id": "he4-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Medics (2026) donne un seuil de 52,6 pmol/l de 40 à 48 ans.",
+                "pourquoiFaux": "Comparer au seuil d'une autre tranche d'âge fausse la lecture."
+              },
+              "sources": [
+                "Medics, répertoire des analyses (2026)"
+              ],
+              "contexte": "Une femme de 45 ans, à Lugano, a une masse annexielle.",
+              "valeurAvecUnite": "HE4 50 pmol/l",
+              "question": "Le résultat dépasse-t-il le seuil de son âge ?",
+              "reponse": "Non, il est sous 52,6 pmol/l"
+            },
+            {
+              "id": "he4-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le consensus ESGO, ISUOG, IOTA et ESGE (2021) juge les modèles IOTA préférables au CA 125, au HE4 et au ROMA.",
+                "pourquoiFaux": "Le HE4 et le ROMA n'améliorent pas significativement la discrimination, selon la même source."
+              },
+              "sources": [
+                "ESGO, ISUOG, IOTA et ESGE, tumeurs ovariennes (2021)"
+              ],
+              "situation": "Un gynécologue veut se fier au seul score ROMA pour classer une masse ovarienne.",
+              "piege": "Préférer le HE4 ou le ROMA à l'échographie.",
+              "bonneConduite": "Estimer le risque avec les modèles échographiques IOTA."
+            }
+          ]
+        },
+        {
+          "ref": "ca_15_3",
+          "nom": "CA 15-3",
+          "defis": [
+            {
+              "id": "ca_15_3-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "La hausse dépasse 25 %, seuil d'interprétation, et une hausse n'est pas compatible avec une rémission, selon l'Hôpital cantonal de Lucerne (2026).",
+                "pourquoiFaux": "Y voir une variation analytique ignore le seuil de 25 %."
+              },
+              "sources": [
+                "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+              ],
+              "contexte": "Une femme de 58 ans, à Berne, traitée pour un cancer du sein métastatique, a deux dosages successifs.",
+              "valeurAvecUnite": "CA 15-3 de 40 à 60 kU/l",
+              "question": "Que signifie cette hausse ?",
+              "reponse": "Une évolution incompatible avec la rémission"
+            },
+            {
+              "id": "ca_15_3-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "L'Hôpital cantonal de Lucerne (2026) écrit que le CA 15-3 n'est utile ni au dépistage ni au diagnostic.",
+                "pourquoiFaux": "Un résultat normal ou élevé n'aurait pas de sens hors suivi."
+              },
+              "sources": [
+                "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+              ],
+              "situation": "Une femme de 50 ans demande un CA 15-3 pour dépister un cancer du sein.",
+              "piege": "Utiliser le CA 15-3 comme dépistage.",
+              "bonneConduite": "Expliquer que le marqueur ne sert pas au dépistage."
+            }
+          ]
+        },
+        {
+          "ref": "afp",
+          "nom": "AFP",
+          "defis": [
+            {
+              "id": "afp-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 3,
+              "points": 30,
+              "tempsSec": 90,
+              "correction": {
+                "pourquoiJuste": "Une AFP de 1000 à 10 000 µg/l classe S2, selon l'EAU (2026).",
+                "pourquoiFaux": "S3 commence au-delà de 10 000 µg/l, selon la même source."
+              },
+              "sources": [
+                "EAU, recommandations sur les tumeurs du testicule (2026)"
+              ],
+              "contexte": "Un homme de 28 ans, à Zurich, opéré d'une tumeur du testicule, a une AFP mesurée avant chimiothérapie.",
+              "valeurAvecUnite": "AFP 3500 µg/l",
+              "question": "Quelle catégorie S ?",
+              "reponse": "S2"
+            },
+            {
+              "id": "afp-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "L'EASL (2018) écarte l'AFP hépatique pendant la grossesse, car le fœtus la produit normalement ; les HUG (2026) donnent des valeurs propres à chaque semaine.",
+                "pourquoiFaux": "La hausse est physiologique."
+              },
+              "sources": [
+                "EASL, carcinome hépatocellulaire (2018)",
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Une femme enceinte de 16 semaines suivie pour une hépatite B a une AFP mesurée pour surveiller son foie.",
+              "piege": "Lire l'AFP comme un marqueur hépatique.",
+              "bonneConduite": "Ne pas interpréter l'AFP pour le foie pendant la grossesse."
+            }
+          ]
+        },
+        {
+          "ref": "ldh",
+          "nom": "LDH",
+          "defis": [
+            {
+              "id": "ldh-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) donnent 0 à 424 U/l de 15 jours à 1 an.",
+                "pourquoiFaux": "Comparer à la limite adulte de 210 U/l ignore l'âge."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "contexte": "Un nourrisson de 6 mois, à Genève, a un bilan pour fièvre.",
+              "valeurAvecUnite": "LDH 380 U/l",
+              "question": "Le résultat est-il anormal pour l'âge ?",
+              "reponse": "Non, il est dans l'intervalle"
+            },
+            {
+              "id": "ldh-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "Les HUG (2026) demandent de prélever sans garrot ou avec un garrot desserré.",
+                "pourquoiFaux": "Une hémolyse du tube élève faussement la LDH."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)"
+              ],
+              "situation": "Une prise de sang pour LDH est faite avec un garrot serré plusieurs minutes et revient hémolysée.",
+              "piege": "Retenir l'élévation de la LDH.",
+              "bonneConduite": "Refaire le prélèvement sans garrot ou garrot desserré."
+            }
+          ]
+        },
+        {
+          "ref": "nse",
+          "nom": "NSE",
+          "defis": [
+            {
+              "id": "nse-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "La valeur dépasse 17 µg/l, seuil adulte de l'Inselspital (2026), et Medics (2026) situe la NSE dans le suivi de ce cancer.",
+                "pourquoiFaux": "L'attribuer à une hémolyse ne tient pas sur un tube non hémolysé."
+              },
+              "sources": [
+                "Medics, répertoire des analyses (2026)"
+              ],
+              "contexte": "Un homme de 64 ans, à Lausanne, suivi pour un cancer bronchique à petites cellules, a un tube non hémolysé.",
+              "valeurAvecUnite": "NSE 45 µg/l",
+              "question": "Comment lire ce résultat ?",
+              "reponse": "Élevée, à confronter au suivi"
+            },
+            {
+              "id": "nse-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "Le CHUV (2026) demande un acheminement en moins de 60 minutes, et l'Hôpital cantonal de Lucerne (2026) signale une hausse in vitro au-delà de 45 minutes.",
+                "pourquoiFaux": "Le résultat serait faussement élevé."
+              },
+              "sources": [
+                "CHUV, catalogue des analyses (2026)",
+                "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+              ],
+              "situation": "Un tube pour NSE reste deux heures au cabinet avant la centrifugation.",
+              "piege": "Centrifuger plus tard sans risque.",
+              "bonneConduite": "Centrifuger et séparer le sérum rapidement, en moins de 60 minutes."
+            }
+          ]
+        },
+        {
+          "ref": "2_microglobuline",
+          "nom": "β2-microglobuline",
+          "defis": [
+            {
+              "id": "2_microglobuline-1",
+              "type": "interpreter",
+              "mode": "Aventure par type d'examen",
+              "niveau": 2,
+              "points": 20,
+              "tempsSec": 60,
+              "correction": {
+                "pourquoiJuste": "La valeur dépasse 2,1 mg/l, limite des HUG (2026), et la stadification des myélomes combine bêta-2-microglobuline et albumine, selon l'Hôpital cantonal de Lucerne (2026).",
+                "pourquoiFaux": "Accuser le rein ne tient pas avec une créatinine normale."
+              },
+              "sources": [
+                "HUG, répertoire des analyses de laboratoire (2026)",
+                "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+              ],
+              "contexte": "Un homme de 70 ans, à Sion, a un myélome et une créatinine normale.",
+              "valeurAvecUnite": "Bêta-2-microglobuline 6,5 mg/l",
+              "question": "À quoi sert ce résultat ?",
+              "reponse": "À la stadification du myélome"
+            },
+            {
+              "id": "2_microglobuline-2",
+              "type": "preanalytique",
+              "mode": "Aventure par type d'examen",
+              "niveau": 1,
+              "points": 10,
+              "tempsSec": 45,
+              "correction": {
+                "pourquoiJuste": "L'Hôpital cantonal de Lucerne (2026) signale une valeur jusqu'à 10 % plus haute debout et limite le garrot à 3 minutes.",
+                "pourquoiFaux": "Le résultat serait surestimé."
+              },
+              "sources": [
+                "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+              ],
+              "situation": "Un patient est prélevé debout après une longue marche, garrot serré 4 minutes.",
+              "piege": "Ignorer la posture et le garrot.",
+              "bonneConduite": "Prélever couché ou assis après 15 minutes de repos, garrot de 3 minutes au plus."
+            }
+          ]
+        }
+      ],
+      "glossaire": {
+        "ACE": "Antigène carcino-embryonnaire.",
+        "AFP": "Alpha-fœtoprotéine.",
+        "B12": "Vitamine B12.",
+        "CA": "Antigène de cancer (cancer antigen), dans CA 19-9, CA 125 et CA 15-3.",
+        "CA-125": "Antigène de cancer 125.",
+        "CEA": "Antigène carcino-embryonnaire (abréviation anglaise).",
+        "CHUV": "Centre hospitalier universitaire vaudois, Lausanne.",
+        "EASL": "European Association for the Study of the Liver.",
+        "EAU": "European Association of Urology.",
+        "ESGE": "European Society of Gastrointestinal Endoscopy.",
+        "ESGO": "European Society of Gynaecological Oncology.",
+        "ESMO": "European Society for Medical Oncology.",
+        "HE4": "Protéine épididymaire humaine 4.",
+        "HLA": "Antigènes leucocytaires humains.",
+        "HUG": "Hôpitaux universitaires de Genève.",
+        "IGCCCG": "International Germ Cell Cancer Collaborative Group.",
+        "IOTA": "International Ovarian Tumor Analysis.",
+        "ISUOG": "International Society of Ultrasound in Obstetrics and Gynecology.",
+        "LDH": "Lactate déshydrogénase.",
+        "NSE": "Énolase spécifique des neurones.",
+        "PSA": "Antigène spécifique de la prostate.",
+        "ROMA": "Algorithme de risque de malignité ovarienne.",
+        "WFDC2": "Gène codant la protéine HE4."
+      }
+    }
+  }
+}
