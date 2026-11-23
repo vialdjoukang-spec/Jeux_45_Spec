@@ -13,7 +13,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | E | 12 | 12 |
 | F | 12 | 12 |
 | G | 12 | 12 |
-| H | 0 | 12 |
+| H | 12 | 12 |
 | I | 0 | 12 |
 | J | 0 | 12 |
 | K | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **108** | **228** |
+| **Total** | **120** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -189,6 +189,29 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_G-S4-02** : Durées d'incubation indicatives (S. aureus 1 à 6 h, C. perfringens 8 à 16 h, norovirus 12 à 48 h, Salmonella 6 à 72 h, Campylobacter 2 à 5 jours, EHEC 3 à 4 jours) : ordres de grandeur classiques.
 - **TRANS_G-S4-03** : Numérotation exacte des articles de la LEp sur les mesures individuelles (art. 30 principes, 33 identification, 34 surveillance médicale, 35 quarantaine et isolement, 36 mesures envers des groupes, 37 traitement médical, 38 interdiction d'exercer) et sur l'exclusion de la vaccination sous contrainte physique.
 - **TRANS_G-S4-03** : Voies de recours contre une mesure cantonale d'isolement et délai de décision du tribunal (art. 35 al. 2 LEp ?).
+- **TRANS_H-S1-01** : Édition la plus récente de Beauchamp et Childress, Principles of Biomedical Ethics (8e éd., 2019 ; une 9e édition existe-t-elle ?).
+- **TRANS_H-S1-02** : Statut de la reprise des directives ASSM « Attitude face à la fin de vie et à la mort » (2018, adaptées en 2021) dans le Code de déontologie de la FMH en 2026.
+- **TRANS_H-S1-02** : Peine de l'art. 114 CP (meurtre sur la demande de la victime) après l'harmonisation des peines de 2023.
+- **TRANS_H-S1-03** : Nom et état actuel de la feuille de route nationale « Projet de soins anticipé » (OFSP et ASSM, 2023) et du modèle zurichois ACP-NOPA.
+- **TRANS_H-S1-03** : Contenu exact des art. 370 à 373 CC (directives anticipées) et de l'art. 360 CC (mandat pour cause d'inaptitude).
+- **TRANS_H-S2-01** : Version 2026 des directives ASSM « Décisions de réanimation » (2021) et « Mesures de soins intensifs » (2013 ; révision ?), et formulation de la notion de traitement « futile » ou « disproportionné ».
+- **TRANS_H-S2-02** : Peine prévue par l'art. 115 CP (peine privative de liberté de cinq ans au plus ou peine pécuniaire) après l'harmonisation des peines de 2023.
+- **TRANS_H-S2-02** : Règles cantonales sur l'assistance au suicide dans les hôpitaux et EMS subventionnés (par exemple Vaud et Neuchâtel) et obligation d'annonce comme mort non naturelle.
+- **TRANS_H-S2-02** : Base légale de la prescription du pentobarbital sodique (LStup, Compendium) et exigences cantonales.
+- **TRANS_H-S2-03** : Montant limite des cadeaux de valeur modeste selon l'OIPTh (300 francs par an et par professionnel ?) et contenu de l'art. 55 LPTh révisé (en vigueur depuis le 1.1.2020).
+- **TRANS_H-S2-03** : Version en vigueur des directives ASSM « Collaboration corps médical – industrie » (2013 ; révision 2022 ?).
+- **TRANS_H-S2-03** : Obligation de répercuter les avantages et rabais selon l'art. 56 al. 3 LAMal.
+- **TRANS_H-S3-01** : Données selon lesquelles une titration correcte des opioïdes en fin de vie ne raccourcit pas la survie (Sykes et Thorns 2003, Maltoni 2012 pour la sédation) : formulation prudente à conserver.
+- **TRANS_H-S3-02** : Recommandations de l'ASSM sur l'éthique clinique (« Éthique clinique : recommandations », 2012 ; mise à jour ?) et structures existantes dans les hôpitaux suisses en 2026.
+- **TRANS_H-S3-02** : Caractère consultatif des avis des conseils d'éthique clinique en droit suisse (aucune base légale décisionnelle).
+- **TRANS_H-S3-03** : Contenu de la révision d'octobre 2024 de la Déclaration d'Helsinki (Assemblée générale de l'AMM, Helsinki) concernant le placebo et les personnes vulnérables.
+- **TRANS_H-S3-03** : Articles de la LRH sur le consentement (art. 16), la recherche en situation d'urgence (art. 30-31) et les personnes vulnérables (art. 21-24), et catégories de risque A, B, C de l'OClin.
+- **TRANS_H-S4-01** : Version la plus récente des directives ASSM/SSMI « Triage des traitements de soins intensifs en cas de pénurie des ressources » (publiées en mars 2020, actualisées plusieurs fois, dernière version 2021 ou ultérieure).
+- **TRANS_H-S4-01** : Usage de l'échelle de fragilité clinique (Clinical Frailty Scale) dans la version actuelle et position sur le statut vaccinal comme critère (exclu).
+- **TRANS_H-S4-02** : Article du Code de déontologie FMH qui reconnaît la liberté du médecin de refuser un traitement hors urgence et impose d'assurer la continuité (art. 5 ?).
+- **TRANS_H-S4-02** : Règles cantonales sur l'objection de conscience dans les hôpitaux publics pour l'interruption de grossesse (art. 119 CP) et l'assistance au suicide en institution.
+- **TRANS_H-S4-03** : Position de l'ASSM sur l'alimentation et l'hydratation artificielles comme traitement médical dans les directives « Attitude face à la fin de vie et à la mort » (2018/2021) et « Mesures de soins intensifs ».
+- **TRANS_H-S4-03** : Délais diagnostiques classiques de l'état végétatif permanent (3 mois après lésion non traumatique, 12 mois après lésion traumatique ; recommandations AAN 2018 plus prudentes).
 - **TRANS_Q-S1-01** : Articles exacts de l'ORaP pour les limites (art. 56 et 57 ?) et pour la grossesse.
 - **TRANS_Q-S1-01** : Rôle de la SUVA dans la radioprotection industrielle.
 - **TRANS_Q-S1-02** : Statut actuel du Swiss Medical Board (dissous ?) en 2026.
@@ -256,4 +279,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, puis H à P, R dans cet ordre. Lettres restantes : H (0/12), I (0/12), J (0/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : I (0/12), J (0/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
