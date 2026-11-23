@@ -12,7 +12,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | D | 12 | 12 |
 | E | 12 | 12 |
 | F | 12 | 12 |
-| G | 0 | 12 |
+| G | 12 | 12 |
 | H | 0 | 12 |
 | I | 0 | 12 |
 | J | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **96** | **228** |
+| **Total** | **108** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -166,6 +166,29 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_F-S4-03** : Date d'entrée en vigueur du consentement présumé : l'OFSP mentionne le premier semestre 2028 et la FAQ OFSP « 2026 au plus tôt » ; garder « au plus tôt en 2028 » sous réserve.
 - **TRANS_F-S4-03** : Nom exact du service de suivi des donneurs vivants (SOL-DHR) et de Transfusion CRS Suisse pour le registre des cellules souches.
 - **TRANS_F-S4-03** : Article de la LTx sur l'interdiction de prélèvement en l'absence de proches.
+- **TRANS_G-S1-01** : Chiffres d'incidence et de prévalence du diabète en Suisse utilisés dans les exercices : valeurs pédagogiques arrondies, à remplacer par les données Obsan les plus récentes si on les présente comme réelles.
+- **TRANS_G-S1-02** : Délai de déclaration clinique de la tuberculose par le médecin (1 semaine ?) : absent de l'extrait consulté de la liste alphabétique OFSP du 15.12.2025.
+- **TRANS_G-S1-02** : Déclaration clinique du Covid-19 et de l'influenza saisonnière par le médecin ou seulement par le laboratoire en 2026 : à confirmer dans le guide de déclaration OFSP.
+- **TRANS_G-S1-03** : Tranches d'âge et intervalles 2026 des programmes cantonaux suisses : mammographie (50 à 69 ou 74 ans, tous les 2 ans), côlon (50 à 69 ans, test immunologique fécal tous les 2 ans ou coloscopie tous les 10 ans).
+- **TRANS_G-S1-03** : Recommandations suisses 2026 sur le dépistage du cancer du col (cytologie de 21 à 29 ans, test HPV primaire dès 30 ans tous les 5 ans ?) et leur prise en charge par l'OPAS.
+- **TRANS_G-S1-03** : Exemption de franchise pour les examens réalisés dans le cadre d'un programme cantonal (OPAS, art. 12d-12e).
+- **TRANS_G-S2-01** : Exemple de la cohorte suisse CoLaus (Lausanne) et de l'Enquête suisse sur la santé (OFS) : description générale, sans chiffre cité.
+- **TRANS_G-S2-02** : Valeurs de R0 citées (rougeole 12 à 18, grippe saisonnière environ 1,3) : ordres de grandeur classiques, variables selon les contextes.
+- **TRANS_G-S2-02** : Seuil d'immunité collective de 95 % pour la rougeole, repris par l'OFSP et l'OMS (couverture vaccinale à deux doses).
+- **TRANS_G-S2-03** : Date de début de la surveillance des eaux usées en Suisse (2020-2021, SARS-CoV-2) et évolution du nombre de stations (dix stations en 2026 selon la page OFSP consultée).
+- **TRANS_G-S2-03** : Thèmes Sentinella de l'année en cours (grippe et infections respiratoires, coqueluche, oreillons, autres thèmes annuels).
+- **TRANS_G-S3-01** : Prévalence du tabagisme en Suisse utilisée dans l'exercice (environ un quart de la population adulte selon l'Enquête suisse sur la santé) : valeur arrondie à confirmer avant de la présenter comme réelle.
+- **TRANS_G-S3-02** : Chiffres de l'ERSPC à long terme (nombre à inviter et à diagnostiquer pour éviter un décès ; suivi de 16 ans en 2019 et de 23 ans publié en 2025) : valeurs exactes à confirmer avant citation.
+- **TRANS_G-S3-02** : Position 2026 de la Société suisse d'urologie sur le dépistage du cancer de la prostate (décision partagée dès 50 ans, 45 ans en cas de risque ; IRM avant biopsie).
+- **TRANS_G-S3-02** : Rapport du Swiss Medical Board sur le PSA (2011) et sa portée actuelle.
+- **TRANS_G-S3-03** : Fenêtre des contacts étroits à rechercher pour la méningococcie (7 ou 10 jours avant le début des symptômes) et délai maximal de la chimioprophylaxie selon les recommandations OFSP en vigueur.
+- **TRANS_G-S3-03** : Posologies de chimioprophylaxie : ciprofloxacine 500 mg dose unique (adulte), rifampicine 600 mg toutes les 12 h pendant 2 jours (adulte) ou 10 mg/kg toutes les 12 h (enfant), ceftriaxone 250 mg IM dose unique (adulte, grossesse) ; à confirmer dans les recommandations OFSP et le Compendium.
+- **TRANS_G-S3-03** : Calendrier du test IGRA chez les contacts de tuberculose (8 semaines après le dernier contact) et schémas de traitement de l'infection latente selon le Manuel suisse de la tuberculose (4 mois de rifampicine, 3 mois d'isoniazide-rifampicine, 9 mois d'isoniazide).
+- **TRANS_G-S4-01** : Population standard utilisée par l'OFS pour les taux standardisés de mortalité (population européenne standard 2013 ?).
+- **TRANS_G-S4-02** : Rôle respectif du médecin cantonal et du chimiste cantonal (laboratoire cantonal) dans l'enquête d'une TIAC selon la LDAl et la LEp, et rôle de l'OSAV.
+- **TRANS_G-S4-02** : Durées d'incubation indicatives (S. aureus 1 à 6 h, C. perfringens 8 à 16 h, norovirus 12 à 48 h, Salmonella 6 à 72 h, Campylobacter 2 à 5 jours, EHEC 3 à 4 jours) : ordres de grandeur classiques.
+- **TRANS_G-S4-03** : Numérotation exacte des articles de la LEp sur les mesures individuelles (art. 30 principes, 33 identification, 34 surveillance médicale, 35 quarantaine et isolement, 36 mesures envers des groupes, 37 traitement médical, 38 interdiction d'exercer) et sur l'exclusion de la vaccination sous contrainte physique.
+- **TRANS_G-S4-03** : Voies de recours contre une mesure cantonale d'isolement et délai de décision du tribunal (art. 35 al. 2 LEp ?).
 - **TRANS_Q-S1-01** : Articles exacts de l'ORaP pour les limites (art. 56 et 57 ?) et pour la grossesse.
 - **TRANS_Q-S1-01** : Rôle de la SUVA dans la radioprotection industrielle.
 - **TRANS_Q-S1-02** : Statut actuel du Swiss Medical Board (dissous ?) en 2026.
@@ -233,4 +256,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, puis G à P, R dans cet ordre. Lettres restantes : G (0/12), H (0/12), I (0/12), J (0/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, puis H à P, R dans cet ordre. Lettres restantes : H (0/12), I (0/12), J (0/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
