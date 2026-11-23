@@ -22,3 +22,4 @@ Corrections faites :
 - 1 referencePour et 13 options/bonneReponse de plus de 45 caractères raccourcis ; glossaire + T2
 - Décision : les sigles ajoutés au glossaire sont gardés ; les citations Smarter Medicine mises au format commun sont gardées (vérifiées mot pour mot)
 - Note pour la relecture : le _meta de chaque fragment est celui du squelette de lot de main ; la fusion ne reprend pas le _meta du lot
+- Correction post-contrôle (23.11.2026) : referencePour vides rétablis exactement comme sur la conception de origin/main ; rien d'autre modifié ; controle PASS.
