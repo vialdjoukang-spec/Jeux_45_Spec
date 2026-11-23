@@ -11,7 +11,7 @@
    "interpretation",
    "diagnostics[]"
   ],
-  "statut": "À REMPLIR",
+  "statut": "PRODUIT — à auditer",
   "regles": [
    "Chaque texte destiné à l'apprenant s'écrit en phrases verbales.",
    "Chaque signe, symptôme et syndrome porte une « bulle » à 4 rubriques : def, pourquoi, confusion, retenir.",
@@ -20,16 +20,66 @@
    "Tout sigle, score ou terme technique (ex. « atypique ») cité dans un texte doit exister dans « glossaire » avec sa définition : aucun renvoi hors de l'application.",
    "Chaque signe ou symptôme porte « presentation » : « typique » ou « atypique » (affiché en rouge).",
    "Le bilan se range par visée (diagnostique avec « 1re intention » et « Gold standard », retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation), puis par groupe (Biologie, Imagerie, Score, Explorations, Clinique) ; chaque examen s'écrit [nom affiché, détail en infobulle : signe recherché et seuil]."
+  ],
+  "aVerifier": [
+   "Tranché au contre-audit : seuil d'artères incompressibles relu dans les recommandations ESC 2024 sur les maladies artérielles périphériques (Mazzolai et al., Eur Heart J 2024) : IPS > 1,40, compléter par index orteil-bras (pathologique ≤ 0,70), pression d'orteil ou Doppler ; ajouté au champ limite. conception/donnees/paraclinique/topographie/7_membres_et_appareil_locomoteur/cheville_et_pied.json › cheville_et_pied__index_de_pression_systolique › Guanella (colloque des HUG, avril 2008) retient le seuil de 0,9 (ABI > 0,9 normal, ABI < 0,9 AOMI). Un seuil d'index très élevé par médiacalcose n'est pas chiffré dans ce texte relu : il n'est pas inventé ici.",
+   "valeurs chiffrées reprises de la fiche contre-auditée cheville_et_pied__index_de_pression_systolique sans relecture du passage dans cette passe (0,9, 95, 100, 1,40) ; aucune relecture faite (seuil de volume atteint avant la vérification des explorations) ; à relire avant fusion.",
+   "≤ 0,90, > 1,40, index orteil-bras ≤ 0,70 et chute > 20 % à l'effort concordants avec l'ESC 2024 (Eur Heart J 45:3538), d'après une recherche web du 23.11.2026."
   ]
  },
  "elements": [
   {
-   "fonction": null,
-   "traces": [],
-   "seuils": [],
-   "interpretation": null,
-   "diagnostics": []
+   "fonction": "L'index de pression systolique cheville-bras divise la pression systolique de cheville par la pression brachiale ; il confirme une AOMI devant une claudication, selon les recommandations 2024 de l'ESC sur les maladies artérielles périphériques et aortiques.",
+   "traces": [
+    {
+     "type": "normal",
+     "aspect": "Aspect normal",
+     "description": "Un IPS de repos supérieur à 0,90, sans dépasser 1,40, ne montre pas d'AOMI, selon les recommandations 2024 de l'ESC sur les maladies artérielles périphériques et aortiques."
+    },
+    {
+     "type": "pathologique",
+     "aspect": "IPS ≤ 0,90",
+     "description": "La pression de cheville vaut 90 % ou moins de la pression brachiale ; cet IPS de repos confirme une AOMI, selon les recommandations 2024 de l'ESC sur les maladies artérielles périphériques et aortiques."
+    },
+    {
+     "type": "pathologique",
+     "aspect": "IPS > 1,40",
+     "description": "Les artères de cheville sont trop rigides pour être comprimées ; l'IPS n'est pas interprétable et l'on mesure l'index orteil-bras, pathologique à 0,70 ou moins, selon les recommandations 2024 de l'ESC sur les maladies artérielles périphériques et aortiques."
+    },
+    {
+     "type": "pathologique",
+     "aspect": "Chute de l'IPS de plus de 20 % à l'effort",
+     "description": "L'IPS de repos est normal, mais il baisse de plus de 20 % une minute après la marche ; cette chute soutient une AOMI chez un patient qui a une claudication, selon les recommandations 2024 de l'ESC sur les maladies artérielles périphériques et aortiques."
+    }
+   ],
+   "seuils": [
+    "Selon les recommandations 2024 de l'ESC sur les maladies artérielles périphériques et aortiques, un IPS de repos inférieur ou égal à 0,90 confirme une AOMI ; au-dessus de 1,40, les artères sont incompressibles et l'on mesure l'index orteil-bras, pathologique à 0,70 ou moins ; si l'IPS de repos est normal, une chute de plus de 20 % après effort soutient le diagnostic."
+   ],
+   "interpretation": "1. Il objective une baisse de pression à la cheville que la seule palpation des pouls peut manquer. C'est l'examen de référence pour le motif suivant : claudication intermittente. 2. Si l'IPS de repos est normal malgré une claudication typique, on le mesure après effort, selon les recommandations 2024 de l'ESC sur les maladies artérielles périphériques et aortiques. 3. « Pas de diagnostic par CT-scan ou IRM pour clarifier une maladie artérielle occlusive périphérique (MAOP) » (Smarter Medicine, liste Top 5 de la Société Suisse d’Angiologie, 2024).",
+   "diagnostics": [
+    {
+     "diagnostic": "AOMI avec claudication intermittente",
+     "argument": "IPS ≤ 0,90"
+    },
+    {
+     "diagnostic": "Artères incompressibles",
+     "argument": "IPS > 1,40"
+    },
+    {
+     "diagnostic": "AOMI à IPS de repos normal",
+     "argument": "Chute de l'IPS > 20 % à l'effort"
+    }
+   ]
   }
  ],
- "glossaire": {}
+ "glossaire": {
+  "AOMI": "Artériopathie oblitérante des membres inférieurs",
+  "CT": "Tomodensitométrie",
+  "ESC": "Société européenne de cardiologie",
+  "HUG": "Les HUG sont les Hôpitaux universitaires de Genève.",
+  "IAMI": "Colloque des Hôpitaux universitaires de Genève dont le texte d'avril 2008 porte sur l'index cheville-bras.",
+  "IPS": "Index de pression systolique",
+  "IRM": "Imagerie par résonance magnétique",
+  "MAOP": "Maladie artérielle occlusive périphérique"
+ }
 }

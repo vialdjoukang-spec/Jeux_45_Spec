@@ -23,6 +23,15 @@ CORRECTIONS = [
      "Une latence P100 allongée au-delà des normes du laboratoire, ou une asymétrie entre les deux yeux, signe un ralentissement de la conduction visuelle."),
     ("meninges_et_lcr__lcr_bandes_oligoclonales_et_index_igg", "seuil", re.compile(r"^Présence de bandes oligoclonales ou index IgG élevé$"),
      "Au moins deux bandes oligoclonales propres au LCR, ou un index IgG supérieur à 0,7, signent une synthèse intrathécale d'IgG, selon Tibbling et al. (1977) et les critères de McDonald 2017."),
+    # audit du 2026-11-23 : typiques adultes OFSP 2018 appliqués à tort à des examens pédiatriques → valeurs pédiatriques sourcées de main
+    ("os_du_crane_et_de_la_face__radiographie_du_crane", "irradiation_mSv", 0.3, 0.04),
+    ("os_longs_et_squelette__bilan_radiologique_du_squelette", "irradiation_mSv", 3.06, 0.26),
+    ("os_longs_et_squelette__age_osseux", "irradiation_mSv", 0.01, 0.0002),
+    ("croissance_et_developpement_de_l_enfant__age_osseux", "irradiation_mSv", 0.01, 0.0002),
+    ("os_longs_et_squelette__age_osseux", "precautions", re.compile(r"^La dose efficace typique retenue est 0,01 mSv pour les radiographies des membres"),
+     "La dose efficace d'une radiographie de la main pour l'âge osseux est d'environ 0,0002 mSv, selon Hart, Wall, Hillier et Shrimpton (rapport HPA-CRCE-012, 2010) ; Mettler et al. (2008) indiquent 0,001 mSv pour les extrémités. On irradie une seule main, habituellement la gauche, et l'on évite de répéter le cliché sans indication."),
+    ("croissance_et_developpement_de_l_enfant__age_osseux", "precautions", re.compile(r"^La dose d’une radiographie des membres est d’environ 0,01 mSv"),
+     "La dose d'une radiographie de la main pour l'âge osseux est d'environ 0,0002 mSv, selon Hart, Wall, Hillier et Shrimpton (rapport HPA-CRCE-012, 2010). La maturation osseuse s’objective à partir de 3 ans (PEDLAUS, retard de croissance)."),
 ]
 RESOLUTIONS = {  # justification de Claude ajoutée dans _meta.resolutionsClaude
     "encephale__angio_ct_des_vaisseaux_intracraniens": "irradiation_mSv : 1,9 mSv mesurés par dosimètres LiF-TLD pour l'angio-CT intracrânien (Cohnen et al., AJNR 2006).",
@@ -30,6 +39,10 @@ RESOLUTIONS = {  # justification de Claude ajoutée dans _meta.resolutionsClaude
     "encephale__spectroscopie_irm": "seuil : chiffre retiré faute de seuil universel ; formulation qualitative.",
     "encephale__potentiels_evoques_visuels_auditifs_some": "seuil : 115 ms retiré, renvoi aux normes du laboratoire.",
     "meninges_et_lcr__lcr_bandes_oligoclonales_et_index_igg": "seuil : index IgG > 0,7 (Tibbling 1977) et ≥ 2 bandes (McDonald 2017), valeurs classiques.",
+    "os_du_crane_et_de_la_face__radiographie_du_crane": "irradiation_mSv : 0,3 mSv (typique adulte OFSP 2018) remplacé par 0,04 mSv, borne haute pédiatrique de Mathijssen et al. (2021) : l'indication est le bilan squelettique de l'enfant de moins de 2 ans.",
+    "os_longs_et_squelette__bilan_radiologique_du_squelette": "irradiation_mSv : 3,06 mSv (somme de typiques adultes OFSP, sans mesure propre) remplacé par 0,26 mSv, bilan pédiatrique initial et suivi selon Sait et al. (Pediatric Radiology, 2023), cohérent avec le champ precautions.",
+    "os_longs_et_squelette__age_osseux": "irradiation_mSv : 0,01 mSv (typique adulte des membres, OFSP 2018) remplacé par 0,0002 mSv, main pour l'âge osseux selon Hart et al. (HPA-CRCE-012, 2010).",
+    "croissance_et_developpement_de_l_enfant__age_osseux": "irradiation_mSv : aligné sur 0,0002 mSv (Hart et al., HPA-CRCE-012, 2010), comme l'examen jumeau des os longs.",
     "oeil_et_orbite__fond_d_oeil": "indication : seuil 180/110 non relu dans le texte intégral, remplacé par « hypertension sévère ou urgence hypertensive ».",
 }
 REMPLACEMENTS_TEXTE = [  # (motif, remplacement) dans toutes les chaînes
@@ -46,6 +59,7 @@ AJOUTS = [  # (id, champ, phrase ajoutée si absente)
 # 2. Doutes encore ouverts après audit (repérés par l'id de l'examen et le champ) : ils restent dans aVerifier.
 OUVERTS = {  # après l'audit du 2026-11-22 : un seul doute reste ouvert (aucune dose efficace publiée retrouvée)
     ("meninges_et_lcr__cisternographie", "irradiation_mSv"),
+    ("hanche_et_bassin__radiographie_du_bassin_de_l_enfant", "irradiation_mSv"),
 }
 VIDES = (None, "", [], {})
 

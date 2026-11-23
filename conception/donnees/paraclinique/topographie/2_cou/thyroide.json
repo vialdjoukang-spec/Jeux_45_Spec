@@ -11,7 +11,14 @@
    "thyroide__ct_cervicothoracique › delai : programmé retenu pour le bilan préopératoire du goitre plongeant ; une compression trachéale aiguë relève d'un examen en urgence ; aucune source ne fixe ce délai.",
    "thyroide__scintigraphie_thyroidienne › irradiation_mSv : 1,0 mSv = NRD OFSP « Thyroïde, Tc-99m pertechnétate », 75 MBq × 0,013 mSv/MBq (EANM, Giovanella et al., 2019) = 0,98 mSv, valeur donnée par l'OFSP (NRD en médecine nucléaire, V2 du 1.2.2023) ; avec l'iode-123, NRD 10 MBq, 2,21 mSv selon la même directive, pour une fixation thyroïdienne supposée de 35 %.",
    "thyroide__tsh_t4_libre_t3_libre › delai : rapide retenu, car le dosage se fait le jour même en pratique ; aucune source ne fixe ce délai ; une suspicion de crise thyrotoxique relèverait de l'urgence.",
-   "thyroide__cytoponction_echoguidee › prelevementRef : aucun fichier de prélèvement n'est propre à la cytologie à l'aiguille fine ; biopsies_tissulaires retenu, ponction_de_kyste_d_abces_ou_de_collecti possible."
+   "thyroide__cytoponction_echoguidee › prelevementRef : aucun fichier de prélèvement n'est propre à la cytologie à l'aiguille fine ; biopsies_tissulaires retenu, ponction_de_kyste_d_abces_ou_de_collecti possible.",
+   "thyroide__scintigraphie_thyroidienne › irradiation_mSv : 1,3 mSv est un calcul : tableau 18 de l'OFSP 2018, 4,30 man·Sv (+0,15 de CT) pour 0,4 séance pour 1000 habitants ; population déduite de 10,5 millions d'examens pour 1229 pour 1000 (8,54 millions), soit environ 3400 séances et 1,3 mSv par séance. Contrôle : 74–111 MBq × 0,013 mSv/MBq (EANM 2019) = 1,0 à 1,4 mSv.",
+   "thyroide__ct_cervicothoracique › irradiation_mSv : 5,9 mSv est un calcul, la somme du CT du cou (2,1 mSv) et du CT du thorax (3,8 mSv) du tableau 16 de l'OFSP 2018 ; il n'y a pas de valeur propre au CT cervico-thoracique.",
+   "thyroide__scintigraphie_a_l_iode_131_corps_entier › irradiation_mSv : 8,1 mSv est un calcul, 74 MBq × 0,11 mSv/MBq sans fixation thyroïdienne (SNMMI 2006) ; selon l'activité (37 à 185 MBq), la dose va de 4 à 20 mSv. Cherché dans l'OFSP 2018 : non trouvé.",
+   "thyroide__ct_cervicothoracique › indication : cherché dans l'ATA 2015 et l'EU-TIRADS 2017 une recommandation explicite de CT pour le goitre plongeant ; non trouvé. L'indication retenue est celle de l'ATA (maladie avancée).",
+   "thyroide__tsh_t4_libre_t3_libre : la place de la T3 libre vient d'une recommandation néerlandaise (NIV 2022), faute de source suisse relue ; cherché dans la liste Top 5 de la SSED 2025 : non trouvé.",
+   "thyroide__cytoponction_echoguidee › seuil : les risques Bethesda sont ceux de la 2e édition, cités par l'ATA 2015 ; je n'ai pas pu relire le tableau de la 3e édition de 2023 (page de l'éditeur bloquée, seul le résumé est relu).",
+   "thyroide__anticorps_anti_tpo_anti_thyroglobuline_a › seuil : aucun seuil chiffré n'est donné, car il dépend de la méthode du laboratoire (cherché dans SSED 2025 et ETA 2018)."
   ],
   "auditFond": "Audit Claude du 2026-11-22 : corrections appliquées, justifications acceptées, doutes ouverts listés.",
   "aVerifierOuverts": []
@@ -26,30 +33,109 @@
     "etiologique",
     "therapeutique"
    ],
-   "signeRecherche": "Nodule et signes de suspicion EU-TIRADS",
-   "seuil": "Un nodule est classé EU-TIRADS 5 s'il présente au moins un signe de forte suspicion, comme une forme ou des contours irréguliers, des microcalcifications ou une hypoéchogénicité marquée, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "indication": "On la demande chez tout patient suspect de maladie nodulaire thyroïdienne et devant un nodule découvert par une autre imagerie, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "discriminant": "Elle classe chaque nodule dans une catégorie EU-TIRADS, dont le risque de malignité passe de 2 à 4 % en EU-TIRADS 3 à 26 à 87 % en EU-TIRADS 5, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "avantageSelectif": "Elle n'irradie pas et aide au diagnostic étiologique d'une thyrotoxicose, car la maladie de Basedow donne une glande hypoéchogène et hypervascularisée, selon les recommandations de l'ETA 2018 (Kahaly et al.).",
-   "plutotQue": "Elle remplace la palpation, car elle est plus sensible et plus spécifique pour évaluer la maladie nodulaire thyroïdienne, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "limite": "Elle ne renseigne pas sur la fonction du nodule, et on fait une scintigraphie quand la TSH est basse, selon les recommandations de l'ETA 2023 (Durante et al.). L'élastographie n'a pas encore de rôle établi, selon les recommandations de l'ETA 2023 (Durante et al.).",
+   "signeRecherche": "Nodule thyroïdien suspect",
+   "seuil": "Le score EU-TIRADS 2 a un risque de cancer proche de 0 %, le 3 de 2 à 4 %, le 4 de 6 à 17 % et le 5 de 26 à 87 % ; la cytoponction se discute au-delà de 20 mm, 15 mm et 10 mm respectivement (EU-TIRADS, 2017).",
+   "indication": "On la demande devant un nodule palpable ou découvert par hasard, pour choisir ceux qui méritent une cytoponction (EU-TIRADS, 2017) ; en cas d’hyperthyroïdie, elle aide à en trouver la cause (SSED, 2025).",
+   "discriminant": "Elle décrit la forme, les contours, l’échogénicité et les calcifications de chaque nodule, ainsi que les ganglions des niveaux II à VI (EU-TIRADS, 2017).",
+   "avantageSelectif": "Elle est accessible, non invasive, peu coûteuse et n’irradie pas ; c’est une étape obligatoire du bilan d’un nodule (EU-TIRADS, 2017).",
+   "plutotQue": "On choisit l’échographie plutôt que la scintigraphie pour classer le risque de malignité d’un nodule, sauf si la TSH est basse (ATA, 2015).",
+   "limite": "Elle dépend de l’opérateur, et la description de certains signes varie d’un observateur à l’autre (EU-TIRADS, 2017).",
    "referencePour": [
+    "nodule thyroïdien",
+    "goitre multinodulaire",
+    "adénopathie cervicale",
     "Stratification du risque d'un nodule"
    ],
-   "smarterMedicine": "On ne prescrit pas d'échographie thyroïdienne systématique chez la personne hypothyroïdienne dont la thyroïde est normale à la palpation, selon Smarter Medicine, liste Top 5 de la Société suisse d'endocrinologie et de diabétologie (SSED, 2023).",
-   "radioAnatomieNormale": null,
-   "precautions": "Elle n'irradie pas, et on la préfère à la scintigraphie chez la femme enceinte, selon l'EANM (Giovanella et al., 2019).",
+   "smarterMedicine": "Ne pas prescrire d’échographie thyroïdienne systématique chez les personnes souffrant d’hypothyroïdie et dont la thyroïde est normale à la palpation (Smarter Medicine, Société suisse d’endocrinologie et de diabétologie, 2025).",
+   "radioAnatomieNormale": [
+    "Lobes thyroïdiens droit et gauche",
+    "Isthme thyroïdien",
+    "Trachée",
+    "Artères carotides communes",
+    "Veines jugulaires internes"
+   ],
+   "precautions": "Elle n’irradie pas et ne demande aucune préparation ; une échographie systématique est inutile dans une hypothyroïdie avec une thyroïde normale à la palpation (SSED, 2025).",
    "irradiation_mSv": 0,
    "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
+   "synonymes": [
+    "Échographie de la thyroïde",
+    "Échographie cervicale",
+    "Écho thyroïdienne",
+    "Écho thyroïde",
+    "EU-TIRADS"
+   ],
+   "aspectNormal": "Une thyroïde homogène sans nodule à décrire ; le compte rendu décrit les nodules de plus de 5 mm (EU-TIRADS, 2017).",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Kyste pur ou nodule spongiforme",
+     "signification": "C’est un nodule bénin, classé EU-TIRADS 2, sans cytoponction (EU-TIRADS, 2017)."
+    },
+    {
+     "anomalie": "Nodule ovale isoéchogène",
+     "signification": "C’est un nodule à faible risque, classé EU-TIRADS 3 (EU-TIRADS, 2017)."
+    },
+    {
+     "anomalie": "Nodule légèrement hypoéchogène",
+     "signification": "C’est un nodule à risque intermédiaire, classé EU-TIRADS 4 (EU-TIRADS, 2017)."
+    },
+    {
+     "anomalie": "Microcalcifications",
+     "signification": "C’est un signe de haut risque, qui classe le nodule EU-TIRADS 5 (EU-TIRADS, 2017)."
+    },
+    {
+     "anomalie": "Nodule plus haut que large",
+     "signification": "Cette forme non ovale est un signe de haut risque (EU-TIRADS, 2017)."
+    },
+    {
+     "anomalie": "Contours irréguliers",
+     "signification": "C’est un signe de haut risque de malignité (EU-TIRADS, 2017)."
+    },
+    {
+     "anomalie": "Hypoéchogénicité marquée",
+     "signification": "C’est un signe de haut risque de malignité (EU-TIRADS, 2017)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Nodule à haut risque",
+     "anomaliesQuiLeComposent": [
+      "Microcalcifications",
+      "Nodule plus haut que large",
+      "Contours irréguliers",
+      "Hypoéchogénicité marquée"
+     ]
+    },
+    {
+     "syndrome": "Nodule EU-TIRADS 5",
+     "anomaliesQuiLeComposent": [
+      "Contours irréguliers",
+      "Microcalcifications",
+      "Hypoéchogénicité marquée"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Cancer papillaire de la thyroïde",
+     "anomalieTypique": "Microcalcifications"
+    },
+    {
+     "pathologie": "Nodule colloïde bénin",
+     "anomalieTypique": "Nodule ovale isoéchogène"
+    },
+    {
+     "pathologie": "Kyste thyroïdien",
+     "anomalieTypique": "Kyste pur ou nodule spongiforme"
+    },
+    {
+     "pathologie": "Carcinome thyroïdien",
+     "anomalieTypique": "Microcalcifications"
+    }
+   ],
    "bulle": {
-    "def": "L'échographie thyroïdienne explore la thyroïde et les ganglions du cou, de l'os hyoïde jusqu'au creux sus-sternal, selon les recommandations de l'ETA 2023 (Durante et al.).",
-    "pourquoi": "Chaque signe de forte suspicion augmente le risque de malignité, qui atteint 26 à 87 % en EU-TIRADS 5, selon les recommandations de l'ETA 2023 (Durante et al.).",
+    "def": "L’échographie thyroïdienne classe chaque nodule selon son risque de cancer avec le score EU-TIRADS.",
+    "pourquoi": "Elle décide quels nodules ponctionner, selon le score et la taille.",
     "confusion": "Un kyste pur ou un nodule entièrement spongiforme peut inquiéter, mais il est classé EU-TIRADS 2, bénin, et ne demande pas de cytoponction, selon les recommandations de l'ETA 2023 (Durante et al.).",
     "retenir": "On ponctionne un nodule EU-TIRADS 5 au-delà de 10 mm, EU-TIRADS 4 au-delà de 15 mm et EU-TIRADS 3 au-delà de 20 mm, selon les recommandations de l'ETA 2023 (Durante et al.)."
    }
@@ -59,34 +145,110 @@
    "modalite": "Imagerie",
    "nom": "Scintigraphie thyroïdienne (Tc-99m, iode-123)",
    "visees": [
-    "diagnostique",
     "etiologique",
+    "diagnostique",
     "therapeutique"
    ],
-   "signeRecherche": "Nodule chaud ou froid, fixation globale",
-   "seuil": "Un nodule chaud fixe plus le traceur que le tissu voisin, qui est éteint, et signe un nodule autonome, alors qu'un nodule froid fixe moins, selon l'EANM (Giovanella et al., 2019).",
-   "indication": "On la fait quand la TSH est abaissée, pour reconnaître un nodule fonctionnel, éviter une cytoponction inutile et décider d'un traitement par l'iode radioactif, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "discriminant": "Elle reste la méthode la plus exacte pour diagnostiquer et quantifier une autonomie thyroïdienne et pour détecter un tissu thyroïdien ectopique, selon l'EANM (Giovanella et al., 2019).",
-   "avantageSelectif": "Elle distingue une hyperthyroïdie d'une thyrotoxicose par destruction ou par surcharge iodée, dans lesquelles la fixation baisse, selon l'EANM (Giovanella et al., 2019).",
-   "plutotQue": "Elle précède la cytoponction quand la TSH est basse, car un nodule autonome est très rarement malin et donne souvent une cytologie indéterminée, selon l'EANM (Giovanella et al., 2019).",
-   "limite": "Un nodule froid est bénin dans 80 à 90 % des cas, et on le caractérise ensuite par l'échographie, selon l'EANM (Giovanella et al., 2019). Le technétium-99m fait rarement paraître chaud un nodule hypofonctionnel, selon les recommandations de l'ETA 2023 (Durante et al.).",
+   "signeRecherche": "Nodule chaud autonome ou hyperthyroïdie",
+   "seuil": "Un nodule chaud a une valeur prédictive négative de cancer de 96 à 99 % ; la plupart des nodules froids, de 80 à 90 %, sont bénins (EANM, 2019).",
+   "indication": "On la demande quand la TSH est basse devant un nodule, pour savoir s’il est chaud, tiède ou froid (ATA, 2015), et pour trouver la cause d’une hyperthyroïdie ou un tissu thyroïdien ectopique (EANM, 2019).",
+   "discriminant": "C’est le seul examen qui montre un nodule autonome ; une fixation diffuse oriente vers un Basedow et une fixation basse vers une thyroïdite destructrice (EANM, 2019).",
+   "avantageSelectif": "Elle évite des cytoponctions inutiles, car un nodule chaud ne se ponctionne pas (ATA, 2015).",
+   "plutotQue": "On choisit la scintigraphie plutôt que la cytoponction d’emblée quand la TSH est basse, car les nodules chauds n’ont pas besoin de cytoponction (ATA, 2015).",
+   "limite": "Un nodule froid est peu spécifique de cancer et se juge ensuite à l’échographie ; une surcharge iodée, comme sous amiodarone, rend l’examen ininterprétable (EANM, 2019).",
    "referencePour": [
+    "nodule toxique",
+    "goitre multinodulaire toxique",
+    "maladie de Basedow",
     "Autonomie thyroïdienne",
     "Tissu thyroïdien ectopique"
    ],
    "smarterMedicine": null,
    "radioAnatomieNormale": [
+    "Lobes thyroïdiens",
+    "Isthme thyroïdien",
+    "Glandes salivaires",
+    "Bruit de fond cervical",
     "Glandes salivaires visibles"
    ],
-   "precautions": "Chez la femme en âge de procréer, on vérifie l'absence de grossesse et d'allaitement, et on préfère l'échographie pendant la grossesse, selon l'EANM (Giovanella et al., 2019). On attend 1 à 2 mois après un produit de contraste iodé intraveineux et 3 à 6 mois après l'amiodarone, selon l'EANM (Giovanella et al., 2019).",
-   "irradiation_mSv": 1.0,
+   "precautions": "Le Tc-99m s’injecte à 74–111 MBq, soit 0,013 mSv par MBq (EANM, 2019) ; il est préféré pendant l’allaitement pour sa courte période (EANM, 2019). La dose retenue, 1,3 mSv, est calculée à partir de l’OFSP (OFSP, 2018).",
+   "irradiation_mSv": 1.3,
    "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
+   "synonymes": [
+    "Scintigraphie de la thyroïde",
+    "Scintigraphie au technétium",
+    "Scintigraphie à l’iode 123",
+    "Scintigraphie à l'iode 123"
+   ],
+   "aspectNormal": "Une fixation sans zone hyperactive ni hypoactive et sans hyperfixation diffuse (EANM, 2019).",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Nodule chaud",
+     "signification": "Il fixe plus que le reste de la thyroïde et oriente vers un nodule autonome (EANM, 2019)."
+    },
+    {
+     "anomalie": "Nodule froid",
+     "signification": "Il fixe moins ; il est le plus souvent bénin, mais se juge à l’échographie (EANM, 2019)."
+    },
+    {
+     "anomalie": "Hyperfixation diffuse homogène",
+     "signification": "Elle oriente vers une maladie de Basedow (EANM, 2019)."
+    },
+    {
+     "anomalie": "Fixation diffuse effondrée",
+     "signification": "Elle oriente vers une thyroïdite destructrice ou une surcharge iodée (EANM, 2019)."
+    },
+    {
+     "anomalie": "Foyers chauds et froids mêlés",
+     "signification": "Ils orientent vers un goitre multinodulaire toxique (EANM, 2019)."
+    },
+    {
+     "anomalie": "Fixation ectopique",
+     "signification": "Elle détecte un tissu thyroïdien ectopique, selon l'EANM (Giovanella et al., 2019)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Autonomie nodulaire",
+     "anomaliesQuiLeComposent": [
+      "Nodule chaud",
+      "Fixation diffuse effondrée"
+     ]
+    },
+    {
+     "syndrome": "Autonomie thyroïdienne",
+     "anomaliesQuiLeComposent": [
+      "Nodule chaud"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Nodule toxique",
+     "anomalieTypique": "Nodule chaud"
+    },
+    {
+     "pathologie": "Maladie de Basedow",
+     "anomalieTypique": "Hyperfixation diffuse homogène"
+    },
+    {
+     "pathologie": "Thyroïdite subaiguë",
+     "anomalieTypique": "Fixation diffuse effondrée"
+    },
+    {
+     "pathologie": "Goitre multinodulaire toxique",
+     "anomalieTypique": "Foyers chauds et froids mêlés"
+    },
+    {
+     "pathologie": "Adénome toxique",
+     "anomalieTypique": "Nodule chaud"
+    },
+    {
+     "pathologie": "Tissu thyroïdien ectopique",
+     "anomalieTypique": "Fixation ectopique"
+    }
+   ],
    "bulle": {
     "def": "La scintigraphie thyroïdienne image la répartition du technétium-99m ou de l'iode-123, que la thyroïde capte par le symporteur sodium-iodure, selon l'EANM (Giovanella et al., 2019).",
     "pourquoi": "Un nodule autonome produit des hormones sans stimulation par la TSH, capte le traceur et éteint le reste de la glande, selon l'EANM (Giovanella et al., 2019).",
@@ -99,31 +261,95 @@
    "modalite": "Imagerie",
    "nom": "CT cervicothoracique (goitre plongeant)",
    "visees": [
-    "diagnostique",
+    "retentissement",
     "complications",
+    "diagnostique",
     "therapeutique"
    ],
-   "signeRecherche": "Extension médiastinale, compression trachéale",
-   "seuil": "Un prolongement du goitre dans le médiastin supérieur, une déviation ou un rétrécissement de la trachée rend l'examen positif, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "indication": "On le demande devant une suspicion clinique ou échographique d'extension rétrosternale d'un goitre, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "discriminant": "Il montre la partie médiastinale du goitre, que l'échographie n'explore que si elle est accessible sous le sternum, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "avantageSelectif": "Il prépare la chirurgie, car il précise l'extension dans le médiastin supérieur, la position et le calibre de la trachée et les rapports du goitre avec l'œsophage, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "plutotQue": "Il complète l'échographie sans la remplacer, car le CT et l'IRM ne servent qu'à évaluer l'extension locale ou rétrosternale d'un goitre, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "limite": "Il ne caractérise pas un nodule, et un nodule découvert au CT, malin dans 5 à 13 % des cas, suit le bilan échographique habituel, selon les recommandations de l'ETA 2023 (Durante et al.).",
+   "signeRecherche": "Extension thoracique ou compression trachéale",
+   "seuil": "Il n’existe pas de seuil chiffré ; on cherche une extension rétrosternale et une déviation de la trachée, deux éléments que le compte rendu échographique doit aussi signaler (EU-TIRADS, 2017).",
+   "indication": "On le demande avec injection en complément de l’échographie quand on suspecte une maladie avancée : tumeur invasive ou atteinte ganglionnaire étendue (ATA, 2015).",
+   "discriminant": "Il précise l’atteinte du larynx, de la trachée, de l’œsophage ou des vaisseaux pour préparer l’opération (ATA, 2015).",
+   "avantageSelectif": "Il voit ce que l’échographie ne montre pas, comme les rapports avec la trachée et l’œsophage, et aide à planifier la chirurgie (ATA, 2015).",
+   "plutotQue": "On choisit le CT plutôt que l’échographie seule quand on suspecte une invasion locale ou des ganglions volumineux (ATA, 2015).",
+   "limite": "L’iode injecté retarde la scintigraphie ou le traitement par iode radioactif de 4 à 8 semaines environ (ATA, 2015).",
    "referencePour": [
+    "goitre plongeant",
+    "cancer thyroïdien localement avancé",
     "Extension médiastinale d'un goitre"
    ],
    "smarterMedicine": null,
-   "radioAnatomieNormale": null,
-   "precautions": "Si on injecte un produit de contraste iodé, on tient compte du risque de thyrotoxicose, selon les recommandations de l'ETA 2023 (Durante et al.), et on ne l'injecte pas en cas d'hyperthyroïdie manifeste, selon les recommandations de l'ESUR 2025. On compare la dose au NRD du cou, de 16 mGy et 410 mGy·cm, et à sa valeur cible, de 12 mGy et 290 mGy·cm, selon les NRD OFSP R-06-06 (2018).",
-   "irradiation_mSv": 1.7,
+   "radioAnatomieNormale": [
+    "Thyroïde",
+    "Trachée",
+    "Œsophage",
+    "Vaisseaux du médiastin supérieur",
+    "Défilé cervico-thoracique"
+   ],
+   "precautions": "La dose est d’environ 5,9 mSv, en additionnant le CT du cou (2,1 mSv) et le CT du thorax (3,8 mSv) (OFSP, 2018) ; l’iode retarde un traitement par iode radioactif de 4 à 8 semaines (ATA, 2015).",
+   "irradiation_mSv": 5.9,
    "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
+   "synonymes": [
+    "Scanner cervico-thoracique",
+    "Tomodensitométrie du cou et du thorax",
+    "CT du cou et du thorax",
+    "Scanner cervicothoracique",
+    "TDM du goitre plongeant"
+   ],
+   "aspectNormal": "Une thyroïde sans extension rétrosternale ni déviation de la trachée, deux points que le compte rendu doit préciser (EU-TIRADS, 2017).",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Extension rétrosternale",
+     "signification": "Le goitre descend dans le médiastin ; elle doit figurer dans le compte rendu (EU-TIRADS, 2017)."
+    },
+    {
+     "anomalie": "Déviation de la trachée",
+     "signification": "Elle traduit un effet de masse du goitre (EU-TIRADS, 2017)."
+    },
+    {
+     "anomalie": "Invasion trachéale ou œsophagienne",
+     "signification": "Elle traduit un cancer localement avancé (ATA, 2015)."
+    },
+    {
+     "anomalie": "Ganglions cervicaux volumineux",
+     "signification": "Ils font suspecter une atteinte ganglionnaire étendue (ATA, 2015)."
+    },
+    {
+     "anomalie": "Prolongement médiastinal",
+     "signification": "Il rend l'examen positif, selon les recommandations de l'ETA 2023 (Durante et al.)."
+    },
+    {
+     "anomalie": "Rétrécissement trachéal",
+     "signification": "Il rend l'examen positif, selon les recommandations de l'ETA 2023 (Durante et al.)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Cancer localement avancé",
+     "anomaliesQuiLeComposent": [
+      "Invasion trachéale ou œsophagienne",
+      "Ganglions cervicaux volumineux"
+     ]
+    },
+    {
+     "syndrome": "Goitre plongeant compressif",
+     "anomaliesQuiLeComposent": [
+      "Prolongement médiastinal",
+      "Rétrécissement trachéal"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Goitre plongeant",
+     "anomalieTypique": "Extension rétrosternale"
+    },
+    {
+     "pathologie": "Cancer thyroïdien invasif",
+     "anomalieTypique": "Invasion trachéale ou œsophagienne"
+    }
+   ],
    "bulle": {
     "def": "Le CT cervicothoracique couvre le cou et le médiastin supérieur pour mesurer l'extension d'un goitre, selon les recommandations de l'ETA 2023 (Durante et al.).",
     "pourquoi": "Un goitre qui descend dans le médiastin entre en rapport avec la trachée et l'œsophage, et le chirurgien doit connaître ces rapports, selon les recommandations de l'ETA 2023 (Durante et al.).",
@@ -135,27 +361,82 @@
    "id": "thyroide__scintigraphie_a_l_iode_131_corps_entier",
    "modalite": "Imagerie",
    "nom": "Scintigraphie à l'iode 131 corps entier (suivi du cancer)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
+   "visees": [
+    "sortie",
+    "complications"
+   ],
+   "signeRecherche": "Reliquat ou métastase fixant l’iode",
+   "seuil": "Sans fixation hors de la loge thyroïdienne et avec une Tg sous 0,2 µg/l sous traitement, ou sous 1 µg/l après stimulation, la réponse est excellente (ATA, 2015).",
+   "indication": "Après l’opération, on la fait quand l’étendue du reliquat ou d’une maladie résiduelle est incertaine et que le résultat peut changer la décision de traiter (ATA, 2015).",
+   "discriminant": "Elle localise tout tissu qui fixe l’iode, reliquat thyroïdien ou métastase, dans tout le corps (ATA, 2015).",
+   "avantageSelectif": "Elle explore le corps entier en un seul examen, et sa sensibilité augmente avec l’activité donnée (SNMMI, 2006).",
+   "plutotQue": "On suit un patient à faible risque avec la Tg et l’échographie plutôt qu’avec des scintigraphies répétées (ATA, 2015).",
+   "limite": "Après une première scintigraphie post-thérapeutique, elle n’est plus utile en routine chez le patient à risque faible ou intermédiaire en réponse excellente (ATA, 2015).",
+   "referencePour": [
+    "cancer différencié de la thyroïde",
+    "métastases fixant l’iode"
+   ],
    "smarterMedicine": null,
-   "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "radioAnatomieNormale": [
+    "Loge thyroïdienne",
+    "Glandes salivaires",
+    "Estomac",
+    "Vessie",
+    "Intestin"
+   ],
+   "precautions": "On donne 37 à 185 MBq par voie orale, avec une dose efficace de 0,11 mSv par MBq sans fixation thyroïdienne ; de faibles activités limitent la sidération du tissu à traiter (SNMMI, 2006). Pour 74 MBq, la dose calculée est d’environ 8,1 mSv.",
+   "irradiation_mSv": 8.1,
+   "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Scintigraphie corps entier à l’iode",
+    "Balayage corporel à l’iode 131",
+    "Scintigraphie diagnostique à l’iode"
+   ],
+   "aspectNormal": "Aucune fixation hors des sites physiologiques et de la loge thyroïdienne (ATA, 2015).",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Fixation de la loge thyroïdienne",
+     "signification": "Elle montre un reliquat thyroïdien après l’opération (ATA, 2015)."
+    },
+    {
+     "anomalie": "Fixation cervicale ganglionnaire",
+     "signification": "Elle oriente vers une métastase ganglionnaire fixant l’iode (ATA, 2015)."
+    },
+    {
+     "anomalie": "Fixation pulmonaire ou osseuse",
+     "signification": "Elle oriente vers des métastases à distance (ATA, 2015)."
+    },
+    {
+     "anomalie": "Faible fixation de la loge",
+     "signification": "C’est une réponse indéterminée si la Tg stimulée est indétectable (ATA, 2015)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Maladie métastatique fixant l’iode",
+     "anomaliesQuiLeComposent": [
+      "Fixation cervicale ganglionnaire",
+      "Fixation pulmonaire ou osseuse"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Cancer papillaire métastatique",
+     "anomalieTypique": "Fixation cervicale ganglionnaire"
+    },
+    {
+     "pathologie": "Cancer folliculaire métastatique",
+     "anomalieTypique": "Fixation pulmonaire ou osseuse"
+    }
+   ],
+   "bulle": {
+    "def": "La scintigraphie corps entier à l’iode 131 cherche tout tissu qui fixe l’iode après une thyroïdectomie pour cancer.",
+    "pourquoi": "Elle montre un reliquat ou des métastases et guide le traitement par iode radioactif.",
+    "confusion": "On la répète chez tout patient opéré : en réponse excellente à faible risque, la Tg et l’échographie suffisent.",
+    "retenir": "Tg < 0,2 µg/l sous traitement, < 1 µg/l stimulée : réponse excellente."
+   }
   },
   {
    "id": "thyroide__tsh_t4_libre_t3_libre",
@@ -163,35 +444,112 @@
    "nom": "TSH, T4 libre, T3 libre",
    "visees": [
     "diagnostique",
-    "etiologique",
-    "therapeutique"
+    "therapeutique",
+    "etiologique"
    ],
-   "signeRecherche": "Hypo- ou hyperthyroïdie primaire",
-   "seuil": "Une TSH au-dessus de l'intervalle de référence avec une T4 libre normale définit l'hypothyroïdie infraclinique, selon la liste Top 5 de la SSED (2023), et une TSH inférieure à 0,1 mUI/l avec des hormones libres normales définit l'hyperthyroïdie infraclinique de grade 2, selon les recommandations de l'ETA 2015 (Biondi et al.).",
-   "indication": "On dose d'abord la TSH, puis la T4 libre si la TSH est basse, et la T3 libre si la T4 libre est alors normale, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "discriminant": "La TSH est le dosage sanguin isolé le plus sensible et le plus spécifique devant une suspicion d'hyperthyroïdie, selon les recommandations de l'ETA 2018 (Kahaly et al.).",
-   "avantageSelectif": "Le dosage de la TSH constitue le bilan biologique minimal de tout nodule thyroïdien, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "plutotQue": "On ne dose pas la T4 et la T3 libres d'emblée, car on les ajoute seulement quand la TSH est anormale, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "limite": "Les résultats varient avec les médicaments, une maladie non thyroïdienne, le tabac, l'apport en iode, la saison et l'heure du prélèvement, et la TSH augmente après 65 ans, selon la liste Top 5 de la SSED (2023).",
+   "signeRecherche": "Hypothyroïdie ou hyperthyroïdie",
+   "seuil": "Une TSH élevée avec une T4 libre normale définit une hypothyroïdie infraclinique ; un traitement peut se discuter si la TSH dépasse 10 mUI/l (SSED, 2025).",
+   "indication": "On dose la TSH au début du bilan de tout nodule thyroïdien (ATA, 2015) et devant une suspicion de dysthyroïdie ; la T4 libre s’ajoute si la TSH est anormale (NIV, 2022).",
+   "discriminant": "Une TSH normale exclut presque une dysthyroïdie primaire, avec une valeur prédictive négative de 99,7 % (NIV, 2022).",
+   "avantageSelectif": "La TSH seule suffit comme premier test ; la T3 libre ne sert que dans des cas précis, comme une TSH effondrée avec une T4 libre normale (NIV, 2022).",
+   "plutotQue": "On dose d’abord la TSH plutôt que le trio TSH, T4 libre et T3 libre d’emblée (NIV, 2022).",
+   "limite": "Les résultats varient avec les médicaments, une maladie générale, le tabac, l’iode, la saison et l’heure, et la TSH monte après 65 ans (SSED, 2025).",
    "referencePour": [
+    "hypothyroïdie",
+    "hyperthyroïdie",
+    "nodule thyroïdien",
     "Dysthyroïdie primaire"
    ],
-   "smarterMedicine": "On ne prescrit pas de lévothyroxine sur une seule valeur anormale, sauf hypothyroïdie manifeste, et on refait le dosage au moins trois mois plus tard, selon Smarter Medicine, liste Top 5 de la Société suisse d'endocrinologie et de diabétologie (SSED, 2023).",
+   "smarterMedicine": "Ne pas prescrire de levothyroxine sur la base d’une seule valeur de laboratoire révélant une anomalie de la fonction thyroïdienne, à l’exception des cas d’hypothyroïdie cliniquement manifeste ou de diagnostic biologique répété d’hypothyroïdie infraclinique avec des manifestations justifiant un traitement (recommandations hors grossesse) (Smarter Medicine, Société suisse d’endocrinologie et de diabétologie, 2025).",
    "radioAnatomieNormale": null,
-   "precautions": "Pendant la grossesse, on traite plus largement l'hypothyroïdie infraclinique, et la règle du contrôle à trois mois ne s'applique pas, selon la liste Top 5 de la SSED (2023). Dans une hyperthyroïdie discrète, seule la T3 libre peut être élevée avec une TSH indétectable, selon les recommandations de l'ETA 2018 (Kahaly et al.).",
+   "precautions": "On recontrôle une hypothyroïdie infraclinique au moins 3 mois plus tard avant de traiter, car elle se normalise souvent (SSED, 2025).",
    "irradiation_mSv": 0,
-   "delai": "rapide (< 24 h)",
+   "delai": "programmé",
    "prelevementRef": "sang_veineux",
    "analysesRef": [
     "T3 libre",
     "T4 libre",
     "TSH"
    ],
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
+   "synonymes": [
+    "Bilan thyroïdien",
+    "Thyréostimuline",
+    "Hormones thyroïdiennes libres",
+    "Thyroxine libre",
+    "T4L",
+    "T3L"
+   ],
+   "aspectNormal": "Une TSH et une T4 libre dans les intervalles de référence du laboratoire, établis pour l’âge (SSED, 2025).",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "TSH élevée, T4 libre basse",
+     "signification": "Elle signe une hypothyroïdie primaire manifeste (SSED, 2025)."
+    },
+    {
+     "anomalie": "TSH élevée, T4 libre normale",
+     "signification": "Elle définit une hypothyroïdie infraclinique, souvent transitoire (SSED, 2025)."
+    },
+    {
+     "anomalie": "TSH basse, T4 libre élevée",
+     "signification": "Elle traduit une thyrotoxicose (NIV, 2022)."
+    },
+    {
+     "anomalie": "TSH effondrée, T3 libre élevée",
+     "signification": "Avec une T4 libre normale, elle évoque une T3-toxicose (NIV, 2022)."
+    },
+    {
+     "anomalie": "TSH haute, T4 libre normale",
+     "signification": "Elle définit l'hypothyroïdie infraclinique, selon la liste Top 5 de la SSED (2023)."
+    },
+    {
+     "anomalie": "TSH < 0,1 mUI/l, hormones normales",
+     "signification": "Elle définit l'hyperthyroïdie infraclinique de grade 2, selon l'ETA 2015 (Biondi et al.)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Hypothyroïdie infraclinique",
+     "anomaliesQuiLeComposent": [
+      "TSH élevée, T4 libre normale"
+     ]
+    },
+    {
+     "syndrome": "Thyrotoxicose",
+     "anomaliesQuiLeComposent": [
+      "TSH basse, T4 libre élevée",
+      "TSH effondrée, T3 libre élevée"
+     ]
+    },
+    {
+     "syndrome": "Dysthyroïdie infraclinique",
+     "anomaliesQuiLeComposent": [
+      "TSH haute, T4 libre normale",
+      "TSH < 0,1 mUI/l, hormones normales"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Thyroïdite de Hashimoto",
+     "anomalieTypique": "TSH élevée, T4 libre basse"
+    },
+    {
+     "pathologie": "Maladie de Basedow",
+     "anomalieTypique": "TSH basse, T4 libre élevée"
+    },
+    {
+     "pathologie": "Nodule toxique",
+     "anomalieTypique": "TSH effondrée, T3 libre élevée"
+    },
+    {
+     "pathologie": "Hypothyroïdie infraclinique",
+     "anomalieTypique": "TSH haute, T4 libre normale"
+    },
+    {
+     "pathologie": "Hyperthyroïdie infraclinique",
+     "anomalieTypique": "TSH < 0,1 mUI/l, hormones normales"
+    }
+   ],
    "bulle": {
     "def": "On évalue la fonction thyroïdienne en mesurant la TSH, hormone hypophysaire qui stimule la thyroïde, et la T4 libre, selon la liste Top 5 de la SSED (2023).",
     "pourquoi": "Une TSH élevée avec des hormones libres normales signe une hypothyroïdie infraclinique, et des hormones libres basses signent une hypothyroïdie manifeste, selon la liste Top 5 de la SSED (2023).",
@@ -204,22 +562,24 @@
    "modalite": "Biologie",
    "nom": "Anticorps anti-TPO, anti-thyroglobuline, anti-récepteur de la TSH (TRAb)",
    "visees": [
-    "diagnostique",
-    "etiologique"
+    "etiologique",
+    "diagnostique"
    ],
-   "signeRecherche": "Auto-immunité thyroïdienne",
-   "seuil": "Un taux au-dessus du seuil du laboratoire rend le test positif, et les TRAb mesurés par les tests de deuxième et troisième générations ont une sensibilité de 97 % et une spécificité de 98 % pour la maladie de Basedow, selon les recommandations de l'ETA 2018 (Kahaly et al.).",
-   "indication": "On dose les anti-TPO quand la TSH est élevée, pour en chercher la cause, selon les recommandations de l'ETA 2023 (Durante et al.), et les TRAb pour diagnostiquer une maladie de Basedow et la distinguer des autres hyperthyroïdies, selon les recommandations de l'ETA 2018 (Kahaly et al.).",
-   "discriminant": "Les anti-TPO sont le test le plus sensible de la thyroïdite de Hashimoto, selon la liste Top 5 de la SSED (2023).",
-   "avantageSelectif": "Des TRAb positifs avec une échographie typique évitent la scintigraphie dans la grande majorité des maladies de Basedow, selon les recommandations de l'ETA 2018 (Kahaly et al.).",
-   "plutotQue": "On dose les anti-thyroglobuline seulement si les anti-TPO sont négatifs et qu'on suspecte une thyroïdite chronique, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "limite": "Leur répétition n'apporte aucune information supplémentaire pour le diagnostic ou la prise en charge d'une thyroïdite auto-immune, selon la liste Top 5 de la SSED (2023).",
+   "signeRecherche": "Thyroïdite auto-immune ou maladie de Basedow",
+   "seuil": "Des Ac anti-TPO positifs signent une thyroïdite auto-immune, et des TRAb positifs avec une thyrotoxicose, une maladie de Basedow (ETA, 2018) ; le seuil de positivité dépend de la méthode du laboratoire.",
+   "indication": "On dose les Ac anti-TPO devant un goitre, une autre maladie auto-immune ou une TSH élevée (SSED, 2025) ; on dose les TRAb pour le diagnostic du Basedow, avant l’arrêt des antithyroïdiens et pendant la grossesse (ETA, 2018).",
+   "discriminant": "Les Ac anti-TPO sont le test le plus sensible de la thyroïdite de Hashimoto (SSED, 2025) ; les TRAb distinguent le Basedow des autres causes de thyrotoxicose (ETA, 2018).",
+   "avantageSelectif": "Une prise de sang suffit pour rattacher une dysthyroïdie à sa cause auto-immune (SSED, 2025).",
+   "plutotQue": "On dose les TRAb plutôt que de faire d’emblée une scintigraphie pour poser un Basedow typique (ETA, 2018).",
+   "limite": "Répéter les Ac anti-TPO n’apporte rien au diagnostic ni au suivi (SSED, 2025) ; la thyroïdite auto-immune touche 5 à 10 % de la population (SSED, 2025).",
    "referencePour": [
+    "thyroïdite de Hashimoto",
+    "maladie de Basedow",
     "Maladie de Basedow (TRAb)"
    ],
-   "smarterMedicine": "On ne répète pas le dosage des anticorps anti-TPO quand ils ont déjà été détectés, selon Smarter Medicine, liste Top 5 de la Société suisse d'endocrinologie et de diabétologie (SSED, 2023).",
+   "smarterMedicine": "Aucune mesure répétée si des anticorps anti-thyroperoxydase (Ac anti-TPO) ont été détectés au préalable (Smarter Medicine, Société suisse d’endocrinologie et de diabétologie, 2025).",
    "radioAnatomieNormale": null,
-   "precautions": "Toute femme enceinte avec un antécédent de maladie thyroïdienne auto-immune fait doser ses TRAb dès le début de la grossesse, puis à 18–22 semaines s'ils sont élevés, selon les recommandations de l'ETA 2018 (Kahaly et al.). Après un cancer différencié de la thyroïde, on répète en revanche les anti-thyroglobuline, car ils faussent le dosage de la thyroglobuline, selon la liste Top 5 de la SSED (2023).",
+   "precautions": "Les Ac anti-Tg se répètent seulement dans le suivi d’un cancer différencié, pour détecter une interférence avec la thyroglobuline (SSED, 2025).",
    "irradiation_mSv": 0,
    "delai": "programmé",
    "prelevementRef": "sang_veineux",
@@ -229,11 +589,65 @@
     "TSH",
     "Thyroglobuline"
    ],
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
+   "synonymes": [
+    "Anticorps antithyroïdiens",
+    "Anticorps anti-thyroperoxydase",
+    "Anticorps anti-récepteur de la TSH",
+    "Anti-TPO",
+    "Anti-thyroperoxydase",
+    "Anti-Tg",
+    "TRAb",
+    "TSI"
+   ],
+   "aspectNormal": "Des anticorps sous le seuil de positivité de la méthode du laboratoire (SSED, 2025).",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Ac anti-TPO positifs",
+     "signification": "Ils signent une thyroïdite auto-immune (SSED, 2025)."
+    },
+    {
+     "anomalie": "Ac anti-Tg positifs",
+     "signification": "Ils accompagnent une thyroïdite auto-immune et faussent le dosage de la Tg (SSED, 2025)."
+    },
+    {
+     "anomalie": "TRAb positifs",
+     "signification": "Avec une thyrotoxicose, ils signent une maladie de Basedow (ETA, 2018)."
+    },
+    {
+     "anomalie": "TRAb persistants à 12–18 mois",
+     "signification": "Ils annoncent une maladie persistante sous antithyroïdiens (ETA, 2018)."
+    },
+    {
+     "anomalie": "Anti-TPO positifs",
+     "signification": "Ils sont le test le plus sensible de la thyroïdite de Hashimoto, selon la liste Top 5 de la SSED (2023)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Thyroïdite auto-immune",
+     "anomaliesQuiLeComposent": [
+      "Ac anti-TPO positifs",
+      "Ac anti-Tg positifs"
+     ]
+    },
+    {
+     "syndrome": "Auto-immunité thyroïdienne",
+     "anomaliesQuiLeComposent": [
+      "Anti-TPO positifs",
+      "TRAb positifs"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Thyroïdite de Hashimoto",
+     "anomalieTypique": "Ac anti-TPO positifs"
+    },
+    {
+     "pathologie": "Maladie de Basedow",
+     "anomalieTypique": "TRAb positifs"
+    }
+   ],
    "bulle": {
     "def": "Les anti-TPO et les anti-thyroglobuline marquent la thyroïdite auto-immune, selon la liste Top 5 de la SSED (2023), et les TRAb, dirigés contre le récepteur de la TSH, marquent la maladie de Basedow, selon les recommandations de l'ETA 2018 (Kahaly et al.).",
     "pourquoi": "La thyroïdite auto-immune chronique est la cause la plus fréquente d'hypothyroïdie, et ses anticorps circulants en signent l'origine, selon la liste Top 5 de la SSED (2023).",
@@ -246,31 +660,93 @@
    "modalite": "Biologie",
    "nom": "Thyroglobuline (suivi du cancer)",
    "visees": [
-    "therapeutique",
-    "complications"
+    "sortie",
+    "complications",
+    "therapeutique"
    ],
-   "signeRecherche": "Tissu thyroïdien résiduel ou récidive",
-   "seuil": "Après thyroïdectomie totale et iode radioactif, une thyroglobuline non stimulée inférieure à 0,2 µg/l sans anticorps anti-thyroglobuline définit une excellente réponse, et le seuil est de 2,5 µg/l sans iode radioactif, selon les recommandations de l'ATA 2025 (Ringel et al.).",
-   "indication": "On la dose sous lévothyroxine, avec les anticorps anti-thyroglobuline, pendant le suivi d'un cancer différencié de la thyroïde après une thyroïdectomie totale, avec ou sans iode radioactif, tous les 6 à 12 mois pendant le suivi initial, puis tous les 1 à 2 ans après 5 à 8 ans de réponse excellente durable, selon les recommandations de l'ATA 2025 (Ringel et al.). On ne la dose pas en routine après une lobectomie, selon les recommandations de l'ATA 2025 (Ringel et al.).",
-   "discriminant": "Après thyroïdectomie totale, une thyroglobuline qui monte ou des anticorps anti-thyroglobuline qui apparaissent font poursuivre la surveillance, selon les recommandations de l'ATA 2025 (Ringel et al.).",
-   "avantageSelectif": "Une prise de sang suffit et classe, avec l'imagerie, la réponse au traitement, selon les recommandations de l'ATA 2025 (Ringel et al.).",
-   "plutotQue": "Après une lobectomie, on suit surtout l'échographie, car l'excellente réponse se définit alors par des nodules normaux ou à faible risque dans le lobe restant, selon les recommandations de l'ATA 2025 (Ringel et al.).",
-   "limite": "Elle n'a aucun rôle dans le bilan initial d'un nodule thyroïdien, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "referencePour": [],
+   "signeRecherche": "Récidive d’un cancer différencié",
+   "seuil": "Après thyroïdectomie totale et iode radioactif, une Tg sous 0,2 µg/l sous traitement ou sous 1 µg/l après stimulation, sans anticorps, signe une réponse excellente ; au-dessus de 1 µg/l sous traitement ou de 10 µg/l stimulée, la réponse biologique est incomplète (ATA, 2015).",
+   "indication": "On la dose dans le suivi d’un cancer différencié opéré, tous les 6 à 12 mois au début, avec les Ac anti-Tg à chaque fois (ATA, 2015).",
+   "discriminant": "Après thyroïdectomie totale et iode radioactif, une Tg qui monte signale une maladie persistante et impose d’autres examens (ATA, 2015).",
+   "avantageSelectif": "C’est une simple prise de sang qui, avec l’échographie, suffit au suivi des patients à faible risque (ATA, 2015).",
+   "plutotQue": "On suit la Tg et ses anticorps plutôt que de refaire des scintigraphies au corps entier (ATA, 2015).",
+   "limite": "Elle est élevée dans la plupart des maladies thyroïdiennes et ne sert pas au diagnostic d’un nodule ; les Ac anti-Tg, présents chez 25 % des patients opérés et 10 % de la population, la sous-estiment (ATA, 2015).",
+   "referencePour": [
+    "cancer différencié de la thyroïde"
+   ],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": "On dose les anticorps anti-thyroglobuline à chaque contrôle, car ils peuvent fausser la mesure de la thyroglobuline, selon la liste Top 5 de la SSED (2023).",
+   "precautions": "On la dose avec les Ac anti-Tg, de préférence dans le même laboratoire et avec la même méthode (ATA, 2015) ; 1 ng/ml correspond à 1 µg/l.",
    "irradiation_mSv": 0,
    "delai": "programmé",
    "prelevementRef": "sang_veineux",
    "analysesRef": [
     "Thyroglobuline"
    ],
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
+   "synonymes": [
+    "Tg sérique",
+    "Thyroglobuline sérique",
+    "Marqueur tumoral thyroïdien",
+    "Tg",
+    "Marqueur du cancer thyroïdien"
+   ],
+   "aspectNormal": "Après thyroïdectomie totale et iode radioactif, une Tg indétectable, sous 0,2 µg/l sous traitement, sans anticorps (ATA, 2015).",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Tg indétectable sans anticorps",
+     "signification": "C’est une réponse excellente au traitement (ATA, 2015)."
+    },
+    {
+     "anomalie": "Tg sous traitement > 1 µg/l",
+     "signification": "C’est une réponse biologique incomplète (ATA, 2015)."
+    },
+    {
+     "anomalie": "Tg en hausse",
+     "signification": "Elle impose d’autres examens et parfois un traitement (ATA, 2015)."
+    },
+    {
+     "anomalie": "Ac anti-Tg en hausse",
+     "signification": "Ils sont associés à un risque accru de récidive (ATA, 2015)."
+    },
+    {
+     "anomalie": "Thyroglobuline en hausse",
+     "signification": "Elle fait poursuivre la surveillance, selon l'ATA 2025 (Ringel et al.)."
+    },
+    {
+     "anomalie": "Apparition d'anticorps anti-Tg",
+     "signification": "Elle fait aussi poursuivre la surveillance, selon l'ATA 2025 (Ringel et al.)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Réponse biologique incomplète",
+     "anomaliesQuiLeComposent": [
+      "Tg sous traitement > 1 µg/l",
+      "Ac anti-Tg en hausse"
+     ]
+    },
+    {
+     "syndrome": "Maladie thyroïdienne résiduelle",
+     "anomaliesQuiLeComposent": [
+      "Thyroglobuline en hausse",
+      "Apparition d'anticorps anti-Tg"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Récidive de cancer papillaire",
+     "anomalieTypique": "Tg en hausse"
+    },
+    {
+     "pathologie": "Cancer différencié en rémission",
+     "anomalieTypique": "Tg indétectable sans anticorps"
+    },
+    {
+     "pathologie": "Récidive d'un cancer différencié",
+     "anomalieTypique": "Thyroglobuline en hausse"
+    }
+   ],
    "bulle": {
     "def": "La thyroglobuline est une protéine de la thyroïde qu'on dose comme marqueur dans le suivi du cancer différencié, selon les recommandations de l'ATA 2025 (Ringel et al.).",
     "pourquoi": "Après l'ablation de la thyroïde, une thyroglobuline détectable ou croissante fait chercher un tissu résiduel ou une récidive, selon les recommandations de l'ATA 2025 (Ringel et al.).",
@@ -284,30 +760,79 @@
    "nom": "Calcitonine (cancer médullaire)",
    "visees": [
     "diagnostique",
+    "etiologique",
     "therapeutique"
    ],
-   "signeRecherche": "Carcinome médullaire de la thyroïde",
-   "seuil": "Une calcitonine basale supérieure à 30 ng/l chez la femme et à 34 ng/l chez l'homme fait suspecter un carcinome médullaire, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "indication": "On la dose avant une chirurgie ou un traitement mini-invasif d'un nodule, devant une cytologie indéterminée ou une échographie suspecte, et toujours en cas d'antécédent personnel ou familial de carcinome médullaire ou de NEM2, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "discriminant": "Une calcitonine basale supérieure à 100 ng/l a une valeur prédictive positive qui atteint 100 % pour le carcinome médullaire, selon Kiriakopoulos et al. (2022).",
-   "avantageSelectif": "Son dosage dans le liquide de rinçage de la cytoponction aide quand la cytologie évoque un carcinome médullaire ou quand la calcitonine sérique est élevée, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "plutotQue": "On la réserve à des situations choisies plutôt qu'au dépistage de tous les nodules, car au plus une personne dépistée sur 200 a un carcinome médullaire, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "limite": "Une insuffisance rénale chronique, une hypergastrinémie, une hypercalcémie aiguë, d'autres tumeurs neuroendocrines et des médicaments comme les inhibiteurs de la pompe à protons élèvent aussi la calcitonine, selon Kiriakopoulos et al. (2022).",
-   "referencePour": [],
+   "signeRecherche": "Cancer médullaire de la thyroïde",
+   "seuil": "Une calcitonine basale au-dessus de 50 à 100 pg/ml, soit 50 à 100 ng/l, fait souvent porter le diagnostic de cancer médullaire (ATA, 2015).",
+   "indication": "On peut la doser quand un résultat élevé changerait la conduite chirurgicale, par exemple avant une chirurgie partielle ou avec une cytologie suspecte qui n’évoque pas un cancer papillaire (ATA, 2015).",
+   "discriminant": "Son dosage peut détecter plus tôt une hyperplasie des cellules C et un cancer médullaire (ATA, 2015).",
+   "avantageSelectif": "Le dosage dans le liquide de rinçage de la cytoponction aide quand la calcitonine sanguine est modérément élevée, entre 20 et 100 pg/ml (ATA, 2015).",
+   "plutotQue": "On dose la calcitonine de façon ciblée plutôt que chez tous les porteurs de nodule, car son dosage systématique n’est ni recommandé ni déconseillé (ATA, 2015).",
+   "limite": "Sa sensibilité, sa spécificité, les méthodes de dosage et les seuils sous stimulation restent mal établis (ATA, 2015).",
+   "referencePour": [
+    "cancer médullaire de la thyroïde"
+   ],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": "Chez le patient sous inhibiteur de la pompe à protons ou insuffisant rénal, on interprète avec prudence une calcitonine modérément élevée, et on utilise des seuils propres au sexe et à l'âge, selon Kiriakopoulos et al. (2022).",
+   "precautions": "1 pg/ml correspond à 1 ng/l ; le test de stimulation par la pentagastrine n’est pas disponible partout (ATA, 2015).",
    "irradiation_mSv": 0,
    "delai": "programmé",
    "prelevementRef": "sang_veineux",
    "analysesRef": [
     "Calcitonine"
    ],
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
+   "synonymes": [
+    "Calcitonine sérique",
+    "Thyrocalcitonine",
+    "Marqueur des cellules C",
+    "CT basale"
+   ],
+   "aspectNormal": "Une calcitonine basse, sous le seuil du laboratoire, sans argument pour un cancer médullaire (ATA, 2015).",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Calcitonine > 100 ng/l",
+     "signification": "Elle fait souvent porter le diagnostic de cancer médullaire (ATA, 2015)."
+    },
+    {
+     "anomalie": "Calcitonine entre 20 et 100 ng/l",
+     "signification": "Elle justifie un dosage dans le liquide de cytoponction (ATA, 2015)."
+    },
+    {
+     "anomalie": "Calcitonine élevée au rinçage",
+     "signification": "Elle oriente le nodule vers un cancer médullaire (ATA, 2015)."
+    },
+    {
+     "anomalie": "Calcitonine > 30 ou 34 ng/l",
+     "signification": "Elle fait suspecter un carcinome médullaire, selon les recommandations de l'ETA 2023 (Durante et al.)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Suspicion de cancer médullaire",
+     "anomaliesQuiLeComposent": [
+      "Calcitonine entre 20 et 100 ng/l",
+      "Calcitonine élevée au rinçage"
+     ]
+    },
+    {
+     "syndrome": "Hypercalcitoninémie",
+     "anomaliesQuiLeComposent": [
+      "Calcitonine > 30 ou 34 ng/l",
+      "Calcitonine > 100 ng/l"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Cancer médullaire de la thyroïde",
+     "anomalieTypique": "Calcitonine > 100 ng/l"
+    },
+    {
+     "pathologie": "Carcinome médullaire de la thyroïde",
+     "anomalieTypique": "Calcitonine > 100 ng/l"
+    }
+   ],
    "bulle": {
     "def": "La calcitonine est une hormone produite surtout par les cellules parafolliculaires, ou cellules C, de la thyroïde, selon Kiriakopoulos et al. (2022).",
     "pourquoi": "Le carcinome médullaire sécrète de la calcitonine, qui sert à son diagnostic et à son suivi, selon Kiriakopoulos et al. (2022).",
@@ -323,30 +848,104 @@
     "diagnostique",
     "therapeutique"
    ],
-   "signeRecherche": "Catégorie cytologique de Bethesda",
-   "seuil": "Une cytologie suspecte de malignité (catégorie V) ou maligne (catégorie VI) porte un risque moyen de malignité de 74 % et de 97 %, selon la classification de Bethesda 2023 (Ali et al.).",
-   "indication": "On ponctionne un nodule EU-TIRADS 5 de plus de 10 mm, EU-TIRADS 4 de plus de 15 mm ou EU-TIRADS 3 de plus de 20 mm, ainsi que tout ganglion suspect, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "discriminant": "Elle classe le nodule en six catégories, dont le risque moyen de malignité va de 4 % pour une cytologie bénigne à 97 % pour une cytologie maligne, selon la classification de Bethesda 2023 (Ali et al.).",
-   "avantageSelectif": "Elle se fait sous guidage échographique, par aspiration ou par capillarité, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "plutotQue": "Elle précède la micro-biopsie, qu'on réserve en deuxième intention à des situations particulières, selon les recommandations de l'ETA 2023 (Durante et al.).",
-   "limite": "Une cytologie non diagnostique garde un risque moyen de malignité de 13 %, et une atypie de signification indéterminée de 22 %, selon la classification de Bethesda 2023 (Ali et al.). On répète alors la ponction, selon les recommandations de l'ETA 2023 (Durante et al.).",
+   "signeRecherche": "Cancer dans un nodule thyroïdien",
+   "seuil": "Le risque de cancer estimé est de 1 à 4 % en Bethesda I, 0 à 3 % en II, 5 à 15 % en III, 15 à 30 % en IV, 60 à 75 % en V et 97 à 99 % en VI (ATA, 2015).",
+   "indication": "On ponctionne un nodule EU-TIRADS 3 de plus de 20 mm, EU-TIRADS 4 de plus de 15 mm ou EU-TIRADS 5 de plus de 10 mm (EU-TIRADS, 2017).",
+   "discriminant": "Elle classe le nodule en six catégories de Bethesda, chacune avec un risque de cancer et une conduite (ATA, 2015).",
+   "avantageSelectif": "Le guidage échographique augmente le taux de prélèvements interprétables, surtout si la part kystique est faible (ATA, 2015).",
+   "plutotQue": "On ponctionne sous échographie plutôt qu’à la palpation, pour améliorer la qualité des prélèvements (ATA, 2015).",
+   "limite": "Les prélèvements non diagnostiques représentent 2 à 16 % des cytoponctions (ATA, 2015) ; un premier résultat bénin dans un nodule EU-TIRADS 5 se contrôle dans les 3 mois (EU-TIRADS, 2017).",
    "referencePour": [
+    "nodule thyroïdien suspect",
     "Caractérisation cytologique d'un nodule"
    ],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": "Un trouble sévère de la coagulation contre-indique la ponction, alors qu'un traitement anticoagulant ne la contre-indique pas tant que l'INR reste inférieur à 3, selon les recommandations de l'ETA 2023 (Durante et al.). On évite de ponctionner un nodule autonome, qui donne souvent une cytologie indéterminée, selon l'EANM (Giovanella et al., 2019).",
+   "precautions": "Un nodule chaud à la scintigraphie ne se ponctionne pas (ATA, 2015) ; un nodule infracentimétrique suspect sans ganglion peut être surveillé (EU-TIRADS, 2017).",
    "irradiation_mSv": 0,
    "delai": "programmé",
    "prelevementRef": "biopsies_tissulaires",
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
+   "synonymes": [
+    "Ponction à l’aiguille fine",
+    "Cytologie thyroïdienne",
+    "Cytoponction thyroïdienne",
+    "Ponction thyroïdienne",
+    "Cytoponction de la thyroïde",
+    "Bethesda",
+    "Ponction à l'aiguille fine"
+   ],
+   "aspectNormal": "Un prélèvement bénin, Bethesda II, riche en colloïde et en cellules folliculaires sans atypie (ATA, 2015).",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Bethesda I non diagnostique",
+     "signification": "On refait la ponction sous échographie (ATA, 2015)."
+    },
+    {
+     "anomalie": "Bethesda II bénin",
+     "signification": "Le risque de cancer est de 0 à 3 % (ATA, 2015)."
+    },
+    {
+     "anomalie": "Bethesda III atypies",
+     "signification": "Le risque est de 5 à 15 % ; on peut refaire une ponction ou un test moléculaire (ATA, 2015)."
+    },
+    {
+     "anomalie": "Bethesda IV néoplasme folliculaire",
+     "signification": "Le risque est de 15 à 30 % (ATA, 2015)."
+    },
+    {
+     "anomalie": "Bethesda V suspect",
+     "signification": "Le risque est de 60 à 75 % (ATA, 2015)."
+    },
+    {
+     "anomalie": "Bethesda VI malin",
+     "signification": "Le risque est de 97 à 99 % (ATA, 2015)."
+    },
+    {
+     "anomalie": "Bethesda V",
+     "signification": "Elle porte un risque moyen de malignité de 74 %, selon la classification de Bethesda 2023 (Ali et al.)."
+    },
+    {
+     "anomalie": "Bethesda VI",
+     "signification": "Elle porte un risque moyen de malignité de 97 %, selon la classification de Bethesda 2023 (Ali et al.)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Cytologie indéterminée",
+     "anomaliesQuiLeComposent": [
+      "Bethesda III atypies",
+      "Bethesda IV néoplasme folliculaire"
+     ]
+    },
+    {
+     "syndrome": "Nodule cytologiquement suspect",
+     "anomaliesQuiLeComposent": [
+      "Bethesda V",
+      "Bethesda VI"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Cancer papillaire de la thyroïde",
+     "anomalieTypique": "Bethesda VI malin"
+    },
+    {
+     "pathologie": "Néoplasme folliculaire",
+     "anomalieTypique": "Bethesda IV néoplasme folliculaire"
+    },
+    {
+     "pathologie": "Nodule colloïde bénin",
+     "anomalieTypique": "Bethesda II bénin"
+    },
+    {
+     "pathologie": "Carcinome papillaire de la thyroïde",
+     "anomalieTypique": "Bethesda VI"
+    }
+   ],
    "bulle": {
     "def": "La cytoponction aspire à l'aiguille fine des cellules du nodule sous échographie, et le cytopathologiste les classe en six catégories, selon la classification de Bethesda 2023 (Ali et al.).",
-    "pourquoi": "Chaque catégorie de Bethesda correspond à un risque de malignité et à une conduite, de la surveillance à la chirurgie, selon la classification de Bethesda 2023 (Ali et al.).",
+    "pourquoi": "Elle dit si le nodule est bénin, indéterminé ou malin selon Bethesda.",
     "confusion": "Une cytologie bénigne semble exclure un cancer, mais on répète la ponction si l'échographie montre un risque élevé, selon les recommandations de l'ETA 2023 (Durante et al.).",
     "retenir": "On répète la cytoponction après une ponction non diagnostique ou une cytologie de catégorie III, selon les recommandations de l'ETA 2023 (Durante et al.)."
    }
@@ -355,59 +954,104 @@
    "id": "thyroide__laryngoscopie_avant_et_apres_thyroidecto",
    "modalite": "Exploration fonctionnelle",
    "nom": "Laryngoscopie avant et après thyroïdectomie (cordes vocales)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
-   "referencePour": [],
+   "visees": [
+    "retentissement",
+    "complications"
+   ],
+   "signeRecherche": "Paralysie d’une corde vocale",
+   "seuil": "Toute voix anormale avant l’opération, ou tout changement de voix entre 2 semaines et 2 mois après, fait examiner la mobilité des cordes vocales (AAO-HNS, 2013).",
+   "indication": "Avant l’opération, on l’indique si la voix est anormale, ou si elle est normale mais après une chirurgie du cou à risque pour le nerf, ou devant un cancer avec extension extrathyroïdienne (AAO-HNS, 2013).",
+   "discriminant": "Elle montre directement la mobilité des cordes vocales, alors qu’une paralysie ancienne peut ne donner aucun symptôme vocal (ATA, 2015).",
+   "avantageSelectif": "C’est le seul moyen de connaître le taux de paralysie des cordes vocales après chirurgie thyroïdienne (ATA, 2015).",
+   "plutotQue": "On examine le larynx plutôt que de se fier à la seule écoute de la voix, qui peut manquer une paralysie compensée (ATA, 2015).",
+   "limite": "Elle ne prévient pas la lésion : environ 1 patient sur 10 a une atteinte nerveuse temporaire et jusqu’à 1 sur 25 des troubles de la voix durables (AAO-HNS, 2013).",
+   "referencePour": [
+    "paralysie récurrentielle",
+    "bilan préopératoire de thyroïdectomie"
+   ],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "On transmet un résultat anormal à l’anesthésiste avant l’opération (AAO-HNS, 2013) ; l’examen n’irradie pas.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
    "prelevementRef": null,
-   "synonymes": [],
-   "aspectNormal": null,
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Nasofibroscopie laryngée",
+    "Examen des cordes vocales",
+    "Laryngoscopie indirecte"
+   ],
+   "aspectNormal": "Deux cordes vocales mobiles, sans paralysie, avant comme après l’opération (AAO-HNS, 2013).",
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Corde vocale immobile",
+     "signification": "Elle traduit une paralysie du nerf laryngé récurrent (ATA, 2015)."
+    },
+    {
+     "anomalie": "Paralysie compensée asymptomatique",
+     "signification": "La corde controlatérale compense, et la voix peut sembler normale (ATA, 2015)."
+    },
+    {
+     "anomalie": "Paralysie bilatérale",
+     "signification": "Elle expose à une détresse respiratoire et à une trachéotomie (ATA, 2015)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Atteinte récurrentielle",
+     "anomaliesQuiLeComposent": [
+      "Corde vocale immobile",
+      "Paralysie compensée asymptomatique"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Paralysie récurrentielle postopératoire",
+     "anomalieTypique": "Corde vocale immobile"
+    },
+    {
+     "pathologie": "Cancer thyroïdien invasif",
+     "anomalieTypique": "Paralysie compensée asymptomatique"
+    }
+   ],
+   "bulle": {
+    "def": "La laryngoscopie regarde bouger les cordes vocales avant et après une thyroïdectomie.",
+    "pourquoi": "Elle dépiste une paralysie du nerf récurrent, parfois silencieuse.",
+    "confusion": "On se fie à une voix normale : une paralysie ancienne peut être compensée.",
+    "retenir": "Voix anormale, cou déjà opéré ou cancer invasif : on examine."
+   }
   }
  ],
  "glossaire": {
-  "TSH": "La TSH est la thyréostimuline, l'hormone de l'hypophyse qui stimule la thyroïde.",
+  "TSH": "La TSH, ou thyréostimuline, est l’hormone hypophysaire qui commande la thyroïde ; c’est le premier dosage du bilan thyroïdien.",
   "T4 libre": "La T4 libre est la fraction de la thyroxine qui n'est pas liée aux protéines du sang.",
   "T3 libre": "La T3 libre est la fraction de la triiodothyronine, l'hormone thyroïdienne active, qui n'est pas liée aux protéines du sang.",
   "mUI/l": "Le mUI/l, ou milli-unité internationale par litre, est l'unité de concentration de la TSH.",
-  "EU-TIRADS": "L'EU-TIRADS est le système européen qui classe les nodules thyroïdiens en cinq catégories de risque échographique.",
-  "ETA": "L'ETA est l'Association européenne de la thyroïde, qui publie des recommandations de pratique clinique.",
-  "SSED": "La SSED est la Société suisse d'endocrinologie et de diabétologie.",
-  "EANM": "L'EANM est l'Association européenne de médecine nucléaire.",
+  "EU-TIRADS": "L’EU-TIRADS est le score européen de risque de malignité des nodules thyroïdiens à l’échographie, de 1 à 5.",
+  "ETA": "L’ETA, ou European Thyroid Association, est la société européenne de thyroïdologie.",
+  "SSED": "La SSED est la Société suisse d’endocrinologie et de diabétologie.",
+  "EANM": "L’EANM est l’association européenne de médecine nucléaire.",
   "ESUR": "L'ESUR est la Société européenne de radiologie urogénitale, qui publie les recommandations sur les produits de contraste.",
-  "ATA": "L'ATA est l'Association américaine de la thyroïde.",
-  "CT": "Le CT est la tomodensitométrie, qui produit des coupes du corps à l'aide de rayons X.",
+  "ATA": "L’ATA, ou American Thyroid Association, est la société américaine de thyroïdologie.",
+  "CT": "Le CT, ou tomodensitométrie, est un examen d’imagerie qui reconstruit des coupes du corps à partir de rayons X.",
   "IRM": "L'IRM est l'imagerie par résonance magnétique, qui n'utilise pas de rayons X.",
-  "OFSP": "L'OFSP est l'Office fédéral de la santé publique.",
+  "OFSP": "L’OFSP, ou Office fédéral de la santé publique, est l’autorité sanitaire fédérale suisse.",
   "NRD": "Les NRD sont les niveaux de référence diagnostiques, qui fixent la dose à ne pas dépasser en routine pour un examen donné.",
   "R-06-06": "R-06-06 est la directive de l'OFSP qui fixe les niveaux de référence diagnostiques en tomodensitométrie.",
   "Valeur cible": "La valeur cible est la dose médiane que l'OFSP demande d'atteindre autant que possible.",
   "mGy·cm": "Le mGy·cm est l'unité du produit dose-longueur, qui mesure la dose d'une acquisition CT sur toute sa longueur.",
   "Dose efficace": "La dose efficace, exprimée en millisieverts (mSv), estime le risque d'une irradiation pour tout le corps.",
-  "TPO": "La TPO est la thyroperoxydase, l'enzyme thyroïdienne visée par les anticorps anti-TPO.",
+  "TPO": "La TPO, ou thyroperoxydase, est l’enzyme thyroïdienne visée par les anticorps de la thyroïdite de Hashimoto.",
   "Anti-TPO": "Les anti-TPO sont des anticorps dirigés contre la thyroperoxydase, typiques de la thyroïdite auto-immune.",
   "Anti-thyroglobuline": "Les anti-thyroglobuline sont des anticorps dirigés contre la thyroglobuline.",
-  "TRAb": "Les TRAb sont les anticorps dirigés contre le récepteur de la TSH, qui stimulent la thyroïde dans la maladie de Basedow.",
+  "TRAb": "Les TRAb sont les anticorps anti-récepteur de la TSH ; leurs formes stimulantes causent la maladie de Basedow.",
   "Thyroglobuline": "La thyroglobuline est la protéine de la thyroïde qui sert de support à la fabrication des hormones thyroïdiennes.",
   "Calcitonine": "La calcitonine est une hormone sécrétée par les cellules C de la thyroïde.",
   "Cellules C": "Les cellules C, ou cellules parafolliculaires, sont les cellules de la thyroïde qui produisent la calcitonine.",
   "Carcinome médullaire": "Le carcinome médullaire est le cancer de la thyroïde qui naît des cellules C.",
   "NEM2": "La NEM2 est la néoplasie endocrinienne multiple de type 2, maladie héréditaire qui associe un carcinome médullaire à d'autres tumeurs endocrines.",
   "Cancer différencié de la thyroïde": "Le cancer différencié de la thyroïde regroupe les cancers papillaires et folliculaires, issus des cellules qui fabriquent les hormones.",
-  "Bethesda": "La classification de Bethesda range la cytologie d'un nodule thyroïdien en six catégories de risque de malignité.",
+  "Bethesda": "Bethesda est la classification en six catégories des résultats de cytoponction thyroïdienne.",
   "Cytoponction": "La cytoponction prélève des cellules à l'aiguille fine pour un examen cytologique.",
   "Micro-biopsie": "La micro-biopsie prélève une carotte de tissu à l'aiguille plus grosse pour un examen histologique.",
   "INR": "L'INR est le rapport normalisé international, qui mesure l'effet des anticoagulants antivitamine K sur la coagulation.",
@@ -438,6 +1082,16 @@
   "Valeur prédictive positive": "La valeur prédictive positive est la probabilité d'avoir la maladie quand le test est positif.",
   "Inhibiteur de la pompe à protons": "Un inhibiteur de la pompe à protons est un médicament qui réduit fortement l'acidité de l'estomac.",
   "Hypergastrinémie": "L'hypergastrinémie est l'excès de gastrine, une hormone digestive, dans le sang.",
-  "Atypie de signification indéterminée": "L'atypie de signification indéterminée est la catégorie III de Bethesda, dont les cellules sont trop atypiques pour être bénignes, mais pas assez pour être suspectes."
+  "Atypie de signification indéterminée": "L'atypie de signification indéterminée est la catégorie III de Bethesda, dont les cellules sont trop atypiques pour être bénignes, mais pas assez pour être suspectes.",
+  "TIRADS": "Le TIRADS est un système de classement échographique du risque de malignité d’un nodule thyroïdien.",
+  "SNMMI": "La SNMMI est la société américaine de médecine nucléaire et d’imagerie moléculaire.",
+  "AAO-HNS": "L’AAO-HNS est l’académie américaine d’oto-rhino-laryngologie et de chirurgie cervico-faciale.",
+  "NIV": "La NIV est la société néerlandaise de médecine interne, qui publie des recommandations cliniques.",
+  "T4": "La T4, ou thyroxine, est la principale hormone produite par la thyroïde ; on dose sa fraction libre.",
+  "T3": "La T3, ou triiodothyronine, est l’hormone thyroïdienne active ; on dose sa fraction libre.",
+  "Ac": "Ac est l’abréviation d’anticorps.",
+  "Tg": "La Tg, ou thyroglobuline, est une protéine de la thyroïde ; elle sert de marqueur après traitement d’un cancer.",
+  "MBq": "Le MBq, ou mégabecquerel, mesure l’activité d’un produit radioactif.",
+  "Tc-99m": "Le Tc-99m, ou technétium 99m, est un traceur radioactif de courte période, utilisé en scintigraphie."
  }
 }

@@ -11,7 +11,7 @@
    "interpretation",
    "diagnostics[]"
   ],
-  "statut": "À REMPLIR",
+  "statut": "PRODUIT — à auditer",
   "regles": [
    "Chaque texte destiné à l'apprenant s'écrit en phrases verbales.",
    "Chaque signe, symptôme et syndrome porte une « bulle » à 4 rubriques : def, pourquoi, confusion, retenir.",
@@ -20,16 +20,66 @@
    "Tout sigle, score ou terme technique (ex. « atypique ») cité dans un texte doit exister dans « glossaire » avec sa définition : aucun renvoi hors de l'application.",
    "Chaque signe ou symptôme porte « presentation » : « typique » ou « atypique » (affiché en rouge).",
    "Le bilan se range par visée (diagnostique avec « 1re intention » et « Gold standard », retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation), puis par groupe (Biologie, Imagerie, Score, Explorations, Clinique) ; chaque examen s'écrit [nom affiché, détail en infobulle : signe recherché et seuil]."
+  ],
+  "aVerifier": [
+   "Tranché au contre-audit : seuil d'artères incompressibles relu dans les recommandations ESC 2024 sur les maladies artérielles périphériques (Mazzolai et al., Eur Heart J 2024) : IPS > 1,40, compléter par index orteil-bras (pathologique ≤ 0,70), pression d'orteil ou Doppler ; ajouté au champ limite. conception/donnees/paraclinique/topographie/7_membres_et_appareil_locomoteur/cheville_et_pied.json › cheville_et_pied__index_de_pression_systolique › Guanella (colloque des HUG, avril 2008) retient le seuil de 0,9 (ABI > 0,9 normal, ABI < 0,9 AOMI). Un seuil d'index très élevé par médiacalcose n'est pas chiffré dans ce texte relu : il n'est pas inventé ici.",
+   "valeurs chiffrées reprises de la fiche contre-auditée cheville_et_pied__index_de_pression_systolique sans relecture du passage dans cette passe (0,9, 95, 100, 1,40) ; aucune relecture faite (seuil de volume atteint avant la vérification des explorations) ; à relire avant fusion.",
+   "Seuils IPS < 0,9 / > 1,3, index orteil-bras < 0,70, IPS < 0,4 et cheville < 50 mmHg concordants avec les recommandations IWGDF/ESVS/SVS 2023 (PDF iwgdfguidelines.org), d'après une recherche web du 23.11.2026 ; « fréquente et souvent peu symptomatique » non relu mot pour mot."
   ]
  },
  "elements": [
   {
-   "fonction": null,
-   "traces": [],
-   "seuils": [],
-   "interpretation": null,
-   "diagnostics": []
+   "fonction": "Chez le diabétique, l'index de pression systolique compare la pression à la cheville et au bras pour dépister une AOMI, en sachant que des artères calcifiées peuvent le fausser, selon les recommandations intersociétés IWGDF, ESVS et SVS 2023 sur l'AOMI du diabétique avec plaie du pied.",
+   "traces": [
+    {
+     "type": "normal",
+     "aspect": "Aspect normal",
+     "description": "Un IPS entre 0,9 et 1,3, avec un index orteil-bras d'au moins 0,70 et des ondes Doppler biphasiques ou triphasiques, rend une AOMI moins probable, selon les recommandations intersociétés IWGDF, ESVS et SVS 2023 sur l'AOMI du diabétique avec plaie du pied."
+    },
+    {
+     "type": "pathologique",
+     "aspect": "IPS < 0,9",
+     "description": "La pression de cheville est inférieure à 90 % de la pression brachiale ; une AOMI devient plus probable, selon les recommandations intersociétés IWGDF, ESVS et SVS 2023 sur l'AOMI du diabétique avec plaie du pied."
+    },
+    {
+     "type": "pathologique",
+     "aspect": "IPS > 1,3",
+     "description": "Le brassard ne parvient pas à comprimer les artères de cheville, raidies par la calcification ; l'IPS est faussement élevé et l'on mesure l'index orteil-bras, selon les recommandations intersociétés IWGDF, ESVS et SVS 2023 sur l'AOMI du diabétique avec plaie du pied."
+    },
+    {
+     "type": "pathologique",
+     "aspect": "IPS < 0,4 ou cheville < 50 mmHg (6,7 kPa)",
+     "description": "La pression de cheville s'effondre sous 50 mmHg (6,7 kPa) ou l'IPS sous 0,4 ; cette ischémie sévère impose un avis vasculaire urgent, selon les recommandations intersociétés IWGDF, ESVS et SVS 2023 sur l'AOMI du diabétique avec plaie du pied."
+    }
+   ],
+   "seuils": [
+    "Selon les recommandations intersociétés IWGDF, ESVS et SVS 2023 sur l'AOMI du diabétique avec plaie du pied, une AOMI est plus probable si l'IPS est inférieur à 0,9 ou supérieur à 1,3, ou si l'index orteil-bras est inférieur à 0,70 ; un IPS inférieur à 0,4 ou une pression de cheville inférieure à 50 mmHg (6,7 kPa) traduit une ischémie sévère."
+   ],
+   "interpretation": "1. Il dépiste au cabinet une AOMI chez le diabétique, chez qui elle est fréquente et souvent peu symptomatique, selon les recommandations intersociétés IWGDF, ESVS et SVS 2023 sur l'AOMI du diabétique avec plaie du pied. 2. La calcification de la média rend les artères de cheville incompressibles et fausse l'IPS vers le haut : un IPS normal ou élevé n'exclut pas une AOMI, d'où l'index orteil-bras et l'analyse des ondes Doppler, selon les recommandations intersociétés IWGDF, ESVS et SVS 2023 sur l'AOMI du diabétique avec plaie du pied.",
+   "diagnostics": [
+    {
+     "diagnostic": "AOMI du diabétique",
+     "argument": "IPS < 0,9"
+    },
+    {
+     "diagnostic": "Médiacalcose",
+     "argument": "IPS > 1,3, artères incompressibles"
+    },
+    {
+     "diagnostic": "Ischémie sévère du pied diabétique",
+     "argument": "IPS < 0,4 ou cheville < 50 mmHg (6,7 kPa)"
+    }
+   ]
   }
  ],
- "glossaire": {}
+ "glossaire": {
+  "AOMI": "Artériopathie oblitérante des membres inférieurs",
+  "ESC": "Société européenne de cardiologie.",
+  "ESVS": "Société européenne de chirurgie vasculaire",
+  "HUG": "Les HUG sont les Hôpitaux universitaires de Genève.",
+  "IAMI": "Colloque des Hôpitaux universitaires de Genève dont le texte d'avril 2008 porte sur l'index cheville-bras.",
+  "IPS": "Index de pression systolique",
+  "IWGDF": "Groupe de travail international sur le pied diabétique",
+  "SVS": "Société américaine de chirurgie vasculaire"
+ }
 }

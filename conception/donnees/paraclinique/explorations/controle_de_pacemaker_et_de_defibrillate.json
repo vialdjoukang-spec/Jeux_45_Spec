@@ -11,7 +11,7 @@
    "interpretation",
    "diagnostics[]"
   ],
-  "statut": "À REMPLIR",
+  "statut": "PRODUIT — à auditer",
   "regles": [
    "Chaque texte destiné à l'apprenant s'écrit en phrases verbales.",
    "Chaque signe, symptôme et syndrome porte une « bulle » à 4 rubriques : def, pourquoi, confusion, retenir.",
@@ -24,12 +24,56 @@
  },
  "elements": [
   {
-   "fonction": null,
-   "traces": [],
-   "seuils": [],
-   "interpretation": null,
-   "diagnostics": []
+   "fonction": "Le contrôle d'un stimulateur ou d'un défibrillateur interroge le boîtier pour lire les seuils, l'état de la pile, les sondes et les mémoires.",
+   "traces": [
+    {
+     "type": "normal",
+     "aspect": "Aspect normal",
+     "description": "Le contrôle normal montre une batterie suffisante, des seuils de stimulation stables, des impédances de sonde normales et aucun événement arythmique récent."
+    },
+    {
+     "type": "pathologique",
+     "aspect": "Seuil de stimulation élevé",
+     "description": "Un seuil qui monte traduit un déplacement ou une dysfonction de sonde et menace la capture, selon l'ESC (stimulation cardiaque, 2021)."
+    },
+    {
+     "type": "pathologique",
+     "aspect": "Impédance de sonde anormale",
+     "description": "Une impédance très basse évoque une rupture d'isolant et une impédance très haute une fracture de conducteur, selon l'ESC (stimulation cardiaque, 2021)."
+    },
+    {
+     "type": "pathologique",
+     "aspect": "Indicateur de remplacement",
+     "description": "Il signale une batterie proche de l'épuisement et impose de programmer le changement du boîtier, selon l'ESC (stimulation cardiaque, 2021)."
+    },
+    {
+     "type": "pathologique",
+     "aspect": "Choc ou thérapie délivrés",
+     "description": "Une thérapie délivrée par le défibrillateur impose de vérifier si l'arythmie était réelle ou s'il s'agissait d'un choc inapproprié."
+    }
+   ],
+   "seuils": [
+    "Aucun seuil chiffré universel : un seuil de stimulation qui monte, une pile proche de l'épuisement, une sonde défaillante ou une arythmie enregistrée par le boîtier imposent une action, selon l'ESC (stimulation cardiaque, 2021)."
+   ],
+   "interpretation": "1. Il interroge le boîtier lui-même, ce qu'un ECG de surface ne fait que partiellement. 2. Le tableau « Dysfonction de sonde » associe seuil de stimulation élevé, impédance anormale et perte de capture. 3. Un contrôle normal n'exclut pas un événement survenu après la dernière interrogation, et certains patients relèvent aussi d'une télésurveillance.",
+   "diagnostics": [
+    {
+     "diagnostic": "Déplacement de sonde",
+     "argument": "Seuil élevé, perte de capture"
+    },
+    {
+     "diagnostic": "Fracture de sonde",
+     "argument": "Impédance très élevée"
+    },
+    {
+     "diagnostic": "Fin de vie de la batterie",
+     "argument": "Indicateur de remplacement"
+    }
+   ]
   }
  ],
- "glossaire": {}
+ "glossaire": {
+  "ECG": "Électrocardiogramme : enregistrement de l'activité électrique du cœur.",
+  "ESC": "Société européenne de cardiologie, qui publie les recommandations européennes de pratique."
+ }
 }
