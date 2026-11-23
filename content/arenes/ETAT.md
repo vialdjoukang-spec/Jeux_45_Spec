@@ -1,11 +1,11 @@
 # État des 45 arènes (généré par scripts/ebaucher_arenes.py)
 
-Tuiles (une entité peut ouvrir plusieurs arènes) : 4121 · questions cibles : 123514 · fiches produites : 175.
+Tuiles (une entité peut ouvrir plusieurs arènes) : 4121 · questions cibles : 123514 · fiches produites : 179.
 
 | Code | Spécialité | Tuiles | Questions cibles | Fiches produites |
 |---|---|---|---|---|
 | ALL | Allergologie et immunologie clinique | 54 | 1656 | 0 |
-| ANE | Anesthésiologie | 7 | 200 | 0 |
+| ANE | Anesthésiologie | 7 | 200 | 1 |
 | ANG | Angiologie | 67 | 2059 | 0 |
 | CAR | Cardiologie | 175 | 5423 | 175 |
 | CHI | Chirurgie | 126 | 3858 | 0 |
@@ -25,14 +25,14 @@ Tuiles (une entité peut ouvrir plusieurs arènes) : 4121 · questions cibles : 
 | HEM | Hématologie | 149 | 4498 | 0 |
 | INF | Infectiologie | 108 | 3260 | 0 |
 | MTR | Médecine du travail | 34 | 979 | 0 |
-| INT | Médecine intensive | 70 | 2176 | 0 |
+| INT | Médecine intensive | 70 | 2176 | 2 |
 | MIG | Médecine interne générale | 362 | 10682 | 0 |
 | LEG | Médecine légale | 102 | 2896 | 0 |
 | NUC | Médecine nucléaire | 1 | 24 | 0 |
 | PHA | Médecine pharmaceutique | 0 | 0 | 0 |
 | MPR | Médecine physique et réadaptation | 15 | 451 | 0 |
 | TRO | Médecine tropicale et de voyage | 36 | 1062 | 0 |
-| NEP | Néphrologie | 99 | 2975 | 0 |
+| NEP | Néphrologie | 99 | 2975 | 1 |
 | NCH | Neurochirurgie | 64 | 2002 | 0 |
 | NEU | Neurologie | 244 | 7520 | 0 |
 | ONC | Oncologie médicale | 48 | 1470 | 0 |
