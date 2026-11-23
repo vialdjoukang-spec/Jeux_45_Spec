@@ -6,7 +6,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 | Lettre | Rédigées | Total |
 |---|---|---|
-| A | 4 | 12 |
+| A | 7 | 12 |
 | B | 0 | 12 |
 | C | 0 | 12 |
 | D | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **40** | **228** |
+| **Total** | **43** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -38,6 +38,11 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_A-S2-01** : Disposition exacte sur l'information préalable de l'assuré et la levée du secret pour la communication du médecin (art. 3b LAI).
 - **TRANS_A-S2-01** : Durée de l'incapacité moyenne d'au moins 40 % pendant une année (art. 28 LAI) : formulation exacte.
 - **TRANS_A-S2-01** : Statut actuel de Compasso.
+- **TRANS_A-S2-02** : Nom exact de l'outil d'évaluation du bénéfice (OLUTool) et catégories A à D en 2026.
+- **TRANS_A-S2-02** : Taux de rabais par catégorie fixés depuis le 1.1.2024.
+- **TRANS_A-S2-03** : Arrêt de principe du Tribunal fédéral sur l'art. 6 al. 2 LAA révisé (ATF 146 V 51 ?).
+- **TRANS_A-S3-01** : Référence de l'arrêt de principe sur la procédure structurée (ATF 141 V 281, 2015) et son extension aux troubles psychiques (ATF 143 V 409 et 418, 2017).
+- **TRANS_A-S3-01** : Nom officiel exact de la COQEM.
 - **TRANS_F-S1-01** : Numéro de l'article du Code de déontologie FMH consacré au secret (art. 11 ?).
 - **TRANS_F-S1-01** : Peine exacte de l'art. 321 CP après l'harmonisation des peines (en vigueur 2023) : « trois ans au plus ou peine pécuniaire » à confirmer.
 - **TRANS_F-S1-01** : Caractère de plainte (délit poursuivi sur plainte) de l'art. 321 CP.
