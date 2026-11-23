@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-23 14:39 UTC
+# Ouvrier automatique — 2026-11-23 15:06 UTC
 
-Dernier passage : **END_pilote_notions_questions** → en_cours (0.82 USD).
+Dernier passage : **END_pilote_notions_questions** → fait (0.27 USD).
 
-Notions : 3 pathologies produites sans erreur (65 à 70 notions, 15 rubriques chacune, 2 à 3 notions suisses, aucune redite, poids 3 limité à 6-9 notions). Questions : une seule pathologie valide (22 questions : 16 type A, 4 Kprim, 2 menus longs, 0 erreur) ; les deux autres ont été tronquées à la limite de sortie sur les deux essais autorisés, leurs fichiers fautifs sont supprimés. Correctifs appliqués au script (streaming, max_tokens 60000, 18 à 20 questions) mais non testés faute d'essai restant : relancer le pilote des questions pour hyperthyroïdie et acidocétose.
+Les 3 pathologies (hyperthyroïdie, acidocétose, phéochromocytome) ont leurs notions (68, 65 et 70, 15 rubriques, 0 erreur) et leurs questions (20 chacune, 0 erreur, formats A à 5 options, Kprim à 4 affirmations, menus de 13 à 15 options, séries progressives à diagnostic masqué). J'ai ajouté la règle 8ter à SYS_Q (couverture deux fois sous deux angles, 6 notions au plus par question) après un premier essai où 18 notions de poids ≥ 2 manquaient ; au second essai, il n'en manque plus que 2 (hyperthyroïdie), à reprendre en lot. La couverture donne 203 notions, 0 cochée, 174 en attente d'audit, 60 questions.
 
-**Crédit** : 17.80 USD dépensés, 82.20 USD disponibles avant le 27.11.2026 ; aujourd'hui 17.80 / 25.00 USD.
+**Crédit** : 18.76 USD dépensés, 81.24 USD disponibles avant le 27.11.2026 ; aujourd'hui 18.76 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -25,8 +25,9 @@ Notions : 3 pathologies produites sans erreur (65 à 70 notions, 15 rubriques ch
 | endocrino | fait | 1 | 3.138 |
 | interpretations_courbes | fait | 1 | 1.185 |
 | T1_pilote_pec_et_lot600 | fait | 1 | 0.26 |
-| END_pilote_notions_questions | en_cours | 1 | 0.823 |
-| F2_examens_vides | a_faire | 0 |  |
+| END_pilote_notions_questions | fait | 2 | 0.272 |
+| F2_examens_vides | fait | 1 | 0.684 |
+| SSP_etendus | a_faire | 0 |  |
 | F5_cas_thorax | a_faire | 0 |  |
 | T2_recup_lot600 | a_faire | 0 |  |
 | T3_pec_fiches_existantes | a_faire | 0 |  |
