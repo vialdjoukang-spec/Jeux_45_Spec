@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-23 05:53 UTC
+# Ouvrier automatique — 2026-11-23 06:57 UTC
 
-Dernier passage : **neuro** → fait (2.20 USD).
+Dernier passage : **endocrino** → fait (3.14 USD).
 
-Le système Neurologique est rédigé en entier : 13 organes (anatomie, physiologie, sémiologie), 78 pathologies en 4 paliers avec bilan par visée, traitements dosés et sources, glossaire et temps d'examen ; l'hypothalamus reste à l'endocrinien. Trois fenêtres de calcul nouvelles (ne_ppc, ne_glasgow, ne_conduction) passent sans erreur JS, les 13 renommages d'identifiants sont déclarés, et les audits donnent auditer_conception 34/34, couverture réussie et non_perte OK. Mon relu médical porte sur les doses et seuils ; restent à confirmer dans l'AIPS le statut suisse de la ténectéplase, de l'amifampridine, de l'hémine et de l'andexanet, ce qui revient à l'audit médical horaire.
+Le système Endocrinien & métabolique est rédigé en entier : 10 organes (anatomie, physiologie, sémiologie en 9 temps d'examen), 80 pathologies en 4 paliers avec bilan par visée, traitements dosés et sources datées, glossaire de 90 sigles. Cinq fenêtres de calcul nouvelles (en_tsh_t4, en_glycemie, en_calcium, en_cortisol, en_adh) passent sans erreur JS et les 10 renommages d'identifiants sont déclarés ; les audits donnent auditer_conception 34/34, couverture réussie et non_perte OK. Une relecture médicale indépendante a relevé 9 points, tous corrigés ; restent à confirmer dans l'AIPS le statut suisse de la métyrapone, de la métréleptine, du sélpercatinib et du burosumab, ce qui revient à l'audit médical horaire.
 
-**Crédit** : 12.40 USD dépensés, 87.60 USD disponibles avant le 27.11.2026 ; aujourd'hui 12.40 / 25.00 USD.
+**Crédit** : 15.54 USD dépensés, 84.46 USD disponibles avant le 27.11.2026 ; aujourd'hui 15.54 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -22,6 +22,6 @@ Le système Neurologique est rédigé en entier : 13 organes (anatomie, physiolo
 | complement_7 | sans_objet | 0 |  |
 | renal | fait | 1 | 1.206 |
 | neuro | fait | 1 | 2.202 |
-| endocrino | a_faire | 0 |  |
+| endocrino | fait | 1 | 3.138 |
 
 Signature : AAI (Anthropic AI)
