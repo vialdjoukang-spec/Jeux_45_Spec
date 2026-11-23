@@ -251,8 +251,9 @@ def soumettre(etape, a):
     if not cs:
         return
     cl = PF.client(); suivi = json.load(open(SUIVI)) if os.path.exists(SUIVI) else []
-    b = cl.messages.batches.create(requests=[{"custom_id": f"{etape}|{c['id']}", "params": params(etape, c)} for c in cs])
-    suivi.append({"batch": b.id, "etape": etape, "n": len(cs), "recupere": False}); json.dump(suivi, open(SUIVI, "w"), indent=1); print("lot", b.id)
+    ids = {f"{etape[0]}{i:05d}": c["id"] for i, c in enumerate(cs)}       # custom_id : ^[a-zA-Z0-9_-]{1,64}$ exigé par l'API
+    b = cl.messages.batches.create(requests=[{"custom_id": k, "params": params(etape, next(c for c in cs if c["id"] == v))} for k, v in ids.items()])
+    suivi.append({"batch": b.id, "etape": etape, "n": len(cs), "recupere": False, "ids": ids}); json.dump(suivi, open(SUIVI, "w"), indent=1); print("lot", b.id)
 
 
 def recuperer(etape, a):
@@ -262,7 +263,7 @@ def recuperer(etape, a):
             continue
         ok = ko = 0
         for r in cl.messages.batches.results(s["batch"]):
-            c = idx.get(r.custom_id.split("|", 1)[1])
+            c = idx.get(s.get("ids", {}).get(r.custom_id) or r.custom_id.split("|", 1)[-1])
             b = next((x for x in r.result.message.content if x.type == "tool_use"), None) if r.result.type == "succeeded" else None
             if c is None or b is None:
                 ko += 1; continue
