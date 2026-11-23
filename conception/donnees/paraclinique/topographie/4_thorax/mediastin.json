@@ -11,7 +11,9 @@
    "mediastin__pet_ct › irradiation_mSv : 8,8 mSv calculé : NRD FDG 3D 250 MBq (OFSP, directive de médecine nucléaire du 1.2.2023) × 0,019 mSv/MBq = 4,75 mSv (cohérent avec la dose efficace de 4,8 mSv de la même directive), plus le CT d'atténuation corps entier à la valeur cible de 270 mGy·cm (25e percentile, même directive) × 0,015 mSv/(mGy·cm) (facteur abdomen-bassin, AAPM Report 96, 2008) = 4,05 mSv ; total 8,80 mSv, arrondi à 8,8 mSv, valeur harmonisée avec les autres PET-CT au FDG du projet ; la page OFSP « Strahlendosen in der Medizin » indique 11 mSv à titre de comparaison."
   ],
   "auditFond": "Audit Claude du 2026-11-22 : corrections appliquées, justifications acceptées, doutes ouverts listés.",
-  "aVerifierOuverts": []
+  "aVerifierOuverts": [
+   "mediastin__biopsie_de_masse_mediastinale › irradiation_mSv : dépend du guidage (aucun, échographie ou CT) ; laissée à null faute de valeur unique sourcée."
+  ]
  },
  "examens": [
   {
@@ -574,20 +576,23 @@
    "id": "mediastin__ldh",
    "modalite": "Biologie",
    "nom": "LDH (lymphome)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "retentissement"
+   ],
+   "signeRecherche": "Élévation de la LDH au-dessus de la limite supérieure du laboratoire",
+   "seuil": "Selon le projet international sur les facteurs pronostiques des lymphomes non hodgkiniens (indice pronostique international, N Engl J Med, 1993), une LDH supérieure à la limite supérieure de la norme compte pour un point de l'indice.",
+   "indication": "Selon l'indice pronostique international (1993), on la dose au bilan initial d'un lymphome à grandes cellules pour estimer le pronostic ; elle n'établit pas le diagnostic.",
+   "discriminant": "Elle reflète la masse tumorale et le renouvellement cellulaire, et son élévation signe un lymphome plus agressif ou plus étendu.",
+   "avantageSelectif": "Le dosage est peu coûteux, rapide et déjà disponible dans tous les laboratoires.",
+   "plutotQue": "On la lit avec l'imagerie et la biopsie, car seule la biopsie pose le diagnostic de lymphome.",
+   "limite": "Elle n'est pas spécifique : l'hémolyse, l'infarctus, l'hépatite ou une lyse tissulaire l'élèvent aussi, et une valeur normale n'exclut pas un lymphome.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "On évite l'hémolyse du prélèvement, qui élève la valeur à tort.",
+   "irradiation_mSv": 0,
+   "delai": "rapide (< 24 h)",
    "prelevementRef": null,
    "analysesRef": [
     "LDH"
@@ -597,26 +602,35 @@
    "anomaliesElementaires": [],
    "syndromesParacliniques": [],
    "pathologiesAssociees": [],
-   "bulle": null
+   "bulle": {
+    "def": "La LDH est une enzyme libérée par les cellules détruites ou très actives.",
+    "pourquoi": "Un lymphome volumineux détruit et renouvelle beaucoup de cellules, ce qui libère de la LDH.",
+    "confusion": "Une hémolyse du tube ou un infarctus élève aussi la LDH et imite la lyse tumorale.",
+    "retenir": "Selon l'indice pronostique international (1993), une LDH élevée aggrave le pronostic."
+   },
+   "aVerifier": []
   },
   {
    "id": "mediastin__enzyme_de_conversion_de_l_angiotensine_e",
    "modalite": "Biologie",
    "nom": "Enzyme de conversion de l'angiotensine et calcium (sarcoïdose)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "etiologique"
+   ],
+   "signeRecherche": "Enzyme de conversion élevée, hypercalcémie ou hypercalciurie",
+   "seuil": "Aucun seuil unique de l'enzyme de conversion ne fait le diagnostic : on la compare à la norme du laboratoire, et la calcémie se lit selon la norme du laboratoire.",
+   "indication": "On la dose devant une adénopathie médiastinale bilatérale évoquant une sarcoïdose, avec le calcium sanguin et urinaire, avant la biopsie qui reste le critère de confirmation.",
+   "discriminant": "Elle reflète la charge en granulomes, et l'hypercalcémie traduit la production de calcitriol par les macrophages des granulomes.",
+   "avantageSelectif": "Le dosage est simple, rapide et utile au suivi une fois la maladie confirmée.",
+   "plutotQue": "On la dose après l'imagerie pour étayer l'hypothèse, mais elle ne remplace pas la biopsie ganglionnaire.",
+   "limite": "Sa sensibilité et sa spécificité sont insuffisantes, l'ATS (sarcoïdose, 2020) ne se prononce ni pour ni contre son dosage pour le diagnostic, et un inhibiteur de l'enzyme de conversion de l'angiotensine abaisse la valeur.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "On note les traitements en cours, car un inhibiteur de l'enzyme de conversion fausse le résultat.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
    "prelevementRef": null,
    "analysesRef": [
     "Enzyme de conversion de l'angiotensine (ECA)"
@@ -626,59 +640,85 @@
    "anomaliesElementaires": [],
    "syndromesParacliniques": [],
    "pathologiesAssociees": [],
-   "bulle": null
+   "bulle": {
+    "def": "L'enzyme de conversion de l'angiotensine est produite par les cellules des granulomes de la sarcoïdose.",
+    "pourquoi": "Son taux monte avec la charge en granulomes, et le calcium monte parce que les granulomes activent la vitamine D.",
+    "confusion": "Un inhibiteur de l'enzyme de conversion la fait baisser, et d'autres maladies granulomateuses la font monter.",
+    "retenir": "Elle soutient le diagnostic mais seule la biopsie le confirme."
+   },
+   "aVerifier": []
   },
   {
    "id": "mediastin__biopsie_ganglionnaire_par_ebus",
    "modalite": "Anatomopathologie / biopsie",
    "nom": "Biopsie ganglionnaire par EBUS (sarcoïdose : granulome)",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "etiologique"
+   ],
+   "signeRecherche": "Granulome épithélioïde sans nécrose caséeuse dans le prélèvement ganglionnaire",
+   "seuil": "Le prélèvement montre un granulome épithélioïde non caséeux, et il faut exclure une mycobactérie ou un lymphome avant de conclure à la sarcoïdose.",
+   "indication": "Selon l'ATS (lignes directrices sur la sarcoïdose, 2020), on propose l'EBUS-TBNA plutôt que la médiastinoscopie pour prélever une adénopathie médiastinale suspecte de sarcoïdose.",
+   "discriminant": "Elle donne la preuve histologique du granulome sans chirurgie, sous contrôle échographique direct du ganglion.",
+   "avantageSelectif": "Elle se fait sous sédation en ambulatoire et évite l'incision de la médiastinoscopie.",
+   "plutotQue": "Selon l'ATS (2020), on la préfère à la médiastinoscopie en première intention pour cette indication.",
+   "limite": "Un échantillon non diagnostique n'exclut pas la maladie, et un lymphome demande parfois une biopsie plus large.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
-   "irradiation_mSv": null,
-   "delai": null,
+   "precautions": "On vérifie la coagulation et l'anticoagulation, on obtient le consentement éclairé, et on surveille la saturation pendant la sédation.",
+   "irradiation_mSv": 0,
+   "delai": "programmé",
    "prelevementRef": null,
    "synonymes": [],
    "aspectNormal": null,
    "anomaliesElementaires": [],
    "syndromesParacliniques": [],
    "pathologiesAssociees": [],
-   "bulle": null
+   "bulle": {
+    "def": "L'EBUS prélève un ganglion du médiastin par une aiguille guidée par une sonde échographique introduite dans les bronches.",
+    "pourquoi": "Le granulome sans nécrose caséeuse soutient la sarcoïdose, alors que la nécrose évoque la tuberculose.",
+    "confusion": "Un granulome peut aussi accompagner un lymphome ou une infection, ce qui impose les cultures et l'histologie complète.",
+    "retenir": "Selon l'ATS (2020), l'EBUS-TBNA passe avant la médiastinoscopie pour cette indication."
+   },
+   "aVerifier": []
   },
   {
    "id": "mediastin__biopsie_de_masse_mediastinale",
    "modalite": "Anatomopathologie / biopsie",
    "nom": "Biopsie de masse médiastinale",
-   "visees": [],
-   "signeRecherche": null,
-   "seuil": null,
-   "indication": null,
-   "discriminant": null,
-   "avantageSelectif": null,
-   "plutotQue": null,
-   "limite": null,
+   "visees": [
+    "diagnostique",
+    "etiologique"
+   ],
+   "signeRecherche": "Type histologique de la masse (lymphome, thymome, tumeur germinale, autre)",
+   "seuil": "Aucun seuil chiffré : le critère est un prélèvement tissulaire suffisant pour l'histologie et l'immunohistochimie.",
+   "indication": "Selon l'ESMO (lignes directrices sur les lymphomes, dont le lymphome de Hodgkin, 2018), on pose le diagnostic sur un tissu suffisant, de préférence une biopsie chirurgicale ou à l'aiguille de gros calibre plutôt qu'une cytoponction.",
+   "discriminant": "Elle seule donne le type histologique qui commande le traitement.",
+   "avantageSelectif": "Elle donne le diagnostic de certitude à partir de tissu architectural, que ne donne pas la cytologie.",
+   "plutotQue": "On la préfère à la cytoponction à l'aiguille fine devant une suspicion de lymphome, car l'architecture tissulaire est nécessaire.",
+   "limite": "Une masse volumineuse expose à des complications, et un prélèvement trop petit ou nécrotique reste non diagnostique.",
    "referencePour": [],
    "smarterMedicine": null,
    "radioAnatomieNormale": null,
-   "precautions": null,
+   "precautions": "Une masse médiastinale antérieure peut comprimer la trachée ou la veine cave : on évalue le risque anesthésique avant toute sédation et on évite la position couchée prolongée.",
    "irradiation_mSv": null,
-   "delai": null,
+   "delai": "rapide (< 24 h)",
    "prelevementRef": null,
    "synonymes": [],
    "aspectNormal": null,
    "anomaliesElementaires": [],
    "syndromesParacliniques": [],
    "pathologiesAssociees": [],
-   "bulle": null
+   "bulle": {
+    "def": "La biopsie de masse médiastinale prélève du tissu de la masse par aiguille guidée ou par chirurgie.",
+    "pourquoi": "Le type histologique décide si l'on traite par chimiothérapie, chirurgie ou radiothérapie.",
+    "confusion": "Une cytoponction fine imite parfois un diagnostic, mais elle manque l'architecture nécessaire au lymphome.",
+    "retenir": "Selon l'ESMO (2018), on privilégie un prélèvement tissulaire suffisant."
+   },
+   "aVerifier": [
+    "irradiation_mSv : dépend du guidage (aucun, échographie ou CT) ; laissée à null faute de valeur unique sourcée."
+   ]
   }
  ],
  "glossaire": {
