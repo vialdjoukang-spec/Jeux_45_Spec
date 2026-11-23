@@ -6,7 +6,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 | Lettre | Rédigées | Total |
 |---|---|---|
-| A | 7 | 12 |
+| A | 10 | 12 |
 | B | 0 | 12 |
 | C | 0 | 12 |
 | D | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **43** | **228** |
+| **Total** | **46** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -43,6 +43,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_A-S2-03** : Arrêt de principe du Tribunal fédéral sur l'art. 6 al. 2 LAA révisé (ATF 146 V 51 ?).
 - **TRANS_A-S3-01** : Référence de l'arrêt de principe sur la procédure structurée (ATF 141 V 281, 2015) et son extension aux troubles psychiques (ATF 143 V 409 et 418, 2017).
 - **TRANS_A-S3-01** : Nom officiel exact de la COQEM.
+- **TRANS_A-S3-02** : Abattement forfaitaire sur le revenu d'invalide fixé par le RAI depuis le 1.1.2024 (10 % ?) et règles complémentaires.
+- **TRANS_A-S3-02** : Méthode mixte pour les personnes à temps partiel : formulation actuelle après 2018.
+- **TRANS_A-S3-03** : Modalités typiques des assurances collectives (80 % pendant 720 jours sur 900) : pratique courante, non légale.
+- **TRANS_A-S3-03** : Droit de passage : base légale exacte selon LAMal (art. 71) et pratique LCA.
+- **TRANS_A-S4-01** : Gratuité de la procédure cantonale et montant des frais en matière AI (art. 69 al. 1bis LAI).
+- **TRANS_A-S4-01** : Contenu exact des arrêts cités (ATF 125 V 351, 130 V 352, 137 V 210, 141 V 281, 143 V 409/418).
 - **TRANS_F-S1-01** : Numéro de l'article du Code de déontologie FMH consacré au secret (art. 11 ?).
 - **TRANS_F-S1-01** : Peine exacte de l'art. 321 CP après l'harmonisation des peines (en vigueur 2023) : « trois ans au plus ou peine pécuniaire » à confirmer.
 - **TRANS_F-S1-01** : Caractère de plainte (délit poursuivi sur plainte) de l'art. 321 CP.
