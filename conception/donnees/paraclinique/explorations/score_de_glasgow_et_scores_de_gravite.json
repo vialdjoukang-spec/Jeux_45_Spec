@@ -11,7 +11,7 @@
    "interpretation",
    "diagnostics[]"
   ],
-  "statut": "À REMPLIR",
+  "statut": "PRODUIT — à auditer",
   "regles": [
    "Chaque texte destiné à l'apprenant s'écrit en phrases verbales.",
    "Chaque signe, symptôme et syndrome porte une « bulle » à 4 rubriques : def, pourquoi, confusion, retenir.",
@@ -20,16 +20,71 @@
    "Tout sigle, score ou terme technique (ex. « atypique ») cité dans un texte doit exister dans « glossaire » avec sa définition : aucun renvoi hors de l'application.",
    "Chaque signe ou symptôme porte « presentation » : « typique » ou « atypique » (affiché en rouge).",
    "Le bilan se range par visée (diagnostique avec « 1re intention » et « Gold standard », retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation), puis par groupe (Biologie, Imagerie, Score, Explorations, Clinique) ; chaque examen s'écrit [nom affiché, détail en infobulle : signe recherché et seuil]."
+  ],
+  "aVerifier": [
+   "valeurs chiffrées reprises de la fiche contre-auditée urgences_et_point_of_care__score_de_glasgow_et_scores_de_gravite sans relecture du passage dans cette passe (13, 15, 9, 12, 8, 2, 22, 100, 5, 6, 3, 7, 0, 16) ; aucune relecture faite (seuil de volume atteint avant la vérification des explorations) ; à relire avant fusion."
   ]
  },
  "elements": [
   {
-   "fonction": null,
-   "traces": [],
-   "seuils": [],
-   "interpretation": null,
-   "diagnostics": []
+   "fonction": "Les scores de gravité chiffrent au lit la conscience, avec le score de Glasgow, et la gravité vitale, avec le qSOFA et le NEWS2.",
+   "traces": [
+    {
+     "type": "normal",
+     "aspect": "Aspect normal",
+     "description": "Le patient normal a un score de Glasgow de 15 (NICE NG232, 2023), un qSOFA inférieur à 2 (Singer et al., 2016) et un NEWS2 de 0 (Royal College of Physicians, 2017)."
+    },
+    {
+     "type": "pathologique",
+     "aspect": "Glasgow de 8 ou moins",
+     "description": "C’est un traumatisme crânien sévère ; il faut une prise en charge avancée des voies aériennes (NICE NG232, 2023)."
+    },
+    {
+     "type": "pathologique",
+     "aspect": "Glasgow de 12 ou moins",
+     "description": "Chez le traumatisé de 16 ans ou plus, il impose un CT cérébral dans l’heure (NICE NG232, 2023)."
+    },
+    {
+     "type": "pathologique",
+     "aspect": "qSOFA de 2 ou plus",
+     "description": "Il signale un risque de mauvaise évolution d’une infection (Singer et al., 2016)."
+    },
+    {
+     "type": "pathologique",
+     "aspect": "NEWS2 de 7 ou plus",
+     "description": "Il impose une réponse d’urgence (Royal College of Physicians, 2017)."
+    },
+    {
+     "type": "pathologique",
+     "aspect": "Paramètre coté 3",
+     "description": "Seul, il impose une réponse urgente dans le service (Royal College of Physicians, 2017)."
+    }
+   ],
+   "seuils": [
+    "Un score de Glasgow de 13 à 15 définit un traumatisme crânien léger, de 9 à 12 modéré et de 8 ou moins sévère (NICE NG232, 2023). Un qSOFA de 2 critères ou plus, parmi fréquence respiratoire de 22/min ou plus, conscience altérée et pression systolique de 100 mmHg (13,3 kPa) ou moins, signale un risque de mauvaise évolution d’une infection (Singer et al., 2016). Un NEWS2 de 5 à 6, ou un paramètre coté 3, impose une réponse urgente, et un score de 7 ou plus une réponse d’urgence (Royal College of Physicians, 2017)."
+   ],
+   "interpretation": "1. Ces scores traduisent l’examen en chiffres comparables : chez le traumatisé crânien de 16 ans ou plus, un Glasgow de 12 ou moins à l’arrivée impose un CT cérébral dans l’heure (NICE NG232, 2023). C'est l'examen de référence pour les motifs suivants : gravité du traumatisme crânien ; dégradation clinique. 2. Le tableau « Sepsis à risque » associe qSOFA de 2 ou plus et infection suspectée. 3. Le tableau « Détérioration clinique aiguë » associe NEWS2 de 7 ou plus et paramètre coté 3. 4. Le qSOFA ne définit pas le sepsis : celui-ci repose sur une hausse du score SOFA de 2 points ou plus (Singer et al., 2016). Le score de Glasgow doit être noté composante par composante, et pas seulement en total (NICE NG232, 2023).",
+   "diagnostics": [
+    {
+     "diagnostic": "Traumatisme crânien sévère",
+     "argument": "Glasgow de 8 ou moins"
+    },
+    {
+     "diagnostic": "Sepsis à risque d'évolution défavorable",
+     "argument": "qSOFA de 2 ou plus, infection suspectée"
+    },
+    {
+     "diagnostic": "Détérioration clinique aiguë",
+     "argument": "NEWS2 de 7 ou plus"
+    }
+   ]
   }
  ],
- "glossaire": {}
+ "glossaire": {
+  "CT": "Le CT, ou tomodensitométrie, est un examen d’imagerie qui reconstruit des coupes du corps à partir de rayons X.",
+  "NEWS2": "Le NEWS2 est la deuxième version du score d’alerte précoce britannique, publiée en 2017.",
+  "NG232": "La NG232 est la recommandation du NICE sur le traumatisme crânien.",
+  "NICE": "Le NICE, ou National Institute for Health and Care Excellence, publie les recommandations cliniques britanniques.",
+  "SOFA": "Le SOFA, ou Sequential Organ Failure Assessment, est un score de défaillance d’organes."
+ }
 }

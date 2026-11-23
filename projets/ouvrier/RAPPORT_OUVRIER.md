@@ -1,20 +1,27 @@
-# Ouvrier automatique — 2026-11-23 01:22 UTC
+# Ouvrier automatique — 2026-11-23 02:30 UTC
 
-Dernier passage : **j45_pilote_fiches** → en_cours (0.00 USD).
+Dernier passage : **j45_pilote_items_haiku** → en_cours (0.00 USD).
 
-F1_1-E01 (CAR) : 1 erreur(s), 16000 tokens de sortie, 106 s → /home/runner/work/Jeux_45_Spec/Jeux_45_Spec/content/fiches/CAR/F1_1-E01.json
-F1_10-E03 (CAR) : 1 erreur(s), 16000 tokens de sortie, 113 s → /home/runner/work/Jeux_45_Spec/Jeux_45_Spec/content/fiches/CAR/F1_10-E03.json
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/Jeux_45_Spec/Jeux_45_Spec/scripts/produire_items_claude.py", line 140, in ecrire
+    for k, it in enumerate(items_obj["items"], 1):
+                           ~~~~~~~~~^^^^^^^^^
+KeyError: 'items'
 
 
-**Crédit** : 0.49 USD dépensés, 99.51 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.49 / 25.00 USD.
+**Crédit** : 0.95 USD dépensés, 99.05 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.95 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
 | complement_3 | fait | 1 | 0.03 |
 | complement_1 | fait | 1 | 0.133 |
-| j45_pilote_fiches | en_cours | 2 | 0.0 |
-| complement_2 | a_faire | 0 |  |
-| complement_4 | a_faire | 0 |  |
+| complement_2 | fait | 1 | 0.035 |
+| complement_4 | fait | 1 | 0.111 |
+| j45_pilote_fiches | fait | 3 | 0.0 |
+| j45_lot_CAR | fait | 1 | 0.0 |
+| j45_pilote_items | fait | 1 | 0.0 |
+| j45_pilote_items_haiku | en_cours | 1 | 0.0 |
+| j45_recup_CAR | a_faire | 0 |  |
 | complement_5 | a_faire | 0 |  |
 | complement_6 | a_faire | 0 |  |
 | complement_7 | a_faire | 0 |  |
