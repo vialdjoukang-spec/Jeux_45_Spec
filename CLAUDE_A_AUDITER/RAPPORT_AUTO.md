@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-23 01:25
+# Audit automatique — 2026-11-23 01:30
 
-28 fichier(s) : 0 🟩 intégrables · 27 🟧 à compléter · 1 🟥 refusés.
+30 fichier(s) : 0 🟩 intégrables · 29 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -191,6 +191,32 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟧 `epreuve_d_effort.json` : remplissage 0 % (0/0)
 - 🟧 `etude_electrophysiologique_endocavitaire.json` : remplissage 0 % (0/0)
 - aVerifier déclarés : 14
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/05_Abdomen/1_Theorie/PF05_Explorations_fonctionnelles_Abdomen_10-fiches_production_XAi.json`
+- 🟧 `catheterisme_des_veines_surrenaliennes.json` : remplissage 0 % (0/0)
+- 🟧 `cortisol_salivaire_nocturne_et_cortisol_.json` : remplissage 0 % (0/0)
+- 🟧 `examen_clinique_debout_et_en_toux.json` : remplissage 0 % (0/0)
+- 🟧 `manometrie_anorectale.json` : remplissage 0 % (0/0)
+- 🟧 `mesure_du_gradient_de_pression_hepatique.json` : remplissage 0 % (0/0)
+- 🟧 `temps_de_transit_colique.json` : remplissage 0 % (0/0)
+- 🟧 `test_au_synacthene.json` : remplissage 0 % (0/0)
+- 🟧 `test_de_charge_sodee.json` : remplissage 0 % (0/0)
+- 🟧 `test_de_freinage_a_la_dexamethasone_1_mg.json` : remplissage 0 % (0/0)
+- 🟧 `test_de_stimulation_a_la_secretine.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 15
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/05_Abdomen/2_Pratique/PF05-PR_Explorations_fonctionnelles_Abdomen_10-fiches_PRATIQUE_production_XAi.json`
+- 🟧 `catheterisme_des_veines_surrenaliennes.json` : remplissage 0 % (0/0)
+- 🟧 `cortisol_salivaire_nocturne_et_cortisol_.json` : remplissage 0 % (0/0)
+- 🟧 `examen_clinique_debout_et_en_toux.json` : remplissage 0 % (0/0)
+- 🟧 `manometrie_anorectale.json` : remplissage 0 % (0/0)
+- 🟧 `mesure_du_gradient_de_pression_hepatique.json` : remplissage 0 % (0/0)
+- 🟧 `temps_de_transit_colique.json` : remplissage 0 % (0/0)
+- 🟧 `test_au_synacthene.json` : remplissage 0 % (0/0)
+- 🟧 `test_de_charge_sodee.json` : remplissage 0 % (0/0)
+- 🟧 `test_de_freinage_a_la_dexamethasone_1_mg.json` : remplissage 0 % (0/0)
+- 🟧 `test_de_stimulation_a_la_secretine.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 15
 
 ### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/01_Tete_et_encephale/1_Theorie/PE01_Endoscopies_Tete_et_encephale_2-fiches_production_XAi.json`
 - 🟧 `nasofibroscopie.json` : remplissage 0 % (0/0)
