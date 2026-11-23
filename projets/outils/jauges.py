@@ -26,8 +26,10 @@ red = len(re.findall(r'^\s+"[^"]+": \{"dossier"', open("conception/outils/system
 interp = J("conception/prototypes/moteur/interpretations.json"); n_int = sum(len(v) for k, v in interp.items() if k != "_meta" and isinstance(v, dict))
 i3d = J("conception/prototypes/moteur/anatomie3d/index.json")["organes"] if os.path.exists("conception/prototypes/moteur/anatomie3d/index.json") else {}
 o3d = sum(1 for v in i3d.values() if v.get("statut") == "produit")
-arene = os.path.exists("conception/prototypes/moteur/arene.html")
-T = jeu("Tétrade Fondation", [("systèmes rédigés", red, 14, 45), ("interprétations de courbes", n_int, 119, 10), ("organes en 3D réelle", o3d, 124, 15), ("puzzles sur le moteur d'arène", int(arene), 1, 30)])
+IDX = J("conception/prototypes/moteur/arenes/index.json") if os.path.exists("conception/prototypes/moteur/arenes/index.json") else []
+moteur = os.path.exists("conception/prototypes/moteur/arene.html")
+paquet = lambda pre: sum(x["n"] for x in IDX if x["paquet"].startswith(pre)) if moteur else 0   # questions jouables dans l'arène commune
+T = jeu("Tétrade Fondation", [("systèmes rédigés", red, 14, 45), ("interprétations de courbes", n_int, 119, 10), ("organes en 3D réelle", o3d, 124, 15), ("questions et puzzles jouables dans l'arène", paquet("tetrade"), 100, 30)])
 
 # 2. Paraclinique
 ex = [e for _, d in lire_tout("conception/donnees/paraclinique/topographie/*/*.json") for e in d.get("examens", [])]
@@ -39,13 +41,13 @@ for _, d in lire_tout("conception/donnees/images/paraclinique/**/*.json"):
 cas = len(glob.glob("conception/donnees/paraclinique/cas/**/*.json", recursive=True))
 P = jeu("Paraclinique", [("examens complets", rempli, max(len(ex), 1), 30), ("entités avec cliché", cli, max(ent, 1), 15),
                          ("réseau complet sur le corps 3D", int(os.path.exists("conception/prototypes/moteur/paraclinique_complet.json")), 1, 20),
-                         ("cas de l'arène « le bon examen »", cas, 20, 20), ("moteur d'arène", int(arene), 1, 15)])
+                         ("cas de l'arène « le bon examen »", cas, 20, 20), ("paquet jouable dans l'arène", int(paquet("paraclinique") > 0), 1, 15)])
 
 # 3. Transversal
 lec = [d for _, d in lire_tout("conception/donnees/tetrade/transversales/lecons/**/*.json")]
 ok = sum(1 for d in lec if d.get("parties") and all(d["parties"].values()))
 qcm = sum(1 for d in lec if any(i.get("enonce") for i in d.get("items") or []))
-X = jeu("Transversal", [("structure A → S et lentilles", 1, 1, 10), ("leçons rédigées", ok, 228, 55), ("leçons avec QCM", qcm, 228, 20), ("moteur d'arène", int(arene), 1, 15)])
+X = jeu("Transversal", [("structure A → S et lentilles", 1, 1, 10), ("leçons rédigées", ok, 228, 55), ("leçons avec QCM", qcm, 228, 20), ("paquet jouable dans l'arène", int(paquet("transversal") > 0), 1, 15)])
 
 # 4. 45 Spec
 fi = [d for f, d in lire_tout("content/fiches/**/*.json") if "_archives" not in f]
@@ -53,7 +55,7 @@ ok45 = sum(1 for d in fi if (d.get("audit") or {}).get("rejector") == "pass")
 pec = sum(1 for d in fi if d.get("priseEnCharge"))
 items = len({os.path.dirname(f) for f in glob.glob("content/items/**/*.json", recursive=True)})
 S = jeu("45 Spec", [("fiches produites", len(fi), 3975, 25), ("fiches validées par l'audit", ok45, 3975, 25), ("fiches avec prise en charge holistique", pec, 3975, 10),
-                    ("entités avec questions A/K'", items, 3975, 25), ("arène jouable", int(arene), 1, 15)])
+                    ("entités avec questions A/K'", items, 3975, 25), ("questions jouables dans l'arène", paquet("45spec"), 300, 15)])
 
 maint = dt.datetime.now(dt.timezone(dt.timedelta(hours=1))).strftime("%d.%m.%Y %H:%M")
 jeux = [T, P, X, S]; etat = J("projets/jauges.json") if os.path.exists("projets/jauges.json") else {"historique": []}

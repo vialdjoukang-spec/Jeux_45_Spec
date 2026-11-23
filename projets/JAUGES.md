@@ -2,18 +2,18 @@
 
 Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **23.11.2026 13:44**.
 
-## Tétrade Fondation — 65 % (+30)
+## Tétrade Fondation — 35 % (-30)
 
-`█████████████░░░░░░░`
+`███████░░░░░░░░░░░░░`
 
 | Critère | Fait | Cible | Poids |
 |---|---:|---:|---:|
 | systèmes rédigés | 6 | 14 | 45 |
 | interprétations de courbes | 119 | 119 | 10 |
 | organes en 3D réelle | 46 | 124 | 15 |
-| puzzles sur le moteur d'arène | 1 | 1 | 30 |
+| questions et puzzles jouables dans l'arène | 0 | 100 | 30 |
 
-## Paraclinique — 77 % (+18)
+## Paraclinique — 77 %
 
 `███████████████░░░░░`
 
@@ -23,22 +23,22 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 | entités avec cliché | 772 | 1124 | 15 |
 | réseau complet sur le corps 3D | 1 | 1 | 20 |
 | cas de l'arène « le bon examen » | 3 | 20 | 20 |
-| moteur d'arène | 1 | 1 | 15 |
+| paquet jouable dans l'arène | 1 | 1 | 15 |
 
-## Transversal — 25 % (+15)
+## Transversal — 10 % (-15)
 
-`█████░░░░░░░░░░░░░░░`
+`██░░░░░░░░░░░░░░░░░░`
 
 | Critère | Fait | Cible | Poids |
 |---|---:|---:|---:|
 | structure A → S et lentilles | 1 | 1 | 10 |
 | leçons rédigées | 0 | 228 | 55 |
 | leçons avec QCM | 0 | 228 | 20 |
-| moteur d'arène | 1 | 1 | 15 |
+| paquet jouable dans l'arène | 0 | 1 | 15 |
 
-## 45 Spec — 16 % (+15)
+## 45 Spec — 2 % (-14)
 
-`███░░░░░░░░░░░░░░░░░`
+`░░░░░░░░░░░░░░░░░░░░`
 
 | Critère | Fait | Cible | Poids |
 |---|---:|---:|---:|
@@ -46,12 +46,13 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 | fiches validées par l'audit | 27 | 3975 | 25 |
 | fiches avec prise en charge holistique | 0 | 3975 | 10 |
 | entités avec questions A/K' | 1 | 3975 | 25 |
-| arène jouable | 1 | 1 | 15 |
+| questions jouables dans l'arène | 6 | 300 | 15 |
 
 ## Historique
 
 | Date | Tétrade | Paraclinique | Transversal | 45 Spec |
 |---|---:|---:|---:|---:|
+| 23.11.2026 13:44 | 35 % | 77 % | 10 % | 2 % |
 | 23.11.2026 13:44 | 65 % | 77 % | 25 % | 16 % |
 | 23.11.2026 13:41 | 35 % | 59 % | 10 % | 1 % |
 | 23.11.2026 13:40 | 25 % | 59 % | 10 % | 1 % |
