@@ -31,3 +31,4 @@ Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'o
 | 3 | Anévrisme : diamètre d'au moins 30 mm | ESVS 2024 (Eur J Vasc Endovasc Surg) | conforme |
 | 4 | Surveillance annuelle de 40 à 49 mm chez l'homme | ESVS 2024 | conforme |
 | 5 | Angio-CT abdominal : 450 mGy·cm, 6,75 mSv | OFSP R-06-06 rév. 2, protocole 11 (angiographie CT abdomen-bassin) | conforme |
+- Correction post-contrôle (23.11.2026) : 1 radioAnatomieNormale de 48 caractères raccourcie (Tronc cœliaque et mésentérique supérieure) ; controle PASS.
