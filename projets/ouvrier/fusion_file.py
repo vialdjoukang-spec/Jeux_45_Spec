@@ -5,11 +5,14 @@ Sort en erreur si un conflit touche un autre fichier (données : jamais de réso
 import json, subprocess, sys
 
 f = subprocess.run(["git", "diff", "--name-only", "--diff-filter=U"], capture_output=True, text=True).stdout.split()
-if not f or any(not x.startswith("projets/ouvrier/") for x in f):
+REGEN = ("projets/JAUGES.md", "projets/jauges.json", "conception/prototypes/moteur/arenes/", "conception/prototypes/arene45/", "content/notions/COUVERTURE.json")
+if not f or any(not x.startswith(("projets/ouvrier/",) + REGEN) for x in f):
     sys.exit(f"conflit hors suivi : {f}")
 lire = lambda cote, p: json.loads(subprocess.run(["git", "show", f":{cote}:{p}"], capture_output=True, text=True, check=True).stdout)
 for p in f:
-    if p.endswith("FILE_PROCESSUS.json"):
+    if p.startswith(REGEN):                       # fichiers régénérés par script : version distante, recalculée au passage suivant
+        subprocess.run(["git", "checkout", "--theirs", p], check=True)
+    elif p.endswith("FILE_PROCESSUS.json"):
         nous, eux = lire(2, p), lire(3, p); loc = {t["id"]: t for t in nous["taches"]}; vus = set()
         for t in eux["taches"]:
             vus.add(t["id"])
