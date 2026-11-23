@@ -113,3 +113,49 @@ Corrections faites (60, journal machine audit/athena/corrections.jsonl, tour t9)
 Réserves : Medics (privé, partenaire de l'Inselspital) et Hôpital cantonal de Lucerne conservés et déclarés : les fiches CHUV et HUG rechargées ne donnent pas de valeur pour apoB, Lp(a) pédiatrique, myoglobine, IgA, IgG4, calprotectine ni cuprurie ; Fatoux 2025 (Clinique de La Source) et Viollier sont privés ; ESC 2023 lu dans ses données supplémentaires, texte principal bloqué.
 
 Rédacteur : honnête. Les chiffres concordent avec ses sources (y compris la cuprurie, que l'extraction texte rendait douteuse) ; il avait déclaré dans aVerifier les causes déduites (protéines totales, CK-MB, homocystéine) et la synthèse de la définition universelle ; non déclarés : l'ANP lu comme BNP, le HDL gravidique, la distorsion du seuil de 40 000 et l'incohérence de PAL-2, qui relèvent de l'erreur de lecture.
+
+## PB06-PB07
+
+Contre-audit croisé interne terminé le 23.11.2026 (heure de Zurich).
+Verdict : conforme après correction
+
+Fichiers couverts :
+- 1_Theorie/PB06_Analyses_Diabete_Thyroide_Phosphocalcique_20-analyses_production_XAi.json (20 analyses)
+- 1_Theorie/PB07_Analyses_Inflammation_Infection_Microbiologie_24-analyses_production_XAi.json (24 analyses)
+- 2_Pratique/PB06-PR_Analyses_Diabete_Thyroide_Phosphocalcique_20-analyses_PRATIQUE_production_XAi.json (40 défis)
+- 2_Pratique/PB07-PR_Analyses_Inflammation_Infection_Microbiologie_24-analyses_PRATIQUE_production_XAi.json (48 défis)
+
+Contrôles : outil controle PASS 4/4 (16 avertissements « source répétée », relus) ; structure identique au squelette de main (ids, noms, clés, _meta, organes, prélèvement) ; script de concordance chiffre ↔ source nommée (fiche HUG propre à chaque analyse) : PB06 263 propositions chiffrées concordantes, PB07 197, PB06-PR 31, PB07-PR 18 ; seul écart restant : 200 pmol/l, conversion déclarée de 0,2 nmol/l (Endocrine Society 2009) ; 468/468 chiffres attribués aux HUG retrouvés sur les fiches HUG réextraites le 23.11.2026 ; défis : 88/88 réponses ≤ 45 car., valeurs cohérentes avec l'intervalle de l'âge et du sexe cités.
+
+Réextraction HUG : l'extracteur précédent vidait les valeurs qui suivent « < ». Les 57 fiches citées ont été rechargées avec l'extracteur corrigé. Valeurs « < x » retrouvées : CRP < 10,0 mg/l (3877, déclarée introuvable), thyroglobuline < 0,2 µg/l après thyroïdectomie (5901, déclarée introuvable), PCT < 0,5 µg/l (3940), syphilis index < 1 (3010) et RPR titre < 1 (5486), galactomannane ≤ 0,49 négatif (5049), BDG < 7,00 pg/ml (10276, déjà juste), 25-OH-vitamine D < 25 nmol/l (3979, déjà juste), glucose ≤ 6 jours 2,5–6,5 mmol/l (3826, déjà juste). Aucune autre valeur mal lue.
+
+Valeurs revérifiées contre les sources, PB06 (plus de 60) :
+- HUG : glucose 4,1–6,0 (adulte), 3,1–6,5 (7 jours–16 ans), 2,5–6,5 mmol/l (≤ 6 jours), délai 1 h/8 h ; HbA1c 3–6 % (9,3–42,1 mmol/mol), 1×/6 semaines, interférences ; insuline 2,6–24,9 mUI/l, hémolyse, coagulation 5–10 min puis glace ; peptide C 370–1470 pmol/l (5e–95e percentile), jeûne depuis la veille ; TSH 0,27–4,20, algorithme 0,4/6,0 mUI/l ; T4L 12,0–22,0, T4 totale 66–181 nmol/l, T3L 3,1–6,8, T3 totale 1,3–3,10 nmol/l ; Tg par âge (6,4–173 … 1,4–38,5 µg/l), récupération 80–120 %, < 0,2 µg/l après thyroïdectomie, 10 semaines si échantillon radioactif ; PTH 1,1–6,8 pmol/l, EDTA, 7–10 h ; 25-OH-D ≥ 75 / 50–75 / 25–50 / < 25 (adulte), > 50 / 25–50 / < 25 (enfant), remboursement dès 65 ans ; CTX et P1NP féminins ; PAL osseuse H 5,7–32,9 / F 4,7–27,1 et 5 tranches pédiatriques.
+- Inselspital (Cobas PRO, v21.0 du 25.06.2026) : P1NP homme > 18 ans 13,9–85,5 µg/l et tranches pédiatriques ; CTX 319–1750 ng/l de 0 à 6 ans et tranches masculines.
+- Medics : anti-TPO < 5,61 UI/ml (Hashimoto jusqu'à 90 %, Basedow 70 %, 8 h / 3 j) ; anti-Tg < 4,11 UI/ml (50–80 % / 30–50 %) ; TRAK < 3,10 UI/l (24 h / 12 j, passage placentaire) ; calcitonine F < 6,40 / H < 9,52 ng/l.
+- ADA 2026 (sections 2 et 6) : ≥ 7,0 / ≥ 11,1 / HbA1c ≥ 6,5 %, prédiabète 5,7–6,4 %, 7,8–11,0 à 2 h, grossesse 5,1 / 10,0 / 8,5 ; niveaux 1 et 2 (< 3,9 / < 3,0) ; recontrôle à 15 min ; peptide C < 200 pmol/l, pas dans les 2 semaines d'une urgence hyperglycémique ; carence martiale ↑ HbA1c, renouvellement érythrocytaire ↓.
+- Consensus ADA 2024 : β-OHB ≥ 3,0 mmol/l, pH < 7,3 ou HCO3 < 18, glucose ≥ 11,1 ; acidocétose euglycémique « approximately 10% » relu mot pour mot.
+- Endocrine Society 2009 : 3,0 mmol/l, insuline ≥ 3 µU/ml (18 pmol/l), peptide C ≥ 0,2 nmol/l, β-OHB ≤ 2,7 ; RMS 2013 : 4,5 mmol/l, 2,8–3 mmol/l, glucomètres ; mediX 2025 : 5,6–6,9, cibles 6,5–7,0 % et 8,0–9 %, HGPO réservée à la grossesse (phrase du guide).
+- ETA 2013 : rythme circadien (nadir l'après-midi, + 30 % le soir), 4,0–7,0 mU/l après 80 ans, > 10 mU/l avant 65–70 ans, contrôle à 2–3 mois ; ETA 2014 : 0,1–2,5 / 0,2–3,0 / 0,3–3,0–3,5, hCG, hypothyroxinémie (2,5e percentile), auto-anticorps 50 % et > 80 %, anti-Tg isolés 5 % ; ETA 2018 (résumé) : TRAb, 12–18 mois de méthimazole ; ATA 2015 : < 40 / < 15 pg/ml (enfant), > 500 et > 150 pg/ml, masse de cellules C, causes d'hypercalcitoninémie ; CHUV : IPP, 30 min, 1×/semaine.
+- RMS 2015 : adénome, HHF (PTH peu élevée ou normale, hypocalciurie), 25-OH-D > 50 / > 75 ; RMS 2023 : causes secondaires ; Khan 2022 (résumé) : PTH > 10 pg/ml (1,05 pmol/l) à 12–24 h, > 12 mois ; RMS 2019 : rebond du dénosumab sur deux ans.
+
+Valeurs revérifiées contre les sources, PB07 (plus de 50) :
+- CRP : HUG < 10,0 mg/l ; Inselspital < 5 mg/l (F/M, tous âges) ; recommandation luxembourgeoise 2026 : × 100 en 24 h, demi-vie ~20 h, normalisation en 3–4 jours, baisse < 50 % au 4e jour, facteurs de variabilité.
+- PCT : HUG < 0,5 µg/l, < 0,5 n'exclut pas une infection locale, > 2 µg/l ; CHUV 0,5 / 2 / 10 µg/l, voies respiratoires, < 6 h.
+- IDSA/ASM 2024 : contamination < 3 % (cible 1 %), 20–30 ml par série ; CMV 36 % (6–11 ans) / > 90 % (≥ 80 ans) ; hétérophiles 6–10 jours, faux négatifs ~10 % ; toxoplasmose 22 % sans IgG ; rubéole immunité à vie, × 4 ; érythème migrant 70–80 % ; syphilis baisse de 4 fois ; dengue NS1, IgM 3–5 jours.
+- EACS 12.0 (2023) : < 50 copies/ml ≥ 6 mois, CD4 ≥ 200/µl ou ≥ 15 % pour les vaccins vivants, < 100/µl antigène cryptococcique, rapport CD4/CD8.
+- HUG : BDG < 7,00 / ≥ 7,00 pg/ml ; galactomannane ≤ 0,49 / ≥ 0,5, confirmation LFA ; délais et blocage de 48 h des sérologies ; microfilaires 10–14 h et 22–24 h ; CHUV : hémocultures 8–10 ml, IGRA 14 h, antigènes urinaires 24/48 h, Schistosoma 10–14 h.
+- EFNS 2010 et ATS/JRS/ALAT 2020 (résumés) : attributions ramenées à ce que disent les résumés.
+
+Corrections faites (72 lignes, journal machine audit/athena/corrections.jsonl, tour t11 ; script rejouable audit/athena/bio/corr_pb0607.py) :
+- Valeurs « < x » perdues à l'extraction intégrées : CRP (HUG + Inselspital à la place de la seule source luxembourgeoise, 7 champs), thyroglobuline après thyroïdectomie (3 champs + défi), PCT (2 champs), syphilis (4 champs), galactomannane ≤ 0,49 (théorie + défi).
+- Déduction retirée : baisse de la T3 libre dans l'hypothyroïdie manifeste (non écrite par l'ETA 2013), remplacée par l'algorithme HUG.
+- Plus fort que la source : « distinguent le mieux » (PAL osseuse, résumé : « most promise », 2 champs) ; « sous 150 pg/ml, on surveille sans imagerie » (absent de l'ATA 2015) ; « une absence d'exposition n'exclut pas » (absent du résumé ATS/JRS/ALAT) ; « sort des bornes » (TSH, l'algorithme HUG utilise 0,4 et 6,0) ; attribution conjointe HUG/Medics resserrée (récupération de la Tg).
+- Source mal nommée : « mise à jour IOF-IFCC » → consensus de l'ESCEO, de l'IOF et de l'IFCC (Bhattoa et al., 2025), fichier copié sous son vrai nom ; ESCEO ajouté aux glossaires.
+- Phrases sur les sources remplacées par du contenu : P1NP homme et enfant, CTX enfant (Inselspital), parvovirus (délai), hémocultures (« dans le catalogue »).
+- Borne calculée « 3,8 » remplacée par la formulation ADA ; pourquoiFaux sans source du P1NP sourcé.
+- aVerifier : 5 entrées mises à jour, 1 ajoutée.
+
+Réserves : Medics (privé, Berne) conservé pour anti-TPO, anti-Tg, TRAK et calcitonine ; aucune valeur chiffrée dans les fiches HUG, CHUV ni dans le PDF Inselspital de chimie clinique. Précipitines : aucune fiche suisse dédiée accessible (HUG 7128, 8116, 9178 : 404 ; 7129 : 403) ; le tube vient de la fiche CHUV Aspergillus fumigatus FEIA et reste déclaré « à confirmer ». CD4 : aucun intervalle chiffré HUG ni CHUV ; seuils cliniques EACS seulement. ETA 2018, Khan 2022, ESCEO-IOF-IFCC 2025, EFNS 2010 et ATS/JRS/ALAT 2020 lus en résumé seulement. Deux bornes CRP différentes (HUG < 10,0 ; Inselspital < 5) sont citées côte à côte. 25-OH-vitamine D : pas de seuil de toxicité dans les sources ouvertes (déclaré).
+
+Rédacteur : honnête. Toutes les réserves signalées étaient exactes et déclarées dans aVerifier, y compris la perte de la valeur CRP et de la valeur Tg à l'extraction ; l'acidocétose euglycémique ~10 % est juste ; aucune valeur inventée. Erreurs relevées : une baisse de T3 déduite (déclarée), quatre formulations plus fortes que la source, une source mal nommée.
