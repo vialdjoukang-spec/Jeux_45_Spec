@@ -54,6 +54,11 @@ h1{font:700 22px Georgia,serif;margin:0 0 4px}.sous{color:var(--sous);font-size:
 .hi{display:block;margin:3px 0;cursor:help;text-decoration:underline dotted 1.5px;text-underline-offset:3px}.hi::before{content:'• '}.hi:hover,.hi:focus{color:#1d4ed8}
 #bulle{position:fixed;z-index:70;max-width:340px;background:#0f172a;color:#fff;font-size:13px;line-height:1.45;padding:10px 12px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.25);display:none}
 .pecw h4{font:700 15px Georgia,serif;margin:14px 0 4px}.pecw .ok{font-weight:700;font-style:italic}
+
+abbr.ab{text-decoration:underline dotted 1px;text-underline-offset:2px;cursor:help}
+.vf{flex:0 0 auto;gap:6px}.vf button{white-space:nowrap;min-width:52px}
+@media(max-width:600px){.opt{flex-wrap:wrap}.vf{margin-left:30px;width:100%}}
+.noeud.lien{cursor:pointer}.noeud.lien::after{content:" ▸ notion";color:#1d4ed8;font-weight:700;font-size:12px}
 </style></head><body>
 <nav><h2>Arène commune</h2><select id="paquet"></select><ol id="liste"></ol><div class="maitrise" id="maitrise" title="Boîtes de Leitner : 0 à 4"></div><div class="fonds" id="fonds" title="Fond de page"></div></nav>
 <main><div class="col">
@@ -73,6 +78,10 @@ const TEMPS={A:90,Kprim:120,Econome:120};
 let P=null,i=0,score=0,choix={},fini=false,t0=0,tick=null,boites={};
 const lire=k=>{try{return JSON.parse(localStorage.getItem(k)||'{}')}catch(e){return {}}},ecrire=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
 const esc=s=>String(s??'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+let SIG={},RX=null;
+fetch('arenes/sigles.json').then(r=>r.json()).then(g=>{SIG=g;const k=Object.keys(g).sort((a,b)=>b.length-a.length).map(x=>x.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'));RX=new RegExp('(^|[^\\wÀ-ÿ])('+k.join('|')+')(?![\\wÀ-ÿ])','g');}).catch(()=>{});
+const sig=h=>RX?h.replace(RX,(m,a,b)=>`${a}<abbr class="ab" data-i="${esc(b+' : '+SIG[b])}">${b}</abbr>`):h;
+const T=x=>sig(esc(x));
 async function charger(p){P=await (await fetch('arenes/'+p+'.json')).json();boites=lire('arene_'+p);score=0;$('score').textContent=0;
  $('liste').innerHTML=P.questions.map((q,j)=>`<li data-j="${j}"><b>${j+1}</b>Question ${j+1}<i>${boites[q.id]??0}</i></li>`).join('');
  $('liste').onclick=e=>{const li=e.target.closest('li');if(li)montrer(+li.dataset.j);};
@@ -82,13 +91,13 @@ function montrer(j){i=j;const q=P.questions[j];choix={};fini=false;document.body
  document.querySelectorAll('#liste li').forEach(l=>l.classList.toggle('cur',+l.dataset.j===j));
  $('titre').textContent='Question '+(j+1);$('ss').textContent=P.nom+' · question '+(j+1)+' / '+P.questions.length;$('format').textContent=FMT[q.format]||'';
  $('stem').textContent=q.stem;$('prompt').textContent=q.prompt;$('res').innerHTML='';$('echelle').hidden=true;$('correction').innerHTML='';$('src').textContent='';
- $('opts').innerHTML=q.options.map(o=>`<div class="opt" data-k="${esc(o.k)}"><span class="k">${esc(o.k)}</span><div><div>${esc(o.t)}</div><div class="why">${esc(o.why)}</div></div>${q.format==='Kprim'?'<span class="vf"><button data-v="1">Vrai</button><button data-v="0">Faux</button></span>':''}</div>`).join('');
+ $('opts').innerHTML=q.options.map(o=>`<div class="opt" data-k="${esc(o.k)}"><span class="k">${esc(o.k)}</span><div><div>${esc(o.t)}</div><div class="why">${T(o.why)}</div></div>${q.format==='Kprim'?'<span class="vf"><button data-v="1">Vrai</button><button data-v="0">Faux</button></span>':''}</div>`).join('');
  $('opts').onclick=e=>{if(fini)return;const d=e.target.closest('.opt');if(!d)return;const k=d.dataset.k;
   if(q.format==='Kprim'){const b=e.target.closest('button');if(!b)return;choix[k]=b.dataset.v==='1';d.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));}
   else if(q.format==='A'){choix={[k]:true};document.querySelectorAll('.opt').forEach(x=>x.classList.toggle('sel',x===d));}
   else{choix[k]=!choix[k];d.classList.toggle('sel',!!choix[k]);}};
- clearInterval(tick);t0=Date.now();const T=TEMPS[q.format]||90;
- tick=setInterval(()=>{const r=Math.max(0,T-Math.round((Date.now()-t0)/1000));$('chrono').textContent='⏱ '+r+' s';$('chrono').classList.toggle('rouge',r<=15);if(!r)valider();},250);}
+ clearInterval(tick);t0=Date.now();const TT=TEMPS[q.format]||90;
+ tick=setInterval(()=>{const r=Math.max(0,TT-Math.round((Date.now()-t0)/1000));$('chrono').textContent='⏱ '+r+' s';$('chrono').classList.toggle('rouge',r<=15);if(!r)valider();},250);}
 function valider(){if(fini)return;fini=true;clearInterval(tick);const q=P.questions[i];$('titre').textContent=q.titre;document.body.classList.add('fini');let pts=0,max=1,juste=false;
  q.options.forEach(o=>{const d=document.querySelector(`.opt[data-k="${CSS.escape(o.k)}"]`);
   const pris=q.format==='Kprim'?choix[o.k]===o.ok:!!choix[o.k];const c=q.format==='Kprim'?(pris?'bon':'faux'):(o.ok?'bon':(choix[o.k]?'faux':''));if(c)d.classList.add(c);});
@@ -100,8 +109,8 @@ function valider(){if(fini)return;fini=true;clearInterval(tick);const q=P.questi
  $('res').insertAdjacentHTML('afterbegin',`<div class="res ${juste?'ok':'ko'}">${juste?'Juste':'À revoir'} : ${pts}/${max}${bonus?' + 0,5 de rapidité':''}</div>`);
  boites[q.id]=juste?Math.min(4,(boites[q.id]??0)+1):0;ecrire('arene_'+Q.get('paquet'),boites);
  document.querySelector(`#liste li[data-j="${i}"] i`).textContent=boites[q.id];maitrise();
- const ech=(q.echelle||[]).map(([m,t])=>`<dt>${NOMS[m]||m}</dt><dd>${esc(t)}</dd>`).join('');
- if(q.correction){const c=q.correction,nb=(n,i,cl)=>`<button class="notion ${cl||''}" data-n="${n.id}"><b>${i}. ${esc(n.titre)}</b><span>${esc(n.comment)}</span></button>`;
+ const ech=(q.echelle||[]).map(([m,t])=>`<dt>${NOMS[m]||m}</dt><dd>${T(t)}</dd>`).join('');
+ if(q.correction){const c=q.correction,nb=(n,i,cl)=>`<button class="notion ${cl||''}" data-n="${n.id}"><b>${i}. ${esc(n.titre)}</b><span>${T(n.comment)}</span></button>`;
   $('correction').innerHTML=`<div class="deux"><div class="bloc"><h3>A · Le contexte expliqué</h3><dl class="echelle">${ech}</dl></div>
   <div class="bloc"><h3>B · Notions abordées</h3><div class="theme">Thème : ${esc(c.theme)}</div>${c.notions.map((n,i)=>nb(n,i+1)).join('')}
   ${c.autres&&c.autres.length?`<details><summary class="sous">Autres notions de la pathologie (${c.autres.length})</summary>${c.autres.map((n,i)=>nb(n,c.notions.length+i+1,'autre')).join('')}</details>`:''}</div></div>
@@ -112,13 +121,13 @@ function valider(){if(fini)return;fini=true;clearInterval(tick);const q=P.questi
  $('src').textContent=q.sources&&q.sources.length?'Sources : '+[].concat(q.sources).map(s=>typeof s==='string'?s:(s.titre||s.title||JSON.stringify(s))).join(' ; '):'';}
 let NOT={};
 function arbre(n,p){const e=n.e||[],id='a'+Math.random().toString(36).slice(2,8),ouvert=p<1;
- const cl=p===0?'racine':e.length?(ouvert?'':'ferme'):(n.pec?'pec':'feuille');
- return `<li><span class="noeud ${cl}" ${e.length?`data-a="${id}"`:''} ${n.pec?`data-pec="${n.pec}"`:''} ${n.i?`data-i="${esc(n.i)}"`:''}>${esc(n.t)}${n.i?' <small>ⓘ</small>':''}</span>${e.length?`<ul ${ouvert?'':'hidden'} id="${id}">${e.map(x=>arbre(x,p+1)).join('')}</ul>`:''}</li>`;}
-const cel=(x,k,j)=>Array.isArray(x)?x.map(o=>`<span class="hi ${j>=3&&k.length>4?(j===3?'d':'p'):(j===1?'d':'p')}" data-i="${esc(o.i)}" tabindex="0">${esc(o.t)}</span>`).join(' '):(x&&x.t?`<span class="hi d" data-i="${esc(x.i)}">${esc(x.t)}</span>`:esc(x));
+ const cl=p===0?'racine':e.length?(ouvert?'':'ferme'):(n.pec?'pec':(n.notion?'feuille lien':'feuille'));
+ return `<li><span class="noeud ${cl}" ${e.length?`data-a="${id}"`:''} ${n.pec?`data-pec="${n.pec}"`:''} ${n.i?`data-i="${esc(n.i)}"`:''} ${n.notion?`data-notion="${n.notion}"`:''}>${T(n.t)}${n.i?' <small>ⓘ</small>':''}</span>${e.length?`<ul ${ouvert?'':'hidden'} id="${id}">${e.map(x=>arbre(x,p+1)).join('')}</ul>`:''}</li>`;}
+const cel=(x,k,j)=>Array.isArray(x)?x.map(o=>`<span class="hi ${j>=3&&k.length>4?(j===3?'d':'p'):(j===1?'d':'p')}" data-i="${esc(o.i)}" tabindex="0">${esc(o.t)}</span>`).join(' '):(x&&x.t?`<span class="hi d" data-i="${esc(x.i)}">${esc(x.t)}</span>`:T(x));
 function tableau(t){const L=t.lignes;let h=`<table><thead><tr>${t.colonnes.map(x=>`<th>${esc(x)}</th>`).join('')}</tr></thead><tbody>`;
  L.forEach((l,r)=>{h+='<tr>';l.forEach((x,j)=>{if(j===0&&typeof x==='string'){if(r>0&&L[r-1][0]===x)return;let n=1;while(L[r+n]&&L[r+n][0]===x)n++;h+=`<td rowspan="${n}" class="cl">${esc(x)}</td>`;return;}
   const c=j===1&&t.colonnes.length>4?'sc':(j===2&&t.colonnes.length>4?'mol':'');h+=`<td class="${c}">${cel(x,t.colonnes,j)}</td>`;});h+='</tr>';});return h+'</tbody></table>';}
-function pecHtml(P){const L=(a,f)=>(a||[]).map(f).join('');const v=c=>c?`<ul>${L(c.mesuresGenerales,x=>`<li>${esc(x)}</li>`)}</ul><ol class="etape">${L(c.etapes,e=>`<li><b>${esc(e.temps)}</b> · <span class="cl">${esc(e.qui)}</span> : ${esc(e.fait)}</li>`)}</ol>`:'';
+function pecHtml(P){const esc=T;const L=(a,f)=>(a||[]).map(f).join('');const v=c=>c?`<ul>${L(c.mesuresGenerales,x=>`<li>${esc(x)}</li>`)}</ul><ol class="etape">${L(c.etapes,e=>`<li><b>${esc(e.temps)}</b> · <span class="cl">${esc(e.qui)}</span> : ${esc(e.fait)}</li>`)}</ol>`:'';
  return `<div class="pecw"><h3>${esc(P.titre)}</h3><h4>But</h4><ul>${L(P.but,x=>`<li>${esc(x)}</li>`)}</ul>
  <h4>Moyens</h4><p class="ok">Mesures générales à l'accueil</p><ul>${L(P.moyens.accueil,x=>`<li>${esc(x)}</li>`)}</ul>
  ${P.moyens.pharmacologique.length?`<p class="ok">Pharmacologique</p><table><thead><tr><th>Molécule</th><th>Posologie</th><th>Pourquoi</th></tr></thead><tbody>${L(P.moyens.pharmacologique,m=>`<tr><td class="mol">${esc(m.molecule)}</td><td>${esc(m.posologie)}</td><td>${esc(m.pourquoi)}<div class="src">${esc(m.source)}</div></td></tr>`)}</tbody></table>`:''}
@@ -128,11 +137,12 @@ function pecHtml(P){const L=(a,f)=>(a||[]).map(f).join('');const v=c=>c?`<ul>${L
  <h4>Pronostic</h4><p>${esc(P.pronostic)}</p><h4>Surveillance</h4><table><thead><tr><th>Quoi</th><th>Quand</th><th>Cible</th></tr></thead><tbody>${L(P.surveillance.suivi,x=>`<tr><td class="mol">${esc(x.quoi)}</td><td>${esc(x.quand)}</td><td>${esc(x.cible)}</td></tr>`)}</tbody></table>
  <p><span class="cl">Sortie</span> : ${esc(P.surveillance.sortie)}</p><h4>Prévention</h4><ul>${['primaire','secondaire','tertiaire'].filter(k=>P.prevention[k]).map(k=>`<li><span class="cl">${k}</span> : ${esc(P.prevention[k])}</li>`).join('')}</ul></div>`;}
 let PEC={};
-function fenetre(n){const c=n.cours||{},t=c.tableau;$('fenetreCorps').innerHTML=`<button class="fermer" id="fermer">Fermer</button><h3>${esc(n.titre)}</h3><p>${esc(n.comment)}</p>
+function fenetre(n){const c=n.cours||{},t=c.tableau;$('fenetreCorps').innerHTML=`<button class="fermer" id="fermer">Fermer</button><h3>${esc(n.titre)}</h3><p>${T(n.comment)}</p>
  ${t?tableau(t):''}${c.arbre?`<p class="sous">Clique une case pour déplier ; survole ou touche-la pour lire le pourquoi.</p><div class="algo"><ul class="arbre">${arbre(c.arbre,0)}</ul></div>`:''}
- ${c.points?`<ul>${c.points.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>`:''}<p class="src">Sources : ${esc((n.sources||[]).join(' ; '))}</p>`;$('fenetre').classList.add('ouverte');$('fermer').onclick=()=>$('fenetre').classList.remove('ouverte');}
+ ${c.points?`<ul>${c.points.map(x=>`<li>${T(x)}</li>`).join('')}</ul>`:''}<p class="src">Sources : ${esc((n.sources||[]).join(' ; '))}</p>`;$('fenetre').classList.add('ouverte');$('fermer').onclick=()=>$('fenetre').classList.remove('ouverte');}
 document.addEventListener('click',e=>{const b=e.target.closest('.notion');if(b&&NOT[b.dataset.n])fenetre(NOT[b.dataset.n]);
  const pz=e.target.closest('.noeud.pec');if(pz&&PEC[pz.dataset.pec]){$('fenetreCorps').innerHTML='<button class="fermer" id="fermer">Fermer</button>'+pecHtml(PEC[pz.dataset.pec]);$('fenetre').classList.add('ouverte');$('fermer').onclick=()=>$('fenetre').classList.remove('ouverte');}
+ const ln=e.target.closest('.noeud[data-notion]');if(ln&&NOT[ln.dataset.notion]){fenetre(NOT[ln.dataset.notion]);return;}
  const hi=e.target.closest('[data-i]');if(hi){montrerBulle(hi);if(hi.classList.contains('hi'))return;}else $('bulle').style.display='none';
  const a=e.target.closest('.noeud');if(a&&a.dataset.a){const u=document.getElementById(a.dataset.a);if(u){u.hidden=!u.hidden;a.classList.toggle('ferme',u.hidden);}}
  if(e.target.id==='fenetre')$('fenetre').classList.remove('ouverte');});
