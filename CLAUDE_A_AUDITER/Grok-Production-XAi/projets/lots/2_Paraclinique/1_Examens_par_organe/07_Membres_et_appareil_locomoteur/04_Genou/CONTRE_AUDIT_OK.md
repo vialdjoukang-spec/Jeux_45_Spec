@@ -20,3 +20,4 @@ Corrections faites :
 - Réserves gardées dans aVerifier : incidences de Nissen, indication et dose de l'arthro-CT
 - Décision : les sigles ajoutés au glossaire sont gardés ; les citations Smarter Medicine mises au format commun sont gardées (vérifiées mot pour mot)
 - Note pour la relecture : le _meta de chaque fragment est celui du squelette de lot de main ; la fusion ne reprend pas le _meta du lot
+- Correction post-contrôle (23.11.2026) : referencePour vides rétablis exactement comme sur la conception de origin/main ; rien d'autre modifié ; controle PASS.
