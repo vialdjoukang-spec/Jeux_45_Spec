@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-23 01:13
 
-6 fichier(s) : 0 🟩 intégrables · 5 🟧 à compléter · 1 🟥 refusés.
+8 fichier(s) : 0 🟩 intégrables · 7 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -31,6 +31,28 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟧 `panendoscopie_orl.json` : remplissage 0 % (0/0)
 - 🟧 `videostroboscopie.json` : remplissage 0 % (0/0)
 - aVerifier déclarés : 2
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/04_Thorax/1_Theorie/PE04_Endoscopies_Thorax_8-fiches_production_XAi.json`
+- 🟧 `bronchoscopie_avec_lavage_bronchoalveola.json` : remplissage 0 % (0/0)
+- 🟧 `bronchoscopie_de_navigation.json` : remplissage 0 % (0/0)
+- 🟧 `ebus_avec_ponction_ganglionnaire.json` : remplissage 0 % (0/0)
+- 🟧 `ebus_et_eus.json` : remplissage 0 % (0/0)
+- 🟧 `mediastinoscopie.json` : remplissage 0 % (0/0)
+- 🟧 `thoracoscopie.json` : remplissage 0 % (0/0)
+- 🟧 `echo_endoscopie_oesophagienne.json` : remplissage 0 % (0/0)
+- 🟧 `oesophagogastroduodenoscopie_avec_biopsi.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 8
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/04_Thorax/2_Pratique/PE04-PR_Endoscopies_Thorax_8-fiches_PRATIQUE_production_XAi.json`
+- 🟧 `bronchoscopie_avec_lavage_bronchoalveola.json` : remplissage 0 % (0/0)
+- 🟧 `bronchoscopie_de_navigation.json` : remplissage 0 % (0/0)
+- 🟧 `ebus_avec_ponction_ganglionnaire.json` : remplissage 0 % (0/0)
+- 🟧 `ebus_et_eus.json` : remplissage 0 % (0/0)
+- 🟧 `mediastinoscopie.json` : remplissage 0 % (0/0)
+- 🟧 `thoracoscopie.json` : remplissage 0 % (0/0)
+- 🟧 `echo_endoscopie_oesophagienne.json` : remplissage 0 % (0/0)
+- 🟧 `oesophagogastroduodenoscopie_avec_biopsi.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 7
 
 ### 🟧 `CLAUDE_A_AUDITER/ouvrier/LOT_COMPLEMENT_3_rachis_moelle_et_racines_rempli.json`
 - 🟧 `moelle_epiniere.json` : remplissage 23 % (35/150) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees
