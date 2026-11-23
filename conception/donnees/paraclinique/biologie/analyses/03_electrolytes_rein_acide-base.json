@@ -1,11 +1,30 @@
 {
  "_meta": {
   "famille": "03_Electrolytes_Rein_Acide-base",
-  "statut": "LISTE COMPLÈTE — une analyse = une fiche ; valeurs SI suisses à remplir",
+  "statut": "PRODUIT — à auditer",
   "regles": [
    "Source unique des valeurs de référence biologiques.",
    "Unités SI suisses ; valeurs par âge, sexe et grossesse quand elles diffèrent.",
    "Causes de hausse et de baisse : des plus fréquentes aux plus graves."
+  ],
+  "aVerifier": [
+   "calcium_ionise › organes : vide sur le squelette d'origine, laissé identique à main ; le contrôle ne le bloque plus",
+   "osmolalite_plasmatique › organes : vide sur le squelette d'origine, laissé identique à main ; le contrôle ne le bloque plus",
+   "toutes les analyses à valeur unique › parametres : analyse non composite : un seul paramètre, l'analyse elle-même, pour ne pas laisser [] ; à garder ou vider selon la règle retenue",
+   "calcium_ionise, ph_arteriel, pao2, paco2, exces_de_base, sao2, carboxyhemoglobine, methemoglobine › valeursReference : le CHUV et les HUG ne publient pas ces intervalles en ligne ; valeurs de l'Hôpital universitaire de Bâle (Labormedizin Update 03/2023)",
+   "calcium_ionise, sao2, carboxyhemoglobine, methemoglobine, cystatine_c, phosphate › valeursReference.enfant / grossesse : aucun intervalle pédiatrique ou gravidique trouvé ; pH, PaO2, PaCO2 et excès de base : intervalles gravidiques de Soma-Pillay 2016 (tableau 1) ajoutés",
+   "potassium, chlorure, calcium_total, magnesium, lactate › valeursReference.grossesse : aucune valeur gravidique trouvée ; intervalle unique des HUG",
+   "sao2 › valeursReference : aucun intervalle de SaO2 artérielle trouvé (champ vide dans la table de Bâle) ; l'oxyhémoglobine 90 à 95 % est donnée à la place",
+   "magnesium › valeursReference : limite haute HUG à 0,83 mmol/l, plus basse que d'autres laboratoires ; à confirmer",
+   "magnesium › augmentation : seule une cause préanalytique est sourcée ; aucune cause clinique d'hypermagnésémie trouvée dans les sources relues",
+   "phosphate › augmentation : seule la baisse du DFG est retenue (KDIGO 2024) ; autres causes non sourcées",
+   "sodium, osmolalite_plasmatique › diminution / bulle : Spasovski 2014 et RMS 2025 lus en résumé seulement ; la cause « sécrétion inappropriée d'ADH », non présente dans ces résumés, a été retirée",
+   "calcium_total, calcium_ionise › augmentation / diminution : Revue médicale suisse 2024 (hypercalcémie) et 2025 (hypocalcémie) lues en résumé ; corps des articles non accessible",
+   "calcium_total, calcium_ionise › toutes références « colloque sur le dosage du calcium » : colloque FLASH de la Revue médicale suisse, année non indiquée sur la page (étude citée de 2025)",
+   "osmolalite_plasmatique › seuilsCritiques : l'USZ exprime les valeurs d'alarme en mmol/kg ; unité reprise telle quelle",
+   "carboxyhemoglobine, methemoglobine › seuilsCritiques : valeurs d'alarme USZ données en fraction (0,25 et 0,2) ; converties en 25 % et 20 %",
+   "dfg_estime › valeursReference.enfant : les équations pédiatriques ne sont pas détaillées ; à préciser",
+   "uree › seuilsCritiques : aucun seuil critique propre à l'urée trouvé ; le champ renvoie au calcul de l'osmolalité"
   ]
  },
  "analyses": [
@@ -13,21 +32,30 @@
    "id": "sodium",
    "nom": "Sodium",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+   "unite": "mmol/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "136 à 144 mmol/l, selon le répertoire des analyses des HUG (2026) ; 136 à 145 mmol/l en gazométrie selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "adulteFemme": "136 à 144 mmol/l, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "136 à 144 mmol/l pour tout âge, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "La grossesse crée un état hypo-osmolaire avec rétention d'eau et de sodium, selon Soma-Pillay et al. (2016).",
+    "sujetAge": "136 à 144 mmol/l pour tout âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Valeurs d'alarme sous 120 mmol/l et au-dessus de 155 mmol/l, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026).",
+   "variationsPhysiologiques": "L'hyponatrémie touche plus de 30 % des patients hospitalisés en Suisse, selon la Revue médicale suisse (2025, hyponatrémie) ; les personnes âgées, dont la soif est altérée, risquent l'hypernatrémie, selon la Revue médicale suisse (2010, hypernatrémie).",
+   "augmentation": [
+    "Perte d'eau sans accès libre à l'eau, selon la Revue médicale suisse (2010, hypernatrémie).",
+    "Diarrhées et brûlures étendues, selon la Revue médicale suisse (2010, hypernatrémie).",
+    "Diabète insipide central ou néphrogénique, selon la Revue médicale suisse (2010, hypernatrémie).",
+    "Apport de sodium, par exemple de bicarbonate en réanimation, selon la Revue médicale suisse (2010, hypernatrémie)."
+   ],
+   "diminution": [
+    "Excès relatif d'eau, cause la plus fréquente, selon la Revue médicale suisse (2025, hyponatrémie).",
+    "Grossesse, où le seuil de sécrétion de la vasopressine et de la soif s'abaisse et crée un état hypo-osmolaire, selon Soma-Pillay et al. (2016).",
+    "Fausse hyponatrémie d'une lipémie marquée, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026)."
+   ],
+   "interferences": "On prélève sans garrot ou avec un garrot desserré, selon le répertoire des analyses des HUG (2026). Une lipémie marquée abaisse faussement le sodium, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026).",
+   "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
    "organes": [
     "Cœur et péricarde",
     "Encéphale",
@@ -35,550 +63,1478 @@
     "Psyché",
     "Reins"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Na",
+    "Natrémie",
+    "Natrium",
+    "Sodium plasmatique"
+   ],
+   "parametres": [
+    {
+     "nom": "Sodium",
+     "unite": "mmol/l",
+     "valeurs": "136 à 144 mmol/l, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Sodium < 135 mmol/l",
+     "signification": "Il définit l'hyponatrémie, selon Spasovski et al. (2014)."
+    },
+    {
+     "anomalie": "Sodium > 145 mmol/l",
+     "signification": "Il définit en général l'hypernatrémie, selon la Revue médicale suisse (2010, hypernatrémie)."
+    },
+    {
+     "anomalie": "Sodium < 120 mmol/l",
+     "signification": "C'est une valeur d'alarme téléphonée au médecin, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Hyponatrémie hypotonique",
+     "anomaliesQuiLeComposent": [
+      "Sodium < 135 mmol/l",
+      "Osmolalité plasmatique basse"
+     ]
+    },
+    {
+     "syndrome": "Déficit en eau",
+     "anomaliesQuiLeComposent": [
+      "Sodium > 145 mmol/l",
+      "Soif intense"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Sécrétion inappropriée d'ADH",
+     "anomalieTypique": "Hyponatrémie"
+    },
+    {
+     "pathologie": "Diabète insipide sans accès à l'eau",
+     "anomalieTypique": "Hypernatrémie"
+    }
+   ],
+   "bulle": {
+    "def": "Le sodium est le principal cation du plasma ; sa concentration reflète surtout le rapport entre le sodium et l'eau.",
+    "pourquoi": "Une hyponatrémie traduit le plus souvent un excès relatif d'eau, et non un manque de sel, selon la Revue médicale suisse (2025, hyponatrémie).",
+    "confusion": "Une natrémie basse ne signifie pas un manque de sodium : on mesure les osmolalités plasmatique et urinaire et le sodium urinaire, selon la Revue médicale suisse (2025, hyponatrémie).",
+    "retenir": "Hyponatrémie sous 135 mmol/l, hypernatrémie au-delà de 145 mmol/l ; alarme sous 120 ou au-dessus de 155 mmol/l."
+   }
   },
   {
    "id": "potassium",
    "nom": "Potassium",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+   "unite": "mmol/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "3,6 à 4,6 mmol/l, selon le répertoire des analyses des HUG (2026) ; 3,4 à 4,5 mmol/l en gazométrie selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "adulteFemme": "3,6 à 4,6 mmol/l, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "3,6 à 4,6 mmol/l pour tout âge, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "3,6 à 4,6 mmol/l, intervalle unique du répertoire des analyses des HUG (2026), sans valeur propre à la grossesse.",
+    "sujetAge": "3,6 à 4,6 mmol/l pour tout âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Valeurs d'alarme sous 2,8 mmol/l et au-dessus de 6,2 mmol/l, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026).",
+   "variationsPhysiologiques": "L'insuline et la stimulation bêta-adrénergique font entrer le potassium dans les cellules, selon la Revue médicale suisse (2018, hyperkaliémie).",
+   "augmentation": [
+    "Hémolyse du prélèvement ou thrombocytose, selon le répertoire des analyses des HUG (2026).",
+    "Insuffisance rénale chronique, selon la Revue médicale suisse (2018, hyperkaliémie).",
+    "Bloqueurs du système rénine-angiotensine-aldostérone, selon la Revue médicale suisse (2018, hyperkaliémie).",
+    "Spironolactone, selon la Revue médicale suisse (2018, hyperkaliémie)."
+   ],
+   "diminution": [
+    "Diurétiques, cause la plus fréquente, selon la Revue médicale suisse (2007, hypokaliémie).",
+    "Vomissements avec alcalose métabolique, selon la Revue médicale suisse (2007, hypokaliémie).",
+    "Insuline, notamment dans l'acidocétose traitée, selon la Revue médicale suisse (2007, hypokaliémie).",
+    "Alcalose métabolique ou respiratoire, selon la Revue médicale suisse (2007, hypokaliémie)."
+   ],
+   "interferences": "L'hémolyse et la thrombocytose élèvent faussement le potassium, selon le répertoire des analyses des HUG (2026) ; le poing serré répété, un garrot prolongé et un délai de plus de 30 min avant centrifugation l'élèvent aussi, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026).",
+   "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
    "organes": [
     "Cœur et péricarde",
     "Métabolisme et endocrinologie",
     "Psyché",
     "Reins"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "K",
+    "Kaliémie",
+    "Kalium",
+    "Potassium plasmatique"
+   ],
+   "parametres": [
+    {
+     "nom": "Potassium",
+     "unite": "mmol/l",
+     "valeurs": "3,6 à 4,6 mmol/l, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Potassium < 3,5 mmol/l",
+     "signification": "Il définit l'hypokaliémie, selon la Revue médicale suisse (2007, hypokaliémie)."
+    },
+    {
+     "anomalie": "Potassium de 2,5 à 3 mmol/l",
+     "signification": "Hypokaliémie modérée à sévère, souvent symptomatique, selon la Revue médicale suisse (2007, hypokaliémie)."
+    },
+    {
+     "anomalie": "Potassium > 6,2 mmol/l",
+     "signification": "C'est une valeur d'alarme téléphonée au médecin, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Hypokaliémie sous diurétique",
+     "anomaliesQuiLeComposent": [
+      "Potassium < 3,5 mmol/l",
+      "Traitement diurétique"
+     ]
+    },
+    {
+     "syndrome": "Hyperkaliémie de l'IRC",
+     "anomaliesQuiLeComposent": [
+      "Potassium élevé",
+      "DFG abaissé",
+      "Bloqueur du SRAA"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Insuffisance rénale chronique",
+     "anomalieTypique": "Hyperkaliémie"
+    },
+    {
+     "pathologie": "Traitement diurétique thiazidique",
+     "anomalieTypique": "Hypokaliémie"
+    }
+   ],
+   "bulle": {
+    "def": "Le potassium est le principal cation intracellulaire ; sa petite part plasmatique règle l'excitabilité du cœur et des muscles.",
+    "pourquoi": "Ses écarts modifient l'ECG et peuvent provoquer des arythmies, selon la Revue médicale suisse (2007, hypokaliémie).",
+    "confusion": "Une hyperkaliémie isolée sur un tube hémolysé est souvent fausse : on refait le prélèvement, selon le répertoire des analyses des HUG (2026).",
+    "retenir": "Hypokaliémie sous 3,5 mmol/l ; on traite l'hyperkaliémie grave d'abord par gluconate de calcium, selon la Revue médicale suisse (2018, hyperkaliémie)."
+   }
   },
   {
    "id": "chlorure",
    "nom": "Chlorure",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+   "unite": "mmol/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "96 à 107 mmol/l, selon le répertoire des analyses des HUG (2026) ; 98 à 107 mmol/l en gazométrie selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "adulteFemme": "96 à 107 mmol/l, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "96 à 107 mmol/l pour tout âge, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "96 à 107 mmol/l, intervalle unique du répertoire des analyses des HUG (2026), sans valeur propre à la grossesse.",
+    "sujetAge": "96 à 107 mmol/l pour tout âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Valeurs d'alarme sous 75 mmol/l et au-dessus de 125 mmol/l, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026).",
+   "variationsPhysiologiques": "Les HUG (2026) donnent un intervalle unique pour tout âge et les deux sexes.",
+   "augmentation": [
+    "Perfusion de NaCl, selon la Revue médicale suisse (2018, acidose métabolique).",
+    "Diarrhées et fistules digestives, avec acidose hyperchlorémique, selon la Revue médicale suisse (2018, acidose métabolique)."
+   ],
+   "diminution": [
+    "Vomissements importants et sonde naso-gastrique, par perte de chlore, selon la Revue médicale suisse (2007, hypokaliémie).",
+    "Diurétiques, avec alcalose métabolique, selon la Revue médicale suisse (2007, hypokaliémie)."
+   ],
+   "interferences": "Tube vert hépariné ; le CHUV (2026) dose le chlorure par potentiométrie indirecte.",
+   "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
    "organes": [
     "Cœur et péricarde",
     "Métabolisme et endocrinologie",
     "Psyché",
     "Reins"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Cl",
+    "Chlorémie",
+    "Chlorures"
+   ],
+   "parametres": [
+    {
+     "nom": "Chlorure",
+     "unite": "mmol/l",
+     "valeurs": "96 à 107 mmol/l, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Acidose avec chlore élevé",
+     "signification": "Elle oriente vers une acidose métabolique à trou anionique normal, selon la Revue médicale suisse (2018, acidose métabolique)."
+    },
+    {
+     "anomalie": "Chlorure < 75 mmol/l",
+     "signification": "C'est une valeur d'alarme téléphonée au médecin, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Acidose hyperchlorémique",
+     "anomaliesQuiLeComposent": [
+      "Chlorure élevé",
+      "Bicarbonate bas",
+      "Trou anionique normal"
+     ]
+    },
+    {
+     "syndrome": "Alcalose de contraction",
+     "anomaliesQuiLeComposent": [
+      "Chlorure bas",
+      "Bicarbonate élevé",
+      "Hypokaliémie"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Diarrhée abondante",
+     "anomalieTypique": "Acidose hyperchlorémique"
+    },
+    {
+     "pathologie": "Remplissage massif au NaCl",
+     "anomalieTypique": "Chlorure élevé"
+    }
+   ],
+   "bulle": {
+    "def": "Le chlorure est le principal anion du plasma, avec le bicarbonate.",
+    "pourquoi": "Il entre dans le calcul du trou anionique et aide à classer les acidoses métaboliques, selon la Revue médicale suisse (2018, acidose métabolique).",
+    "confusion": "Une acidose à trou anionique normal n'est pas due à un acide non dosé : elle est hyperchlorémique, selon la Revue médicale suisse (2018, acidose métabolique).",
+    "retenir": "Trou anionique = Na + K − (Cl + HCO3), normal 12 ± 4 mmol/l, selon la Revue médicale suisse (2018, acidose métabolique)."
+   }
   },
   {
    "id": "bicarbonate",
    "nom": "Bicarbonate",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026). En gazométrie, seringue héparinée, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "mmol/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "CO2 total 21 à 28,5 mmol/l, selon le répertoire des analyses des HUG (2026) ; bicarbonate artériel 22,2 à 28,3 mmol/l selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "adulteFemme": "CO2 total 21 à 28,5 mmol/l, selon le répertoire des analyses des HUG (2026) ; bicarbonate artériel 21,2 à 27,0 mmol/l selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "enfant": "CO2 total 21 à 28,5 mmol/l pour tout âge, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "Le bicarbonate baisse à 18 à 22 mmol/l, en compensation de l'hyperventilation, selon Soma-Pillay et al. (2016).",
+    "sujetAge": "CO2 total 21 à 28,5 mmol/l pour tout âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Une acidose métabolique se juge sur le bicarbonate et l'excès de base standard, puis sur le trou anionique, selon la Revue médicale suisse (2018, acidose métabolique).",
+   "variationsPhysiologiques": "Pendant la grossesse, le bicarbonate descend à 18 à 22 mmol/l, selon Soma-Pillay et al. (2016).",
+   "augmentation": [
+    "Vomissements, diurétiques et sonde naso-gastrique, avec alcalose métabolique, selon la Revue médicale suisse (2007, hypokaliémie).",
+    "Compensation rénale d'une acidose respiratoire, selon la Revue médicale suisse (2018, acidose métabolique)."
+   ],
+   "diminution": [
+    "Acidose lactique, selon la Revue médicale suisse (2018, acidose métabolique).",
+    "Acidocétose, selon la Revue médicale suisse (2018, acidose métabolique).",
+    "Insuffisance rénale sévère, selon la Revue médicale suisse (2018, acidose métabolique).",
+    "Pertes digestives, diarrhées et fistules, selon la Revue médicale suisse (2018, acidose métabolique).",
+    "Intoxications, par exemple aux salicylés, selon la Revue médicale suisse (2018, acidose métabolique)."
+   ],
+   "interferences": "En veineux, le bicarbonate actuel vaut 21 à 28 mmol/l, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+   "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
    "organes": [
     "Cœur et péricarde",
     "Métabolisme et endocrinologie",
     "Psyché",
     "Reins"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "HCO3",
+    "CO2 total",
+    "Bicarbonates",
+    "Réserve alcaline"
+   ],
+   "parametres": [
+    {
+     "nom": "CO2 total",
+     "unite": "mmol/l",
+     "valeurs": "21 à 28,5 mmol/l, selon le répertoire des analyses des HUG (2026)."
+    },
+    {
+     "nom": "Bicarbonate artériel",
+     "unite": "mmol/l",
+     "valeurs": "Homme 22,2 à 28,3, femme 21,2 à 27,0 mmol/l, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Bicarbonate bas et trou anionique > 16",
+     "signification": "Il signe un acide non dosé : lactate, cétones, toxique, selon la Revue médicale suisse (2018, acidose métabolique)."
+    },
+    {
+     "anomalie": "Bicarbonate bas, trou anionique normal",
+     "signification": "Il oriente vers une acidose hyperchlorémique, digestive par exemple, selon la Revue médicale suisse (2018, acidose métabolique)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Acidose à trou anionique élevé",
+     "anomaliesQuiLeComposent": [
+      "Bicarbonate bas",
+      "Trou anionique > 16 mmol/l",
+      "pH bas"
+     ]
+    },
+    {
+     "syndrome": "Alcalose métabolique",
+     "anomaliesQuiLeComposent": [
+      "Bicarbonate élevé",
+      "pH élevé",
+      "Hypokaliémie"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Acidocétose diabétique",
+     "anomalieTypique": "Bicarbonate bas, trou élevé"
+    },
+    {
+     "pathologie": "Vomissements prolongés",
+     "anomalieTypique": "Bicarbonate élevé"
+    }
+   ],
+   "bulle": {
+    "def": "Le bicarbonate est le principal tampon du plasma ; le CO2 total du laboratoire en donne une mesure proche.",
+    "pourquoi": "Il baisse quand un acide s'accumule ou quand on perd du bicarbonate, et monte dans l'alcalose métabolique.",
+    "confusion": "Le bicarbonate dépend aussi de la PaCO2 ; on juge la part métabolique sur l'excès de base standard, selon la Revue médicale suisse (2018, acidose métabolique).",
+    "retenir": "Bicarbonate bas : calculer le trou anionique, anormal au-delà de 16 mmol/l, selon la Revue médicale suisse (2018, acidose métabolique)."
+   }
   },
   {
    "id": "calcium_total",
    "nom": "Calcium total",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+   "unite": "mmol/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "2,20 à 2,52 mmol/l, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "2,20 à 2,52 mmol/l, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "2,20 à 2,52 mmol/l pour tout âge, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "2,20 à 2,52 mmol/l, intervalle unique du répertoire des analyses des HUG (2026), sans valeur propre à la grossesse.",
+    "sujetAge": "2,20 à 2,52 mmol/l pour tout âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Valeurs d'alarme sous 1,75 mmol/l et au-dessus de 3 mmol/l, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026).",
+   "variationsPhysiologiques": "Le calcium total varie avec l'albumine ; les HUG (2026) calculent automatiquement un calcium corrigé.",
+   "augmentation": [
+    "Hyperparathyroïdie primaire, cause la plus fréquente, selon la Revue médicale suisse (2024, hypercalcémie).",
+    "Hypercalcémie paranéoplasique, selon la Revue médicale suisse (2024, hypercalcémie).",
+    "Médicaments responsables d'hypercalcémie iatrogène, selon la Revue médicale suisse (2024, hypercalcémie)."
+   ],
+   "diminution": [
+    "Hypoalbuminémie, qui abaisse le calcium total, selon un colloque de la Revue médicale suisse sur le dosage du calcium.",
+    "Hypocalcémie vraie, fréquente en médecine interne, selon la Revue médicale suisse (2025, hypocalcémie)."
+   ],
+   "interferences": "On prélève à jeun, sans garrot ou avec un garrot desserré, selon le répertoire des analyses des HUG (2026) ; une lipémie marquée abaisse faussement le calcium, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026).",
+   "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
    "organes": [
     "Parathyroïdes"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Ca",
+    "Calcémie",
+    "Calcium sérique"
+   ],
+   "parametres": [
+    {
+     "nom": "Calcium total",
+     "unite": "mmol/l",
+     "valeurs": "2,20 à 2,52 mmol/l, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Calcium corrigé < 2,20 mmol/l",
+     "signification": "Il définit le plus souvent l'hypocalcémie, selon la Revue médicale suisse (2025, hypocalcémie)."
+    },
+    {
+     "anomalie": "Calcium > 0,25 au-dessus de la norme",
+     "signification": "Dans l'hyperparathyroïdie primaire, il fait poser l'indication chirurgicale, selon la Revue médicale suisse (2015, hyperparathyroïdie)."
+    },
+    {
+     "anomalie": "Calcium > 3 mmol/l",
+     "signification": "C'est une valeur d'alarme téléphonée au médecin, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Hyperparathyroïdie primaire",
+     "anomaliesQuiLeComposent": [
+      "Hypercalcémie",
+      "PTH élevée ou inappropriée",
+      "Hypophosphatémie"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Hyperparathyroïdie primaire",
+     "anomalieTypique": "Hypercalcémie, PTH non freinée"
+    },
+    {
+     "pathologie": "Hypercalcémie paranéoplasique",
+     "anomalieTypique": "Hypercalcémie"
+    }
+   ],
+   "bulle": {
+    "def": "Le calcium total comprend le calcium lié à l'albumine, le calcium complexé et le calcium ionisé.",
+    "pourquoi": "Seul le calcium ionisé est actif, mais le calcium total, plus simple à doser, sert au dépistage, selon un colloque de la Revue médicale suisse sur le dosage du calcium.",
+    "confusion": "Le calcium corrigé pour l'albumine peut surestimer la calcémie et masquer une hypocalcémie, selon un colloque de la Revue médicale suisse sur le dosage du calcium.",
+    "retenir": "Devant une hypercalcémie, on dose d'abord la PTH, selon la Revue médicale suisse (2024, hypercalcémie)."
+   }
   },
   {
    "id": "calcium_ionise",
    "nom": "Calcium ionisé",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Seringue à gazométrie héparinée, 1,6 ml pour une seringue de 3 ml, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "mmol/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "1,15 à 1,33 mmol/l, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "adulteFemme": "1,15 à 1,33 mmol/l, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "enfant": "Le laboratoire de Bâle (2023) donne 1,15 à 1,33 mmol/l, intervalle établi pour l'adulte.",
+    "grossesse": "Le laboratoire de Bâle (2023) donne 1,15 à 1,33 mmol/l, intervalle général de l'adulte.",
+    "sujetAge": "1,15 à 1,33 mmol/l, sans limite d'âge, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Valeurs d'alarme sous 0,8 mmol/l et au-dessus de 1,6 mmol/l, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026).",
+   "variationsPhysiologiques": "Le calcium ionisé est la seule fraction biologiquement active, selon un colloque de la Revue médicale suisse sur le dosage du calcium.",
+   "augmentation": [
+    "Hyperparathyroïdie primaire, selon la Revue médicale suisse (2024, hypercalcémie).",
+    "Hypercalcémie paranéoplasique, selon la Revue médicale suisse (2024, hypercalcémie)."
+   ],
+   "diminution": [
+    "Hypocalcémie vraie, définie sous 1,12 mmol/l, selon la Revue médicale suisse (2025, hypocalcémie).",
+    "Hémorragie critique, où l'hypocalcémie prédit la mortalité, selon les recommandations européennes sur l'hémorragie traumatique (Rossaint et al., 2023)."
+   ],
+   "interferences": "On élimine immédiatement toute bulle d'air de la seringue, selon le catalogue des analyses du CHUV (2026).",
+   "delaiResultat": "Analyse dans les 15 min, au plus 30 min, selon le catalogue des analyses du CHUV (2026) ; 24 h/24.",
    "organes": [],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Ca2+",
+    "Calcium libre",
+    "Calcium ionisé"
+   ],
+   "parametres": [
+    {
+     "nom": "Calcium ionisé",
+     "unite": "mmol/l",
+     "valeurs": "1,15 à 1,33 mmol/l, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Calcium ionisé < 1,12 mmol/l",
+     "signification": "Il définit l'hypocalcémie, selon la Revue médicale suisse (2025, hypocalcémie)."
+    },
+    {
+     "anomalie": "Calcium ionisé < 0,8 mmol/l",
+     "signification": "C'est une valeur d'alarme téléphonée au médecin, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Hypocalcémie vraie",
+     "anomaliesQuiLeComposent": [
+      "Calcium ionisé < 1,12 mmol/l",
+      "Calcium corrigé < 2,20 mmol/l"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Hémorragie massive transfusée",
+     "anomalieTypique": "Calcium ionisé bas"
+    },
+    {
+     "pathologie": "Hyperparathyroïdie primaire",
+     "anomalieTypique": "Calcium ionisé élevé"
+    }
+   ],
+   "bulle": {
+    "def": "Le calcium ionisé est la fraction libre du calcium plasmatique, non liée aux protéines.",
+    "pourquoi": "C'est la seule fraction active ; elle ne dépend pas de l'albumine, selon un colloque de la Revue médicale suisse sur le dosage du calcium.",
+    "confusion": "Le calcium corrigé n'est pas un substitut fiable du calcium ionisé, selon un colloque de la Revue médicale suisse sur le dosage du calcium.",
+    "retenir": "Hypocalcémie : calcium ionisé < 1,12 mmol/l ou calcium corrigé < 2,20 mmol/l, selon la Revue médicale suisse (2025, hypocalcémie)."
+   }
   },
   {
    "id": "phosphate",
    "nom": "Phosphate",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+   "unite": "mmol/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "0,80 à 1,45 mmol/l, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "0,80 à 1,45 mmol/l, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "1,47 à 2,54 de 15 jours à 1 an, 1,33 à 2,06 de 2 à 5 ans, 1,28 à 1,82 de 6 à 13 ans, 1,05 à 1,75 mmol/l de 14 à 16 ans, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "Les HUG (2026) donnent 0,80 à 1,45 mmol/l, intervalle général de l'adulte.",
+    "sujetAge": "0,80 à 1,45 mmol/l chez l'adulte, sans limite d'âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Valeur d'alarme sous 0,32 mmol/l, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026) ; c'est aussi le seuil de l'hypophosphatémie sévère, selon la Revue médicale suisse (2019, hypophosphatémie).",
+   "variationsPhysiologiques": "Le phosphate est plus élevé chez l'enfant que chez l'adulte, selon le répertoire des analyses des HUG (2026).",
+   "augmentation": [
+    "Baisse du DFG dans la maladie rénale chronique, selon les KDIGO (2024)."
+   ],
+   "diminution": [
+    "Syndrome de renutrition inappropriée, selon la Revue médicale suisse (2019, hypophosphatémie).",
+    "Insuline, notamment dans l'acidocétose traitée, selon la Revue médicale suisse (2019, hypophosphatémie).",
+    "Alcalose respiratoire, selon la Revue médicale suisse (2019, hypophosphatémie).",
+    "Hyperparathyroïdie, selon la Revue médicale suisse (2015, hyperparathyroïdie).",
+    "Carence en vitamine D, selon la Revue médicale suisse (2019, hypophosphatémie)."
+   ],
+   "interferences": "On prélève à jeun, selon le répertoire des analyses des HUG (2026).",
+   "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
    "organes": [
     "Os longs et squelette",
     "Parathyroïdes",
     "Reins"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Phosphore",
+    "Phosphatémie",
+    "Phosphore inorganique",
+    "PO4"
+   ],
+   "parametres": [
+    {
+     "nom": "Phosphate",
+     "unite": "mmol/l",
+     "valeurs": "0,80 à 1,45 mmol/l chez l'adulte, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Phosphate de 0,32 à 0,80 mmol/l",
+     "signification": "Il définit l'hypophosphatémie modérée, selon la Revue médicale suisse (2019, hypophosphatémie)."
+    },
+    {
+     "anomalie": "Phosphate < 0,32 mmol/l",
+     "signification": "Il définit l'hypophosphatémie sévère, selon la Revue médicale suisse (2019, hypophosphatémie)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Syndrome de renutrition",
+     "anomaliesQuiLeComposent": [
+      "Hypophosphatémie",
+      "Reprise alimentaire après jeûne"
+     ]
+    },
+    {
+     "syndrome": "Hyperparathyroïdie primaire",
+     "anomaliesQuiLeComposent": [
+      "Hypercalcémie",
+      "Hypophosphatémie",
+      "PTH élevée"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Syndrome de renutrition inappropriée",
+     "anomalieTypique": "Phosphate effondré"
+    },
+    {
+     "pathologie": "Hyperparathyroïdie primaire",
+     "anomalieTypique": "Phosphate bas"
+    }
+   ],
+   "bulle": {
+    "def": "Le phosphate plasmatique est la forme inorganique du phosphore, réglée par l'intestin, l'os et le rein.",
+    "pourquoi": "La PTH et le FGF23 augmentent son élimination rénale, selon la Revue médicale suisse (2019, hypophosphatémie).",
+    "confusion": "Une hypophosphatémie peut venir d'un simple transfert dans les cellules, sous insuline ou en alcalose respiratoire, selon la Revue médicale suisse (2019, hypophosphatémie).",
+    "retenir": "Hypophosphatémie modérée de 0,32 à 0,80 mmol/l, sévère sous 0,32 mmol/l, selon la Revue médicale suisse (2019, hypophosphatémie)."
+   }
   },
   {
    "id": "magnesium",
    "nom": "Magnésium",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+   "unite": "mmol/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "0,59 à 0,83 mmol/l, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "0,59 à 0,83 mmol/l, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "0,59 à 0,83 mmol/l pour tout âge, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "0,59 à 0,83 mmol/l, intervalle unique du répertoire des analyses des HUG (2026), sans valeur propre à la grossesse.",
+    "sujetAge": "0,59 à 0,83 mmol/l pour tout âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Valeurs d'alarme sous 0,4 mmol/l et au-dessus de 2 mmol/l, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026).",
+   "variationsPhysiologiques": "Les HUG (2026) donnent un intervalle unique pour tout âge et les deux sexes.",
+   "augmentation": [
+    "Poing serré répété pendant le prélèvement, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026)."
+   ],
+   "diminution": [
+    "Diurétiques, par perte urinaire, selon la Revue médicale suisse (2012, hypomagnésémie).",
+    "Inhibiteurs de la pompe à protons, par baisse de l'absorption intestinale, selon la Revue médicale suisse (2012, hypomagnésémie)."
+   ],
+   "interferences": "Le poing serré répété élève faussement le magnésium et le potassium, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026).",
+   "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
    "organes": [
     "Cœur et péricarde",
     "Métabolisme et endocrinologie"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Mg",
+    "Magnésémie",
+    "Magnésium total"
+   ],
+   "parametres": [
+    {
+     "nom": "Magnésium",
+     "unite": "mmol/l",
+     "valeurs": "0,59 à 0,83 mmol/l, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Magnésium < 0,4 mmol/l",
+     "signification": "C'est une valeur d'alarme téléphonée au médecin, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026)."
+    },
+    {
+     "anomalie": "Fraction excrétée du Mg > 2 %",
+     "signification": "Avec une hypomagnésémie, elle signe une perte rénale, sous diurétique par exemple, selon la Revue médicale suisse (2012, hypomagnésémie)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Hypomagnésémie sous IPP",
+     "anomaliesQuiLeComposent": [
+      "Magnésium bas",
+      "Magnésium urinaire bas"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Traitement prolongé par IPP",
+     "anomalieTypique": "Hypomagnésémie"
+    },
+    {
+     "pathologie": "Traitement diurétique",
+     "anomalieTypique": "Hypomagnésémie"
+    }
+   ],
+   "bulle": {
+    "def": "Le magnésium est un cation surtout intracellulaire, cofacteur de nombreuses enzymes.",
+    "pourquoi": "La part plasmatique est faible mais elle signale les pertes rénales ou digestives.",
+    "confusion": "Une hypomagnésémie avec un magnésium urinaire bas n'est pas rénale : elle oriente vers une perte digestive, comme sous IPP, selon la Revue médicale suisse (2012, hypomagnésémie).",
+    "retenir": "Penser aux IPP et aux diurétiques devant une hypomagnésémie, selon la Revue médicale suisse (2012, hypomagnésémie)."
+   }
   },
   {
    "id": "creatinine",
    "nom": "Créatinine",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+   "unite": "µmol/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "62 à 106 µmol/l, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "44 à 80 µmol/l, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "7 à 31 de 15 jours à 2 ans, 16 à 36 de 3 à 5 ans, 25 à 52 de 6 à 12 ans, 37 à 69 µmol/l de 13 à 16 ans, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "La créatinine baisse vers 44,2 µmol/l en moyenne, car le DFG augmente, selon Soma-Pillay et al. (2016).",
+    "sujetAge": "Les HUG (2026) appliquent l'intervalle adulte sans limite d'âge."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Une hausse de 26,5 µmol/l en 48 h, ou de 1,5 fois la valeur de base en 7 jours, définit l'insuffisance rénale aiguë, selon les KDIGO (2012).",
+   "variationsPhysiologiques": "La créatinine dépend de la masse musculaire ; elle baisse pendant la grossesse, selon Soma-Pillay et al. (2016).",
+   "augmentation": [
+    "Insuffisance rénale aiguë, selon les KDIGO (2012).",
+    "Maladie rénale chronique, selon les KDIGO (2024).",
+    "Masse musculaire élevée, hors filtration, selon les KDIGO (2024)."
+   ],
+   "diminution": [
+    "Grossesse, par hausse du DFG, selon Soma-Pillay et al. (2016).",
+    "Faible masse musculaire, amputation, paraplégie, selon les KDIGO (2024)."
+   ],
+   "interferences": "Le CHUV (2026) dose par méthode de Jaffé, enzymatique avant 11 ans ; les facteurs non rénaux de la créatinine faussent le DFG estimé, selon les KDIGO (2024).",
+   "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
    "organes": [
     "Reins",
     "Rétropéritoine",
     "Uretères"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Créatininémie",
+    "Créatinine sérique",
+    "Créat"
+   ],
+   "parametres": [
+    {
+     "nom": "Créatinine",
+     "unite": "µmol/l",
+     "valeurs": "Homme 62 à 106, femme 44 à 80 µmol/l, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Hausse ≥ 26,5 µmol/l en 48 h",
+     "signification": "Elle définit une insuffisance rénale aiguë, selon les KDIGO (2012)."
+    },
+    {
+     "anomalie": "Créatinine ≥ 1,5 fois la base",
+     "signification": "Survenue en 7 jours, elle définit une insuffisance rénale aiguë, selon les KDIGO (2012)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Insuffisance rénale aiguë",
+     "anomaliesQuiLeComposent": [
+      "Hausse de la créatinine",
+      "Diurèse < 0,5 ml/kg/h pendant 6 h"
+     ]
+    },
+    {
+     "syndrome": "Maladie rénale chronique",
+     "anomaliesQuiLeComposent": [
+      "DFG < 60 ml/min/1,73 m²",
+      "Durée > 3 mois"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Insuffisance rénale aiguë",
+     "anomalieTypique": "Créatinine en hausse rapide"
+    },
+    {
+     "pathologie": "Maladie rénale chronique",
+     "anomalieTypique": "Créatinine élevée stable"
+    }
+   ],
+   "bulle": {
+    "def": "La créatinine vient du muscle et le rein l'élimine surtout par filtration glomérulaire.",
+    "pourquoi": "Elle monte quand le DFG baisse, ce qui en fait le marqueur courant de la fonction rénale.",
+    "confusion": "Une créatinine normale n'exclut pas une baisse du DFG chez un sujet peu musclé, selon les KDIGO (2024).",
+    "retenir": "Insuffisance rénale aiguë : hausse ≥ 26,5 µmol/l en 48 h ou ≥ 1,5 fois la base en 7 jours, selon les KDIGO (2012)."
+   }
   },
   {
    "id": "uree",
    "nom": "Urée",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+   "unite": "mmol/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "3,2 à 7,5 mmol/l, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "3,2 à 7,5 mmol/l, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "1,27 à 5,79 de 15 jours à 1 an, puis 3,2 à 7,5 mmol/l de 1 à 16 ans, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "L'urée baisse vers 3,2 mmol/l en moyenne, car le DFG augmente, selon Soma-Pillay et al. (2016).",
+    "sujetAge": "3,2 à 7,5 mmol/l chez l'adulte, sans limite d'âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Les HUG (2026) intègrent l'urée au calcul de l'osmolalité, normale de 280 à 295 mOsm/kg.",
+   "variationsPhysiologiques": "L'urée baisse pendant la grossesse, selon Soma-Pillay et al. (2016).",
+   "augmentation": [
+    "Baisse du DFG, insuffisance rénale aiguë ou chronique, selon les KDIGO (2024)."
+   ],
+   "diminution": [
+    "Grossesse, par hausse du DFG, selon Soma-Pillay et al. (2016)."
+   ],
+   "interferences": "On prélève sans garrot ou avec un garrot desserré, selon le répertoire des analyses des HUG (2026).",
+   "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
    "organes": [
     "Estomac et duodénum",
     "Reins"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Urémie",
+    "Azote uréique",
+    "BUN"
+   ],
+   "parametres": [
+    {
+     "nom": "Urée",
+     "unite": "mmol/l",
+     "valeurs": "3,2 à 7,5 mmol/l, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Urée élevée et créatinine élevée",
+     "signification": "Elles traduisent une baisse du DFG, selon les KDIGO (2024)."
+    },
+    {
+     "anomalie": "Urée basse pendant la grossesse",
+     "signification": "Elle est physiologique, vers 3,2 mmol/l, selon Soma-Pillay et al. (2016)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Insuffisance rénale",
+     "anomaliesQuiLeComposent": [
+      "Urée élevée",
+      "Créatinine élevée",
+      "DFG abaissé"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Maladie rénale chronique",
+     "anomalieTypique": "Urée et créatinine élevées"
+    }
+   ],
+   "bulle": {
+    "def": "L'urée est le produit final du catabolisme des protéines, éliminé par le rein.",
+    "pourquoi": "Elle s'accumule quand la filtration rénale baisse.",
+    "confusion": "L'urée dépend aussi des apports et du catabolisme protéiques : on juge la fonction rénale sur la créatinine et le DFG, selon les KDIGO (2024).",
+    "retenir": "Les HUG (2026) donnent 3,2 à 7,5 mmol/l chez l'adulte."
+   }
   },
   {
    "id": "dfg_estime",
    "nom": "DFG estimé (CKD-EPI)",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026). Calculé à partir de la créatinine, et de la cystatine C si demandée.",
+   "unite": "ml/min/1,73 m²",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "G1 ≥ 90, G2 60 à 89 ml/min/1,73 m², selon les KDIGO (2024).",
+    "adulteFemme": "G1 ≥ 90, G2 60 à 89 ml/min/1,73 m², selon les KDIGO (2024).",
+    "enfant": "Chez l'enfant, on estime le DFG avec une équation pédiatrique, comme l'équation CKiD, validée de 1 à 25 ans, selon les KDIGO (2024).",
+    "grossesse": "Le DFG augmente pendant la grossesse, selon Soma-Pillay et al. (2016).",
+    "sujetAge": "Les mêmes catégories G s'appliquent, à tout âge adulte, selon les KDIGO (2024)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Un DFG < 15 ml/min/1,73 m² définit la catégorie G5, insuffisance rénale terminale, selon les KDIGO (2024).",
+   "variationsPhysiologiques": "Le DFG augmente pendant la grossesse, selon Soma-Pillay et al. (2016).",
+   "augmentation": [
+    "Grossesse, selon Soma-Pillay et al. (2016)."
+   ],
+   "diminution": [
+    "Maladie rénale chronique, catégories G3a à G5, selon les KDIGO (2024).",
+    "Insuffisance rénale aiguë, selon les KDIGO (2012)."
+   ],
+   "interferences": "L'équation fondée sur la créatinine est moins exacte en cas de masse musculaire atypique ; on utilise alors la créatinine et la cystatine C, selon les KDIGO (2024).",
+   "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
    "organes": [
     "Reins"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "eGFR",
+    "DFGe",
+    "CKD-EPI",
+    "Clairance estimée"
+   ],
+   "parametres": [
+    {
+     "nom": "DFG estimé (CKD-EPI 2021)",
+     "unite": "ml/min/1,73 m²",
+     "valeurs": "G1 ≥ 90 ; G2 60 à 89 ; G3a 45 à 59 ; G3b 30 à 44 ; G4 15 à 29 ; G5 < 15, selon les KDIGO (2024)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "DFG 45 à 59 ml/min/1,73 m²",
+     "signification": "Catégorie G3a, selon les KDIGO (2024)."
+    },
+    {
+     "anomalie": "DFG 30 à 44 ml/min/1,73 m²",
+     "signification": "Catégorie G3b, selon les KDIGO (2024)."
+    },
+    {
+     "anomalie": "DFG < 15 ml/min/1,73 m²",
+     "signification": "Catégorie G5, insuffisance rénale terminale, selon les KDIGO (2024)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Maladie rénale chronique",
+     "anomaliesQuiLeComposent": [
+      "DFG < 60 ml/min/1,73 m²",
+      "Durée > 3 mois"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Maladie rénale chronique",
+     "anomalieTypique": "DFG < 60 depuis plus de 3 mois"
+    }
+   ],
+   "bulle": {
+    "def": "Le DFG estimé est calculé à partir de la créatinine, de l'âge et du sexe par l'équation CKD-EPI 2021.",
+    "pourquoi": "Il classe la maladie rénale chronique en catégories G1 à G5, selon les KDIGO (2024).",
+    "confusion": "Un DFG bas une seule fois ne suffit pas : la maladie rénale chronique exige plus de 3 mois d'anomalie, selon les KDIGO (2024).",
+    "retenir": "Sous 60 ml/min/1,73 m² pendant plus de 3 mois : maladie rénale chronique, selon les KDIGO (2024)."
+   }
   },
   {
    "id": "cystatine_c",
    "nom": "Cystatine C",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube jaune Hémogard de 3,5 ml (microtube jaune de 0,6 ml chez l'enfant), selon le répertoire des analyses des HUG (2026) ; tube vert de 2,6 ml au CHUV (2026).",
+   "unite": "mg/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "0,65 à 1,24 mg/l avant 50 ans, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "0,65 à 1,24 mg/l avant 50 ans, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Les HUG (2026) donnent 0,65 à 1,24 mg/l avant 50 ans, intervalle établi pour l'adulte.",
+    "grossesse": "Les HUG (2026) donnent 0,65 à 1,24 mg/l avant 50 ans, intervalle général de l'adulte.",
+    "sujetAge": "0,81 à 1,64 mg/l après 50 ans, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "On utilise le DFG créatinine-cystatine C quand le DFG créatinine est peu fiable et qu'il guide une décision, selon les KDIGO (2024).",
+   "variationsPhysiologiques": "L'intervalle monte après 50 ans, selon le répertoire des analyses des HUG (2026).",
+   "augmentation": [
+    "Baisse du DFG, selon les KDIGO (2024).",
+    "Corticoïdes, dysthyroïdie et cancer, hors filtration, selon les KDIGO (2024)."
+   ],
+   "diminution": [
+    "Corticoïdes, dysthyroïdie et cancer peuvent aussi la modifier hors filtration, selon les KDIGO (2024)."
+   ],
+   "interferences": "Les corticoïdes, les maladies thyroïdiennes et les cancers modifient la cystatine C, selon les KDIGO (2024).",
+   "delaiResultat": "1 jour ouvrable dans 95 % des cas, au plus 2, selon le répertoire des analyses des HUG (2026).",
    "organes": [
     "Reins"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Cys C",
+    "Cystatine",
+    "DFG cystatine"
+   ],
+   "parametres": [
+    {
+     "nom": "Cystatine C",
+     "unite": "mg/l",
+     "valeurs": "0,65 à 1,24 mg/l avant 50 ans ; 0,81 à 1,64 mg/l après, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Cystatine C élevée, créatinine normale",
+     "signification": "Chez un sujet peu musclé, elle révèle une baisse du DFG masquée, selon les KDIGO (2024)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "DFG créatinine peu fiable",
+     "anomaliesQuiLeComposent": [
+      "Masse musculaire atypique",
+      "DFG créatinine-cystatine C"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Amputation ou paraplégie",
+     "anomalieTypique": "Créatinine faussement basse"
+    },
+    {
+     "pathologie": "Maladie rénale chronique",
+     "anomalieTypique": "Cystatine C élevée"
+    }
+   ],
+   "bulle": {
+    "def": "La cystatine C est une petite protéine produite par toutes les cellules et filtrée par le glomérule.",
+    "pourquoi": "Elle ne dépend pas de la masse musculaire et corrige les erreurs du DFG fondé sur la créatinine, selon les KDIGO (2024).",
+    "confusion": "Elle a ses propres facteurs non rénaux : corticoïdes, thyroïde et cancer, selon les KDIGO (2024).",
+    "retenir": "On l'ajoute quand la créatinine trompe : amputation, paraplégie, troubles alimentaires, selon les KDIGO (2024)."
+   }
   },
   {
    "id": "acide_urique",
    "nom": "Acide urique",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube vert à héparinate de lithium de 2,6 ml au CHUV (2026).",
+   "unite": "µmol/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "286 à 518 µmol/l, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "155 à 476 µmol/l, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "88 à 370 de 15 jours à 1 an, 100 à 282 de 2 à 12 ans ; de 13 à 16 ans 150 à 446 chez le garçon, 147 à 342 µmol/l chez la fille, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "L'excrétion d'acide urique augmente pendant la grossesse, selon Soma-Pillay et al. (2016).",
+    "sujetAge": "Les HUG (2026) appliquent l'intervalle adulte sans limite d'âge."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Valeur d'alarme au-dessus de 773 µmol/l, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026) ; cible sous traitement < 360 µmol/l, < 300 µmol/l dans la goutte sévère, selon l'EULAR (2016).",
+   "variationsPhysiologiques": "L'intervalle est plus bas chez la femme que chez l'homme, selon le répertoire des analyses des HUG (2026).",
+   "augmentation": [
+    "Diurétiques, selon les HUG (2024, monoarthrite).",
+    "Aspirine à faible dose, selon les HUG (2024, monoarthrite).",
+    "Alcool, selon les HUG (2024, monoarthrite)."
+   ],
+   "diminution": [
+    "Baisse transitoire pendant une crise de goutte, selon les HUG (2024, monoarthrite).",
+    "Traitement hypo-uricémiant comme l'allopurinol, selon l'EULAR (2016)."
+   ],
+   "interferences": "On prélève à jeun, selon le répertoire des analyses des HUG (2026).",
+   "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
    "organes": [
     "Articulations et synoviale",
     "Cheville et pied",
     "Métabolisme et endocrinologie"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Uricémie",
+    "Urate",
+    "Acide urique sérique"
+   ],
+   "parametres": [
+    {
+     "nom": "Acide urique",
+     "unite": "µmol/l",
+     "valeurs": "Homme 286 à 518, femme 155 à 476 µmol/l, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Acide urique < 360 µmol/l",
+     "signification": "C'est la cible du traitement de la goutte, selon l'EULAR (2016)."
+    },
+    {
+     "anomalie": "Uricémie normale en crise",
+     "signification": "Elle n'exclut pas la goutte, car l'uricémie peut baisser pendant la crise, selon les HUG (2024, monoarthrite)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Goutte",
+     "anomaliesQuiLeComposent": [
+      "Hyperuricémie",
+      "Cristaux d'urate dans le liquide"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Goutte",
+     "anomalieTypique": "Hyperuricémie, cristaux d'urate"
+    }
+   ],
+   "bulle": {
+    "def": "L'acide urique est le produit final du catabolisme des purines.",
+    "pourquoi": "En excès, il précipite en cristaux d'urate dans les articulations, d'où la goutte.",
+    "confusion": "L'hyperuricémie existe souvent sans goutte, et l'uricémie peut être normale pendant une crise, selon les HUG (2024, monoarthrite).",
+    "retenir": "Sous traitement de la goutte, on vise < 360 µmol/l, < 300 dans les formes sévères, selon l'EULAR (2016)."
+   }
   },
   {
    "id": "osmolalite_plasmatique",
    "nom": "Osmolalité plasmatique",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube vert Hémogard de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026). Osmolalité calculée à partir du sodium, du potassium, de l'urée et du glucose.",
+   "unite": "mOsm/kg",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "280 à 295 mOsm/kg (calculée), selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "280 à 295 mOsm/kg (calculée), selon le répertoire des analyses des HUG (2026).",
+    "enfant": "280 à 295 mOsm/kg pour tout âge, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "L'osmolalité baisse d'environ 10 mOsm/kg en fin de grossesse, selon Soma-Pillay et al. (2016).",
+    "sujetAge": "280 à 295 mOsm/kg pour tout âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Valeurs d'alarme sous 240 et au-dessus de 330 mmol/kg, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026).",
+   "variationsPhysiologiques": "La grossesse abaisse le seuil de la soif et de la sécrétion d'ADH, d'où une osmolalité plus basse, selon Soma-Pillay et al. (2016).",
+   "augmentation": [
+    "Hypernatrémie par perte d'eau, selon la Revue médicale suisse (2010, hypernatrémie)."
+   ],
+   "diminution": [
+    "Hyponatrémie par excès relatif d'eau, selon la Revue médicale suisse (2025, hyponatrémie).",
+    "Grossesse, environ − 10 mOsm/kg, selon Soma-Pillay et al. (2016)."
+   ],
+   "interferences": "La formule calculée est (Na × 1,89 + K × 1,38 + urée × 1,05 + glucose × 1,08) + 7,45, selon le répertoire des analyses des HUG (2026).",
+   "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
    "organes": [],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Osmolarité",
+    "Osmolalité sérique",
+    "Posm"
+   ],
+   "parametres": [
+    {
+     "nom": "Osmolalité calculée",
+     "unite": "mOsm/kg",
+     "valeurs": "280 à 295 mOsm/kg, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Hyponatrémie et osmolalité basse",
+     "signification": "Elle confirme une hyponatrémie hypotonique, par excès relatif d'eau, selon la Revue médicale suisse (2025, hyponatrémie)."
+    },
+    {
+     "anomalie": "Osmolalité > 330 mmol/kg",
+     "signification": "C'est une valeur d'alarme téléphonée au médecin, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Hyponatrémie hypotonique",
+     "anomaliesQuiLeComposent": [
+      "Sodium < 135 mmol/l",
+      "Osmolalité basse"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Sécrétion inappropriée d'ADH",
+     "anomalieTypique": "Osmolalité basse"
+    },
+    {
+     "pathologie": "Déshydratation hypernatrémique",
+     "anomalieTypique": "Osmolalité élevée"
+    }
+   ],
+   "bulle": {
+    "def": "L'osmolalité plasmatique mesure la concentration des particules dissoutes par kilo d'eau.",
+    "pourquoi": "Elle règle la soif et l'ADH, et classe les hyponatrémies, selon la Revue médicale suisse (2025, hyponatrémie).",
+    "confusion": "L'osmolalité calculée n'est pas l'osmolalité mesurée ; le diagnostic d'hyponatrémie repose sur la mesure, selon la Revue médicale suisse (2025, hyponatrémie).",
+    "retenir": "On mesure les osmolalités plasmatique et urinaire et le sodium urinaire devant une hyponatrémie, selon la Revue médicale suisse (2025, hyponatrémie)."
+   }
   },
   {
    "id": "ph_arteriel",
    "nom": "pH artériel",
    "prelevement": "sang_arteriel",
-   "tube": null,
-   "unite": null,
+   "tube": "Seringue à gazométrie héparinée, 1,6 ml pour une seringue de 3 ml, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "sans unité",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "7,35 à 7,45, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "adulteFemme": "7,35 à 7,45, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "enfant": "Le laboratoire de Bâle (2023) donne 7,35 à 7,45, intervalle établi pour l'adulte.",
+    "grossesse": "7,40 à 7,47 pendant la grossesse, alcalose respiratoire légère compensée, pH vers 7,44, selon Soma-Pillay et al. (2016).",
+    "sujetAge": "7,35 à 7,45, sans limite d'âge, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "On interprète le pH avec la PaCO2, le bicarbonate et l'excès de base, puis le trou anionique, selon la Revue médicale suisse (2018, acidose métabolique).",
+   "variationsPhysiologiques": "En veineux, le pH est plus bas d'environ 0,03, selon la Revue médicale suisse (2020, gazométrie) ; intervalle veineux 7,32 à 7,43 selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+   "augmentation": [
+    "Hyperventilation, alcalose respiratoire, selon Soma-Pillay et al. (2016).",
+    "Vomissements, alcalose métabolique, selon la Revue médicale suisse (2007, hypokaliémie)."
+   ],
+   "diminution": [
+    "Acidose lactique, selon la Revue médicale suisse (2018, acidose métabolique).",
+    "Acidocétose, selon la Revue médicale suisse (2018, acidose métabolique).",
+    "Insuffisance rénale sévère, selon la Revue médicale suisse (2018, acidose métabolique).",
+    "Pertes digestives de bicarbonate, selon la Revue médicale suisse (2018, acidose métabolique)."
+   ],
+   "interferences": "On élimine immédiatement les bulles d'air, on ne refroidit pas la seringue et on analyse dans les 15 min, au plus 30 min, selon le catalogue des analyses du CHUV (2026) ; on indique la température et la FiO2.",
+   "delaiResultat": "Analyse dans les 15 min, au plus 30 min, selon le catalogue des analyses du CHUV (2026) ; 24 h/24.",
    "organes": [
     "Métabolisme et endocrinologie",
     "Poumons et voies aériennes",
     "Reins",
     "Urgences et point-of-care"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "pH",
+    "pH sanguin",
+    "Gazométrie"
+   ],
+   "parametres": [
+    {
+     "nom": "pH artériel",
+     "unite": "sans unité",
+     "valeurs": "7,35 à 7,45, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
+    },
+    {
+     "nom": "pH veineux",
+     "unite": "sans unité",
+     "valeurs": "7,32 à 7,43, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "pH < 7,35 et bicarbonate bas",
+     "signification": "Acidose métabolique, à classer par le trou anionique, selon la Revue médicale suisse (2018, acidose métabolique)."
+    },
+    {
+     "anomalie": "pH veineux",
+     "signification": "Il est environ 0,03 plus bas que l'artériel, selon la Revue médicale suisse (2020, gazométrie)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Acidose métabolique",
+     "anomaliesQuiLeComposent": [
+      "pH < 7,35",
+      "Bicarbonate bas",
+      "Excès de base négatif"
+     ]
+    },
+    {
+     "syndrome": "Alcalose respiratoire",
+     "anomaliesQuiLeComposent": [
+      "pH > 7,45",
+      "PaCO2 basse"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Acidocétose diabétique",
+     "anomalieTypique": "pH bas, trou anionique élevé"
+    },
+    {
+     "pathologie": "Choc septique",
+     "anomalieTypique": "pH bas, lactate > 2 mmol/l"
+    }
+   ],
+   "bulle": {
+    "def": "Le pH mesure l'acidité du sang ; la gazométrie artérielle renseigne sur l'oxygénation, la ventilation et l'équilibre acido-basique, selon la Revue médicale suisse (2020, gazométrie).",
+    "pourquoi": "Il résulte de l'équilibre entre le bicarbonate, réglé par le rein, et la PaCO2, réglée par la ventilation.",
+    "confusion": "Un pH normal n'exclut pas un trouble : une compensation peut être complète, selon la Revue médicale suisse (2018, acidose métabolique).",
+    "retenir": "pH artériel normal 7,35 à 7,45, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
+   }
   },
   {
    "id": "pao2",
    "nom": "PaO2",
    "prelevement": "sang_arteriel",
-   "tube": null,
-   "unite": null,
+   "tube": "Seringue à gazométrie héparinée, 1,6 ml pour une seringue de 3 ml, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "kPa",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "> 10,6 kPa avant 80 ans, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "adulteFemme": "> 10,6 kPa avant 80 ans, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "enfant": "Le laboratoire de Bâle (2023) donne > 10,6 kPa avant 80 ans, intervalle établi pour l'adulte.",
+    "grossesse": "100 à 104 mmHg (12,6 à 14,0 kPa) pendant la grossesse, par hyperventilation, selon Soma-Pillay et al. (2016).",
+    "sujetAge": "> 8,0 kPa dès 80 ans, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "La PaO2 se lit avec la FiO2 notée sur la demande, selon le catalogue des analyses du CHUV (2026).",
+   "variationsPhysiologiques": "La PaO2 normale baisse avec l'âge : > 10,6 kPa avant 80 ans, > 8,0 kPa ensuite, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+   "augmentation": [
+    "Bulle d'air dans la seringue, selon la Revue médicale suisse (2020, gazométrie).",
+    "Oxygénothérapie, à lire avec la FiO2, selon le catalogue des analyses du CHUV (2026).",
+    "Grossesse, par hyperventilation, selon Soma-Pillay et al. (2016)."
+   ],
+   "diminution": [
+    "Analyse tardive, par consommation d'oxygène par les cellules, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026)."
+   ],
+   "interferences": "On élimine immédiatement les bulles d'air, on ne refroidit pas la seringue et on analyse dans les 15 min, au plus 30 min, selon le catalogue des analyses du CHUV (2026) ; on indique la température et la FiO2.",
+   "delaiResultat": "Analyse dans les 15 min, au plus 30 min, selon le catalogue des analyses du CHUV (2026) ; 24 h/24.",
    "organes": [
     "Métabolisme et endocrinologie",
     "Poumons et voies aériennes",
     "Reins",
     "Urgences et point-of-care"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "PO2",
+    "Pression partielle en oxygène",
+    "pO2 artérielle"
+   ],
+   "parametres": [
+    {
+     "nom": "PaO2",
+     "unite": "kPa",
+     "valeurs": "> 10,6 kPa avant 80 ans, > 8,0 kPa dès 80 ans, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
+    },
+    {
+     "nom": "PvO2",
+     "unite": "kPa",
+     "valeurs": "4,4 à 5,5 kPa, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "PaO2 < 10,6 kPa avant 80 ans",
+     "signification": "Elle est sous l'intervalle de référence du laboratoire de Bâle (2023)."
+    },
+    {
+     "anomalie": "PaO2 haute avec bulle d'air",
+     "signification": "Elle peut être fausse : la bulle augmente la PO2, selon la Revue médicale suisse (2020, gazométrie)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Hypoxémie",
+     "anomaliesQuiLeComposent": [
+      "PaO2 basse",
+      "SaO2 basse"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Méthémoglobinémie",
+     "anomalieTypique": "PaO2 normale, SaO2 mesurée basse"
+    }
+   ],
+   "bulle": {
+    "def": "La PaO2 est la pression partielle de l'oxygène dissous dans le sang artériel.",
+    "pourquoi": "Elle reflète l'échange gazeux pulmonaire, à interpréter selon la FiO2.",
+    "confusion": "La PO2 veineuse ne remplace pas la PaO2 : elle est bien plus basse, 4,4 à 5,5 kPa, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "retenir": "On élimine les bulles d'air, qui augmentent faussement la PO2, selon la Revue médicale suisse (2020, gazométrie)."
+   }
   },
   {
    "id": "paco2",
    "nom": "PaCO2",
    "prelevement": "sang_arteriel",
-   "tube": null,
-   "unite": null,
+   "tube": "Seringue à gazométrie héparinée, 1,6 ml pour une seringue de 3 ml, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "kPa",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "4,66 à 6,38 kPa, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "adulteFemme": "4,26 à 5,99 kPa, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "enfant": "Le laboratoire de Bâle (2023) donne homme 4,66 à 6,38 et femme 4,26 à 5,99 kPa, intervalle établi pour l'adulte.",
+    "grossesse": "≤ 30 mmHg (3,6 à 4,3 kPa) pendant la grossesse, contre 4,7 à 6,0 kPa hors grossesse, par hyperventilation, selon Soma-Pillay et al. (2016).",
+    "sujetAge": "Homme 4,66 à 6,38, femme 4,26 à 5,99 kPa, sans limite d'âge, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Une PvCO2 de 7,3 kPa correspond à une PaCO2 comprise entre 5,8 et 7,6 kPa, selon la Revue médicale suisse (2020, gazométrie).",
+   "variationsPhysiologiques": "La PaCO2 est plus basse chez la femme, selon le laboratoire de l'Hôpital universitaire de Bâle (2023) ; elle baisse pendant la grossesse, selon Soma-Pillay et al. (2016).",
+   "augmentation": [
+    "Analyse tardive, par métabolisme cellulaire, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026)."
+   ],
+   "diminution": [
+    "Hyperventilation, notamment pendant la grossesse, selon Soma-Pillay et al. (2016).",
+    "Bulle d'air dans la seringue, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026)."
+   ],
+   "interferences": "On élimine immédiatement les bulles d'air, on ne refroidit pas la seringue et on analyse dans les 15 min, au plus 30 min, selon le catalogue des analyses du CHUV (2026) ; on indique la température et la FiO2.",
+   "delaiResultat": "Analyse dans les 15 min, au plus 30 min, selon le catalogue des analyses du CHUV (2026) ; 24 h/24.",
    "organes": [
     "Métabolisme et endocrinologie",
     "Poumons et voies aériennes",
     "Reins",
     "Urgences et point-of-care"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "PCO2",
+    "Capnie",
+    "Pression partielle en CO2"
+   ],
+   "parametres": [
+    {
+     "nom": "PaCO2",
+     "unite": "kPa",
+     "valeurs": "Homme 4,66 à 6,38 ; femme 4,26 à 5,99 kPa, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "PaCO2 basse et pH élevé",
+     "signification": "Alcalose respiratoire, comme celle, compensée, de la grossesse, selon Soma-Pillay et al. (2016)."
+    },
+    {
+     "anomalie": "PCO2 capillaire au lobe de l'oreille",
+     "signification": "Elle ne diffère pas significativement de la PaCO2, selon la Revue médicale suisse (2020, gazométrie)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Alcalose respiratoire",
+     "anomaliesQuiLeComposent": [
+      "PaCO2 basse",
+      "pH élevé"
+     ]
+    },
+    {
+     "syndrome": "Acidose respiratoire",
+     "anomaliesQuiLeComposent": [
+      "PaCO2 élevée",
+      "pH bas"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Grossesse",
+     "anomalieTypique": "PaCO2 basse compensée"
+    }
+   ],
+   "bulle": {
+    "def": "La PaCO2 est la pression partielle du CO2 dans le sang artériel ; elle reflète la ventilation alvéolaire.",
+    "pourquoi": "Une hypoventilation l'élève et une hyperventilation l'abaisse.",
+    "confusion": "Une PCO2 veineuse normale exclut mal une hypercapnie précise ; la PCO2 capillaire à l'oreille est plus fiable, selon la Revue médicale suisse (2020, gazométrie).",
+    "retenir": "Bulles d'air : PO2 faussement haute et PCO2 faussement basse, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026)."
+   }
   },
   {
    "id": "exces_de_base",
    "nom": "Excès de base",
    "prelevement": "sang_arteriel",
-   "tube": null,
-   "unite": null,
+   "tube": "Seringue à gazométrie héparinée, 1,6 ml pour une seringue de 3 ml, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "mmol/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "− 2,0 à + 3,0 mmol/l, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "adulteFemme": "− 2,0 à + 3,0 mmol/l, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "enfant": "Le laboratoire de Bâle (2023) donne − 2,0 à + 3,0 mmol/l, intervalle établi pour l'adulte.",
+    "grossesse": "L'excès de base ne change pas pendant la grossesse, alors que le bicarbonate baisse à 18 à 22 mmol/l, selon Soma-Pillay et al. (2016).",
+    "sujetAge": "− 2,0 à + 3,0 mmol/l, sans limite d'âge, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Sans lactate, le déficit de base estime l'importance d'un saignement et de l'hypoperfusion, selon les recommandations européennes sur l'hémorragie traumatique (Rossaint et al., 2023).",
+   "variationsPhysiologiques": "L'excès de base standard ajuste la mesure au volume de dilution ; c'est lui qu'on utilise en pratique, selon la Revue médicale suisse (2018, acidose métabolique).",
+   "augmentation": [
+    "Alcalose métabolique, par exemple sur vomissements, selon la Revue médicale suisse (2007, hypokaliémie)."
+   ],
+   "diminution": [
+    "Acidose métabolique, selon la Revue médicale suisse (2018, acidose métabolique).",
+    "Choc hémorragique et hypoperfusion, selon les recommandations européennes sur l'hémorragie traumatique (Rossaint et al., 2023)."
+   ],
+   "interferences": "On élimine immédiatement les bulles d'air, on ne refroidit pas la seringue et on analyse dans les 15 min, au plus 30 min, selon le catalogue des analyses du CHUV (2026) ; on indique la température et la FiO2.",
+   "delaiResultat": "Analyse dans les 15 min, au plus 30 min, selon le catalogue des analyses du CHUV (2026) ; 24 h/24.",
    "organes": [
     "Métabolisme et endocrinologie",
     "Poumons et voies aériennes",
     "Reins",
     "Urgences et point-of-care"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "BE",
+    "Base excess",
+    "Déficit de base",
+    "Excès de base standard"
+   ],
+   "parametres": [
+    {
+     "nom": "Excès de base",
+     "unite": "mmol/l",
+     "valeurs": "− 2,0 à + 3,0 mmol/l, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Excès de base négatif",
+     "signification": "Un déficit de base signe une acidose métabolique, selon les recommandations européennes sur l'hémorragie traumatique (Rossaint et al., 2023)."
+    },
+    {
+     "anomalie": "Excès de base positif",
+     "signification": "Il signe une composante d'alcalose métabolique, selon la Revue médicale suisse (2018, acidose métabolique)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Choc hémorragique",
+     "anomaliesQuiLeComposent": [
+      "Déficit de base",
+      "Lactate élevé"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Choc hémorragique",
+     "anomalieTypique": "Déficit de base"
+    }
+   ],
+   "bulle": {
+    "def": "L'excès de base est la quantité d'acide ou de base qu'il faudrait pour ramener le pH à 7,40 à PaCO2 normale.",
+    "pourquoi": "Il isole la composante métabolique, indépendamment de la PaCO2, selon la Revue médicale suisse (2018, acidose métabolique).",
+    "confusion": "Le bicarbonate seul dépend de la PaCO2 ; l'excès de base standard en est indépendant, selon la Revue médicale suisse (2018, acidose métabolique).",
+    "retenir": "Normal de − 2,0 à + 3,0 mmol/l ; un déficit de base suit l'hypoperfusion, selon les recommandations européennes sur l'hémorragie traumatique (Rossaint et al., 2023)."
+   }
   },
   {
    "id": "lactate",
    "nom": "Lactate",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube gris au fluorure Hémogard de 2 ml, transport immédiat dans l'heure, selon le répertoire des analyses des HUG (2026) ; tube gris de 2,7 ml au CHUV (2026).",
+   "unite": "mmol/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "0,4 à 1,9 mmol/l, selon le répertoire des analyses des HUG (2026) ; 0,5 à 2,2 mmol/l en veineux selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "adulteFemme": "0,4 à 1,9 mmol/l, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "0,4 à 1,9 mmol/l pour tout âge, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "0,4 à 1,9 mmol/l, intervalle unique du répertoire des analyses des HUG (2026), sans valeur propre à la grossesse.",
+    "sujetAge": "0,4 à 1,9 mmol/l pour tout âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Valeur d'alarme au-dessus de 4 mmol/l, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026) ; un lactate > 2 mmol/l avec vasopresseurs définit le choc septique, selon la définition Sepsis-3 (Singer et al., 2016).",
+   "variationsPhysiologiques": "Le foie élimine le lactate ; une hypoperfusion ou une insuffisance hépatique en réduisent la clairance, selon la Revue médicale suisse (2013, lactate).",
+   "augmentation": [
+    "Choc septique, selon la définition Sepsis-3 (Singer et al., 2016).",
+    "Choc hémorragique et hypoperfusion, selon les recommandations européennes sur l'hémorragie traumatique (Rossaint et al., 2023).",
+    "Insuffisance hépatique, selon la Revue médicale suisse (2013, lactate).",
+    "Médicaments : metformine, adrénaline, salbutamol, propofol, selon la Revue médicale suisse (2013, lactate).",
+    "Analyse retardée d'une gazométrie, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026)."
+   ],
+   "diminution": [
+    "Une baisse sous traitement traduit l'amélioration de la perfusion, selon les recommandations européennes sur l'hémorragie traumatique (Rossaint et al., 2023)."
+   ],
+   "interferences": "Le tube gris doit arriver au laboratoire dans l'heure, selon le répertoire des analyses des HUG (2026) ; dans une seringue de gazométrie, le lactate monte si l'analyse tarde, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026).",
+   "delaiResultat": "1 h dans 95 % des cas, au plus 8 h, selon le répertoire des analyses des HUG (2026) ; 24 h/24 au CHUV (2026).",
    "organes": [
     "Aorte abdominale et vaisseaux digestifs",
     "Côlon, rectum et anus",
@@ -589,103 +1545,365 @@
     "Paroi abdominale et hernies",
     "Urgences et point-of-care"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Lactatémie",
+    "Acide lactique",
+    "Lac"
+   ],
+   "parametres": [
+    {
+     "nom": "Lactate",
+     "unite": "mmol/l",
+     "valeurs": "0,4 à 1,9 mmol/l, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Lactate > 2 mmol/l et vasopresseurs",
+     "signification": "Il définit le choc septique, selon la définition Sepsis-3 (Singer et al., 2016)."
+    },
+    {
+     "anomalie": "Lactate > 4 mmol/l",
+     "signification": "C'est une valeur d'alarme téléphonée au médecin, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026)."
+    },
+    {
+     "anomalie": "Lactate > 10 mmol/l dans une intoxication",
+     "signification": "Au CO, il fait penser à une intoxication associée au cyanure, selon la Revue médicale suisse (2009, monoxyde de carbone)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Choc septique",
+     "anomaliesQuiLeComposent": [
+      "Lactate > 2 mmol/l",
+      "Vasopresseurs pour PAM ≥ 65"
+     ]
+    },
+    {
+     "syndrome": "Acidose lactique",
+     "anomaliesQuiLeComposent": [
+      "Lactate élevé",
+      "Trou anionique élevé",
+      "pH bas"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Choc septique",
+     "anomalieTypique": "Lactate > 2 mmol/l"
+    },
+    {
+     "pathologie": "Hémorragie traumatique",
+     "anomalieTypique": "Lactate élevé"
+    }
+   ],
+   "bulle": {
+    "def": "Le lactate est produit par la glycolyse anaérobie et recyclé surtout par le foie.",
+    "pourquoi": "Il monte quand les tissus manquent d'oxygène (type A) ou sans hypoxie, sous certains médicaments (type B), selon la Revue médicale suisse (2013, lactate).",
+    "confusion": "Un lactate élevé n'est pas toujours une hypoperfusion : metformine ou salbutamol peuvent l'élever, selon la Revue médicale suisse (2013, lactate).",
+    "retenir": "On recommande le lactate pour estimer et suivre l'hypoperfusion d'un saignement, selon les recommandations européennes sur l'hémorragie traumatique (Rossaint et al., 2023)."
+   }
   },
   {
    "id": "sao2",
    "nom": "SaO2",
    "prelevement": "sang_arteriel",
-   "tube": null,
-   "unite": null,
+   "tube": "Seringue à gazométrie héparinée, 1,6 ml pour une seringue de 3 ml, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "%",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Oxyhémoglobine 90 à 95 %, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "adulteFemme": "Oxyhémoglobine 90 à 95 %, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "enfant": "Le laboratoire de Bâle (2023) donne une oxyhémoglobine de 90 à 95 %, intervalle établi pour l'adulte.",
+    "grossesse": "La PaO2 augmente pendant la grossesse, selon Soma-Pillay et al. (2016).",
+    "sujetAge": "Oxyhémoglobine 90 à 95 %, sans limite d'âge, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Dans une méthémoglobinémie, la SaO2 mesurée est basse alors que l'oxymétrie de pouls reste faussement normale, selon la SFMU (2019).",
+   "variationsPhysiologiques": "La saturation veineuse en oxygène vaut 70 à 80 %, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+   "augmentation": [
+    "Oxygénothérapie, à lire avec la FiO2, selon le catalogue des analyses du CHUV (2026)."
+   ],
+   "diminution": [
+    "Hypoxémie, avec une PaO2 sous 10,6 kPa avant 80 ans, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "Méthémoglobinémie, avec PaO2 normale, selon la SFMU (2019)."
+   ],
+   "interferences": "On élimine immédiatement les bulles d'air, on ne refroidit pas la seringue et on analyse dans les 15 min, au plus 30 min, selon le catalogue des analyses du CHUV (2026) ; on indique la température et la FiO2. L'oxymétrie de pouls ne distingue pas la carboxyhémoglobine, selon la Revue médicale suisse (2009, monoxyde de carbone).",
+   "delaiResultat": "Analyse dans les 15 min, au plus 30 min, selon le catalogue des analyses du CHUV (2026) ; 24 h/24.",
    "organes": [
     "Métabolisme et endocrinologie",
     "Poumons et voies aériennes",
     "Reins",
     "Urgences et point-of-care"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "SO2",
+    "Saturation artérielle en O2",
+    "Oxymétrie"
+   ],
+   "parametres": [
+    {
+     "nom": "Oxyhémoglobine",
+     "unite": "%",
+     "valeurs": "90 à 95 %, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
+    },
+    {
+     "nom": "Saturation veineuse en O2",
+     "unite": "%",
+     "valeurs": "70 à 80 %, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "SaO2 basse, PaO2 normale",
+     "signification": "Elle évoque une méthémoglobinémie, selon la SFMU (2019)."
+    },
+    {
+     "anomalie": "SpO2 normale en intoxication au CO",
+     "signification": "Elle est trompeuse : l'oxymètre ne distingue pas la COHb, selon la Revue médicale suisse (2009, monoxyde de carbone)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Méthémoglobinémie",
+     "anomaliesQuiLeComposent": [
+      "SaO2 mesurée basse",
+      "PaO2 normale",
+      "Sang brun chocolat"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Méthémoglobinémie acquise",
+     "anomalieTypique": "SaO2 basse, PaO2 normale"
+    },
+    {
+     "pathologie": "Intoxication au monoxyde de carbone",
+     "anomalieTypique": "SpO2 faussement normale"
+    }
+   ],
+   "bulle": {
+    "def": "La SaO2 est la part de l'hémoglobine artérielle qui transporte de l'oxygène, mesurée par co-oxymétrie.",
+    "pourquoi": "Elle dépend de la PaO2, mais aussi des hémoglobines anormales qui ne fixent pas l'oxygène.",
+    "confusion": "La SpO2 du doigt n'est pas la SaO2 mesurée : elle est faussement normale dans la méthémoglobinémie, selon la SFMU (2019).",
+    "retenir": "Cyanose avec PaO2 normale : mesurer la méthémoglobine en co-oxymétrie, selon la SFMU (2019)."
+   }
   },
   {
    "id": "carboxyhemoglobine",
    "nom": "Carboxyhémoglobine",
    "prelevement": "sang_arteriel",
-   "tube": null,
-   "unite": null,
+   "tube": "Seringue à gazométrie héparinée, 1,6 ml pour une seringue de 3 ml, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "%",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "< 1,5 %, selon le laboratoire de l'Hôpital universitaire de Bâle (2023) ; 1 à 2 % chez le non-fumeur selon Tox Info Suisse (2023).",
+    "adulteFemme": "< 1,5 %, selon le laboratoire de l'Hôpital universitaire de Bâle (2023) ; 1 à 2 % chez la non-fumeuse selon Tox Info Suisse (2023).",
+    "enfant": "Le laboratoire de Bâle (2023) donne < 1,5 %, intervalle établi pour l'adulte.",
+    "grossesse": "Le fœtus fixe plus le CO et l'élimine deux fois plus lentement que la mère, selon la Revue médicale suisse (2009, monoxyde de carbone).",
+    "sujetAge": "< 1,5 %, sans limite d'âge, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Valeur d'alarme au-delà de 25 %, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026) ; intoxication confirmée au-delà de 10 % chez le non-fumeur et 15 % chez le fumeur, selon la Revue médicale suisse (2009, monoxyde de carbone).",
+   "variationsPhysiologiques": "Chez les gros fumeurs, la COHb atteint 5 à 10 %, selon Tox Info Suisse (2023).",
+   "augmentation": [
+    "Tabagisme, selon Tox Info Suisse (2023).",
+    "Intoxication au monoxyde de carbone, selon la Revue médicale suisse (2009, monoxyde de carbone).",
+    "Chicha, avec des taux de plus de 30 %, selon Tox Info Suisse (2023)."
+   ],
+   "diminution": [
+    "Dissociation avec le temps : demi-vie de 4 à 5 h à l'air ambiant, selon la Revue médicale suisse (2009, monoxyde de carbone).",
+    "Oxygène normobare à haute concentration, traitement de base, selon la Revue médicale suisse (2009, monoxyde de carbone)."
+   ],
+   "interferences": "L'oxymétrie de pouls standard ne distingue pas la carboxyhémoglobine, selon la Revue médicale suisse (2009, monoxyde de carbone) ; on demande une co-oxymétrie sur seringue de gazométrie, selon le catalogue des analyses du CHUV (2026).",
+   "delaiResultat": "Analyse dans les 15 min, au plus 30 min, selon le catalogue des analyses du CHUV (2026) ; 24 h/24.",
    "organes": [
     "Toxicologie et médicaments"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "COHb",
+    "HbCO",
+    "CO-Hb",
+    "Carboxyhémoglobinémie"
+   ],
+   "parametres": [
+    {
+     "nom": "Carboxyhémoglobine",
+     "unite": "%",
+     "valeurs": "< 1,5 %, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "COHb > 10 % chez le non-fumeur",
+     "signification": "Elle confirme une intoxication au CO, selon la Revue médicale suisse (2009, monoxyde de carbone)."
+    },
+    {
+     "anomalie": "COHb > 15 % chez le fumeur",
+     "signification": "Elle confirme une intoxication au CO, selon la Revue médicale suisse (2009, monoxyde de carbone)."
+    },
+    {
+     "anomalie": "COHb de 5 à 10 % chez un gros fumeur",
+     "signification": "Elle peut être due au seul tabac, selon Tox Info Suisse (2023)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Intoxication au CO",
+     "anomaliesQuiLeComposent": [
+      "COHb élevée",
+      "SpO2 faussement normale",
+      "Céphalées"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Intoxication au monoxyde de carbone",
+     "anomalieTypique": "COHb > 10 % sans tabac"
+    },
+    {
+     "pathologie": "Intoxication par la chicha",
+     "anomalieTypique": "COHb > 30 %"
+    }
+   ],
+   "bulle": {
+    "def": "La carboxyhémoglobine est l'hémoglobine liée au monoxyde de carbone, qui ne transporte plus l'oxygène.",
+    "pourquoi": "Le CO a pour l'hémoglobine une affinité 250 fois plus grande que l'oxygène, selon la Revue médicale suisse (2009, monoxyde de carbone).",
+    "confusion": "La COHb ne reflète pas bien la gravité de l'intoxication, selon la Revue médicale suisse (2009, monoxyde de carbone).",
+    "retenir": "Intoxication au CO : COHb > 10 % sans tabac, > 15 % chez le fumeur ; oxygène à haute concentration, selon la Revue médicale suisse (2009, monoxyde de carbone)."
+   }
   },
   {
    "id": "methemoglobine",
    "nom": "Méthémoglobine",
    "prelevement": "sang_arteriel",
-   "tube": null,
-   "unite": null,
+   "tube": "Seringue à gazométrie héparinée, 1,6 ml pour une seringue de 3 ml, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "%",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "< 1,5 %, selon le laboratoire de l'Hôpital universitaire de Bâle (2023) ; physiologique < 2 % selon la SFMU (2019).",
+    "adulteFemme": "< 1,5 %, selon le laboratoire de l'Hôpital universitaire de Bâle (2023).",
+    "enfant": "Le laboratoire de Bâle (2023) donne < 1,5 %, intervalle établi pour l'adulte.",
+    "grossesse": "Le laboratoire de Bâle (2023) donne < 1,5 %, intervalle général de l'adulte.",
+    "sujetAge": "< 1,5 %, sans limite d'âge, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Valeur d'alarme au-delà de 20 %, selon l'Institut de chimie clinique de l'Hôpital universitaire de Zurich (2026) ; on traite si le patient a des symptômes ou si la méthémoglobine dépasse 30 %, selon la SFMU (2019).",
+   "variationsPhysiologiques": "Une méthémoglobine < 2 % est physiologique, car des enzymes la réduisent en permanence, selon la SFMU (2019).",
+   "augmentation": [
+    "Nitrates, nitrites, chlorates, aniline, selon la SFMU (2019).",
+    "Déficit héréditaire en méthémoglobine-réductase, exceptionnel, selon la SFMU (2019)."
+   ],
+   "diminution": [
+    "Bleu de méthylène, antidote, selon la SFMU (2019)."
+   ],
+   "interferences": "On coche la co-oxymétrie et on élimine les bulles d'air, selon le catalogue des analyses du CHUV (2026) ; l'oxymétrie de pouls donne une saturation faussement normale, selon la SFMU (2019).",
+   "delaiResultat": "Analyse dans les 15 min, au plus 30 min, selon le catalogue des analyses du CHUV (2026) ; 24 h/24.",
    "organes": [
     "Toxicologie et médicaments"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "MetHb",
+    "Met-Hb",
+    "Méthémoglobinémie"
+   ],
+   "parametres": [
+    {
+     "nom": "Méthémoglobine",
+     "unite": "%",
+     "valeurs": "< 1,5 %, selon le laboratoire de l'Hôpital universitaire de Bâle (2023)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "MetHb > 30 %",
+     "signification": "Elle impose un traitement, même sans symptôme, selon la SFMU (2019)."
+    },
+    {
+     "anomalie": "Sang brun chocolat",
+     "signification": "Aspect typique du prélèvement dans la méthémoglobinémie, selon la SFMU (2019)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Méthémoglobinémie acquise",
+     "anomaliesQuiLeComposent": [
+      "Cyanose gris ardoise",
+      "PaO2 normale",
+      "SaO2 mesurée basse"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Intoxication aux nitrites",
+     "anomalieTypique": "MetHb élevée"
+    },
+    {
+     "pathologie": "Déficit en G6PD",
+     "anomalieTypique": "Échec du bleu de méthylène"
+    }
+   ],
+   "bulle": {
+    "def": "La méthémoglobine est une hémoglobine dont le fer est ferrique ; elle ne fixe plus l'oxygène, selon la SFMU (2019).",
+    "pourquoi": "Les produits oxydants, ingérés ou absorbés par la peau, la font monter, selon la SFMU (2019).",
+    "confusion": "La SpO2 reste faussement normale alors que la SaO2 mesurée est basse, selon la SFMU (2019).",
+    "retenir": "Cyanose gris ardoise résistante à l'oxygène, sang chocolat : bleu de méthylène, selon la SFMU (2019)."
+   }
   }
  ],
- "glossaire": {}
+ "glossaire": {
+  "ADH": "Hormone antidiurétique.",
+  "BE": "Excès de base (base excess).",
+  "BUN": "Azote uréique sanguin (blood urea nitrogen).",
+  "Ca2+": "Calcium ionisé.",
+  "CHUV": "Centre hospitalier universitaire vaudois.",
+  "CKD-EPI": "Équation d'estimation du DFG à partir de la créatinine.",
+  "CO": "Monoxyde de carbone.",
+  "CO-Hb": "Carboxyhémoglobine.",
+  "CO2": "Dioxyde de carbone.",
+  "COHb": "Carboxyhémoglobine.",
+  "Cys C": "Cystatine C.",
+  "DFG": "Débit de filtration glomérulaire.",
+  "DFGe": "DFG estimé.",
+  "ECG": "Électrocardiogramme.",
+  "eGFR": "DFG estimé (sigle anglais).",
+  "EULAR": "Ligue européenne contre le rhumatisme.",
+  "FGF23": "Facteur de croissance des fibroblastes 23, hormone qui augmente l'élimination rénale du phosphate.",
+  "FiO2": "Fraction inspirée en oxygène.",
+  "G1": "Catégorie de DFG ≥ 90 ml/min/1,73 m².",
+  "G2": "Catégorie de DFG de 60 à 89 ml/min/1,73 m².",
+  "G3a": "Catégorie de DFG de 45 à 59 ml/min/1,73 m².",
+  "G3b": "Catégorie de DFG de 30 à 44 ml/min/1,73 m².",
+  "G4": "Catégorie de DFG de 15 à 29 ml/min/1,73 m².",
+  "G5": "Catégorie de DFG < 15 ml/min/1,73 m², insuffisance rénale terminale.",
+  "G6PD": "Glucose-6-phosphate déshydrogénase.",
+  "HbCO": "Carboxyhémoglobine.",
+  "HCO3": "Ion bicarbonate.",
+  "HUG": "Hôpitaux universitaires de Genève.",
+  "IEC": "Inhibiteurs de l'enzyme de conversion de l'angiotensine.",
+  "IPP": "Inhibiteurs de la pompe à protons.",
+  "IRC": "Insuffisance rénale chronique.",
+  "JAMA": "Journal of the American Medical Association.",
+  "KDIGO": "Kidney Disease: Improving Global Outcomes, recommandations internationales de néphrologie.",
+  "LCR": "Liquide céphalorachidien.",
+  "Met-Hb": "Méthémoglobine.",
+  "MetHb": "Méthémoglobine.",
+  "NaCl": "Chlorure de sodium.",
+  "PaCO2": "Pression partielle artérielle en dioxyde de carbone.",
+  "PAM": "Pression artérielle moyenne.",
+  "PaO2": "Pression partielle artérielle en oxygène.",
+  "PCO2": "Pression partielle en dioxyde de carbone.",
+  "pH": "Mesure de l'acidité du sang.",
+  "PO2": "Pression partielle en oxygène.",
+  "PO4": "Phosphate.",
+  "Posm": "Osmolalité plasmatique.",
+  "PTH": "Parathormone.",
+  "PvCO2": "Pression partielle veineuse en dioxyde de carbone.",
+  "PvO2": "Pression partielle veineuse en oxygène.",
+  "SaO2": "Saturation artérielle en oxygène, mesurée sur gazométrie.",
+  "SFMU": "Société française de médecine d'urgence.",
+  "SO2": "Saturation en oxygène.",
+  "SpO2": "Saturation en oxygène mesurée par oxymétrie de pouls.",
+  "SRAA": "Système rénine-angiotensine-aldostérone.",
+  "USB": "Hôpital universitaire de Bâle.",
+  "USZ": "Hôpital universitaire de Zurich."
+ }
 }

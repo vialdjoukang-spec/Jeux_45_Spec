@@ -10,14 +10,18 @@ RAC = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))
 REF = sys.argv[1] if len(sys.argv) > 1 else "origin/main"
 VIDE = (None, "", [], {})
 
-def feuilles(x, p=""):
+def feuilles(x, p="", double=False):
+    """double=True (version locale) : chaque élément de liste est aussi repéré par sa position, pour qu'un
+    élément dont l'id, vide sur main, vient d'être rempli ne compte pas comme perdu."""
     if isinstance(x, dict):
         for k, v in x.items():
-            yield from feuilles(v, f"{p}/{k}")
+            yield from feuilles(v, f"{p}/{k}", double)
     elif isinstance(x, list):
         for i, v in enumerate(x):
             k = v.get("id") or v.get("ref") or v.get("nom") if isinstance(v, dict) else None
-            yield from feuilles(v, f"{p}[{k if k else i}]")
+            yield from feuilles(v, f"{p}[{k if k else i}]", double)
+            if double and k:
+                yield from feuilles(v, f"{p}[{i}]", double)
     elif x not in VIDE:
         yield p
 
@@ -39,7 +43,7 @@ for chemin in git("ls-tree", "-r", "--name-only", REF, "--", "conception/donnees
     except ValueError:
         continue
     local = os.path.join(RAC, chemin)
-    apres = set(feuilles(json.load(open(local, encoding="utf-8")))) if os.path.exists(local) else set()
+    apres = set(feuilles(json.load(open(local, encoding="utf-8")), double=True)) if os.path.exists(local) else set()
     perdu = {f for f in avant - apres if not f.startswith("/_meta/aCompleter")}  # liste de tâches : elle se vide quand le complément est fusionné
     if perdu:
         pertes.append((chemin, len(perdu), sorted(perdu)[:3]))

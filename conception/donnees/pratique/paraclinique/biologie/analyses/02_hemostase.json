@@ -8,7 +8,7 @@
    "Aventure par type d'examen",
    "Lecture d'image et de tracé"
   ],
-  "statut": "À REMPLIR",
+  "statut": "PRODUIT — à auditer",
   "regles": [
    "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
    "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
@@ -16,6 +16,10 @@
    "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
    "mode : un des modes du projet (voir _meta.modes).",
    "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+  ],
+  "aVerifier": [
+   "tous les défis › mode : « Aventure par type d'examen » retenu ; aucun défi d'image ou de tracé (recherche d'images hors périmètre)",
+   "d_dimeres-1 › contexte : seuil ajusté calculé (72 × 10 = 720 µg/l) à partir de la règle ADJUST-PE"
   ]
  },
  "entites": [
@@ -23,6 +27,44 @@
    "ref": "tp_et_inr",
    "nom": "TP (Quick) et INR",
    "defis": [
+    {
+     "id": "tp_et_inr-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Pour une fibrillation auriculaire, la cible est 2,0 à 3,0 selon l'information Marcoumar ; au-delà, le risque de saignement augmente selon les HUG.",
+      "pourquoiFaux": "Une valve mécanique tolère jusqu'à 3,5, mais ce n'est pas l'indication ; parler d'INR normal ignore la cible."
+     },
+     "sources": [
+      "Information professionnelle Marcoumar, Swissmedic",
+      "HUG, brochure sur le traitement par antivitamines K"
+     ],
+     "contexte": "Un retraité de 74 ans, à Sion, sous phenprocoumone pour une fibrillation auriculaire, vient pour son contrôle.",
+     "valeurAvecUnite": "INR 4,2",
+     "question": "Comment lire cet INR ?",
+     "reponse": "Au-dessus de la cible 2,0 à 3,0"
+    },
+    {
+     "id": "tp_et_inr-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "L'EHRA (2021) rappelle que la sensibilité du TP aux xabans dépend du réactif.",
+      "pourquoiFaux": "Utiliser l'INR comme pour un antivitamine K donne une estimation fausse."
+     },
+     "sources": [
+      "EHRA, guide pratique des anticoagulants oraux directs (2021)"
+     ],
+     "situation": "Un patient sous rivaroxaban a un TP abaissé ; l'interne veut en déduire le niveau d'anticoagulation.",
+     "piege": "L'effet des xabans sur le TP varie selon le réactif.",
+     "bonneConduite": "Ne pas déduire le taux de xaban du TP ; demander un anti-Xa calibré si besoin."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -63,6 +105,44 @@
    "nom": "aPTT",
    "defis": [
     {
+     "id": "aptt-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Un aPTT allongé isolé, avec un TP normal, fait chercher un déficit en facteur VIII ou IX, selon la WFH (2020).",
+      "pourquoiFaux": "Un anticoagulant lupique ne fait pas saigner ; un déficit en vitamine K allongerait d'abord le TP."
+     },
+     "sources": [
+      "CHUV, Laboratoire central d'hématologie, intervalles de référence (2026)",
+      "WFH, recommandations sur l'hémophilie (2020)"
+     ],
+     "contexte": "Un garçon de 6 ans, à Lausanne, saigne longtemps après une extraction dentaire ; TP normal.",
+     "valeurAvecUnite": "aPTT 58 s",
+     "question": "Quelle orientation ?",
+     "reponse": "Doser les facteurs VIII et IX"
+    },
+    {
+     "id": "aptt-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Sous héparine intraveineuse, les HUG (2026) demandent de prélever au bras controlatéral, jamais par la voie qui reçoit l'héparine.",
+      "pourquoiFaux": "Rincer brièvement la même voie ou corriger le résultat ne supprime pas la contamination."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Aux soins intensifs, l'aPTT d'un patient sous héparine non fractionnée est prélevé sur la voie de la perfusion.",
+     "piege": "Le prélèvement contaminé par l'héparine allonge faussement l'aPTT.",
+     "bonneConduite": "Prélever au bras opposé à la perfusion d'héparine."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -101,6 +181,43 @@
    "ref": "fibrinogene",
    "nom": "Fibrinogène",
    "defis": [
+    {
+     "id": "fibrinogene-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Avec un saignement majeur, un fibrinogène ≤ 1,5 g/l justifie un concentré de fibrinogène ou un cryoprécipité selon Rossaint et al. (2023).",
+      "pourquoiFaux": "Attendre le prochain contrôle ou donner seulement du plasma laisse persister la coagulopathie."
+     },
+     "sources": [
+      "Rossaint et al., recommandations européennes sur l'hémorragie traumatique (2023)"
+     ],
+     "contexte": "Un motard de 28 ans, transféré à l'Inselspital, saigne activement après un polytraumatisme.",
+     "valeurAvecUnite": "Fibrinogène 1,2 g/l",
+     "question": "Quelle décision ?",
+     "reponse": "Substituer le fibrinogène"
+    },
+    {
+     "id": "fibrinogene-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) exigent l'arrivée du tube citraté dans les 4 h à température ambiante.",
+      "pourquoiFaux": "Mettre le tube au réfrigérateur ou analyser quand même n'est pas conforme."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un tube citraté pour fibrinogène part d'un cabinet de Fribourg et arrive au laboratoire 6 h plus tard.",
+     "piege": "Le délai dépasse les 4 h admises à température ambiante.",
+     "bonneConduite": "Refaire le prélèvement et l'acheminer dans les 4 h."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -141,6 +258,43 @@
    "nom": "D-dimères",
    "defis": [
     {
+     "id": "d_dimeres-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Dès 50 ans, le seuil vaut l'âge × 10 µg/l, soit 720 µg/l à 72 ans, selon ADJUST-PE (2014).",
+      "pourquoiFaux": "Le seuil fixe de 500 µg/l ferait faire un angio-CT inutile ; des D-dimères élevés ne prouvent pas l'embolie."
+     },
+     "sources": [
+      "Righini et al., étude ADJUST-PE, JAMA (2014)"
+     ],
+     "contexte": "Une femme de 72 ans, aux HUG, a une probabilité non élevée d'embolie pulmonaire.",
+     "valeurAvecUnite": "D-dimères 650 µg/l",
+     "question": "Faut-il un angio-CT ?",
+     "reponse": "Non : sous le seuil ajusté de 720 µg/l"
+    },
+    {
+     "id": "d_dimeres-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "ADJUST-PE (2014) n'applique les seuils qu'aux patients de probabilité non élevée.",
+      "pourquoiFaux": "Un résultat bas ne permettrait pas d'exclure ici ; attendre le dosage retarde l'imagerie."
+     },
+     "sources": [
+      "Righini et al., étude ADJUST-PE, JAMA (2014)"
+     ],
+     "situation": "Chez un patient de probabilité clinique élevée d'embolie pulmonaire, l'urgentiste demande d'abord les D-dimères.",
+     "piege": "Les D-dimères ne servent à exclure qu'en probabilité non élevée.",
+     "bonneConduite": "Aller directement à l'imagerie."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -179,6 +333,44 @@
    "ref": "temps_de_thrombine",
    "nom": "Temps de thrombine",
    "defis": [
+    {
+     "id": "temps_de_thrombine-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Un temps de thrombine normal exclut la présence de dabigatran selon l'EHRA (2021).",
+      "pourquoiFaux": "Un temps de thrombine normal ne renseigne pas sur les xabans ; il ne quantifie pas un taux élevé."
+     },
+     "sources": [
+      "EHRA, guide pratique des anticoagulants oraux directs (2021)",
+      "CHUV, Laboratoire central d'hématologie, intervalles de référence (2026)"
+     ],
+     "contexte": "Un homme de 80 ans, à Bienne, sous dabigatran, doit être opéré en urgence.",
+     "valeurAvecUnite": "Temps de thrombine 16 s",
+     "question": "Que conclure ?",
+     "reponse": "Pas de dabigatran circulant"
+    },
+    {
+     "id": "temps_de_thrombine-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "L'EHRA (2021) réserve la quantification au temps de thrombine dilué ou à l'écarine.",
+      "pourquoiFaux": "Le temps de thrombine simple et l'aPTT ne donnent pas de concentration fiable."
+     },
+     "sources": [
+      "EHRA, guide pratique des anticoagulants oraux directs (2021)"
+     ],
+     "situation": "Pour quantifier un dabigatran avant une thrombolyse, l'interne demande un temps de thrombine simple.",
+     "piege": "Le temps de thrombine simple est trop sensible pour quantifier.",
+     "bonneConduite": "Demander un temps de thrombine dilué calibré."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -219,6 +411,44 @@
    "nom": "Activité anti-Xa",
    "defis": [
     {
+     "id": "activite_anti_xa-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) donnent une cible de 0,5 à 1,0 UI/ml pour une HBPM en 2 injections.",
+      "pourquoiFaux": "La cible de 0,8 à 1,6 UI/ml vaut pour 1 injection, celle de 0,3 à 0,7 UI/ml pour l'HNF."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "contexte": "Une femme de 68 ans, à Genève, reçoit une HBPM en 2 injections par jour pour une thrombose ; prélèvement 4 h après l'injection.",
+     "valeurAvecUnite": "Anti-Xa 0,7 UI/ml",
+     "question": "Comment lire ce résultat ?",
+     "reponse": "Dans la cible de 0,5 à 1,0 UI/ml"
+    },
+    {
+     "id": "activite_anti_xa-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Le CHUV (2026) demande un prélèvement 3 à 5 h après l'injection, avec l'heure et la dose.",
+      "pourquoiFaux": "Augmenter la dose sur ce seul résultat expose au surdosage."
+     },
+     "sources": [
+      "CHUV, catalogue des analyses (2026)",
+      "ACCP, CHEST, anticoagulants parentéraux (2012)"
+     ],
+     "situation": "Un anti-Xa sous HBPM est prélevé juste avant l'injection suivante.",
+     "piege": "Un prélèvement trop tardif sous-estime le pic.",
+     "bonneConduite": "Prélever 3 à 5 h après l'injection et noter l'heure et la dose."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -257,6 +487,43 @@
    "ref": "facteur_viii",
    "nom": "Facteur VIII",
    "defis": [
+    {
+     "id": "facteur_viii-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Selon la WFH (2020), 1 à 5 % définit la forme modérée, < 1 % la sévère, 5 à < 40 % la légère.",
+      "pourquoiFaux": "Parler de forme sévère ou légère ne respecte pas les seuils de la WFH."
+     },
+     "sources": [
+      "WFH, recommandations sur l'hémophilie (2020)"
+     ],
+     "contexte": "Un garçon de 2 ans, à Zurich, a des hématomes et un aPTT allongé isolé.",
+     "valeurAvecUnite": "Facteur VIII 3 %",
+     "question": "Quelle sévérité ?",
+     "reponse": "Hémophilie A modérée"
+    },
+    {
+     "id": "facteur_viii-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) demandent 15 minutes de repos et de signaler toute substitution.",
+      "pourquoiFaux": "Prélever sans attendre ou corriger le résultat ne respecte pas la consigne."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un patient arrive essoufflé au laboratoire et est prélevé aussitôt pour un facteur VIII.",
+     "piege": "Le repos préalable demandé n'a pas été respecté.",
+     "bonneConduite": "Laisser le patient 15 minutes au repos avant le prélèvement."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -297,6 +564,43 @@
    "nom": "Facteur IX",
    "defis": [
     {
+     "id": "facteur_ix-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Selon la WFH (2020), un taux de 5 à < 40 % définit une forme légère.",
+      "pourquoiFaux": "Moins de 1 % serait sévère, 1 à 5 % modéré ; ce n'est pas un taux normal."
+     },
+     "sources": [
+      "WFH, recommandations sur l'hémophilie (2020)"
+     ],
+     "contexte": "Un garçon de 4 ans, à Berne, a un aPTT allongé ; son oncle est hémophile.",
+     "valeurAvecUnite": "Facteur IX 12 %",
+     "question": "Quelle conclusion ?",
+     "reponse": "Hémophilie B légère"
+    },
+    {
+     "id": "facteur_ix-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) demandent de signaler un traitement par antivitamine K.",
+      "pourquoiFaux": "Conclure à une hémophilie B acquise ou refaire le test sans renseignement est trompeur."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un facteur IX bas est découvert chez un adulte sous antivitamine K, sans que le traitement soit noté.",
+     "piege": "L'antivitamine K abaisse aussi le facteur IX.",
+     "bonneConduite": "Indiquer le traitement par antivitamine K sur la demande."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -335,6 +639,43 @@
    "ref": "facteur_de_von_willebrand",
    "nom": "Facteur de von Willebrand (antigène et activité)",
    "defis": [
+    {
+     "id": "facteur_de_von_willebrand-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "Selon ASH ISTH NHF WFH (2021), < 0,50 UI/ml avec des saignements anormaux confirme le type 1.",
+      "pourquoiFaux": "Exiger < 0,30 UI/ml négligerait les saignements ; parler de taux normal ignore la clinique."
+     },
+     "sources": [
+      "ASH ISTH NHF WFH, maladie de von Willebrand (2021)"
+     ],
+     "contexte": "Une femme de 24 ans, à Neuchâtel, a des règles abondantes et des épistaxis.",
+     "valeurAvecUnite": "VWF 0,42 UI/ml",
+     "question": "Ce taux suffit-il au diagnostic ?",
+     "reponse": "Oui, avec les saignements anormaux"
+    },
+    {
+     "id": "facteur_de_von_willebrand-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "Les recommandations ASH ISTH NHF WFH (2021) rappellent que le VWF, protéine de la phase aiguë, augmente avec divers stimuli et se dose à l'état de base.",
+      "pourquoiFaux": "Conclure à l'absence de maladie sur ce seul dosage est un piège."
+     },
+     "sources": [
+      "ASH ISTH NHF WFH, maladie de von Willebrand (2021)"
+     ],
+     "situation": "Un dosage de VWF est fait pendant une infection fébrile.",
+     "piege": "Le VWF est une protéine de la phase aiguë qui peut masquer un déficit.",
+     "bonneConduite": "Refaire le dosage à distance de l'épisode aigu."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -375,6 +716,44 @@
    "nom": "Antithrombine",
    "defis": [
     {
+     "id": "antithrombine-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) fixent la limite à ≥ 80 % chez l'adulte ; un déficit multiplie le risque par environ 15 selon la BSH (2022).",
+      "pourquoiFaux": "Une valeur normale ou une simple variation d'âge ne s'applique pas chez l'adulte."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "British Society for Haematology, tests de thrombophilie (2022)"
+     ],
+     "contexte": "Un homme de 35 ans, à Lugano, a fait une thrombose veineuse non provoquée ; dosage à 4 mois, hors héparine.",
+     "valeurAvecUnite": "Antithrombine 52 %",
+     "question": "Comment lire ce résultat ?",
+     "reponse": "Déficit en antithrombine"
+    },
+    {
+     "id": "antithrombine-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La BSH (2022) liste l'héparine et la thrombose récente parmi les causes de baisse.",
+      "pourquoiFaux": "Conclure à un déficit héréditaire sur ce dosage est faux."
+     },
+     "sources": [
+      "British Society for Haematology, tests de thrombophilie (2022)"
+     ],
+     "situation": "On dose l'antithrombine pendant une perfusion d'héparine pour une thrombose aiguë.",
+     "piege": "L'héparine et la thrombose récente abaissent l'antithrombine.",
+     "bonneConduite": "Doser à distance, au mieux après 3 mois d'anticoagulation."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -413,6 +792,44 @@
    "ref": "proteine_c",
    "nom": "Protéine C",
    "defis": [
+    {
+     "id": "proteine_c-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) fixent la limite à ≥ 70 % après 14 ans.",
+      "pourquoiFaux": "Les seuils de 25 à 50 % valent pour les nourrissons."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "contexte": "Une femme de 30 ans, à Fribourg, a des antécédents familiaux de thrombose ; dosage hors anticoagulant.",
+     "valeurAvecUnite": "Protéine C 45 %",
+     "question": "Comment lire ce résultat ?",
+     "reponse": "Déficit en protéine C"
+    },
+    {
+     "id": "proteine_c-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) déconseillent ce dosage sous anticoagulant oral ; la BSH (2022) liste l'antivitamine K parmi les causes de baisse.",
+      "pourquoiFaux": "Corriger mentalement le résultat ne permet pas de conclure."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "British Society for Haematology, tests de thrombophilie (2022)"
+     ],
+     "situation": "On dose la protéine C chez un patient sous antivitamine K.",
+     "piege": "L'antivitamine K abaisse toujours la protéine C.",
+     "bonneConduite": "Ne pas doser sous antivitamine K."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -453,6 +870,44 @@
    "nom": "Protéine S",
    "defis": [
     {
+     "id": "proteine_s-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "La protéine S baisse pendant la grossesse selon la BSH (2022) et les HUG (2026).",
+      "pourquoiFaux": "Conclure à un déficit héréditaire ignore cette baisse physiologique."
+     },
+     "sources": [
+      "British Society for Haematology, tests de thrombophilie (2022)",
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "contexte": "Une femme de 28 ans, à Genève, enceinte de 30 semaines, a un bilan de thrombophilie.",
+     "valeurAvecUnite": "Protéine S libre 40 %",
+     "question": "Faut-il conclure à un déficit ?",
+     "reponse": "Non, la grossesse l'abaisse"
+    },
+    {
+     "id": "proteine_s-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) demandent un TP normal et signalent la baisse sous contraception orale.",
+      "pourquoiFaux": "Conclure sur ce dosage expose à un faux déficit."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Une patiente sous pilule est testée pour la protéine S.",
+     "piege": "La contraception orale abaisse la protéine S.",
+     "bonneConduite": "Doser à distance de la pilule, avec un TP normal."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -491,6 +946,43 @@
    "ref": "facteur_v_leiden",
    "nom": "Facteur V Leiden",
    "defis": [
+    {
+     "id": "facteur_v_leiden-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "La BSH (2022) estime l'hétérozygotie à environ 5 % des personnes d'origine européenne.",
+      "pourquoiFaux": "Le décrire comme exceptionnel ou comme homozygote est faux."
+     },
+     "sources": [
+      "British Society for Haematology, tests de thrombophilie (2022)"
+     ],
+     "contexte": "Un Valaisan de 40 ans a eu une thrombose ; on recherche la mutation.",
+     "valeurAvecUnite": "Facteur V Leiden hétérozygote",
+     "question": "Est-ce rare ?",
+     "reponse": "Non, environ 5 % des Européens"
+    },
+    {
+     "id": "facteur_v_leiden-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) rendent le consentement du patient obligatoire pour cette analyse génétique.",
+      "pourquoiFaux": "Envoyer la demande sans consentement bloque l'analyse."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Une recherche de facteur V Leiden part aux HUG sans que le consentement du patient ait été recueilli.",
+     "piege": "L'analyse est soumise à la loi sur les analyses génétiques humaines.",
+     "bonneConduite": "Recueillir le consentement du patient avant l'envoi."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -531,6 +1023,43 @@
    "nom": "Mutation de la prothrombine G20210A",
    "defis": [
     {
+     "id": "mutation_de_la_prothrombine_g20210a-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "La BSH (2022) en fait, avec le facteur V Leiden, le variant le plus testé.",
+      "pourquoiFaux": "Ce n'est ni un déficit en antithrombine ni une mutation du facteur V."
+     },
+     "sources": [
+      "British Society for Haematology, tests de thrombophilie (2022)"
+     ],
+     "contexte": "Une femme de 33 ans, à Zurich, a une thrombose sous contraception.",
+     "valeurAvecUnite": "G20210A hétérozygote",
+     "question": "Quel est ce résultat ?",
+     "reponse": "Variant thrombophile du facteur II"
+    },
+    {
+     "id": "mutation_de_la_prothrombine_g20210a-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Le CHUV (2026) exige la signature du médecin pour le consentement.",
+      "pourquoiFaux": "Envoyer sans signature retarde ou bloque l'analyse."
+     },
+     "sources": [
+      "CHUV, catalogue des analyses (2026)"
+     ],
+     "situation": "Une demande de G20210A part sans consentement signé.",
+     "piege": "Un test génétique exige un consentement.",
+     "bonneConduite": "Faire signer le médecin pour le consentement."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -569,6 +1098,44 @@
    "ref": "anticoagulant_lupique",
    "nom": "Anticoagulant lupique",
    "defis": [
+    {
+     "id": "anticoagulant_lupique-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La BSH (2022) exige la persistance à au moins 12 semaines d'intervalle.",
+      "pourquoiFaux": "Conclure sur un seul test ou parler de risque hémorragique est faux."
+     },
+     "sources": [
+      "British Society for Haematology, tests de thrombophilie (2022)"
+     ],
+     "contexte": "Une femme de 34 ans, à Lausanne, a fait deux fausses couches ; premier test positif.",
+     "valeurAvecUnite": "Anticoagulant lupique positif",
+     "question": "Peut-on conclure ?",
+     "reponse": "Non, recontrôler à 12 semaines"
+    },
+    {
+     "id": "anticoagulant_lupique-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) prévoient un adsorbant sous AOD ; l'ISTH (2020) encadre le test en trois étapes.",
+      "pourquoiFaux": "Interpréter le résultat sans précaution expose à un faux positif."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "ISTH, détection de l'anticoagulant lupique (2020)"
+     ],
+     "situation": "Une recherche d'anticoagulant lupique est faite sous apixaban.",
+     "piege": "L'anticoagulant fausse les tests de coagulation.",
+     "bonneConduite": "Tester hors anticoagulant, ou avec un adsorbant sous AOD."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -609,6 +1176,44 @@
    "nom": "Anticorps anticardiolipine et anti-β2-glycoprotéine I",
    "defis": [
     {
+     "id": "anticorps_anticardiolipine_et_anti_2_gly-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La BSH (2022) associe la triple positivité au risque le plus élevé.",
+      "pourquoiFaux": "Ce n'est pas un faux positif ni un profil sans risque."
+     },
+     "sources": [
+      "British Society for Haematology, tests de thrombophilie (2022)"
+     ],
+     "contexte": "Une femme de 36 ans, à Bâle, a une thrombose et des anticorps positifs persistants.",
+     "valeurAvecUnite": "Triple positivité",
+     "question": "Que signifie ce profil ?",
+     "reponse": "Risque de thrombose le plus élevé"
+    },
+    {
+     "id": "anticorps_anticardiolipine_et_anti_2_gly-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "L'ACR et l'EULAR (2023) exigent au moins 3 points cliniques et 3 biologiques ; le CHUV (2026) demande les renseignements.",
+      "pourquoiFaux": "Interpréter les seuls anticorps ne suffit pas."
+     },
+     "sources": [
+      "ACR et EULAR, classification du syndrome des antiphospholipides (2023)",
+      "CHUV, catalogue des analyses (2026)"
+     ],
+     "situation": "Une demande arrive sans aucun renseignement clinique.",
+     "piege": "La classification exige des critères cliniques et biologiques.",
+     "bonneConduite": "Joindre les renseignements cliniques à la demande."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -647,6 +1252,43 @@
    "ref": "anticorps_anti_pf4_heparine",
    "nom": "Anticorps anti-PF4/héparine (TIH)",
    "defis": [
+    {
+     "id": "anticorps_anti_pf4_heparine-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "L'ASH (2018) recommande un test fonctionnel après un dosage immunologique positif.",
+      "pourquoiFaux": "Reprendre l'héparine ou conclure sans confirmation est dangereux."
+     },
+     "sources": [
+      "ASH, thrombopénie induite par l'héparine (2018)"
+     ],
+     "contexte": "Une patiente de 70 ans, à Genève, sous héparine depuis 7 jours, perd la moitié de ses plaquettes ; 4T intermédiaire.",
+     "valeurAvecUnite": "Anti-PF4/héparine positif",
+     "question": "Quelle suite ?",
+     "reponse": "Test fonctionnel de confirmation"
+    },
+    {
+     "id": "anticorps_anti_pf4_heparine-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "L'ASH (2018) réserve le dosage aux scores intermédiaires ou élevés.",
+      "pourquoiFaux": "Demander le test « par sécurité » expose aux faux positifs."
+     },
+     "sources": [
+      "ASH, thrombopénie induite par l'héparine (2018)"
+     ],
+     "situation": "Un anti-PF4 est demandé avec un score 4T bas.",
+     "piege": "Le dosage n'est pas indiqué avec un score bas.",
+     "bonneConduite": "Ne pas faire le dosage et chercher une autre cause."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -687,6 +1329,43 @@
    "nom": "Bilan de thrombophilie (panel)",
    "defis": [
     {
+     "id": "bilan_de_thrombophilie-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "La BSH (2022) réserve le bilan aux cas où il modifie la prise en charge.",
+      "pourquoiFaux": "Tout doser en phase aiguë donne de faux déficits."
+     },
+     "sources": [
+      "British Society for Haematology, tests de thrombophilie (2022)"
+     ],
+     "contexte": "Un homme de 45 ans, à Neuchâtel, a une thrombose provoquée par un plâtre ; on veut un bilan complet.",
+     "valeurAvecUnite": "Bilan demandé à J3",
+     "question": "Quelle conduite ?",
+     "reponse": "Seulement s'il change la prise en charge"
+    },
+    {
+     "id": "bilan_de_thrombophilie-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La BSH (2022) fixe ce délai de 3 mois.",
+      "pourquoiFaux": "Interpréter tout de suite conclut à tort à un déficit."
+     },
+     "sources": [
+      "British Society for Haematology, tests de thrombophilie (2022)"
+     ],
+     "situation": "Le bilan est prélevé pendant la thrombose aiguë sous héparine.",
+     "piege": "La thrombose et l'héparine abaissent les inhibiteurs naturels.",
+     "bonneConduite": "Doser les inhibiteurs naturels après 3 mois d'anticoagulation."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -722,5 +1401,67 @@
    ]
   }
  ],
- "glossaire": {}
+ "glossaire": {
+  "ABO": "Système de groupes sanguins A, B, AB et O.",
+  "ACCP": "American College of Chest Physicians, auteur des recommandations CHEST.",
+  "ACL": "Anticorps anticardiolipine.",
+  "ACR": "American College of Rheumatology.",
+  "ADJUST-PE": "Étude multicentrique sur le seuil de D-dimères ajusté à l'âge dans l'embolie pulmonaire.",
+  "Anti-PF4": "Anticorps dirigés contre le complexe facteur plaquettaire 4 et héparine.",
+  "Anti-Xa": "Activité anti-facteur X activé, mesure de l'effet des héparines et des xabans.",
+  "AOD": "Anticoagulants oraux directs : dabigatran et xabans.",
+  "ASH": "American Society of Hematology.",
+  "AT": "Antithrombine.",
+  "AT III": "Ancien nom de l'antithrombine.",
+  "AVK": "Antivitamines K.",
+  "BSH": "British Society for Haematology.",
+  "CHEST": "Recommandations de l'ACCP sur les traitements antithrombotiques.",
+  "CHUV": "Centre hospitalier universitaire vaudois.",
+  "CIVD": "Coagulation intravasculaire disséminée.",
+  "CT": "Tomodensitométrie (scanner).",
+  "DD": "D-dimères.",
+  "DRVVT": "Temps de venin de vipère Russell dilué, test de l'anticoagulant lupique.",
+  "dRVVT": "Temps de venin de vipère Russell dilué, test de l'anticoagulant lupique.",
+  "dTT": "Temps de thrombine dilué.",
+  "EASL": "Association européenne pour l'étude du foie.",
+  "EDTA": "Anticoagulant des tubes mauves, utilisé en hématologie et en génétique.",
+  "EHRA": "European Heart Rhythm Association.",
+  "EULAR": "Ligue européenne contre le rhumatisme.",
+  "F2": "Gène du facteur II (prothrombine).",
+  "F5": "Gène du facteur V de la coagulation.",
+  "FI": "Facteur I, ou fibrinogène.",
+  "FIX": "Facteur IX de la coagulation.",
+  "FIX:C": "Activité coagulante du facteur IX.",
+  "FVIII": "Facteur VIII de la coagulation.",
+  "FVL": "Facteur V Leiden.",
+  "FvW": "Facteur von Willebrand.",
+  "G20210A": "Variant du gène de la prothrombine (facteur II) qui augmente le risque de thrombose.",
+  "HBPM": "Héparines de bas poids moléculaire.",
+  "HNF": "Héparine non fractionnée.",
+  "HUG": "Hôpitaux universitaires de Genève.",
+  "IgG": "Immunoglobulines G.",
+  "IgM": "Immunoglobulines M.",
+  "INR": "International Normalized Ratio, expression standardisée du temps de Quick.",
+  "ISTH": "Société internationale de thrombose et d'hémostase.",
+  "JAMA": "Journal of the American Medical Association.",
+  "LA": "Anticoagulant lupique (lupus anticoagulant).",
+  "NHF": "National Hemophilia Foundation.",
+  "PC": "Protéine C.",
+  "PCF": "Protéine C fonctionnelle.",
+  "PCR": "Amplification en chaîne par polymérase, technique de biologie moléculaire.",
+  "PF4": "Facteur plaquettaire 4.",
+  "PS": "Protéine S.",
+  "PSL": "Protéine S libre.",
+  "PTT": "Temps de thromboplastine partielle, autre nom de l'aPTT.",
+  "TCA": "Temps de céphaline activée, synonyme de l'aPTT.",
+  "TIH": "Thrombopénie induite par l'héparine.",
+  "TP": "Taux de prothrombine, ou temps de Quick.",
+  "TP/INR": "Taux de prothrombine et INR.",
+  "TT": "Temps de thrombine.",
+  "UI/dl": "Unités internationales par décilitre.",
+  "UI/ml": "Unités internationales par millilitre.",
+  "VWF": "Facteur von Willebrand.",
+  "VWF:Ag": "Antigène du facteur von Willebrand.",
+  "WFH": "Fédération mondiale de l'hémophilie."
+ }
 }
