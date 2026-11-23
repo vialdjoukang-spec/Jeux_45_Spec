@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-23 00:09
 
-66 fichier(s) : 62 🟩 intégrables · 4 🟧 à compléter · 0 🟥 refusés.
+70 fichier(s) : 66 🟩 intégrables · 4 🟧 à compléter · 0 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -102,6 +102,20 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/06_Oreille_et_equilibre/2_Pratique/P01-06-BIO-PR_Biologie_Oreille_et_equilibre_2-examens_PRATIQUE_production_XAi.json`
 - 🟩 `oreille_et_equilibre.json` : remplissage 100 % (4/4)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/06_Oreille_et_equilibre/2_Pratique/P01-06-FCT-PR_Exploration_fonctionnelle_Oreille_et_equilibre_9-examens_PRATIQUE_production_XAi.json`
+- 🟩 `oreille_et_equilibre.json` : remplissage 100 % (18/18)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/06_Oreille_et_equilibre/2_Pratique/P01-06-IMG-PR_Imagerie_Oreille_et_equilibre_3-examens_PRATIQUE_production_XAi.json`
+- 🟩 `oreille_et_equilibre.json` : remplissage 100 % (6/6)
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/07_Nez_sinus_et_cavum/1_Theorie/P01-07-BIO_Biologie_Nez_sinus_et_cavum_4-examens_production_XAi.json`
+- 🟩 `nez_sinus_et_cavum.json` : remplissage 86 % (76/88)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/07_Nez_sinus_et_cavum/1_Theorie/P01-07-END_Endoscopie_Nez_sinus_et_cavum_2-examens_production_XAi.json`
+- 🟩 `nez_sinus_et_cavum.json` : remplissage 86 % (36/42)
+- aVerifier déclarés : 1
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/01_Tete_et_encephale/08_Cavite_buccale_et_glandes_salivaires/1_Theorie/P01-08-BIO_Biologie_Cavite_buccale_et_glandes_salivaire_3-examens_production_XAi.json`
 - 🟩 `cavite_buccale_et_glandes_salivaires.json` : remplissage 92 % (61/66)
