@@ -15,7 +15,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | G | 12 | 12 |
 | H | 12 | 12 |
 | I | 12 | 12 |
-| J | 3 | 12 |
+| J | 6 | 12 |
 | K | 0 | 12 |
 | L | 0 | 12 |
 | M | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **135** | **228** |
+| **Total** | **138** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -219,6 +219,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_J-S1-02** : Classification suisse de la varicelle et du zona disséminé (précautions aériennes et de contact).
 - **TRANS_J-S1-03** : Prise en charge des frais par l'assurance-accidents (LAA) de l'exposé, y compris les analyses de la personne source, selon la mise à jour CFIST 2025.
 - **TRANS_J-S1-03** : Statut du risque de transmission du VHB après exposition percutanée (22 à 31 % si source HBeAg positive, estimation ancienne) chez un soignant non vacciné.
+- **TRANS_J-S2-01** : Contenu exact du module Swissnoso de prévention des bactériémies sur cathéter (programme national « progress! Sécurité des sondes vésicales » de Sécurité des patients Suisse, 2015-2018) et des bundles CLABSI en 2026.
+- **TRANS_J-S2-01** : Choix préférentiel du site sous-clavier pour le CVC non tunnelisé chez l'adulte (CDC 2011, mis à jour) et balance avec le risque de pneumothorax.
+- **TRANS_J-S2-02** : Recommandations ESCMID 2021 (van Prehn et al.) et IDSA/SHEA 2021 : fidaxomicine 200 mg 2 fois par jour pendant 10 jours en premier choix, vancomycine 125 mg 4 fois par jour pendant 10 jours en alternative ; disponibilité et remboursement en Suisse en 2026.
+- **TRANS_J-S2-02** : Statut 2026 du bezlotoxumab (retrait du marché annoncé) et accès suisse à la transplantation de microbiote fécal.
+- **TRANS_J-S2-03** : Recommandations Swissnoso en vigueur sur l'antibioprophylaxie : céfazoline 2 g IV dans les 60 minutes avant l'incision, 3 g si poids ≥ 120 kg, réinjection après 4 heures ; durée maximale 24 heures.
+- **TRANS_J-S2-03** : Programme Swissnoso de surveillance des infections du site opératoire (participation obligatoire ANQ) et module d'intervention SSI.
 - **TRANS_Q-S1-01** : Articles exacts de l'ORaP pour les limites (art. 56 et 57 ?) et pour la grossesse.
 - **TRANS_Q-S1-01** : Rôle de la SUVA dans la radioprotection industrielle.
 - **TRANS_Q-S1-02** : Statut actuel du Swiss Medical Board (dissous ?) en 2026.
@@ -256,4 +262,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : J (3/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : J (6/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
