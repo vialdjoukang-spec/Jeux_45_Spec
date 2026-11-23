@@ -11,7 +11,7 @@ nav{position:fixed;inset:0 auto 0 0;width:240px;padding:22px 14px;border-right:1
 nav h2{font:700 15px Georgia,serif;margin:0 0 10px}nav select{width:100%;font:14px A;padding:8px;border-radius:6px;border:1px solid var(--trait);background:var(--carte);color:var(--ink);margin-bottom:12px}
 nav ol{margin:0;padding:0;list-style:none}nav li{display:flex;gap:8px;align-items:center;padding:6px 8px;border-radius:6px;cursor:pointer;font-size:13.5px}nav li:hover,nav li.cur{background:var(--carte)}
 nav li b{min-width:20px;color:var(--sous)}nav li i{margin-left:auto;font-style:normal;font-size:11px;color:var(--sous)}
-main{margin-left:240px;padding:28px 24px 80px}.col{max-width:780px;margin:auto}
+main{margin-left:240px;padding:28px 20px 80px}.col{max-width:1180px;margin:auto}
 h1{font:700 22px Georgia,serif;margin:0 0 4px}.sous{color:var(--sous);font-size:13px}
 .barre{display:flex;gap:18px;align-items:center;margin:14px 0;font-size:13.5px}.chrono{font-weight:700;font-variant-numeric:tabular-nums}
 .chrono.rouge{color:var(--ko)}.stem{background:var(--carte);border:1px solid var(--trait);border-radius:8px;padding:14px 16px;margin:10px 0}
@@ -29,8 +29,8 @@ h1{font:700 22px Georgia,serif;margin:0 0 4px}.sous{color:var(--sous);font-size:
 :root[data-fond=blanc]{--bg:#ffffff;--trait:#e5e7eb}:root[data-fond=vert]{--bg:#e8f5e9;--trait:#d3e6d5}:root[data-fond=or]{--bg:#fbf3d9;--trait:#ece0b8}:root[data-fond=champagne]{--bg:#f7ecdc;--trait:#e8d9c2}
 .fonds{display:flex;gap:6px;margin:12px 0 4px}.fonds button{width:26px;height:26px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--trait);cursor:pointer}
 .correction{display:none;margin-top:14px}.fini .correction{display:block}
-.deux{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}.bloc{background:var(--carte);border:1px solid var(--trait);border-radius:10px;padding:12px 14px}
-.bloc h3{font:700 15px Georgia,serif;margin:0 0 8px}.bloc .echelle{border:0;padding:0;grid-template-columns:105px 1fr;font-size:13.5px}
+.deux{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}.bloc{background:var(--carte);border:1px solid var(--trait);border-radius:10px;padding:12px 14px}
+.bloc h3{font:700 15px Georgia,serif;margin:0 0 8px}.bloc .echelle{border:0;padding:0;grid-template-columns:118px 1fr;font-size:14px}
 .theme{font-weight:700;color:var(--acc);margin-bottom:6px}.notion{display:block;width:100%;text-align:left;font:inherit;color:inherit;background:transparent;border:1px solid var(--trait);border-radius:8px;padding:8px 10px;margin:6px 0;cursor:pointer}
 .notion:hover{border-color:var(--acc)}.notion b{display:block;font-size:14px}.notion span{font-size:13px;color:var(--sous)}.notion.autre{opacity:.75}
 .ssp{margin-top:14px}.badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:99px;background:#1f8a4c;color:#fff;margin-left:6px}.badge.add{background:#b45309}
@@ -59,6 +59,10 @@ abbr.ab{text-decoration:underline dotted 1px;text-underline-offset:2px;cursor:he
 .vf{flex:0 0 auto;gap:6px}.vf button{white-space:nowrap;min-width:52px}
 @media(max-width:600px){.opt{flex-wrap:wrap}.vf{margin-left:30px;width:100%}}
 .noeud.lien{cursor:pointer}.noeud.lien::after{content:" ▸ notion";color:#1d4ed8;font-weight:700;font-size:12px}
+
+.opt.bon{border:3px solid #15803d!important;background:#ecfdf3}.opt.faux{border:3px solid #dc2626!important;background:#fef2f2}
+.opt.bon .k{color:#15803d}.opt.faux .k{color:#dc2626}
+[hidden]{display:none!important}
 </style></head><body>
 <nav><h2>Arène commune</h2><select id="paquet"></select><ol id="liste"></ol><div class="maitrise" id="maitrise" title="Boîtes de Leitner : 0 à 4"></div><div class="fonds" id="fonds" title="Fond de page"></div></nav>
 <main><div class="col">
@@ -105,8 +109,8 @@ function valider(){if(fini)return;fini=true;clearInterval(tick);const q=P.questi
  else if(q.format==='Kprim'){const n=q.options.filter(o=>choix[o.k]===o.ok).length;pts=n===4?1:n===3?.5:0;juste=n===q.options.length;}
  else{const bons=q.options.filter(o=>o.ok),inut=q.options.filter(o=>!o.ok&&choix[o.k]).length,manq=bons.filter(o=>!choix[o.k]).length;max=bons.length;pts=Math.max(0,bons.length-manq-inut);juste=!manq&&!inut;
   $('res').innerHTML=`<div class="sous">${manq} examen(s) nécessaire(s) manqué(s) · ${inut} examen(s) inutile(s) demandé(s)</div>`;}
- const bonus=juste&&(Date.now()-t0)/1000<(TEMPS[q.format]||90)/2?.5:0;score+=pts+bonus;$('score').textContent=score;
- $('res').insertAdjacentHTML('afterbegin',`<div class="res ${juste?'ok':'ko'}">${juste?'Juste':'À revoir'} : ${pts}/${max}${bonus?' + 0,5 de rapidité':''}</div>`);
+ score+=pts;$('score').textContent=String(score).replace('.',',');
+ $('res').insertAdjacentHTML('afterbegin',`<div class="res ${juste?'ok':'ko'}">${juste?'Juste':'À revoir'} : ${String(pts).replace('.',',')}/${max}</div>`);
  boites[q.id]=juste?Math.min(4,(boites[q.id]??0)+1):0;ecrire('arene_'+Q.get('paquet'),boites);
  document.querySelector(`#liste li[data-j="${i}"] i`).textContent=boites[q.id];maitrise();
  const ech=(q.echelle||[]).map(([m,t])=>`<dt>${NOMS[m]||m}</dt><dd>${T(t)}</dd>`).join('');
