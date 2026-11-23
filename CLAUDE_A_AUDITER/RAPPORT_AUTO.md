@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-23 02:29
+# Audit automatique — 2026-11-23 03:16
 
-12 fichier(s) : 6 🟩 intégrables · 5 🟧 à compléter · 1 🟥 refusés.
+16 fichier(s) : 9 🟩 intégrables · 6 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -28,6 +28,14 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟩 `05_cardiaque_vasculaire_lipides.json` : remplissage 99 % (236/238)
 - aVerifier déclarés : 11
 
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/1_Theorie/PB06_Analyses_Diabete_Thyroide_Phosphocalcique_20-analyses_production_XAi.json`
+- 🟩 `06_diabete_thyroide_phosphocalcique.json` : remplissage 100 % (339/340)
+- aVerifier déclarés : 15
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/1_Theorie/PB07_Analyses_Inflammation_Infection_Microbiologie_24-analyses_production_XAi.json`
+- 🟧 `07_inflammation_infection_microbiologie.json` : remplissage 99 % (403/408) · 1 marqueur(s) <…> restant(s)
+- aVerifier déclarés : 11
+
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/2_Pratique/PB01-PR_Analyses_Hematologie_31-analyses_PRATIQUE_production_XAi.json`
 - 🟩 `01_hematologie.json` : remplissage 100 % (62/62)
 - aVerifier déclarés : 1
@@ -46,6 +54,14 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/2_Pratique/PB05-PR_Analyses_Cardiaque_Vasculaire_Lipides_14-analyses_PRATIQUE_production_XAi.json`
 - 🟩 `05_cardiaque_vasculaire_lipides.json` : remplissage 100 % (28/28)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/2_Pratique/PB06-PR_Analyses_Diabete_Thyroide_Phosphocalcique_20-analyses_PRATIQUE_production_XAi.json`
+- 🟩 `06_diabete_thyroide_phosphocalcique.json` : remplissage 100 % (40/40)
+- aVerifier déclarés : 1
+
+### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/2_Pratique/PB07-PR_Analyses_Inflammation_Infection_Microbiologie_24-analyses_PRATIQUE_production_XAi.json`
+- 🟩 `07_inflammation_infection_microbiologie.json` : remplissage 100 % (48/48)
 - aVerifier déclarés : 1
 
 ### 🟧 `CLAUDE_A_AUDITER/ouvrier/LOT_COMPLEMENT_3_rachis_moelle_et_racines_rempli.json`
