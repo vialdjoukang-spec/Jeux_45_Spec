@@ -1,6 +1,6 @@
 # Jauges « jouable » des 4 jeux
 
-Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **23.11.2026 13:45**.
+Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **23.11.2026 14:37**.
 
 ## Tétrade Fondation — 35 % (-30)
 
@@ -43,7 +43,7 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 | Critère | Fait | Cible | Poids |
 |---|---:|---:|---:|
 | fiches produites | 179 | 3975 | 25 |
-| fiches validées par l'audit | 27 | 3975 | 25 |
+| fiches validées par l'audit | 31 | 3975 | 25 |
 | fiches avec prise en charge holistique | 4 | 3975 | 10 |
 | entités avec questions A/K' | 1 | 3975 | 25 |
 | questions jouables dans l'arène | 6 | 300 | 15 |
