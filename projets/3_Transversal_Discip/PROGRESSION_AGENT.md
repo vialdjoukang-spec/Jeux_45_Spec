@@ -8,8 +8,8 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 |---|---|---|
 | A | 12 | 12 |
 | B | 12 | 12 |
-| C | 0 | 12 |
-| D | 0 | 12 |
+| C | 12 | 12 |
+| D | 12 | 12 |
 | E | 0 | 12 |
 | F | 12 | 12 |
 | G | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **60** | **228** |
+| **Total** | **84** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -60,6 +60,60 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_B-S4-01** : Statut actuel du Swiss Medical Board en 2026 et portée de son rapport de 2014 sur la mammographie.
 - **TRANS_B-S4-02** : Nom exact de la société suisse de diabétologie (SSED / SGED) et usage de GRADE dans ses recommandations.
 - **TRANS_B-S4-03** : Date d'entrée en vigueur de la LEMO (1.1.2020) et nom exact du registre national.
+- **TRANS_C-S1-01** : Titre exact et année du guide ASSM sur la communication dans la pratique médicale (2013 ?).
+- **TRANS_C-S1-01** : Durée moyenne de parole spontanée de 92 secondes (Langewitz et al., BMJ 2002, policlinique de Bâle) : chiffre à confirmer dans l'article original.
+- **TRANS_C-S1-02** : Proportion de patients qui oublient 40 à 80 % de l'information médicale reçue (Kessels 2003) : chiffre classique, à confirmer.
+- **TRANS_C-S1-02** : Existence et nom actuel des aides à la décision publiées par Unisanté ou le Collège de médecine de premier recours.
+- **TRANS_C-S1-03** : Structure en quatre processus (engager, focaliser, évoquer, planifier) maintenue dans la 4e édition de Miller et Rollnick (2023) : vérifier la terminologie exacte.
+- **TRANS_C-S1-03** : Nom actuel du programme suisse « Coaching Santé » du Collège de médecine de premier recours (CMPR).
+- **TRANS_C-S2-01** : Nom exact et organisme actuel du cours suisse de formation à la communication en oncologie (cours CST de la Ligue suisse contre le cancer).
+- **TRANS_C-S2-01** : Droit du patient de ne pas savoir : ancrage précis en droit suisse (principe général, art. 6 LAGH pour la génétique).
+- **TRANS_C-S2-02** : Numéro et opérateur actuels du Service national d'interprétariat téléphonique (0842 442 442, géré par AOZ à Zurich ?).
+- **TRANS_C-S2-02** : Absence de prise en charge de l'interprétariat communautaire par l'assurance obligatoire LAMal en 2026 (financement par hôpitaux, cantons ou programmes OFSP).
+- **TRANS_C-S2-02** : Intitulé exact du titre fédéral : « interprète communautaire avec brevet fédéral » (INTERPRET).
+- **TRANS_C-S2-03** : Origine de l'acronyme ICE dans la formation britannique (Royal College of General Practitioners, années 1980-1990) : attribution exacte à confirmer.
+- **TRANS_C-S2-03** : Données d'efficacité de l'exploration ICE sur la satisfaction et la réduction des reconsultations : niveau de preuve modéré, à confirmer.
+- **TRANS_C-S3-01** : Date de la dernière version des directives ASSM « Mesures de contrainte en médecine » (2015 ; révision annoncée ?).
+- **TRANS_C-S3-01** : Renvoi exact de l'art. 438 CC aux art. 383 à 385 CC pour les mesures limitant la liberté de mouvement dans le placement à des fins d'assistance.
+- **TRANS_C-S3-02** : Titre et année de la publication de Sécurité des patients Suisse sur le « Speak Up » (cahier n° 7, 2013 ?).
+- **TRANS_C-S3-02** : Proportion d'événements indésirables graves liés à un défaut de communication (souvent citée autour de 70 % d'après la Joint Commission) : chiffre ancien et contesté, non écrit dans le texte.
+- **TRANS_C-S3-03** : Âge indicatif à partir duquel l'OFSP considère qu'un adolescent est en général capable de discernement pour la vaccination (souvent 12 à 14 ans) : valeur d'usage, non légale.
+- **TRANS_C-S3-03** : Contenu exact des art. 6, 21 et 22 LEp sur l'obligation vaccinale cantonale pour des groupes ciblés.
+- **TRANS_C-S4-01** : Titre et année de la brochure de Sécurité des patients Suisse « Quand un incident survient » (2006) et de l'aide à l'orientation FMH lors d'incidents médicaux.
+- **TRANS_C-S4-01** : Délais de prescription de l'art. 60 al. 1bis CO depuis le 1.1.2020 (3 ans relatif, 20 ans absolu en cas de lésion corporelle ou de décès) et règles cantonales pour les hôpitaux publics.
+- **TRANS_C-S4-01** : Clauses usuelles des assurances RC professionnelles suisses interdisant la reconnaissance de responsabilité sans accord de l'assureur.
+- **TRANS_C-S4-02** : Version en vigueur des directives ASSM « Mesures de soins intensifs » (2013) et éventuelle révision 2024-2026.
+- **TRANS_C-S4-02** : Effet de l'approche VALUE (Lautrette, NEJM 2007) sur les symptômes de stress post-traumatique des proches à 90 jours : vérifier les chiffres avant de les citer.
+- **TRANS_C-S4-03** : Nom et fonctionnement actuels du service suisse d'interprètes en langue des signes (procom) et prise en charge des frais (AI, établissement).
+- **TRANS_C-S4-03** : Loi sur l'égalité pour les handicapés (LHand) : portée exacte de l'obligation d'adaptation pour les prestataires de soins publics.
+- **TRANS_D-S1-01** : État de la révision complète de la LDEP en 2026 (passage éventuel à un modèle opt-out et obligation pour tous les prestataires ambulatoires).
+- **TRANS_D-S1-01** : Date exacte de l'obligation d'affiliation des EMS et maisons de naissance (15.4.2022) et des nouveaux prestataires ambulatoires admis depuis le 1.1.2022 (art. 37 al. 3 LAMal).
+- **TRANS_D-S1-01** : Liste actuelle des communautés de référence (CARA en Suisse romande : cantons membres en 2026).
+- **TRANS_D-S1-02** : Montant maximal de l'amende pénale de la nLPD (250 000 francs, art. 60 ss) visant les personnes physiques responsables.
+- **TRANS_D-S1-02** : Exemption du registre des activités de traitement pour les entreprises de moins de 250 collaborateurs (art. 24 OPDo) et exception pour le traitement à grande échelle de données sensibles.
+- **TRANS_D-S1-02** : Nom de la société exploitante et prestations actuelles de HIN (Health Info Net AG).
+- **TRANS_D-S1-03** : Disposition exacte de la LPTh (art. 26) et du Code de déontologie FMH sur la prescription après une consultation à distance (connaissance de l'état de santé).
+- **TRANS_D-S1-03** : Entrée en vigueur du TARDOC au 1.1.2026 et positions tarifaires de la consultation à distance.
+- **TRANS_D-S1-03** : Existence en 2026 de recommandations FMH ou eHealth Suisse spécifiques à la télémédecine.
+- **TRANS_D-S2-01** : Délai de réponse de 30 jours au droit d'accès (art. 18 OPDo) : à confirmer.
+- **TRANS_D-S2-01** : Recommandation de la FMH de conserver les dossiers 20 ans après la dernière consultation (alignée sur le délai absolu de l'art. 60 al. 1bis CO) et durées minimales des lois cantonales (VD, GE, NE, FR, VS).
+- **TRANS_D-S2-02** : Inclusion des hôpitaux figurant sur une liste cantonale parmi les infrastructures critiques soumises à l'obligation de signalement (art. 74b LSI).
+- **TRANS_D-S2-02** : Date d'application des amendes (jusqu'à 100 000 francs) pour défaut de signalement à l'OFCS (1.10.2025 ?).
+- **TRANS_D-S2-03** : Format technique actuel de l'eMediplan (CHMED16A, CHMED23A ?) et organisation qui le gère (IG eMediplan / HCI Solutions).
+- **TRANS_D-S2-03** : Proportion de patients présentant au moins une divergence médicamenteuse non intentionnelle à l'admission (souvent citée entre 30 et 70 %) : non écrite faute de chiffre suisse vérifié.
+- **TRANS_D-S3-01** : Date d'entrée en vigueur de l'ODim (26.5.2021) et obligations actuelles du mandataire suisse (CH-REP) faute d'actualisation de l'accord de reconnaissance mutuelle avec l'UE.
+- **TRANS_D-S3-01** : Position suisse 2026 sur la régulation de l'IA (ratification de la convention du Conseil de l'Europe, adaptation sectorielle) et éventuelle reprise du règlement européen sur l'IA pour les dispositifs médicaux.
+- **TRANS_D-S3-02** : Classe de recommandation de la télésurveillance non invasive dans les recommandations ESC 2021 et 2023 sur l'insuffisance cardiaque (IIb ?).
+- **TRANS_D-S3-02** : Conditions de remboursement LAMal des capteurs de glucose en continu (LiMA, patients sous insulinothérapie intensifiée) en 2026.
+- **TRANS_D-S3-02** : Valeur prédictive positive de 0,84 de la notification de pouls irrégulier de l'Apple Heart Study (Perez, NEJM 2019).
+- **TRANS_D-S3-03** : Formulation exacte des art. 32 à 34 LRH (réutilisation de matériel biologique, de données génétiques et de données non génétiques, codées ou non) et de l'art. 2 al. 2 let. c LRH (exclusion des données anonymisées).
+- **TRANS_D-S3-03** : Version en vigueur en 2026 du modèle national de consentement général (swissethics / unimedsuisse) et état de la révision de l'ORH.
+- **TRANS_D-S4-01** : Applicabilité de la loi sur la responsabilité du fait des produits (LRFP) aux logiciels en droit suisse : question doctrinale ouverte en 2026.
+- **TRANS_D-S4-01** : Performance externe de l'Epic Sepsis Model (aire sous la courbe 0,63 selon Wong et al., JAMA Intern Med 2021) : chiffre à confirmer avant citation.
+- **TRANS_D-S4-02** : Formulaire d'annonce en ligne du PFPDT et délais pratiques recommandés (« dans les meilleurs délais », art. 24 nLPD ; pas de délai chiffré dans la loi suisse, contrairement aux 72 heures du RGPD).
+- **TRANS_D-S4-02** : Règles cantonales d'annonce des violations de données pour les hôpitaux publics (préposés cantonaux, par exemple VD et GE).
+- **TRANS_D-S4-03** : Exemples documentés de cyberattaques contre des hôpitaux ou institutions de santé suisses (non cités nominativement dans le texte).
+- **TRANS_D-S4-03** : Existence d'une recommandation nationale suisse (OFCS, H+, CIMHS) sur les procédures dégradées hospitalières en 2026.
 - **TRANS_F-S1-01** : Numéro de l'article du Code de déontologie FMH consacré au secret (art. 11 ?).
 - **TRANS_F-S1-01** : Peine exacte de l'art. 321 CP après l'harmonisation des peines (en vigueur 2023) : « trois ans au plus ou peine pécuniaire » à confirmer.
 - **TRANS_F-S1-01** : Caractère de plainte (délit poursuivi sur plainte) de l'art. 321 CP.
@@ -150,4 +204,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-L'agent s'est arrêté après la lettre B (ordre suivi : S, F, Q, puis A, B). Reprise suggérée : C, D, E, G, H, I, J, K, L, M, N, O, P, R.
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, puis E, G à P, R dans cet ordre. Lettres restantes : E (0/12), G (0/12), H (0/12), I (0/12), J (0/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
