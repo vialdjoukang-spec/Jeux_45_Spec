@@ -10,7 +10,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | B | 12 | 12 |
 | C | 12 | 12 |
 | D | 12 | 12 |
-| E | 0 | 12 |
+| E | 12 | 12 |
 | F | 12 | 12 |
 | G | 0 | 12 |
 | H | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **84** | **228** |
+| **Total** | **96** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -114,6 +114,35 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_D-S4-02** : Règles cantonales d'annonce des violations de données pour les hôpitaux publics (préposés cantonaux, par exemple VD et GE).
 - **TRANS_D-S4-03** : Exemples documentés de cyberattaques contre des hôpitaux ou institutions de santé suisses (non cités nominativement dans le texte).
 - **TRANS_D-S4-03** : Existence d'une recommandation nationale suisse (OFCS, H+, CIMHS) sur les procédures dégradées hospitalières en 2026.
+- **TRANS_E-S1-01** : Seuils du 99e percentile de la troponine I hypersensible Abbott (16 ng/L chez la femme, 34 ng/L chez l'homme) : à confirmer selon le dosage local et la notice.
+- **TRANS_E-S1-01** : Résultats du registre suisse AMIS Plus sur les différences de prise en charge entre femmes et hommes (moindre recours à l'angioplastie, délais) : chiffres non cités.
+- **TRANS_E-S1-02** : Proportion de la population suisse avec une littératie en santé générale limitée selon l'enquête HLS19 (environ 49 %) : chiffre à confirmer dans le rapport OFSP 2021.
+- **TRANS_E-S1-02** : Nom actuel de l'Alliance suisse pour les compétences en santé et ses outils pour les professionnels.
+- **TRANS_E-S1-03** : Base exacte de la limitation du choix de l'assureur et du fournisseur de prestations pour les requérants d'asile (art. 82a LAsi) et son application cantonale.
+- **TRANS_E-S1-03** : Accès des sans-papiers aux réductions de primes selon les cantons et contenu de la circulaire de l'OFAS/OFSP (2002) obligeant les assureurs à les affilier.
+- **TRANS_E-S1-03** : Noms actuels des structures de soins pour personnes sans statut légal (CAMSCO à Genève, Unisanté à Lausanne, Meditrina à Zurich).
+- **TRANS_E-S2-01** : Recommandation suisse (Swissmedic, information professionnelle) sur la dose de zolpidem chez la femme, après la réduction décidée par la FDA en 2013 (5 mg pour la forme à libération immédiate).
+- **TRANS_E-S2-01** : Ampleur du surcroît d'effets indésirables chez la femme (souvent cité 1,5 à 1,7 fois) et part des femmes parmi les torsades de pointes médicamenteuses (environ deux tiers) : chiffres à confirmer.
+- **TRANS_E-S2-02** : Procédure actuelle de dépistage sanitaire à l'entrée dans les centres fédéraux pour requérants d'asile (questionnaire, dépistage de la tuberculose par questionnaire, offre vaccinale) en 2026.
+- **TRANS_E-S2-02** : Recommandations suisses spécifiques de dépistage des requérants d'asile (OFSP, Société suisse d'infectiologie) : dépistage VHB, VIH, schistosomiase, strongyloïdose selon l'origine.
+- **TRANS_E-S2-02** : Vaccinations proposées par l'OFSP dans les centres fédéraux (dTpa-IPV, ROR, varicelle, etc.).
+- **TRANS_E-S2-03** : Proportion des erreurs diagnostiques attribuées à des facteurs cognitifs (souvent citée autour de 75 % d'après Graber 2005) : chiffre non écrit dans le texte.
+- **TRANS_E-S2-03** : Données suisses sur la stigmatisation liée au poids dans les soins (enquêtes de l'OFSP ou de Promotion Santé Suisse).
+- **TRANS_E-S3-01** : Prise en charge de la PrEP VIH par l'assurance obligatoire depuis le 1.7.2024 : modalités et franchise.
+- **TRANS_E-S3-01** : Jurisprudence du Tribunal fédéral sur la prise en charge LAMal des traitements d'affirmation de genre (abandon du délai d'observation de deux ans, ATF 2010-2012 ?).
+- **TRANS_E-S3-01** : Position suisse 2026 sur les bloqueurs de puberté chez les mineurs (recommandations de sociétés pédiatriques et endocrinologiques suisses).
+- **TRANS_E-S3-02** : Montants 2026 : franchise ordinaire de 300 francs, franchises à option jusqu'à 2500 francs, quote-part de 10 % plafonnée à 700 francs par an chez l'adulte, contribution hospitalière de 15 francs par jour.
+- **TRANS_E-S3-02** : Part de la population suisse qui renonce à des soins pour raisons financières (enquêtes OFS et Commonwealth Fund) : chiffres non écrits faute de valeur unique vérifiée.
+- **TRANS_E-S3-02** : Statut 2026 des listes cantonales d'assurés en retard de paiement (art. 64a al. 7 LAMal) et entrée en vigueur du contre-projet à l'initiative sur l'allègement des primes.
+- **TRANS_E-S3-03** : Nombre de questions de l'entretien de formulation culturelle du DSM-5 (16 questions dans la version de base) et maintien dans le DSM-5-TR (2022).
+- **TRANS_E-S3-03** : Liste actuelle des centres suisses pour victimes de torture et de guerre (réseau Support for Torture Victims : Berne, Genève, Lausanne, Zurich) et nom actuel de l'association Appartenances.
+- **TRANS_E-S4-01** : Fréquences d'hypoxémie occulte selon Sjoding et al. (NEJM 2020 : environ 12 % chez les patients noirs contre 4 % chez les patients blancs) : chiffres à confirmer avant citation.
+- **TRANS_E-S4-01** : Position de Swissmedic ou de la FDA (projet de guidance 2025) sur la performance des oxymètres selon la pigmentation.
+- **TRANS_E-S4-02** : Estimation du nombre de femmes et filles concernées ou menacées en Suisse (environ 22 000 selon le Réseau suisse contre l'excision, 2019) : chiffre non écrit dans le texte.
+- **TRANS_E-S4-02** : Peine prévue par l'art. 124 CP (peine privative de liberté de dix ans au plus ou peine pécuniaire d'au moins 180 jours-amende) et punissabilité de l'acte commis à l'étranger.
+- **TRANS_E-S4-02** : Droit d'aviser l'APEA des personnes soumises au secret professionnel (art. 314c al. 2 CC, en vigueur depuis le 1.1.2019).
+- **TRANS_E-S4-03** : Proportion de femmes dans les essais cardiovasculaires (souvent citée autour de 30 à 40 %) et de patients de 75 ans et plus : chiffres non écrits faute de source unique vérifiée.
+- **TRANS_E-S4-03** : Exigences actuelles de Swissmedic et des commissions d'éthique suisses sur l'analyse par sexe et l'inclusion des personnes âgées dans les essais (ICH E7, guidance SAGER).
 - **TRANS_F-S1-01** : Numéro de l'article du Code de déontologie FMH consacré au secret (art. 11 ?).
 - **TRANS_F-S1-01** : Peine exacte de l'art. 321 CP après l'harmonisation des peines (en vigueur 2023) : « trois ans au plus ou peine pécuniaire » à confirmer.
 - **TRANS_F-S1-01** : Caractère de plainte (délit poursuivi sur plainte) de l'art. 321 CP.
@@ -204,4 +233,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, puis E, G à P, R dans cet ordre. Lettres restantes : E (0/12), G (0/12), H (0/12), I (0/12), J (0/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, puis G à P, R dans cet ordre. Lettres restantes : G (0/12), H (0/12), I (0/12), J (0/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
