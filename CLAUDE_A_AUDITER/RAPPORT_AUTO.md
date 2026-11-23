@@ -1,4 +1,4 @@
-# Audit automatique — 2026-11-23 00:10
+# Audit automatique — 2026-11-23 00:11
 
 33 fichier(s) : 29 🟩 intégrables · 3 🟧 à compléter · 1 🟥 refusés.
 
@@ -37,21 +37,21 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟩 `genou.json` : remplissage 100 % (16/16)
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/05_Cheville_et_pied/1_Theorie/P07-05_Examens_Cheville_et_pied_9-examens_production_XAi.json`
-- 🟩 `cheville_et_pied.json` : remplissage 86 % (165/191)
+- 🟩 `cheville_et_pied.json` : remplissage 88 % (169/191)
 - aVerifier déclarés : 2
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/05_Cheville_et_pied/2_Pratique/P07-05-PR_Examens_Cheville_et_pied_9-examens_PRATIQUE_production_XAi.json`
 - 🟩 `cheville_et_pied.json` : remplissage 100 % (18/18)
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/06_Os_longs_et_squelette/1_Theorie/P07-06-BIO_Biologie_Os_longs_et_squelette_3-examens_production_XAi.json`
-- 🟩 `os_longs_et_squelette.json` : remplissage 89 % (59/66)
+- 🟩 `os_longs_et_squelette.json` : remplissage 92 % (61/66)
 - aVerifier déclarés : 2
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/06_Os_longs_et_squelette/1_Theorie/P07-06-HIS_Anatomopathologie_biopsie_Os_longs_et_squelette_1-examens_production_XAi.json`
 - 🟩 `os_longs_et_squelette.json` : remplissage 90 % (19/21)
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/06_Os_longs_et_squelette/1_Theorie/P07-06-IMG_Imagerie_Os_longs_et_squelette_8-examens_production_XAi.json`
-- 🟩 `os_longs_et_squelette.json` : remplissage 89 % (149/168)
+- 🟩 `os_longs_et_squelette.json` : remplissage 90 % (152/168)
 - aVerifier déclarés : 6
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/06_Os_longs_et_squelette/2_Pratique/P07-06-BIO-PR_Biologie_Os_longs_et_squelette_3-examens_PRATIQUE_production_XAi.json`
