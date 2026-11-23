@@ -15,7 +15,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | G | 12 | 12 |
 | H | 12 | 12 |
 | I | 12 | 12 |
-| J | 0 | 12 |
+| J | 3 | 12 |
 | K | 0 | 12 |
 | L | 0 | 12 |
 | M | 0 | 12 |
@@ -24,8 +24,8 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | P | 0 | 12 |
 | Q | 12 | 12 |
 | R | 0 | 12 |
-| S | 12 | 12 |
-| **Total** | **132** | **228** |
+| S | 1 | 12 |
+| **Total** | **124** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -236,6 +236,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_I-S4-02** : Remboursement ou non par l'assurance obligatoire du diagnostic préimplantatoire et de la fécondation in vitro en 2026.
 - **TRANS_I-S4-03** : Calendrier de publication de la mise à jour bayésienne des critères ACMG/AMP (ClinGen SVI, version 4 annoncée en 2025-2026) et son adoption par les laboratoires suisses.
 - **TRANS_I-S4-03** : Pratique suisse de reclassification des VUS et obligation éventuelle du laboratoire de recontacter le prescripteur.
+- **TRANS_J-S1-01** : Durée de friction recommandée (20 à 30 secondes selon l'OMS 2009) et volume de solution (3 mL environ, ou quantité suffisante pour couvrir les mains).
+- **TRANS_J-S1-01** : Nom et périodicité actuels de la mesure nationale de l'observance de l'hygiène des mains (Swissnoso, programme « Clean Hands »).
+- **TRANS_J-S1-02** : Recommandations de Swissnoso en vigueur en 2026 sur le masque pour la grippe et le VRS (masque chirurgical) et sur le masque FFP2 pour le Covid-19 en milieu hospitalier.
+- **TRANS_J-S1-02** : Classification suisse de la varicelle et du zona disséminé (précautions aériennes et de contact).
+- **TRANS_J-S1-03** : Prise en charge des frais par l'assurance-accidents (LAA) de l'exposé, y compris les analyses de la personne source, selon la mise à jour CFIST 2025.
+- **TRANS_J-S1-03** : Statut du risque de transmission du VHB après exposition percutanée (22 à 31 % si source HBeAg positive, estimation ancienne) chez un soignant non vacciné.
 - **TRANS_Q-S1-01** : Articles exacts de l'ORaP pour les limites (art. 56 et 57 ?) et pour la grossesse.
 - **TRANS_Q-S1-01** : Rôle de la SUVA dans la radioprotection industrielle.
 - **TRANS_Q-S1-02** : Statut actuel du Swiss Medical Board (dissous ?) en 2026.
@@ -260,37 +266,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_Q-S4-02** : Date des derniers NRD CT publiés par l'OFSP (directive R-06-06 ?).
 - **TRANS_Q-S4-03** : Seuils ACR pour les nodules thyroïdiens fortuits au CT (1 cm avant 35 ans, 1,5 cm après 35 ans) à confirmer dans le white paper 2015.
 - **TRANS_Q-S4-03** : Recommandations ESE 2023 : critères exacts d'arrêt de l'imagerie (< 4 cm et ≤ 10 UH).
-- **TRANS_S-S1-01** : Seuil NEWS2 de 7 pour l'évaluation urgente : repris du RCP britannique, adoption suisse variable selon les hôpitaux.
-- **TRANS_S-S1-01** : Âge gestationnel de 20 semaines pour le déplacement utérin (ERC 2025 cite environ 20 semaines ; certains textes disent 20 cm ou hauteur ombilicale).
-- **TRANS_S-S1-02** : Nom exact et couverture des applications de premiers répondants (Momentum, First Responder) par canton.
-- **TRANS_S-S1-02** : Nom exact du registre suisse des arrêts extrahospitaliers (SwissReCA) et son statut 2026.
-- **TRANS_S-S1-03** : Répartition géographique ESI / SETS / Manchester dans les hôpitaux suisses : affirmation générale non chiffrée.
-- **TRANS_S-S1-03** : Origine genevoise de la SETS : l'article de validation est genevois ; confirmer l'origine historique (HUG, 1997).
-- **TRANS_S-S2-01** : Volume initial de 30 mL/kg : la Surviving Sepsis Campaign 2021 le formule comme « suggestion » de faible certitude ; vérifier une éventuelle révision 2025-2026.
-- **TRANS_S-S2-02** : Tranches de poids des auto-injecteurs disponibles en Suisse (0,15 / 0,3 / 0,5 mg) selon Compendium et SSAI.
-- **TRANS_S-S2-02** : Proportion d'anaphylaxies sans signe cutané (10 à 20 %) : chiffre variable selon les séries.
-- **TRANS_S-S2-02** : Fenêtre de prélèvement de la tryptase (30 min à 2 h) : EAACI 2021 propose le prélèvement le plus tôt possible après le début.
-- **TRANS_S-S2-03** : Montant et règles de remboursement LAMal des transports et sauvetages (OPAS art. 26 et 27 : 50 % jusqu'à un plafond annuel) à confirmer avant de citer les chiffres.
-- **TRANS_S-S2-03** : Financement exact de Tox Info Suisse en 2026.
-- **TRANS_S-S2-03** : Délai de 4,5 h et extension de la thrombectomie jusqu'à 24 h selon les recommandations ESO 2021-2023 ; vérifier une mise à jour 2025.
-- **TRANS_S-S3-01** : Doses exactes de l'ERC 2025 pour l'hyperkaliémie en arrêt (chlorure de calcium 10 mL à 10 %, insuline 10 U + 25 g glucose, bicarbonate 50 mmol) : reprises de l'ERC 2021, à confirmer dans le texte 2025.
-- **TRANS_S-S3-01** : Délai minimal recommandé avant la prognostication (72 h dans l'ERC 2021) : le résumé 2025 consulté ne le précise pas.
-- **TRANS_S-S3-02** : Liste et nombre actuels des centres MHS de traumatologie grave (décision CIMHS en vigueur en 2026).
-- **TRANS_S-S3-02** : Nom exact du registre suisse des traumatismes graves (Swiss Trauma Registry).
-- **TRANS_S-S3-02** : Dose pédiatrique d'acide tranexamique (15 mg/kg puis 2 mg/kg/h) selon les protocoles suisses.
-- **TRANS_S-S3-03** : Seuil de kaliémie au-delà duquel l'ECMO est jugée futile chez la victime d'avalanche (7, 8 ou 12 mmol/L selon les versions ERC/ICAR).
-- **TRANS_S-S3-03** : Liste exacte des centres suisses d'ECPR en 2026.
-- **TRANS_S-S3-03** : Siège du registre international de l'hypothermie (Genève) et durées de la RCP intermittente (Gordon 2015) à confirmer dans l'ERC 2025.
-- **TRANS_S-S4-01** : Méthode de tri officielle du SSC suisse (catégories et terminologie : « méthode suisse » citée dans le titre) : non vérifiée.
-- **TRANS_S-S4-01** : Rattachement administratif actuel du SSC (Confédération, OFPP ou armée) et nom exact du SII en 2026.
-- **TRANS_S-S4-01** : Bornes JumpSTART (15 et 45/min) à confirmer.
-- **TRANS_S-S4-02** : Nom actuel de la société suisse d'anesthésie (SSAPM, anciennement SSAR) et existence d'une recommandation suisse propre sur la voie aérienne difficile.
-- **TRANS_S-S4-02** : Âge limite pédiatrique de la cricothyroïdotomie chirurgicale (8, 10 ou 12 ans selon les sources).
-- **TRANS_S-S4-02** : Mise à jour éventuelle des recommandations DAS après 2015 (DAS 2025 ?).
-- **TRANS_S-S4-03** : Rayon actuel de distribution préventive de l'iodure de potassium en Suisse (50 km depuis 2014 ?).
-- **TRANS_S-S4-03** : Liste des hôpitaux suisses de référence pour les maladies hautement infectieuses.
-- **TRANS_S-S4-03** : Pourcentage de contamination retiré par le déshabillage (souvent cité 80 à 90 %), non écrit faute de source primaire.
-- **TRANS_S-S4-03** : Oxime disponible en Suisse (pralidoxime ou obidoxime) et stock d'antidotes de l'armée.
+- **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
 
@@ -303,4 +279,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : J (0/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : J (3/12), K (0/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12), S (1/12).
