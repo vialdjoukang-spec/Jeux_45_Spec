@@ -91,8 +91,23 @@ def params(c, modele):
             "messages": [{"role": "user", "content": message(c)}]}
 
 
+def reparer(fiche):
+    """Réparation de forme seulement (0 token, aucun contenu modifié) : un champ objet rendu en texte JSON, un champ égaré au mauvais niveau."""
+    for k, v in list(fiche.items()):
+        if isinstance(v, str) and v.lstrip().startswith(("{", "[")) and SCHEMA["properties"].get(k, {}).get("type") in ("object", "array"):
+            for fin in ("", "}", "]}", "]"):
+                try:
+                    fiche[k] = json.loads(v + fin); break
+                except ValueError:
+                    continue
+    if "atypique" in fiche and isinstance(fiche.get("presentation"), dict) and "atypique" not in fiche["presentation"]:
+        fiche["presentation"]["atypique"] = fiche.pop("atypique")
+    return fiche
+
+
 def valider(fiche, c):
     import jsonschema
+    reparer(fiche)
     try:
         jsonschema.validate(fiche, SCHEMA)
     except jsonschema.ValidationError as ex:
