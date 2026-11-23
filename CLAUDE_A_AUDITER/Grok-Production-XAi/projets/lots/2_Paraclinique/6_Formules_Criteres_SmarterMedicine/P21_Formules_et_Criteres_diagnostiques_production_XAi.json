@@ -1,0 +1,645 @@
+{
+ "_lot": {
+  "tache": "P21",
+  "titre": "Écrire les formules (≈ 40) et les critères diagnostiques (≈ 80)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 2,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet.",
+  "aVerifier": [
+   "Volume : 16 formules sur les quelque 40 attendues dans calculs.json et 28 critères sur les quelque 80 attendus dans criteres.json. Seuls les éléments dont la règle a été relue dans la source primaire (article original ou recommandation) sont rédigés ; les autres restent à produire.",
+   "La plupart des sources ont été relues sous forme de résumé PubMed ; le texte intégral a été relu pour Sepsis-3 (Singer et al., 2016), qSOFA (Seymour et al., 2016), EULAR/ACR 2019 lupus et IADPSG (2010). Les détails absents du résumé ne sont pas repris.",
+   "Non rédigés faute de formule relue : Cockcroft-Gault (résumé renvoyant à l'article), Friedewald (pas de résumé disponible), CKD-EPI 2021 (équation dans le supplément, non relu), APRI et HOMA-IR (formule absente des résumés relus).",
+   "Non rédigés faute de règle relue : stades KDIGO de l'insuffisance rénale aiguë (seule la définition HRS-AKI de la BSG 2021 a été trouvée), Duke-ISCVID 2023, McDonald 2017, Rome IV, Tokyo, Jones, Kawasaki, ISSHP, Fleischner, CHA2DS2-VASc, Glasgow-Blatchford, Alvarado, sPESI, score 4T et règles d'Ottawa de la cheville.",
+   "Critères de Light : l'article original (Light et al., 1972) n'a pas pu être relu ; les trois critères ont été relus dans Yang et al. (Sci Rep, 2025). À confronter à l'article original.",
+   "Définition de Berlin (2012) : seuls les niveaux de gravité selon PaO2/FiO2 ont été relus dans le résumé ; les conditions de délai, d'opacités et de PEP d'au moins 5 cmH2O ne sont pas reprises.",
+   "Syndrome métabolique (Alberti et al., 2009) : les seuils chiffrés ne figurent pas dans le résumé relu et ne sont pas repris.",
+   "Gradient albumine sérum-ascite (Runyon et al., 1992) : le seuil de 1,1 g/dl ne figure pas dans le résumé relu ; FENa : l'expression algébrique n'est pas imprimée dans les résumés relus (Espinel 1976, Carvounis 2002), elle est écrite sous sa forme usuelle.",
+   "Calcémie corrigée (Payne et al., 1973) et natrémie corrigée (Hillier et al., 1999) : la forme en mmol/l est obtenue par conversion d'unités, et la natrémie corrigée suppose une glycémie de base de 5,6 mmol/l.",
+   "Unités : sodium corrigé, MELD, MELD-Na, MELD 3.0, Schwartz et BISAP gardent les mg/dl de la formule originale ; la conversion en unités SI reste à vérifier élément par élément.",
+   "Conversions calculées, non imprimées dans les sources : kPa des pressions (PaO2/FiO2 Berlin 26,7 / 40 / 13,3 ; PAM 65 mmHg = 8,7 kPa ; PAS 100 mmHg = 13,3 kPa ; CURB-65 90/60 mmHg = 12/8 kPa ; ABCD2 140/90 mmHg = 18,7/12 kPa ; facteur 0,1333), urée BISAP 25 mg/dl d'azote uréique ≈ 8,9 mmol/l (facteur 0,357), glucose 400 mg/dl ≈ 22 mmol/l, calcémie SI (facteur 0,025) et créatinine 88,4 µmol/l par mg/dl. Toutes recalculées au contre-audit : justes.",
+   "CURB-65 : le résumé PubMed de Lim et al. (2003) imprime « score 2, 3% » ; la valeur de 13 % retenue vient du tableau 3 des recommandations de la Saudi Thoracic Society (2025), qui reprend Lim et al. ; texte intégral de Lim 2003 (PMC1746657, PDF) non téléchargeable.",
+   "Règle canadienne du CT cérébral : le résumé PubMed de Stiell et al. (2001) imprime « vomiting >2 episodes, or age >65 years » ; les seuils « deux vomissements ou plus », « 65 ans ou plus », « 30 minutes ou plus » et « fracture ouverte ou embarrure » sont ceux du tableau 1 de Mata-Mbemba et al. (2016), qui reproduit la règle de Stiell. Article original (Lancet) non relu en texte intégral."
+  ]
+ },
+ "fichiers": {
+  "conception/donnees/paraclinique/calculs.json": {
+   "_meta": {
+    "fichier": "paraclinique/calculs.json",
+    "role": "Formules versionnées",
+    "producteur": "IA, puis vérification par tests",
+    "volume": "≈ 40",
+    "champs": [
+     "id",
+     "nom",
+     "formule",
+     "variables (unités)",
+     "interpretation",
+     "source"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Chaque texte destiné à l'apprenant s'écrit en phrases verbales.",
+     "Chaque signe, symptôme et syndrome porte une « bulle » à 4 rubriques : def, pourquoi, confusion, retenir.",
+     "Chaque temps d'examen compte 2 ou 3 signes ; un seul ne suffit jamais.",
+     "Les posologies suivent la cascade suisse : AIPS, Compendium, sociétés suisses, sociétés européennes.",
+     "Tout sigle, score ou terme technique (ex. « atypique ») cité dans un texte doit exister dans « glossaire » avec sa définition : aucun renvoi hors de l'application.",
+     "Chaque signe ou symptôme porte « presentation » : « typique » ou « atypique » (affiché en rouge).",
+     "Le bilan se range par visée (diagnostique avec « 1re intention » et « Gold standard », retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation), puis par groupe (Biologie, Imagerie, Score, Explorations, Clinique) ; chaque examen s'écrit [nom affiché, détail en infobulle : signe recherché et seuil]."
+    ]
+   },
+   "elements": [
+    {
+     "id": "calc_trou_anionique",
+     "nom": "Trou anionique plasmatique",
+     "formule": "TA = Na⁺ − (Cl⁻ + HCO₃⁻)",
+     "variables": "Na⁺, Cl⁻ et HCO₃⁻ plasmatiques, en mmol/l ; le résultat s'exprime en mmol/l.",
+     "interpretation": "Selon Kraut et Madias (2007), un trou anionique élevé traduit le plus souvent une acidose métabolique, mais il peut aussi venir d'une erreur de laboratoire, d'une alcalose métabolique, d'une hyperphosphatémie ou d'une paraprotéinémie. Un trou bas traduit le plus souvent une erreur de laboratoire ou une hypoalbuminémie. La valeur normale varie beaucoup selon les méthodes de mesure et d'une personne à l'autre : on la lit avec les normes du laboratoire.",
+     "source": "Kraut, Madias. Serum anion gap: its uses and limitations in clinical medicine. Clin J Am Soc Nephrol 2007 ; PubMed 17699401."
+    },
+    {
+     "id": "calc_trou_anionique_corrige",
+     "nom": "Trou anionique corrigé pour l'albumine",
+     "formule": "TA corrigé = TA observé + 0,25 × (albumine normale − albumine mesurée)",
+     "variables": "TA en mmol/l ; albumine en g/l (le facteur devient 2,5 si l'albumine est en g/dl) ; albumine normale : valeur de référence du laboratoire.",
+     "interpretation": "Selon Figge et al. (1998), chaque g/l d'albumine en moins fait sous-estimer de 0,25 mmol/l les anions du trou. Sans correction, une hypoalbuminémie marquée, fréquente en soins intensifs, peut masquer une acidose à trou anionique élevé.",
+     "source": "Figge, Jabor, Kazda, Fencl. Anion gap and hypoalbuminemia. Crit Care Med 1998 ; PubMed 9824071."
+    },
+    {
+     "id": "calc_trou_anionique_urinaire",
+     "nom": "Trou anionique urinaire",
+     "formule": "TAU = Na⁺ urinaire + K⁺ urinaire − Cl⁻ urinaire",
+     "variables": "Na⁺, K⁺ et Cl⁻ sur un échantillon d'urine, en mmol/l.",
+     "interpretation": "Selon Batlle et al. (1988), le trou anionique urinaire reflète grossièrement l'ammonium urinaire dans une acidose métabolique hyperchlorémique. Un trou négatif oriente vers une perte digestive de bicarbonate, par exemple une diarrhée ; un trou positif oriente vers un trouble de l'acidification urinaire distale, comme une acidose tubulaire rénale.",
+     "source": "Batlle, Hizon, Cohen, Gutterman, Gupta. The use of the urinary anion gap in the diagnosis of hyperchloremic metabolic acidosis. N Engl J Med 1988 ; PubMed 3344005."
+    },
+    {
+     "id": "calc_calcium_corrige",
+     "nom": "Calcémie corrigée pour l'albumine",
+     "formule": "Ca corrigé = Ca mesuré − albumine + 4,0 (Ca en mg/100 ml, albumine en g/100 ml) ; en unités SI : Ca corrigé = Ca mesuré + 0,025 × (40 − albumine)",
+     "variables": "Calcium total en mmol/l et albumine en g/l pour la forme SI ; mg/100 ml et g/100 ml pour la forme d'origine.",
+     "interpretation": "Selon Payne et al. (1973), le calcium total suit étroitement l'albumine (r = 0,867). Après correction, les limites à 95 % des valeurs observées devenaient identiques à celles de l'intervalle normal du laboratoire, et la correction sur l'albumine donnait des valeurs normales en cas d'hypergammaglobulinémie, contrairement aux corrections fondées sur les protéines totales. La forme SI découle de la formule d'origine par simple conversion d'unités.",
+     "source": "Payne, Little, Williams, Milner. Interpretation of serum calcium in patients with abnormal serum proteins. Br Med J 1973 ; PubMed 4758544."
+    },
+    {
+     "id": "calc_sodium_corrige_glycemie",
+     "nom": "Natrémie corrigée en hyperglycémie",
+     "formule": "Na corrigé = Na mesuré + 2,4 × (glucose − 5,6) / 5,6",
+     "variables": "Na en mmol/l ; glucose plasmatique en mmol/l (5,6 mmol/l correspondent à 100 mg/dl).",
+     "interpretation": "Selon Hillier et al. (1999), la natrémie baisse en moyenne de 2,4 mmol/l pour chaque hausse de 100 mg/dl (environ 5,6 mmol/l) du glucose, davantage que le facteur classique de 1,6. La relation n'est pas linéaire : au-delà de 400 mg/dl (environ 22 mmol/l) de glucose, un facteur de 4,0 convient mieux.",
+     "source": "Hillier, Abbott, Barrett. Hyponatremia: evaluating the correction factor for hyperglycemia. Am J Med 1999 ; PubMed 10225241."
+    },
+    {
+     "id": "calc_fib4",
+     "nom": "Score FIB-4 de fibrose hépatique",
+     "formule": "FIB-4 = (âge × ASAT) / (plaquettes × √ALAT)",
+     "variables": "Âge en années ; ASAT et ALAT en U/l ; plaquettes en 10⁹/l.",
+     "interpretation": "Selon Sterling et al. (2006), un FIB-4 supérieur à 3,25 a une valeur prédictive positive de 65 % et une spécificité de 97 % pour une fibrose avancée (Ishak 4 à 6). Sous 1,45, la valeur prédictive négative pour exclure une fibrose avancée était de 90 %, avec une sensibilité de 70 %. En dehors de l'intervalle 1,45 à 3,25, 87 % des patients sont bien classés, ce qui aurait évité la biopsie chez 71 % des patients de validation. Le score a été construit chez des patients co-infectés par le VIH et le VHC.",
+     "source": "Sterling, Lissen, Clumeck, et al. Development of a simple noninvasive index to predict significant fibrosis in patients with HIV/HCV coinfection. Hepatology 2006 ; PubMed 16729309."
+    },
+    {
+     "id": "calc_meld",
+     "nom": "Score MELD",
+     "formule": "MELD = 11,2 × ln(INR) + 9,57 × ln(créatinine) + 3,78 × ln(bilirubine) + 6,43",
+     "variables": "INR sans unité ; créatinine et bilirubine en mg/dl ; une valeur inférieure à 1,0 est remplacée par 1,0 ; la créatinine est plafonnée à 4,0 mg/dl et fixée à 4,0 après au moins deux dialyses dans la semaine précédente.",
+     "interpretation": "Selon Kamath et al. (2001), le MELD prédit le décès à 3 mois chez les patients atteints de maladie hépatique terminale, avec une statistique c de 0,78 à 0,87 selon les groupes, et il sert d'index de gravité pour prioriser la greffe hépatique. La formule et ses bornes sont celles décrites par Kim et al. (2021).",
+     "source": "Kamath, Wiesner, Malinchoc, et al. A model to predict survival in patients with end-stage liver disease. Hepatology 2001 ; PubMed 11172350. Kim, Mannalithara, Heimbach, et al. MELD 3.0: the Model for End-Stage Liver Disease updated for the modern era. Gastroenterology 2021 ; PubMed 34481845."
+    },
+    {
+     "id": "calc_meld_na",
+     "nom": "Score MELD-Na",
+     "formule": "MELD-Na = MELD − Na − [0,025 × MELD × (140 − Na)] + 140",
+     "variables": "MELD calculé comme ci-dessus ; Na sérique en mmol/l, borné entre 125 et 140 mmol/l.",
+     "interpretation": "Selon Kim et al. (2008), le score MELD et la natrémie sont tous deux associés de façon significative à la mortalité sur liste d'attente de greffe hépatique ; ajouter le sodium au MELD aurait permis de greffer et d'éviter des décès. L'effet du sodium semble moins important quand le MELD est très élevé.",
+     "source": "Kim, Biggins, Kremers, et al. Hyponatremia and mortality among patients on the liver-transplant waiting list. N Engl J Med 2008 ; PubMed 18768945."
+    },
+    {
+     "id": "calc_meld_3",
+     "nom": "Score MELD 3.0",
+     "formule": "MELD 3.0 = 1,33 (si femme) + 4,56 × ln(bilirubine) + 0,82 × (137 − Na) − 0,24 × (137 − Na) × ln(bilirubine) + 9,09 × ln(INR) + 11,14 × ln(créatinine) + 1,85 × (3,5 − albumine) − 1,83 × (3,5 − albumine) × ln(créatinine) + 6, arrondi à l'entier",
+     "variables": "Bilirubine et créatinine en mg/dl (créatinine plafonnée à 3,0 mg/dl) ; Na en mmol/l, borné entre 125 et 137 mmol/l ; albumine en g/dl, bornée entre 1,5 et 3,5 g/dl ; INR sans unité.",
+     "interpretation": "Selon Kim et al. (2021), le MELD 3.0 ajoute le sexe féminin et l'albumine au MELD-Na. Il discrimine un peu mieux la mortalité à 90 jours (statistique c de 0,869 contre 0,862) et reclasse 8,8 % des patients décédés vers un palier plus élevé, en particulier les femmes.",
+     "source": "Kim, Mannalithara, Heimbach, et al. MELD 3.0: the Model for End-Stage Liver Disease updated for the modern era. Gastroenterology 2021 ; PubMed 34481845."
+    },
+    {
+     "id": "calc_rapport_pao2_fio2",
+     "nom": "Rapport PaO2/FiO2",
+     "formule": "Rapport = PaO2 / FiO2",
+     "variables": "PaO2 artérielle en mmHg (ou en kPa) ; FiO2 en fraction décimale (0,21 en air ambiant).",
+     "interpretation": "Selon la définition de Berlin (2012), le rapport classe la gravité d'un SDRA : léger au-dessus de 200 et jusqu'à 300 mmHg (26,7 à 40 kPa), modéré au-dessus de 100 et jusqu'à 200 mmHg (13,3 à 26,7 kPa) et sévère à 100 mmHg (13,3 kPa) ou moins. La mortalité associée était de 27 %, 32 % et 45 %.",
+     "source": "ARDS Definition Task Force. Acute respiratory distress syndrome: the Berlin Definition. JAMA 2012 ; PubMed 22797452."
+    },
+    {
+     "id": "calc_score_z_spirometrie",
+     "nom": "Score z et limite inférieure de la normale",
+     "formule": "z = (valeur mesurée − valeur prédite) / écart-type de la population de référence ; LIN = 5e centile, soit z = −1,64",
+     "variables": "VEMS, CVF ou rapport VEMS/CVF mesurés ; valeur prédite et dispersion tirées des équations de référence selon l'âge, la taille, le sexe et l'origine.",
+     "interpretation": "Selon Quanjer et al. (2012), le score z indique de combien d'écarts-types une mesure s'écarte de sa valeur prédite. L'ATS et l'ERS recommandent le 5e centile, soit un z de −1,64, comme limite inférieure de la normale. Une limite fixée à 80 % de la valeur prédite ou un rapport VEMS/CVF fixe introduit des biais liés à l'âge, à la taille, au sexe et à l'origine, et ne devrait pas être utilisé.",
+     "source": "Quanjer, Stanojevic, Cole, et al. Multi-ethnic reference values for spirometry for the 3-95-yr age range: the global lung function 2012 equations. Eur Respir J 2012 ; PubMed 22743675."
+    },
+    {
+     "id": "calc_fena",
+     "nom": "Fraction d'excrétion du sodium",
+     "formule": "FENa (%) = (Na urinaire × créatinine plasmatique) / (Na plasmatique × créatinine urinaire) × 100",
+     "variables": "Na en mmol/l et créatinine en µmol/l, dans l'urine et le plasma prélevés au même moment ; les unités s'annulent.",
+     "interpretation": "Selon Espinel (1976), à la phase oligurique d'une insuffisance rénale aiguë, une FENa inférieure à 1 % oriente vers une azotémie prérénale et une FENa supérieure à 3 % vers une nécrose tubulaire aiguë. Selon Carvounis et al. (2002), les diurétiques augmentent la FENa et la rendent trompeuse chez le patient prérénal.",
+     "source": "Espinel. The FENa test: use in the differential diagnosis of acute renal failure. JAMA 1976 ; PubMed 947239. Carvounis, Nisar, Guro-Razuman. Significance of the fractional excretion of urea in the differential diagnosis of acute renal failure. Kidney Int 2002 ; PubMed 12427149."
+    },
+    {
+     "id": "calc_feun",
+     "nom": "Fraction d'excrétion de l'urée",
+     "formule": "FEUN (%) = (urée urinaire × créatinine plasmatique) / (urée plasmatique × créatinine urinaire) × 100",
+     "variables": "Urée en mmol/l et créatinine en µmol/l, dans l'urine et le plasma prélevés au même moment.",
+     "interpretation": "Selon Carvounis et al. (2002), une FEUN de 35 % ou moins distingue mieux que la FENa une insuffisance rénale aiguë prérénale d'une nécrose tubulaire aiguë, surtout sous diurétiques : 89 % des patients prérénaux traités par diurétiques avaient une FEUN inférieure à 35 %, contre 48 % avec une FENa basse.",
+     "source": "Carvounis, Nisar, Guro-Razuman. Significance of the fractional excretion of urea in the differential diagnosis of acute renal failure. Kidney Int 2002 ; PubMed 12427149."
+    },
+    {
+     "id": "calc_gradient_albumine_ascite",
+     "nom": "Gradient d'albumine sérum-ascite",
+     "formule": "Gradient = albumine sérique − albumine du liquide d'ascite",
+     "variables": "Albumine sérique et albumine d'ascite dosées le même jour, en g/l.",
+     "interpretation": "Selon Runyon et al. (1992), le gradient sépare les ascites dues à une hypertension portale des autres causes dans 96,7 % des cas, alors que le concept exsudat-transsudat fondé sur les protéines de l'ascite ne classe juste que 55,6 % des cas. Les protéines de l'ascite restent un appoint utile au diagnostic.",
+     "source": "Runyon, Montano, Akriviadis, et al. The serum-ascites albumin gradient is superior to the exudate-transudate concept in the differential diagnosis of ascites. Ann Intern Med 1992 ; PubMed 1616215."
+    },
+    {
+     "id": "calc_schwartz",
+     "nom": "DFG estimé de l'enfant (Schwartz au lit)",
+     "formule": "DFG (ml/min/1,73 m²) = 0,413 × taille (cm) / créatinine (mg/dl)",
+     "variables": "Taille en cm ; créatinine sérique en mg/dl (1 mg/dl correspond à 88,4 µmol/l).",
+     "interpretation": "Selon Schwartz et al. (2009), cette formule simplifiée approche bien l'équation complète chez l'enfant de 1 à 16 ans atteint de maladie rénale chronique. L'ancienne formule de Schwartz surestime le DFG avec les méthodes actuelles de dosage de la créatinine. Les auteurs demandent une validation chez les enfants dont le DFG est plus élevé.",
+     "source": "Schwartz, Muñoz, Schneider, et al. New equations to estimate GFR in children with CKD. J Am Soc Nephrol 2009 ; PubMed 19158356."
+    },
+    {
+     "id": "calc_index_masse_musculaire",
+     "nom": "Masse musculaire appendiculaire indexée",
+     "formule": "Index = ASM / taille²",
+     "variables": "ASM (masse musculaire squelettique appendiculaire) en kg ; taille en m ; résultat en kg/m².",
+     "interpretation": "Selon l'EWGSOP2 (2019), une quantité musculaire basse confirme une sarcopénie quand l'index est inférieur à 7,0 kg/m² chez l'homme et à 5,5 kg/m² chez la femme, ou quand l'ASM est inférieure à 20 kg chez l'homme et à 15 kg chez la femme.",
+     "source": "Cruz-Jentoft, Bahat, Bauer, et al. Sarcopenia: revised European consensus on definition and diagnosis. Age Ageing 2019 ; PubMed 30312372."
+    }
+   ],
+   "glossaire": {
+    "ALAT": "Alanine aminotransférase, enzyme surtout hépatique.",
+    "ARDS": "Acute respiratory distress syndrome, nom anglais du SDRA.",
+    "ASAT": "Aspartate aminotransférase, enzyme hépatique et musculaire.",
+    "ASM": "Appendicular skeletal muscle mass : masse musculaire squelettique des quatre membres.",
+    "ATS": "American Thoracic Society, société savante américaine de pneumologie.",
+    "CKD": "Chronic kidney disease : maladie rénale chronique.",
+    "CVF": "Capacité vitale forcée.",
+    "DFG": "Débit de filtration glomérulaire.",
+    "ERS": "European Respiratory Society, société européenne de pneumologie.",
+    "EWGSOP2": "European Working Group on Sarcopenia in Older People, consensus révisé de 2019.",
+    "FENa": "Fraction d'excrétion du sodium filtré.",
+    "FEUN": "Fractional excretion of urea nitrogen : fraction d'excrétion de l'urée.",
+    "FIB-4": "Fibrosis-4 : score de fibrose hépatique fondé sur l'âge, les transaminases et les plaquettes.",
+    "FiO2": "Fraction inspirée d'oxygène, de 0,21 en air ambiant à 1,0 en oxygène pur.",
+    "GFR": "Glomerular filtration rate, nom anglais du DFG.",
+    "HCO₃⁻": "Ion bicarbonate.",
+    "HCV": "Hepatitis C virus, nom anglais du VHC.",
+    "HIV": "Human immunodeficiency virus, nom anglais du VIH.",
+    "INR": "International normalized ratio : expression normalisée du temps de prothrombine.",
+    "JAMA": "Journal of the American Medical Association, revue médicale américaine.",
+    "LIN": "Limite inférieure de la normale, fixée au 5e centile de la population de référence.",
+    "MELD": "Model for End-Stage Liver Disease : score de gravité de la cirrhose.",
+    "PaO2": "Pression partielle artérielle en oxygène, mesurée par la gazométrie.",
+    "SDRA": "Syndrome de détresse respiratoire aiguë : œdème pulmonaire lésionnel avec hypoxémie sévère.",
+    "SI": "Système international d'unités, utilisé en Suisse pour les résultats de laboratoire.",
+    "TA": "Trou anionique : différence entre le sodium et la somme du chlore et du bicarbonate plasmatiques.",
+    "TAU": "Trou anionique urinaire : sodium plus potassium moins chlore urinaires.",
+    "VEMS": "Volume expiratoire maximal en une seconde.",
+    "VHC": "Virus de l'hépatite C.",
+    "VIH": "Virus de l'immunodéficience humaine."
+   }
+  },
+  "conception/donnees/paraclinique/criteres.json": {
+   "_meta": {
+    "fichier": "paraclinique/criteres.json",
+    "role": "Critères diagnostiques",
+    "producteur": "IA, puis REJECTOR_",
+    "volume": "≈ 80",
+    "champs": [
+     "id",
+     "nom",
+     "elements[]",
+     "regleDeDecision",
+     "source"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Chaque texte destiné à l'apprenant s'écrit en phrases verbales.",
+     "Chaque signe, symptôme et syndrome porte une « bulle » à 4 rubriques : def, pourquoi, confusion, retenir.",
+     "Chaque temps d'examen compte 2 ou 3 signes ; un seul ne suffit jamais.",
+     "Les posologies suivent la cascade suisse : AIPS, Compendium, sociétés suisses, sociétés européennes.",
+     "Tout sigle, score ou terme technique (ex. « atypique ») cité dans un texte doit exister dans « glossaire » avec sa définition : aucun renvoi hors de l'application.",
+     "Chaque signe ou symptôme porte « presentation » : « typique » ou « atypique » (affiché en rouge).",
+     "Le bilan se range par visée (diagnostique avec « 1re intention » et « Gold standard », retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation), puis par groupe (Biologie, Imagerie, Score, Explorations, Clinique) ; chaque examen s'écrit [nom affiché, détail en infobulle : signe recherché et seuil]."
+    ]
+   },
+   "elements": [
+    {
+     "id": "crit_sepsis_3",
+     "nom": "Sepsis (définition Sepsis-3)",
+     "elements": [
+      "Infection suspectée ou documentée",
+      "Dysfonction d'organe : hausse du score SOFA d'au moins 2 points par rapport à l'état de base"
+     ],
+     "regleDeDecision": "Selon Singer et al. (2016), le sepsis se définit comme une dysfonction d'organe menaçant la vie, causée par une réponse dérégulée de l'hôte à une infection. En pratique, la dysfonction d'organe se traduit par une hausse du score SOFA de 2 points ou plus, associée à une mortalité hospitalière supérieure à 10 %.",
+     "source": "Singer, Deutschman, Seymour, et al. The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3). JAMA 2016 ; PubMed 26903338."
+    },
+    {
+     "id": "crit_choc_septique",
+     "nom": "Choc septique (définition Sepsis-3)",
+     "elements": [
+      "Sepsis",
+      "Vasopresseur nécessaire pour maintenir une PAM d'au moins 65 mmHg (8,7 kPa)",
+      "Lactate sérique supérieur à 2 mmol/l",
+      "Absence d'hypovolémie"
+     ],
+     "regleDeDecision": "Selon Singer et al. (2016), on reconnaît cliniquement un choc septique quand un patient en sepsis a besoin d'un vasopresseur pour maintenir une PAM de 65 mmHg (8,7 kPa) ou plus et garde un lactate supérieur à 2 mmol/l, en l'absence d'hypovolémie. Les trois conditions doivent être réunies.",
+     "source": "Singer, Deutschman, Seymour, et al. The Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3). JAMA 2016 ; PubMed 26903338."
+    },
+    {
+     "id": "crit_qsofa",
+     "nom": "Score qSOFA",
+     "elements": [
+      "Fréquence respiratoire d'au moins 22/min (1 point)",
+      "Pression artérielle systolique de 100 mmHg (13,3 kPa) ou moins (1 point)",
+      "Altération de l'état mental, soit un score de Glasgow de 13 ou moins (1 point)"
+     ],
+     "regleDeDecision": "Selon Seymour et al. (2016), le score va de 0 à 3 points. Chez les patients infectés hors des soins intensifs, il prédit la mortalité hospitalière ; 75 % des patients qui ont 2 points qSOFA ou plus ont aussi 2 points SOFA ou plus.",
+     "source": "Seymour, Liu, Iwashyna, et al. Assessment of clinical criteria for sepsis: for the Third International Consensus Definitions for Sepsis and Septic Shock (Sepsis-3). JAMA 2016 ; PubMed 26903335."
+    },
+    {
+     "id": "crit_sdra_berlin_gravite",
+     "nom": "Gravité du SDRA (définition de Berlin)",
+     "elements": [
+      "SDRA léger : PaO2/FiO2 au-dessus de 200 et jusqu'à 300 mmHg (26,7 à 40 kPa)",
+      "SDRA modéré : PaO2/FiO2 au-dessus de 100 et jusqu'à 200 mmHg (13,3 à 26,7 kPa)",
+      "SDRA sévère : PaO2/FiO2 de 100 mmHg (13,3 kPa) ou moins"
+     ],
+     "regleDeDecision": "Selon la définition de Berlin (2012), les trois classes s'excluent mutuellement et se fondent sur le degré d'hypoxémie. Elles correspondaient à une mortalité de 27 %, 32 % et 45 %. Les quatre variables accessoires du projet initial (imagerie, compliance, PEP, ventilation minute) n'ont pas été retenues.",
+     "source": "ARDS Definition Task Force. Acute respiratory distress syndrome: the Berlin Definition. JAMA 2012 ; PubMed 22797452."
+    },
+    {
+     "id": "crit_curb_65",
+     "nom": "Score CURB-65 de la pneumonie communautaire",
+     "elements": [
+      "Confusion (1 point)",
+      "Urée supérieure à 7 mmol/l (1 point)",
+      "Fréquence respiratoire d'au moins 30/min (1 point)",
+      "Pression systolique inférieure à 90 mmHg (12 kPa) ou diastolique de 60 mmHg (8 kPa) ou moins (1 point)",
+      "Âge d'au moins 65 ans (1 point)"
+     ],
+     "regleDeDecision": "Selon Lim et al. (2003), on additionne un point par élément présent à l'arrivée à l'hôpital. La mortalité à 30 jours était de 0,7 % pour 0 point, 3,2 % pour 1, 13 % pour 2, 17 % pour 3, 41,5 % pour 4 et 57 % pour 5 points, ce qui permet de classer les patients en groupes de prise en charge.",
+     "source": "Lim, van der Eerden, Laing, et al. Defining community acquired pneumonia severity on presentation to hospital: an international derivation and validation study. Thorax 2003 ; PubMed 12728155. Mortalité par score relue dans le tableau 3 de Alyami, Alzomor, Hassan, et al. The Saudi Thoracic Society evidence-based guidelines for the diagnosis and management of community-acquired pneumonia in children and adults. Ann Thorac Med 2025 ; PubMed 41234760."
+    },
+    {
+     "id": "crit_geneve_revise",
+     "nom": "Score de Genève révisé (embolie pulmonaire)",
+     "elements": [
+      "Âge supérieur à 65 ans (1 point)",
+      "Antécédent de TVP ou d'EP (3 points)",
+      "Chirurgie ou fracture dans le mois (2 points)",
+      "Cancer actif (2 points)",
+      "Douleur unilatérale d'un membre inférieur (3 points)",
+      "Hémoptysie (2 points)",
+      "Pouls de 75 à 94/min (3 points) ou d'au moins 95/min (5 points)",
+      "Douleur à la palpation veineuse profonde et œdème unilatéral (4 points)"
+     ],
+     "regleDeDecision": "Selon Le Gal et al. (2006), on additionne les points. La probabilité est faible de 0 à 3 points (8 % d'EP dans la cohorte de validation), intermédiaire de 4 à 10 points (28 %) et forte à 11 points ou plus (74 %).",
+     "source": "Le Gal, Righini, Roy, et al. Prediction of pulmonary embolism in the emergency department: the revised Geneva score. Ann Intern Med 2006 ; PubMed 16461960."
+    },
+    {
+     "id": "crit_wells_ep",
+     "nom": "Score de Wells (embolie pulmonaire)",
+     "elements": [
+      "Signes cliniques de TVP (3 points)",
+      "Absence de diagnostic alternatif (3 points)",
+      "Pouls supérieur à 100/min (1,5 point)",
+      "Immobilisation ou chirurgie dans les quatre semaines (1,5 point)",
+      "Antécédent de TVP ou d'EP (1,5 point)",
+      "Hémoptysie (1 point)",
+      "Cancer (1 point)"
+     ],
+     "regleDeDecision": "Selon Wells et al. (2000), la probabilité est faible sous 2 points, modérée de 2 à 6 points et forte au-delà de 6. Dans la version à deux classes, l'EP est peu probable jusqu'à 4 points et probable au-delà : un score de 4 ou moins avec des D-dimères négatifs ne laissait que 2,2 % d'EP dans la cohorte de dérivation.",
+     "source": "Wells, Anderson, Rodger, et al. Derivation of a simple clinical model to categorize patients probability of pulmonary embolism. Thromb Haemost 2000 ; PubMed 10744147."
+    },
+    {
+     "id": "crit_perc",
+     "nom": "Règle PERC (exclusion de l'embolie pulmonaire)",
+     "elements": [
+      "Âge inférieur à 50 ans",
+      "Pouls inférieur à 100/min",
+      "SaO2 supérieure à 94 %",
+      "Pas d'œdème unilatéral d'une jambe",
+      "Pas d'hémoptysie",
+      "Pas de traumatisme ni de chirurgie récents",
+      "Pas d'antécédent d'EP ou de TVP",
+      "Pas de prise d'hormones"
+     ],
+     "regleDeDecision": "Selon Kline et al. (2004), les huit critères doivent tous être présents. Chez un patient à faible probabilité clinique, la règle abaisse alors la probabilité d'EP sous le seuil où le dosage des D-dimères devient utile, estimé à 1,8 %. Sa spécificité reste basse (15 à 27 %).",
+     "source": "Kline, Mitchell, Kabrhel, et al. Clinical criteria to prevent unnecessary diagnostic testing in emergency department patients with suspected pulmonary embolism. J Thromb Haemost 2004 ; PubMed 15304025."
+    },
+    {
+     "id": "crit_centor",
+     "nom": "Critères de Centor (angine streptococcique de l'adulte)",
+     "elements": [
+      "Exsudat amygdalien",
+      "Adénopathies cervicales antérieures tuméfiées et douloureuses",
+      "Absence de toux",
+      "Antécédent de fièvre"
+     ],
+     "regleDeDecision": "Selon Centor et al. (1981), la probabilité d'une culture positive pour le streptocoque bêta-hémolytique du groupe A augmente avec le nombre de critères : 56 % avec 4 critères, 32 % avec 3, 15 % avec 2, 6,5 % avec 1 et 2,5 % sans critère.",
+     "source": "Centor, Witherspoon, Dalton, Brody, Link. The diagnosis of strep throat in adults in the emergency room. Med Decis Making 1981 ; PubMed 6763125."
+    },
+    {
+     "id": "crit_regle_canadienne_ct_tete",
+     "nom": "Règle canadienne du CT cérébral (trauma crânien mineur)",
+     "elements": [
+      "Risque élevé : score de Glasgow inférieur à 15 deux heures après le trauma",
+      "Risque élevé : suspicion de fracture ouverte ou d'embarrure du crâne",
+      "Risque élevé : signe de fracture de la base du crâne",
+      "Risque élevé : deux vomissements ou plus",
+      "Risque élevé : âge de 65 ans ou plus",
+      "Risque moyen : amnésie de 30 minutes ou plus avant l'impact",
+      "Risque moyen : mécanisme dangereux"
+     ],
+     "regleDeDecision": "Selon Stiell et al. (2001), la règle s'applique à l'adulte qui a un score de Glasgow de 13 à 15 après un trauma crânien. Les cinq facteurs à haut risque étaient sensibles à 100 % pour un besoin d'intervention neurochirurgicale ; avec les deux facteurs à risque moyen, la sensibilité était de 98,4 % pour une lésion cérébrale cliniquement importante. Appliqués seuls, les facteurs à haut risque n'auraient imposé un CT qu'à 32 % des patients.",
+     "source": "Stiell, Wells, Vandemheen, et al. The Canadian CT Head Rule for patients with minor head injury. Lancet 2001 ; PubMed 11356436. Libellé des critères relu dans le tableau 1 de Mata-Mbemba, Mugikura, Nakagawa, et al. Canadian CT head rule and New Orleans Criteria in mild traumatic brain injury. Springerplus 2016 ; PubMed 27026873."
+    },
+    {
+     "id": "crit_regle_canadienne_rachis_cervical",
+     "nom": "Règle canadienne du rachis cervical",
+     "elements": [
+      "Facteur à haut risque imposant l'imagerie : âge d'au moins 65 ans, mécanisme dangereux ou paresthésies des extrémités",
+      "Facteur à faible risque permettant de tester la mobilité : collision arrière simple, position assise aux urgences, marche depuis l'accident, douleur cervicale retardée ou absence de sensibilité cervicale médiane à la palpation",
+      "Rotation active du cou de 45 degrés à gauche et à droite"
+     ],
+     "regleDeDecision": "Selon Stiell et al. (2001), chez l'adulte alerte et stable après un traumatisme fermé, on demande l'imagerie s'il existe un facteur à haut risque, ou s'il n'existe aucun facteur à faible risque, ou si le patient ne peut pas tourner activement le cou de 45 degrés des deux côtés. La règle était sensible à 100 % et spécifique à 42,5 %.",
+     "source": "Stiell, Wells, Vandemheen, et al. The Canadian C-spine rule for radiography in alert and stable trauma patients. JAMA 2001 ; PubMed 11597285."
+    },
+    {
+     "id": "crit_nexus",
+     "nom": "Critères NEXUS du rachis cervical",
+     "elements": [
+      "Pas de douleur à la palpation de la ligne médiane cervicale",
+      "Pas de déficit neurologique focal",
+      "Vigilance normale",
+      "Pas d'intoxication",
+      "Pas de lésion douloureuse distrayante"
+     ],
+     "regleDeDecision": "Selon Hoffman et al. (2000), un patient qui remplit les cinq critères a une probabilité de lésion cervicale très basse et peut se passer d'imagerie après un traumatisme fermé. La sensibilité était de 99,0 % et la valeur prédictive négative de 99,8 %, mais la spécificité n'était que de 12,9 %.",
+     "source": "Hoffman, Mower, Wolfson, Todd, Zucker. Validity of a set of clinical criteria to rule out injury to the cervical spine in patients with blunt trauma. N Engl J Med 2000 ; PubMed 10891516."
+    },
+    {
+     "id": "crit_pecarn_moins_2_ans",
+     "nom": "Règle PECARN, enfant de moins de 2 ans",
+     "elements": [
+      "État mental normal",
+      "Pas d'hématome du scalp, sauf frontal",
+      "Pas de perte de connaissance, ou perte de connaissance de moins de 5 secondes",
+      "Mécanisme non sévère",
+      "Pas de fracture du crâne palpable",
+      "Comportement normal selon les parents"
+     ],
+     "regleDeDecision": "Selon Kuppermann et al. (2009), chez l'enfant de moins de 2 ans vu dans les 24 heures avec un score de Glasgow de 14 ou 15, la présence de tous ces critères définit un très faible risque de lésion cérébrale cliniquement importante : la valeur prédictive négative était de 100 % et le CT peut alors être évité.",
+     "source": "Kuppermann, Holmes, Dayan, et al. Identification of children at very low risk of clinically-important brain injuries after head trauma: a prospective cohort study. Lancet 2009 ; PubMed 19758692."
+    },
+    {
+     "id": "crit_pecarn_2_ans_et_plus",
+     "nom": "Règle PECARN, enfant de 2 ans et plus",
+     "elements": [
+      "État mental normal",
+      "Pas de perte de connaissance",
+      "Pas de vomissement",
+      "Mécanisme non sévère",
+      "Pas de signe de fracture de la base du crâne",
+      "Pas de céphalée sévère"
+     ],
+     "regleDeDecision": "Selon Kuppermann et al. (2009), chez l'enfant de 2 ans et plus avec un score de Glasgow de 14 ou 15, la présence de tous ces critères avait une valeur prédictive négative de 99,95 % et une sensibilité de 96,8 % pour une lésion cérébrale cliniquement importante ; le CT peut alors être évité en routine.",
+     "source": "Kuppermann, Holmes, Dayan, et al. Identification of children at very low risk of clinically-important brain injuries after head trauma: a prospective cohort study. Lancet 2009 ; PubMed 19758692."
+    },
+    {
+     "id": "crit_ottawa_hsa",
+     "nom": "Règle d'Ottawa de l'hémorragie sous-arachnoïdienne",
+     "elements": [
+      "Âge d'au moins 40 ans",
+      "Douleur ou raideur de la nuque",
+      "Perte de connaissance devant témoin",
+      "Début à l'effort",
+      "Céphalée en coup de tonnerre, maximale d'emblée",
+      "Flexion limitée de la nuque à l'examen"
+     ],
+     "regleDeDecision": "Selon Perry et al. (2013), la règle s'applique à l'adulte qui a une céphalée non traumatique maximale en moins d'une heure et un examen neurologique normal. La règle est positive dès qu'un critère est présent ; elle était sensible à 100 % et spécifique à 15,3 %.",
+     "source": "Perry, Stiell, Sivilotti, et al. Clinical decision rules to rule out subarachnoid hemorrhage for acute headache. JAMA 2013 ; PubMed 24065011."
+    },
+    {
+     "id": "crit_abcd2",
+     "nom": "Score ABCD2 après accident ischémique transitoire",
+     "elements": [
+      "Âge d'au moins 60 ans (1 point)",
+      "Pression artérielle d'au moins 140/90 mmHg (18,7/12 kPa) (1 point)",
+      "Faiblesse unilatérale (2 points) ou trouble de la parole sans faiblesse (1 point)",
+      "Durée d'au moins 60 minutes (2 points) ou de 10 à 59 minutes (1 point)",
+      "Diabète (1 point)"
+     ],
+     "regleDeDecision": "Selon Johnston et al. (2007), le risque d'AVC à 2 jours est élevé de 6 à 7 points (8,1 %), modéré de 4 à 5 points (4,1 %) et bas de 0 à 3 points (1,0 %). Les patients à haut risque doivent être évalués immédiatement.",
+     "source": "Johnston, Rothwell, Nguyen-Huynh, et al. Validation and refinement of scores to predict very early stroke risk after transient ischaemic attack. Lancet 2007 ; PubMed 17258668."
+    },
+    {
+     "id": "crit_score_heart",
+     "nom": "Score HEART de la douleur thoracique",
+     "elements": [
+      "Anamnèse (0 à 2 points)",
+      "ECG (0 à 2 points)",
+      "Âge (0 à 2 points)",
+      "Facteurs de risque (0 à 2 points)",
+      "Troponine (0 à 2 points)"
+     ],
+     "regleDeDecision": "Selon Six et al. (2008), chaque élément vaut 0, 1 ou 2 points selon l'importance de l'anomalie. Un score de 0 à 3 comporte un risque d'événement de 2,5 % et soutient un retour à domicile, un score de 4 à 6 (20,3 %) une admission en observation, et un score de 7 ou plus (72,7 %) une stratégie invasive précoce.",
+     "source": "Six, Backus, Kelder. Chest pain in the emergency room: value of the HEART score. Neth Heart J 2008 ; PubMed 18665203."
+    },
+    {
+     "id": "crit_bisap",
+     "nom": "Score BISAP de la pancréatite aiguë",
+     "elements": [
+      "Urée sanguine supérieure à 25 mg/dl, soit environ 8,9 mmol/l (1 point)",
+      "Altération de l'état mental (1 point)",
+      "Syndrome de réponse inflammatoire systémique (1 point)",
+      "Âge supérieur à 60 ans (1 point)",
+      "Épanchement pleural (1 point)"
+     ],
+     "regleDeDecision": "Selon Wu et al. (2008), on compte un point par élément présent pendant les 24 premières heures. La mortalité hospitalière allait de moins de 1 % dans le groupe le plus bas à plus de 20 % dans le groupe le plus haut, avec une performance proche de celle de l'APACHE II.",
+     "source": "Wu, Johannes, Sun, et al. The early prediction of mortality in acute pancreatitis: a large population-based study. Gut 2008 ; PubMed 18519429."
+    },
+    {
+     "id": "crit_atlanta_gravite_pancreatite",
+     "nom": "Gravité de la pancréatite aiguë (Atlanta révisée)",
+     "elements": [
+      "Légère : ni défaillance d'organe, ni complication locale ou systémique",
+      "Modérément sévère : défaillance d'organe transitoire, complication locale ou décompensation d'une comorbidité",
+      "Sévère : défaillance d'organe persistante plus de 48 heures"
+     ],
+     "regleDeDecision": "Selon Banks et al. (2013), la forme légère est la plus fréquente et guérit en général dans la première semaine. Les complications locales comprennent les collections liquidiennes péripancréatiques, la nécrose pancréatique ou péripancréatique, le pseudokyste et la nécrose organisée, stériles ou infectées.",
+     "source": "Banks, Bollen, Dervenis, et al. Classification of acute pancreatitis 2012: revision of the Atlanta classification and definitions by international consensus. Gut 2013 ; PubMed 23100216."
+    },
+    {
+     "id": "crit_acr_eular_2022_acg",
+     "nom": "Critères ACR/EULAR 2022 de l'artérite à cellules géantes",
+     "elements": [
+      "Condition requise : âge d'au moins 50 ans au diagnostic",
+      "Biopsie temporale positive ou signe du halo temporal à l'échographie (5 points)",
+      "VS d'au moins 50 mm/h ou CRP d'au moins 10 mg/l (3 points)",
+      "Perte visuelle brutale (3 points)",
+      "Raideur matinale des épaules ou du cou (2 points)",
+      "Claudication de la mâchoire ou de la langue (2 points)",
+      "Céphalée temporale récente (2 points)",
+      "Sensibilité du scalp (2 points)",
+      "Anomalie de l'artère temporale à l'examen (2 points)",
+      "Atteinte axillaire bilatérale à l'imagerie (2 points)",
+      "Activité au PET-FDG sur toute l'aorte (2 points)"
+     ],
+     "regleDeDecision": "Selon Ponte et al. (2022), on classe le patient comme atteint d'artérite à cellules géantes s'il a au moins 50 ans et un total d'au moins 6 points. La sensibilité était de 87,0 % et la spécificité de 94,8 %. Ces critères servent à la classification en recherche clinique.",
+     "source": "Ponte, Grayson, Robson, et al. 2022 American College of Rheumatology/EULAR classification criteria for giant cell arteritis. Ann Rheum Dis 2022 ; PubMed 36351706."
+    },
+    {
+     "id": "crit_acr_eular_2010_polyarthrite",
+     "nom": "Critères ACR/EULAR 2010 de la polyarthrite rhumatoïde",
+     "elements": [
+      "Synovite confirmée dans au moins une articulation",
+      "Absence d'autre diagnostic expliquant mieux la synovite",
+      "Nombre et siège des articulations atteintes (0 à 5 points)",
+      "Anomalie sérologique (0 à 3 points)",
+      "Élévation des protéines de la phase aiguë (0 à 1 point)",
+      "Durée des symptômes (0 à 1 point)"
+     ],
+     "regleDeDecision": "Selon Aletaha et al. (2010), on classe une polyarthrite rhumatoïde certaine en présence d'une synovite confirmée, sans meilleur diagnostic alternatif, et avec un total d'au moins 6 points sur 10 dans les quatre domaines.",
+     "source": "Aletaha, Neogi, Silman, et al. 2010 Rheumatoid arthritis classification criteria: an American College of Rheumatology/European League Against Rheumatism collaborative initiative. Arthritis Rheum 2010 ; PubMed 20872595."
+    },
+    {
+     "id": "crit_eular_acr_2019_lupus",
+     "nom": "Critères EULAR/ACR 2019 du lupus systémique",
+     "elements": [
+      "Critère d'entrée : ANA d'au moins 1:80 en immunofluorescence sur cellules HEp-2",
+      "Sept domaines cliniques pondérés : général, hématologique, neuropsychiatrique, cutanéo-muqueux, séreux, musculosquelettique et rénal",
+      "Trois domaines immunologiques pondérés : anticorps antiphospholipides, complément bas, anticorps anti-Sm et anti-ADN double brin"
+     ],
+     "regleDeDecision": "Selon Aringer et al. (2019), on ne compte que le critère le mieux pondéré de chaque domaine, et seulement s'il n'existe pas d'explication plus probable que le lupus, en pensant d'abord à une infection. Un patient qui a des ANA positifs, totalise au moins 10 points et remplit au moins un critère clinique est classé comme lupique.",
+     "source": "Aringer, Costenbader, Daikh, et al. 2019 European League Against Rheumatism/American College of Rheumatology classification criteria for systemic lupus erythematosus. Arthritis Rheumatol 2019 ; PubMed 31385462. Exigence d'un critère clinique relue dans Scopes, Md Yusof. Challenges in the diagnosis of systemic lupus erythematosus. Clin Med (Lond) 2025 ; PubMed 40914460."
+    },
+    {
+     "id": "crit_iadpsg_diabete_gestationnel",
+     "nom": "Critères IADPSG du diabète gestationnel",
+     "elements": [
+      "Glycémie à jeun d'au moins 5,1 mmol/l",
+      "Glycémie à 1 heure d'au moins 10,0 mmol/l après 75 g de glucose",
+      "Glycémie à 2 heures d'au moins 8,5 mmol/l après 75 g de glucose"
+     ],
+     "regleDeDecision": "Selon l'IADPSG (2010), une seule valeur atteinte ou dépassée lors de l'HGPO à 75 g suffit au diagnostic de diabète gestationnel ; on ne recommande pas l'HGPO de routine avant 24 à 28 semaines. Un diabète manifeste est retenu si la glycémie à jeun atteint 7,0 mmol/l, si l'HbA1c atteint 6,5 %, ou si une glycémie aléatoire atteint 11,1 mmol/l avec confirmation. Une glycémie à jeun d'au moins 5,1 mmol/l en début de grossesse est aussi classée comme diabète gestationnel.",
+     "source": "International Association of Diabetes and Pregnancy Study Groups Consensus Panel. International association of diabetes and pregnancy study groups recommendations on the diagnosis and classification of hyperglycemia in pregnancy. Diabetes Care 2010 ; PubMed 20190296."
+    },
+    {
+     "id": "crit_ewgsop2_sarcopenie",
+     "nom": "Sarcopénie (EWGSOP2)",
+     "elements": [
+      "Force basse : force de préhension inférieure à 27 kg chez l'homme et à 16 kg chez la femme, ou cinq levers de chaise en plus de 15 secondes",
+      "Quantité musculaire basse : ASM inférieure à 20 kg chez l'homme et à 15 kg chez la femme, ou ASM/taille² inférieure à 7,0 et à 5,5 kg/m²",
+      "Performance physique basse : vitesse de marche de 0,8 m/s ou moins, SPPB de 8 points ou moins, TUG d'au moins 20 secondes, ou marche de 400 m non terminée ou en 6 minutes ou plus"
+     ],
+     "regleDeDecision": "Selon l'EWGSOP2 (2019), une force basse fait suspecter une sarcopénie, une quantité ou une qualité musculaire basse la confirme, et une performance physique basse en signe la forme sévère.",
+     "source": "Cruz-Jentoft, Bahat, Bauer, et al. Sarcopenia: revised European consensus on definition and diagnosis. Age Ageing 2019 ; PubMed 30312372."
+    },
+    {
+     "id": "crit_cam_delirium",
+     "nom": "Méthode CAM de détection du délirium",
+     "elements": [
+      "Critère 1 : début aigu et évolution fluctuante",
+      "Critère 2 : inattention",
+      "Critère 3 : pensée désorganisée",
+      "Critère 4 : altération du niveau de conscience"
+     ],
+     "regleDeDecision": "Selon Inouye et al. (1990), l'algorithme CAM retient un délirium si les critères 1 et 2 sont présents, avec le critère 3 ou le critère 4. La sensibilité était de 94 à 100 % et la spécificité de 90 à 95 % par rapport au diagnostic du psychiatre.",
+     "source": "Inouye, van Dyck, Alessi, et al. Clarifying confusion: the confusion assessment method. A new method for detection of delirium. Ann Intern Med 1990 ; PubMed 2240918."
+    },
+    {
+     "id": "crit_syndrome_metabolique",
+     "nom": "Syndrome métabolique (définition harmonisée)",
+     "elements": [
+      "Pression artérielle élevée",
+      "Triglycérides élevés",
+      "HDL-cholestérol bas",
+      "Glycémie à jeun élevée",
+      "Obésité centrale mesurée par le tour de taille"
+     ],
+     "regleDeDecision": "Selon Alberti et al. (2009), trois anomalies sur cinq suffisent à retenir un syndrome métabolique, sans composante obligatoire. Les seuils sont communs à tous les éléments sauf le tour de taille, pour lequel on utilise en attendant des seuils nationaux ou régionaux.",
+     "source": "Alberti, Eckel, Grundy, et al. Harmonizing the metabolic syndrome: a joint interim statement. Circulation 2009 ; PubMed 19805654."
+    },
+    {
+     "id": "crit_hyponatremie",
+     "nom": "Hyponatrémie (définition européenne)",
+     "elements": [
+      "Natrémie inférieure à 135 mmol/l"
+     ],
+     "regleDeDecision": "Selon la recommandation européenne de Spasovski et al. (2014), on parle d'hyponatrémie quand la natrémie est inférieure à 135 mmol/l. C'est le trouble hydroélectrolytique le plus fréquent en pratique, associé à une mortalité, une morbidité et une durée d'hospitalisation accrues.",
+     "source": "Spasovski, Vanholder, Allolio, et al. Clinical practice guideline on diagnosis and treatment of hyponatraemia. Eur J Endocrinol 2014 ; PubMed 24569125."
+    },
+    {
+     "id": "crit_light_exsudat_pleural",
+     "nom": "Critères de Light (exsudat pleural)",
+     "elements": [
+      "Rapport des protéines pleurales sur sériques supérieur à 0,5",
+      "Rapport des LDH pleurales sur sériques supérieur à 0,6",
+      "LDH pleurales supérieures aux deux tiers de la limite supérieure sérique"
+     ],
+     "regleDeDecision": "Selon les critères de Light (1972), tels que les rapportent Yang et al. (2025), l'épanchement est un exsudat si au moins un des trois critères est rempli ; sinon c'est un transsudat.",
+     "source": "Light, Macgregor, Luchsinger, Ball. Pleural effusions: the diagnostic separation of transudates and exudates. Ann Intern Med 1972 ; PubMed 4642731. Critères relus dans Yang, Xu, Niu, et al. Sci Rep 2025 ; PubMed 41023118."
+    }
+   ],
+   "glossaire": {
+    "ABCD2": "Score de risque d'AVC après AIT : âge, pression artérielle (Blood pressure), clinique, durée, diabète.",
+    "ACR": "American College of Rheumatology.",
+    "ADN": "Acide désoxyribonucléique.",
+    "AIT": "Accident ischémique transitoire.",
+    "ANA": "Anticorps antinucléaires.",
+    "APACHE": "Acute Physiology and Chronic Health Evaluation : score de gravité en soins intensifs.",
+    "ARDS": "Acute respiratory distress syndrome, nom anglais du SDRA.",
+    "ASM": "Appendicular skeletal muscle mass : masse musculaire squelettique des quatre membres.",
+    "AVC": "Accident vasculaire cérébral.",
+    "BISAP": "Bedside Index for Severity in Acute Pancreatitis : score de mortalité de la pancréatite aiguë.",
+    "CAM": "Confusion Assessment Method : méthode de détection du délirium.",
+    "CRP": "Protéine C réactive.",
+    "CT": "Tomodensitométrie (scanner).",
+    "CURB-65": "Score de gravité de la pneumonie : Confusion, Urée, fréquence Respiratoire, pression artérielle (Blood pressure), âge de 65 ans ou plus.",
+    "ECG": "Électrocardiogramme.",
+    "EP": "Embolie pulmonaire.",
+    "EULAR": "European Alliance of Associations for Rheumatology, anciennement European League Against Rheumatism.",
+    "EWGSOP2": "European Working Group on Sarcopenia in Older People, consensus révisé de 2019.",
+    "FiO2": "Fraction inspirée d'oxygène, de 0,21 en air ambiant à 1,0 en oxygène pur.",
+    "HDL": "High-density lipoprotein : lipoprotéine de haute densité.",
+    "HEART": "Score de la douleur thoracique : History, ECG, Age, Risk factors, Troponin.",
+    "HEp-2": "Lignée cellulaire humaine utilisée comme substrat pour la recherche des ANA en immunofluorescence.",
+    "HGPO": "Hyperglycémie provoquée par voie orale (75 g de glucose).",
+    "HSA": "Hémorragie sous-arachnoïdienne.",
+    "HbA1c": "Hémoglobine glyquée, reflet de la glycémie des 2 à 3 derniers mois.",
+    "IADPSG": "International Association of Diabetes and Pregnancy Study Groups.",
+    "JAMA": "Journal of the American Medical Association, revue médicale américaine.",
+    "LDH": "Lactate déshydrogénase.",
+    "NEXUS": "National Emergency X-Radiography Utilization Study : étude américaine à l'origine des critères du rachis cervical.",
+    "PAM": "Pression artérielle moyenne.",
+    "PECARN": "Pediatric Emergency Care Applied Research Network : réseau de recherche américain en urgences pédiatriques.",
+    "PEP": "Pression expiratoire positive appliquée par le ventilateur.",
+    "PERC": "Pulmonary Embolism Rule-out Criteria : critères d'exclusion de l'embolie pulmonaire.",
+    "PET-FDG": "Tomographie par émission de positons au fluorodésoxyglucose.",
+    "PaO2": "Pression partielle artérielle en oxygène, mesurée par la gazométrie.",
+    "SDRA": "Syndrome de détresse respiratoire aiguë : œdème pulmonaire lésionnel avec hypoxémie sévère.",
+    "SI": "Système international d'unités, utilisé en Suisse pour les résultats de laboratoire.",
+    "SOFA": "Sequential Organ Failure Assessment : score de défaillance d'organes de 0 à 24 points.",
+    "SPPB": "Short Physical Performance Battery : batterie courte de tests de performance physique.",
+    "SaO2": "Saturation artérielle en oxygène.",
+    "TUG": "Timed Up and Go : temps pour se lever, marcher 3 m, revenir et s'asseoir.",
+    "TVP": "Thrombose veineuse profonde.",
+    "VS": "Vitesse de sédimentation des érythrocytes."
+   }
+  }
+ }
+}
