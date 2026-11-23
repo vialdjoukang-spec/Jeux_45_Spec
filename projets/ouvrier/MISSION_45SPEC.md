@@ -22,3 +22,12 @@ Tu es l'agent de production sous les instructions de Claude (orchestrateur et ga
 - **T6** Deuxième vague : les 400 urgences vitales suivantes, si le budget restant dépasse 25 USD.
 
 Signature : AAI (Anthropic AI)
+
+## Règles QCM (23.11.2026, décidées par Vial)
+- Hiérarchie : Spécialité → Pathologie canonique (une maladie présente dans plusieurs SSP n'est produite qu'une fois ; ses SSP deviennent ses portes d'entrée) → Notions atomiques → Questions → Couverture.
+- Une notion est l'une des entités informationnelles individuelles que l'on peut tirer de la pathologie ; elle se coche quand des questions auditées l'explorent (poids 1 : une question ; poids 2-3 : deux questions sous deux angles).
+- Type A : 5 options au plus (exactement 5, une seule juste) ; Kprim : 4 affirmations ; Menu long : 12 à 20 options.
+- Situation as Starting Point d'abord ; séries progressives (même patient) où aucun mot de la vignette, de la question ni de l'interface ne trahit le diagnostic.
+- Question-guide : « Sur cette pathologie, en contexte suisse, que pourrait-on demander au candidat qu'il ne saurait pas ? »
+- Vial ne doit JAMAIS voir le contenu des questions avant de jouer : dans tes résumés, donne seulement des nombres.
+- Outils : scripts/produire_notions_questions.py (notions puis questions, pilote ou lot), scripts/couverture_notions.py, conception/outils/arene45/construire_arene45.py.
