@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-23 15:57 UTC
+# Ouvrier automatique — 2026-11-23 16:43 UTC
 
-Dernier passage : **SSP_etendus** → fait (1.93 USD).
+Dernier passage : **F5_cas_thorax** → fait (1.21 USD).
 
-J'ai créé data/ssp_etendus/ avec 1094 points de départ hors des 248 SSP officiels : G.json (45), 14 fichiers S_<système> (485), 15 fichiers F_<famille> (483, y compris gazométrie, ECG, imageries, anatomopathologie), O.json (81) et INDEX.json (comptes par fichier, type et catégorie). Chaque entrée porte code, intitulé FR/EN, catégorie, type de départ, parent officiel (ou null), justification et 5 à 12 diagnostics différentiels ; un script a vérifié l'unicité des codes et l'absence de doublon exact avec les 248. Le contenu vient des connaissances cliniques générales sans vérification contre les sources suisses : une relecture médicale ligne à ligne par l'audit horaire reste nécessaire, et le critère de sens (doublon proche d'un SSP officiel) n'a été contrôlé qu'à la main.
+Les 17 cas thorax_04 à thorax_20 existent au format Econome (6 options, 2 à 4 nécessaires, « why » sourcé, correction en 7 marches), et le paquet paraclinique_thorax compte 20 questions. Les seuils ont été vérifiés par recherche web (Light, Fleischner, GINA, ESC, BTS, ESMO, ACR) ; le texte intégral des recommandations suisses n'était pas accessible, donc les sources sont ESC, ERS, ATS, BTS, GOLD, GINA, ESMO et Fleischner, ce qui demande un audit médical de Claude. Les arènes et les jauges ont été reconstruites (Paraclinique 95 %).
 
-**Crédit** : 20.69 USD dépensés, 79.31 USD disponibles avant le 27.11.2026 ; aujourd'hui 20.69 / 25.00 USD.
+**Crédit** : 21.90 USD dépensés, 78.10 USD disponibles avant le 27.11.2026 ; aujourd'hui 21.90 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -28,7 +28,7 @@ J'ai créé data/ssp_etendus/ avec 1094 points de départ hors des 248 SSP offic
 | END_pilote_notions_questions | fait | 2 | 0.272 |
 | F2_examens_vides | fait | 1 | 0.684 |
 | SSP_etendus | fait | 1 | 1.933 |
-| F5_cas_thorax | a_faire | 0 |  |
+| F5_cas_thorax | fait | 1 | 1.21 |
 | T2_recup_lot600 | a_faire | 0 |  |
 | T3_pec_fiches_existantes | a_faire | 0 |  |
 | T4_reprise_rejets | a_faire | 0 |  |
