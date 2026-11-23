@@ -16,7 +16,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | H | 12 | 12 |
 | I | 12 | 12 |
 | J | 12 | 12 |
-| K | 3 | 12 |
+| K | 6 | 12 |
 | L | 0 | 12 |
 | M | 0 | 12 |
 | N | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **147** | **228** |
+| **Total** | **150** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -244,6 +244,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_K-S1-02** : Interdiction de travailler entre 20 h et 6 h pendant les 8 semaines précédant l'accouchement (art. 35a al. 4 LTr) et interdiction d'occuper l'accouchée pendant 8 semaines (art. 35a al. 3 LTr).
 - **TRANS_K-S1-03** : Formulation de l'art. 9 LAA : al. 1 (substances nocives ou travaux de la liste de l'annexe 1 OLAA, cause exclusive ou prépondérante, soit plus de 50 %) et al. 2 (autres maladies, cause exclusive ou nettement prépondérante, jurisprudence 75 %).
 - **TRANS_K-S1-03** : Procédure de déclaration : déclaration de sinistre par l'employeur à l'assureur LAA ; obligations du médecin (rapport médical, art. 54a LAA ?).
+- **TRANS_K-S2-01** : Inscription des isocyanates, de la farine et des allergènes de contact professionnels (dont les produits capillaires) dans l'annexe 1 OLAA en vigueur.
+- **TRANS_K-S2-01** : Recommandations ERS/EAACI sur l'asthme professionnel (2012, mises à jour ?) : éviction complète de l'exposition préférable à la réduction.
+- **TRANS_K-S2-02** : Valeurs biologiques tolérables (VBT) SUVA 2026 pour le plomb sanguin (homme, femme de moins de 45 ans), pour le benzène (acide S-phénylmercapturique urinaire) et pour les solvants courants : chiffres non écrits, à reprendre de la liste SUVA « Valeurs limites d'exposition aux postes de travail » en vigueur.
+- **TRANS_K-S2-02** : Moment de prélèvement recommandé pour chaque indicateur (fin de poste, fin de semaine).
+- **TRANS_K-S2-03** : Article de l'OLT1 qui définit les situations de risque imposant l'examen médical obligatoire avant le travail de nuit (art. 45 OLT1 ?) et périodicité de deux ans.
+- **TRANS_K-S2-03** : Classification du travail posté avec perturbation circadienne comme « probablement cancérogène » (groupe 2A) par le CIRC (monographie 124, 2019).
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -257,4 +263,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : K (3/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : K (6/12), L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
