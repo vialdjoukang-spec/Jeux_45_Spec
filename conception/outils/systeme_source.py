@@ -2,7 +2,7 @@
   contenu.txt     « V volet | def | second » ; « # ORG nom » ; « O def || pourquoi || confusion || retenir » ;
                   « A volet » / « P volet » ; « - mot | texte | repère ou à retenir | fenêtre facultative »
   semiologie.txt  « # SEMIO organe » ; « T temps » ; « - signe | t/a/u | def | pourquoi | confusion | retenir »
-  pathologies.txt « # PATHO organe » ; « @ TF|F|U|R | nom » ; « def:/pourquoi:/confusion:/retenir: » ;
+  pathologies.txt « # PATHO organe » ; « @ TF|F|U|R | nom » ; « def:/pourquoi:/confusion:/retenir:/aVerifier: » (aVerifier facultatif : doute à lever) ;
                   « b visée / groupe | nom | signe et seuil » ; « t nom | posologie » ; « s source »
   glossaire.txt   « SIGLE = définition »
   temps.txt       « Temps | def | pourquoi | confusion | retenir » (bulles des temps d'examen du système)
@@ -58,7 +58,7 @@ def charger(dossier):
             pal, nom = [x.strip() for x in l[2:].split("|")]
             cur = {"palier": pal, "nom": nom, "bulle": {"bilan": {}, "traitement": []}}
             org.append(cur)
-        elif re.match(r"^(def|pourquoi|confusion|retenir): ", l):
+        elif re.match(r"^(def|pourquoi|confusion|retenir|aVerifier): ", l):
             k, v = l.split(": ", 1)
             cur["bulle"][k] = v.strip()
         elif l.startswith("b "):
