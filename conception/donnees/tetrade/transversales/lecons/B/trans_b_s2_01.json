@@ -1,11 +1,18 @@
 {
  "_meta": {
-  "statut": "À REMPLIR",
+  "statut": "AUDITÉ",
   "discipline": "B — Biostatistique & EBM",
   "regles": [
    "La leçon commence par un cas suisse concret et finit par une décision à prendre.",
    "Phrases verbales ; tout sigle figure au glossaire.",
    "Elle renvoie aux SSP sans les recopier."
+  ],
+  "signature": "AAI (Anthropic AI)",
+  "aVerifier": [],
+  "sources": [
+   "Fagan TJ, Nomogram for Bayes theorem (NEJM 1975)",
+   "McGee S, Evidence-Based Physical Diagnosis",
+   "ESC 2021 Insuffisance cardiaque (seuils de NT-proBNP)"
   ]
  },
  "id": "TRANS_B-S2-01",
@@ -13,57 +20,159 @@
  "lettre": "B",
  "sousOnglet": "TRANS_B_SUB_1",
  "strate": "F",
- "casDOuverture": null,
+ "casDOuverture": "Aux urgences de l'Hôpital de Morges, une femme de 70 ans présente une dyspnée et des œdèmes ; ta probabilité clinique d'insuffisance cardiaque avant tout examen vaut environ 30 %. Le NT-proBNP revient très élevé. L'interne dit : « le test est positif, donc elle a une insuffisance cardiaque ». Tu veux lui montrer comment estimer la probabilité après le test.",
  "parties": {
-  "1. Cadre": null,
-  "2. Notions fondamentales": null,
-  "3. Outils et méthodes": null,
-  "4. Décisions et seuils": null,
-  "5. Applications par système": null,
-  "6. Particularités par terrain": null,
-  "7. Pièges et confusions": null,
-  "8. Pratique suisse": null,
-  "9. Exercices et répétition": null
+  "1. Cadre": "Le raisonnement diagnostique bayésien part d'une probabilité avant le test, issue de la clinique et de l'épidémiologie, et la modifie selon le résultat du test pour obtenir une probabilité après le test. Le rapport de vraisemblance (RV) mesure de combien un résultat modifie cette probabilité. Contrairement aux valeurs prédictives, il ne dépend pas de la prévalence et peut s'appliquer à chaque patient. Le nomogramme de Fagan permet de faire ce calcul graphiquement, sans calculatrice. Cette démarche explique pourquoi le même test donne des conclusions différentes chez des patients différents.",
+  "2. Notions fondamentales": "Le rapport de vraisemblance positif (RV+) vaut sensibilité / (1 − spécificité) : il indique combien de fois un résultat positif est plus fréquent chez le malade que chez le non-malade. Le rapport de vraisemblance négatif (RV−) vaut (1 − sensibilité) / spécificité : il indique combien de fois un résultat négatif est moins fréquent chez le malade. Le théorème de Bayes, sous forme de cotes, dit que la cote après le test égale la cote avant le test multipliée par le RV. La cote vaut p / (1 − p), et la probabilité se retrouve par cote / (1 + cote). Un RV+ supérieur à 10 et un RV− inférieur à 0,1 modifient fortement la probabilité ; un RV entre 0,5 et 2 la modifie peu.",
+  "3. Outils et méthodes": "Le médecin estime d'abord la probabilité pré-test à partir de la clinique, d'un score validé ou de la prévalence dans son contexte. Il cherche ensuite le RV du test dans la littérature, parfois pour plusieurs niveaux de résultat, parce qu'un résultat très élevé a un RV plus fort qu'un résultat limite. Sur le nomogramme de Fagan, il trace une droite entre la probabilité pré-test (à gauche) et le RV (au milieu) et lit la probabilité post-test (à droite). Par le calcul, avec une probabilité pré-test de 30 % (cote 0,43) et un RV+ de 5, la cote post-test vaut 2,14, soit une probabilité d'environ 68 %. Il peut enchaîner plusieurs tests indépendants en multipliant les RV successifs.",
+  "4. Décisions et seuils": "Le médecin définit à l'avance un seuil de traitement et un seuil d'exclusion : au-dessus du premier, il traite ; au-dessous du second, il écarte le diagnostic ; entre les deux, il poursuit les examens. Il choisit un test dont le RV peut faire franchir un seuil, sinon le test ne change pas la décision et ne se justifie pas. Il utilise un test à RV− très bas pour exclure une maladie quand la probabilité pré-test est faible ou intermédiaire. Il se méfie de l'enchaînement de tests non indépendants, dont les RV ne se multiplient pas simplement. Il intègre aussi les signes cliniques, qui ont leurs propres RV.",
+  "5. Applications par système": "En cardiologie, le BNP ou le NT-proBNP a un RV− très bas pour exclure l'insuffisance cardiaque à des seuils bas. En pneumologie, les D-dimères ont un RV− bas utile pour l'embolie à faible probabilité. En infectiologie, la procalcitonine a des RV modestes, ce qui limite son pouvoir isolé. En rhumatologie, les anticorps anti-CCP ont un RV+ élevé pour la polyarthrite rhumatoïde. En sémiologie, chaque signe clinique possède un RV, comme le signe de Murphy pour la cholécystite. La leçon relie les SSP de la dyspnée, de la douleur thoracique, des articulations gonflées et des analyses anormales.",
+  "6. Particularités par terrain": "Chez la personne âgée, le NT-proBNP augmente avec l'âge et l'insuffisance rénale, ce qui impose des seuils adaptés et modifie les RV. Chez l'enfant, les RV établis chez l'adulte ne s'appliquent pas toujours. Chez la femme enceinte, certains marqueurs changent physiologiquement, comme les D-dimères. Chez le patient obèse, le BNP est plus bas, ce qui réduit la sensibilité.",
+  "7. Pièges et confusions": "Le premier piège consiste à interpréter un test sans probabilité pré-test. Le deuxième consiste à confondre le RV avec la VPP. Le troisième consiste à multiplier les RV de tests non indépendants. Le quatrième consiste à demander un test dont aucun résultat ne peut franchir un seuil de décision. Le cinquième consiste à traiter un résultat limite comme un résultat très positif. Le dernier consiste à ignorer les facteurs qui modifient la performance du test chez le patient.",
+  "8. Pratique suisse": "En Suisse, les recommandations des sociétés suisses de cardiologie et de médecine interne reprennent les seuils européens du NT-proBNP adaptés à l'âge. Les laboratoires suisses indiquent souvent des seuils décisionnels dans leurs rapports. Smarter Medicine rappelle qu'un test qui ne modifie pas la décision ne doit pas être demandé. L'enseignement de la sémiologie fondée sur les preuves s'est développé dans les facultés suisses.",
+  "9. Exercices et répétition": "Pour t'exercer, calcule les RV d'un test sensible à 90 % et spécifique à 80 %, puis la probabilité post-test pour des probabilités pré-test de 10 %, 30 % et 70 %. Utilise ensuite un nomogramme de Fagan pour vérifier. La notion revient dans les leçons B sur la sensibilité, la courbe ROC, et dans les leçons Q sur les scores pré-test."
  },
- "decisionFinale": null,
+ "decisionFinale": "Tu montres à l'interne que la probabilité pré-test de 30 % multipliée par le RV+ élevé d'un NT-proBNP très au-dessus du seuil donne une probabilité post-test élevée, mais pas une certitude, et tu complètes par une échocardiographie pour confirmer et caractériser l'insuffisance cardiaque, parce qu'un test modifie une probabilité au lieu de poser seul le diagnostic.",
  "items": [
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Lausanne, un test a une sensibilité de 90 % et une spécificité de 90 %. Quel est son RV+ ?",
+   "options": [
+    "0,1",
+    "1",
+    "9",
+    "10",
+    "90"
+   ],
+   "bonneReponse": "C",
+   "explicationParOption": {
+    "A": "Ce chiffre correspond au RV−, environ 0,11.",
+    "B": "Un RV de 1 ne modifie pas la probabilité.",
+    "C": "RV+ = 0,9 / (1 − 0,9) = 9.",
+    "D": "Ce chiffre est proche, mais le calcul exact donne 9.",
+    "E": "Ce chiffre confond RV et sensibilité."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Genève, avec une probabilité pré-test de 50 % et un RV+ de 4, quelle est la probabilité post-test ?",
+   "options": [
+    "Environ 20 %",
+    "Environ 50 %",
+    "Environ 67 %",
+    "Environ 80 %",
+    "Environ 96 %"
+   ],
+   "bonneReponse": "D",
+   "explicationParOption": {
+    "A": "Ce chiffre correspond à une baisse, alors que le test est positif.",
+    "B": "Ce chiffre ignore l'effet du test.",
+    "C": "Ce chiffre correspondrait à un RV+ de 2.",
+    "D": "Cote pré-test 1 × 4 = 4 ; 4 / 5 = 80 %.",
+    "E": "Ce chiffre correspondrait à un RV+ beaucoup plus élevé."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "Kprim",
+   "enonce": "Tu enseignes le raisonnement bayésien à Berne. Indique si chaque affirmation est vraie ou fausse.",
+   "options": [
+    "Le RV ne dépend pas de la prévalence.",
+    "Un RV− de 0,05 aide fortement à exclure une maladie.",
+    "Un RV de 1 modifie fortement la probabilité.",
+    "Les RV de tests indépendants se multiplient successivement."
+   ],
+   "bonneReponse": [
+    true,
+    true,
+    false,
+    true
+   ],
+   "explicationParOption": {
+    "1": "Vrai : il dépend de la sensibilité et de la spécificité.",
+    "2": "Vrai : un RV− inférieur à 0,1 réduit fortement la probabilité.",
+    "3": "Faux : un RV de 1 ne change rien.",
+    "4": "Vrai : à condition que les tests soient indépendants."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Zurich, une probabilité pré-test de 5 % et un test négatif avec un RV− de 0,1 donnent quelle probabilité post-test ?",
+   "options": [
+    "Environ 0,5 %",
+    "Environ 5 %",
+    "Environ 10 %",
+    "Environ 50 %",
+    "0 %"
+   ],
+   "bonneReponse": "A",
+   "explicationParOption": {
+    "A": "Cote 0,053 × 0,1 ≈ 0,005 ; probabilité ≈ 0,5 %.",
+    "B": "Ce chiffre ignore l'effet du test.",
+    "C": "Ce chiffre augmente la probabilité après un test négatif.",
+    "D": "Ce chiffre n'a aucun lien avec le calcul.",
+    "E": "Aucun test n'annule complètement la probabilité."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "menu long",
+   "enonce": "À Fribourg, ta probabilité clinique d'une maladie vaut 2 %, ton seuil d'exclusion vaut 1 % et ton seuil de traitement 60 %. Quel test est le plus utile ?",
+   "options": [
+    "Un test à RV− de 0,1",
+    "Un test à RV+ de 1,5 et RV− de 0,8",
+    "Un test à RV de 1",
+    "Aucun test, le diagnostic est confirmé",
+    "Un test à RV+ de 2 seulement",
+    "Un test sans performance connue",
+    "Un test à RV− de 0,9",
+    "Un test à RV+ de 1,2",
+    "Un test très coûteux à RV− de 0,8",
+    "Une biopsie d'emblée",
+    "Un traitement d'épreuve",
+    "Un test à RV− de 1",
+    "Un test répété trois fois à RV de 1",
+    "Un test à RV+ de 3 et RV− de 0,7"
+   ],
+   "bonneReponse": "A",
+   "explicationParOption": {
+    "A": "Un RV− de 0,1 ramène 2 % à environ 0,2 %, sous le seuil d'exclusion.",
+    "B": "Ces RV modifient trop peu la probabilité.",
+    "C": "Un RV de 1 ne change rien.",
+    "D": "Une probabilité de 2 % ne confirme rien.",
+    "E": "Un RV+ de 2 ne permet ni d'exclure ni de confirmer ici.",
+    "F": "Un test sans performance connue ne s'interprète pas.",
+    "G": "Ce RV− modifie trop peu la probabilité.",
+    "H": "Ce RV+ modifie trop peu la probabilité.",
+    "I": "Ce test n'apporte presque rien.",
+    "J": "Une biopsie est disproportionnée à 2 %.",
+    "K": "Le traitement n'est pas justifié sous le seuil.",
+    "L": "Un RV de 1 ne change rien.",
+    "M": "La répétition d'un test inutile reste inutile.",
+    "N": "Ces RV ne permettent pas de franchir le seuil d'exclusion."
+   }
   }
  ],
- "liensSSP": [],
- "bulle": null,
- "glossaire": {}
+ "liensSSP": [
+  "S2.7",
+  "S2.5",
+  "S5.6",
+  "F2.2",
+  "F2.19",
+  "O7.18"
+ ],
+ "bulle": {
+  "def": "Le rapport de vraisemblance indique de combien un résultat de test modifie la cote de la maladie.",
+  "pourquoi": "Il permet de passer de la probabilité pré-test à la probabilité post-test pour chaque patient, indépendamment de la prévalence.",
+  "confusion": "On confond le RV, propriété du test, et la VPP, qui dépend de la prévalence.",
+  "retenir": "Cote post-test = cote pré-test × RV ; RV+ > 10 confirme fortement, RV− < 0,1 exclut fortement."
+ },
+ "glossaire": {
+  "RV": "Le rapport de vraisemblance mesure la force d'un résultat de test.",
+  "RV+": "Le rapport de vraisemblance positif vaut sensibilité / (1 − spécificité).",
+  "RV−": "Le rapport de vraisemblance négatif vaut (1 − sensibilité) / spécificité.",
+  "VPP": "La valeur prédictive positive est la probabilité d'être malade quand le test est positif.",
+  "NT-proBNP": "Ce peptide natriurétique, libéré par le myocarde étiré, aide au diagnostic de l'insuffisance cardiaque.",
+  "BNP": "Le peptide natriurétique de type B reflète l'étirement des ventricules.",
+  "anti-CCP": "Les anticorps anti-peptides citrullinés cycliques sont spécifiques de la polyarthrite rhumatoïde.",
+  "SSP": "Une situation de départ structure le catalogue PROFILES de l'examen fédéral."
+ }
 }
