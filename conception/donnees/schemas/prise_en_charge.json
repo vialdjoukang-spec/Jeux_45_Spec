@@ -1,0 +1,341 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Prise en charge holistique (commune aux 4 jeux)",
+ "_regles": "But → Moyens (accueil, pharmacologique, non pharmacologique, disciplines transversales) → Conduite urgence | hors urgence (mesures générales, étapes de l'équipe : qui fait quoi, d'abord, en même temps, ensuite) → Pronostic → Surveillance avec critères de sortie → Prévention. Phrases verbales, denses ; recommandations suisses d'abord. AAI (Anthropic AI)",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "but",
+  "moyens",
+  "conduite",
+  "pronostic",
+  "surveillance",
+  "prevention"
+ ],
+ "properties": {
+  "but": {
+   "type": "array",
+   "minItems": 1,
+   "maxItems": 3,
+   "items": {
+    "type": "string",
+    "description": "Phrase verbale : ce que la prise en charge cherche à obtenir."
+   }
+  },
+  "moyens": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "accueil",
+    "pharmacologique",
+    "nonPharmacologique",
+    "transversal"
+   ],
+   "properties": {
+    "accueil": {
+     "type": "array",
+     "minItems": 2,
+     "maxItems": 5,
+     "items": {
+      "type": "string",
+      "description": "Mesure générale à l'accueil, phrase verbale."
+     }
+    },
+    "pharmacologique": {
+     "type": "array",
+     "minItems": 0,
+     "maxItems": 6,
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "molecule",
+       "posologie",
+       "pourquoi",
+       "source"
+      ],
+      "properties": {
+       "molecule": {
+        "type": "string",
+        "description": "DCI, et classe entre parenthèses."
+       },
+       "posologie": {
+        "type": "string",
+        "description": "Dose, voie, rythme, durée, adaptation rénale/hépatique/âge si utile ; selon l'AIPS suisse."
+       },
+       "pourquoi": {
+        "type": "string",
+        "description": "Une phrase de 20 mots au plus.",
+        "minLength": 20
+       },
+       "source": {
+        "type": "string",
+        "description": "[Société, année] ou « AIPS Swissmedic »"
+       }
+      }
+     }
+    },
+    "nonPharmacologique": {
+     "type": "array",
+     "minItems": 1,
+     "maxItems": 6,
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "categorie",
+       "mesure",
+       "pourquoi"
+      ],
+      "properties": {
+       "categorie": {
+        "type": "string",
+        "enum": [
+         "psychothérapie",
+         "éducation thérapeutique",
+         "geste ou chirurgie",
+         "rééducation",
+         "nutrition",
+         "soins infirmiers",
+         "social et assurances",
+         "hygiène de vie",
+         "autre"
+        ]
+       },
+       "mesure": {
+        "type": "string",
+        "description": "Phrase verbale."
+       },
+       "pourquoi": {
+        "type": "string",
+        "description": "Une phrase de 20 mots au plus."
+       }
+      }
+     }
+    },
+    "transversal": {
+     "type": "array",
+     "minItems": 1,
+     "maxItems": 4,
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "discipline",
+       "apport"
+      ],
+      "properties": {
+       "discipline": {
+        "type": "string",
+        "description": "Lettre et nom de la discipline transversale A→S (ex. « A Assurances sociales », « F Droit médical suisse », « M Médecine palliative »)."
+       },
+       "apport": {
+        "type": "string",
+        "description": "Phrase verbale : ce que cette discipline apporte à ce patient."
+       }
+      }
+     }
+    }
+   }
+  },
+  "conduite": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "urgence",
+    "horsUrgence"
+   ],
+   "properties": {
+    "urgence": {
+     "anyOf": [
+      {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "mesuresGenerales",
+        "etapes"
+       ],
+       "properties": {
+        "mesuresGenerales": {
+         "type": "array",
+         "minItems": 2,
+         "maxItems": 5,
+         "items": {
+          "type": "string",
+          "description": "Phrase verbale."
+         }
+        },
+        "etapes": {
+         "type": "array",
+         "minItems": 3,
+         "maxItems": 8,
+         "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+           "temps",
+           "qui",
+           "fait"
+          ],
+          "properties": {
+           "temps": {
+            "type": "string",
+            "enum": [
+             "d'abord",
+             "en même temps",
+             "ensuite",
+             "puis"
+            ]
+           },
+           "qui": {
+            "type": "string",
+            "description": "Rôle : médecin responsable, infirmier·ère, second médecin, spécialiste, physiothérapeute, assistant·e social·e, patient·e…"
+           },
+           "fait": {
+            "type": "string",
+            "description": "Phrase verbale : ce que cette personne fait, et pourquoi en 15 mots au plus."
+           }
+          }
+         },
+         "description": "Ordre chronologique ; « en même temps » marque le travail concomitant de l'équipe que dirige le médecin."
+        }
+       }
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "description": "null si la maladie ne comporte pas de situation d'urgence."
+    },
+    "horsUrgence": {
+     "anyOf": [
+      {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "mesuresGenerales",
+        "etapes"
+       ],
+       "properties": {
+        "mesuresGenerales": {
+         "type": "array",
+         "minItems": 2,
+         "maxItems": 5,
+         "items": {
+          "type": "string",
+          "description": "Phrase verbale."
+         }
+        },
+        "etapes": {
+         "type": "array",
+         "minItems": 3,
+         "maxItems": 8,
+         "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+           "temps",
+           "qui",
+           "fait"
+          ],
+          "properties": {
+           "temps": {
+            "type": "string",
+            "enum": [
+             "d'abord",
+             "en même temps",
+             "ensuite",
+             "puis"
+            ]
+           },
+           "qui": {
+            "type": "string",
+            "description": "Rôle : médecin responsable, infirmier·ère, second médecin, spécialiste, physiothérapeute, assistant·e social·e, patient·e…"
+           },
+           "fait": {
+            "type": "string",
+            "description": "Phrase verbale : ce que cette personne fait, et pourquoi en 15 mots au plus."
+           }
+          }
+         },
+         "description": "Ordre chronologique ; « en même temps » marque le travail concomitant de l'équipe que dirige le médecin."
+        }
+       }
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "description": "null si la maladie n'existe qu'en urgence."
+    }
+   }
+  },
+  "pronostic": {
+   "type": "string",
+   "description": "Une à deux phrases verbales, chiffrées si une source le permet."
+  },
+  "surveillance": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "suivi",
+    "sortie"
+   ],
+   "properties": {
+    "suivi": {
+     "type": "array",
+     "minItems": 2,
+     "maxItems": 6,
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+       "quoi",
+       "quand",
+       "cible"
+      ],
+      "properties": {
+       "quoi": {
+        "type": "string",
+        "description": "Paramètre clinique, biologique ou d'imagerie."
+       },
+       "quand": {
+        "type": "string",
+        "description": "Rythme ou échéance."
+       },
+       "cible": {
+        "type": "string",
+        "description": "Valeur ou évolution attendue."
+       }
+      }
+     }
+    },
+    "sortie": {
+     "type": "string",
+     "description": "Critères précis de sortie de l'hôpital (ou « prise en charge ambulatoire d'emblée » avec le critère qui l'autorise)."
+    }
+   }
+  },
+  "prevention": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "primaire",
+    "secondaire",
+    "tertiaire"
+   ],
+   "properties": {
+    "primaire": {
+     "type": "string",
+     "description": "Phrase verbale, ou chaîne vide si sans objet."
+    },
+    "secondaire": {
+     "type": "string"
+    },
+    "tertiaire": {
+     "type": "string"
+    }
+   }
+  }
+ }
+}

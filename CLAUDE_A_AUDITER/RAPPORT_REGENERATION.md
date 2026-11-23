@@ -1,4 +1,4 @@
-# Régénération automatique — 2026-11-23 11:37 UTC
+# Régénération automatique — 2026-11-23 12:33 UTC
 
 noeuds : 2545 | organes : 124 | à produire : 57
 {"tetrade": 493, "pharmaco": 46, "paraclinique": 308, "pratique": 704, "recherche": 1, "schemas": 4} total 1556
