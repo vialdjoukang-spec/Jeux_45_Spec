@@ -222,7 +222,11 @@ def ecrire(etape, c, d, usage, err):
 
 
 def selection(etape, a):
-    cs = [c for c in canoniques(a.spec) if not a.id or any(x in c["id"] for x in a.id.split(","))]
+    vus, cs = set(), []
+    for sp in (a.spec.split(",") if a.spec else [None]):          # plusieurs spécialités en un seul lot ; une pathologie commune n'est produite qu'une fois
+        for c in canoniques(sp):
+            if c["id"] not in vus and (not a.id or any(x in c["id"] for x in a.id.split(","))):
+                vus.add(c["id"]); cs.append(c)
     cs = [c for c in cs if not os.path.exists(chemin(etape, c))]
     if etape in ("questions", "correction"):
         cs = [c for c in cs if os.path.exists(chemin("notions", c))]
