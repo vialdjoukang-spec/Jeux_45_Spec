@@ -16,6 +16,7 @@ Tu es l'agent de production sous les instructions de Claude (orchestrateur et ga
 - **T3** Ajoute `priseEnCharge` aux fiches existantes qui ne l'ont pas (mode « pec » à créer dans produire_fiches_claude.py, en lot, sans réécrire le reste ; garde `traitement` comme historique).
 - **T4** Reprends les fiches rejetées pour troncature ou erreur de forme (archive l'ancienne dans content/fiches/_archives/, puis resoumets).
 - **T5** Items A/K' des fiches validées (`audit.rejector == "pass"`), Cardiologie d'abord.
+- **T7** Transversal : 228 leçons A → S en lot (le jeu le plus en retard après correction de la jauge).
 - **T6** Deuxième vague : les 400 urgences vitales suivantes, si le budget restant dépasse 25 USD.
 
 Signature : AAI (Anthropic AI)
