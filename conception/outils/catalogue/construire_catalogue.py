@@ -94,7 +94,10 @@ def captures(P):
                     pg.goto("about:blank"); pg.goto("http://localhost:8765/reseau3d.html#" + cfg + "&capture")
                     pg.wait_for_function("document.title==='PRET'", timeout=120000)
                     if "Organe 3D" in s["captures"][j][0]:
-                        pg.wait_for_function("window.__v3d===1", timeout=90000); pg.wait_for_timeout(2500)
+                        try:
+                            pg.wait_for_function("window.__v3d===1", timeout=180000); pg.wait_for_timeout(2500)
+                        except Exception as ex:   # rendu logiciel lent : on garde la planche telle quelle plutôt que d'échouer
+                            print("3D lente :", str(ex)[:120], pg.evaluate("document.querySelector('#fdet')?.innerText.slice(0,160)"), flush=True)
                     pg.wait_for_timeout(1500)
                     png = f"/tmp/cap_{i}_{j}.png"; pg.screenshot(path=png)
                     Image.open(png).convert("RGB").save(os.path.join(CAT, "img", f"cap_{i}_{j}.jpg"), quality=82, optimize=True)
