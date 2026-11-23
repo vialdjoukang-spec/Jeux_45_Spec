@@ -23,14 +23,14 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟩 `coude_poignet_et_main.json` : remplissage 100 % (16/16)
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/03_Hanche_et_bassin/1_Theorie/P07-03_Examens_Hanche_et_bassin_8-examens_production_XAi.json`
-- 🟩 `hanche_et_bassin.json` : remplissage 91 % (155/170)
+- 🟩 `hanche_et_bassin.json` : remplissage 92 % (156/170)
 - aVerifier déclarés : 4
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/03_Hanche_et_bassin/2_Pratique/P07-03-PR_Examens_Hanche_et_bassin_8-examens_PRATIQUE_production_XAi.json`
 - 🟩 `hanche_et_bassin.json` : remplissage 100 % (16/16)
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/04_Genou/1_Theorie/P07-04_Examens_Genou_8-examens_production_XAi.json`
-- 🟩 `genou.json` : remplissage 89 % (151/170)
+- 🟩 `genou.json` : remplissage 90 % (153/170)
 - aVerifier déclarés : 3
 
 ### 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/1_Examens_par_organe/07_Membres_et_appareil_locomoteur/04_Genou/2_Pratique/P07-04-PR_Examens_Genou_8-examens_PRATIQUE_production_XAi.json`
