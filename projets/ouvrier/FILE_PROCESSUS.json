@@ -444,9 +444,10 @@
    "titre": "Transversal : rédaction des 228 leçons A → S (lot)",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 16,
-   "etat": "a_faire",
+   "etat": "sans_objet",
    "essais": 0,
-   "prompt": "Lis projets/ouvrier/MISSION_45SPEC.md (règles constantes). Les 228 leçons de conception/donnees/tetrade/transversales/lecons/<lettre>/*.json sont des gabarits vides (statut « À REMPLIR »). Écris un script scripts/produire_lecons_claude.py calqué sur produire_fiches_claude.py (Message Batches, outil à schéma, en-tête d'espace de travail, réparation, registre) qui remplit chaque leçon en gardant ses clés : cas d'ouverture suisse concret, les 9 parties en phrases verbales denses, décision finale, items QCM avec explication par option, glossaire. Pratique suisse d'abord (lois fédérales, ASSM, OFSP, Swissmedic, 144/REGA). Teste 2 leçons en direct (S d'abord), puis soumets le lot complet et récupère-le au passage suivant. Mets « fait » quand les 228 leçons sont remplies et valides."
+   "prompt": "Lis projets/ouvrier/MISSION_45SPEC.md (règles constantes). Les 228 leçons de conception/donnees/tetrade/transversales/lecons/<lettre>/*.json sont des gabarits vides (statut « À REMPLIR »). Écris un script scripts/produire_lecons_claude.py calqué sur produire_fiches_claude.py (Message Batches, outil à schéma, en-tête d'espace de travail, réparation, registre) qui remplit chaque leçon en gardant ses clés : cas d'ouverture suisse concret, les 9 parties en phrases verbales denses, décision finale, items QCM avec explication par option, glossaire. Pratique suisse d'abord (lois fédérales, ASSM, OFSP, Swissmedic, 144/REGA). Teste 2 leçons en direct (S d'abord), puis soumets le lot complet et récupère-le au passage suivant. Mets « fait » quand les 228 leçons sont remplies et valides.",
+   "note": "Vial 23.11 22:38 : le Transversal passe à l'agent sur abonnement ; l'API reste sur le 45 Spec."
   },
   {
    "id": "T6_vague_urgences",
@@ -457,6 +458,69 @@
    "essais": 0,
    "prompt": "Lis d'abord projets/ouvrier/MISSION_45SPEC.md et applique ses règles constantes. Exécute T6 seulement si plafond_total_usd moins la dépense dépasse 25 USD : soumets en lot les 400 fiches suivantes en privilégiant urgenceVitale (ajoute un filtre --urgence au script si nécessaire), puis récupère-les au passage suivant. Sinon mets « sans_objet ».",
    "note": "Remplacé par la chaîne Notions → Questions → Corrections (23.11.2026)."
+  },
+  {
+   "id": "V2_N_lot",
+   "titre": "Vague 2 (NEU,PSY,MIG,INF) : notions, dans la limite du crédit",
+   "commande": "python scripts/produire_notions_questions.py notions soumettre --spec NEU,PSY,MIG,INF --max 60",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 5,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "une_fois"
+  },
+  {
+   "id": "V2_N_recup",
+   "titre": "Vague 2 : récupération des notions",
+   "commande": "python scripts/produire_notions_questions.py notions recuperer",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 1,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "lots_recuperes",
+   "suivi": "scripts/batchs_notions_questions.json"
+  },
+  {
+   "id": "V2_Q_lot",
+   "titre": "Vague 2 : questions",
+   "commande": "python scripts/produire_notions_questions.py questions soumettre --spec NEU,PSY,MIG,INF --max 60",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 13,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "une_fois"
+  },
+  {
+   "id": "V2_Q_recup",
+   "titre": "Vague 2 : récupération des questions",
+   "commande": "python scripts/produire_notions_questions.py questions recuperer",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 1,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "lots_recuperes",
+   "suivi": "scripts/batchs_notions_questions.json"
+  },
+  {
+   "id": "V2_C_lot",
+   "titre": "Vague 2 : corrections",
+   "commande": "python scripts/produire_notions_questions.py correction soumettre --spec NEU,PSY,MIG,INF --max 60",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 6,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "une_fois"
+  },
+  {
+   "id": "V2_C_recup",
+   "titre": "Vague 2 : récupération, couverture et arène",
+   "commande": "python scripts/produire_notions_questions.py correction recuperer && python scripts/couverture_notions.py && python conception/outils/arene45/construire_arene45.py",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 1,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "lots_recuperes",
+   "suivi": "scripts/batchs_notions_questions.json"
   }
  ],
  "_note": "L'état vivant de la file se trouve sur la branche veille/audit-medical ; cette copie de main sert de déclencheur.",
