@@ -1,15 +1,15 @@
-# Ouvrier automatique — 2026-11-23 00:10 UTC
+# Ouvrier automatique — 2026-11-23 00:41 UTC
 
-Dernier passage : **complement_3** → fait (0.03 USD).
+Dernier passage : **complement_1** → fait (0.13 USD).
 
-Les 16 examens du lot rachis, moelle et racines ont reçu leurs cinq champs de présentation (synonymes, aspect normal, anomalies élémentaires, syndromes paracliniques, pathologies associées), rédigés en phrases verbales à partir des signes classiques. Le fichier rempli est écrit dans CLAUDE_A_AUDITER/ouvrier/ avec la même structure que le lot, et la vérification de structure (chemins, identifiants, champs non modifiés, anomalies citées dans les syndromes) passe. Aucune source bibliographique n'a été ajoutée et aucune recherche en ligne n'a été faite : les seuils chiffrés et les valeurs à recouper sont listés dans aVerifier pour relecture avant intégration.
+J'ai rempli les cinq champs vides de 93 examens sur 94 du lot tête et encéphale, au format de l'exemple peau__dermatoscopie, et j'ai écrit le résultat dans CLAUDE_A_AUDITER/ouvrier/LOT_COMPLEMENT_1_tete_et_encephale_rempli.json. L'examen « Test de stimulation à l'arginine-copeptine » reste vide, faute de source fiable pour son interprétation. Aucune source n'a été consultée en ligne pendant cette exécution : les citations d'auteurs restent à ajouter et à vérifier, et les points à contrôler sont notés dans aVerifier.
 
-**Crédit** : 0.03 USD dépensés, 191.97 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.03 / 48.00 USD.
+**Crédit** : 0.16 USD dépensés, 191.84 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.16 / 48.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
 | complement_3 | fait | 1 | 0.03 |
-| complement_1 | a_faire | 0 |  |
+| complement_1 | fait | 1 | 0.133 |
 | complement_2 | a_faire | 0 |  |
 | complement_4 | a_faire | 0 |  |
 | complement_5 | a_faire | 0 |  |
