@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-23 01:31
+# Audit automatique — 2026-11-23 01:36
 
-36 fichier(s) : 0 🟩 intégrables · 35 🟧 à compléter · 1 🟥 refusés.
+40 fichier(s) : 0 🟩 intégrables · 39 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -295,6 +295,76 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟧 `trichoscopie.json` : remplissage 0 % (0/0)
 - 🟧 `echelle_de_braden.json` : remplissage 0 % (0/0)
 - aVerifier déclarés : 11
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/09_Systemes_transversaux_corps_entier/1_Theorie/PF09-1_Explorations_fonctionnelles_Systemes_transversaux_corps_en_15-fiches_production_XAi.json`
+- 🟧 `adl_et_iadl.json` : remplissage 0 % (0/0)
+- 🟧 `actimetrie.json` : remplissage 0 % (0/0)
+- 🟧 `agenda_du_sommeil.json` : remplissage 0 % (0/0)
+- 🟧 `calorimetrie_indirecte.json` : remplissage 0 % (0/0)
+- 🟧 `capnographie.json` : remplissage 0 % (0/0)
+- 🟧 `courbes_de_croissance.json` : remplissage 0 % (0/0)
+- 🟧 `depistage_auditif_neonatal.json` : remplissage 0 % (0/0)
+- 🟧 `ecg_12_derivations_en_moins_de_10_minute.json` : remplissage 0 % (0/0)
+- 🟧 `hgpo_75_g.json` : remplissage 0 % (0/0)
+- 🟧 `holter_glycemique.json` : remplissage 0 % (0/0)
+- 🟧 `mini_nutritional_assessment.json` : remplissage 0 % (0/0)
+- 🟧 `mini_cog_et_moca.json` : remplissage 0 % (0/0)
+- 🟧 `polygraphie_ventilatoire.json` : remplissage 0 % (0/0)
+- 🟧 `polysomnographie.json` : remplissage 0 % (0/0)
+- 🟧 `revue_de_la_medication.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 18
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/09_Systemes_transversaux_corps_entier/1_Theorie/PF09-2_Explorations_fonctionnelles_Systemes_transversaux_corps_en_14-fiches_production_XAi.json`
+- 🟧 `score_de_glasgow_et_scores_de_gravite.json` : remplissage 0 % (0/0)
+- 🟧 `stades_pubertaires_de_tanner.json` : remplissage 0 % (0/0)
+- 🟧 `temps_de_saignement.json` : remplissage 0 % (0/0)
+- 🟧 `test_de_maintien_de_l_eveil.json` : remplissage 0 % (0/0)
+- 🟧 `tests_de_personnalite_standardises.json` : remplissage 0 % (0/0)
+- 🟧 `tests_de_provocation.json` : remplissage 0 % (0/0)
+- 🟧 `tests_iteratifs_de_latence_d_endormissem.json` : remplissage 0 % (0/0)
+- 🟧 `thromboelastographie.json` : remplissage 0 % (0/0)
+- 🟧 `timed_up_and_go_et_test_de_tinetti.json` : remplissage 0 % (0/0)
+- 🟧 `echelle_d_epworth.json` : remplissage 0 % (0/0)
+- 🟧 `echelle_de_depression_geriatrique.json` : remplissage 0 % (0/0)
+- 🟧 `echelles_de_developpement_psychomoteur.json` : remplissage 0 % (0/0)
+- 🟧 `echelles_psychometriques.json` : remplissage 0 % (0/0)
+- 🟧 `epreuve_de_jeune_de_72_h.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 20
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/09_Systemes_transversaux_corps_entier/2_Pratique/PF09-1-PR_Explorations_fonctionnelles_Systemes_transversaux_corps_en_15-fiches_PRATIQUE_production_XAi.json`
+- 🟧 `adl_et_iadl.json` : remplissage 0 % (0/0)
+- 🟧 `actimetrie.json` : remplissage 0 % (0/0)
+- 🟧 `agenda_du_sommeil.json` : remplissage 0 % (0/0)
+- 🟧 `calorimetrie_indirecte.json` : remplissage 0 % (0/0)
+- 🟧 `capnographie.json` : remplissage 0 % (0/0)
+- 🟧 `courbes_de_croissance.json` : remplissage 0 % (0/0)
+- 🟧 `depistage_auditif_neonatal.json` : remplissage 0 % (0/0)
+- 🟧 `ecg_12_derivations_en_moins_de_10_minute.json` : remplissage 0 % (0/0)
+- 🟧 `hgpo_75_g.json` : remplissage 0 % (0/0)
+- 🟧 `holter_glycemique.json` : remplissage 0 % (0/0)
+- 🟧 `mini_nutritional_assessment.json` : remplissage 0 % (0/0)
+- 🟧 `mini_cog_et_moca.json` : remplissage 0 % (0/0)
+- 🟧 `polygraphie_ventilatoire.json` : remplissage 0 % (0/0)
+- 🟧 `polysomnographie.json` : remplissage 0 % (0/0)
+- 🟧 `revue_de_la_medication.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 18
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/09_Systemes_transversaux_corps_entier/2_Pratique/PF09-2-PR_Explorations_fonctionnelles_Systemes_transversaux_corps_en_14-fiches_PRATIQUE_production_XAi.json`
+- 🟧 `score_de_glasgow_et_scores_de_gravite.json` : remplissage 0 % (0/0)
+- 🟧 `stades_pubertaires_de_tanner.json` : remplissage 0 % (0/0)
+- 🟧 `temps_de_saignement.json` : remplissage 0 % (0/0)
+- 🟧 `test_de_maintien_de_l_eveil.json` : remplissage 0 % (0/0)
+- 🟧 `tests_de_personnalite_standardises.json` : remplissage 0 % (0/0)
+- 🟧 `tests_de_provocation.json` : remplissage 0 % (0/0)
+- 🟧 `tests_iteratifs_de_latence_d_endormissem.json` : remplissage 0 % (0/0)
+- 🟧 `thromboelastographie.json` : remplissage 0 % (0/0)
+- 🟧 `timed_up_and_go_et_test_de_tinetti.json` : remplissage 0 % (0/0)
+- 🟧 `echelle_d_epworth.json` : remplissage 0 % (0/0)
+- 🟧 `echelle_de_depression_geriatrique.json` : remplissage 0 % (0/0)
+- 🟧 `echelles_de_developpement_psychomoteur.json` : remplissage 0 % (0/0)
+- 🟧 `echelles_psychometriques.json` : remplissage 0 % (0/0)
+- 🟧 `epreuve_de_jeune_de_72_h.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 20
 
 ### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/01_Tete_et_encephale/1_Theorie/PE01_Endoscopies_Tete_et_encephale_2-fiches_production_XAi.json`
 - 🟧 `nasofibroscopie.json` : remplissage 0 % (0/0)
