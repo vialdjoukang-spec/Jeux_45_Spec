@@ -5,6 +5,7 @@ on:
     inputs:
       limite: { description: "Nombre max d'entités à traiter", default: "100000" }
       filtre: { description: "Filtre sur le chemin (ex. 4_thorax)", default: "" }
+      vides: { description: "Ne traiter que les entités sans aucun candidat (oui/non)", default: "oui" }
 permissions:
   contents: write
 concurrency: cliches
@@ -17,7 +18,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - name: Chercher les clichés
-        run: python projets/outils/chercher_cliches.py --limite "${{ github.event.inputs.limite || '100000' }}" ${{ github.event.inputs.filtre && format('--filtre {0}', github.event.inputs.filtre) || '' }}
+        run: python projets/outils/chercher_cliches.py --limite "${{ github.event.inputs.limite || '100000' }}" ${{ github.event.inputs.filtre && format('--filtre {0}', github.event.inputs.filtre) || '' }} ${{ github.event.inputs.vides == 'oui' && '--vides' || '' }}
       - name: Publier
         if: always()
         run: |

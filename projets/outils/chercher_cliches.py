@@ -54,6 +54,28 @@ FR_EN = {  # jetons médicaux FR → EN (Commons et Open-i indexent surtout en a
  "oxymétrie": "oximetry", "nocturne": "nocturnal", "polygraphie": "polygraphy", "méthacholine": "methacholine", "provocation": "challenge",
  "ponction": "puncture", "lombaire": "lumbar", "lcr": "cerebrospinal fluid", "articulaire": "joint", "liquide": "fluid",
 }
+FR_EN.update({  # ajouts F3 (23.11.2026) : explorations, endoscopies, imagerie fonctionnelle
+ "nasofibroscopie": "nasal endoscopy", "rhinoscopie": "rhinoscopy", "rhinomanométrie": "rhinomanometry", "olfactométrie": "olfactometry",
+ "prick-tests": "skin prick test", "prick": "skin prick test", "spect": "SPECT", "dsa": "digital subtraction angiography", "enmg": "electroneuromyography",
+ "clignement": "blink reflex", "écouvillon": "nasopharyngeal swab", "nasopharyngé": "nasopharyngeal", "cavum": "nasopharynx",
+ "fluorescéine": "fluorescein angiography", "indocyanine": "indocyanine green angiography", "campimétrie": "visual field test", "périmétrie": "visual field",
+ "lampe": "slit lamp", "fente": "slit lamp", "tonométrie": "tonometry", "gonioscopie": "gonioscopy", "vidéonystagmographie": "videonystagmography",
+ "potentiels": "evoked potentials", "évoqués": "evoked potentials", "otoémissions": "otoacoustic emissions", "impédancemétrie": "impedance",
+ "manométrie": "manometry", "ph-métrie": "pH monitoring", "capsule": "capsule endoscopy", "entéroscopie": "enteroscopy", "écho-endoscopie": "endoscopic ultrasound",
+ "élastographie": "elastography", "fibroscan": "transient elastography", "urodynamique": "urodynamics", "débitmétrie": "uroflowmetry",
+ "colposcopie": "colposcopy", "hystéroscopie": "hysteroscopy", "hystérosalpingographie": "hysterosalpingography", "amnioscopie": "amnioscopy",
+ "cardiotocographie": "cardiotocography", "ctg": "cardiotocography", "échocardiographie": "echocardiography", "coronarographie": "coronary angiography",
+ "ergométrie": "exercise stress test", "tilt-test": "tilt table test", "capillaroscopie": "nailfold capillaroscopy", "dermoscopie": "dermoscopy",
+ "trichoscopie": "trichoscopy", "wood": "Wood lamp", "patch-tests": "patch test", "épicutanés": "patch test", "arthroscopie": "arthroscopy",
+ "myélographie": "myelography", "scintigraphie osseuse": "bone scan", "tep": "PET", "dexa": "DEXA", "angio-irm": "MR angiography",
+ "cholangio-irm": "MRCP", "uro-ct": "CT urography", "cystographie": "cystography", "urétrographie": "urethrography", "phlébographie": "venography",
+ "lymphoscintigraphie": "lymphoscintigraphy", "mediastinoscopie": "mediastinoscopy", "thoracoscopie": "thoracoscopy", "laparoscopie": "laparoscopy",
+ "anuscopie": "anoscopy", "rectoscopie": "proctoscopy", "sigmoïdoscopie": "sigmoidoscopy", "otoscopie": "otoscopy", "tympan": "tympanic membrane",
+ "sédiment": "urine sediment", "cristaux": "crystals", "bandelette": "urine dipstick", "hémoculture": "blood culture", "ziehl": "Ziehl-Neelsen stain",
+ "immunofluorescence": "immunofluorescence", "immunohistochimie": "immunohistochemistry", "cytoponction": "fine needle aspiration cytology",
+})
+# Analyses chiffrées sans image utile : on le dit au lieu de chercher sans fin (jauge honnête)
+VISUEL_BIO = re.compile(r"frottis|culture|gram|électrophor|cristaux|sédiment|ziehl|immunofluor|immunohisto|cytolog|histolog|biopsie|bandelette|lcr|aspect|goutte épaisse|parasit|myélogramme|ponction", re.I)
 VIDE = {"de", "du", "des", "la", "le", "les", "et", "avec", "sans", "en", "au", "aux", "à", "d", "l", "par", "pour", "sur"}
 
 
@@ -147,8 +169,11 @@ for sous, cle in SRC:
         img = json.load(open(sortie, encoding="utf-8")) if os.path.exists(sortie) else {"_meta": {"source": rel, "signature": "AAI (Anthropic AI)"}, "cliches": {}}
         for x in d.get(cle, []):
             bilan["examens"] += 1
+            if (cle == "analyses" or x.get("modalite") == "Biologie") and not VISUEL_BIO.search(x.get("nom", "")):
+                img.setdefault("sansObjet", {})[x["id"]] = "Analyse chiffrée : le résultat se lit en valeurs, aucun cliché n'apporte d'information."
+                bilan["avec_cliches"] += 1; continue
             deja = img["cliches"].get(x["id"], [])
-            if (len(deja) >= 3 and not tout) or faits >= limite:
+            if (len(deja) >= 3 and not tout) or faits >= limite or ("--vides" in args and deja):
                 bilan["avec_cliches"] += bool(deja); continue
             vus, cands = {c["url"] for c in deja}, list(deja)
             for q in requetes(x, defis.get(x["id"], []), os.path.basename(f)[:-5]):
