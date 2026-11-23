@@ -171,7 +171,7 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 
 ## Rénal & uro-génital (2026-11-23, ouvrier automatique)
 - Le système « Rénal & uro-génital » est jouable : `conception/outils/renal/` (contenu, sémiologie, pathologies, glossaire, temps) ; registre `systemes_rediges.py` (préfixe `rn_`, couleur `#b8960f`).
-- 6 organes rédigés en anatomie, physiologie et sémiologie (reins, uretères, vessie, urètre, prostate, testicules) ; 33 pathologies en 4 paliers avec bilan par visée (gold standard compris), traitements dosés et source datée (KDIGO 2021 et 2024, EAU 2024, CDC 2021).
+- 6 organes rédigés en anatomie, physiologie et sémiologie (reins, uretères, vessie, urètre, prostate, testicules) ; 35 pathologies en 4 paliers avec bilan par visée (gold standard compris), traitements dosés et source datée (KDIGO 2021 et 2024, EAU 2024, CDC 2021).
 - Nouvelles fenêtres canvas testées sans écran (0 erreur JS) : `dfg` (CKD-EPI 2021, stades KDIGO) et `fena` (fraction d'excrétion du sodium) ; `gazometrie` est réutilisée pour la compensation rénale.
 - Les 6 renommages `org_renal__*` → `rn_*` sont déclarés dans `projets/retours/migrations_ids.json`. Audits : conception 34/34, couverture réussie, non-perte OK.
 - Reste à faire :
