@@ -1,4 +1,4 @@
-# Audit automatique — 2026-11-23 02:34
+# Audit automatique — 2026-11-23 03:17
 
 7 fichier(s) : 0 🟩 intégrables · 6 🟧 à compléter · 1 🟥 refusés.
 
@@ -27,7 +27,7 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 ### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/6_Formules_Criteres_SmarterMedicine/P21_Formules_et_Criteres_diagnostiques_production_XAi.json`
 - 🟧 `calculs.json` : remplissage 0 % (0/0)
 - 🟧 `criteres.json` : remplissage 0 % (0/0)
-- aVerifier déclarés : 13
+- aVerifier déclarés : 23
 
 ### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/6_Formules_Criteres_SmarterMedicine/P22_SmarterMedicine_recommandations_suisses_production_XAi.json`
 - 🟧 `smarter_medicine.json` : remplissage 0 % (0/0)
