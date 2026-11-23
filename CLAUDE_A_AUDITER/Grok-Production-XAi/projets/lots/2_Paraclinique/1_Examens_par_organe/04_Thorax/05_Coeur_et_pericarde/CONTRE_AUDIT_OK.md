@@ -37,3 +37,4 @@ Tirage au hasard parmi les affirmations chiffrées sourcées des fichiers de l'o
 | 4 | Potassium ≥ 6,5 mmol/l : hyperkaliémie sévère | ERC 2021, circonstances particulières (texte Resuscitation) | conforme |
 | 5 | FFR ≤ 0,80 : sténose ischémiante | ESC 2024, syndromes coronariens chroniques (extraits) | conforme |
 | 6 | NT-proBNP < 125 / BNP < 35 ng/l hors aigu ; 300 / 100 en aigu | Vivaldo et al., Rev Med Suisse 2021 : non rouvert ; valeurs identiques aux seuils de l'ESC | non trouvé (source nommée) : ajouté à _lot.aVerifier |
+- Correction post-contrôle (23.11.2026) : 3 radioAnatomieNormale de plus de 45 caractères raccourcies en gardant le sens (segmentation du VG en 17 segments, myocarde sans fixation de FDG, coronaire droite et interventriculaire postérieure séparées) ; rien d'autre modifié ; controle PASS.
