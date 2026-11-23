@@ -1,12 +1,28 @@
 # Audit automatique — 2026-11-23 02:34
 
-5 fichier(s) : 0 🟩 intégrables · 4 🟧 à compléter · 1 🟥 refusés.
+7 fichier(s) : 0 🟩 intégrables · 6 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
 
 ### 🟥 `CLAUDE_A_AUDITER/EN_ATTENTE_AUDIT_MEDICAL.json`
 - Format inconnu : la clé « fichiers » manque (format lot attendu).
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/5_Imagerie_Images_et_Cas/P23_Images_reelles_Thorax_URL_et_licences_production_XAi.json`
+- 🟩 `aorte_thoracique_et_arteres_pulmonaires.json` : remplissage 85 % (181/212)
+- 🟩 `coeur_et_pericarde.json` : remplissage 85 % (527/617)
+- 🟧 `diaphragme_et_muscles_respiratoires.json` : remplissage 83 % (105/126)
+- 🟩 `mediastin.json` : remplissage 86 % (202/235)
+- 🟩 `oesophage.json` : remplissage 86 % (145/168)
+- 🟩 `paroi_thoracique_et_cotes.json` : remplissage 85 % (108/127)
+- 🟩 `plevre.json` : remplissage 88 % (130/148)
+- 🟩 `poumons_et_voies_aeriennes.json` : remplissage 87 % (592/681)
+- 🟩 `seins.json` : remplissage 86 % (237/277)
+- aVerifier déclarés : 3
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/5_Imagerie_Images_et_Cas/P25_Cas_cliniques_Thorax_le_bon_examen_production_XAi.json`
+- 🟧 `_modele.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 4
 
 ### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/6_Formules_Criteres_SmarterMedicine/P21_Formules_et_Criteres_diagnostiques_production_XAi.json`
 - 🟧 `calculs.json` : remplissage 0 % (0/0)
