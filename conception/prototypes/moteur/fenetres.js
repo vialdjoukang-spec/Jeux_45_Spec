@@ -406,6 +406,23 @@ const MODELES={
    else if(tpb&&tcal)m1='TP et TCA allongés avec plaquettes et fibrinogène normaux : tu penses à une antivitamine K à forte dose, à un anticoagulant oral direct ou à un déficit d\'un facteur commun (X, V, II).';
    else m1='Plaquettes, TP et TCA normaux : un saignement inexpliqué fait chercher une maladie de von Willebrand, une thrombopathie (aspirine, clopidogrel) ou un déficit en facteur XIII, que ces tests ne voient pas.';
    note.textContent=m1+' Score ISTH de CIVD = '+sc+' (plaquettes '+(p<50?2:p<100?1:0)+', D-dimères '+(dd>5?3:dd>0.5?2:0)+', TP '+(t<40?2:t<70?1:0)+', fibrinogène '+(f<1?1:0)+') : '+(sc>=5?'un score d\'au moins 5 signe une CIVD manifeste si une maladie causale existe.':'score sous 5 : pas de CIVD manifeste ; tu répètes le score en 24 heures si la maladie causale persiste.')+' Le score d\'origine compte l\'allongement du TP en secondes ; la conversion en pourcentage de Quick reste approximative et les seuils des D-dimères dépendent du laboratoire.';}d();},
+ /* infectieux et immunitaire : cinétique schématique des IgM et des IgG (réponse primaire, réponse secondaire, déficit humoral) */
+ ii_anticorps(C){const x=toile(C);const note=document.createElement('p');let MEM=0;
+  boutons(C,[['Primo-infection (jour 10)',{j:10,m:0,c:100}],['Primo-infection tardive (jour 40)',{j:40,m:0,c:100}],['Rappel vaccinal (réponse secondaire)',{j:10,m:1,c:100}],['Déficit en anticorps (DICV)',{j:30,m:1,c:10}]],o=>{J.set(o.j);MEM=o.m;Cp.set(o.c);d();});
+  const J=cur(C,'Jour du prélèvement après le contact',0,90,1,10,d),Cp=cur(C,'Capacité de production d\'anticorps (%)',0,100,5,100,d);C.appendChild(note);
+  const g=(t,t0,k,dec)=>t<t0?0:(1-Math.exp(-(t-t0)/k))*Math.exp(-Math.max(0,t-t0-3*k)/dec);
+  const igm=(t,m,c)=>c/100*(m?0.25:1)*g(t,5,3,15),igg=(t,m,c)=>c/100*(m?4:1)*g(t,m?2:10,m?2.5:7,m?400:300);
+  function d(){const A=axes(x,520,300,45,[0,90],[0,4.2],'Jours après le contact','Anticorps (unités arbitraires)');const m=MEM,c=Cp(),j=J();
+   for(const [f,col,t] of [[igm,'#c98a2b','IgM'],[igg,'#16897b','IgG']]){x.strokeStyle=col;x.lineWidth=2.5;x.beginPath();for(let i=0;i<=180;i++){const t2=i/2,[a,b]=A(t2,f(t2,m,c));i?x.lineTo(a,b):x.moveTo(a,b);}x.stroke();const [a,b]=A(80,f(80,m,c));x.fillStyle=col;x.fillText(t,a,b-6);}
+   x.lineWidth=1;const [aj]=A(j,0),[,bt]=A(j,4.2),[,bb]=A(j,0);x.strokeStyle='#d11';x.setLineDash([4,4]);x.beginPath();x.moveTo(aj,bt);x.lineTo(aj,bb);x.stroke();x.setLineDash([]);
+   const vm=igm(j,m,c),vg=igg(j,m,c),seuil=0.1;let m1;
+   if(c<30)m1='La production d\'anticorps reste faible malgré le contact : tu penses à un déficit humoral (DICV, rituximab, lymphome) et tu ne te fies pas à une sérologie négative ; tu cherches le microbe par PCR ou culture.';
+   else if(m)m1='Au second contact, les lymphocytes B mémoire produisent vite beaucoup d\'IgG, avec peu d\'IgM : c\'est le principe du rappel vaccinal.';
+   else if(j<5)m1='Le prélèvement précède l\'apparition des anticorps (fenêtre sérologique) : une sérologie négative n\'exclut pas l\'infection ; tu répètes le test ou tu demandes une PCR.';
+   else if(vm>seuil&&vg<seuil)m1='Les IgM sont présentes sans IgG : l\'infection est très récente.';
+   else if(vm>seuil&&vg>=seuil)m1='Les IgM et les IgG sont présentes : l\'infection est récente ; une séroconversion entre deux prélèvements à 2 ou 3 semaines d\'intervalle la confirme.';
+   else m1='Les IgG persistent sans IgM : l\'infection est ancienne ou le sujet est vacciné.';
+   note.textContent='Jour '+j+' : IgM = '+vm.toFixed(2)+', IgG = '+vg.toFixed(2)+' (unités arbitraires ; seuil de positivité schématique '+String(seuil).replace('.',',')+'). '+m1+' Les délais exacts varient selon le microbe et le test.';}d();},
  '3d'(C){const oid=C.dataset.organe;if(!oid){C.textContent='Organe non identifié.';return;}
   C.innerHTML=`<div class=v3d style="position:relative;width:min(520px,80vw);height:360px;border-radius:6px;background:radial-gradient(#2a2f3a,#12151b)"><span class=att style="position:absolute;inset:0;display:grid;place-items:center;color:#aab">Chargement du modèle 3D…</span></div><div class=boutons style="margin-top:6px"><button data-v=face>Face</button><button data-v=profil>Profil</button><button data-v=dessus>Dessus</button><button data-v=rot>Rotation ⏯</button></div><div class=src style="font-size:11px;color:var(--sous);max-width:520px"></div>`;
   (async()=>{const [THREE,{GLTFLoader},{OrbitControls}]=await Promise.all([import('three'),import('three/addons/loaders/GLTFLoader.js'),import('three/addons/controls/OrbitControls.js')]);
