@@ -1,6 +1,6 @@
 # Jauges « jouable » des 4 jeux
 
-Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **23.11.2026 14:42**.
+Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **23.11.2026 14:51**.
 
 ## Tétrade Fondation — 35 % (-30)
 
