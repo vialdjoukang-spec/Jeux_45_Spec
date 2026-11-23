@@ -83,7 +83,7 @@ def message(c):
 def params(c, modele):
     return {"model": modele, "max_tokens": 16000,
             "system": [{"type": "text", "text": SYSTEME, "cache_control": {"type": "ephemeral"}}],
-            "tools": [OUTIL], "tool_choice": {"type": "tool", "name": "emettre_fiche"},
+            "tools": [OUTIL], "tool_choice": {"type": "auto"},
             "messages": [{"role": "user", "content": message(c)}]}
 
 
@@ -146,7 +146,10 @@ def pilote(a):
     cl = client()
     for c in cs:
         t = time.time(); m = cl.messages.create(**params(c, a.modele))
-        b = next(x for x in m.content if x.type == "tool_use"); err = valider(b.input, c)
+        b = next((x for x in m.content if x.type == "tool_use"), None)   # Sonnet 5.5 n'accepte pas l'appel d'outil forcé
+        if b is None:
+            print(f"{c['id']} : le modèle n'a pas appelé l'outil ; fiche non écrite"); continue
+        err = valider(b.input, c)
         ecrire(c, b.input, a.modele, {**m.usage.model_dump(), "_mode": "direct"}, err)
         print(f"{c['id']} ({'/'.join(c['codes'])}) : {len(err)} erreur(s), {m.usage.output_tokens} tokens de sortie, {time.time()-t:.0f} s → {chemin(c)}")
 
