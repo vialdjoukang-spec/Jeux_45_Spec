@@ -52,7 +52,7 @@ QUESTION = O({
     "difficulte": {"type": "integer", "minimum": 1, "maximum": 5},
     "ladder": O({k: S() for k in ("zeroD", "mechanism", "semiology", "discriminant", "decision", "trap", "anchor")}),
     "sources": L(S(), 1, 4)})
-SCH_QUESTIONS = O({"questions": L(QUESTION, 12, 40)})
+SCH_QUESTIONS = O({"questions": L(QUESTION, 16, 24)})
 
 REGLES = """RÈGLES BLOQUANTES (examen fédéral suisse de médecine humaine, format PROFILES)
 1. Français ; chaque phrase contient un verbe conjugué ; aucune phrase nominale.
@@ -63,6 +63,7 @@ REGLES = """RÈGLES BLOQUANTES (examen fédéral suisse de médecine humaine, fo
 SYS_N = f"""Tu es examinateur de l'examen fédéral suisse. Tu dresses la LISTE EXHAUSTIVE DES NOTIONS d'une pathologie : chaque notion est une entité informationnelle individuelle que l'on peut tirer de la pathologie et sur laquelle on peut poser une question.
 {REGLES}
 5. Plan monographique : couvre les 15 rubriques ; le nombre de notions d'une rubrique suit son poids (poids 1 : 1 à 3 notions ; poids 2 : 3 à 5 ; poids 3 : 5 à 8). Plan non monographique : centre-toi sur la démarche du SSP (drapeaux rouges, discriminants face aux rivaux, examen qui tranche, décision).
+5bis. Poids de la notion : poids 3 pour au plus 15 % des notions (le noyau indispensable), poids 2 pour au plus 35 %, poids 1 pour le reste.
 6. Une notion = une seule information vérifiable ; pas de doublon ; marque « suisse » ce qui dépend de la pratique, du droit, des assurances ou des recommandations suisses.
 Tu réponds UNIQUEMENT en appelant l'outil emettre_notions."""
 
@@ -72,6 +73,7 @@ SYS_Q = f"""Tu es examinateur de l'examen fédéral suisse. À partir de la list
 6. Situation as Starting Point d'abord : la majorité des vignettes partent d'une plainte, d'un signe ou d'un résultat, et le diagnostic n'y figure pas (diagnosticMasque = true) ; aucun mot de la vignette, du titre ou de la question ne trahit le diagnostic.
 7. Écris au moins une SÉRIE progressive de 3 à 5 étapes : le même patient, suivi du premier contact à la sortie ou au suivi, chaque étape révélant de nouvelles données ; le diagnostic reste masqué jusqu'à ce qu'une étape demande de le poser.
 8. Chaque question cite 1 à 6 notions couvertes ; chaque notion de poids 2 ou 3 est couverte au moins deux fois sous deux angles différents (direct, application, piège).
+8bis. BUDGET DE SORTIE STRICT : produis entre 18 et 20 questions, pas davantage, sinon la réponse est tronquée. Chaque question cite 3 à 6 notions ; les Kprim et les menus longs servent à couvrir beaucoup de notions à la fois. Vignettes de 60 mots au plus, « why » de 15 mots au plus, ladder de 12 mots par champ, un seul source par question. Le jeu comporte environ 14 type A, 4 Kprim, 2 menus longs.
 9. ladder : zéro-D → mécanisme → sémiologie → discriminant → décision → piège → ancre, une phrase chacun.
 Tu réponds UNIQUEMENT en appelant l'outil emettre_questions."""
 
@@ -130,7 +132,7 @@ def message(etape, c):
 def params(etape, c):
     opt = json.load(open(PF.OPTIONS)) if os.path.exists(PF.OPTIONS) else {}
     sch, sysp, nom = (SCH_NOTIONS, SYS_N, "emettre_notions") if etape == "notions" else (SCH_QUESTIONS, SYS_Q, "emettre_questions")
-    return {"model": MODELE, "max_tokens": 32000, **({"thinking": {"type": "disabled"}} if opt.get("thinking_desactivable", True) else {}),
+    return {"model": MODELE, "max_tokens": 60000, **({"thinking": {"type": "disabled"}} if opt.get("thinking_desactivable", True) else {}),
             "system": [{"type": "text", "text": sysp, "cache_control": {"type": "ephemeral"}}],
             "tools": [{"name": nom, "description": "Émet le résultat structuré.", "input_schema": sch}], "tool_choice": {"type": "auto"},
             "messages": [{"role": "user", "content": message(etape, c)}]}
@@ -192,7 +194,9 @@ def selection(etape, a):
 def pilote(etape, a):
     cl = PF.client()
     for c in selection(etape, a)[: a.n]:
-        m = cl.messages.create(**params(etape, c)); b = next((x for x in m.content if x.type == "tool_use"), None)
+        with cl.messages.stream(**params(etape, c)) as fl:
+            m = fl.get_final_message()
+        b = next((x for x in m.content if x.type == "tool_use"), None)
         if b is None:
             print(c["id"], ": pas d'appel d'outil"); continue
         err = valider(etape, b.input, c); ecrire(etape, c, b.input, {**m.usage.model_dump(), "_mode": "direct"}, err)

@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-23 12:44 UTC
+# Ouvrier automatique — 2026-11-23 14:39 UTC
 
-Dernier passage : **T1_pilote_pec_et_lot600** → fait (0.26 USD).
+Dernier passage : **END_pilote_notions_questions** → en_cours (0.82 USD).
 
-Le pilote de trois fiches (anesthésie, néphrologie avec choc septique/acidose lactique, médecine intensive) donne 0 erreur de schéma, 10 à 11,5 mille tokens de sortie et une priseEnCharge complète ; un premier essai avait une fiche tronquée et des posologies vagues, donc j'ai ajouté au prompt une règle de complétude et de posologie chiffrée (option --id ajoutée au script). Le lot de 600 fiches est soumis (msgbatch_016PU6XSwP53bkdXeSXfrvSs, enregistré dans scripts/batchs_fiches.json) ; je l'estime à environ 50 à 60 USD, au-dessus des 15 USD prévus pour T1 mais sous le plafond total de 100 USD (16,7 déjà dépensés), donc Vial doit confirmer ce coût. Les fiches pilotes sont sous content/fiches/ et T2 doit récupérer le lot.
+Notions : 3 pathologies produites sans erreur (65 à 70 notions, 15 rubriques chacune, 2 à 3 notions suisses, aucune redite, poids 3 limité à 6-9 notions). Questions : une seule pathologie valide (22 questions : 16 type A, 4 Kprim, 2 menus longs, 0 erreur) ; les deux autres ont été tronquées à la limite de sortie sur les deux essais autorisés, leurs fichiers fautifs sont supprimés. Correctifs appliqués au script (streaming, max_tokens 60000, 18 à 20 questions) mais non testés faute d'essai restant : relancer le pilote des questions pour hyperthyroïdie et acidocétose.
 
-**Crédit** : 16.98 USD dépensés, 83.02 USD disponibles avant le 27.11.2026 ; aujourd'hui 16.98 / 25.00 USD.
+**Crédit** : 17.80 USD dépensés, 82.20 USD disponibles avant le 27.11.2026 ; aujourd'hui 17.80 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -25,10 +25,14 @@ Le pilote de trois fiches (anesthésie, néphrologie avec choc septique/acidose 
 | endocrino | fait | 1 | 3.138 |
 | interpretations_courbes | fait | 1 | 1.185 |
 | T1_pilote_pec_et_lot600 | fait | 1 | 0.26 |
+| END_pilote_notions_questions | en_cours | 1 | 0.823 |
+| F2_examens_vides | a_faire | 0 |  |
+| F5_cas_thorax | a_faire | 0 |  |
 | T2_recup_lot600 | a_faire | 0 |  |
 | T3_pec_fiches_existantes | a_faire | 0 |  |
 | T4_reprise_rejets | a_faire | 0 |  |
 | T5_items_valides | a_faire | 0 |  |
+| T7_transversal_lecons | a_faire | 0 |  |
 | T6_vague_urgences | a_faire | 0 |  |
 
 Signature : AAI (Anthropic AI)
