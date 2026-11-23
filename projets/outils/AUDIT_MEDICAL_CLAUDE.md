@@ -26,6 +26,13 @@ La branche reçoit deux sources : les lots réparés par la veille, et le travai
 5. Un doute impossible à trancher reste dans `aVerifierOuverts` avec la raison ; il ne bloque pas le reste.
 6. Un lot refusé (illisible) se répare à la main ou se renvoie à Grok par un lot de complément.
 
+## 1 bis. Fiches du 45 Spec (`content/fiches/<SPEC>/*.json`)
+
+1. Audite au plus 30 fiches par passage, dans l'ordre de l'arène (`content/arenes/<SPEC>/arene.json`) : premiers gestes, drapeaux rouges, examens, posologies, chiffres clés et sources, selon `medical-accuracy-100`.
+2. Corrige directement ce qui est faux, puis écris `audit.rejector` : `"pass"` si la fiche est juste, sinon `"rejet"` avec `audit.motif`. Une fiche rejetée se refait plus tard ; ne la laisse jamais en `"pass"` par défaut.
+3. Lance `python scripts/generer_reflexes.py` (cartes réflexes des seules fiches `pass`, 0 token) puis `python scripts/ebaucher_arenes.py` (état des arènes).
+4. Une fiche non encore auditée peut rejoindre main : seules les fiches `pass` deviennent jouables et servent de base aux questions.
+
 ## 2. Contrôler puis publier
 
 1. Relancer `audit_fond.py`, `lots_complement.py`, `auditer_conception.py` et `auditer_couverture.py` et `non_perte.py` (aucune valeur remplie sur main ne doit disparaître) : tout doit passer.
