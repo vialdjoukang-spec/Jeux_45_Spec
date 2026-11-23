@@ -162,3 +162,9 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
   - Points à vérifier dans l'AIPS : statut suisse de l'élafibranor et du seladelpar (cholangite biliaire primitive) ; pâte de triamcinolone buccale ; norfloxacine (la ciprofloxacine est proposée en alternative).
   - Doses tirées de la pratique courante, à recouper : IPP du Zollinger-Ellison ; thiamine à forte dose.
   - Les volets « Embryologie et variantes » restent vides pour la plupart des organes.
+
+## 45 Spec : production lancée (2026-11-23, nuit)
+- Décision de Vial : Sonnet 5.5 ; au plus la moitié du crédit mensuel (100 USD). Ébauche des 45 arènes : `content/arenes/` (`scripts/ebaucher_arenes.py`) et `content/arenes/EBAUCHE_JEU_45_SPEC.md`.
+- Fiches : consigne resserrée (≈ 9 000 tokens de sortie, complètes) ; 2 fiches pilotes de cardiologie auditées « pass » (sources ESC 2024 et 2023 ajoutées) ; 44 cartes réflexes générées à 0 token. Lot de 173 fiches de cardiologie envoyé (msgbatch_01CZYim7ZgfZqNEL2WYvVWYX), récupéré par la tâche `j45_recup_CAR`.
+- Questions : seules les fiches auditées « pass » servent de base (`produire_items_claude.py`). Pilote Sonnet : 6 questions de qualité, ≈ 0,08 USD par requête en direct, ≈ 0,04 USD en lot. Pilote Haiku : structure invalide, arrêté.
+- Coût estimé des questions : ≈ 120 USD en lot pour toute la cardiologie (≈ 2 975 requêtes) ; le jeu entier (≈ 123 500 questions) dépasse largement le plafond mensuel : il faut choisir les rubriques et les arènes prioritaires mois par mois.
