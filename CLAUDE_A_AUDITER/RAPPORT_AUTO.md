@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-23 01:31
 
-34 fichier(s) : 0 🟩 intégrables · 33 🟧 à compléter · 1 🟥 refusés.
+36 fichier(s) : 0 🟩 intégrables · 35 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -275,6 +275,26 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟧 `tests_ligamentaires_et_meniscaux.json` : remplissage 0 % (0/0)
 - 🟧 `electromyographie.json` : remplissage 0 % (0/0)
 - aVerifier déclarés : 22
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/08_Peau_et_phaneres/1_Theorie/PF08_Explorations_fonctionnelles_Peau_et_phaneres_7-fiches_production_XAi.json`
+- 🟧 `index_de_pression_systolique_et_tcpo2.json` : remplissage 0 % (0/0)
+- 🟧 `lampe_de_wood.json` : remplissage 0 % (0/0)
+- 🟧 `phototests.json` : remplissage 0 % (0/0)
+- 🟧 `tests_epicutanes.json` : remplissage 0 % (0/0)
+- 🟧 `trichogramme.json` : remplissage 0 % (0/0)
+- 🟧 `trichoscopie.json` : remplissage 0 % (0/0)
+- 🟧 `echelle_de_braden.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 11
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/08_Peau_et_phaneres/2_Pratique/PF08-PR_Explorations_fonctionnelles_Peau_et_phaneres_7-fiches_PRATIQUE_production_XAi.json`
+- 🟧 `index_de_pression_systolique_et_tcpo2.json` : remplissage 0 % (0/0)
+- 🟧 `lampe_de_wood.json` : remplissage 0 % (0/0)
+- 🟧 `phototests.json` : remplissage 0 % (0/0)
+- 🟧 `tests_epicutanes.json` : remplissage 0 % (0/0)
+- 🟧 `trichogramme.json` : remplissage 0 % (0/0)
+- 🟧 `trichoscopie.json` : remplissage 0 % (0/0)
+- 🟧 `echelle_de_braden.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 11
 
 ### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/01_Tete_et_encephale/1_Theorie/PE01_Endoscopies_Tete_et_encephale_2-fiches_production_XAi.json`
 - 🟧 `nasofibroscopie.json` : remplissage 0 % (0/0)
