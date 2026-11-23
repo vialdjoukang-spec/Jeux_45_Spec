@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-23 01:13
+# Audit automatique — 2026-11-23 01:14
 
-8 fichier(s) : 0 🟩 intégrables · 7 🟧 à compléter · 1 🟥 refusés.
+10 fichier(s) : 0 🟩 intégrables · 9 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -53,6 +53,42 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟧 `echo_endoscopie_oesophagienne.json` : remplissage 0 % (0/0)
 - 🟧 `oesophagogastroduodenoscopie_avec_biopsi.json` : remplissage 0 % (0/0)
 - aVerifier déclarés : 7
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/05_Abdomen/1_Theorie/PE05_Endoscopies_Abdomen_15-fiches_production_XAi.json`
+- 🟧 `anuscopie.json` : remplissage 0 % (0/0)
+- 🟧 `cpre_avec_brossage.json` : remplissage 0 % (0/0)
+- 🟧 `cholangioscopie.json` : remplissage 0 % (0/0)
+- 🟧 `coloscopie_totale_avec_biopsies.json` : remplissage 0 % (0/0)
+- 🟧 `enteroscopie_a_double_ballon.json` : remplissage 0 % (0/0)
+- 🟧 `gastroscopie_avec_biopsies.json` : remplissage 0 % (0/0)
+- 🟧 `gastroscopie.json` : remplissage 0 % (0/0)
+- 🟧 `laparoscopie_diagnostique.json` : remplissage 0 % (0/0)
+- 🟧 `rectosigmoidoscopie.json` : remplissage 0 % (0/0)
+- 🟧 `ureteroscopie.json` : remplissage 0 % (0/0)
+- 🟧 `videocapsule_endoscopique.json` : remplissage 0 % (0/0)
+- 🟧 `echo_endoscopie.json` : remplissage 0 % (0/0)
+- 🟧 `echo_endoscopie_avec_ponction.json` : remplissage 0 % (0/0)
+- 🟧 `echo_endoscopie_biliopancreatique.json` : remplissage 0 % (0/0)
+- 🟧 `echo_endoscopie_rectale.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 18
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/05_Abdomen/2_Pratique/PE05-PR_Endoscopies_Abdomen_15-fiches_PRATIQUE_production_XAi.json`
+- 🟧 `anuscopie.json` : remplissage 0 % (0/0)
+- 🟧 `cpre_avec_brossage.json` : remplissage 0 % (0/0)
+- 🟧 `cholangioscopie.json` : remplissage 0 % (0/0)
+- 🟧 `coloscopie_totale_avec_biopsies.json` : remplissage 0 % (0/0)
+- 🟧 `enteroscopie_a_double_ballon.json` : remplissage 0 % (0/0)
+- 🟧 `gastroscopie_avec_biopsies.json` : remplissage 0 % (0/0)
+- 🟧 `gastroscopie.json` : remplissage 0 % (0/0)
+- 🟧 `laparoscopie_diagnostique.json` : remplissage 0 % (0/0)
+- 🟧 `rectosigmoidoscopie.json` : remplissage 0 % (0/0)
+- 🟧 `ureteroscopie.json` : remplissage 0 % (0/0)
+- 🟧 `videocapsule_endoscopique.json` : remplissage 0 % (0/0)
+- 🟧 `echo_endoscopie.json` : remplissage 0 % (0/0)
+- 🟧 `echo_endoscopie_avec_ponction.json` : remplissage 0 % (0/0)
+- 🟧 `echo_endoscopie_biliopancreatique.json` : remplissage 0 % (0/0)
+- 🟧 `echo_endoscopie_rectale.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 16
 
 ### 🟧 `CLAUDE_A_AUDITER/ouvrier/LOT_COMPLEMENT_3_rachis_moelle_et_racines_rempli.json`
 - 🟧 `moelle_epiniere.json` : remplissage 23 % (35/150) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees
