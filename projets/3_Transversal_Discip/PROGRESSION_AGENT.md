@@ -7,7 +7,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Lettre | Rédigées | Total |
 |---|---|---|
 | A | 12 | 12 |
-| B | 6 | 12 |
+| B | 9 | 12 |
 | C | 0 | 12 |
 | D | 0 | 12 |
 | E | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **54** | **228** |
+| **Total** | **57** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -55,6 +55,8 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_A-S4-03** : Surveillance de la LAA par l'OFSP (et non l'OFAS) : à confirmer.
 - **TRANS_B-S1-02** : Usage actuel du score AGLA versus SCORE2 dans les recommandations suisses 2025-2026.
 - **TRANS_B-S1-03** : Rattachement institutionnel actuel de Cochrane Suisse (Unisanté, Lausanne).
+- **TRANS_B-S3-01** : Essais suisses sur la procalcitonine (ProHOSP, Schuetz P et al., JAMA 2009) : référence à confirmer.
+- **TRANS_B-S3-02** : Marge de non-infériorité de 1,46 citée dans le cas : valeur fictive inspirée des essais d'AOD (ex. ROCKET-AF 1,46) ; confirmer si l'on veut la présenter comme réelle.
 - **TRANS_F-S1-01** : Numéro de l'article du Code de déontologie FMH consacré au secret (art. 11 ?).
 - **TRANS_F-S1-01** : Peine exacte de l'art. 321 CP après l'harmonisation des peines (en vigueur 2023) : « trois ans au plus ou peine pécuniaire » à confirmer.
 - **TRANS_F-S1-01** : Caractère de plainte (délit poursuivi sur plainte) de l'art. 321 CP.
