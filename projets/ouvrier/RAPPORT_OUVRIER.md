@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-23 03:43 UTC
+# Ouvrier automatique — 2026-11-23 04:44 UTC
 
-Dernier passage : **complement_5** → fait (0.20 USD).
+Dernier passage : **renal** → fait (1.21 USD).
 
-J'ai rempli les cinq champs de présentation vides des 136 examens abdominaux du lot LOT_COMPLEMENT_5 (13 fichiers), sans toucher aux autres champs ni aux autres fichiers ; le résultat est dans CLAUDE_A_AUDITER/ouvrier/LOT_COMPLEMENT_5_abdomen_rempli.json. Les références internes sont cohérentes et l'analyse de calcul urinaire garde un aspect normal volontairement vide. Les sources nommées sont insuffisantes : seules trois recommandations sont citées (ESVS 2019, EASL, KDIGO), non vérifiées en ligne, et l'audit médical doit sourcer le reste avant publication.
+Le système Rénal & uro-génital est rédigé : 6 organes en anatomie, physiologie et sémiologie, 35 pathologies en 4 paliers avec bilan par visée, traitements dosés et sources datées, 59 sigles au glossaire. Deux nouvelles fenêtres (dfg, fena) sont testées sans écran avec 0 erreur, et les 6 renommages d'identifiants sont déclarés dans migrations_ids.json. Les audits donnent 34/34, couverture réussie et non-perte OK ; Vial relira pathologies.txt et vérifiera quelques statuts suisses dans l'AIPS (listés dans REPRISE.md).
 
-**Crédit** : 8.99 USD dépensés, 91.01 USD disponibles avant le 27.11.2026 ; aujourd'hui 8.99 / 25.00 USD.
+**Crédit** : 10.19 USD dépensés, 89.81 USD disponibles avant le 27.11.2026 ; aujourd'hui 10.19 / 25.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -18,9 +18,9 @@ J'ai rempli les cinq champs de présentation vides des 136 examens abdominaux du
 | j45_pilote_items_haiku | attente_decision | 1 | 0.0 |
 | j45_recup_CAR | fait | 1 | 0.0 |
 | complement_5 | fait | 1 | 0.196 |
-| complement_6 | a_faire | 0 |  |
-| complement_7 | a_faire | 0 |  |
-| renal | a_faire | 0 |  |
+| complement_6 | sans_objet | 0 |  |
+| complement_7 | sans_objet | 0 |  |
+| renal | fait | 1 | 1.206 |
 | neuro | a_faire | 0 |  |
 | endocrino | a_faire | 0 |  |
 

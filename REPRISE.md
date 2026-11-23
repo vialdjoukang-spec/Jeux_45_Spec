@@ -168,3 +168,14 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Fiches : consigne resserrée (≈ 9 000 tokens de sortie, complètes) ; 2 fiches pilotes de cardiologie auditées « pass » (sources ESC 2024 et 2023 ajoutées) ; 44 cartes réflexes générées à 0 token. Lot de 173 fiches de cardiologie envoyé (msgbatch_01CZYim7ZgfZqNEL2WYvVWYX), récupéré par la tâche `j45_recup_CAR`.
 - Questions : seules les fiches auditées « pass » servent de base (`produire_items_claude.py`). Pilote Sonnet : 6 questions de qualité, ≈ 0,08 USD par requête en direct, ≈ 0,04 USD en lot. Pilote Haiku : structure invalide, arrêté.
 - Coût estimé des questions : ≈ 120 USD en lot pour toute la cardiologie (≈ 2 975 requêtes) ; le jeu entier (≈ 123 500 questions) dépasse largement le plafond mensuel : il faut choisir les rubriques et les arènes prioritaires mois par mois.
+
+## Rénal & uro-génital (2026-11-23, ouvrier automatique)
+- Le système « Rénal & uro-génital » est jouable : `conception/outils/renal/` (contenu, sémiologie, pathologies, glossaire, temps) ; registre `systemes_rediges.py` (préfixe `rn_`, couleur `#b8960f`).
+- 6 organes rédigés en anatomie, physiologie et sémiologie (reins, uretères, vessie, urètre, prostate, testicules) ; 35 pathologies en 4 paliers avec bilan par visée (gold standard compris), traitements dosés et source datée (KDIGO 2021 et 2024, EAU 2024, CDC 2021).
+- Nouvelles fenêtres canvas testées sans écran (0 erreur JS) : `dfg` (CKD-EPI 2021, stades KDIGO) et `fena` (fraction d'excrétion du sodium) ; `gazometrie` est réutilisée pour la compensation rénale.
+- Les 6 renommages `org_renal__*` → `rn_*` sont déclarés dans `projets/retours/migrations_ids.json`. Audits : conception 34/34, couverture réussie, non-perte OK.
+- Reste à faire :
+  - Vial relit `renal/pathologies.txt`.
+  - À vérifier dans l'AIPS : statut suisse du budésonide à libération ciblée (néphropathie à IgA), du cyclosilicate sodique de zirconium et du pivmécillinam ; doses de rituximab et de cyclophosphamide à confirmer avec un néphrologue.
+  - Les volets « Embryologie et variantes » restent vides ; les uro-génitaux féminins vivent au système gynéco-obstétrical, la néphrologie de l'enfant (reflux, valves urétrales) reste à ajouter au pédiatrique.
+  - Le jeu 3D montre un seul modèle pour tous les organes (limite connue).
