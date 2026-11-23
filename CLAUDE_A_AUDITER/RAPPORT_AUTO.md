@@ -1,6 +1,6 @@
 # Audit automatique — 2026-11-23 01:30
 
-30 fichier(s) : 0 🟩 intégrables · 29 🟧 à compléter · 1 🟥 refusés.
+32 fichier(s) : 0 🟩 intégrables · 31 🟧 à compléter · 1 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -216,6 +216,30 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟧 `test_de_charge_sodee.json` : remplissage 0 % (0/0)
 - 🟧 `test_de_freinage_a_la_dexamethasone_1_mg.json` : remplissage 0 % (0/0)
 - 🟧 `test_de_stimulation_a_la_secretine.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 15
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/06_Pelvis/1_Theorie/PF06_Explorations_fonctionnelles_Pelvis_9-fiches_production_XAi.json`
+- 🟧 `bilan_urodynamique.json` : remplissage 0 % (0/0)
+- 🟧 `bilan_urodynamique_complet.json` : remplissage 0 % (0/0)
+- 🟧 `calendrier_mictionnel.json` : remplissage 0 % (0/0)
+- 🟧 `calendrier_mictionnel_et_pad_test.json` : remplissage 0 % (0/0)
+- 🟧 `cardiotocographie.json` : remplissage 0 % (0/0)
+- 🟧 `debitmetrie.json` : remplissage 0 % (0/0)
+- 🟧 `epds.json` : remplissage 0 % (0/0)
+- 🟧 `test_d_erection_pharmaco_induite.json` : remplissage 0 % (0/0)
+- 🟧 `vulvoscopie.json` : remplissage 0 % (0/0)
+- aVerifier déclarés : 15
+
+### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/3_Explorations_fonctionnelles/06_Pelvis/2_Pratique/PF06-PR_Explorations_fonctionnelles_Pelvis_9-fiches_PRATIQUE_production_XAi.json`
+- 🟧 `bilan_urodynamique.json` : remplissage 0 % (0/0)
+- 🟧 `bilan_urodynamique_complet.json` : remplissage 0 % (0/0)
+- 🟧 `calendrier_mictionnel.json` : remplissage 0 % (0/0)
+- 🟧 `calendrier_mictionnel_et_pad_test.json` : remplissage 0 % (0/0)
+- 🟧 `cardiotocographie.json` : remplissage 0 % (0/0)
+- 🟧 `debitmetrie.json` : remplissage 0 % (0/0)
+- 🟧 `epds.json` : remplissage 0 % (0/0)
+- 🟧 `test_d_erection_pharmaco_induite.json` : remplissage 0 % (0/0)
+- 🟧 `vulvoscopie.json` : remplissage 0 % (0/0)
 - aVerifier déclarés : 15
 
 ### 🟧 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/4_Endoscopies/01_Tete_et_encephale/1_Theorie/PE01_Endoscopies_Tete_et_encephale_2-fiches_production_XAi.json`
