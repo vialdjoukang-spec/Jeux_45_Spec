@@ -159,3 +159,14 @@ Corrections faites (72 lignes, journal machine audit/athena/corrections.jsonl, t
 Réserves : Medics (privé, Berne) conservé pour anti-TPO, anti-Tg, TRAK et calcitonine ; aucune valeur chiffrée dans les fiches HUG, CHUV ni dans le PDF Inselspital de chimie clinique. Précipitines : aucune fiche suisse dédiée accessible (HUG 7128, 8116, 9178 : 404 ; 7129 : 403) ; le tube vient de la fiche CHUV Aspergillus fumigatus FEIA et reste déclaré « à confirmer ». CD4 : aucun intervalle chiffré HUG ni CHUV ; seuils cliniques EACS seulement. ETA 2018, Khan 2022, ESCEO-IOF-IFCC 2025, EFNS 2010 et ATS/JRS/ALAT 2020 lus en résumé seulement. Deux bornes CRP différentes (HUG < 10,0 ; Inselspital < 5) sont citées côte à côte. 25-OH-vitamine D : pas de seuil de toxicité dans les sources ouvertes (déclaré).
 
 Rédacteur : honnête. Toutes les réserves signalées étaient exactes et déclarées dans aVerifier, y compris la perte de la valeur CRP et de la valeur Tg à l'extraction ; l'acidocétose euglycémique ~10 % est juste ; aucune valeur inventée. Erreurs relevées : une baisse de T3 déduite (déclarée), quatre formulations plus fortes que la source, une source mal nommée.
+
+## Recontrôle HUG « < » (PB01-PB05, théorie)
+
+L'ancien extracteur des fiches HUG vidait les valeurs écrites « < x » ou « <= x ». Les 96 fiches HUG utilisées pour les PB01-PB05 ont été réextraites avec l'extracteur corrigé (91 lisibles ; 5 numéros n'existent plus : 404). 32 contiennent une valeur « < » : 28 ont demandé une correction ; 4 étaient déjà justes (lactate 3807 et 3935 « dans l'heure », NT-proBNP 3939, test respiratoire 140).
+
+Corrections (54 lignes, journal audit/athena/corrections.jsonl, tour t14 ; script audit/athena/t14/corr_t14.py), rien d'autre n'a changé :
+- Valeurs manquées : haptoglobine < 180 / < 2270 mg/l (3968), B12 < 100 pmol/l déficitaire (3906), fer < 1 mois (3863), anticardiolipine IgG < 14 / IgM < 19 U/ml (2715) et anti-β2GPI IgG < 17 / IgM < 12 U/ml (2710), temps de thrombine ratio < 1,2 (8898), D-dimères < 500 ng/ml (2718), troponine T < 14 ng/l (3936), CK-MB < 10 % de la CK (9109), apoB < 1,0 g/l (10944), calprotectine < 600 à < 50 µg/g selon l'âge (6936).
+- Lignes néonatales « ≤ 14 jours » (ou « ≤ 1 an », « ≤ 3 mois », « < 30 jours », « < 6 jours ») : créatinine, urée, phosphate, urates, ASAT, ALAT, GGT, PAL, bilirubines, albumine, amylase, préalbumine, céruloplasmine, CK, ammonium.
+- Phrase fausse : Kleihauer « pas d'érythrocytes fœtaux attendus » → < 1 ‱ (6966) ; anticoagulant lupique : transport en moins de 4 h (2716).
+- aVerifier : 4 entrées rectifiées (lignes néonatales ASAT/ALAT, calprotectine « sans valeur », D-dimères pédiatriques, apoB pédiatrique).
+- Pratiques : aucun défi touché.
