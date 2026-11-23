@@ -207,3 +207,11 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - **Agent sur abonnement (sous-agent de Claude)** : Transversal, 228 leçons A → S (S, F, Q d'abord), branche `agent/transversal`, audit par Claude avant fusion sur main.
 - **Claude (abonnement)** : Paraclinique (F3 clichés : 352 entités vides relancées ; analyses chiffrées déclarées « sans objet »), audit médical, fusion des branches, republication des arènes, rapport de progression le 24.11 au matin.
 - Outils clés : `scripts/produire_notions_questions.py` (notions | questions | correction), `conception/prototypes/commun/correction.js`, `projets/JAUGES.md` (jauges toutes les 5 min).
+
+## 24.11.2026 00:31 — consigne de Vial : continuer sans interruption jusqu'à l'achèvement des 4 jeux
+- Si le crédit API s'épuise : reprise dans 48 h (nouveau crédit API + forfait ULTRA).
+- Agents sur abonnement, chacun doté des 5 skills (perfect-skill-user-organizer-collector, ultra-competent-fast-doctor, autonomous-skill-creator, pipeline-autonomous-builder, i-never-waste-token ; registre `.claude/skills/REGISTRE.md`) :
+  - rédacteur Transversal (C → R) et auditeur Transversal (S, F, Q, A, B ; 109 points) sur `agent/transversal` ; Claude fusionne sur main après l'audit ;
+  - constructeur Tétrade (hématologie-oncologie, puis infectieux-immunitaire) sur `agent/tetrade`.
+- API : 45 Spec, vague 1 puis vague 2 jusqu'au plafond de 192 USD.
+- Claude : Paraclinique (clichés), audits, fusions, rondes de nuit toutes les 2 h, rapport à 07:30.
