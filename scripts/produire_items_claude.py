@@ -168,7 +168,9 @@ def client():
     import anthropic
     if not os.environ.get("ANTHROPIC_API_KEY"):
         sys.exit("ANTHROPIC_API_KEY absente : voir PROCEDURE_CREDITS_CLAUDE.md, étape 2.")
-    return anthropic.Anthropic()
+    ws = os.environ.get("ANTHROPIC_WORKSPACE_ID") or (open(os.path.join(RACINE, "projets", "ouvrier", "workspace_id.txt")).read().strip()
+                                                       if os.path.exists(os.path.join(RACINE, "projets", "ouvrier", "workspace_id.txt")) else "")
+    return anthropic.Anthropic(default_headers={"anthropic-workspace-id": ws} if ws else None)   # clé non rattachée à un espace de travail
 
 
 def cmd_pilote(args):

@@ -115,9 +115,9 @@ def ecrire(c, fiche, modele, usage, err):
     with open(REGISTRE, "a", newline="", encoding="utf-8") as f:
         w = csv.writer(f, delimiter=";")
         if neuf:
-            w.writerow(["date", "entite", "spec", "erreurs", "modele", "in", "cache_lu", "out"])
+            w.writerow(["date", "entite", "spec", "erreurs", "modele", "in", "cache_lu", "out", "mode"])
         w.writerow([dt.datetime.now().isoformat(timespec="seconds"), c["id"], "/".join(c["codes"]), len(err), modele,
-                    usage.get("input_tokens"), usage.get("cache_read_input_tokens"), usage.get("output_tokens")])
+                    usage.get("input_tokens"), usage.get("cache_read_input_tokens"), usage.get("output_tokens"), usage.get("_mode", "lot")])
 
 
 def selection(a):
@@ -134,7 +134,9 @@ def client():
     import anthropic
     if not os.environ.get("ANTHROPIC_API_KEY"):
         sys.exit("ANTHROPIC_API_KEY absente : voir PROCEDURE_CREDITS_CLAUDE.md.")
-    return anthropic.Anthropic()
+    ws = os.environ.get("ANTHROPIC_WORKSPACE_ID") or (open(os.path.join(RACINE, "projets", "ouvrier", "workspace_id.txt")).read().strip()
+                                                       if os.path.exists(os.path.join(RACINE, "projets", "ouvrier", "workspace_id.txt")) else "")
+    return anthropic.Anthropic(default_headers={"anthropic-workspace-id": ws} if ws else None)   # clé non rattachée à un espace de travail
 
 
 def pilote(a):
@@ -145,7 +147,7 @@ def pilote(a):
     for c in cs:
         t = time.time(); m = cl.messages.create(**params(c, a.modele))
         b = next(x for x in m.content if x.type == "tool_use"); err = valider(b.input, c)
-        ecrire(c, b.input, a.modele, m.usage.model_dump(), err)
+        ecrire(c, b.input, a.modele, {**m.usage.model_dump(), "_mode": "direct"}, err)
         print(f"{c['id']} ({'/'.join(c['codes'])}) : {len(err)} erreur(s), {m.usage.output_tokens} tokens de sortie, {time.time()-t:.0f} s → {chemin(c)}")
 
 
