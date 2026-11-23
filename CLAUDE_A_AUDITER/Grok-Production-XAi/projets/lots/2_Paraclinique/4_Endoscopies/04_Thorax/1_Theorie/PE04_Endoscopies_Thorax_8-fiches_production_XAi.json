@@ -1,0 +1,662 @@
+{
+ "_lot": {
+  "tache": "PE04",
+  "titre": "Endoscopies — Thorax (8 fiches)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 8,
+  "signature": "AAI (Anthropic AI)",
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet.",
+  "aVerifier": [
+   "conception/donnees/paraclinique/explorations/bronchoscopie_de_navigation.json : (repris de poumons_et_voies_aeriennes__bronchoscopie_de_navigation) poumons_et_voies_aeriennes__bronchoscopie_de_navigation › irradiation_mSv : 0,5 mSv : médiane de Steinfort et al. (2010) pour une bronchoscopie guidée par fluoroscopie (0,49 ± 0,37 mSv, intervalle 0,16-1,3) ; selon Verhoeven et al. (2021), une navigation guidée par CT à faisceau conique délivre 14,3 mSv au début puis 5,8 mSv après optimisation des protocoles",
+   "conception/donnees/paraclinique/explorations/bronchoscopie_avec_lavage_bronchoalveola.json : relu(es) le 23.11.2026 (contre-audit) : 15, 3,5 et 25 confirmés dans Meyer et al., ATS 2012 (PDF intégral thoracic.org) : « greater than 15% lymphocytes … lymphocytic cellular pattern », « CD4/CD8 ratio > 3.5 increases specificity », « eosinophil differential count greater than or equal to 25% is virtually diagnostic of eosinophilic lung disease ».",
+   "conception/donnees/paraclinique/explorations/bronchoscopie_de_navigation.json : valeurs 73 relues le 23.11.2026 dans Folch et al. 2019 (NAVIGATE), résumé PubMed 30476574.",
+   "conception/donnees/paraclinique/explorations/bronchoscopie_de_navigation.json : relu(es) le 23.11.2026 (contre-audit) : 4 % confirmé : pneumothorax de 4,3 % dans NAVIGATE (Folch et al., J Thorac Oncol 2019, résumé ; rendement 72,9 % à 12 mois).",
+   "conception/donnees/paraclinique/explorations/ebus_et_eus.json : valeurs chiffrées reprises de la fiche contre-auditée mediastin__ebus_et_eus sans relecture du passage dans cette passe (1) ; recherche par l'outil de sources tentée, non trouvée en texte libre (pages éditeur bloquées : ATS, ERS, Thieme, Elsevier, BMJ, Wiley) ; à relire avant fusion.",
+   "conception/donnees/paraclinique/explorations/thoracoscopie.json : 92, 0,34, 1,8 et 47 : concordants avec la synthèse de recherche web d'Opitz et al. (2020) le 23.11.2026, mais le texte intégral (academic.oup.com) refuse la lecture (403) : passage non relu mot pour mot, à relire avant fusion.",
+   "conception/donnees/paraclinique/explorations/echo_endoscopie_oesophagienne.json : relu(es) le 23.11.2026 (contre-audit) : 81 à 92 % et 94 à 97 % confirmés dans Mönig et al., Rev Med Suisse 2020;16:1292 (revmed.ch) : « Elle a une sensibilité de 81 à 92 % et une spécificité de 94 à 97 % dans les carcinomes avancés (T3-T4) ».",
+   "conception/donnees/paraclinique/explorations/oesophagogastroduodenoscopie_avec_biopsi.json : relu(es) le 23.11.2026 (contre-audit) : 30 % confirmé dans Godat, Schoepfer et Moradpour, Rev Med Suisse 2011 (revmed.ch) : « l'endoscopie haute peut également se révéler vierge dans environ 30% des cas » ; seuil ajouté ≥ 15 éosinophiles par champ (400 ×) et quatre biopsies par localisation, même source ; biopsies des quatre quadrants et critères de Prague : Mönig et al. 2020."
+  ]
+ },
+ "fichiers": {
+  "conception/donnees/paraclinique/explorations/bronchoscopie_avec_lavage_bronchoalveola.json": {
+   "_meta": {
+    "fichier": "paraclinique/explorations/<exploration>.json",
+    "role": "Explorations fonctionnelles",
+    "producteur": "IA",
+    "volume": "≈ 15",
+    "champs": [
+     "fonction",
+     "traces[] (normal, pathologique)",
+     "seuils[]",
+     "interpretation",
+     "diagnostics[]"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Chaque texte destiné à l'apprenant s'écrit en phrases verbales.",
+     "Chaque signe, symptôme et syndrome porte une « bulle » à 4 rubriques : def, pourquoi, confusion, retenir.",
+     "Chaque temps d'examen compte 2 ou 3 signes ; un seul ne suffit jamais.",
+     "Les posologies suivent la cascade suisse : AIPS, Compendium, sociétés suisses, sociétés européennes.",
+     "Tout sigle, score ou terme technique (ex. « atypique ») cité dans un texte doit exister dans « glossaire » avec sa définition : aucun renvoi hors de l'application.",
+     "Chaque signe ou symptôme porte « presentation » : « typique » ou « atypique » (affiché en rouge).",
+     "Le bilan se range par visée (diagnostique avec « 1re intention » et « Gold standard », retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation), puis par groupe (Biologie, Imagerie, Score, Explorations, Clinique) ; chaque examen s'écrit [nom affiché, détail en infobulle : signe recherché et seuil]."
+    ]
+   },
+   "elements": [
+    {
+     "fonction": "Le lavage bronchoalvéolaire injecte puis aspire du sérum physiologique dans un segment pulmonaire à travers le bronchoscope.",
+     "traces": [
+      {
+       "type": "normal",
+       "aspect": "Aspect normal",
+       "description": "Selon l'ATS (Meyer et al., 2012), le lavage du non-fumeur contient plus de 85 % de macrophages, 10 à 15 % de lymphocytes, moins de 3 % de neutrophiles et moins de 1 % d'éosinophiles."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Lymphocytose alvéolaire",
+       "description": "Selon l'ATS (Meyer et al., 2012), plus de 15 % de lymphocytes définissent une lymphocytose alvéolaire."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Rapport CD4/CD8 élevé",
+       "description": "Selon l'ATS (Meyer et al., 2012), un rapport supérieur à 3,5 rend la sarcoïdose plus probable dans un contexte typique."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Retour de plus en plus sanglant",
+       "description": "Le liquide rougit d'une aliquote à l'autre ; selon l'ATS (Meyer et al., 2012), cela signe une hémorragie alvéolaire."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Éosinophilie alvéolaire",
+       "description": "Selon l'ATS (Meyer et al., 2012), 25 % d'éosinophiles ou plus sont quasi diagnostiques d'une pneumopathie à éosinophiles dans un contexte compatible."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Pneumocystis à la coloration",
+       "description": "La coloration du liquide montre des Pneumocystis ; elle confirme une pneumocystose chez le patient immunodéprimé."
+      }
+     ],
+     "seuils": [
+      "Selon l'ATS (Meyer et al., 2012), plus de 15 % de lymphocytes définissent une lymphocytose alvéolaire, et un rapport CD4/CD8 supérieur à 3,5 rend la sarcoïdose plus probable dans un contexte typique."
+     ],
+     "interpretation": "1. Elle montre directement l'arbre bronchique et recueille les cellules et les germes des alvéoles. 2. Le tableau « Alvéolite lymphocytaire » associe lymphocytose alvéolaire et rapport CD4/CD8 anormal. 3. Le tableau « Hémorragie intra-alvéolaire » associe retour de plus en plus sanglant et sidérophages. 4. Le lavage manque souvent les lésions périphériques, et le passage par l'oropharynx peut contaminer la culture.",
+     "diagnostics": [
+      {
+       "diagnostic": "Pneumonie de l'immunodéprimé",
+       "argument": "Germe opportuniste identifié"
+      },
+      {
+       "diagnostic": "Sarcoïdose",
+       "argument": "Rapport CD4/CD8 élevé"
+      },
+      {
+       "diagnostic": "Pneumopathie d'hypersensibilité",
+       "argument": "Lymphocytose alvéolaire"
+      },
+      {
+       "diagnostic": "Hémorragie alvéolaire",
+       "argument": "Retour de plus en plus sanglant"
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ATS": "Société thoracique américaine (American Thoracic Society).",
+    "CD4": "Marqueur des lymphocytes T auxiliaires.",
+    "CD8": "Marqueur des lymphocytes T cytotoxiques."
+   }
+  },
+  "conception/donnees/paraclinique/explorations/bronchoscopie_de_navigation.json": {
+   "_meta": {
+    "fichier": "paraclinique/explorations/<exploration>.json",
+    "role": "Explorations fonctionnelles",
+    "producteur": "IA",
+    "volume": "≈ 15",
+    "champs": [
+     "fonction",
+     "traces[] (normal, pathologique)",
+     "seuils[]",
+     "interpretation",
+     "diagnostics[]"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Chaque texte destiné à l'apprenant s'écrit en phrases verbales.",
+     "Chaque signe, symptôme et syndrome porte une « bulle » à 4 rubriques : def, pourquoi, confusion, retenir.",
+     "Chaque temps d'examen compte 2 ou 3 signes ; un seul ne suffit jamais.",
+     "Les posologies suivent la cascade suisse : AIPS, Compendium, sociétés suisses, sociétés européennes.",
+     "Tout sigle, score ou terme technique (ex. « atypique ») cité dans un texte doit exister dans « glossaire » avec sa définition : aucun renvoi hors de l'application.",
+     "Chaque signe ou symptôme porte « presentation » : « typique » ou « atypique » (affiché en rouge).",
+     "Le bilan se range par visée (diagnostique avec « 1re intention » et « Gold standard », retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation), puis par groupe (Biologie, Imagerie, Score, Explorations, Clinique) ; chaque examen s'écrit [nom affiché, détail en infobulle : signe recherché et seuil]."
+    ]
+   },
+   "elements": [
+    {
+     "fonction": "La bronchoscopie de navigation guide un cathéter dans les petites bronches jusqu'à un nodule, d'après une carte construite à partir du CT.",
+     "traces": [
+      {
+       "type": "normal",
+       "aspect": "Aspect normal",
+       "description": "Le prélèvement normal ne montre que du parenchyme sans tumeur, ce qui n'exclut pas une lésion manquée."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Histologie maligne",
+       "description": "Le prélèvement montre des cellules tumorales ; il confirme le cancer et permet souvent les analyses moléculaires."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Inflammation granulomateuse",
+       "description": "Le prélèvement montre des granulomes, qui orientent vers un granulome infectieux plutôt que vers un cancer."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Résultat bénin non spécifique",
+       "description": "Le prélèvement ne montre ni tumeur ni lésion spécifique ; il n'exclut pas une tumeur, et le suivi par CT ou une autre biopsie tranchent."
+      }
+     ],
+     "seuils": [
+      "Selon l'étude NAVIGATE (Folch et al., 2019), le rendement diagnostique atteint environ 73 % à un an pour les lésions périphériques."
+     ],
+     "interpretation": "1. Elle guide l'instrument jusqu'à une lésion périphérique grâce à une carte virtuelle tirée du CT. 2. Le tableau « Nodule périphérique suspect » associe nodule solide qui grossit, bronche qui mène à la lésion et fixation au PET. 3. Son rendement reste inférieur à celui de la ponction transthoracique, surtout quand aucune bronche ne mène à la lésion ; en contrepartie, selon l'étude NAVIGATE (Folch et al., 2019), le pneumothorax ne survient que dans environ 4 % des cas.",
+     "diagnostics": [
+      {
+       "diagnostic": "Granulome infectieux",
+       "argument": "Inflammation granulomateuse"
+      },
+      {
+       "diagnostic": "Adénocarcinome périphérique",
+       "argument": "Histologie maligne"
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CT": "Tomodensitométrie : imagerie en coupes par rayons X qui mesure l'atténuation des tissus.",
+    "NAVIGATE": "Étude prospective multicentrique de la bronchoscopie de navigation électromagnétique.",
+    "PET": "Tomographie par émission de positons : imagerie qui localise un traceur radioactif dans le corps."
+   }
+  },
+  "conception/donnees/paraclinique/explorations/ebus_avec_ponction_ganglionnaire.json": {
+   "_meta": {
+    "fichier": "paraclinique/explorations/<exploration>.json",
+    "role": "Explorations fonctionnelles",
+    "producteur": "IA",
+    "volume": "≈ 15",
+    "champs": [
+     "fonction",
+     "traces[] (normal, pathologique)",
+     "seuils[]",
+     "interpretation",
+     "diagnostics[]"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Chaque texte destiné à l'apprenant s'écrit en phrases verbales.",
+     "Chaque signe, symptôme et syndrome porte une « bulle » à 4 rubriques : def, pourquoi, confusion, retenir.",
+     "Chaque temps d'examen compte 2 ou 3 signes ; un seul ne suffit jamais.",
+     "Les posologies suivent la cascade suisse : AIPS, Compendium, sociétés suisses, sociétés européennes.",
+     "Tout sigle, score ou terme technique (ex. « atypique ») cité dans un texte doit exister dans « glossaire » avec sa définition : aucun renvoi hors de l'application.",
+     "Chaque signe ou symptôme porte « presentation » : « typique » ou « atypique » (affiché en rouge).",
+     "Le bilan se range par visée (diagnostique avec « 1re intention » et « Gold standard », retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation), puis par groupe (Biologie, Imagerie, Score, Explorations, Clinique) ; chaque examen s'écrit [nom affiché, détail en infobulle : signe recherché et seuil]."
+    ]
+   },
+   "elements": [
+    {
+     "fonction": "L'EBUS associe un bronchoscope et une sonde d'échographie qui guide une aiguille vers les ganglions.",
+     "traces": [
+      {
+       "type": "normal",
+       "aspect": "Aspect normal",
+       "description": "Le ganglion normal paraît petit, ovale, à bords nets, avec un hile graisseux central."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Cytologie maligne",
+       "description": "Elle confirme l'atteinte ganglionnaire médiastinale et fixe le stade du cancer bronchique."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Granulomes non nécrosants",
+       "description": "Selon l'ATS (Crouser et al., 2020), ils soutiennent une sarcoïdose avec une clinique compatible."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Ponction négative et suspicion forte",
+       "description": "Selon l'ESGE/ERS/ESTS (Vilmann et al., 2015), elle demande encore une exploration chirurgicale du médiastin."
+      }
+     ],
+     "seuils": [
+      "Une cytologie maligne d'un ganglion médiastinal confirme l'atteinte, et selon l'ESGE/ERS/ESTS (Vilmann et al., 2015) une ponction négative demande encore une exploration chirurgicale si le soupçon reste fort."
+     ],
+     "interpretation": "1. Elle ponctionne sous contrôle échographique les ganglions médiastinaux et hilaires que la bronchoscopie standard ne voit pas. C'est l'examen de référence pour le motif suivant : stadification médiastinale du cancer. 2. Le tableau « Extension ganglionnaire médiastinale » associe ganglion fixant au PET, cytologie maligne et station médiastinale atteinte. 3. Elle n'atteint pas toutes les stations ganglionnaires et peut ramener trop peu de matériel pour les analyses moléculaires.",
+     "diagnostics": [
+      {
+       "diagnostic": "Sarcoïdose",
+       "argument": "Granulomes non nécrosants"
+      },
+      {
+       "diagnostic": "Métastase ganglionnaire d'un cancer",
+       "argument": "Cytologie maligne"
+      },
+      {
+       "diagnostic": "Tuberculose ganglionnaire",
+       "argument": "Granulomes nécrosants"
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ATS": "Société thoracique américaine (American Thoracic Society).",
+    "EBUS": "Échoendoscopie bronchique : bronchoscopie munie d'une sonde d'échographie.",
+    "ERS": "Société européenne de pneumologie (European Respiratory Society).",
+    "ESGE": "Société européenne d'endoscopie digestive.",
+    "ESTS": "Société européenne de chirurgie thoracique.",
+    "PET": "Tomographie par émission de positons : imagerie qui localise un traceur radioactif dans le corps."
+   }
+  },
+  "conception/donnees/paraclinique/explorations/ebus_et_eus.json": {
+   "_meta": {
+    "fichier": "paraclinique/explorations/<exploration>.json",
+    "role": "Explorations fonctionnelles",
+    "producteur": "IA",
+    "volume": "≈ 15",
+    "champs": [
+     "fonction",
+     "traces[] (normal, pathologique)",
+     "seuils[]",
+     "interpretation",
+     "diagnostics[]"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Chaque texte destiné à l'apprenant s'écrit en phrases verbales.",
+     "Chaque signe, symptôme et syndrome porte une « bulle » à 4 rubriques : def, pourquoi, confusion, retenir.",
+     "Chaque temps d'examen compte 2 ou 3 signes ; un seul ne suffit jamais.",
+     "Les posologies suivent la cascade suisse : AIPS, Compendium, sociétés suisses, sociétés européennes.",
+     "Tout sigle, score ou terme technique (ex. « atypique ») cité dans un texte doit exister dans « glossaire » avec sa définition : aucun renvoi hors de l'application.",
+     "Chaque signe ou symptôme porte « presentation » : « typique » ou « atypique » (affiché en rouge).",
+     "Le bilan se range par visée (diagnostique avec « 1re intention » et « Gold standard », retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation), puis par groupe (Biologie, Imagerie, Score, Explorations, Clinique) ; chaque examen s'écrit [nom affiché, détail en infobulle : signe recherché et seuil]."
+    ]
+   },
+   "elements": [
+    {
+     "fonction": "L'EBUS et l'EUS associent une sonde d'échographie à un endoscope bronchique ou œsophagien pour ponctionner les ganglions.",
+     "traces": [
+      {
+       "type": "normal",
+       "aspect": "Aspect normal",
+       "description": "L'endosonographie normale montre des ganglions ovales, de moins de 1 cm, avec un hile graisseux central."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Ganglion rond hypoéchogène",
+       "description": "Un ganglion rond, homogène, à bords nets et de plus de 1 cm fait suspecter une atteinte maligne."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Perte du hile graisseux",
+       "description": "La disparition du hile central est un autre signe de ganglion envahi."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Cytologie maligne",
+       "description": "Une cytologie maligne confirme l'atteinte ganglionnaire, selon l'ESGE, l'ERS et l'ESTS (Vilmann et al., 2015)."
+      }
+     ],
+     "seuils": [
+      "Une cytologie maligne confirme l'atteinte ganglionnaire, et selon l'ESGE, l'ERS et l'ESTS (Vilmann et al., 2015) une endosonographie négative doit encore être suivie d'une stadification chirurgicale si le soupçon demeure."
+     ],
+     "interpretation": "1. L'EBUS et l'EUS ponctionnent sous contrôle échographique des relais complémentaires, et selon Vilmann et al. (2015) leur association est préférable à chacun des deux examens seul. C'est l'examen de référence pour le motif suivant : stadification médiastinale du cancer. 2. Le tableau « Ganglion suspect d'envahissement » associe ganglion rond hypoéchogène, perte du hile graisseux et bords nets. 3. Selon Vilmann et al. (2015), une ponction négative n'exclut pas une métastase, et une stadification chirurgicale reste alors recommandée.",
+     "diagnostics": [
+      {
+       "diagnostic": "Cancer bronchique non à petites cellules",
+       "argument": "Cytologie maligne ganglionnaire"
+      },
+      {
+       "diagnostic": "Sarcoïdose",
+       "argument": "Granulomes épithélioïdes"
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "EBUS": "Échoendoscopie bronchique : endoscope bronchique muni d'une sonde d'échographie pour ponctionner les ganglions.",
+    "ERS": "Société européenne de pneumologie (European Respiratory Society).",
+    "ESGE": "Société européenne d'endoscopie digestive.",
+    "ESTS": "Société européenne de chirurgie thoracique.",
+    "EUS": "Échoendoscopie œsophagienne : endoscope digestif muni d'une sonde d'échographie pour ponctionner les ganglions."
+   }
+  },
+  "conception/donnees/paraclinique/explorations/mediastinoscopie.json": {
+   "_meta": {
+    "fichier": "paraclinique/explorations/<exploration>.json",
+    "role": "Explorations fonctionnelles",
+    "producteur": "IA",
+    "volume": "≈ 15",
+    "champs": [
+     "fonction",
+     "traces[] (normal, pathologique)",
+     "seuils[]",
+     "interpretation",
+     "diagnostics[]"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Chaque texte destiné à l'apprenant s'écrit en phrases verbales.",
+     "Chaque signe, symptôme et syndrome porte une « bulle » à 4 rubriques : def, pourquoi, confusion, retenir.",
+     "Chaque temps d'examen compte 2 ou 3 signes ; un seul ne suffit jamais.",
+     "Les posologies suivent la cascade suisse : AIPS, Compendium, sociétés suisses, sociétés européennes.",
+     "Tout sigle, score ou terme technique (ex. « atypique ») cité dans un texte doit exister dans « glossaire » avec sa définition : aucun renvoi hors de l'application.",
+     "Chaque signe ou symptôme porte « presentation » : « typique » ou « atypique » (affiché en rouge).",
+     "Le bilan se range par visée (diagnostique avec « 1re intention » et « Gold standard », retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation), puis par groupe (Biologie, Imagerie, Score, Explorations, Clinique) ; chaque examen s'écrit [nom affiché, détail en infobulle : signe recherché et seuil]."
+    ]
+   },
+   "elements": [
+    {
+     "fonction": "La médiastinoscopie explore le médiastin par une courte incision sus-sternale et biopsie les ganglions sous contrôle de la vue.",
+     "traces": [
+      {
+       "type": "normal",
+       "aspect": "Aspect normal",
+       "description": "La médiastinoscopie normale ne trouve que des ganglions souples, dont l'histologie ne montre pas de cellule tumorale."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Ganglion dur et fixé",
+       "description": "Un ganglion induré dont l'histologie est maligne confirme l'atteinte médiastinale, selon l'ESGE, l'ERS et l'ESTS (Vilmann et al., 2015)."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Granulomes sans nécrose",
+       "description": "Des granulomes épithélioïdes sans nécrose orientent vers une sarcoïdose."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Ganglion envahi en rupture capsulaire",
+       "description": "Une extension au-delà de la capsule ganglionnaire aggrave le pronostic."
+      }
+     ],
+     "seuils": [
+      "Une histologie maligne d'un ganglion médiastinal confirme l'atteinte, et selon l'ESGE, l'ERS et l'ESTS (Vilmann et al., 2015) on la réserve surtout aux cas où l'échoendoscopie n'a pas montré d'envahissement."
+     ],
+     "interpretation": "1. Elle fournit une histologie chirurgicale des ganglions accessibles par voie cervicale, après un premier geste endoscopique négatif. 2. Le tableau « Stadification N2 chirurgicale » associe ganglion homolatéral envahi et histologie maligne. 3. C'est un geste chirurgical plus invasif que l'échoendoscopie, et selon Vilmann et al. (2015) elle vient après une endosonographie négative si le soupçon persiste.",
+     "diagnostics": [
+      {
+       "diagnostic": "Cancer bronchique N2",
+       "argument": "Ganglion médiastinal envahi"
+      },
+      {
+       "diagnostic": "Sarcoïdose",
+       "argument": "Granulomes sans nécrose"
+      },
+      {
+       "diagnostic": "Lymphome",
+       "argument": "Architecture ganglionnaire détruite"
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "ERS": "Société européenne de pneumologie (European Respiratory Society).",
+    "ESGE": "Société européenne d'endoscopie digestive.",
+    "ESTS": "Société européenne de chirurgie thoracique.",
+    "N2": "Catégorie TNM : atteinte des ganglions médiastinaux homolatéraux."
+   }
+  },
+  "conception/donnees/paraclinique/explorations/thoracoscopie.json": {
+   "_meta": {
+    "fichier": "paraclinique/explorations/<exploration>.json",
+    "role": "Explorations fonctionnelles",
+    "producteur": "IA",
+    "volume": "≈ 15",
+    "champs": [
+     "fonction",
+     "traces[] (normal, pathologique)",
+     "seuils[]",
+     "interpretation",
+     "diagnostics[]"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Chaque texte destiné à l'apprenant s'écrit en phrases verbales.",
+     "Chaque signe, symptôme et syndrome porte une « bulle » à 4 rubriques : def, pourquoi, confusion, retenir.",
+     "Chaque temps d'examen compte 2 ou 3 signes ; un seul ne suffit jamais.",
+     "Les posologies suivent la cascade suisse : AIPS, Compendium, sociétés suisses, sociétés européennes.",
+     "Tout sigle, score ou terme technique (ex. « atypique ») cité dans un texte doit exister dans « glossaire » avec sa définition : aucun renvoi hors de l'application.",
+     "Chaque signe ou symptôme porte « presentation » : « typique » ou « atypique » (affiché en rouge).",
+     "Le bilan se range par visée (diagnostique avec « 1re intention » et « Gold standard », retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation), puis par groupe (Biologie, Imagerie, Score, Explorations, Clinique) ; chaque examen s'écrit [nom affiché, détail en infobulle : signe recherché et seuil]."
+    ]
+   },
+   "elements": [
+    {
+     "fonction": "La thoracoscopie explore la cavité pleurale avec une optique introduite entre les côtes, sous anesthésie locale ou générale.",
+     "traces": [
+      {
+       "type": "normal",
+       "aspect": "Aspect normal",
+       "description": "La thoracoscopie normale montre une plèvre pariétale lisse, rosée et brillante, sans nodule ni plaque."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Nodules pleuraux pariétaux",
+       "description": "Des nodules multiples font suspecter une malignité, que les biopsies dirigées confirment avec une sensibilité d'environ 92 %, selon l'ERS, l'ESTS, l'EACTS et l'ESTRO (Opitz et al., 2020)."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Plaques blanches fibreuses",
+       "description": "Des plaques nacrées et fibreuses évoquent une exposition à l'amiante."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Granulations miliaires",
+       "description": "De fines granulations diffuses évoquent une tuberculose pleurale, que l'histologie confirme."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Adhérences et cloisons",
+       "description": "Des cloisons fibrineuses traduisent un épanchement infecté ou ancien, selon la BTS (Roberts et al., 2023)."
+      }
+     ],
+     "seuils": [
+      "Le diagnostic repose sur l'histologie, et selon l'ERS, l'ESTS, l'EACTS et l'ESTRO (Opitz et al., 2020) la sensibilité de la thoracoscopie médicale atteint environ 92 % pour la malignité pleurale."
+     ],
+     "interpretation": "1. Elle permet de voir la plèvre, de biopsier sous contrôle de la vue, d'évacuer le liquide et de faire une pleurodèse au talc, selon Opitz et al. (2020). C'est l'examen de référence pour le motif suivant : épanchement pleural inexpliqué. 2. Le tableau « Atteinte pleurale maligne » associe nodules pleuraux pariétaux, masses confluentes et épanchement récidivant. 3. Selon Opitz et al. (2020), la mortalité de la thoracoscopie médicale atteint environ 0,34 % et les complications majeures environ 1,8 % dans une analyse de 47 études.",
+     "diagnostics": [
+      {
+       "diagnostic": "Mésothéliome pleural",
+       "argument": "Nodules et masses confluents"
+      },
+      {
+       "diagnostic": "Métastases pleurales",
+       "argument": "Nodules pleuraux pariétaux"
+      },
+      {
+       "diagnostic": "Tuberculose pleurale",
+       "argument": "Granulations miliaires"
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "BTS": "Société thoracique britannique (British Thoracic Society).",
+    "EACTS": "Association européenne de chirurgie cardio-thoracique.",
+    "ERS": "Société européenne de pneumologie (European Respiratory Society).",
+    "ESTRO": "Société européenne de radiothérapie et d'oncologie.",
+    "ESTS": "Société européenne de chirurgie thoracique."
+   }
+  },
+  "conception/donnees/paraclinique/explorations/echo_endoscopie_oesophagienne.json": {
+   "_meta": {
+    "fichier": "paraclinique/explorations/<exploration>.json",
+    "role": "Explorations fonctionnelles",
+    "producteur": "IA",
+    "volume": "≈ 15",
+    "champs": [
+     "fonction",
+     "traces[] (normal, pathologique)",
+     "seuils[]",
+     "interpretation",
+     "diagnostics[]"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Chaque texte destiné à l'apprenant s'écrit en phrases verbales.",
+     "Chaque signe, symptôme et syndrome porte une « bulle » à 4 rubriques : def, pourquoi, confusion, retenir.",
+     "Chaque temps d'examen compte 2 ou 3 signes ; un seul ne suffit jamais.",
+     "Les posologies suivent la cascade suisse : AIPS, Compendium, sociétés suisses, sociétés européennes.",
+     "Tout sigle, score ou terme technique (ex. « atypique ») cité dans un texte doit exister dans « glossaire » avec sa définition : aucun renvoi hors de l'application.",
+     "Chaque signe ou symptôme porte « presentation » : « typique » ou « atypique » (affiché en rouge).",
+     "Le bilan se range par visée (diagnostique avec « 1re intention » et « Gold standard », retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation), puis par groupe (Biologie, Imagerie, Score, Explorations, Clinique) ; chaque examen s'écrit [nom affiché, détail en infobulle : signe recherché et seuil]."
+    ]
+   },
+   "elements": [
+    {
+     "fonction": "L'écho-endoscopie œsophagienne combine une endoscopie et une sonde d'ultrasons au contact de la paroi.",
+     "traces": [
+      {
+       "type": "normal",
+       "aspect": "Aspect normal",
+       "description": "L'écho-endoscopie normale montre une paroi œsophagienne fine en cinq couches alternées, sans ganglion suspect autour."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Rupture de la musculeuse",
+       "description": "Une tumeur qui franchit la musculeuse atteint l'adventice et correspond à la catégorie T3, que l'examen évalue avec une sensibilité de 81 à 92 % pour les tumeurs avancées (T3-T4), selon Mönig et Chevallay (Rev Med Suisse 2020)."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Ganglion rond hypoéchogène",
+       "description": "Un ganglion rond, hypoéchogène et à bords nets fait suspecter une métastase, mais la taille seule est mal corrélée à l'atteinte, selon Mönig et Chevallay (Rev Med Suisse 2020)."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Tumeur limitée à la muqueuse",
+       "description": "Une lésion qui respecte la sous-muqueuse peut relever d'une résection endoscopique."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Épaississement de la musculeuse",
+       "description": "Un épaississement régulier de la musculeuse sous le cardia oriente vers une achalasie, alors qu'une masse évoque une pseudo-achalasie, selon Soares et al. (Rev Med Suisse 2015)."
+      }
+     ],
+     "seuils": [
+      "Selon Mönig et Chevallay (Rev Med Suisse 2020), l'écho-endoscopie évalue la profondeur d'infiltration (catégorie T) avec une sensibilité de 81 à 92 % et une spécificité de 94 à 97 % dans les carcinomes avancés (T3-T4), et c'est la méthode de choix pour les ganglions régionaux (catégorie N). Une ponction à l'aiguille fine peut augmenter la précision de la stadification ganglionnaire, mais pas celle de la catégorie T."
+     ],
+     "interpretation": "1. Elle voit les couches de la paroi œsophagienne et les ganglions au contact, ce que le CT et le PET précisent moins bien pour le T et le N locorégional, selon Mönig et Chevallay (Rev Med Suisse 2020). 2. Le tableau « Extension locorégionale tumorale » associe rupture de la musculeuse, ganglion rond hypoéchogène et contact avec l'aorte. 3. Selon Mönig et Chevallay (Rev Med Suisse 2020), elle n'est pas toujours satisfaisante, et la taille d'un ganglion est mal corrélée à une métastase, ce qui limite la fiabilité du N. Une sténose serrée peut empêcher le passage de la sonde.",
+     "diagnostics": [
+      {
+       "diagnostic": "Cancer de l'œsophage localement avancé",
+       "argument": "Rupture de la musculeuse"
+      },
+      {
+       "diagnostic": "Cancer superficiel de l'œsophage",
+       "argument": "Tumeur limitée à la muqueuse"
+      },
+      {
+       "diagnostic": "Pseudo-achalasie",
+       "argument": "Masse sous-cardiale"
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "CT": "Tomodensitométrie : imagerie par rayons X en coupes.",
+    "PET": "Tomographie par émission de positons (sigle anglais usuel, équivalent de TEP).",
+    "T3": "Catégorie TNM : tumeur qui atteint l'adventice.",
+    "T3-T4": "Catégories T 3 et 4 de la classification TNM.",
+    "T4": "Catégorie TNM : tumeur qui envahit une structure voisine."
+   }
+  },
+  "conception/donnees/paraclinique/explorations/oesophagogastroduodenoscopie_avec_biopsi.json": {
+   "_meta": {
+    "fichier": "paraclinique/explorations/<exploration>.json",
+    "role": "Explorations fonctionnelles",
+    "producteur": "IA",
+    "volume": "≈ 15",
+    "champs": [
+     "fonction",
+     "traces[] (normal, pathologique)",
+     "seuils[]",
+     "interpretation",
+     "diagnostics[]"
+    ],
+    "statut": "À REMPLIR",
+    "regles": [
+     "Chaque texte destiné à l'apprenant s'écrit en phrases verbales.",
+     "Chaque signe, symptôme et syndrome porte une « bulle » à 4 rubriques : def, pourquoi, confusion, retenir.",
+     "Chaque temps d'examen compte 2 ou 3 signes ; un seul ne suffit jamais.",
+     "Les posologies suivent la cascade suisse : AIPS, Compendium, sociétés suisses, sociétés européennes.",
+     "Tout sigle, score ou terme technique (ex. « atypique ») cité dans un texte doit exister dans « glossaire » avec sa définition : aucun renvoi hors de l'application.",
+     "Chaque signe ou symptôme porte « presentation » : « typique » ou « atypique » (affiché en rouge).",
+     "Le bilan se range par visée (diagnostique avec « 1re intention » et « Gold standard », retentissement, étiologique, complications, thérapeutique si applicable, sortie si hospitalisation), puis par groupe (Biologie, Imagerie, Score, Explorations, Clinique) ; chaque examen s'écrit [nom affiché, détail en infobulle : signe recherché et seuil]."
+    ]
+   },
+   "elements": [
+    {
+     "fonction": "L'œsophagogastroduodénoscopie explore l'œsophage, l'estomac et le duodénum avec un tube souple muni d'une caméra, et permet des biopsies.",
+     "traces": [
+      {
+       "type": "normal",
+       "aspect": "Aspect normal",
+       "description": "L'endoscopie normale montre une muqueuse œsophagienne rose et lisse, une jonction œso-gastrique nette au niveau du diaphragme et une lumière libre sans sténose."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Érosions muqueuses distales",
+       "description": "Des érosions confluentes de grade C ou D traduisent une œsophagite peptique sévère, selon la classification de Los Angeles (Lundell et al., 1999)."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Muqueuse rouge saumon au-dessus du cardia",
+       "description": "Elle évoque un œsophage de Barrett, que les biopsies des quatre quadrants confirment, selon Mönig et Chevallay (Rev Med Suisse 2020)."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Sillons longitudinaux et anneaux",
+       "description": "Des sillons, des anneaux et des exsudats blanchâtres évoquent une œsophagite à éosinophiles, mais la muqueuse peut paraître normale dans environ 30 % des cas, selon Godat, Schoepfer et Moradpour (Rev Med Suisse 2011)."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Lésion bourgeonnante sténosante",
+       "description": "Une lésion irrégulière qui rétrécit la lumière fait suspecter un cancer et doit être biopsiée, selon Mönig et Chevallay (Rev Med Suisse 2020)."
+      },
+      {
+       "type": "pathologique",
+       "aspect": "Œsophage dilaté avec stase",
+       "description": "Un œsophage dilaté contenant des résidus, avec un cardia serré franchi par une poussée douce, oriente vers une achalasie, selon Soares et al. (Rev Med Suisse 2015)."
+      }
+     ],
+     "seuils": [
+      "Selon Godat, Schoepfer et Moradpour (Rev Med Suisse 2011), le diagnostic d'œsophagite à éosinophiles exige au moins 15 éosinophiles par champ à fort grossissement (400 ×) sur au moins une biopsie ; on prélève quatre biopsies dans le haut et quatre dans le bas œsophage, car l'endoscopie paraît normale dans environ 30 % des cas.",
+      "Selon Mönig et Chevallay (Rev Med Suisse 2020), toute lésion suspecte est biopsiée, et un œsophage de Barrett demande des biopsies des quatre quadrants avec les critères de Prague."
+     ],
+     "interpretation": "1. Elle voit directement la muqueuse, permet des biopsies et, selon Mönig et Chevallay (Rev Med Suisse 2020), a la meilleure sensibilité et spécificité pour détecter une néoplasie œsophagienne. 2. Le tableau « Œsophagite peptique » associe érosions muqueuses distales, hernie hiatale et sténose peptique. 3. Le tableau « Aspect d'œsophagite à éosinophiles » associe sillons longitudinaux, anneaux concentriques et exsudats blanchâtres. 4. Selon Godat et al. (Rev Med Suisse 2011), une muqueuse d'apparence normale n'exclut pas une œsophagite à éosinophiles. L'examen ne mesure pas la motricité et peut être incomplet en cas de sténose infranchissable.",
+     "diagnostics": [
+      {
+       "diagnostic": "Reflux gastro-œsophagien",
+       "argument": "Érosions muqueuses distales"
+      },
+      {
+       "diagnostic": "Œsophage de Barrett",
+       "argument": "Muqueuse rouge saumon"
+      },
+      {
+       "diagnostic": "Œsophagite à éosinophiles",
+       "argument": "Sillons et anneaux"
+      },
+      {
+       "diagnostic": "Cancer de l'œsophage",
+       "argument": "Lésion bourgeonnante sténosante"
+      }
+     ]
+    }
+   ],
+   "glossaire": {
+    "OGD": "L'OGD, ou œsophagogastroduodénoscopie, explore l'œsophage, l'estomac et le duodénum avec un endoscope souple muni d'une caméra.",
+    "Prague": "Les critères de Prague mesurent la hauteur d'un œsophage de Barrett et son extension maximale par rapport à la jonction gastro-œsophagienne."
+   }
+  }
+ }
+}
