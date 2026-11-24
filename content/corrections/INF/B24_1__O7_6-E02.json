@@ -1,0 +1,405 @@
+{
+ "id": "B24_1__O7_6-E02",
+ "portes": [
+  {
+   "ssp": "O7.6",
+   "nomSSP": "Patient immunodéprimé",
+   "entite": "Infection par le VIH contrôlée ou nouvellement diagnostiquée",
+   "entiteId": "O7.6-E02"
+  }
+ ],
+ "entite": "Infection par le VIH contrôlée ou nouvellement diagnostiquée",
+ "cim10": "B24",
+ "ssp": {
+  "code": "O7.6",
+  "nom": "Patient immunodéprimé",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient immunodéprimé ou suspect de l'être",
+    "i": "On précise la cause et le degré de l'immunodépression.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Maladie indicatrice sans diagnostic connu",
+    "i": "On propose un test VIH de 4e génération.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Test réactif confirmé",
+    "i": "On réalise le bilan initial.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n4",
+    "parent": "n3",
+    "t": "Infection opportuniste aiguë",
+    "i": "On traite l'infection ; renvoi à la pathologie correspondante.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Méningite à cryptocoque",
+    "i": "On diffère le traitement antirétroviral de quelques semaines.",
+    "pec": "pec_vih",
+    "notion": "c3"
+   },
+   {
+    "id": "n6",
+    "parent": "n3",
+    "t": "CD4 < 200/µl",
+    "i": "On ajoute une prophylaxie par cotrimoxazole.",
+    "pec": "pec_vih",
+    "notion": "c2"
+   },
+   {
+    "id": "n7",
+    "parent": "n3",
+    "t": "Pas d'infection opportuniste",
+    "i": "On débute le traitement antirétroviral rapidement.",
+    "pec": "pec_vih",
+    "notion": "c3"
+   },
+   {
+    "id": "n8",
+    "parent": "n1",
+    "t": "Fièvre chez un patient neutropénique ou transplanté",
+    "i": "On applique la démarche de l'immunodépression non VIH ; renvoi au SSP correspondant.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n9",
+    "parent": "n7",
+    "t": "Charge virale indétectable",
+    "i": "On suit tous les 3 à 6 mois et on informe sur I = I.",
+    "pec": "pec_vih",
+    "notion": "c4"
+   }
+  ]
+ },
+ "specialites": [
+  "INF"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Infection par le VIH : diagnostic, traitement et suivi",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Dépister tôt",
+   "rubriques": [
+    "anamnesis",
+    "workupGoldStandard",
+    "definition"
+   ],
+   "comment": "Propose le test devant toute maladie indicatrice et confirme tout résultat réactif.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le test de 4e génération a une fenêtre d'environ 6 semaines.",
+    "Un zona du jeune, une IST ou une thrombopénie justifient un test.",
+    "La présentation tardive se définit par des CD4 < 350/µl."
+   ],
+   "sources": [
+    "[OFSP, VIH/IST] (à vérifier)"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Seuils de CD4 et prophylaxies",
+   "rubriques": [
+    "presumptionRedFlags",
+    "chronicManagement"
+   ],
+   "comment": "Associe chaque seuil de CD4 à son risque et à sa mesure.",
+   "tableau": {
+    "colonnes": [
+     "CD4/µl",
+     "Risque",
+     "Mesure"
+    ],
+    "lignes": [
+     [
+      "< 200",
+      "Pneumocystose",
+      [
+       {
+        "t": "Cotrimoxazole",
+        "i": "Il prévient la pneumocystose et la toxoplasmose."
+       }
+      ]
+     ],
+     [
+      "< 200",
+      "Complications des vaccins vivants",
+      [
+       {
+        "t": "Contre-indication",
+        "i": "Le virus vaccinal peut se répliquer et disséminer."
+       }
+      ]
+     ],
+     [
+      "< 100 + toxo IgG+",
+      "Toxoplasmose cérébrale",
+      "Cotrimoxazole"
+     ],
+     [
+      "< 50",
+      "Mycobactéries atypiques, CMV",
+      "Traitement antirétroviral rapide"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "On arrête les prophylaxies quand les CD4 remontent durablement sous traitement."
+   ],
+   "sources": [
+    "[EACS Guidelines, version 12, 2023] (à vérifier version courante)"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Débuter le traitement",
+   "rubriques": [
+    "acuteManagement",
+    "workupAlternatives"
+   ],
+   "comment": "Traite tout le monde, vite, après un bilan qui évite les pièges.",
+   "tableau": {
+    "colonnes": [
+     "Étape",
+     "Action",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Bilan",
+      "HBV, HLA-B*57:01, résistance",
+      [
+       {
+        "t": "HBV",
+        "i": "Le ténofovir traite aussi l'hépatite B ; son arrêt la réactive."
+       }
+      ]
+     ],
+     [
+      "Schéma",
+      "Inhibiteur d'intégrase + 2 INTI",
+      [
+       {
+        "t": "Barrière génétique",
+        "i": "Il résiste bien à la sélection de mutants."
+       }
+      ]
+     ],
+     [
+      "Exception",
+      "Méningite à cryptocoque",
+      [
+       {
+        "t": "IRIS",
+        "i": "Un traitement trop précoce augmente la mortalité."
+       }
+      ]
+     ],
+     [
+      "Interactions",
+      "Boosters, cations",
+      [
+       {
+        "t": "CYP3A4",
+        "i": "Ritonavir et cobicistat bloquent le métabolisme d'autres médicaments."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "On vérifie chaque prescription sur hiv-druginteractions.org."
+   ],
+   "sources": [
+    "[EACS Guidelines, version 12, 2023] (à vérifier version courante)",
+    "[START, NEJM 2015]"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Vivre avec le VIH en Suisse",
+   "rubriques": [
+    "chronicManagement",
+    "prognosisDischarge",
+    "followUpNetwork",
+    "surveillance"
+   ],
+   "comment": "Explique I = I, protège le secret et soigne le risque cardiovasculaire.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Une charge virale indétectable empêche la transmission sexuelle.",
+    "La PrEP protège les personnes à risque élevé.",
+    "Le statut VIH reste couvert par le secret médical.",
+    "L'espérance de vie approche celle de la population générale."
+   ],
+   "sources": [
+    "[CFPS/EKAF, « Swiss statement », 2008]",
+    "[Swiss HIV Cohort Study]"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "pec_vih",
+   "titre": "Infection par le VIH nouvellement diagnostiquée ou contrôlée",
+   "but": [
+    "Supprimer durablement la réplication virale.",
+    "Restaurer l'immunité et prévenir les infections opportunistes.",
+    "Empêcher la transmission."
+   ],
+   "moyens": {
+    "accueil": [
+     "On annonce le diagnostic avec tact et on assure la confidentialité.",
+     "On réalise le bilan initial complet.",
+     "On dépiste les partenaires avec l'accord du patient."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Bictégravir/emtricitabine/ténofovir alafénamide (INI + 2 INTI)",
+      "posologie": "Un comprimé par jour ; à vérifier dans l'AIPS ; adapter à la fonction rénale.",
+      "pourquoi": "Il associe forte barrière génétique, simplicité et activité anti-HBV.",
+      "source": "[EACS Guidelines, version 12, 2023] (à vérifier version courante)"
+     },
+     {
+      "molecule": "Dolutégravir + deux INTI",
+      "posologie": "Une prise quotidienne ; doses à vérifier dans l'AIPS ; espacer des cations.",
+      "pourquoi": "C'est l'alternative de première ligne.",
+      "source": "[EACS Guidelines, version 12, 2023] (à vérifier version courante)"
+     },
+     {
+      "molecule": "Cotrimoxazole (prophylaxie)",
+      "posologie": "Si CD4 < 200/µl ; dose à vérifier dans l'AIPS ; surveiller la FSC et la kaliémie.",
+      "pourquoi": "Il prévient pneumocystose et toxoplasmose.",
+      "source": "[EACS Guidelines, version 12, 2023] (à vérifier version courante)"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "On explique l'importance de l'adhésion et I = I.",
+      "pourquoi": "L'adhésion conditionne l'efficacité."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "On propose un soutien en cas de détresse.",
+      "pourquoi": "L'annonce peut déclencher anxiété ou dépression."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "On aide à l'arrêt du tabac.",
+      "pourquoi": "Le tabac domine la morbidité."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "C Communication clinique",
+      "apport": "On annonce le diagnostic et on aide à informer les partenaires."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "On respecte le secret médical et la déclaration obligatoire."
+     },
+     {
+      "discipline": "N Médecine sociale Prévention OFSP",
+      "apport": "On complète les vaccinations et propose la PrEP aux partenaires à risque."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "On débute le traitement rapidement.",
+      "On vérifie toutes les interactions."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il confirme le diagnostic et réalise le bilan."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "L'infectiologue choisit le schéma antirétroviral."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Il éduque à l'adhésion."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Il contrôle charge virale et CD4."
+      }
+     ]
+    }
+   },
+   "pronostic": "Sous traitement efficace, l'espérance de vie approche celle de la population générale.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Charge virale",
+      "quand": "À 1 mois, puis tous les 3–6 mois",
+      "cible": "< 50 copies/ml"
+     },
+     {
+      "quoi": "CD4",
+      "quand": "Tous les 3–6 mois puis espacés",
+      "cible": "Remontée"
+     },
+     {
+      "quoi": "Créatinine, lipides",
+      "quand": "Tous les 6–12 mois",
+      "cible": "Stables"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire."
+   },
+   "prevention": {
+    "primaire": "On utilise préservatif ou PrEP.",
+    "secondaire": "On dépiste et traite tôt.",
+    "tertiaire": "On vaccine et on prévient le risque cardiovasculaire."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "_mode": "agent_sans_api",
+  "note": "Produit directement par l'agent Claude, sans appel à l'API Anthropic."
+ },
+ "signature": {
+  "date": "2026-11-24T11:44:53",
+  "modele": "claude-opus-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

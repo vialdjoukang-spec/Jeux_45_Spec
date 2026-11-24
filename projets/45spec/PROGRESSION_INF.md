@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API (format exact de `scripts/produire_notions_questions.py`), branche `agent/45spec-INF`.
 
-**6 / 82 pathologies canoniques produites** (notions + questions + correction), ordre du script (fréquence puis identifiant).
+**9 / 82 pathologies canoniques produites** (notions + questions + correction), ordre du script (fréquence puis identifiant).
 
 Statut d'audit : en attente (`audit.rejector = null`). Les chiffres incertains portent la mention « à vérifier » dans le champ source.
 
@@ -14,9 +14,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Les chiffres incertains p
 | 4 | `A49.9__F2_19-E01` | Infection bactérienne communautaire aiguë (pneumonie, pyélonéphrite, érysipèle) | produite |
 | 5 | `A69.2_1__S5_6-E08` | Arthrite de Lyme (borréliose tardive) | produite |
 | 6 | `B00.1__S6_1-E03` | Herpès labial ou génital (HSV-1 / HSV-2) | produite |
-| 7 | `B24_1__O7_6-E02` | Infection par le VIH contrôlée ou nouvellement diagnostiquée | — |
-| 8 | `B30.9__S1_17-E01` | Conjonctivite aiguë virale (adénovirus) | — |
-| 9 | `B34.9_1__F2_19-E02` | Infection virale aiguë (lymphocytose ou leucopénie transitoire) | — |
+| 7 | `B24_1__O7_6-E02` | Infection par le VIH contrôlée ou nouvellement diagnostiquée | produite |
+| 8 | `B30.9__S1_17-E01` | Conjonctivite aiguë virale (adénovirus) | produite |
+| 9 | `B34.9_1__F2_19-E02` | Infection virale aiguë (lymphocytose ou leucopénie transitoire) | produite |
 | 10 | `B34.9__S5_4-E01` | Myalgies virales aiguës (grippe, entérovirus, COVID-19) | — |
 | 11 | `B37.0_1__S6_1-E01` | Candidose buccale (muguet) et vulvo-vaginale | — |
 | 12 | `B37.0__S1_9-E02` | Candidose oropharyngée (muguet buccal, perlèche) | — |
