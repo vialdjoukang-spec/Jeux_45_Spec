@@ -209,8 +209,8 @@ def main():
         for cle, val in ex.items():
             fid = f"{cle}_{an}"
             base = faits.get(fid, {"id": fid, "rubrique": f"Session {an}", "libelle": cle})
-            base.update(valeur=val, statut="officiel", source=s["url"], consulte_le=etat.get(s["url"], {}).get("consulte_le") or base.get("consulte_le"), sha256=s.get("sha256"), verifie_auto=True,
-                        extrait=f"Tableau des délais {an} (PDF officiel)")
+            base.update(valeur=val, statut="officiel", source=s["url"], consulte_le=etat.get(s["url"], {}).get("consulte_le") or base.get("consulte_le"), sha256=s.get("sha256"), verifie_auto=True)
+            base.setdefault("extrait", f"Tableau des délais {an} (PDF officiel)")  # garde l'extrait exact relu par le motif
             base.pop("attendu", None)
             faits[fid] = base
     # 4 bis. statistiques : la dernière année « Examens fédéraux AAAA » de la page OFSP

@@ -233,7 +233,7 @@ window.VEILLE={
    "consulte_le": "2026-11-24",
    "sha256": "d8e5777b92697f3bc0d9fd199608ce943369cdcb0649fc810ac49e6d0f1984f9",
    "verifie_auto": true,
-   "extrait": "Tableau des délais 2026 (PDF officiel)"
+   "extrait": "e Date de l'examen : Examen QCM (2 demi-journées) Le mardi 4 août 2026 et le jeudi 6 août 2026 Clinical Skills Prüfungen (1 demi-"
   },
   {
    "id": "reserve_2026",
@@ -262,7 +262,7 @@ window.VEILLE={
    "consulte_le": "2026-11-24",
    "sha256": "d8e5777b92697f3bc0d9fd199608ce943369cdcb0649fc810ac49e6d0f1984f9",
    "verifie_auto": true,
-   "extrait": "Tableau des délais 2026 (PDF officiel)"
+   "extrait": "lls Prüfungen (1 demi-journée) Entre le 31 août 2026 et le 2 septembre 2026 Date de réserve QCM : 25 août 2026 Observations importante"
   },
   {
    "id": "lieux_2026",
