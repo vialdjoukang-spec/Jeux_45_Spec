@@ -248,9 +248,9 @@ Signature : AAI (Anthropic AI)
 | Élément | Valeur |
 |---|---|
 | Paquets | 11 `tetrade_<dossier>` (un par système rédigé sur main) |
-| Questions | 108 : 87 type A (5 options, 1 juste), 21 Kprim (4 affirmations) |
+| Questions | 108 : 92 type A (5 options, 1 juste), 16 Kprim (4 affirmations) |
 | Répartition | cardio 12, neuro 12, respi 11, digestif 11, endocrino 11, hémato 10, rénal 10, ORL 9, loco 8, infectio 7, derma 7 |
-| Interprétations de courbes | 27 questions liées à une courbe (`I` : ecg, spiro, gazometrie, fena, osmo, en_tsh_t4, he_fer, or_audio, lo_ck…) |
+| Interprétations de courbes | 30 questions liées à une courbe (`I` : ecg, spiro, gazometrie, fena, osmo, en_tsh_t4, he_fer, or_audio, lo_ck…) |
 | Correction | explication par option + échelle mécanisme / discriminant / ancre |
 
 Fonctionnement (0 token) : les sources sont du texte, `conception/donnees/tetrade/arene/<dossier>.txt` (format en tête de `cardio.txt`). `construire_arenes.py` les lit, rattache chaque question à une pathologie rédigée (`X nom exact`) dont la ligne `s` devient la source affichée, et **échoue bruyamment** si : type A sans 5 options ou sans réponse unique, Kprim sans 4 affirmations, explication vide, pathologie inconnue, ou **titre qui contient un mot du diagnostic**. Aucune référence nouvelle n'est donc créée : la source est celle de la pathologie déjà auditée.
