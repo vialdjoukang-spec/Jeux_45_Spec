@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-24 08:44 UTC
+# Ouvrier automatique — 2026-11-24 09:38 UTC
 
 Dernier passage : **T3_pec_fiches_existantes** → en_cours (0.14 USD).
 
-Le mode pec existait déjà et a été testé en direct ; le lot de 61 fiches a été récupéré, avec 52 priseEnCharge insérées et audit.rejector remis à null. Les 9 échecs ont été resoumis dans le lot msgbatch_01YWN6ZofP55QtkVqB39mzh1, à récupérer au prochain passage. Il reste 151 fiches rejetées avec erreurs de forme, qui relèvent de T4 ; 619 fiches sur 779 ont maintenant priseEnCharge.
+Le mode pec existe et le dernier lot de 9 fiches a été récupéré : 9 blocs priseEnCharge sont insérés sans échec, et audit.rejector est remis à null pour que Claude les réaudite. Il reste 628 fiches sur 779 avec priseEnCharge ; les 151 manquantes sont des fiches rejetées pour erreurs de forme, que la tâche T4 reprend (archive puis nouvelle soumission). La tâche passera à « fait » une fois T4 terminée, puisque toutes les fiches doivent avoir priseEnCharge.
 
-**Crédit** : 51.28 USD dépensés, 140.72 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.66 / 141.38 USD.
+**Crédit** : 51.42 USD dépensés, 140.58 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.80 / 141.38 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -38,7 +38,7 @@ Le mode pec existait déjà et a été testé en direct ; le lot de 61 fiches a 
 | END_Q_recup | fait | 1 | 0.0 |
 | END_C_lot | fait | 1 | 0.0 |
 | END_C_recup | fait | 1 | 0.0 |
-| T3_pec_fiches_existantes | en_cours | 3 | 0.138 |
+| T3_pec_fiches_existantes | en_cours | 4 | 0.136 |
 | T4_reprise_rejets | a_faire | 0 |  |
 | T5_items_valides | sans_objet | 0 |  |
 | T7_transversal_lecons | sans_objet | 0 |  |
