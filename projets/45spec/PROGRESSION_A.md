@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**297 / 500 pathologies du périmètre produites.**
+**300 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -223,9 +223,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 214 | `I31.9_tamponnade_pericardi__F1_18-E12` | Tamponnade péricardique | CAR | produite |
 | 215 | `I82.0__F2_11-E17` | Syndrome de Budd-Chiari (thrombose des veines sus-hépatiques) | ANG | produite |
 | 216 | `J80__F1_10-E14` | Syndrome de détresse respiratoire aiguë (SDRA) | INT | produite |
-| 217 | `J94.2__F1_6-E12` | Hémothorax massif (traumatique ou iatrogène) | CTH | — |
-| 218 | `K22.3_1__F2_18-E17` | Syndrome de Boerhaave (rupture spontanée transmurale de l'œsophage) | CTH | — |
-| 219 | `K56.2__F2_4-E18` | Volvulus du sigmoïde (image en grain de café) | CHI | — |
+| 217 | `J94.2__F1_6-E12` | Hémothorax massif (traumatique ou iatrogène) | CTH | produite |
+| 218 | `K22.3_1__F2_18-E17` | Syndrome de Boerhaave (rupture spontanée transmurale de l'œsophage) | CTH | produite |
+| 219 | `K56.2__F2_4-E18` | Volvulus du sigmoïde (image en grain de café) | CHI | produite |
 | 220 | `K85.8_pancreatite_aigue__F2_13-E12` | Pancréatite aiguë | GAS | produite |
 | 221 | `L51.1__F1_4-E15` | Syndrome de Stevens-Johnson / nécrolyse épidermique toxique (Lyell) | DER | — |
 | 222 | `N01.9__F2_12-E15` | Glomérulonéphrite rapidement progressive (GNRP / syndrome pneumo-rénal) | NEP | produite |
