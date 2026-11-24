@@ -4,7 +4,7 @@ Branche : `agent/45spec-PED`. Production par agent Claude **sans API** (même sc
 Ordre : `selection()` (fréquence puis identifiant) pour les 18 premières ; ensuite **ordre révisé par importance pour l'examen** (section ci-dessous). Contrôles : `valider()` sans erreur ; couverture des notions de poids ≥ 2 au moins deux fois sous deux angles ; formats ≈ 70/20/10.
 Les données douteuses portent la mention « à vérifier » dans leur source (AIPS, version de recommandation). Statut d'audit : en attente (`audit.rejector = null`).
 
-**Avancement : 30 / 69 pathologies canoniques complètes (notions + questions + correction).**
+**Avancement : 33 / 69 pathologies canoniques complètes (notions + questions + correction).**
 
 | # | Identifiant | Pathologie | Fréq. | Complet | Notions | Questions |
 |---|---|---|---|---|---|---|
@@ -32,7 +32,7 @@ Les données douteuses portent la mention « à vérifier » dans leur source (A
 | 22 | `J21.9__F1_10-E16` | Bronchiolite aiguë grave du nourrisson avec apnées et cyanos | 3 | ✅ | 29 | 21 |
 | 23 | `P22.0__O1_1-E11` | Syndrome de détresse respiratoire néonatale (maladie des mem | 3 | ✅ | 25 | 20 |
 | 24 | `P36.9__O1_1-E15` | Sepsis néonatal précoce (< 72 h) | 3 | ✅ | 28 | 21 |
-| 25 | `P39.1__O7_12-E17` | Conjonctivite néonatale (à gonocoque ou Chlamydia trachomati | 3 | ⬜ |  |  |
+| 25 | `P39.1__O7_12-E17` | Conjonctivite néonatale (à gonocoque ou Chlamydia trachomati | 3 | ✅ | 26 | 20 |
 | 26 | `P52.2__O1_1-E14` | Hémorragie intraventriculaire (HIV) du prématuré | 3 | ⬜ |  |  |
 | 27 | `P55.0_1__O1_3-E13` | Incompatibilité rhésus sévère avec anémie fœtale (allo-immun | 3 | ⬜ |  |  |
 | 28 | `P56.0__F2_17-E15` | Anasarque fœto-placentaire (hydrops fetalis) sur allo-immuni | 3 | ⬜ |  |  |
@@ -66,8 +66,8 @@ Les données douteuses portent la mention « à vérifier » dans leur source (A
 | 56 | `Q86.0__O2_5-E07` | Syndrome d'alcoolisation fœtale (SAF / TCAF) | 4 | ⬜ |  |  |
 | 57 | `Z62.8__O6_6-E07` | Aliénation parentale / instrumentalisation grave de l'enfant | 4 | ⬜ |  |  |
 | 58 | `Z63.4_2__O6_7-E06` | Deuil chez l'enfant et l'adolescent | 4 | ⬜ |  |  |
-| 59 | `P28.4__S2_1-E09` | Apnée du prématuré (immaturité des centres respiratoires néo | 5 | ⬜ |  |  |
-| 60 | `P35.1__O1_1-E09` | RCIU d'origine infectieuse congénitale (CMV, toxoplasmose, r | 5 | ⬜ |  |  |
+| 59 | `P28.4__S2_1-E09` | Apnée du prématuré (immaturité des centres respiratoires néo | 5 | ✅ | 26 | 20 |
+| 60 | `P35.1__O1_1-E09` | RCIU d'origine infectieuse congénitale (CMV, toxoplasmose, r | 5 | ✅ | 26 | 20 |
 | 61 | `Q15.0__O2_9-E10` | Glaucome congénital (buphtalmie, larmoiement, photophobie) | 5 | ⬜ |  |  |
 | 62 | `Q43.0_1__S4_7-E10` | Diverticule de Meckel compliqué (douleur pelvienne / FID) | 5 | ⬜ |  |  |
 | 63 | `Q43.0__S3_9-E10` | Diverticule de Meckel hémorragique (hétérotopie muqueuse gas | 5 | ✅ | 26 | 20 |
@@ -145,7 +145,8 @@ Absentes des entités canoniques PED (non produisibles ici) : voir `MANQUES_CATA
 - Doutes levés le 24.11.2026 (sources vérifiées en ligne) : bronchiolite — recommandation suisse SAPP 2003 (Barben, Hammer), cible SpO2 > 92 % (la mention « Paediatrica 2017, 90 % » était fausse) ; nirsévimab — OFSP/CFV mise à jour 2026 (dose unique pour tout nourrisson ≤ 12 mois, première semaine si naissance d'octobre à mars, sinon en octobre ; 50 mg < 5 kg, 100 mg ≥ 5 kg selon SwissPAR) et vaccin maternel entre 32+0 et 36+0 SA ; hypoglycémie — SSN 2021, seuil < 2,6 mmol/L, gel 40 % 0,5 mL/kg ; DDH — échographie de Graf au premier mois, remboursée par l'AOS (Baumann & Schmid, Paediatrica 2023).
 - Sources suisses vérifiées pour les lots suivants : SSN 2023 hyperbilirubinémie (V13 : 350/430 µmol/L à terme, 300/370 avec facteurs de risque) ; SGGG avis n° 68 (2020) anti-D ; consensus européen RDS 2025 (Neonatology 2026) ; SGGG avis n° 41 (bétaméthasone 2 × 12 mg).
 - Lot 11 (24.11.2026) : Meckel hémorragique (Yan & Jiang, méta-analyse 2023 : scintigraphie 99mTc Se ≈ 0,80, Sp ≈ 0,95 ; prémédication par pantoprazole, Pediatr Radiol 2025 ; diverticulectomie, Glenn 2018 ; bolus 10 mL/kg ERC PLS 2021 ; seuil transfusionnel 7 g/dL, TAXI 2018 ; dose IV pédiatrique d'IPP à vérifier dans l'AIPS), cryptorchidie (EAU/ESPU 2025 chap. 4 ; check-lists Pédiatrie suisse 2011 rév. 2017), plagiocéphalie et torticolis (CNS 2016 ; APTA, Kaplan 2018).
-- Reprise : prochaines P39.1__O7_12-E17, P35.1__O1_1-E09, P28.4__S2_1-E09 (rangs 13 à 15 de l'ordre révisé).
+- Lot 12 (24.11.2026) : conjonctivite néonatale (CDC STI 2021 : ceftriaxone 25–50 mg/kg max 250 mg dose unique, érythromycine 50 mg/kg/j 14 j, risque de sténose du pylore ; Manuel MSD 2026 pour les délais ; prophylaxie oculaire en Suisse non uniforme, à vérifier dans le protocole local), RCIU infectieux (SGGG avis n° 73, 2021 ; Kimberlin NEJM 2015 valganciclovir 6 mois ; OFSP toxoplasmose ; plan de vaccination ROR), apnée du prématuré (Manuel MSD 2025 ; Sweet 2026 caféine ; essai CAP 2006).
+- Reprise : prochaines P77.9__O1_1-E13, P07.2__O1_1-E07, Q05.9__O1_3-E07 (rangs 16 à 18 de l'ordre révisé).
 - Skill créé : `.claude/skills/45spec-production-sans-api`.
 
 Signature : AAI (Anthropic AI)
