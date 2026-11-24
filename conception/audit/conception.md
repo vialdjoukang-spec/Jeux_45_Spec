@@ -19,6 +19,7 @@ Organes encore à produire (backlog, non bloquant) : 12
 | Chaque case reste concise (≤ 45 caractères ; le détail va en infobulle ou fenêtre) | ✅ |  |
 | Chaque mot-clé à fenêtre ouvre un modèle existant (3D, courbe, calculateur) | ✅ |  |
 | Chaque mot-clé ouvre une fenêtre (image 3D en anatomie, courbe ou détail en physiologie) | ✅ | 1094 mots-clés |
+| Chaque mot-clé ouvre une fenêtre (image 3D en anatomie, courbe ou détail en physiologie) | ✅ | 1072 mots-clés |
 | Chaque case d'espace appartient à l'un des 4 espaces | ✅ |  |
 | Chaque analyse biologique est unique (304 analyses individuelles) | ✅ |  |
 | Chaque examen biologique d'organe renvoie à ses analyses (valeurs dans une source unique) | ✅ |  |
