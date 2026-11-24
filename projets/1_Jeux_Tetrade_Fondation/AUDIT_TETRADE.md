@@ -225,3 +225,38 @@ Fusion de `origin/main` (locomoteur, dermatologique, correctif `aligner_aVerifie
 Sources inaccessibles depuis la session : swissmedicinfo.ch, ssi.guidelines.ch, la Liste des spécialités (OFSP) ; compendium.ch a répondu cette fois. Les autres posologies gardent « à vérifier dans l'AIPS ».
 
 Signature : AAI (Anthropic AI)
+
+## Lot 4 (arène Tétrade, 108 questions) — 2026-11-24
+
+Claude a relu les 108 questions des 11 paquets (`conception/donnees/tetrade/arene/*.txt`) : chaque réponse juste, chaque explication des distracteurs, chaque dose, seuil et critère. Les points demandés ont été vérifiés : adrénaline IM 0,5 mg chez l'adulte, répétable après 5 min (EAACI 2021) ; formule de Parkland 4 ml × kg × % surface, moitié en 8 h depuis la brûlure ; FENa < 1 % (fonctionnelle) contre > 2 % (nécrose tubulaire) ; CRB-65 = 4 (pression basse comptée dès une diastolique ≤ 60 mmHg) ; critères de Light (protéines 0,64 > 0,5 ; LDH > 2/3 de la limite sérique) ; score 4T élevé (chute > 50 %, J5–J10, thrombose, pas d'autre cause). Toutes les réponses justes restent justes ; aucune question n'a changé de réponse.
+
+### L4.1 Bilan
+
+| Paquet | Questions | Corrigées | Doutes restants |
+|---|---|---|---|
+| Cardio | 12 | 1 (FA : score) | 0 |
+| Derma | 7 | 1 (Parkland : surface comptée) | 0 |
+| Rénal | 10 | 1 (FENa sous diurétique) | 0 |
+| Digestif | 11 | 1 (hémorragie non variqueuse) | 0 |
+| Endocrino, hémato, infectio, loco, neuro, ORL, respi | 68 | 0 | 0 |
+
+### L4.2 Erreurs de fond corrigées
+
+| Question | Erreur | Correction | Source |
+|---|---|---|---|
+| Cardio 07 (FA) | CHA2DS2-VASc = 4 avec le sexe féminin | CHA2DS2-VA (ESC 2024, sans le sexe) = 3 ; anticoagulation recommandée dès 2 | Van Gelder et al., ESC 2024 AF, Eur Heart J 2024 ; ACC, Ten points to remember (17.09.2024) |
+| Derma 03 (Parkland) | « surface au deuxième degré profond et plus » | Tout le deuxième degré (superficiel et profond) et le troisième degré ; seul le premier degré est exclu | ABLS/ISBI, définition de la surface brûlée |
+| Rénal 01 (IRA) | « en l'absence de diurétique de l'anse » alors que la patiente prend un thiazide | Tout diurétique élève la FENa ; une FENa basse sous thiazide reste parlante ; sinon, FEurée < 35 % | physiologie rénale ; avis d'expert |
+| Digestif 03 (ulcère) | Transfusion libérale qui « augmente la pression portale » dans une hémorragie non variqueuse | Elle augmente la mortalité et les récidives ; cible 70 à 80 g/l | Villanueva, N Engl J Med 2013 ; ESGE 2021 |
+
+Vérifications sans correction, utiles à noter : l'andexanet alfa (Ondexxya®) est bien autorisé par Swissmedic depuis le 02.12.2020 pour les hémorragies menaçantes sous apixaban ou rivaroxaban ; le seuil de 3,5 mmol/l de potassium avant l'insuline dans l'acidocétose correspond au consensus ADA/EASD/JBDS 2024.
+
+### L4.3 Chaîne relancée
+
+`construire_arenes.py` (11 paquets Tétrade régénérés), puis `construire_config_tetrade.py`, `construire_plans.py`, `generer_json.py`, `rendre_plans.py` (31/31), `audit_fond.py` (0 correction), `auditer_conception.py` **34/34**, `auditer_couverture.py` **RÉUSSI**, `non_perte.py` **OK** (après restauration connue des deux `2_cou/ganglions_cervicaux.json`), `verifier_interpretations.py` **177/177, 0 défaut**, `test_arene_tetrade.py` **108 questions, 0 erreur**, `test_aligner_aVerifier.py` **OK**.
+
+### L4.4 Branche 3D (contrôle sans médecine)
+
+Les 30 organes ajoutés par `agent/tetrade-3d` portent des noms fidèles à leurs identifiants FMA (vérifiés dans `parts_list_e.txt` de BodyParts3D : poumon → artère et veines pulmonaires, lobes cérébraux, amygdale, hippocampe, noyaux gris, thymus, rate, sternum, os coxal, globe oculaire, voies optiques, os et muscles). Aucun organe n'inclut de maillage génital (testicules exclus ; le pénis n'a pas de maillage) ; la boîte de rognage de la peau (x ±58, y −230 à −60, z 630 à 790 mm) couvre toute la saillie génitale (testicules à z 690–719, saillie maximale y −206), et le rendu de contrôle ne montre aucun reste. Seule remarque de forme : l'identifiant `org_infect_organes_lymphoides_moelle_thym` évoque la moelle, mais le maillage ne contient que le thymus et la rate, comme sa note le dit. Branche jugée prête, sans modification.
+
+Signature : AAI (Anthropic AI)
