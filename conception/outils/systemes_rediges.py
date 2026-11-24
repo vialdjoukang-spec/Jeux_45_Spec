@@ -14,5 +14,6 @@ REDIGES = {
     "Ophtalmologique & ORL": {"dossier": "orl", "prefixe": "or_", "couleur": "#5b6574", "ids": {}},
     "Locomoteur & rhumatologique": {"dossier": "loco", "prefixe": "lo_", "couleur": "#6b7280", "ids": {}},
     "Dermatologique": {"dossier": "derma", "prefixe": "de_", "couleur": "#b07a5a", "ids": {}},
+    "Psyché (psychiatrie)": {"dossier": "psyche", "prefixe": "ps_", "couleur": "#7b4fa0", "ids": {"Fonctions cognitives (attention, mémoire, fonctions exécutives)": "org_psyche_fonctions_cognitives_attention", "Perception et pensée": "org_psyche_perception_et_pensee", "Affects et humeur": "org_psyche_affects_et_humeur", "Pulsions, motivation et comportement": "org_psyche_pulsions_motivation_et_comport", "Conscience de soi et personnalité": "org_psyche_conscience_de_soi_et_personnal", "Sommeil et vigilance": "org_psyche_sommeil_et_vigilance", "Circuits de la récompense et addictions": "org_psyche_circuits_de_la_recompense_et_a"}},
 }
 SOURCES = {s: charger(c["dossier"]) for s, c in REDIGES.items()}
