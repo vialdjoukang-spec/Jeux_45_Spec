@@ -18,6 +18,8 @@ Pourquoi : l'agent remplace l'appel API ; il doit produire le même JSON, valid�
 - Natures et catégories : seules les valeurs des énumérations passent (pas « score », pas « hygiène de vie » comme nature).
 - Poids : poids 3 ≤ 15 %, poids 2 ≤ 35 % des notions ; chaque notion de poids ≥ 2 dans ≥ 2 questions d'angles différents.
 - Formats : ~14 A (5 options, 1 juste), 4 Kprim (4 énoncés), 2 menus longs (12 à 20 options).
+- Notions : au moins 25 notions par pathologie.
+- priseEnCharge.horsUrgence : au moins 3 étapes.
 - priseEnCharge : accueil 2-5, étapes 3-8, suivi 2-6, mesuresGenerales ≥ 2.
 - Posologies « à vérifier dans l'AIPS » ; référence incertaine → AVERIFIER ; jamais de lieu CNP ni CPCM.
 
