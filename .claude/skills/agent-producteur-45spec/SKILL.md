@@ -127,6 +127,11 @@ Signature : AAI (Anthropic AI)
 - Entité voisine déjà produite (S27.1 → J94.2, O00.1 → O00.9) : prends l'angle de la porte non couverte (iatrogène et réanimation hémostatique ; GEU non rompue, méthotrexate, échec contraceptif).
 
 ## Leçons (producteur unique, lot 29, 24.11.2026)
-- Le classifieur de la session a refusé le test sans écran lancé avec un `http.server` en arrière-plan et un script Playwright écrit dans /tmp : sans ce test, on ne fusionne pas sur main ; on pousse le lot sur une branche agent et on attend la décision de Vial, sans contourner le refus.
+- Test sans écran de l'arène (autorisé par Vial le 24.11, « Test et fusionne ») : lance-le en premier plan avec `python3 /home/claude/outils/test_arene.py <racine du clone>` ; le script sert la racine dans son propre processus, ouvre l'arène dans Playwright et doit afficher « erreurs: 0 ». Aucun serveur en arrière-plan ; si le test est refusé, ne le contourne pas : pousse le lot sur `agent/45spec-A-lotNN` et signale-le.
 - Porte « nourrisson » d'une pathologie adulte (T67.0, O2.8) : place-la dans une question A sans nommer le diagnostic, en gardant `d` 3.
 - Entité voisine déjà produite (A54.0 gonocoque ↔ A56.0 chlamydia) : prends l'angle propre au germe (Gram, culture avant traitement, résistance, contrôle de guérison, déclaration clinique OFSP).
+
+## Leçons (producteur unique, lot 30, 24.11.2026)
+- Libellé transversal des urgences : « S Urgences vitales Triage 144 REGA » ; « I » désigne la génétique médicale, jamais les soins intensifs.
+- Une vignette `d` 4–5 ne doit pas trahir le diagnostic par un adjectif d'antécédent (« utérus polymyomateux connu ») : écris « plusieurs masses bénignes connues ».
+- Porte d'entrée « kyste synovial » ou « hernie » d'une pathologie bénigne de la peau : place-la en distracteur ou en question de diagnostic différentiel, sans nommer l'entité dans le `st`.

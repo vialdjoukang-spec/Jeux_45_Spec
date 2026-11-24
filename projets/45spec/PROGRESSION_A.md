@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**309 / 500 pathologies du périmètre produites.**
+**312 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -239,10 +239,10 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 230 | `A49.9__F2_19-E01` | Infection bactérienne communautaire aiguë (pneumonie, pyélonéphrite, érysipèle) | INF | produite |
 | 231 | `A54.0__O7_12-E02` | Urétrite gonococcique (Neisseria gonorrhoeae) | DER | produite |
 | 232 | `A69.2_1__S5_6-E08` | Arthrite de Lyme (borréliose tardive) | INF | produite |
-| 233 | `C44.9__S6_4-E10` | Carcinome basocellulaire (CBC) | DER | — |
+| 233 | `C44.9__S6_4-E10` | Carcinome basocellulaire (CBC) | DER | produite |
 | 234 | `D12.6_polypes_adenomateux___F2_10-E03` | Polypes adénomateux colorectaux | GAS | produite |
-| 235 | `D17.9__F1_5-E08` | Lipome sous-cutané bénin | DER | — |
-| 236 | `D25.9__S4_5-E05` | Léiomyomes utérins (fibromes utérins) | GYN | — |
+| 235 | `D17.9__F1_5-E08` | Lipome sous-cutané bénin | DER | produite |
+| 236 | `D25.9__S4_5-E05` | Léiomyomes utérins (fibromes utérins) | GYN | produite |
 | 237 | `D47.2__F2_23-E03` | Gammapathie monoclonale de signification indéterminée (MGUS) | HEM | — |
 | 238 | `D63.1__F1_17-E05` | Anémie de la maladie rénale chronique | HEM | — |
 | 239 | `D63.8__F1_17-E02` | Anémie inflammatoire (anémie des maladies chroniques) | HEM | — |
