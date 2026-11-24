@@ -23,9 +23,9 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | O | 12 | 12 |
 | P | 12 | 12 |
 | Q | 12 | 12 |
-| R | 3 | 12 |
+| R | 6 | 12 |
 | S | 12 | 12 |
-| **Total** | **219** | **228** |
+| **Total** | **222** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -60,6 +60,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_R-S1-02** : Calendrier du passage des aérosols-doseurs à des gaz à faible potentiel de réchauffement (HFA-152a, HFO-1234ze) et règlement européen sur les gaz fluorés (2024) ; disponibilité en Suisse.
 - **TRANS_R-S1-03** : Données suisses de consommation d'antibiotiques en médecine humaine et vétérinaire et taux de résistance (rapport Swiss Antibiotic Resistance Report 2024 d'anresis.ch et de l'OSAV).
 - **TRANS_R-S1-03** : Date et objectifs de la Stratégie Antibiorésistance Suisse (StAR, adoptée en 2015) et du plan One Health 2024-2027.
+- **TRANS_R-S2-01** : Valeurs limites d'immission de l'OPair (PM2,5 : 10 µg/m³ en moyenne annuelle depuis 2018 ; PM10 : 20 µg/m³ ; NO2 : 30 µg/m³ ; ozone : 120 µg/m³ en moyenne horaire, une fois par an au plus) et valeurs guides de l'OMS 2021 (PM2,5 : 5 µg/m³).
+- **TRANS_R-S2-01** : Estimation du nombre de décès prématurés attribuables à la pollution de l'air en Suisse (ARE/OFEV) : chiffre non écrit.
+- **TRANS_R-S2-02** : Extension du moustique tigre (Aedes albopictus) en Suisse en 2026 (Tessin depuis 2003, puis cantons au nord des Alpes) et éventuels cas autochtones de dengue ou de chikungunya en Suisse.
+- **TRANS_R-S2-02** : Zones à risque FSME (toute la Suisse sauf le Tessin, Genève ajoutée en 2024) et nombre annuel de cas déclarés (record en 2023-2024 ?).
+- **TRANS_R-S2-03** : Résultats de l'étude EAT-Lancet (Willett et al., 2019 ; mise à jour 2025) sur le régime de santé planétaire et réduction des émissions et de la mortalité estimées.
+- **TRANS_R-S2-03** : Recommandations alimentaires suisses de l'OSAV (pyramide alimentaire 2024) et recommandations d'activité physique de l'OFSPO (150 minutes d'activité modérée par semaine).
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -73,4 +79,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : R (3/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : R (6/12).
