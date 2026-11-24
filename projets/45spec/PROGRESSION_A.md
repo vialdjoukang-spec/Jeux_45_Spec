@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**324 / 500 pathologies du périmètre produites.**
+**327 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -267,9 +267,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 258 | `G56.0__S5_5-E02` | Paresthésies canalaires (canal carpien, nerf ulnaire, méralgie paresthésique) | CMA | produite |
 | 259 | `H52.7__S1_2-E03` | Amétropie non corrigée (myopie, hypermétropie, astigmatisme, presbytie) | OPH | produite |
 | 260 | `H61.2__S1_10-E05` | Bouchon de cérumen impacté | ORL | produite |
-| 261 | `H66.9__O2_9-E02` | Otite moyenne aiguë (OMA) du nourrisson | ORL | — |
-| 262 | `H81.1_1__S7_1-E08` | Vertige paroxystique positionnel bénin (VPPB) | ORL | — |
-| 263 | `H91.1__O3_2-E02` | Presbyacousie (surdité neurosensorielle liée à l'âge) | ORL | — |
+| 261 | `H66.9__O2_9-E02` | Otite moyenne aiguë (OMA) du nourrisson | ORL | produite |
+| 262 | `H81.1_1__S7_1-E08` | Vertige paroxystique positionnel bénin (VPPB) | ORL | produite |
+| 263 | `H91.1__O3_2-E02` | Presbyacousie (surdité neurosensorielle liée à l'âge) | ORL | produite |
 | 264 | `I73.9__S5_4-E08` | Claudication artérielle ou neurogène à la marche | ANG | — |
 | 265 | `J04.0__F1_11-E01` | Laryngite aiguë virale catarrhale | ORL | — |
 | 266 | `J06.9_1__O6_1-E01` | Infections respiratoires aiguës ou gastro-entérites récidivantes | ORL | — |
