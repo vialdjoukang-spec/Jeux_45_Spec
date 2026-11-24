@@ -182,7 +182,6 @@ Changements de moteur : une ligne `Dermatologique` dans `systemes_rediges.py` (p
 ## 8. Suite proposée
 
 - Audit médical de Claude sur `hemato/pathologies.txt`, `infectio/pathologies.txt` et les 24 interprétations `he_*` et `ii_*`, puis fusion sur main.
-- Locomoteur fait (section 9) : audit médical de Claude sur `loco/pathologies.txt` et les 13 interprétations `lo_*`, puis fusion.
-- Dermatologique fait (section 10) : audit médical de Claude sur `derma/pathologies.txt` et `de_brulure`.
+- Locomoteur et dermatologique : audit médical de Claude fait le 2026-11-24 (AUDIT_TETRADE.md, lot 2 : 17 doutes résolus, 19 restants) ; fusion sur main à décider.
 - Système suivant : ophtalmologique et ORL.
 - Correctif conseillé à `generer_json.py` : écrire les leçons transversales avec la même indentation que leur source et ne plus dédoublonner l'IGRA, pour que la régénération ne produise plus de bruit.
