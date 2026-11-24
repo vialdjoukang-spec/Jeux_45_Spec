@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API (format exact de `scripts/produire_notions_questions.py`), branche `agent/45spec-INF`.
 
-**24 / 61 pathologies canoniques produites** (notions + questions + correction), ordre de rendement à l'examen (`content/pathologies/RANG_RENDEMENT.json` : groupe A, puis B, C, D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée).
+**27 / 61 pathologies canoniques produites** (notions + questions + correction), ordre de rendement à l'examen (`content/pathologies/RANG_RENDEMENT.json` : groupe A, puis B, C, D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée).
 
 Fusions : 15 groupes dans `content/pathologies/fusions_INF.json` ; doublons déjà produits archivés dans `projets/45spec/archives_fusion/INF`.
 
@@ -19,15 +19,15 @@ Statut d'audit : en attente (`audit.rejector = null`). Les chiffres incertains p
 | 7 | A | 213 | `A69.2_1__S5_6-E08` | Arthrite de Lyme (borréliose tardive) | produite |
 | 8 | A | 214 | `B34.9_infection_virale_aig__F2_19-E02` | Infection virale aiguë non spécifique (myalgies, cytopénies transitoires) | produite |
 | 9 | A | 313 | `A05.1_botulisme__F1_11-E16` | Botulisme | produite |
-| 10 | A | 314 | `A35__S1_11-E09` | Tétanos céphalique ou généralisé (trismus inaugural) | — |
+| 10 | A | 314 | `A35__S1_11-E09` | Tétanos céphalique ou généralisé (trismus inaugural) | produite |
 | 11 | A | 357 | `B00.1__S6_1-E03` | Herpès labial ou génital (HSV-1 / HSV-2) | produite |
 | 12 | A | 358 | `B24_1__O7_6-E02` | Infection par le VIH contrôlée ou nouvellement diagnostiquée | produite |
 | 13 | A | 359 | `B30.9__S1_17-E01` | Conjonctivite aiguë virale (adénovirus) | produite |
 | 14 | A | 363 | `B37.0_candidose_muqueuse_s__O5_3-E08` | Candidose muqueuse superficielle (muguet oropharyngé, vulvo-vaginite) | produite |
 | 15 | A | 365 | `B37.2__S6_9-E04` | Intertrigo candidosique ou dermatophytique des grands plis | produite |
 | 16 | B | 737 | `B27.0_mononucleose_infecti__F2_5-E04` | Mononucléose infectieuse (EBV) et syndrome mononucléosique à CMV | produite |
-| 17 | B | 753 | `A39.2__F1_4-E12` | Purpura fulminans (méningococcémie / sepsis fulminant) | — |
-| 18 | B | 755 | `B00.4__F1_9-E16` | Encéphalite infectieuse aiguë (encéphalite herpétique HSV-1) | — |
+| 17 | B | 753 | `A39.2__F1_4-E12` | Purpura fulminans (méningococcémie / sepsis fulminant) | produite |
+| 18 | B | 755 | `B00.4__F1_9-E16` | Encéphalite infectieuse aiguë (encéphalite herpétique HSV-1) | produite |
 | 19 | B | 756 | `B00.5__S1_17-E14` | Kératite dendritique herpétique (HSV-1) | — |
 | 20 | B | 850 | `A07.1__F2_8-E07` | Giardiase (lambliase intestinale) | produite |
 | 21 | B | 855 | `B80__F2_8-E12` | Oxyurose (entérobiase à Enterobius vermicularis) | produite |
