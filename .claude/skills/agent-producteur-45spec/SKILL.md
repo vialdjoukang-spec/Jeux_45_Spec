@@ -83,3 +83,9 @@ Signature : AAI (Anthropic AI)
 - Fusion sur main (autorisée par Vial) après chaque lot de 3 : `valider()` sans erreur sur ses fichiers, 0 menu long fautif sur tout `content/questions/*`, `scripts/classer_rendement.py`, `conception/outils/arene45/construire_arene45.py`, test sans écran de l'arène 45 (0 erreur JS), puis `git pull --no-rebase origin main` et push sur main sans force.
 - Fichier produit par l'API qui dépasse 70 notions : fusionne les notions redondantes non utilisées par les questions (même rubrique ou doublon de seuil) au lieu d'en supprimer le contenu ; les ids restants ne se renumérotent pas.
 - Libellés transversaux exacts : « C Communication clinique », « Q Radioprotection Smarter Medicine » (« G » = Épidémiologie, « D » = Digitalisation, jamais « Médecine de famille » ni « Imagerie »).
+
+## Leçons (agent A, lots 11–12, 24.11.2026)
+- Avec 4 notions de poids 3, il faut au moins 27 notions (poids 3 ≤ 15 %, poids 2 ≤ 35 %) : `couverture_compacte.py` affiche sinon « POIDS hors règle ».
+- Le suffixe de l'id ne donne pas la SSP (N95.2__F1_2 → S4.17) : reprends `ssp` et `nomSSP` de `P.canoniques(None)`.
+- Un menu long dont le prompt nomme le diagnostic (« autre cause qu'une fibromyalgie ») porte `m=0`.
+- Test sans écran de l'arène : la seule erreur console attendue est le 404 de `/favicon.ico` (aucune icône dans index.html) ; compte à part les `pageerror`, qui doivent rester à 0.
