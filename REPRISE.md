@@ -244,3 +244,15 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - 17 pathologies en 4 paliers (3 TF, 5 F, 5 U, 4 R ; le complément n'a pas de palier « très fréquent ») ; le choc septique (cardiovasculaire), les méningites (neurologique), la fièvre méditerranéenne familiale et l'angio-œdème bradykinique aux IEC restent dans leurs maisons.
 - Nouvelle fenêtre `ii_anticorps` (IgM et IgG, réponse primaire et secondaire, déficit humoral), testée sans écran, 0 erreur JS ; 4 interprétations.
 - Les 4 renommages `org_infect_*` → `ii_*` sont déclarés dans `migrations_ids.json`.
+
+## 24.11 06:40 — Ronde 4
+- Vague 1 API (END, CAR, PNE, NEP, GAS) : 318 notions, 317 séries de questions (6 337 QCM : 70 % A, 20 % Kprim, 10 % menu long, formats conformes), 317 corrections récupérées sur veille/audit-medical. Contrôle mécanique OK ; échantillon médical de 3 questions juste.
+- 14 corrections sans `priseEnCharge` (PNE J98.6, J69.0 ; GAS K22.7, K31.8, K90.9 ; CAR I86.1, I21.9, I95.0 ; END E66.2, E23.2, C73_1, E83.5, E83.4, E10.8) : à reprendre (T4).
+- Bug corrigé : file.py cherchait le suivi dans scripts/scripts/ → END_N_recup bloqué.
+- Jauge 45 Spec : compte désormais content/questions (cible 2 675).
+- Agents de l'abonnement arrêtés par Vial vers 04:50 : ne pas relancer sans son accord.
+
+## T3 : priseEnCharge des fiches existantes (24.11, ouvrier)
+- Mode « pec » de `scripts/produire_fiches_claude.py` : `pec_pilote`, `pec_soumettre`, `pec_recuperer`, `pec_bilan` ; il demande seulement le bloc priseEnCharge (schéma commun), le répare en forme (moyens rendu en texte), l'insère sans toucher au reste et remet `audit.rejector` à null.
+- Test direct sur 2 fiches (CAR) réussi ; lot de 154 fiches soumis (msgbatch_014L4teTsJAY3oBSZvVHdT16, suivi dans `batchs_fiches.json`, mode pec). Récupération : `pec_recuperer` au passage suivant.
+- 151 fiches rejetées avec erreurs de forme restent exclues : T4 les reprend en entier avec priseEnCharge (`--inclure-rejets` les ajouterait).

@@ -1,0 +1,1507 @@
+{
+ "id": "E22.2__F2_7-E01",
+ "portes": [
+  {
+   "ssp": "G4",
+   "nomSSP": "Fatigue, lassitude",
+   "entite": "Hyponatrémie profonde chronique symptomatique (SIADH)",
+   "entiteId": "G4-E24"
+  },
+  {
+   "ssp": "F2.7",
+   "nomSSP": "Électrolytes anormaux",
+   "entite": "Hyponatrémie euvolémique sur SIADH",
+   "entiteId": "F2.7-E01"
+  }
+ ],
+ "entite": "Hyponatrémie euvolémique sur SIADH",
+ "cim10": "E22.2",
+ "ssp": {
+  "code": "F2.7",
+  "nom": "Électrolytes anormaux",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Électrolyte anormal au laboratoire ou symptôme évocateur",
+    "i": "Point d'entrée du SSP : on identifie d'abord quel ion est anormal.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Autre ion (K, Ca, Mg, bicarbonate)",
+    "i": "Cette branche sort du cadre : on renvoie vers les entités rivales du SSP F2.7 (hypo/hyperkaliémie, calcémie, magnésémie, acidose tubulaire).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "Natrémie < 135 mmol/L",
+    "i": "Seuil de l'hyponatrémie ; on évalue les symptômes avant le bilan.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n4",
+    "parent": "n3",
+    "t": "Symptômes sévères (convulsions, coma, vomissements, détresse respiratoire)",
+    "i": "Œdème cérébral menaçant : traitement hypertonique immédiat, sans attendre le bilan.",
+    "pec": "urgence_hypertonique",
+    "notion": "c7"
+   },
+   {
+    "id": "n5",
+    "parent": "n3",
+    "t": "Symptômes modérément sévères (confusion, nausées, céphalées)",
+    "i": "Un bolus unique de NaCl 3 % et un bilan étiologique rapide.",
+    "pec": "urgence_hypertonique",
+    "notion": "c7"
+   },
+   {
+    "id": "n6",
+    "parent": "n3",
+    "t": "Asymptomatique ou chronique peu symptomatique",
+    "i": "On poursuit le bilan sans urgence ; la prudence porte sur la vitesse de correction.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Osmolalité plasmatique < 275 mOsm/kg ?",
+    "i": "Elle distingue l'hypotonie vraie de la pseudohyponatrémie.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Non : pseudohyponatrémie ou hyperglycémie",
+    "i": "Aucune hypo-osmolalité : on corrige la glycémie ou la cause lipidique.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n9",
+    "parent": "n7",
+    "t": "Oui : osmolalité urinaire ?",
+    "i": "Elle prouve ou non l'action de l'ADH.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "< 100 mOsm/kg",
+    "i": "Polydipsie primaire ou faible apport en solutés : on limite l'eau et on augmente les solutés.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "> 100 mOsm/kg : volémie et Na urinaire",
+    "i": "L'ADH agit ; la volémie oriente le diagnostic.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Hypovolémie",
+    "i": "Diurétiques, pertes digestives, perte de sel cérébrale, insuffisance surrénalienne : renvoie à l'hyponatrémie hypovolémique ; traitement par NaCl 0,9 %.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "Hypervolémie (œdèmes)",
+    "i": "Insuffisance cardiaque, cirrhose, syndrome néphrotique : on traite la maladie sous-jacente.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n14",
+    "parent": "n11",
+    "t": "Euvolémie, UNa > 30 mmol/L",
+    "i": "Profil de SIADH, après exclusion des causes endocriniennes.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n15",
+    "parent": "n14",
+    "t": "TSH ou cortisol anormal, ou diurétique",
+    "i": "Hypothyroïdie, insuffisance surrénalienne (renvoi à l'entité Addison) ou effet diurétique : on traite et on arrête le médicament.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n16",
+    "parent": "n14",
+    "t": "TSH et cortisol normaux : SIADH",
+    "i": "Critères de Bartter-Schwartz remplis ; on cherche la cause (médicaments, CBPC, poumon, SNC).",
+    "pec": "siadh_chronique",
+    "notion": "c6"
+   },
+   {
+    "id": "n17",
+    "parent": "n16",
+    "t": "Restriction hydrique ; échec si (UNa+UK)/PNa > 1",
+    "i": "On passe en seconde ligne : urée ou furosémide + NaCl.",
+    "pec": "siadh_chronique",
+    "notion": "c8"
+   },
+   {
+    "id": "n18",
+    "parent": "n4",
+    "t": "Correction > 10 mmol/L en 24 h",
+    "i": "Risque de myélinolyse : on réabaisse la natrémie.",
+    "pec": "surcorrection",
+    "notion": "c9"
+   }
+  ]
+ },
+ "specialites": [
+  "END"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Hyponatrémie euvolémique sur SIADH",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définir et classer l'hyponatrémie",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Tu classes toujours l'hyponatrémie selon trois axes : la valeur de la natrémie, la durée d'installation et la sévérité des symptômes, car le traitement dépend surtout des deux derniers.",
+   "tableau": {
+    "colonnes": [
+     "Axe",
+     "Catégorie",
+     "Critère",
+     "Conséquence pratique"
+    ],
+    "lignes": [
+     [
+      "Biochimique (ESE)",
+      "Légère",
+      [
+       {
+        "t": "Na 130–134 mmol/L",
+        "i": "Seuil ESE ; la natrémie normale commence à 135, donc toute valeur inférieure définit l'hyponatrémie."
+       }
+      ],
+      [
+       {
+        "t": "Bilan étiologique, pas d'urgence",
+        "i": "Le patient reste souvent asymptomatique ; on traite la cause sans hypertonique."
+       }
+      ]
+     ],
+     [
+      "Biochimique (ESE)",
+      "Modérée",
+      [
+       {
+        "t": "Na 125–129 mmol/L",
+        "i": "Zone intermédiaire où des troubles de la marche et de l'attention apparaissent déjà."
+       }
+      ],
+      [
+       {
+        "t": "Bilan complet, restriction hydrique",
+        "i": "Le traitement dépend des symptômes et non de la seule valeur."
+       }
+      ]
+     ],
+     [
+      "Biochimique (ESE)",
+      "Profonde",
+      [
+       {
+        "t": "Na < 125 mmol/L",
+        "i": "Le risque neurologique et de chute augmente nettement sous ce seuil."
+       }
+      ],
+      [
+       {
+        "t": "Hospitalisation",
+        "i": "Ce seuil impose une surveillance rapprochée de la natrémie, même sans symptôme sévère."
+       }
+      ]
+     ],
+     [
+      "Temporel",
+      "Aiguë",
+      [
+       {
+        "t": "Documentée < 48 h",
+        "i": "Le cerveau n'a pas perdu ses osmolytes ; l'œdème cérébral domine le risque."
+       }
+      ],
+      [
+       {
+        "t": "Risque d'œdème cérébral",
+        "i": "Polydipsie, postopératoire, MDMA, desmopressine et effort d'endurance sont les contextes typiques."
+       }
+      ]
+     ],
+     [
+      "Temporel",
+      "Chronique",
+      [
+       {
+        "t": "≥ 48 h ou durée inconnue",
+        "i": "Par prudence, une durée inconnue est traitée comme chronique : le risque de démyélinisation prime."
+       }
+      ],
+      [
+       {
+        "t": "Risque de démyélinisation osmotique",
+        "i": "Le cerveau adapté supporte mal une correction rapide ; on limite la vitesse de correction."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Hyponatrémie : Na < 135 mmol/L.",
+    "SIADH : ADH non freinée, eau libre retenue, patient euvolémique sans œdème.",
+    "Aiguë < 48 h ; chronique ≥ 48 h ou durée inconnue.",
+    "La sévérité clinique décide de l'urgence, pas la valeur seule."
+   ],
+   "sources": [
+    "ESE/ESICM/ERA-EDTA 2014 (Spasovski)"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie et causes du SIADH",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Tu cherches systématiquement une cause médicamenteuse, tumorale, pulmonaire ou cérébrale, car le SIADH est presque toujours secondaire.",
+   "tableau": {
+    "colonnes": [
+     "Catégorie de cause",
+     "Exemples",
+     "Chef de file / piège"
+    ],
+    "lignes": [
+     [
+      "Médicaments",
+      [
+       {
+        "t": "ISRS, carbamazépine, oxcarbazépine, tricycliques, venlafaxine, antipsychotiques",
+        "i": "Ils stimulent la sécrétion d'ADH ou potentialisent son effet rénal."
+       }
+      ],
+      [
+       {
+        "t": "Desmopressine, MDMA, cyclophosphamide, vincristine",
+        "i": "La desmopressine agit directement sur V2 ; le MDMA associe sécrétion d'ADH et polydipsie, d'où une forme aiguë."
+       }
+      ]
+     ],
+     [
+      "Tumeurs",
+      [
+       {
+        "t": "Carcinome bronchique à petites cellules",
+        "i": "Il sécrète de l'ADH de façon ectopique ; c'est la cause paranéoplasique classique."
+       }
+      ],
+      [
+       {
+        "t": "Fumeur, toux, amaigrissement : CT thorax",
+        "i": "Une radiographie normale n'exclut pas la tumeur ; le scanner est l'examen indiqué."
+       }
+      ]
+     ],
+     [
+      "Poumon",
+      [
+       {
+        "t": "Pneumonie, tuberculose",
+        "i": "L'atteinte pulmonaire altère les barorécepteurs et la sécrétion d'ADH."
+       }
+      ],
+      [
+       {
+        "t": "Infection traitée = SIADH résolutif",
+        "i": "L'hyponatrémie disparaît avec la guérison de la cause."
+       }
+      ]
+     ],
+     [
+      "SNC",
+      [
+       {
+        "t": "AVC, hémorragie méningée, méningite, traumatisme",
+        "i": "Ces atteintes stimulent l'ADH ; elles imposent de distinguer le SIADH de la perte de sel cérébrale."
+       }
+      ],
+      [
+       {
+        "t": "Perte de sel cérébrale",
+        "i": "Elle associe hypovolémie et natriurèse et se traite par NaCl, à l'inverse du SIADH."
+       }
+      ]
+     ],
+     [
+      "Autres",
+      [
+       {
+        "t": "Douleur, nausées, postopératoire",
+        "i": "Ces stimuli non osmotiques déclenchent l'ADH, souvent de façon transitoire."
+       }
+      ],
+      [
+       {
+        "t": "Sujet âgé",
+        "i": "Le SIADH représente 30 à 40 % des hyponatrémies, surtout chez la personne âgée polymédiquée."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Trouble électrolytique le plus fréquent à l'hôpital ; SIADH = cause la plus fréquente.",
+    "30–40 % des hyponatrémies, surtout chez le sujet âgé.",
+    "Médicaments : ISRS, carbamazépine, venlafaxine, desmopressine, MDMA.",
+    "CBPC : cause paranéoplasique classique."
+   ],
+   "sources": [
+    "ESE/ESICM/ERA-EDTA 2014",
+    "Verbalis, Am J Med 2013"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Physiopathologie : ADH, échappement, adaptation cérébrale",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Tu relies chaque anomalie biologique à l'effet de l'ADH sur V2, puis tu comprends pourquoi la vitesse de correction doit rester limitée.",
+   "tableau": {
+    "colonnes": [
+     "Mécanisme",
+     "Conséquence",
+     "Implication clinique"
+    ],
+    "lignes": [
+     [
+      "ADH → V2 → aquaporines-2",
+      [
+       {
+        "t": "Réabsorption d'eau libre au tube collecteur",
+        "i": "L'insertion d'aquaporines-2 dilue le sodium plasmatique et concentre l'urine malgré l'hypo-osmolalité."
+       }
+      ],
+      [
+       {
+        "t": "Osm urinaire > 100 mOsm/kg",
+        "i": "Cette valeur prouve que l'ADH agit ; en dessous, on évoque une polydipsie primaire."
+       }
+      ]
+     ],
+     [
+      "Échappement",
+      [
+       {
+        "t": "Natriurèse par expansion volémique modérée",
+        "i": "L'expansion volémique stimule l'excrétion de sodium, ce qui évite l'œdème."
+       }
+      ],
+      [
+       {
+        "t": "Euvolémie et UNa > 30 mmol/L",
+        "i": "Ce profil distingue le SIADH de l'hypovolémie (UNa < 30) et de l'hypervolémie avec œdèmes."
+       }
+      ]
+     ],
+     [
+      "Adaptation cérébrale",
+      [
+       {
+        "t": "Perte d'osmolytes en 24–48 h",
+        "i": "Le cerveau limite ainsi l'œdème en cas d'hyponatrémie chronique."
+       }
+      ],
+      [
+       {
+        "t": "Risque de démyélinisation osmotique",
+        "i": "Une réascension rapide de la natrémie déshydrate un cerveau adapté ; on plafonne à 8–10 mmol/L par 24 h."
+       }
+      ]
+     ],
+     [
+      "Reset osmostat",
+      [
+       {
+        "t": "Seuil osmotique d'ADH abaissé",
+        "i": "La natrémie se stabilise à un niveau bas, avec une dilution possible de l'urine si on charge en eau."
+       }
+      ],
+      [
+       {
+        "t": "Natrémie stable sans dégradation",
+        "i": "Elle ne progresse pas et le traitement actif est rarement nécessaire."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "V2 → AQP2 → eau libre retenue → dilution.",
+    "Échappement : pas d'œdème, UNa > 30.",
+    "Cerveau chronique : osmolytes perdus → risque de myélinolyse.",
+    "Reset osmostat : natrémie basse mais stable."
+   ],
+   "sources": [
+    "ESE/ESICM/ERA-EDTA 2014",
+    "Verbalis, Am J Med 2013"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Clinique : symptômes, signes et drapeaux rouges",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam",
+    "presumptionRedFlags"
+   ],
+   "comment": "Tu juges d'abord la gravité neurologique, puis la volémie et la cause, car seule la gravité des symptômes décide de l'urgence thérapeutique.",
+   "tableau": {
+    "colonnes": [
+     "Gravité",
+     "Symptômes",
+     "Réaction immédiate"
+    ],
+    "lignes": [
+     [
+      "Sévère",
+      [
+       {
+        "t": "Vomissements, détresse respiratoire, somnolence, convulsions, coma (Glasgow ≤ 8)",
+        "i": "Ces signes traduisent un œdème cérébral menaçant."
+       }
+      ],
+      [
+       {
+        "t": "NaCl 3 % immédiat, jusqu'à 3 bolus",
+        "i": "Le risque d'engagement cérébral dépasse le risque de démyélinisation."
+       }
+      ]
+     ],
+     [
+      "Modérément sévère",
+      [
+       {
+        "t": "Nausées sans vomissements, confusion, céphalées",
+        "i": "Ils indiquent une atteinte neurologique réelle sans signe de gravité extrême."
+       }
+      ],
+      [
+       {
+        "t": "Un bolus de NaCl 3 % + bilan",
+        "i": "On vise une hausse de 5 mmol/L en 24 h sans surtraiter."
+       }
+      ]
+     ],
+     [
+      "Chronique légère à modérée",
+      [
+       {
+        "t": "Asymptomatique, troubles de la marche, déficit d'attention, chutes, asthénie",
+        "i": "L'adaptation cérébrale masque les symptômes ; une chute chez le sujet âgé impose de doser la natrémie."
+       }
+      ],
+      [
+       {
+        "t": "Bilan étiologique, restriction hydrique",
+        "i": "Il n'y a pas d'urgence ; la prudence porte sur la vitesse de correction."
+       }
+      ]
+     ],
+     [
+      "Examen",
+      [
+       {
+        "t": "Euvolémie : pas d'œdème, ni turgescence jugulaire, ni hypotension orthostatique",
+        "i": "L'évaluation clinique de la volémie est peu sensible et ne remplace pas le Na urinaire."
+       }
+      ],
+      [
+       {
+        "t": "Chercher cause : masse, hippocratisme, foyer, goitre, hyperpigmentation",
+        "i": "Chaque signe oriente vers CBPC, pneumopathie, hypothyroïdie ou insuffisance surrénalienne."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Anamnèse : médicaments récents, tabac, toux, amaigrissement, apports hydriques, diurétiques, pertes digestives.",
+    "Évaluer vigilance, Glasgow, orientation, ataxie.",
+    "Chute du sujet âgé : doser la natrémie.",
+    "Fumeur + toux/amaigrissement : penser CBPC."
+   ],
+   "sources": [
+    "ESE/ESICM/ERA-EDTA 2014"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan diagnostique étape par étape",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Tu confirmes l'hypotonie, tu prouves l'action de l'ADH, tu précises la volémie par le sodium urinaire, puis tu exclus hypothyroïdie et insuffisance surrénalienne.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Natrémie < 135 mmol/L",
+     "i": "Définit l'hyponatrémie ; on contrôle d'abord les symptômes sévères avant tout bilan.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Osmolalité plasmatique < 275 mOsm/kg ?",
+     "i": "Elle confirme l'hypotonie et écarte pseudohyponatrémie (lipides, protéines) et hyperglycémie.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Non : pseudohyponatrémie ou hyperglycémie",
+     "i": "Une glycémie élevée abaisse la natrémie d'environ 2 mmol/L par 5,6 mmol/L de glucose ; on corrige la glycémie.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Oui : osmolalité urinaire ?",
+     "i": "Elle mesure l'action de l'ADH.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "< 100 mOsm/kg",
+     "i": "ADH freinée : polydipsie primaire ou apports en solutés très faibles ; ce n'est pas un SIADH.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "> 100 mOsm/kg : volémie et Na urinaire",
+     "i": "L'ADH agit ; le Na urinaire, prélevé avant perfusion saline ou diurétique, sépare les groupes de volémie.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Hypovolémie ou œdèmes, UNa < 30 mmol/L",
+     "i": "Évoque pertes extrarénales ou hypervolémie (insuffisance cardiaque, cirrhose, néphrotique).",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n8",
+     "parent": "n6",
+     "t": "Euvolémie, UNa > 30 mmol/L",
+     "i": "Profil de SIADH, mais aussi d'hypothyroïdie, d'insuffisance surrénalienne et de diurétiques.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n9",
+     "parent": "n8",
+     "t": "TSH, cortisol du matin, créatinine, diurétiques",
+     "i": "Ces exclusions sont obligatoires avant de retenir un SIADH.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n10",
+     "parent": "n9",
+     "t": "Anomalie : traiter hypothyroïdie ou insuffisance surrénalienne",
+     "i": "L'hyponatrémie se corrige avec le traitement hormonal substitutif.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n11",
+     "parent": "n9",
+     "t": "Normaux : SIADH (Bartter-Schwartz)",
+     "i": "L'uricémie basse (< 240 µmol/L environ) et l'urémie basse soutiennent le diagnostic.",
+     "pec": "siadh_chronique",
+     "notion": "c6"
+    },
+    {
+     "id": "n12",
+     "parent": "n11",
+     "t": "Chercher la cause",
+     "i": "Revue médicamenteuse, CT thorax chez le fumeur ou si cause inexpliquée, imagerie cérébrale si signes neurologiques.",
+     "pec": null,
+     "notion": "c2"
+    }
+   ],
+   "points": [
+    "Gold standard : osmolalité plasmatique, osmolalité urinaire, Na urinaire, TSH, cortisol du matin.",
+    "Bilan de base : glycémie, urée, créatinine, potassium, uricémie.",
+    "Échantillon urinaire avant perfusion saline ou diurétique.",
+    "CT thorax si fumeur ou cause inexpliquée ; IRM/CT cérébral si symptômes neurologiques."
+   ],
+   "sources": [
+    "ESE/ESICM/ERA-EDTA 2014",
+    "Bartter & Schwartz, Am J Med 1967"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Diagnostic positif et différentiel",
+   "rubriques": [
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu retiens le SIADH seulement après avoir confirmé les critères de Bartter-Schwartz et exclu les causes qui l'imitent.",
+   "tableau": {
+    "colonnes": [
+     "Entité",
+     "Volémie / UNa",
+     "Discriminant",
+     "Traitement"
+    ],
+    "lignes": [
+     [
+      "SIADH",
+      [
+       {
+        "t": "Euvolémie, UNa > 30",
+        "i": "L'échappement natriurétique maintient l'euvolémie sans œdème."
+       }
+      ],
+      [
+       {
+        "t": "Osm urinaire > 100, TSH et cortisol normaux",
+        "i": "Ce sont les critères de Bartter-Schwartz avec exclusion des autres causes."
+       }
+      ],
+      [
+       {
+        "t": "Restriction, traitement de la cause",
+        "i": "L'eau libre retenue est la cible."
+       }
+      ]
+     ],
+     [
+      "Diurétiques thiazidiques",
+      [
+       {
+        "t": "Hypovolémie, UNa élevé, souvent hypokaliémie",
+        "i": "La natriurèse est médicamenteuse et non spontanée."
+       }
+      ],
+      [
+       {
+        "t": "Arrêt avant de conclure",
+        "i": "Tant que le diurétique agit, le diagnostic de SIADH reste impossible."
+       }
+      ],
+      [
+       {
+        "t": "Arrêt, NaCl, potassium",
+        "i": "On corrige la déplétion volémique."
+       }
+      ]
+     ],
+     [
+      "Hypervolémie (IC, cirrhose, néphrotique)",
+      [
+       {
+        "t": "Œdèmes, UNa < 30",
+        "i": "Le rein retient le sodium en raison d'un volume artériel efficace bas."
+       }
+      ],
+      [
+       {
+        "t": "Œdèmes, pathologie sous-jacente",
+        "i": "Le tableau clinique est incompatible avec un SIADH."
+       }
+      ],
+      [
+       {
+        "t": "Restriction, traiter la cause",
+        "i": "Le NaCl n'est pas indiqué."
+       }
+      ]
+     ],
+     [
+      "Perte de sel cérébrale",
+      [
+       {
+        "t": "Hypovolémie et natriurèse après atteinte du SNC",
+        "i": "Elle ressemble au SIADH par l'UNa, mais le volume est abaissé."
+       }
+      ],
+      [
+       {
+        "t": "Volémie basse",
+        "i": "C'est le seul critère discriminant fiable."
+       }
+      ],
+      [
+       {
+        "t": "NaCl",
+        "i": "La restriction hydrique aggrave la perte volémique."
+       }
+      ]
+     ],
+     [
+      "Syndrome néphrogénique d'antidiurèse inappropriée",
+      [
+       {
+        "t": "Tableau de SIADH",
+        "i": "La mutation activatrice du récepteur V2 produit un syndrome identique."
+       }
+      ],
+      [
+       {
+        "t": "ADH indétectable",
+        "i": "L'ADH est basse alors que le syndrome persiste."
+       }
+      ],
+      [
+       {
+        "t": "Restriction, urée",
+        "i": "Les vaptans sont inefficaces car V2 est déjà activé."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Bartter-Schwartz : hypo-osmolalité, Osm urinaire > 100, euvolémie, UNa > 30 sous apport sodé normal.",
+    "Exclure hypothyroïdie, insuffisance surrénalienne, diurétiques, insuffisance rénale.",
+    "Un NaCl 0,9 % qui n'élève pas la natrémie évoque un SIADH.",
+    "Perte de sel cérébrale = hypovolémie ; traitement opposé."
+   ],
+   "sources": [
+    "Bartter & Schwartz, Am J Med 1967",
+    "ESE/ESICM/ERA-EDTA 2014"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge aiguë selon la sévérité",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Tu traites vite et par l'hypertonique en cas de symptômes sévères ou modérément sévères, en limitant la hausse à 10 mmol/L la première journée.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Hyponatrémie symptomatique",
+     "i": "Gravité neurologique (vigilance, Glasgow, vomissements) = critère décisif.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Symptômes sévères",
+     "i": "Vomissements, détresse respiratoire, somnolence, convulsions, coma : œdème cérébral menaçant.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "NaCl 3 % 150 mL en 20 min, répétable 2 fois",
+     "i": "Cible : +5 mmol/L en 24 h ; natrémie contrôlée à la fin de chaque bolus.",
+     "pec": "urgence_hypertonique",
+     "notion": "c7"
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Symptômes modérément sévères",
+     "i": "Nausées sans vomissements, confusion, céphalées : atteinte réelle mais moins menaçante.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Un seul bolus de NaCl 3 % 150 mL, arrêt des médicaments suspects",
+     "i": "Le bolus unique évite une surcorrection ; on traite la cause en parallèle.",
+     "pec": "urgence_hypertonique",
+     "notion": "c7"
+    },
+    {
+     "id": "n6",
+     "parent": "n3",
+     "t": "Hausse ≥ 5 mmol/L ou symptômes régressés",
+     "i": "On arrête l'hypertonique : la cible initiale est atteinte.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Surveillance toutes les 4–6 h",
+     "i": "Le maximum autorisé est +10 mmol/L en 24 h, puis +8 mmol/L par 24 h.",
+     "pec": "urgence_hypertonique",
+     "notion": "c9"
+    },
+    {
+     "id": "n8",
+     "parent": "n7",
+     "t": "Hausse > 10 mmol/L en 24 h ou diurèse aqueuse brutale",
+     "i": "Risque de surcorrection ; on réabaisse la natrémie.",
+     "pec": "surcorrection",
+     "notion": "c9"
+    }
+   ],
+   "points": [
+    "Sévère : 150 mL de NaCl 3 % en 20 min, répétable jusqu'à 2 fois.",
+    "Modérément sévère : un seul bolus de 150 mL de NaCl 3 % en 20 min.",
+    "Limite : 10 mmol/L la première journée, puis 8 mmol/L par 24 h.",
+    "Le NaCl 0,9 % peut aggraver le SIADH."
+   ],
+   "sources": [
+    "ESE/ESICM/ERA-EDTA 2014",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Traitement du SIADH chronique",
+   "rubriques": [
+    "chronicManagement"
+   ],
+   "comment": "Tu traites la cause, tu restreins l'eau, puis tu passes à une seconde ligne si le rapport urinaire prédit l'échec.",
+   "tableau": {
+    "colonnes": [
+     "Ligne",
+     "Option",
+     "Posologie / critère",
+     "Remarque"
+    ],
+    "lignes": [
+     [
+      "Étiologique",
+      [
+       {
+        "t": "Arrêt du médicament, traitement de la cause",
+        "i": "C'est la mesure essentielle ; l'arrêt est à la fois diagnostique et thérapeutique."
+       }
+      ],
+      [
+       {
+        "t": "Infection, tumeur, hypothyroïdie",
+        "i": "La natrémie se corrige quand la cause disparaît."
+       }
+      ],
+      [
+       {
+        "t": "Récidive si tumeur active",
+        "i": "La sécrétion ectopique persiste tant que la tumeur est active."
+       }
+      ]
+     ],
+     [
+      "Première ligne",
+      [
+       {
+        "t": "Restriction hydrique",
+        "i": "Elle limite l'apport d'eau libre."
+       }
+      ],
+      [
+       {
+        "t": "≈ 500–1000 mL/j, tous liquides inclus",
+        "i": "La restriction doit couvrir toutes les boissons et aliments liquides."
+       }
+      ],
+      [
+       {
+        "t": "(UNa+UK)/PNa > 1 : échec probable",
+        "i": "Une urine concentrée excrète trop peu d'eau libre pour que la restriction soit efficace."
+       }
+      ]
+     ],
+     [
+      "Seconde ligne",
+      [
+       {
+        "t": "Urée orale",
+        "i": "Elle induit une diurèse osmotique et élimine l'eau libre."
+       }
+      ],
+      [
+       {
+        "t": "0,25–0,50 g/kg/j",
+        "i": "Posologie de l'ESE ; le goût est un frein à l'observance."
+       }
+      ],
+      [
+       {
+        "t": "Préparation magistrale courante",
+        "i": "La disponibilité varie en Suisse."
+       }
+      ]
+     ],
+     [
+      "Seconde ligne",
+      [
+       {
+        "t": "Furosémide + NaCl oral",
+        "i": "Le diurétique de l'anse diminue l'osmolalité médullaire et réduit l'effet de l'ADH."
+       }
+      ],
+      [
+       {
+        "t": "Dose faible de diurétique",
+        "i": "La combinaison au sel évite la déplétion volémique."
+       }
+      ],
+      [
+       {
+        "t": "Surveiller kaliémie",
+        "i": "Le diurétique expose à l'hypokaliémie, facteur de risque de myélinolyse."
+       }
+      ]
+     ],
+     [
+      "Non recommandé",
+      [
+       {
+        "t": "Vaptans, lithium, déméclocycline",
+        "i": "L'ESE les déconseille dans le SIADH."
+       }
+      ],
+      [
+       {
+        "t": "Tolvaptan : début hospitalier",
+        "i": "Un contrôle rapproché de la natrémie est nécessaire, car le risque de correction excessive est élevé."
+       }
+      ],
+      [
+       {
+        "t": "Contre-indiqué si hypovolémie",
+        "i": "Il aggraverait la déplétion et la surcorrection."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Restriction 500–1000 mL/j : première ligne.",
+    "(UNa+UK)/PNa > 1 : échec probable.",
+    "Urée 0,25–0,50 g/kg/j ou furosémide + NaCl : seconde ligne.",
+    "ESE : vaptans, lithium et déméclocycline déconseillés."
+   ],
+   "sources": [
+    "ESE/ESICM/ERA-EDTA 2014",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Complications, surveillance et pronostic",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Tu surveilles la vitesse de correction toutes les 4–6 h, car la myélinolyse apparaît 2 à 6 jours après une surcorrection.",
+   "tableau": {
+    "colonnes": [
+     "Thème",
+     "Élément",
+     "Pourquoi / action"
+    ],
+    "lignes": [
+     [
+      "Hospitalisation",
+      [
+       {
+        "t": "Na < 125 mmol/L ou symptômes neurologiques",
+        "i": "Ces situations exposent à une décompensation et exigent une correction contrôlée."
+       }
+      ],
+      [
+       {
+        "t": "Surveillance rapprochée",
+        "i": "L'hospitalisation permet les dosages fréquents de natrémie."
+       }
+      ]
+     ],
+     [
+      "Complications aiguës",
+      [
+       {
+        "t": "Œdème cérébral, engagement, convulsions, arrêt respiratoire",
+        "i": "Ils résultent d'un passage d'eau vers un cerveau non adapté."
+       }
+      ],
+      [
+       {
+        "t": "NaCl 3 % urgent",
+        "i": "Le traitement hypertonique est le seul rapide."
+       }
+      ]
+     ],
+     [
+      "Myélinolyse osmotique",
+      [
+       {
+        "t": "Dysarthrie, dysphagie, tétraparésie, locked-in à 2–6 jours",
+        "i": "Une surcorrection déshydrate le cerveau chronique."
+       }
+      ],
+      [
+       {
+        "t": "IRM ; prévenir (≤ 8 mmol/L/24 h si risque)",
+        "i": "Risque : Na ≤ 105, hypokaliémie, alcoolisme, dénutrition, hépatopathie avancée."
+       }
+      ]
+     ],
+     [
+      "Surveillance",
+      [
+       {
+        "t": "Natrémie toutes les 4–6 h, diurèse > 100 mL/h diluée, potassium",
+        "i": "La diurèse aqueuse soudaine signale l'arrêt de l'ADH ; le potassium élève la natrémie."
+       }
+      ],
+      [
+       {
+        "t": "Ajuster la vitesse",
+        "i": "Le potassium apporté compte dans le calcul de la correction."
+       }
+      ]
+     ],
+     [
+      "Pronostic et suivi",
+      [
+       {
+        "t": "Résolution si cause traitée ; récidive si tumeur active",
+        "i": "Le SIADH persiste tant que la cause persiste."
+       }
+      ],
+      [
+       {
+        "t": "Médecin de premier recours, endocrinologue, néphrologue, oncologue",
+        "i": "Ils interviennent selon la cause ; la natrémie légère chronique expose aussi aux chutes et fractures."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Hospitaliser si Na < 125 ou symptômes neurologiques.",
+    "Myélinolyse : 2–6 jours après surcorrection ; IRM.",
+    "Natrémie toutes les 4–6 h pendant la correction active.",
+    "Même légère, l'hyponatrémie chronique favorise chutes, fractures, troubles attentionnels."
+   ],
+   "sources": [
+    "ESE/ESICM/ERA-EDTA 2014"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence_hypertonique",
+   "titre": "Hyponatrémie symptomatique : traitement hypertonique",
+   "but": [
+    "Faire régresser les symptômes d'œdème cérébral en élevant la natrémie de 5 mmol/L en 24 h.",
+    "Éviter une surcorrection supérieure à 10 mmol/L en 24 h."
+   ],
+   "moyens": {
+    "accueil": [
+     "Évaluer vigilance, Glasgow et signes vitaux dès l'arrivée.",
+     "Poser une voie veineuse et prélever natrémie, osmolalité plasmatique, ionogramme et glycémie.",
+     "Recueillir un échantillon d'urine avant toute perfusion.",
+     "Arrêter les médicaments suspects."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "NaCl 3 % (soluté hypertonique)",
+      "posologie": "150 mL IV en 20 min ; symptômes sévères : répétable jusqu'à 2 fois ; modérément sévères : un seul bolus. Natrémie contrôlée après chaque bolus.",
+      "pourquoi": "Il élève rapidement la natrémie pour diminuer l'œdème cérébral sans dépasser +10 mmol/L par 24 h.",
+      "source": "ESE/ESICM/ERA-EDTA 2014"
+     },
+     {
+      "molecule": "Potassium (supplémentation si hypokaliémie)",
+      "posologie": "Selon kaliémie, avec prise en compte dans la vitesse de correction.",
+      "pourquoi": "Le potassium élève la natrémie ; ignorer son apport risque une surcorrection inattendue.",
+      "source": "ESE/ESICM/ERA-EDTA 2014"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveiller diurèse, bilan hydrique et état neurologique en continu.",
+      "pourquoi": "Une diurèse aqueuse soudaine signale l'arrêt de l'ADH et un risque de surcorrection."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Hospitaliser en soins intensifs ou continus en cas de symptômes sévères.",
+      "pourquoi": "Les convulsions, le coma ou l'arrêt respiratoire exigent un monitorage et un soutien ventilatoire."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Informer le patient ou ses proches et documenter le traitement urgent en cas d'incapacité de discernement."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Monitorer les signes vitaux et la vigilance.",
+      "Garantir les voies aériennes et la ventilation si Glasgow ≤ 8.",
+      "Éviter le NaCl 0,9 % et les solutés hypotoniques."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Classe les symptômes et ordonne 150 mL de NaCl 3 % en 20 minutes."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose la voie, prélève sang et urine avant perfusion, installe le monitorage."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Contrôle la natrémie à la fin du bolus et répète au plus deux fois si symptômes sévères."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Arrête l'hypertonique dès +5 mmol/L ou régression des symptômes, puis cherche la cause."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Intensiviste ou endocrinologue discute la surveillance et les causes."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le pronostic est bon si la correction reste dans les limites (≤ 10 mmol/L en 24 h) ; la myélinolyse est rare dans ces conditions.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Natrémie",
+      "quand": "Fin de chaque bolus, puis toutes les 4–6 h",
+      "cible": "+5 mmol/L en 24 h, jamais > 10 mmol/L"
+     },
+     {
+      "quoi": "Diurèse horaire et densité",
+      "quand": "Continue",
+      "cible": "Pas de diurèse aqueuse > 100 mL/h"
+     },
+     {
+      "quoi": "Kaliémie",
+      "quand": "À chaque contrôle",
+      "cible": "Normale, apports intégrés à la vitesse de correction"
+     },
+     {
+      "quoi": "État neurologique",
+      "quand": "Répété",
+      "cible": "Régression des symptômes"
+     }
+    ],
+    "sortie": "Asymptomatique, neurologiquement normal, natrémie stable et en hausse, cause identifiée ou traitée, plan de restriction expliqué."
+   },
+   "prevention": {
+    "primaire": "Éviter les médicaments inducteurs sans surveillance de la natrémie chez le sujet âgé et limiter les liquides hypotoniques en postopératoire.",
+    "secondaire": "Doser la natrémie après introduction d'un ISRS ou d'un antiépileptique à risque.",
+    "tertiaire": "Prévenir la myélinolyse en respectant les limites de correction."
+   }
+  },
+  {
+   "cle": "siadh_chronique",
+   "titre": "SIADH chronique non sévère : traitement de fond",
+   "but": [
+    "Corriger la cause et faire remonter la natrémie sans surcorrection.",
+    "Éviter les chutes, fractures et troubles attentionnels liés à l'hyponatrémie chronique."
+   ],
+   "moyens": {
+    "accueil": [
+     "Recueillir la liste complète des médicaments introduits récemment.",
+     "Vérifier TSH, cortisol du matin, créatinine, glycémie et uricémie.",
+     "Évaluer le risque de chute chez le sujet âgé."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Urée orale (osmodiurétique)",
+      "posologie": "0,25–0,50 g/kg/j per os, en seconde ligne ; formulation souvent magistrale.",
+      "pourquoi": "L'urée provoque une diurèse osmotique qui élimine l'eau libre quand la restriction hydrique échoue.",
+      "source": "ESE/ESICM/ERA-EDTA 2014"
+     },
+     {
+      "molecule": "Furosémide (diurétique de l'anse) + NaCl oral",
+      "posologie": "Furosémide à faible dose associé à du sel par voie orale ; ajuster selon natrémie et kaliémie.",
+      "pourquoi": "Le diurétique réduit l'osmolalité médullaire et l'effet de l'ADH ; le sel évite la déplétion volémique.",
+      "source": "ESE/ESICM/ERA-EDTA 2014"
+     },
+     {
+      "molecule": "Tolvaptan (antagoniste V2)",
+      "posologie": "Initiation hospitalière, dose initiale 15 mg/j, titration selon natrémie ; contre-indiqué en hypovolémie.",
+      "pourquoi": "Il bloque V2 et induit une aquarèse ; l'ESE déconseille pourtant les vaptans en raison du risque de surcorrection.",
+      "source": "AIPS Swissmedic ; ESE 2014"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Restreindre les liquides à 500–1000 mL/j, boissons et aliments liquides compris.",
+      "pourquoi": "La restriction limite l'apport d'eau libre contre l'ADH ; elle est de première ligne."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer l'évitement du médicament en cause et les symptômes d'alarme.",
+      "pourquoi": "Le patient reconnaît l'aggravation et évite la récidive."
+     },
+     {
+      "categorie": "nutrition",
+      "mesure": "Maintenir un apport normal en sel et en protéines.",
+      "pourquoi": "Un apport suffisant en solutés favorise l'élimination de l'eau libre."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Accompagner le patient atteint de CBPC avancé quand la cause tumorale n'est plus curable."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Informer le patient sur l'usage hors indication éventuel des traitements de seconde ligne."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Arrêter ou remplacer le médicament inducteur lorsque c'est possible.",
+      "Rechercher une tumeur ou une cause pulmonaire ou cérébrale.",
+      "Réévaluer le rapport (UNa+UK)/PNa pour prédire l'échec de la restriction."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Confirme Bartter-Schwartz et exclut hypothyroïdie, insuffisance surrénalienne, diurétiques et insuffisance rénale."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Arrête le médicament causal et demande CT thorax chez le fumeur."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "patient·e",
+       "fait": "Limite ses apports liquidiens à 500–1000 mL/j selon prescription."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Passe à l'urée ou à furosémide plus sel si le rapport dépasse 1 ou si la natrémie reste basse."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Endocrinologue, néphrologue ou oncologue prend en charge la cause ou les cas réfractaires."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'hyponatrémie se résout après traitement de la cause (infection, médicament) ; elle récidive tant qu'une tumeur sécrétante reste active.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Natrémie",
+      "quand": "Rapprochée au début, puis régulière en ambulatoire",
+      "cible": "Hausse progressive vers ≥ 135 mmol/L"
+     },
+     {
+      "quoi": "Rapport (UNa+UK)/PNa",
+      "quand": "Au bilan initial et si la restriction échoue",
+      "cible": "≤ 1 pour que la restriction soit efficace"
+     },
+     {
+      "quoi": "Chutes, marche, attention",
+      "quand": "À chaque consultation",
+      "cible": "Absence d'aggravation"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire possible si Na ≥ 125 mmol/L et absence de symptômes neurologiques ; sinon hospitaliser si Na < 125 ou symptômes neurologiques."
+   },
+   "prevention": {
+    "primaire": "Évaluer le risque de SIADH avant d'introduire un médicament inducteur chez le sujet âgé.",
+    "secondaire": "Éviter la reprise du médicament en cause et contrôler la natrémie après tout nouvel ajout.",
+    "tertiaire": "Prévenir chutes et fractures liées à l'hyponatrémie chronique par adaptation du traitement et suivi médical."
+   }
+  },
+  {
+   "cle": "surcorrection",
+   "titre": "Surcorrection de la natrémie : réabaisser",
+   "but": [
+    "Réabaisser la natrémie sous la limite de 10 mmol/L par 24 h.",
+    "Prévenir la myélinolyse centropontine."
+   ],
+   "moyens": {
+    "accueil": [
+     "Mesurer immédiatement la natrémie et la diurèse horaire.",
+     "Arrêter la perfusion hypertonique et les apports de potassium non essentiels."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Glucose 5 % (eau libre)",
+      "posologie": "10 mL/kg IV en 1 h, avec contrôle strict de la diurèse et du bilan hydrique.",
+      "pourquoi": "L'eau libre abaisse la natrémie quand l'urine devient diluée après l'arrêt de l'ADH.",
+      "source": "ESE/ESICM/ERA-EDTA 2014"
+     },
+     {
+      "molecule": "Desmopressine (analogue de l'ADH)",
+      "posologie": "2 µg IV, répétable toutes les 8 h si nécessaire.",
+      "pourquoi": "Elle freine l'aquarèse et stabilise la natrémie pendant la réduction contrôlée.",
+      "source": "ESE/ESICM/ERA-EDTA 2014"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Mesurer la diurèse horaire et la densité urinaire.",
+      "pourquoi": "Une diurèse aqueuse supérieure à 100 mL/h annonce la surcorrection."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documenter l'événement et informer le patient du risque de myélinolyse."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Monitorer la natrémie toutes les 1 à 4 h pendant la correction inverse.",
+      "Éviter toute nouvelle perfusion de NaCl."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Constate une hausse > 10 mmol/L en 24 h ou une diurèse aqueuse massive."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Arrête l'hypertonique, mesure la diurèse horaire et prélève la natrémie."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Perfuse du glucose 5 % à 10 mL/kg en 1 h et injecte 2 µg de desmopressine IV."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Néphrologue ou intensiviste guide la poursuite et demande une IRM si signes neurologiques tardifs."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La réabaisse précoce diminue le risque de myélinolyse, mais le risque persiste chez le patient dénutri, alcoolique ou hypokaliémique.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Natrémie",
+      "quand": "Toutes les 1 à 4 h, puis toutes les 4–6 h",
+      "cible": "Retour sous +10 mmol/L par 24 h"
+     },
+     {
+      "quoi": "Signes de myélinolyse",
+      "quand": "Jusqu'à 6 jours après correction",
+      "cible": "Absence de dysarthrie, dysphagie, tétraparésie"
+     }
+    ],
+    "sortie": "Natrémie stable dans les limites, diurèse normale, neurologie normale à distance de 6 jours."
+   },
+   "prevention": {
+    "primaire": "Limiter la correction à 10 mmol/L en 24 h, puis 8 mmol/L par 24 h.",
+    "secondaire": "Intégrer le potassium dans le calcul et surveiller la diurèse.",
+    "tertiaire": "Faire une IRM si symptômes neurologiques tardifs et prévoir la rééducation."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7442,
+  "output_tokens": 22087,
+  "output_tokens_details": {
+   "thinking_tokens": 5355
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:34:55",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

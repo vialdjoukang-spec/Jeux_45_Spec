@@ -162,3 +162,66 @@ Fusion de `origin/main` (hémato, infectio, Transversal ; conflits de `tetrade.j
 Sources inaccessibles depuis la session : compendium.ch, swissmedicinfo.ch, ssi.guidelines.ch, la liste des spécialités (OFSP) ; toutes les posologies gardent « à vérifier dans l'AIPS ».
 
 Signature : AAI (Anthropic AI)
+
+## Lot 3 (ophtalmologique et ORL) — 2026-11-24
+
+Claude a relu, avec la même méthode, les 40 pathologies du système ophtalmologique et ORL, ses 5 organes rédigés, ses 46 signes, ses temps d'examen et son glossaire, les 5 pathologies ajoutées aux maisons respiratoire et digestive, et les 18 scénarios des interprétations `or_refraction`, `or_pio` et `or_audio` (ainsi que les modèles des 3 fenêtres : équation de Goldmann, accommodation de Hofstetter, grades OMS 2021). Chaque référence datée a été retrouvée dans PubMed ou chez l'éditeur ; aucune n'était inventée, mais deux étaient dépassées (EURETINA 2014, TFOS DEWS II).
+
+### L3.1 Bilan
+
+| Système | Vérifiées | Corrigées | Doutes résolus | Doutes restants |
+|---|---|---|---|---|
+| Ophtalmologique et ORL (40 pathologies, 5 organes, signes, glossaire) | 40 | 10 pathologies + 1 reclassement (sécheresse oculaire F → TF) + glossaire (THEIA, TenCRAOS ajoutés) | 6 sur 18 (6 autres réduits à un seul point précis) | 12 |
+| Ajouts des maisons (respiratoire 4, digestif 1) | 5 | 1 (polypose : mométasone, dupilumab) + glossaire respiratoire (SNOT-22 ajouté) | 1 sur 1 | 0 |
+| Interprétations `or_` (3 fenêtres, 18 scénarios) | 18 | 0 | sans objet | 0 ; `_meta.statut` : **AUDITÉ** |
+
+### L3.2 Erreurs de fond corrigées
+
+| Pathologie ou élément | Erreur | Correction | Source |
+|---|---|---|---|
+| Occlusion de l'artère centrale de la rétine | « La rétine meurt en environ 90 minutes » ; thrombolyse IV « discutée dans les 4,5 heures » | Aucune lésion décelable à 97 min, lésions massives et irréversibles vers 240 min ; deux essais randomisés négatifs (alteplase, ténectéplase avec plus d'hémorragies) : thrombolyse réservée aux études ou au protocole local | Hayreh, Exp Eye Res 2004;78:723 ; THEIA, Lancet Neurol 2025 ; TenCRAOS, N Engl J Med 2026;394:442 |
+| Dégénérescence maculaire | EURETINA 2014 ; « une injection par mois au départ, puis espacée » | EURETINA 2026 ; charge de 3 à 4 injections mensuelles, puis treat-and-extend guidé par l'OCT | Loewenstein, Ophthalmologica 2026 |
+| Sécheresse oculaire | TFOS DEWS II cité comme en vigueur ; palier F | TFOS DEWS III (2025) ; palier TF (prévalence de 5 à 50 %) | Am J Ophthalmol 2025 ; Stapleton, Ocul Surf 2017 |
+| Orbitopathie basedowienne | Téprotumumab absent (statut inconnu) | Autorisé par Swissmedic le 30.04.2025 (n° 69795) : 8 perfusions toutes les 3 semaines ; surveiller glycémie et audition | Swissmedic, nouvelles autorisations |
+| Névrite vestibulaire | Méthylprednisolone présentée sans nuance | Récupération calorique plus rapide à 1 mois, sans bénéfice démontré sur les symptômes ni à 12 mois | Cochrane 2011 (Fishman) ; Otolaryngol Head Neck Surg 2021 |
+| Hémianopsie homonyme | « près d'un AVC sur trois touche le champ visuel » (chiffre non sourcé) | 20 à 57 % selon les séries | Pollock, Cochrane 2019 |
+| Polypose nasosinusienne | Mométasone « 2 pulvérisations 2 fois par jour » d'emblée | 100 µg par narine 1 fois par jour, 2 fois si réponse insuffisante ; limitation suisse du dupilumab ajoutée | Information harmonisée EMA (art. 30) ; LS 01.08.2023 (via formulaire de garantie) |
+| Otite externe aiguë | Spécialité suisse inconnue | Ciprofloxacine 2 mg/ml + hydrocortisone 10 mg/ml, 3 gouttes 2 fois par jour 7 jours, dès 2 ans | compendium.ch (24.11.2026) |
+| Traumatisme sonore | Seuil Suva « 85 dB(A) par jour » non vérifié | Contrôle auditif Suva (Audiomobil) au-delà de 85 dB en moyenne annuelle | suva.ch |
+| Ischémie du nerf optique | 15 % de l'œil adelphe non sourcé | 14,7 % en 5,1 ans médians | Newman, Am J Ophthalmol 2002 |
+
+Corrections de forme : « céftazidime » → « ceftazidime » ; 9 sigles d'infobulle non définis : 3 ajoutés au glossaire (THEIA, TenCRAOS, SNOT-22), 6 réécrits en toutes lettres.
+
+### L3.3 Les 19 doutes `aVerifier`
+
+| # | Pathologie | Résultat | Source |
+|---|---|---|---|
+| 1 | Sécheresse oculaire | Résolu : DEWS III remplace DEWS II | Am J Ophthalmol 2025 (doi 10.1016/j.ajo.2025.09.035) |
+| 2 | DMLA | Résolu : mise à jour EURETINA 2026 | PubMed 42862818 |
+| 3 | Occlusion de l'artère centrale | Résolu : thrombolyse sans bénéfice démontré | PubMed 41109232, 41604638 |
+| 4 | Ischémie du nerf optique | Résolu : 14,7 % | PubMed 12208242 |
+| 5 | Névrite vestibulaire | Résolu : pas de bénéfice à long terme | PubMed 21563170, 33525978 |
+| 6 | Otite externe | Résolu : spécialité suisse lue | compendium.ch |
+| 7 | Polypose (dupilumab) | Résolu : LS depuis le 01.08.2023, critères listés | formulaire de garantie (texte LS non lu directement) |
+| 8 | Orbitopathie | Réduit : autorisation confirmée ; **reste** le remboursement | Swissmedic 30.04.2025 |
+| 9 | Leber | Réduit : Raxone autorisé le 01.03.2024 dès 12 ans ; **reste** le remboursement | Swissmedic n° 68063 |
+| 10 | Myopie | Réduit : atropine 0,01 % autorisée dans l'UE ; **reste** le statut suisse | EMA (Ryjunea) |
+| 11 | Kératite amibienne | Réduit : polihexanide 0,08 % autorisé dans l'UE ; **reste** le statut suisse | EMA (Akantior) |
+| 12 | Traumatisme sonore | Réduit : seuil Suva lu ; **reste** les corticoïdes (avis d'expert) | suva.ch |
+| 13 | Blépharite | Réduit : l'AAO ne fixe pas de dose ; **reste** la dose (hors indication en Suisse) | AAO PPP 2023-2024 |
+| 14 | Rétinopathie diabétique | **Reste** : recommandation suisse introuvable en ligne | — |
+| 15 | Dacryocystite | **Reste** : aucune recommandation trouvée | — |
+| 16 | Cellulite orbitaire | **Reste** : ssi.guidelines.ch inaccessible | — |
+| 17 | Otite moyenne (adulte) | **Reste** : source suisse pédiatrique seulement | Paediatrica 2023 |
+| 18 | Mastoïdite | **Reste** : avis d'expert | — |
+| 19 | Otite externe nécrosante | **Reste** : avis d'expert | — |
+
+Bilan : 7 doutes résolus, 12 restent avec leur raison précise (dont 6 réduits à un seul point). Paliers : 39 justes, 1 reclassé ; le système compte désormais 11 TF, 16 F, 8 U et 5 R.
+
+### L3.4 Chaîne relancée
+
+Fusion de `origin/main` (locomoteur, dermatologique, correctif `aligner_aVerifier`) : `systemes_rediges.py`, `fenetres.js`, `migrations_ids.json` et `interpretations.json` résolus par union des deux versions ; `tetrade.json`, graphe et sémiologie exemples, `conception.md` repris de main puis régénérés ; `CLAUDE_A_AUDITER/RAPPORT_AUTO.md` identique à main. Puis `construire_config_tetrade.py` (3563 nœuds), `construire_plans.py`, `generer_json.py`, `rendre_plans.py` (31/31), `audit_fond.py` (0 correction), `auditer_conception.py` **34/34**, `auditer_couverture.py` **RÉUSSI**, `non_perte.py` **OK** (après restauration des deux `2_cou/ganglions_cervicaux.json` depuis main), `verifier_interpretations.py` **177/177, 0 défaut**, `test_aligner_aVerifier.py` **OK** (4 assertions). Les 12 `aVerifier` restants figurent seuls dans les JSON d'organes : les doutes résolus ont bien été purgés.
+
+Sources inaccessibles depuis la session : swissmedicinfo.ch, ssi.guidelines.ch, la Liste des spécialités (OFSP) ; compendium.ch a répondu cette fois. Les autres posologies gardent « à vérifier dans l'AIPS ».
+
+Signature : AAI (Anthropic AI)

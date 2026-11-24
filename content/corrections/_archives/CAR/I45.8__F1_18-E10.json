@@ -1,0 +1,536 @@
+{
+ "id": "I45.8__F1_18-E10",
+ "portes": [
+  {
+   "ssp": "G14",
+   "nomSSP": "Décès inattendu ou mort subite",
+   "entite": "Syndrome du QT long congénital avec torsades de pointes",
+   "entiteId": "G14-E13"
+  },
+  {
+   "ssp": "S2.11",
+   "nomSSP": "Palpitations",
+   "entite": "Syndrome du QT long congénital ou acquis",
+   "entiteId": "S2.11-E10"
+  },
+  {
+   "ssp": "F1.7",
+   "nomSSP": "Bradycardie, tachycardie, pouls irrégulier",
+   "entite": "Syndrome du QT long congénital ou acquis",
+   "entiteId": "F1.7-E12"
+  },
+  {
+   "ssp": "F1.18",
+   "nomSSP": "Patient sans pouls, troubles et arrêt cardiorespiratoires",
+   "entite": "Syndrome de Brugada / QT long congénital (mort subite arythmique)",
+   "entiteId": "F1.18-E10"
+  },
+  {
+   "ssp": "F2.6",
+   "nomSSP": "Électrocardiogramme anormal",
+   "entite": "Syndrome du QT long (congénital ou acquis)",
+   "entiteId": "F2.6-E09"
+  }
+ ],
+ "entite": "Syndrome du QT long (congénital ou acquis)",
+ "cim10": "I45.8",
+ "ssp": {
+  "code": "F2.6",
+  "nom": "Électrocardiogramme anormal",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "ECG anormal : mesurer le QTc (DII ou V5, 3-5 battements, Fridericia si FC hors 60-70/min)",
+    "i": "Une mesure fiable évite de poser à tort un diagnostic de QT long en tachycardie ou avec un QRS large.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "QTc normal : chercher une autre anomalie ECG",
+    "i": "Le QTc est ≤ 470 ms chez l'homme et ≤ 480 ms chez la femme ; le diagnostic est ailleurs.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Autre entité (FA, bloc, pré-excitation, Brugada, ischémie, etc.)",
+    "i": "Ces anomalies restent dans le SSP F2.6 ou renvoient aux SSP de leur motif d'entrée (F1.7, F1.18, S2.11).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "QTc > 470 ms (H) ou > 480 ms (F) : vérifier QRS large et répéter l'ECG",
+    "i": "Un bloc de branche surestime le QT ; je recours au JT et je répète l'ECG car le QT varie.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Torsades, FV, arrêt cardiaque ou instabilité",
+    "i": "Ces situations constituent l'urgence vitale ; le patient relève du SSP F1.18 (arrêt cardiorespiratoire).",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Défibrillation, MgSO4, correction K+, arrêt des médicaments QT",
+    "i": "Le choc traite la FV ou la torsade soutenue ; le magnésium et K+ préviennent les récidives.",
+    "pec": "urgence_torsades",
+    "notion": "c8"
+   },
+   {
+    "id": "n7",
+    "parent": "n4",
+    "t": "Patient stable avec drapeau rouge (QTc ≥ 500 ms, syncope récente, alternance de T, bradycardie sévère)",
+    "i": "Le risque de torsade est imminent : hospitalisation monitorée et traitement urgent.",
+    "pec": "urgence_torsades",
+    "notion": "c5"
+   },
+   {
+    "id": "n8",
+    "parent": "n4",
+    "t": "Patient stable sans drapeau rouge : chercher une cause secondaire (médicaments, K+, Mg2+, Ca2+, bradycardie, ischémie)",
+    "i": "Je dose K+, Mg2+ et Ca2+ et je revois la liste CredibleMeds, car la forme acquise est de loin la plus fréquente.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Cause trouvée : QT long acquis",
+    "i": "La correction de la cause normalise le QT ; je contrôle l'ECG après chaque modification de traitement.",
+    "pec": "qt_acquis",
+    "notion": "c2"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Aucune cause, QT persistant, syncope ou antécédent familial : suspecter QT long congénital",
+    "i": "Un QT qui reste long après correction ou une histoire familiale évoque une canalopathie ; le score de Schwartz quantifie la probabilité.",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Score de Schwartz > 3, QTc ≥ 480 ms répété ou variant pathogène",
+    "i": "Ces critères posent le diagnostic ; le test génétique et le dépistage familial suivent, avec conseil génétique (LAGH).",
+    "pec": "qt_congenital",
+    "notion": "c7"
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Probabilité faible ou intermédiaire",
+    "i": "Je répète les ECG, je réalise un test d'effort ou un Holter, et je réévalue en cardiologie.",
+    "pec": null,
+    "notion": "c6"
+   }
+  ]
+ },
+ "specialites": [
+  "CAR"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Syndrome du QT long (congénital ou acquis) : de l'ECG anormal aux torsades de pointes",
+ "notions": "[\n{\"id\":\"c1\",\"titre\":\"Définition, seuils et classification\",\"rubriques\":[\"definition\"],\"comment\":\"Je mesure d'abord un QTc fiable, puis je classe le QT long en congénital ou acquis, car la conduite et le risque familial en dépendent.\",\"tableau\":{\"colonnes\":[\"Forme\",\"Transmission / cause\",\"Particularité clinique\",\"Conséquence pratique\"],\"lignes\":[[\"Congénital\",\"Romano-Ward : autosomique dominant\",[{\"t\":\"QT long isolé, sans surdité\",\"i\":\"C'est la forme congénitale la plus fréquente ; la surdité manque, ce qui la distingue de Jervell et Lange-Nielsen.\"}],[{\"t\":\"Dépistage en cascade des apparentés\",\"i\":\"La transmission dominante expose 50 % des enfants ; le conseil génétique (LAGH) est requis avant tout test présymptomatique.\"}]],[\"Congénital\",\"Jervell et Lange-Nielsen : autosomique récessif\",[{\"t\":\"QT long + surdité neurosensorielle\",\"i\":\"Une mutation homozygote ou hétérozygote composite de KCNQ1 ou KCNE1 atteint aussi l'oreille interne, d'où la surdité congénitale.\"}],[{\"t\":\"Risque très élevé de syncope et de mort subite\",\"i\":\"C'est un facteur de mauvais pronostic : le DAI est discuté plus tôt qu'en Romano-Ward.\"}]],[\"Congénital\",\"Timothy, Andersen-Tawil (formes rares)\",[{\"t\":\"Syndactylie, dysmorphie ou paralysie périodique\",\"i\":\"Ces signes extracardiaques orientent vers ces canalopathies multisystémiques plutôt que vers LQT1-3 isolés.\"}],[{\"t\":\"Examen physique ciblé indispensable\",\"i\":\"Un examen cardiaque normal n'exclut pas le diagnostic ; les signes extracardiaques le suggèrent.\"}]],[\"Acquis\",\"Médicaments, hypokaliémie, hypomagnésémie, bradycardie\",[{\"t\":\"Forme de loin la plus fréquente\",\"i\":\"La polymédication, les troubles électrolytiques et le sexe féminin sont très courants en pratique suisse hospitalière et ambulatoire.\"}],[{\"t\":\"Réversible après éviction de la cause\",\"i\":\"Un QT qui reste long malgré la correction fait suspecter un QT long congénital latent.\"}]]],\"arbre\":null,\"points\":[\"Le QTc est prolongé au-delà de 470 ms chez l'homme et de 480 ms chez la femme, et le risque de torsades augmente nettement à partir de 500 ms.\",\"Les torsades de pointes sont une tachycardie ventriculaire polymorphe dont les QRS pivotent autour de la ligne de base sur un QT long.\",\"Le syndrome du QT long est congénital (canalopathie) ou acquis, la forme acquise étant la plus fréquente.\"],\"sources\":[\"ESC 2022 Guidelines on ventricular arrhythmias and prevention of sudden cardiac death\",\"AHA/ACC/HRS 2017 Guideline on ventricular arrhythmias\"]},\n{\"id\":\"c2\",\"titre\":\"Épidémiologie et facteurs de risque\",\"rubriques\":[\"epidemiology\"],\"comment\":\"Je cherche les facteurs de risque cumulés chez un patient précis, car les torsades acquises surviennent presque toujours après plusieurs facteurs combinés.\",\"tableau\":null,\"arbre\":null,\"points\":[\"La prévalence du QT long congénital atteint environ 1 sur 2000 naissances vivantes.\",\"Le sexe féminin favorise nettement les torsades d'origine médicamenteuse.\",\"Les autres facteurs acquis sont hypokaliémie, hypomagnésémie, bradycardie, cardiopathie structurelle, âge avancé, insuffisance hépatique ou rénale et polymédication.\",\"Le QT long congénital explique une mort subite du sujet jeune à cœur sain ; une autopsie négative impose une analyse génétique post-mortem et un dépistage familial.\"],\"sources\":[\"ESC 2022 Guidelines on ventricular arrhythmias and prevention of sudden cardiac death\",\"CredibleMeds (liste des médicaments à risque)\"]},\n{\"id\":\"c3\",\"titre\":\"Physiopathologie et génotypes\",\"rubriques\":[\"basicSciences\",\"workupGoldStandard\",\"anamnesis\"],\"comment\":\"Je relie le canal atteint au déclencheur de la syncope et à la forme de l'onde T pour deviner le génotype avant le résultat génétique.\",\"tableau\":{\"colonnes\":[\"Génotype\",\"Gène / courant\",\"Déclencheur typique\",\"Onde T\",\"Particularité\"],\"lignes\":[[\"LQT1\",\"KCNQ1, perte de fonction de IKs\",[{\"t\":\"Effort, natation\",\"i\":\"IKs ne s'adapte plus à la stimulation adrénergique : le QT ne se raccourcit pas à l'effort, d'où la syncope.\"}],[{\"t\":\"Base large\",\"i\":\"La repolarisation est étalée sur toute la durée de l'onde T, ce qui la rend large.\"}],[{\"t\":\"Bêtabloquant très efficace\",\"i\":\"Le déclencheur est adrénergique : le blocage bêta protège mieux que dans les autres génotypes.\"}]],[\"LQT2\",\"KCNH2, perte de fonction de IKr\",[{\"t\":\"Stimulus auditif, émotion\",\"i\":\"Une stimulation brusque suivie d'une pause favorise la séquence court-long-court, déclencheur des torsades.\"}],[{\"t\":\"Faible amplitude, crochetée\",\"i\":\"La réduction de IKr donne une onde T plate et dentelée.\"}],[{\"t\":\"Période postpartum à haut risque\",\"i\":\"Les modifications hormonales et le réveil nocturne de l'enfant exposent la femme LQT2.\"}]],[\"LQT3\",\"SCN5A, gain de fonction du courant sodique tardif\",[{\"t\":\"Repos, sommeil\",\"i\":\"Le courant sodique tardif prolonge surtout le potentiel d'action à fréquence lente, donc au repos.\"}],[{\"t\":\"Début tardif après long ST isoélectrique\",\"i\":\"La repolarisation ne débute qu'après un segment ST plat, car le courant entrant persiste.\"}],[{\"t\":\"Mexilétine en appoint\",\"i\":\"Ce bloqueur du courant sodique tardif corrige directement le mécanisme du génotype LQT3.\"}]]],\"arbre\":null,\"points\":[\"Le blocage de IKr (canal hERG) prolonge le potentiel d'action et favorise des post-dépolarisations précoces qui déclenchent les torsades.\",\"L'hypokaliémie réduit IKr et potentialise le blocage médicamenteux, tandis que l'hypomagnésémie favorise les post-dépolarisations précoces.\",\"Les torsades acquises sont pause-dépendantes, déclenchées par la séquence court-long-court (extrasystole, pause, battement suivant).\",\"LQT1 et LQT2 sont les génotypes les plus fréquents.\"],\"sources\":[\"ESC 2022 Guidelines on ventricular arrhythmias and prevention of sudden cardiac death\",\"Schwartz PJ et al., Circulation 2001 (corrélations génotype-phénotype)\"]},\n{\"id\":\"c4\",\"titre\":\"Anamnèse et examen clinique\",\"rubriques\":[\"anamnesis\",\"clinicalExam\"],\"comment\":\"Je cherche d'abord un déclencheur médicamenteux ou électrolytique, puis les antécédents familiaux, car l'examen physique est le plus souvent normal.\",\"tableau\":null,\"arbre\":null,\"points\":[\"La syncope d'effort, d'émotion ou sur stimulus auditif, les palpitations et la mort subite avant 40 ans chez un apparenté (noyade ou accident inexpliqué compris) orientent vers un QT long congénital.\",\"Une syncope avec secousses convulsives est souvent prise pour une épilepsie : je réalise un ECG chez tout patient avec crises inexpliquées.\",\"La revue médicamenteuse exhaustive recherche macrolides, fluoroquinolones, antipsychotiques, citalopram, méthadone, ondansétron, hydroxyzine et antiarythmiques, avec la liste CredibleMeds.\",\"L'information professionnelle AIPS limite le citalopram à 20 mg par jour au-delà de 65 ans, à cause du risque d'allongement du QT.\",\"L'examen est le plus souvent normal ; une bradycardie sinusale est possible, surtout chez l'enfant, et je cherche surdité, syndactylie et dysmorphie.\"],\"sources\":[\"AIPS Swissmedic (citalopram)\",\"ESC 2022 Guidelines on ventricular arrhythmias and prevention of sudden cardiac death\",\"CredibleMeds\"]},\n{\"id\":\"c5\",\"titre\":\"Drapeaux rouges et stratification du risque\",\"rubriques\":[\"presumptionRedFlags\"],\"comment\":\"Je cherche d'abord les signes d'une torsade imminente, car ils déterminent une prise en charge urgente et monitorée.\",\"tableau\":{\"colonnes\":[\"Drapeau rouge\",\"Signification\",\"Conduite\"],\"lignes\":[[\"QTc ≥ 500 ms\",[{\"t\":\"Risque élevé de torsades\",\"i\":\"Le risque augmente de façon continue avec le QTc ; le seuil de 500 ms est celui des études de cohorte et des recommandations.\"}],[{\"t\":\"Prise en charge urgente, télémétrie\",\"i\":\"Le patient doit être surveillé en continu jusqu'à la correction des facteurs et la normalisation du QT.\"}]],[\"Syncope récente inexpliquée\",[{\"t\":\"Torsade jusqu'à preuve du contraire\",\"i\":\"Les torsades sont souvent spontanément résolutives et ne se manifestent que par la syncope.\"}],[{\"t\":\"Hospitalisation monitorée\",\"i\":\"Le risque de récidive ou de fibrillation ventriculaire reste élevé tant que le déclencheur persiste.\"}]],[\"Alternance macroscopique de l'onde T\",[{\"t\":\"Instabilité électrique de repolarisation\",\"i\":\"Elle précède souvent une torsade imminente ; sa présence rend le risque immédiat.\"}],[{\"t\":\"Magnésium IV et monitorage immédiats\",\"i\":\"Je n'attends pas le bilan biologique pour agir devant ce signe.\"}]],[\"Bradycardie sévère ou pauses\",[{\"t\":\"Torsades pause-dépendantes\",\"i\":\"La pause allonge encore le QT du battement suivant et favorise la séquence court-long-court.\"}],[{\"t\":\"Stimulation temporaire ou isoprénaline (acquis)\",\"i\":\"L'accélération de la fréquence raccourcit le QT ; l'isoprénaline est contre-indiquée en forme congénitale.\"}]],[\"Allongement du QTc > 60 ms sous nouveau médicament\",[{\"t\":\"Arrêt ou réévaluation du traitement\",\"i\":\"Cet allongement indique une sensibilité individuelle ; un QT congénital latent est possible.\"}],[{\"t\":\"Rechercher un interagissant CYP3A4\",\"i\":\"L'inhibition du CYP3A4 augmente la concentration du médicament et donc le blocage de IKr.\"}]]],\"arbre\":null,\"points\":[\"Un arrêt cardiaque récupéré ou des torsades documentées définissent le risque maximal et imposent l'hospitalisation en milieu monitoré.\"],\"sources\":[\"ESC 2022 Guidelines on ventricular arrhythmias and prevention of sudden cardiac death\",\"AHA/ACC/HRS 2017 Guideline on ventricular arrhythmias\"]},\n{\"id\":\"c6\",\"titre\":\"Bilan : mesure correcte du QT\",\"rubriques\":[\"workupGoldStandard\",\"workupAlternatives\"],\"comment\":\"Je mesure le QT à la main en DII ou V5, je choisis la formule de correction selon la fréquence et la largeur du QRS, puis je répète l'ECG.\",\"tableau\":{\"colonnes\":[\"Situation\",\"Méthode\",\"Pourquoi\"],\"lignes\":[[\"Fréquence 60 à 70/min\",[{\"t\":\"Bazett ou Fridericia\",\"i\":\"Les deux formules donnent des valeurs proches quand la fréquence est voisine de 60 à 70/min.\"}],\"La correction du QT est minimale à cette fréquence.\"],[\"Tachycardie\",[{\"t\":\"Fridericia\",\"i\":\"Bazett surestime le QTc en tachycardie et ferait poser à tort un diagnostic de QT long.\"}],\"Fridericia reste plus fiable quand la fréquence s'écarte de 60 à 70/min.\"],[\"Bloc de branche ou QRS large\",[{\"t\":\"JT ou QT ajusté à la durée du QRS\",\"i\":\"L'élargissement du QRS allonge artificiellement le QT sans refléter la repolarisation.\"}],\"Le JT mesure uniquement la repolarisation, QRS exclu.\"],[\"Suspicion de QT long caché\",[{\"t\":\"Test d'effort, Holter\",\"i\":\"L'effort démasque l'absence de raccourcissement du QT ou un allongement paradoxal du QTc en récupération.\"}],\"Le Holter recherche alternance de T, pauses et arythmies nocturnes.\"],[\"Suspicion congénitale\",[{\"t\":\"Génétique KCNQ1, KCNH2, SCN5A\",\"i\":\"Un variant pathogène est identifié chez environ 75 à 80 % des patients cliniquement certains.\"}],\"Un test négatif n'exclut pas la maladie.\"]],\"arbre\":null,\"points\":[\"L'ECG 12 dérivations mesure le QT du début du QRS à la fin de l'onde T (méthode de la tangente) sur 3 à 5 battements.\",\"Je dose kaliémie, magnésémie et calcémie (idéalement ionisée), causes réversibles majeures de QT long acquis.\",\"Un seul ECG normal n'exclut pas un QT long congénital : je répète les ECG, y compris chez les apparentés.\",\"L'échocardiographie vérifie l'absence de cardiopathie structurelle, facteur favorisant des torsades.\",\"La morphologie de l'onde T oriente vers le génotype.\"],\"sources\":[\"ESC 2022 Guidelines on ventricular arrhythmias and prevention of sudden cardiac death\",\"AHA/ACC/HRS 2017 Guideline on ventricular arrhythmias\"]},\n{\"id\":\"c7\",\"titre\":\"Diagnostic positif du QT long congénital\",\"rubriques\":[\"positiveDiagnosis\"],\"comment\":\"Je pose le diagnostic congénital si le QT reste long après exclusion des causes secondaires, et je quantifie la probabilité avec le score de Schwartz.\",\"tableau\":{\"colonnes\":[\"Critère\",\"Seuil\",\"Pourquoi\"],\"lignes\":[[\"QTc sur ECG répétés\",[{\"t\":\"≥ 480 ms, sans cause secondaire\",\"i\":\"La répétition limite la variabilité du QT ; l'exclusion des causes évite de confondre avec une forme acquise.\"}],\"Ce seuil suffit seul pour le diagnostic selon l'ESC 2022.\"],[\"Score de Schwartz\",[{\"t\":\"> 3 points : diagnostic posé\",\"i\":\"Le score associe ECG, anamnèse et histoire familiale ; la probabilité est élevée à partir de 3,5 points.\"}],\"Probabilité intermédiaire entre 1,5 et 3 points, faible à 1 point ou moins.\"],[\"Génétique\",[{\"t\":\"Variant pathogène avéré\",\"i\":\"Il établit le diagnostic quelle que soit la valeur du QTc, car la pénétrance est incomplète.\"}],\"Un QTc normal n'exclut pas un porteur à risque.\"],[\"Réponse aux déclencheurs\",[{\"t\":\"QT long persistant après correction, ou allongement disproportionné sous faible dose\",\"i\":\"Ces deux situations suggèrent un QT long congénital latent démasqué par le médicament.\"}],\"Dans ce cas, je propose un bilan familial et génétique.\"]],\"arbre\":null,\"points\":[\"Le diagnostic de forme congénitale suppose l'exclusion des causes secondaires (médicaments, électrolytes, bradycardie, ischémie).\"],\"sources\":[\"ESC 2022 Guidelines on ventricular arrhythmias and prevention of sudden cardiac death\",\"Schwartz PJ, Crotti L, Circulation 2011 (score de Schwartz)\"]},\n{\"id\":\"c8\",\"titre\":\"Prise en charge aiguë des torsades et du QTc ≥ 500 ms\",\"rubriques\":[\"acuteManagement\",\"hospitalizationComplications\"],\"comment\":\"Je défibrille si l'instabilité l'impose, sinon j'arrête les médicaments QT, je corrige K+ et Mg2+ et je monitorise.\",\"tableau\":null,\"arbre\":[\n{\"id\":\"n1\",\"parent\":null,\"t\":\"QT long avec torsades ou QTc ≥ 500 ms\",\"i\":\"Ce niveau de QTc expose à la torsade et impose une prise en charge urgente monitorée.\",\"pec\":null,\"notion\":\"c5\"},\n{\"id\":\"n2\",\"parent\":\"n1\",\"t\":\"Instabilité hémodynamique, TV soutenue ou FV\",\"i\":\"La torsade soutenue ou dégénérée en FV est un arrêt cardiaque en devenir.\",\"pec\":null,\"notion\":null},\n{\"id\":\"n3\",\"parent\":\"n2\",\"t\":\"Défibrillation immédiate, algorithme de réanimation\",\"i\":\"Seul le choc interrompt une torsade soutenue ; Mg2+ et correction électrolytique suivent.\",\"pec\":\"urgence_torsades\",\"notion\":\"c8\"},\n{\"id\":\"n4\",\"parent\":\"n1\",\"t\":\"Patient stable, torsades spontanément résolutives\",\"i\":\"La plupart des torsades s'arrêtent seules et laissent une syncope ; la récidive reste possible.\",\"pec\":null,\"notion\":null},\n{\"id\":\"n5\",\"parent\":\"n4\",\"t\":\"Arrêter les médicaments QT, corriger K+ à 4,5-5,0 mmol/L, MgSO4 2 g IV\",\"i\":\"Le magnésium supprime les post-dépolarisations précoces, même si la magnésémie est normale.\",\"pec\":\"urgence_torsades\",\"notion\":\"c8\"},\n{\"id\":\"n6\",\"parent\":\"n5\",\"t\":\"Torsades pause-dépendantes récidivantes\",\"i\":\"Une pause déclenche la séquence court-long-court ; il faut éviter les pauses.\",\"pec\":null,\"notion\":null},\n{\"id\":\"n7\",\"parent\":\"n6\",\"t\":\"QT acquis : stimulation temporaire 90-110/min ou isoprénaline\",\"i\":\"L'accélération de la fréquence raccourcit le QT et prévient les pauses.\",\"pec\":\"urgence_torsades\",\"notion\":\"c8\"},\n{\"id\":\"n8\",\"parent\":\"n6\",\"t\":\"QT congénital : pas d'isoprénaline, bêtabloquant et stimulation\",\"i\":\"L'isoprénaline est contre-indiquée car la stimulation adrénergique déclenche les torsades.\",\"pec\":\"urgence_torsades\",\"notion\":\"c9\"},\n{\"id\":\"n9\",\"parent\":\"n4\",\"t\":\"Éviter amiodarone, sotalol, procaïnamide\",\"i\":\"Ces antiarythmiques allongent le QT et peuvent aggraver les torsades.\",\"pec\":null,\"notion\":null}\n],\"points\":[\"J'arrête tous les médicaments allongeant le QT, y compris les associations qui augmentent leurs concentrations par inhibition du CYP3A4.\",\"La télémétrie continue reste nécessaire jusqu'à la correction des facteurs et la normalisation du QT.\",\"Les torsades se résolvent souvent seules, mais peuvent dégénérer en fibrillation ventriculaire.\"],\"sources\":[\"ESC 2022 Guidelines on ventricular arrhythmias and prevention of sudden cardiac death\",\"ERC 2021 Guidelines (réanimation)\",\"AHA/ACC/HRS 2017 Guideline on ventricular arrhythmias\"]},\n{\"id\":\"c9\",\"titre\":\"Traitement au long cours, surveillance, pronostic et réseau\",\"rubriques\":[\"chronicManagement\",\"surveillance\",\"prognosisDischarge\",\"followUpNetwork\"],\"comment\":\"Je traite le QT long congénital par bêtabloquant non sélectif, j'escalade selon les événements et je protège la famille par le dépistage.\",\"tableau\":{\"colonnes\":[\"Niveau\",\"Indication\",\"Pourquoi\"],\"lignes\":[[\"Mesures générales\",[{\"t\":\"Éviction des médicaments à risque, correction des pertes digestives\",\"i\":\"Toute diarrhée ou tout vomissement abaisse K+ et Mg2+ et peut déclencher une torsade.\"}],\"Chez tout patient avec QT long, je contrôle K+ et Mg2+ lors d'un diurétique ou d'une perte digestive.\"],[\"1re ligne\",[{\"t\":\"Nadolol ou propranolol (bêtabloquants non sélectifs)\",\"i\":\"Ils réduisent le plus le risque en forme symptomatique ; le métoprolol est moins efficace.\"}],\"Les bêtabloquants exposent à la bradycardie et au bronchospasme.\"],[\"Appoint LQT3\",[{\"t\":\"Mexilétine si QTc > 500 ms\",\"i\":\"Elle bloque le courant sodique tardif, mécanisme propre à LQT3.\"}],\"Elle est prescrite par le rythmologue.\"],[\"Récidive sous bêtabloquant\",[{\"t\":\"Dénervation sympathique cardiaque gauche\",\"i\":\"Elle réduit la libération de noradrénaline cardiaque en cas d'intolérance, de récidive ou de chocs répétés.\"}],\"Elle s'envisage avant ou avec le DAI.\"],[\"DAI\",[{\"t\":\"Arrêt cardiaque récupéré (indiqué) ; syncope ou TV sous bêtabloquant (envisagé)\",\"i\":\"Le DAI traite l'arrêt, mais les chocs douloureux peuvent déclencher une tempête rythmique adrénergique.\"}],\"L'aptitude à conduire doit être évaluée après syncope arythmique ou pose d'un DAI.\"]],\"arbre\":null,\"points\":[\"Je conseille d'éviter la natation sans surveillance (LQT1) et les réveils sonores brusques (LQT2).\",\"Chez la femme porteuse, le bêtabloquant se poursuit pendant la grossesse, et le postpartum reste à haut risque, surtout en LQT2.\",\"Je réalise un ECG avant tout médicament à risque, à l'état d'équilibre et après chaque augmentation de dose ou ajout d'un interagissant.\",\"Je propose aux apparentés du premier degré un ECG et un génotypage ciblé ; la LAGH impose un conseil génétique pour tout test présymptomatique.\",\"Sous bêtabloquant bien toléré, le risque de mort subite est fortement réduit ; QTc > 500 ms, syncope, arrêt récupéré, Jervell et Lange-Nielsen et LQT2 chez la femme aggravent le pronostic.\"],\"sources\":[\"ESC 2022 Guidelines on ventricular arrhythmias and prevention of sudden cardiac death\",\"AHA/ACC/HRS 2017 Guideline on ventricular arrhythmias\",\"LAGH (loi fédérale sur l'analyse génétique humaine)\",\"AIPS Swissmedic\"]}\n]",
+ "priseEnCharge": [
+  {
+   "cle": "urgence_torsades",
+   "titre": "Torsades de pointes ou QTc ≥ 500 ms : urgence monitorée",
+   "but": [
+    "Interrompre les torsades et prévenir leur récidive.",
+    "Supprimer les déclencheurs : médicaments, hypokaliémie, hypomagnésémie, bradycardie.",
+    "Protéger le patient d'une fibrillation ventriculaire."
+   ],
+   "moyens": {
+    "accueil": [
+     "Je place le patient sous scope avec défibrillateur et électrodes à portée de main.",
+     "Je pose une voie veineuse et je réalise un ECG 12 dérivations avec mesure du QTc.",
+     "Je prélève K+, Mg2+, Ca2+ et fonctions rénale et hépatique.",
+     "Je recueille la liste complète des médicaments, y compris ceux en vente libre."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Magnésium sulfate (électrolyte)",
+      "posologie": "Environ 2 g IV en 10 à 20 minutes, même si la magnésémie est normale ; perfusion d'entretien possible en cas de récidive, selon protocole institutionnel.",
+      "pourquoi": "Le magnésium supprime les post-dépolarisations précoces et fait cesser les torsades, sans dépendre de la magnésémie.",
+      "source": "[ESC, 2022]"
+     },
+     {
+      "molecule": "Chlorure de potassium (électrolyte)",
+      "posologie": "Correction IV ou orale sous monitoring selon protocole, cible K+ entre 4,5 et 5,0 mmol/L.",
+      "pourquoi": "L'hypokaliémie réduit IKr et potentialise le blocage médicamenteux, donc la correction réduit le risque de récidive.",
+      "source": "[ESC, 2022]"
+     },
+     {
+      "molecule": "Isoprénaline (agoniste bêta-adrénergique)",
+      "posologie": "Perfusion IV titrée pour obtenir une fréquence de 90 à 110/min, uniquement dans le QT acquis pause-dépendant ; contre-indiquée dans le QT long congénital.",
+      "pourquoi": "L'accélération de la fréquence raccourcit le QT et supprime les pauses, mais la stimulation adrénergique déclenche les torsades en forme congénitale.",
+      "source": "[AHA/ACC/HRS, 2017]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Je défibrille immédiatement en cas de torsade soutenue, d'instabilité ou de fibrillation ventriculaire.",
+      "pourquoi": "Seul le choc électrique interrompt une torsade soutenue ou une FV."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Je pose une stimulation temporaire à 90-110/min en cas de torsades pause-dépendantes récidivantes.",
+      "pourquoi": "La stimulation accélère la fréquence et évite les pauses, sans allonger le QT."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "J'arrête tous les médicaments allongeant le QT et leurs inhibiteurs du CYP3A4, et j'évite amiodarone, sotalol et procaïnamide.",
+      "pourquoi": "Ces médicaments allongent le QT et peuvent aggraver les torsades."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Encadre l'information du patient et la déclaration d'un effet indésirable médicamenteux à Swissmedic."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Je garde le patient en surveillance continue jusqu'à la correction des facteurs déclenchants.",
+      "Je préviens le rythmologue dès qu'une torsade est documentée."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il évalue l'instabilité et défibrille immédiatement en cas de torsade soutenue ou de FV."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Elle pose le scope et la voie veineuse et prélève K+, Mg2+, Ca2+."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Il administre 2 g de MgSO4 IV en 10 à 20 minutes, même si la magnésémie est normale."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Il repère et arrête les médicaments allongeant le QT et leurs interagissants CYP3A4."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Il corrige K+ à 4,5-5,0 mmol/L et traite la bradycardie."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Le rythmologue pose une stimulation (ou isoprénaline si acquis) en cas de torsades pause-dépendantes."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Les torsades se résolvent souvent seules, mais exposent à la fibrillation ventriculaire ; l'éviction des déclencheurs prévient la récidive dans les formes acquises.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Rythme et QTc en télémétrie",
+      "quand": "En continu",
+      "cible": "QTc normalisé, plus de torsades"
+     },
+     {
+      "quoi": "K+ et Mg2+",
+      "quand": "Toutes les 6 à 12 h jusqu'à stabilité",
+      "cible": "K+ 4,5-5,0 mmol/L, Mg2+ normal"
+     },
+     {
+      "quoi": "ECG 12 dérivations",
+      "quand": "Quotidien et après chaque modification thérapeutique",
+      "cible": "QTc < 480 ms et absence d'alternance de T"
+     }
+    ],
+    "sortie": "Le patient sort si le QTc est normalisé, K+ et Mg2+ sont stables, les médicaments responsables sont arrêtés et aucune torsade n'a eu lieu pendant la télémétrie."
+   },
+   "prevention": {
+    "primaire": "Je vérifie ECG et électrolytes avant tout médicament à risque chez un patient à facteurs de risque.",
+    "secondaire": "Je remets une liste écrite des médicaments à éviter (CredibleMeds) et je déclare l'effet indésirable.",
+    "tertiaire": "J'oriente en cardiologie pour un bilan congénital si le QT reste long après correction."
+   }
+  },
+  {
+   "cle": "qt_acquis",
+   "titre": "QT long acquis sans urgence immédiate",
+   "but": [
+    "Normaliser le QT en supprimant la cause.",
+    "Éviter une récidive lors d'une nouvelle prescription."
+   ],
+   "moyens": {
+    "accueil": [
+     "Je mesure le QTc avec la bonne formule et je répète l'ECG.",
+     "Je dose K+, Mg2+ et Ca2+ et je recueille toute la médication.",
+     "Je recherche bradycardie, insuffisance rénale ou hépatique et cardiopathie."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Chlorure de potassium et magnésium (suppléments électrolytiques)",
+      "posologie": "Selon la carence ; objectif K+ 4,5-5,0 mmol/L ; je contrôle K+ et Mg2+ lors d'un diurétique ou d'une perte digestive.",
+      "pourquoi": "La correction électrolytique réduit le blocage de IKr et le risque de post-dépolarisations précoces.",
+      "source": "[ESC, 2022]"
+     },
+     {
+      "molecule": "Médicaments allongeant le QT (arrêt ou substitution)",
+      "posologie": "Arrêt ou changement de classe ; citalopram limité à 20 mg/j au-delà de 65 ans selon l'AIPS ; arrêt ou réévaluation si QTc > 500 ms ou allongement > 60 ms.",
+      "pourquoi": "La suppression du médicament est la mesure la plus efficace ; la dose maximale AIPS limite le risque chez la personne âgée.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "J'informe le patient de signaler tout nouveau médicament, vomissement ou diarrhée.",
+      "pourquoi": "Les pertes digestives et nouvelles prescriptions sont les déclencheurs fréquents de récidive."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Je demande au pharmacien de vérifier les interactions avec le QT (inhibiteurs du CYP3A4).",
+      "pourquoi": "Un interagissant augmente la concentration du médicament et le risque de torsade."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre la documentation de l'effet indésirable et l'information du patient et du médecin de famille."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Je limite le nombre de médicaments allongeant le QT.",
+      "Je contrôle K+ et Mg2+ lors de tout épisode digestif ou diurétique."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il mesure le QTc, exclut un QRS large et répète l'ECG."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Elle prélève K+, Mg2+, Ca2+ et note la liste des médicaments."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Il arrête ou remplace le médicament responsable et corrige les électrolytes."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Il refait l'ECG ; si le QT reste long après correction, il adresse au cardiologue pour suspicion congénitale."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le QT se normalise généralement après éviction de la cause ; un QT qui reste long suggère une forme congénitale latente.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "ECG avec QTc",
+      "quand": "Avant, à l'état d'équilibre et après chaque augmentation de dose ou ajout d'un interagissant",
+      "cible": "QTc < 470-480 ms"
+     },
+     {
+      "quoi": "K+ et Mg2+",
+      "quand": "Lors de diurétique, vomissements ou diarrhée",
+      "cible": "K+ 4,5-5,0 mmol/L"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si QTc < 500 ms, absence de syncope et de drapeau rouge, et cause corrigée."
+   },
+   "prevention": {
+    "primaire": "Je recherche les facteurs de risque (sexe féminin, âge, polymédication) avant toute prescription.",
+    "secondaire": "Je prescris le médicament avec la dose minimale et un ECG de contrôle.",
+    "tertiaire": "Je documente le dossier pour éviter une nouvelle exposition."
+   }
+  },
+  {
+   "cle": "qt_congenital",
+   "titre": "QT long congénital : traitement au long cours",
+   "but": [
+    "Prévenir la syncope et la mort subite.",
+    "Dépister et conseiller la famille.",
+    "Protéger le patient des déclencheurs de son génotype."
+   ],
+   "moyens": {
+    "accueil": [
+     "J'explique la maladie, le risque de mort subite et les mesures de prévention.",
+     "Je réalise ECG répétés, ionogramme, échographie cardiaque et test génétique.",
+     "J'identifie le génotype probable à partir des déclencheurs et de la morphologie de T."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Nadolol ou propranolol (bêtabloquants non sélectifs)",
+      "posologie": "Dose titrée par le cardiologue selon le poids et la fréquence cardiaque ; propranolol en plusieurs prises quotidiennes ; vérifier la disponibilité en Suisse (nadolol).",
+      "pourquoi": "Ces bêtabloquants réduisent les événements en QT long symptomatique ; le métoprolol est moins efficace.",
+      "source": "[ESC, 2022]"
+     },
+     {
+      "molecule": "Mexilétine (bloqueur du courant sodique tardif)",
+      "posologie": "Appoint spécialisé en LQT3 avec QTc > 500 ms ; posologie fixée par le rythmologue (produit non autorisé en Suisse, à vérifier).",
+      "pourquoi": "Elle corrige le gain de fonction du courant sodique tardif du génotype LQT3.",
+      "source": "[ESC, 2022]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Je pose un DAI après arrêt cardiaque récupéré et je l'envisage en cas de syncope ou de TV sous bêtabloquant.",
+      "pourquoi": "Le DAI traite la FV ; les chocs douloureux peuvent toutefois déclencher une tempête rythmique."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Je propose la dénervation sympathique cardiaque gauche en cas de récidive, d'intolérance ou de chocs répétés.",
+      "pourquoi": "Elle diminue la stimulation adrénergique cardiaque quand le bêtabloquant ne suffit pas."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "J'évite la natation sans surveillance (LQT1) et les réveils sonores brusques (LQT2), et les médicaments à risque.",
+      "pourquoi": "Ces déclencheurs sont spécifiques au génotype et évitables."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Je propose le dépistage en cascade des apparentés du premier degré avec conseil génétique.",
+      "pourquoi": "Les apparentés porteurs peuvent être asymptomatiques et à risque de mort subite."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Applique la LAGH (conseil génétique avant test présymptomatique) et encadre l'aptitude à conduire (signalement à l'autorité cantonale)."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Clarifie la prise en charge du test génétique, du DAI et d'une éventuelle incapacité de travail."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Je poursuis le bêtabloquant pendant la grossesse et je renforce la surveillance en postpartum.",
+      "Je remets au patient une carte avec la liste des médicaments contre-indiqués."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il pose le diagnostic avec QTc répété, score de Schwartz et antécédents."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "spécialiste",
+       "fait": "Le généticien prescrit le test KCNQ1, KCNH2, SCN5A et organise le conseil génétique."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Il débute un bêtabloquant non sélectif et supprime les médicaments allongeant le QT."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Le rythmologue évalue le DAI ou la dénervation sympathique selon le risque."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Il organise l'ECG et le génotypage ciblé chez les apparentés du premier degré."
+      }
+     ]
+    }
+   },
+   "pronostic": "Sous bêtabloquant bien toléré et sans déclencheur, le risque de mort subite est fortement réduit ; QTc > 500 ms, syncope, arrêt récupéré, Jervell et Lange-Nielsen et LQT2 féminin aggravent le pronostic.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "ECG, QTc et fréquence cardiaque",
+      "quand": "À chaque consultation de suivi",
+      "cible": "QTc stable ou raccourci sous traitement"
+     },
+     {
+      "quoi": "Tolérance du bêtabloquant",
+      "quand": "À chaque visite",
+      "cible": "Absence de bradycardie symptomatique et de bronchospasme"
+     },
+     {
+      "quoi": "Contrôle du DAI",
+      "quand": "Selon le centre de rythmologie",
+      "cible": "Pas de chocs, pas de tempête rythmique"
+     },
+     {
+      "quoi": "Dépistage familial",
+      "quand": "Au diagnostic du cas index",
+      "cible": "Tous les apparentés du premier degré testés"
+     }
+    ],
+    "sortie": "Le patient sort si le traitement est instauré, aucune arythmie n'est documentée, l'éducation est faite et le suivi spécialisé est programmé ; l'aptitude à conduire est évaluée après syncope ou DAI."
+   },
+   "prevention": {
+    "primaire": "Je dépiste les apparentés du premier degré et je conseille l'éviction des médicaments à risque.",
+    "secondaire": "Je maintiens le bêtabloquant et j'évite les déclencheurs du génotype.",
+    "tertiaire": "Je pose un DAI ou une dénervation sympathique en cas de récidive malgré le bêtabloquant."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": [
+   "SCHEMA: '[\\n{\"id\":\"c1\",\"titre\":\"Définition, seuils et classification\",\"rubriques\":[\"definition\"],\"comment\":\"Je mesure d\\'abord un QTc fiable, puis je classe le QT long "
+  ]
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7431,
+  "output_tokens": 19632,
+  "output_tokens_details": {
+   "thinking_tokens": 4085
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:35:02",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": "rejet",
+  "claude": "2026-11-24",
+  "motif": "Sortie tronquée du lot batch : ssp et/ou notions sérialisés en texte JSON incomplet, priseEnCharge absente ; contenu inexploitable, à régénérer (aucune valeur médicale effacée sur main)."
+ }
+}

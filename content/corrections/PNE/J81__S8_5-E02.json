@@ -1,0 +1,1146 @@
+{
+ "id": "J81__S8_5-E02",
+ "portes": [
+  {
+   "ssp": "S8.5",
+   "nomSSP": "Noyade ou quasi-noyade",
+   "entite": "Œdème pulmonaire aigu post-submersion modéré (grade 3 de Szpilman)",
+   "entiteId": "S8.5-E02"
+  },
+  {
+   "ssp": "S8.5",
+   "nomSSP": "Noyade ou quasi-noyade",
+   "entite": "Œdème pulmonaire aigu grave avec choc (grade 4 de Szpilman)",
+   "entiteId": "S8.5-E13"
+  }
+ ],
+ "entite": "Œdème pulmonaire aigu grave avec choc (grade 4 de Szpilman)",
+ "cim10": "J81",
+ "ssp": {
+  "code": "S8.5",
+  "nom": "Noyade ou quasi-noyade",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient récupéré après submersion",
+    "i": "La noyade est un processus d'insuffisance respiratoire ; on classe d'emblée par la clinique selon Szpilman.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Pouls central absent ?",
+    "i": "L'absence de pouls définit le grade 6, qui impose la réanimation cardiopulmonaire avec cinq insufflations initiales.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : grade 6, arrêt cardiorespiratoire",
+    "i": "Sort du cadre de cette entité ; renvoie au SSP d'arrêt cardiorespiratoire et à l'entité « arrêt par noyade ».",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : le patient respire-t-il ?",
+    "i": "Un pouls présent oriente vers les grades 1 à 5 ; la respiration les départage.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Non : grade 5, apnée avec pouls",
+    "i": "Sort du cadre ; renvoie à l'entité « arrêt respiratoire isolé » : ventilations immédiates pour éviter l'arrêt cardiaque hypoxique.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Oui : y a-t-il spume abondante et crépitants diffus ?",
+    "i": "La spume abondante marque l'œdème pulmonaire franc, séparant les grades 3-4 des grades 1-2.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Non : toux seule ou peu de spume (grades 1-2)",
+    "i": "Sort du cadre ; renvoie à la submersion bénigne ; oxygène si besoin et observation hospitalière, car l'œdème peut apparaître en quelques heures.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Oui : PAS < 90 mmHg ?",
+    "i": "L'hypotension sépare le grade 4 (choc) du grade 3 (œdème sans hypotension).",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Non : grade 3",
+    "i": "Sort du cadre de cette entité ; renvoie à l'œdème modéré : oxygène haut débit, ventilation non invasive possible, soins intensifs.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Oui : grade 4, œdème grave avec choc",
+    "i": "Mortalité d'environ 19 % ; l'intubation et le soutien hémodynamique sont urgents.",
+    "pec": "urgence_grade4",
+    "notion": "c7"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Cause ou facteur associé à chercher",
+    "i": "Hypothermie, traumatisme cervical et cause cardiaque modifient la conduite ; on les traite en parallèle.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Température centrale < 35 °C",
+    "i": "Réchauffe activement avec manipulation douce ; le stade suisse HT II (32-28 °C) expose aux arythmies.",
+    "pec": "urgence_grade4",
+    "notion": "c4"
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "Mécanisme de plongeon ou déficit neurologique",
+    "i": "Immobilise le rachis cervical et demande un scanner dès que l'état hémodynamique le permet.",
+    "pec": "urgence_grade4",
+    "notion": "c3"
+   },
+   {
+    "id": "n14",
+    "parent": "n11",
+    "t": "QT long ou arythmie à l'ECG",
+    "i": "Suggère une cause cardiaque primaire ; monitore le rythme et demande un avis cardiologique, sans retarder la ventilation.",
+    "pec": "urgence_grade4",
+    "notion": "c4"
+   },
+   {
+    "id": "n15",
+    "parent": "n10",
+    "t": "Hypoxémie persistante après intubation",
+    "i": "PaO2/FiO2 < 150 avec FiO2 ≥ 0,6 fait indiquer le décubitus ventral ; PaO2/FiO2 < 50 pendant plus de 3 h fait discuter l'ECMO.",
+    "pec": "sdra_refractaire",
+    "notion": "c8"
+   },
+   {
+    "id": "n16",
+    "parent": "n10",
+    "t": "Patient stabilisé, besoin d'oxygène en baisse",
+    "i": "Le sevrage ventilatoire débute quand oxygénation, hémodynamique et neurologie le permettent ; la réhabilitation s'organise.",
+    "pec": "sevrage_suivi",
+    "notion": "c9"
+   }
+  ]
+ },
+ "specialites": [
+  "PNE"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Œdème pulmonaire aigu grave avec choc après submersion (grade 4 de Szpilman)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition et classification de Szpilman",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Pour classer, cherche d'abord la spume et l'œdème, puis la tension artérielle, puis la respiration et le pouls : le grade 4 est un œdème avec hypotension et pouls présent.",
+   "tableau": {
+    "colonnes": [
+     "Grade",
+     "Signe discriminant",
+     "Mortalité",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Grade 1",
+      "Toux sans spume, auscultation normale",
+      "0 %",
+      "Observation hospitalière de quelques heures"
+     ],
+     [
+      "Grade 2",
+      "Peu de spume, râles dans une partie des champs",
+      "0,6 %",
+      "Oxygène, observation"
+     ],
+     [
+      "Grade 3",
+      [
+       {
+        "t": "Œdème pulmonaire aigu sans hypotension",
+        "i": "L'œdème franc (spume abondante, crépitants diffus) sépare le grade 3 des grades 1-2 ; la tension conservée le sépare du grade 4."
+       }
+      ],
+      "5,2 %",
+      "Oxygène haut débit, ventilation non invasive possible, soins intensifs"
+     ],
+     [
+      "Grade 4",
+      [
+       {
+        "t": "Œdème pulmonaire aigu avec hypotension (PAS < 90 mmHg), pouls central présent",
+        "i": "L'hypotension traduit un choc par hypoxémie, fuite capillaire et acidose ; un pouls présent exclut le grade 6."
+       }
+      ],
+      "19,4 %",
+      "Intubation, ventilation protectrice, vasopresseur, soins intensifs"
+     ],
+     [
+      "Grade 5",
+      [
+       {
+        "t": "Arrêt respiratoire avec pouls central présent",
+        "i": "L'apnée avec pouls impose la ventilation immédiate pour éviter l'arrêt cardiaque hypoxique, qui est la séquence habituelle."
+       }
+      ],
+      "44 %",
+      "Cinq insufflations à l'oxygène, ventilation assistée"
+     ],
+     [
+      "Grade 6",
+      [
+       {
+        "t": "Arrêt cardiorespiratoire (pouls absent)",
+        "i": "L'absence de pouls impose la réanimation cardiopulmonaire, avec insufflations initiales avant les compressions."
+       }
+      ],
+      "93 %",
+      "Cinq insufflations puis réanimation cardiopulmonaire"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le terme de noyade désigne un processus d'insuffisance respiratoire lié à une submersion ou une immersion dans un liquide ; « quasi-noyade », « noyade sèche » et « noyade humide » sont abandonnés.",
+    "L'œdème est lésionnel, donc non cardiogénique, car la membrane alvéolo-capillaire est altérée sans élévation des pressions gauches.",
+    "Le diagnostic de grade 4 reste clinique et ne demande pas d'attendre l'imagerie."
+   ],
+   "sources": [
+    "Szpilman D, N Engl J Med 2012",
+    "Szpilman D, Chest 1997",
+    "ERC Guidelines 2021, circonstances particulières"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie et physiopathologie",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences"
+   ],
+   "comment": "Raisonne en cascade : submersion, hypoxie, lésion alvéolaire, puis choc multifactoriel, sans chercher de différence entre eau douce et eau salée.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La noyade cause environ 236 000 décès par an dans le monde (2019) ; en Suisse, elle tue plusieurs dizaines de personnes par an, surtout en lacs et rivières chez l'adulte.",
+    "Les enfants de 1 à 4 ans et les hommes sont les plus touchés ; alcool, épilepsie et maladie cardiaque sont des facteurs favorisants.",
+    "Le liquide inhalé lave le surfactant et détruit la membrane alvéolo-capillaire, ce qui crée un œdème non cardiogénique, un shunt et une hypoxémie sévère.",
+    "Eau douce ou salée donnent le même tableau et la même prise en charge, car la lésion pulmonaire domine toujours.",
+    "Le choc associe dépression myocardique par hypoxémie et acidose mixte, hypovolémie par fuite capillaire, hypothermie et baisse de précharge par PEEP élevée."
+   ],
+   "sources": [
+    "OMS, Global report on drowning 2014 et estimations 2019",
+    "Szpilman D, N Engl J Med 2012",
+    "SLRG / BFU, statistiques suisses de noyade"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen clinique",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Interroge les témoins sur la durée, la température et la cause du malaise, puis examine poumons, hémodynamique, température centrale, neurologie et rachis.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le médecin recherche durée de submersion, température et nature de l'eau, car ils conditionnent l'hypoxie, l'hypothermie et le risque infectieux.",
+    "Il cherche la cause déclenchante : malaise, arythmie, crise comitiale, alcool ou drogues, hyperventilation préalable, traumatisme par plongeon.",
+    "Il interroge les témoins sur la réanimation initiale, les vomissements et l'état de conscience à la sortie de l'eau (souvent agitation ou obnubilation).",
+    "L'examen objective spume rosée abondante, crépitants diffus, cyanose, tirage majeur, polypnée, tachycardie, pouls filant et PAS < 90 mmHg.",
+    "Il mesure la température centrale, le Glasgow et les pupilles, et examine le rachis cervical si le mécanisme est traumatique."
+   ],
+   "sources": [
+    "Szpilman D, N Engl J Med 2012",
+    "ERC Guidelines 2021, circonstances particulières"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Signes d'alerte et facteurs de mauvais pronostic",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Cherche à chaque réévaluation hypoxémie réfractaire, choc persistant, hypothermie, atteinte cérébrale, acidose profonde et cause cardiaque.",
+   "tableau": {
+    "colonnes": [
+     "Signal d'alerte",
+     "Seuil",
+     "Signification et réaction"
+    ],
+    "lignes": [
+     [
+      "Hypoxémie réfractaire",
+      [
+       {
+        "t": "PaO2/FiO2 < 100 sous PEEP ≥ 5 cmH2O",
+        "i": "C'est le seuil du SDRA sévère selon Berlin ; il ouvre la discussion du décubitus ventral puis de l'ECMO."
+       }
+      ],
+      "Optimise la ventilation protectrice puis escalade selon le plan SDRA."
+     ],
+     [
+      "Choc persistant",
+      "Hypotension malgré noradrénaline",
+      [
+       {
+        "t": "Dysfonction myocardique, arythmie, hypothermie profonde, hypovolémie ou pneumothorax sous tension",
+        "i": "Ces causes se traitent spécifiquement ; le pneumothorax est favorisé par la PEEP élevée et se drainera sans attendre."
+       }
+      ]
+     ],
+     [
+      "Hypothermie",
+      [
+       {
+        "t": "HT II suisse : 32 à 28 °C, trouble de conscience sans frissons",
+        "i": "Ce stade expose aux arythmies et à l'arrêt cardiaque ; le geste doit rester doux et le réchauffement actif."
+       }
+      ],
+      "Réchauffe activement et manipule doucement."
+     ],
+     [
+      "Acidose profonde",
+      [
+       {
+        "t": "pH < 7,1 ou lactates très élevés",
+        "i": "Ces valeurs signent une hypoxie tissulaire profonde et un risque de défaillance multiviscérale."
+       }
+      ],
+      "Répète les gazométries et recherche une défaillance d'organe."
+     ],
+     [
+      "Atteinte cérébrale",
+      [
+       {
+        "t": "Coma, pupilles fixes dilatées, Glasgow très bas",
+        "i": "Ces signes indiquent une atteinte hypoxique cérébrale sévère, de mauvais pronostic neurologique."
+       }
+      ],
+      "Évalue le pronostic avec prudence, sans limiter précocement les soins."
+     ],
+     [
+      "Cause cardiaque",
+      [
+       {
+        "t": "Trouble du rythme ou QT long à l'ECG",
+        "i": "Ils orientent vers une cause primaire de la noyade, notamment chez un nageur jeune."
+       }
+      ],
+      "Monitore le rythme et demande un avis cardiologique."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Un patient peu symptomatique peut s'aggraver en quelques heures, d'où l'observation hospitalière de tout patient symptomatique après submersion."
+   ],
+   "sources": [
+    "ARDS Definition Task Force, JAMA 2012 (Berlin)",
+    "Classification suisse de l'hypothermie, Durrer 2003 ; ERC 2021"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan initial",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Débute par gazométrie, radiographie, échocardiographie et ECG sans retarder le traitement, puis complète par le bilan biologique et les examens orientés par la cause.",
+   "tableau": {
+    "colonnes": [
+     "Examen",
+     "Résultat attendu",
+     "Utilité"
+    ],
+    "lignes": [
+     [
+      "Gazométrie artérielle",
+      "Hypoxémie sévère, acidose mixte",
+      "Calcule le PaO2/FiO2 et guide la ventilation"
+     ],
+     [
+      "Radiographie thoracique",
+      [
+       {
+        "t": "Infiltrats alvéolaires bilatéraux périhilaires sans cardiomégalie",
+        "i": "L'absence de cardiomégalie oriente vers un œdème lésionnel ; la radiographie peut rester normale les premières heures et ne doit pas rassurer."
+       }
+      ],
+      "Confirme l'œdème et sert de référence"
+     ],
+     [
+      "Échocardiographie au lit",
+      [
+       {
+        "t": "Fonction ventriculaire gauche et volémie",
+        "i": "Elle exclut une cause cardiogénique et guide fluides et vasopresseurs, ce que ni la radiographie ni le BNP ne font."
+       }
+      ],
+      "Choisit noradrénaline seule ou avec dobutamine"
+     ],
+     [
+      "Échographie pulmonaire",
+      "Lignes B diffuses bilatérales",
+      "Suit l'évolution de l'œdème"
+     ],
+     [
+      "ECG et monitorage",
+      "Arythmie, QT long, ischémie",
+      "Cherche la cause cardiaque de la noyade"
+     ],
+     [
+      "Lactates, fonction rénale, CK, électrolytes",
+      "Hyperlactatémie, insuffisance rénale, rhabdomyolyse",
+      "Mesure la gravité de l'hypoperfusion et les complications"
+     ],
+     [
+      "Troponine, BNP",
+      "Élévation possible",
+      "Reconnaît une atteinte myocardique mais ne distingue pas à eux seuls les deux types d'œdème"
+     ],
+     [
+      "Scanner cérébral, cervical, corps entier",
+      "Selon contexte",
+      "Indiqué si traumatisme suspecté ou cause de perte de conscience inexpliquée"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Glycémie, alcoolémie et dépistage toxicologique recherchent une cause favorisante.",
+    "La bronchoscopie reste réservée à la suspicion de débris ou de corps étranger obstructif."
+   ],
+   "sources": [
+    "Szpilman D, N Engl J Med 2012",
+    "ARDS Definition Task Force, JAMA 2012 (Berlin)"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Diagnostic positif et différentiel",
+   "rubriques": [
+    "positiveDiagnosis"
+   ],
+   "comment": "Pose le diagnostic sur le contexte de submersion, la spume, les crépitants diffus et l'hypotension avec pouls présent, puis écarte les causes qui changent la prise en charge.",
+   "tableau": {
+    "colonnes": [
+     "Diagnostic différentiel",
+     "Élément en faveur",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "Œdème cardiogénique",
+      "Antécédent cardiaque, cardiomégalie",
+      [
+       {
+        "t": "Dysfonction VG et pressions de remplissage élevées à l'échocardiographie",
+        "i": "L'échographie sépare cardiogénique et lésionnel ; une cause cardiaque peut aussi avoir précipité la noyade."
+       }
+      ]
+     ],
+     [
+      "Pneumonie d'inhalation",
+      "Vomissement, fièvre, foyer",
+      [
+       {
+        "t": "Condensation localisée et évolution sur plusieurs heures",
+        "i": "L'œdème lésionnel est diffus et précoce, alors que la pneumonie reste focale."
+       }
+      ]
+     ],
+     [
+      "Arythmie ou QT long",
+      "Malaise brutal, nageur jeune",
+      [
+       {
+        "t": "Anomalie à l'ECG et au monitorage",
+        "i": "Elle impose un traitement cardiologique spécifique et non une simple ventilation."
+       }
+      ]
+     ],
+     [
+      "Crise comitiale",
+      "Antécédent d'épilepsie, morsure de langue",
+      [
+       {
+        "t": "Contexte clinique et suivi neurologique",
+        "i": "Elle peut être la cause de la submersion mais ne produit pas d'œdème sans inhalation."
+       }
+      ]
+     ],
+     [
+      "Traumatisme cervical associé",
+      "Plongeon en eau peu profonde",
+      [
+       {
+        "t": "Déficit neurologique, douleur rachidienne, scanner",
+        "i": "Il impose l'immobilisation cervicale et le scanner avant toute manipulation."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le grade 3 se distingue du grade 4 par l'absence d'hypotension ; le grade 5 correspond à l'apnée avec pouls et le grade 6 à l'absence de pouls."
+   ],
+   "sources": [
+    "Szpilman D, N Engl J Med 2012",
+    "ERC Guidelines 2021, circonstances particulières"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge aiguë du grade 4",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Oxygène à haut débit, intubation en séquence rapide, ventilation protectrice, noradrénaline et remplissage prudent, tout en réchauffant et en cherchant la cause.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Grade 4 : œdème et hypotension, pouls présent",
+     "i": "Le patient menace de s'épuiser et de passer en arrêt hypoxique ; chaque minute compte.",
+     "pec": "urgence_grade4",
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Oxygène à haut débit et monitorage",
+     "i": "L'hypoxémie est la cause du choc ; on la corrige avant tout autre geste, avec scope et voie veineuse.",
+     "pec": "urgence_grade4",
+     "notion": "c7"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Intubation en séquence rapide",
+     "i": "Hypoxémie menaçante et estomac plein justifient l'intubation précoce avec préoxygénation soigneuse.",
+     "pec": "urgence_grade4",
+     "notion": "c7"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Induction par kétamine, vasopresseur prêt",
+     "i": "La kétamine est hémodynamiquement plus neutre que le propofol, car l'induction peut provoquer un collapsus.",
+     "pec": "urgence_grade4",
+     "notion": "c7"
+    },
+    {
+     "id": "n5",
+     "parent": "n3",
+     "t": "Ventilation protectrice : Vt 6 mL/kg, Pplat ≤ 30, PEEP élevée",
+     "i": "Elle limite le volutraumatisme sur un poumon lésé, mais la PEEP élevée réduit la précharge.",
+     "pec": "urgence_grade4",
+     "notion": "c7"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "PAM < 65 mmHg : noradrénaline",
+     "i": "C'est le vasopresseur de première intention, titré pour une PAM d'au moins 65 mmHg.",
+     "pec": "urgence_grade4",
+     "notion": "c7"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Écho : dysfonction ventriculaire gauche",
+     "i": "La dobutamine s'ajoute pour soutenir le débit cardiaque lorsque la contractilité est altérée.",
+     "pec": "urgence_grade4",
+     "notion": "c5"
+    },
+    {
+     "id": "n8",
+     "parent": "n6",
+     "t": "Écho : hypovolémie",
+     "i": "Un petit bolus de cristalloïdes est guidé par l'échographie, car un excès aggrave l'œdème lésionnel.",
+     "pec": "urgence_grade4",
+     "notion": "c5"
+    },
+    {
+     "id": "n9",
+     "parent": "n1",
+     "t": "Température centrale < 35 °C",
+     "i": "L'hypothermie aggrave le choc et les arythmies ; on réchauffe activement en manipulant doucement.",
+     "pec": "urgence_grade4",
+     "notion": "c4"
+    },
+    {
+     "id": "n10",
+     "parent": "n1",
+     "t": "Manœuvre de Heimlich ou drainage de l'eau",
+     "i": "Ils ne sont pas indiqués : ils retardent la ventilation et exposent aux vomissements.",
+     "pec": null,
+     "notion": "c7"
+    }
+   ],
+   "points": [
+    "Après la phase aiguë, le sevrage ventilatoire est progressif sur plusieurs jours et débute quand oxygénation, hémodynamique et état neurologique le permettent.",
+    "Ni antibiotiques prophylactiques ni corticoïdes ne sont recommandés en routine ; l'antibiothérapie est réservée à une infection avérée ou à une eau très contaminée.",
+    "En cas d'arrêt par noyade, le Swiss Resuscitation Council, suivant l'ERC, recommande cinq insufflations initiales à l'oxygène avant les compressions."
+   ],
+   "sources": [
+    "ERC Guidelines 2021, circonstances particulières",
+    "Swiss Resuscitation Council, directives 2021",
+    "Szpilman D, N Engl J Med 2012"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications et surveillance en soins intensifs",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance"
+   ],
+   "comment": "Surveille PaO2/FiO2 et pressions ventilatoires, puis escalade vers le décubitus ventral et l'ECMO veino-veineuse si l'hypoxémie persiste, en cherchant un pneumothorax devant toute aggravation brutale.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Hypoxémie persistante sous ventilation protectrice",
+     "i": "Un SDRA sévère impose une escalade progressive, en vérifiant d'abord réglages et causes mécaniques.",
+     "pec": "sdra_refractaire",
+     "notion": "c8"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "PaO2/FiO2 < 150 avec FiO2 ≥ 0,6",
+     "i": "Ce seuil de l'essai PROSEVA justifie le décubitus ventral d'au moins 16 heures par jour ; le curare reste possible.",
+     "pec": "sdra_refractaire",
+     "notion": "c8"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "PaO2/FiO2 < 50 pendant > 3 h ou < 80 pendant > 6 h",
+     "i": "Ces seuils de l'essai EOLIA font discuter l'ECMO veino-veineuse dans un centre expert.",
+     "pec": "sdra_refractaire",
+     "notion": "c8"
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Aggravation brutale respiratoire ou hémodynamique",
+     "i": "La PEEP et les pressions élevées exposent au pneumothorax, qu'il faut évoquer et drainer s'il est sous tension.",
+     "pec": "urgence_grade4",
+     "notion": "c8"
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Fièvre ou infiltrat nouveau sous ventilation",
+     "i": "Le patient intubé risque une pneumonie sous ventilation, parfois à germes aquatiques (Pseudomonas, Aeromonas, Scedosporium apiospermum) ; on prélève avant antibiotiques.",
+     "pec": null,
+     "notion": "c8"
+    }
+   ],
+   "points": [
+    "Le grade 4 exige une admission aux soins intensifs avec ventilation invasive et support hémodynamique, dans un centre disposant éventuellement d'ECMO.",
+    "L'hypoxie-ischémie provoque aussi encéphalopathie anoxique, insuffisance rénale aiguë, rhabdomyolyse, coagulopathie et défaillance multiviscérale.",
+    "Le médecin surveille PaO2/FiO2, pression de plateau ≤ 30 cmH2O, pression motrice idéalement ≤ 15 cmH2O, pression artérielle invasive, lactates, diurèse et échocardiographies répétées.",
+    "Il surveille aussi température centrale, état neurologique sous sédation allégée, glycémie et fonction rénale."
+   ],
+   "sources": [
+    "Guérin C et al., PROSEVA, N Engl J Med 2013",
+    "Combes A et al., EOLIA, N Engl J Med 2018",
+    "Szpilman D, N Engl J Med 2012"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Pronostic, sevrage et suivi",
+   "rubriques": [
+    "prognosisDischarge",
+    "chronicManagement",
+    "followUpNetwork"
+   ],
+   "comment": "Annonce une mortalité d'environ 19 % au grade 4, juge le pronostic neurologique sur la durée de submersion et l'arrêt cardiaque, puis organise réhabilitation et prévention.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La mortalité du grade 4 atteint environ 19,4 %, contre 5,2 % au grade 3 et 44 % au grade 5.",
+    "Une submersion de moins de 5 minutes est de bon pronostic ; plus de 25 minutes, un Glasgow bas et un arrêt cardiaque assombrissent fortement l'évolution neurologique.",
+    "Chez les survivants sans atteinte cérébrale, la fonction pulmonaire récupère généralement bien ; une réhabilitation respiratoire et neurologique est proposée selon les séquelles.",
+    "La médecine intensive prend en charge la phase initiale, puis pneumologie, neurologie et réadaptation assurent le suivi, avec évaluation neuropsychologique si une atteinte cérébrale est suspectée.",
+    "La prévention suisse repose sur les règles de baignade de la SLRG : surveillance rapprochée des enfants, pas d'alcool, pas d'eau inconnue, apprentissage de la natation."
+   ],
+   "sources": [
+    "Szpilman D, Chest 1997 ; N Engl J Med 2012",
+    "SLRG, règles de baignade"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence_grade4",
+   "titre": "Réanimation initiale du grade 4 : oxygène, intubation, ventilation protectrice, vasopresseur",
+   "but": [
+    "Corriger l'hypoxémie menaçante en sécurisant les voies aériennes sans provoquer de collapsus.",
+    "Maintenir une pression artérielle moyenne d'au moins 65 mmHg avec un remplissage prudent.",
+    "Traiter les causes associées : hypothermie, traumatisme, arythmie."
+   ],
+   "moyens": {
+    "accueil": [
+     "Place le patient en salle de déchocage avec scope, saturomètre et voie veineuse, en le déshabillant et en le séchant.",
+     "Administre de l'oxygène à haut débit et demande un second médecin pour l'intubation.",
+     "Immobilise le rachis cervical si le mécanisme évoque un plongeon ou un traumatisme.",
+     "Prends la température centrale et la glycémie capillaire dès l'arrivée."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Oxygène (gaz médical)",
+      "posologie": "15 L/min au masque à réservoir en préoxygénation, cible SpO2 ≥ 94 % avant intubation.",
+      "pourquoi": "L'hypoxémie par shunt est la cause du choc, donc l'oxygène à haut débit précède tout autre geste.",
+      "source": "[ERC, 2021]"
+     },
+     {
+      "molecule": "Kétamine (anesthésique dissociatif)",
+      "posologie": "1 à 2 mg/kg IV lent en induction ; réduire la dose en cas de choc profond.",
+      "pourquoi": "Elle est hémodynamiquement plus neutre que le propofol, ce qui limite le collapsus à l'induction en choc.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Rocuronium (curare non dépolarisant)",
+      "posologie": "1 à 1,2 mg/kg IV pour la séquence rapide ; sugammadex disponible pour l'antagonisation.",
+      "pourquoi": "Il offre de bonnes conditions d'intubation sur estomac plein et n'a pas les contre-indications de la succinylcholine.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Noradrénaline (catécholamine vasopressive)",
+      "posologie": "Perfusion IV continue sur voie centrale, titrée à partir d'environ 0,05 µg/kg/min pour PAM ≥ 65 mmHg.",
+      "pourquoi": "C'est le vasopresseur de première intention, qui corrige le choc sans accroître l'œdème comme le ferait un remplissage excessif.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Dobutamine (inotrope)",
+      "posologie": "2,5 à 10 µg/kg/min IV en perfusion continue, ajustée au débit cardiaque et à l'échocardiographie.",
+      "pourquoi": "Elle s'ajoute à la noradrénaline en cas de dysfonction ventriculaire gauche démontrée à l'échographie.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Cristalloïdes balancés (Ringer lactate ou acétate)",
+      "posologie": "Bolus de 250 mL IV, répétés seulement si l'échographie montre une hypovolémie et une réponse.",
+      "pourquoi": "La fuite capillaire entretient l'hypovolémie, mais un excès de fluides aggrave l'œdème lésionnel.",
+      "source": "[ERC, 2021]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Intube en séquence rapide puis ventile avec Vt 6 mL/kg de poids idéal, Pplat ≤ 30 cmH2O et PEEP élevée adaptée à l'oxygénation.",
+      "pourquoi": "La ventilation protectrice limite la lésion pulmonaire induite par le ventilateur ; la PEEP recrute les alvéoles inondées."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Réchauffe activement le patient hypotherme en le manipulant doucement, couvertures chauffantes et perfusions réchauffées.",
+      "pourquoi": "L'hypothermie aggrave le choc et expose aux arythmies, d'où un réchauffement actif et des gestes doux."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Pose une sonde gastrique et un cathéter artériel pour la pression invasive et les gazométries répétées.",
+      "pourquoi": "L'estomac plein expose à l'inhalation ; la pression invasive permet de doser vasopresseurs et fluides."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Évite la manœuvre de Heimlich et toute tentative de drainer l'eau des poumons.",
+      "pourquoi": "Ces manœuvres ne sont pas efficaces, retardent la ventilation et favorisent les vomissements."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Clarifie la couverture accident (LAA) du séjour en soins intensifs et de la réadaptation."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'information des proches et le consentement différé, et signale un décès ou un événement non naturel selon la loi cantonale."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Aide à définir les objectifs de soins si l'atteinte neurologique est sévère et le pronostic sombre."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Garde le patient à l'horizontale, sec et couvert, et prépare l'intubation avant la dégradation.",
+      "Garde le rachis cervical en position neutre tant qu'un traumatisme n'est pas exclu.",
+      "Évite toute manipulation brusque chez un patient hypotherme."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Donne de l'oxygène à haut débit et confirme le grade 4 : œdème, PAS < 90, pouls présent."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Branche scope, pose deux voies veineuses, mesure température centrale et glycémie."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Prépare kétamine, rocuronium et noradrénaline avant l'induction pour prévenir le collapsus."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Intubation en séquence rapide, puis ventilation protectrice avec PEEP élevée."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Débute la noradrénaline pour PAM ≥ 65 mmHg ; ajoute dobutamine si l'écho montre une dysfonction."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Réalise radiographie, échographie et ECG, puis transfère aux soins intensifs."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La mortalité du grade 4 atteint environ 19,4 %, contre 5,2 % au grade 3 ; la durée de submersion et l'arrêt cardiaque déterminent le pronostic neurologique.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "SpO2 et PaO2/FiO2 par gazométries répétées",
+      "quand": "Continue et à chaque changement de réglage",
+      "cible": "SpO2 92-96 %, PaO2/FiO2 en amélioration"
+     },
+     {
+      "quoi": "Pression artérielle invasive, lactates, diurèse",
+      "quand": "Continue, lactates toutes les quelques heures au début",
+      "cible": "PAM ≥ 65 mmHg, lactates en baisse"
+     },
+     {
+      "quoi": "Pression de plateau et pression motrice",
+      "quand": "À chaque réglage",
+      "cible": "Pplat ≤ 30 cmH2O, pression motrice ≤ 15 cmH2O"
+     },
+     {
+      "quoi": "Température centrale",
+      "quand": "Continue",
+      "cible": "Normothermie par réchauffement progressif"
+     },
+     {
+      "quoi": "Glasgow et pupilles sous sédation allégée",
+      "quand": "Régulièrement",
+      "cible": "Absence de nouvelle atteinte neurologique"
+     }
+    ],
+    "sortie": "Admission aux soins intensifs obligatoire ; la sortie des soins intensifs se fait seulement après extubation, arrêt des vasopresseurs, oxygénation stable et état neurologique évalué."
+   },
+   "prevention": {
+    "primaire": "Applique les règles de baignade de la SLRG : surveille de près les enfants, évite l'alcool et les eaux inconnues, enseigne la natation.",
+    "secondaire": "Recherche et traite la cause du malaise : épilepsie, arythmie, QT long, diabète, alcool ou drogues.",
+    "tertiaire": "Organise la réhabilitation respiratoire et neurologique et l'évaluation neuropsychologique pour limiter les séquelles."
+   }
+  },
+  {
+   "cle": "sdra_refractaire",
+   "titre": "SDRA post-noyade : décubitus ventral, curare et ECMO veino-veineuse",
+   "but": [
+    "Obtenir une oxygénation suffisante tout en protégeant le poumon lésé.",
+    "Escalader au décubitus ventral puis à l'ECMO si l'hypoxémie persiste.",
+    "Dépister précocement pneumothorax et infection."
+   ],
+   "moyens": {
+    "accueil": [
+     "Évalue le patient à l'arrivée en soins intensifs avec gazométrie et réglages ventilatoires.",
+     "Vérifie la position du tube, les fuites et l'absence de pneumothorax avant d'escalader."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Cisatracurium (curare non dépolarisant)",
+      "posologie": "Bolus puis perfusion IV d'environ 1 à 3 µg/kg/min, adaptée au train-de-quatre ; durée courte.",
+      "pourquoi": "Il facilite l'adaptation au ventilateur et le décubitus ventral dans les SDRA sévères, mais son usage reste individualisé.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Héparine non fractionnée (anticoagulant)",
+      "posologie": "Selon le protocole du centre d'ECMO, avec cible de TCA ou d'anti-Xa fixée par le centre.",
+      "pourquoi": "Elle prévient la thrombose du circuit d'ECMO, mais augmente le risque de saignement chez un patient coagulopathe.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Place le patient en décubitus ventral au moins 16 heures par jour si PaO2/FiO2 < 150 avec FiO2 ≥ 0,6.",
+      "pourquoi": "L'essai PROSEVA a montré une baisse de mortalité à 28 jours avec cette stratégie dans le SDRA sévère."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Discute l'ECMO veino-veineuse si PaO2/FiO2 < 50 pendant plus de 3 h ou < 80 pendant plus de 6 h.",
+      "pourquoi": "Ces seuils de l'essai EOLIA identifient l'hypoxémie réfractaire malgré la ventilation protectrice optimale."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Draine immédiatement un pneumothorax sous tension en cas d'aggravation brutale.",
+      "pourquoi": "La PEEP élevée favorise le barotraumatisme, qui peut tuer en quelques minutes."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Participe à la discussion d'objectifs de soins si l'ECMO ne change pas le pronostic neurologique."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Continue la ventilation protectrice : Vt 6 mL/kg, Pplat ≤ 30 cmH2O, pression motrice ≤ 15 cmH2O.",
+      "Vise un équilibre hydrique neutre, sans excès de fluides.",
+      "Prélève à visée microbiologique avant tout antibiotique en cas de suspicion de pneumonie."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Vérifie tube, réglages, PEEP et exclut un pneumothorax ou une atélectasie par échographie et radiographie."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Indique le décubitus ventral dès PaO2/FiO2 < 150 avec FiO2 ≥ 0,6."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Réalise le retournement en équipe, protège les points d'appui et surveille tube et voies."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Appelle le centre d'ECMO si PaO2/FiO2 < 50 sur 3 h ou < 80 sur 6 h."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Réévalue chaque jour l'oxygénation et la possibilité de sevrer le curare et la sédation."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le SDRA sévère post-noyade garde un pronostic favorable chez les survivants sans atteinte cérébrale, car la fonction pulmonaire récupère généralement bien.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "PaO2/FiO2 avant et après chaque séance de décubitus ventral",
+      "quand": "Plusieurs fois par jour",
+      "cible": "Amélioration avec baisse de FiO2 et de PEEP"
+     },
+     {
+      "quoi": "Pression de plateau et pression motrice",
+      "quand": "À chaque réglage",
+      "cible": "Pplat ≤ 30 cmH2O et pression motrice ≤ 15 cmH2O"
+     },
+     {
+      "quoi": "Radiographie ou échographie pulmonaire",
+      "quand": "Quotidienne et si aggravation",
+      "cible": "Absence de pneumothorax, régression des infiltrats"
+     },
+     {
+      "quoi": "Température et marqueurs infectieux",
+      "quand": "Quotidienne",
+      "cible": "Absence de pneumonie sous ventilation"
+     }
+    ],
+    "sortie": "Pas de sortie : le patient reste aux soins intensifs jusqu'à l'extubation et la stabilité de l'oxygénation."
+   },
+   "prevention": {
+    "primaire": "Applique les règles de baignade de la SLRG et la surveillance rapprochée des enfants.",
+    "secondaire": "Prévient la pneumonie sous ventilation et le barotraumatisme par ventilation protectrice et soins de bouche.",
+    "tertiaire": "Prépare la réhabilitation respiratoire dès l'extubation."
+   }
+  },
+  {
+   "cle": "sevrage_suivi",
+   "titre": "Sevrage ventilatoire, réhabilitation et suivi",
+   "but": [
+    "Sevrer progressivement la ventilation quand l'oxygénation, l'hémodynamique et la neurologie le permettent.",
+    "Dépister et traiter les séquelles respiratoires et neurologiques.",
+    "Organiser le retour à domicile et la prévention."
+   ],
+   "moyens": {
+    "accueil": [
+     "Évalue chaque jour les critères de sevrage et d'allègement de la sédation.",
+     "Explique la situation à la famille et recueille ses attentes."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "rééducation",
+      "mesure": "Fait débuter la kinésithérapie respiratoire et la mobilisation précoce dès la stabilité hémodynamique.",
+      "pourquoi": "Elle limite la faiblesse acquise en soins intensifs et facilite le sevrage ventilatoire."
+     },
+     {
+      "categorie": "rééducation",
+      "mesure": "Propose une réhabilitation respiratoire et neurologique selon les séquelles.",
+      "pourquoi": "La fonction pulmonaire récupère généralement bien, alors que l'atteinte cérébrale conditionne le devenir fonctionnel."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Organise une évaluation neuropsychologique si une atteinte cérébrale est suspectée.",
+      "pourquoi": "Elle révèle des troubles cognitifs et comportementaux parfois non visibles à l'examen standard."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Explique les règles de baignade de la SLRG au patient et à son entourage.",
+      "pourquoi": "La plupart des noyades se produisent en l'absence de surveillance ou après alcool."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Organise la réadaptation, les indemnités et la couverture accident (LAA)."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Soutient patient et famille si l'atteinte neurologique laisse des séquelles lourdes."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Maintiens une normothermie et une glycémie contrôlée.",
+      "Surveille la fonction rénale et les CK pendant la récupération."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue chaque jour oxygénation, hémodynamique et état neurologique pour débuter le sevrage."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "infirmier·ère",
+       "fait": "Allège la sédation et réalise les épreuves de ventilation spontanée selon le protocole."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "physiothérapeute",
+       "fait": "Mobilise le patient et entraîne la toux et la respiration."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Fait réaliser un bilan pneumologique et neurologique, avec évaluation neuropsychologique si besoin."
+      },
+      {
+       "temps": "puis",
+       "qui": "assistant·e social·e",
+       "fait": "Planifie la réadaptation et la prise en charge par l'assurance accident."
+      }
+     ]
+    }
+   },
+   "pronostic": "Les survivants sans atteinte cérébrale récupèrent généralement une bonne fonction pulmonaire ; une submersion supérieure à 25 minutes ou un arrêt cardiaque assombrit l'évolution neurologique.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Critères de sevrage : PaO2/FiO2, PEEP, vasopresseurs, conscience",
+      "quand": "Quotidien",
+      "cible": "Oxygénation stable sous support faible, sans vasopresseur"
+     },
+     {
+      "quoi": "Fonction pulmonaire et radiographie thoracique",
+      "quand": "Consultation pneumologique après la sortie",
+      "cible": "Normalisation ou séquelles documentées"
+     },
+     {
+      "quoi": "Évaluation neurologique et neuropsychologique",
+      "quand": "Après la sortie, selon l'atteinte initiale",
+      "cible": "Récupération cognitive ou prise en charge des séquelles"
+     }
+    ],
+    "sortie": "Sortie de l'hôpital quand le patient respire sans ventilation, l'oxygénation est suffisante sans oxygène ou avec oxygène organisé, et le suivi neuro-pneumologique est planifié."
+   },
+   "prevention": {
+    "primaire": "Respecte les règles de baignade de la SLRG : surveillance des enfants, pas d'alcool, apprentissage de la natation.",
+    "secondaire": "Traite la cause du malaise (épilepsie, arythmie, QT long) pour éviter la récidive.",
+    "tertiaire": "Poursuit la réhabilitation respiratoire, neurologique et neuropsychologique selon les séquelles."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7528,
+  "output_tokens": 23534,
+  "output_tokens_details": {
+   "thinking_tokens": 7175
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:34:59",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

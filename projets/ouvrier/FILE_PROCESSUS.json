@@ -376,10 +376,15 @@
    "commande": "python scripts/produire_notions_questions.py notions recuperer",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
-   "etat": "a_faire",
-   "essais": 0,
+   "etat": "fait",
+   "essais": 5,
    "fin": "lots_recuperes",
-   "suivi": "scripts/batchs_notions_questions.json"
+   "suivi": "scripts/batchs_notions_questions.json",
+   "dernier": {
+    "date": "2026-11-24T03:35:14+00:00",
+    "cout_usd": 0.0,
+    "resume": ""
+   }
   },
   {
    "id": "END_Q_lot",
@@ -387,9 +392,14 @@
    "commande": "python scripts/produire_notions_questions.py questions soumettre --spec END,CAR,PNE,NEP,GAS",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 80,
-   "etat": "a_faire",
-   "essais": 0,
-   "fin": "une_fois"
+   "etat": "fait",
+   "essais": 1,
+   "fin": "une_fois",
+   "dernier": {
+    "date": "2026-11-24T03:51:54+00:00",
+    "cout_usd": 0.0,
+    "resume": "questions : 314 entité(s) à produire.\nlot msgbatch_01KSqFpgnjPwdo5mVtSLw8Jd\n"
+   }
   },
   {
    "id": "END_Q_recup",
@@ -397,10 +407,15 @@
    "commande": "python scripts/produire_notions_questions.py questions recuperer",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
-   "etat": "a_faire",
-   "essais": 0,
+   "etat": "fait",
+   "essais": 1,
    "fin": "lots_recuperes",
-   "suivi": "scripts/batchs_notions_questions.json"
+   "suivi": "scripts/batchs_notions_questions.json",
+   "dernier": {
+    "date": "2026-11-24T04:24:56+00:00",
+    "cout_usd": 0.0,
+    "resume": "msgbatch_01KSqFpgnjPwdo5mVtSLw8Jd : 314 écrites, 0 échecs.\n"
+   }
   },
   {
    "id": "END_C_lot",
@@ -408,9 +423,14 @@
    "commande": "python scripts/produire_notions_questions.py correction soumettre --spec END,CAR,PNE,NEP,GAS",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 35,
-   "etat": "a_faire",
-   "essais": 0,
-   "fin": "une_fois"
+   "etat": "fait",
+   "essais": 1,
+   "fin": "une_fois",
+   "dernier": {
+    "date": "2026-11-24T04:38:18+00:00",
+    "cout_usd": 0.0,
+    "resume": "correction : 314 entité(s) à produire.\nlot msgbatch_015dk6S4Hcx1ECMWKKShN7qH\n"
+   }
   },
   {
    "id": "END_C_recup",
@@ -418,19 +438,30 @@
    "commande": "python scripts/produire_notions_questions.py correction recuperer && python scripts/couverture_notions.py && python conception/outils/arene45/construire_arene45.py",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
-   "etat": "a_faire",
-   "essais": 0,
+   "etat": "fait",
+   "essais": 1,
    "fin": "lots_recuperes",
-   "suivi": "scripts/batchs_notions_questions.json"
+   "suivi": "scripts/batchs_notions_questions.json",
+   "echecs": 1,
+   "dernier": {
+    "date": "2026-11-24T08:00:00+00:00",
+    "cout_usd": 0.0,
+    "resume": "Audit Claude : 314 corrections récupérées ; 20 sorties tronquées (ssp/notions en texte incomplet, priseEnCharge absente) archivées en rejet dans content/corrections/_archives/, à régénérer ; construire_arene45 rendu robuste (correction rejetée ou mal formée ignorée) ; couverture et arène reconstruites ; 4 corrections auditées (FA, HTA, asthme, BPCO)."
+   }
   },
   {
    "id": "T3_pec_fiches_existantes",
    "titre": "45 Spec T3 : prise en charge holistique ajoutée aux fiches existantes",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 8,
-   "etat": "a_faire",
-   "essais": 0,
-   "prompt": "Lis d'abord projets/ouvrier/MISSION_45SPEC.md et applique ses règles constantes. Exécute T3 : ajoute un mode « pec » à scripts/produire_fiches_claude.py qui, en lot, demande seulement le bloc priseEnCharge (schéma conception/donnees/schemas/prise_en_charge.json) pour chaque fiche qui ne l'a pas, et l'insère sans toucher au reste ; teste-le sur 2 fiches en direct, puis soumets le lot ; à la récupération (passage suivant), mets audit.rejector à null pour que Claude réaudite. Mets « fait » quand toutes les fiches ont priseEnCharge."
+   "etat": "en_cours",
+   "essais": 3,
+   "prompt": "Lis d'abord projets/ouvrier/MISSION_45SPEC.md et applique ses règles constantes. Exécute T3 : ajoute un mode « pec » à scripts/produire_fiches_claude.py qui, en lot, demande seulement le bloc priseEnCharge (schéma conception/donnees/schemas/prise_en_charge.json) pour chaque fiche qui ne l'a pas, et l'insère sans toucher au reste ; teste-le sur 2 fiches en direct, puis soumets le lot ; à la récupération (passage suivant), mets audit.rejector à null pour que Claude réaudite. Mets « fait » quand toutes les fiches ont priseEnCharge.",
+   "dernier": {
+    "date": "2026-11-24T08:44:25+00:00",
+    "cout_usd": 0.138,
+    "resume": "Le mode pec existait déjà et a été testé en direct ; le lot de 61 fiches a été récupéré, avec 52 priseEnCharge insérées et audit.rejector remis à null. Les 9 échecs ont été resoumis dans le lot msgbatch_01YWN6ZofP55QtkVqB39mzh1, à récupérer au prochain passage. Il reste 151 fiches rejetées avec erreurs de forme, qui relèvent de T4 ; 619 fiches sur 779 ont maintenant priseEnCharge."
+   }
   },
   {
    "id": "T4_reprise_rejets",
@@ -474,12 +505,13 @@
   {
    "id": "V2_N_lot",
    "titre": "Vague 2 (NEU,PSY,MIG,INF) : notions, dans la limite du crédit",
-   "commande": "python scripts/produire_notions_questions.py notions soumettre --spec NEU,PSY,MIG,INF --max 60",
+   "commande": "python scripts/produire_notions_questions.py notions soumettre --spec MIG,HEM,RHU,URO,GYN --max 60",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 5,
-   "etat": "a_faire",
+   "etat": "bloque",
    "essais": 0,
-   "fin": "une_fois"
+   "fin": "une_fois",
+   "note": "En pause (24.11 07:30) : les lots batch ne sont pas comptés dans depense.json ; coût réel vague 1 ≈ 105 USD. Attendre l'accord de Vial sur le crédit."
   },
   {
    "id": "V2_N_recup",
@@ -487,20 +519,22 @@
    "commande": "python scripts/produire_notions_questions.py notions recuperer",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
-   "etat": "a_faire",
+   "etat": "bloque",
    "essais": 0,
    "fin": "lots_recuperes",
-   "suivi": "scripts/batchs_notions_questions.json"
+   "suivi": "scripts/batchs_notions_questions.json",
+   "note": "En pause (24.11 07:30) : les lots batch ne sont pas comptés dans depense.json ; coût réel vague 1 ≈ 105 USD. Attendre l'accord de Vial sur le crédit."
   },
   {
    "id": "V2_Q_lot",
    "titre": "Vague 2 : questions",
-   "commande": "python scripts/produire_notions_questions.py questions soumettre --spec NEU,PSY,MIG,INF --max 60",
+   "commande": "python scripts/produire_notions_questions.py questions soumettre --spec MIG,HEM,RHU,URO,GYN --max 60",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 13,
-   "etat": "a_faire",
+   "etat": "bloque",
    "essais": 0,
-   "fin": "une_fois"
+   "fin": "une_fois",
+   "note": "En pause (24.11 07:30) : les lots batch ne sont pas comptés dans depense.json ; coût réel vague 1 ≈ 105 USD. Attendre l'accord de Vial sur le crédit."
   },
   {
    "id": "V2_Q_recup",
@@ -508,20 +542,22 @@
    "commande": "python scripts/produire_notions_questions.py questions recuperer",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
-   "etat": "a_faire",
+   "etat": "bloque",
    "essais": 0,
    "fin": "lots_recuperes",
-   "suivi": "scripts/batchs_notions_questions.json"
+   "suivi": "scripts/batchs_notions_questions.json",
+   "note": "En pause (24.11 07:30) : les lots batch ne sont pas comptés dans depense.json ; coût réel vague 1 ≈ 105 USD. Attendre l'accord de Vial sur le crédit."
   },
   {
    "id": "V2_C_lot",
    "titre": "Vague 2 : corrections",
-   "commande": "python scripts/produire_notions_questions.py correction soumettre --spec NEU,PSY,MIG,INF --max 60",
+   "commande": "python scripts/produire_notions_questions.py correction soumettre --spec MIG,HEM,RHU,URO,GYN --max 60",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 6,
-   "etat": "a_faire",
+   "etat": "bloque",
    "essais": 0,
-   "fin": "une_fois"
+   "fin": "une_fois",
+   "note": "En pause (24.11 07:30) : les lots batch ne sont pas comptés dans depense.json ; coût réel vague 1 ≈ 105 USD. Attendre l'accord de Vial sur le crédit."
   },
   {
    "id": "V2_C_recup",
@@ -529,10 +565,11 @@
    "commande": "python scripts/produire_notions_questions.py correction recuperer && python scripts/couverture_notions.py && python conception/outils/arene45/construire_arene45.py",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
-   "etat": "a_faire",
+   "etat": "bloque",
    "essais": 0,
    "fin": "lots_recuperes",
-   "suivi": "scripts/batchs_notions_questions.json"
+   "suivi": "scripts/batchs_notions_questions.json",
+   "note": "En pause (24.11 07:30) : les lots batch ne sont pas comptés dans depense.json ; coût réel vague 1 ≈ 105 USD. Attendre l'accord de Vial sur le crédit."
   }
  ],
  "_note": "L'état vivant de la file se trouve sur la branche veille/audit-medical ; cette copie de main sert de déclencheur.",

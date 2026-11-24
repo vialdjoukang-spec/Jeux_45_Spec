@@ -1,0 +1,1085 @@
+{
+ "id": "I10__F1_1-E01",
+ "portes": [
+  {
+   "ssp": "S1.5",
+   "nomSSP": "Épistaxis",
+   "entite": "Épistaxis favorisée par l'hypertension artérielle ou les traitements antithrombotiques",
+   "entiteId": "S1.5-E02"
+  },
+  {
+   "ssp": "F1.1",
+   "nomSSP": "Pression artérielle anormale",
+   "entite": "Hypertension artérielle essentielle (primaire)",
+   "entiteId": "F1.1-E01"
+  },
+  {
+   "ssp": "O2.12",
+   "nomSSP": "Consultations de suivi du nourrisson, de l’enfant et de l’adolescent en bonne santé",
+   "entite": "Hypertension artérielle pédiatrique (dépistée lors du bilan)",
+   "entiteId": "O2.12-E11"
+  },
+  {
+   "ssp": "O4.6",
+   "nomSSP": "Évaluation partagée des risques et bénéfices du dépistage et du traitement d’affections asymptomatiques",
+   "entite": "Traitement de l'hypertension artérielle légère asymptomatique (grade 1)",
+   "entiteId": "O4.6-E06"
+  },
+  {
+   "ssp": "O6.9",
+   "nomSSP": "Problèmes liés aux conditions de travail, à l’épuisement professionnel, au chômage et aux difficultés financières",
+   "entite": "Hypertension artérielle et risque cardiovasculaire liés au stress professionnel chronique",
+   "entiteId": "O6.9-E08"
+  },
+  {
+   "ssp": "O7.3",
+   "nomSSP": "Conseil diététique pour une alimentation saine et durable",
+   "entite": "Hypertension artérielle : régime DASH et réduction sodée",
+   "entiteId": "O7.3-E06"
+  }
+ ],
+ "entite": "Hypertension artérielle essentielle (primaire)",
+ "cim10": "I10",
+ "ssp": {
+  "code": "F1.1",
+  "nom": "Pression artérielle anormale",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient avec PA anormale (mesurée ou symptômes)",
+    "i": "Ce SSP couvre les PA trop hautes comme trop basses ; la première étape consiste à mesurer correctement la PA aux deux bras.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "PA basse ou signes de choc",
+    "i": "Une PA basse sort du cadre de l'HTA ; ce cas renvoie vers l'autre branche du SSP F1.1 (hypotension orthostatique, choc hémorragique, septique, anaphylactique ou cardiogénique).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "Enfant ou adolescent",
+    "i": "Les seuils dépendent de l'âge, du sexe et de la taille ; ce cas renvoie au SSP O2.12 (suivi de l'enfant en bonne santé).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "PA cabinet ≥ 140/90 mmHg",
+    "i": "Le seuil d'HTA au cabinet est de 140/90 mmHg, confirmé par des mesures répétées.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "PA ≥ 180/110 avec symptôme ou atteinte aiguë d'organe",
+    "i": "Douleur thoracique, déficit neurologique, dyspnée aiguë, trouble visuel ou confusion définissent l'urgence hypertensive.",
+    "pec": "urgence_hta",
+    "notion": "c4"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Douleur déchirante dorsale, asymétrie > 20 mmHg",
+    "i": "Ce tableau évoque une dissection aortique ; le SSP Douleur thoracique prend le relais, avec bêtabloquant IV avant vasodilatateur.",
+    "pec": "urgence_hta",
+    "notion": "c7"
+   },
+   {
+    "id": "n7",
+    "parent": "n5",
+    "t": "Grossesse avec protéinurie, céphalées ou douleur épigastrique",
+    "i": "Ce tableau évoque prééclampsie, éclampsie ou HELLP ; renvoi vers le SSP de la grossesse pathologique, urgence obstétricale.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n8",
+    "parent": "n4",
+    "t": "PA ≥ 180/110 sans symptôme ni atteinte d'organe",
+    "i": "Ce n'est pas une urgence : traitement oral, éviction de la nifédipine sublinguale et réévaluation ambulatoire en quelques jours.",
+    "pec": "hta_severe_asympt",
+    "notion": "c7"
+   },
+   {
+    "id": "n9",
+    "parent": "n4",
+    "t": "PA 140–179/90–109 : confirmer hors cabinet",
+    "i": "La MAPA de 24 h ou l'automesure de 3–7 jours confirme l'HTA et élimine la blouse blanche ; le diagnostic peut aussi reposer sur 2–3 visites.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "PA hors cabinet normale",
+    "i": "Il s'agit d'une HTA blouse blanche : mesures de style de vie et contrôle annuel par MAPA ou AMPA, sans médicament d'emblée.",
+    "pec": "hta_chronique",
+    "notion": "c5"
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "PA hors cabinet ≥ seuils : HTA confirmée",
+    "i": "MAPA 24 h ≥ 130/80 ou AMPA ≥ 135/85 mmHg confirme l'HTA ; on évalue ensuite risque CV et atteinte d'organe.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Indices de cause secondaire ?",
+    "i": "Début avant 30–40 ans, hypokaliémie, souffle abdominal, crises adrénergiques, SAOS ou HTA résistante orientent vers une cause secondaire.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n13",
+    "parent": "n12",
+    "t": "Oui : HTA secondaire suspectée",
+    "i": "Un bilan ciblé s'impose (rapport aldostérone/rénine, métanéphrines, Doppler rénal, polygraphie, cortisol) ; renvoi vers les entités secondaires du SSP.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n14",
+    "parent": "n12",
+    "t": "Non : HTA essentielle (diagnostic d'exclusion)",
+    "i": "Après bilan de base, on calcule le risque (AGLA ou SCORE2), puis on associe style de vie et bithérapie selon l'algorithme de l'ESC.",
+    "pec": "hta_chronique",
+    "notion": "c6"
+   },
+   {
+    "id": "n15",
+    "parent": "n14",
+    "t": "Non contrôlée sous trithérapie optimale",
+    "i": "Il s'agit d'une HTA résistante : observance, MAPA, causes secondaires et substances vérifiées, puis spironolactone en quatrième ligne.",
+    "pec": "hta_chronique",
+    "notion": "c6"
+   },
+   {
+    "id": "n16",
+    "parent": "n1",
+    "t": "PA cabinet 120–139/70–89 mmHg",
+    "i": "L'ESC 2024 parle de « PA élevée » : style de vie pendant 3 mois, médicament seulement si haut risque CV (maladie CV ou SCORE2 ≥ 10 %).",
+    "pec": "hta_chronique",
+    "notion": "c1"
+   }
+  ]
+ },
+ "specialites": [
+  "CAR",
+  "MTR"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Hypertension artérielle essentielle (primaire)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition, seuils par méthode de mesure et épidémiologie",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Raisonne toujours par méthode de mesure, car le seuil d'HTA change selon que tu mesures au cabinet, en automesure ou en MAPA.",
+   "tableau": {
+    "colonnes": [
+     "Méthode",
+     "Seuil d'HTA",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Cabinet",
+      "≥ 140/90 mmHg",
+      [
+       {
+        "t": "≥ 2 mesures par visite, 2–3 visites espacées",
+        "i": "La PA fluctue d'une mesure à l'autre, donc une seule visite surestime l'HTA ; seule exception : PA ≥ 180/110 avec maladie CV ou atteinte d'organe."
+       }
+      ]
+     ],
+     [
+      "Automesure (AMPA)",
+      "≥ 135/85 mmHg",
+      [
+       {
+        "t": "Appareil huméral validé, 3–7 jours",
+        "i": "Deux mesures matin et soir, première journée exclue, car la première journée surestime la PA ; les appareils au poignet sont moins fiables."
+       }
+      ]
+     ],
+     [
+      "MAPA diurne",
+      "≥ 135/85 mmHg",
+      [
+       {
+        "t": "Même seuil que l'AMPA",
+        "i": "Les deux méthodes reflètent la PA de l'état d'éveil hors cabinet, ce qui explique des seuils identiques."
+       }
+      ]
+     ],
+     [
+      "MAPA nocturne",
+      "≥ 120/70 mmHg",
+      [
+       {
+        "t": "Seuil plus bas que le jour",
+        "i": "La PA baisse normalement de 10 à 20 % la nuit ; une absence de baisse (non-dipper) aggrave le risque CV."
+       }
+      ]
+     ],
+     [
+      "MAPA 24 h",
+      "≥ 130/80 mmHg",
+      [
+       {
+        "t": "Examen de référence",
+        "i": "Elle exclut la blouse blanche, détecte l'HTA masquée et évalue le profil nocturne, ce qu'aucune mesure de cabinet ne permet."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'ESC/ESH 2018 gradent l'HTA : grade 1 à 140–159/90–99, grade 2 à 160–179/100–109, grade 3 dès ≥ 180/110 mmHg.",
+    "L'ESC 2024 abandonne les grades, crée la catégorie « PA élevée » (120–139/70–89) et conserve le seuil d'HTA à 140/90 mmHg.",
+    "L'HTA essentielle représente 90 à 95 % des HTA de l'adulte et reste un diagnostic d'exclusion.",
+    "En Suisse, 25 à 30 % des adultes (~1,5 million) sont hypertendus, dont une part non diagnostiquée ou mal contrôlée.",
+    "La prévalence dépasse 50 % après 65 ans, surtout sous forme d'HTA systolique isolée."
+   ],
+   "sources": [
+    "ESC 2024 Guidelines elevated BP and hypertension",
+    "ESC/ESH 2018 Guidelines hypertension",
+    "Société suisse d'hypertension (SSH)"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Physiopathologie : mécanismes et cibles thérapeutiques",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Retiens que chaque mécanisme de l'HTA essentielle correspond à une classe thérapeutique, ce qui explique le choix des médicaments.",
+   "tableau": {
+    "colonnes": [
+     "Mécanisme",
+     "Conséquence",
+     "Cible thérapeutique"
+    ],
+    "lignes": [
+     [
+      "Hyperactivité du SRAA",
+      "Angiotensine II vasoconstrictrice et aldostérone qui retient le sodium",
+      [
+       {
+        "t": "IEC, ARA2",
+        "i": "Ils bloquent la production ou l'action de l'angiotensine II ; ils ne s'associent jamais entre eux et sont contre-indiqués pendant la grossesse."
+       }
+      ]
+     ],
+     [
+      "Rétention sodée",
+      "Volume plasmatique augmenté",
+      [
+       {
+        "t": "Sel < 5 g/j, thiazidique-like, spironolactone",
+        "i": "La restriction sodée et les diurétiques réduisent le volume ; la spironolactone cible l'aldostérone dans l'HTA résistante."
+       }
+      ]
+     ],
+     [
+      "Vasoconstriction du muscle lisse",
+      "Résistances périphériques élevées",
+      [
+       {
+        "t": "Antagoniste calcique",
+        "i": "Il bloque l'entrée de calcium dans le muscle lisse vasculaire et abaisse les résistances, d'où son rôle de pilier de la bithérapie."
+       }
+      ]
+     ],
+     [
+      "Hyperactivité sympathique, obésité, insulinorésistance, SAOS",
+      "Vasoconstriction et rétention sodée entretenues",
+      [
+       {
+        "t": "Perte de poids, traitement du SAOS",
+        "i": "Traiter le facteur d'entretien abaisse la PA ; les bêtabloquants ne sont pas de première ligne sans indication spécifique."
+       }
+      ]
+     ],
+     [
+      "Rigidité artérielle liée à l'âge",
+      "PA systolique haute, diastolique basse, pression pulsée large",
+      [
+       {
+        "t": "HTA systolique isolée du sujet âgé",
+        "i": "La perte d'élasticité aortique explique cette forme ; elle se traite comme les autres HTA, avec prudence sur l'hypotension orthostatique."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La PA est le produit du débit cardiaque par les résistances vasculaires périphériques.",
+    "L'HTA essentielle résulte d'une interaction multifactorielle entre prédisposition génétique et environnement (sel, sédentarité, obésité, alcool)."
+   ],
+   "sources": [
+    "ESC/ESH 2018 Guidelines hypertension",
+    "ESC 2024 Guidelines elevated BP and hypertension"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse, examen clinique et indices d'HTA secondaire",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Mesure d'abord correctement la PA, puis cherche systématiquement les substances hypertensives et les indices qui orientent vers une cause secondaire.",
+   "tableau": {
+    "colonnes": [
+     "Indice",
+     "Cause évoquée",
+     "Examen de confirmation"
+    ],
+    "lignes": [
+     [
+      "Hypokaliémie, faiblesse musculaire",
+      [
+       {
+        "t": "Hyperaldostéronisme primaire",
+        "i": "L'excès d'aldostérone fait perdre du potassium ; la kaliémie peut toutefois être normale, donc le dépistage ne se limite pas aux hypokaliémiques."
+       }
+      ],
+      "Rapport aldostérone/rénine"
+     ],
+     [
+      "Palpitations, sueurs, céphalées en crises",
+      [
+       {
+        "t": "Phéochromocytome",
+        "i": "Les décharges de catécholamines expliquent la triade paroxystique ; l'HTA essentielle ne provoque pas de crises adrénergiques."
+       }
+      ],
+      "Métanéphrines plasmatiques ou urinaires"
+     ],
+     [
+      "Retard fémoral, PA bras > jambes",
+      [
+       {
+        "t": "Coarctation de l'aorte",
+        "i": "Le rétrécissement isthmique abaisse la perfusion des jambes et retarde le pouls fémoral ; il se recherche chez le sujet jeune."
+       }
+      ],
+      "Échographie, angio-IRM ou angio-CT"
+     ],
+     [
+      "Souffle abdominal, HTA brutale, créatinine qui monte sous IEC",
+      [
+       {
+        "t": "Sténose de l'artère rénale",
+        "i": "L'ischémie rénale active le SRAA ; un IEC ou ARA2 dégrade alors la filtration, d'où la hausse de créatinine."
+       }
+      ],
+      "Doppler ou angio-CT des artères rénales"
+     ],
+     [
+      "Ronflements, somnolence, apnées",
+      [
+       {
+        "t": "SAOS",
+        "i": "Les micro-éveils activent le sympathique et font perdre le profil nocturne de la PA, avec HTA souvent résistante."
+       }
+      ],
+      "Polygraphie ventilatoire"
+     ],
+     [
+      "Stigmates cushingoïdes, gros rein palpable",
+      [
+       {
+        "t": "Cushing ou polykystose rénale",
+        "i": "L'excès de cortisol et la masse rénale (polykystose) expliquent respectivement l'HTA ; les deux se recherchent à l'inspection et à la palpation."
+       }
+      ],
+      "Cortisol libre urinaire ou freination ; échographie rénale"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La mesure se fait assis, dos soutenu, après 5 minutes de repos, bras au niveau du cœur, brassard adapté, au moins deux mesures espacées de 1–2 minutes.",
+    "Lors de la première consultation, le médecin mesure la PA aux deux bras ; une différence > 15 mmHg suggère une atteinte vasculaire et le bras le plus élevé sert de référence.",
+    "Chez le sujet âgé, le diabétique ou le patient traité, le médecin mesure aussi la PA à 1 et 3 minutes debout pour dépister l'hypotension orthostatique.",
+    "Il recherche AINS, réglisse, œstroprogestatifs, décongestionnants, corticoïdes, ciclosporine, alcool, cocaïne, amphétamines et érythropoïétine.",
+    "Il mesure IMC et tour de taille, ausculte carotides, abdomen et fémorales, et cherche des signes d'HVG ou d'insuffisance cardiaque."
+   ],
+   "sources": [
+    "ESC 2024 Guidelines elevated BP and hypertension",
+    "ESC/ESH 2018 Guidelines hypertension",
+    "Société suisse d'hypertension (SSH)"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Signaux d'alarme : urgence hypertensive ou simple HTA sévère",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Ne juge jamais l'urgence sur le chiffre de PA seul, mais sur la présence d'une atteinte aiguë d'organe cible.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "PA ≥ 180/110 mmHg confirmée",
+     "i": "Le chiffre est remesuré aux deux bras, au repos, avant toute décision, car une mesure isolée peut surestimer la PA.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Symptôme ou atteinte aiguë d'organe ?",
+     "i": "Douleur thoracique, déficit neurologique, dyspnée aiguë, trouble visuel, confusion, insuffisance rénale aiguë ou grossesse définissent l'urgence.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Non : HTA sévère asymptomatique",
+     "i": "Ce n'est pas une urgence : ni hospitalisation systématique ni traitement intraveineux ; la PA s'abaisse par voie orale sur quelques jours.",
+     "pec": "hta_severe_asympt",
+     "notion": "c7"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Oui : urgence hypertensive",
+     "i": "L'atteinte aiguë d'organe impose un traitement IV monitoré en milieu intensif, avec baisse contrôlée de la PA.",
+     "pec": "urgence_hta",
+     "notion": "c7"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Douleur déchirante dorsale, PA bras > 20 mmHg",
+     "i": "Ce tableau évoque une dissection aortique : bêtabloquant IV d'abord, PAS < 120 mmHg, imagerie urgente ; renvoi au SSP Douleur thoracique.",
+     "pec": "urgence_hta",
+     "notion": "c7"
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "Œdème papillaire, IRA ou encéphalopathie",
+     "i": "Ces signes définissent l'HTA maligne, avec atteinte d'organe imminente ; la baisse reste progressive, de 25 % au maximum la première heure.",
+     "pec": "urgence_hta",
+     "notion": "c8"
+    },
+    {
+     "id": "n7",
+     "parent": "n4",
+     "t": "Femme enceinte, PA ≥ 140/90 avec protéinurie, céphalées ou douleur épigastrique",
+     "i": "Ce tableau évoque prééclampsie, éclampsie ou HELLP, urgence obstétricale ; renvoi vers le SSP de la grossesse pathologique.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n1",
+     "t": "HTA sévère, brutale ou résistante, avec hypokaliémie ou souffle abdominal",
+     "i": "Ces indices doivent faire rechercher une cause secondaire (Conn, sténose rénale, phéochromocytome) plutôt qu'une HTA essentielle.",
+     "pec": null,
+     "notion": "c3"
+    }
+   ],
+   "points": [
+    "Une PA très élevée sans symptôme ni atteinte d'organe ne constitue pas une urgence hypertensive.",
+    "Un début avant 30–40 ans oriente aussi vers une cause secondaire."
+   ],
+   "sources": [
+    "ESC/ESH 2018 Guidelines hypertension",
+    "ESC 2024 Guidelines elevated BP and hypertension"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan initial et diagnostic positif",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Confirme l'HTA hors cabinet, puis cherche le retentissement d'organe et le risque CV global avant de traiter.",
+   "tableau": {
+    "colonnes": [
+     "Phénotype",
+     "PA cabinet",
+     "PA hors cabinet",
+     "Conséquence"
+    ],
+    "lignes": [
+     [
+      "HTA soutenue",
+      "≥ 140/90",
+      "≥ seuils MAPA ou AMPA",
+      [
+       {
+        "t": "Traitement indiqué",
+        "i": "Les deux méthodes concordent, donc le diagnostic est posé et le traitement se discute selon le risque CV global."
+       }
+      ]
+     ],
+     [
+      "HTA blouse blanche",
+      "≥ 140/90",
+      "Normale",
+      [
+       {
+        "t": "Pas de médicament d'emblée",
+        "i": "La PA hors cabinet reflète mieux le risque ; on propose style de vie et contrôle annuel par MAPA ou AMPA."
+       }
+      ]
+     ],
+     [
+      "HTA masquée",
+      "< 140/90",
+      "Élevée",
+      [
+       {
+        "t": "Traiter comme une HTA soutenue",
+        "i": "Son risque CV est proche de l'HTA soutenue ; elle passe inaperçue sans MAPA ou AMPA, surtout chez le diabétique ou le patient à risque."
+       }
+      ]
+     ],
+     [
+      "Normotension",
+      "< 140/90",
+      "Normale",
+      [
+       {
+        "t": "Dépistage répété",
+        "i": "La PA se recontrôle périodiquement, car le risque d'HTA augmente avec l'âge."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le diagnostic repose sur 2–3 consultations espacées de semaines, sauf si PA ≥ 180/110 avec maladie CV ou atteinte d'organe, où il est immédiat.",
+    "Le bilan de base comprend ECG, créatinine avec DFG, Na+, K+, glycémie, bilan lipidique, hémoglobine, bandelette urinaire et rapport albumine/créatinine.",
+    "Le risque CV global se calcule avec le calculateur AGLA ou SCORE2 et guide l'intensité du traitement.",
+    "L'échocardiographie, le fond d'œil (grade 2–3 ou diabète), l'échographie rénale avec Doppler et le rapport aldostérone/rénine se demandent selon le contexte.",
+    "L'HTA essentielle reste un diagnostic d'exclusion ; la pseudo-hypertension du sujet âgé aux artères calcifiées et les causes secondaires doivent être écartées."
+   ],
+   "sources": [
+    "ESC 2024 Guidelines elevated BP and hypertension",
+    "Société suisse d'hypertension (SSH)",
+    "AGLA"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Traitement au long cours : escalade thérapeutique",
+   "rubriques": [
+    "chronicManagement"
+   ],
+   "comment": "Associe toujours les mesures de style de vie aux médicaments, puis escalade par paliers jusqu'à la cible, en vérifiant l'observance avant de parler de résistance.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "HTA confirmée ≥ 140/90 mmHg",
+     "i": "Un traitement médicamenteux se justifie, associé aux mesures de style de vie : sel < 5 g/j, DASH, perte de poids, 150 min/semaine d'aérobie, alcool limité, arrêt du tabac.",
+     "pec": "hta_chronique",
+     "notion": "c5"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Patient standard : bithérapie en comprimé unique",
+     "i": "IEC ou ARA2 associé à un antagoniste calcique ou à un thiazidique-like ; la bithérapie fixe améliore l'efficacité et l'observance par rapport à la monothérapie.",
+     "pec": "hta_chronique",
+     "notion": "c2"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Faible risque grade 1, ≥ 85 ans, fragilité ou hypotension orthostatique : monothérapie",
+     "i": "Une baisse douce limite hypotension et chutes chez ces patients, chez qui l'intensification se fait progressivement.",
+     "pec": "hta_chronique",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non contrôlé à 2–4 semaines : trithérapie",
+     "i": "IEC ou ARA2, antagoniste calcique et thiazidique-like, à doses optimales, avant de conclure à l'échec.",
+     "pec": "hta_chronique",
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Toujours non contrôlé : HTA résistante",
+     "i": "On vérifie d'abord observance, MAPA, substances hypertensives et causes secondaires (SAOS, Conn) avant d'ajouter un quatrième médicament.",
+     "pec": "hta_chronique",
+     "notion": "c3"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Quatrième médicament : spironolactone",
+     "i": "Elle cible l'aldostérone et abaisse la PA dans l'HTA résistante ; K+ et créatinine se contrôlent car l'hyperkaliémie menace, surtout sous IEC ou ARA2.",
+     "pec": "hta_chronique",
+     "notion": "c2"
+    },
+    {
+     "id": "n7",
+     "parent": null,
+     "t": "PA élevée 130–139/80–89 mmHg",
+     "i": "Les mesures de style de vie seules durent 3 mois ; le médicament n'est ajouté qu'en cas de haut risque (maladie CV, SCORE2 ≥ 10 %) et d'échec de ces mesures.",
+     "pec": "hta_chronique",
+     "notion": "c1"
+    },
+    {
+     "id": "n8",
+     "parent": "n1",
+     "t": "Indication spécifique : bêtabloquant ou autre classe",
+     "i": "Le bêtabloquant se justifie après infarctus, en insuffisance cardiaque à FE réduite, angor ou FA ; en grossesse, les IEC et ARA2 sont proscrits (labétalol, nifédipine ou méthyldopa à la place).",
+     "pec": "hta_chronique",
+     "notion": null
+    }
+   ],
+   "points": [
+    "IEC et ARA2 ne s'associent jamais et sont contre-indiqués pendant la grossesse.",
+    "La consommation moyenne de sel en Suisse dépasse 5 g/j, d'où la stratégie nationale de réduction du sel."
+   ],
+   "sources": [
+    "ESC 2024 Guidelines elevated BP and hypertension",
+    "ESC/ESH 2018 Guidelines hypertension",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge aiguë selon la situation",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Choisis la cible et le médicament selon l'organe atteint, et n'abaisse jamais la PA brutalement en l'absence d'atteinte d'organe.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Cible de PA",
+     "Médicament",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "HTA sévère asymptomatique",
+      "Baisse progressive sur plusieurs jours",
+      [
+       {
+        "t": "Voie orale, réévaluation ambulatoire",
+        "i": "Une baisse lente évite l'ischémie cérébrale et myocardique, car l'autorégulation est déplacée chez l'hypertendu chronique."
+       }
+      ],
+      [
+       {
+        "t": "Nifédipine sublinguale proscrite",
+        "i": "Elle provoque une chute tensionnelle brutale et imprévisible avec risque d'ischémie cérébrale ou myocardique."
+       }
+      ]
+     ],
+     [
+      "Urgence hypertensive (encéphalopathie, HTA maligne)",
+      "− 25 % au maximum la 1re heure",
+      [
+       {
+        "t": "Nicardipine, labétalol ou urapidil IV",
+        "i": "Ces agents IV titrables sous monitoring permettent une baisse contrôlée ; on évite les agents à effet imprévisible."
+       }
+      ],
+      "Une baisse trop rapide expose à l'hypoperfusion d'organe"
+     ],
+     [
+      "Dissection aortique",
+      "PAS < 120 mmHg, FC < 60/min",
+      [
+       {
+        "t": "Esmolol ou labétalol IV d'abord",
+        "i": "Le bêtabloquant réduit la force d'éjection ; le vasodilatateur ensuite complète la baisse."
+       }
+      ],
+      [
+       {
+        "t": "Vasodilatateur seul à éviter",
+        "i": "Il provoque une tachycardie réflexe qui augmente la contrainte pariétale aortique et favorise l'extension de la dissection."
+       }
+      ]
+     ],
+     [
+      "AVC ischémique éligible à la thrombolyse",
+      "< 185/110 avant, < 180/105 après",
+      [
+       {
+        "t": "Labétalol ou nicardipine IV",
+        "i": "Ces seuils limitent le risque d'hémorragie intracrânienne sous thrombolyse tout en préservant la perfusion de la pénombre."
+       }
+      ],
+      "Sans thrombolyse, on tolère une PA élevée et on ne traite qu'au-delà de seuils très hauts"
+     ],
+     [
+      "Œdème aigu pulmonaire ou SCA hypertensif",
+      "Baisse rapide jusqu'à soulagement",
+      [
+       {
+        "t": "Nitroglycérine IV, avec diurétique de l'anse en cas d'OAP",
+        "i": "La nitroglycérine réduit pré- et post-charge ; le diurétique de l'anse décongestionne le poumon."
+       }
+      ],
+      "Ne pas donner de bêtabloquant en OAP décompensé"
+     ],
+     [
+      "Prééclampsie sévère, éclampsie",
+      "PA < 160/110 en urgence",
+      [
+       {
+        "t": "Labétalol IV ou nifédipine orale, sulfate de magnésium",
+        "i": "Ces antihypertenseurs sont compatibles avec la grossesse et le magnésium prévient les crises ; IEC et ARA2 sont proscrits."
+       }
+      ],
+      "Accouchement, seul traitement définitif ; avis obstétrical immédiat"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Après la phase aiguë, un relais oral se prépare en 24–48 h et la recherche d'une cause secondaire débute."
+   ],
+   "sources": [
+    "ESC/ESH 2018 Guidelines hypertension",
+    "ESC 2024 Guidelines elevated BP and hypertension",
+    "ESC 2024 Guidelines peripheral arterial and aortic diseases"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications d'organes cibles et pronostic",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge"
+   ],
+   "comment": "Associe chaque organe cible à son marqueur de dépistage, puis rappelle que le traitement réduit nettement ces complications.",
+   "tableau": {
+    "colonnes": [
+     "Organe",
+     "Complication",
+     "Dépistage"
+    ],
+    "lignes": [
+     [
+      "Cerveau",
+      [
+       {
+        "t": "AVC ischémique et hémorragique, déclin cognitif",
+        "i": "L'HTA est le premier facteur de risque modifiable d'AVC ; l'atteinte des petites artères favorise aussi la démence vasculaire."
+       }
+      ],
+      "Clinique, imagerie cérébrale si symptôme"
+     ],
+     [
+      "Cœur",
+      [
+       {
+        "t": "HVG, insuffisance cardiaque à FEP, coronaropathie, FA",
+        "i": "La surcharge de pression épaissit le ventricule gauche et rigidifie sa relaxation, d'où l'IC à fraction d'éjection préservée."
+       }
+      ],
+      "ECG, échocardiographie"
+     ],
+     [
+      "Rein",
+      [
+       {
+        "t": "Néphroangiosclérose",
+        "i": "Elle se manifeste d'abord par une albuminurie, puis une baisse du DFG, jusqu'à l'insuffisance rénale chronique."
+       }
+      ],
+      "Rapport albumine/créatinine, DFG"
+     ],
+     [
+      "Œil",
+      [
+       {
+        "t": "Rétinopathie hypertensive (Keith-Wagener-Barker)",
+        "i": "Le stade IV comporte un œdème papillaire et signe l'HTA maligne ; les stades précoces sont peu symptomatiques."
+       }
+      ],
+      "Fond d'œil"
+     ],
+     [
+      "Aorte et artères",
+      [
+       {
+        "t": "Anévrisme, dissection, AOMI",
+        "i": "La contrainte pariétale chronique fragilise l'aorte et accélère l'athérosclérose périphérique."
+       }
+      ],
+      "Pouls périphériques, indice cheville-bras, imagerie"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Chaque baisse de 10 mmHg de la PA systolique réduit d'environ 20 % les événements CV majeurs, de 27 % les AVC et de 28 % l'insuffisance cardiaque.",
+    "Un traitement bien conduit réduit donc nettement le risque d'AVC et d'événements coronariens."
+   ],
+   "sources": [
+    "ESC 2024 Guidelines elevated BP and hypertension",
+    "Meta-analyse BPLTTC (Ettehad, Lancet 2016)"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Surveillance et réseau de soins",
+   "rubriques": [
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "Contrôle la PA à courts intervalles jusqu'à la cible, surveille créatinine et kaliémie après chaque ajustement, puis espace le suivi en impliquant tout le réseau.",
+   "tableau": {
+    "colonnes": [
+     "Quand",
+     "Contrôle",
+     "Cible"
+    ],
+    "lignes": [
+     [
+      "2–4 semaines après l'instauration",
+      "PA, tolérance",
+      [
+       {
+        "t": "120–129/70–79 mmHg si bien toléré, sinon < 140/90",
+        "i": "L'ESC 2024 vise la plage basse chez la plupart des adultes, âgés compris ; dès 85 ans ou en cas d'hypotension orthostatique symptomatique, on adopte < 140/90."
+       }
+      ]
+     ],
+     [
+      "1–2 semaines après IEC, ARA2, diurétique ou spironolactone",
+      "Créatinine, kaliémie",
+      [
+       {
+        "t": "Hausse de créatinine limitée, K+ normal",
+        "i": "IEC et ARA2 diminuent la filtration glomérulaire et retiennent le potassium ; une hausse importante de la créatinine ou une hyperkaliémie impose de revoir le traitement."
+       }
+      ]
+     ],
+     [
+      "Tous les 3–6 mois une fois la PA contrôlée",
+      "PA, observance",
+      [
+       {
+        "t": "PA stable à la cible",
+        "i": "L'observance diminue avec le temps, ce qui explique la fausse « résistance » ; le pharmacien contribue à la vérifier."
+       }
+      ]
+     ],
+     [
+      "Chaque année",
+      "DFG, kaliémie, albuminurie",
+      [
+       {
+        "t": "Stabilité du DFG et de l'albuminurie",
+        "i": "Ces marqueurs détectent précocement la néphroangiosclérose et la toxicité médicamenteuse."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le médecin de premier recours coordonne le suivi ; cardiologue, néphrologue ou endocrinologue interviennent en cas d'HTA résistante ou de cause secondaire suspectée.",
+    "Le pharmacien soutient l'observance et mesure la PA ; les tensiomètres d'automesure peuvent être remboursés sur prescription via la MiGeL.",
+    "Le diététicien intervient pour le sel et le régime DASH, souvent pris en charge par l'assurance de base sur prescription en cas de maladie."
+   ],
+   "sources": [
+    "ESC 2024 Guidelines elevated BP and hypertension",
+    "Société suisse d'hypertension (SSH)",
+    "OFSP MiGeL"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "hta_chronique",
+   "titre": "HTA essentielle confirmée : traitement au long cours",
+   "but": [
+    "Ramener la PA à 120–129/70–79 mmHg si bien toléré, sinon sous 140/90 mmHg.",
+    "Réduire le risque CV global et prévenir AVC, insuffisance cardiaque et atteinte rénale.",
+    "Obtenir une adhésion durable du patient au traitement et aux mesures de style de vie."
+   ],
+   "moyens": {
+    "accueil": [
+     "Mesurer la PA selon la technique standard et expliquer que l'HTA, souvent asymptomatique, se traite à long terme.",
+     "Calculer le risque CV global (AGLA ou SCORE2) et rechercher les substances hypertensives.",
+     "Expliquer l'automesure et la remettre en carnet de suivi."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Ramipril (IEC)",
+      "posologie": "2,5 mg/j, puis 5–10 mg/j en une prise ; contrôle K+ et créatinine à 1–2 semaines ; contre-indiqué en grossesse et jamais avec un ARA2.",
+      "pourquoi": "Il bloque le SRAA et protège rein et cœur ; il se prescrit en comprimé combiné avec un antagoniste calcique ou un diurétique.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Valsartan (ARA2)",
+      "posologie": "80 mg/j, jusqu'à 160–320 mg/j en une prise ; mêmes contrôles biologiques et mêmes contre-indications que l'IEC.",
+      "pourquoi": "Il remplace l'IEC en cas de toux et offre le même blocage du SRAA sans excès de bradykinine.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Amlodipine (antagoniste calcique dihydropyridinique)",
+      "posologie": "5 mg/j, jusqu'à 10 mg/j en une prise ; œdèmes des chevilles possibles.",
+      "pourquoi": "Il abaisse les résistances périphériques et complète efficacement un IEC ou un ARA2 en bithérapie fixe.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Indapamide (diurétique thiazidique-like)",
+      "posologie": "1,5 mg LP/j en une prise ; alternative : hydrochlorothiazide 12,5–25 mg/j ; contrôler Na+, K+, uricémie et glycémie.",
+      "pourquoi": "Il réduit le volume plasmatique et se combine à un IEC ou un ARA2, avec effet sur les événements CV.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Spironolactone (antagoniste de l'aldostérone)",
+      "posologie": "25–50 mg/j en une prise ; éviter si DFG < 45 ml/min ou K+ > 4,5 mmol/l ; K+ et créatinine à 1–2 semaines.",
+      "pourquoi": "Elle constitue le quatrième médicament de l'HTA résistante, après vérification de l'observance et d'une cause secondaire.",
+      "source": "ESC/ESH 2018 ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Bisoprolol (bêtabloquant)",
+      "posologie": "2,5–10 mg/j en une prise, uniquement sur indication spécifique (post-infarctus, insuffisance cardiaque à FE réduite, FA, angor).",
+      "pourquoi": "Les bêtabloquants ne sont pas de première ligne sans indication cardiaque associée.",
+      "source": "ESC 2024 ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "nutrition",
+      "mesure": "Limiter le sel à moins de 5 g/j et adopter le régime DASH avec l'aide d'un diététicien.",
+      "pourquoi": "La restriction sodée abaisse la PA et potentialise les médicaments, notamment IEC et ARA2."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Pratiquer 150 minutes d'activité aérobie par semaine, perdre du poids, limiter l'alcool et arrêter le tabac.",
+      "pourquoi": "Ces mesures abaissent la PA et le risque CV global, indépendamment du médicament."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Apprendre l'automesure et l'importance de l'observance, avec un carnet de PA.",
+      "pourquoi": "Le patient informé et impliqué contrôle mieux sa PA et prend mieux son traitement."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Rechercher et traiter un SAOS et supprimer AINS, réglisse, décongestionnants et autres substances hypertensives.",
+      "pourquoi": "Ces facteurs entretiennent une HTA qui résiste faussement au traitement."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Aide à obtenir le remboursement du tensiomètre d'automesure (MiGeL) et des consultations de diététique par l'assurance de base."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantit une information claire sur un traitement chronique et recueille le consentement éclairé du patient."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGénérales": null,
+     "etapes": null
+    }
+   },
+   "pronostic": "Chaque baisse de 10 mmHg de PA systolique réduit d'environ 20 % les événements CV majeurs, de 27 % les AVC et de 28 % l'insuffisance cardiaque.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "PA (cabinet, automesure)",
+      "quand": "2–4 semaines après l'instauration, puis mensuel jusqu'à la cible",
+      "cible": "120–129/70–79 mmHg si bien toléré, sinon < 140/90"
+     },
+     {
+      "quoi": "Créatinine et kaliémie",
+      "quand": "1–2 semaines après IEC, ARA2, diurétique ou spironolactone",
+      "cible": "Kaliémie normale, créatinine stable"
+     },
+     {
+      "quoi": "PA et observance",
+      "quand": "Tous les 3–6 mois une fois la cible atteinte",
+      "cible": "PA stable à la cible"
+     },
+     {
+      "quoi": "DFG, kaliémie, albuminurie",
+      "quand": "Annuel",
+      "cible": "Pas de dégradation rénale"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : aucun signe d'atteinte aiguë d'organe cible."
+   },
+   "prévention": null
+  }
+ ],
+ "controles": {
+  "erreurs": [
+   "SCHEMA: Additional properties are not allowed ('prévention' was unexpected)"
+  ]
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 8332,
+  "output_tokens": 27550,
+  "output_tokens_details": {
+   "thinking_tokens": 13535
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:34:53",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": "pass",
+  "claude": {
+   "date": "2026-11-24",
+   "auditeur": "Claude (audit médical, medical-accuracy-100)",
+   "corrections": 1
+  }
+ }
+}

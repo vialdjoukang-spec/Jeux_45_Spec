@@ -1,0 +1,1311 @@
+{
+ "id": "E87.5__F1_18-E07",
+ "portes": [
+  {
+   "ssp": "G14",
+   "nomSSP": "Décès inattendu ou mort subite",
+   "entite": "Hyperkaliémie sévère avec asystolie ou dissociation électromécanique",
+   "entiteId": "G14-E21"
+  },
+  {
+   "ssp": "F1.18",
+   "nomSSP": "Patient sans pouls, troubles et arrêt cardiorespiratoires",
+   "entite": "Hyperkaliémie sévère menaçante",
+   "entiteId": "F1.18-E07"
+  },
+  {
+   "ssp": "F2.6",
+   "nomSSP": "Électrocardiogramme anormal",
+   "entite": "Hyperkaliémie sévère à l'ECG",
+   "entiteId": "F2.6-E19"
+  },
+  {
+   "ssp": "F2.7",
+   "nomSSP": "Électrolytes anormaux",
+   "entite": "Hyperkaliémie modérée sur IRC et bloqueurs du SRAA",
+   "entiteId": "F2.7-E03"
+  },
+  {
+   "ssp": "F2.7",
+   "nomSSP": "Électrolytes anormaux",
+   "entite": "Hyperkaliémie menaçante (> 6.5 mmol/L ou signes ECG)",
+   "entiteId": "F2.7-E13"
+  },
+  {
+   "ssp": "O4.4",
+   "nomSSP": "Demande et organisation de bilans de santé, d’examens médicaux, radiologiques et biologiques",
+   "entite": "Résultat biologique critique (« valeur panique » : hyperkaliémie > 6,5, natrémie < 120, Hb < 65)",
+   "entiteId": "O4.4-E12"
+  },
+  {
+   "ssp": "O7.3",
+   "nomSSP": "Conseil diététique pour une alimentation saine et durable",
+   "entite": "Hyperkaliémie menaçante sur supplémentation ou régime mal adapté en insuffisance rénale",
+   "entiteId": "O7.3-E15"
+  },
+  {
+   "ssp": "O7.16",
+   "nomSSP": "Évaluation préinterventionnelle et préopératoire",
+   "entite": "Hyperkaliémie sévère ou déséquilibre métabolique aigu préopératoire",
+   "entiteId": "O7.16-E15"
+  }
+ ],
+ "entite": "Hyperkaliémie menaçante (> 6.5 mmol/L ou signes ECG)",
+ "cim10": "E87.5",
+ "ssp": {
+  "code": "F2.7",
+  "nom": "Électrolytes anormaux",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Électrolyte anormal : kaliémie en cause",
+    "i": "La valeur normale du potassium est de 3.5–5.0 mmol/L ; un écart déclenche la démarche.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "K+ < 3.5 mmol/L",
+    "i": "C'est une hypokaliémie, qui sort du cadre de cette entité : on se renvoie vers l'entité Hypokaliémie du SSP F2.7.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "K+ > 5.0 mmol/L : ECG 12 dérivations immédiat et gazométrie veineuse",
+    "i": "L'ECG guide l'urgence davantage que la valeur, et la gazométrie confirme la kaliémie en quelques minutes.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n4",
+    "parent": "n3",
+    "t": "Patient sans pouls",
+    "i": "L'hyperkaliémie est une cause réversible d'arrêt cardiaque (4H) : on suit l'algorithme ALS de l'ERC (SSP F1.18).",
+    "pec": "arret",
+    "notion": "c6"
+   },
+   {
+    "id": "n5",
+    "parent": "n3",
+    "t": "ECG anormal OU K+ ≥ 6.5 mmol/L OU instabilité",
+    "i": "Elle est menaçante : l'ECG compte plus que le chiffre, et le traitement ne doit pas attendre un contrôle ni un avis spécialisé.",
+    "pec": "menacante",
+    "notion": "c4"
+   },
+   {
+    "id": "n6",
+    "parent": "n3",
+    "t": "ECG normal, K+ < 6.5 mmol/L, patient stable",
+    "i": "Le risque immédiat est faible : on vérifie la fiabilité du prélèvement avant tout traitement.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Hémolyse, thrombocytose, leucocytose ou garrot suspectés",
+    "i": "C'est une pseudohyperkaliémie : on reprélève sans garrot ni poing serré, et on ne traite pas.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Hyperkaliémie confirmée 5.5–6.4 mmol/L",
+    "i": "Elle est légère à modérée : on cherche la cause, on revoit les médicaments et on contrôle la kaliémie.",
+    "pec": "long_cours",
+    "notion": "c8"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "K+ ≥ 6.0 mmol/L avec insuffisance rénale aiguë ou cause active",
+    "i": "Le risque d'évolution rapide justifie une surveillance en milieu hospitalier et un nouveau contrôle sans délai.",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n10",
+    "parent": "n5",
+    "t": "Cause obstructive (globe vésical, hydronéphrose)",
+    "i": "La cause est réversible : on pose une sonde ou on draine, après échographie rénale.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n11",
+    "parent": "n5",
+    "t": "Rhabdomyolyse ou lyse tumorale",
+    "i": "Les CK élevées ou le profil LDH, urate, phosphate élevés et calcium bas orientent ; la dialyse est précoce si l'hyperkaliémie est massive.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n12",
+    "parent": "n5",
+    "t": "Hyponatrémie + hypotension + pigmentation",
+    "i": "On évoque une insuffisance surrénalienne primaire : on dose le cortisol et on renvoie vers l'entité correspondante du SSP F2.7.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n13",
+    "parent": "n5",
+    "t": "Médicament ou apport en cause (IEC, sartan, AINS, triméthoprime, KCl)",
+    "i": "On suspend l'agent responsable, puis on le réintroduit si possible après correction.",
+    "pec": "long_cours",
+    "notion": "c8"
+   }
+  ]
+ },
+ "specialites": [
+  "NEP"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Hyperkaliémie menaçante (> 6.5 mmol/L ou signes ECG)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définir l'hyperkaliémie et la rendre menaçante",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Tu juges la gravité sur l'ECG et la cinétique avant le chiffre, puis tu écartes une pseudohyperkaliémie sans jamais retarder le traitement si l'ECG est anormal.",
+   "tableau": {
+    "colonnes": [
+     "Grade",
+     "Seuil de kaliémie",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Normale",
+      "3.5–5.0 mmol/L",
+      "Au-delà d'environ 5.0–5.5 mmol/L, on parle d'hyperkaliémie."
+     ],
+     [
+      "Légère",
+      [
+       {
+        "t": "5.5–5.9 mmol/L",
+        "i": "Classification britannique (UKKA) : premier palier ; l'ECG est souvent normal."
+       }
+      ],
+      [
+       {
+        "t": "Cause à chercher",
+        "i": "Le risque d'arythmie reste faible, mais un médicament ou une insuffisance rénale en est souvent à l'origine."
+       }
+      ]
+     ],
+     [
+      "Modérée",
+      [
+       {
+        "t": "6.0–6.4 mmol/L",
+        "i": "Palier intermédiaire : le risque monte, surtout si l'installation est rapide ou si une acidose s'y ajoute."
+       }
+      ],
+      [
+       {
+        "t": "Cofacteurs",
+        "i": "Acidose, hypocalcémie, hyponatrémie, digoxine et bêtabloquants majorent l'arythmie pour une même valeur."
+       }
+      ]
+     ],
+     [
+      "Sévère = menaçante",
+      [
+       {
+        "t": "≥ 6.5 mmol/L OU toute anomalie ECG due au potassium",
+        "i": "L'ECG compte plus que le chiffre : un tracé anormal rend l'hyperkaliémie menaçante même à 6.0 mmol/L."
+       }
+      ],
+      [
+       {
+        "t": "Valeur critique",
+        "i": "Le laboratoire doit l'annoncer immédiatement au prescripteur, car le risque est l'asystolie ou la fibrillation ventriculaire."
+       }
+      ]
+     ],
+     [
+      "Pseudohyperkaliémie",
+      [
+       {
+        "t": "Élévation in vitro seulement",
+        "i": "Hémolyse, thrombocytose, leucocytose majeure, garrot prolongé ou poing serré libèrent du K+ dans le tube."
+       }
+      ],
+      [
+       {
+        "t": "Recontrôle sans garrot",
+        "i": "Si l'ECG est normal et sans facteur de risque, on reprélève ; si l'ECG est anormal, on traite sans attendre."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Menaçante = kaliémie ≥ 6.5 mmol/L ou ECG anormal, quel que soit le chiffre.",
+    "La vitesse d'installation et les cofacteurs (acidose, hypocalcémie, hyponatrémie) comptent autant que la valeur absolue.",
+    "Pseudohyperkaliémie : hémolyse, thrombocytose, leucocytose, garrot, poing serré."
+   ],
+   "sources": [
+    "UKKA Clinical Practice Guidelines, Treatment of Acute Hyperkalaemia in Adults, 2020/2023",
+    "KDIGO Controversies Conference on Potassium, 2020"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Étiologies et facteurs de risque",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Tu classes toute hyperkaliémie en défaut d'excrétion, redistribution, libération cellulaire ou excès d'apport, car ces mécanismes se combinent souvent.",
+   "tableau": {
+    "colonnes": [
+     "Mécanisme",
+     "Causes",
+     "Chef de file",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Défaut d'excrétion rénale",
+      "Insuffisance rénale aiguë ou chronique, insuffisance surrénalienne, médicaments",
+      [
+       {
+        "t": "Insuffisance rénale (DFG < 30 mL/min)",
+        "i": "Le rein élimine environ 90 % du potassium : le risque augmente nettement sous 30 mL/min."
+       }
+      ],
+      [
+       {
+        "t": "IEC, sartans, spironolactone, éplérénone, AINS, triméthoprime, héparine, inhibiteurs de la calcineurine",
+        "i": "Ils réduisent l'aldostérone ou son action au tube collecteur ; l'association de plusieurs bloqueurs du SRAA est la plus à risque."
+       }
+      ]
+     ],
+     [
+      "Redistribution transcellulaire",
+      "Acidose métabolique, insulinopénie (acidocétose), bêtabloquants, intoxication digitalique",
+      [
+       {
+        "t": "Acidose métabolique",
+        "i": "Elle fait sortir le K+ des cellules en échange de protons."
+       }
+      ],
+      [
+       {
+        "t": "Acidocétose diabétique",
+        "i": "Le potassium corporel total peut être bas malgré une kaliémie élevée : il faut le surveiller sous insuline."
+       }
+      ]
+     ],
+     [
+      "Libération cellulaire",
+      "Rhabdomyolyse, lyse tumorale, hémolyse, brûlures étendues, transfusions massives",
+      [
+       {
+        "t": "Rhabdomyolyse",
+        "i": "Les CK élevées et la myoglobinurie signent la cause ; l'insuffisance rénale aiguë associée aggrave la rétention."
+       }
+      ],
+      [
+       {
+        "t": "Lyse tumorale",
+        "i": "Hyperuricémie, LDH élevées, hyperphosphatémie et hypocalcémie accompagnent l'hyperkaliémie."
+       }
+      ]
+     ],
+     [
+      "Excès d'apport",
+      "Suppléments de KCl, substituts de sel, alimentation riche en K+",
+      [
+       {
+        "t": "Substituts de sel au KCl",
+        "i": "Ils passent inaperçus à l'anamnèse si on ne les demande pas, surtout en insuffisance rénale."
+       }
+      ],
+      [
+       {
+        "t": "Apport seul rarement suffisant",
+        "i": "Un rein sain excrète la charge ; l'excès d'apport agit surtout sur un rein déjà altéré."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'insuffisance rénale est la première cause ; le diabète, l'insuffisance cardiaque et l'âge avancé augmentent le risque.",
+    "Les causes sont souvent combinées : par exemple IEC, AINS et déshydratation chez un insuffisant rénal.",
+    "Une étiologie réversible (obstruction, médicament, insuffisance surrénalienne) se recherche d'emblée."
+   ],
+   "sources": [
+    "AIPS Swissmedic (informations professionnelles IEC, sartans, spironolactone, triméthoprime)",
+    "KDIGO Controversies Conference on Potassium, 2020"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Physiopathologie : pourquoi le potassium arrête le cœur",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Tu raisonnes en potentiel de repos : le potassium élevé dépolarise la membrane et inactive les canaux sodiques, d'où le ralentissement de la conduction.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Environ 98 % du potassium est intracellulaire ; le rapport intra/extracellulaire fixe le potentiel de repos.",
+    "Une hyperkaliémie dépolarise partiellement la membrane, inactive les canaux sodiques et élargit PR et QRS.",
+    "L'insuline et les bêta-2 agonistes stimulent la Na-K-ATPase : le K+ entre dans les cellules sans être éliminé.",
+    "Le calcium restaure l'écart entre potentiel seuil et potentiel de repos : il protège le myocarde sans baisser la kaliémie.",
+    "L'excrétion est rénale à environ 90 % (tube collecteur, aldostérone) ; l'acidose pousse le K+ hors des cellules."
+   ],
+   "sources": [
+    "UKKA Clinical Practice Guidelines, 2020/2023",
+    "KDIGO Controversies Conference on Potassium, 2020"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Clinique et ECG : reconnaître la menace",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam",
+    "presumptionRedFlags"
+   ],
+   "comment": "Tu sais que la clinique est pauvre et trompeuse : tu lis l'ECG comme un signe d'alarme, mais tu traites aussi un ECG normal si la kaliémie est très élevée.",
+   "tableau": {
+    "colonnes": [
+     "Stade ECG",
+     "Anomalie",
+     "Signification"
+    ],
+    "lignes": [
+     [
+      "Précoce",
+      [
+       {
+        "t": "Ondes T pointues, amples, symétriques, base étroite",
+        "i": "Elles apparaissent dès environ 5.5–6.5 mmol/L ; l'infarctus donne plutôt des T larges et asymétriques."
+       }
+      ],
+      "La repolarisation s'accélère ; la menace est encore potentielle."
+     ],
+     [
+      "Intermédiaire",
+      [
+       {
+        "t": "Aplatissement puis disparition de P, PR allongé",
+        "i": "Le ralentissement de la conduction atteint les oreillettes et le nœud AV."
+       }
+      ],
+      "Blocs auriculo-ventriculaires et rythmes d'échappement deviennent possibles."
+     ],
+     [
+      "Avancé",
+      [
+       {
+        "t": "QRS élargi",
+        "i": "L'inactivation des canaux sodiques ralentit la conduction ventriculaire."
+       }
+      ],
+      "Le risque de tachycardie ventriculaire ou de fibrillation ventriculaire est élevé."
+     ],
+     [
+      "Terminal",
+      [
+       {
+        "t": "Tracé sinusoïdal (fusion QRS-onde T)",
+        "i": "Il traduit une dépolarisation quasi continue."
+       }
+      ],
+      "La fibrillation ventriculaire ou l'asystolie est imminente ; il faut traiter sans attendre."
+     ],
+     [
+      "Pièges",
+      [
+       {
+        "t": "Pseudo-infarctus (sus-décalage ST), aspect de Brugada, ECG normal",
+        "i": "Les deux premiers disparaissent après correction du K+ ; la sensibilité de l'ECG est limitée, donc un tracé normal ne rassure pas."
+       }
+      ],
+      "Bradycardie, hypotension, choc et arythmies (bradycardie sinusale, TV, FV, asystolie, AESP) sont possibles."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le patient est souvent asymptomatique ; le premier signe peut être un trouble du rythme grave.",
+    "Symptômes : faiblesse musculaire ascendante, paresthésies, paralysie flasque, palpitations, nausées ; examen : hyporéflexie ou aréflexie.",
+    "L'anamnèse cherche médicaments, substituts de sel au KCl, AINS, triméthoprime, oligurie, dialyse manquée, écrasement, chimiothérapie.",
+    "L'examen évalue volémie, globe vésical, douleurs musculaires et pigmentation cutanée (Addison).",
+    "Digoxine, bêtabloquants, acidose, hypocalcémie, hyponatrémie et élévation rapide majorent l'arythmie."
+   ],
+   "sources": [
+    "UKKA Clinical Practice Guidelines, 2020/2023",
+    "ERC Guidelines, 2021"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan et diagnostic : ECG d'abord, étiologie ensuite",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu fais l'ECG et la kaliémie sur gazométrie en quelques minutes, tu traites si l'ECG est anormal, puis tu poursuis le bilan étiologique en parallèle.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "a1",
+     "parent": null,
+     "t": "Suspicion d'hyperkaliémie ou valeur panique",
+     "i": "Insuffisance rénale, médicaments hyperkaliémiants, rhabdomyolyse ou K+ > 6.5 communiqué par le laboratoire.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "a2",
+     "parent": "a1",
+     "t": "ECG 12 dérivations immédiat + K+ sur gazométrie veineuse",
+     "i": "L'ECG guide l'urgence davantage que la valeur ; la gazométrie confirme en quelques minutes sans attendre le laboratoire central.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "a3",
+     "parent": "a2",
+     "t": "ECG anormal (attribuable au K+)",
+     "i": "Le diagnostic est posé : le traitement ne doit pas être retardé par un contrôle ou un avis spécialisé.",
+     "pec": "menacante",
+     "notion": "c6"
+    },
+    {
+     "id": "a4",
+     "parent": "a2",
+     "t": "ECG normal mais K+ ≥ 6.5 mmol/L",
+     "i": "La sensibilité de l'ECG est limitée : un tracé normal ne dispense pas de traiter une kaliémie très élevée.",
+     "pec": "menacante",
+     "notion": "c4"
+    },
+    {
+     "id": "a5",
+     "parent": "a2",
+     "t": "ECG normal et K+ < 6.5 mmol/L",
+     "i": "On reprélève sans garrot ni hémolyse pour écarter une pseudohyperkaliémie, puis on cherche la cause.",
+     "pec": "long_cours",
+     "notion": "c1"
+    },
+    {
+     "id": "a6",
+     "parent": "a1",
+     "t": "Bilan simultané : créatinine, urée, DFG, Na, Ca, Mg, HCO3, glycémie",
+     "i": "Il distingue insuffisance rénale aiguë et chronique décompensée ; la glycémie conditionne l'insuline et le glucose.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "a7",
+     "parent": "a6",
+     "t": "Insuffisance rénale aiguë : échographie rénale",
+     "i": "Elle recherche une obstruction des voies urinaires, cause réversible qui exige un drainage.",
+     "pec": null,
+     "notion": "c2"
+    },
+    {
+     "id": "a8",
+     "parent": "a6",
+     "t": "CK élevées, myoglobinurie",
+     "i": "Elles confirment une rhabdomyolyse avec insuffisance rénale aiguë.",
+     "pec": null,
+     "notion": "c2"
+    },
+    {
+     "id": "a9",
+     "parent": "a6",
+     "t": "Acide urique, LDH, phosphate élevés, Ca bas",
+     "i": "Ce profil oriente vers une lyse tumorale.",
+     "pec": null,
+     "notion": "c2"
+    },
+    {
+     "id": "a10",
+     "parent": "a6",
+     "t": "Acidose à la gazométrie",
+     "i": "Elle aggrave l'hyperkaliémie par sortie du K+ des cellules et oriente vers le bicarbonate.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "a11",
+     "parent": "a6",
+     "t": "Hyponatrémie + hypotension (± pigmentation)",
+     "i": "Elle impose un dosage du cortisol : l'insuffisance surrénalienne primaire se traite par hydrocortisone.",
+     "pec": null,
+     "notion": "c2"
+    },
+    {
+     "id": "a12",
+     "parent": "a6",
+     "t": "Traitement par digoxine, tacrolimus ou ciclosporine",
+     "i": "On dose ces médicaments, car leur toxicité provoque ou aggrave l'hyperkaliémie.",
+     "pec": null,
+     "notion": "c2"
+    }
+   ],
+   "points": [
+    "Diagnostic positif : K+ > 6.5 mmol/L ou signes ECG caractéristiques dans un contexte compatible.",
+    "Une valeur isolée sans ECG anormal ni facteur de risque impose un reprélèvement sans garrot, mais jamais un retard si l'ECG est anormal.",
+    "Les causes se cherchent en trois volets : excrétion rénale, déplacement transcellulaire, excès d'apport."
+   ],
+   "sources": [
+    "UKKA Clinical Practice Guidelines, 2020/2023",
+    "KDIGO Controversies Conference on Potassium, 2020"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Traitement aigu : protéger, déplacer, éliminer, traiter la cause",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Tu donnes d'abord le calcium pour protéger le myocarde, puis tu déplaces le potassium vers les cellules, tu l'élimines, et tu traites la cause en parallèle.",
+   "tableau": {
+    "colonnes": [
+     "Priorité",
+     "Traitement",
+     "Délai et durée",
+     "Effet sur K+",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "1. Protéger le myocarde",
+      [
+       {
+        "t": "Gluconate de calcium 10 % IV lent, sous scope",
+        "i": "Il est donné dès qu'il y a une anomalie ECG ; il est moins nécrosant en périphérie que le chlorure."
+       }
+      ],
+      "Début en 1–3 min, durée 30–60 min",
+      [
+       {
+        "t": "Aucun",
+        "i": "Il restaure l'écart entre potentiel seuil et potentiel de repos, sans modifier la kaliémie."
+       }
+      ],
+      [
+       {
+        "t": "Répéter si l'ECG reste anormal après 5–10 min",
+        "i": "Sa durée est brève : le rebond de toxicité est possible avant que les autres traitements agissent."
+       }
+      ]
+     ],
+     [
+      "2. Déplacer le K+",
+      [
+       {
+        "t": "Insuline rapide 10 UI IV + 25 g de glucose",
+        "i": "L'insuline active la Na-K-ATPase ; c'est le déplaceur le plus fiable."
+       }
+      ],
+      "Début en 15–30 min, durée 4–6 h",
+      [
+       {
+        "t": "Baisse de 0.5–1 mmol/L",
+        "i": "Le K+ entre dans les cellules sans être éliminé."
+       }
+      ],
+      [
+       {
+        "t": "Hypoglycémie tardive",
+        "i": "Elle survient plusieurs heures après, surtout en insuffisance rénale ; la glycémie est contrôlée toutes les heures pendant 6 h."
+       }
+      ]
+     ],
+     [
+      "2. Déplacer le K+",
+      [
+       {
+        "t": "Salbutamol nébulisé 10–20 mg",
+        "i": "Il stimule la Na-K-ATPase par un autre récepteur que l'insuline : l'effet s'additionne."
+       }
+      ],
+      "Début en environ 30 min",
+      [
+       {
+        "t": "Baisse d'environ 0.5–1 mmol/L",
+        "i": "Même mécanisme de redistribution intracellulaire."
+       }
+      ],
+      [
+       {
+        "t": "Prudence si cardiopathie ischémique ou tachycardie",
+        "i": "L'effet bêta-adrénergique peut aggraver l'ischémie ou la tachycardie."
+       }
+      ]
+     ],
+     [
+      "2. Déplacer le K+",
+      [
+       {
+        "t": "Bicarbonate de sodium",
+        "i": "Il corrige l'acidose qui pousse le K+ hors des cellules."
+       }
+      ],
+      "Variable",
+      [
+       {
+        "t": "Faible sans acidose",
+        "i": "Son efficacité est limitée en l'absence d'acidose métabolique marquée."
+       }
+      ],
+      [
+       {
+        "t": "Surcharge sodée et précipitation avec le calcium",
+        "i": "Il ne faut pas le perfuser sur la même voie que le calcium."
+       }
+      ]
+     ],
+     [
+      "3. Éliminer le K+",
+      [
+       {
+        "t": "Furosémide 40–80 mg IV",
+        "i": "Il augmente l'excrétion rénale seulement si la diurèse est conservée."
+       }
+      ],
+      "Selon la diurèse",
+      [
+       {
+        "t": "Élimination réelle",
+        "i": "Le K+ quitte l'organisme par l'urine."
+       }
+      ],
+      [
+       {
+        "t": "Contre-indiqué si hypovolémie ou anurie",
+        "i": "Sans diurèse il est inutile ; hypovolémique, il aggrave l'insuffisance rénale."
+       }
+      ]
+     ],
+     [
+      "3. Éliminer le K+",
+      [
+       {
+        "t": "Hémodialyse urgente",
+        "i": "C'est le seul traitement qui élimine massivement le K+ en cas d'échec des autres."
+       }
+      ],
+      "Rapide dès le début de séance",
+      [
+       {
+        "t": "Élimination massive",
+        "i": "Elle corrige aussi acidose et surcharge."
+       }
+      ],
+      [
+       {
+        "t": "Indications : réfractaire, anurie, rhabdomyolyse massive, instabilité",
+        "i": "Ces situations excluent un contrôle par les seuls déplaceurs, dont l'effet s'épuise en 4–6 h."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le traitement ne doit pas attendre un contrôle de la kaliémie ni un avis spécialisé si l'ECG est anormal.",
+    "Insuline : si la glycémie initiale est élevée, le glucose supplémentaire est inutile ; si elle est basse, on y ajoute une perfusion de glucose.",
+    "Arrêt cardiaque (ERC 2021) : chlorure de calcium 10 % 10 mL IV, insuline-glucose, bicarbonate, dialyse ; l'hyperkaliémie est une cause réversible (4H).",
+    "Il faut en même temps traiter la cause : arrêt des médicaments, drainage d'une obstruction, hydrocortisone si Addison."
+   ],
+   "sources": [
+    "UKKA Clinical Practice Guidelines, 2020/2023",
+    "ERC Guidelines, 2021",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Hospitalisation, complications et surveillance",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance"
+   ],
+   "comment": "Tu surveilles le patient sous scope jusqu'à normalisation, car chaque traitement a un effet limité dans le temps et une complication propre.",
+   "tableau": {
+    "colonnes": [
+     "Complication",
+     "Cause",
+     "Prévention ou conduite"
+    ],
+    "lignes": [
+     [
+      "Hypoglycémie",
+      [
+       {
+        "t": "Insuline rapide, surtout en insuffisance rénale",
+        "i": "L'insuline est moins éliminée quand le DFG baisse ; l'effet dure plusieurs heures."
+       }
+      ],
+      "Glycémie capillaire toutes les heures pendant 6 h et glucose supplémentaire si besoin."
+     ],
+     [
+      "Rebond d'hyperkaliémie",
+      [
+       {
+        "t": "Épuisement de l'effet de l'insuline et du salbutamol",
+        "i": "Ces traitements déplacent le K+ sans l'éliminer ; la cause persiste."
+       }
+      ],
+      "Contrôles répétés du K+, élimination (dialyse, diurétique) et traitement étiologique."
+     ],
+     [
+      "Ischémie, tachycardie",
+      [
+       {
+        "t": "Salbutamol à forte dose",
+        "i": "Il stimule les récepteurs bêta cardiaques."
+       }
+      ],
+      "Prudence en cardiopathie ischémique ; surveillance au scope."
+     ],
+     [
+      "Surcharge sodée ou volémique",
+      [
+       {
+        "t": "Bicarbonate hypertonique, cyclosilicate de sodium-zirconium",
+        "i": "Ils apportent du sodium, ce qui peut provoquer des œdèmes chez l'insuffisant cardiaque ou rénal."
+       }
+      ],
+      "Surveiller œdèmes et poids ; choisir la forme isotonique si acidose."
+     ],
+     [
+      "Nécrose colique",
+      [
+       {
+        "t": "Polystyrène sulfonate de sodium",
+        "i": "Il agit lentement et peut léser le côlon."
+       }
+      ],
+      "Le préférer moins qu'un chélateur moderne ; ne pas l'utiliser en urgence."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Soins intensifs ou continus sous scope si K+ > 6.5 mmol/L ou ECG anormal.",
+    "Surveillance : ECG continu jusqu'à normalisation, K+ à environ 1 h puis toutes les 1–2 h jusqu'à stabilisation.",
+    "Il faut aussi suivre diurèse, volémie et créatinine.",
+    "Hémodialyse urgente : hyperkaliémie réfractaire, anurie ou oligurie sévère, rhabdomyolyse massive, instabilité hémodynamique."
+   ],
+   "sources": [
+    "UKKA Clinical Practice Guidelines, 2020/2023",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Long cours, pronostic et réseau",
+   "rubriques": [
+    "chronicManagement",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Tu préviens la récidive en gardant les bloqueurs du SRAA quand c'est possible, grâce aux chélateurs, au régime et à des contrôles précoces.",
+   "tableau": {
+    "colonnes": [
+     "Stratégie",
+     "Mesure",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Médicaments hyperkaliémiants",
+      [
+       {
+        "t": "Réduire ou suspendre IEC, sartan ou antagoniste minéralocorticoïde, puis réintroduire",
+        "i": "Ils sont bénéfiques (cœur, rein) : leur arrêt définitif prive le patient de leur protection."
+       }
+      ],
+      "Éviter AINS et triméthoprime chez le patient à risque."
+     ],
+     [
+      "Chélateurs du potassium",
+      [
+       {
+        "t": "Cyclosilicate de sodium-zirconium ou patiromer",
+        "i": "Ils permettent de poursuivre les bloqueurs du SRAA."
+       }
+      ],
+      [
+       {
+        "t": "Polystyrène sulfonate : à éviter",
+        "i": "Il agit lentement et peut causer une nécrose colique."
+       }
+      ]
+     ],
+     [
+      "Élimination rénale",
+      [
+       {
+        "t": "Diurétique de l'anse ou thiazidique ; bicarbonate oral si acidose",
+        "i": "Ils augmentent l'excrétion rénale du K+ ou corrigent l'acidose qui le déplace."
+       }
+      ],
+      "Utiles chez l'insuffisant rénal chronique non oligurique."
+     ],
+     [
+      "Diététique",
+      [
+       {
+        "t": "Limiter fruits secs, bananes, noix, pommes de terre ; éviter les substituts de sel au KCl",
+        "i": "Ils apportent un excès de K+ sur un rein déjà altéré."
+       }
+      ],
+      "Consultation de diététique."
+     ],
+     [
+      "Contrôle",
+      [
+       {
+        "t": "Kaliémie et créatinine 1–2 semaines après l'introduction ou l'augmentation d'un bloqueur du SRAA",
+        "i": "La plupart des hyperkaliémies surviennent dans les premières semaines de traitement."
+       }
+      ],
+      "Médecin de premier recours, néphrologue et pharmacien partagent la révision."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Réversible si traitement immédiat ; la mortalité provient surtout de l'arythmie et de la maladie sous-jacente.",
+    "La sortie n'est possible que si la cause est corrigée ou contrôlée, car la récidive est fréquente en insuffisance rénale chronique.",
+    "Un patient ambulatoire avec K+ > 6.5 mmol/L ou ECG anormal est transféré en urgence aux urgences par le 144, sous surveillance.",
+    "Réseau : urgentiste, intensiviste, néphrologue, médecin de premier recours, diététicien, pharmacien."
+   ],
+   "sources": [
+    "KDIGO Controversies Conference on Potassium, 2020",
+    "AIPS Swissmedic (Lokelma, informations professionnelles IEC et sartans)",
+    "ESC Guidelines on heart failure, 2021"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "menacante",
+   "titre": "Hyperkaliémie menaçante avec pouls (K+ ≥ 6.5 mmol/L ou ECG anormal)",
+   "but": [
+    "Protéger le myocarde en moins de 10 minutes par le calcium.",
+    "Abaisser la kaliémie en déplaçant puis en éliminant le potassium.",
+    "Traiter la cause pour éviter le rebond."
+   ],
+   "moyens": {
+    "accueil": [
+     "Mettre le patient sous scope avec ECG 12 dérivations immédiat.",
+     "Poser deux voies veineuses et prélever gazométrie veineuse, ionogramme, créatinine, glycémie.",
+     "Prévenir le laboratoire et l'équipe de soins intensifs dès la valeur critique."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Gluconate de calcium 10 % (sel de calcium)",
+      "posologie": "10–30 mL IV lent sous scope (UKKA : 30 mL en 10 min) ; répéter si l'ECG reste anormal après 5–10 min.",
+      "pourquoi": "Le calcium protège le myocarde en 1–3 min pour 30–60 min, sans baisser la kaliémie.",
+      "source": "[UKKA, 2023]"
+     },
+     {
+      "molecule": "Insuline humaine rapide + glucose (hormone, déplaceur transcellulaire)",
+      "posologie": "10 UI IV avec 25 g de glucose (50 mL de G50 %) ; glucose supplémentaire si glycémie initiale basse.",
+      "pourquoi": "Elle abaisse le K+ de 0.5–1 mmol/L en 15–30 min pour 4–6 h, au risque d'hypoglycémie tardive.",
+      "source": "[UKKA, 2023]"
+     },
+     {
+      "molecule": "Salbutamol (bêta-2 agoniste), nébulisation",
+      "posologie": "10–20 mg nébulisés ; prudence en cardiopathie ischémique ou tachycardie.",
+      "pourquoi": "Il additionne son effet à celui de l'insuline pour déplacer le K+ vers les cellules.",
+      "source": "[UKKA, 2023]"
+     },
+     {
+      "molecule": "Bicarbonate de sodium (alcalinisant)",
+      "posologie": "Forme isotonique IV, selon la gazométrie ; seulement si acidose métabolique marquée ; jamais sur la voie du calcium.",
+      "pourquoi": "Son efficacité est faible sans acidose, et il apporte du sodium en excès.",
+      "source": "[UKKA, 2023]"
+     },
+     {
+      "molecule": "Furosémide (diurétique de l'anse)",
+      "posologie": "40–80 mg IV si diurèse conservée et patient non hypovolémique.",
+      "pourquoi": "Il élimine du K+ par voie urinaire uniquement si le rein produit des urines.",
+      "source": "[UKKA, 2023]"
+     },
+     {
+      "molecule": "Cyclosilicate de sodium-zirconium (chélateur du K+)",
+      "posologie": "10 g par voie orale jusqu'à 3 fois par jour pendant 48 h au maximum selon l'information professionnelle.",
+      "pourquoi": "Il retient le K+ dans l'intestin, agit en environ 1 h, et ne remplace pas le calcium ni l'insuline.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Poser une sonde vésicale ou drainer les voies urinaires en cas d'obstruction.",
+      "pourquoi": "Une obstruction est une cause réversible qui entretient l'hyperkaliémie."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Organiser l'hémodialyse urgente en cas d'anurie, d'hyperkaliémie réfractaire ou d'instabilité.",
+      "pourquoi": "Elle est le seul traitement qui élimine massivement le potassium."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveiller le scope, la glycémie horaire et la diurèse.",
+      "pourquoi": "L'hypoglycémie et le rebond surviennent plusieurs heures après le traitement."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Suspendre les médicaments hyperkaliémiants et les suppléments de potassium.",
+      "pourquoi": "Poursuivre la cause rend tout traitement transitoire."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'urgence, l'information du patient et la communication de la valeur critique selon les règles de traçabilité."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Monitorer le patient en continu et assurer deux voies veineuses.",
+      "Ne pas retarder le traitement par l'attente d'un contrôle ou d'un avis spécialisé si l'ECG est anormal.",
+      "Traiter la cause en parallèle des déplaceurs."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "Médecin responsable",
+       "fait": "Réalise l'ECG 12 dérivations, demande la gazométrie veineuse et décide du traitement sans attendre le laboratoire."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "Infirmier·ère",
+       "fait": "Pose deux voies, branche le scope et prépare calcium, insuline et glucose."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "Médecin responsable",
+       "fait": "Injecte le gluconate de calcium 10 % en 10 minutes et répète si l'ECG reste anormal."
+      },
+      {
+       "temps": "puis",
+       "qui": "Médecin responsable",
+       "fait": "Prescrit insuline 10 UI avec 25 g de glucose puis salbutamol nébulisé."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "Second médecin",
+       "fait": "Cherche et traite la cause : sonde vésicale, échographie rénale, arrêt des médicaments, cortisol."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "Néphrologue",
+       "fait": "Décide l'hémodialyse en cas d'anurie, de rhabdomyolyse massive, d'instabilité ou d'hyperkaliémie réfractaire."
+      },
+      {
+       "temps": "puis",
+       "qui": "Médecin responsable",
+       "fait": "Transfère le patient aux soins intensifs ou continus avec contrôle de K+ après 1 heure."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "L'hyperkaliémie menaçante est réversible si le traitement est immédiat ; la mortalité provient surtout de l'arythmie et de la maladie sous-jacente.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "ECG continu au scope",
+      "quand": "En continu",
+      "cible": "Normalisation du tracé"
+     },
+     {
+      "quoi": "Kaliémie",
+      "quand": "1 h après le début, puis toutes les 1–2 h",
+      "cible": "Stabilisation sous 5.5 mmol/L sans rebond"
+     },
+     {
+      "quoi": "Glycémie capillaire",
+      "quand": "Toutes les heures pendant 6 h après l'insuline",
+      "cible": "Absence d'hypoglycémie"
+     },
+     {
+      "quoi": "Diurèse, volémie, créatinine",
+      "quand": "Pendant l'hospitalisation",
+      "cible": "Diurèse conservée et créatinine en baisse"
+     }
+    ],
+    "sortie": "Sortie seulement si K+ normalisé et stable, ECG normal, cause corrigée ou contrôlée, plan médicamenteux révisé et suivi organisé."
+   },
+   "prevention": {
+    "primaire": "Contrôler kaliémie et créatinine 1–2 semaines après l'introduction ou l'augmentation d'un bloqueur du SRAA et éviter AINS et triméthoprime chez le patient à risque.",
+    "secondaire": "Dépister l'hyperkaliémie par ECG et bilan chez l'insuffisant rénal, le diabétique et l'insuffisant cardiaque sous traitement hyperkaliémiant.",
+    "tertiaire": "Prévenir la récidive par chélateurs, régime et révision médicamenteuse, avec suivi néphrologique."
+   }
+  },
+  {
+   "cle": "arret",
+   "titre": "Arrêt cardiaque d'origine hyperkaliémique",
+   "but": [
+    "Poursuivre une réanimation de qualité en traitant la cause réversible.",
+    "Antagoniser la toxicité cardiaque et déplacer le potassium."
+   ],
+   "moyens": {
+    "accueil": [
+     "Débuter la réanimation cardiopulmonaire selon l'algorithme ALS de l'ERC.",
+     "Rechercher les 4H et 4T, dont l'hyperkaliémie."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Chlorure de calcium 10 % (sel de calcium)",
+      "posologie": "10 mL IV en bolus rapide, voie centrale ou périphérique large pendant l'arrêt (ERC).",
+      "pourquoi": "Il protège le myocarde ; pendant l'arrêt le risque de nécrose cutanée passe au second plan.",
+      "source": "[ERC, 2021]"
+     },
+     {
+      "molecule": "Insuline rapide + glucose",
+      "posologie": "10 UI d'insuline et 25 g de glucose IV, selon l'ERC.",
+      "pourquoi": "Ils déplacent le K+ vers les cellules pour faire cesser l'arythmie.",
+      "source": "[ERC, 2021]"
+     },
+     {
+      "molecule": "Bicarbonate de sodium (alcalinisant)",
+      "posologie": "50 mmol IV, selon l'ERC.",
+      "pourquoi": "Il alcalinise et favorise l'entrée du K+ dans les cellules, notamment en acidose.",
+      "source": "[ERC, 2021]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Organiser une dialyse dès que possible chez le patient réanimé ou en échec de traitement.",
+      "pourquoi": "La dialyse est le seul moyen d'éliminer le potassium et de prévenir la récidive de l'arrêt."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre la décision de poursuivre ou d'arrêter la réanimation et documente l'événement."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Assurer compressions thoraciques de qualité et ventilation.",
+      "Considérer l'hyperkaliémie comme cause réversible en cas d'insuffisance rénale ou de dialyse manquée."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "Médecin responsable",
+       "fait": "Dirige l'ALS et identifie l'hyperkaliémie comme cause réversible."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "Infirmier·ère",
+       "fait": "Assure les compressions, la voie veineuse et la préparation des médicaments."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "Médecin responsable",
+       "fait": "Administre le chlorure de calcium 10 mL puis insuline-glucose et bicarbonate."
+      },
+      {
+       "temps": "puis",
+       "qui": "Néphrologue",
+       "fait": "Prépare la dialyse dès le retour à une circulation spontanée."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le pronostic dépend de la rapidité du traitement et de la maladie sous-jacente ; l'hyperkaliémie est une cause réversible d'arrêt.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Rythme et pouls",
+      "quand": "En continu",
+      "cible": "Circulation spontanée"
+     },
+     {
+      "quoi": "Kaliémie",
+      "quand": "Dès le retour de la circulation, puis toutes les 1–2 h",
+      "cible": "Normalisation sans rebond"
+     }
+    ],
+    "sortie": "Transfert en soins intensifs après retour d'une circulation spontanée, sans sortie directe."
+   },
+   "prevention": {
+    "primaire": "Contrôler la kaliémie des patients dialysés et insuffisants rénaux sous traitement hyperkaliémiant.",
+    "secondaire": "Reconnaître et traiter précocement les signes ECG d'hyperkaliémie.",
+    "tertiaire": "Réviser tout traitement et organiser un suivi néphrologique après un épisode grave."
+   }
+  },
+  {
+   "cle": "long_cours",
+   "titre": "Hyperkaliémie légère à modérée sans signe ECG et prévention des récidives",
+   "but": [
+    "Corriger la cause et abaisser la kaliémie durablement.",
+    "Poursuivre si possible les bloqueurs du SRAA bénéfiques.",
+    "Prévenir la récidive par contrôles et éducation."
+   ],
+   "moyens": {
+    "accueil": [
+     "Contrôler l'ECG et reprélever sans garrot pour confirmer la valeur.",
+     "Faire l'anamnèse des médicaments, des substituts de sel au KCl et de l'alimentation."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Cyclosilicate de sodium-zirconium (chélateur du K+)",
+      "posologie": "Entretien : 5 g par voie orale une fois par jour, adapté à la kaliémie selon l'information professionnelle.",
+      "pourquoi": "Il permet de maintenir IEC, sartan ou antagoniste minéralocorticoïde en baissant la kaliémie.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Furosémide ou thiazidique (diurétique)",
+      "posologie": "Dose adaptée à la fonction rénale et à la volémie, per os.",
+      "pourquoi": "Les diurétiques augmentent l'excrétion rénale du K+ chez l'insuffisant rénal chronique non oligurique.",
+      "source": "[KDIGO, 2020]"
+     },
+     {
+      "molecule": "Bicarbonate de sodium oral (alcalinisant)",
+      "posologie": "Dose selon le bicarbonate sérique et l'état volémique.",
+      "pourquoi": "Il corrige l'acidose métabolique qui déplace le potassium hors des cellules.",
+      "source": "[KDIGO, 2020]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "nutrition",
+      "mesure": "Limiter fruits secs, bananes, noix et pommes de terre, avec l'aide d'un diététicien.",
+      "pourquoi": "Un apport élevé de K+ aggrave l'hyperkaliémie sur un rein altéré."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer l'éviction des substituts de sel au KCl et des AINS.",
+      "pourquoi": "Ces produits courants peuvent provoquer une récidive grave."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Réduire ou suspendre le bloqueur du SRAA puis le réintroduire dès que possible.",
+      "pourquoi": "Ces traitements sont bénéfiques et leur arrêt définitif prive le patient de leur protection."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Soutient la prise en charge des chélateurs et du suivi néphrologique dans le cadre de l'assurance maladie."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Reprélever et contrôler la kaliémie dans les 24–72 heures selon la gravité.",
+      "Éviter AINS et triméthoprime chez le patient à risque."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "Médecin responsable",
+       "fait": "Confirme la kaliémie, exclut une pseudohyperkaliémie et un ECG anormal."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "Médecin responsable",
+       "fait": "Identifie les médicaments responsables et réduit ou suspend le bloqueur du SRAA."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "Pharmacien",
+       "fait": "Révise l'ordonnance et repère les interactions hyperkaliémiantes."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "Diététicien",
+       "fait": "Adapte l'alimentation et supprime les substituts de sel au KCl."
+      },
+      {
+       "temps": "puis",
+       "qui": "Néphrologue",
+       "fait": "Prescrit un chélateur et organise le suivi si l'hyperkaliémie récidive."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le pronostic est bon si la cause est corrigée ; la récidive reste fréquente en insuffisance rénale chronique.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Kaliémie et créatinine",
+      "quand": "1–2 semaines après toute introduction ou augmentation d'un bloqueur du SRAA",
+      "cible": "K+ dans la norme (3.5–5.0 mmol/L) ou stable"
+     },
+     {
+      "quoi": "Poids, volémie et œdèmes",
+      "quand": "À chaque consultation",
+      "cible": "Absence de surcharge sous chélateur sodique"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si K+ < 6.5 mmol/L, ECG normal, patient stable, sans insuffisance rénale aiguë et avec contrôle assuré."
+   },
+   "prevention": {
+    "primaire": "Contrôler kaliémie et créatinine après introduction d'un bloqueur du SRAA et éviter les associations hyperkaliémiantes.",
+    "secondaire": "Dépister l'hyperkaliémie lors des bilans de l'insuffisant rénal, du diabétique et de l'insuffisant cardiaque.",
+    "tertiaire": "Maintenir chélateurs, régime et suivi néphrologique pour éviter une hyperkaliémie menaçante."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 8278,
+  "output_tokens": 25351,
+  "output_tokens_details": {
+   "thinking_tokens": 8782
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:35:00",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

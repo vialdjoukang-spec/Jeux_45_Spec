@@ -423,6 +423,66 @@ const MODELES={
    else if(vm>seuil&&vg>=seuil)m1='Les IgM et les IgG sont présentes : l\'infection est récente ; une séroconversion entre deux prélèvements à 2 ou 3 semaines d\'intervalle la confirme.';
    else m1='Les IgG persistent sans IgM : l\'infection est ancienne ou le sujet est vacciné.';
    note.textContent='Jour '+j+' : IgM = '+vm.toFixed(2)+', IgG = '+vg.toFixed(2)+' (unités arbitraires ; seuil de positivité schématique '+String(seuil).replace('.',',')+'). '+m1+' Les délais exacts varient selon le microbe et le test.';}d();},
+ /* ophtalmologique : œil réduit (indice 1,336) — longueur axiale, puissance optique au repos, amplitude d'accommodation selon l'âge (moyenne de Hofstetter) */
+ or_refraction(C){const x=toile(C);const note=document.createElement('p');
+  boutons(C,[['Emmétropie',{l:23.6,p:59,a:25}],['Myopie axiale',{l:25.6,p:59,a:25}],['Hypermétropie',{l:22.4,p:59,a:25}],['Presbytie',{l:23.6,p:59,a:55}],['Myopie par cataracte nucléaire',{l:23.6,p:61,a:72}]],o=>{L.set(o.l);P.set(o.p);Ag.set(o.a);d();});
+  const L=cur(C,'Longueur axiale (mm)',20,30,0.1,23.6,d),P=cur(C,'Puissance optique au repos (dioptries)',54,66,0.5,59,d),Ag=cur(C,'Âge (ans)',10,80,1,25,d);C.appendChild(note);
+  const n=1.336,pp=1.0;
+  function d(){const W=520,H=300;x.clearRect(0,0,W,H);x.font='11px A';const l=L(),p=P(),age=Ag(),X=mm=>70+mm*14,Y0=150;
+   const req=n/((l-pp)/1000),rx=req-p,A=Math.max(0.5,18.5-0.3*age),f=n/p*1000+pp;
+   x.strokeStyle='#8a94a3';x.lineWidth=1.5;x.beginPath();x.ellipse(X(l/2),Y0,X(l)-X(l/2),95,0,0,7);x.stroke();
+   x.strokeStyle='#2f6fd0';x.lineWidth=3;x.beginPath();x.arc(X(0)+60,Y0,62,Math.PI*0.78,Math.PI*1.22);x.stroke();
+   x.strokeStyle='#5b6574';x.lineWidth=3;x.beginPath();x.moveTo(X(l),Y0-70);x.lineTo(X(l),Y0+70);x.stroke();x.fillStyle='#3a4556';x.fillText('rétine',X(l)-14,Y0+86);x.fillText('cornée',X(0)-6,Y0-100);
+   const col=getComputedStyle(C).getPropertyValue('--c')||'#5b6574';x.lineWidth=1.5;x.strokeStyle=col;
+   for(const h of [-45,-22,22,45]){x.beginPath();x.moveTo(10,Y0+h);x.lineTo(X(0),Y0+h);const xf=X(f),xe=X(Math.min(30,l+3)),t=(xe-X(0))/(xf-X(0));x.lineTo(xe,Y0+h*(1-t));x.stroke();}
+   x.fillStyle='#d11';x.beginPath();x.arc(X(f),Y0,5,0,7);x.fill();x.fillText('foyer',X(f)-14,Y0-10);
+   x.fillStyle='#3a4556';x.fillText('Longueur axiale '+l.toFixed(1).replace('.',',')+' mm ; foyer à '+f.toFixed(1).replace('.',',')+' mm',10,H-12);
+   const r=Math.round(rx*4)/4,near=A-rx>0?100/(A-rx):Infinity,add=Math.max(0,Math.ceil((2.5-A/2)*4)/4);let m1;
+   if(Math.abs(r)<0.5)m1='Le foyer tombe sur la rétine : l\'œil est emmétrope et voit net de loin sans effort.';
+   else if(r<0)m1='Le foyer tombe en avant de la rétine : l\'œil est myope de '+Math.abs(r).toFixed(2).replace('.',',')+' dioptrie(s). Il voit net jusqu\'à '+(100/Math.abs(rx)).toFixed(0)+' cm (punctum remotum) et se corrige par un verre divergent.'+(l>26?' Un œil aussi long expose au décollement de rétine et au glaucome.':'')+(p>60.5&&l<25?' Ici, c\'est la puissance du cristallin qui augmente : une cataracte nucléaire rend myope et donne une « seconde vue » de près.':'');
+   else m1='Le foyer tombe en arrière de la rétine : l\'œil est hypermétrope de '+r.toFixed(2).replace('.',',')+' dioptrie(s). '+(A>=rx?'Il compense en accommodant, ce qui fatigue et peut donner des maux de tête.':'Son accommodation ne suffit plus : il voit flou de loin comme de près.')+' Son angle iridocornéen est souvent étroit.';
+   note.textContent=m1+' Amplitude d\'accommodation estimée à '+age+' ans : '+A.toFixed(1).replace('.',',')+' dioptries (moyenne de Hofstetter : 18,5 − 0,3 × âge) ; punctum proximum sans correction ≈ '+(isFinite(near)?near.toFixed(0)+' cm':'hors de portée')+'. '+(add>0?'Pour lire à 40 cm (2,5 dioptries) en gardant la moitié de l\'accommodation en réserve, il faut une addition d\'environ +'+add.toFixed(2).replace('.',',')+' dioptrie(s) : c\'est la presbytie.':'L\'accommodation suffit encore pour lire à 40 cm.')+' Modèle simplifié : un millimètre de longueur axiale vaut environ 2,5 dioptries.';}d();},
+ /* ophtalmologique : équation de Goldmann — PIO = (production − voie uvéosclérale) / facilité d'écoulement trabéculaire + pression veineuse épisclérale */
+ or_pio(C){const x=toile(C);const note=document.createElement('p');
+  boutons(C,[['Normal',{f:2.5,u:0.4,c:0.3,v:9}],['Glaucome à angle ouvert',{f:2.5,u:0.4,c:0.12,v:9}],['Sous analogue des prostaglandines',{f:2.5,u:1.0,c:0.14,v:9}],['Sous bêtabloquant',{f:1.7,u:0.4,c:0.12,v:9}],['Glaucome aigu par fermeture',{f:2.5,u:0.1,c:0.045,v:9}],['Hypertension veineuse épisclérale',{f:2.5,u:0.4,c:0.3,v:22}]],o=>{F.set(o.f);U.set(o.u);Cf.set(o.c);V.set(o.v);d();});
+  const F=cur(C,'Production d\'humeur aqueuse (µl/min)',0.5,4,0.1,2.5,d),U=cur(C,'Écoulement uvéoscléral (µl/min)',0,1.5,0.05,0.4,d),Cf=cur(C,'Facilité d\'écoulement trabéculaire (µl/min/mmHg)',0.02,0.5,0.005,0.3,d),V=cur(C,'Pression veineuse épisclérale (mmHg)',5,25,1,9,d);C.appendChild(note);
+  const pio=(f,u,c,v)=>Math.max(0,f-u)/c+v;
+  function d(){const A=axes(x,520,300,45,[0,0.5],[0,80],'Facilité d\'écoulement trabéculaire (µl/min/mmHg)','PIO (mmHg)');const f=F(),u=Math.min(U(),F()),c=Cf(),v=V();
+   for(const [y,t,cl] of [[21,'21 mmHg (2,8 kPa)','#c98a2b'],[40,'40 mmHg (5,3 kPa)','#e0452b']]){const [a0,b0]=A(0,y),[a1]=A(0.5,y);x.strokeStyle=cl;x.setLineDash([5,4]);x.beginPath();x.moveTo(a0,b0);x.lineTo(a1,b0);x.stroke();x.setLineDash([]);x.fillStyle=cl;x.fillText(t,a1-120,b0-4);}
+   x.strokeStyle=getComputedStyle(C).getPropertyValue('--c')||'#5b6574';x.lineWidth=2.5;x.beginPath();let k=0;for(let i=0;i<=200;i++){const cc=0.02+i*0.0024,y=pio(f,u,cc,v);if(y>80)continue;const [a,b]=A(cc,y);k++?x.lineTo(a,b):x.moveTo(a,b);}x.stroke();x.lineWidth=1;
+   const P=pio(f,u,c,v),[a,b]=A(c,Math.min(80,P));x.fillStyle='#d11';x.beginPath();x.arc(a,b,6,0,7);x.fill();
+   let m1;
+   if(P>=40)m1='La pression dépasse 40 mmHg : l\'angle ne laisse presque plus sortir l\'humeur aqueuse. La cornée devient œdémateuse (halos), le nerf optique souffre en quelques heures : c\'est une urgence (acétazolamide, collyres, iridotomie au laser).';
+   else if(P>21&&v>15)m1='La pression monte parce que la pression veineuse épisclérale est élevée (fistule carotido-caverneuse, orbitopathie, syndrome de Sturge-Weber) : les collyres qui agissent sur la production ou le trabéculum ont peu d\'effet.';
+   else if(P>21)m1='La pression dépasse 21 mmHg parce que le trabéculum évacue mal : c\'est le profil du glaucome à angle ouvert ou de l\'hypertension oculaire. L\'atteinte du nerf (excavation, champ visuel) décide du traitement.';
+   else if(c<0.2)m1='La facilité d\'écoulement reste basse, mais le traitement ramène la pression sous 21 mmHg : '+(u>=0.8?'l\'analogue des prostaglandines ouvre la voie uvéosclérale.':f<2?'le bêtabloquant ou l\'inhibiteur de l\'anhydrase carbonique réduit la production d\'humeur aqueuse.':'la pression reste à surveiller.')+' L\'ophtalmologue fixe une pression cible propre à chaque patient.';
+   else if(P<8)m1='La pression est basse (hypotonie) : tu penses à une fuite après chirurgie ou traumatisme, ou à un corps ciliaire qui ne sécrète plus.';
+   else m1='La pression reste entre 10 et 21 mmHg : l\'équilibre entre production et évacuation est normal.';
+   note.textContent='PIO = ('+f.toFixed(1)+' − '+u.toFixed(2)+') / '+c.toFixed(3)+' + '+v+' = '+P.toFixed(0)+' mmHg ('+(P*0.1333).toFixed(1)+' kPa). '+m1+' Une cornée épaisse surestime la mesure, une cornée mince la sous-estime ; l\'équation de Goldmann reste un modèle.';}d();},
+ /* ORL : audiogramme tonal — conduction aérienne (rond) et osseuse (chevron), surdité de transmission, de perception, encoche de Carhart, grade de l'OMS 2021 */
+ or_audio(C){const x=toile(C);const note=document.createElement('p');let K=0;
+  boutons(C,[['Normal',{t:0,g:0,a:0,n:0,p:0,k:0}],['Otite séromuqueuse',{t:25,g:0,a:0,n:0,p:0,k:0}],['Otosclérose',{t:30,g:0,a:0,n:0,p:0,k:1}],['Presbyacousie',{t:0,g:0,a:15,n:0,p:10,k:0}],['Traumatisme sonore',{t:0,g:0,a:0,n:40,p:5,k:0}],['Surdité brusque',{t:0,g:0,a:0,n:0,p:60,k:0}],['Maladie de Ménière',{t:0,g:45,a:0,n:0,p:0,k:0}]],o=>{T.set(o.t);G.set(o.g);Ai.set(o.a);N.set(o.n);Pf.set(o.p);K=o.k;d();});
+  const T=cur(C,'Perte de transmission (dB)',0,60,5,0,d),Pf=cur(C,'Perte de perception sur toutes les fréquences (dB)',0,90,5,0,d),G=cur(C,'Perte de perception sur les graves (dB)',0,70,5,0,d),Ai=cur(C,'Pente sur les aigus (dB par octave au-delà de 1000 Hz)',0,25,1,0,d),N=cur(C,'Encoche à 4000 Hz (dB)',0,50,5,0,d);C.appendChild(note);
+  const FQ=[250,500,1000,2000,4000,8000],wG={250:1,500:0.8,1000:0.5,2000:0.1,4000:0,8000:0},wN={250:0,500:0,1000:0,2000:0.3,4000:1,8000:0.4},CA={250:0,500:5,1000:10,2000:15,4000:5,8000:0};
+  function d(){const W=520,H=300,m=45;x.clearRect(0,0,W,H);x.font='11px A';const X=f=>m+Math.log2(f/250)/5*(W-m-20),Y=db=>15+(db+10)/130*(H-45);
+   x.strokeStyle='#e3e7ec';x.fillStyle='#3a4556';for(let db=-10;db<=120;db+=10){x.beginPath();x.moveTo(m,Y(db));x.lineTo(W-20,Y(db));x.stroke();x.textAlign='right';x.fillText(db,m-5,Y(db)+4);}
+   x.textAlign='center';for(const f of FQ){x.beginPath();x.moveTo(X(f),Y(-10));x.lineTo(X(f),Y(120));x.stroke();x.fillText(f,X(f),H-14);}x.textAlign='left';x.fillText('Hz',W-18,H-14);x.save();x.translate(10,H/2+40);x.rotate(-Math.PI/2);x.fillText('Seuil (dB HL)',0,0);x.restore();
+   x.fillStyle='rgba(31,122,77,0.10)';x.fillRect(m,Y(-10),W-m-20,Y(20)-Y(-10));
+   const os=f=>Math.min(120,5+Pf()+G()*wG[f]+Ai()*Math.max(0,Math.log2(f/1000))+N()*wN[f]+K*CA[f]),air=f=>Math.min(120,os(f)+T());
+   x.strokeStyle='#d11';x.lineWidth=2;x.beginPath();FQ.forEach((f,i)=>{const [a,b]=[X(f),Y(air(f))];i?x.lineTo(a,b):x.moveTo(a,b);});x.stroke();
+   FQ.forEach(f=>{x.strokeStyle='#d11';x.beginPath();x.arc(X(f),Y(air(f)),5,0,7);x.stroke();x.strokeStyle='#2f6fd0';x.beginPath();x.moveTo(X(f)-3,Y(os(f))-6);x.lineTo(X(f)-9,Y(os(f)));x.lineTo(X(f)-3,Y(os(f))+6);x.stroke();});x.lineWidth=1;
+   const q=[500,1000,2000,4000],pta=q.reduce((s,f)=>s+air(f),0)/4,ptao=q.reduce((s,f)=>s+os(f),0)/4,gap=pta-ptao;
+   const gr=pta<20?'audition normale':pta<35?'perte légère':pta<50?'perte modérée':pta<65?'perte modérément sévère':pta<80?'perte sévère':pta<95?'perte profonde':'perte complète';
+   let m1;
+   if(pta<20&&gap<10)m1='Les seuils restent sous 20 dB : l\'audition est normale.';
+   else if(gap>=15&&ptao<20)m1='La conduction osseuse reste normale et seule la conduction aérienne baisse : surdité de transmission (oreille externe ou moyenne). Au diapason, le Rinne est négatif et le Weber va vers l\'oreille atteinte.'+(K?' Le creux de la conduction osseuse vers 2000 Hz (encoche de Carhart) et un tympan normal évoquent une otosclérose ; les réflexes stapédiens sont abolis.':' Un tympan mat avec niveau oriente vers une otite séromuqueuse ; chez l\'adulte, d\'un seul côté, tu examines le nasopharynx.');
+   else if(gap>=15)m1='Les conductions aérienne et osseuse baissent toutes deux, avec un écart entre elles : surdité mixte (par exemple otite chronique ou otosclérose évoluée).';
+   else if(ptao>=80)m1='Les seuils dépassent 80 dB pour l\'os comme pour l\'air : surdité de perception profonde ; quand l\'appareil ne suffit plus, l\'implant cochléaire se discute.';
+   else if(N()>=20)m1='La perte se creuse vers 4000 Hz puis remonte à 8000 Hz : c\'est l\'encoche du traumatisme sonore. En Suisse, la surdité professionnelle due au bruit relève de l\'assurance accidents (Suva).';
+   else if(G()>=20)m1='La perte de perception touche surtout les graves : avec des crises de vertige et un acouphène, elle évoque une maladie de Ménière (critères de Bárány).';
+   else if(Ai()>=8)m1='La perte de perception descend sur les aigus, des deux côtés en général : c\'est le profil de la presbyacousie ; le patient entend mais ne comprend plus dans le bruit.';
+   else m1='Les conductions aérienne et osseuse baissent ensemble, sans écart : surdité de perception (cochlée ou nerf). Le Weber va vers l\'oreille saine et le Rinne reste positif. Apparue en moins de 72 heures, elle impose des corticoïdes et une IRM.';
+   note.textContent='Moyenne des seuils aériens (500 à 4000 Hz) = '+pta.toFixed(0)+' dB HL ; osseux = '+ptao.toFixed(0)+' dB HL ; écart = '+gap.toFixed(0)+' dB : '+gr+' selon l\'OMS (2021). '+m1+' Rond rouge : conduction aérienne de l\'oreille droite ; chevron bleu : conduction osseuse ; zone verte : audition normale.';}d();},
  /* locomoteur : analyse du liquide synovial (leucocytes, neutrophiles, cristaux, sang) */
  lo_synovie(C){const x=toile(C);const note=document.createElement('p');
   boutons(C,[['Normal',{l:150,n:20,c:0,s:0}],['Arthrose',{l:800,n:15,c:0,s:0}],['Goutte',{l:20000,n:80,c:1,s:0}],['Chondrocalcinose',{l:15000,n:75,c:2,s:0}],['Polyarthrite rhumatoïde',{l:12000,n:65,c:0,s:0}],['Arthrite septique',{l:85000,n:95,c:0,s:0}],['Hémarthrose',{l:2000,n:40,c:0,s:1}]],o=>{L.set(Math.log10(o.l).toFixed(2));N.set(o.n);Cr.set(o.c);S.set(o.s);d();});

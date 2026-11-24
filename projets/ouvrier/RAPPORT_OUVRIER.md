@@ -1,12 +1,10 @@
-# Ouvrier automatique — 2026-11-23 23:38 UTC
+# Ouvrier automatique — 2026-11-24 08:44 UTC
 
-Dernier passage : **END_N_lot** → fait (0.00 USD).
+Dernier passage : **T3_pec_fiches_existantes** → en_cours (0.14 USD).
 
-notions : 325 entité(s) à produire.
-lot msgbatch_01EQEtoFQ1CRmhFG58U6S4r6
+Le mode pec existait déjà et a été testé en direct ; le lot de 61 fiches a été récupéré, avec 52 priseEnCharge insérées et audit.rejector remis à null. Les 9 échecs ont été resoumis dans le lot msgbatch_01YWN6ZofP55QtkVqB39mzh1, à récupérer au prochain passage. Il reste 151 fiches rejetées avec erreurs de forme, qui relèvent de T4 ; 619 fiches sur 779 ont maintenant priseEnCharge.
 
-
-**Crédit** : 50.62 USD dépensés, 141.38 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.00 / 141.38 USD.
+**Crédit** : 51.28 USD dépensés, 140.72 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.66 / 141.38 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -35,21 +33,21 @@ lot msgbatch_01EQEtoFQ1CRmhFG58U6S4r6
 | END_C_pilote | fait | 1 | 0.276 |
 | V1_fusions | fait | 1 | 0.223 |
 | END_N_lot | fait | 1 | 0.0 |
-| END_N_recup | a_faire | 0 |  |
-| END_Q_lot | a_faire | 0 |  |
-| END_Q_recup | a_faire | 0 |  |
-| END_C_lot | a_faire | 0 |  |
-| END_C_recup | a_faire | 0 |  |
-| T3_pec_fiches_existantes | a_faire | 0 |  |
+| END_N_recup | fait | 5 | 0.0 |
+| END_Q_lot | fait | 1 | 0.0 |
+| END_Q_recup | fait | 1 | 0.0 |
+| END_C_lot | fait | 1 | 0.0 |
+| END_C_recup | fait | 1 | 0.0 |
+| T3_pec_fiches_existantes | en_cours | 3 | 0.138 |
 | T4_reprise_rejets | a_faire | 0 |  |
 | T5_items_valides | sans_objet | 0 |  |
 | T7_transversal_lecons | sans_objet | 0 |  |
 | T6_vague_urgences | sans_objet | 0 |  |
-| V2_N_lot | a_faire | 0 |  |
-| V2_N_recup | a_faire | 0 |  |
-| V2_Q_lot | a_faire | 0 |  |
-| V2_Q_recup | a_faire | 0 |  |
-| V2_C_lot | a_faire | 0 |  |
-| V2_C_recup | a_faire | 0 |  |
+| V2_N_lot | bloque | 0 |  |
+| V2_N_recup | bloque | 0 |  |
+| V2_Q_lot | bloque | 0 |  |
+| V2_Q_recup | bloque | 0 |  |
+| V2_C_lot | bloque | 0 |  |
+| V2_C_recup | bloque | 0 |  |
 
 Signature : AAI (Anthropic AI)

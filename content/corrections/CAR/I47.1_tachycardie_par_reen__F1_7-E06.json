@@ -1,0 +1,1033 @@
+{
+ "id": "I47.1_tachycardie_par_reen__F1_7-E06",
+ "portes": [
+  {
+   "ssp": "S2.11",
+   "nomSSP": "Palpitations",
+   "entite": "Tachycardie par réentrée intranodale (TRIN / maladie de Bouveret)",
+   "entiteId": "S2.11-E04"
+  },
+  {
+   "ssp": "S9.1",
+   "nomSSP": "Anxiété et panique",
+   "entite": "Tachycardie supraventriculaire paroxystique (TSVP / maladie de Bouveret)",
+   "entiteId": "S9.1-E08"
+  },
+  {
+   "ssp": "F1.7",
+   "nomSSP": "Bradycardie, tachycardie, pouls irrégulier",
+   "entite": "Tachycardie jonctionnelle par réentrée intranodale (maladie de Bouveret)",
+   "entiteId": "F1.7-E06"
+  }
+ ],
+ "entite": "Tachycardie par réentrée intranodale (TRIN, TSVP)",
+ "cim10": "I47.1",
+ "ssp": {
+  "code": "S2.11",
+  "nom": "Palpitations",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Le patient consulte pour des palpitations",
+    "i": "Le point de départ impose de documenter le rythme par un ECG 12 dérivations, en crise si possible.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Instabilité hémodynamique ?",
+    "i": "Syncope, angor, hypotension, œdème pulmonaire ou confusion imposent une prise en charge immédiate.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : cardioversion synchronisée",
+    "i": "L'instabilité prime sur le diagnostic précis ; le choc ne retarde pas le traitement.",
+    "pec": "urgence_instable",
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : le rythme est-il régulier avec QRS fins ?",
+    "i": "La régularité et la largeur des QRS orientent le diagnostic différentiel.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "QRS larges : tachycardie ventriculaire présumée",
+    "i": "Le vérapamil est contre-indiqué ; la TV est présumée tant que le contraire n'est pas prouvé.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Rythme irrégulier : FA probable",
+    "i": "La TRIN est parfaitement régulière ; ce rythme renvoie vers le SSP F1.7.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n4",
+    "t": "Rythme régulier à QRS fins : crise à début et fin brutaux ?",
+    "i": "Le début et la fin brutaux distinguent la réentrée de la tachycardie sinusale.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Non : tachycardie sinusale réactionnelle",
+    "i": "Fièvre, anémie, anxiété ou hyperthyroïdie ; l'anxiété et la panique renvoient vers le SSP S9.1.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n9",
+    "parent": "n7",
+    "t": "Oui : onde delta intercritique ou RP > 70 ms ?",
+    "i": "Ces signes évoquent une voie accessoire, ce qui interdit adénosine, vérapamil et bêtabloquants si FA pré-excitée.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "Oui : WPW, avis rythmologique",
+    "i": "L'ablation de la voie accessoire est indiquée ; les médicaments bloquant le nœud AV sont à éviter en FA pré-excitée.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "Non : TRIN (RP < 70 ms, pseudo-r' en V1)",
+    "i": "Ce profil ECG est celui de la forme commune slow-fast.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Crise en cours, stable",
+    "i": "Le patient reçoit manœuvres vagales puis adénosine sous monitoring.",
+    "pec": "crise_stable",
+    "notion": "c6"
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "Crises récidivantes symptomatiques",
+    "i": "L'ablation de la voie lente est le traitement curatif.",
+    "pec": "long_cours",
+    "notion": "c7"
+   }
+  ]
+ },
+ "specialites": [
+  "CAR"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Tachycardie par réentrée intranodale (TRIN, maladie de Bouveret)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Circuit de réentrée et formes de TRIN",
+   "rubriques": [
+    "definition",
+    "basicSciences"
+   ],
+   "comment": "Raisonne en deux voies nodales (rapide à réfractaire long, lente à réfractaire court) : une extrasystole précoce bloque dans la rapide, descend par la lente et remonte par la rapide.",
+   "tableau": {
+    "colonnes": [
+     "Forme",
+     "Circuit",
+     "ECG de crise",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Commune « slow-fast » (≈ 90 %)",
+      "Descente par la voie lente, remontée par la voie rapide",
+      [
+       {
+        "t": "RP < 70 ms, P noyée dans le QRS ou pseudo-r' en V1",
+        "i": "L'oreillette et les ventricules s'activent presque simultanément, car la remontée par la voie rapide est très brève ; la P se confond donc avec le QRS."
+       }
+      ],
+      "Forme de loin la plus fréquente."
+     ],
+     [
+      "Atypique « fast-slow »",
+      "Descente par la voie rapide, remontée par la voie lente",
+      [
+       {
+        "t": "RP long, P rétrograde visible après le QRS",
+        "i": "La remontée lente retarde l'activation auriculaire ; le RP dépasse le PR, ce qui ressemble à une tachycardie atriale."
+       }
+      ],
+      "Moins fréquente ; ne pas la confondre avec une réentrée sur voie accessoire."
+     ],
+     [
+      "Atypique « slow-slow »",
+      "Descente et remontée par deux voies lentes",
+      [
+       {
+        "t": "RP intermédiaire à long",
+        "i": "Les deux branches conduisent lentement ; l'onde P rétrograde apparaît dans le ST ou après le QRS."
+       }
+      ],
+      "Rare ; l'étude électrophysiologique tranche."
+     ],
+     [
+      "Réentrée sur voie accessoire (WPW), comparaison",
+      "Circuit nœud AV + faisceau accessoire",
+      [
+       {
+        "t": "RP > 70 ms, P dans le segment ST",
+        "i": "Le circuit est plus grand : l'activation auriculaire est retardée par la conduction ventriculaire, d'où un RP plus long que dans la TRIN."
+       }
+      ],
+      "La TRIN n'exige aucune voie accessoire ; le WPW peut avoir une onde delta intercritique."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La TRIN est une tachycardie supraventriculaire par réentrée sur double voie nodale, appelée aussi maladie de Bouveret.",
+    "La voie lente siège dans la région postéro-septale du triangle de Koch, d'où le risque de bloc AV lors de son ablation.",
+    "L'adénosine agit sur les récepteurs A1, bloque le nœud AV moins de 10 secondes et interrompt le circuit.",
+    "La polyurie post-crise vient de la libération d'ANP par la distension auriculaire."
+   ],
+   "sources": [
+    "ESC 2019 Guidelines SVT",
+    "Société suisse de cardiologie"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie de la TRIN",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Pense « femme jeune, cœur sain, crises paroxystiques » : la TRIN domine les TSV régulières de l'adulte.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La TRIN représente environ 50 à 60 % des TSV et c'est la TSV paroxystique régulière la plus fréquente de l'adulte.",
+    "Elle touche environ deux fois plus de femmes que d'hommes (ratio proche de 2:1).",
+    "Les premières crises surviennent vers 20 à 40 ans, plus tard que celles d'une réentrée sur voie accessoire.",
+    "La TSV paroxystique a une prévalence d'environ 2,25 pour 1000 et une incidence d'environ 35 pour 100 000 personnes-années."
+   ],
+   "sources": [
+    "ESC 2019 Guidelines SVT"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen clinique",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Cherche l'interrupteur on/off, la régularité parfaite, les battements dans le cou et la polyurie finale, puis un examen intercritique normal.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Ce que le patient ou le médecin constate",
+     "Mécanisme"
+    ],
+    "lignes": [
+     [
+      "Début et fin brutaux",
+      "Crise régulière à 150–220/min, sans accélération progressive",
+      [
+       {
+        "t": "Interrupteur on/off",
+        "i": "Le circuit de réentrée s'amorce et s'interrompt d'un coup ; la tachycardie sinusale, elle, accélère et ralentit progressivement."
+       }
+      ],
+      "Réentrée dépendante du nœud AV"
+     ],
+     [
+      "Polyurie post-crise",
+      "Miction abondante à la fin de la crise",
+      [
+       {
+        "t": "Libération d'ANP",
+        "i": "La distension auriculaire pendant la tachycardie libère l'ANP ; ce signe oriente vers une TSV paroxystique plutôt qu'une anxiété."
+       }
+      ],
+      "Peptide natriurétique auriculaire"
+     ],
+     [
+      "Ondes a canon",
+      "Battements violents réguliers dans le cou (signe de la grenouille)",
+      [
+       {
+        "t": "Oreillette contre valve tricuspide fermée",
+        "i": "Dans la TRIN commune, l'oreillette et le ventricule se contractent presque ensemble ; ce signe est rare en tachycardie sinusale."
+       }
+      ],
+      "Évoque la TRIN"
+     ],
+     [
+      "Pouls pendant la crise",
+      "Régulier, très rapide, fixe à l'effort et à la respiration",
+      [
+       {
+        "t": "Absence de variabilité",
+        "i": "Le nœud AV est pris dans le circuit, sans modulation sinusale ; un rythme irrégulier évoque plutôt une FA."
+       }
+      ],
+      "Examen normal entre les crises"
+     ],
+     [
+      "Arrêt par manœuvre vagale",
+      "Toux, Valsalva ou boisson froide font cesser la crise",
+      [
+       {
+        "t": "Dépendance du nœud AV",
+        "i": "Le tonus vagal ralentit la conduction nodale et rompt le circuit ; un flutter ou une tachycardie atriale ne s'arrêtent pas."
+       }
+      ],
+      "Orientation diagnostique et thérapeutique"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Les crises surviennent au repos, à l'effort, en se penchant, ou après caféine, alcool ou stress, sur un cœur sain.",
+    "Une oppression thoracique, une dyspnée, des vertiges ou une présyncope peuvent accompagner la crise sans en signer la gravité.",
+    "Le médecin évalue d'emblée la stabilité : TA, conscience, douleur thoracique, insuffisance cardiaque aiguë.",
+    "Un goitre ou une exophtalmie font chercher une hyperthyroïdie."
+   ],
+   "sources": [
+    "ESC 2019 Guidelines SVT"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Signaux d'alarme et pièges",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Avant de parler de TRIN, vérifie la stabilité, la largeur des QRS, la régularité et l'absence de pré-excitation.",
+   "tableau": {
+    "colonnes": [
+     "Constat",
+     "Diagnostic à craindre",
+     "Conséquence thérapeutique"
+    ],
+    "lignes": [
+     [
+      [
+       {
+        "t": "Syncope, angor, hypotension, œdème pulmonaire, confusion",
+        "i": "Ces signes traduisent un débit insuffisant ; il ne faut pas perdre de temps avec les médicaments."
+       }
+      ],
+      "Tachycardie instable de toute cause",
+      "Cardioversion électrique synchronisée immédiate"
+     ],
+     [
+      [
+       {
+        "t": "QRS larges",
+        "i": "Une tachycardie à QRS larges est ventriculaire jusqu'à preuve du contraire ; le vérapamil peut provoquer un collapsus."
+       }
+      ],
+      "Tachycardie ventriculaire",
+      "Vérapamil et diltiazem contre-indiqués ; avis rythmologique"
+     ],
+     [
+      [
+       {
+        "t": "Onde delta ou FA rapide pré-excitée",
+        "i": "Ces médicaments bloquent le nœud AV et favorisent la conduction par la voie accessoire, avec risque de FV."
+       }
+      ],
+      "WPW",
+      "Adénosine, vérapamil, bêtabloquants et digoxine contre-indiqués"
+     ],
+     [
+      [
+       {
+        "t": "Rythme rapide irrégulier",
+        "i": "La TRIN est parfaitement régulière ; une irrégularité évoque la FA."
+       }
+      ],
+      "Fibrillation auriculaire",
+      "Autre algorithme (SSP F1.7)"
+     ],
+     [
+      [
+       {
+        "t": "Cardiopathie, dysfonction VG, mort subite familiale",
+        "i": "Ce terrain rend une arythmie ventriculaire plus probable qu'une TRIN bénigne."
+       }
+      ],
+      "Arythmie ventriculaire",
+      "Échocardiographie et avis rythmologique"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Un patient instable en tachycardie reçoit une cardioversion synchronisée sans attendre l'adénosine.",
+    "La largeur des QRS, la régularité et un ECG intercritique avec onde delta décident de la sécurité des médicaments."
+   ],
+   "sources": [
+    "ESC 2019 Guidelines SVT",
+    "AHA/ACC/HRS 2015 SVT"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "ECG de crise et diagnostic différentiel",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Enregistre un ECG 12 dérivations en crise, mesure le RP et garde l'enregistrement en continu pendant les manœuvres ou l'adénosine.",
+   "tableau": {
+    "colonnes": [
+     "Entité",
+     "ECG de crise",
+     "Réponse aux manœuvres ou à l'adénosine",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "TRIN commune",
+      "QRS fins à 150–220/min, P noyée ou pseudo-r' en V1",
+      [
+       {
+        "t": "Arrêt brusque de la crise",
+        "i": "Le nœud AV fait partie du circuit ; son blocage transitoire rompt la réentrée."
+       }
+      ],
+      [
+       {
+        "t": "RP < 70 ms",
+        "i": "La remontée rapide rend l'activation auriculaire presque simultanée à celle des ventricules."
+       }
+      ]
+     ],
+     [
+      "Réentrée orthodromique sur voie accessoire",
+      "QRS fins, P dans le segment ST",
+      [
+       {
+        "t": "Arrêt brusque",
+        "i": "Le nœud AV fait aussi partie du circuit ; l'adénosine l'interrompt."
+       }
+      ],
+      [
+       {
+        "t": "RP > 70 ms, onde delta en rythme sinusal",
+        "i": "Le circuit est plus long et la pré-excitation reste visible entre les crises."
+       }
+      ]
+     ],
+     [
+      "Flutter auriculaire 2:1",
+      "Environ 150/min, QRS fins",
+      [
+       {
+        "t": "Bloc AV transitoire démasquant des ondes F",
+        "i": "Le circuit est auriculaire ; le nœud AV ne fait que transmettre, donc la fréquence ventriculaire diminue sans arrêt du flutter."
+       }
+      ],
+      [
+       {
+        "t": "Dents de scie",
+        "i": "Elles montrent l'activité auriculaire à 300/min."
+       }
+      ]
+     ],
+     [
+      "Tachycardie sinusale",
+      "Onde P sinusale avant chaque QRS, rarement > 200/min",
+      [
+       {
+        "t": "Ralentissement progressif",
+        "i": "Elle suit la cause (fièvre, anémie, anxiété) et ne s'arrête pas brutalement."
+       }
+      ],
+      [
+       {
+        "t": "Début et fin progressifs",
+        "i": "Le nœud sinusal module la fréquence, contrairement à une réentrée."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'ECG de crise est l'examen de référence ; l'ECG intercritique normal sans onde delta ni PR court écarte une pré-excitation.",
+    "Un Holter, un patch, un enregistreur d'événements ou un ECG de smartphone documentent des crises rares.",
+    "Le bilan de base comprend TSH, hémogramme, kaliémie, magnésémie et échocardiographie.",
+    "L'étude électrophysiologique démontre la double voie (saut AH ≥ 50 ms) et induit la tachycardie, souvent juste avant l'ablation."
+   ],
+   "sources": [
+    "ESC 2019 Guidelines SVT"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Prise en charge de la crise aiguë",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Évalue la stabilité, puis escalade des manœuvres vagales à l'adénosine, puis aux inhibiteurs calciques ou bêtabloquants, avec cardioversion en recours.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Tachycardie régulière à QRS fins en crise",
+     "i": "Le diagnostic de départ suppose un ECG 12 dérivations et un monitoring.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Le patient est-il instable ?",
+     "i": "Syncope, angor, hypotension, œdème pulmonaire ou confusion signent l'instabilité.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : cardioversion électrique synchronisée",
+     "i": "Elle est de première intention en cas d'instabilité, avec sédation brève si le patient est conscient.",
+     "pec": "urgence_instable",
+     "notion": "c4"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non : Valsalva modifié",
+     "i": "Il convertit environ 43 % des crises contre 17 % pour le Valsalva standard (essai REVERT).",
+     "pec": "crise_stable",
+     "notion": "c6"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Échec : adénosine IV en bolus rapide",
+     "i": "Le bolus rapide proximal suivi d'un flush compense la demi-vie très brève du produit.",
+     "pec": "crise_stable",
+     "notion": "c1"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Échec ou contre-indication : vérapamil, diltiazem ou bêtabloquant IV",
+     "i": "Ces traitements sont réservés aux QRS fins stables sans dysfonction ventriculaire gauche.",
+     "pec": "crise_stable",
+     "notion": "c4"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Nouvel échec : cardioversion synchronisée",
+     "i": "Elle reste efficace quand les médicaments échouent.",
+     "pec": "urgence_instable",
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n4",
+     "t": "Retour en rythme sinusal : orienter vers le rythmologue",
+     "i": "Le patient symptomatique et récidivant relève d'une ablation, traitement curatif.",
+     "pec": "long_cours",
+     "notion": "c7"
+    }
+   ],
+   "points": [
+    "Le massage du sinus carotidien est à éviter en cas de souffle carotidien ou d'AVC récent.",
+    "L'adénosine est contre-indiquée en cas d'asthme sévère ou de bloc AV de haut degré, et la théophylline l'antagonise.",
+    "Chez la femme enceinte, les manœuvres vagales puis l'adénosine sont de première intention."
+   ],
+   "sources": [
+    "ESC 2019 Guidelines SVT",
+    "REVERT, Lancet 2015"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Traitement de fond",
+   "rubriques": [
+    "chronicManagement"
+   ],
+   "comment": "Propose l'ablation de la voie lente à tout patient symptomatique récidivant, et réserve le traitement médicamenteux au refus ou aux crises rares.",
+   "tableau": {
+    "colonnes": [
+     "Option",
+     "Indication",
+     "Efficacité ou risque",
+     "Pourquoi ce choix"
+    ],
+    "lignes": [
+     [
+      "Ablation par radiofréquence de la voie lente",
+      "TRIN symptomatique récidivante, première intention",
+      [
+       {
+        "t": "Succès > 95 %, bloc AV avec pacemaker < 1 %",
+        "i": "Elle supprime le substrat ; la voie lente est proche du nœud compact, d'où le risque de bloc AV."
+       }
+      ],
+      "Seule option curative."
+     ],
+     [
+      "Cryoablation",
+      "Patient jeune ou risque de bloc AV à minimiser",
+      [
+       {
+        "t": "Moins de bloc AV, plus de récidives",
+        "i": "Le froid est réversible et préserve mieux la conduction, mais la lésion est moins durable."
+       }
+      ],
+      "Alternative à la radiofréquence."
+     ],
+     [
+      "Vérapamil, diltiazem ou bêtabloquant oral",
+      "Refus d'ablation, crises fréquentes",
+      [
+       {
+        "t": "Prévention partielle des récidives",
+        "i": "Ils ralentissent la conduction nodale sans supprimer le circuit."
+       }
+      ],
+      "Contre-indiqués avec onde delta ; vérapamil et diltiazem exclus en cas de dysfonction VG."
+     ],
+     [
+      "Flécaïnide ou propafénone",
+      "Échec des autres options, cœur structurellement sain",
+      [
+       {
+        "t": "Contre-indiqués en cardiopathie structurelle ou ischémique",
+        "i": "Ils exposent à un risque pro-arythmique en cas de cicatrice ou d'ischémie."
+       }
+      ],
+      "Rarement utilisés, en deuxième ligne."
+     ],
+     [
+      "Abstention ou « pill-in-the-pocket »",
+      "Crises rares, brèves et bien tolérées",
+      [
+       {
+        "t": "Manœuvres vagales apprises, prise ponctuelle possible",
+        "i": "Le risque vital est nul sur cœur sain ; le traitement chronique serait disproportionné."
+       }
+      ],
+      "Choix partagé avec le patient."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'ablation est reportée chez la femme enceinte sauf nécessité, et se fait si possible sans fluoroscopie.",
+    "L'indication d'ablation dépend des symptômes, de la fréquence des crises et du choix du patient."
+   ],
+   "sources": [
+    "ESC 2019 Guidelines SVT",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications, pronostic, suivi et réseau",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "Annonce un pronostic excellent, surveille le résultat de l'ablation à 3 mois et organise le suivi entre médecin traitant et rythmologue.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La syncope est rare dans la TRIN et survient surtout aux fréquences très élevées ou chez le patient âgé.",
+    "Une tachycardiomyopathie ne survient que si la tachycardie est incessante.",
+    "Les autres complications de l'ablation sont rares : hématome inguinal, tamponnade, thrombo-embolie.",
+    "Un contrôle avec ECG est prévu environ 3 mois après l'ablation ; la récidive est d'environ 1 à 5 %.",
+    "Le rythmologue indique et réalise l'ablation en centre d'électrophysiologie, la LAMal prend en charge la procédure, et le médecin traitant assure le suivi."
+   ],
+   "sources": [
+    "ESC 2019 Guidelines SVT",
+    "LAMal"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence_instable",
+   "titre": "Tachycardie supraventriculaire instable",
+   "but": [
+    "Rétablir sans délai un rythme sinusal et un débit cardiaque efficace.",
+    "Éviter l'arrêt cardiaque en cas d'hypoperfusion."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installer le patient en salle de déchocage avec monitoring ECG, SpO2 et TA.",
+     "Poser une voie veineuse et préparer le défibrillateur."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Adénosine (antiarythmique, bloqueur du nœud AV)",
+      "posologie": "IV en bolus rapide sur voie proximale, suivi d'un flush ; 6 mg, puis 12 mg, jusqu'à 18 mg selon ESC 2019 ; paliers à vérifier dans l'AIPS. Ne retarde pas la cardioversion chez le patient instable.",
+      "pourquoi": "Elle reste une option si une voie veineuse est déjà posée et si la cardioversion est imminente, sans retarder le choc.",
+      "source": "[ESC, 2019] ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réaliser une cardioversion électrique synchronisée sous sédation brève.",
+      "pourquoi": "Le choc synchronisé interrompt le circuit de réentrée de façon fiable et rapide."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'indication urgente et informe le patient après la procédure."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Monitorer le rythme en continu.",
+      "Administrer de l'oxygène si la saturation est basse.",
+      "Préparer le matériel de réanimation."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Constate l'instabilité et ordonne la cardioversion synchronisée sans attendre les médicaments."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose une voie veineuse, branche le monitoring et prépare la sédation."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Délivre le choc synchronisé avec énergie croissante en cas d'échec."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Enregistre un ECG 12 dérivations post-conversion et appelle le cardiologue."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le pronostic est bon après conversion rapide chez le patient au cœur sain ; la récidive est évitée par l'ablation.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Rythme, TA et SpO2",
+      "quand": "En continu pendant plusieurs heures",
+      "cible": "Rythme sinusal stable et hémodynamique normale"
+     },
+     {
+      "quoi": "ECG 12 dérivations",
+      "quand": "Après la conversion",
+      "cible": "Absence d'onde delta, de trouble de conduction ou d'ischémie"
+     }
+    ],
+    "sortie": "Le patient sort après stabilité hémodynamique prolongée, rythme sinusal, cause cardiaque exclue et rendez-vous rythmologique fixé."
+   },
+   "prevention": {
+    "primaire": "Éviter les déclencheurs connus comme la caféine, l'alcool et les stimulants.",
+    "secondaire": "Proposer l'ablation de la voie lente après un premier épisode symptomatique sévère.",
+    "tertiaire": "Apprendre au patient le Valsalva modifié et les signes d'alarme."
+   }
+  },
+  {
+   "cle": "crise_stable",
+   "titre": "Crise de TRIN hémodynamiquement stable",
+   "but": [
+    "Interrompre la crise avec la méthode la moins invasive.",
+    "Confirmer le diagnostic par un ECG pendant la conversion."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installer le patient en position semi-couchée avec monitoring ECG continu.",
+     "Poser une voie veineuse et enregistrer un ECG 12 dérivations avant tout traitement."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Adénosine (antiarythmique, bloqueur du nœud AV)",
+      "posologie": "IV en bolus rapide sur voie proximale, suivi d'un flush ; 6 mg, puis 12 mg, jusqu'à 18 mg selon ESC 2019 ; paliers à vérifier dans l'AIPS ; demi-vie < 10 s.",
+      "pourquoi": "Elle est le médicament de première ligne après échec des manœuvres vagales et sert aussi de test diagnostique.",
+      "source": "[ESC, 2019] ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Vérapamil (inhibiteur calcique)",
+      "posologie": "IV lent 5 à 10 mg sur 2 minutes, avec monitoring ; contre-indiqué si QRS larges, dysfonction VG ou pré-excitation.",
+      "pourquoi": "Il ralentit la conduction du nœud AV et interrompt la réentrée si l'adénosine échoue ou est contre-indiquée.",
+      "source": "[ESC, 2019] ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Métoprolol (bêtabloquant)",
+      "posologie": "IV 2,5 à 15 mg par paliers lents sous monitoring, après exclusion d'une pré-excitation.",
+      "pourquoi": "Alternative aux inhibiteurs calciques lorsque la tension et la fonction ventriculaire le permettent.",
+      "source": "[ESC, 2019] ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Pratiquer le Valsalva modifié : semi-couché, expiration forcée 15 s à 40 mmHg, puis couché jambes surélevées.",
+      "pourquoi": "Il convertit environ 43 % des crises contre 17 % pour le Valsalva standard."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Enseigner la manœuvre au patient pour les prochaines crises.",
+      "pourquoi": "Elle évite des passages aux urgences."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Prend en charge les consultations et les examens indiqués dans le cadre de la LAMal."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Monitorer l'ECG en continu.",
+      "Vérifier l'absence d'asthme sévère ou de bloc AV avant l'adénosine.",
+      "Prévenir le patient du flush et de la brève asystolie."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Vérifie la stabilité, la largeur des QRS et enregistre l'ECG 12 dérivations."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Réalise le Valsalva modifié sous monitoring."
+      },
+      {
+       "temps": "puis",
+       "qui": "infirmier·ère",
+       "fait": "Prépare et injecte l'adénosine en bolus rapide avec flush, sur ordre médical."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Garde l'enregistrement ECG continu pendant le bolus pour démasquer un flutter."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Passe au vérapamil, au bêtabloquant ou à la cardioversion en cas d'échec."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La crise cède à l'adénosine dans la grande majorité des cas ; le pronostic vital est excellent sur cœur sain.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Rythme et TA",
+      "quand": "Pendant et après le traitement",
+      "cible": "Rythme sinusal, TA stable"
+     },
+     {
+      "quoi": "ECG de contrôle",
+      "quand": "Après la conversion",
+      "cible": "Absence d'onde delta ou de PR court"
+     }
+    ],
+    "sortie": "Le patient rentre à domicile après retour en rythme sinusal stable, diagnostic documenté, bilan de base réalisé et rendez-vous rythmologique organisé."
+   },
+   "prevention": {
+    "primaire": "Éviter la caféine, l'alcool et le stress aigu.",
+    "secondaire": "Proposer l'ablation en cas de crises récidivantes.",
+    "tertiaire": "Consulter le médecin traitant en cas de nouvelle crise et conserver l'ECG de crise."
+   }
+  },
+  {
+   "cle": "long_cours",
+   "titre": "TRIN récidivante : traitement de fond",
+   "but": [
+    "Guérir définitivement la tachycardie par l'ablation de la voie lente.",
+    "Limiter les récidives et préserver la qualité de vie si le patient refuse l'ablation."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer au patient le caractère bénin de la maladie et les options thérapeutiques.",
+     "Recueillir les préférences du patient pour une décision partagée."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Vérapamil ou diltiazem (inhibiteurs calciques)",
+      "posologie": "Par voie orale selon l'AIPS ; ajuster la dose selon la fréquence cardiaque et la tolérance ; contre-indiqués en dysfonction VG ou pré-excitation.",
+      "pourquoi": "Ils préviennent les récidives en ralentissant la conduction nodale lorsque le patient refuse l'ablation.",
+      "source": "[ESC, 2019] ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Métoprolol (bêtabloquant)",
+      "posologie": "Par voie orale 50 à 200 mg par jour en 1 à 2 prises ; adapter selon fréquence cardiaque et tension.",
+      "pourquoi": "Il offre une alternative aux inhibiteurs calciques en prévention des récidives.",
+      "source": "[ESC, 2019] ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Flécaïnide (antiarythmique de classe IC)",
+      "posologie": "Par voie orale 50 à 100 mg deux fois par jour, sous contrôle rythmologique, jamais en cardiopathie structurelle ou ischémique.",
+      "pourquoi": "Il est réservé aux échecs sur cœur sain à cause du risque pro-arythmique.",
+      "source": "[ESC, 2019] ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réaliser l'étude électrophysiologique puis l'ablation par radiofréquence de la voie lente.",
+      "pourquoi": "Elle guérit plus de 95 % des cas avec un risque de bloc AV inférieur à 1 %."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Enseigner le Valsalva modifié et l'évitement des déclencheurs.",
+      "pourquoi": "Le patient interrompt lui-même les crises rares et bien tolérées."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Réduire la caféine, l'alcool et les stimulants.",
+      "pourquoi": "Ces déclencheurs favorisent les extrasystoles amorçant la réentrée."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "La LAMal prend en charge l'ablation indiquée ; le médecin traitant atteste l'incapacité de travail si nécessaire."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Impose l'information et le consentement éclairé avant l'ablation, y compris sur le risque de pacemaker."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Documenter la crise par ECG avant toute décision.",
+      "Évaluer l'impact des crises sur la qualité de vie.",
+      "Adapter l'option à la grossesse, au désir du patient et à la fréquence des crises."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Confirme le diagnostic par ECG de crise et prescrit TSH, hémogramme, ionogramme et échocardiographie."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Le rythmologue propose l'ablation de la voie lente et obtient le consentement."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Réalise l'étude électrophysiologique, démontre la double voie et ablate la voie lente."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "patient·e",
+       "fait": "Apprend le Valsalva modifié et évite les déclencheurs en attendant l'intervention."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Contrôle ECG et symptômes à 3 mois, puis réadresse au rythmologue en cas de récidive."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'ablation guérit définitivement plus de 95 % des patients avec 1 à 5 % de récidive ; le pronostic vital est excellent sur cœur sain.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "ECG et symptômes",
+      "quand": "Environ 3 mois après l'ablation",
+      "cible": "Rythme sinusal, absence de récidive et de trouble de conduction"
+     },
+     {
+      "quoi": "Palpitations récidivantes",
+      "quand": "À tout moment",
+      "cible": "Consultation avec ECG ou enregistrement documentant la crise"
+     },
+     {
+      "quoi": "Tolérance du traitement médicamenteux",
+      "quand": "Selon la prescription",
+      "cible": "Fréquence cardiaque et TA acceptables, pas de bradycardie ni de bloc"
+     }
+    ],
+    "sortie": "Le patient sort le jour de l'ablation ou le lendemain, avec ECG sans bloc AV, site de ponction sans hématome et contrôle à 3 mois convenu."
+   },
+   "prevention": {
+    "primaire": "Réduire la caféine, l'alcool et les stimulants chez les patients à crises déclenchées.",
+    "secondaire": "Réaliser l'ablation pour supprimer le substrat et éviter les récidives.",
+    "tertiaire": "Maintenir le suivi avec le médecin traitant et réadresser au rythmologue en cas de récidive."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7014,
+  "output_tokens": 15726,
+  "output_tokens_details": {
+   "thinking_tokens": 2939
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:34:54",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

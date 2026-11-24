@@ -14,6 +14,9 @@ Usage :
   python scripts/produire_fiches_claude.py soumettre --spec CAR
   python scripts/produire_fiches_claude.py soumettre --max 500
   python scripts/produire_fiches_claude.py statut | recuperer | bilan
+Mode « pec » (T3) : ajoute seulement le bloc priseEnCharge aux fiches qui ne l'ont pas, sans toucher au reste.
+  python scripts/produire_fiches_claude.py pec_pilote --n 2 | pec_soumettre [--spec CAR] [--max N] [--inclure-rejets] | pec_recuperer | pec_bilan
+  (les fiches rejetées avec erreurs de forme sont reprises en entier par T4 : exclues sauf --inclure-rejets)
 Options : --modele (défaut claude-sonnet-5-5), --sec (simulation sans appel API).
 """
 import argparse, csv, datetime as dt, glob, json, os, re, sys, time
@@ -205,7 +208,7 @@ def statut(a):
 def recuperer(a):
     cl = client(); suivi = json.load(open(SUIVI)) if os.path.exists(SUIVI) else []; idx = {c["id"]: c for c in cibles()}
     for s in suivi:
-        if s["recupere"] or cl.messages.batches.retrieve(s["batch"]).processing_status != "ended":
+        if s.get("mode") == "pec" or s["recupere"] or cl.messages.batches.retrieve(s["batch"]).processing_status != "ended":
             continue
         ok = ko = 0
         for r in cl.messages.batches.results(s["batch"]):
@@ -218,6 +221,154 @@ def recuperer(a):
     json.dump(suivi, open(SUIVI, "w"), indent=1)
 
 
+# ---------- Mode « pec » : bloc priseEnCharge seul, inséré dans la fiche existante ----------
+SCHEMA_PEC = json.load(open(os.path.join(RACINE, "conception", "donnees", "schemas", "prise_en_charge.json"), encoding="utf-8"))
+OUTIL_PEC = {"name": "emettre_pec", "description": "Émet le bloc priseEnCharge de la fiche.",
+             "input_schema": {k: v for k, v in SCHEMA_PEC.items() if k not in ("title", "$schema", "_regles")}}
+SYSTEME_PEC = SYSTEME.split("RÈGLES BLOQUANTES")[0].split("Tu rédiges")[0] + (
+    "Tu rédiges UNIQUEMENT le bloc « priseEnCharge » d'une fiche existante, qui sert de contexte (ne la réécris pas).\n\n"
+    "RÈGLES BLOQUANTES\n"
+    "1. Français ; chaque phrase contient un verbe conjugué ; aucune phrase nominale.\n"
+    "2. Exactitude absolue ; posologies selon la cascade suisse : AIPS Swissmedic, Compendium.ch, sociétés suisses, sociétés européennes. Un chiffre incertain n'est pas écrit : écris « dose non fixée ici : à vérifier dans l'AIPS » sans inventer.\n"
+    "3. " + SYSTEME.split("6 bis. ")[1].split("\n7.")[0] + "\n"
+    "4. Cohérence : la prise en charge reste compatible avec premiersGestes, examens et traitement de la fiche fournie ; chaque médicament porte une posologie chiffrée (dose, voie, rythme, durée ou cible), jamais « selon protocole ».\n"
+    "5. Concision : chaque phrase de 20 mots au plus ; respecte les bornes du schéma ; conduite.urgence vaut null si la situation n'est jamais une urgence.\n"
+    "6. FORME (bloquant) : les six clés but, moyens, conduite, pronostic, surveillance, prevention sont TOUTES présentes au niveau supérieur ; chacune est un objet ou un tableau JSON natif, jamais une chaîne de texte contenant du JSON ; « moyens » contient exactement accueil, pharmacologique, nonPharmacologique, transversal ; aucune autre clé (pas de « sortie », « horsUrgence » ni « etapes » au niveau supérieur : la sortie va dans surveillance, les étapes dans conduite).\n"
+    "Tu réponds UNIQUEMENT en appelant l'outil emettre_pec.")
+
+
+def pec_fichiers(inclure_rejets=False):
+    out = []
+    for f in sorted(glob.glob(os.path.join(SORTIE, "*", "*.json"))):
+        if os.sep + "_archives" + os.sep in f:
+            continue
+        d = json.load(open(f, encoding="utf-8"))
+        if "priseEnCharge" in d:
+            continue
+        if not inclure_rejets and (d.get("audit") or {}).get("rejector") == "rejet" and (d.get("controles") or {}).get("erreurs"):
+            continue
+        out.append((os.path.splitext(os.path.basename(f))[0], f, d))
+    return out
+
+
+def pec_params(d, modele):
+    ctx = {k: d.get(k) for k in ("entite", "cim10", "enUneLigne", "frequence", "urgenceVitale", "premiersGestes", "drapeauxRouges", "examens", "traitement", "chiffresCles", "sources") if d.get(k) is not None}
+    opt = json.load(open(OPTIONS)) if os.path.exists(OPTIONS) else {}
+    extra = {"thinking": {"type": "disabled"}} if opt.get("thinking_desactivable", True) else {}
+    return {"model": modele, "max_tokens": 10000, **extra,
+            "system": [{"type": "text", "text": SYSTEME_PEC, "cache_control": {"type": "ephemeral"}}],
+            "tools": [OUTIL_PEC], "tool_choice": {"type": "auto"},
+            "messages": [{"role": "user", "content": "Fiche existante (contexte) :\n" + json.dumps(ctx, ensure_ascii=False)[:9000]}]}
+
+
+def pec_reparer(pec):
+    """Forme seulement (0 token) : « moyens » rendu en texte JSON (parfois sans ses clés finales, égarées au niveau supérieur)."""
+    for k, v in list(pec.items()):   # n'importe quel champ rendu en texte JSON
+        if isinstance(v, str) and v.lstrip().startswith(("{", "[")):
+            for fin in ("", "}", "]}", "]"):
+                try:
+                    pec[k] = json.loads(v + fin); break
+                except ValueError:
+                    continue
+    for k in ("accueil", "pharmacologique", "nonPharmacologique", "transversal"):   # champs égarés ou rendus en texte
+        if isinstance(pec.get(k), str) and pec[k].lstrip().startswith(("{", "[")):
+            try:
+                pec[k] = json.loads(pec[k])
+            except ValueError:
+                pass
+    m = pec.get("moyens")
+    if isinstance(m, str):
+        for fin in ("", "}", "]}", "]}}"):
+            try:
+                m = json.loads(m + fin); break
+            except ValueError:
+                continue
+        pec["moyens"] = m if isinstance(m, dict) else {}
+    if isinstance(pec.get("moyens"), dict):
+        for k in ("accueil", "pharmacologique", "nonPharmacologique", "transversal"):
+            if k in pec and k not in pec["moyens"]:
+                pec["moyens"][k] = pec.pop(k)
+    return pec
+
+
+def pec_inserer(chem, pec, modele):
+    """Insère priseEnCharge sans toucher au reste ; audit.rejector remis à null pour que Claude réaudite."""
+    import jsonschema
+    pec_reparer(pec)
+    jsonschema.validate(pec, {k: v for k, v in SCHEMA_PEC.items() if k != "$schema"})
+    d = json.load(open(chem, encoding="utf-8"))
+    d["priseEnCharge"] = pec
+    d.setdefault("audit", {})["rejector"] = None
+    d.setdefault("signature", {})["pec"] = {"date": DEBUT, "model": modele, "platform": "API Claude (mode pec)"}
+    json.dump(d, open(chem, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+
+def pec_pilote(a):
+    cs = [x for x in pec_fichiers(a.inclure_rejets) if not a.spec or a.spec.upper() in (x[2].get("specialtyIds") or []) or os.path.basename(os.path.dirname(x[1])) == a.spec.upper()][: a.n]
+    if a.sec:
+        print(len(cs), "fiche(s)"); return
+    cl = client()
+    for ident, chem, d in cs:
+        t = time.time()
+        try:
+            m = cl.messages.create(**pec_params(d, a.modele))
+        except Exception as ex:
+            if "thinking" not in str(ex):
+                raise
+            json.dump({"thinking_desactivable": False}, open(OPTIONS, "w")); m = cl.messages.create(**pec_params(d, a.modele))
+        b = next((x for x in m.content if x.type == "tool_use"), None)
+        if b is None:
+            print(f"{ident} : outil non appelé"); continue
+        try:
+            pec_inserer(chem, b.input, a.modele); etat = "inséré"
+        except Exception as ex:
+            etat = "REJETÉ (" + str(getattr(ex, "message", ex))[:120] + ")"
+        print(f"{ident} : {etat}, {m.usage.output_tokens} tokens de sortie, {time.time()-t:.0f} s")
+
+
+def pec_soumettre(a):
+    cs = [x for x in pec_fichiers(a.inclure_rejets) if not a.spec or os.path.basename(os.path.dirname(x[1])) == a.spec.upper()]
+    cs = cs[: a.max] if a.max else cs
+    suivi = json.load(open(SUIVI)) if os.path.exists(SUIVI) else []
+    deja = {i for s in suivi if s.get("mode") == "pec" and not s["recupere"] for i in s.get("ids", [])}
+    cs = [x for x in cs if x[0] not in deja]
+    print(f"{len(cs)} fiche(s) sans priseEnCharge à soumettre.")
+    if a.sec or not cs:
+        return
+    cl = client()
+    for i in range(0, len(cs), 5000):
+        tr = cs[i:i + 5000]
+        b = cl.messages.batches.create(requests=[{"custom_id": x[0], "params": pec_params(x[2], a.modele)} for x in tr])
+        suivi.append({"batch": b.id, "modele": a.modele, "n": len(tr), "recupere": False, "mode": "pec", "ids": [x[0] for x in tr]})
+        print(f"Batch pec {b.id} : {len(tr)} fiches.")
+    json.dump(suivi, open(SUIVI, "w"), indent=1)
+
+
+def pec_recuperer(a):
+    cl = client(); suivi = json.load(open(SUIVI)) if os.path.exists(SUIVI) else []
+    chem = {os.path.splitext(os.path.basename(f))[0]: f for f in glob.glob(os.path.join(SORTIE, "*", "*.json"))}
+    for s in suivi:
+        if s.get("mode") != "pec" or s["recupere"] or cl.messages.batches.retrieve(s["batch"]).processing_status != "ended":
+            continue
+        ok = ko = 0
+        for r in cl.messages.batches.results(s["batch"]):
+            b = next((x for x in r.result.message.content if x.type == "tool_use"), None) if r.result.type == "succeeded" else None
+            if b is None or r.custom_id not in chem:
+                ko += 1; continue
+            try:
+                pec_inserer(chem[r.custom_id], b.input, s["modele"]); ok += 1
+            except Exception:
+                ko += 1
+        s["recupere"] = True; print(f"{s['batch']} : {ok} priseEnCharge insérées, {ko} échecs (relancer pec_soumettre les reprend).")
+    json.dump(suivi, open(SUIVI, "w"), indent=1)
+
+
+def pec_bilan(a):
+    tout = [json.load(open(f, encoding="utf-8")) for f in glob.glob(os.path.join(SORTIE, "*", "*.json")) if os.sep + "_archives" + os.sep not in f]
+    n = sum("priseEnCharge" in d for d in tout)
+    print(f"priseEnCharge : {n}/{len(tout)} fiches ; manquantes : {len(tout)-n} (dont {len(pec_fichiers(True))-len(pec_fichiers(False))} rejetées avec erreurs, reprises par T4).")
+
+
 def bilan(a):
     cs = cibles(); faites = [c for c in cs if os.path.exists(chemin(c))]
     print(f"Fiches : {len(faites)}/{len(cs)} ({100*len(faites)/len(cs):.1f} %)")
@@ -228,7 +379,8 @@ def bilan(a):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(); sp = ap.add_subparsers(dest="cmd", required=True)
-    for nom in ("pilote", "soumettre", "statut", "recuperer", "bilan"):
+    for nom in ("pilote", "soumettre", "statut", "recuperer", "bilan", "pec_pilote", "pec_soumettre", "pec_recuperer", "pec_bilan"):
         p = sp.add_parser(nom); p.add_argument("--spec"); p.add_argument("--id"); p.add_argument("--ssp"); p.add_argument("--max", type=int)
         p.add_argument("--n", type=int, default=2); p.add_argument("--modele", default=MODELE_DEFAUT); p.add_argument("--sec", action="store_true")
+        p.add_argument("--inclure-rejets", dest="inclure_rejets", action="store_true")
     a = ap.parse_args(); globals()[a.cmd](a)

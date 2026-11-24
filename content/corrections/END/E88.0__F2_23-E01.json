@@ -1,0 +1,988 @@
+{
+ "id": "E88.0__F2_23-E01",
+ "portes": [
+  {
+   "ssp": "F2.23",
+   "nomSSP": "Protéinémie, albuminémie",
+   "entite": "Hypoalbuminémie sur syndrome inflammatoire aigu ou chronique",
+   "entiteId": "F2.23-E01"
+  }
+ ],
+ "entite": "Hypoalbuminémie sur syndrome inflammatoire aigu ou chronique",
+ "cim10": "E88.0",
+ "ssp": {
+  "code": "F2.23",
+  "nom": "Protéinémie, albuminémie",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Albumine < 35 g/L (ou protéinémie anormale)",
+    "i": "Seuil usuel de l'hypoalbuminémie ; point de départ du SSP.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Doser CRP, BU, bilan hépatique, INR, électrophorèse",
+    "i": "Ce premier bilan oriente entre inflammation, perte rénale ou digestive, défaut de synthèse et pic monoclonal.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "CRP élevée, BU négative, hépatique normal",
+    "i": "Profil de l'hypoalbuminémie inflammatoire, diagnostic positif et d'exclusion.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n3",
+    "t": "Dénutrition associée selon GLIM ?",
+    "i": "Inflammation et dénutrition coexistent souvent ; l'albumine ne les départage pas, GLIM tranche.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Non : inflammation seule",
+    "i": "Traiter la cause suffit ; l'albumine remonte spontanément.",
+    "pec": "inflammation_aigue",
+    "notion": "c6"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Oui : dénutrition mixte",
+    "i": "Soutien nutritionnel et diététicien en plus du traitement de la maladie de fond.",
+    "pec": "inflammation_chronique_denutrition",
+    "notion": "c6"
+   },
+   {
+    "id": "n7",
+    "parent": "n5",
+    "t": "Contrôle CRP et albumine à distance",
+    "i": "La CRP baisse en quelques jours, l'albumine remonte en semaines (demi-vie ≈ 20 jours).",
+    "pec": null,
+    "notion": "c8"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Albumine non normalisée après plusieurs semaines",
+    "i": "Une inflammation résolue sans normalisation impose de chercher une perte protéique ou un défaut de synthèse : reprendre à n2.",
+    "pec": null,
+    "notion": "c8"
+   },
+   {
+    "id": "n9",
+    "parent": "n2",
+    "t": "CRP normale",
+    "i": "L'inflammation est exclue ; cherche perte, défaut de synthèse ou hémodilution.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n10",
+    "parent": "n2",
+    "t": "Protéinurie à la BU avec œdèmes",
+    "i": "Syndrome néphrotique si protéinurie > 3,5 g/24 h : renvoi vers le SSP protéinurie/œdèmes.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n11",
+    "parent": "n2",
+    "t": "Ictère, ascite, INR allongé, thrombopénie",
+    "i": "Cirrhose avec défaut de synthèse : renvoi vers le SSP hépatopathie/ictère.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n12",
+    "parent": "n2",
+    "t": "Diarrhée chronique, lymphopénie, hypogammaglobulinémie",
+    "i": "Entéropathie exsudative : confirmer par alpha-1-antitrypsine fécale ; autre entité du même SSP.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n13",
+    "parent": "n2",
+    "t": "Pic à l'électrophorèse, globulines élevées",
+    "i": "Gammapathie monoclonale, myélome ou amylose AL : autres entités du même SSP.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n14",
+    "parent": "n2",
+    "t": "Albumine < 15 g/L avec détresse respiratoire ou choc",
+    "i": "Situation d'urgence sortant du cadre : anasarque ou fuite capillaire massive, autre entité du SSP, prise en charge aux soins intensifs.",
+    "pec": null,
+    "notion": "c2"
+   }
+  ]
+ },
+ "specialites": [
+  "END"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Hypoalbuminémie sur syndrome inflammatoire aigu ou chronique (SSP F2.23 Protéinémie, albuminémie)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition : l'albumine, protéine de phase aiguë négative",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Devant une albumine basse à l'hôpital, pense d'abord à l'inflammation, car l'albumine baisse quand la CRP monte, sans que le patient soit forcément dénutri.",
+   "tableau": {
+    "colonnes": [
+     "Classe",
+     "Protéine",
+     "Sens dans l'inflammation",
+     "Demi-vie / intérêt"
+    ],
+    "lignes": [
+     [
+      "Phase aiguë négative",
+      "Albumine",
+      [
+       {
+        "t": "Baisse",
+        "i": "L'IL-6 et le TNF-alpha répriment sa transcription hépatique, et la fuite capillaire la redistribue vers l'interstitium."
+       }
+      ],
+      [
+       {
+        "t": "≈ 20 jours",
+        "i": "Demi-vie longue : elle remonte lentement, bien après la CRP, ce qui explique le décalage au suivi."
+       }
+      ]
+     ],
+     [
+      "Phase aiguë négative",
+      "Préalbumine (transthyrétine)",
+      [
+       {
+        "t": "Baisse",
+        "i": "Elle suit le même mécanisme que l'albumine, donc elle ne sépare pas inflammation et dénutrition."
+       }
+      ],
+      [
+       {
+        "t": "≈ 2 jours",
+        "i": "Réagit vite mais reste non spécifique : elle n'est pas un marqueur nutritionnel fiable en cas d'inflammation."
+       }
+      ]
+     ],
+     [
+      "Phase aiguë positive",
+      "CRP",
+      [
+       {
+        "t": "Hausse",
+        "i": "L'hépatocyte est réorienté vers sa synthèse sous l'effet de l'IL-6 : elle prouve l'inflammation."
+       }
+      ],
+      [
+       {
+        "t": "≈ 19 heures",
+        "i": "Elle baisse en quelques jours quand la cause est traitée, bien avant que l'albumine ne remonte."
+       }
+      ]
+     ],
+     [
+      "Phase aiguë positive",
+      "Fibrinogène, ferritine",
+      [
+       {
+        "t": "Hausse",
+        "i": "Ils sont synthétisés au détriment de l'albumine ; la ferritine élevée ne reflète donc pas toujours les réserves de fer."
+       }
+      ],
+      "Marqueurs associés"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Albumine normale : 35 à 50 g/L ; hypoalbuminémie si < 35 g/L (valeurs selon le laboratoire).",
+    "Touche environ 30 à 50 % des patients hospitalisés ; la fréquence augmente avec la gravité et l'âge.",
+    "Selon GLIM, l'inflammation est un critère étiologique de dénutrition, mais l'albuminémie n'est pas un critère diagnostique.",
+    "Causes inflammatoires : infection, sepsis, chirurgie, traumatisme, brûlure, cancer, polyarthrite, MICI."
+   ],
+   "sources": [
+    "GLIM 2019",
+    "ESPEN 2019",
+    "Cours END – Protéinémie/albuminémie"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Physiopathologie de la baisse de l'albumine",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Explique la baisse par trois mécanismes combinés : moindre synthèse, fuite vers l'interstitium et dilution, sans qu'un apport insuffisant soit nécessaire.",
+   "tableau": {
+    "colonnes": [
+     "Mécanisme",
+     "Médiateur",
+     "Effet sur l'albumine",
+     "Conséquence clinique"
+    ],
+    "lignes": [
+     [
+      "Synthèse hépatique réduite",
+      [
+       {
+        "t": "IL-6, TNF-alpha, IL-1",
+        "i": "Ces cytokines répriment la transcription du gène de l'albumine et orientent l'hépatocyte vers CRP et fibrinogène."
+       }
+      ],
+      "Baisse de production (10–15 g/j normalement)",
+      [
+       {
+        "t": "Réversible",
+        "i": "La synthèse reprend dès que l'inflammation cesse, car l'hépatocyte n'est pas lésé."
+       }
+      ]
+     ],
+     [
+      "Fuite transcapillaire",
+      [
+       {
+        "t": "Perméabilité capillaire accrue",
+        "i": "Le pool extravasculaire (≈ 60 %) s'enrichit au détriment du pool intravasculaire (≈ 40 %) : la concentration sérique baisse par redistribution."
+       }
+      ],
+      "Redistribution vers l'interstitium",
+      [
+       {
+        "t": "Œdèmes, épanchements",
+        "i": "Ils apparaissent surtout vers 20–25 g/L, car la baisse d'oncotique s'ajoute à la fuite."
+       }
+      ]
+     ],
+     [
+      "Dilution",
+      [
+       {
+        "t": "Perfusions, rétention hydrosodée",
+        "i": "L'expansion du volume plasmatique abaisse la concentration sans changer la masse totale d'albumine."
+       }
+      ],
+      "Baisse apparente",
+      "Surcharge liquidienne aggravée par les perfusions"
+     ],
+     [
+      "Catabolisme accru",
+      [
+       {
+        "t": "Hypercatabolisme protéique",
+        "i": "Le stress métabolique augmente la dégradation protéique, ce qui contribue modestement à la baisse."
+       }
+      ],
+      "Baisse de masse protéique",
+      "Dénutrition mixte possible"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Seul l'hépatocyte synthétise l'albumine ; demi-vie ≈ 20 jours.",
+    "L'albumine assure 75 à 80 % de la pression oncotique.",
+    "Elle transporte calcium, thyroxine, cortisol, acides gras et médicaments acides.",
+    "La baisse sérique modifie donc dosages totaux et pharmacocinétique (voir complications)."
+   ],
+   "sources": [
+    "Cours END – Protéinémie/albuminémie",
+    "ESPEN 2019"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen clinique",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Cherche le déclencheur inflammatoire, évalue les apports, puis traque les autres causes de baisse avant de conclure.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Déclencheurs aigus : fièvre, infection, chirurgie, traumatisme ou brûlure récents.",
+    "Maladie chronique ou cancer : douleurs articulaires, diarrhées sanglantes, symptômes B (fièvre, sueurs nocturnes, amaigrissement).",
+    "Autres causes : urines mousseuses et œdèmes, diarrhée chronique, alcool ou hépatopathie, dermatose exsudative.",
+    "Médicaments très liés aux protéines : AVK, phénytoïne, acide valproïque, certains AINS.",
+    "Examen : œdèmes déclives modérés (souvent vers 20–25 g/L), foyer inflammatoire, absence de stigmates d'hépatopathie (ictère, angiomes stellaires, ascite)."
+   ],
+   "sources": [
+    "Cours END – Protéinémie/albuminémie"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Drapeaux rouges et diagnostics différentiels",
+   "rubriques": [
+    "presumptionRedFlags",
+    "positiveDiagnosis"
+   ],
+   "comment": "Ne conclus à l'inflammation qu'après CRP élevée et exclusion des pertes rénale et digestive, de l'insuffisance hépatique et d'un pic monoclonal.",
+   "tableau": {
+    "colonnes": [
+     "Rival",
+     "Indice clinique",
+     "Test discriminant",
+     "Pourquoi pas une simple inflammation"
+    ],
+    "lignes": [
+     [
+      "Syndrome néphrotique",
+      "Œdèmes, urines mousseuses",
+      [
+       {
+        "t": "Protéinurie > 3,5 g/24 h",
+        "i": "Une protéinurie massive à la bandelette signe une perte rénale d'albumine, absente dans l'inflammation pure."
+       }
+      ],
+      "CRP souvent normale"
+     ],
+     [
+      "Entéropathie exsudative",
+      "Diarrhée chronique, œdèmes, lymphopénie",
+      [
+       {
+        "t": "Clairance fécale de l'alpha-1-antitrypsine",
+        "i": "Elle confirme la fuite digestive protéique ; l'hypogammaglobulinémie la distingue de l'inflammation, où les gamma sont normaux ou élevés."
+       }
+      ],
+      "Hypogammaglobulinémie associée"
+     ],
+     [
+      "Cirrhose",
+      "Ictère, ascite, angiomes stellaires",
+      [
+       {
+        "t": "INR allongé, thrombopénie",
+        "i": "Il traduit un défaut de synthèse hépatique, alors que l'inflammation seule laisse l'INR normal."
+       }
+      ],
+      "Défaut de synthèse"
+     ],
+     [
+      "Dénutrition pure",
+      "Apports faibles, perte de poids",
+      [
+       {
+        "t": "Critères GLIM, CRP normale",
+        "i": "Une CRP normale écarte l'inflammation ; l'albumine seule ne diagnostique pas la dénutrition."
+       }
+      ],
+      "Coexiste souvent avec l'inflammation"
+     ],
+     [
+      "Gammapathie, myélome, amylose AL",
+      "Globulines élevées",
+      [
+       {
+        "t": "Pic à l'électrophorèse",
+        "i": "Un pic monoclonal n'est pas le profil inflammatoire (alpha-1 et alpha-2 élevées, gamma polyclonaux)."
+       }
+      ],
+      "Protéines totales élevées"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Albumine basse avec CRP normale : l'inflammation est exclue ; cherche perte, défaut de synthèse ou hémodilution.",
+    "Les protéines totales sont souvent peu abaissées, car les globulines inflammatoires compensent.",
+    "Le diagnostic positif associe albumine < 35 g/L, CRP élevée et contexte compatible ; il reste un diagnostic d'exclusion.",
+    "Albumine basse persistant après guérison : cherche une cause non reconnue."
+   ],
+   "sources": [
+    "Cours END – Protéinémie/albuminémie",
+    "GLIM 2019"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan : démarche diagnostique",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Dose albumine et CRP ensemble, exclus ensuite les pertes et l'insuffisance hépatique, et ne compte pas sur la préalbumine pour trancher.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Albumine < 35 g/L",
+     "i": "Seuil usuel de l'hypoalbuminémie ; la méthode au vert de bromocrésol peut surestimer les faibles valeurs.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Doser CRP, BU, bilan hépatique, INR",
+     "i": "Ces trois examens de première ligne orientent entre inflammation, perte rénale et défaut de synthèse.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "CRP élevée, BU négative, hépatique normal",
+     "i": "Profil d'hypoalbuminémie inflammatoire : diagnostic positif et d'exclusion réunis.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Électrophorèse des protéines",
+     "i": "Profil inflammatoire : albumine basse, alpha-1 et alpha-2 élevées, gamma polyclonaux possibles dans les formes chroniques.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n3",
+     "t": "Rechercher le foyer",
+     "i": "Hémogramme, créatinine, procalcitonine, hémocultures et imagerie selon la clinique, car le traitement vise la cause.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n2",
+     "t": "CRP normale",
+     "i": "L'inflammation n'explique pas la baisse : cherche perte rénale ou digestive, insuffisance hépatique ou hémodilution.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n2",
+     "t": "Protéinurie à la BU",
+     "i": "À confirmer par le rapport protéines/créatinine sur urine ponctuelle ; > 3,5 g/24 h avec hypoalbuminémie définit le syndrome néphrotique.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n6",
+     "t": "Alpha-1-antitrypsine fécale",
+     "i": "Elle confirme une entéropathie exsudative en cas de diarrhée chronique, œdèmes ou lymphopénie.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n9",
+     "parent": "n2",
+     "t": "Préalbumine ?",
+     "i": "Inutile pour trancher : elle baisse aussi dans l'inflammation et ne distingue pas dénutrition et inflammation.",
+     "pec": null,
+     "notion": null
+    }
+   ],
+   "points": [
+    "Premier bilan : albuminémie + CRP + bandelette urinaire + bilan hépatique (ASAT, ALAT, PAL, bilirubine, INR).",
+    "Le calcium ionisé reste normal en cas d'hypoalbuminémie, contrairement au calcium total.",
+    "Les hormones totales (cortisol, thyroxine, testostérone) sont faussées : demande les fractions libres."
+   ],
+   "sources": [
+    "Cours END – Protéinémie/albuminémie"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Prise en charge : traiter la cause, ne pas perfuser le chiffre",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "Traite la maladie inflammatoire sous-jacente et réserve l'albumine aux indications démontrées, jamais pour corriger un chiffre isolé.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Albumine IV ?",
+     "Dose ou conduite",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Hypoalbuminémie inflammatoire isolée",
+      [
+       {
+        "t": "Non",
+        "i": "Aucun bénéfice clinique démontré, coût élevé, et le chiffre remonte seul avec la résolution de l'inflammation."
+       }
+      ],
+      "Traiter la cause",
+      "Albumine non cible thérapeutique"
+     ],
+     [
+      "Péritonite bactérienne spontanée",
+      [
+       {
+        "t": "Oui",
+        "i": "Elle réduit l'insuffisance rénale et la mortalité chez le cirrhotique."
+       }
+      ],
+      "1,5 g/kg à J1, 1 g/kg à J3",
+      "Prévention du syndrome hépatorénal"
+     ],
+     [
+      "Paracentèse > 5 L",
+      [
+       {
+        "t": "Oui",
+        "i": "Elle prévient la dysfonction circulatoire post-paracentèse chez le cirrhotique."
+       }
+      ],
+      "≈ 8 g par litre retiré",
+      "Cirrhose uniquement"
+     ],
+     [
+      "Syndrome hépatorénal",
+      [
+       {
+        "t": "Oui",
+        "i": "Elle expand le volume en association à un vasoconstricteur."
+       }
+      ],
+      "Selon protocole spécialisé",
+      "Cirrhose uniquement"
+     ],
+     [
+      "Sepsis",
+      [
+       {
+        "t": "Discutée",
+        "i": "Recommandation faible : seulement si de grands volumes de cristalloïdes sont nécessaires."
+       }
+      ],
+      "Avis des soins intensifs",
+      "Preuve limitée"
+     ],
+     [
+      "Traumatisme crânien",
+      [
+       {
+        "t": "Évitée (4 %)",
+        "i": "L'étude SAFE a associé l'albumine 4 % à une surmortalité dans cette population."
+       }
+      ],
+      "Cristalloïdes",
+      "Risque démontré"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Traitement de la cause : antibiothérapie, contrôle du foyer, traitement de la maladie de fond.",
+    "Support nutritionnel entéral de préférence : il couvre les besoins mais ne normalise pas l'albumine tant que l'inflammation persiste.",
+    "Dénutrition mixte chez la personne âgée malade : ESPEN recommande 1,2 à 1,5 g/kg/j de protéines.",
+    "Diététicien diplômé remboursé par l'assurance de base sur prescription médicale."
+   ],
+   "sources": [
+    "EASL 2018",
+    "Surviving Sepsis Campaign 2021",
+    "ESPEN 2019",
+    "Étude SAFE 2007"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Complications et pièges à l'hôpital",
+   "rubriques": [
+    "hospitalizationComplications"
+   ],
+   "comment": "Corrige les valeurs biologiques et réajuste les médicaments liés à l'albumine, car un chiffre « normal » peut cacher une toxicité.",
+   "tableau": {
+    "colonnes": [
+     "Paramètre ou médicament",
+     "Effet de l'hypoalbuminémie",
+     "Conduite",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Calcium total",
+      [
+       {
+        "t": "Hypocalcémie totale fausse",
+        "i": "L'albumine fixe le calcium : le calcium libre actif reste normal."
+       }
+      ],
+      "Calcémie corrigée = Ca total + 0,02 mmol/L par g/L d'albumine sous 40 g/L, ou calcium ionisé",
+      [
+       {
+        "t": "Éviter un traitement inutile",
+        "i": "Substituer en calcium sur un chiffre total fausserait la prise en charge."
+       }
+      ]
+     ],
+     [
+      "Phénytoïne",
+      [
+       {
+        "t": "Fraction libre augmentée",
+        "i": "Le taux total sous-estime l'effet actif."
+       }
+      ],
+      "Doser la fraction libre",
+      [
+       {
+        "t": "Toxicité malgré taux « normal »",
+        "i": "Médicament très lié aux protéines, à marge étroite."
+       }
+      ]
+     ],
+     [
+      "AVK (phenprocoumon, acénocoumarol, warfarine)",
+      [
+       {
+        "t": "Effet augmenté",
+        "i": "La fraction libre active augmente."
+       }
+      ],
+      "INR rapprochés, adapter la dose",
+      [
+       {
+        "t": "Risque hémorragique",
+        "i": "Marge thérapeutique étroite, aggravée par l'inflammation."
+       }
+      ]
+     ],
+     [
+      "Acide valproïque, certains AINS",
+      [
+       {
+        "t": "Fraction libre augmentée",
+        "i": "Médicaments très liés à l'albumine."
+       }
+      ],
+      "Surveiller l'effet et la toxicité",
+      "Éviter la surdose"
+     ],
+     [
+      "Trou anionique",
+      [
+       {
+        "t": "Sous-estimé",
+        "i": "Une baisse de 10 g/L diminue le trou anionique d'environ 2,5 mmol/L, car l'albumine est un anion non mesuré."
+       }
+      ],
+      "Corriger le trou anionique",
+      "Une acidose peut passer inaperçue"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Hormones totales (cortisol, thyroxine, testostérone) faussées : dose les fractions libres.",
+    "Hypoalbuminémie sévère : œdèmes et épanchements ; les perfusions abondantes aggravent la surcharge interstitielle."
+   ],
+   "sources": [
+    "AIPS Swissmedic",
+    "Cours END – Protéinémie/albuminémie"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Évolution, pronostic, suivi et réseau",
+   "rubriques": [
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Contrôle CRP puis albumine à distance : une normalisation spontanée confirme le diagnostic, alors qu'une persistance impose de chercher une autre cause.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La CRP baisse en quelques jours (demi-vie ≈ 19 h) ; l'albumine remonte plus lentement (demi-vie ≈ 20 jours).",
+    "Albumine non normalisée plusieurs semaines après guérison : cherche une perte protéique ou un défaut de synthèse.",
+    "Albumine basse prédit mortalité, durée de séjour et complications postopératoires, indépendamment de l'état nutritionnel ; elle reste réversible.",
+    "Glasgow Prognostic Score modifié : CRP > 10 mg/L et albumine < 35 g/L donne un score 2, de mauvais pronostic en oncologie.",
+    "Médecin de premier recours coordonne ; interniste si cause incertaine ; spécialiste de la maladie de fond et diététicien selon l'étiologie."
+   ],
+   "sources": [
+    "Cours END – Protéinémie/albuminémie",
+    "ESPEN 2019"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "inflammation_aigue",
+   "titre": "Hypoalbuminémie sur inflammation aiguë (infection, chirurgie, traumatisme) à l'hôpital",
+   "but": [
+    "Traiter la cause inflammatoire ou infectieuse, qui normalise l'albumine.",
+    "Éviter la perfusion d'albumine pour un chiffre isolé.",
+    "Prévenir les erreurs de dosage et de pharmacocinétique liées à l'albumine basse."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer au patient que l'albumine basse reflète l'inflammation et non une dénutrition obligatoire.",
+     "Dépister la dénutrition à l'admission avec un outil validé (NRS-2002), indépendamment de l'albumine.",
+     "Recenser les médicaments très liés aux protéines (AVK, phénytoïne, acide valproïque, AINS)."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Albumine humaine 20–25 % (colloïde)",
+      "posologie": "Pas d'indication pour une hypoalbuminémie isolée ; indications établies : péritonite bactérienne spontanée (1,5 g/kg à J1, 1 g/kg à J3), paracentèse > 5 L (≈ 8 g/L retiré).",
+      "pourquoi": "Aucun bénéfice clinique démontré pour corriger le chiffre ; indications limitées au cirrhotique, et SAFE montre une surmortalité en traumatisme crânien.",
+      "source": "[EASL, 2018]"
+     },
+     {
+      "molecule": "Phenprocoumon (Marcoumar, AVK)",
+      "posologie": "Dose selon INR cible individuelle ; INR rapprochés en cas d'inflammation aiguë ou d'hypoalbuminémie, réduire la dose si INR au-dessus de la cible.",
+      "pourquoi": "La fraction libre augmente en cas d'hypoalbuminémie, ce qui majore l'effet anticoagulant et le risque hémorragique.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Contrôler le foyer infectieux (drainage, ablation de corps étranger, reprise chirurgicale).",
+      "pourquoi": "Le foyer entretient l'inflammation qui abaisse l'albumine."
+     },
+     {
+      "categorie": "nutrition",
+      "mesure": "Initier un soutien nutritionnel entéral de préférence si les apports sont insuffisants.",
+      "pourquoi": "Il couvre les besoins mais ne normalise pas l'albumine tant que l'inflammation persiste."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Limiter les perfusions inutiles et surveiller le bilan hydrique et les œdèmes.",
+      "pourquoi": "Les perfusions abondantes aggravent la dilution et la surcharge interstitielle."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Prescrire la consultation diététique remboursée par l'assurance de base en cas de dénutrition associée."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Traiter la cause avant de s'occuper du chiffre d'albumine.",
+      "Interpréter l'albumine toujours avec la CRP.",
+      "Corriger calcémie et trou anionique pour l'albumine."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Dose albumine, CRP, bandelette urinaire, bilan hépatique et INR pour confirmer l'origine inflammatoire."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Surveille signes vitaux, bilan hydrique et œdèmes pour repérer sepsis et surcharge."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Traite le foyer (antibiothérapie, drainage) et refuse l'albumine IV pour un chiffre isolé."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Corrige la calcémie, adapte AVK et antiépileptiques, et contrôle l'INR de près."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Contrôle CRP puis albumine à distance et cherche une autre cause si elle reste basse."
+      }
+     ]
+    }
+   },
+   "pronostic": "Réversible : l'albumine se normalise avec la résolution de l'inflammation ; un taux bas prédit toutefois mortalité, durée de séjour et complications postopératoires, indépendamment de la nutrition.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "CRP",
+      "quand": "Tous les 1 à 3 jours en phase aiguë",
+      "cible": "Baisse en quelques jours (demi-vie ≈ 19 h)"
+     },
+     {
+      "quoi": "Albuminémie",
+      "quand": "À la sortie puis à distance, quelques semaines après",
+      "cible": "Remontée progressive vers ≥ 35 g/L"
+     },
+     {
+      "quoi": "INR sous AVK, taux libre de phénytoïne",
+      "quand": "Rapprochés tant que l'albumine est basse",
+      "cible": "Dans la cible thérapeutique individuelle"
+     },
+     {
+      "quoi": "Calcémie corrigée",
+      "quand": "À chaque dosage de calcium",
+      "cible": "Normale après correction"
+     }
+    ],
+    "sortie": "Sortie fondée sur la résolution clinique de la cause (apyrexie, CRP en baisse, foyer contrôlé), et non sur l'albumine ; contrôle albumine et CRP ambulatoire à distance."
+   },
+   "prevention": {
+    "primaire": "Prévenir les infections et les complications postopératoires, qui déclenchent l'inflammation.",
+    "secondaire": "Dépister la dénutrition à l'admission pour la traiter en parallèle de l'inflammation.",
+    "tertiaire": "Recontrôler l'albumine à distance pour ne pas manquer une perte protéique ou un défaut de synthèse."
+   }
+  },
+  {
+   "cle": "inflammation_chronique_denutrition",
+   "titre": "Hypoalbuminémie sur maladie inflammatoire chronique ou cancer, avec dénutrition mixte",
+   "but": [
+    "Contrôler la maladie de fond, principal levier de remontée de l'albumine.",
+    "Couvrir les besoins protéino-énergétiques en cas de dénutrition associée.",
+    "Organiser un suivi coordonné par le médecin de premier recours."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer que l'albumine ne mesure pas l'état nutritionnel et que la maladie de fond conditionne sa remontée.",
+     "Évaluer l'appétit, la durée de baisse des apports et la perte de poids.",
+     "Poser le diagnostic de dénutrition avec les critères GLIM."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "nutrition",
+      "mesure": "Prescrire des apports protéiques de 1,2 à 1,5 g/kg/j chez la personne âgée malade dénutrie.",
+      "pourquoi": "Recommandation ESPEN ; l'apport couvre les besoins sans normaliser l'albumine tant que l'inflammation dure."
+     },
+     {
+      "categorie": "nutrition",
+      "mesure": "Adresser le patient à un diététicien diplômé sur prescription médicale.",
+      "pourquoi": "La consultation est remboursée par l'assurance de base en Suisse."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Traiter la maladie de fond avec le spécialiste (rhumatologue, gastroentérologue, oncologue).",
+      "pourquoi": "Le contrôle de l'inflammation chronique remonte durablement l'albumine."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Faire valoir le remboursement des conseils diététiques et organiser les prestations en cas d'incapacité de travail."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Adapter les objectifs nutritionnels aux souhaits du patient lorsque le cancer est avancé."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Séparer les rôles : l'albumine mesure l'inflammation, GLIM mesure la dénutrition.",
+      "Impliquer le patient dans ses objectifs nutritionnels.",
+      "Coordonner par le médecin de premier recours."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Confirme l'origine inflammatoire par CRP, bandelette, bilan hépatique et électrophorèse, et exclut les pertes."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Évalue la dénutrition par les critères GLIM, sans se fonder sur l'albumine."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "spécialiste",
+       "fait": "Ajuste le traitement de la maladie de fond pour réduire l'inflammation."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "diététicien",
+       "fait": "Établit un plan nutritionnel à 1,2–1,5 g/kg/j de protéines et suit les apports."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Recontrôle albumine et CRP à distance et demande l'interniste si la cause reste incertaine."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le Glasgow Prognostic Score modifié classe en score 2 un cancer avec CRP > 10 mg/L et albumine < 35 g/L, de mauvais pronostic ; l'albumine reste un marqueur, non une cible.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "CRP et albuminémie",
+      "quand": "À distance de l'épisode puis selon la maladie de fond",
+      "cible": "CRP en baisse, albumine remontée vers ≥ 35 g/L"
+     },
+     {
+      "quoi": "Poids et apports protéiques",
+      "quand": "À chaque consultation",
+      "cible": "Poids stable, apports 1,2–1,5 g/kg/j chez le sujet âgé malade"
+     },
+     {
+      "quoi": "Activité de la maladie de fond",
+      "quand": "Selon le spécialiste",
+      "cible": "Rémission ou contrôle de l'inflammation"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si état stable, apports suffisants et maladie de fond suivie par un spécialiste."
+   },
+   "prevention": {
+    "primaire": "Contrôler précocement les maladies inflammatoires chroniques pour limiter l'inflammation prolongée.",
+    "secondaire": "Dépister régulièrement la dénutrition chez les patients chroniques fragiles.",
+    "tertiaire": "Maintenir un suivi nutritionnel et spécialisé pour éviter la dénutrition mixte durable."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7195,
+  "output_tokens": 15809,
+  "output_tokens_details": {
+   "thinking_tokens": 3906
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:34:59",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}
