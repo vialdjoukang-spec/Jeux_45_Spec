@@ -4,7 +4,7 @@ Branche : `agent/45spec-PED`. Production par agent Claude **sans API** (même sc
 Ordre : `selection()` (fréquence puis identifiant) pour les 18 premières ; ensuite **ordre révisé par importance pour l'examen** (section ci-dessous). Contrôles : `valider()` sans erreur ; couverture des notions de poids ≥ 2 au moins deux fois sous deux angles ; formats ≈ 70/20/10.
 Les données douteuses portent la mention « à vérifier » dans leur source (AIPS, version de recommandation). Statut d'audit : en attente (`audit.rejector = null`).
 
-**Avancement : 21 / 69 pathologies canoniques complètes (notions + questions + correction).**
+**Avancement : 24 / 69 pathologies canoniques complètes (notions + questions + correction).**
 
 | # | Identifiant | Pathologie | Fréq. | Complet | Notions | Questions |
 |---|---|---|---|---|---|---|
@@ -39,7 +39,7 @@ Les données douteuses portent la mention « à vérifier » dans leur source (A
 | 29 | `P57.9__F2_17-E16` | Ictère nucléaire (encéphalopathie bilirubinique aiguë) | 3 | ⬜ |  |  |
 | 30 | `P61.4__O2_7-E14` | Anémie fœtale sévère sur hémorragie fœto-maternelle massive  | 3 | ⬜ |  |  |
 | 31 | `P70.4__O1_1-E12` | Hypoglycémie néonatale sévère ou symptomatique | 3 | ✅ | 27 | 21 |
-| 32 | `P74.1__O1_6-E13` | Déshydratation hypernatrémique sévère du nouveau-né allaité | 3 | ⬜ |  |  |
+| 32 | `P74.1__O1_6-E13` | Déshydratation hypernatrémique sévère du nouveau-né allaité | 3 | ✅ | 27 | 21 |
 | 33 | `P77.9__O1_1-E13` | Entérocolite nécrosante (ECN) du nouveau-né | 3 | ⬜ |  |  |
 | 34 | `P77__S3_9-E14` | Entérocolite nécrosante du nouveau-né prématuré (ECN) | 3 | ⬜ |  |  |
 | 35 | `P80.8__O1_1-E16` | Hypothermie néonatale sévère (< 35,0 °C) | 3 | ⬜ |  |  |
@@ -71,8 +71,8 @@ Les données douteuses portent la mention « à vérifier » dans leur source (A
 | 61 | `Q15.0__O2_9-E10` | Glaucome congénital (buphtalmie, larmoiement, photophobie) | 5 | ⬜ |  |  |
 | 62 | `Q43.0_1__S4_7-E10` | Diverticule de Meckel compliqué (douleur pelvienne / FID) | 5 | ⬜ |  |  |
 | 63 | `Q43.0__S3_9-E10` | Diverticule de Meckel hémorragique (hétérotopie muqueuse gas | 5 | ⬜ |  |  |
-| 64 | `Q44.2__S6_5-E10` | Atrésie des voies biliaires (ictère cholestatique du nourris | 5 | ⬜ |  |  |
-| 65 | `Q65.8__O2_12-E10` | Dysplasie développementale de la hanche (DDH) | 5 | ⬜ |  |  |
+| 64 | `Q44.2__S6_5-E10` | Atrésie des voies biliaires (ictère cholestatique du nourris | 5 | ✅ | 27 | 21 |
+| 65 | `Q65.8__O2_12-E10` | Dysplasie développementale de la hanche (DDH) | 5 | ✅ | 26 | 21 |
 | 66 | `Q76.3__S5_1-E09` | Scoliose congénitale sur malformation vertébrale (hémivertèb | 5 | ⬜ |  |  |
 | 67 | `Q77.4__S5_3-E10` | Achondroplasie / dysplasie squelettique génétique | 5 | ⬜ |  |  |
 | 68 | `Q85.1__S6_3-E10` | Sclérose tubéreuse de Bourneville (macules hypomélaniques en | 5 | ⬜ |  |  |
