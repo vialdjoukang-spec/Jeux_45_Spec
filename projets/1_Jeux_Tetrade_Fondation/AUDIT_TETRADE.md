@@ -72,4 +72,156 @@ Fusion de `origin/main` (lot transversal 2), puis `construire_config_tetrade.py`
 
 Défaut d'outillage découvert : `construire_config_tetrade.py` et `generer_json.py` gardent un champ `aVerifier` retiré de la source (fusion conservatrice). Claude a retiré à la main les 15 champs résolus des JSON d'organes et du graphe ; un correctif de l'outil reste conseillé.
 
+## Lot 2 (locomoteur, dermatologique) — 2026-11-24
+
+Claude a relu, avec la même méthode, les 57 pathologies locomotrices et les 32 pathologies dermatologiques, leurs 17 organes, leurs signes, mots-clés et glossaires, et les 17 scénarios des interprétations `lo_synovie`, `lo_ck` et `de_brulure`. Chaque référence citée a été retrouvée dans PubMed ou sur le site de l'éditeur ; aucune n'était inventée, mais six étaient mal attribuées ou dépassées. Les paliers TF/F/U/R restent justes : aucun reclassement.
+
+### L2.1 Bilan
+
+| Système | Vérifiées | Corrigées | Doutes résolus | Doutes restants |
+|---|---|---|---|---|
+| Locomoteur et rhumatologique (57 pathologies, 11 organes, glossaire) | 57 | 23 pathologies (dont 5 où seul le doute est précisé) + contenu (rythme scapulo-huméral) + sémiologie (Schober) + glossaire (AO ; 9 sigles ajoutés) | 14 sur 24 | 10 |
+| Dermatologique (32 pathologies, 6 organes, glossaire) | 32 | 12 pathologies (dont 2 où seul le doute est précisé) + glossaire (ROSCO, PTCH1 ; PCDS ajouté) | 3 sur 12 (6 autres réduits à un seul point précis) | 9 |
+| Interprétations `lo_` et `de_` (3 fenêtres, 17 scénarios) | 17 | 2 | sans objet | 0 ; `_meta.statut` : **AUDITÉ** |
+
+### L2.2 Erreurs de fond corrigées
+
+| Pathologie ou élément | Erreur | Correction | Source |
+|---|---|---|---|
+| Traumatisme du rachis cervical | PAM « au-dessus de 85 à 90 mmHg » ; AO Spine 2017 | PAM entre 75-80 et 90-95 mmHg pendant 3 à 7 jours ; décompression dans les 24 h | AO Spine-Praxis 2024 (Kwon, Global Spine J) |
+| Fracture du plancher de l'orbite | Amoxicilline-clavulanate prophylactique | Aucune antibioprophylaxie systématique (pas de bénéfice, plus de diarrhées) | Gheza 2018 ; Delaplain, Surg Infect 2020 |
+| Rupture du tendon d'Achille | Énoxaparine pendant toute l'immobilisation | Pas de prophylaxie systématique ; réservée au haut risque | POT-CAST (van Adrichem, NEJM 2017) |
+| Crise de goutte | Saturation de l'urate « 360 µmol/l » (c'est la cible) ; colchicine sans plafond ; prednisone 5 jours | Saturation ≈ 400 µmol/l (6,8 mg/dl) ; au plus 2 mg le 1er jour et 6 mg par crise ; prednisone 3 à 5 jours ; dépistage HLA-B*58:01 précisé | EULAR 2016 ; ACR 2020 ; information suisse Colctab |
+| Mélanome | Ganglion sentinelle « dès 0,8 mm ou ulcération » ; suivi suisse absent | Ganglion sentinelle dès 1 mm, discuté de 0,8 à 1 mm avec facteur de risque ; schéma de suivi suisse ajouté | Swiss guidelines 2025 (Mangana, Swiss Med Wkly 2025;155:4210) |
+| Brûlure étendue | « formule de Parkland, 2 à 4 ml/kg » | Parkland = 4 ml ; beaucoup de centres débutent à 2 ml ; diurèse cible ≈ 0,5 ml/kg/h | ISBI 2016 |
+| Lombalgie commune | Paracétamol absent du raisonnement | Paracétamol jamais seul (pas mieux qu'un placebo), en réserve d'un AINS | Guideline suisse mednetbern 2019 ; Wertli et Steurer 2018 |
+| Fibromyalgie | Duloxétine « selon l'indication autorisée » | Hors indication en Europe (refus de l'EMA pour la prégabaline, 2009) | EMA/CHMP 23.07.2009 |
+| Pelade | Baricitinib seul | Baricitinib (adulte, depuis mai 2023) ou ritlécitinib dès 12 ans (Swissmedic, 03.02.2025) | Swissmedic, résumé Litfulo |
+| Arthrite septique | Durée de 2 semaines généralisée | Non-infériorité démontrée surtout pour la main et le poignet | Gjika, Ann Rheum Dis 2019 |
+| Luxation postérieure de l'épaule | « inaperçue dans la moitié des cas » (chiffre non sourcé) | « souvent inaperçue au premier examen » | Robinson, J Bone Joint Surg Am 2005 |
+| Rythme scapulo-huméral (contenu) | 1° d'omoplate pour 2° d'élévation du bras | 1° pour 2° de mouvement gléno-huméral, soit un tiers de l'élévation | Fait établi (rapport 2:1 d'Inman) |
+| Indice de Schober (sémiologie) | Augmentation « de moins de 4 cm » | Moins de 5 cm (la normale atteint 5 cm ou plus) | Fait établi |
+| Sclérodermie | Rituximab absent de l'atteinte pulmonaire ; EULAR 2017 | Rituximab ajouté ; EULAR 2023 | Del Galdo, Ann Rheum Dis 2025;84:29 |
+| Références dépassées ou mal attribuées | AAOS coiffe 2019 ; SVGO 2020 ; HS S1 2015 « EuroGuiDerm » ; WMS 2019 ; Perez « Rev Med Suisse » ; Uçkay « essai de durée » ; ROSCO « 2019 » sans année de parution ; « BOA 2015 » | AAOS 2025 ; SVGO 2026 (Swiss Med Wkly 2026;156:5700) ; S2k EHSF 2025 ; WMS 2024 ; J Antimicrob Chemother 2010 ; Mayo Clin Proc 2017 (bursectomie + 7 j) ; Br J Dermatol 2020 ; BESS/BOA (Rangan, Shoulder Elbow 2015) | PubMed ; éditeurs |
+| Glossaire | AO « née à Davos » ; ROSCO « a défini en 2019 » ; PTCH1 « sa mutation active » | Fondée en 1958, établie à Davos ; phénotypes 2017, mise à jour 2019 ; mutation inactivatrice qui lève le frein | Faits établis |
+| Interprétations | `de_brulure` « grand brûlé : au-delà de la moitié du corps » (seuil présenté comme une définition) ; `lo_synovie` hémarthrose « en moins de 2 heures » (limite stricte) | « par exemple plus de la moitié du corps » ; « dans les premières heures (souvent moins de 2 heures) » | Avis d'expert |
+
+Corrections de forme : réduction de l'épaule sans la manœuvre de Kocher (rotation externe lente ou Milch), sources des bursites mises au format court.
+
+### L2.3 Les 36 doutes `aVerifier`
+
+| # | Pathologie | Résultat | Source |
+|---|---|---|---|
+| 1 | Plancher de l'orbite | Résolu : pas d'antibioprophylaxie systématique | Medwave 2018 ; Surg Infect 2020 |
+| 2 | Lombalgie commune | Résolu : guideline suisse lue ; paracétamol jamais seul | mednetbern 2019 (FMH) ; Internist 2018 |
+| 3 | Cervicalgie commune | Résolu : recommandation OPTIMa, Eur Spine J 2016;25:2000 | PubMed 26984876 |
+| 4 | Tassement ostéoporotique | Résolu : SVGO 2026 | Swiss Med Wkly 2026;156:5700 |
+| 5 | Rachis cervical | Résolu : PAM 75-80 à 90-95 mmHg, 3 à 7 jours | PubMed 38526930 |
+| 6 | Coiffe des rotateurs | Résolu : AAOS 2025 ; ondes de choc efficaces dans la calcification | AAOS 28.08.2025 ; PubMed 24733195 |
+| 7 | Capsulite rétractile | Résolu : Rangan, Shoulder Elbow 2015 | PubMed 27582992 |
+| 8 | Luxation antérieure | **Reste** : aucune recommandation ne fixe la durée d'immobilisation ; revue Cochrane non retrouvée | — |
+| 9 | Luxation postérieure | Résolu : Robinson, JBJS Am 2005;87:639 | PubMed 15741636 |
+| 10 | Phlegmon des gaines | **Reste** : ssi.guidelines.ch inaccessible ; durée selon l'infectiologue | — |
+| 11 | SDRC | **Reste** : néridronate enregistré seulement en Italie (2015) ; statut suisse non vérifiable | Ciaffi, Pharmaceuticals 2024 |
+| 12 | Ostéonécrose fémorale | Résolu : Yoon, J Arthroplasty 2020;35:933 | PubMed 31866252 |
+| 13 | Rupture d'Achille | Résolu : POT-CAST | PubMed 27959702 |
+| 14 | Ostéite du pied diabétique | **Reste** : IWGDF/IDSA 2023 confirmée, texte intégral et SSI non lus | PubMed 37779457 |
+| 15 | Fracture ouverte | **Reste** : EAST 2011 confirmée, texte intégral non lu | PubMed 21610369 |
+| 16 | Crise de goutte | Résolu : Colctab 1 mg (2 mg le 1er jour, 6 mg par crise) ; HLA-B*58:01 selon ACR 2020 | Information suisse ; PubMed 32391934 |
+| 17 | Arthrite septique | **Reste** : recommandation SSI inaccessible | — |
+| 18 | Arthrite de Lyme | **Reste** : recommandations suisses (SSI) inaccessibles | — |
+| 19 | Fibromyalgie | **Reste** (réduit) : refus EMA confirmé ; AIPS suisse illisible | EMA 2009 |
+| 20 | Rhabdomyolyse | **Reste** : débit de diurèse et bicarbonates fondés sur des données faibles | Bosch, NEJM 2009 |
+| 21 | Myosite inflammatoire | **Reste** (réduit) : BSR 2022 trouvée, texte non lu | PubMed 35355064 |
+| 22 | Bursite mécanique | Résolu : Baumbach, Arch Orthop Trauma Surg 2014;134:359 | PubMed 24305696 |
+| 23 | Bursite septique | Résolu : Perez 2010 (JAC) ; Uçkay 2017 (Mayo Clin Proc) | PubMed 20197288, 28602435 |
+| 24 | Fluoroquinolones | Résolu : Swissmedic HPC du 16.12.2024 | swissmedic.ch |
+| 25 | Psoriasis | Résolu : EuroGuiDerm 2020/2021, version vivante | PubMed 33349983, 33547728 |
+| 26 | Mélanome | Résolu : recommandations suisses 2025 | PubMed 40811146 |
+| 27 | Eczéma herpeticum | **Reste** : aucune source ne fixe la dose du valaciclovir | PCDS |
+| 28 | Brûlure étendue | **Reste** : protocoles des centres suisses non publiés | — |
+| 29 | Sclérodermie | Résolu : EULAR 2023 (Ann Rheum Dis 2025) | PubMed 39874231 |
+| 30 | Alopécie androgénétique | **Reste** : statut du minoxidil oral en Suisse (AIPS inaccessible) | — |
+| 31 | Pelade | **Reste** (réduit) : autorisations confirmées ; remboursement non vérifiable | Swissmedic 2025 |
+| 32 | Acné | **Reste** (réduit) : mise à jour 2026 trouvée, texte intégral non lu | PubMed 41847993 |
+| 33 | Hyperhidrose | **Reste** (réduit) : référence confirmée ; remboursement non vérifiable | PubMed 30710603 |
+| 34 | Coup de chaleur | **Reste** (réduit) : WMS 2024 confirmée ; température d'arrêt non lue | PubMed 38425235 |
+| 35 | Lichen plan buccal | **Reste** : aucune recommandation européenne lue | — |
+| 36 | Érythème polymorphe majeur | **Reste** : place des corticoïdes non tranchée | — |
+
+Bilan : 17 doutes résolus, 19 restent avec leur raison précise (dont 7 réduits à un seul point).
+
+### L2.4 Outillage corrigé
+
+`generer_json.py` gardait un `aVerifier` retiré de la source (fusion conservatrice). La nouvelle fonction `aligner_aVerifier` fait foi à `pathologies.txt` : elle retire ou remplace le doute d'une bulle seulement quand son nom et sa définition coïncident avec une pathologie de la source, pour ne jamais toucher un doute d'un autre système. Le test `conception/outils/tests/test_aligner_aVerifier.py` le vérifie (4 assertions). Effet mesuré : le graphe exemple passe de 43 à 26 `aVerifier` (les 17 résolus), sans perte ailleurs. `construire_config_tetrade.py` relit la source à chaque passage et n'avait pas ce défaut.
+
+### L2.5 Chaîne relancée
+
+Fusion de `origin/main` (hémato, infectio, Transversal ; conflits de `tetrade.json` et du statut des interprétations résolus par union), puis `construire_config_tetrade.py`, `construire_plans.py`, `generer_json.py`, `rendre_plans.py` (31/31), `audit_fond.py`, `auditer_conception.py` **34/34**, `auditer_couverture.py` **RÉUSSI**, `non_perte.py` **OK**, `verifier_interpretations.py` **159/159, 0 défaut**. `2_cou/ganglions_cervicaux.json` a été restauré depuis main (défaut IGRA connu).
+
+Sources inaccessibles depuis la session : compendium.ch, swissmedicinfo.ch, ssi.guidelines.ch, la liste des spécialités (OFSP) ; toutes les posologies gardent « à vérifier dans l'AIPS ».
+
+Signature : AAI (Anthropic AI)
+
+## Lot 3 (ophtalmologique et ORL) — 2026-11-24
+
+Claude a relu, avec la même méthode, les 40 pathologies du système ophtalmologique et ORL, ses 5 organes rédigés, ses 46 signes, ses temps d'examen et son glossaire, les 5 pathologies ajoutées aux maisons respiratoire et digestive, et les 18 scénarios des interprétations `or_refraction`, `or_pio` et `or_audio` (ainsi que les modèles des 3 fenêtres : équation de Goldmann, accommodation de Hofstetter, grades OMS 2021). Chaque référence datée a été retrouvée dans PubMed ou chez l'éditeur ; aucune n'était inventée, mais deux étaient dépassées (EURETINA 2014, TFOS DEWS II).
+
+### L3.1 Bilan
+
+| Système | Vérifiées | Corrigées | Doutes résolus | Doutes restants |
+|---|---|---|---|---|
+| Ophtalmologique et ORL (40 pathologies, 5 organes, signes, glossaire) | 40 | 10 pathologies + 1 reclassement (sécheresse oculaire F → TF) + glossaire (THEIA, TenCRAOS ajoutés) | 6 sur 18 (6 autres réduits à un seul point précis) | 12 |
+| Ajouts des maisons (respiratoire 4, digestif 1) | 5 | 1 (polypose : mométasone, dupilumab) + glossaire respiratoire (SNOT-22 ajouté) | 1 sur 1 | 0 |
+| Interprétations `or_` (3 fenêtres, 18 scénarios) | 18 | 0 | sans objet | 0 ; `_meta.statut` : **AUDITÉ** |
+
+### L3.2 Erreurs de fond corrigées
+
+| Pathologie ou élément | Erreur | Correction | Source |
+|---|---|---|---|
+| Occlusion de l'artère centrale de la rétine | « La rétine meurt en environ 90 minutes » ; thrombolyse IV « discutée dans les 4,5 heures » | Aucune lésion décelable à 97 min, lésions massives et irréversibles vers 240 min ; deux essais randomisés négatifs (alteplase, ténectéplase avec plus d'hémorragies) : thrombolyse réservée aux études ou au protocole local | Hayreh, Exp Eye Res 2004;78:723 ; THEIA, Lancet Neurol 2025 ; TenCRAOS, N Engl J Med 2026;394:442 |
+| Dégénérescence maculaire | EURETINA 2014 ; « une injection par mois au départ, puis espacée » | EURETINA 2026 ; charge de 3 à 4 injections mensuelles, puis treat-and-extend guidé par l'OCT | Loewenstein, Ophthalmologica 2026 |
+| Sécheresse oculaire | TFOS DEWS II cité comme en vigueur ; palier F | TFOS DEWS III (2025) ; palier TF (prévalence de 5 à 50 %) | Am J Ophthalmol 2025 ; Stapleton, Ocul Surf 2017 |
+| Orbitopathie basedowienne | Téprotumumab absent (statut inconnu) | Autorisé par Swissmedic le 30.04.2025 (n° 69795) : 8 perfusions toutes les 3 semaines ; surveiller glycémie et audition | Swissmedic, nouvelles autorisations |
+| Névrite vestibulaire | Méthylprednisolone présentée sans nuance | Récupération calorique plus rapide à 1 mois, sans bénéfice démontré sur les symptômes ni à 12 mois | Cochrane 2011 (Fishman) ; Otolaryngol Head Neck Surg 2021 |
+| Hémianopsie homonyme | « près d'un AVC sur trois touche le champ visuel » (chiffre non sourcé) | 20 à 57 % selon les séries | Pollock, Cochrane 2019 |
+| Polypose nasosinusienne | Mométasone « 2 pulvérisations 2 fois par jour » d'emblée | 100 µg par narine 1 fois par jour, 2 fois si réponse insuffisante ; limitation suisse du dupilumab ajoutée | Information harmonisée EMA (art. 30) ; LS 01.08.2023 (via formulaire de garantie) |
+| Otite externe aiguë | Spécialité suisse inconnue | Ciprofloxacine 2 mg/ml + hydrocortisone 10 mg/ml, 3 gouttes 2 fois par jour 7 jours, dès 2 ans | compendium.ch (24.11.2026) |
+| Traumatisme sonore | Seuil Suva « 85 dB(A) par jour » non vérifié | Contrôle auditif Suva (Audiomobil) au-delà de 85 dB en moyenne annuelle | suva.ch |
+| Ischémie du nerf optique | 15 % de l'œil adelphe non sourcé | 14,7 % en 5,1 ans médians | Newman, Am J Ophthalmol 2002 |
+
+Corrections de forme : « céftazidime » → « ceftazidime » ; 9 sigles d'infobulle non définis : 3 ajoutés au glossaire (THEIA, TenCRAOS, SNOT-22), 6 réécrits en toutes lettres.
+
+### L3.3 Les 19 doutes `aVerifier`
+
+| # | Pathologie | Résultat | Source |
+|---|---|---|---|
+| 1 | Sécheresse oculaire | Résolu : DEWS III remplace DEWS II | Am J Ophthalmol 2025 (doi 10.1016/j.ajo.2025.09.035) |
+| 2 | DMLA | Résolu : mise à jour EURETINA 2026 | PubMed 42862818 |
+| 3 | Occlusion de l'artère centrale | Résolu : thrombolyse sans bénéfice démontré | PubMed 41109232, 41604638 |
+| 4 | Ischémie du nerf optique | Résolu : 14,7 % | PubMed 12208242 |
+| 5 | Névrite vestibulaire | Résolu : pas de bénéfice à long terme | PubMed 21563170, 33525978 |
+| 6 | Otite externe | Résolu : spécialité suisse lue | compendium.ch |
+| 7 | Polypose (dupilumab) | Résolu : LS depuis le 01.08.2023, critères listés | formulaire de garantie (texte LS non lu directement) |
+| 8 | Orbitopathie | Réduit : autorisation confirmée ; **reste** le remboursement | Swissmedic 30.04.2025 |
+| 9 | Leber | Réduit : Raxone autorisé le 01.03.2024 dès 12 ans ; **reste** le remboursement | Swissmedic n° 68063 |
+| 10 | Myopie | Réduit : atropine 0,01 % autorisée dans l'UE ; **reste** le statut suisse | EMA (Ryjunea) |
+| 11 | Kératite amibienne | Réduit : polihexanide 0,08 % autorisé dans l'UE ; **reste** le statut suisse | EMA (Akantior) |
+| 12 | Traumatisme sonore | Réduit : seuil Suva lu ; **reste** les corticoïdes (avis d'expert) | suva.ch |
+| 13 | Blépharite | Réduit : l'AAO ne fixe pas de dose ; **reste** la dose (hors indication en Suisse) | AAO PPP 2023-2024 |
+| 14 | Rétinopathie diabétique | **Reste** : recommandation suisse introuvable en ligne | — |
+| 15 | Dacryocystite | **Reste** : aucune recommandation trouvée | — |
+| 16 | Cellulite orbitaire | **Reste** : ssi.guidelines.ch inaccessible | — |
+| 17 | Otite moyenne (adulte) | **Reste** : source suisse pédiatrique seulement | Paediatrica 2023 |
+| 18 | Mastoïdite | **Reste** : avis d'expert | — |
+| 19 | Otite externe nécrosante | **Reste** : avis d'expert | — |
+
+Bilan : 7 doutes résolus, 12 restent avec leur raison précise (dont 6 réduits à un seul point). Paliers : 39 justes, 1 reclassé ; le système compte désormais 11 TF, 16 F, 8 U et 5 R.
+
+### L3.4 Chaîne relancée
+
+Fusion de `origin/main` (locomoteur, dermatologique, correctif `aligner_aVerifier`) : `systemes_rediges.py`, `fenetres.js`, `migrations_ids.json` et `interpretations.json` résolus par union des deux versions ; `tetrade.json`, graphe et sémiologie exemples, `conception.md` repris de main puis régénérés ; `CLAUDE_A_AUDITER/RAPPORT_AUTO.md` identique à main. Puis `construire_config_tetrade.py` (3563 nœuds), `construire_plans.py`, `generer_json.py`, `rendre_plans.py` (31/31), `audit_fond.py` (0 correction), `auditer_conception.py` **34/34**, `auditer_couverture.py` **RÉUSSI**, `non_perte.py` **OK** (après restauration des deux `2_cou/ganglions_cervicaux.json` depuis main), `verifier_interpretations.py` **177/177, 0 défaut**, `test_aligner_aVerifier.py` **OK** (4 assertions). Les 12 `aVerifier` restants figurent seuls dans les JSON d'organes : les doutes résolus ont bien été purgés.
+
+Sources inaccessibles depuis la session : swissmedicinfo.ch, ssi.guidelines.ch, la Liste des spécialités (OFSP) ; compendium.ch a répondu cette fois. Les autres posologies gardent « à vérifier dans l'AIPS ».
+
 Signature : AAI (Anthropic AI)

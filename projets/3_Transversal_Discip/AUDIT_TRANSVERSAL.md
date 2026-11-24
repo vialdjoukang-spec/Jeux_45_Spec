@@ -153,3 +153,110 @@ La colonne « Corrigées » compte les leçons dont le texte ou un QCM a changé
 - Le chiffre de 92 secondes (Langewitz 2002) n'apparaît pas dans le texte ; s'il y est ajouté un jour, il faudra le relire dans l'article (PMC126654), car le résumé PubMed n'est pas disponible.
 
 Signature : AAI (Anthropic AI)
+
+# Lot 3 — lettres I, J, K, L, M, N, O
+
+Audit réalisé le 24.11.2026 par Claude, avec la même méthode : chaque chiffre, seuil, article de loi et recommandation datée a été vérifié sur une source primaire (juriup.ch pour les lois, OFSP, Swissmedic, CFIST, Suva, Plan de vaccination suisse 2026, Ligue contre l'épilepsie, ESMO), puis la source a été ajoutée dans `_meta.sources`. Les leçons encore « À REMPLIR » (P et R) n'ont pas été auditées.
+
+## Bilan
+
+| Lettre | Auditées | AUDITÉ | Corrigées | Doutes restants |
+|---|---|---|---|---|
+| I | 12 | 12 | 4 | 0 |
+| J | 12 | 12 | 3 | 0 |
+| K | 12 | 12 | 3 | 0 |
+| L | 12 | 12 | 2 | 0 |
+| M | 12 | 12 | 1 | 0 |
+| N | 12 | 12 | 2 | 0 |
+| O | 12 | 12 | 1 | 0 |
+| **Total** | **84** | **84** | **16** | **0** |
+
+## I — Génétique médicale
+
+- I4-01 : **erreur juridique corrigée** : la perte de gain privée de l'indépendant ne relève pas des seuils de l'art. 43 LAGH, qui protège seulement les assurances liées à l'obligation de l'employeur de verser le salaire ; elle relève de l'art. 44. La décision cite désormais les conditions de l'art. 44 (fiabilité, pertinence scientifique, médecin mandaté).
+- I1-03 : l'amyotrophie spinale est dépistée depuis le 1.7.2024 (OFSP, modification de l'OPAS).
+- I2-03 : le droit de prescrire une analyse pharmacogénétique vient de l'art. 5 OAGH et vise le médecin qui exerce sous sa propre responsabilité ; le QCM 3 est ajusté.
+- I4-02 : le « bébé sauveur » n'est pas admis parce que l'art. 5a LPMA ne prévoit pas ce motif.
+- Vérifiés sans correction : art. 5 à 9, 16, 17, 21, 27, 39 à 44 et 56 LAGH ; art. 5a et 17 LPMA (douze embryons).
+
+## J — Hygiène hospitalière
+
+- J4-02 et J4-03 : **voie de déclaration corrigée** : la MCJ (dans la semaine) et la légionellose (dans les 24 heures) se déclarent au médecin cantonal, et non directement à l'OFSP.
+- J1-03 : le suivi VIH comprend un contrôle à 2 semaines et le test final à 12 semaines (CFIST, version 1.1 du 27.10.2026).
+- Vérifiés : OMCJ art. 2 (134 °C, 18 minutes), délais et schéma de PEP, seuil anti-HBs.
+
+## K — Médecine du travail
+
+- K3-03 : **critère légal corrigé (QCM 3 réécrit)** : le délai de 30 jours pour l'annonce à l'AI n'existe plus depuis le 1.1.2022 (art. 3abis LAI, art. 1ter RAI).
+- K2-03 : les 25 nuits et l'examen annuel dès 45 ans relèvent de l'art. 44 OLT1.
+- K4-02 : une dose de 50 mSv reste admise à titre exceptionnel (art. 56 al. 2 ORaP).
+- Vérifiés : art. 45 OLT1, art. 27 et 5abis OAC, art. 56 et 57 ORaP, part de la Suva (près de la moitié des travailleurs).
+
+## L — Médecine légale
+
+- L1-01 : l'art. 253 CPP est décrit juste (examen par un médecin légiste ordonné par le ministère public ; al. 4 sur les soignants tenus d'annoncer).
+- L1-03 : la décision ne mentionne plus un antihistaminique sans lien avec le cas.
+- Vérifiés : délais d'inaptitude après crise épileptique (directives 2019), PEP dans les 48 heures.
+
+## M — Médecine palliative
+
+- M3-01 : l'absence d'effet de la sédation sur la survie repose sur des études de cohorte (Maltoni 2012).
+- Vérifiés : ESMO 2018 (opioïde fort à faible dose au palier 2, fentanyl ou buprénorphine si DFG < 30, 8 Gy en fraction unique, coantalgiques).
+
+## N — Médecine préventive
+
+- N2-03 : **recommandation périmée corrigée (QCM 3 réécrit)** : les repères alcool de 2018 venaient de la CFAL, et la CFANT les a déclarés caducs le 2.3.2026 au profit de « moins c'est mieux ».
+- N4-02 : près de la moitié des personnes qui se suicident ont vu un médecin de premier recours dans le mois précédent (Luoma 2002), et non « la plupart ».
+- Vérifiés sur le Plan de vaccination suisse 2026 : schéma 2+1, RORV, méningocoques, HPV, rappels dT, vaccins dès 65 ans, grossesse, immunosuppression ; FSME dès 3 ans, toute la Suisse sauf le Tessin.
+
+## O — Pharmacologie et toxicologie
+
+- O2-03 : depuis le 1.1.2021, les annonces de pharmacovigilance vont directement à Swissmedic, qui en confie une partie aux cinq centres régionaux ; ElViS 2.0 remplace l'outil le 21.12.2026.
+
+## Points de vigilance
+
+- Les posologies usuelles et les seuils de manuel sans enjeu suisse (bundles, CDI, antibioprophylaxie, titration morphinique, NAC, QTc, critères SJS/NET) ont été contrôlés contre les recommandations de référence connues, sans relecture page par page de l'AIPS ; une relecture sur compendium.ch reste utile si un chiffre est ajouté.
+- La page neoscreening.ch n'a pas pu être consultée ; la liste des onze maladies repose sur le dépliant du laboratoire de Zurich et sur l'OFSP.
+- Le doute du lot 1 sur S4-01 reste ouvert.
+
+Signature : AAI (Anthropic AI)
+
+# Lot 4 — lettres P et R, et doute A-S4-01
+
+Audit réalisé le 24.11.2026 par Claude, avec la même méthode. Les sources primaires consultées sont l'OFSP (développement de la qualité, art. 58 à 58h LAMal), la FMH (Bulletin des médecins suisses 2024 sur les CIRS ; aide à l'orientation lors d'incidents médicaux), H+ (convention de qualité, art. 58a LAMal), NHS England, le SECO, l'OSAV, l'OFEV, l'OFSP (FSME), PubMed (Haynes 2009, Westbrook 2010, Hickman 2021) et le recueil des ATF de l'Université de Berne (servat.unibe.ch). bger.ch et fedlex restaient inaccessibles, et le quota de Legal Data Hunter était épuisé.
+
+## Bilan
+
+| Lettre | Auditées | AUDITÉ | Corrigées | Doutes restants |
+|---|---|---|---|---|
+| P | 12 | 12 | 4 | 0 |
+| R | 12 | 12 | 3 | 0 |
+| A (S4-01) | 1 | 1 | 1 | 0 |
+| **Total** | **25** | **25** | **8** | **0** |
+
+## A-S4-01 — doute du lot 1 levé
+
+- ATF 130 V 352 (12.3.2004, troubles somatoformes douloureux), ATF 137 V 210 (28.6.2011, procédure équitable dans les expertises COMAI ; attribution aléatoire selon la FMH), ATF 143 V 409 et 418 (30.11.2017, troubles dépressifs et procédure structurée pour tous les troubles psychiques) : contenu conforme à la leçon.
+- **Distracteur remplacé** : le contenu de l'ATF 146 V 51 n'a pas pu être vérifié ; le QCM 1 utilise désormais l'ATF 143 V 409, dont l'explication est sourcée.
+
+## P — Sécurité des patients et qualité
+
+- P2-02 : **recommandations corrigées** : le délai « idéalement dans les 24 heures » n'avait aucune source suisse ; la FMH demande une information « dans les meilleurs délais ». L'assurance RC ne reçoit des données du patient qu'avec son accord (secret professionnel), sans aveu de responsabilité. Le titre français « Quand un incident survient » n'a pas pu être vérifié : la brochure est rattachée à sa source vérifiée (« Wenn etwas schief geht », adaptation du consensus de Harvard « When Things Go Wrong », 2006), et le QCM 5 est réécrit.
+- P2-01 : **affirmation juridique précisée** : l'art. 58g let. c OAMal exige un système interne de rapports et d'apprentissage ; aucune base légale ne protège encore les déclarations CIRS (motion 18.4210 adoptée en 2020).
+- P1-01 : « la plupart des hôpitaux suisses » (non sourcé) est remplacé par la checklist suisse de 2012, progress! 2013-2015 et la reconnaissance dans la convention de qualité depuis 2023. Haynes 2009 est vérifié (1,5 % à 0,8 % ; 11,0 % à 7,0 %).
+- P1-03 : le retrait « large » des électrolytes concentrés en Suisse (non sourcé) est reformulé comme recommandation internationale.
+- Vérifiés : art. 58 à 58b LAMal (1.4.2021, conventions approuvées par le Conseil fédéral, CFQ), ANQ, LTr applicable aux médecins assistants depuis le 1.1.2005 (SECO), Westbrook 2010, protocole de Londres, cadre NHS des never events (maintenu en 2025 pendant une phase exploratoire).
+
+## R — Santé environnementale et climat
+
+- R2-02 : **erreur corrigée (QCM 1)** : l'affirmation « Genève ajoutée en 2024 » n'est pas vérifiable ; l'OFSP classe toute la Suisse sauf le Tessin en zone à risque, sans date pour Genève.
+- R1-02 : la mention de GOLD est retirée ; seul GINA intègre l'impact environnemental des inhalateurs.
+- R3-02 : le remboursement « sur prescription d'un allergologue » est remplacé par les limitations de la Liste des spécialités.
+- Vérifiés : StAR lancée en 2015 et plan One Health 2024-2027 (26.6.2024), valeur PM2,5 de l'OPair depuis 2018 et valeurs OMS 2021 plus strictes, pyramide alimentaire 2024 avec durabilité, desflurane interdit dans l'UE dès le 1.1.2026 sauf nécessité médicale, valeurs PFAS de l'OPBD et reprise prévue de la valeur UE, FSME dès 3 ans, Hickman 2021, CIM-11.
+
+## Points de vigilance
+
+- Les chiffres que le rédacteur avait laissés hors du texte (surmortalité estivale, PRG des gaz, prévalence de la rhinite, part des émissions du secteur de la santé) n'ont pas été ajoutés.
+- L'art. 58g let. c OAMal est cité d'après la FMH (BMS 2024), car fedlex était inaccessible ; l'aVerifier initial parlait de l'art. 58d.
+
+Signature : AAI (Anthropic AI)

@@ -1,10 +1,12 @@
-# Ouvrier automatique — 2026-11-23 22:38 UTC
+# Ouvrier automatique — 2026-11-23 23:38 UTC
 
-Dernier passage : **V1_fusions** → fait (0.22 USD).
+Dernier passage : **END_N_lot** → fait (0.00 USD).
 
-Les 4 fichiers content/pathologies/fusions_CAR.json, fusions_PNE.json, fusions_NEP.json et fusions_GAS.json existent, au format de fusions_END.json. Le nombre de pathologies passe de 95 à 66 en CAR, de 48 à 34 en PNE, de 48 à 37 en NEP et de 109 à 86 en GAS (300 → 223 au total). Les complications graves distinctes (perforation, mégacôlon toxique, phéochromocytome, thrombose de stent, FPIES, exacerbation de BPCO) et les grappes ambiguës restent à part ; les fusions sont à valider par Claude.
+notions : 325 entité(s) à produire.
+lot msgbatch_01EQEtoFQ1CRmhFG58U6S4r6
 
-**Crédit** : 50.62 USD dépensés, 141.38 USD disponibles avant le 27.11.2026 ; aujourd'hui 50.62 / 192.00 USD.
+
+**Crédit** : 50.62 USD dépensés, 141.38 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.00 / 141.38 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -32,7 +34,7 @@ Les 4 fichiers content/pathologies/fusions_CAR.json, fusions_PNE.json, fusions_N
 | T2_recup_lot600 | fait | 1 | 0.0 |
 | END_C_pilote | fait | 1 | 0.276 |
 | V1_fusions | fait | 1 | 0.223 |
-| END_N_lot | a_faire | 0 |  |
+| END_N_lot | fait | 1 | 0.0 |
 | END_N_recup | a_faire | 0 |  |
 | END_Q_lot | a_faire | 0 |  |
 | END_Q_recup | a_faire | 0 |  |
