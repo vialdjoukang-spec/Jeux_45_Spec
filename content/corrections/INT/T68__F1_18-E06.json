@@ -1,0 +1,387 @@
+{
+ "id": "T68__F1_18-E06",
+ "portes": [
+  {
+   "ssp": "G8",
+   "nomSSP": "Hypothermie",
+   "entite": "Hypothermie accidentelle légère de stade I (exposition environnementale)",
+   "entiteId": "G8-E01"
+  },
+  {
+   "ssp": "S8.2",
+   "nomSSP": "Brûlures, lésions dues au froid",
+   "entite": "Hypothermie sévère accidentelle (stade III–IV suisse)",
+   "entiteId": "S8.2-E14"
+  },
+  {
+   "ssp": "S8.5",
+   "nomSSP": "Noyade ou quasi-noyade",
+   "entite": "Hypothermie modérée associée à la submersion (stade I–II suisse)",
+   "entiteId": "S8.5-E04"
+  },
+  {
+   "ssp": "F1.18",
+   "nomSSP": "Patient sans pouls, troubles et arrêt cardiorespiratoires",
+   "entite": "Hypothermie sévère accidentelle (< 28 °C)",
+   "entiteId": "F1.18-E06"
+  },
+  {
+   "ssp": "O7.24",
+   "nomSSP": "Patients vulnérables",
+   "entite": "Hypothermie, déshydratation sévère ou gelures chez personne sans-abri",
+   "entiteId": "O7.24-E13"
+  }
+ ],
+ "entite": "Hypothermie sévère accidentelle (< 28 °C)",
+ "cim10": "T68",
+ "ssp": {
+  "code": "G8",
+  "nom": "Hypothermie",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient froid",
+    "i": "On estime le stade suisse et on mesure la température centrale.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Stade I",
+    "i": "On réchauffe passivement et on cherche la cause.",
+    "pec": "hypo",
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "Stade II–III stable",
+    "i": "On réchauffe activement par l'extérieur.",
+    "pec": "hypo",
+    "notion": "c3"
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "Instabilité ou < 30 °C",
+    "i": "On transfère vers un centre d'ECLS.",
+    "pec": "hypo",
+    "notion": "c2"
+   },
+   {
+    "id": "n5",
+    "parent": "n1",
+    "t": "Arrêt cardiaque",
+    "i": "On réanime au froid et on calcule le score HOPE.",
+    "pec": "hypo",
+    "notion": "c3"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "HOPE ≥ 10 %",
+    "i": "On réchauffe par ECLS.",
+    "pec": "hypo",
+    "notion": "c2"
+   }
+  ]
+ },
+ "specialites": [
+  "INT",
+  "CCT"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Hypothermie accidentelle sévère : estimer le stade par la clinique, mesurer la température centrale, adapter la réanimation au froid et réchauffer par ECLS les patients instables ou en arrêt",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Classer",
+   "rubriques": [
+    "definition",
+    "epidemiology",
+    "basicSciences",
+    "clinicalExam"
+   ],
+   "comment": "On estime la température par la conscience et le frisson quand on ne peut pas la mesurer.",
+   "tableau": {
+    "colonnes": [
+     "Stade",
+     "Clinique",
+     "Température estimée"
+    ],
+    "lignes": [
+     [
+      "I",
+      "Conscient, frissonne",
+      [
+       {
+        "t": "35–32 °C",
+        "i": "La thermogenèse fonctionne encore."
+       }
+      ]
+     ],
+     [
+      "II",
+      "Conscience altérée",
+      [
+       {
+        "t": "32–28 °C",
+        "i": "Le frisson faiblit puis disparaît."
+       }
+      ]
+     ],
+     [
+      "III",
+      "Inconscient, signes vitaux présents",
+      [
+       {
+        "t": "28–24 °C",
+        "i": "Le myocarde devient irritable."
+       }
+      ]
+     ],
+     [
+      "IV",
+      "Sans signe vital",
+      [
+       {
+        "t": "< 24 °C",
+        "i": "L'arrêt reste parfois réversible."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le froid protège le cerveau."
+   ],
+   "sources": [
+    "[ERC 2025, Cardiac arrest in special circumstances — accidental hypothermia (repris par Resuscitation Council UK 2025)]"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Orienter",
+   "rubriques": [
+    "presumptionRedFlags",
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "On mesure la température centrale et on oriente les instables vers l'ECLS.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "FC < 45/min, PAS < 90 mmHg, arythmie ventriculaire ou < 30 °C → centre ECLS.",
+    "Sonde œsophagienne à lecture basse.",
+    "HOPE ≥ 10 % → ECLS."
+   ],
+   "sources": [
+    "[ERC 2025, Cardiac arrest in special circumstances — accidental hypothermia (repris par Resuscitation Council UK 2025)]",
+    "[Hall N et al., Scand J Trauma Resusc Emerg Med 2025;33:132, doi:10.1186/s13049-025-01445-9]"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Réanimer au froid",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "On adapte chocs, adrénaline et RCP à la température.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "t1",
+     "parent": null,
+     "t": "Arrêt hypothermique",
+     "i": "On débute la RCP et on mesure la température.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "t2",
+     "parent": "t1",
+     "t": "< 30 °C",
+     "i": "On limite à 3 chocs et on retient l'adrénaline.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "t3",
+     "parent": "t1",
+     "t": "30–35 °C",
+     "i": "On espace l'adrénaline à 6–10 min.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "t4",
+     "parent": "t2",
+     "t": "Transport long",
+     "i": "On utilise une RCP mécanique ou intermittente.",
+     "pec": null,
+     "notion": null
+    }
+   ],
+   "points": [
+    "Manipulation douce, horizontale."
+   ],
+   "sources": [
+    "[ERC 2025, Cardiac arrest in special circumstances — accidental hypothermia (repris par Resuscitation Council UK 2025)]"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Après le réchauffement",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "On surveille les complications et on traite la cause.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Hypotension, arythmie, potassium, coagulation.",
+    "Asphyxie = pronostic sombre.",
+    "Cause sociale chez l'âgé."
+   ],
+   "sources": [
+    "Avis d'expert (à vérifier)",
+    "[Hall N et al., Scand J Trauma Resusc Emerg Med 2025;33:132, doi:10.1186/s13049-025-01445-9]"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "hypo",
+   "titre": "Hypothermie accidentelle sévère",
+   "but": [
+    "On évite l'arrêt cardiaque.",
+    "On réchauffe sans danger.",
+    "On traite la cause."
+   ],
+   "moyens": {
+    "accueil": [
+     "On manipule doucement et à l'horizontale.",
+     "On isole du froid et on mesure la température centrale."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Adrénaline (catécholamine)",
+      "posologie": "1 mg IV, retenue sous 30 °C, espacée à 6–10 minutes entre 30 et 35 °C ; à vérifier dans l'AIPS.",
+      "pourquoi": "Elle s'accumule dans le froid et devient arythmogène.",
+      "source": "[ERC 2025, Cardiac arrest in special circumstances — accidental hypothermia (repris par Resuscitation Council UK 2025)] ; AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
+     },
+     {
+      "molecule": "Amiodarone (antiarythmique)",
+      "posologie": "300 mg IV en charge, doses suivantes après 30 °C ; à vérifier dans l'AIPS.",
+      "pourquoi": "Elle aide la FV réfractaire une fois le cœur réchauffé.",
+      "source": "[ERC 2025, Cardiac arrest in special circumstances — accidental hypothermia (repris par Resuscitation Council UK 2025)] ; AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "On réchauffe par VA-ECMO en cas d'arrêt ou d'instabilité.",
+      "pourquoi": "Elle réchauffe et assure la circulation."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "On réchauffe activement (air pulsé, perfusions chaudes) au stade II–III.",
+      "pourquoi": "On remonte la température sans collapsus."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "On organise l'aide à domicile chez l'âgé isolé.",
+      "pourquoi": "On évite la récidive."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "S Urgences vitales Triage 144 REGA",
+      "apport": "On transporte directement vers un centre d'ECLS."
+     },
+     {
+      "discipline": "N Médecine sociale Prévention OFSP",
+      "apport": "On repère la précarité et l'isolement."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "On ne déclare pas le décès sur place sans tenir compte du froid.",
+      "On évite les mouvements brusques."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "équipe de sauvetage",
+       "fait": "Elle isole du froid et évalue les signes vitaux une minute."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin REGA ou SMUR",
+       "fait": "Il classe le stade et choisit la destination."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "urgentiste",
+       "fait": "Il mesure la température œsophagienne et calcule le HOPE."
+      },
+      {
+       "temps": "puis",
+       "qui": "chirurgien cardiaque",
+       "fait": "Il installe l'ECLS si l'arrêt persiste."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le refroidissement pur peut laisser une bonne survie neurologique après ECLS ; l'asphyxie préalable l'assombrit.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Température centrale",
+      "quand": "en continu",
+      "cible": "Remontée progressive"
+     },
+     {
+      "quoi": "ECG et kaliémie",
+      "quand": "en continu puis régulièrement",
+      "cible": "Rythme stable, potassium normal"
+     }
+    ],
+    "sortie": "On autorise la sortie quand la température est normale, la cause traitée et le retour à domicile sûr."
+   },
+   "prevention": {
+    "primaire": "On équipe et on informe randonneurs et alpinistes.",
+    "secondaire": "On repère tôt les personnes âgées isolées en hiver.",
+    "tertiaire": "On traite les séquelles et on évite la récidive."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "_mode": "agent_sans_api",
+  "note": "Produit directement par l'agent Claude, sans appel à l'API Anthropic."
+ },
+ "signature": {
+  "date": "2026-11-24T13:26:40",
+  "modele": "claude-opus-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}
