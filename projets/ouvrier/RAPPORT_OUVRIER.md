@@ -1,8 +1,9 @@
-# Ouvrier automatique — 2026-11-24 04:24 UTC
+# Ouvrier automatique — 2026-11-24 04:38 UTC
 
-Dernier passage : **END_Q_recup** → fait (0.00 USD).
+Dernier passage : **END_C_lot** → fait (0.00 USD).
 
-msgbatch_01KSqFpgnjPwdo5mVtSLw8Jd : 314 écrites, 0 échecs.
+correction : 314 entité(s) à produire.
+lot msgbatch_015dk6S4Hcx1ECMWKKShN7qH
 
 
 **Crédit** : 50.62 USD dépensés, 141.38 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.00 / 141.38 USD.
@@ -37,7 +38,7 @@ msgbatch_01KSqFpgnjPwdo5mVtSLw8Jd : 314 écrites, 0 échecs.
 | END_N_recup | fait | 5 | 0.0 |
 | END_Q_lot | fait | 1 | 0.0 |
 | END_Q_recup | fait | 1 | 0.0 |
-| END_C_lot | a_faire | 0 |  |
+| END_C_lot | fait | 1 | 0.0 |
 | END_C_recup | a_faire | 0 |  |
 | T3_pec_fiches_existantes | a_faire | 0 |  |
 | T4_reprise_rejets | a_faire | 0 |  |
