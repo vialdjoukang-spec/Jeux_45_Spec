@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-24 07:38 UTC
+# Ouvrier automatique — 2026-11-24 08:44 UTC
 
-Dernier passage : **T3_pec_fiches_existantes** → en_cours (0.20 USD).
+Dernier passage : **T3_pec_fiches_existantes** → en_cours (0.14 USD).
 
-Le mode pec existe et a été corrigé (consigne de forme, réparation des champs rendus en texte). Le premier lot a donné 91 insertions sur 154 ; 2 fiches de test en direct passent, et 567 fiches sur 779 portent maintenant priseEnCharge. Un second lot de 61 fiches est soumis (msgbatch_016ZJgjrZR6pjXCEpVQDYBpL) à récupérer au prochain passage avec pec_recuperer ; les 151 fiches rejetées pour erreurs de forme restent à T4, et audit.rejector vaut null pour la réaudition.
+Le mode pec existait déjà et a été testé en direct ; le lot de 61 fiches a été récupéré, avec 52 priseEnCharge insérées et audit.rejector remis à null. Les 9 échecs ont été resoumis dans le lot msgbatch_01YWN6ZofP55QtkVqB39mzh1, à récupérer au prochain passage. Il reste 151 fiches rejetées avec erreurs de forme, qui relèvent de T4 ; 619 fiches sur 779 ont maintenant priseEnCharge.
 
-**Crédit** : 51.14 USD dépensés, 140.86 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.52 / 141.38 USD.
+**Crédit** : 51.28 USD dépensés, 140.72 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.66 / 141.38 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -38,7 +38,7 @@ Le mode pec existe et a été corrigé (consigne de forme, réparation des champ
 | END_Q_recup | fait | 1 | 0.0 |
 | END_C_lot | fait | 1 | 0.0 |
 | END_C_recup | fait | 1 | 0.0 |
-| T3_pec_fiches_existantes | en_cours | 2 | 0.199 |
+| T3_pec_fiches_existantes | en_cours | 3 | 0.138 |
 | T4_reprise_rejets | a_faire | 0 |  |
 | T5_items_valides | sans_objet | 0 |  |
 | T7_transversal_lecons | sans_objet | 0 |  |
