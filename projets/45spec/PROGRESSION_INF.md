@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API (format exact de `scripts/produire_notions_questions.py`), branche `agent/45spec-INF`.
 
-**30 / 61 pathologies canoniques produites** (notions + questions + correction), ordre de rendement à l'examen (`content/pathologies/RANG_RENDEMENT.json` : groupe A, puis B, C, D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée).
+**33 / 61 pathologies canoniques produites** (notions + questions + correction), ordre de rendement à l'examen (`content/pathologies/RANG_RENDEMENT.json` : groupe A, puis B, C, D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée).
 
 Fusions : 15 groupes dans `content/pathologies/fusions_INF.json` ; doublons déjà produits archivés dans `projets/45spec/archives_fusion/INF`.
 
@@ -33,9 +33,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Les chiffres incertains p
 | 21 | B | 855 | `B80__F2_8-E12` | Oxyurose (entérobiase à Enterobius vermicularis) | produite |
 | 22 | B | 930 | `A03.9_enterocolite_bacteri__F2_8-E16` | Entérocolite bactérienne invasive sévère (Salmonella, Shigella, STEC) | produite |
 | 23 | B | 934 | `A36.0__S1_19-E15` | Diphtérie pharyngée (angine pseudomembraneuse toxique) | produite |
-| 24 | B | 935 | `A40.3__O7_6-E12` | Sepsis fulminant chez le patient asplénique (OPSI) | — |
-| 25 | B | 936 | `A41.0__O1_6-E15` | Sepsis maternel sur mastite ou endométrite associée | — |
-| 26 | B | 938 | `A41.8_sepsis_et_choc_septi__G4-E20` | Sepsis et choc septique de l'adulte | — |
+| 24 | B | 935 | `A40.3__O7_6-E12` | Sepsis fulminant chez le patient asplénique (OPSI) | produite |
+| 25 | B | 936 | `A41.0__O1_6-E15` | Sepsis maternel sur mastite ou endométrite associée | produite |
+| 26 | B | 938 | `A41.8_sepsis_et_choc_septi__G4-E20` | Sepsis et choc septique de l'adulte | produite |
 | 27 | B | 940 | `A41.9__O7_16-E14` | Infection active non contrôlée avant pose de prothèse ou implant | — |
 | 28 | B | 943 | `A52.1_neurosyphilis_y_comp__F1_12-E09` | Neurosyphilis (y compris syphilis oculaire et otique) | — |
 | 29 | B | 950 | `B00.0__S6_7-E15` | Eczéma herpéticum (syndrome de Kaposi-Juliusberg) | — |
