@@ -258,5 +258,48 @@ Vérifications sans correction, utiles à noter : l'andexanet alfa (Ondexxya®) 
 ### L4.4 Branche 3D (contrôle sans médecine)
 
 Les 30 organes ajoutés par `agent/tetrade-3d` portent des noms fidèles à leurs identifiants FMA (vérifiés dans `parts_list_e.txt` de BodyParts3D : poumon → artère et veines pulmonaires, lobes cérébraux, amygdale, hippocampe, noyaux gris, thymus, rate, sternum, os coxal, globe oculaire, voies optiques, os et muscles). Aucun organe n'inclut de maillage génital (testicules exclus ; le pénis n'a pas de maillage) ; la boîte de rognage de la peau (x ±58, y −230 à −60, z 630 à 790 mm) couvre toute la saillie génitale (testicules à z 690–719, saillie maximale y −206), et le rendu de contrôle ne montre aucun reste. Seule remarque de forme : l'identifiant `org_infect_organes_lymphoides_moelle_thym` évoque la moelle, mais le maillage ne contient que le thymus et la rate, comme sa note le dit. Branche jugée prête, sans modification.
+## Lot 4 (Psyché) — 2026-11-24
+
+Claude a relu, avec la méthode des lots 1 à 3, les 33 pathologies du système Psyché (7 organes), leur sémiologie, leur contenu et leur glossaire. Chaque dose, seuil, critère et référence datée a été confronté aux sources suisses d'abord (Swissmedic, OFSP, Tox Info Suisse, SGAD, SSAM), puis européennes et PubMed. Aucune référence n'était inventée ; trois étaient dépassées ou introuvables.
+
+### L4.1 Bilan
+
+| Système | Vérifiées | Corrigées | Doutes résolus | Doutes restants |
+|---|---|---|---|---|
+| Psyché (33 pathologies, 7 organes, sémiologie, glossaire) | 33 | 9 pathologies + glossaire (AMCS, CIM-11, HUG, SGAD, SGBP, TAO ajoutés) | 5 sur 9 (3 autres réduits à un seul point) | 4 |
+
+Paliers : les 33 restent tels quels (9 TF, 10 F, 7 U, 7 R). Deux paliers TF se lisent comme relatifs à leur organe et non à la population générale : la psychose induite par le cannabis et l'hyperphagie boulimique ; Claude les garde, faute d'un meilleur candidat TF dans ces organes, et les signale.
+
+### L4.2 Erreurs de fond corrigées
+
+| Pathologie | Erreur | Correction | Source |
+|---|---|---|---|
+| TDAH de l'adulte | « symptômes avant 12 ans » attribué au code CIM-10 F90.0 | La CIM-10 exige un début avant 7 ans ; la CIM-11 et le DSM-5 admettent 12 ans | OMS, CIM-10 (critères de recherche F90) ; CIM-11 6A05 |
+| Syndrome anticholinergique | Physostigmine sans dose ni statut | Anticholium® non autorisé en Suisse, stocké par les centres régionaux ; 0,5–1 mg IV lente, répétable toutes les 15 min, jusqu'à 2 mg | Liste des antidotes 2022/2023 (Bulletin OFSP 45/22) |
+| Épisode dépressif | Recommandation suisse 2016 présentée comme en vigueur | Mise à jour SGAD/SGBP/SSPP 2024 | Ars Medici 17/2024 ; Brühl et Kawohl, Ther Umsch 2026;83:14 (PubMed 41878757) |
+| Anorexie mentale | « le taux de mortalité le plus élevé » | « l'un des taux les plus élevés » (les troubles liés aux opioïdes rivalisent) | avis d'expert, formulation prudente |
+| Narcolepsie de type 1 | Modafinil « 100–200 mg » | 200 mg le matin (100 mg chez le sujet âgé), au plus 400 mg/j | information du produit ; à vérifier dans l'AIPS |
+| Dépendance au tabac | Champix® présenté comme disponible | Autorisation suisse radiée le 07.06.2024 | Swissmedic, fiche Champix® |
+| Trouble de l'usage de l'alcool | Recommandation SSAM citée sans titre (introuvable) | Remplacée par une source suisse lue : stratégie alcool HUG 2021 | HUG, SMPR 2021 |
+| Trouble de l'usage des opioïdes | Recommandations OFSP/SSAM sans titre ni année | « Recommandations médicales relatives au TAO du syndrome de dépendance aux opioïdes », SSAM 2020 | fr.ch (document cantonal) |
+| Trouble de symptôme somatique | « avis d'expert » seul | Recommandation S3 germanophone (avec Bâle) | Roenneberg, Dtsch Arztebl Int 2019 (PubMed 31554544) |
+
+### L4.3 Les 9 doutes `aVerifier`
+
+| # | Pathologie | Résultat | Source |
+|---|---|---|---|
+| 1 | Syndrome anticholinergique | Résolu : dose et statut de la physostigmine | Liste des antidotes OFSP 2022/2023 |
+| 2 | Jambes sans repos | Résolu : J Clin Sleep Med 2025;21:137-152 (en ligne en 2024) | PubMed 39324694 |
+| 3 | Trouble de symptôme somatique | Résolu : S3 2019 | PubMed 31554544 |
+| 4 | Alcool | Résolu par remplacement de la source | HUG 2021 |
+| 5 | Opioïdes | Résolu : SSAM 2020 | fr.ch |
+| 6 | TDAH | Réduit : conditions Swissmedic lues ; **reste** le remboursement (LS) | Swissmedic 2012 |
+| 7 | Dépression | Réduit : mise à jour 2024 confirmée ; **reste** la lecture du texte intégral | Ars Medici 2024 ; PubMed 41878757 |
+| 8 | Tabac | Réduit : Champix® radié ; **reste** l'existence d'un générique suisse | Swissmedic |
+| 9 | Hyperphagie boulimique | **Reste** : indication suisse de la lisdexamfétamine introuvable (compendium.ch muet) | — |
+
+### L4.4 Chaîne relancée
+
+`construire_config_tetrade.py` (3762 nœuds), `construire_plans.py`, `generer_json.py`, `rendre_plans.py` (31/31), `audit_fond.py` (0 correction), `auditer_conception.py` **34/34** (après ajout de 6 sigles), `auditer_couverture.py` **RÉUSSI**, `non_perte.py` **OK** (après restauration connue des deux `2_cou/ganglions_cervicaux.json`), `verifier_interpretations.py` **177/177, 0 défaut**, `test_aligner_aVerifier.py` **OK**. Les 4 `aVerifier` restants figurent seuls dans les JSON d'organes.
 
 Signature : AAI (Anthropic AI)

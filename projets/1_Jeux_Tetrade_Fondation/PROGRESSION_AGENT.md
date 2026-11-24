@@ -269,3 +269,20 @@ Occultation : nouveau champ `rogner` (boîte pelvienne du skill 3d-images-upload
 Non produits faute de maillage dans BodyParts3D (pas de devis inventé) : péricarde, conduction, artères des membres, microcirculation, plèvre, pharynx, larynx, thyroïde, parathyroïdes, glandes salivaires, ganglions, nerfs et plexus, oreille, sein, utérus, ovaires, trompes, placenta, organes cellulaires (sang, immunité) et pédiatriques. Piste : Z-Anatomy ou TotalSegmentator (thyroïde, larynx, utérus) via GitHub Actions.
 
 Les `.glb` restent hors Git (`.gitignore`) ; `index.json` est versionné et le script les régénère à l'identique (46 anciens inchangés). Chaîne complète réussie. Jauge Tétrade sur la branche : 51 → 55 %.
+## 13. Système Psyché : jouable (branche `agent/tetrade-sys-psyche`, 2026-11-24)
+
+| Élément | Valeur |
+|---|---|
+| Organes rédigés | 7 (fonctions cognitives, perception et pensée, affects et humeur, pulsions-motivation-comportement, conscience de soi et personnalité, sommeil et vigilance, récompense et addictions) |
+| Volets propres | 15 ; mots-clés 60 (l'« anatomie » décrit les circuits qui portent la fonction, sans en faire la cause unique) |
+| Sémiologie | 6 temps (ordre AMDP : interrogatoire → examen somatique et toxique), 14 temps par organe, 39 signes ; cataplexie = signe unique assumé |
+| Pathologies | 33 : 9 TF, 10 F, 7 U, 7 R, code CIM-10 dans « retenir » |
+| Glossaire | 31 sigles |
+| Identifiants | les 7 `org_psyche_*` sont **conservés** par `ids` dans `systemes_rediges.py` (préfixe `ps_` pour le reste) : aucune migration, et les clés 3D de la branche `agent/tetrade-3d` restent valides |
+
+Renvois sans doublon : Alzheimer, trouble cognitif léger, encéphalite limbique, syndromes malin et sérotoninergique → Neurologique ; apnées → Respiratoire ; retard de phase → Endocrinien ; renutrition inappropriée → Endocrinien ; dépression respiratoire aux opioïdes → Respiratoire. Contexte suisse : PAFA (Code civil, art. 426), directives ASSM sur la contrainte, La Main Tendue (143), Tox Info Suisse (145), SSAM, OFSP.
+
+Contrôles : chaîne complète réussie (conception 34/34, couverture, non-perte 0, interprétations 177/177, plans 31/31). Aucune fenêtre de courbe nouvelle (la jauge des interprétations dépasse déjà sa cible).
+
+### Points `aVerifier` (Psyché, 9)
+TDAH (conditions suisses des psychostimulants) ; physostigmine (disponibilité, dose) ; mise à jour SSPP dépression après 2016 ; lisdexamfétamine dans l'hyperphagie (AIPS) ; trouble de symptôme somatique (recommandation dédiée) ; jambes sans repos (année AASM 2024 ou 2025) ; SSAM alcool (titre, année) ; tabac (recommandation suisse, disponibilité de la varénicline) ; OFSP/SSAM agonistes opioïdes (version). Sources sans recommandation dédiée signalées « avis d'expert » : pseudo-démence, Charles Bonnet, trouble factice, syndrome anticholinergique.
