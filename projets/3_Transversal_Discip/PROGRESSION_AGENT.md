@@ -92,3 +92,5 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 ## Arrêt et reprise
 
 Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Troisième agent (reprise du 24.11.2026) : I-S3 à I-S4, puis J à P et R (102 leçons) ; production des 228 leçons achevée, toutes à auditer par Claude (hors lettres déjà marquées AUDITÉ). Lettres restantes : aucune.
+
+Audit : lots 1 à 4 terminés le 24.11.2026 ; les 228 leçons sont AUDITÉ (sauf S-S4-01, corrigée sur main).
