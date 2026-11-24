@@ -1,6 +1,6 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 152. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 9/152.
+Pathologies canoniques PSY (canoniques() avec fusions) : 152. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 12/152.
 
 | # | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|
@@ -13,9 +13,9 @@ Pathologies canoniques PSY (canoniques() avec fusions) : 152. Ordre : importance
 | 7 | F23.9__O2_2-E14 | Épisode psychotique aigu (bouffée délirante / premier épisode psychoti | 29 | 18 | oui |
 | 8 | F30.1_1__O6_8-E14 | État maniaque aigu avec agitation et mise en danger | 29 | 18 | oui |
 | 9 | F10.2__S9_13-E02 | Trouble de l'usage de l'alcool (consommation à risque / alcoolodépenda | 29 | 18 | oui |
-| 10 | F03__S9_3-E02 | Trouble neurocognitif majeur (maladie d'Alzheimer / démence fronto-tem | — | — | — |
-| 11 | F53.1__O1_2-E15 | Psychose du post-partum (psychose puerpérale) | — | — | — |
-| 12 | F42.2__S9_10-E01 | Trouble obsessionnel-compulsif (TOC) — forme vérification / symétrie / | — | — | — |
+| 10 | F03__S9_3-E02 | Trouble neurocognitif majeur (maladie d'Alzheimer / démence fronto-tem | 29 | 18 | oui |
+| 11 | F53.1__O1_2-E15 | Psychose du post-partum (psychose puerpérale) | 28 | 18 | oui |
+| 12 | F42.2__S9_10-E01 | Trouble obsessionnel-compulsif (TOC) — forme vérification / symétrie / | 29 | 18 | oui |
 | 13 | F43.2__O5_5-E01 | Trouble de l'adaptation (après événement stressant de vie) | — | — | — |
 | 14 | F32.3__S9_5-E12 | Épisode dépressif avec caractéristiques psychotiques (dépression mélan | — | — | — |
 | 15 | F60.3__O6_8-E07 | Trouble de la personnalité limite (borderline) en crise identitaire ou | — | — | — |
