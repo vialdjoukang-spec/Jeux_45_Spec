@@ -1,7 +1,8 @@
-# Ouvrier automatique — 2026-11-24 02:34 UTC
+# Ouvrier automatique — 2026-11-24 04:24 UTC
 
-Dernier passage : **END_N_recup** → en_cours (0.00 USD).
+Dernier passage : **END_Q_recup** → fait (0.00 USD).
 
+msgbatch_01KSqFpgnjPwdo5mVtSLw8Jd : 314 écrites, 0 échecs.
 
 
 **Crédit** : 50.62 USD dépensés, 141.38 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.00 / 141.38 USD.
@@ -33,9 +34,9 @@ Dernier passage : **END_N_recup** → en_cours (0.00 USD).
 | END_C_pilote | fait | 1 | 0.276 |
 | V1_fusions | fait | 1 | 0.223 |
 | END_N_lot | fait | 1 | 0.0 |
-| END_N_recup | en_cours | 4 | 0.0 |
-| END_Q_lot | a_faire | 0 |  |
-| END_Q_recup | a_faire | 0 |  |
+| END_N_recup | fait | 5 | 0.0 |
+| END_Q_lot | fait | 1 | 0.0 |
+| END_Q_recup | fait | 1 | 0.0 |
 | END_C_lot | a_faire | 0 |  |
 | END_C_recup | a_faire | 0 |  |
 | T3_pec_fiches_existantes | a_faire | 0 |  |
