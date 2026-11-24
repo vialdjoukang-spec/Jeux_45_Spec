@@ -251,3 +251,8 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Bug corrigé : file.py cherchait le suivi dans scripts/scripts/ → END_N_recup bloqué.
 - Jauge 45 Spec : compte désormais content/questions (cible 2 675).
 - Agents de l'abonnement arrêtés par Vial vers 04:50 : ne pas relancer sans son accord.
+
+## T3 : priseEnCharge des fiches existantes (24.11, ouvrier)
+- Mode « pec » de `scripts/produire_fiches_claude.py` : `pec_pilote`, `pec_soumettre`, `pec_recuperer`, `pec_bilan` ; il demande seulement le bloc priseEnCharge (schéma commun), le répare en forme (moyens rendu en texte), l'insère sans toucher au reste et remet `audit.rejector` à null.
+- Test direct sur 2 fiches (CAR) réussi ; lot de 154 fiches soumis (msgbatch_014L4teTsJAY3oBSZvVHdT16, suivi dans `batchs_fiches.json`, mode pec). Récupération : `pec_recuperer` au passage suivant.
+- 151 fiches rejetées avec erreurs de forme restent exclues : T4 les reprend en entier avec priseEnCharge (`--inclure-rejets` les ajouterait).
