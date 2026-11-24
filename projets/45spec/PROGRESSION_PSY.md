@@ -1,20 +1,20 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « rang » de content/pathologies/RANG_RENDEMENT.json (groupes de rendement A → B → C → D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée). Produites : 40/126.
+Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « rang » de content/pathologies/RANG_RENDEMENT.json (groupes de rendement A → B → C → D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée). Produites : 43/126.
 
 | # | Rang | Groupe | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|---|---|
 | 1 | 4 | A | F41.0_trouble_panique_atta__O5_1-E14 | Trouble panique (attaques de panique récurrentes) | 29 | 18 | oui |
 | 2 | 5 | A | F50.0__F1_8-E03 | Anorexie mentale (trouble des conduites alimentaires) | 30 | 18 | oui |
-| 3 | 21 | A | F32.2_episode_depressif_ma__F1_8-E06 | Épisode dépressif majeur sévère (anorexie, amaigrissement, risque suic | — | — | — |
-| 4 | 39 | A | F32.1_1__O5_5-E05 | Dépression masquée (présentation somatique d'un épisode dépressif) | — | — | — |
+| 3 | 21 | A | F32.2_episode_depressif_ma__F1_8-E06 | Épisode dépressif majeur sévère (anorexie, amaigrissement, risque suic | 29 | 20 | oui |
+| 4 | 39 | A | F32.1_1__O5_5-E05 | Dépression masquée (présentation somatique d'un épisode dépressif) | 29 | 20 | oui |
 | 5 | 40 | A | F43.2__O5_5-E01 | Trouble de l'adaptation (après événement stressant de vie) | 29 | 18 | oui |
 | 6 | 60 | A | F32.1_episode_depressif_ca__G4-E01 | Épisode dépressif caractérisé (léger à modéré) | 31 | 18 | oui |
 | 7 | 85 | A | F10.4__F1_15-E09 | Delirium tremens (sevrage alcoolique sévère) | 30 | 18 | oui |
 | 8 | 111 | A | F01.9__F1_9-E02 | Démence vasculaire | 29 | 20 | oui |
 | 9 | 112 | A | F32.9__G11-E05 | Insomnie secondaire à un trouble dépressif ou anxieux | 29 | 20 | oui |
 | 10 | 113 | A | F41.1__G1-E03 | Trouble anxieux généralisé (TAG) | 29 | 18 | oui |
-| 11 | 121 | A | F43.0_reaction_aigue_au_st__O6_4-E13 | Réaction aiguë au stress et trouble de stress aigu | — | — | — |
+| 11 | 121 | A | F43.0_reaction_aigue_au_st__O6_4-E13 | Réaction aiguë au stress et trouble de stress aigu | 29 | 20 | oui |
 | 12 | 143 | A | F45.2__O7_18-E09 | Anxiété liée à la maladie (hypocondrie / trouble de préoccupation soma | 29 | 20 | oui |
 | 13 | 144 | A | F50.2__O2_6-E05 | Boulimie nerveuse (bulimia nervosa) | 29 | 20 | oui |
 | 14 | 145 | A | F51.0__G11-E01 | Insomnie chronique primaire | 30 | 20 | oui |
@@ -161,6 +161,9 @@ Outil : `python projets/45spec/psy/lib.py <id>` (valider() du script + contrôle
 - Phobie spécifique (F40.2) : absence de médicament recommandé et effet des benzodiazépines sur l'exposition = avis d'expert ; CIM-10 sans durée minimale, CIM-11 « plusieurs mois » (findacode, reprise du texte OMS).
 - Dysfonction érectile psychogène (F52.2) : EAU (chapitre 5) consulté en ligne sans numéro de version affiché ; remboursement des inhibiteurs de la PDE5 par l'assurance de base à vérifier sur la Liste des spécialités ; effets sexuels des antidépresseurs et focalisation sensorielle = avis d'expert.
 - Personnalité anankastique (F60.5) : nombre de traits exigé par les critères de recherche CIM-10 discordant (au moins trois selon Fineberg 2014, souvent lu « au moins quatre ») : à vérifier dans les DCR-10 ; aucune question ne porte sur ce nombre.
+- Dépression sévère amaigrissante (F32.2) : bilan initial (TSH, ions, B12, ECG), dénutrition et mécanisme CRH = avis d'expert ; recommandation suisse SSAD/SGPP 2016 lue en ligne (numérotation des références décalée dans le PDF, signalée par la source) ; disponibilité suisse de l'eskétamine non vérifiée (non citée).
+- Dépression à présentation somatique (F32.1) : « dépression masquée » = terme clinique hors CIM ; indication suisse de la duloxétine dans la douleur à vérifier dans l'AIPS ; bilan somatique ciblé = avis d'expert.
+- Réaction aiguë au stress (F43.0) : délais horaires des critères de recherche CIM-10 non relus (site OMS CIM-10 inaccessible) ; formulation « minutes ou heures / quelques heures à quelques jours » à vérifier ; critères DSM-5-TR (9/14, 3 jours–1 mois) cités sans relecture du manuel ; NICE NG116 (1.6.4, 1.6.5, 1.6.15, 1.6.24) et CIM-11 QE84 vérifiés en ligne.
 - Toutes les posologies portent « à vérifier dans l'AIPS ».
 - Les champs `usage` indiquent `_mode: agent, api: false` (production sans API).
 
