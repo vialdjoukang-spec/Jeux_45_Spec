@@ -455,12 +455,12 @@
    "modele": "claude-sonnet-5-5",
    "budget_usd": 8,
    "etat": "en_cours",
-   "essais": 5,
+   "essais": 6,
    "prompt": "Lis d'abord projets/ouvrier/MISSION_45SPEC.md et applique ses règles constantes. Exécute T3 : ajoute un mode « pec » à scripts/produire_fiches_claude.py qui, en lot, demande seulement le bloc priseEnCharge (schéma conception/donnees/schemas/prise_en_charge.json) pour chaque fiche qui ne l'a pas, et l'insère sans toucher au reste ; teste-le sur 2 fiches en direct, puis soumets le lot ; à la récupération (passage suivant), mets audit.rejector à null pour que Claude réaudite. Mets « fait » quand toutes les fiches ont priseEnCharge.",
    "dernier": {
-    "date": "2026-11-24T10:38:01+00:00",
-    "cout_usd": 0.091,
-    "resume": "Le mode pec existe dans scripts/produire_fiches_claude.py, il a été testé en direct puis le lot de 154 fiches a été récupéré, et chaque insertion remet audit.rejector à null pour la réaudit par Claude. Le bilan donne 628 fiches sur 779 avec priseEnCharge ; les 151 manquantes sont toutes des fiches rejetées pour erreur de forme ou troncature, que T4 réécrit en entier, donc ajouter un bloc pec dessus serait du gaspillage. T3 passera à « fait » quand T4 aura régénéré ces 151 fiches (le prompt de T4 doit inclure priseEnCharge) ; aucun appel API n'a été fait pendant ce passage, la clé étant présente mais le module anthropic absent de l'environnement."
+    "date": "2026-11-24T11:36:39+00:00",
+    "cout_usd": 0.088,
+    "resume": "Le mode pec existe dans scripts/produire_fiches_claude.py ; le lot de 154 fiches a déjà été récupéré, et 628 des 779 fiches portent maintenant priseEnCharge (audit.rejector remis à null pour la réaudit). Les 151 fiches restantes sont rejetées pour erreur de forme : le mode pec les exclut volontairement, et T4 les reprend en entier avec un nouveau schéma qui inclut la prise en charge. Je n'ai relancé aucun appel ce passage (module anthropic absent de cet environnement, et rien d'autre à soumettre) ; T3 se clôt quand T4 aura régénéré ces 151 fiches."
    }
   },
   {
@@ -504,18 +504,18 @@
   },
   {
    "id": "V2_N_lot",
-   "titre": "Vague 2 (NEU,PSY,MIG,INF) : notions, dans la limite du crédit",
-   "commande": "python scripts/produire_notions_questions.py notions soumettre --spec MIG,HEM,RHU,URO,GYN --max 60",
+   "titre": "Groupe A (rendement) (NEU,PSY,MIG,INF) : notions, dans la limite du crédit",
+   "commande": "python scripts/produire_notions_questions.py notions soumettre --groupe A --max 400",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 5,
    "etat": "bloque",
    "essais": 0,
    "fin": "une_fois",
-   "note": "En pause (24.11 07:30) : les lots batch ne sont pas comptés dans depense.json ; coût réel vague 1 ≈ 105 USD. Attendre l'accord de Vial sur le crédit."
+   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
   },
   {
    "id": "V2_N_recup",
-   "titre": "Vague 2 : récupération des notions",
+   "titre": "Groupe A (rendement) : récupération des notions",
    "commande": "python scripts/produire_notions_questions.py notions recuperer",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
@@ -523,22 +523,22 @@
    "essais": 0,
    "fin": "lots_recuperes",
    "suivi": "scripts/batchs_notions_questions.json",
-   "note": "En pause (24.11 07:30) : les lots batch ne sont pas comptés dans depense.json ; coût réel vague 1 ≈ 105 USD. Attendre l'accord de Vial sur le crédit."
+   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
   },
   {
    "id": "V2_Q_lot",
-   "titre": "Vague 2 : questions",
-   "commande": "python scripts/produire_notions_questions.py questions soumettre --spec MIG,HEM,RHU,URO,GYN --max 60",
+   "titre": "Groupe A (rendement) : questions",
+   "commande": "python scripts/produire_notions_questions.py questions soumettre --groupe A --max 400",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 13,
    "etat": "bloque",
    "essais": 0,
    "fin": "une_fois",
-   "note": "En pause (24.11 07:30) : les lots batch ne sont pas comptés dans depense.json ; coût réel vague 1 ≈ 105 USD. Attendre l'accord de Vial sur le crédit."
+   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
   },
   {
    "id": "V2_Q_recup",
-   "titre": "Vague 2 : récupération des questions",
+   "titre": "Groupe A (rendement) : récupération des questions",
    "commande": "python scripts/produire_notions_questions.py questions recuperer",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
@@ -546,22 +546,22 @@
    "essais": 0,
    "fin": "lots_recuperes",
    "suivi": "scripts/batchs_notions_questions.json",
-   "note": "En pause (24.11 07:30) : les lots batch ne sont pas comptés dans depense.json ; coût réel vague 1 ≈ 105 USD. Attendre l'accord de Vial sur le crédit."
+   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
   },
   {
    "id": "V2_C_lot",
-   "titre": "Vague 2 : corrections",
-   "commande": "python scripts/produire_notions_questions.py correction soumettre --spec MIG,HEM,RHU,URO,GYN --max 60",
+   "titre": "Groupe A (rendement) : corrections",
+   "commande": "python scripts/produire_notions_questions.py correction soumettre --groupe A --max 400",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 6,
    "etat": "bloque",
    "essais": 0,
    "fin": "une_fois",
-   "note": "En pause (24.11 07:30) : les lots batch ne sont pas comptés dans depense.json ; coût réel vague 1 ≈ 105 USD. Attendre l'accord de Vial sur le crédit."
+   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
   },
   {
    "id": "V2_C_recup",
-   "titre": "Vague 2 : récupération, couverture et arène",
+   "titre": "Groupe A (rendement) : récupération, couverture et arène",
    "commande": "python scripts/produire_notions_questions.py correction recuperer && python scripts/couverture_notions.py && python conception/outils/arene45/construire_arene45.py",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
@@ -569,7 +569,7 @@
    "essais": 0,
    "fin": "lots_recuperes",
    "suivi": "scripts/batchs_notions_questions.json",
-   "note": "En pause (24.11 07:30) : les lots batch ne sont pas comptés dans depense.json ; coût réel vague 1 ≈ 105 USD. Attendre l'accord de Vial sur le crédit."
+   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
   }
  ],
  "_note": "L'état vivant de la file se trouve sur la branche veille/audit-medical ; cette copie de main sert de déclencheur.",

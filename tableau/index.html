@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jeux 45 Spec : progression en direct</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,750&display=swap" rel="stylesheet">
+<style>
+/* Plan : ciel clair, papier blanc, encre marine ; Atkinson Hyperlegible pour tout le contenu, Bricolage Grotesque pour les titres.
+   Élément fort : la barre de chaque jeu, faite des contributions de ses critères pondérés. Le reste reste sobre.
+   Couleurs des 4 jeux : ordre catégoriel validé (validate_palette.js : CVD ΔE ≥ 9,2) ; grille : rampe bleue séquentielle. */
+:root{
+  --ciel:#e8f3fb; --papier:#ffffff; --encre:#10314a; --ardoise:#4f687c; --brume:#7d93a5; --filet:#cfe0ec; --voile:#f3f8fc;
+  --j1:#2a78d6; --j2:#eb6834; --j3:#1baf7a; --j4:#eda100;
+  --bon:#006300; --alerte:#9a5b00; --grave:#b42f2f; --accent:#1c5cab;
+  --titre:"Bricolage Grotesque",system-ui,sans-serif; --texte:"Atkinson Hyperlegible",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--ciel);color:var(--encre);font:15px/1.55 var(--texte)}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+.cadre{display:grid;grid-template-columns:220px minmax(0,960px);gap:36px;max-width:1260px;margin:0 auto;padding:28px 24px 80px}
+nav.sommaire{position:sticky;top:24px;align-self:start;font-size:14px}
+nav.sommaire h2{font:600 15px var(--titre);margin:0 0 10px;color:var(--ardoise)}
+nav.sommaire ol{list-style:none;margin:0;padding:0;counter-reset:s}
+nav.sommaire li{counter-increment:s;margin:0 0 4px}
+nav.sommaire a{display:flex;gap:10px;padding:6px 10px;border-radius:8px;color:var(--encre);text-decoration:none}
+nav.sommaire a::before{content:counter(s);color:var(--brume);font-variant-numeric:tabular-nums;width:1.2em}
+nav.sommaire a:hover,nav.sommaire a.actif{background:var(--papier)}
+nav.sommaire .fraicheur{margin-top:18px;padding:10px;border-radius:10px;background:var(--papier);color:var(--ardoise);font-size:13px}
+main section{margin:0 0 44px}
+h1{font:750 30px/1.15 var(--titre);margin:0 0 6px;letter-spacing:-.01em}
+h2.t{font:600 21px/1.2 var(--titre);margin:0 0 4px}
+p.sous{margin:0 0 16px;color:var(--ardoise);max-width:72ch}
+.carte{background:var(--papier);border-radius:14px;padding:18px 20px;border:1px solid var(--filet)}
+.alerte{display:none;margin:12px 0 0;padding:10px 14px;border-radius:10px;background:#fdecec;color:var(--grave);border:1px solid #f1c4c4}
+.alerte.vue{display:block}
+.avert{padding:12px 14px;border-radius:10px;background:#fff6df;border:1px solid #f0d58a;color:#5c4100;margin:14px 0 0}
+/* Bandeau */
+.bandeau{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.verdict{font-size:18px;line-height:1.45;max-width:60ch;margin:10px 0 0}
+.global{text-align:right}
+.global .val{font:750 56px/1 var(--titre);font-variant-numeric:tabular-nums}
+.global .lib{color:var(--ardoise);font-size:13px}
+.meta{color:var(--ardoise);font-size:13px;margin-top:10px}
+/* Jeux */
+.jeux{display:grid;gap:14px}
+.jeu{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:20px}
+.jeu header{display:flex;align-items:baseline;gap:12px;margin-bottom:10px}
+.jeu header .pastille{width:12px;height:12px;border-radius:3px;flex:none;align-self:center}
+.jeu header h3{font:600 18px var(--titre);margin:0}
+.jeu header .pct{margin-left:auto;font:750 28px var(--titre);font-variant-numeric:tabular-nums}
+.rail{display:flex;gap:2px;height:16px;border-radius:5px;background:var(--voile);overflow:hidden}
+.rail span{height:100%}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{font-weight:700;text-align:left;color:var(--ardoise);font-size:13px;border-bottom:1px solid var(--filet);padding:6px 8px}
+td{padding:6px 8px;border-bottom:1px solid var(--voile);vertical-align:top}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.criteres{margin-top:10px}
+.mini{display:inline-block;width:70px;height:6px;border-radius:3px;background:var(--voile);vertical-align:middle;margin-right:6px;overflow:hidden}
+.mini i{display:block;height:100%;border-radius:3px}
+.indic{display:grid;gap:10px;align-content:start;font-size:14px}
+.indic div{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--voile);padding-bottom:6px}
+.indic b{font-variant-numeric:tabular-nums}
+.hausse{color:var(--bon)} .baisse{color:var(--grave)}
+.fragile{font-size:12px;color:var(--alerte)}
+[data-tip]{cursor:help}
+.tip-ico{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;background:var(--voile);color:var(--ardoise);font-size:11px;margin-left:4px;cursor:help;border:1px solid var(--filet)}
+/* Courbes */
+.courbe{position:relative}
+.courbe canvas{width:100%;height:260px;display:block}
+.legende{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--ardoise);margin:0 0 8px}
+.legende span{display:inline-flex;align-items:center;gap:6px}
+.legende i{width:14px;height:3px;border-radius:2px;display:inline-block}
+.multiples{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:14px}
+.multiples .carte{padding:12px 14px}
+.multiples h4{margin:0;font:600 14px var(--titre)}
+.multiples .v{font:750 22px var(--titre);font-variant-numeric:tabular-nums}
+.multiples canvas{width:100%;height:60px;display:block}
+/* Grille */
+.outils{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 12px;font-size:14px}
+.outils select,.outils button{font:inherit;padding:5px 10px;border-radius:8px;border:1px solid var(--filet);background:var(--papier);color:var(--encre)}
+.outils label{display:inline-flex;gap:6px;align-items:center}
+.grille-wrap{overflow-x:auto}
+table.grille td{padding:3px;border:none}
+table.grille th{border:none;padding:6px 4px}
+table.grille td.cel{min-width:62px;height:40px;border-radius:6px;text-align:center;font-variant-numeric:tabular-nums;font-size:13px;line-height:1.15;border:2px solid var(--papier)}
+table.grille td.cel small{display:block;font-size:11px;opacity:.9}
+table.grille td.nom{font-size:13px;padding-right:10px;max-width:250px;line-height:1.25}
+table.grille td.nom b{display:inline-block;width:2.8em;color:var(--ardoise)}
+table.grille tr.total td{font-weight:700;border-top:2px solid var(--filet)}
+.echelle{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ardoise);margin-top:10px}
+.echelle i{display:inline-block;width:26px;height:10px;border-radius:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.chip{padding:4px 10px;border-radius:999px;background:var(--voile);border:1px solid var(--filet);font-size:13px}
+.chip b{font-variant-numeric:tabular-nums}
+.tuiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.tuile .v{font:750 26px var(--titre);font-variant-numeric:tabular-nums}
+.tuile .l{color:var(--ardoise);font-size:13px}
+.bloc li{margin:0 0 8px}
+.qui{display:inline-block;min-width:90px;padding:2px 8px;border-radius:6px;background:var(--voile);border:1px solid var(--filet);font-size:12px;margin-right:8px;text-align:center}
+.journal td.type{white-space:nowrap}
+.type-fusion{color:var(--accent)} .type-audit{color:var(--bon)} .type-echec{color:var(--grave)}
+#tip{position:fixed;z-index:10;max-width:340px;padding:9px 12px;border-radius:9px;background:var(--encre);color:#fff;font-size:13px;line-height:1.45;pointer-events:none;opacity:0;transition:opacity .12s}
+#tip.vu{opacity:1}
+footer{color:var(--ardoise);font-size:13px}
+@media (max-width:900px){.cadre{grid-template-columns:1fr}nav.sommaire{position:static}.jeu{grid-template-columns:1fr}.bandeau{grid-template-columns:1fr}.global{text-align:left}}
+</style>
+</head>
+<body>
+<div class="cadre">
+<nav class="sommaire" aria-label="Sommaire">
+  <h2>Sommaire</h2>
+  <ol>
+    <li><a href="#bandeau">Verdict</a></li>
+    <li><a href="#jeux">Les 4 jeux</a></li>
+    <li><a href="#grille">Grille 45 Spec</a></li>
+    <li><a href="#travail">Travail en cours</a></li>
+    <li><a href="#couts">Coûts API</a></li>
+    <li><a href="#blocages">Blocages</a></li>
+    <li><a href="#journal">Journal</a></li>
+    <li><a href="#historique">Historique</a></li>
+  </ol>
+  <div class="fraicheur" id="fraicheur">La page charge les mesures…</div>
+</nav>
+<main>
+<section id="bandeau" class="carte">
+  <div class="bandeau">
+    <div>
+      <h1>Où en sont les 4 jeux ?</h1>
+      <p class="verdict" id="verdict">La page charge le verdict…</p>
+      <p class="meta" id="meta"></p>
+    </div>
+    <div class="global"><div class="val" id="global">–</div><div class="lib">jauge globale <span class="tip-ico" tabindex="0" data-tip="La jauge globale fait la moyenne simple des 4 jauges de jeu.">?</span></div></div>
+  </div>
+  <div class="alerte" id="alerte" role="alert"></div>
+</section>
+
+<section id="jeux">
+  <h2 class="t">Les 4 jeux</h2>
+  <p class="sous">Chaque barre additionne les contributions de ses critères pondérés ; survolez un segment ou un chiffre pour lire la règle de calcul.</p>
+  <div class="jeux" id="liste-jeux"></div>
+</section>
+
+<section id="grille">
+  <h2 class="t">Grille fine de 45 Spec</h2>
+  <p class="sous">Chaque case croise une spécialité et un groupe de rendement ; sa couleur montre la part produite, son texte donne produites sur cible, puis les auditées et celles qui attendent sur une branche.</p>
+  <div class="carte">
+    <div class="chips" id="grille-chips"></div>
+    <div class="outils">
+      <label>Trier par <select id="tri"><option value="code">code</option><option value="retard">cible restante</option><option value="produit">pathologies produites</option></select></label>
+      <label><input type="checkbox" id="vides"> Masquer les spécialités sans cible ni production</label>
+    </div>
+    <div class="grille-wrap"><table class="grille" id="table-grille"></table></div>
+    <div class="echelle" id="echelle"></div>
+  </div>
+</section>
+
+<section id="travail">
+  <h2 class="t">Travail en cours</h2>
+  <p class="sous">Les branches agent/* portent le travail non fusionné ; la file API montre l'état de chaque tâche de l'ouvrier.</p>
+  <div class="carte"><table id="table-branches"></table></div>
+  <div class="carte" style="margin-top:14px">
+    <div class="chips" id="file-chips"></div>
+    <table id="table-file"></table>
+  </div>
+</section>
+
+<section id="couts">
+  <h2 class="t">Coûts API</h2>
+  <p class="sous">Le compteur additionne projets/ouvrier/depense.json ; le plafond vient du budget de la file API.</p>
+  <div class="tuiles" id="tuiles-couts"></div>
+  <div class="avert" id="avert-couts" role="note"></div>
+  <div class="carte courbe" style="margin-top:14px"><div class="legende"><span><i style="background:var(--j1)"></i>Dépense comptée par jour (USD)</span></div><canvas id="c-couts" style="height:180px"></canvas></div>
+</section>
+
+<section id="blocages">
+  <h2 class="t">Blocages et décisions en attente</h2>
+  <p class="sous">La liste vient de la section dédiée de REPRISE.md et des tâches bloquées de la file API ; chaque ligne nomme qui peut débloquer.</p>
+  <div class="carte"><ul class="bloc" id="liste-blocages" style="padding-left:18px;margin:0"></ul></div>
+</section>
+
+<section id="journal">
+  <h2 class="t">Journal des 20 derniers événements</h2>
+  <p class="sous">Le journal réunit les fusions et les audits de main ainsi que les échecs de workflow lus par l'API GitHub.</p>
+  <div class="carte"><table class="journal" id="table-journal"></table></div>
+</section>
+
+<section id="historique">
+  <h2 class="t">Historique</h2>
+  <p class="sous">Les courbes suivent chaque jauge depuis la première mesure ; survolez-les pour lire la valeur à une date.</p>
+  <div class="carte courbe"><div class="legende" id="leg-hist"></div><canvas id="c-hist"></canvas></div>
+  <div class="multiples" id="multiples"></div>
+</section>
+<footer>Le robot GitHub Actions remesure le dépôt toutes les 10 minutes ; la page relit les données chaque minute. Signature : AAI (Anthropic AI)</footer>
+</main>
+</div>
+<div id="tip" role="tooltip"></div>
+<script>
+"use strict";
+const RAW = "https://raw.githubusercontent.com/vialdjoukang-spec/Jeux_45_Spec/main/tableau/donnees/";
+const SOURCES = location.hostname.endsWith("github.io") ? [RAW, "donnees/"] : ["donnees/", RAW];
+const COUL = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100"];
+const RAMPE = ["#f3f8fc", "#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95"];
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+const nf = new Intl.NumberFormat("fr-CH");
+const dfmt = d => new Date(d).toLocaleString("fr-CH", {day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit"});
+let D = {}, triGrille = "code";
+
+async function charger(nom, texte) {
+  for (const base of SOURCES) {
+    try {
+      const r = await fetch(base + nom + "?t=" + Date.now(), {cache: "no-store"});
+      if (r.ok) return texte ? r.text() : r.json();
+    } catch (e) { /* source suivante */ }
+  }
+  throw new Error("Le fichier " + nom + " reste introuvable.");
+}
+
+async function rafraichir() {
+  try {
+    const [etat, grille, travail, couts, blocages, journal, hist] = await Promise.all(
+      ["etat.json", "grille.json", "travail.json", "couts.json", "blocages.json", "journal.json"].map(n => charger(n)).concat([charger("historique.jsonl", true)]));
+    D = {etat, grille, travail, couts, blocages, journal, hist: hist.split("\n").filter(Boolean).map(l => JSON.parse(l))};
+    rendre();
+  } catch (e) {
+    $("#alerte").textContent = "La page n'a pas pu lire les mesures : " + e.message + " Elle réessaie dans une minute.";
+    $("#alerte").classList.add("vue");
+  }
+}
+
+function rendre() {
+  const e = D.etat, age = (Date.now() - new Date(e.maj)) / 60000;
+  $("#verdict").textContent = e.verdict;
+  $("#global").textContent = e.global_pct + " %";
+  $("#meta").textContent = "Le robot a mesuré le dépôt le " + dfmt(e.maj) + " ; les jauges datent du " + (e.jauges_maj || "?") + ".";
+  $("#fraicheur").textContent = "Dernière mesure il y a " + Math.max(0, Math.round(age)) + " min.";
+  const al = $("#alerte");
+  if (age > 60) { al.textContent = "La dernière mesure date de plus d'une heure : le robot tableau.yml semble en panne ou retardé par GitHub."; al.classList.add("vue"); }
+  else al.classList.remove("vue");
+  rendreJeux(); rendreGrille(); rendreTravail(); rendreCouts(); rendreBlocages(); rendreJournal(); rendreHistorique();
+}
+
+function signe(v) { return v == null ? "–" : (v > 0 ? "+" : "") + v + " pts"; }
+function rendreJeux() {
+  const R = D.etat.regles;
+  $("#liste-jeux").innerHTML = D.etat.jeux.map((j, i) => {
+    const seg = j.criteres.map(c => `<span style="width:${c.contribution}%;background:${COUL[i]};opacity:${0.45 + 0.55 * c.poids / Math.max(...j.criteres.map(x => x.poids))}" tabindex="0" data-tip="${esc(c.quoi)} : ${c.fait} sur ${c.cible} (poids ${c.poids}) ; ce critère apporte ${c.contribution} points à la jauge."></span>`).join("");
+    const lignes = j.criteres.map(c => `<tr><td>${esc(c.quoi)}</td><td class="n">${nf.format(c.fait)}</td><td class="n">${nf.format(c.cible)}</td><td class="n">${c.poids}</td><td class="n"><span class="mini"><i style="width:${c.part}%;background:${COUL[i]}"></i></span>${c.part} %</td></tr>`).join("");
+    const cls = v => v > 0 ? "hausse" : v < 0 ? "baisse" : "";
+    const fin = j.achevement_projete === "atteint" ? "atteint" : j.achevement_projete ? new Date(j.achevement_projete).toLocaleDateString("fr-CH") : "non projetable";
+    return `<article class="carte jeu" aria-label="${esc(j.nom)}">
+      <div>
+        <header><span class="pastille" style="background:${COUL[i]}"></span><h3>${esc(j.nom)}</h3><span class="pct" data-tip="${esc(R.jauge)}">${j.pct} %</span></header>
+        <div class="rail" role="img" aria-label="${esc(j.nom)} : ${j.pct} %">${seg}</div>
+        <table class="criteres"><thead><tr><th>Critère</th><th class="n">Fait</th><th class="n">Cible</th><th class="n">Poids</th><th class="n">Part</th></tr></thead><tbody>${lignes}</tbody></table>
+      </div>
+      <div class="indic">
+        <div><span>Tendance 24 h <span class="tip-ico" tabindex="0" data-tip="${esc(R.tendance)}">?</span></span><b class="${cls(j.tendance24h)}">${signe(j.tendance24h)}</b></div>${(Date.now() - new Date(j.depuis)) < 864e5 ? `<span class="fragile">L'historique commence le ${dfmt(j.depuis)} : les tendances comptent depuis cette date.</span>` : ""}
+        <div><span>Tendance 7 jours ${j.jours_historique < 7 ? `<span class="tip-ico" tabindex="0" data-tip="L'historique couvre ${j.jours_historique} jour(s) : l'écart compte depuis la première mesure, le ${dfmt(j.depuis)}.">?</span>` : ""}</span><b class="${cls(j.tendance7j)}">${signe(j.tendance7j)}</b></div>
+        <div><span>Vitesse <span class="tip-ico" tabindex="0" data-tip="${esc(R.vitesse)}">?</span></span><b>${j.vitesse_pct_jour == null ? "–" : nf.format(j.vitesse_pct_jour) + " pts/j"}</b></div>
+        <div><span>Achèvement projeté <span class="tip-ico" tabindex="0" data-tip="${esc(R.achevement)}">?</span></span><b>${fin}</b></div>
+        ${j.jours_historique < 3 ? `<span class="fragile">L'historique couvre ${j.jours_historique} jour(s) : la projection reste fragile.</span>` : ""}
+      </div></article>`;
+  }).join("");
+}
+
+function couleurCase(taux) { return RAMPE[Math.min(RAMPE.length - 1, Math.ceil(taux * (RAMPE.length - 1)))]; }
+function rendreGrille() {
+  const G = D.grille, R = G.regles, grp = ["A", "B", "C", "D", "H"];
+  const T = Object.values(G.totaux).reduce((a, t) => { for (const k in t) a[k] = (a[k] || 0) + t[k]; return a; }, {});
+  $("#grille-chips").innerHTML = [
+    ["cibles", T.cible, R.cible], ["produites", T.produit, R.produit], ["auditées", T.audite, R.audite],
+    ["en attente sur branche", T.attente, R.attente], ["questions jouables dans l'arène 45", G.jouables, R.jouables]
+  ].map(([l, v, r]) => `<span class="chip" tabindex="0" data-tip="${esc(r)}"><b>${nf.format(v)}</b> ${l}</span>`).join("");
+  let L = G.lignes.slice();
+  if ($("#vides").checked) L = L.filter(l => l.total.cible || l.total.produit || l.total.attente);
+  const cle = {code: l => l.code, retard: l => -(l.total.cible - l.total.produit), produit: l => -l.total.produit}[triGrille];
+  L.sort((a, b) => cle(a) < cle(b) ? -1 : cle(a) > cle(b) ? 1 : 0);
+  const cel = (c, nom, g) => {
+    const taux = c.cible ? Math.min(1, c.produit / c.cible) : 0, fond = c.cible ? couleurCase(taux) : "#fff6df", clair = taux > 0.55;
+    if (!c.cible && !c.produit && !c.attente) return `<td class="cel" style="background:var(--voile);color:var(--brume)">·</td>`;
+    const tip = `${nom}, groupe ${g === "H" ? "hors rang" : g} : ${c.produit} produites sur ${c.cible} ciblées, ${c.audite} auditées, ${c.attente} en attente sur une branche.`;
+    return `<td class="cel" tabindex="0" style="background:${fond};color:${clair ? "#fff" : "var(--encre)"}" data-tip="${esc(tip)}">${c.produit}/${c.cible}<small>✓${c.audite}${c.attente ? " · +" + c.attente : ""}</small></td>`;
+  };
+  const tete = `<thead><tr><th>Spécialité</th>${grp.map(g => `<th class="n" style="text-align:center" ${g === "H" ? `data-tip="${esc(R.H)}"` : ""}>${g === "H" ? "Hors rang" : "Groupe " + g}</th>`).join("")}<th style="text-align:center">Total</th><th class="n" data-tip="${esc(R.jouables)}">Jouables</th></tr></thead>`;
+  const corps = L.map(l => `<tr><td class="nom"><b>${esc(l.code)}</b>${esc(l.nom)}</td>${grp.map(g => cel(l.groupes[g], l.nom, g)).join("")}${cel(l.total, l.nom, "total")}<td class="n">${nf.format(l.jouables)}</td></tr>`).join("");
+  const tot = `<tr class="total"><td class="nom">Total</td>${grp.map(g => cel(G.totaux[g], "Toutes spécialités", g)).join("")}${cel(T, "Toutes spécialités", "total")}<td class="n">${nf.format(G.jouables)}</td></tr>`;
+  $("#table-grille").innerHTML = tete + "<tbody>" + corps + tot + "</tbody>";
+  $("#echelle").innerHTML = "Part produite : " + RAMPE.map((c, i) => `<i style="background:${c}" title="${Math.round(100 * i / (RAMPE.length - 1))} %"></i>`).join("") + " de 0 à 100 % ; les cases or montrent des pathologies hors rang ; ✓ compte les auditées, + les pathologies en attente sur une branche agent/45spec-*.";
+}
+
+function rendreTravail() {
+  const B = D.travail.branches, F = D.travail.file;
+  $("#table-branches").innerHTML = `<thead><tr><th>Branche</th><th>Dernier commit</th><th>Date</th><th class="n" data-tip="Nombre de commits présents sur la branche et absents de main.">En avance</th><th class="n" data-tip="${esc(D.grille.regles.attente)}">Questions en attente</th></tr></thead><tbody>` +
+    B.map(b => `<tr><td><a href="https://github.com/vialdjoukang-spec/Jeux_45_Spec/tree/${esc(b.branche)}">${esc(b.branche)}</a></td><td>${esc(b.sujet)} <span style="color:var(--brume)">${esc(b.sha)}</span></td><td style="white-space:nowrap">${dfmt(b.date)}</td><td class="n">${b.en_avance}</td><td class="n">${b.questions_en_attente ?? "–"}</td></tr>`).join("") + "</tbody>";
+  const lib = {fait: "faites", a_faire: "à faire", en_cours: "en cours", bloque: "bloquées", sans_objet: "sans objet", attente_decision: "en attente de décision"};
+  $("#file-chips").innerHTML = Object.entries(F.etats).map(([k, v]) => `<span class="chip"><b>${v}</b> ${lib[k] || esc(k)}</span>`).join("") + `<span class="chip" data-tip="La file vit sur la branche veille/audit-medical, où l'ouvrier la met à jour.">source : ${esc(F.source)}</span>`;
+  const ordre = {en_cours: 0, a_faire: 1, attente_decision: 2, bloque: 3, fait: 4, sans_objet: 5};
+  const T = F.taches.slice().sort((a, b) => (ordre[a.etat] ?? 9) - (ordre[b.etat] ?? 9));
+  $("#table-file").innerHTML = `<thead><tr><th>Tâche</th><th>État</th><th>Modèle</th><th class="n">Essais</th><th class="n">Dernier coût</th><th>Dernier passage</th></tr></thead><tbody>` +
+    T.map(t => `<tr><td><b>${esc(t.id)}</b><br><span style="color:var(--ardoise)">${esc(t.titre)}</span></td><td>${lib[t.etat] || esc(t.etat)}</td><td>${esc(t.modele || "–")}</td><td class="n">${t.essais ?? 0}</td><td class="n">${t.cout_usd == null ? "–" : t.cout_usd.toFixed(2) + " $"}</td><td style="white-space:nowrap">${t.date ? dfmt(t.date) : "–"}</td></tr>`).join("") + "</tbody>";
+}
+
+function rendreCouts() {
+  const C = D.couts;
+  const tuiles = [["Dépense comptée", C.compte_usd, "Somme des lignes de depense.json (" + C.lignes + " lignes)."],
+    ["Plafond autorisé", C.plafond_usd, "Plafond total de la file API : crédit de " + C.credit_usd + " USD moins une réserve de " + C.reserve_usd + " USD ; le crédit expire le " + (C.expire || "?").slice(0, 10) + "."],
+    ["Reste selon le compteur", C.reste_usd, "Le plafond moins la dépense comptée ; le reste réel est plus bas, car le compteur ignore les lots batch."],
+    ["Estimation haute du coût réel", C.estimation_haute_usd, C.pathologies_produites + " pathologies produites × " + C.cout_reel_par_pathologie + " USD."]];
+  $("#tuiles-couts").innerHTML = tuiles.map(([l, v, t]) => `<div class="carte tuile" tabindex="0" data-tip="${esc(t)}"><div class="v">${v == null ? "–" : v.toFixed(2) + " $"}</div><div class="l">${l}</div></div>`).join("");
+  $("#avert-couts").innerHTML = "<b>Attention :</b> " + esc(C.avertissement);
+  const J = Object.entries(C.par_jour);
+  barres($("#c-couts"), J.map(x => x[0].slice(5).split("-").reverse().join(".")), J.map(x => x[1]), " $");
+}
+
+function rendreBlocages() {
+  const I = D.blocages.items;
+  $("#liste-blocages").innerHTML = I.length ? I.map(b => `<li><span class="qui">${esc(b.qui)}</span>${esc(b.quoi)}</li>`).join("") : "<li>Aucun blocage n'est inscrit dans REPRISE.md.</li>";
+}
+
+function rendreJournal() {
+  const lib = {fusion: "Fusion", audit: "Audit", echec: "Échec"};
+  $("#table-journal").innerHTML = `<thead><tr><th>Date</th><th>Type</th><th>Événement</th></tr></thead><tbody>` + D.journal.evenements.map(e => {
+    const lien = e.ref.startsWith("http") ? e.ref : "https://github.com/vialdjoukang-spec/Jeux_45_Spec/commit/" + e.ref;
+    return `<tr><td style="white-space:nowrap">${dfmt(e.date)}</td><td class="type type-${e.type}">${lib[e.type]}</td><td><a href="${esc(lien)}">${esc(e.texte)}</a></td></tr>`;
+  }).join("") + "</tbody>";
+}
+
+/* ---------- Canvas : courbes, barres, petits multiples ---------- */
+function prep(cv) {
+  const r = window.devicePixelRatio || 1, w = cv.clientWidth, h = cv.clientHeight;
+  cv.width = w * r; cv.height = h * r; const x = cv.getContext("2d"); x.setTransform(r, 0, 0, r, 0, 0); x.clearRect(0, 0, w, h);
+  x.font = "12px 'Atkinson Hyperlegible', sans-serif"; return [x, w, h];
+}
+function serieHist() {
+  const pts = [];
+  (D.etat.historique_jeux || []).forEach(h => pts.push({t: new Date(h.date).getTime(), v: h.pct}));
+  (D.etat.jeux.length ? D.hist : []).forEach(h => pts.push({t: new Date(h.date).getTime(), v: h.pct}));
+  return pts.sort((a, b) => a.t - b.t);
+}
+function rendreHistorique() {
+  const noms = D.etat.jeux.map(j => j.nom);
+  $("#leg-hist").innerHTML = noms.map((n, i) => `<span><i style="background:${COUL[i]}"></i>${esc(n)}</span>`).join("");
+  const P = serieHist(), cv = $("#c-hist");
+  const dessiner = survol => {
+    const [x, w, h] = prep(cv), m = {g: 40, d: 120, h: 12, b: 26};
+    if (P.length < 1) { x.fillStyle = "#4f687c"; x.fillText("L'historique se remplira à chaque mesure qui change une valeur.", m.g, h / 2); return; }
+    const t0 = P[0].t, t1 = Math.max(P[P.length - 1].t, t0 + 3600e3), X = t => m.g + (t - t0) / (t1 - t0) * (w - m.g - m.d), Y = v => m.h + (100 - v) / 100 * (h - m.h - m.b);
+    x.strokeStyle = "#e3edf4"; x.fillStyle = "#4f687c"; x.lineWidth = 1;
+    [0, 25, 50, 75, 100].forEach(v => { x.beginPath(); x.moveTo(m.g, Y(v)); x.lineTo(w - m.d, Y(v)); x.stroke(); x.fillText(v + " %", 4, Y(v) + 4); });
+    [t0, (t0 + t1) / 2, t1].forEach((t, k) => { const s = dfmt(t); x.fillText(s, Math.min(X(t) - (k ? x.measureText(s).width / (k === 2 ? 1 : 2) : 0), w - m.d - x.measureText(s).width), h - 6); });
+    noms.forEach((n, i) => {
+      x.strokeStyle = COUL[i]; x.lineWidth = 2; x.beginPath();
+      P.forEach((p, k) => { const px = X(p.t), py = Y(p.v[i]); if (!k) x.moveTo(px, py); else { x.lineTo(px, Y(P[k - 1].v[i])); x.lineTo(px, py); } });
+      x.lineTo(w - m.d, Y(P[P.length - 1].v[i])); x.stroke();
+    });
+    const fin = noms.map((n, i) => ({n, i, y: Y(P[P.length - 1].v[i])})).sort((a, b) => a.y - b.y);
+    for (let k = 1; k < fin.length; k++) if (fin[k].y - fin[k - 1].y < 14) fin[k].y = fin[k - 1].y + 14;
+    fin.forEach(f => { x.fillStyle = COUL[f.i]; x.fillRect(w - m.d + 6, f.y - 1, 8, 3); x.fillStyle = "#10314a"; x.fillText(f.n.replace(" Fondation", "") + " " + P[P.length - 1].v[f.i] + " %", w - m.d + 18, f.y + 4); });
+    if (survol != null) {
+      let k = 0; P.forEach((p, j) => { if (p.t <= survol) k = j; });
+      const px = X(Math.max(t0, Math.min(survol, t1))); x.strokeStyle = "#7d93a5"; x.beginPath(); x.moveTo(px, m.h); x.lineTo(px, h - m.b); x.stroke();
+      noms.forEach((n, i) => { x.fillStyle = "#fff"; x.beginPath(); x.arc(px, Y(P[k].v[i]), 5, 0, 7); x.fill(); x.fillStyle = COUL[i]; x.beginPath(); x.arc(px, Y(P[k].v[i]), 4, 0, 7); x.fill(); });
+      return {k, X, t0, t1, m, w};
+    }
+  };
+  dessiner();
+  cv.onmousemove = ev => {
+    if (P.length < 1) return;
+    const r = cv.getBoundingClientRect(), m = {g: 40, d: 120}, t0 = P[0].t, t1 = Math.max(P[P.length - 1].t, t0 + 3600e3);
+    const t = t0 + (ev.clientX - r.left - m.g) / (r.width - m.g - m.d) * (t1 - t0), res = dessiner(t);
+    const p = P[res.k]; montrer(ev, "Le " + dfmt(Math.max(t0, Math.min(t, t1))) + " : " + noms.map((n, i) => n + " " + p.v[i] + " %").join(" ; ") + ".");
+  };
+  cv.onmouseleave = () => { dessiner(); cacher(); };
+  const H = D.hist, defs = [["global", "Jauge globale", " %"], ["produit", "Pathologies produites", ""], ["audite", "Pathologies auditées", ""], ["attente", "En attente sur branche", ""], ["jouables", "Questions jouables (arène 45)", ""], ["cout", "Dépense comptée", " $"]];
+  $("#multiples").innerHTML = defs.map(([k, l]) => `<div class="carte"><h4>${l}</h4><div class="v" id="v-${k}"></div><canvas id="m-${k}"></canvas></div>`).join("");
+  defs.forEach(([k, l, u]) => {
+    const vals = H.map(h => h[k]).filter(v => v != null), last = vals[vals.length - 1];
+    $("#v-" + k).textContent = last == null ? "–" : nf.format(last) + u;
+    const [x, w, h] = prep($("#m-" + k));
+    if (vals.length < 2) { x.fillStyle = "#7d93a5"; x.fillText("La courbe naît à la 2e mesure.", 0, h / 2 + 4); return; }
+    const mn = Math.min(...vals), mx = Math.max(...vals), Y = v => h - 4 - (mx === mn ? 0.5 : (v - mn) / (mx - mn)) * (h - 8);
+    x.strokeStyle = "#2a78d6"; x.lineWidth = 2; x.beginPath(); vals.forEach((v, i) => { const px = i / (vals.length - 1) * (w - 6) + 3; i ? x.lineTo(px, Y(v)) : x.moveTo(px, Y(v)); }); x.stroke();
+  });
+}
+function barres(cv, lab, val, u) {
+  const [x, w, h] = prep(cv), m = {g: 44, b: 22, h: 10}, mx = Math.max(1, ...val), bw = Math.min(46, (w - m.g) / Math.max(1, val.length) - 8);
+  x.strokeStyle = "#e3edf4"; x.fillStyle = "#4f687c";
+  [0, .5, 1].forEach(f => { const y = h - m.b - f * (h - m.b - m.h); x.beginPath(); x.moveTo(m.g, y); x.lineTo(w, y); x.stroke(); x.fillText(Math.round(mx * f) + u, 2, y + 4); });
+  const zones = [];
+  val.forEach((v, i) => {
+    const px = m.g + 6 + i * (bw + 8), bh = v / mx * (h - m.b - m.h), y = h - m.b - bh;
+    x.fillStyle = "#2a78d6"; x.beginPath(); x.roundRect ? x.roundRect(px, y, bw, bh, [4, 4, 0, 0]) : x.rect(px, y, bw, bh); x.fill();
+    x.fillStyle = "#4f687c"; x.fillText(lab[i], px, h - 6); zones.push([px - 4, px + bw + 4, lab[i], v]);
+  });
+  cv.onmousemove = ev => { const r = cv.getBoundingClientRect(), z = zones.find(z => ev.clientX - r.left >= z[0] && ev.clientX - r.left <= z[1]); z ? montrer(ev, "Le " + z[2] + ", le compteur a noté " + z[3].toFixed(2) + u + ".") : cacher(); };
+  cv.onmouseleave = cacher;
+}
+
+/* ---------- Infobulles ---------- */
+const tip = $("#tip");
+function montrer(ev, t) { tip.textContent = t; tip.classList.add("vu"); const x = Math.min(ev.clientX + 14, innerWidth - 350), y = ev.clientY + 16; tip.style.left = x + "px"; tip.style.top = (y + tip.offsetHeight > innerHeight ? ev.clientY - tip.offsetHeight - 10 : y) + "px"; }
+function cacher() { tip.classList.remove("vu"); }
+document.addEventListener("mouseover", ev => { const el = ev.target.closest("[data-tip]"); if (el) montrer(ev, el.dataset.tip); });
+document.addEventListener("mousemove", ev => { const el = ev.target.closest("[data-tip]"); if (el) montrer(ev, el.dataset.tip); });
+document.addEventListener("mouseout", ev => { if (ev.target.closest("[data-tip]")) cacher(); });
+document.addEventListener("focusin", ev => { const el = ev.target.closest("[data-tip]"); if (el) { const r = el.getBoundingClientRect(); montrer({clientX: r.left, clientY: r.bottom}, el.dataset.tip); } });
+document.addEventListener("focusout", cacher);
+$("#tri").onchange = e => { triGrille = e.target.value; rendreGrille(); };
+$("#vides").onchange = rendreGrille;
+addEventListener("resize", () => D.etat && rendreHistorique());
+const liens = [...document.querySelectorAll("nav.sommaire a")];
+const io =new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) liens.forEach(a => a.classList.toggle("actif", a.getAttribute("href") === "#" + e.target.id)); }), {rootMargin: "-40% 0px -55% 0px"});
+document.querySelectorAll("main section").forEach(s => io.observe(s));
+rafraichir(); setInterval(rafraichir, 60000);
+</script>
+</body>
+</html>

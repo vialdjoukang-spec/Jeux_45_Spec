@@ -1,0 +1,504 @@
+{
+ "id": "A04.7__F2_8-E08",
+ "portes": [
+  {
+   "ssp": "S3.8",
+   "nomSSP": "Diarrhée",
+   "entite": "Colite pseudo-membraneuse sévère ou fulminante à Clostridioides difficile",
+   "entiteId": "S3.8-E11"
+  },
+  {
+   "ssp": "F2.8",
+   "nomSSP": "Analyses des selles anormales, sang occulte, parasites",
+   "entite": "Infection à Clostridioides difficile",
+   "entiteId": "F2.8-E08"
+  },
+  {
+   "ssp": "F2.8",
+   "nomSSP": "Analyses des selles anormales, sang occulte, parasites",
+   "entite": "Colite fulminante à Clostridioides difficile (mégacôlon toxique)",
+   "entiteId": "F2.8-E14"
+  },
+  {
+   "ssp": "O7.9",
+   "nomSSP": "Infection nosocomiale",
+   "entite": "Infection à Clostridioides difficile associée aux soins",
+   "entiteId": "O7.9-E05"
+  }
+ ],
+ "entite": "Infection à Clostridioides difficile",
+ "cim10": "A04.7",
+ "ssp": {
+  "code": "S3.8",
+  "nom": "Diarrhée",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Diarrhée chez un patient exposé aux antibiotiques ou hospitalisé",
+    "i": "On compte les selles, on cherche les signes de gravité et la prise de laxatifs.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Laxatif ou cause évidente",
+    "i": "On corrige la cause sans tester.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "≥ 3 selles non moulées sans cause",
+    "i": "On teste en deux temps et on isole le patient.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n4",
+    "parent": "n3",
+    "t": "Toxine positive, forme non sévère",
+    "i": "On traite par fidaxomicine ou vancomycine orale.",
+    "pec": "premier",
+    "notion": "c3"
+   },
+   {
+    "id": "n5",
+    "parent": "n3",
+    "t": "Toxine positive, critères de sévérité",
+    "i": "On traite par voie orale et on surveille de près.",
+    "pec": "premier",
+    "notion": "c2"
+   },
+   {
+    "id": "n6",
+    "parent": "n3",
+    "t": "Choc, iléus, mégacôlon",
+    "i": "On associe vancomycine et métronidazole IV et on appelle le chirurgien.",
+    "pec": "fulminant",
+    "notion": "c2"
+   },
+   {
+    "id": "n7",
+    "parent": "n3",
+    "t": "Toxine négative",
+    "i": "On discute un portage et d'autres causes ; renvoi au SSP diarrhée.",
+    "pec": null,
+    "notion": "c1"
+   }
+  ]
+ },
+ "specialites": [
+  "INF"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Infection à Clostridioides difficile : tester juste, classer la gravité, traiter par voie orale, prévenir la récidive",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Tester les bons patients",
+   "rubriques": [
+    "workupGoldStandard",
+    "positiveDiagnosis"
+   ],
+   "comment": "On teste seulement des selles non moulées chez un patient exposé, en deux temps.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "d1",
+     "parent": null,
+     "t": "≥ 3 selles non moulées/24 h",
+     "i": "On teste si une autre cause manque.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "d2",
+     "parent": "d1",
+     "t": "GDH ou PCR négative",
+     "i": "On exclut l'infection.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "d3",
+     "parent": "d1",
+     "t": "Dépistage positif, toxine positive",
+     "i": "On retient l'infection et on traite.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "d4",
+     "parent": "d1",
+     "t": "Dépistage positif, toxine négative",
+     "i": "On discute un portage selon la clinique.",
+     "pec": null,
+     "notion": null
+    }
+   ],
+   "points": [
+    "On ne teste pas l'enfant de moins de 2 ans.",
+    "On ne fait pas de test de guérison."
+   ],
+   "sources": [
+    "[Crobach MJT et al., ESCMID guideline CDI diagnosis, Clin Microbiol Infect 2016]"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Classer la gravité",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "On classe la forme avant de choisir le traitement.",
+   "tableau": {
+    "colonnes": [
+     "Forme",
+     "Critère",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Non sévère",
+      "Aucun critère de gravité",
+      [
+       {
+        "t": "Leucocytes ≤ 15 G/l",
+        "i": "La réponse inflammatoire reste modérée."
+       }
+      ]
+     ],
+     [
+      "Sévère",
+      "Fièvre > 38,5 °C, leucocytes > 15 G/l, créatinine +50 %",
+      [
+       {
+        "t": "Atteinte systémique",
+        "i": "Elle prédit les complications."
+       }
+      ]
+     ],
+     [
+      "Fulminante",
+      "Hypotension, iléus, mégacôlon",
+      [
+       {
+        "t": "Défaillance",
+        "i": "Elle impose chirurgien et traitement combiné."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'iléus peut masquer l'aggravation."
+   ],
+   "sources": [
+    "[van Prehn J et al., ESCMID guideline CDI treatment, Clin Microbiol Infect 2021]"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Traiter par voie orale",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "On choisit une molécule qui reste dans le côlon.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Choix",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Premier épisode",
+      "Fidaxomicine ou vancomycine orale",
+      [
+       {
+        "t": "10 jours",
+        "i": "Elles agissent dans la lumière colique."
+       }
+      ]
+     ],
+     [
+      "Récidive",
+      "Fidaxomicine",
+      [
+       {
+        "t": "Moins de récidive",
+        "i": "Elle épargne davantage le microbiote."
+       }
+      ]
+     ],
+     [
+      "Récidives multiples",
+      "Transplantation de microbiote fécal",
+      [
+       {
+        "t": "Restauration du microbiote",
+        "i": "Elle rompt le cycle des récidives."
+       }
+      ]
+     ],
+     [
+      "Fulminante",
+      "Vancomycine orale/rectale + métronidazole IV",
+      [
+       {
+        "t": "Avis chirurgical",
+        "i": "La colectomie peut sauver le patient."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "On arrête l'antibiotique inducteur.",
+    "On vérifie les posologies dans l'AIPS."
+   ],
+   "sources": [
+    "[van Prehn J et al., ESCMID guideline CDI treatment, Clin Microbiol Infect 2021]",
+    "AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Prévenir la transmission et la récidive",
+   "rubriques": [
+    "hospitalizationComplications",
+    "chronicManagement",
+    "followUpNetwork"
+   ],
+   "comment": "On agit sur les spores et sur les antibiotiques.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "On se lave les mains à l'eau et au savon.",
+    "On désinfecte avec un sporicide.",
+    "On réévalue IPP et antibiotiques futurs."
+   ],
+   "sources": [
+    "[Swissnoso, prévention des infections à C. difficile] (à vérifier)",
+    "[OFSP, Stratégie Antibiorésistance Suisse StAR]"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "premier",
+   "titre": "Premier épisode, non sévère ou sévère",
+   "but": [
+    "On guérit la colite.",
+    "On limite la récidive et la transmission."
+   ],
+   "moyens": {
+    "accueil": [
+     "On isole le patient en chambre individuelle.",
+     "On arrête si possible l'antibiotique en cause."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Fidaxomicine (macrolide)",
+      "posologie": "200 mg deux fois par jour pendant 10 jours  (AIPS ; vérifié, audit AAI 24.11.2026).",
+      "pourquoi": "Elle traite la colite et réduit le risque de récidive.",
+      "source": "[van Prehn J et al., ESCMID guideline CDI treatment, Clin Microbiol Infect 2021] ; AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
+     },
+     {
+      "molecule": "Vancomycine orale (glycopeptide)",
+      "posologie": "125 mg quatre fois par jour pendant 10 jours  (AIPS ; vérifié, audit AAI 24.11.2026).",
+      "pourquoi": "Elle agit dans la lumière colique sans absorption notable.",
+      "source": "[van Prehn J et al., ESCMID guideline CDI treatment, Clin Microbiol Infect 2021] ; AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "On applique les précautions contact et le lavage des mains au savon.",
+      "pourquoi": "On empêche la transmission des spores."
+     },
+     {
+      "categorie": "nutrition",
+      "mesure": "On maintient l'hydratation orale.",
+      "pourquoi": "La diarrhée déshydrate le sujet âgé."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "J Hygiène hospitalière",
+      "apport": "L'équipe d'hygiène guide l'isolement et la désinfection sporicide."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "On évalue la gravité.",
+      "On traite par voie orale."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il confirme le diagnostic et classe la gravité."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Il met en place l'isolement contact."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Il prescrit fidaxomicine ou vancomycine orale."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Il juge la réponse après trois à cinq jours."
+      }
+     ]
+    }
+   },
+   "pronostic": "La plupart des patients guérissent ; environ un sur cinq récidive (à vérifier).",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Nombre de selles",
+      "quand": "Chaque jour",
+      "cible": "< 3 selles non moulées"
+     },
+     {
+      "quoi": "Créatinine et leucocytes",
+      "quand": "Tous les 2–3 jours",
+      "cible": "Normalisation"
+     }
+    ],
+    "sortie": "On lève l'isolement selon les règles locales après la fin de la diarrhée."
+   },
+   "prevention": {
+    "primaire": "On prescrit les antibiotiques à bon escient.",
+    "secondaire": "On isole et on désinfecte.",
+    "tertiaire": "On réévalue les IPP et les antibiotiques futurs."
+   }
+  },
+  {
+   "cle": "fulminant",
+   "titre": "Forme fulminante",
+   "but": [
+    "On contrôle le choc.",
+    "On évite la perforation et le décès."
+   ],
+   "moyens": {
+    "accueil": [
+     "On réanime le patient.",
+     "On appelle le chirurgien."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Vancomycine orale ou rectale (glycopeptide)",
+      "posologie": "Dose élevée, par sonde ou lavement si iléus  (AIPS ; vérifié, audit AAI 24.11.2026).",
+      "pourquoi": "Elle atteint le côlon même quand le transit s'arrête.",
+      "source": "[van Prehn J et al., ESCMID guideline CDI treatment, Clin Microbiol Infect 2021] ; AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
+     },
+     {
+      "molecule": "Métronidazole IV (nitro-imidazolé)",
+      "posologie": "Par voie intraveineuse  (AIPS ; vérifié, audit AAI 24.11.2026).",
+      "pourquoi": "Il atteint le côlon par voie systémique en cas d'iléus.",
+      "source": "[van Prehn J et al., ESCMID guideline CDI treatment, Clin Microbiol Infect 2021] ; AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "On discute une colectomie subtotale ou une iléostomie de dérivation.",
+      "pourquoi": "Elle peut sauver le patient en échec médical."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "H Éthique biomédicale et fin de vie",
+      "apport": "On discute avec le patient ou ses proches le niveau de soins et l'indication opératoire."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "On réanime.",
+      "On combine les traitements."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il réanime et demande un scanner abdominal."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Il pose les voies et surveille la pression."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Le chirurgien évalue l'indication opératoire."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Il réévalue toutes les quelques heures."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La forme fulminante garde une mortalité élevée, surtout chez le sujet âgé.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Pression et lactate",
+      "quand": "Continu",
+      "cible": "Stabilité"
+     },
+     {
+      "quoi": "Distension abdominale",
+      "quand": "Plusieurs fois par jour",
+      "cible": "Régression"
+     }
+    ],
+    "sortie": "On transfère en unité conventionnelle après stabilisation."
+   },
+   "prevention": {
+    "primaire": "On limite les antibiotiques à risque.",
+    "secondaire": "On reconnaît tôt la forme sévère.",
+    "tertiaire": "On prévient la récidive après guérison."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "_mode": "agent_sans_api",
+  "note": "Produit directement par l'agent Claude, sans appel à l'API Anthropic."
+ },
+ "signature": {
+  "date": "2026-11-24T12:07:26",
+  "modele": "claude-opus-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": "pass",
+  "claude": "2026-11-24",
+  "par": "Claude (audit médical AGENTS_1, AAI)",
+  "note": "Audit médical AGENTS_1 : réponses justes, seuils et posologies vérifiés ; 0 erreur factuelle"
+ }
+}

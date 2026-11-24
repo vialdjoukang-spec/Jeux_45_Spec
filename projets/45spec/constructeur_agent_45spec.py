@@ -21,6 +21,12 @@ def pec(cle, titre, but, accueil, ph, nph, tr, urg, hu, prono, suivi, sortie, pr
 def cel(x):
     return [{"t": a, "i": b} for a, b in x] if isinstance(x, list) else x
 
+def menus_longs_hors_format(qs):
+    """Contrôle 0 token : un menu long garde 1 à 3 réponses justes (le jeu l'annonce au joueur)."""
+    return [f"{q['id']} : un menu long exige 1 à 3 réponses justes ({k} trouvées)"
+            for q in qs if q["format"] == "MenuLong" and not 1 <= (k := sum(o["correct"] for o in q["options"])) <= 3]
+
+
 def build(path):
     spec = importlib.util.spec_from_file_location("m", path); m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
     c = IDX[m.ID]
@@ -54,6 +60,7 @@ def build(path):
     # questions : valider() relit le fichier de notions -> écrire notions d'abord
     ecrire("notions", c, dn, errs["notions"])
     errs["questions"] = P.valider("questions", dq, c)
+    errs["questions"] += menus_longs_hors_format(qs)   # le jeu annonce « menu long : une à trois réponses »
     # couverture (même règle que couverture_notions.py, avant audit)
     par = collections.defaultdict(list)
     for q in qs:

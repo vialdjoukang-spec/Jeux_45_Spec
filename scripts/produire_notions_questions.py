@@ -113,7 +113,9 @@ def canoniques(spec=None):
     VIDE = {"de", "du", "la", "le", "les", "des", "et", "ou", "sur", "avec", "sans", "par", "aigue", "aigu", "chronique", "syndrome", "maladie", "severe"}
     mots = lambda c: {m for m in cle(c["entite"]["nom"]).split() if len(m) > 2 and m not in VIDE}
     import glob
-    FUS = {e: g["nom"] for f in glob.glob(os.path.join(R, "content", "pathologies", "fusions_*.json")) for g in json.load(open(f, encoding="utf-8"))["groupes"] for e in g["entites"]}
+    GR = [g for f in sorted(glob.glob(os.path.join(R, "content", "pathologies", "fusions_*.json"))) for g in json.load(open(f, encoding="utf-8"))["groupes"]]
+    FUS = {e: g["nom"] for g in GR for e in g["entites"]}
+    FID = {g["nom"]: g["id"] for g in GR if g.get("id")}   # « id » facultatif : garde l'identifiant d'une pathologie déjà produite (ses fichiers restent valides)
     grp = {}
     for c in PF.cibles():
         if spec and spec.upper() not in c["codes"]:
@@ -133,7 +135,7 @@ def canoniques(spec=None):
             rep = {**rep, "entite": {**rep["entite"], "nom": k[2:]}}; k = (rep["entite"].get("cim10") or "F") + "_" + cle(k[2:])[:20].replace(" ", "_")
         out.append({**rep, "freq": min(c["freq"] for c in L), "urgent": any(c["urgent"] for c in L),
                     "codes": sorted({x for c in L for x in c["codes"]}, key=lambda x: (x not in rep["codes"], x)),
-                    "id": re.sub(r"[^A-Za-z0-9_.-]", "_", k)[:40] + "__" + min(c["id"] for c in L),
+                    "id": FID.get(rep["entite"]["nom"]) or re.sub(r"[^A-Za-z0-9_.-]", "_", k)[:40] + "__" + min(c["id"] for c in L),
                     "portes": [{"ssp": c["ssp"], "nomSSP": c["nomSSP"], "entite": c["entite"]["nom"], "entiteId": c["entite"]["id"]} for c in L]})
     return sorted(out, key=lambda c: (c["freq"], c["id"]))
 
@@ -202,6 +204,8 @@ def valider(etape, d, c):
             err.append(f"{q['id']} : un Kprim exige 4 affirmations")
         if f == "MenuLong" and not 12 <= no <= 20:
             err.append(f"{q['id']} : un menu long exige 12 à 20 options")
+        if f == "MenuLong" and not 1 <= sum(o["correct"] for o in q["options"]) <= 3:
+            err.append(f"{q['id']} : un menu long exige une à trois réponses justes")   # le jeu annonce « une à trois »
         if q["diagnosticMasque"] and mots and all(m in cle(q["stem"] + " " + q["prompt"]) for m in mots):
             err.append(f"{q['id']} : la vignette nomme le diagnostic masqué")
         if set(q["notions"]) - nid:
@@ -232,9 +236,13 @@ def selection(etape, a):
         cs = [c for c in cs if os.path.exists(chemin("notions", c))]
     rang = os.path.join(R, "content", "pathologies", "RANG_RENDEMENT.json")    # classement par rendement à l'examen (scripts/classer_rendement.py)
     RG = json.load(open(rang, encoding="utf-8"))["pathologies"] if os.path.exists(rang) else {}
+    SUF = {k.split("__")[-1]: v for k, v in RG.items()}      # pathologie fusionnée : id canonique nouveau → meilleur rang de ses portes d'entrée
+    def rg(c):
+        m = [SUF[p["entiteId"].replace(".", "_")] for p in c.get("portes", []) if p["entiteId"].replace(".", "_") in SUF]
+        return RG.get(c["id"]) or (min(m, key=lambda x: x["rang"]) if m else {})
     if getattr(a, "groupe", None):
-        cs = [c for c in cs if RG.get(c["id"], {}).get("groupe") in a.groupe.split(",")]
-    cs.sort(key=lambda c: (RG.get(c["id"], {}).get("rang", 10 ** 6), c["freq"], c["id"]))
+        cs = [c for c in cs if rg(c).get("groupe") in a.groupe.split(",")]
+    cs.sort(key=lambda c: (rg(c).get("rang", 10 ** 6), c["freq"], c["id"]))
     return cs[: a.max] if a.max else cs
 
 

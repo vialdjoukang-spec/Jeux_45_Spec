@@ -1,0 +1,384 @@
+{
+ "id": "B34.9_infection_virale_aig__F2_19-E02",
+ "portes": [
+  {
+   "ssp": "S5.4",
+   "nomSSP": "Myalgies",
+   "entite": "Myalgies virales aiguës (grippe, entérovirus, COVID-19)",
+   "entiteId": "S5.4-E01"
+  },
+  {
+   "ssp": "F2.5",
+   "nomSSP": "Numération leucocytaire anormale",
+   "entite": "Infection virale aiguë (lymphocytose ou leucopénie transitoire)",
+   "entiteId": "F2.5-E02"
+  },
+  {
+   "ssp": "F2.19",
+   "nomSSP": "Élévation des biomarqueurs de l’inflammation",
+   "entite": "Infection virale aiguë bénigne",
+   "entiteId": "F2.19-E02"
+  }
+ ],
+ "entite": "Infection virale aiguë non spécifique (myalgies, cytopénies transitoires)",
+ "cim10": "B34.9",
+ "ssp": {
+  "code": "F2.5",
+  "nom": "Numération leucocytaire anormale",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Leucocytes anormaux",
+    "i": "On regarde chaque lignée et le frottis.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Neutrophiles < 0,5 G/l avec fièvre",
+    "i": "On traite une neutropénie fébrile en urgence ; renvoi à la pathologie correspondante.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "Blastes ou bicytopénie",
+    "i": "On adresse à l'hématologue ; renvoi aux hémopathies.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "Neutropénie sous médicament à risque",
+    "i": "On arrête le médicament et on contrôle.",
+    "pec": "pec_cyto",
+    "notion": "c2"
+   },
+   {
+    "id": "n5",
+    "parent": "n1",
+    "t": "Voyageur fébrile",
+    "i": "On exclut paludisme et dengue.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n6",
+    "parent": "n1",
+    "t": "Cytopénie légère isolée avec tableau viral",
+    "i": "On contrôle après guérison.",
+    "pec": "pec_cyto",
+    "notion": "c3"
+   },
+   {
+    "id": "n7",
+    "parent": "n1",
+    "t": "Lymphocytose avec lymphocytes atypiques",
+    "i": "On cherche EBV, CMV ou VIH.",
+    "pec": "pec_cyto",
+    "notion": "c1"
+   },
+   {
+    "id": "n8",
+    "parent": "n1",
+    "t": "Lymphocytose monomorphe > 3 mois",
+    "i": "On demande un immunophénotypage ; renvoi à la LLC.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n9",
+    "parent": "n1",
+    "t": "Neutrophilie avec déviation gauche",
+    "i": "On cherche une infection bactérienne ; renvoi à la pathologie correspondante.",
+    "pec": null,
+    "notion": null
+   }
+  ]
+ },
+ "specialites": [
+  "INF"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Cytopénies et lymphocytose au cours d'une infection virale aiguë",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Lire la formule au cours d'une virose",
+   "rubriques": [
+    "definition",
+    "basicSciences"
+   ],
+   "comment": "Rattache chaque anomalie à son mécanisme et à son virus typique.",
+   "tableau": {
+    "colonnes": [
+     "Anomalie",
+     "Seuil",
+     "Virus typiques",
+     "Mécanisme"
+    ],
+    "lignes": [
+     [
+      "Neutropénie",
+      "< 1,5 G/l",
+      "Grippe, viroses banales",
+      [
+       {
+        "t": "Margination",
+        "i": "Les neutrophiles adhèrent aux vaisseaux et sont consommés."
+       }
+      ]
+     ],
+     [
+      "Lymphopénie",
+      "< 1 G/l",
+      "Grippe, COVID-19, primo-VIH",
+      [
+       {
+        "t": "Redistribution",
+        "i": "Les lymphocytes migrent vers les tissus infectés."
+       }
+      ]
+     ],
+     [
+      "Lymphocytose atypique",
+      "> 4 G/l",
+      "EBV, CMV, VIH",
+      [
+       {
+        "t": "CD8 activés",
+        "i": "Ils répondent aux lymphocytes B infectés."
+       }
+      ]
+     ],
+     [
+      "Thrombopénie",
+      "< 150 G/l",
+      "Dengue, EBV",
+      [
+       {
+        "t": "Consommation",
+        "i": "Destruction périphérique et séquestration."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La CRP reste modérée et la PCT basse."
+   ],
+   "sources": [
+    "[Fait établi, hématologie clinique]"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Exclure les causes graves",
+   "rubriques": [
+    "presumptionRedFlags",
+    "anamnesis"
+   ],
+   "comment": "Cherche le médicament, le voyage et l'atteinte de plusieurs lignées.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "a1",
+     "parent": null,
+     "t": "Cytopénie et fièvre",
+     "i": "On cherche les signes de gravité.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "a2",
+     "parent": "a1",
+     "t": "Neutrophiles < 0,5 G/l",
+     "i": "Neutropénie fébrile : antibiotique IV urgent.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "a3",
+     "parent": "a1",
+     "t": "Retour de zone tropicale",
+     "i": "On exclut paludisme et dengue le jour même.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "a4",
+     "parent": "a1",
+     "t": "Médicament myélotoxique (métamizole)",
+     "i": "On l'arrête immédiatement.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "a5",
+     "parent": "a1",
+     "t": "Bicytopénie, blastes, splénomégalie",
+     "i": "On demande un avis hématologique.",
+     "pec": null,
+     "notion": null
+    }
+   ],
+   "points": [
+    "Le métamizole est fréquent en Suisse et peut provoquer une agranulocytose."
+   ],
+   "sources": [
+    "[Swissmedic, métamizole et agranulocytose] (à vérifier)",
+    "[Swiss TPH, fièvre au retour de voyage] (à vérifier)"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Contrôler au lieu de multiplier",
+   "rubriques": [
+    "workupGoldStandard",
+    "surveillance",
+    "prognosisDischarge"
+   ],
+   "comment": "Contrôle la formule après la guérison au lieu de lancer un bilan extensif.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "On contrôle 2 à 4 semaines après la guérison.",
+    "Une lymphocytose > 3 mois impose un immunophénotypage.",
+    "La neutropénie ethnique bénigne reste stable et sans infection."
+   ],
+   "sources": [
+    "[Fait établi, hématologie clinique]"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Traiter",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "Soulage sans antibiotique et retire les médicaments suspects.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "On préfère le paracétamol au métamizole.",
+    "On déclare une agranulocytose à Swissmedic."
+   ],
+   "sources": [
+    "[Swissmedic, pharmacovigilance]"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "pec_cyto",
+   "titre": "Cytopénie ou lymphocytose virale transitoire",
+   "but": [
+    "Soulager les symptômes.",
+    "Vérifier la normalisation de la formule.",
+    "Ne pas manquer une cause grave."
+   ],
+   "moyens": {
+    "accueil": [
+     "On recherche drapeaux rouges, voyage et médicaments.",
+     "On examine le frottis."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Paracétamol (antalgique antipyrétique)",
+      "posologie": "1 g jusqu'à 4 fois par jour chez l'adulte ; maximum à vérifier dans l'AIPS.",
+      "pourquoi": "Il soulage sans risque d'agranulocytose.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "On explique les signes qui imposent une consultation urgente.",
+      "pourquoi": "Une neutropénie peut s'aggraver."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "On recommande repos et hydratation.",
+      "pourquoi": "Ils soutiennent la récupération."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "O Pharmacologie Toxicologie Sécurité",
+      "apport": "On déclare les effets indésirables graves à Swissmedic."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "On ne prescrit pas d'antibiotique sans neutropénie sévère.",
+      "On contrôle la formule à 2–4 semaines."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il exclut neutropénie fébrile, paludisme et blastes."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Il arrête les médicaments suspects."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Il revient pour le contrôle de la formule."
+      }
+     ]
+    }
+   },
+   "pronostic": "Les cytopénies virales se normalisent habituellement en 1 à 4 semaines.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Formule sanguine",
+      "quand": "2–4 semaines après la guérison",
+      "cible": "Normalisation"
+     },
+     {
+      "quoi": "Température",
+      "quand": "Pendant la maladie",
+      "cible": "Apyrexie"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire."
+   },
+   "prevention": {
+    "primaire": "On évite les médicaments myélotoxiques sans nécessité.",
+    "secondaire": "On contrôle la formule après la guérison.",
+    "tertiaire": "On adresse à l'hématologue en cas de persistance."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "_mode": "agent_sans_api",
+  "note": "Produit directement par l'agent Claude, sans appel à l'API Anthropic."
+ },
+ "signature": {
+  "date": "2026-11-24T11:48:46",
+  "modele": "claude-opus-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

@@ -1,0 +1,432 @@
+{
+ "id": "A03.9_enterocolite_bacteri__F2_8-E16",
+ "portes": [
+  {
+   "ssp": "S3.8",
+   "nomSSP": "Diarrhée",
+   "entite": "Entérocolite infectieuse invasive sévère avec sepsis ou déshydratation hypovolémique (Salmonella, Campylobacter, Shigella)",
+   "entiteId": "S3.8-E13"
+  },
+  {
+   "ssp": "F2.8",
+   "nomSSP": "Analyses des selles anormales, sang occulte, parasites",
+   "entite": "Dysenterie bacillaire sévère (Shigella / STEC)",
+   "entiteId": "F2.8-E16"
+  }
+ ],
+ "entite": "Entérocolite bactérienne invasive sévère (Salmonella, Shigella, STEC)",
+ "cim10": "A03.9",
+ "ssp": {
+  "code": "F2.8",
+  "nom": "Analyses des selles anormales, sang occulte, parasites",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Sang dans les selles",
+    "i": "On distingue diarrhée aiguë et saignement chronique.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Diarrhée aiguë sanglante",
+    "i": "On évalue la gravité et on demande coproculture et shigatoxine.",
+    "pec": "ent",
+    "notion": "c2"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Shigatoxine positive",
+    "i": "On s'abstient d'antibiotique et on surveille le SHU.",
+    "pec": "shu",
+    "notion": "c3"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Shigella isolée",
+    "i": "On traite selon l'antibiogramme.",
+    "pec": "ent",
+    "notion": "c3"
+   },
+   {
+    "id": "n5",
+    "parent": "n1",
+    "t": "Saignement chronique sans diarrhée aiguë",
+    "i": "On explore une cause colique non infectieuse.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n6",
+    "parent": "n3",
+    "t": "Plaquettes basses et créatinine en hausse",
+    "i": "On transfère en néphrologie.",
+    "pec": "shu",
+    "notion": "c4"
+   }
+  ]
+ },
+ "specialites": [
+  "INF"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Entérocolite bactérienne invasive : reconnaître la diarrhée sanglante, rechercher la shigatoxine, ne jamais traiter un STEC par antibiotique et dépister le syndrome hémolytique et urémique",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Comprendre",
+   "rubriques": [
+    "definition",
+    "epidemiology",
+    "basicSciences",
+    "anamnesis"
+   ],
+   "comment": "On relie l'agent à son mécanisme : invasion pour Shigella, toxine pour STEC.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Déclaration de laboratoire en 24 heures.",
+    "Viande hachée, lait cru, voyage, crèche."
+   ],
+   "sources": [
+    "[OFSP, Aperçu des maladies à déclaration obligatoire (liste alphabétique), 15.12.2025]",
+    "Avis d'expert (à vérifier ; recommandations SSI et OFSP à consulter)"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Reconnaître",
+   "rubriques": [
+    "clinicalExam",
+    "presumptionRedFlags",
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "On évalue la gravité puis on documente le germe.",
+   "tableau": {
+    "colonnes": [
+     "Agent",
+     "Indice",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "STEC",
+      "Sang, peu de fièvre",
+      [
+       {
+        "t": "Pas d'antibiotique",
+        "i": "La toxine favorise le SHU."
+       }
+      ]
+     ],
+     [
+      "Shigella",
+      "Fièvre, ténesme",
+      [
+       {
+        "t": "Antibiogramme",
+        "i": "La résistance progresse."
+       }
+      ]
+     ],
+     [
+      "Salmonella",
+      "Fièvre, terrain",
+      [
+       {
+        "t": "Traiter si risque",
+        "i": "L'antibiotique prolonge le portage."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Diarrhée sanglante = coproculture + shigatoxine."
+   ],
+   "sources": [
+    "[CDC, Shiga toxin-producing E. coli — Information for clinicians, cdc.gov/ecoli/hcp/guidance, consulté le 24.11.2026]",
+    "[Shane AL et al., 2017 IDSA Clinical Practice Guidelines for the Diagnosis and Management of Infectious Diarrhea, Clin Infect Dis 2017;65(12):e45–e80, doi:10.1093/cid/cix669]"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Traiter",
+   "rubriques": [
+    "positiveDiagnosis",
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "On réhydrate d'abord et on réserve l'antibiotique aux agents qui en profitent.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "t1",
+     "parent": null,
+     "t": "Diarrhée sanglante",
+     "i": "On réhydrate et on demande la coproculture.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "t2",
+     "parent": "t1",
+     "t": "STEC",
+     "i": "On s'abstient d'antibiotique et de lopéramide.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "t3",
+     "parent": "t1",
+     "t": "Shigella",
+     "i": "On traite selon l'antibiogramme.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "t4",
+     "parent": "t1",
+     "t": "Salmonella chez un sujet à risque",
+     "i": "On prélève des hémocultures et on traite.",
+     "pec": null,
+     "notion": null
+    }
+   ],
+   "points": [
+    "Pas d'antibiotique de routine avant d'exclure STEC."
+   ],
+   "sources": [
+    "[Tarr PI, Freedman SB, Why antibiotics should not be used to treat Shiga toxin-producing Escherichia coli infections, Curr Opin Gastroenterol 2022;38(1):30–38, doi:10.1097/MOG.0000000000000798]",
+    "[Shane AL et al., 2017 IDSA Clinical Practice Guidelines for the Diagnosis and Management of Infectious Diarrhea, Clin Infect Dis 2017;65(12):e45–e80, doi:10.1093/cid/cix669]",
+    "AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Surveiller",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "On guette le SHU et on protège l'entourage.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "SHU vers J7 : plaquettes, schizocytes, créatinine.",
+    "Éviction selon le médecin cantonal."
+   ],
+   "sources": [
+    "[CDC, Shiga toxin-producing E. coli — Information for clinicians, cdc.gov/ecoli/hcp/guidance, consulté le 24.11.2026]",
+    "Avis d'expert (à vérifier ; recommandations SSI et OFSP à consulter)"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "ent",
+   "titre": "Entérocolite bactérienne invasive",
+   "but": [
+    "On corrige la déshydratation.",
+    "On identifie l'agent.",
+    "On évite l'antibiotique nuisible."
+   ],
+   "moyens": {
+    "accueil": [
+     "On évalue la déshydratation.",
+     "On isole selon les précautions contact."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Solution de réhydratation orale ou cristalloïde IV",
+      "posologie": "Selon le déficit estimé.",
+      "pourquoi": "Elle corrige les pertes.",
+      "source": "[CDC, Shiga toxin-producing E. coli — Information for clinicians, cdc.gov/ecoli/hcp/guidance, consulté le 24.11.2026]"
+     },
+     {
+      "molecule": "Azithromycine (shigellose)",
+      "posologie": "Selon l'antibiogramme ; à vérifier dans l'AIPS.",
+      "pourquoi": "Elle raccourcit la shigellose.",
+      "source": "[Shane AL et al., 2017 IDSA Clinical Practice Guidelines for the Diagnosis and Management of Infectious Diarrhea, Clin Infect Dis 2017;65(12):e45–e80, doi:10.1093/cid/cix669] ; AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "On applique hygiène des mains et précautions contact.",
+      "pourquoi": "On limite la transmission."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "On explique cuisson à cœur et lait cru.",
+      "pourquoi": "On prévient la récidive familiale."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "J Hygiène hospitalière",
+      "apport": "On applique les précautions contact."
+     },
+     {
+      "discipline": "N Médecine sociale Prévention OFSP",
+      "apport": "On déclare et on soutient l'enquête cantonale."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "On réhydrate.",
+      "On évite antibiotique et lopéramide tant que STEC n'est pas exclu."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il évalue la gravité et réhydrate."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "laboratoire",
+       "fait": "Il réalise coproculture et shigatoxine et déclare."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Il adapte le traitement à l'agent."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La plupart des entérocolites guérissent en moins d'une semaine ; le SHU fait la gravité des STEC.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Diurèse et poids",
+      "quand": "quotidiens",
+      "cible": "Stables"
+     },
+     {
+      "quoi": "Hémogramme et créatinine (STEC)",
+      "quand": "quotidiens",
+      "cible": "Normaux"
+     }
+    ],
+    "sortie": "On laisse sortir le patient hydraté, sans signe de SHU, avec consignes d'hygiène."
+   },
+   "prevention": {
+    "primaire": "On cuit la viande à cœur et on évite le lait cru.",
+    "secondaire": "On déclare et on enquête autour du cas.",
+    "tertiaire": "On dépiste tôt le SHU."
+   }
+  },
+  {
+   "cle": "shu",
+   "titre": "Syndrome hémolytique et urémique post-STEC",
+   "but": [
+    "On soutient le rein.",
+    "On corrige l'anémie et les troubles électrolytiques."
+   ],
+   "moyens": {
+    "accueil": [
+     "On transfère en néphrologie.",
+     "On mesure diurèse et poids."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Transfusion de concentré érythrocytaire",
+      "posologie": "Selon l'hémoglobine et la tolérance.",
+      "pourquoi": "Elle corrige l'anémie.",
+      "source": "[CDC, Shiga toxin-producing E. coli — Information for clinicians, cdc.gov/ecoli/hcp/guidance, consulté le 24.11.2026]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "On tient un bilan entrées-sorties strict.",
+      "pourquoi": "On adapte les apports."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "S Urgences vitales Triage 144 REGA",
+      "apport": "On transfère vers un centre de néphrologie et dialyse."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "On évite AINS et antibiotiques.",
+      "On équilibre liquides et électrolytes."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il confirme le SHU."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "néphrologue",
+       "fait": "Il décide de la dialyse."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "soins infirmiers",
+       "fait": "Ils tiennent le bilan entrées-sorties."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La plupart des patients récupèrent avec un bon traitement de soutien ; l'enfant s'en sort mieux que l'adulte.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Créatinine",
+      "quand": "quotidienne",
+      "cible": "En baisse"
+     },
+     {
+      "quoi": "Plaquettes",
+      "quand": "quotidiennes",
+      "cible": "En hausse"
+     }
+    ],
+    "sortie": "On laisse sortir quand la fonction rénale se stabilise."
+   },
+   "prevention": {
+    "primaire": "On évite les antibiotiques dans les diarrhées à STEC.",
+    "secondaire": "On dépiste le SHU chez tout STEC.",
+    "tertiaire": "On suit la fonction rénale à distance."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "_mode": "agent_sans_api",
+  "note": "Produit directement par l'agent Claude, sans appel à l'API Anthropic."
+ },
+ "signature": {
+  "date": "2026-11-24T13:11:15",
+  "modele": "claude-opus-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}
