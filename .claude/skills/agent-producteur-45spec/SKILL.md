@@ -83,3 +83,14 @@ Signature : AAI (Anthropic AI)
 - Fusion sur main (autorisée par Vial) après chaque lot de 3 : `valider()` sans erreur sur ses fichiers, 0 menu long fautif sur tout `content/questions/*`, `scripts/classer_rendement.py`, `conception/outils/arene45/construire_arene45.py`, test sans écran de l'arène 45 (0 erreur JS), puis `git pull --no-rebase origin main` et push sur main sans force.
 - Fichier produit par l'API qui dépasse 70 notions : fusionne les notions redondantes non utilisées par les questions (même rubrique ou doublon de seuil) au lieu d'en supprimer le contenu ; les ids restants ne se renumérotent pas.
 - Libellés transversaux exacts : « C Communication clinique », « Q Radioprotection Smarter Medicine » (« G » = Épidémiologie, « D » = Digitalisation, jamais « Médecine de famille » ni « Imagerie »).
+
+## Leçons (agent A, lots 11–12, 24.11.2026)
+- Avec 4 notions de poids 3, il faut au moins 27 notions (poids 3 ≤ 15 %, poids 2 ≤ 35 %) : `couverture_compacte.py` affiche sinon « POIDS hors règle ».
+- Le suffixe de l'id ne donne pas la SSP (N95.2__F1_2 → S4.17) : reprends `ssp` et `nomSSP` de `P.canoniques(None)`.
+- Un menu long dont le prompt nomme le diagnostic (« autre cause qu'une fibromyalgie ») porte `m=0`.
+- Test sans écran de l'arène : `index.html` porte depuis le lot 13 une favicon PNG en data-URI ; on attend donc 0 `pageerror` et 0 erreur console. Un 404 sur `decks/<SPEC>.json` signale seulement une spécialité encore sans contenu.
+
+## Leçons (agent A, lots 13–14, 24.11.2026)
+- Libellés transversaux : il n'existe pas de « H Gériatrie » ; pour la fin de vie, prends « M Médecine palliative » ; vérifie un libellé par `grep '"discipline"' content/corrections` avant de l'écrire.
+- Sources suisses vérifiables en ligne : stratégies et protocoles des HUG (hug.ch, par ex. infections urinaires 2026, diabète gestationnel 2022) et pages OFSP ; préfère-les à un avis d'expert.
+- Une pathologie pédiatrique du groupe A (ex. K56.1, CPE) crée un nouveau dossier de spécialité : le constructeur le fait seul, et l'arène génère le deck.

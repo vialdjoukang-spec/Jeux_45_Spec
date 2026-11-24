@@ -1,5 +1,6 @@
 from constructeur_agent_45spec import pec
 ID = "O00.1__O1_7-E11"
+SGGG = "[SGGG/gynécologie suisse, avis d'experts n° 68, Prophylaxie anti-D, 9.1.2020]"
 NICE = "[NICE NG126 2019 (mise à jour 2023), Ectopic pregnancy and miscarriage: diagnosis and initial management]"
 EXP = "Avis d'expert (à vérifier)"
 AIPS = "AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
@@ -22,7 +23,7 @@ _N = [
 ("bloc","acuteManagement","décision",3,0,NICE+" ; "+EXP,"Une GEU rompue avec instabilité impose la chirurgie immédiate, par cœlioscopie ou laparotomie selon l'état hémodynamique."),
 ("rea","acuteManagement","décision",2,0,EXP,"On pose deux voies veineuses de gros calibre, on groupe et cross-matche, on active le protocole de transfusion massive si besoin."),
 ("salp","acuteManagement","décision",2,0,NICE,"On pratique une salpingectomie, sauf si d'autres facteurs d'infertilité, comme une trompe controlatérale lésée, font préférer une salpingotomie."),
-("antid","acuteManagement","posologie",1,0,NICE+" ; "+AIPS,"Une patiente Rhésus négatif opérée reçoit une immunoglobuline anti-D (250 UI, soit 50 µg, selon NICE ; dose suisse à vérifier dans l'AIPS)."),
+("antid","acuteManagement","posologie",1,1,SGGG+" ; "+AIPS,"Une patiente Rhésus D négatif avec GEU reçoit en Suisse 300 µg d'immunoglobuline anti-D i.v. ou i.m. (SGGG 2020) ; NICE retient 250 UI (50 µg) ; posologie à vérifier dans l'AIPS."),
 ("mtx","chronicManagement","décision",2,0,NICE,"Le méthotrexate convient à une GEU non rompue, sans douleur importante, masse inférieure à 35 mm, sans activité cardiaque, hCG inférieure à 1500 UI/L, chez une patiente qui peut revenir ; entre 1500 et 5000 UI/L on discute méthotrexate ou chirurgie."),
 ("mtxdose","chronicManagement","posologie",1,0,EXP+" ; "+AIPS,"Le méthotrexate se donne en injection IM unique dosée selon la surface corporelle (souvent 50 mg/m²) ; à vérifier dans l'AIPS."),
 ("ci_mtx","chronicManagement","piège",1,0,NICE,"Une hCG d'au moins 5000 UI/L, une activité cardiaque, une masse de 35 mm ou plus ou une douleur importante font préférer la chirurgie."),
@@ -130,7 +131,7 @@ C = {"theme":"Grossesse extra-utérine rompue : tester l'hCG chez toute femme en
   pec("urg","GEU rompue",["On arrête l'hémorragie.","On rétablit la volémie."],
       ["On allonge la patiente et on surveille constantes.","On informe la patiente et on obtient son consentement."],
       [("Cristalloïdes et produits sanguins","Selon le protocole de transfusion massive ; à vérifier selon le protocole local.","Ils restaurent la volémie et la coagulation.",EXP),
-       ("Immunoglobuline anti-D","250 UI (50 µg) selon NICE si Rhésus négatif opérée ; dose suisse à vérifier dans l'AIPS.","Elle prévient l'allo-immunisation.",NICE)],
+       ("Immunoglobuline anti-D","300 µg i.v. ou i.m. si Rhésus D négatif (SGGG, avis n° 68, 2020) ; NICE retient 250 UI (50 µg) ; à vérifier dans l'AIPS.","Elle prévient l'allo-immunisation.",SGGG)],
       [("geste ou chirurgie","On fait une cœlioscopie ou une laparotomie avec salpingectomie.","On contrôle le saignement."),("soins infirmiers","On surveille pouls, tension et pertes.","On détecte l'aggravation.")],
       [("S Urgences vitales Triage","On engage le 144 et on annonce la patiente au bloc."),("C Communication clinique","On annonce la perte de grossesse avec tact.")],
       (["On pose deux voies veineuses.","On groupe et cross-matche."],[("d'abord","urgentiste","Il réanime et fait le FAST."),("en même temps","anesthésiste","Il prépare le bloc et la transfusion."),("ensuite","gynécologue","Il opère.")]),

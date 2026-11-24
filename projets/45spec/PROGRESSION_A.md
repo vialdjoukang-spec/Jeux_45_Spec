@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**252 / 500 pathologies du périmètre produites.**
+**264 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -126,12 +126,12 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 117 | `M72.6__F1_14-E12` | Fasciite nécrosante (gangrène streptococcique ou polymicrobienne) | CPL | produite |
 | 118 | `O00.1__O1_7-E11` | Grossesse extra-utérine (GEU) rompue | GYN | produite |
 | 119 | `R45.8_2__O6_1-E11` | Crise suicidaire aiguë chez un jeune LGBTQIA+ (rejet familial ou dysphorie) | MIG | produite |
-| 120 | `T43.2__G1-E18` | Syndrome sérotoninergique aigu | TOX | — |
+| 120 | `T43.2__G1-E18` | Syndrome sérotoninergique aigu | TOX | produite |
 | 121 | `T78.2__F1_1-E17` | Anaphylaxie aiguë (choc anaphylactique) | ALL | produite |
 | 122 | `T78.3__F1_16-E13` | Angio-œdème laryngé aigu | ALL | produite |
 | 123 | `T79.6__G10-E22` | Syndrome des loges (compartiment) aigu | CHI | produite |
-| 124 | `A56.0__O4_5-E02` | Urétrite à Chlamydia trachomatis (sérovars D-K) | DER | — |
-| 125 | `A63.0__F1_2-E03` | Condylomes acuminés (verrues génitales à HPV) | DER | — |
+| 124 | `A56.0__O4_5-E02` | Urétrite à Chlamydia trachomatis (sérovars D-K) | DER | produite |
+| 125 | `A63.0__F1_2-E03` | Condylomes acuminés (verrues génitales à HPV) | DER | produite |
 | 126 | `B37.0_candidose_muqueuse_s__O5_3-E08` | Candidose muqueuse superficielle (muguet oropharyngé, vulvo-vaginite) | INF | produite |
 | 127 | `E28.2__G15-E05` | Syndrome des ovaires polykystiques (SOPK) | END | produite |
 | 128 | `E66.0_obesite_de_l_adulte__G15-E01` | Obésité de l'adulte | END | produite |
@@ -143,24 +143,24 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 134 | `G47.0_insomnie_aigue_situa__G11-E03` | Insomnie (aiguë situationnelle ou chronique) | NEU | produite |
 | 135 | `I35.0_stenose_aortique__F1_19-E06` | Sténose aortique | CAR | produite |
 | 136 | `K59.0_constipation_chroniq__S3_2-E02` | Constipation chronique fonctionnelle (transit normal ou lent, stase stercorale) | GAS | produite |
-| 137 | `M79.7__G10-E06` | Fibromyalgie | RHU | — |
-| 138 | `N39.4_1__O3_7-E02` | Incontinence urinaire mixte | URO | — |
-| 139 | `N95.2__F1_2-E05` | Atrophie endométriale et vulvo-vaginale (syndrome génito-urinaire de la ménopause) | GYN | — |
+| 137 | `M79.7__G10-E06` | Fibromyalgie | RHU | produite |
+| 138 | `N39.4_1__O3_7-E02` | Incontinence urinaire mixte | URO | produite |
+| 139 | `N95.2__F1_2-E05` | Atrophie endométriale et vulvo-vaginale (syndrome génito-urinaire de la ménopause) | GYN | produite |
 | 140 | `B00.2__O2_9-E06` | Gingivostomatite herpétique aiguë (primo-infection HSV-1) | CMF | produite |
 | 141 | `F44.4_trouble_neurologique__O7_8-E04` | Trouble neurologique fonctionnel (conversion) moteur | PSY | produite |
 | 142 | `G12.0_amyotrophie_spinale___O2_11-E08` | Amyotrophie spinale infantile (SMA) : dépistage néonatal et thérapies géniques | NEU | produite |
-| 143 | `M80.0__F2_20-E14` | Fracture ostéoporotique vertébrale ou périphérique | RHU | — |
-| 144 | `N41.0__F2_15-E07` | Prostatite aiguë bactérienne | URO | — |
-| 145 | `O24.4__F2_9-E05` | Diabète gestationnel | GYN | — |
-| 146 | `D84.1__F1_16-E14` | Angio-œdème bradykinique héréditaire ou sous IEC | ALL | — |
+| 143 | `M80.0__F2_20-E14` | Fracture ostéoporotique vertébrale ou périphérique | RHU | produite |
+| 144 | `N41.0__F2_15-E07` | Prostatite aiguë bactérienne | URO | produite |
+| 145 | `O24.4__F2_9-E05` | Diabète gestationnel | GYN | produite |
+| 146 | `D84.1__F1_16-E14` | Angio-œdème bradykinique héréditaire ou sous IEC | ALL | produite |
 | 147 | `E80.2__G10-E13` | Porphyrie aiguë intermittente | END | produite |
 | 148 | `F23.9_episode_psychotique___O2_2-E14` | Épisode psychotique aigu (bouffée délirante / premier épisode psychotique) | PSY | produite |
 | 149 | `F30.1_etat_maniaque_aigu_a__G11-E19` | État maniaque aigu avec agitation et mise en danger | PSY | produite |
 | 150 | `G61.0__O4_2-E13` | Syndrome de Guillain-Barré (polyradiculonévrite aiguë) | NEU | produite |
 | 151 | `I67.0_dissection_des_arter__F1_12-E12` | Dissection des artères cervicales (carotide ou vertébrale) | NEU | produite |
 | 152 | `J96.0_insuffisance_respira__F2_1-E13` | Insuffisance respiratoire hypercapnique aiguë (acidose, encéphalopathie) | PNE | produite |
-| 153 | `K55.0__F1_3-E18` | Ischémie mésentérique aiguë (silence auscultatoire et douleur abdominale majeure) | CHI | — |
-| 154 | `K56.1__O2_4-E12` | Invagination intestinale aiguë du nourrisson (boudin d'invagination) | CPE | — |
+| 153 | `K55.0__F1_3-E18` | Ischémie mésentérique aiguë (silence auscultatoire et douleur abdominale majeure) | CHI | produite |
+| 154 | `K56.1__O2_4-E12` | Invagination intestinale aiguë du nourrisson (boudin d'invagination) | CPE | produite |
 | 155 | `K72.0__F2_11-E13` | Hépatite fulminante (insuffisance hépatique aiguë) | GAS | produite |
 | 156 | `K83.0_angiocholite_aigue__F2_11-E15` | Angiocholite aiguë | GAS | produite |
 | 157 | `M00.9__G6-E10` | Arthrite septique aiguë | RHU | — |
