@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**223 / 500 pathologies du périmètre produites.**
+**249 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -21,7 +21,7 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 12 | `J46_asthme_aigu_grave__F1_3-E16` | Asthme aigu grave | PNE | produite |
 | 13 | `J90__F1_6-E01` | Épanchement pleural (transsudat ou exsudat) | PNE | produite |
 | 14 | `N17.9__F2_1-E08` | Acidose métabolique urémique (insuffisance rénale) | NEP | produite |
-| 15 | `R33__F2_15-E15` | Globe vésical chronique (rétention urinaire indolore) | URO | — |
+| 15 | `R33__F2_15-E15` | Globe vésical chronique (rétention urinaire indolore) | URO | produite |
 | 16 | `C50.9__F1_5-E10` | Carcinome mammaire (cancer du sein) | ONC | produite |
 | 17 | `F32.2_episode_depressif_ma__F1_8-E06` | Épisode dépressif majeur sévère (anorexie, amaigrissement, risque suicidaire) | PSY | produite |
 | 18 | `F43.0_reaction_aigue_au_st__O6_4-E13` | Réaction aiguë au stress et trouble de stress aigu | PSY | produite |
@@ -35,7 +35,7 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 26 | `J44.1__F1_10-E02` | Exacerbation aiguë sévère de BPCO | PNE | produite |
 | 27 | `K25.4_hemorragie_digestive__O3_4-E10` | Hémorragie digestive haute ulcéreuse ou sur AINS | GAS | produite |
 | 28 | `S72.0__F2_20-E13` | Fracture ostéoporotique du fémur proximal | ORT | produite |
-| 29 | `D68.0__F2_22-E14` | Maladie de von Willebrand | HEM | — |
+| 29 | `D68.0__F2_22-E14` | Maladie de von Willebrand | HEM | produite |
 | 30 | `E10.1_acidocetose_diabetiq__F1_13-E11` | Acidocétose diabétique | END | produite |
 | 31 | `E83.5_hypercalcemie_malign__F2_20-E16` | Hypercalcémie maligne et crise hypercalcémique | END | produite |
 | 32 | `G70.0__F1_11-E10` | Myasthénie grave (dysphonie et voix nasonnée fatigables) | NEU | produite |
@@ -44,18 +44,18 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 35 | `I80.2__F1_10-E07` | Thrombose veineuse profonde (fièvre thrombo-embolique) | ANG | produite |
 | 36 | `K90.0__F1_8-E04` | Maladie cœliaque (malabsorption) | GAS | produite |
 | 37 | `N04.9__F1_16-E05` | Syndrome néphrotique | NEP | produite |
-| 38 | `T58__F1_15-E18` | Intoxication au monoxyde de carbone (CO) | TOX | — |
-| 39 | `D50.9__F1_17-E01` | Anémie ferriprive (carence martiale) | HEM | — |
+| 38 | `T58__F1_15-E18` | Intoxication au monoxyde de carbone (CO) | TOX | produite |
+| 39 | `D50.9__F1_17-E01` | Anémie ferriprive (carence martiale) | HEM | produite |
 | 40 | `E03.9_hypothyroidie_primai__F1_16-E09` | Hypothyroïdie primaire (thyroïdite de Hashimoto) | END | produite |
-| 41 | `E11.9_diabete_de_type_2__F2_9-E01` | Diabète de type 2 | END | — |
-| 42 | `E16.0__F2_9-E03` | Hypoglycémie iatrogène (insuline, sulfonylurées) | TOX | — |
+| 41 | `E11.9_diabete_de_type_2__F2_9-E01` | Diabète de type 2 | END | produite |
+| 42 | `E16.0__F2_9-E03` | Hypoglycémie iatrogène (insuline, sulfonylurées) | TOX | produite |
 | 43 | `E87.6_hypokaliemie__F2_7-E02` | Hypokaliémie | NEP | produite |
-| 44 | `F32.1_2__O5_5-E05` | Dépression masquée (présentation somatique d'un épisode dépressif) | PSY | — |
+| 44 | `F32.1_2__O5_5-E05` | Dépression masquée (présentation somatique d'un épisode dépressif) | PSY | produite |
 | 45 | `F43.2__O5_5-E01` | Trouble de l'adaptation (après événement stressant de vie) | PSY | produite |
 | 46 | `G43.9__S3_10-E06` | Migraine avec ou sans aura (et syndrome des vomissements cycliques) | NEU | produite |
 | 47 | `G47.3__F1_1-E07` | Syndrome d'apnées centrales du sommeil (respiration de Cheyne-Stokes) | PNE | produite |
 | 48 | `G51.0__F1_4-E17` | Asymétrie faciale aiguë (paralysie faciale centrale vs périphérique) | NEU | produite |
-| 49 | `H06.2__F1_12-E01` | Orbitopathie dysthyroïdienne (maladie de Basedow) | OPH | — |
+| 49 | `H06.2__F1_12-E01` | Orbitopathie dysthyroïdienne (maladie de Basedow) | OPH | produite |
 | 50 | `I10__F1_1-E01` | Hypertension artérielle essentielle (primaire) | CAR | produite |
 | 51 | `I50.0_insuffisance_cardiaq__F1_16-E02` | Insuffisance cardiaque chronique | CAR | produite |
 | 52 | `J18.9_pneumonie_communauta__F1_10-E04` | Pneumonie communautaire | PNE | produite |
@@ -65,13 +65,13 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 56 | `K74.6_cirrhose_hepatique_c__F1_16-E04` | Cirrhose hépatique (compensée, ascite, décompensation ictérique) | GAS | produite |
 | 57 | `N18.5_maladie_renale_chron__F1_16-E06` | Maladie rénale chronique | NEP | produite |
 | 58 | `S43.0__O4_1-E14` | Luxation postérieure de l'épaule | ORT | produite |
-| 59 | `T39.1__F2_11-E14` | Intoxication au paracétamol (volontaire ou surdosage thérapeutique) | TOX | — |
+| 59 | `T39.1__F2_11-E14` | Intoxication au paracétamol (volontaire ou surdosage thérapeutique) | TOX | produite |
 | 60 | `T74.1_4__O6_3-E01` | Violence conjugale physique chronique | LEG | produite |
-| 61 | `Z60.4__O2_3-E08` | Harcèlement scolaire et cyberharcèlement (bullying) | MIG | — |
+| 61 | `Z60.4__O2_3-E08` | Harcèlement scolaire et cyberharcèlement (bullying) | MIG | produite |
 | 62 | `Z73.0__G4-E04` | Épuisement professionnel (burnout) | MTR | produite |
 | 63 | `A46_erysipele_dermohypod__G12-E18` | Érysipèle (dermohypodermite bactérienne aiguë non nécrosante) | INF | produite |
 | 64 | `F43.1_trouble_de_stress_po__O6_3-E05` | Trouble de stress post-traumatique (TSPT / PTSD) (> 1 mois) | PSY | produite |
-| 65 | `T17.1__F1_13-E15` | Corps étranger nasal enclavé (enfant) | ORL | — |
+| 65 | `T17.1__F1_13-E15` | Corps étranger nasal enclavé (enfant) | ORL | produite |
 | 66 | `A09.0_gastro_enterite_aigu__F2_8-E02` | Gastro-entérite aiguë infectieuse (virale ou bactérienne) | INF | produite |
 | 67 | `E10.9__F1_8-E08` | Diabète de type 1 | END | produite |
 | 68 | `E22.2__F2_7-E01` | Hyponatrémie euvolémique sur SIADH | END | produite |
@@ -80,21 +80,21 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 71 | `F84.0__O2_12-E09` | Trouble du spectre de l'autisme (TSA) dépisté précocement | PEA | produite |
 | 72 | `F90.0__O2_10-E02` | Trouble du déficit de l'attention avec ou sans hyperactivité (TDAH) | PEA | produite |
 | 73 | `G20_1__S7_1-E05` | Maladie de Parkinson et syndromes parkinsoniens (instabilité posturale) | NEU | produite |
-| 74 | `G40.9_2__F1_15-E02` | Paralysie de Todd post-critique (hémiparésie transitoire après crise épileptique) | NEU | — |
+| 74 | `G40.9_2__F1_15-E02` | Paralysie de Todd post-critique (hémiparésie transitoire après crise épileptique) | NEU | produite |
 | 75 | `I95.1__F1_1-E02` | Hypotension orthostatique | CAR | produite |
 | 76 | `K58.9_syndrome_de_l_intest__O7_7-E02` | Syndrome de l'intestin irritable | GAS | produite |
-| 77 | `N45.1__S4_9-E01` | Orchi-épididymite aiguë infectieuse | URO | — |
+| 77 | `N45.1__S4_9-E01` | Orchi-épididymite aiguë infectieuse | URO | produite |
 | 78 | `R45.8_3__O2_12-E15` | Idéation suicidaire sans plan actif (crise psychique modérée) | MIG | produite |
-| 79 | `T42.4_1__F1_15-E03` | Intoxication médicamenteuse volontaire (benzodiazépines, psychotropes) | TOX | — |
-| 80 | `Z30.0_3__O1_9-E03` | Contraception d'urgence (post-coïtale) après rapport non protégé | GYN | — |
-| 81 | `Z53.2_3__O7_11-E02` | Refus d'hospitalisation ou sortie contre avis médical | MIG | — |
+| 79 | `T42.4_1__F1_15-E03` | Intoxication médicamenteuse volontaire (benzodiazépines, psychotropes) | TOX | produite |
+| 80 | `Z30.0_3__O1_9-E03` | Contraception d'urgence (post-coïtale) après rapport non protégé | GYN | produite |
+| 81 | `Z53.2_3__O7_11-E02` | Refus d'hospitalisation ou sortie contre avis médical | MIG | produite |
 | 82 | `A04.7__F2_8-E08` | Infection à Clostridioides difficile | INF | produite |
-| 83 | `H05.0__F1_12-E13` | Cellulite pré-septale (périorbitaire) | OPH | — |
+| 83 | `H05.0__F1_12-E13` | Cellulite pré-septale (périorbitaire) | OPH | produite |
 | 84 | `I40.9__F2_2-E05` | Myocardite aiguë | CAR | produite |
 | 85 | `I44.2__F1_18-E05` | Bloc auriculo-ventriculaire complet (3e degré) symptomatique | CAR | produite |
 | 86 | `I61.9_hemorragie_intracere__F1_15-E13` | Hémorragie intracérébrale (intraparenchymateuse, du tronc, sur trouble de l'hémostase) | NEU | produite |
 | 87 | `N13.8_insuffisance_renale___F2_12-E04` | Insuffisance rénale aiguë obstructive (post-rénale) | NEP | produite |
-| 88 | `T18.1__O7_7-E12` | Corps étranger œsophagien non compliqué (impaction alimentaire) | MIG | — |
+| 88 | `T18.1__O7_7-E12` | Corps étranger œsophagien non compliqué (impaction alimentaire) | MIG | produite |
 | 89 | `T40.2__G8-E19` | Intoxication aux opioïdes (héroïne, méthadone, morphine, fentanyl) | TOX | produite |
 | 90 | `A15.0_tuberculose_pulmonai__F1_8-E09` | Tuberculose pulmonaire active | INF | produite |
 | 91 | `A41.9__F2_19-E13` | Sepsis et choc septique | INT | — |
@@ -110,15 +110,15 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 101 | `G21.0__F1_15-E11` | Syndrome malin des neuroleptiques | NEU | produite |
 | 102 | `G41.9_etat_de_mal_epilepti__F1_15-E16` | État de mal épileptique non convulsif (dont état de mal d'absences) | NEU | produite |
 | 103 | `G83.4__G10-E20` | Syndrome de la queue de cheval (anesthésie en selle aiguë) | NCH | produite |
-| 104 | `G95.2__O3_2-E15` | Compression médullaire aiguë (paraparésie spastique/flasque aiguë avec troubles de la marche) | NEU | — |
-| 105 | `H40.2__F1_12-E14` | Glaucome aigu par fermeture de l'angle | OPH | — |
+| 104 | `G95.2__O3_2-E15` | Compression médullaire aiguë (paraparésie spastique/flasque aiguë avec troubles de la marche) | NEU | produite |
+| 105 | `H40.2__F1_12-E14` | Glaucome aigu par fermeture de l'angle | OPH | produite |
 | 106 | `I10_urgence_hypertensive__F1_1-E13` | Urgence hypertensive (crise hypertensive avec atteinte d'organe cible) | CAR | produite |
 | 107 | `I33.0__F1_3-E17` | Endocardite infectieuse (hémorragies en flammèche sous-unguéales et faux panaris d'Osler) | CAR | produite |
 | 108 | `I63.9__F1_11-E12` | Accident vasculaire cérébral aigu (AVC ischémique ou hémorragique) | NEU | produite |
 | 109 | `I63.9_avc_de_la_circulatio__F1_15-E14` | AVC de la circulation postérieure (tronc cérébral, cervelet, thrombose basilaire, syndrome de Wallenberg) | NEU | produite |
 | 110 | `I87.1__F1_16-E17` | Syndrome cave supérieur | ANG | produite |
-| 111 | `J05.1__F1_11-E14` | Épiglottite aiguë (supraglottite infectieuse) | ORL | — |
-| 112 | `J39.0__G2-E20` | Abcès rétropharyngé | ORL | — |
+| 111 | `J05.1__F1_11-E14` | Épiglottite aiguë (supraglottite infectieuse) | ORL | produite |
+| 112 | `J39.0__G2-E20` | Abcès rétropharyngé | ORL | produite |
 | 113 | `J81_deme_aigu_du_poumon___F1_16-E12` | Œdème aigu du poumon cardiogénique | PNE | produite |
 | 114 | `J93.0__F1_18-E13` | Pneumothorax suffocant (sous tension) | CTH | produite |
 | 115 | `K40.3__F1_5-E13` | Hernie étranglée (masse inguinale ou crurale irréductible) | CHI | produite |
@@ -148,7 +148,7 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 139 | `N95.2__F1_2-E05` | Atrophie endométriale et vulvo-vaginale (syndrome génito-urinaire de la ménopause) | GYN | — |
 | 140 | `B00.2__O2_9-E06` | Gingivostomatite herpétique aiguë (primo-infection HSV-1) | CMF | produite |
 | 141 | `F44.4_trouble_neurologique__O7_8-E04` | Trouble neurologique fonctionnel (conversion) moteur | PSY | produite |
-| 142 | `G12.0_amyotrophie_spinale___O2_11-E08` | Amyotrophie spinale infantile (SMA) : dépistage néonatal et thérapies géniques | NEU | — |
+| 142 | `G12.0_amyotrophie_spinale___O2_11-E08` | Amyotrophie spinale infantile (SMA) : dépistage néonatal et thérapies géniques | NEU | produite |
 | 143 | `M80.0__F2_20-E14` | Fracture ostéoporotique vertébrale ou périphérique | RHU | — |
 | 144 | `N41.0__F2_15-E07` | Prostatite aiguë bactérienne | URO | — |
 | 145 | `O24.4__F2_9-E05` | Diabète gestationnel | GYN | — |
@@ -408,15 +408,15 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 399 | `E80.4__S6_5-E02` | Syndrome de Gilbert | END | produite |
 | 400 | `E88.0__F2_23-E01` | Hypoalbuminémie sur syndrome inflammatoire aigu ou chronique | END | produite |
 | 401 | `E88.8__G15-E02` | Syndrome métabolique (obésité abdominale, HTA, dyslipidémie, insulinorésistance) | END | produite |
-| 402 | `F06.7_1__F1_9-E03` | Trouble cognitif léger (MCI — Mild Cognitive Impairment) | PSY | — |
+| 402 | `F06.7_1__F1_9-E03` | Trouble cognitif léger (MCI — Mild Cognitive Impairment) | PSY | produite |
 | 403 | `F06.7__S7_7-E04` | Troubles cognitifs iatrogènes ou métaboliques (anticholinergiques, benzodiazépines, hypothyroïdie, B12) | TOX | — |
 | 404 | `F10.0_1__S9_8-E02` | Mésusage d'alcool (intoxication aiguë ou sevrage irritable) | TOX | — |
-| 405 | `F10.2_1__S9_13-E02` | Trouble de l'usage de l'alcool (consommation à risque / alcoolodépendance) | PSY | — |
+| 405 | `F10.2_1__S9_13-E02` | Trouble de l'usage de l'alcool (consommation à risque / alcoolodépendance) | PSY | produite |
 | 406 | `F12.2__S9_13-E03` | Trouble de l'usage du cannabis | PSY | produite |
 | 407 | `F19.2__O7_24-E03` | Patient avec trouble psychique sévère ou addiction (accès limité aux soins) | PSY | produite |
 | 408 | `F32.1_1__S7_7-E03` | Dépression du sujet âgé (« pseudo-démence dépressive ») / burn-out | MTR | — |
 | 409 | `F32.1_3__S9_8-E03` | Épisode dépressif avec irritabilité (dépression « masculine » ou de l'adolescent) | PEA | — |
-| 410 | `F32.1_5__O7_4-E02` | Dépression et anxiété comorbides d'une maladie chronique | PSY | — |
+| 410 | `F32.1_5__O7_4-E02` | Dépression et anxiété comorbides d'une maladie chronique | PSY | produite |
 | 411 | `F40.0__S9_7-E03` | Agoraphobie (avec ou sans trouble panique) | PSY | produite |
 | 412 | `F40.2__S9_7-E01` | Phobie spécifique (animaux, hauteurs, sang-injection-blessure, avion) | PSY | produite |
 | 413 | `F43.2_1__O7_2-E03` | Incapacité de travail pour trouble anxio-dépressif ou burnout (y compris liée au poste) | MTR | — |

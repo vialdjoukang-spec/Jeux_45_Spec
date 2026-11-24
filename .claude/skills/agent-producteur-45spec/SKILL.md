@@ -77,3 +77,9 @@ Signature : AAI (Anthropic AI)
 - Une ligne de `PROGRESSION_<NOM>.md` peut citer un id absent de `P.canoniques()` (ex. `R45.8_3__O2_12-E15`, porte fusionnée) : le constructeur lèverait `KeyError`. Saute-la, signale-la au rapport et produis la suivante.
 - Après chaque fusion de `main`, régénère la progression : les rangs de `RANG_RENDEMENT.json` bougent.
 - Un menu long dont la vignette nomme l'agent (« ne contiennent que des benzodiazépines ») porte aussi `m=0`.
+
+## Leçons (agent A, lots 9–10, 24.11.2026)
+- Utiliser `git pull --rebase=merges`, jamais `--rebase` simple : un rebase simple aplatit les fusions de main et réécrit l'historique partagé.
+- Fusion sur main (autorisée par Vial) après chaque lot de 3 : `valider()` sans erreur sur ses fichiers, 0 menu long fautif sur tout `content/questions/*`, `scripts/classer_rendement.py`, `conception/outils/arene45/construire_arene45.py`, test sans écran de l'arène 45 (0 erreur JS), puis `git pull --no-rebase origin main` et push sur main sans force.
+- Fichier produit par l'API qui dépasse 70 notions : fusionne les notions redondantes non utilisées par les questions (même rubrique ou doublon de seuil) au lieu d'en supprimer le contenu ; les ids restants ne se renumérotent pas.
+- Libellés transversaux exacts : « C Communication clinique », « Q Radioprotection Smarter Medicine » (« G » = Épidémiologie, « D » = Digitalisation, jamais « Médecine de famille » ni « Imagerie »).
