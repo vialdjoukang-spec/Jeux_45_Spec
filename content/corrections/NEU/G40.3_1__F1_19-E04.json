@@ -1,0 +1,524 @@
+{
+ "id": "G40.3_1__F1_19-E04",
+ "portes": [
+  {
+   "ssp": "S7.10",
+   "nomSSP": "Secousses musculaires, fasciculations, convulsions, crise épileptique et état de mal épileptique",
+   "entite": "Épilepsie généralisée idiopathique (tonico-clonique, myoclonique juvénile, absences)",
+   "entiteId": "S7.10-E01"
+  },
+  {
+   "ssp": "F1.19",
+   "nomSSP": "Perte de conscience transitoire, syncope",
+   "entite": "Crise d'épilepsie généralisée tonico-clonique",
+   "entiteId": "F1.19-E04"
+  }
+ ],
+ "entite": "Épilepsie généralisée idiopathique (tonico-clonique, myoclonique juvénile, absences)",
+ "cim10": "G40.3",
+ "ssp": {
+  "code": "S7.10",
+  "nom": "Secousses musculaires, fasciculations, convulsions, crise épileptique et état de mal épileptique",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Crise ou secousses",
+    "i": "Le premier tri distingue crise en cours et événement terminé.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Crise en cours > 5 minutes",
+    "i": "Elle relève de l'état de mal (même SSP).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "Événement terminé avec réveil rapide après un déclencheur",
+    "i": "Une syncope convulsivante renvoie au SSP syncope.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "Crise tonico-clonique",
+    "i": "L'anamnèse cherche myoclonies et absences méconnues.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Myoclonies matinales, absences, EEG généralisé",
+    "i": "Une épilepsie généralisée idiopathique se retient.",
+    "pec": "egi_long",
+    "notion": "c1"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Femme en âge de procréer",
+    "i": "Lévétiracétam ou lamotrigine plutôt que valproate.",
+    "pec": "egi_long",
+    "notion": "c3"
+   },
+   {
+    "id": "n7",
+    "parent": "n5",
+    "t": "Enfant avec absences seules",
+    "i": "L'éthosuximide est la première ligne.",
+    "pec": "egi_long",
+    "notion": "c3"
+   },
+   {
+    "id": "n8",
+    "parent": "n4",
+    "t": "Signes focaux ou automatismes",
+    "i": "Une épilepsie focale impose une IRM.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n9",
+    "parent": "n5",
+    "t": "Contraception ou grossesse",
+    "i": "Les interactions et la tératogénicité guident le choix.",
+    "pec": "egi_long",
+    "notion": "c4"
+   }
+  ]
+ },
+ "specialites": [
+  "NEU"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Épilepsies généralisées idiopathiques : reconnaître le syndrome, choisir un antiépileptique à large spectre et éviter le valproate chez la femme en âge de procréer",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Syndromes",
+   "rubriques": [
+    "definition",
+    "anamnesis",
+    "prognosisDischarge"
+   ],
+   "comment": "Identifie le syndrome, car il fixe le traitement et le pronostic.",
+   "tableau": {
+    "colonnes": [
+     "Syndrome",
+     "Âge",
+     "Crises",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "Épilepsie-absences de l'enfant",
+      "4-10 ans",
+      "Absences très fréquentes",
+      [
+       {
+        "t": "Guérison fréquente",
+        "i": "Le réseau thalamocortical mûrit à l'adolescence."
+       }
+      ]
+     ],
+     [
+      "Épilepsie-absences juvénile",
+      "Adolescence",
+      "Absences moins fréquentes, tonico-cloniques",
+      [
+       {
+        "t": "Persistance plus fréquente",
+        "i": "Le début tardif annonce une évolution plus longue."
+       }
+      ]
+     ],
+     [
+      "Épilepsie myoclonique juvénile",
+      "Adolescence",
+      "Myoclonies matinales, tonico-cloniques",
+      [
+       {
+        "t": "Traitement prolongé",
+        "i": "Les rechutes sont fréquentes à l'arrêt."
+       }
+      ]
+     ],
+     [
+      "Tonico-cloniques seules",
+      "Adolescence, adulte jeune",
+      "Tonico-cloniques au réveil",
+      [
+       {
+        "t": "Sommeil",
+        "i": "Le manque de sommeil les déclenche."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Une première crise cache souvent des myoclonies ou absences méconnues."
+   ],
+   "sources": [
+    "[Hirsch, Epilepsia, 2022]"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Diagnostic",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "presumptionRedFlags",
+    "positiveDiagnosis"
+   ],
+   "comment": "Confirme par l'EEG et distingue des mimes.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Résultat",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "EEG",
+      "Pointes-ondes 3 Hz ou polypointes-ondes",
+      [
+       {
+        "t": "Généralisé d'emblée",
+        "i": "La décharge engage les deux hémisphères."
+       }
+      ]
+     ],
+     [
+      "EEG de privation",
+      "Rendement accru",
+      [
+       {
+        "t": "Seuil abaissé",
+        "i": "Le manque de sommeil démasque les décharges."
+       }
+      ]
+     ],
+     [
+      "IRM",
+      "Normale",
+      [
+       {
+        "t": "Pas de lésion",
+        "i": "L'origine est génétique."
+       }
+      ]
+     ],
+     [
+      "Syncope convulsivante",
+      "Secousses brèves, réveil rapide",
+      [
+       {
+        "t": "Hypoperfusion",
+        "i": "Elle n'est pas une épilepsie."
+       }
+      ]
+     ],
+     [
+      "Crise focale temporale",
+      "Automatismes, confusion",
+      [
+       {
+        "t": "Durée et post-critique",
+        "i": "Elle se distingue de l'absence."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Définition ILAE : deux crises ou un syndrome."
+   ],
+   "sources": [
+    "[Fisher, Epilepsia, 2014]"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Choix du traitement",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "Prends un large spectre, évite les bloqueurs sodiques et protège la femme en âge de procréer.",
+   "tableau": {
+    "colonnes": [
+     "Molécule",
+     "Place",
+     "Piège",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Valproate",
+      "Le plus efficace",
+      [
+       {
+        "t": "Tératogène",
+        "i": "Il expose à des malformations et des troubles du neurodéveloppement."
+       }
+      ],
+      "Évité chez la femme en âge de procréer"
+     ],
+     [
+      "Lévétiracétam",
+      "Alternative usuelle",
+      [
+       {
+        "t": "Humeur",
+        "i": "Il peut provoquer irritabilité et dépression."
+       }
+      ],
+      "Sans interaction"
+     ],
+     [
+      "Lamotrigine",
+      "Alternative",
+      [
+       {
+        "t": "Peut aggraver les myoclonies",
+        "i": "Son effet est variable dans l'épilepsie myoclonique."
+       }
+      ],
+      "Titration lente"
+     ],
+     [
+      "Éthosuximide",
+      "Absences de l'enfant",
+      [
+       {
+        "t": "Absences seules",
+        "i": "Il ne protège pas des tonico-cloniques."
+       }
+      ],
+      "Première ligne"
+     ],
+     [
+      "Carbamazépine, oxcarbazépine, phénytoïne",
+      "À éviter",
+      [
+       {
+        "t": "Aggravation",
+        "i": "Les bloqueurs sodiques aggravent absences et myoclonies."
+       }
+      ],
+      "Contre-indiqués de fait"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Jamais d'arrêt brutal."
+   ],
+   "sources": [
+    "[NICE, 2022]",
+    "[Glauser, NEJM, 2010]"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Interactions et grossesse",
+   "rubriques": [
+    "chronicManagement",
+    "hospitalizationComplications"
+   ],
+   "comment": "Anticipe les interactions et planifie la grossesse.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Règle",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Valproate + lamotrigine",
+      "Titration plus lente",
+      "Le valproate inhibe la glucuronidation de la lamotrigine."
+     ],
+     [
+      "Œstrogènes + lamotrigine",
+      "Surveiller, adapter",
+      "Les œstrogènes accélèrent son élimination."
+     ],
+     [
+      "Inducteurs + contraception",
+      "Stérilet ou méthode non hormonale",
+      "L'induction réduit les taux hormonaux."
+     ],
+     [
+      "Projet de grossesse",
+      "Alternative au valproate, acide folique",
+      "La planification réduit le risque fœtal."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "SUDEP : contrôler les crises nocturnes."
+   ],
+   "sources": [
+    "[AIPS Swissmedic]",
+    "[Devinsky, NEJM, 2016]"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "egi_long",
+   "titre": "Épilepsie généralisée idiopathique : traitement au long cours",
+   "but": [
+    "Supprimer les crises avec le moins d'effets indésirables.",
+    "Protéger la grossesse, la conduite et l'insertion."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer le diagnostic et les facteurs déclenchants.",
+     "Aborder contraception, grossesse et conduite."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Lévétiracétam (antiépileptique)",
+      "posologie": "Titration jusqu'à la dose efficace, adaptation rénale ; à vérifier dans l'AIPS.",
+      "pourquoi": "Il couvre les crises généralisées sans interaction.",
+      "source": "[NICE, 2022]"
+     },
+     {
+      "molecule": "Valproate (antiépileptique)",
+      "posologie": "Réservé selon le programme de réduction des risques ; à vérifier dans l'AIPS.",
+      "pourquoi": "Il est le plus efficace mais tératogène.",
+      "source": "[Swissmedic]"
+     },
+     {
+      "molecule": "Lamotrigine (antiépileptique)",
+      "posologie": "Titration lente, plus lente encore sous valproate ; à vérifier dans l'AIPS.",
+      "pourquoi": "Elle est une alternative chez la femme.",
+      "source": "[AIPS Swissmedic]"
+     },
+     {
+      "molecule": "Éthosuximide (antiépileptique)",
+      "posologie": "Chez l'enfant avec absences seules ; à vérifier dans l'AIPS.",
+      "pourquoi": "Il bloque les canaux calciques T thalamiques.",
+      "source": "[Glauser, NEJM, 2010]"
+     },
+     {
+      "molecule": "Acide folique",
+      "posologie": "Avant et pendant la grossesse ; dose à vérifier dans l'AIPS.",
+      "pourquoi": "Il réduit le risque de malformations.",
+      "source": "[avis d'expert]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Sommeil régulier, limitation de l'alcool, prudence face aux stroboscopes.",
+      "pourquoi": "Ils évitent les déclencheurs."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Observance, plan d'urgence, conduite.",
+      "pourquoi": "L'observance prévient état de mal et SUDEP."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "Gynécologie",
+      "apport": "Elle adapte la contraception et suit la grossesse."
+     },
+     {
+      "discipline": "Pédiatrie",
+      "apport": "Elle suit l'enfant et la scolarité."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Revoir après chaque modification puis tous les 6 à 12 mois.",
+      "Ne jamais arrêter brutalement."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "neurologue",
+       "fait": "Pose le diagnostic syndromique et choisit la molécule."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin de famille",
+       "fait": "Surveille observance, tolérance et contraception."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Tient un agenda des crises et respecte l'hygiène de vie."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'épilepsie-absences de l'enfant guérit souvent ; l'épilepsie myoclonique juvénile exige souvent un traitement prolongé.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Crises",
+      "quand": "À chaque consultation",
+      "cible": "Absence de crise"
+     },
+     {
+      "quoi": "Tolérance et humeur",
+      "quand": "À chaque consultation",
+      "cible": "Bonne tolérance"
+     },
+     {
+      "quoi": "Projet de grossesse",
+      "quand": "Chaque année",
+      "cible": "Planification"
+     }
+    ],
+    "sortie": "Le suivi est ambulatoire."
+   },
+   "prevention": {
+    "primaire": "Elle n'existe pas de façon spécifique.",
+    "secondaire": "Elle repose sur l'observance et l'éviction des déclencheurs.",
+    "tertiaire": "Elle prévient SUDEP, accidents et complications de grossesse."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "_mode": "manuel",
+  "agent": "45spec-NEU"
+ },
+ "signature": {
+  "date": "2026-11-24T11:52:47",
+  "modele": "claude-opus-5-5 (production manuelle sans API, agent 45spec)",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ },
+ "aVerifier": [
+  "Durées d'inaptitude à la conduite selon les directives de la Ligue suisse contre l'Épilepsie à vérifier.",
+  "Mesures Swissmedic récentes concernant le valproate chez l'homme (risque paternel) à vérifier.",
+  "Dose d'acide folique recommandée chez la femme épileptique traitée à vérifier."
+ ]
+}
