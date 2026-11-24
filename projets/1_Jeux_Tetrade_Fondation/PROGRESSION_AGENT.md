@@ -242,3 +242,21 @@ Sécheresse oculaire (TFOS DEWS III) ; blépharite (dose de doxycycline) ; dacry
 - Production des modèles 3D des 5 organes `or_*` (absents de `anatomie3d/index.json`, comme les organes `he_*`).
 
 Signature : AAI (Anthropic AI)
+
+## 11. Arène Tétrade : 108 questions jouables (branche `agent/tetrade-arene`, 2026-11-24)
+
+| Élément | Valeur |
+|---|---|
+| Paquets | 11 `tetrade_<dossier>` (un par système rédigé sur main) |
+| Questions | 108 : 87 type A (5 options, 1 juste), 21 Kprim (4 affirmations) |
+| Répartition | cardio 12, neuro 12, respi 11, digestif 11, endocrino 11, hémato 10, rénal 10, ORL 9, loco 8, infectio 7, derma 7 |
+| Interprétations de courbes | 27 questions liées à une courbe (`I` : ecg, spiro, gazometrie, fena, osmo, en_tsh_t4, he_fer, or_audio, lo_ck…) |
+| Correction | explication par option + échelle mécanisme / discriminant / ancre |
+
+Fonctionnement (0 token) : les sources sont du texte, `conception/donnees/tetrade/arene/<dossier>.txt` (format en tête de `cardio.txt`). `construire_arenes.py` les lit, rattache chaque question à une pathologie rédigée (`X nom exact`) dont la ligne `s` devient la source affichée, et **échoue bruyamment** si : type A sans 5 options ou sans réponse unique, Kprim sans 4 affirmations, explication vide, pathologie inconnue, ou **titre qui contient un mot du diagnostic**. Aucune référence nouvelle n'est donc créée : la source est celle de la pathologie déjà auditée.
+
+Contrôles : chaîne complète réussie (conception 34/34, couverture, non-perte 0, interprétations 177/177, plans 31/31) ; `conception/outils/tests/test_arene_tetrade.py` (Playwright sans écran, routage de fichiers) joue les 108 questions avec la bonne réponse : **0 erreur JS**, chaque question reconnue « Juste » et sourcée.
+
+Jauge mesurée sur la branche : Tétrade **51 → 81 %** (arène 0 → 108/100).
+
+Points à auditer par Claude : relecture médicale des 108 vignettes (doses citées : adrénaline IM 0,5 mg, Parkland 4 ml/kg/%, seuils FENa, CRB-65, critères de Light, 4T). Remarque : `arene.html` charge `atk400/700.woff2` depuis son dossier, ignorés par `.gitignore` ; en local sans copie, la police Atkinson Hyperlegible retombe sur la police de secours.
