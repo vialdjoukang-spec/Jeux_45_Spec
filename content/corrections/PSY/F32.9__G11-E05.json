@@ -1,0 +1,377 @@
+{
+ "id": "F32.9__G11-E05",
+ "portes": [
+  {
+   "ssp": "G5",
+   "nomSSP": "Sensation de maladie",
+   "entite": "Épisode dépressif majeur / trouble anxieux généralisé",
+   "entiteId": "G5-E03"
+  },
+  {
+   "ssp": "G11",
+   "nomSSP": "Troubles du sommeil (insomnies, hypersomnies ou somnolence, parasomnies)",
+   "entite": "Insomnie secondaire à un trouble dépressif ou anxieux",
+   "entiteId": "G11-E05"
+  },
+  {
+   "ssp": "O5.1",
+   "nomSSP": "Fatigue et épuisement des proches aidants",
+   "entite": "Épisode dépressif caractérisé ou trouble anxieux chez le proche aidant",
+   "entiteId": "O5.1-E03"
+  },
+  {
+   "ssp": "O7.11",
+   "nomSSP": "Patient refusant un traitement",
+   "entite": "Refus de soins lié à un trouble dépressif ou anxieux sous-jacent",
+   "entiteId": "O7.11-E06"
+  }
+ ],
+ "entite": "Insomnie secondaire à un trouble dépressif ou anxieux",
+ "cim10": "F32.9",
+ "ssp": {
+  "code": "G11",
+  "nom": "Troubles du sommeil (insomnies, hypersomnies ou somnolence, parasomnies)",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Plainte d'insomnie",
+    "i": "Le médecin précise le moment de la nuit, la durée et le retentissement.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Humeur dépressive ou anxiété",
+    "i": "Le risque suicidaire s'évalue d'abord.",
+    "pec": "ambu",
+    "notion": "c2"
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "Ronflement, apnées, somnolence",
+    "i": "Renvoi vers l'exploration du sommeil (G11, apnées).",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "Peu de sommeil sans fatigue",
+    "i": "Renvoi vers la modification de l'humeur (S9.5).",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n5",
+    "parent": "n2",
+    "t": "Pas de risque suicidaire aigu",
+    "i": "TCC-I et traitement de la dépression.",
+    "pec": "ambu",
+    "notion": "c3"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Rémission avec insomnie résiduelle",
+    "i": "Elle se traite pour prévenir la rechute.",
+    "pec": "ambu",
+    "notion": "c4"
+   }
+  ]
+ },
+ "specialites": [
+  "PSY"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Insomnie et dépression ou anxiété : reconnaître la dépression, évaluer le suicide, proposer la TCC-I, limiter les hypnotiques",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Reconnaître",
+   "rubriques": [
+    "definition",
+    "epidemiology",
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Tu situes l'insomnie dans la nuit : réveil précoce pour l'humeur, endormissement difficile pour l'anxiété.",
+   "tableau": {
+    "colonnes": [
+     "Profil",
+     "Discriminant",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Dépression",
+      "Réveil matinal précoce, anhédonie",
+      [
+       {
+        "t": "Traiter l'épisode",
+        "i": "L'insomnie en est un symptôme."
+       }
+      ]
+     ],
+     [
+      "Anxiété",
+      "Endormissement retardé, ruminations",
+      [
+       {
+        "t": "TCC",
+        "i": "L'hyperéveil cognitif retarde l'endormissement."
+       }
+      ]
+     ],
+     [
+      "Hypomanie",
+      "Peu de sommeil sans fatigue",
+      [
+       {
+        "t": "Évaluer un trouble bipolaire",
+        "i": "Un hypnotique ou un antidépresseur aggrave."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "3 nuits/semaine, 3 mois.",
+    "OR 2,6 pour la dépression."
+   ],
+   "sources": [
+    "[Riemann et al., European Insomnia Guideline, J Sleep Res 2023]",
+    "[Baglioni et al., J Affect Disord 2011;135:10-19]",
+    "[OMS, CIM-10 F51.0 et F32]",
+    "[OMS, CIM-11 7A00]"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Écarter les pièges",
+   "rubriques": [
+    "presumptionRedFlags",
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu évalues le suicide et tu cherches apnées, alcool et médicaments.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "a1",
+     "parent": null,
+     "t": "Plainte d'insomnie",
+     "i": "Le contexte psychique se précise.",
+     "pec": "ambu",
+     "notion": "c1"
+    },
+    {
+     "id": "a2",
+     "parent": "a1",
+     "t": "Idées suicidaires",
+     "i": "L'évaluation urgente prime.",
+     "pec": "ambu",
+     "notion": null
+    },
+    {
+     "id": "a3",
+     "parent": "a1",
+     "t": "Ronflement, somnolence",
+     "i": "Un enregistrement du sommeil se discute.",
+     "pec": null,
+     "notion": null
+    }
+   ],
+   "points": [
+    "Suicide avant prescription.",
+    "PSG si autre trouble suspecté."
+   ],
+   "sources": [
+    "[Riemann et al., European Insomnia Guideline, J Sleep Res 2023]"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Traiter",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement",
+    "hospitalizationComplications"
+   ],
+   "comment": "Tu proposes la TCC-I, tu traites la dépression et tu limites les hypnotiques à quatre semaines.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "TCC-I grade A.",
+    "BZD ≤ 4 semaines."
+   ],
+   "sources": [
+    "[Riemann et al., European Insomnia Guideline, J Sleep Res 2023]",
+    "AIPS (compendium.ch) : posologie à vérifier dans l'AIPS"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Suivre",
+   "rubriques": [
+    "prognosisDischarge",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "Tu suis sommeil, humeur et suicide, et tu prescris la psychothérapie psychologique.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Insomnie résiduelle = rechute.",
+    "Prescription depuis 2022."
+   ],
+   "sources": [
+    "[OFSP, modèle de la prescription de psychothérapie psychologique, en vigueur depuis le 1er juillet 2022]"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "ambu",
+   "titre": "Insomnie comorbide d'une dépression ou d'un trouble anxieux en ambulatoire",
+   "but": [
+    "Traiter le trouble de l'humeur ou anxieux.",
+    "Restaurer le sommeil.",
+    "Éviter la dépendance aux hypnotiques."
+   ],
+   "moyens": {
+    "accueil": [
+     "Le médecin écoute la plainte sans la banaliser.",
+     "Le médecin explique la relation bidirectionnelle entre sommeil et humeur."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Mirtazapine",
+      "posologie": "Posologie à vérifier dans l'AIPS",
+      "pourquoi": "Elle traite la dépression avec un profil sédatif.",
+      "source": "AIPS (compendium.ch) : posologie à vérifier dans l'AIPS"
+     },
+     {
+      "molecule": "Zolpidem ou benzodiazépine",
+      "posologie": "Posologie à vérifier dans l'AIPS ; quatre semaines au plus",
+      "pourquoi": "Le risque de tolérance et de dépendance limite la durée.",
+      "source": "[Riemann et al., European Insomnia Guideline, J Sleep Res 2023]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Le thérapeute conduit une TCC-I : restriction du temps au lit, contrôle du stimulus, restructuration cognitive.",
+      "pourquoi": "Elle est le traitement de première intention."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Le médecin remet un agenda du sommeil.",
+      "pourquoi": "L'agenda objective et guide la restriction."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "O Pharmacologie, Toxicologie & Sécurité",
+      "apport": "La durée des hypnotiques se limite et leur arrêt se planifie."
+     },
+     {
+      "discipline": "A Assurances sociales & Expertise",
+      "apport": "La psychothérapie psychologique se prescrit et se rembourse."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Une évaluation du risque suicidaire.",
+      "Une sécurisation de l'environnement si le risque est élevé."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin",
+       "fait": "Il évalue le risque suicidaire."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "psychiatre",
+       "fait": "Il prend le relais si le risque est élevé."
+      },
+      {
+       "temps": "puis",
+       "qui": "équipe de crise ou hôpital",
+       "fait": "Elle accueille le patient si le risque reste élevé."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Un plan de soins combiné.",
+      "Des rendez-vous réguliers."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin de famille",
+       "fait": "Il évalue et traite la dépression."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "psychologue psychothérapeute",
+       "fait": "Il ou elle conduit la TCC-I sur prescription."
+      },
+      {
+       "temps": "puis",
+       "qui": "psychiatre",
+       "fait": "Il intervient si la dépression est sévère ou résistante."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'insomnie persiste souvent après la rémission ; traitée, elle réduit le risque de rechute.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "ISI et agenda du sommeil",
+      "quand": "toutes les 2 à 4 semaines",
+      "cible": "en amélioration"
+     },
+     {
+      "quoi": "Idées suicidaires",
+      "quand": "à chaque consultation",
+      "cible": "absentes"
+     }
+    ],
+    "sortie": "Le suivi s'espace quand le sommeil et l'humeur sont stabilisés."
+   },
+   "prevention": {
+    "primaire": "Une bonne hygiène du sommeil prévient.",
+    "secondaire": "Le traitement précoce de l'insomnie réduit le risque dépressif.",
+    "tertiaire": "Le traitement de l'insomnie résiduelle prévient la rechute."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "_mode": "agent",
+  "api": false,
+  "modele": "claude-opus-5-5 (agent, sans API)"
+ },
+ "signature": {
+  "date": "2026-11-24T13:05:33",
+  "modele": "claude-opus-5-5 (agent, sans API)",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

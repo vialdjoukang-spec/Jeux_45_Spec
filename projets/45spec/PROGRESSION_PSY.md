@@ -1,6 +1,6 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « rang » de content/pathologies/RANG_RENDEMENT.json (groupes de rendement A → B → C → D). Produites : 31/126.
+Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « rang » de content/pathologies/RANG_RENDEMENT.json (groupes de rendement A → B → C → D). Produites : 34/126.
 
 | # | Rang | Groupe | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|---|---|
@@ -8,15 +8,15 @@ Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « r
 | 2 | 40 | A | F43.2__O5_5-E01 | Trouble de l'adaptation (après événement stressant de vie) | 29 | 18 | oui |
 | 3 | 85 | A | F10.4__F1_15-E09 | Delirium tremens (sevrage alcoolique sévère) | 30 | 18 | oui |
 | 4 | 111 | A | F01.9__F1_9-E02 | Démence vasculaire | 29 | 20 | oui |
-| 5 | 112 | A | F32.9__G11-E05 | Insomnie secondaire à un trouble dépressif ou anxieux | — | — | — |
+| 5 | 112 | A | F32.9__G11-E05 | Insomnie secondaire à un trouble dépressif ou anxieux | 29 | 20 | oui |
 | 6 | 113 | A | F41.1__G1-E03 | Trouble anxieux généralisé (TAG) | 29 | 18 | oui |
-| 7 | 143 | A | F45.2__O7_18-E09 | Anxiété liée à la maladie (hypocondrie / trouble de préoccupation soma | — | — | — |
+| 7 | 143 | A | F45.2__O7_18-E09 | Anxiété liée à la maladie (hypocondrie / trouble de préoccupation soma | 29 | 20 | oui |
 | 8 | 144 | A | F50.2__O2_6-E05 | Boulimie nerveuse (bulimia nervosa) | 29 | 20 | oui |
 | 9 | 145 | A | F51.0__G11-E01 | Insomnie chronique primaire | 30 | 20 | oui |
 | 10 | 146 | A | F60.3__O6_8-E07 | Trouble de la personnalité limite (borderline) en crise identitaire ou | 28 | 18 | oui |
 | 11 | 230 | A | F10.3__S7_10-E05 | Crise de sevrage alcoolique | 29 | 20 | oui |
 | 12 | 235 | A | F45.1__O7_8-E01 | Trouble à symptomatologie somatique (trouble somatoforme) | 29 | 20 | oui |
-| 13 | 236 | A | F50.8__G15-E11 | Hyperphagie boulimique (binge eating disorder) | — | — | — |
+| 13 | 236 | A | F50.8__G15-E11 | Hyperphagie boulimique (binge eating disorder) | 29 | 20 | oui |
 | 14 | 237 | A | F63.8__G3-E02 | Polydipsie primaire (potomanie psychogène) | — | — | — |
 | 15 | 325 | A | F68.1__O2_3-E09 | Syndrome de Münchhausen par procuration (trouble factice imposé à autr | — | — | — |
 | 16 | 399 | A | F12.2__S9_13-E03 | Trouble de l'usage du cannabis | 29 | 20 | oui |
