@@ -96,14 +96,14 @@ Audit réalisé le 24.11.2026 par Claude, avec la même méthode : chaque chiffr
 
 | Lettre | Auditées | AUDITÉ | Corrigées | Doutes restants |
 |---|---|---|---|---|
-| C | 12 | 12 | 8 | 0 |
+| C | 12 | 12 | 6 | 0 |
 | D | 12 | 12 | 3 | 0 |
 | E | 12 | 12 | 4 | 0 |
 | G | 12 | 12 | 2 | 0 |
-| H | 12 | 12 | 2 | 0 |
-| **Total** | **60** | **60** | **19** | **0** |
+| H | 12 | 12 | 1 | 0 |
+| **Total** | **60** | **60** | **16** | **0** |
 
-Les points `_meta.aVerifier` d'origine sont réglés : soit le texte est confirmé et sourcé, soit le chiffre douteux ne figure pas dans le texte, soit la phrase est reformulée.
+La colonne « Corrigées » compte les leçons dont le texte ou un QCM a changé ; les ajouts de sources seuls n'y figurent pas. Les points `_meta.aVerifier` d'origine sont réglés : soit le texte est confirmé et sourcé, soit le chiffre douteux ne figure pas dans le texte, soit la phrase est reformulée.
 
 ## C — Communication clinique
 
@@ -111,7 +111,7 @@ Les points `_meta.aVerifier` d'origine sont réglés : soit le texte est confirm
 - C1-03 : la Stratégie nationale Addictions court désormais jusqu'en 2028 (prolongée en août 2024) ; la 4e édition de Miller et Rollnick (2023) est décrite juste (quatre processus, autonomisation) ; la mention du programme « Coaching Santé », introuvable, est retirée ; le remboursement des aides à l'arrêt du tabac renvoie à la liste des spécialités en vigueur, faute de preuve sur les substituts nicotiniques.
 - C2-02 : le « service national d'interprétariat téléphonique soutenu par l'OFSP », non vérifiable en 2026, est remplacé par INTERPRET (centre de compétence désigné par l'OFSP) et sa liste des services régionaux ; le titre exact devient « Interprète avec brevet fédéral » (orientation santé) ; le financement est réglé par chaque canton (OFSP).
 - C2-03 : la recommandation smarter medicine est rectifiée : elle vient de la Société suisse des céphalées (2025) et vise l'imagerie répétée sans changement du type de céphalée et le CT pour céphalée non aiguë.
-- C3-01 : la directive ASSM 2015 sur la contrainte reste en vigueur ; sa révision est en cours (atelier du 22.5.2025).
+- C3-01 (source seule) : la directive ASSM 2015 sur la contrainte reste en vigueur ; sa révision est en cours (atelier du 22.5.2025).
 - C3-02 : l'obligation de qualité renvoie aux art. 58 à 58h LAMal (révision du 1.4.2021).
 - C4-01 : la prescription (CO, art. 60 al. 1bis et 128a) court dès la connaissance du dommage et de la personne responsable ; la clause RC devient « souvent » au lieu de « en général ».
 - C1-02, C2-01, C3-03, C4-02, C4-03 : aucune correction de fond n'était nécessaire.
@@ -140,7 +140,7 @@ Les points `_meta.aVerifier` d'origine sont réglés : soit le texte est confirm
 ## H — Éthique biomédicale et fin de vie
 
 - H4-01 : **erreur de fond corrigée (QCM 2 et 4 réécrits)** : la leçon prévoyait, à pronostic équivalent, une règle égalitaire comme l'ordre d'arrivée ou le tirage au sort, et une équipe de triage distincte de l'équipe traitante. Les directives ASSM-SSMI (version 4 du 23.9.2021) excluent au contraire le tirage au sort et la règle « premier arrivé, premier servi », et elles confient la décision à des professionnels expérimentés, sous la responsabilité finale de l'intensiviste le plus expérimenté présent. Le statut vaccinal est explicitement exclu depuis cette version.
-- H1-01 : la 9e édition de Beauchamp et Childress est signalée.
+- H1-01 (source seule) : la 9e édition de Beauchamp et Childress est signalée.
 - H1-02 et H2-02 : les conditions de l'ASSM sur le suicide assisté (2018, adaptées en 2021) sont vérifiées mot à mot : deux entretiens espacés d'au moins deux semaines, souffrance d'un degré extrême jugée insupportable, vérification par une tierce personne indépendante, exclusion des personnes en bonne santé.
 - H1-03 : la feuille de route ProSA (ASSM et OFSP, 2023) est sourcée.
 - Les autres leçons H sont confirmées sans correction.
