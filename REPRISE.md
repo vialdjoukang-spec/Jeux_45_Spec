@@ -74,7 +74,7 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Catalogue paraclinique : 66 organes, 601 examens listés (champs à remplir).
 
 ## 9. Méthode convenue pour la suite
-1. Système par système (cardiovasculaire, respiratoire, digestif, rénal, neurologique, endocrinien et hématologique faits ; prochain : infectieux et immunitaire) selon le skill `systeme-jouable-builder`.
+1. Système par système (cardiovasculaire, respiratoire, digestif, rénal, neurologique, endocrinien, hématologique, infectieux et locomoteur faits ; prochain : dermatologique) selon le skill `systeme-jouable-builder`.
 2. Depuis le 2026-11-22 (soir), Vial donne son accord d'office pour ce projet : Claude produit sans attendre de validation et l'informe ensuite.
 3. Audit bloquant après chaque lot ; commit et push.
 
@@ -225,6 +225,13 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Les 6 renommages `org_hemato_*` → `he_*` sont déclarés dans `projets/retours/migrations_ids.json`. Audits : conception 34/34, couverture réussie, non-perte OK, interprétations 0 défaut.
 - Anomalie préexistante sur main (non corrigée ici) : `generer_json.py` dédoublonne l'analyse IGRA (apostrophe droite ou courbe) dans `2_cou/ganglions_cervicaux.json`, et `non_perte.py` le compte comme une perte ; l'agent a restauré ces 2 fichiers depuis main avant chaque commit.
 - Reste à faire : audit médical de Claude (`hemato/pathologies.txt`, interprétations `he_*`), puis relecture de Vial ; points `aVerifier` listés dans `projets/1_Jeux_Tetrade_Fondation/PROGRESSION_AGENT.md`.
+
+## Locomoteur & rhumatologique (2026-11-24, agent Tétrade, branche `agent/tetrade-loco`)
+- Le système « Locomoteur & rhumatologique » est jouable : `conception/outils/loco/` ; registre (préfixe `lo_`, couleur `#6b7280`).
+- 11 organes rédigés, 6 temps d'examen, 70 signes ; 57 pathologies (13 TF, 21 F, 12 U, 11 R), 24 points `aVerifier`.
+- Renvois sans doublon : ostéoporose, ostéomalacie, Paget (Endocrinien) ; radiculopathies, spondylodiscite, canal carpien (Neurologique) ; artérite à cellules géantes (Cardiovasculaire) ; Still, fasciite nécrosante (Infectieux).
+- Nouvelles fenêtres canvas `lo_synovie` (liquide articulaire) et `lo_ck` (cinétique des CK), testées sans écran, 0 erreur JS ; 13 interprétations ; 11 renommages `org_locomo_*` → `lo_*` déclarés.
+- Reste à faire : audit médical de Claude puis fusion ; détail dans `projets/1_Jeux_Tetrade_Fondation/PROGRESSION_AGENT.md` (section 9).
 
 ## Infectieux & immunitaire (2026-11-24, agent Tétrade, branche `agent/tetrade`)
 - Le système « Infectieux & immunitaire » est jouable : `conception/outils/infectio/` ; registre (préfixe `ii_`, couleur `#16897b`).

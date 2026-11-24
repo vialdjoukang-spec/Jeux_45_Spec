@@ -95,8 +95,60 @@ Source vérifiée en ligne : Swiss TPH, recommandations de traitement du paludis
 - Chaîne complète relancée : conception **34/34**, couverture **RÉUSSI**, non-perte **OK**, interprétations **142/142, 0 défaut**, Playwright 0 erreur sur `ii_anticorps`.
 - Bruit de régénération non commité : `trans_s_s4_01.json` (simple réindentation par `generer_json.py`), `ganglions_cervicaux.json` (dédoublonnage IGRA), PDF.
 
+## 9. Système locomoteur et rhumatologique : jouable (branche `agent/tetrade-loco`)
+
+| Élément | Valeur |
+|---|---|
+| Organes rédigés | 11 (crâne et face, rachis, épaule, coude-poignet-main, bassin et hanche, genou, cheville et pied, os, articulations et synoviale, muscles, tendons-ligaments-bourses) |
+| Volets propres | 9 (`V` dans `loco/contenu.txt`) |
+| Mots-clés | 71 (anatomie → vue 3D ; physiologie → 3 fenêtres : `lo_synovie`, `lo_ck`, `en_calcium` réutilisée) |
+| Sémiologie | 6 temps d'examen, 30 temps par organe, 70 signes (61 typiques, 9 atypiques) |
+| Pathologies | 57 : 13 TF, 21 F, 12 U, 11 R (chaque organe a ses 4 paliers) |
+| Glossaire | 26 sigles nouveaux |
+| Interprétations corrélées | 13 scénarios nouveaux (`lo_synovie` 7, `lo_ck` 6) |
+
+Répartition : articulations 7, muscles 7, rachis 6, coude-poignet-main 6, genou 5, cheville et pied 5, os 5, crâne et face 4, épaule 4, bassin et hanche 4, tendons 4.
+
+Renvois sans doublon (maison unique) : ostéoporose, ostéomalacie et Paget → Endocrinien ; radiculopathie, canal lombaire étroit, queue de cheval, spondylodiscite, canal carpien, nerf ulnaire, myasthénie → Neurologique ; artérite à cellules géantes → Cardiovasculaire ; Still et fasciite nécrosante → Infectieux ; Sjögren → Digestif ; myélome → Hématologique. Les bulles d'organe et les « confusion » nomment la maison.
+
+Changements de moteur : une ligne `Locomoteur & rhumatologique` dans `systemes_rediges.py` (préfixe `lo_`, couleur `#6b7280`) ; 2 modèles canvas dans `fenetres.js` ; 11 renommages `org_locomo_*` → `lo_*` dans `projets/retours/migrations_ids.json`. Aucun changement de `systeme_source.py` ni de `construire_config_tetrade.py` (aucun organe partagé).
+
+Vérifications : chaîne complète **RÉUSSIE** (conception 34/34, couverture, non-perte 0, audit du fond, plans 31/31, interprétations 155/155) ; Playwright sans écran sur `lo_synovie` et `lo_ck` : tous les scénarios et curseurs aux extrêmes, **0 erreur JS**.
+
+Sources vérifiées en ligne : Wüthrich, Alromaih et So, Swiss Med Wkly 2016;146:w14341 (goutte, perspective suisse) ; Gjika et al., Ann Rheum Dis 2019 (arthrite septique : 2 contre 4 semaines après drainage, Genève).
+
+### Points `aVerifier` (locomoteur et rhumatologique)
+
+- **Fracture du plancher de l'orbite** : L'antibioprophylaxie dans les fractures de l'orbite reste débattue et aucune recommandation suisse n'a été lue ; la durée et l'indication restent à confirmer avec le chirurgien maxillo-facial.
+- **Lombalgie commune** : Une recommandation suisse dédiée (Société suisse de rhumatologie ou de médecine interne) sur la lombalgie commune n'a pas été lue ; la place du paracétamol, jugé peu efficace par NICE, reste à confirmer.
+- **Cervicalgie commune** : La référence Côté 2016 (consensus de l'Ontario) reste à confirmer.
+- **Tassement vertébral ostéoporotique** : L'année exacte de la dernière version des recommandations de l'Association suisse contre l'ostéoporose reste à confirmer sur le site de l'association.
+- **Traumatisme du rachis cervical** : La cible de pression artérielle moyenne et sa durée après une lésion médullaire aiguë restent à confirmer dans la recommandation AO Spine.
+- **Tendinopathie de la coiffe des rotateurs** : La référence AAOS 2019 et la place exacte des ondes de choc dans les calcifications restent à confirmer.
+- **Capsulite rétractile** : La recommandation britannique sur la capsulite (année, revue) reste à confirmer.
+- **Luxation antérieure gléno-humérale** : Aucune recommandation suisse sur la luxation d'épaule n'a été lue ; la durée d'immobilisation varie selon l'âge et les équipes.
+- **Luxation postérieure méconnue de l'épaule** : La référence Robinson et Aderinto 2005 reste à confirmer.
+- **Phlegmon des gaines des fléchisseurs** : Le schéma antibiotique empirique et sa durée totale restent à confirmer avec l'infectiologue et selon les recommandations SSI.
+- **Syndrome douloureux régional complexe** : Le bisphosphonate validé dans cette indication (néridronate) n'est pas autorisé en Suisse à notre connaissance ; la molécule et la dose restent à vérifier dans l'AIPS.
+- **Ostéonécrose de la tête fémorale** : La référence de la classification ARCO 2019 reste à confirmer.
+- **Rupture du tendon d'Achille** : L'indication de la thromboprophylaxie lors de l'immobilisation d'un membre inférieur varie selon le score de risque ; à confirmer selon la pratique suisse.
+- **Ostéite du pied diabétique** : Le choix de l'antibiotique empirique et ses doses doivent suivre l'infectiologue et la recommandation SSI ; aucune dose n'est fixée ici.
+- **Fracture ouverte** : L'ajout d'un aminoside pour les fractures de type III varie selon les recommandations ; à confirmer avec l'infectiologue.
+- **Crise de goutte** : La spécialité de colchicine disponible en Suisse et sa dose maximale journalière restent à vérifier dans l'AIPS ; le dépistage HLA-B*58:01 avant l'allopurinol se discute chez les patients d'origine asiatique.
+- **Arthrite septique** : Le choix empirique entre flucloxacilline et céfazoline suit l'épidémiologie locale ; à confirmer avec la recommandation SSI et l'infectiologue.
+- **Arthrite de Lyme** : Une recommandation suisse récente sur la borréliose (SSI) n'a pas été lue ; le schéma reste à confirmer avec elle.
+- **Fibromyalgie** : L'autorisation de la duloxétine et de la prégabaline dans la fibromyalgie en Suisse reste à vérifier dans l'AIPS.
+- **Rhabdomyolyse** : Le débit de diurèse visé et la place des bicarbonates reposent sur des données faibles ; à confirmer avec le néphrologue.
+- **Myosite inflammatoire** : Aucune recommandation thérapeutique européenne complète n'a été lue ; les doses des immunosuppresseurs restent du ressort du spécialiste.
+- **Bursite mécanique** : La référence Baumbach 2014 reste à confirmer.
+- **Bursite septique** : Les deux références genevoises (Perez 2010, Uçkay 2017) et la durée exacte retenue restent à confirmer.
+- **Tendinopathie aux fluoroquinolones** : La date et le contenu exacts de la communication de Swissmedic sur les fluoroquinolones restent à confirmer.
+
+Autres points ouverts : toutes les posologies portent « à vérifier dans l'AIPS » ; les biothérapies, inhibiteurs de JAK, immunosuppresseurs et chimiothérapies des sarcomes restent décidés par le spécialiste, sans dose chiffrée.
+
 ## 8. Suite proposée
 
 - Audit médical de Claude sur `hemato/pathologies.txt`, `infectio/pathologies.txt` et les 24 interprétations `he_*` et `ii_*`, puis fusion sur main.
-- Système suivant : locomoteur et rhumatologique (11 organes), puis dermatologique (les infections cutanées de l'érysipèle y renverront).
+- Locomoteur fait (section 9) : audit médical de Claude sur `loco/pathologies.txt` et les 13 interprétations `lo_*`, puis fusion.
+- Système suivant : dermatologique (les infections cutanées de l'érysipèle y renverront).
 - Correctif conseillé à `generer_json.py` : écrire les leçons transversales avec la même indentation que leur source et ne plus dédoublonner l'IGRA, pour que la régénération ne produise plus de bruit.
