@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**303 / 500 pathologies du périmètre produites.**
+**306 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -231,9 +231,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 222 | `N01.9__F2_12-E15` | Glomérulonéphrite rapidement progressive (GNRP / syndrome pneumo-rénal) | NEP | produite |
 | 223 | `N83.5__O1_7-E13` | Torsion d'annexe (kyste ou masse ovarienne tordue) | GYN | produite |
 | 224 | `O00.9__F1_17-E13` | Grossesse extra-utérine (GEU) rompue ou non rompue (échec contraceptif) | GYN | produite |
-| 225 | `O01.9__O1_7-E14` | Môle hydatiforme (grossesse môlaire complète ou partielle) | GYN | — |
-| 226 | `S06.5__F1_15-E15` | Hématome sous-dural aigu (HSDA) grave | NCH | — |
-| 227 | `T17.9__F1_10-E13` | Inhalation massive / fausse route mortelle (corps étranger ou régurgitation) | LEG | — |
+| 225 | `O01.9__O1_7-E14` | Môle hydatiforme (grossesse môlaire complète ou partielle) | GYN | produite |
+| 226 | `S06.5__F1_15-E15` | Hématome sous-dural aigu (HSDA) grave | NCH | produite |
+| 227 | `T17.9__F1_10-E13` | Inhalation massive / fausse route mortelle (corps étranger ou régurgitation) | LEG | produite |
 | 228 | `T67.0__G6-E20` | Coup de chaleur d'exercice (hyperthermie > 40 °C avec dysfonction SNC) | MIG | — |
 | 229 | `T74.1__G13-E20` | Syndrome du bébé secoué (traumatisme crânien non accidentel) | LEG | — |
 | 230 | `A49.9__F2_19-E01` | Infection bactérienne communautaire aiguë (pneumonie, pyélonéphrite, érysipèle) | INF | produite |
