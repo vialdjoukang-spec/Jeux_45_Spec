@@ -16,7 +16,7 @@ L'agent écrit lui-même le contenu que le script demanderait à l'API ; il doit
 5. Commits par lots de 3 pathologies, push immédiat sur la branche agent ; mets à jour `projets/45spec/PROGRESSION_<SPEC>.md`.
 
 ## Règles de fond
-- 13–14 type A (5 options, 1 juste), 4 Kprim (4 énoncés), 2 menus longs (12 options) ; une série progressive de 3–4 étapes.
+- 13–14 type A (5 options, 1 juste), 4 Kprim (4 énoncés), 2 menus longs (12 options, **1 à 3 réponses justes**, énoncé « Choisissez les TROIS… » ou le bon nombre) ; une série progressive de 3–4 étapes.
 - Sources : SSI, OFSP, Swiss TPH, AIPS d'abord ; toute posologie « à vérifier dans l'AIPS » ; tout doute porte « (à vérifier) » dans `source`. Jamais de référence inventée.
 - Ne lance pas `couverture_notions.py` sur une branche agent : il réécrit les fichiers des autres spécialités.
 
@@ -43,6 +43,7 @@ L'agent écrit lui-même le contenu que le script demanderait à l'API ; il doit
 - Une étape de série qui nomme le diagnostic (« vous suspectez un botulisme ») porte aussi `m=0`.
 
 ## Leçons (lot 12, 24.11.2026)
+- Un menu long garde 1 à 3 réponses justes, car le jeu annonce « une à trois réponses » ; chaque réponse vraie en trop devient un distracteur faux avec son « why » exact. `constructeur_agent_45spec.py` (`menus_longs_hors_format`) et `valider()` le contrôlent ; `python projets/45spec/controle_menus_longs.py INF` doit afficher 0.
 - Correction : chaque bloc `notions` porte au plus 4 rubriques ; `conduite.urgence.etapes` en exige au moins 3.
 - Catégories non pharmacologiques exactes : psychothérapie, éducation thérapeutique, geste ou chirurgie, rééducation, nutrition, soins infirmiers, social et assurances, hygiène de vie, autre (« hygiène » seul est refusé).
 - Une Kprim ou une A dont la vignette nomme le diagnostic (« kératite dendritique ») porte `m=0`, même hors série.

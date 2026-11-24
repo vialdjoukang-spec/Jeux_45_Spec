@@ -202,6 +202,8 @@ def valider(etape, d, c):
             err.append(f"{q['id']} : un Kprim exige 4 affirmations")
         if f == "MenuLong" and not 12 <= no <= 20:
             err.append(f"{q['id']} : un menu long exige 12 à 20 options")
+        if f == "MenuLong" and not 1 <= sum(o["correct"] for o in q["options"]) <= 3:
+            err.append(f"{q['id']} : un menu long exige 1 à 3 réponses justes")
         if q["diagnosticMasque"] and mots and all(m in cle(q["stem"] + " " + q["prompt"]) for m in mots):
             err.append(f"{q['id']} : la vignette nomme le diagnostic masqué")
         if set(q["notions"]) - nid:
