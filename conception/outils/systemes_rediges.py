@@ -11,6 +11,7 @@ REDIGES = {
     "Endocrinien & métabolique": {"dossier": "endocrino", "prefixe": "en_", "couleur": "#d9731a", "ids": {}},
     "Hématologique & oncologique": {"dossier": "hemato", "prefixe": "he_", "couleur": "#a33", "ids": {}},
     "Infectieux & immunitaire": {"dossier": "infectio", "prefixe": "ii_", "couleur": "#16897b", "ids": {}},
+    "Ophtalmologique & ORL": {"dossier": "orl", "prefixe": "or_", "couleur": "#5b6574", "ids": {}},
     "Locomoteur & rhumatologique": {"dossier": "loco", "prefixe": "lo_", "couleur": "#6b7280", "ids": {}},
     "Dermatologique": {"dossier": "derma", "prefixe": "de_", "couleur": "#b07a5a", "ids": {}},
 }

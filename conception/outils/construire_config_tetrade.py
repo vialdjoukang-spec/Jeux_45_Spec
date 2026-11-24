@@ -65,7 +65,23 @@ LIENS = {"Circulation pulmonaire": {"def": "La circulation pulmonaire relie le v
          "Organes lymphoïdes (moelle, thymus, rate, ganglions, MALT)": {"def": "Les organes lymphoïdes fabriquent les lymphocytes (moelle, thymus) puis les mettent au contact des antigènes (rate, ganglions, MALT).",
           "pourquoi": "Chaque organe a une seule maison pour éviter une copie : moelle, rate et ganglions au système hématologique, thymus au système endocrinien ; le MALT est décrit aux barrières.",
           "confusion": "Une adénopathie ou une grosse rate peuvent venir d'une infection (réponse immune) ou d'une hémopathie : la biopsie tranche quand elles persistent.",
-          "retenir": "Tu ouvres Hématologique → Rate ou Ganglions lymphatiques, Endocrinien → Thymus, et Infectieux → Barrières pour le MALT."}}
+          "retenir": "Tu ouvres Hématologique → Rate ou Ganglions lymphatiques, Endocrinien → Thymus, et Infectieux → Barrières pour le MALT."},
+         "Nez et sinus": {"def": "Les fosses nasales réchauffent, humidifient et filtrent l'air ; les sinus de la face s'y drainent par des orifices étroits.",
+          "pourquoi": "Son contenu complet (anatomie, physiologie, sémiologie, pathologies) vit dans le système respiratoire, à l'organe « Fosses nasales et sinus », pour éviter une copie.",
+          "confusion": "Une otite séromuqueuse unilatérale de l'adulte peut révéler une tumeur du nasopharynx qui bouche la trompe : l'oreille se traite ici, la tumeur au système respiratoire.",
+          "retenir": "Tu ouvres Respiratoire → Fosses nasales et sinus pour la rhinosinusite, la rhinite allergique, la polypose, l'épistaxis et le carcinome du nasopharynx."},
+         "Cavité buccale et pharynx": {"def": "La cavité buccale prépare le bol alimentaire ; le pharynx est le carrefour où se croisent l'air et les aliments.",
+          "pourquoi": "Chaque partie a une seule maison pour éviter une copie : la cavité buccale au système digestif, le pharynx au système respiratoire.",
+          "confusion": "Une otalgie à tympan normal chez un fumeur peut venir d'un cancer du pharynx (otalgie réflexe par les nerfs IX et X).",
+          "retenir": "Tu ouvres Digestif → Cavité buccale et glandes salivaires, et Respiratoire → Pharynx pour l'angine, l'abcès péri-amygdalien et le carcinome de l'oropharynx."},
+         "Larynx": {"def": "Le larynx protège les voies aériennes pendant la déglutition et produit la voix par la vibration des cordes vocales.",
+          "pourquoi": "Son contenu complet (anatomie, physiologie, sémiologie, pathologies) vit dans le système respiratoire pour éviter une copie.",
+          "confusion": "Une dysphonie qui dure plus de 4 semaines n'est plus une laryngite : elle impose une laryngoscopie, surtout chez le fumeur.",
+          "retenir": "Tu ouvres Respiratoire → Larynx pour la laryngite, l'épiglottite, l'angio-œdème et le carcinome du larynx."},
+         "Glandes salivaires": {"def": "Les glandes parotides, sous-mandibulaires et sublinguales sécrètent environ 1 à 1,5 litre de salive par jour.",
+          "pourquoi": "Leur contenu complet vit dans le système digestif, à l'organe « Cavité buccale et glandes salivaires », pour éviter une copie.",
+          "confusion": "Une tuméfaction parotidienne avec paralysie faciale évoque une tumeur maligne, pas une parotidite.",
+          "retenir": "Tu ouvres Digestif → Cavité buccale et glandes salivaires pour la lithiase, la sialadénite, le Gougerot-Sjögren et les tumeurs de la parotide."}}
 N = []
 for sysn, orgs in SYSTEMES.items():
     anc, cote, coul = RACINES[sysn]
