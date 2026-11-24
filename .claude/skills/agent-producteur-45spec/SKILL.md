@@ -106,3 +106,8 @@ Signature : AAI (Anthropic AI)
 - Une question `d` 4–5 demande un raisonnement en deux temps (reconnaître, puis décider), garde le diagnostic masqué dans la vignette (clé `m` omise, donc `diagnosticMasque` vrai dans le constructeur) et prend ses distracteurs parmi les vrais diagnostics différentiels et les pièges classiques : présentation atypique, contre-indication, examen inutile, seuil limite. Elle reste au programme de l'examen fédéral, sans érudition gratuite.
 - Contrôle avant le constructeur : `grep -c '"d":[45]'` sur la forme compacte doit donner au moins 5.
 - Le constructeur écrit parfois les JSON même quand `err` n'est pas vide : relance-le jusqu'à `err {}` avant de committer.
+
+## Leçons (producteur unique, lot 20, 24.11.2026)
+- `controle_menus_longs.py` ne contrôle que la spécialité passée en argument (INF par défaut) : boucle sur `ls content/questions` pour obtenir « 0 menu long fautif » sur tout le contenu.
+- Un menu long `d` 4–5 garde le diagnostic masqué : son `st` ne doit pas nommer l'entité, même en négatif (« les éléments qui excluent une cystite simple » la nomme).
+- Test sans écran de l'arène : `python -m http.server` sur la racine du clone, puis Playwright sur `conception/prototypes/arene45/index.html` (pageerror, console error, réponses ≥ 400).

@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**279 / 500 pathologies du périmètre produites.**
+**282 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -193,9 +193,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 184 | `M51.1__S5_2-E02` | Hernie discale traumatique aiguë avec radiculopathie (cervicale ou lombaire) | ORT | produite |
 | 185 | `M54.5_1__O5_1-E04` | Troubles musculo-squelettiques (lombalgies, cervicalgies) liés au travail | RHU | produite |
 | 186 | `M54.5__G10-E01` | Lombalgie commune non spécifique | RHU | produite |
-| 187 | `N30.0__F2_15-E01` | Infection urinaire basse (cystite aiguë simple) | URO | — |
-| 188 | `N39.0__O2_9-E04` | Infection somatique occulte du sujet âgé (infection urinaire, pneumonie, fécalome) | URO | — |
-| 189 | `N83.2__F2_18-E06` | Kyste ovarien fonctionnel (folliculaire ou du corps jaune) | GYN | — |
+| 187 | `N30.0__F2_15-E01` | Infection urinaire basse (cystite aiguë simple) | URO | produite |
+| 188 | `N39.0__O2_9-E04` | Infection somatique occulte du sujet âgé (infection urinaire, pneumonie, fécalome) | URO | produite |
+| 189 | `N83.2__F2_18-E06` | Kyste ovarien fonctionnel (folliculaire ou du corps jaune) | GYN | produite |
 | 190 | `P07.3__O1_1-E01` | Grande prématurité (28 0/7 – 31 6/7 SA) | PED | produite |
 | 191 | `S22.3__S2_12-E04` | Fracture de côte simple (traumatique ou de fatigue sur toux) | CTH | — |
 | 192 | `T14.0_1__S6_2-E06` | Hématome traumatique simple (sous-cutané ou musculaire) | MIG | — |
