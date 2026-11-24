@@ -102,7 +102,7 @@ elif sys.argv[1] == "terminer":
         ok = open("/tmp/script_ok").read().strip() == "0" if os.path.exists("/tmp/script_ok") else False
         r["is_error"] = not ok
         if ok and t.get("fin") == "lots_recuperes":
-            suivi = os.path.join(os.path.dirname(os.path.dirname(ICI)), "scripts", t.get("suivi", "batchs_fiches.json"))
+            racine = os.path.dirname(os.path.dirname(ICI)); sv = t.get("suivi", "batchs_fiches.json"); suivi = os.path.join(racine, sv if sv.startswith("scripts/") else os.path.join("scripts", sv))   # « scripts/x.json » ou « x.json »
             lots = json.load(open(suivi)) if os.path.exists(suivi) else []
             etat = "fait" if lots and all(x.get("recupere") for x in lots) else "en_cours"
         else:
