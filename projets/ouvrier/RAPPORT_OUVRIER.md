@@ -1,7 +1,9 @@
-# Ouvrier automatique — 2026-11-24 03:35 UTC
+# Ouvrier automatique — 2026-11-24 03:51 UTC
 
-Dernier passage : **END_N_recup** → en_cours (0.00 USD).
+Dernier passage : **END_Q_lot** → fait (0.00 USD).
 
+questions : 314 entité(s) à produire.
+lot msgbatch_01KSqFpgnjPwdo5mVtSLw8Jd
 
 
 **Crédit** : 50.62 USD dépensés, 141.38 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.00 / 141.38 USD.
@@ -33,8 +35,8 @@ Dernier passage : **END_N_recup** → en_cours (0.00 USD).
 | END_C_pilote | fait | 1 | 0.276 |
 | V1_fusions | fait | 1 | 0.223 |
 | END_N_lot | fait | 1 | 0.0 |
-| END_N_recup | en_cours | 5 | 0.0 |
-| END_Q_lot | a_faire | 0 |  |
+| END_N_recup | fait | 5 | 0.0 |
+| END_Q_lot | fait | 1 | 0.0 |
 | END_Q_recup | a_faire | 0 |  |
 | END_C_lot | a_faire | 0 |  |
 | END_C_recup | a_faire | 0 |  |
