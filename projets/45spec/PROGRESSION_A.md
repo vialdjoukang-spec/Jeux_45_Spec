@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**282 / 500 pathologies du périmètre produites.**
+**285 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -197,10 +197,10 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 188 | `N39.0__O2_9-E04` | Infection somatique occulte du sujet âgé (infection urinaire, pneumonie, fécalome) | URO | produite |
 | 189 | `N83.2__F2_18-E06` | Kyste ovarien fonctionnel (folliculaire ou du corps jaune) | GYN | produite |
 | 190 | `P07.3__O1_1-E01` | Grande prématurité (28 0/7 – 31 6/7 SA) | PED | produite |
-| 191 | `S22.3__S2_12-E04` | Fracture de côte simple (traumatique ou de fatigue sur toux) | CTH | — |
-| 192 | `T14.0_1__S6_2-E06` | Hématome traumatique simple (sous-cutané ou musculaire) | MIG | — |
+| 191 | `S22.3__S2_12-E04` | Fracture de côte simple (traumatique ou de fatigue sur toux) | CTH | produite |
+| 192 | `T14.0_1__S6_2-E06` | Hématome traumatique simple (sous-cutané ou musculaire) | MIG | produite |
 | 193 | `B27.0_mononucleose_infecti__F2_5-E04` | Mononucléose infectieuse (EBV) et syndrome mononucléosique à CMV | INF | produite |
-| 194 | `E16.2__F1_15-E12` | Hypoglycémie sévère avec coma | INT | — |
+| 194 | `E16.2__F1_15-E12` | Hypoglycémie sévère avec coma | INT | produite |
 | 195 | `G24.3_dystonies_focales_to__F1_11-E11` | Dystonies focales (torticolis spasmodique, blépharospasme, dysphonie spasmodique, crampe de l'écrivain) | NEU | — |
 | 196 | `G45.4__S7_7-E14` | Amnésie globale transitoire (ictus amnésique idiopathique) | NEU | produite |
 | 197 | `G93.4__F1_15-E04` | Encéphalopathie métabolique (hyponatrémie sévère, hypercalcémie, urémie) | NEU | produite |
