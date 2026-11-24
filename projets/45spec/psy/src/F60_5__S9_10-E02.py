@@ -1,14 +1,14 @@
 # Personnalité obsessionnelle-compulsive (anankastique) — AAI (Anthropic AI)
 from lib import A, K, M, C, cours, pec
 PLAN = "monographique"
-I10 = "[OMS, CIM-10 F60.5, personnalité anankastique ; nombre de traits exigé par les critères de recherche à vérifier]"
+I10 = "[OMS, CIM-10 F60.5, critères de recherche DCR-10 (1993) : critères généraux F60 + au moins 4 des 8 traits ; descriptions cliniques (CDDG 1992) : au moins 3]"
 I11 = "[OMS, CIM-11 6D10 trouble de la personnalité et 6D11.4 anankastia]"
 FIN = "[Fineberg et al., 2014, Braz J Psychiatry 36 Suppl 1, doi:10.1590/1516-4446-2013-1282]"
 GEC = "[Gecaite-Stonciene et al., 2021, Front Psychiatry 12:646030, doi:10.3389/fpsyt.2021.646030]"
 CH = "[OFSP, modèle de la prescription de psychothérapie psychologique, en vigueur depuis le 1er juillet 2022]"; AV = "Avis d'expert"
 NOTIONS = [
  ("def", "critère", 3, 0, FIN, "La personnalité anankastique associe de façon durable perfectionnisme, préoccupation des détails, des règles et de l'ordre, rigidité, scrupules excessifs et besoin de contrôle, au détriment de la souplesse et de l'efficacité."),
- ("def", "critère", 1, 0, I10, "La CIM-10 exige d'abord les critères généraux du trouble de la personnalité : un mode durable, rigide et envahissant, apparu à la fin de l'enfance ou à l'adolescence."),
+ ("def", "critère", 1, 0, I10, "La CIM-10 exige d'abord les critères généraux du trouble de la personnalité : un mode durable, rigide et envahissant, apparu à la fin de l'enfance ou à l'adolescence ; les critères de recherche (DCR-10) exigent ensuite au moins quatre des huit traits anankastiques."),
  ("def", "critère", 2, 0, I11, "La CIM-11 abandonne les types : elle code un trouble de la personnalité léger, modéré ou sévère (6D10) et le qualifie par le domaine de traits anankastia (6D11.4)."),
  ("epi", "chiffre", 1, 0, GEC, "Les traits de personnalité obsessionnelle-compulsive touchent environ 2 à 7 % de la population et 23 à 26 % des populations cliniques."),
  ("epi", "terrain particulier", 1, 0, FIN, "Le trouble s'associe souvent au TOC, à la dépression, aux troubles alimentaires et à la dysmorphophobie."),
@@ -130,17 +130,17 @@ QUESTIONS = [
     ("La personnalité évitante repose sur la peur du rejet", 1, "Différentiel."), ("L'autisme se caractérise par une émotion contenue seulement", 0, "Communication sociale.")],
    "16 17 5", "direct", 2, L("Différentiels.", "Égodystonie.", "Voisins.", "La coexistence.", "Distinguer.", "Exclure la coexistence.", "Absurde = TOC."), FIN, masque=False),
  M("mono", None, "Vous listez les traits de la personnalité anankastique.",
-   "Lesquels citez-vous ? (cinq réponses)",
+   "Lesquels citez-vous ? (trois réponses)",
    [("*Perfectionnisme qui nuit à l'achèvement des tâches", "Trait."), ("*Préoccupation des détails, des règles et de l'ordre", "Trait."), ("*Rigidité et entêtement", "Trait."),
-    ("*Scrupules et conscience professionnelle excessifs", "Trait."), ("*Doute et prudence excessifs", "Trait."), ("Impulsivité", "Faux."), ("Recherche d'attention", "Histrionique."),
+    ("Besoin excessif d'être pris en charge", "Dépendante."), ("Besoin d'admiration", "Narcissique."), ("Impulsivité", "Faux."), ("Recherche d'attention", "Histrionique."),
     ("Méfiance envers autrui", "Paranoïaque."), ("Peur du rejet", "Évitante."), ("Instabilité affective", "Borderline."), ("Grandiosité", "Narcissique."), ("Froideur et détachement", "Schizoïde.")],
-   "1 9 11", "direct", 2, L("Traits.", "Contrôle.", "Liste.", "Le trait.", "Cinq traits.", "Confondre les personnalités.", "Perfection, ordre, rigidité."), FIN, masque=False),
+   "1 9 11", "direct", 2, L("Traits.", "Contrôle.", "Liste.", "Le trait.", "Trois traits sur les huit de la CIM-10.", "Confondre les personnalités.", "Perfection, ordre, rigidité."), FIN, masque=False),
  M("sp", None, "Femme de 41 ans, cheffe de projet à Berne, en arrêt pour épuisement : elle ne délègue rien, refait les rapports de son équipe et ne supporte pas l'imprévu, depuis toujours.",
-   "Quelles mesures proposez-vous ? (quatre réponses)",
-   [("*Une psychothérapie centrée sur le perfectionnisme", "Base."), ("*Le dépistage d'une dépression", "Comorbidité."), ("*Un ajustement du poste avec le médecin du travail", "Organisation."), ("*Une prescription de psychothérapie psychologique", "Suisse 2022."),
+   "Quelles mesures proposez-vous ? (trois réponses)",
+   [("*Une psychothérapie centrée sur le perfectionnisme", "Base."), ("*Le dépistage d'une dépression", "Comorbidité."), ("*Un ajustement du poste avec le médecin du travail", "Organisation."), ("Un certificat d'inaptitude définitive au travail", "Faux : le trouble se traite et le poste s'ajuste."),
     ("Un antipsychotique au long cours", "Faux."), ("Une benzodiazépine au long cours", "Faux."), ("Une IRM systématique", "Faux."), ("Une hospitalisation sous contrainte", "Faux."),
     ("Un conseil de travailler davantage", "Faux."), ("Un électrochoc", "Faux."), ("Un lithium", "Faux."), ("Aucune mesure", "Faux.")],
-   "18 12 29 27", "application", 2, L("Épuisement.", "Personnalité.", "Travail.", "La globalité.", "Quatre mesures.", "Prescrire seulement.", "Thérapie, humeur, poste."), AV),
+   "18 12 29 27", "application", 2, L("Épuisement.", "Personnalité.", "Travail.", "La globalité.", "Trois mesures.", "Prescrire seulement.", "Thérapie, humeur, poste."), AV),
 ]
 CORRECTION = {
  "theme": "Personnalité anankastique : reconnaître des traits égosyntoniques durables, la distinguer du TOC et d'un changement organique tardif, traiter par psychothérapie et soigner les comorbidités",
