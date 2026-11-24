@@ -4,7 +4,7 @@ Branche : `agent/45spec-PED`. Production par agent Claude **sans API** (même sc
 Ordre : celui de `selection()` (fréquence puis identifiant). Contrôles : `valider()` sans erreur ; couverture des notions de poids ≥ 2 au moins deux fois sous deux angles ; formats ≈ 70/20/10.
 Les données douteuses portent la mention « à vérifier » dans leur source (AIPS, version de recommandation). Statut d'audit : en attente (`audit.rejector = null`).
 
-**Avancement : 15 / 69 pathologies canoniques complètes (notions + questions + correction).**
+**Avancement : 17 / 69 pathologies canoniques complètes (notions + questions + correction).**
 
 | # | Identifiant | Pathologie | Fréq. | Complet | Notions | Questions |
 |---|---|---|---|---|---|---|
@@ -26,9 +26,9 @@ Les données douteuses portent la mention « à vérifier » dans leur source (A
 | 16 | `A41.9__O2_8-E03` | Infection foudroyante méconnue du nourrisson (sepsis à ménin | 2 | ✅ | 30 | 20 |
 | 17 | `P08.2__O1_1-E06` | Grossesse prolongée / Post-maturité (>= 42 0/7 SA) | 2 | ✅ | 28 | 20 |
 | 18 | `Q39.3__S2_9-E05` | Anneau de Schatzki (anneau muqueux œsophagien inférieur) | 2 | ⬜ |  |  |
-| 19 | `R68.1__O2_8-E08` | Malaise grave du nourrisson (BRUE à haut risque / ancien ALT | 2 | ⬜ |  |  |
+| 19 | `R68.1__O2_8-E08` | Malaise grave du nourrisson (BRUE à haut risque / ancien ALT | 2 | ✅ | 28 | 21 |
 | 20 | `Z63.4_1__O6_7-E05` | Deuil périnatal (fausse couche, IMG, mortinatalité, mort sub | 2 | ⬜ |  |  |
-| 21 | `J21.0__S2_1-E12` | Bronchiolite aiguë du nourrisson | 3 | ⬜ |  |  |
+| 21 | `J21.0__S2_1-E12` | Bronchiolite aiguë du nourrisson | 3 | ✅ | 29 | 21 |
 | 22 | `J21.9__F1_10-E16` | Bronchiolite aiguë grave du nourrisson avec apnées et cyanos | 3 | ⬜ |  |  |
 | 23 | `P22.0__O1_1-E11` | Syndrome de détresse respiratoire néonatale (maladie des mem | 3 | ⬜ |  |  |
 | 24 | `P36.9__O1_1-E15` | Sepsis néonatal précoce (< 72 h) | 3 | ⬜ |  |  |
