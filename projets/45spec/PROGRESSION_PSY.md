@@ -1,6 +1,6 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 152. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 14/152.
+Pathologies canoniques PSY (canoniques() avec fusions) : 152. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 15/152.
 
 | # | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|
@@ -18,7 +18,7 @@ Pathologies canoniques PSY (canoniques() avec fusions) : 152. Ordre : importance
 | 12 | F42.2__S9_10-E01 | Trouble obsessionnel-compulsif (TOC) — forme vérification / symétrie / | 29 | 18 | oui |
 | 13 | F43.2__O5_5-E01 | Trouble de l'adaptation (après événement stressant de vie) | 29 | 18 | oui |
 | 14 | F32.3__S9_5-E12 | Épisode dépressif avec caractéristiques psychotiques (dépression mélan | 28 | 18 | oui |
-| 15 | F60.3__O6_8-E07 | Trouble de la personnalité limite (borderline) en crise identitaire ou | — | — | — |
+| 15 | F60.3__O6_8-E07 | Trouble de la personnalité limite (borderline) en crise identitaire ou | 28 | 18 | oui |
 | 16 | F05.9_2__S9_9-E01 | Infection aiguë du sujet âgé révélée par un delirium (infection urinai | — | — | — |
 | 17 | F20.9__S9_3-E07 | Schizophrénie débutante (phase prodromique / repli) | — | — | — |
 | 18 | F44.4__O7_8-E04 | Parésie fonctionnelle (trouble neurologique fonctionnel / conversion) | — | — | — |
@@ -158,5 +158,13 @@ Pathologies canoniques PSY (canoniques() avec fusions) : 152. Ordre : importance
 | 152 | F55.2__S9_13-E10 | Mésusage de laxatifs / diurétiques ou d'hormones thyroïdiennes (troubl | — | — | — |
 
 Outil : `python projets/45spec/psy/lib.py <id>` (valider() du script + contrôles de Vial : formats, proportions, couverture, lieux interdits).
+
+## Doutes à vérifier (aVerifier)
+- Repères suisses de consommation d'alcool (CFANT, 2018) : chiffres exacts à confirmer.
+- Remboursement des antidémentiels : limitation de la liste des spécialités à confirmer.
+- Indication TSPT de la sertraline dans l'AIPS suisse à confirmer.
+- Proportion de décès par suicide dans le trouble borderline (5 à 10 % souvent cité) à confirmer.
+- Toutes les posologies portent « à vérifier dans l'AIPS ».
+- Les champs `usage` indiquent `_mode: agent, api: false` (production sans API).
 
 Signature : AAI (Anthropic AI)
