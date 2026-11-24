@@ -23,9 +23,9 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | O | 12 | 12 |
 | P | 12 | 12 |
 | Q | 12 | 12 |
-| R | 9 | 12 |
+| R | 12 | 12 |
 | S | 12 | 12 |
-| **Total** | **225** | **228** |
+| **Total** | **228** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -72,6 +72,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_R-S3-02** : Prévalence de la rhinite allergique en Suisse (environ 20 % de la population ?) : chiffre non écrit dans le texte.
 - **TRANS_R-S3-03** : Part du secteur de la santé dans les émissions de gaz à effet de serre en Suisse (environ 6 à 7 % selon les études récentes ?) : chiffre non écrit.
 - **TRANS_R-S3-03** : Classification suisse des déchets médicaux (aide à l'exécution de l'OFEV sur l'élimination des déchets médicaux, OMoD) et catégories de déchets infectieux.
+- **TRANS_R-S4-01** : Données de l'enquête internationale de Hickman et al. (Lancet Planet Health 2021) sur l'inquiétude climatique des jeunes de 16 à 25 ans (environ 59 % très ou extrêmement inquiets) : chiffre non écrit.
+- **TRANS_R-S4-01** : Ressources suisses spécifiques (consultations, Psychologists for Future, guide de la FSP) en 2026.
+- **TRANS_R-S4-02** : Valeurs maximales suisses de PFAS dans l'eau potable (OPBD révisée : PFOS, PFOA, PFHxS ; somme de 20 PFAS à 0,1 µg/L à partir de 2026 ?) et seuils de l'EFSA (dose hebdomadaire tolérable de 4,4 ng/kg pour quatre PFAS, 2020).
+- **TRANS_R-S4-02** : Restrictions suisses du bisphénol A dans les biberons et les contenants alimentaires et des phtalates dans les jouets (ordonnance sur les objets destinés à entrer en contact avec les denrées alimentaires).
+- **TRANS_R-S4-03** : Événements climatiques récents ayant affecté des infrastructures de santé suisses (inondations de 2021, intempéries de 2024 dans le Misox, le Valais et la vallée de la Maggia) : non cités nominativement dans le texte.
+- **TRANS_R-S4-03** : Rôle de l'Office fédéral de la protection de la population (OFPP) et du Service sanitaire coordonné (SSC) dans la préparation des hôpitaux aux catastrophes, et exigences cantonales de plans de continuité.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -85,4 +91,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : R (9/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Troisième agent (reprise du 24.11.2026) : I-S3 à I-S4, puis J à P et R (102 leçons) ; production des 228 leçons achevée, toutes à auditer par Claude (hors lettres déjà marquées AUDITÉ). Lettres restantes : aucune.
