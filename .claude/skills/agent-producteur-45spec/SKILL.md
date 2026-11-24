@@ -100,3 +100,9 @@ Signature : AAI (Anthropic AI)
 - Recommandation longue sur PMC (captcha WebFetch) : `get_full_text_article` du connecteur PubMed écrit le texte sur disque ; extrais par script les blocs « Recommendation N » au lieu de lire le fichier entier.
 - Pathologie sans urgence : la clé de `pec` est libre (ex. « orienter », « suivi ») ; passe `urg=None` et fournis `horsUrgence`, et reprends la même clé dans les nœuds `ssp`.
 - Ne pousse jamais avec `-f` : la branche agent se met à jour par `git merge --ff-only main` puis un push simple.
+
+## Leçons (agent A, lots 17–18, 24.11.2026) — consigne de Vial sur la difficulté
+- Dès le lot 19, chaque pathologie compte au moins 5 questions sur 20 de difficulté `d` 4 ou 5 (aujourd'hui, seulement 7 % des QCM le sont), et garde au moins 2 questions `d` 1–2 pour l'ancrage.
+- Une question `d` 4–5 demande un raisonnement en deux temps (reconnaître, puis décider), garde le diagnostic masqué dans la vignette (clé `m` omise, donc `diagnosticMasque` vrai dans le constructeur) et prend ses distracteurs parmi les vrais diagnostics différentiels et les pièges classiques : présentation atypique, contre-indication, examen inutile, seuil limite. Elle reste au programme de l'examen fédéral, sans érudition gratuite.
+- Contrôle avant le constructeur : `grep -c '"d":[45]'` sur la forme compacte doit donner au moins 5.
+- Le constructeur écrit parfois les JSON même quand `err` n'est pas vide : relance-le jusqu'à `err {}` avant de committer.
