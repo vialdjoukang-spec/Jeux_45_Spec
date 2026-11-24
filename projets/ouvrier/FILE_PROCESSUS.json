@@ -455,12 +455,12 @@
    "modele": "claude-sonnet-5-5",
    "budget_usd": 8,
    "etat": "en_cours",
-   "essais": 1,
+   "essais": 2,
    "prompt": "Lis d'abord projets/ouvrier/MISSION_45SPEC.md et applique ses règles constantes. Exécute T3 : ajoute un mode « pec » à scripts/produire_fiches_claude.py qui, en lot, demande seulement le bloc priseEnCharge (schéma conception/donnees/schemas/prise_en_charge.json) pour chaque fiche qui ne l'a pas, et l'insère sans toucher au reste ; teste-le sur 2 fiches en direct, puis soumets le lot ; à la récupération (passage suivant), mets audit.rejector à null pour que Claude réaudite. Mets « fait » quand toutes les fiches ont priseEnCharge.",
    "dernier": {
-    "date": "2026-11-24T06:45:08+00:00",
-    "cout_usd": 0.322,
-    "resume": "Le mode « pec » existe dans produire_fiches_claude.py (pec_pilote, pec_soumettre, pec_recuperer, pec_bilan) ; il insère seulement priseEnCharge, répare la forme et remet audit.rejector à null. Le test direct sur 2 fiches CAR a réussi et le lot de 154 fiches est soumis (msgbatch_014L4teTsJAY3oBSZvVHdT16). Au passage suivant, lancer pec_recuperer ; les 151 fiches rejetées avec erreurs de forme sont reprises en entier par T4, donc T3 passera à « fait » une fois le lot récupéré."
+    "date": "2026-11-24T07:38:27+00:00",
+    "cout_usd": 0.199,
+    "resume": "Le mode pec existe et a été corrigé (consigne de forme, réparation des champs rendus en texte). Le premier lot a donné 91 insertions sur 154 ; 2 fiches de test en direct passent, et 567 fiches sur 779 portent maintenant priseEnCharge. Un second lot de 61 fiches est soumis (msgbatch_016ZJgjrZR6pjXCEpVQDYBpL) à récupérer au prochain passage avec pec_recuperer ; les 151 fiches rejetées pour erreurs de forme restent à T4, et audit.rejector vaut null pour la réaudition."
    }
   },
   {
