@@ -1,0 +1,642 @@
+{
+ "id": "J20.9__F1_3-E01",
+ "portes": [
+  {
+   "ssp": "S2.6",
+   "nomSSP": "Toux, expectorations, hémoptysie",
+   "entite": "Bronchite aiguë virale",
+   "entiteId": "S2.6-E01"
+  },
+  {
+   "ssp": "S2.10",
+   "nomSSP": "Respiration douloureuse, sibilances, stridor",
+   "entite": "Bronchite aiguë avec sibilances",
+   "entiteId": "S2.10-E02"
+  },
+  {
+   "ssp": "F1.3",
+   "nomSSP": "Anomalies à l’auscultation",
+   "entite": "Bronchite aiguë (râles bronchiques / ronchi)",
+   "entiteId": "F1.3-E01"
+  }
+ ],
+ "entite": "Bronchite aiguë (râles bronchiques / ronchi)",
+ "cim10": "J20.9",
+ "ssp": {
+  "code": "F1.3",
+  "nom": "Anomalies à l'auscultation",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Anomalie auscultatoire pulmonaire : ronchi ou sibilances diffus",
+    "i": "Point de départ du SSP : il faut d'abord préciser le type et le siège de l'anomalie.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Signes vitaux anormaux (SpO2 < 92 %, tachypnée, dyspnée) ?",
+    "i": "Ces signes orientent vers une atteinte parenchymateuse, cardiaque ou obstructive sévère, non vers une bronchite simple.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : urgence respiratoire",
+    "i": "Écarter pneumonie, OAP, asthme aigu grave ou pneumothorax ; renvoi vers les SSP de détresse respiratoire.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : foyer fixe ou souffle tubaire ?",
+    "i": "Une condensation fixe oriente vers une pneumonie, que la toux ne modifie pas.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Oui : suspicion de pneumonie",
+    "i": "Radiographie thoracique et CRP ; renvoi vers le SSP Pneumonie communautaire.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Non : sibilances récidivantes ou terrain obstructif ?",
+    "i": "Un asthme ou une BPCO peuvent expliquer des sibilances répétées à chaque épisode viral.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Oui : asthme ou BPCO",
+    "i": "Spirométrie hors phase aiguë ; renvoi vers le SSP correspondant.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Non : toux aiguë < 3 semaines, ronchi bilatéraux modifiés par la toux",
+    "i": "Cette constellation définit la bronchite aiguë, un diagnostic clinique d'exclusion.",
+    "pec": "symptomatique",
+    "notion": "c5"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Toux > 3 semaines ou fièvre > 4 jours",
+    "i": "Ces éléments sortent du cadre de la bronchite simple : réévaluer, radiographie, chercher coqueluche, RGO, tuberculose ou néoplasie.",
+    "pec": null,
+    "notion": "c7"
+   }
+  ]
+ },
+ "specialites": [
+  "PNE"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Bronchite aiguë (râles bronchiques / ronchi) – SSP F1.3 Anomalies à l'auscultation",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition et durée de la toux",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Tu situes la bronchite aiguë parmi les toux aiguës de moins de 3 semaines, d'origine virale dans plus de 90 % des cas, sans atteinte alvéolaire.",
+   "tableau": {
+    "colonnes": [
+     "Durée de la toux",
+     "Terme",
+     "Causes à évoquer",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Toux < 3 semaines",
+      "Toux aiguë",
+      [
+       {
+        "t": "Bronchite aiguë virale",
+        "i": "Cause la plus fréquente (> 90 % virale) ; l'évolution spontanée dure 1 à 3 semaines, donc aucun examen si signes vitaux normaux."
+       }
+      ],
+      "Symptomatique, sans antibiotique"
+     ],
+     [
+      "Toux de 3 à 8 semaines",
+      "Toux subaiguë",
+      [
+       {
+        "t": "Toux post-infectieuse",
+        "i": "La lésion épithéliale virale sensibilise les récepteurs de la toux, qui reste hyperréactive 4 à 6 semaines sans infection active."
+       },
+       {
+        "t": "Coqueluche",
+        "i": "Toux en quintes > 2 semaines avec contage ou vaccination ancienne ; la bronchite banale ne donne pas de quintes."
+       }
+      ],
+      "Réévaluer, chercher une cause"
+     ],
+     [
+      "Toux > 8 semaines",
+      "Toux chronique",
+      [
+       {
+        "t": "Asthme, RGO, toux d'IEC",
+        "i": "Causes fréquentes de toux persistante ; elles sont à chercher activement après 3 semaines."
+       },
+       {
+        "t": "Tuberculose, néoplasie",
+        "i": "Hémoptysie, amaigrissement ou sueurs nocturnes imposent une imagerie ; ce ne sont pas des signes de bronchite."
+       }
+      ],
+      "Bilan étiologique, radiographie thoracique"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Bronchite aiguë = inflammation trachéo-bronchique sans foyer parenchymateux.",
+    "Toux aiguë < 3 semaines ; subaiguë 3–8 semaines ; chronique > 8 semaines.",
+    "Plus de 90 % de causes virales : rhinovirus, influenza, VRS, SARS-CoV-2, adénovirus, parainfluenza.",
+    "Mycoplasma, Chlamydia pneumoniae et Bordetella pertussis sont rares et ne changent pas la prise en charge."
+   ],
+   "sources": [
+    "Société suisse d'infectiologie (SSI), recommandations infections respiratoires basses",
+    "Guideline toux aiguë ambulatoire"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Physiopathologie des ronchi",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Tu relies l'œdème et le mucus des grosses voies aériennes aux ronchi mobilisés par la toux, et la lésion épithéliale à la toux prolongée.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Œdème muqueux et hypersécrétion créent des turbulences dans les grosses bronches, donc des ronchi.",
+    "Les sécrétions se déplacent à la toux : les ronchi changent ou disparaissent.",
+    "La lésion de l'épithélium sensibilise les récepteurs de la toux, ce qui explique une toux qui dépasse l'infection."
+   ],
+   "sources": [
+    "Cours de pneumologie, physiopathologie des voies aériennes"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse : ce qui rassure et ce qui trompe",
+   "rubriques": [
+    "anamnesis"
+   ],
+   "comment": "Tu cherches un contexte viral et les facteurs de risque, sans te laisser influencer par la couleur des expectorations.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Toux aiguë < 3 semaines, d'abord sèche puis productive, fébricule, rhinite, pharyngite ou myalgies préalables, brûlures rétrosternales.",
+    "Des expectorations jaunes ou vertes n'indiquent pas une infection bactérienne et ne justifient pas d'antibiotique.",
+    "Facteurs de risque : âge ≥ 65 ans, BPCO, asthme, insuffisance cardiaque, immunodépression, tabagisme.",
+    "Toux en quintes > 2 semaines avec contage ou vaccination ancienne : penser à la coqueluche."
+   ],
+   "sources": [
+    "SSI, infections des voies respiratoires basses"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Examen clinique et score de Heckerling",
+   "rubriques": [
+    "clinicalExam",
+    "presumptionRedFlags"
+   ],
+   "comment": "Tu cherches un foyer fixe et des signes vitaux anormaux : leur absence écarte la pneumonie, leur présence impose une radiographie.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Bronchite aiguë",
+     "Pneumonie",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Auscultation",
+      "Ronchi ou sibilances bilatéraux diffus",
+      [
+       {
+        "t": "Crépitants fixes, souffle tubaire",
+        "i": "Une condensation alvéolaire reste au même endroit et ne change pas à la toux, contrairement au mucus des grosses bronches."
+       }
+      ],
+      "Les ronchi se modifient à la toux car les sécrétions sont mobilisées."
+     ],
+     [
+      "Percussion",
+      "Normale",
+      [
+       {
+        "t": "Matité",
+        "i": "Elle traduit une condensation ou un épanchement, absents dans une atteinte bronchique pure."
+       }
+      ],
+      "Pas de parenchyme atteint dans la bronchite."
+     ],
+     [
+      "Signes vitaux",
+      "Normaux ou fébricule",
+      [
+       {
+        "t": "FC > 100/min, T > 37,8 °C, SpO2 < 92 %, tachypnée",
+        "i": "Ces signes composent les critères de Heckerling ; leur absence rend la pneumonie peu probable."
+       }
+      ],
+      "Dyspnée, tachypnée et SpO2 < 92 % excluent la bronchite simple."
+     ],
+     [
+      "Évolution",
+      "Amélioration en 1–3 semaines",
+      [
+       {
+        "t": "Fièvre > 4 jours ou réaggravation",
+        "i": "Elle évoque une surinfection ou une pneumonie, pas l'évolution virale habituelle."
+       }
+      ],
+      "Impose de réévaluer le patient."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Heckerling : T > 37,8 °C, FC > 100/min, râles, diminution du murmure vésiculaire, absence d'asthme.",
+    "Sibilances récidivant à chaque épisode viral : suspecter un asthme.",
+    "Hémoptysie, amaigrissement, sueurs nocturnes ou toux > 3 semaines : tuberculose ou néoplasie."
+   ],
+   "sources": [
+    "Heckerling, Ann Intern Med 1990",
+    "SSI"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan : démarche et rôle de CRP / PCT",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu poses un diagnostic clinique d'exclusion et ne demandes un examen qu'en cas de doute sur une pneumonie.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Toux aiguë < 3 semaines + ronchi diffus",
+     "i": "Situation de départ : le diagnostic de bronchite est clinique.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Signes vitaux normaux, pas de foyer, pas de facteur de risque ?",
+     "i": "Si oui, la probabilité de pneumonie est très faible : aucun examen n'est utile.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : diagnostic clinique, sans examen",
+     "i": "Ni radiographie, ni biologie, ni culture d'expectorations, ni spirométrie (obstruction transitoire).",
+     "pec": "symptomatique",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non : doute de pneumonie",
+     "i": "Signes vitaux anormaux, foyer auscultatoire ou terrain à risque avec doute clinique.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "SpO2 + CRP",
+     "i": "L'oxymétrie est faite dès la dyspnée ou la tachypnée ; la CRP aide à trancher.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "CRP < 20 mg/L",
+     "i": "La pneumonie est très improbable : traitement symptomatique.",
+     "pec": "symptomatique",
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n5",
+     "t": "CRP > 100 mg/L ou foyer",
+     "i": "La pneumonie est probable : radiographie thoracique, puis ssp pneumonie communautaire.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n5",
+     "t": "CRP intermédiaire",
+     "i": "Zone grise : la procalcitonine < 0,25 µg/L déconseille l'antibiotique (ProHOSP, Suisse).",
+     "pec": null,
+     "notion": null
+    }
+   ],
+   "points": [
+    "Diagnostic positif : toux aiguë + auscultation bronchique diffuse, sans condensation ni drapeau rouge ; diagnostic d'exclusion.",
+    "À exclure : pneumonie, asthme, exacerbation de BPCO, coqueluche, insuffisance cardiaque gauche.",
+    "CRP < 20 mg/L : pneumonie très improbable ; > 100 mg/L : probable.",
+    "ProHOSP : PCT < 0,25 µg/L réduit les prescriptions sans nuire aux patients."
+   ],
+   "sources": [
+    "ProHOSP, Schuetz JAMA 2009",
+    "SSI"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Traitement : pas d'antibiotique systématique",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "Tu traites symptomatiquement et tu justifies l'abstention antibiotique par un gain minime et des effets indésirables.",
+   "tableau": {
+    "colonnes": [
+     "Mesure",
+     "Indication",
+     "Limite ou contre-indication",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Antibiotiques",
+      "Aucune systématique chez l'immunocompétent",
+      [
+       {
+        "t": "Gain ≈ 0,5 jour de toux",
+        "i": "Le bénéfice est minime alors que les effets indésirables et la résistance bactérienne s'accumulent ; la cause est virale."
+       }
+      ],
+      "Seulement si pneumonie ou coqueluche suspectée"
+     ],
+     [
+      "Paracétamol",
+      "500–1000 mg par prise, max 4 g/j chez l'adulte",
+      [
+       {
+        "t": "Dose à adapter si insuffisance hépatique",
+        "i": "Le risque hépatotoxique impose de limiter la dose en cas d'hépatopathie ou de dénutrition."
+       }
+      ],
+      "Antalgique et antipyrétique de première ligne"
+     ],
+     [
+      "Miel",
+      "Toux nocturne de l'enfant > 1 an",
+      [
+       {
+        "t": "Interdit avant 1 an",
+        "i": "Risque de botulisme infantile par spores de Clostridium botulinum."
+       }
+      ],
+      "Soulage la toux de l'enfant"
+     ],
+     [
+      "Antitussifs, mucolytiques",
+      "Efficacité non démontrée",
+      [
+       {
+        "t": "Codéine interdite < 12 ans",
+        "i": "Le métabolisme variable en morphine expose à une dépression respiratoire (information professionnelle suisse)."
+       }
+      ],
+      "Ne pas prescrire en routine"
+     ],
+     [
+      "β2-mimétiques inhalés",
+      "Seulement si obstruction documentée",
+      [
+       {
+        "t": "Pas de routine",
+        "i": "Sans bronchospasme prouvé, ils n'apportent aucun bénéfice."
+       }
+      ],
+      "Sibilances gênantes ou asthme sous-jacent"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Aucune urgence : prise en charge ambulatoire si signes vitaux normaux.",
+    "Hypoxémie ou détresse respiratoire : le diagnostic est à reconsidérer (pneumonie, décompensation cardiaque, asthme sévère).",
+    "Vaccination antigrippale annuelle (OFSP) : ≥ 65 ans, patients à risque, femmes enceintes, personnel soignant."
+   ],
+   "sources": [
+    "SSI",
+    "OFSP, recommandations de vaccination antigrippale",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Complications, surveillance et pronostic",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Tu expliques au patient les délais normaux et les signes qui imposent de reconsulter.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Guérison spontanée en 1–3 semaines ; la toux dure en moyenne environ 18 jours.",
+    "Toux post-infectieuse par hyperréactivité bronchique jusqu'à 4–6 semaines.",
+    "Pneumonie de surinfection rare, plus fréquente chez le sujet âgé ou comorbide ; exacerbation possible en cas d'asthme ou de BPCO.",
+    "Reconsulter si toux > 3 semaines, fièvre persistante ou récidivante, dyspnée.",
+    "Toux > 3 semaines : coqueluche, asthme, RGO, toux d'IEC, tuberculose, néoplasie.",
+    "Suivi par le médecin de famille ; le pharmacien conseille le traitement symptomatique et oriente devant un signe d'alarme."
+   ],
+   "sources": [
+    "SSI",
+    "Cours de médecine de premier recours"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "symptomatique",
+   "titre": "Bronchite aiguë non compliquée : traitement symptomatique ambulatoire",
+   "but": [
+    "Soulager la toux et la fièvre en évitant tout antibiotique inutile.",
+    "Reconnaître tôt une pneumonie ou une complication."
+   ],
+   "moyens": {
+    "accueil": [
+     "Mesurer FC, FR, température et SpO2 dès l'accueil.",
+     "Rechercher les facteurs de risque (âge, BPCO, asthme, immunodépression, tabac).",
+     "Expliquer au patient la durée normale de la toux."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Paracétamol (antalgique, antipyrétique)",
+      "posologie": "Adulte : 500–1000 mg par voie orale toutes les 6 h, maximum 4 g/j ; réduire en cas d'insuffisance hépatique.",
+      "pourquoi": "Soulage la fièvre et les myalgies, avec une bonne sécurité ; dose maximale à respecter pour éviter l'hépatotoxicité.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Salbutamol inhalé (β2-mimétique de courte durée)",
+      "posologie": "100–200 µg inhalés au besoin, uniquement si sibilances gênantes documentées.",
+      "pourquoi": "Soulage l'obstruction bronchique documentée ; sans sibilances, il n'apporte aucun bénéfice et n'est pas systématique.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Hydrater le patient et lui conseiller le repos et l'arrêt du tabac.",
+      "pourquoi": "Fluidifie les sécrétions et limite l'irritation bronchique."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer que les expectorations colorées ne justifient pas d'antibiotique et que la toux dure environ 18 jours.",
+      "pourquoi": "Réduit les attentes de prescription et prévient l'anxiété."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Donner du miel à l'enfant de plus d'un an pour la toux nocturne, jamais avant 1 an.",
+      "pourquoi": "Soulage la toux ; risque de botulisme infantile avant 1 an."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "Médecine de premier recours",
+      "apport": "Assure le suivi, l'éducation et la décision de réévaluation."
+     },
+     {
+      "discipline": "Santé publique (OFSP)",
+      "apport": "Recommande la vaccination antigrippale annuelle aux groupes à risque."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Éviter toute antibiothérapie systématique chez l'immunocompétent.",
+      "Ne prescrire ni antitussif, ni mucolytique ; la codéine est interdite avant 12 ans.",
+      "Expliquer les signes de reconsultation."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Mesure les signes vitaux et ausculte pour exclure foyer fixe, matité ou souffle tubaire."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Pose le diagnostic clinique et ne demande aucun examen si signes vitaux normaux et pas de foyer."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Prescrit paracétamol et mesures symptomatiques, puis explique l'évolution attendue."
+      },
+      {
+       "temps": "puis",
+       "qui": "pharmacien",
+       "fait": "Conseille le traitement en vente libre et oriente vers le médecin devant un signe d'alarme."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Reconsulte si toux > 3 semaines, fièvre persistante ou dyspnée."
+      }
+     ]
+    }
+   },
+   "pronostic": "La guérison est spontanée en 1 à 3 semaines, la toux durant en moyenne environ 18 jours ; une toux post-infectieuse peut persister 4 à 6 semaines.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Toux et fièvre",
+      "quand": "Reconsulter si persistance > 3 semaines ou fièvre > 4 jours",
+      "cible": "Amélioration spontanée en 1–3 semaines"
+     },
+     {
+      "quoi": "Dyspnée, SpO2, fréquence respiratoire",
+      "quand": "À chaque réévaluation et dès l'apparition d'une dyspnée",
+      "cible": "SpO2 ≥ 92 %, absence de tachypnée"
+     },
+     {
+      "quoi": "Terrain asthmatique ou BPCO",
+      "quand": "Lors de l'épisode viral",
+      "cible": "Absence d'exacerbation"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : signes vitaux normaux, absence de foyer auscultatoire et de facteur de risque."
+   },
+   "prevention": {
+    "primaire": "Recommander la vaccination antigrippale annuelle (OFSP) : ≥ 65 ans, patients à risque, femmes enceintes, personnel soignant ; encourager l'arrêt du tabac et l'hygiène des mains.",
+    "secondaire": "Chercher activement coqueluche, asthme, RGO ou toux d'IEC si la toux dépasse 3 semaines.",
+    "tertiaire": "Prévenir les exacerbations chez les patients asthmatiques ou BPCO par un traitement de fond adapté."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": [
+   "SCHEMA: ['Guérison spontanée en 1–3 semaines ; la toux dure en moyenne environ 18 jours.', \"Toux post-infectieuse par hyperréactivité bronchique jusqu'à 4–6 semaines.\","
+  ]
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 5898,
+  "output_tokens": 7635,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:35:07",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

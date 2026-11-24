@@ -1,0 +1,1124 @@
+{
+ "id": "N17.9__F2_1-E08",
+ "portes": [
+  {
+   "ssp": "G4",
+   "nomSSP": "Fatigue, lassitude",
+   "entite": "Acidose métabolique sévère sur insuffisance rénale aiguë",
+   "entiteId": "G4-E23"
+  },
+  {
+   "ssp": "S4.2",
+   "nomSSP": "Anurie, pollakiurie, oligurie, polyurie",
+   "entite": "Insuffisance rénale aiguë (IRA) fonctionnelle (pré-rénale) avec oligurie",
+   "entiteId": "S4.2-E04"
+  },
+  {
+   "ssp": "F2.1",
+   "nomSSP": "Gaz du sang anormaux",
+   "entite": "Acidose métabolique urémique (insuffisance rénale)",
+   "entiteId": "F2.1-E08"
+  },
+  {
+   "ssp": "F2.12",
+   "nomSSP": "Marqueurs de la fonction rénale anormaux",
+   "entite": "Insuffisance rénale aiguë (IRA) prérénale fonctionnelle",
+   "entiteId": "F2.12-E02"
+  },
+  {
+   "ssp": "F2.24",
+   "nomSSP": "Protéinurie",
+   "entite": "Insuffisance rénale aiguë sur syndrome néphrotique",
+   "entiteId": "F2.24-E18"
+  },
+  {
+   "ssp": "O3.4",
+   "nomSSP": "Patient polymorbide et polymédiqué",
+   "entite": "Insuffisance rénale aiguë médicamenteuse (« triple whammy »)",
+   "entiteId": "O3.4-E14"
+  }
+ ],
+ "entite": "Acidose métabolique urémique (insuffisance rénale)",
+ "cim10": "N17.9",
+ "ssp": {
+  "code": "F2.1",
+  "nom": "Gaz du sang anormaux",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Gaz du sang anormaux",
+    "i": "Point de départ : on lit pH, PaCO2, HCO3 et PaO2 dans cet ordre.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "pH < 7,35 (acidémie)",
+    "i": "Seuil de l'acidémie ; on cherche ensuite la composante respiratoire ou métabolique.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "pH > 7,45 (alcalémie)",
+    "i": "Sort du cadre de la pathologie : renvoi vers les alcaloses métaboliques et respiratoires du même SSP.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "pH normal, PaO2 basse",
+    "i": "Hypoxémie isolée : sort du cadre ; renvoi vers le SSP Dyspnée (pneumonie, embolie, CO).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n5",
+    "parent": "n2",
+    "t": "PaCO2 élevée",
+    "i": "Acidose respiratoire (BPCO, épuisement) : sort du cadre ; renvoi vers le SSP Dyspnée.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n6",
+    "parent": "n2",
+    "t": "HCO3 < 22 mmol/L, PaCO2 basse",
+    "i": "Acidose métabolique avec compensation respiratoire.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Winter : PaCO2 mesurée = 1,5 × HCO3 + 8 ± 2",
+    "i": "Hors de cette fourchette, un trouble respiratoire est associé (salicylés, épuisement).",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Trou anionique corrigé pour l'albumine",
+    "i": "Sépare acidose à TA normal et acidose à TA élevé ; corriger de 2,5 mmol/L par baisse de 10 g/L d'albumine.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "TA normal",
+    "i": "Acidose hyperchlorémique (diarrhée, acidose tubulaire, MRC stade 3) : sort du cadre ; on étudie le trou anionique urinaire.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "TA élevé",
+    "i": "On cherche lactate, cétones, trou osmolaire et créatinine.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Lactate élevé",
+    "i": "Acidose lactique de type A (choc, sepsis) ou B (metformine) ; renvoi vers la prise en charge de choc ou toxicologique.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Glycémie et β-hydroxybutyrate élevés",
+    "i": "Acidocétose diabétique : autre pathologie du SSP.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n13",
+    "parent": "n10",
+    "t": "Trou osmolaire élevé ou salicylémie positive",
+    "i": "Alcools toxiques ou salicylés : intoxication, avis toxicologique.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n14",
+    "parent": "n10",
+    "t": "Créatinine et urée élevées, autres causes exclues",
+    "i": "Acidose métabolique urémique : diagnostic positif par exclusion.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n15",
+    "parent": "n14",
+    "t": "Critère de gravité (pH < 7,15–7,20, K ≥ 6,5, OAP, encéphalopathie, péricardite, obstacle)",
+    "i": "Urgence vitale : équipe de réanimation et néphrologue sans délai.",
+    "pec": "urgence",
+    "notion": "c3"
+   },
+   {
+    "id": "n16",
+    "parent": "n14",
+    "t": "Insuffisance rénale aiguë sans critère de gravité",
+    "i": "Traiter la cause (volémie, néphrotoxiques, obstacle) et surveiller.",
+    "pec": "ira_non_grave",
+    "notion": "c6"
+   },
+   {
+    "id": "n17",
+    "parent": "n14",
+    "t": "MRC stade 4–5 stable",
+    "i": "Alcalinisation orale et suivi néphrologique au long cours.",
+    "pec": "mrc_long_cours",
+    "notion": "c7"
+   }
+  ]
+ },
+ "specialites": [
+  "NEP",
+  "TOX"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Acidose métabolique urémique (insuffisance rénale) – SSP F2.1 Gaz du sang anormaux",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition, épidémiologie et physiopathologie",
+   "rubriques": [
+    "definition",
+    "epidemiology",
+    "basicSciences"
+   ],
+   "comment": "Pars de la perte de néphrons : moins d'ammoniogenèse, donc moins d'excrétion d'acides fixes, donc rétention d'anions non dosés et trou anionique élevé.",
+   "tableau": {
+    "colonnes": [
+     "Situation rénale",
+     "Type d'acidose",
+     "Trou anionique",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "MRC stade 3 (DFG 30–59)",
+      "Hyperchlorémique",
+      [
+       {
+        "t": "Normal",
+        "i": "Les néphrons restants compensent la filtration des anions ; seule l'ammoniogenèse baisse, donc le chlore remplace le bicarbonate perdu."
+       }
+      ],
+      [
+       {
+        "t": "Acidose légère, souvent latente",
+        "i": "Elle apparaît surtout sous 30 mL/min/1,73 m² : un bicarbonate normal ne l'exclut pas en stade 3."
+       }
+      ]
+     ],
+     [
+      "MRC stade 4–5 (DFG < 30)",
+      "Mixte à trou anionique élevé",
+      [
+       {
+        "t": "Élevé",
+        "i": "La filtration des sulfates, phosphates et urates s'effondre : ces anions non dosés s'accumulent et remplacent le bicarbonate."
+       }
+      ],
+      [
+       {
+        "t": "Plus d'un tiers des DFG < 20 ont HCO3 < 22",
+        "i": "La prévalence croît quand le DFG baisse : on dépiste le bicarbonate à chaque contrôle de MRC avancée."
+       }
+      ]
+     ],
+     [
+      "IRA sévère",
+      "À trou anionique élevé",
+      [
+       {
+        "t": "Élevé, installation rapide",
+        "i": "La chute brutale du DFG laisse peu de temps au tamponnement osseux : le pH chute plus vite que dans la MRC."
+       }
+      ],
+      [
+       {
+        "t": "Réversible si l'IRA récupère",
+        "i": "L'acidose suit la fonction rénale : elle régresse avec la récupération, ou se contrôle par dialyse."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Acidose métabolique : pH artériel < 7,35, HCO3 < 22 mmol/L et PaCO2 abaissée par compensation respiratoire.",
+    "Trou anionique = Na − (Cl + HCO3), normal 8–12 mmol/L sans potassium ; il s'élève dans l'urémie avancée.",
+    "Le rein excrète environ 1 mmol/kg/j d'acides fixes ; la baisse de l'ammoniogenèse proximale, proportionnelle à la perte de néphrons, est le mécanisme principal.",
+    "L'os tamponne l'acide (déminéralisation) et l'acidose entretient la fibrose rénale (angiotensine II, endothéline, complément).",
+    "En Suisse, la créatinine s'exprime en µmol/L et les gaz du sang en kPa ou mmHg : on vérifie l'unité avant d'interpréter."
+   ],
+   "sources": [
+    "KDIGO CKD 2024",
+    "KDIGO AKI 2012",
+    "Kraut & Madias, Nat Rev Nephrol 2010"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Anamnèse et examen clinique",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Cherche la cause de l'atteinte rénale (pré, intra, post-rénale), les médicaments en cause et l'état volémique, car ils décident du traitement.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le patient décrit oligo-anurie, néphropathie connue (diabétique, hypertensive, glomérulaire), vomissements ou diarrhée évoquant une cause pré-rénale.",
+    "On recherche AINS en vente libre, IEC/sartans, aminosides, produits de contraste iodés, lithium, diurétiques, et metformine (contre-indiquée si DFG < 30 mL/min).",
+    "Les symptômes sont peu spécifiques : fatigue, anorexie, nausées, dyspnée, prurit, crampes, confusion ; le patient peut rester pauci-symptomatique.",
+    "La respiration de Kussmaul est ample, profonde, régulière et sans orthopnée ; l'examen évalue la volémie (œdèmes, crépitants, jugulaires versus muqueuses sèches, hypotension orthostatique).",
+    "Astérixis, haleine urémique, pâleur, frottement péricardique et troubles de conscience signent l'urémie avancée ; un pH < 7,10 donne hypotension, arythmies, obnubilation."
+   ],
+   "sources": [
+    "KDIGO AKI 2012",
+    "KDIGO CKD 2024"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Drapeaux rouges : indications d'épuration extrarénale urgente",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Cherche d'abord ce qui tue en quelques heures (hyperkaliémie, acidose, OAP) et ce qui se lève vite (obstacle, metformine) avant tout autre examen.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Acidose + insuffisance rénale suspectée",
+     "i": "Point de départ : chaque case suivante est une urgence qui justifie un passage immédiat en monitoring.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "pH < 7,15–7,20",
+     "i": "Seuil de gravité : baisse de contractilité, vasodilatation, arythmies ; discussion d'alcalinisation et de dialyse.",
+     "pec": "urgence",
+     "notion": "c3"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "K+ ≥ 6,5 mmol/L ou ECG modifié (T pointues, QRS large)",
+     "i": "Hyperkaliémie sévère : risque de fibrillation ventriculaire ou d'asystolie ; l'acidose aggrave la sortie cellulaire du K+.",
+     "pec": "urgence",
+     "notion": "c3"
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "OAP chez un patient anurique",
+     "i": "Réfractaire aux diurétiques en l'absence de diurèse : seule l'ultrafiltration en épuration extrarénale retire le volume.",
+     "pec": "urgence",
+     "notion": "c3"
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Encéphalopathie ou péricardite urémique",
+     "i": "Indication de dialyse indépendante des valeurs biologiques : ce sont des complications cliniques de l'urémie.",
+     "pec": "urgence",
+     "notion": "c3"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Lactate élevé sous metformine",
+     "i": "Acidose lactique associée à la metformine : la metformine est dialysable, donc dialyse précoce.",
+     "pec": "urgence",
+     "notion": "c3"
+    },
+    {
+     "id": "n7",
+     "parent": "n1",
+     "t": "Anurie brutale + globe ou hydronéphrose",
+     "i": "Obstacle post-rénal : urgence urologique à lever (sonde vésicale, double J, néphrostomie) avant toute dialyse.",
+     "pec": "urgence",
+     "notion": "c3"
+    },
+    {
+     "id": "n8",
+     "parent": "n1",
+     "t": "Aucun critère de gravité",
+     "i": "Prise en charge ciblée sur la cause et le bicarbonate oral selon la chronicité.",
+     "pec": "ira_non_grave",
+     "notion": "c3"
+    }
+   ],
+   "points": [
+    "pH < 7,15–7,20, K+ ≥ 6,5 mmol/L ou signes ECG, OAP anurique, encéphalopathie ou péricardite imposent une épuration urgente.",
+    "Une acidose sévère avec lactate élevé sous metformine fait évoquer une acidose lactique dialysable.",
+    "Une anurie brutale avec globe vésical ou dilatation pyélocalicielle impose de lever l'obstacle."
+   ],
+   "sources": [
+    "KDIGO AKI 2012",
+    "SSMI / ESICM"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Bilan : gazométrie, trou anionique et bilan rénal",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Lis la gazométrie en trois temps (pH, compensation par Winter, trou anionique corrigé), puis cherche l'obstacle et la chronicité.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Gazométrie artérielle (pH, PaCO2, HCO3)",
+     "i": "Le pH veineux est environ 0,03 inférieur à l'artériel et suffit au dépistage ; l'artériel reste nécessaire si PaCO2 ou PaO2 comptent.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "pH < 7,35 et HCO3 < 22 mmol/L",
+     "i": "Définit l'acidose métabolique ; une PaCO2 élevée orienterait vers une composante respiratoire.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Winter : PaCO2 attendue = 1,5 × HCO3 + 8 (± 2 mmHg)",
+     "i": "PaCO2 mesurée plus haute : acidose respiratoire associée ; plus basse : alcalose respiratoire associée (salicylés, sepsis).",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Trou anionique corrigé pour l'albumine",
+     "i": "On ajoute environ 2,5 mmol/L par baisse de 10 g/L d'albumine : l'hypoalbuminémie masque un trou anionique élevé.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Rapport ΔTA/ΔHCO3",
+     "i": "Entre 1 et 2 : acidose à TA élevé pure ; inférieur à 1 : composante hyperchlorémique associée.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Créatinine, urée, DFG, comparés à la base",
+     "i": "Distingue l'IRA (hausse ≥ 26,5 µmol/L en 48 h ou ≥ 1,5 × base en 7 j ou diurèse < 0,5 mL/kg/h pendant 6 h) de la MRC.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n7",
+     "parent": "n1",
+     "t": "Ionogramme : K, Na, Cl, Ca, phosphate ; ECG si K > 5,5",
+     "i": "Typique : hyperkaliémie, hyperphosphatémie, hypocalcémie ; l'ECG est fait sans délai si K > 5,5 mmol/L ou cause inconnue.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n8",
+     "parent": "n6",
+     "t": "Échographie rénale et vésicale",
+     "i": "Exclut un obstacle (hydronéphrose, globe) ; des reins petits et hyperéchogènes orientent vers une MRC.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n9",
+     "parent": "n6",
+     "t": "Sédiment, protéinurie, FENa, PTH, hémogramme",
+     "i": "FENa < 1 % : pré-rénal ; anémie normocytaire, PTH élevée, hypocalcémie, hyperphosphatémie : MRC ancienne.",
+     "pec": null,
+     "notion": "c4"
+    }
+   ],
+   "points": [
+    "La gazométrie, la créatinine, l'urée et l'ionogramme complet sont le socle du bilan initial.",
+    "L'échographie rénale est indispensable chez tout patient oligo-anurique pour exclure un obstacle."
+   ],
+   "sources": [
+    "KDIGO AKI 2012",
+    "Kraut & Madias, NEJM 2014"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Diagnostic positif et différentiel des acidoses à trou anionique élevé",
+   "rubriques": [
+    "positiveDiagnosis"
+   ],
+   "comment": "Pose le diagnostic par exclusion : un trou anionique élevé avec créatinine haute n'est urémique qu'après lactate, cétones et trou osmolaire négatifs.",
+   "tableau": {
+    "colonnes": [
+     "Classe",
+     "Entité",
+     "Test discriminant",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "TA élevé",
+      "Urémique",
+      [
+       {
+        "t": "Créatinine et urée élevées, lactate et cétones normaux",
+        "i": "Seule cause où le déficit d'excrétion rénale est démontré ; on exclut ensuite les autres anions."
+       }
+      ],
+      [
+       {
+        "t": "Installation progressive, K+ et phosphate élevés",
+        "i": "La rétention concerne aussi le potassium et le phosphate, ce qui la distingue des acidoses organiques."
+       }
+      ]
+     ],
+     [
+      "TA élevé",
+      "Lactique (A ou B)",
+      [
+       {
+        "t": "Lactate élevé",
+        "i": "Seul le lactate distingue : hypoperfusion (type A) ou metformine, insuffisance hépatique (type B)."
+       }
+      ],
+      [
+       {
+        "t": "Metformine dialysable",
+        "i": "Une IRA sous metformine associe les deux mécanismes : l'acidose lactique peut compliquer l'urémie."
+       }
+      ]
+     ],
+     [
+      "TA élevé",
+      "Acidocétose diabétique",
+      [
+       {
+        "t": "Glycémie élevée, β-hydroxybutyrate élevé",
+        "i": "Les cétones et la glycémie séparent de l'urémie, où la glycémie est sans particularité."
+       }
+      ],
+      [
+       {
+        "t": "Traitement par insuline et hydratation",
+        "i": "Elle se corrige sans dialyse : on évite une dialyse inutile en cherchant les cétones."
+       }
+      ]
+     ],
+     [
+      "TA élevé",
+      "Alcools toxiques (méthanol, éthylène glycol)",
+      [
+       {
+        "t": "Trou osmolaire élevé",
+        "i": "Les alcools et leurs métabolites augmentent l'osmolalité mesurée au-delà de la calculée."
+       }
+      ],
+      [
+       {
+        "t": "Dialyse et fomépizole",
+        "i": "Une IRA peut compliquer l'éthylène glycol (cristaux d'oxalate) : urgence toxicologique."
+       }
+      ]
+     ],
+     [
+      "TA élevé",
+      "Salicylés",
+      [
+       {
+        "t": "Salicylémie, alcalose respiratoire associée",
+        "i": "Les salicylés stimulent le centre respiratoire : trouble mixte, PaCO2 plus basse que prévu par Winter."
+       }
+      ],
+      [
+       {
+        "t": "Alcalinisation urinaire, dialyse si sévère",
+        "i": "Une atteinte rénale aiguë ou une acidémie sévère fait préférer la dialyse."
+       }
+      ]
+     ],
+     [
+      "TA normal",
+      "Hyperchlorémique (diarrhée, acidose tubulaire)",
+      [
+       {
+        "t": "Trou anionique normal, contexte digestif ou tubulaire",
+        "i": "Perte de bicarbonate remplacée par du chlore : le contexte et le trou anionique suffisent à la séparer."
+       }
+      ],
+      [
+       {
+        "t": "Fréquente en MRC stade 3",
+        "i": "Pour un DFG 30–59, une acidose hyperchlorémique est possible sans trou anionique élevé."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le diagnostic est posé devant une acidose à TA élevé, une créatinine et une urée élevées et l'exclusion des lactate, cétones et toxiques.",
+    "Un ΔTA/ΔHCO3 entre 1 et 2 oriente vers une acidose à TA élevé pure."
+   ],
+   "sources": [
+    "Kraut & Madias, NEJM 2014",
+    "KDIGO AKI 2012"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Prise en charge aiguë : cause, bicarbonate, dialyse",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Traite la cause en parallèle, alcalinise seulement si pH < 7,15 sans surcharge volémique, et dialyse dès qu'une indication est réfractaire.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Acidose urémique aiguë grave",
+     "i": "On sécurise d'abord (monitoring, ECG, voie veineuse), puis on traite hyperkaliémie, cause et acidose.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Hyperkaliémie avec signes ECG",
+     "i": "Le calcium protège le myocarde en quelques minutes ; l'insuline et le β2-agoniste déplacent le K+ dans la cellule.",
+     "pec": "urgence",
+     "notion": "c6"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Obstacle post-rénal",
+     "i": "Lever l'obstacle (sondage, double J, néphrostomie) ; on surveille la diurèse post-obstructive.",
+     "pec": "urgence",
+     "notion": "c6"
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Pré-rénale : hypovolémie",
+     "i": "Cristalloïdes équilibrés ; arrêt des néphrotoxiques et adaptation des doses au DFG.",
+     "pec": "ira_non_grave",
+     "notion": "c6"
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "pH < 7,15 sans surcharge",
+     "i": "Bicarbonate IV en attendant la dialyse ; seuil BICAR-ICU : pH ≤ 7,20 avec IRA AKIN 2–3.",
+     "pec": "urgence",
+     "notion": "c6"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "pH < 7,15 avec surcharge ou anurie",
+     "i": "Le bicarbonate apporte du sodium et du volume : on préfère la dialyse.",
+     "pec": "urgence",
+     "notion": "c6"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Hémodialyse urgente",
+     "i": "Indiquée si acidose ou hyperkaliémie réfractaires, OAP, encéphalopathie, péricardite ou intoxication dialysable.",
+     "pec": "urgence",
+     "notion": "c6"
+    }
+   ],
+   "points": [
+    "Le bicarbonate IV expose à surcharge sodée, hypocalcémie ionisée (tétanie), hypokaliémie et hypercapnie transitoire : contrôles biologiques rapprochés.",
+    "L'intubation d'un patient en acidose sévère peut aggraver le pH si la ventilation minute ne reproduit pas l'hyperventilation compensatrice.",
+    "BICAR-ICU (Jaber, Lancet 2018) : dans la strate IRA AKIN 2–3 avec pH ≤ 7,20, le bicarbonate 4,2 % réduit la mortalité à 28 jours et le recours à la dialyse."
+   ],
+   "sources": [
+    "Jaber, Lancet 2018 (BICAR-ICU)",
+    "KDIGO AKI 2012",
+    "ERC 2021 (hyperkaliémie)"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge chronique de la MRC",
+   "rubriques": [
+    "chronicManagement"
+   ],
+   "comment": "Corrige l'acidose chronique par bicarbonate oral et régime, en équilibrant le bénéfice rénal et osseux contre la charge sodée.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "On traite par bicarbonate de sodium oral si HCO3 < 22 mmol/L (cible 22–26) ; KDIGO 2024 propose de considérer le traitement sous 18 mmol/L chez l'adulte, sans dépasser la limite supérieure de la normale.",
+    "Un gramme de bicarbonate de sodium apporte environ 12 mmol : on débute à 0,5–1 mmol/kg/j en 2–3 prises et on titre.",
+    "Un régime riche en fruits et légumes et pauvre en protéines animales réduit la charge acide, avec contrôle de la kaliémie.",
+    "Le bicarbonate apporte du sodium : on surveille tension, œdèmes et poids.",
+    "L'alcalinisation ralentit la progression de la MRC et préserve l'os et le muscle."
+   ],
+   "sources": [
+    "KDIGO CKD 2024",
+    "KDOQI 2020"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications, surveillance, pronostic et réseau de soins",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Anticipe l'hyperkaliémie fatale et le coût à long terme (os, muscle), surveille ce que le traitement modifie, et organise le suivi néphrologique.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "L'hyperkaliémie provoque bradycardie, fibrillation ventriculaire ou asystolie ; l'acidose aggrave la sortie du K+ des cellules.",
+    "L'acidose chronique entraîne ostéodystrophie rénale, retard de croissance chez l'enfant, catabolisme protéique (voie ubiquitine-protéasome), hypoalbuminémie et résistance à l'insuline.",
+    "Une acidose sévère diminue la contractilité et la réponse aux catécholamines : risque de choc réfractaire.",
+    "On contrôle gazométrie, kaliémie, calcium ionisé, natrémie, créatinine, diurèse et poids après chaque alcalinisation.",
+    "Le néphrologue suit le patient ; en stade 5, il discute dialyse chronique ou inscription sur la liste de Swisstransplant ; la LAMal rembourse la dialyse."
+   ],
+   "sources": [
+    "KDIGO CKD 2024",
+    "Swisstransplant"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence",
+   "titre": "Acidose urémique grave ou menaçante (urgence vitale)",
+   "but": [
+    "Stabiliser le rythme cardiaque et corriger l'hyperkaliémie.",
+    "Corriger le pH et lever l'obstacle ou la cause réversible.",
+    "Organiser l'épuration extrarénale si une indication est réfractaire."
+   ],
+   "moyens": {
+    "accueil": [
+     "Placer le patient en salle de réanimation sous monitoring continu et oxygène si besoin.",
+     "Poser deux voies veineuses et réaliser ECG, gazométrie artérielle, ionogramme et lactate.",
+     "Sonder la vessie pour mesurer la diurèse horaire et évaluer la volémie."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Gluconate de calcium 10 % (cardioprotecteur)",
+      "posologie": "10 mL IV en 5–10 min sous scope, à répéter après 5–10 min si l'ECG reste anormal.",
+      "pourquoi": "Stabilise la membrane myocardique en quelques minutes ; il ne baisse pas le potassium et doit précéder l'insuline.",
+      "source": "[ERC 2021]"
+     },
+     {
+      "molecule": "Insuline rapide + glucose (déplacement intracellulaire du K+)",
+      "posologie": "5–10 UI IV avec 25 g de glucose (50 mL G50 %) ; glycémies horaires pendant 6 h, car l'insuline persiste en IR.",
+      "pourquoi": "Fait entrer le potassium dans les cellules en 15–30 minutes ; le risque d'hypoglycémie est plus élevé en insuffisance rénale.",
+      "source": "[ERC 2021]"
+     },
+     {
+      "molecule": "Salbutamol (β2-agoniste)",
+      "posologie": "10–20 mg en nébulisation sur 10 min.",
+      "pourquoi": "Effet additif à l'insuline sur le potassium ; prudence en cas de tachyarythmie ou de cardiopathie ischémique.",
+      "source": "[ERC 2021]"
+     },
+     {
+      "molecule": "Bicarbonate de sodium 4,2 % (alcalinisant)",
+      "posologie": "125–250 mL IV en 30 min, à répéter selon la gazométrie, maximum 1 000 mL/24 h, cible pH ≥ 7,30 ; seulement sans surcharge.",
+      "pourquoi": "Réduit la mortalité à 28 jours dans la strate IRA AKIN 2–3 avec pH ≤ 7,20 ; il apporte du sodium.",
+      "source": "[Jaber, Lancet 2018]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Lever l'obstacle post-rénal par sonde vésicale, double J ou néphrostomie.",
+      "pourquoi": "Un obstacle levé fait récupérer la fonction rénale ; il faut surveiller la diurèse post-obstructive."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réaliser une hémodialyse urgente si l'acidose ou l'hyperkaliémie sont réfractaires, OAP, encéphalopathie ou péricardite.",
+      "pourquoi": "C'est le seul traitement qui retire potassium, acides et volume lorsque le rein est anurique."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveiller la diurèse, la tension et la saturation en continu.",
+      "pourquoi": "La dégradation hémodynamique et respiratoire guide l'escalade vers la dialyse ou l'intubation."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Discute le projet de soins et la limitation éventuelle de l'épuration chez le patient âgé ou polymorbide."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Recueille le consentement éclairé avant dialyse ou intubation et vérifie les directives anticipées."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise la prise en charge par la LAMal de l'hospitalisation et de la dialyse."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Monitorer ECG, tension, saturation et diurèse en continu.",
+      "Arrêter tout néphrotoxique et la metformine.",
+      "Alerter dès l'arrivée le néphrologue et les soins intensifs."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue ABC, recueille l'ECG et prélève gazométrie, ionogramme, lactate avant tout traitement."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose deux voies veineuses, branche le scope et prépare calcium, insuline-glucose et salbutamol."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Injecte le gluconate de calcium si l'ECG est modifié, puis insuline-glucose et salbutamol nébulisé."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Réalise l'échographie vésicale et rénale pour exclure un obstacle."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Administre le bicarbonate 4,2 % si pH < 7,15 sans surcharge, puis recontrôle la gazométrie."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Le néphrologue installe l'hémodialyse urgente si l'indication est réfractaire ou en cas d'OAP, encéphalopathie ou péricardite."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "L'acidose est contrôlée par alcalinisation ou dialyse et régresse si l'IRA récupère ; l'hyperkaliémie non traitée expose à l'arrêt cardiaque.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Gazométrie (pH, HCO3) et lactate",
+      "quand": "30–60 min après chaque bicarbonate, puis toutes les 4–6 h",
+      "cible": "pH ≥ 7,30 ; HCO3 en hausse sans alcalose"
+     },
+     {
+      "quoi": "Kaliémie et ECG",
+      "quand": "toutes les heures jusqu'à K+ < 5,5, puis toutes les 4–6 h",
+      "cible": "K+ < 5,5 mmol/L, ECG normalisé"
+     },
+     {
+      "quoi": "Calcium ionisé et natrémie",
+      "quand": "avec chaque gazométrie sous bicarbonate",
+      "cible": "Ca ionisé normal, Na stable"
+     },
+     {
+      "quoi": "Glycémie",
+      "quand": "horaire pendant 6 h après insuline",
+      "cible": "> 4 mmol/L"
+     },
+     {
+      "quoi": "Diurèse, poids, volémie",
+      "quand": "en continu",
+      "cible": "Diurèse > 0,5 mL/kg/h ou besoin de dialyse identifié"
+     }
+    ],
+    "sortie": "Sortie des soins intensifs si pH et kaliémie stables sans traitement aigu depuis 24 h, diurèse reprise ou dialyse planifiée."
+   },
+   "prevention": {
+    "primaire": "Éviter AINS, produits de contraste iodés et aminosides chez le patient à risque et stopper la metformine si DFG < 30.",
+    "secondaire": "Dépister les bicarbonates et la créatinine à chaque contrôle de MRC.",
+    "tertiaire": "Préparer un accès de dialyse et discuter la liste d'attente de transplantation en stade 5."
+   }
+  },
+  {
+   "cle": "ira_non_grave",
+   "titre": "Insuffisance rénale aiguë avec acidose sans critère de gravité",
+   "but": [
+    "Traiter la cause de l'IRA (pré, intra ou post-rénale).",
+    "Corriger l'acidose légère à modérée sans surcharger.",
+    "Prévenir l'aggravation vers un critère de dialyse."
+   ],
+   "moyens": {
+    "accueil": [
+     "Évaluer la volémie, la diurèse et les médicaments en cours.",
+     "Prélever gazométrie, ionogramme, créatinine, urée, sédiment et lactate."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Cristalloïdes équilibrés (Ringer lactate ou solution équilibrée)",
+      "posologie": "Bolus de 250–500 mL IV, puis réévaluation clinique ; stopper si signes de surcharge.",
+      "pourquoi": "Rétablit la perfusion rénale en pré-rénale ; on évite l'excès de NaCl 0,9 %, qui aggrave l'acidose hyperchlorémique.",
+      "source": "[KDIGO AKI 2012]"
+     },
+     {
+      "molecule": "Bicarbonate de sodium oral (alcalinisant)",
+      "posologie": "0,5–1 mmol/kg/j en 2–3 prises si HCO3 < 22 mmol/L ; 1 g ≈ 12 mmol.",
+      "pourquoi": "Corrige l'acidose modérée sans accès IV ; on surveille tension, œdèmes et poids à cause du sodium.",
+      "source": "[KDIGO CKD 2024]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Arrêter AINS, IEC/sartans, metformine et néphrotoxiques, puis adapter les doses au DFG.",
+      "pourquoi": "Ces médicaments aggravent l'IRA ou s'accumulent, comme la metformine avec risque d'acidose lactique."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Lever l'obstacle post-rénal par sondage ou double J si échographie positive.",
+      "pourquoi": "L'obstacle levé permet la récupération rénale, avec surveillance de la diurèse post-obstructive."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Clarifie arrêt de travail et couverture LAMal en cas d'hospitalisation prolongée."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Arrêter les médicaments néphrotoxiques.",
+      "Peser le patient et mesurer la diurèse quotidienne.",
+      "Adapter tous les traitements au DFG."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Classe l'IRA (pré, intra, post-rénale) par anamnèse, examen, sédiment, FENa et échographie."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Mesure diurèse, poids et tension et alerte si K+ ou pH dépassent les seuils."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Prescrit cristalloïdes si pré-rénale et bicarbonate oral si HCO3 < 22 mmol/L."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Le néphrologue réévalue si créatinine non améliorée à 48–72 h ou critère de dialyse."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'acidose régresse avec la récupération de l'IRA ; un pH ou un potassium à risque, ou l'absence de récupération, fait passer au plan d'urgence.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Créatinine, urée, diurèse",
+      "quand": "quotidienne en hospitalisation",
+      "cible": "Baisse de la créatinine vers la base"
+     },
+     {
+      "quoi": "Gazométrie ou HCO3 veineux",
+      "quand": "toutes les 12–24 h",
+      "cible": "HCO3 ≥ 22 mmol/L"
+     },
+     {
+      "quoi": "Kaliémie",
+      "quand": "toutes les 12–24 h",
+      "cible": "< 5,5 mmol/L"
+     },
+     {
+      "quoi": "Poids et tension",
+      "quand": "quotidienne",
+      "cible": "Pas de prise de poids ni d'œdèmes"
+     }
+    ],
+    "sortie": "Sortie si créatinine en baisse, K+ < 5,5 mmol/L, HCO3 stable, diurèse conservée et contrôle ambulatoire à 1 semaine organisé."
+   },
+   "prevention": {
+    "primaire": "Maintenir l'hydratation et éviter les néphrotoxiques en cas de maladie intercurrente.",
+    "secondaire": "Contrôler la créatinine à 1 semaine puis à 3 mois après une IRA.",
+    "tertiaire": "Suivre au long cours les patients qui développent une MRC après IRA."
+   }
+  },
+  {
+   "cle": "mrc_long_cours",
+   "titre": "Acidose de la MRC stade 4–5 (long cours)",
+   "but": [
+    "Maintenir un bicarbonate de 22 à 26 mmol/L.",
+    "Ralentir la progression de la MRC et préserver l'os et le muscle.",
+    "Préparer le traitement de suppléance rénale."
+   ],
+   "moyens": {
+    "accueil": [
+     "Mesurer HCO3 veineux avec la créatinine à chaque consultation de MRC.",
+     "Rechercher médicaments acidifiants ou néphrotoxiques et mesurer tension et poids."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Bicarbonate de sodium oral (alcalinisant)",
+      "posologie": "0,5–1 mmol/kg/j en 2–3 prises, titré selon HCO3 ; 1 g ≈ 12 mmol ; traiter si HCO3 < 22 mmol/L, considérer dès < 18 mmol/L (KDIGO 2024).",
+      "pourquoi": "Ralentit la progression de la MRC, préserve l'os et le muscle ; sa charge sodée peut aggraver tension et œdèmes.",
+      "source": "[KDIGO CKD 2024]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "nutrition",
+      "mesure": "Conseiller un régime riche en fruits et légumes et pauvre en protéines animales, avec contrôle du K+.",
+      "pourquoi": "Réduit la charge acide alimentaire ; le potassium des légumes nécessite un contrôle en stade 4–5."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer l'adhésion au bicarbonate, l'évitement des AINS et la surveillance du poids.",
+      "pourquoi": "Le patient évite ainsi les épisodes d'IRA et reconnaît la rétention hydrosodée."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Planifier dialyse chronique ou inscription sur liste de Swisstransplant en stade 5.",
+      "pourquoi": "L'acidose réfractaire et l'urémie finissent par imposer une suppléance rénale."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Propose un traitement conservateur sans dialyse au patient âgé polymorbide qui le souhaite."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise la prise en charge LAMal de la dialyse et les droits AI en cas d'incapacité."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Éviter AINS et produits de contraste non indispensables.",
+      "Adapter les doses de médicaments au DFG.",
+      "Contrôler tension, poids et bilan phosphocalcique."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Mesure HCO3 et K+ et débute le bicarbonate oral si HCO3 < 22 mmol/L."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "patient·e",
+       "fait": "Prend le bicarbonate en 2–3 prises et pèse son poids chaque jour."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Le néphrologue titre la dose, suit PTH, calcium, phosphate et prépare la suppléance rénale."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "assistant·e social·e",
+       "fait": "Organise les aides, la couverture LAMal et les démarches de dialyse ou de transplantation."
+      }
+     ]
+    }
+   },
+   "pronostic": "Un bicarbonate bas est associé à une progression plus rapide de la MRC et à une surmortalité, que l'alcalinisation corrige en partie.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "HCO3 plasmatique",
+      "quand": "1–2 semaines après chaque changement de dose, puis tous les 3 mois",
+      "cible": "22–26 mmol/L, sans dépasser la limite supérieure"
+     },
+     {
+      "quoi": "Tension artérielle et poids",
+      "quand": "à chaque consultation",
+      "cible": "Pas d'aggravation de l'hypertension ni d'œdèmes"
+     },
+     {
+      "quoi": "Kaliémie, calcium, phosphate, PTH",
+      "quand": "tous les 3 mois en stade 4–5",
+      "cible": "Dans les cibles du néphrologue"
+     },
+     {
+      "quoi": "DFG estimé",
+      "quand": "tous les 3 mois",
+      "cible": "Ralentissement du déclin"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si HCO3 ≥ 18 mmol/L, K+ < 5,5 mmol/L et absence de critère d'urgence."
+   },
+   "prevention": {
+    "primaire": "Contrôler diabète et hypertension pour prévenir la MRC.",
+    "secondaire": "Dépister HCO3 à chaque contrôle de MRC et traiter dès qu'il est bas.",
+    "tertiaire": "Préparer dialyse ou transplantation afin d'éviter un début en urgence."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7504,
+  "output_tokens": 19891,
+  "output_tokens_details": {
+   "thinking_tokens": 4878
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:35:02",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

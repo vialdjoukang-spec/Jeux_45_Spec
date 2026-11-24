@@ -1,9 +1,11 @@
-# Ouvrier automatique — 2026-11-24 04:38 UTC
+# Ouvrier automatique — 2026-11-24 05:35 UTC
 
-Dernier passage : **END_C_lot** → fait (0.00 USD).
+Dernier passage : **END_C_recup** → en_cours (0.00 USD).
 
-correction : 314 entité(s) à produire.
-lot msgbatch_015dk6S4Hcx1ECMWKKShN7qH
+rene45/construire_arene45.py", line 45, in correction
+    return {"theme": d["theme"], "ssp": {**d["ssp"], "algorithme": imbriquer(d["ssp"]["algorithme"])},
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'str' object is not a mapping
 
 
 **Crédit** : 50.62 USD dépensés, 141.38 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.00 / 141.38 USD.
@@ -39,7 +41,7 @@ lot msgbatch_015dk6S4Hcx1ECMWKKShN7qH
 | END_Q_lot | fait | 1 | 0.0 |
 | END_Q_recup | fait | 1 | 0.0 |
 | END_C_lot | fait | 1 | 0.0 |
-| END_C_recup | a_faire | 0 |  |
+| END_C_recup | en_cours | 1 | 0.0 |
 | T3_pec_fiches_existantes | a_faire | 0 |  |
 | T4_reprise_rejets | a_faire | 0 |  |
 | T5_items_valides | sans_objet | 0 |  |

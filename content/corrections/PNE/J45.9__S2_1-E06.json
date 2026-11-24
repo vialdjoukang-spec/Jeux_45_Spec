@@ -1,0 +1,1058 @@
+{
+ "id": "J45.9__S2_1-E06",
+ "portes": [
+  {
+   "ssp": "S2.1",
+   "nomSSP": "Apnée, apnée avec éveil",
+   "entite": "Asthme nocturne ou reflux gastro-œsophagien / laryngospasme nocturne mimant une apnée avec éveil",
+   "entiteId": "S2.1-E06"
+  }
+ ],
+ "entite": "Asthme nocturne ou reflux gastro-œsophagien / laryngospasme nocturne mimant une apnée avec éveil",
+ "cim10": "J45.9",
+ "ssp": {
+  "code": "S2.1",
+  "nom": "Apnée, apnée avec éveil",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient décrivant une apnée ou un éveil nocturne en suffocation",
+    "i": "Point d'entrée du SSP S2.1 : le symptôme peut venir d'une cause respiratoire, cardiaque, neurologique, iatrogène ou psychiatrique.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Le patient présente-t-il des signes de gravité immédiats ?",
+    "i": "On cherche parole par mots isolés, FR > 30/min, SpO2 < 90 %, somnolence ou thorax silencieux avant toute exploration.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : crise d'asthme grave ou menaçante",
+    "i": "Ces signes imposent un traitement et une surveillance immédiats, sans attendre le bilan.",
+    "pec": "urgence_asthme",
+    "notion": "c6"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : l'âge et le contexte orientent-ils vers une autre entité ?",
+    "i": "Nourrisson, opioïdes, altitude, maladie neuromusculaire ou lésion bulbaire changent complètement la filière.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Nourrisson ou prématuré, malaise grave, bronchiolite, coqueluche",
+    "i": "On renvoie vers les entités pédiatriques du SSP S2.1 (apnée du prématuré, BRUE, bronchiolite à VRS), qui ont leur propre prise en charge.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Opioïdes, benzodiazépines, GHB, altitude, maladie neuromusculaire, AVC du tronc",
+    "i": "On renvoie vers les entités iatrogène, toxique, neuromusculaire ou bulbaire du SSP S2.1 ; l'urgence vitale prime.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n7",
+    "parent": "n4",
+    "t": "Adulte sans ces contextes : ronflement intense, apnées observées, somnolence ?",
+    "i": "Ce trio évoque un SAOS, qu'il faut distinguer de l'asthme et du laryngospasme.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Oui : polygraphie ; IAH ≥ 5/h",
+    "i": "La polygraphie confirme le SAOS ; on renvoie alors vers « SAOS de l'adulte » du même SSP.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n9",
+    "parent": "n7",
+    "t": "Non : orthopnée avec œdèmes ?",
+    "i": "Ce signe oriente vers une dyspnée paroxystique d'origine cardiaque (Cheyne-Stokes, asthme cardiaque).",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "Oui : BNP et échocardiographie",
+    "i": "Ils confirment l'insuffisance cardiaque ; on renvoie à l'entité « apnées centrales de Cheyne-Stokes » du SSP S2.1.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "Non : palpitations, paresthésies, peur de mourir ?",
+    "i": "Ce cortège évoque une attaque de panique, diagnostic d'exclusion après élimination d'une cause organique.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Non : éveil bref, stridor, pyrosis, examen normal ?",
+    "i": "Cette présentation évoque un laryngospasme sur reflux qui cède seul en 15–30 s.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n13",
+    "parent": "n12",
+    "t": "Oui : essai d'IPP 4–8 semaines et mesures anti-reflux",
+    "i": "La disparition des épisodes confirme le laryngospasme ; l'absence de réponse mène à la pH-impédancemétrie.",
+    "pec": "rgo_laryngospasme",
+    "notion": "c5"
+   },
+   {
+    "id": "n14",
+    "parent": "n11",
+    "t": "Non : toux, sibilants, oppression vers 3–5 h soulagées par un bronchodilatateur ?",
+    "i": "Cette présentation évoque un asthme nocturne, signe d'asthme non contrôlé.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n15",
+    "parent": "n14",
+    "t": "Oui : spirométrie avec réversibilité ± DEP, puis CSI-formotérol",
+    "i": "On documente la limitation variable du débit, puis on traite avec un CSI-formotérol en fond et à la demande.",
+    "pec": "asthme_nocturne_fond",
+    "notion": "c7"
+   },
+   {
+    "id": "n16",
+    "parent": "n1",
+    "t": "Stridor diurne, dysphonie ou signes d'alarme digestifs ?",
+    "i": "Ces signes sortent du cadre fonctionnel : stridor et dysphonie mènent à la laryngoscopie ORL, dysphagie ou hématémèse à la gastroscopie.",
+    "pec": null,
+    "notion": "c4"
+   }
+  ]
+ },
+ "specialites": [
+  "PNE"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Asthme nocturne ou laryngospasme sur reflux mimant une apnée avec éveil (SSP S2.1)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définir l'entité et la distinguer du SAOS et des autres éveils en suffocation",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Devant un éveil en suffocation, tu cherches d'abord si de vrais efforts respiratoires obstructifs existent, car leur absence écarte le SAOS et ouvre sur l'asthme ou le laryngospasme.",
+   "tableau": {
+    "colonnes": [
+     "Entité",
+     "Tableau typique",
+     "Discriminant",
+     "Examen clé"
+    ],
+    "lignes": [
+     [
+      "Asthme nocturne",
+      "Toux, sibilants et oppression thoracique vers 3–5 h",
+      [
+       {
+        "t": "Soulagement par un bronchodilatateur rapide",
+        "i": "Il prouve une obstruction bronchique réversible ; le laryngospasme cède seul en 15–30 s sans bronchodilatateur."
+       }
+      ],
+      [
+       {
+        "t": "Spirométrie avec réversibilité ≥ 12 % et 200 mL",
+        "i": "Elle documente la limitation variable du débit, exigée pour affirmer l'asthme ; l'auscultation seule ne suffit pas."
+       }
+      ]
+     ],
+     [
+      "Laryngospasme sur RGO",
+      "Réveil brutal, impossibilité d'inspirer 15–30 s, stridor, reprise spontanée",
+      [
+       {
+        "t": "Stridor inspiratoire bref avec pyrosis ou régurgitation",
+        "i": "La fermeture glottique est extrathoracique et gêne l'inspiration ; l'asthme donne des sibilants expiratoires et dure plus longtemps."
+       }
+      ],
+      [
+       {
+        "t": "Essai d'IPP 4–8 semaines + polygraphie sans événements obstructifs",
+        "i": "La disparition des épisodes sous IPP confirme le reflux ; la polygraphie élimine un SAOS."
+       }
+      ]
+     ],
+     [
+      "SAOS",
+      "Ronflement intense, apnées observées, somnolence diurne, céphalées matinales",
+      [
+       {
+        "t": "Efforts respiratoires répétés avec IAH ≥ 5/h",
+        "i": "Le collapsus pharyngé répété est la définition du SAOS ; il manque ici, sauf comorbidité associée."
+       }
+      ],
+      [
+       {
+        "t": "Polygraphie ventilatoire",
+        "i": "Elle quantifie l'IAH ; l'examen clinique ne différencie pas de façon fiable."
+       }
+      ]
+     ],
+     [
+      "Dyspnée paroxystique nocturne cardiaque",
+      "Orthopnée, œdèmes des membres inférieurs",
+      [
+       {
+        "t": "Orthopnée et œdèmes",
+        "i": "Ils orientent vers l'insuffisance cardiaque, où un asthme cardiaque simule l'asthme."
+       }
+      ],
+      [
+       {
+        "t": "BNP et échocardiographie",
+        "i": "Ils éliminent la cause cardiaque, qu'une spirométrie ne détecte pas."
+       }
+      ]
+     ],
+     [
+      "Attaque de panique nocturne",
+      "Palpitations, paresthésies, peur de mourir",
+      [
+       {
+        "t": "Hyperventilation sans stridor ni sibilants",
+        "i": "Le cortège neurovégétatif domine et l'examen respiratoire reste normal ; c'est un diagnostic d'exclusion."
+       }
+      ],
+      "Examen respiratoire et ECG normaux"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'asthme nocturne est un marqueur d'asthme mal contrôlé : un réveil nocturne compte parmi les 4 critères GINA.",
+    "Le reflux symptomatique touche environ 10–20 % de la population occidentale, d'où un laryngospasme plausible chez beaucoup de patients.",
+    "Obésité, tabac, alcool, repas tardif et hernie hiatale favorisent le reflux ; l'obésité favorise aussi l'asthme et le SAOS, d'où des chevauchements.",
+    "Ce n'est pas un SAOS, sauf comorbidité : le patient peut cumuler plusieurs diagnostics."
+   ],
+   "sources": [
+    "GINA 2024",
+    "Ligue pulmonaire suisse / SSP",
+    "ICSD-3"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Comprendre les deux mécanismes physiopathologiques",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Tu relies chaque symptôme à son réflexe : le contact acide sur le larynx ferme la glotte, alors que le rythme nocturne et le reflux distal resserrent les bronches.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le contact acide avec les chémorécepteurs laryngés active le nerf laryngé supérieur et provoque une adduction réflexe des cordes vocales : le laryngospasme.",
+    "L'asthme nocturne vient du nadir nocturne du cortisol et de l'adrénaline, d'un tonus vagal accru, d'une inflammation majorée et des acariens de la literie.",
+    "Les relaxations transitoires du sphincter inférieur de l'œsophage causent la plupart des reflux ; le décubitus et la hernie hiatale les favorisent.",
+    "Un reflux distal peut aussi déclencher une bronchoconstriction par réflexe vagal œso-bronchique, sans micro-aspiration."
+   ],
+   "sources": [
+    "GINA 2024",
+    "ACG 2022"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Mener l'anamnèse qui sépare asthme, laryngospasme et SAOS",
+   "rubriques": [
+    "anamnesis"
+   ],
+   "comment": "Tu demandes l'heure, la durée, le bruit et le soulagement de l'épisode, puis les symptômes de reflux, d'atopie et de SAOS.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Laryngospasme : réveil brutal, impossibilité d'inspirer 15–30 s, stridor, reprise spontanée ; l'asthme donne toux, sifflements et oppression vers 3–5 h, soulagés par un bronchodilatateur.",
+    "Tu recherches pyrosis, régurgitations, goût acide, repas tardif et alcool le soir, qui orientent vers le reflux.",
+    "L'absence de ronflement intense, d'apnées observées, de somnolence et de céphalées matinales plaide contre un SAOS.",
+    "Tu cherches atopie, rhinite, eczéma, tabac, ainsi qu'AINS ou bêtabloquants, qui déclenchent ou aggravent l'asthme.",
+    "Tu distingues la panique (palpitations, paresthésies, peur de mourir) de la dyspnée paroxystique cardiaque (orthopnée, œdèmes)."
+   ],
+   "sources": [
+    "GINA 2024",
+    "Ligue pulmonaire suisse / SSP"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Examiner le patient et repérer les signes d'alarme",
+   "rubriques": [
+    "clinicalExam",
+    "presumptionRedFlags"
+   ],
+   "comment": "Tu sais que l'examen intercritique est souvent normal, donc tu cherches surtout les signes de gravité et les signes d'alarme qui changent la filière.",
+   "tableau": {
+    "colonnes": [
+     "Signe",
+     "Ce qu'il évoque",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Parole par mots isolés, FR > 30/min, FC > 120/min, SpO2 < 90 %, DEP ≤ 50 %",
+      [
+       {
+        "t": "Crise d'asthme grave",
+        "i": "Ces seuils traduisent une obstruction sévère et un travail respiratoire à risque d'épuisement."
+       }
+      ],
+      "Traitement urgent et surveillance rapprochée"
+     ],
+     [
+      "Somnolence, confusion, thorax silencieux",
+      [
+       {
+        "t": "Crise menaçant le pronostic vital",
+        "i": "Un thorax silencieux signifie un débit si faible qu'on n'entend plus de sibilants ; ce n'est pas une amélioration."
+       }
+      ],
+      "Transfert immédiat aux soins intensifs"
+     ],
+     [
+      "Intubation ou soins intensifs antérieurs, hospitalisation récente, corticoïdes oraux, plus d'un flacon de SABA par mois",
+      [
+       {
+        "t": "Risque d'asthme mortel",
+        "i": "Ces antécédents marquent un asthme labile ou sous-traité, qui récidive de façon grave."
+       }
+      ],
+      "Seuil d'hospitalisation abaissé, suivi étroit"
+     ],
+     [
+      "Stridor diurne persistant, dysphonie",
+      [
+       {
+        "t": "Obstruction laryngée fixe, paralysie cordale, tumeur",
+        "i": "Le laryngospasme du sommeil disparaît le jour ; un stridor persistant est organique."
+       }
+      ],
+      "Laryngoscopie par l'ORL"
+     ],
+     [
+      "Dysphagie, odynophagie, amaigrissement, hématémèse, anémie",
+      [
+       {
+        "t": "Reflux compliqué ou néoplasie",
+        "i": "Ces signes excluent l'essai thérapeutique d'IPP seul, car on risque de retarder un cancer."
+       }
+      ],
+      "Gastroscopie d'emblée"
+     ],
+     [
+      "Orthopnée, œdèmes, dyspnée paroxystique nocturne",
+      [
+       {
+        "t": "Insuffisance cardiaque (asthme cardiaque)",
+        "i": "Un traitement antiasthmatique n'améliore pas une surcharge cardiaque."
+       }
+      ],
+      "BNP et échocardiographie"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'examen entre les épisodes est le plus souvent strictement normal, ce qui n'exclut ni asthme ni laryngospasme.",
+    "Tu peux entendre des sibilants expiratoires et trouver rhinite, polypes nasaux ou eczéma, signes d'atopie.",
+    "Le stridor inspiratoire n'est audible que pendant l'épisode ; l'érythème laryngé postérieur est peu spécifique."
+   ],
+   "sources": [
+    "GINA 2024",
+    "ACG 2022"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Choisir le bilan et poser le diagnostic positif",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu confirmes l'asthme par une limitation variable du débit, tu teste le reflux par l'IPP, et tu réserves la polygraphie au doute sur un SAOS.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Éveils nocturnes en suffocation, examen intercritique normal",
+     "i": "Le point de départ est clinique : l'examen normal n'exclut ni asthme ni laryngospasme.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Ronflement, apnées observées ou somnolence : polygraphie",
+     "i": "Elle quantifie l'IAH en cas de doute avec un SAOS ; sans ces signes, elle n'est pas systématique.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "IAH ≥ 5/h avec efforts obstructifs : SAOS",
+     "i": "Le collapsus pharyngé répété définit le SAOS ; l'entité renvoie alors à « SAOS de l'adulte », autre entité du SSP S2.1.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "IAH < 5/h avec symptômes évocateurs",
+     "i": "Cela oriente vers un laryngospasme ou un asthme ; on poursuit le bilan.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Spirométrie avec test de bronchodilatation ± DEP sur 1–2 semaines",
+     "i": "C'est l'examen de référence de l'asthme : il montre une limitation variable du débit expiratoire.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Réversibilité du VEMS ≥ 12 % et 200 mL ou variabilité du DEP > 10 % : asthme",
+     "i": "Ces seuils objectivent la limitation variable du débit, nécessaire au diagnostic d'asthme de l'adulte.",
+     "pec": "asthme_nocturne_fond",
+     "notion": "c7"
+    },
+    {
+     "id": "n7",
+     "parent": "n5",
+     "t": "Spirométrie normale mais asthme suspect : FeNO ou méthacholine",
+     "i": "Une spirométrie normale intercritique n'exclut pas l'asthme ; la provocation à la méthacholine détecte l'hyperréactivité bronchique.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n8",
+     "parent": "n1",
+     "t": "Pyrosis ou stridor bref : essai d'IPP 4–8 semaines",
+     "i": "Le test thérapeutique sert de diagnostic : la disparition des épisodes confirme le rôle du reflux.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n9",
+     "parent": "n8",
+     "t": "Épisodes disparus : laryngospasme sur reflux",
+     "i": "Le diagnostic reste clinique : éveils brefs stéréotypés, reflux associé, polygraphie sans événements obstructifs.",
+     "pec": "rgo_laryngospasme",
+     "notion": "c7"
+    },
+    {
+     "id": "n10",
+     "parent": "n8",
+     "t": "Épisodes persistants sous IPP bien conduit : pH-impédancemétrie 24 h",
+     "i": "L'absence de réponse n'exclut pas un reflux ; la pH-impédancemétrie en vérifie la réalité, et l'ORL ou la gastroscopie complètent si besoin.",
+     "pec": null,
+     "notion": "c5"
+    }
+   ],
+   "points": [
+    "Un traitement antiasthmatique ou anti-reflux efficace soutient le diagnostic, mais l'absence de réponse à l'IPP n'exclut pas un reflux.",
+    "Le laryngospasme du sommeil reste un diagnostic clinique, après élimination d'un SAOS."
+   ],
+   "sources": [
+    "GINA 2024",
+    "ACG 2022",
+    "Ligue pulmonaire suisse / SSP"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Traiter l'épisode aigu : laryngospasme ou crise d'asthme",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Tu rassures et fais respirer lentement par le nez si l'épisode est un laryngospasme, mais tu escalades vite le traitement si c'est une crise d'asthme.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Éveil nocturne en suffocation : évaluer la gravité",
+     "i": "Le premier geste consiste à rechercher des signes de gravité (parole, FR, FC, SpO2, DEP) avant tout traitement.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Laryngospasme transitoire cédant seul",
+     "i": "L'épisode dure 15–30 s et cède spontanément sans médicament.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Se redresser, rester calme, respirer lentement par le nez",
+     "i": "Cette attitude réduit l'anxiété et le réflexe de fermeture glottique ; aucun médicament n'est nécessaire.",
+     "pec": "rgo_laryngospasme",
+     "notion": "c6"
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Crise d'asthme : salbutamol 4–10 bouffées toutes les 20 min la 1re heure",
+     "i": "Le bêta-2-mimétique d'action rapide est le traitement initial ; la chambre d'inhalation vaut la nébulisation de 5 mg.",
+     "pec": "urgence_asthme",
+     "notion": "c6"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Crise modérée à grave : ajouter ipratropium 0,5 mg et prednisolone 40–50 mg",
+     "i": "L'anticholinergique renforce la bronchodilatation ; le corticoïde systémique précoce diminue l'inflammation et les récidives.",
+     "pec": "urgence_asthme",
+     "notion": "c6"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Mauvaise réponse initiale : sulfate de magnésium 2 g IV en 20 min",
+     "i": "Il est réservé à la crise grave qui répond mal au traitement initial.",
+     "pec": "urgence_asthme",
+     "notion": "c6"
+    },
+    {
+     "id": "n7",
+     "parent": "n1",
+     "t": "Somnolence, confusion, thorax silencieux : soins intensifs immédiats",
+     "i": "Ces signes annoncent l'épuisement et l'arrêt respiratoire ; une PaCO2 normale ou haute en crise appelle l'intubation.",
+     "pec": "urgence_asthme",
+     "notion": "c4"
+    }
+   ],
+   "points": [
+    "Le salbutamol se répète toutes les 20 min durant la première heure ; l'ipratropium se donne jusqu'à 3 fois à 20 min d'intervalle.",
+    "La prednisolone s'administre 5–7 jours chez l'adulte ; chez l'enfant, 1–2 mg/kg avec un maximum de 40 mg.",
+    "Tu réévalues DEP et SpO2 après 1 heure de traitement."
+   ],
+   "sources": [
+    "GINA 2024",
+    "Ligue pulmonaire suisse / SSP",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Établir le traitement de fond selon le mécanisme",
+   "rubriques": [
+    "chronicManagement"
+   ],
+   "comment": "Tu traites l'asthme par un CSI-formotérol, le reflux seulement s'il est symptomatique, et tu soignes la technique d'inhalation et l'éducation.",
+   "tableau": {
+    "colonnes": [
+     "Cible",
+     "Traitement",
+     "Détail",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Asthme",
+      [
+       {
+        "t": "CSI-formotérol en traitement de fond et à la demande",
+        "i": "GINA le préfère aux paliers 3–5 car il réduit les exacerbations ; un SABA seul n'est plus recommandé."
+       }
+      ],
+      "Budésonide/formotérol 200/6 µg : 1 inhalation matin et soir et à la demande",
+      "Rinçage de bouche contre la candidose oropharyngée"
+     ],
+     [
+      "Asthme et rhinite",
+      "Corticoïde nasal",
+      [
+       {
+        "t": "Traiter la rhinite associée",
+        "i": "La rhinite non traitée entretient l'asthme et les réveils nocturnes."
+       }
+      ],
+      "Éviction des acariens et des déclencheurs"
+     ],
+     [
+      "RGO symptomatique",
+      [
+       {
+        "t": "IPP 4–8 semaines puis dose minimale efficace",
+        "i": "Les symptômes de reflux récidivent à l'arrêt ; un traitement indéfini à pleine dose n'est donc pas justifié."
+       }
+      ],
+      "Pris 30 min avant le repas",
+      "Risque d'hypomagnésémie et de carence en B12 si prolongé"
+     ],
+     [
+      "RGO (mesures)",
+      "Surélever la tête du lit, dernier repas 3 h avant le coucher",
+      "Perdre du poids, arrêter alcool et tabac",
+      [
+       {
+        "t": "Agit sur les relaxations du sphincter inférieur",
+        "i": "Le décubitus et la surcharge pondérale favorisent ces relaxations ; la mesure agit à la source."
+       }
+      ]
+     ],
+     [
+      "Asthme avec reflux asymptomatique",
+      [
+       {
+        "t": "Pas d'IPP",
+        "i": "Un IPP sur reflux asymptomatique n'améliore pas le contrôle de l'asthme et expose à des effets indésirables."
+       }
+      ],
+      "Traiter le reflux seulement s'il est symptomatique",
+      "Contrôle de l'asthme par le CSI-formotérol"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Tu contrôles la technique d'inhalation et l'adhésion avant d'augmenter le palier.",
+    "Tu remets un plan d'action écrit ; la Ligue pulmonaire propose une éducation thérapeutique.",
+    "Tu arrêtes AINS et bêtabloquants s'ils aggravent l'asthme."
+   ],
+   "sources": [
+    "GINA 2024",
+    "AIPS Swissmedic",
+    "Ligue pulmonaire suisse / SSP"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Connaître complications, surveillance, pronostic et réseau",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Tu sais que le risque vital vient de l'asthme non contrôlé, alors que le laryngospasme reste bénin, et tu organises un contrôle précoce.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "L'asthme aigu grave menace par insuffisance respiratoire ; une PaCO2 normale ou élevée en crise signale l'épuisement.",
+    "Le reflux chronique peut causer œsophagite, sténose peptique, endobrachyœsophage, laryngite chimique et pneumonie d'aspiration.",
+    "Après une exacerbation, tu contrôles le patient dans les 2–7 jours ; le contrôle de l'asthme se mesure sur 4 critères (symptômes diurnes, réveils nocturnes, soulageur, limitation d'activité).",
+    "Le pronostic est excellent sous traitement adapté ; le reflux récidive souvent à l'arrêt de l'IPP.",
+    "Le médecin de famille coordonne ; il adresse au pneumologue (palier 4, doute SAOS), au gastro-entérologue (reflux réfractaire, signes d'alarme) et à l'ORL (stridor persistant, dysphonie)."
+   ],
+   "sources": [
+    "GINA 2024",
+    "ACG 2022"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence_asthme",
+   "titre": "Crise d'asthme nocturne aiguë (urgence)",
+   "but": [
+    "Corriger l'hypoxémie et lever la bronchoconstriction en moins d'une heure.",
+    "Repérer précocement l'épuisement respiratoire qui impose les soins intensifs.",
+    "Décider de l'hospitalisation ou du retour à domicile après réévaluation à 1 heure."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installe le patient assis, calme, sans le coucher.",
+     "Mesure SpO2, FR, FC, DEP et parole, puis pose un monitorage continu.",
+     "Pose une voie veineuse si la crise est modérée à grave."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Oxygène (gaz médical)",
+      "posologie": "1–4 L/min par lunettes ou masque, titré pour une SpO2 de 93–95 % chez l'adulte et 94–98 % chez l'enfant de 6–11 ans.",
+      "pourquoi": "Il corrige l'hypoxémie ; éviter l'hyperoxie car elle n'apporte aucun bénéfice et peut masquer l'aggravation.",
+      "source": "GINA 2024"
+     },
+     {
+      "molecule": "Salbutamol (bêta-2-mimétique d'action rapide)",
+      "posologie": "4–10 bouffées (400–1000 µg) en chambre d'inhalation toutes les 20 min la 1re heure, ou nébulisation 5 mg ; ensuite selon la réponse.",
+      "pourquoi": "Il lève rapidement la bronchoconstriction ; la chambre d'inhalation vaut la nébulisation pour la plupart des crises.",
+      "source": "GINA 2024"
+     },
+     {
+      "molecule": "Ipratropium (anticholinergique)",
+      "posologie": "0,5 mg en nébulisation avec le salbutamol, jusqu'à 3 fois à 20 min d'intervalle, dans la crise modérée à grave.",
+      "pourquoi": "Il ajoute un effet bronchodilatateur par blocage du tonus vagal, déjà majoré la nuit, et diminue les hospitalisations.",
+      "source": "GINA 2024"
+     },
+     {
+      "molecule": "Prednisone ou prednisolone (corticoïde systémique)",
+      "posologie": "Adulte : 40–50 mg PO 1×/j pendant 5–7 jours ; enfant : 1–2 mg/kg, maximum 40 mg ; voie IV seulement si la voie orale est impossible.",
+      "pourquoi": "Un corticoïde précoce réduit l'inflammation et le risque de rechute ; l'effet commence après quelques heures.",
+      "source": "GINA 2024"
+     },
+     {
+      "molecule": "Sulfate de magnésium (bronchodilatateur adjuvant)",
+      "posologie": "2 g IV en 20 min, uniquement dans la crise grave répondant mal au traitement initial.",
+      "pourquoi": "Il relaxe le muscle lisse bronchique en cas d'échec initial ; il ne remplace pas les bêta-2-mimétiques.",
+      "source": "GINA 2024"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Prépare l'intubation et le transfert en soins intensifs en cas de thorax silencieux, de confusion ou de PaCO2 normale ou élevée.",
+      "pourquoi": "Ces signes annoncent l'épuisement ; l'intubation se prépare avant l'arrêt respiratoire."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Vérifie la technique d'inhalation et remet un plan d'action écrit avant la sortie.",
+      "pourquoi": "Une mauvaise technique et l'absence de plan expliquent beaucoup de crises récidivantes."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Établit l'incapacité de travail et clarifie la prise en charge par l'assurance maladie des traitements et de l'éducation."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantit l'information du patient et la documentation de la décision d'hospitaliser ou de renvoyer à domicile."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Garde le patient assis et sous monitorage continu pendant toute la crise.",
+      "Traite l'hypoxémie par oxygène titré avant d'attendre un résultat.",
+      "Évalue la gravité avant chaque escalade thérapeutique."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue la gravité (parole, FR, FC, SpO2, DEP, thorax silencieux) et donne le salbutamol en chambre d'inhalation."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose le monitorage, l'oxygène titré et une voie veineuse ; note les constantes toutes les 20 minutes."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Ajoute ipratropium et prednisolone si la crise est modérée à grave, car l'effet corticoïde est retardé."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Prépare le sulfate de magnésium IV et alerte les soins intensifs si les signes de menace vitale apparaissent."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Réévalue DEP et SpO2 à 1 heure, puis hospitalise ou autorise la sortie selon la réponse."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le pronostic est excellent si la crise répond au traitement initial et si le fond est ensuite adapté ; le risque vital concerne l'asthme non contrôlé avec antécédents d'intubation.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "DEP et SpO2",
+      "quand": "Après 1 heure de traitement, puis selon l'évolution",
+      "cible": "SpO2 de 93–95 % chez l'adulte ; DEP en amélioration vers la valeur personnelle"
+     },
+     {
+      "quoi": "Fréquence respiratoire, cardiaque, parole, état de conscience",
+      "quand": "Toutes les 20 minutes durant la 1re heure",
+      "cible": "Parole en phrases, FR et FC en baisse, conscience normale"
+     },
+     {
+      "quoi": "Contrôle clinique après la crise",
+      "quand": "Dans les 2 à 7 jours",
+      "cible": "Absence de réveil nocturne, bonne adhésion au traitement"
+     }
+    ],
+    "sortie": "Sortie si DEP > 60–80 % de la valeur personnelle après 1 heure, SpO2 stable sans oxygène, parole normale, technique d'inhalation vérifiée, plan d'action remis et contrôle prévu sous 2–7 jours ; sinon hospitalisation."
+   },
+   "prevention": {
+    "primaire": "Évite le tabac et l'exposition aux allergènes et aux acariens, et traite la rhinite allergique chez le patient à risque.",
+    "secondaire": "Dépiste l'asthme non contrôlé devant tout réveil nocturne et adapte le traitement de fond selon les critères GINA.",
+    "tertiaire": "Remet un plan d'action écrit, organise un suivi pneumologique et évite AINS et bêtabloquants si ceux-ci aggravent l'asthme."
+   }
+  },
+  {
+   "cle": "asthme_nocturne_fond",
+   "titre": "Asthme nocturne : traitement de fond ambulatoire",
+   "but": [
+    "Supprimer les réveils nocturnes et obtenir un contrôle de l'asthme sur 4 semaines.",
+    "Prévenir les exacerbations graves et réduire l'usage du soulageur.",
+    "Rendre le patient autonome grâce à un plan d'action écrit."
+   ],
+   "moyens": {
+    "accueil": [
+     "Confirme l'asthme par spirométrie et réversibilité avant de traiter durablement.",
+     "Interroge sur tabac, acariens, atopie, rhinite, AINS et bêtabloquants.",
+     "Rassure le patient : l'asthme nocturne se contrôle bien avec un traitement adapté."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Budésonide/formotérol (CSI-formotérol)",
+      "posologie": "200/6 µg : 1 inhalation matin et soir (palier 3) et 1 à la demande ; 2 inhalations matin et soir au palier 4 ; maximum 12 inhalations/jour au total.",
+      "pourquoi": "Le CSI-formotérol en fond et à la demande réduit les exacerbations plus que le SABA seul ; il traite l'inflammation nocturne.",
+      "source": "GINA 2024 ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Mométasone nasale (corticoïde local)",
+      "posologie": "2 jets de 50 µg par narine 1×/j chez l'adulte en cas de rhinite allergique associée.",
+      "pourquoi": "Traiter la rhinite améliore le contrôle de l'asthme et réduit les réveils liés à l'inflammation des voies aériennes supérieures.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Contrôle la technique d'inhalation et l'adhésion, remet un plan d'action écrit et oriente vers la Ligue pulmonaire.",
+      "pourquoi": "Une technique correcte conditionne l'efficacité du traitement inhalé et l'autonomie du patient."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Aide à l'arrêt du tabac et éloigne les acariens de la literie (housses, lavage à 60 °C).",
+      "pourquoi": "Le tabac et les acariens entretiennent l'inflammation bronchique nocturne."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Demande de se rincer la bouche après chaque dose de corticoïde inhalé.",
+      "pourquoi": "Le rinçage prévient la candidose oropharyngée, effet indésirable fréquent des CSI."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise la prise en charge des traitements de fond et de l'éducation thérapeutique, et l'incapacité de travail si besoin."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Évalue le contrôle sur 4 critères : symptômes diurnes, réveils nocturnes, soulageur, limitation d'activité.",
+      "Vérifie technique et adhésion avant d'augmenter le palier.",
+      "Traite la rhinite et supprime les déclencheurs."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Confirme l'asthme par spirométrie avec test de bronchodilatation et débute le CSI-formotérol."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Enseigne la technique d'inhalation et le rinçage de bouche, puis remet le plan d'action écrit."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "patient·e",
+       "fait": "Tient un journal des réveils nocturnes et mesure le DEP matin et soir pendant 1–2 semaines."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Contrôle à 1–3 mois, adapte le palier et adresse au pneumologue si l'asthme reste non contrôlé au palier 4."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le pronostic est excellent avec un traitement adapté et une bonne adhésion ; les réveils nocturnes cessent chez la plupart des patients dès que l'asthme est contrôlé.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Réveils nocturnes, symptômes diurnes, usage du soulageur, limitation d'activité",
+      "quand": "À 1–3 mois, puis tous les 3–12 mois",
+      "cible": "Asthme contrôlé : aucun réveil nocturne sur 4 semaines"
+     },
+     {
+      "quoi": "Technique d'inhalation et adhésion",
+      "quand": "À chaque consultation",
+      "cible": "Technique correcte, prise régulière"
+     },
+     {
+      "quoi": "Spirométrie ou DEP",
+      "quand": "Selon la clinique, au moins annuel",
+      "cible": "VEMS stable, variabilité du DEP < 10 %"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : l'absence de signe de gravité (parole normale, SpO2 normale, DEP conservé) autorise le suivi par le médecin de famille."
+   },
+   "prevention": {
+    "primaire": "Évite le tabac, contrôle l'obésité et limite l'exposition aux allergènes pour réduire le risque d'asthme.",
+    "secondaire": "Cherche et traite activement tout réveil nocturne, signe d'asthme non contrôlé.",
+    "tertiaire": "Maintient le traitement de fond, un plan d'action écrit et un suivi régulier pour prévenir les exacerbations graves."
+   }
+  },
+  {
+   "cle": "rgo_laryngospasme",
+   "titre": "Laryngospasme du sommeil sur reflux gastro-œsophagien",
+   "but": [
+    "Supprimer les épisodes nocturnes de suffocation en traitant le reflux.",
+    "Rassurer le patient sur le caractère bénin et spontanément résolutif de l'épisode.",
+    "Identifier les signes d'alarme qui imposent une gastroscopie ou un avis ORL."
+   ],
+   "moyens": {
+    "accueil": [
+     "Explique que l'épisode dure 15–30 s et cède seul, sans risque vital.",
+     "Cherche les signes d'alarme (dysphagie, amaigrissement, hématémèse, anémie, dysphonie).",
+     "Écarte un SAOS par la clinique, et par polygraphie en cas de doute."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Pantoprazole (inhibiteur de la pompe à protons)",
+      "posologie": "40 mg PO 1×/j le matin, 30 min avant le repas, pendant 4 à 8 semaines, puis dose minimale efficace.",
+      "pourquoi": "L'IPP diminue l'acidité du reflux ; la disparition des épisodes sert de test diagnostique et confirme le rôle du reflux.",
+      "source": "AIPS Swissmedic ; ACG 2022"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Surélève la tête du lit et avance le dernier repas à 3 h avant le coucher.",
+      "pourquoi": "Le décubitus et le repas tardif favorisent les relaxations du sphincter inférieur de l'œsophage et le reflux nocturne."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Propose perte de poids, arrêt de l'alcool et du tabac.",
+      "pourquoi": "L'obésité, l'alcool et le tabac aggravent le reflux, et l'obésité majore aussi le risque de SAOS."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Conseille de se redresser et de respirer lentement par le nez pendant l'épisode.",
+      "pourquoi": "Cette attitude calme l'anxiété ; l'épisode cède spontanément sans traitement médicamenteux."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Clarifie la prise en charge des examens (pH-impédancemétrie, gastroscopie) et de l'éventuelle incapacité de travail."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Cherche les signes d'alarme avant tout essai d'IPP.",
+      "Associe toujours mesures hygiéno-diététiques et IPP.",
+      "Réévalue à 4–8 semaines avant de poursuivre le traitement."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Exclut les signes d'alarme et un SAOS, puis débute l'IPP à dose standard."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "patient·e",
+       "fait": "Applique les mesures anti-reflux : tête du lit surélevée, repas tôt, perte de poids, arrêt de l'alcool."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Réévalue à 4–8 semaines et réduit à la dose minimale efficace si les épisodes ont disparu."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Réalise pH-impédancemétrie ou gastroscopie (gastro-entérologue) et laryngoscopie (ORL) si les symptômes persistent sous IPP."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le pronostic est excellent et le laryngospasme du sommeil reste bénin, mais le reflux récidive fréquemment à l'arrêt de l'IPP, d'où un suivi à dose minimale efficace.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Fréquence des éveils nocturnes avec stridor",
+      "quand": "À 4–8 semaines d'IPP",
+      "cible": "Disparition des épisodes"
+     },
+     {
+      "quoi": "Symptômes de reflux et signes d'alarme",
+      "quand": "À chaque consultation",
+      "cible": "Absence de dysphagie, d'amaigrissement ou d'hématémèse"
+     },
+     {
+      "quoi": "Effets indésirables de l'IPP prolongé (magnésémie, vitamine B12)",
+      "quand": "Si traitement prolongé",
+      "cible": "Valeurs normales"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : l'épisode bénin, bref et sans signe d'alarme ni détresse respiratoire permet un suivi chez le médecin de famille."
+   },
+   "prevention": {
+    "primaire": "Évite repas tardifs, alcool, tabac et surpoids, qui favorisent le reflux.",
+    "secondaire": "Traite tout reflux symptomatique et cherche les signes d'alarme pour dépister œsophagite et endobrachyœsophage.",
+    "tertiaire": "Maintient la dose minimale efficace d'IPP et les mesures anti-reflux pour limiter la sténose peptique, la laryngite chimique et la pneumonie d'aspiration."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6977,
+  "output_tokens": 21649,
+  "output_tokens_details": {
+   "thinking_tokens": 6079
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:35:05",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

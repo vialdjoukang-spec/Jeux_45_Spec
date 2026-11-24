@@ -1,0 +1,1234 @@
+{
+ "id": "I49.4__F1_7-E03",
+ "portes": [
+  {
+   "ssp": "S2.11",
+   "nomSSP": "Palpitations",
+   "entite": "Extrasystoles auriculaires ou ventriculaires bénignes sur cœur sain",
+   "entiteId": "S2.11-E01"
+  },
+  {
+   "ssp": "F1.7",
+   "nomSSP": "Bradycardie, tachycardie, pouls irrégulier",
+   "entite": "Extrasystoles auriculaires (ESA) et ventriculaires (ESV) bénignes",
+   "entiteId": "F1.7-E03"
+  },
+  {
+   "ssp": "F2.6",
+   "nomSSP": "Électrocardiogramme anormal",
+   "entite": "Extrasystoles ventriculaires ou supraventriculaires",
+   "entiteId": "F2.6-E04"
+  }
+ ],
+ "entite": "Extrasystoles ventriculaires ou supraventriculaires",
+ "cim10": "I49.4",
+ "ssp": {
+  "code": "F2.6",
+  "nom": "Électrocardiogramme anormal",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "ECG anormal avec battements prématurés isolés",
+    "i": "Point de départ : l'ECG montre des battements prématurés, à classer en ESV ou ESSV selon QRS et onde P'.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Le patient est-il instable ou la TV dure-t-elle > 30 s ?",
+    "i": "Une TV soutenue ou une instabilité hémodynamique prime sur tout autre raisonnement.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : cardioversion électrique synchronisée",
+    "i": "C'est le traitement de la TV soutenue instable ; un patient stable reçoit un antiarythmique sous monitorage.",
+    "pec": "urgence_tv",
+    "notion": "c7"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : l'ECG de base montre-t-il une autre anomalie ?",
+    "i": "QT long, Brugada, pré-excitation, onde epsilon, FA, flutter, BAV, SCA ou hyperkaliémie sortent du diagnostic d'extrasystoles.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Oui : je renvoie vers l'entité correspondante du SSP F2.6",
+    "i": "Chaque anomalie de base a sa propre démarche (ex. STEMI, QT long, Brugada, FA) ; les extrasystoles n'en sont alors qu'un épiphénomène.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Non : un drapeau rouge est-il présent ?",
+    "i": "Syncope d'effort, mort subite familiale < 40 ans, cardiopathie, polymorphisme, salves, ESV augmentant à l'effort, BBG axe supérieur.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Oui : ETT, Holter, test d'effort, IRM, exploration coronarienne selon le contexte",
+    "i": "Le bilan cherche une cardiopathie arythmogène, ischémique ou héréditaire que le diagnostic bénin ne peut exclure.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Cardiopathie structurelle ou ischémique confirmée",
+    "i": "On traite la maladie sous-jacente et on évalue un DAI.",
+    "pec": "cardiopathie",
+    "notion": "c7"
+   },
+   {
+    "id": "n9",
+    "parent": "n6",
+    "t": "Non : ETT et Holter 24–48 h normaux pour la structure, charge mesurée",
+    "i": "Le Holter chiffre la charge, l'ETT exclut la cardiopathie.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "Charge < 10 %, peu de symptômes, FEVG normale",
+    "i": "Extrasystoles bénignes : réassurance, correction des facteurs favorisants, pas de médicament.",
+    "pec": "benin",
+    "notion": "c6"
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "Charge > 10 %, symptômes persistants ou baisse de FEVG",
+    "i": "Le risque de cardiomyopathie rythmique ou la gêne justifient bêtabloquant, antagoniste calcique ou ablation.",
+    "pec": "symptomatique",
+    "notion": "c7"
+   }
+  ]
+ },
+ "specialites": [
+  "CAR"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Extrasystoles ventriculaires ou supraventriculaires (SSP F2.6 Électrocardiogramme anormal)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Reconnaître ESV, ESSV et salves sur l'ECG",
+   "rubriques": [
+    "definition",
+    "basicSciences"
+   ],
+   "comment": "Je cherche d'abord une onde P' avant le battement prématuré et je mesure la largeur du QRS, puis je regarde la pause qui suit pour trancher entre ESV et ESSV.",
+   "tableau": {
+    "colonnes": [
+     "Type",
+     "Aspect ECG",
+     "Pause après le battement",
+     "Piège à éviter"
+    ],
+    "lignes": [
+     [
+      "ESV",
+      [
+       {
+        "t": "QRS ≥ 120 ms, sans onde P, onde T discordante",
+        "i": "Le foyer ventriculaire dépolarise les ventricules hors du système de His-Purkinje rapide, donc le QRS est large et sans P précédente."
+       }
+      ],
+      [
+       {
+        "t": "Pause compensatoire complète",
+        "i": "Le nœud sinusal n'est pas réinitialisé et continue son rythme : l'intervalle entre les deux QRS sinusaux encadrants vaut deux cycles."
+       }
+      ],
+      "Un QRS large n'est pas toujours ventriculaire : l'ESSV aberrante lui ressemble."
+     ],
+     [
+      "ESSV conduite",
+      [
+       {
+        "t": "QRS fin précédé d'une onde P' de morphologie différente",
+        "i": "L'origine est atriale et la conduite utilise le système de His normal, donc le QRS reste fin."
+       }
+      ],
+      [
+       {
+        "t": "Pause incomplète",
+        "i": "L'ESSV décharge et réinitialise le nœud sinusal : le cycle suivant repart de l'ESSV, donc l'intervalle est inférieur à deux cycles."
+       }
+      ],
+      "La P' se cache souvent dans l'onde T précédente : il faut la chercher activement."
+     ],
+     [
+      "ESSV bloquée ou aberrante",
+      [
+       {
+        "t": "P' déformant la T avec pause, ou QRS en bloc de branche droit",
+        "i": "Une P' trop précoce trouve le nœud AV réfractaire (bloquée) ou une branche droite encore réfractaire (aberrante, aspect BBD)."
+       }
+      ],
+      [
+       {
+        "t": "Pause sans QRS (bloquée)",
+        "i": "L'absence de QRS après la P' simule une pause sinusale ou un BAV, alors que le rythme est normal."
+       }
+      ],
+      "Une ESSV aberrante en BBD est confondue avec une ESV : l'aspect BBD avec P' précédente oriente vers l'ESSV."
+     ],
+     [
+      "Salves de TV",
+      [
+       {
+        "t": "≥ 3 ESV consécutives et < 30 s = TVNS ; > 30 s = TV soutenue",
+        "i": "Le seuil de 30 s sépare la TV non soutenue, spontanément résolutive, de la TV soutenue qui impose une prise en charge urgente."
+       }
+      ],
+      "Pause variable selon l'arrêt",
+      "Une salve ne se qualifie pas de bénigne avant d'avoir exclu une cardiopathie."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "ESV : QRS ≥ 120 ms, sans P, T discordante, pause compensatoire complète.",
+    "ESSV : P' différente, QRS fin, pause incomplète.",
+    "≥ 3 ESV consécutives < 30 s = TVNS ; > 30 s = TV soutenue.",
+    "La contraction post-extrasystolique plus forte explique le « coup dans la poitrine »."
+   ],
+   "sources": [
+    "ESC 2022 Ventricular arrhythmias and SCD",
+    "Société Suisse de Cardiologie"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie, mécanismes et facteurs favorisants",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences"
+   ],
+   "comment": "Je me souviens que les extrasystoles sont banales (> 50 % des adultes sains au Holter 24 h) et je cherche toujours le facteur corrigible avant d'explorer plus loin.",
+   "tableau": {
+    "colonnes": [
+     "Catégorie",
+     "Exemples",
+     "Pourquoi cela favorise les extrasystoles"
+    ],
+    "lignes": [
+     [
+      "Stimulants et catécholamines",
+      [
+       {
+        "t": "Caféine, alcool, tabac, cocaïne, boissons énergisantes, stress",
+        "i": "L'adrénergie augmente l'automaticité et les post-dépolarisations ; c'est pourquoi on propose d'abord leur réduction avant tout médicament."
+       }
+      ],
+      "L'effet disparaît souvent à l'arrêt, ce qui rend la réassurance crédible."
+     ],
+     [
+      "Troubles métaboliques",
+      [
+       {
+        "t": "Hypokaliémie, hypomagnésémie, hyperthyroïdie",
+        "i": "L'hypokaliémie allonge la repolarisation et favorise l'activité déclenchée ; l'hyperthyroïdie sensibilise aux catécholamines et favorise aussi la FA."
+       }
+      ],
+      "Correction visée : K+ ≥ 4,0 mmol/l, Mg2+ normal, TSH dosée."
+     ],
+     [
+      "Médicaments",
+      [
+       {
+        "t": "Digoxine, sympathomimétiques (β2-mimétiques, décongestionnants)",
+        "i": "La digoxine surcharge en calcium intracellulaire et déclenche des post-dépolarisations tardives ; les sympathomimétiques stimulent les récepteurs β."
+       }
+      ],
+      "Ils se révèlent à l'anamnèse médicamenteuse, jamais à l'ECG."
+     ],
+     [
+      "Substrat structurel",
+      [
+       {
+        "t": "Âge, cardiopathie ischémique, cicatrice d'infarctus, cardiomyopathie",
+        "i": "La cicatrice crée une réentrée focale ; la fréquence des extrasystoles augmente donc avec l'âge et la cardiopathie, et leur signification change."
+       }
+      ],
+      "Les ESV sont alors un marqueur de risque et non plus bénignes."
+     ],
+     [
+      "Charge très élevée",
+      [
+       {
+        "t": "Charge ESV > 10 % des QRS sur 24 h",
+        "i": "La dyssynchronie ventriculaire répétée altère la FEVG (cardiomyopathie rythmique), le plus souvent réversible après suppression des ESV."
+       }
+      ],
+      "Une charge élevée sur ESV monomorphes d'une chambre de chasse est la situation typique."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "> 50 % des adultes sains ont des extrasystoles au Holter 24 h.",
+    "Mécanismes : automaticité anormale, activité déclenchée, réentrée focale.",
+    "Chambres de chasse (surtout VD) : BBG et axe inférieur, souvent idiopathiques.",
+    "Charge > 10 % : risque de cardiomyopathie rythmique, réversible."
+   ],
+   "sources": [
+    "ESC 2022 Ventricular arrhythmias and SCD"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen clinique : bénin ou inquiétant",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Je laisse le patient décrire le « raté » et le contexte de survenue, puis je cherche ce qui sort du cadre bénin : effort, syncope, famille, cardiopathie.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Plutôt bénin",
+     "Plutôt pathologique"
+    ],
+    "lignes": [
+     [
+      "Sensation",
+      [
+       {
+        "t": "« Raté » ou pause, puis coup dans la poitrine",
+        "i": "La pause compensatrice suivie de la contraction post-extrasystolique plus puissante donne exactement ce vécu."
+       }
+      ],
+      [
+       {
+        "t": "Fatigue, dyspnée d'effort, douleur thoracique, présyncope",
+        "i": "Ces signes évoquent une charge élevée avec cardiomyopathie rythmique ou une cardiopathie sous-jacente qu'il faut chercher."
+       }
+      ]
+     ],
+     [
+      "Contexte horaire",
+      [
+       {
+        "t": "Repos, coucher, stress ; atténuation à l'effort",
+        "i": "Le tonus vagal ralentit le rythme sinusal et laisse émerger les foyers ectopiques ; à l'effort le rythme sinusal les supprime."
+       }
+      ],
+      [
+       {
+        "t": "Survenue ou aggravation à l'effort",
+        "i": "Elle suggère une ischémie, une TV catécholaminergique ou une cardiopathie, et non une ESV bénigne."
+       }
+      ]
+     ],
+     [
+      "Antécédents",
+      [
+       {
+        "t": "Aucun antécédent, pas de syncope",
+        "i": "L'absence de syncope et de cardiopathie réduit le risque d'arythmie maligne."
+       }
+      ],
+      [
+       {
+        "t": "Syncope, mort subite < 40 ans chez un apparenté, cardiopathie connue",
+        "i": "Ils orientent vers une canalopathie, une cardiomyopathie héréditaire ou une cardiopathie ischémique."
+       }
+      ]
+     ],
+     [
+      "Examen",
+      [
+       {
+        "t": "Pouls irrégulier ponctuel, examen cardiaque normal",
+        "i": "Les extrasystoles isolées ne modifient pas l'auscultation entre deux battements."
+       }
+      ],
+      [
+       {
+        "t": "Souffle, signes d'insuffisance cardiaque, goitre",
+        "i": "Ils orientent respectivement vers valvulopathie ou cardiopathie, décompensation, et dysthyroïdie."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Interroger café, alcool, tabac, cocaïne, boissons énergisantes, médicaments.",
+    "Une ESV très précoce peut produire un pouls manquant (éjection insuffisante).",
+    "Examen normal entre les extrasystoles ; un signe associé oriente vers une cause."
+   ],
+   "sources": [
+    "ESC 2022 Ventricular arrhythmias and SCD"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Drapeaux rouges : quand les extrasystoles ne sont plus bénignes",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Dès qu'un drapeau rouge apparaît, je renonce à la réassurance immédiate et j'oriente vers un bilan cardiologique approfondi.",
+   "tableau": {
+    "colonnes": [
+     "Drapeau rouge",
+     "Diagnostic à craindre",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      [
+       {
+        "t": "Syncope ou présyncope à l'effort",
+        "i": "Elle signale un trouble du rythme ventriculaire malin ou une obstruction, car l'effort sollicite le substrat arythmogène."
+       }
+      ],
+      "Arythmie maligne, cardiomyopathie, TV catécholaminergique",
+      "Bilan cardiologique approfondi"
+     ],
+     [
+      [
+       {
+        "t": "Antécédent familial de mort subite < 40 ans, cardiomyopathie, canalopathie",
+        "i": "Plusieurs causes arythmogènes sont héréditaires (QT long, Brugada, DAVD, cardiomyopathie hypertrophique)."
+       }
+      ],
+      "Cause arythmogène héréditaire",
+      "ECG, ETT, IRM, avis génétique"
+     ],
+     [
+      [
+       {
+        "t": "ESV polymorphes, couplets, salves (TVNS), R sur T",
+        "i": "Le polymorphisme implique plusieurs foyers ou un substrat diffus, et le couplage très court expose à la TV."
+       }
+      ],
+      "Cardiopathie arythmogène, risque de TV",
+      "Holter, ETT, IRM"
+     ],
+     [
+      [
+       {
+        "t": "Cardiopathie ischémique, séquelle d'infarctus, FEVG réduite",
+        "i": "La cicatrice est un substrat de réentrée ; les ESV deviennent un marqueur de mortalité."
+       }
+      ],
+      "Risque de TV/FV",
+      "Prise en charge de la cardiopathie, évaluer un DAI"
+     ],
+     [
+      [
+       {
+        "t": "ECG de base anormal : QT long, Brugada, pré-excitation, onde epsilon, T négatives V1–V3, ondes Q",
+        "i": "Chacun dévoile un diagnostic électrique ou structurel : canalopathie, WPW, DAVD, séquelle d'infarctus."
+       }
+      ],
+      "Maladie électrique ou structurelle",
+      "Avis cardiologique"
+     ],
+     [
+      [
+       {
+        "t": "ESV augmentant à l'effort ou en récupération",
+        "i": "Une ESV bénigne disparaît à l'effort ; sa persistance suggère ischémie, TV catécholaminergique ou cardiopathie."
+       }
+      ],
+      "Ischémie, TVC",
+      "Test d'effort, exploration coronarienne"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "BBG avec axe supérieur : origine VD non idiopathique, penser à la DAVD.",
+    "Après une pause, une ESV peut déclencher des torsades en cas de QT long.",
+    "Un drapeau rouge impose un adressage cardiologique."
+   ],
+   "sources": [
+    "ESC 2022 Ventricular arrhythmias and SCD",
+    "ESC 2023 Cardiomyopathies"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan : de l'ECG à l'IRM",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Je commence par ECG, Holter et ETT pour documenter, quantifier et exclure une cardiopathie, puis j'élargis selon les drapeaux rouges et la charge.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Je réalise un ECG 12 dérivations",
+     "i": "Il documente la nature des extrasystoles, leur morphologie et leur couplage, et recherche QT, pré-excitation, repolarisation anormale et ondes Q.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Je pose un Holter 24–48 h",
+     "i": "Il quantifie la charge (% de QRS), le polymorphisme, les salves et le rythme circadien ; la charge varie d'un jour à l'autre.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Je réalise une ETT",
+     "i": "Elle mesure FEVG et volumes et exclut une cardiopathie structurelle ; elle est indiquée si extrasystoles fréquentes ou symptomatiques.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Je dose K+, Mg2+ et TSH",
+     "i": "Ces facteurs favorisants sont corrigibles ; l'hyperthyroïdie favorise aussi la FA.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Je réalise un test d'effort si ESV suspectes ou d'effort",
+     "i": "La disparition à l'effort rassure ; la persistance, l'augmentation ou l'arythmie ventriculaire inquiètent.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Je fais une IRM cardiaque si ESV fréquentes avec ETT normale mais suspicion de cardiomyopathie",
+     "i": "Le rehaussement tardif détecte myocardite, cicatrice ou DAVD, que l'ETT ne voit pas.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n7",
+     "parent": "n5",
+     "t": "J'explore les coronaires si facteurs de risque, âge avancé ou ESV d'effort",
+     "i": "Scanner coronaire, imagerie de stress ou coronarographie recherchent une ischémie, cause d'arythmie ventriculaire.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n8",
+     "parent": "n2",
+     "t": "Je prolonge l'enregistrement si Holter non contributif et symptômes rares",
+     "i": "Un enregistreur d'événements externe ou implantable corrèle symptômes et rythme ; un Holter 24 h normal n'exclut pas une charge élevée.",
+     "pec": null,
+     "notion": "c5"
+    }
+   ],
+   "points": [
+    "Gold standard : ECG + Holter 24–48 h + ETT.",
+    "Un Holter normal de 24 h n'exclut pas une charge élevée.",
+    "IRM avec rehaussement tardif si suspicion de cardiomyopathie, myocardite ou DAVD.",
+    "Test d'effort : disparition = rassurant."
+   ],
+   "sources": [
+    "ESC 2022 Ventricular arrhythmias and SCD",
+    "ESC 2023 Cardiomyopathies"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Diagnostic positif : charge, origine et caractère bénin",
+   "rubriques": [
+    "positiveDiagnosis",
+    "basicSciences"
+   ],
+   "comment": "Je lis la morphologie pour localiser le foyer, je chiffre la charge au Holter et je ne qualifie de bénignes que les extrasystoles sans drapeau rouge, avec ECG et ETT normaux.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Interprétation",
+     "Signification pratique"
+    ],
+    "lignes": [
+     [
+      "Morphologie BBG + axe inférieur",
+      [
+       {
+        "t": "Origine d'une chambre de chasse (surtout VD)",
+        "i": "Le foyer droit active d'abord le VD, d'où l'aspect de BBG, et la projection vers le bas donne un axe inférieur."
+       }
+      ],
+      "ESV idiopathiques le plus souvent, candidates à l'ablation si symptomatiques."
+     ],
+     [
+      "Morphologie BBD",
+      [
+       {
+        "t": "Origine ventriculaire gauche",
+        "i": "Un foyer gauche active d'abord le VG, donc le VD est dépolarisé en retard et l'aspect est de BBD."
+       }
+      ],
+      "Penser aussi à l'ESSV aberrante si une P' précède."
+     ],
+     [
+      "BBG + axe supérieur",
+      [
+       {
+        "t": "Origine VD non idiopathique",
+        "i": "Un axe supérieur éloigne des chambres de chasse et évoque une origine pariétale du VD, notamment la DAVD."
+       }
+      ],
+      "Imagerie (IRM) indiquée."
+     ],
+     [
+      "Charge > 10 % sur 24 h",
+      [
+       {
+        "t": "Risque de cardiomyopathie rythmique",
+        "i": "Un grand nombre de battements dyssynchrones dégrade la FEVG ; le seuil de 10 % impose de surveiller la FEVG."
+       }
+      ],
+      "ETT et Holter répétés ; discuter ablation."
+     ],
+     [
+      "Critères de bénignité",
+      [
+       {
+        "t": "ECG et ETT normaux, aucun drapeau rouge, ESV monomorphes disparaissant à l'effort",
+        "i": "Chaque critère exclut un substrat structurel ou électrique ; c'est la réunion de tous qui autorise la réassurance."
+       }
+      ],
+      "Pas de restriction sportive après bilan normal."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Charge ESV > 10 % : surveiller la FEVG.",
+    "BBG + axe inférieur : chambre de chasse.",
+    "BBG + axe supérieur : suspecter une DAVD.",
+    "ESSV aberrante en BBD = piège de l'ESV."
+   ],
+   "sources": [
+    "ESC 2022 Ventricular arrhythmias and SCD"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Traitement : escalade graduée selon symptômes, charge et cœur",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "Je réassure et corrige les facteurs favorisants, puis j'escalade seulement si symptômes ou charge élevée, en excluant d'emblée les antiarythmiques de classe IC en cas de cardiopathie.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Extrasystoles isolées, cœur sain, peu gênantes",
+     "i": "Aucune indication d'antiarythmique : le pronostic est excellent et le risque du médicament dépasse le bénéfice.",
+     "pec": "benin",
+     "notion": "c7"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Je corrige K+ ≥ 4,0 mmol/l, Mg2+, et je réduis café, alcool, tabac, stimulants",
+     "i": "Ce sont les facteurs favorisants corrigibles ; la réassurance sur la bénignité suffit souvent.",
+     "pec": "benin",
+     "notion": "c7"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Symptômes persistants sur cœur sain : bêtabloquant ou inhibiteur calcique non dihydropyridinique",
+     "i": "Ils réduisent l'effet des catécholamines ; le vérapamil/diltiazem est contre-indiqué si FEVG réduite.",
+     "pec": "symptomatique",
+     "notion": "c7"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Cœur sain structurellement : flécaïnide ou propafénone possibles",
+     "i": "Les antiarythmiques IC sont réservés aux cœurs sains ; ils sont contre-indiqués après infarctus, en cardiopathie ischémique ou FEVG réduite (surmortalité CAST).",
+     "pec": "symptomatique",
+     "notion": "c7"
+    },
+    {
+     "id": "n5",
+     "parent": "n3",
+     "t": "ESV monomorphes très symptomatiques, réfractaires ou charge élevée avec baisse de FEVG : ablation",
+     "i": "L'ablation supprime le foyer et normalise la FEVG ; en cardiomyopathie rythmique présumée elle est recommandée avec le traitement de l'insuffisance cardiaque.",
+     "pec": "symptomatique",
+     "notion": "c7"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Ablation impossible ou inefficace : amiodarone en dernier recours",
+     "i": "Sa toxicité thyroïdienne, pulmonaire, hépatique et cutanée la relègue en dernière ligne.",
+     "pec": "symptomatique",
+     "notion": "c7"
+    },
+    {
+     "id": "n7",
+     "parent": null,
+     "t": "Cardiopathie structurelle ou ischémique",
+     "i": "On traite la maladie sous-jacente et on évalue un DAI selon les critères de prévention de la mort subite ; pas d'antiarythmique IC.",
+     "pec": "cardiopathie",
+     "notion": "c7"
+    },
+    {
+     "id": "n8",
+     "parent": null,
+     "t": "TV soutenue avec instabilité hémodynamique",
+     "i": "Seule situation aiguë : cardioversion électrique synchronisée en urgence.",
+     "pec": "urgence_tv",
+     "notion": "c7"
+    },
+    {
+     "id": "n9",
+     "parent": null,
+     "t": "ESV au cours d'un syndrome coronarien aigu",
+     "i": "Pas d'antiarythmique prophylactique : on traite l'ischémie et on corrige les électrolytes.",
+     "pec": "cardiopathie",
+     "notion": "c7"
+    }
+   ],
+   "points": [
+    "Aucun antiarythmique pour des extrasystoles asymptomatiques.",
+    "Flécaïnide, propafénone : cœur sain uniquement (CAST).",
+    "Ablation : ESV monomorphes très symptomatiques, réfractaires ou avec baisse de FEVG.",
+    "Sportif avec ESV monomorphes disparaissant à l'effort : pas de restriction après bilan normal."
+   ],
+   "sources": [
+    "ESC 2022 Ventricular arrhythmias and SCD",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Hospitalisation, surveillance, pronostic et réseau",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "Je décide de l'hospitalisation sur l'instabilité, la syncope ou la cardiopathie décompensée, puis je module le suivi selon la charge et le cœur.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Hospitalisation / suivi",
+     "Pronostic"
+    ],
+    "lignes": [
+     [
+      "Cœur sain, charge faible",
+      [
+       {
+        "t": "Aucun suivi systématique ; réévaluation si syncope ou symptômes nouveaux",
+        "i": "Le risque d'évolution est très faible, donc un suivi systématique n'apporte rien."
+       }
+      ],
+      "Excellent"
+     ],
+     [
+      "Charge > 10 %",
+      [
+       {
+        "t": "Holter et ETT répétés périodiquement",
+        "i": "Ils dépistent précocement une baisse de FEVG et ajustent le traitement ou l'indication d'ablation."
+       }
+      ],
+      "Dysfonction VG le plus souvent réversible après suppression des ESV"
+     ],
+     [
+      "TV soutenue, syncope, instabilité, ischémie aiguë, cardiopathie décompensée",
+      [
+       {
+        "t": "Hospitalisation avec monitorage",
+        "i": "Ces situations exposent à la TV/FV ou à la décompensation et exigent un traitement immédiat."
+       }
+      ],
+      "Dépend de la cardiopathie"
+     ],
+     [
+      "Cardiopathie structurelle (post-infarctus, FEVG réduite)",
+      [
+       {
+        "t": "Suivi cardiologique, évaluation DAI",
+        "i": "Les ESV fréquentes sont un marqueur de mortalité et d'arythmie maligne."
+       }
+      ],
+      "Réservé"
+     ],
+     [
+      "QT long avec pause",
+      [
+       {
+        "t": "Éviter les facteurs d'allongement du QT, corriger K+ et Mg2+",
+        "i": "Une ESV après une pause (court-long-court) déclenche des torsades de pointes."
+       }
+      ],
+      "Risque de torsades"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Complications : cardiomyopathie rythmique, TV/FV sur cœur pathologique, syncope.",
+    "Le médecin de premier recours suit les extrasystoles bénignes et coordonne l'adressage.",
+    "Cardiologue si charge élevée, drapeau rouge ou symptômes réfractaires ; ablation par un rythmologue en centre spécialisé."
+   ],
+   "sources": [
+    "ESC 2022 Ventricular arrhythmias and SCD",
+    "Société Suisse de Cardiologie"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence_tv",
+   "titre": "TV soutenue avec instabilité hémodynamique (urgence)",
+   "but": [
+    "Rétablir un rythme sinusal efficace et la perfusion.",
+    "Corriger la cause et les électrolytes pour prévenir la récidive."
+   ],
+   "moyens": {
+    "accueil": [
+     "Je place le patient au déchocage, sous monitorage ECG, tension et saturation.",
+     "Je pose une voie veineuse et je prépare le défibrillateur."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Amiodarone (antiarythmique de classe III)",
+      "posologie": "300 mg i.v. en 20 min si TV soutenue stable ; dose répétée ou perfusion selon avis cardiologique ; vérifier TSH et fonction hépatique ensuite.",
+      "pourquoi": "Elle est utilisée en cas de TV stable ou récidivante ; elle ne remplace pas la cardioversion si le patient est instable.",
+      "source": "[ESC 2022]"
+     },
+     {
+      "molecule": "Magnésium sulfate (électrolyte)",
+      "posologie": "2 g i.v. en 15 min si hypomagnésémie ou torsades de pointes ; correction de K+ pour viser ≥ 4,0 mmol/l.",
+      "pourquoi": "Le magnésium stabilise la membrane et supprime les torsades ; la correction électrolytique prévient la récidive.",
+      "source": "[ESC 2022]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Je réalise une cardioversion électrique synchronisée sous sédation brève chez le patient instable.",
+      "pourquoi": "C'est le traitement de choix de la TV avec pouls instable et il agit immédiatement."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantit l'information du patient et la documentation du consentement ou de l'urgence."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Je monitore en continu et je garde le défibrillateur à portée.",
+      "Je corrige K+ et Mg2+ pendant la prise en charge.",
+      "Je cherche une ischémie aiguë ou un QT long comme cause."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Reconnaît la TV soutenue et évalue instabilité, pouls, conscience."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose la voie veineuse, branche le monitor et les électrodes du défibrillateur."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Délivre un choc synchronisé si instable ; en l'absence de pouls, suit l'algorithme de réanimation."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Le cardiologue évalue ETT, coronarographie, ablation ou DAI."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La TV soutenue sur cardiopathie expose à la récidive et à la mort subite ; le pronostic dépend de la cardiopathie et de la FEVG.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Rythme et hémodynamique",
+      "quand": "Monitorage continu",
+      "cible": "Rythme sinusal stable"
+     },
+     {
+      "quoi": "K+ et Mg2+",
+      "quand": "Dès l'arrivée puis répété",
+      "cible": "K+ ≥ 4,0 mmol/l"
+     },
+     {
+      "quoi": "FEVG par ETT",
+      "quand": "Pendant l'hospitalisation",
+      "cible": "Identifier la cardiopathie"
+     }
+    ],
+    "sortie": "Rythme stable, cause traitée, plan thérapeutique cardiologique défini (ablation ou DAI si indiqué)."
+   },
+   "prevention": {
+    "primaire": "Je traite les cardiopathies et corrige les facteurs favorisants.",
+    "secondaire": "J'évalue un DAI et une ablation après une TV soutenue.",
+    "tertiaire": "Je suis la FEVG et l'adhésion au traitement."
+   }
+  },
+  {
+   "cle": "benin",
+   "titre": "Extrasystoles bénignes sur cœur sain",
+   "but": [
+    "Rassurer le patient sur la bénignité après un bilan normal.",
+    "Réduire les facteurs favorisants sans médicament inutile."
+   ],
+   "moyens": {
+    "accueil": [
+     "J'écoute la gêne du patient et j'explique la banalité des extrasystoles.",
+     "Je recherche les excitants et les médicaments qu'il consomme."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "J'explique la bénignité et le mécanisme du « raté » avec la pause compensatrice.",
+      "pourquoi": "La compréhension réduit l'anxiété, qui entretient elle-même les extrasystoles."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Je conseille de réduire café, alcool, tabac et boissons énergisantes et d'éviter les drogues stimulantes.",
+      "pourquoi": "Ces excitants augmentent l'automaticité par les catécholamines."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Je corrige une hypokaliémie ou hypomagnésémie, et traite une hyperthyroïdie.",
+      "pourquoi": "Ce sont des facteurs favorisants réversibles."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre l'information du patient et l'aptitude au sport ou à la conduite après bilan normal."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "J'autorise le sport après bilan normal si les ESV monomorphes disparaissent à l'effort.",
+      "Je réévalue en cas de syncope ou de symptômes nouveaux."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Réalise ECG, Holter 24–48 h, ETT et prescrit K+, Mg2+ et TSH."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Exclut les drapeaux rouges, confirme la bénignité et rassure."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "patient·e",
+       "fait": "Réduit les excitants et note les épisodes symptomatiques."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Fixe un suivi si la charge approche 10 % ou si les symptômes changent."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le pronostic est excellent sur cœur structurellement sain avec charge faible.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Symptômes (syncope, dyspnée, douleur thoracique)",
+      "quand": "À chaque consultation",
+      "cible": "Absence de nouveau symptôme"
+     },
+     {
+      "quoi": "Charge d'ESV et FEVG",
+      "quand": "Si symptômes nouveaux ou charge élevée",
+      "cible": "Charge < 10 %, FEVG normale"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : ECG et ETT normaux, aucun drapeau rouge, ESV monomorphes disparaissant à l'effort."
+   },
+   "prevention": {
+    "primaire": "Je recommande de limiter excitants et stress.",
+    "secondaire": "Je dépiste et corrige K+, Mg2+ et TSH.",
+    "tertiaire": ""
+   }
+  },
+  {
+   "cle": "symptomatique",
+   "titre": "Extrasystoles symptomatiques ou charge élevée (> 10 %) sur cœur sain",
+   "but": [
+    "Réduire les symptômes et la charge d'ESV.",
+    "Prévenir ou corriger une cardiomyopathie rythmique."
+   ],
+   "moyens": {
+    "accueil": [
+     "Je rassure d'abord et j'évalue le retentissement sur la qualité de vie.",
+     "Je vérifie FEVG et absence de cardiopathie avant tout médicament."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Bisoprolol (bêtabloquant β1-sélectif)",
+      "posologie": "1,25–10 mg p.o. 1×/j, titration selon fréquence et tolérance (AIPS Swissmedic).",
+      "pourquoi": "Il atténue l'effet des catécholamines sur les foyers ectopiques ; première ligne sur cœur sain, avec contre-indications habituelles (asthme sévère, BAV).",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Métoprolol (bêtabloquant β1-sélectif)",
+      "posologie": "50–200 mg/j p.o. selon la forme galénique (AIPS Swissmedic).",
+      "pourquoi": "Alternative au bisoprolol ; même mécanisme, utile si le premier est mal toléré.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Vérapamil (inhibiteur calcique non dihydropyridinique)",
+      "posologie": "120–360 mg/j p.o. en 1 à 3 prises selon la forme retard (AIPS Swissmedic).",
+      "pourquoi": "Il réduit l'activité déclenchée des foyers ; contre-indiqué si FEVG réduite et à ne pas associer à un bêtabloquant sans surveillance.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Flécaïnide (antiarythmique IC)",
+      "posologie": "50–100 mg p.o. 2×/j sous avis cardiologique, max. 300 mg/j (AIPS Swissmedic) ; cœur structurellement sain uniquement.",
+      "pourquoi": "Efficace sur cœur sain mais contre-indiqué après infarctus, en cardiopathie ischémique ou FEVG réduite (surmortalité CAST).",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Je propose l'ablation par cathéter pour ESV monomorphes très symptomatiques, réfractaires ou avec baisse de FEVG.",
+      "pourquoi": "Elle supprime le foyer, améliore les symptômes et la FEVG en cas de cardiomyopathie rythmique."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Je renouvelle le conseil de réduction du café, de l'alcool et du tabac.",
+      "pourquoi": "Les excitants entretiennent les extrasystoles et diminuent l'efficacité du traitement."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Clarifie la capacité de travail et la prise en charge de l'ablation."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantit l'information sur bénéfices et risques de l'ablation et des antiarythmiques."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Je quantifie la charge par Holter et mesure la FEVG avant de traiter.",
+      "Je corrige K+ et Mg2+ et je réduis les excitants.",
+      "En cardiomyopathie rythmique présumée, j'associe le traitement de l'insuffisance cardiaque."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Confirme absence de cardiopathie par ETT, ± IRM, et quantifie la charge au Holter."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Débute un bêtabloquant ou un antagoniste calcique non dihydropyridinique si symptômes."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Le rythmologue propose une ablation si échec, intolérance, charge élevée ou baisse de FEVG."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "L'amiodarone reste un dernier recours quand l'ablation est impossible ou inefficace."
+      }
+     ]
+    }
+   },
+   "pronostic": "La dysfonction VG liée à une charge élevée est le plus souvent réversible après suppression des ESV ; le pronostic est bon sur cœur sain.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Charge d'ESV (Holter)",
+      "quand": "Périodiquement, par ex. à 3–6 mois puis selon l'évolution",
+      "cible": "Charge < 10 %"
+     },
+     {
+      "quoi": "FEVG (ETT)",
+      "quand": "Périodiquement si charge > 10 %",
+      "cible": "FEVG normale ou stable"
+     },
+     {
+      "quoi": "Fréquence cardiaque, tolérance du bêtabloquant",
+      "quand": "À chaque consultation",
+      "cible": "Pas de bradycardie ni BAV"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire sauf syncope, TV soutenue, instabilité ou décompensation ; suivi cardiologique organisé."
+   },
+   "prevention": {
+    "primaire": "Je limite les excitants et corrige les troubles électrolytiques.",
+    "secondaire": "Je surveille la charge et la FEVG pour éviter la cardiomyopathie rythmique.",
+    "tertiaire": "Je traite l'insuffisance cardiaque installée après ablation."
+   }
+  },
+  {
+   "cle": "cardiopathie",
+   "titre": "Extrasystoles sur cardiopathie structurelle ou ischémique",
+   "but": [
+    "Traiter la cardiopathie sous-jacente.",
+    "Évaluer le risque de mort subite et l'indication d'un DAI."
+   ],
+   "moyens": {
+    "accueil": [
+     "Je recherche instabilité, ischémie aiguë et signes de décompensation.",
+     "Je prévois une hospitalisation si ces critères sont présents."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Bêtabloquant (bisoprolol ou métoprolol)",
+      "posologie": "Titration progressive selon FEVG et tolérance (AIPS Swissmedic).",
+      "pourquoi": "Il fait partie du traitement de l'insuffisance cardiaque et de l'après-infarctus et réduit aussi les arythmies ventriculaires.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Je fais évaluer un DAI par le cardiologue selon les critères de prévention de la mort subite.",
+      "pourquoi": "Les ESV sur cardiopathie sont un marqueur de risque d'arythmie maligne."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Je fais explorer et traiter une ischémie (coronarographie) si suspectée.",
+      "pourquoi": "L'ischémie génère des arythmies ventriculaires qui disparaissent après revascularisation."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Anticipe les décisions de fin de vie et la désactivation d'un DAI en maladie avancée."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "J'évite flécaïnide et propafénone en cardiopathie ischémique ou FEVG réduite.",
+      "Je ne prescris pas d'antiarythmique prophylactique dans un SCA ; je traite l'ischémie."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Identifie la cardiopathie par ETT, ECG, ± IRM et exploration coronarienne."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Le cardiologue optimise le traitement de l'insuffisance cardiaque et revascularise si besoin."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Le rythmologue évalue DAI et ablation."
+      }
+     ]
+    }
+   },
+   "pronostic": "Des ESV fréquentes sur cœur pathologique marquent un risque accru de mortalité et d'arythmie maligne.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "FEVG et symptômes",
+      "quand": "Selon la cardiopathie, au moins annuel",
+      "cible": "FEVG stable ou améliorée"
+     },
+     {
+      "quoi": "Holter, salves de TVNS",
+      "quand": "Selon le cardiologue",
+      "cible": "Absence de TV soutenue"
+     }
+    ],
+    "sortie": "Hospitalisation si TV soutenue, syncope, instabilité, ischémie aiguë ou décompensation ; sortie quand stabilité et plan cardiologique établis."
+   },
+   "prevention": {
+    "primaire": "Je contrôle les facteurs de risque cardiovasculaire.",
+    "secondaire": "J'optimise le traitement après infarctus ou en insuffisance cardiaque.",
+    "tertiaire": "J'implante un DAI si critères de prévention de la mort subite remplis."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6951,
+  "output_tokens": 19277,
+  "output_tokens_details": {
+   "thinking_tokens": 3594
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:35:07",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

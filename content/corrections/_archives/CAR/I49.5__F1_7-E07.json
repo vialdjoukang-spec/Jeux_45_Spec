@@ -1,0 +1,374 @@
+{
+ "id": "I49.5__F1_7-E07",
+ "portes": [
+  {
+   "ssp": "F1.7",
+   "nomSSP": "Bradycardie, tachycardie, pouls irrégulier",
+   "entite": "Dysfonction du nœud sinusal (maladie du sinus / syndrome tachy-brady)",
+   "entiteId": "F1.7-E07"
+  }
+ ],
+ "entite": "Dysfonction du nœud sinusal (maladie du sinus / syndrome tachy-brady)",
+ "cim10": "I49.5",
+ "ssp": {
+  "code": "F1.7",
+  "nom": "Bradycardie, tachycardie, pouls irrégulier",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Pouls lent, rapide ou irrégulier",
+    "i": "Porte d'entrée F1.7 : fréquence ou rythme anormal à l'anamnèse ou à l'examen.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Instabilité : hypotension, choc, douleur thoracique, insuffisance cardiaque aiguë, trouble de conscience",
+    "i": "Ces signes imposent un traitement urgent sans attendre le bilan.",
+    "pec": "pec_urgence",
+    "notion": "c5"
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "Stable : ECG 12 dérivations",
+    "i": "Précise fréquence, régularité, onde P et QRS.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n3",
+    "t": "Rythme rapide",
+    "i": "Hors sujet ici : tachycardie sinusale, FA, flutter, TSV, TV relèvent d'autres entités du SSP F1.7.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n5",
+    "parent": "n3",
+    "t": "Bradycardie ou pauses",
+    "i": "Suspecter dysfonction sinusale ou bloc AV selon l'onde P et la conduction.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Cause réversible : médicaments, hyperkaliémie, hypothyroïdie",
+    "i": "Corriger avant de conclure à une atteinte intrinsèque.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n7",
+    "parent": "n5",
+    "t": "Bloc AV de haut degré",
+    "i": "Autre entité du SSP F1.7, prise en charge propre avec stimulation selon les symptômes.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n8",
+    "parent": "n5",
+    "t": "Pas de cause réversible : Holter, ILR ou épreuve d'effort selon la fréquence des symptômes",
+    "i": "Il faut corréler les symptômes à une bradycardie ou une pause.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Symptômes corrélés à pause ou bradycardie",
+    "i": "Diagnostic de dysfonction sinusale symptomatique.",
+    "pec": "pec_chronique",
+    "notion": "c6"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Pas de corrélation ou asymptomatique",
+    "i": "Bradycardie physiologique ou autre cause de syncope ; pas de stimulateur.",
+    "pec": null,
+    "notion": null
+   }
+  ]
+ },
+ "specialites": [
+  "CAR"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Dysfonction du nœud sinusal (maladie du sinus, syndrome tachy-brady)",
+ "notions": "[\n{\"id\":\"c1\",\"titre\":\"Définir la dysfonction sinusale et ses formes\",\"rubriques\":[\"definition\",\"basicSciences\"],\"comment\":\"Raisonne en cherchant un nœud sinusal incapable d'adapter sa fréquence aux besoins, puis classe la forme : bradycardie, pause, bloc de sortie, incompétence chronotrope ou tachy-brady.\",\"tableau\":{\"colonnes\":[\"Forme\",\"Définition / critère\",\"Repère ECG ou test\",\"Particularité\"],\"lignes\":[\n[\"Bradycardie sinusale inappropriée\",[\"Fréquence trop lente pour les besoins, symptomatique\",{\"t\":\"Persistante < 40/min à l'éveil\",\"i\":\"Seuil d'alerte retenu pour attribuer une syncope à une cause arythmique, hors sport et médicaments.\"}],\"ECG, Holter\",[\"Physiologique si asymptomatique, nocturne ou chez le sportif\",{\"t\":\"Pas de traitement si asymptomatique\",\"i\":\"Sans symptôme, la stimulation n'est pas indiquée et n'améliore pas la survie.\"}]],\n[\"Arrêt sinusal / pause\",[\"Absence d'onde P sans lien avec l'intervalle PP\",{\"t\":\"Pause > 3 s à l'éveil\",\"i\":\"Pathologique à l'éveil ; des pauses plus brèves sont fréquentes pendant le sommeil.\"}],\"Holter, ILR\",[\"Pause sans relation avec l'intervalle PP de base\",{\"t\":\"Différent du bloc SA\",\"i\":\"Dans le bloc SA 2e degré, la pause est un multiple de l'intervalle PP ; l'arrêt n'a pas cette relation.\"}]],\n[\"Bloc sino-auriculaire\",[\"Conduction de sortie du nœud bloquée\",\"Pause = multiple de l'intervalle PP\",\"ECG, Holter\",\"Dû à la fibrose de l'oreillette droite\"],\n[\"Incompétence chronotrope\",\"Incapacité d'atteindre environ 80 % de la FC maximale théorique\",[\"Épreuve d'effort\",{\"t\":\"Épreuve d'effort\",\"i\":\"Seul examen qui documente l'absence d'accélération à l'effort ; l'ECG de repos est souvent normal.\"}],[\"Dyspnée d'effort, fatigue\",{\"t\":\"Stimulation asservie à l'activité\",\"i\":\"Mode à réponse en fréquence, indiqué pour adapter la fréquence à l'effort.\"}]],\n[\"Syndrome tachy-brady\",\"FA, flutter ou tachycardie atriale alternant avec bradycardie ou pauses\",[\"Holter, ILR\",{\"t\":\"Pause post-conversion\",\"i\":\"Après FA rapide, le sinus est déprimé par suppression de surmultiplication et reprend tardivement.\"}],[\"Syncope au retour en sinusal\",{\"t\":\"Anticoagulation selon CHA2DS2-VASc\",\"i\":\"Le risque d'AVC dépend de la FA et non du stimulateur.\"}]]\n]},\"arbre\":null,\"points\":[\"Cause principale : fibrose dégénérative idiopathique après 70 ans, avec infiltration adipeuse du nœud et de l'oreillette droite.\",\"Le nœud sinusal se trouve à la jonction veine cave supérieure–oreillette droite, vascularisé par la coronaire droite le plus souvent.\",\"Le remodelage auriculaire explique l'association à la FA.\"],\"sources\":[\"ESC Guidelines cardiac pacing 2021\",\"SSC/SGK recommandations\"]},\n{\"id\":\"c2\",\"titre\":\"Causes extrinsèques réversibles à exclure d'abord\",\"rubriques\":[\"epidemiology\",\"anamnesis\",\"workupGoldStandard\"],\"comment\":\"Avant de parler de maladie intrinsèque, élimine médicaments, métabolisme et situations extracardiaques, car leur correction peut éviter le pacemaker.\",\"tableau\":{\"colonnes\":[\"Catégorie\",\"Exemples\",\"Conduite\",\"Piège\"],\"lignes\":[\n[\"Médicaments\",\"Bêtabloquants dont collyres, vérapamil, diltiazem, digoxine, amiodarone, donépézil, clonidine, lithium\",[\"Arrêter ou remplacer avant d'indiquer un stimulateur\",{\"t\":\"Sauf traitement indispensable\",\"i\":\"Si le médicament est nécessaire (ex. contrôle d'une FA), on implante pour le poursuivre.\"}],[\"Ivabradine\",{\"t\":\"Contre-indiquée en maladie du sinus\",\"i\":\"Elle ralentit directement le courant If du nœud sinusal et aggrave la dysfonction.\"}]],\n[\"Métabolique\",\"Hypothyroïdie, hyperkaliémie, hypothermie\",\"TSH, kaliémie, fonction rénale\",[\"Insuffisance rénale + digoxine ou bêtabloquant\",{\"t\":\"Exclure hyperkaliémie\",\"i\":\"Cause réversible potentiellement mortelle, à traiter avant tout autre geste.\"}]],\n[\"Neuro-vagal / autres\",\"Hypertonie vagale, hypertension intracrânienne, apnées du sommeil\",\"Anamnèse, examen, polygraphie si suspicion\",\"Une bradycardie nocturne isolée reste physiologique\"]\n]},\"arbre\":null,\"points\":[\"Une bradycardie récente sous bêtabloquant ou digoxine avec insuffisance rénale impose de chercher hyperkaliémie ou intoxication.\",\"Bilan minimal : ECG, TSH, kaliémie, créatinine.\",\"Le stimulateur n'est posé qu'après exclusion des causes réversibles.\"],\"sources\":[\"ESC Guidelines cardiac pacing 2021\",\"AIPS Swissmedic ivabradine\"]},\n{\"id\":\"c3\",\"titre\":\"Tableau clinique et signaux d'alarme\",\"rubriques\":[\"anamnesis\",\"clinicalExam\",\"presumptionRedFlags\"],\"comment\":\"Cherche une corrélation symptôme–rythme : les signes sont intermittents et peu spécifiques, donc la syncope atypique et les critères de gravité décident de la rapidité du bilan.\",\"tableau\":{\"colonnes\":[\"Élément\",\"Signification\",\"Conduite\"],\"lignes\":[\n[\"Syncope brève, sans prodrome, parfois traumatique\",[\"Évoque une cause arythmique, surtout au retour en sinusal après une FA\",{\"t\":\"Bilan rapide, voire hospitalisation\",\"i\":\"Le risque de récidive traumatique est élevé et la cause arythmique est dangereuse.\"}],\"Holter ou ILR\"],\n[\"Fatigue, vertiges, lipothymies, dyspnée d'effort\",[\"Non spécifiques ; bradycardie ou incompétence chronotrope\",\"Parfois confusion chez le sujet âgé, d'où diagnostic retardé\"],\"Corréler au rythme enregistré\"],\n[\"Palpitations paroxystiques\",\"Phase tachycardique, tachyarythmie auriculaire\",\"Chercher FA ; anticoagulation selon score\"],\n[\"Bradycardie avec hypotension, choc, douleur thoracique, insuffisance cardiaque ou trouble de conscience\",\"Instabilité hémodynamique\",[\"Prise en charge urgente\",{\"t\":\"Atropine puis stimulation\",\"i\":\"La stabilité détermine l'urgence, indépendamment de la cause.\"}]],\n[\"Syncope à l'effort, en décubitus, antécédent familial de mort subite\",[\"Oriente vers une tachyarythmie ventriculaire ou une cardiopathie structurelle\",{\"t\":\"Autre diagnostic\",\"i\":\"Ces éléments ne sont pas typiques de la dysfonction sinusale.\"}],\"Bilan cardiologique ciblé\"]\n]},\"arbre\":null,\"points\":[\"Examen : palpation prolongée du pouls, absence d'accélération à l'effort léger, recherche d'hypothyroïdie, d'insuffisance cardiaque, de souffle et d'hypotension orthostatique.\",\"Le massage sinocarotidien monitoré est positif si pause > 3 s et/ou chute tensionnelle avec reproduction des symptômes.\",\"Syncope non traitée : conduite temporairement contre-indiquée ; avis possible à l'autorité cantonale (art. 15d LCR).\"],\"sources\":[\"ESC Guidelines syncope 2018\",\"LCR art. 15d\"]},\n{\"id\":\"c4\",\"titre\":\"Démarche diagnostique : choisir l'enregistrement\",\"rubriques\":[\"workupGoldStandard\",\"workupAlternatives\",\"positiveDiagnosis\"],\"comment\":\"Choisis la durée de l'enregistrement selon la fréquence des symptômes, car le diagnostic repose sur la corrélation temporelle symptôme–bradycardie ou pause.\",\"tableau\":null,\"arbre\":[\n{\"id\":\"n1\",\"parent\":null,\"t\":\"Suspicion de dysfonction sinusale\",\"i\":\"Symptômes évocateurs chez un sujet souvent âgé.\",\"pec\":null,\"notion\":null},\n{\"id\":\"n2\",\"parent\":\"n1\",\"t\":\"ECG 12 dérivations, TSH, kaliémie, créatinine, revue des médicaments\",\"i\":\"Premier examen ; il élimine les causes réversibles et peut montrer pauses, bloc SA ou FA lente.\",\"pec\":null,\"notion\":null},\n{\"id\":\"n3\",\"parent\":\"n2\",\"t\":\"Symptômes fréquents : Holter 24–72 h\",\"i\":\"La probabilité de capter un épisode pendant l'enregistrement est élevée.\",\"pec\":null,\"notion\":null},\n{\"id\":\"n4\",\"parent\":\"n2\",\"t\":\"Symptômes rares : enregistreur externe prolongé ou ILR\",\"i\":\"Une syncope récidivante inexpliquée exige une longue durée de monitorage.\",\"pec\":null,\"notion\":null},\n{\"id\":\"n5\",\"parent\":\"n2\",\"t\":\"Dyspnée d'effort : épreuve d'effort\",\"i\":\"Documente l'incompétence chronotrope (< 80 % de la FC maximale théorique).\",\"pec\":null,\"notion\":null},\n{\"id\":\"n6\",\"parent\":\"n2\",\"t\":\"Échocardiographie transthoracique\",\"i\":\"Cherche cardiopathie structurelle, dilatation auriculaire et fonction ventriculaire gauche.\",\"pec\":null,\"notion\":null},\n{\"id\":\"n7\",\"parent\":\"n4\",\"t\":\"Toujours non concluant : étude électrophysiologique\",\"i\":\"TRSC > 525 ms est pathologique mais la sensibilité est limitée.\",\"pec\":null,\"notion\":null},\n{\"id\":\"n8\",\"parent\":\"n3\",\"t\":\"Corrélation symptôme–pause ou bradycardie\",\"i\":\"Elle confirme le diagnostic ; une bradycardie asymptomatique n'est pas une maladie.\",\"pec\":\"pec_chronique\",\"notion\":null}\n],\"points\":[\"Différentiels d'une syncope par bradycardie : BAV paroxystique, hypersensibilité sinocarotidienne, syncope vasovagale.\",\"Distinguer bloc SA (pause multiple de PP) et arrêt sinusal.\",\"Une bradycardie asymptomatique, nocturne ou sportive, est physiologique.\"],\"sources\":[\"ESC Guidelines cardiac pacing 2021\",\"ESC Guidelines syncope 2018\"]},\n{\"id\":\"c5\",\"titre\":\"Prise en charge aiguë d'une bradycardie symptomatique\",\"rubriques\":[\"acuteManagement\"],\"comment\":\"Évalue d'abord la stabilité, puis monte l'escalade thérapeutique en retirant les causes réversibles.\",\"tableau\":null,\"arbre\":[\n{\"id\":\"n1\",\"parent\":null,\"t\":\"Bradycardie symptomatique\",\"i\":\"Monitorage, accès veineux, ECG et recherche de cause réversible.\",\"pec\":\"pec_urgence\",\"notion\":null},\n{\"id\":\"n2\",\"parent\":\"n1\",\"t\":\"Instable : hypotension, choc, douleur, insuffisance cardiaque aiguë ou trouble de conscience\",\"i\":\"Ce sont les critères d'instabilité qui imposent un traitement immédiat.\",\"pec\":null,\"notion\":null},\n{\"id\":\"n3\",\"parent\":\"n2\",\"t\":\"Atropine 0,5 mg IV, répétable jusqu'à 3 mg\",\"i\":\"Anticholinergique qui lève le tonus vagal ; efficacité limitée si l'atteinte est intrinsèque.\",\"pec\":\"pec_urgence\",\"notion\":null},\n{\"id\":\"n4\",\"parent\":\"n3\",\"t\":\"Échec : adrénaline, isoprénaline ou dopamine, ou stimulation transcutanée\",\"i\":\"Pont vers une stimulation temporaire endocavitaire.\",\"pec\":\"pec_urgence\",\"notion\":null},\n{\"id\":\"n5\",\"parent\":\"n1\",\"t\":\"Stable avec pause documentée\",\"i\":\"Risque de syncope persistant malgré la stabilité.\",\"pec\":null,\"notion\":null},\n{\"id\":\"n6\",\"parent\":\"n5\",\"t\":\"Hospitalisation sous télémétrie jusqu'au stimulateur\",\"i\":\"Une pause symptomatique documentée expose à une récidive de syncope.\",\"pec\":\"pec_chronique\",\"notion\":null}\n],\"points\":[\"Arrêter tous les bradycardisants.\",\"Corriger hyperkaliémie et hypoxie.\",\"Un bradycardisant indispensable peut justifier un stimulateur.\"],\"sources\":[\"ERC Guidelines 2021\",\"ESC Guidelines cardiac pacing 2021\"]},\n{\"id\":\"c6\",\"titre\":\"Traitement de fond : stimulateur et anticoagulation\",\"rubriques\":[\"chronicManagement\"],\"comment\":\"Pose l'indication selon la corrélation symptôme–bradycardie, choisis le mode de stimulation, puis traite séparément le risque embolique de la FA.\",\"tableau\":{\"colonnes\":[\"Situation\",\"Décision\",\"Pourquoi\"],\"lignes\":[\n[\"Symptômes clairement attribuables à la bradycardie ou à la pause\",[\"Stimulateur (classe I)\",{\"t\":\"Classe I\",\"i\":\"Il soulage les symptômes et prévient les syncopes.\"}],\"Les médicaments n'offrent pas de traitement fiable à long terme\"],\n[\"Patient asymptomatique\",\"Pas de stimulateur\",[\"Aucun bénéfice démontré\",{\"t\":\"Même avec pauses\",\"i\":\"Sans symptôme, aucun bénéfice démontré ; le stimulateur n'allonge pas la survie.\"}]],\n[\"Choix du mode\",\"Double chambre avec minimisation de la stimulation ventriculaire\",[\"Préféré au VVI\",{\"t\":\"Évite la stimulation ventriculaire inutile\",\"i\":\"Limite le risque d'insuffisance cardiaque et de FA.\"}]],\n[\"Incompétence chronotrope\",\"Mode asservi à l'activité\",\"Adapte la fréquence à l'effort\"],\n[\"FA associée\",[\"Anticoagulation orale, de préférence AOD, selon CHA2DS2-VASc\",{\"t\":\"Indépendante du stimulateur\",\"i\":\"Le stimulateur traite la bradycardie, pas le risque embolique.\"}],\"Risque d'AVC persistant\"],\n[\"Tachyarythmies après implantation\",\"Bêtabloquants ou antiarythmiques possibles ; ablation de FA à discuter chez patients sélectionnés\",\"Plus de risque de bradycardie symptomatique\"]\n]},\"arbre\":null,\"points\":[\"La stimulation n'améliore pas la survie.\",\"Les épisodes de FA subclinique détectés par le stimulateur imposent de réévaluer l'anticoagulation.\",\"Complications d'implantation : pneumothorax, hématome de loge, infection, déplacement de sonde, perforation.\"],\"sources\":[\"ESC Guidelines cardiac pacing 2021\",\"ESC Guidelines FA 2020\"]},\n{\"id\":\"c7\",\"titre\":\"Complications, suivi, pronostic et coordination\",\"rubriques\":[\"hospitalizationComplications\",\"prognosisDischarge\",\"surveillance\",\"followUpNetwork\"],\"comment\":\"Anticipe deux risques, traumatisme par syncope et AVC par FA, puis organise le suivi du dispositif avec le médecin de famille comme coordinateur.\",\"tableau\":{\"colonnes\":[\"Axe\",\"Contenu\",\"Pourquoi\"],\"lignes\":[\n[\"Complications\",[\"Chutes, fractures, traumatismes crâniens\",\"AVC et embolies systémiques\"],[\"Syncope du sujet âgé ; FA associée\",{\"t\":\"AVC persistant après pacemaker\",\"i\":\"Le risque embolique n'est pas corrigé par la stimulation.\"}]],\n[\"Pronostic\",\"Symptomatique très bon ; vital dépendant des comorbidités\",\"Le stimulateur ne modifie pas la survie\"],\n[\"Surveillance\",\"Contrôle précoce puis régulier : seuils, batterie, sondes ; télésurveillance possible\",\"Détecte aussi la FA subclinique\"],\n[\"Réseau\",[\"Cardiologue/rythmologue : implantation et contrôle\",\"Médecin de famille : coordination, anticoagulation, révision des médicaments, prévention des chutes\"],[\"Carte de porteur ; vérifier la compatibilité IRM\",{\"t\":\"Compatibilité IRM\",\"i\":\"Tous les dispositifs ne sont pas conditionnels à l'IRM.\"}]]\n]},\"arbre\":null,\"points\":[\"Le risque thromboembolique est l'enjeu pronostique majeur du tachy-brady.\",\"Les syncopes récidivent rarement après implantation.\",\"La prévention des chutes reste nécessaire.\"],\"sources\":[\"ESC Guidelines cardiac pacing 2021\"]}\n]",
+ "priseEnCharge": [
+  {
+   "cle": "pec_urgence",
+   "titre": "Bradycardie symptomatique instable ou pause sévère",
+   "but": [
+    "Rétablir une fréquence et une perfusion cérébrale suffisantes.",
+    "Supprimer les causes réversibles et prévenir une récidive de syncope."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installer le patient sous monitorage continu avec ECG, tension et saturation.",
+     "Poser un accès veineux et obtenir un ECG 12 dérivations.",
+     "Arrêter tous les bradycardisants."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Atropine (anticholinergique)",
+      "posologie": "0,5 mg IV en bolus, répétable jusqu'à 3 mg au total",
+      "pourquoi": "Lève le tonus vagal et accélère le sinus ; moins efficace si l'atteinte du nœud est intrinsèque.",
+      "source": "ERC 2021"
+     },
+     {
+      "molecule": "Adrénaline (catécholamine)",
+      "posologie": "Perfusion IV titrée selon la fréquence et la tension, en monitorage continu",
+      "pourquoi": "Stimule les récepteurs bêta en cas d'échec de l'atropine, en pont vers la stimulation.",
+      "source": "ERC 2021"
+     },
+     {
+      "molecule": "Isoprénaline (agoniste bêta)",
+      "posologie": "Perfusion IV titrée en monitorage continu, selon AIPS",
+      "pourquoi": "Accélère la fréquence en pont vers la stimulation, mais elle est à éviter en cas d'ischémie.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Installer une stimulation transcutanée puis une sonde temporaire endocavitaire.",
+      "pourquoi": "Assure une fréquence fiable lorsque les médicaments échouent."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Corriger hyperkaliémie, hypoxie et hypothermie.",
+      "pourquoi": "Ces causes réversibles peuvent suffire à rétablir le rythme."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'information au patient et l'aptitude à la conduite (art. 15d LCR)."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Garder le patient sous monitorage continu.",
+      "Rechercher une hyperkaliémie ou une intoxication médicamenteuse."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue l'instabilité hémodynamique et ordonne le monitorage et l'ECG."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose la voie veineuse et prépare atropine et plaques de stimulation."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Administre l'atropine 0,5 mg, répétée jusqu'à 3 mg si nécessaire."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Si échec, débute une perfusion catécholaminergique ou stimule en transcutané."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Le cardiologue pose la stimulation temporaire puis planifie l'implantation."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Après stimulation, le contrôle des symptômes est très bon ; le pronostic vital dépend surtout des comorbidités.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Rythme et tension en télémétrie",
+      "quand": "Continu jusqu'à l'implantation",
+      "cible": "Aucune pause > 3 s ni instabilité"
+     },
+     {
+      "quoi": "Kaliémie et créatinine",
+      "quand": "À l'admission puis selon l'évolution",
+      "cible": "Normalisation"
+     }
+    ],
+    "sortie": "Sortie après implantation d'un stimulateur ou disparition documentée de la cause réversible, avec rythme stable et sans syncope."
+   },
+   "prevention": {
+    "primaire": "Éviter les associations bradycardisantes chez le sujet âgé et contre-indiquer l'ivabradine en maladie du sinus.",
+    "secondaire": "Réviser les médicaments et prévenir les chutes après un épisode.",
+    "tertiaire": "Implanter un stimulateur si les symptômes sont corrélés et poursuivre l'anticoagulation indiquée."
+   }
+  },
+  {
+   "cle": "pec_chronique",
+   "titre": "Dysfonction sinusale symptomatique stable : stimulateur et FA",
+   "but": [
+    "Supprimer les symptômes et les syncopes par stimulation.",
+    "Prévenir l'AVC lié à la FA associée.",
+    "Assurer un suivi du dispositif coordonné par le réseau."
+   ],
+   "moyens": {
+    "accueil": [
+     "Confirmer la corrélation symptôme–rythme avant l'indication.",
+     "Informer le patient sur l'absence de gain de survie et sur la conduite automobile."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Anticoagulant oral direct, p. ex. apixaban (inhibiteur du facteur Xa)",
+      "posologie": "5 mg 2×/j ; 2,5 mg 2×/j si au moins 2 critères parmi âge ≥ 80 ans, poids ≤ 60 kg, créatinine ≥ 133 µmol/l",
+      "pourquoi": "Prévient l'AVC lorsque le score CHA2DS2-VASc l'indique, indépendamment du stimulateur.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Bêtabloquant, p. ex. métoprolol (antiarythmique classe II)",
+      "posologie": "Posologie adaptée à la fréquence, seulement après implantation",
+      "pourquoi": "Contrôle les tachyarythmies auriculaires sans risque de bradycardie symptomatique une fois stimulé.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Implanter un stimulateur double chambre avec minimisation de la stimulation ventriculaire.",
+      "pourquoi": "Soulage les symptômes et évite la stimulation ventriculaire inutile."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Discuter l'ablation de FA chez des patients sélectionnés.",
+      "pourquoi": "Elle peut compléter ou remplacer la stimulation dans le tachy-brady."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Remettre une carte de porteur et vérifier la compatibilité IRM.",
+      "pourquoi": "Évite les incidents lors d'imageries et de soins."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Prévenir les chutes par révision des médicaments et adaptation du domicile.",
+      "pourquoi": "Réduit fractures et traumatismes crâniens chez le sujet âgé."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Encadre l'aptitude à la conduite après syncope et la déclaration à l'autorité cantonale."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Organise la prise en charge du dispositif et des contrôles."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Arrêter ou remplacer les bradycardisants non indispensables avant d'implanter.",
+      "Calculer le CHA2DS2-VASc en cas de FA."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Exclut les causes réversibles par TSH, kaliémie, créatinine et révision des médicaments."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Le cardiologue pose l'indication et implante le stimulateur, avec mode asservi si incompétence chronotrope."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Débute l'anticoagulation si FA avec score CHA2DS2-VASc suffisant."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Contrôle le dispositif avec seuils, batterie, sondes et télésurveillance."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Le médecin de famille coordonne suivi, anticoagulation et prévention des chutes."
+      }
+     ]
+    }
+   },
+   "pronostic": "Après implantation, les syncopes récidivent rarement et le pronostic symptomatique est très bon ; l'AVC lié à la FA reste l'enjeu majeur.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Contrôle du stimulateur : seuils, batterie, sondes",
+      "quand": "Peu après l'implantation, puis périodiquement (semestriel à annuel)",
+      "cible": "Fonctionnement normal et stimulation ventriculaire minimale"
+     },
+     {
+      "quoi": "Épisodes de FA subclinique",
+      "quand": "À chaque contrôle",
+      "cible": "Réévaluer l'anticoagulation si détectés"
+     },
+     {
+      "quoi": "Site d'implantation, signes d'infection ou de déplacement de sonde",
+      "quand": "Précocement après l'implantation",
+      "cible": "Absence de complication"
+     }
+    ],
+    "sortie": "Sortie après implantation sans pneumothorax ni hématome, avec contrôle satisfaisant du dispositif, anticoagulation décidée et suivi organisé."
+   },
+   "prevention": {
+    "primaire": "Éviter les bradycardisants chez les patients à risque ; l'ivabradine est contre-indiquée en maladie du sinus.",
+    "secondaire": "Anticoaguler selon le CHA2DS2-VASc et prévenir les chutes.",
+    "tertiaire": "Assurer le suivi régulier du pacemaker et réévaluer les épisodes de FA détectés."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": [
+   "SCHEMA: '[\\n{\"id\":\"c1\",\"titre\":\"Définir la dysfonction sinusale et ses formes\",\"rubriques\":[\"definition\",\"basicSciences\"],\"comment\":\"Raisonne en cherchant un nœud sinus"
+  ]
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7130,
+  "output_tokens": 10601,
+  "output_tokens_details": {
+   "thinking_tokens": 0
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:34:52",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": "rejet",
+  "claude": "2026-11-24",
+  "motif": "Sortie tronquée du lot batch : ssp et/ou notions sérialisés en texte JSON incomplet, priseEnCharge absente ; contenu inexploitable, à régénérer (aucune valeur médicale effacée sur main)."
+ }
+}

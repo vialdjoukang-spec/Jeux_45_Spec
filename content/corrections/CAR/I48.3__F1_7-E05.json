@@ -1,0 +1,1381 @@
+{
+ "id": "I48.3__F1_7-E05",
+ "portes": [
+  {
+   "ssp": "S2.11",
+   "nomSSP": "Palpitations",
+   "entite": "Flutter auriculaire typique",
+   "entiteId": "S2.11-E06"
+  },
+  {
+   "ssp": "F1.7",
+   "nomSSP": "Bradycardie, tachycardie, pouls irrégulier",
+   "entite": "Flutter auriculaire typique",
+   "entiteId": "F1.7-E05"
+  },
+  {
+   "ssp": "F2.6",
+   "nomSSP": "Électrocardiogramme anormal",
+   "entite": "Flutter auriculaire typique",
+   "entiteId": "F2.6-E05"
+  }
+ ],
+ "entite": "Flutter auriculaire typique",
+ "cim10": "I48.3",
+ "ssp": {
+  "code": "F1.7",
+  "nom": "Bradycardie, tachycardie, pouls irrégulier",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Le patient présente une bradycardie, une tachycardie ou un pouls irrégulier ; on monitore et on réalise un ECG 12 dérivations",
+    "i": "L'ECG et le monitorage sont indispensables, car le pouls seul ne distingue pas flutter, FA, TV ou bloc AV.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Le patient est-il instable ?",
+    "i": "Instabilité : hypotension, syncope, douleur thoracique ischémique, œdème pulmonaire ou trouble de conscience.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui, tachycardie : cardioversion électrique synchronisée sous sédation",
+    "i": "Le risque vital prime ; la cardioversion ne attend pas l'anticoagulation. Pour une bradycardie instable, le SSP renvoie à la stimulation (atropine, pacing).",
+    "pec": "urgence_instable",
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : l'ECG montre-t-il une bradycardie, une tachycardie ou un rythme irrégulier ?",
+    "i": "La fréquence, la largeur des QRS et la régularité orientent vers l'entité.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "FC < 50/min : bradycardie",
+    "i": "Il faut chercher bloc AV, dysfonction sinusale, médicaments et hyperkaliémie ; ce cadre sort du flutter et renvoie à l'entité bradycardie de ce SSP.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "FC normale, pouls irrégulier par à-coups : extrasystoles",
+    "i": "Les ESA et ESV sont souvent bénignes ; ce cadre renvoie à l'entité extrasystoles de ce SSP.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n7",
+    "parent": "n4",
+    "t": "FC > 100/min, QRS larges",
+    "i": "Une TV ou une conduction par voie accessoire doit être suspectée ; adénosine, vérapamil et digoxine sont dangereux en cas de pré-excitation, ce cadre renvoie à l'entité TV ou WPW.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n8",
+    "parent": "n4",
+    "t": "FC > 100/min, QRS fins, irrégulièrement irrégulier",
+    "i": "Il s'agit d'une fibrillation auriculaire ; ce cadre renvoie à l'entité FA de ce SSP.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n9",
+    "parent": "n4",
+    "t": "FC > 100/min, QRS fins, régulier : on cherche l'activité auriculaire et on teste manœuvre vagale ou adénosine",
+    "i": "Le test révèle les ondes F ou interrompt une réentrée nodale, ce qui sépare les tachycardies régulières à QRS fins.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "Les ondes P sinusales précèdent les QRS et la fréquence ralentit progressivement : tachycardie sinusale",
+    "i": "On traite la cause (fièvre, anémie, douleur, hypovolémie, hyperthyroïdie) ; ce cadre renvoie à l'entité tachycardie sinusale.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "La tachycardie cesse brusquement sous adénosine, sans onde F : réentrée intranodale",
+    "i": "Le nœud AV fait partie du circuit ; ce cadre renvoie à l'entité Bouveret.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n12",
+    "parent": "n9",
+    "t": "La fréquence ralentit brutalement, des ondes F en dents de scie apparaissent et le flutter persiste : flutter typique",
+    "i": "Le bloc AV transitoire démasque l'activité auriculaire continue négative en DII, DIII, aVF, positive en V1.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n13",
+    "parent": "n12",
+    "t": "Le flutter dure-t-il moins de 48 h ou le patient est-il anticoagulé efficacement depuis 3 semaines ?",
+    "i": "Au-delà de 48 h ou si la durée est inconnue, un thrombus auriculaire est possible.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n14",
+    "parent": "n13",
+    "t": "Oui : cardioversion électrique programmée, ou contrôle de fréquence selon la FEVG",
+    "i": "La cardioversion est très efficace à faible énergie ; l'inhibiteur calcique est évité si la FEVG est réduite.",
+    "pec": "stable_aigu",
+    "notion": "c5"
+   },
+   {
+    "id": "n15",
+    "parent": "n13",
+    "t": "Non : anticoagulation, contrôle de fréquence, puis ETO ou 3 semaines avant cardioversion",
+    "i": "Le but est d'exclure un thrombus de l'auricule gauche avant de restaurer le rythme sinusal.",
+    "pec": "stable_aigu",
+    "notion": "c4"
+   },
+   {
+    "id": "n16",
+    "parent": "n12",
+    "t": "Ensuite : ablation de l'isthme cavo-tricuspidien et anticoagulation selon CHA2DS2-VA",
+    "i": "L'ablation guérit plus de 90 % des cas ; l'anticoagulation dépend du score et non du rythme.",
+    "pec": "long_cours",
+    "notion": "c7"
+   }
+  ]
+ },
+ "specialites": [
+  "CAR"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Flutter auriculaire typique (I48.3)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition, circuit de réentrée et terrain",
+   "rubriques": [
+    "definition",
+    "basicSciences",
+    "epidemiology"
+   ],
+   "comment": "Pense au flutter typique comme à un circuit unique tournant dans l'oreillette droite à travers l'isthme cavo-tricuspidien, que le nœud AV filtre ensuite, le plus souvent en 2:1.",
+   "tableau": {
+    "colonnes": [
+     "Classe",
+     "Forme",
+     "Circuit",
+     "ECG inférieur et V1",
+     "Ablation de l'isthme"
+    ],
+    "lignes": [
+     [
+      "Typique",
+      "Commun, antihoraire",
+      [
+       {
+        "t": "Tourne dans le sens antihoraire autour de l'anneau tricuspide, par l'isthme entre veine cave inférieure et anneau",
+        "i": "L'isthme est une zone de conduction lente bornée par des structures fixes (valve d'Eustache, crista terminalis), donc une cible anatomique reproductible."
+       }
+      ],
+      [
+       {
+        "t": "Ondes F négatives en DII, DIII, aVF, positives en V1, sans ligne isoélectrique",
+        "i": "Le vecteur dominant d'activation s'éloigne des dérivations inférieures ; l'activité continue explique l'absence de ligne isoélectrique, ce qui le distingue d'une tachycardie atriale."
+       }
+      ],
+      [
+       {
+        "t": "Curative, succès > 90–95 %",
+        "i": "Un bloc de conduction bidirectionnel à travers l'isthme interrompt le circuit définitivement, car celui-ci en dépend obligatoirement."
+       }
+      ]
+     ],
+     [
+      "Typique",
+      "Inversé, horaire",
+      [
+       {
+        "t": "Même isthme, parcouru en sens horaire",
+        "i": "Le circuit reste dépendant de l'isthme, seul le sens change."
+       }
+      ],
+      [
+       {
+        "t": "Ondes F positives en inférieur, négatives en V1",
+        "i": "L'inversion du sens inverse la polarité des ondes, d'où un aspect moins classique et plus souvent méconnu."
+       }
+      ],
+      [
+       {
+        "t": "Curative aussi",
+        "i": "L'isthme reste le point obligatoire du circuit, comme dans la forme commune."
+       }
+      ]
+     ],
+     [
+      "Atypique",
+      "Sur cicatrice ou post-ablation",
+      [
+       {
+        "t": "Circuit indépendant de l'isthme, autour d'une cicatrice (chirurgie cardiaque, ablation de FA) ou dans l'oreillette gauche",
+        "i": "La zone de conduction lente est ici une cicatrice et non l'isthme, la localisation varie selon le patient."
+       }
+      ],
+      [
+       {
+        "t": "Ondes F d'aspect variable, souvent plus lentes",
+        "i": "Le vecteur dépend du circuit propre à chaque cicatrice, il n'existe donc pas de motif univoque."
+       }
+      ],
+      [
+       {
+        "t": "Non guérie par l'ablation isthmique seule",
+        "i": "Il faut une cartographie pour trouver l'isthme propre au circuit, l'isthme cavo-tricuspidien n'est pas la cible."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Fréquence auriculaire d'environ 300/min (250–350) ; le nœud AV filtre le plus souvent en 2:1 (≈150/min), parfois 4:1 (≈75/min) ou de façon variable.",
+    "Le flutter est moins fréquent que la FA, augmente avec l'âge et touche davantage les hommes ; les deux arythmies coexistent ou se succèdent souvent car elles partagent un substrat auriculaire.",
+    "Associations fréquentes : cardiopathie structurelle, BPCO, HTA, insuffisance cardiaque, hyperthyroïdie, chirurgie cardiaque récente.",
+    "La stase auriculaire explique un risque thromboembolique comparable à celui de la FA."
+   ],
+   "sources": [
+    "ESC 2019 Guidelines SVT",
+    "ESC/EACTS 2024 Guidelines AF"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Anamnèse et examen : le pouls régulier fixe à 150/min",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Évoque un flutter devant un pouls régulier fixe autour de 150/min peu modifié par l'effort, puis juge d'emblée la tolérance hémodynamique avant toute autre démarche.",
+   "tableau": {
+    "colonnes": [
+     "Conduction AV",
+     "FC ventriculaire",
+     "Pouls",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "2:1",
+      [
+       {
+        "t": "≈150/min",
+        "i": "Le nœud AV laisse passer une onde sur deux (300/2), c'est la forme la plus fréquente."
+       }
+      ],
+      [
+       {
+        "t": "Régulier, fixe, peu modifié par effort ou douleur",
+        "i": "Contrairement à la tachycardie sinusale, la fréquence ne s'adapte pas, car elle dépend du circuit et du ratio AV."
+       }
+      ],
+      [
+       {
+        "t": "Les ondes F se cachent derrière QRS et T",
+        "i": "À 150/min, l'activité auriculaire se confond avec la repolarisation, d'où la confusion avec une tachycardie sinusale ou jonctionnelle."
+       }
+      ]
+     ],
+     [
+      "3:1",
+      [
+       {
+        "t": "≈100/min",
+        "i": "Un onde sur trois est conduite (300/3), le plus souvent sous ralentisseur nodal ou si le nœud AV est malade."
+       }
+      ],
+      [
+       {
+        "t": "Régulier",
+        "i": "Le ratio fixe donne un intervalle R-R constant."
+       }
+      ],
+      [
+       {
+        "t": "Facilement prise pour un rythme normal",
+        "i": "La fréquence est proche de la normale, le flutter passe inaperçu sans ECG."
+       }
+      ]
+     ],
+     [
+      "4:1",
+      [
+       {
+        "t": "≈75/min",
+        "i": "Une onde sur quatre est conduite, souvent sous bloqueur nodal ou avec atteinte du nœud AV."
+       }
+      ],
+      [
+       {
+        "t": "Régulier",
+        "i": "Le ratio fixe donne un intervalle R-R constant."
+       }
+      ],
+      [
+       {
+        "t": "Ondes F plus faciles à voir",
+        "i": "Les QRS sont espacés, laissant apparaître les dents de scie."
+       }
+      ]
+     ],
+     [
+      "Variable",
+      [
+       {
+        "t": "Variable",
+        "i": "Le nœud AV change de ratio selon le tonus autonome et sa période réfractaire."
+       }
+      ],
+      [
+       {
+        "t": "Irrégulier par paliers, rythme répétitif",
+        "i": "L'irrégularité suit des ratios entiers, alors que la FA est irrégulièrement irrégulière."
+       }
+      ],
+      [
+       {
+        "t": "Se distingue de la FA à l'ECG, pas au pouls seul",
+        "i": "Seule la recherche d'ondes F régulières tranche."
+       }
+      ]
+     ],
+     [
+      "1:1",
+      [
+       {
+        "t": "≈300/min",
+        "i": "Chaque onde auriculaire est conduite, par ralentissement du flutter sous classe Ic, tonus adrénergique ou voie accessoire."
+       }
+      ],
+      [
+       {
+        "t": "Régulier très rapide",
+        "i": "Aucun filtrage AV n'existe."
+       }
+      ],
+      [
+       {
+        "t": "Risque de collapsus",
+        "i": "Le remplissage ventriculaire devient insuffisant, c'est une urgence de cardioversion."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Symptômes : palpitations rapides et régulières à début brutal, pulsations cervicales, dyspnée, asthénie, intolérance à l'effort, douleur thoracique, présyncope ; asymptomatique possible.",
+    "Rechercher les déclencheurs : alcool, caféine, infection, hyperthyroïdie, chirurgie récente, embolie pulmonaire, décompensation cardiaque ou respiratoire.",
+    "Préciser l'heure de début (seuil de 48 h), les antécédents de FA et la prise de flécaïnide, propafénone ou amiodarone.",
+    "Les manœuvres vagales ralentissent brusquement la fréquence ventriculaire sans interrompre le flutter et révèlent les ondes F ; ausculter les carotides avant massage et l'éviter en cas de souffle, sténose ou AVC récent.",
+    "Le pouls jugulaire peut montrer des ondes rapides à ≈300/min, plus nombreuses que le pouls artériel."
+   ],
+   "sources": [
+    "ESC 2019 Guidelines SVT",
+    "Société Suisse de Cardiologie"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "ECG, diagnostic positif et diagnostics différentiels, bilan",
+   "rubriques": [
+    "positiveDiagnosis",
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Cherche les ondes F en dents de scie dans les dérivations inférieures et en V1, puis utilise la réaction à l'adénosine ou aux manœuvres vagales pour départager les rivaux réguliers.",
+   "tableau": {
+    "colonnes": [
+     "Rival",
+     "Rythme et FC",
+     "Activité auriculaire",
+     "Réaction à la manœuvre vagale ou à l'adénosine"
+    ],
+    "lignes": [
+     [
+      "Flutter typique 2:1",
+      [
+       {
+        "t": "Régulier, ≈150/min fixe",
+        "i": "Le ratio 2:1 fixe donne une fréquence stable, peu influencée par l'effort."
+       }
+      ],
+      [
+       {
+        "t": "Dents de scie, sans ligne isoélectrique, négatives en inférieur",
+        "i": "Le circuit est continu, donc l'activité auriculaire n'a pas de pause."
+       }
+      ],
+      [
+       {
+        "t": "Ralentit brusquement, ondes F démasquées, le flutter persiste",
+        "i": "Le bloc AV transitoire ne touche pas le circuit auriculaire, il révèle seulement les ondes."
+       }
+      ]
+     ],
+     [
+      "Tachycardie sinusale",
+      [
+       {
+        "t": "Régulière, accélère et ralentit progressivement",
+        "i": "Le nœud sinusal suit le tonus et la cause (fièvre, anémie, douleur, hypovolémie)."
+       }
+      ],
+      [
+       {
+        "t": "Ondes P sinusales avant chaque QRS",
+        "i": "Le rythme naît du nœud sinusal, la morphologie P est normale."
+       }
+      ],
+      [
+       {
+        "t": "Ralentit progressivement, reprend ensuite",
+        "i": "Le nœud sinusal n'est pas interrompu, seul le tonus vagal le freine."
+       }
+      ]
+     ],
+     [
+      "Tachycardie intranodale (Bouveret)",
+      [
+       {
+        "t": "Régulière, 150–220/min, début et fin brusques",
+        "i": "La réentrée est dans le nœud AV lui-même."
+       }
+      ],
+      [
+       {
+        "t": "Pas d'onde F, P cachées ou rétrogrades",
+        "i": "L'oreillette est activée en rétrograde, sans activité auriculaire organisée."
+       }
+      ],
+      [
+       {
+        "t": "Cesse brusquement",
+        "i": "Le nœud AV fait partie du circuit, son blocage l'interrompt."
+       }
+      ]
+     ],
+     [
+      "Tachycardie atriale focale",
+      [
+       {
+        "t": "Régulière ou à conduction variable",
+        "i": "Un foyer ectopique atrial rapide est filtré par le nœud AV."
+       }
+      ],
+      [
+       {
+        "t": "Ondes P avec retour à la ligne isoélectrique",
+        "i": "Le foyer est discret, d'où des pauses entre les ondes, contrairement au macro-circuit."
+       }
+      ],
+      [
+       {
+        "t": "Bloc AV transitoire, tachycardie persiste",
+        "i": "Comme dans le flutter, le nœud AV n'est pas indispensable au circuit."
+       }
+      ]
+     ],
+     [
+      "Fibrillation auriculaire",
+      [
+       {
+        "t": "Irrégulièrement irrégulière",
+        "i": "Les influx auriculaires désorganisés sont conduits au hasard."
+       }
+      ],
+      [
+       {
+        "t": "Ondes f fines, sans organisation",
+        "i": "Aucun circuit unique n'existe."
+       }
+      ],
+      [
+       {
+        "t": "Ralentit, reste irrégulière",
+        "i": "Le bloc AV ne modifie pas l'absence d'organisation auriculaire."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "ECG 12 dérivations = examen clé : ondes F ≈300/min négatives en DII, DIII, aVF, positives en V1, QRS fins, réponse 2:1 le plus souvent.",
+    "Adénosine IV 6 mg puis 12 mg en bolus rapide, sous monitorage et avec défibrillateur à disposition : elle peut déclencher une FA transitoire.",
+    "Si l'ECG reste douteux : dérivation œsophagienne ou électrogramme intracardiaque ; Holter pour un flutter paroxystique ; étude électrophysiologique pour confirmer la dépendance à l'isthme.",
+    "Bilan : ETT (FEVG, valvulopathies, oreillette gauche), TSH, K+, Mg2+, hémogramme, créatinine avec clairance (dose des anticoagulants), troponine ou recherche d'embolie pulmonaire ou de sepsis selon le contexte."
+   ],
+   "sources": [
+    "ESC 2019 Guidelines SVT",
+    "AIPS Swissmedic (adénosine)"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Signaux d'alarme et contre-indications",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Identifie en premier lieu l'instabilité, puis les pièges médicamenteux (classe Ic sans bloqueur nodal, voie accessoire, FEVG basse) et la durée supérieure à 48 heures.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Danger",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Instabilité hémodynamique",
+      [
+       {
+        "t": "Hypotension, syncope, douleur ischémique, œdème pulmonaire, trouble de conscience",
+        "i": "La fréquence rapide réduit le débit cardiaque et la perfusion coronaire, avec risque de choc."
+       }
+      ],
+      [
+       {
+        "t": "Cardioversion électrique synchronisée immédiate",
+        "i": "Elle ne doit pas attendre l'anticoagulation, le risque vital prime sur le risque embolique."
+       }
+      ]
+     ],
+     [
+      "Classe Ic ou amiodarone sans bloqueur nodal",
+      [
+       {
+        "t": "Conduction 1:1 à ≈300/min, collapsus",
+        "i": "Le flutter ralentit sous antiarythmique, le nœud AV conduit alors chaque onde."
+       }
+      ],
+      [
+       {
+        "t": "Associer un bloqueur nodal ; éviter la classe Ic seule",
+        "i": "Le bêtabloquant ou l'inhibiteur calcique freine la conduction AV et prévient le 1:1."
+       }
+      ]
+     ],
+     [
+      "QRS larges avec activité auriculaire rapide",
+      [
+       {
+        "t": "Conduction par voie accessoire",
+        "i": "L'influx contourne le nœud AV, la fréquence ventriculaire peut devenir très élevée."
+       }
+      ],
+      [
+       {
+        "t": "Éviter adénosine, vérapamil, digoxine ; cardioversion ou antiarythmique adapté",
+        "i": "Ces médicaments freinent le nœud AV et favorisent la voie accessoire, d'où un risque de FV."
+       }
+      ]
+     ],
+     [
+      "FEVG réduite ou insuffisance cardiaque décompensée",
+      [
+       {
+        "t": "Aggravation de l'insuffisance cardiaque",
+        "i": "Vérapamil et diltiazem sont inotropes négatifs."
+       }
+      ],
+      [
+       {
+        "t": "Utiliser amiodarone ou digoxine IV pour la fréquence",
+        "i": "Ils ralentissent la conduction AV sans effet inotrope négatif marqué."
+       }
+      ]
+     ],
+     [
+      "Durée > 48 h ou inconnue",
+      [
+       {
+        "t": "Thrombus auriculaire, embolie à la cardioversion",
+        "i": "La stase auriculaire permet la formation d'un thrombus, la restauration du rythme sinusal le mobilise."
+       }
+      ],
+      [
+       {
+        "t": "Anticoagulation efficace ≥ 3 semaines ou ETO avant cardioversion",
+        "i": "L'ETO exclut le thrombus de l'auricule gauche et autorise une cardioversion précoce."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Un pouls régulier à ≈150/min impose de vérifier la tolérance avant toute manœuvre.",
+    "Le massage du sinus carotidien est contre-indiqué en cas de souffle carotidien, de sténose ou d'AVC récent."
+   ],
+   "sources": [
+    "ESC 2019 Guidelines SVT",
+    "ESC/EACTS 2024 Guidelines AF"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Prise en charge aiguë : démarche",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Commence par la stabilité, puis la FEVG pour choisir le ralentisseur nodal, puis la durée du flutter pour décider si la cardioversion se fait tout de suite.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Le flutter typique est documenté à l'ECG ; le patient est-il instable ?",
+     "i": "L'instabilité se définit par hypotension, syncope, douleur ischémique, œdème pulmonaire ou trouble de conscience.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Oui : cardioversion électrique synchronisée sous sédation",
+     "i": "Traitement immédiat, sans attendre l'anticoagulation ; 50 à 100 J en biphasique suffisent souvent.",
+     "pec": "urgence_instable",
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Non : le patient est stable ; la FEVG est-elle conservée ?",
+     "i": "La FEVG décide du ralentisseur nodal, car les inhibiteurs calciques sont inotropes négatifs.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Oui : bêtabloquant, vérapamil ou diltiazem",
+     "i": "Ces molécules freinent le nœud AV, mais le contrôle de fréquence reste difficile dans le flutter.",
+     "pec": "stable_aigu",
+     "notion": "c5"
+    },
+    {
+     "id": "n5",
+     "parent": "n3",
+     "t": "Non : amiodarone ou digoxine IV",
+     "i": "Contrôle de fréquence sans effet inotrope négatif ; l'amiodarone peut convertir, d'où le risque embolique sans anticoagulation.",
+     "pec": "stable_aigu",
+     "notion": "c4"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Non : le flutter dure-t-il moins de 48 h ou le patient est-il anticoagulé efficacement depuis 3 semaines ?",
+     "i": "Au-delà de 48 h ou si la durée est inconnue, le risque de thrombus auriculaire contre-indique une cardioversion sans protection.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Oui : cardioversion électrique programmée ou stimulation auriculaire rapide",
+     "i": "Très efficace à faible énergie ; l'overdrive interrompt le flutter sans choc chez certains patients.",
+     "pec": "stable_aigu",
+     "notion": "c5"
+    },
+    {
+     "id": "n8",
+     "parent": "n6",
+     "t": "Non : anticoagulation, contrôle de fréquence, puis ETO ou 3 semaines avant cardioversion",
+     "i": "L'ETO exclut un thrombus de l'auricule gauche et évite d'attendre trois semaines.",
+     "pec": "stable_aigu",
+     "notion": "c4"
+    },
+    {
+     "id": "n9",
+     "parent": "n7",
+     "t": "Après le retour en rythme sinusal : anticoagulation ≥ 4 semaines",
+     "i": "La sidération auriculaire expose à des emboles malgré le rythme sinusal ; la suite dépend ensuite du CHA2DS2-VA.",
+     "pec": "long_cours",
+     "notion": "c6"
+    }
+   ],
+   "points": [
+    "Classe Ic et vernakalant convertissent peu le flutter ; la classe Ic exige un bloqueur nodal associé.",
+    "Le contrôle de fréquence seul est souvent insuffisant : le flutter se traite par cardioversion puis ablation."
+   ],
+   "sources": [
+    "ESC 2019 Guidelines SVT",
+    "ESC/EACTS 2024 Guidelines AF"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Anticoagulation : score CHA2DS2-VA et molécules",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "Décide de l'anticoagulation au long cours sur le score CHA2DS2-VA et non sur le rythme, puis choisis un anticoagulant oral direct, sauf valve mécanique ou sténose mitrale modérée à sévère.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Points",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Insuffisance cardiaque",
+      [
+       {
+        "t": "1",
+        "i": "La dysfonction ventriculaire augmente la stase auriculaire et le risque embolique."
+       }
+      ],
+      [
+       {
+        "t": "Facteur de risque cardiaque",
+        "i": "Il est aussi cause et conséquence du flutter."
+       }
+      ]
+     ],
+     [
+      "Hypertension",
+      [
+       {
+        "t": "1",
+        "i": "Elle favorise le remodelage auriculaire et les lésions vasculaires."
+       }
+      ],
+      [
+       {
+        "t": "Facteur de risque vasculaire",
+        "i": "Il est fréquent chez les patients avec flutter."
+       }
+      ]
+     ],
+     [
+      "Âge ≥ 75 ans",
+      [
+       {
+        "t": "2",
+        "i": "Le risque d'AVC croît fortement avec l'âge, d'où une pondération double."
+       }
+      ],
+      [
+       {
+        "t": "Plus forte pondération",
+        "i": "Il pèse autant qu'un antécédent d'AVC."
+       }
+      ]
+     ],
+     [
+      "Diabète",
+      [
+       {
+        "t": "1",
+        "i": "Il favorise l'atteinte vasculaire et le risque embolique."
+       }
+      ],
+      [
+       {
+        "t": "Facteur de risque métabolique",
+        "i": "Il se corrige par le traitement du diabète."
+       }
+      ]
+     ],
+     [
+      "AVC, AIT ou embolie systémique",
+      [
+       {
+        "t": "2",
+        "i": "Un événement antérieur prédit fortement un nouvel événement."
+       }
+      ],
+      [
+       {
+        "t": "Plus forte pondération",
+        "i": "Il impose à lui seul l'anticoagulation."
+       }
+      ]
+     ],
+     [
+      "Maladie vasculaire",
+      [
+       {
+        "t": "1",
+        "i": "Infarctus, artériopathie ou plaque aortique reflètent un risque embolique accru."
+       }
+      ],
+      [
+       {
+        "t": "Facteur de risque vasculaire",
+        "i": "Il s'ajoute aux autres éléments."
+       }
+      ]
+     ],
+     [
+      "Âge 65–74 ans",
+      [
+       {
+        "t": "1",
+        "i": "Le risque augmente déjà dès cet âge, mais moins qu'après 75 ans."
+       }
+      ],
+      [
+       {
+        "t": "Tranche d'âge intermédiaire",
+        "i": "Elle ne s'additionne pas à l'âge ≥ 75 ans."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Score ≥ 2 : anticoagulation orale recommandée ; score 1 : à considérer ; l'ablation réussie du flutter ne justifie pas à elle seule l'arrêt.",
+    "DOAC préférés aux AVK ; en Suisse, le phenprocoumon (Marcoumar) vise un INR de 2 à 3, réservé aux valves mécaniques ou sténose mitrale modérée à sévère.",
+    "Apixaban 5 mg 2×/j, réduit à 2,5 mg 2×/j si deux critères parmi âge ≥ 80 ans, poids ≤ 60 kg, créatinine ≥ 133 µmol/l.",
+    "Autour de la cardioversion : anticoagulation avant si possible (≥ 3 semaines ou ETO) et ≥ 4 semaines après, quel que soit le score."
+   ],
+   "sources": [
+    "ESC/EACTS 2024 Guidelines AF",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Ablation de l'isthme cavo-tricuspidien et suivi",
+   "rubriques": [
+    "chronicManagement",
+    "hospitalizationComplications",
+    "surveillance",
+    "prognosisDischarge"
+   ],
+   "comment": "Propose l'ablation par radiofréquence de l'isthme au patient symptomatique ou récidivant, car elle guérit plus de 90 % des cas, puis surveille l'apparition d'une FA.",
+   "tableau": {
+    "colonnes": [
+     "Aspect",
+     "Donnée",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Indication",
+      [
+       {
+        "t": "Flutter typique symptomatique ou récidivant",
+        "i": "Le médicament contrôle mal la fréquence et prévient peu les récidives, l'ablation est curative."
+       }
+      ],
+      [
+       {
+        "t": "Traitement de choix",
+        "i": "Le circuit est anatomique et fixe, d'où la supériorité sur le traitement médicamenteux."
+       }
+      ]
+     ],
+     [
+      "Succès",
+      [
+       {
+        "t": "> 90–95 %, sans récidive de flutter typique > 90 %",
+        "i": "La ligne de bloc linéaire interrompt le circuit à son point obligatoire."
+       }
+      ],
+      [
+       {
+        "t": "Confirmé par un bloc bidirectionnel à travers l'isthme",
+        "i": "Un bloc unidirectionnel laisse subsister un risque de récidive."
+       }
+      ]
+     ],
+     [
+      "Complications rares",
+      [
+       {
+        "t": "Tamponnade, saignement au point de ponction, bloc AV, accident thromboembolique",
+        "i": "Ce sont les risques d'une procédure intracardiaque près du nœud AV, avec cathéters et anticoagulation."
+       }
+      ],
+      [
+       {
+        "t": "Information du patient avant la procédure",
+        "i": "Le consentement éclairé impose d'expliquer risques et alternatives."
+       }
+      ]
+     ],
+     [
+      "Après l'ablation",
+      [
+       {
+        "t": "FA fréquente ensuite, à dépister par ECG ou Holter en cas de palpitations",
+        "i": "Le substrat auriculaire commun à la FA persiste après ablation du flutter."
+       }
+      ],
+      [
+       {
+        "t": "Anticoagulation selon CHA2DS2-VA, non selon le rythme",
+        "i": "Le risque embolique dépend du terrain et de la FA possible, pas du seul flutter."
+       }
+      ]
+     ],
+     [
+      "Sans ablation",
+      [
+       {
+        "t": "Bêtabloquant ou inhibiteur calcique au long cours",
+        "i": "Ils contrôlent la fréquence, mais préviennent peu les récidives."
+       }
+      ],
+      [
+       {
+        "t": "Efficacité moindre sur les récidives",
+        "i": "Ces molécules n'agissent pas sur le circuit de réentrée."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Complications du flutter non traité : AVC, tachycardiomyopathie réversible après restauration du rythme sinusal, insuffisance cardiaque aiguë, ischémie de demande.",
+    "Suivi : ECG de contrôle, réévaluation du risque embolique, seconde procédure possible en cas de récidive.",
+    "Pronostic à long terme déterminé par la cardiopathie sous-jacente, l'apparition d'une FA et la qualité de l'anticoagulation.",
+    "Le médecin de famille coordonne anticoagulation, facteurs de risque et TSH ; le rythmologue réalise l'ablation et suit le rythme."
+   ],
+   "sources": [
+    "ESC 2019 Guidelines SVT",
+    "ESC/EACTS 2024 Guidelines AF",
+    "Société Suisse de Cardiologie"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence_instable",
+   "titre": "Flutter mal toléré : cardioversion électrique urgente",
+   "but": [
+    "Rétablir sans délai une hémodynamique stable en interrompant le circuit de réentrée.",
+    "Limiter le risque embolique péri-procédural par une anticoagulation instaurée en parallèle."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installer le patient en salle de déchocage avec scope, saturomètre et tension artérielle répétée.",
+     "Poser une voie veineuse et préparer le défibrillateur avec électrodes en position antéro-postérieure.",
+     "Administrer de l'oxygène seulement si la saturation est basse, pour éviter l'hyperoxie."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Propofol (hypnotique)",
+      "posologie": "0,5–1 mg/kg IV titré lentement, avec surveillance des voies aériennes ; dose réduite si hypotension",
+      "pourquoi": "Sédation courte et rapide pour cardioverser un patient conscient, avec risque d'hypotension à anticiper chez le patient instable.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Héparine non fractionnée (anticoagulant)",
+      "posologie": "Bolus IV adapté au poids selon protocole local, avant ou pendant la cardioversion",
+      "pourquoi": "Réduit le risque embolique péri-cardioversion sans retarder le choc, quand l'instabilité interdit d'attendre.",
+      "source": "[ESC, 2024]"
+     },
+     {
+      "molecule": "Amiodarone (antiarythmique de classe III)",
+      "posologie": "5 mg/kg IV en 20 à 60 min (environ 300 mg), en cas de récidive immédiate ou d'échec",
+      "pourquoi": "Aide à maintenir le rythme sinusal ou à ralentir la conduction ; l'effet reste lent et le risque embolique existe.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Délivrer un choc synchronisé biphasique de 50 à 100 J, en vérifiant le mode SYNC, puis augmenter l'énergie en cas d'échec.",
+      "pourquoi": "Le circuit du flutter se réduit à faible énergie ; la synchronisation évite de tomber sur l'onde T."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveiller la conscience, la saturation et le rythme après le choc jusqu'au réveil complet.",
+      "pourquoi": "La sédation et une éventuelle bradycardie post-choc exigent une surveillance rapprochée."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'indication d'urgence, l'information du patient ou de ses proches et le consentement présumé ou différé."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Monitorer en continu rythme, tension et saturation.",
+      "Garder le défibrillateur et le matériel de réanimation à portée.",
+      "Rechercher et traiter la cause déclenchante (hypoxie, K+, sepsis, embolie)."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Confirme à l'ECG un flutter instable et décide la cardioversion immédiate sans attendre l'anticoagulation."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose la voie veineuse, branche le scope et prépare le défibrillateur en mode synchronisé."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Sécurise les voies aériennes, administre la sédation et surveille la tension."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Délivre le choc synchronisé de 50 à 100 J biphasique puis contrôle le rythme à l'ECG."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Débute l'anticoagulation, traite la cause et organise l'hospitalisation en unité monitorée."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La cardioversion rétablit le rythme sinusal chez la grande majorité des patients ; la récidive sans ablation reste fréquente.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Rythme à l'ECG et tension artérielle",
+      "quand": "Après le choc puis surveillance monitorée en continu",
+      "cible": "Rythme sinusal, patient hémodynamiquement stable"
+     },
+     {
+      "quoi": "Conscience et saturation après sédation",
+      "quand": "Jusqu'au réveil complet",
+      "cible": "Conscience normale, SpO2 ≥ 94 %"
+     },
+     {
+      "quoi": "Anticoagulation en cours",
+      "quand": "Pendant ≥ 4 semaines après la cardioversion",
+      "cible": "Traitement pris sans interruption"
+     }
+    ],
+    "sortie": "Sortie autorisée après rythme sinusal stable monitoré, cause traitée, anticoagulation instaurée et rendez-vous cardiologique pour ablation fixé."
+   },
+   "prevention": {
+    "primaire": "Contrôler HTA, BPCO, insuffisance cardiaque et hyperthyroïdie ; limiter alcool et caféine.",
+    "secondaire": "Proposer l'ablation de l'isthme après un premier épisode symptomatique.",
+    "tertiaire": "Poursuivre l'anticoagulation selon le CHA2DS2-VA pour prévenir l'AVC."
+   }
+  },
+  {
+   "cle": "stable_aigu",
+   "titre": "Flutter stable : contrôle de fréquence, anticoagulation et cardioversion programmée",
+   "but": [
+    "Ralentir la fréquence ventriculaire en respectant la FEVG.",
+    "Protéger du risque embolique avant et après toute restauration du rythme sinusal."
+   ],
+   "moyens": {
+    "accueil": [
+     "Mesurer tension, saturation et conscience pour confirmer la stabilité.",
+     "Monitorer le rythme et poser une voie veineuse.",
+     "Préciser l'heure de début et les médicaments antiarythmiques déjà pris."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Métoprolol (bêtabloquant)",
+      "posologie": "2,5–5 mg IV lent en 2 min, répétable à 5 min jusqu'à 15 mg ; relais per os retard 50–200 mg/j",
+      "pourquoi": "Ralentit la conduction AV chez le patient stable à FEVG conservée ; éviter si hypotension, bradycardie ou bloc AV.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Vérapamil (inhibiteur calcique non dihydropyridinique)",
+      "posologie": "5–10 mg IV lent en 2 min si FEVG conservée ; ne pas associer à un bêtabloquant IV",
+      "pourquoi": "Alternative pour le contrôle de fréquence ; inotrope négatif, donc contre-indiqué si FEVG réduite ou pré-excitation.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Amiodarone (antiarythmique de classe III)",
+      "posologie": "5 mg/kg IV en 20 à 60 min, relais selon indication",
+      "pourquoi": "Contrôle la fréquence si FEVG réduite ; peut convertir en rythme sinusal, d'où l'anticoagulation préalable nécessaire.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Digoxine (glycoside cardiotonique)",
+      "posologie": "0,25–0,5 mg IV lent, dose de charge fractionnée selon fonction rénale et kaliémie",
+      "pourquoi": "Alternative au contrôle de fréquence en cas d'insuffisance cardiaque ; contre-indiquée si voie accessoire ou hypokaliémie.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Apixaban (anticoagulant oral direct)",
+      "posologie": "5 mg 2×/j, réduit à 2,5 mg 2×/j si deux critères parmi âge ≥ 80 ans, poids ≤ 60 kg, créatinine ≥ 133 µmol/l",
+      "pourquoi": "Protège avant la cardioversion et pendant au moins 4 semaines après, selon les règles de la FA.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réaliser une ETO avant cardioversion si le flutter dure plus de 48 h sans anticoagulation efficace de 3 semaines.",
+      "pourquoi": "Exclut un thrombus de l'auricule gauche et évite d'attendre trois semaines."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Cardioverser par choc synchronisé de 50 à 100 J, ou stimulation auriculaire rapide chez certains patients.",
+      "pourquoi": "Le circuit se réduit à faible énergie ; l'overdrive évite le choc dans certains cas."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Corriger alcool, caféine, K+, Mg2+ et cause aiguë (infection, hyperthyroïdie, embolie pulmonaire).",
+      "pourquoi": "Un déclencheur réversible favorise le retour du flutter."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Établit un certificat d'incapacité de travail pendant le bilan et la période de cardioversion."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Documenter l'heure de début, la FEVG et la clairance de la créatinine avant tout traitement.",
+      "Éviter l'association de bloqueurs nodaux en excès (bradycardie, bloc AV).",
+      "Expliquer au patient la nécessité d'anticoagulation avant et après la cardioversion."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Vérifie la stabilité, l'ECG, la durée du flutter, la FEVG et l'absence de QRS larges ou de voie accessoire."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Prélève TSH, K+, Mg2+, hémogramme et créatinine et surveille le scope."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Choisit le ralentisseur nodal selon la FEVG et démarre l'anticoagulation."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Programme l'ETO si la durée dépasse 48 h, puis la cardioversion électrique ou l'overdrive."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Fixe la consultation de rythmologie pour l'ablation de l'isthme avant la sortie."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le contrôle de fréquence est souvent difficile ; la cardioversion réussit très souvent à faible énergie, mais le flutter récidive sans ablation.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Fréquence cardiaque et tension",
+      "quand": "Pendant et après le contrôle de fréquence",
+      "cible": "FC < 110/min au repos, sans hypotension ni bradycardie"
+     },
+     {
+      "quoi": "K+, Mg2+, créatinine",
+      "quand": "Initialement puis après adaptation des traitements",
+      "cible": "Valeurs normales, clairance connue pour la dose des DOAC"
+     },
+     {
+      "quoi": "Rythme à l'ECG après cardioversion",
+      "quand": "Avant la sortie et au contrôle",
+      "cible": "Rythme sinusal"
+     }
+    ],
+    "sortie": "Sortie après contrôle de fréquence ou rythme sinusal stable, anticoagulation débutée, cause corrigée et suivi cardiologique organisé."
+   },
+   "prevention": {
+    "primaire": "Traiter HTA, BPCO, insuffisance cardiaque et dysthyroïdie ; limiter alcool et caféine.",
+    "secondaire": "Anticoaguler selon le CHA2DS2-VA et proposer l'ablation de l'isthme.",
+    "tertiaire": "Dépister une tachycardiomyopathie et une FA, suivre la FEVG."
+   }
+  },
+  {
+   "cle": "long_cours",
+   "titre": "Traitement au long cours : ablation de l'isthme et anticoagulation",
+   "but": [
+    "Guérir le flutter typique par ablation de l'isthme cavo-tricuspidien.",
+    "Prévenir l'AVC par une anticoagulation décidée sur le CHA2DS2-VA et non sur le rythme."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer au patient que l'ablation est curative dans plus de 90 % des cas.",
+     "Recueillir ses préférences, ses comorbidités et son traitement anticoagulant actuel.",
+     "Vérifier la clairance de la créatinine et la FEVG avant la procédure."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Apixaban (anticoagulant oral direct)",
+      "posologie": "5 mg 2×/j ; 2,5 mg 2×/j si deux critères parmi âge ≥ 80 ans, poids ≤ 60 kg, créatinine ≥ 133 µmol/l",
+      "pourquoi": "Traitement préféré si CHA2DS2-VA ≥ 2 (à considérer à 1), indépendamment du rythme et de l'ablation réussie.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Phenprocoumon (Marcoumar, antivitamine K)",
+      "posologie": "Dose selon INR, cible 2 à 3 ; réservé à la valve mécanique ou à la sténose mitrale modérée à sévère",
+      "pourquoi": "Les DOAC sont contre-indiqués dans ces cas, seule l'antivitamine K protège efficacement.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Métoprolol ou bisoprolol (bêtabloquant)",
+      "posologie": "Métoprolol retard 50–200 mg/j ou bisoprolol 2,5–10 mg/j, selon FC et tension",
+      "pourquoi": "Contrôle la fréquence chez le patient qui refuse l'ablation ; il ne prévient que peu les récidives.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Pratiquer l'ablation par radiofréquence de l'isthme et confirmer le bloc bidirectionnel.",
+      "pourquoi": "Le bloc bidirectionnel interrompt définitivement le circuit et réduit les récidives."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Enseigner la reconnaissance des palpitations, l'observance de l'anticoagulation et la limitation de l'alcool et de la caféine.",
+      "pourquoi": "Réduit les déclencheurs et le risque d'oubli de l'anticoagulant."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Traiter HTA, BPCO, insuffisance cardiaque et dysthyroïdie ; éviter les excès d'alcool.",
+      "pourquoi": "Ces facteurs entretiennent le substrat auriculaire et favorisent la FA."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Prend en charge l'incapacité de travail liée à la procédure et organise la reprise professionnelle."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantit l'information sur les risques de l'ablation (tamponnade, bloc AV) et le consentement éclairé."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Calculer le CHA2DS2-VA avant tout arrêt ou choix d'anticoagulant.",
+      "Adapter la dose du DOAC à la fonction rénale, à l'âge et au poids.",
+      "Dépister la FA par ECG ou Holter en cas de palpitations après l'ablation."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin de famille",
+       "fait": "Calcule le CHA2DS2-VA, vérifie créatinine et TSH puis adresse le patient au rythmologue."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Réalise l'ablation de l'isthme sous contrôle électrophysiologique et vérifie le bloc bidirectionnel."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Surveille le point de ponction, la tension et le rythme après la procédure."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin de famille",
+       "fait": "Coordonne l'anticoagulation, les facteurs de risque cardiovasculaires et le suivi de la TSH."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Contrôle ECG et Holter, propose une seconde ablation en cas de récidive."
+      }
+     ]
+    }
+   },
+   "pronostic": "Plus de 90 % des patients restent sans récidive de flutter typique après ablation ; le pronostic dépend ensuite de la cardiopathie, de la FA et de l'anticoagulation.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "ECG de contrôle et Holter si palpitations",
+      "quand": "Après l'ablation puis selon symptômes",
+      "cible": "Rythme sinusal, absence de FA ou de récidive de flutter"
+     },
+     {
+      "quoi": "CHA2DS2-VA et risque hémorragique",
+      "quand": "Au moins une fois par an",
+      "cible": "Anticoagulation adaptée, sans interruption non justifiée"
+     },
+     {
+      "quoi": "Créatinine et dose du DOAC",
+      "quand": "Au moins une fois par an, plus souvent si insuffisance rénale ou âge avancé",
+      "cible": "Dose adaptée à la clairance, au poids et à l'âge"
+     },
+     {
+      "quoi": "FEVG à l'ETT",
+      "quand": "Si symptômes ou FC rapide prolongée",
+      "cible": "Récupération de la FEVG si tachycardiomyopathie"
+     }
+    ],
+    "sortie": "Sortie après l'ablation si le point de ponction est calme, le rythme sinusal stable, l'anticoagulation reprise et le suivi rythmologique fixé."
+   },
+   "prevention": {
+    "primaire": "Contrôler HTA, BPCO, insuffisance cardiaque, hyperthyroïdie et limiter l'alcool.",
+    "secondaire": "Dépister la FA et maintenir l'anticoagulation selon le score.",
+    "tertiaire": "Prévenir l'AVC et la tachycardiomyopathie par suivi régulier de la fréquence, de la FEVG et de l'observance."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7772,
+  "output_tokens": 25064,
+  "output_tokens_details": {
+   "thinking_tokens": 7476
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:34:52",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

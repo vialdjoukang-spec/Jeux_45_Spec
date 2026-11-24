@@ -1,0 +1,1152 @@
+{
+ "id": "K90.8_1__O7_7-E10",
+ "portes": [
+  {
+   "ssp": "O7.7",
+   "nomSSP": "Questions relatives à la tolérance alimentaire",
+   "entite": "Pullulation bactérienne du grêle (SIBO) ou insuffisance pancréatique exocrine",
+   "entiteId": "O7.7-E10"
+  }
+ ],
+ "entite": "Pullulation bactérienne du grêle (SIBO) ou insuffisance pancréatique exocrine",
+ "cim10": "K90.8",
+ "ssp": {
+  "code": "O7.7",
+  "nom": "Questions relatives à la tolérance alimentaire",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient avec ballonnements postprandiaux, selles grasses ou amaigrissement",
+    "i": "Ce motif de consultation relève du SSP O7.7 : plusieurs entités du même SSP donnent un tableau voisin.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Réaction immédiate avec urticaire, dyspnée ou hypotension ?",
+    "i": "Une réaction allergique IgE-médiée en minutes à 2 heures est une urgence et ne se confond pas avec une maldigestion chronique.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : anaphylaxie alimentaire",
+    "i": "Sort du cadre : renvoie au SSP du choc anaphylactique alimentaire (adrénaline im).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : symptômes digestifs chroniques",
+    "i": "La chronicité oriente vers maldigestion, intolérance ou trouble fonctionnel.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Drapeau rouge : perte de poids rapide, ictère indolore, diabète récent après 50 ans, anémie, saignement",
+    "i": "Ces signes imposent d'exclure une néoplasie avant d'attribuer les symptômes à un SIBO ou une IPE.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Oui : imagerie pancréatique, endoscopie, tumor board",
+    "i": "Un cancer de la tête du pancréas se révèle par ictère indolore et stéatorrhée.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n5",
+    "t": "Non : maldigestion probable",
+    "i": "En l'absence de drapeau rouge, le contexte oriente le test.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Selles grasses flottantes, pancréatite, alcool ou chirurgie pancréatique : élastase fécale",
+    "i": "Le contexte pancréatique évoque une IPE ; le dosage se fait sur selle formée.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Élastase < 200 µg/g : IPE confirmée",
+    "i": "Seuil de l'IPE ; imagerie pancréatique si cause inconnue.",
+    "pec": "ipe",
+    "notion": "c6"
+   },
+   {
+    "id": "n10",
+    "parent": "n7",
+    "t": "Ballonnements précoces, chirurgie, IPP, sclérodermie, diabète : test respiratoire",
+    "i": "Le contexte de stase ou d'hypochlorhydrie évoque un SIBO.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Test positif : SIBO",
+    "i": "H2 ≥ 20 ppm avant 90 min ou CH4 ≥ 10 ppm ; traitement de la cause et antibiotique.",
+    "pec": "sibo",
+    "notion": "c7"
+   },
+   {
+    "id": "n12",
+    "parent": "n7",
+    "t": "Dénutrition sévère, INR allongé, hypoalbuminémie, déshydratation",
+    "i": "La gravité nutritionnelle prime sur le diagnostic étiologique.",
+    "pec": "denutrition",
+    "notion": "c8"
+   },
+   {
+    "id": "n13",
+    "parent": "n7",
+    "t": "Tests négatifs : chercher un diagnostic rival",
+    "i": "Maladie cœliaque (tTG-IgA + IgA totales), intolérance au lactose, SII, MICI, giardiase : renvoie aux entités rivales du SSP O7.7.",
+    "pec": null,
+    "notion": "c5"
+   }
+  ]
+ },
+ "specialites": [
+  "GAS"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "SIBO et insuffisance pancréatique exocrine : maldigestion et malabsorption",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "SIBO, IPE et leur coexistence : définitions et mécanismes",
+   "rubriques": [
+    "definition",
+    "basicSciences"
+   ],
+   "comment": "Distingue d'abord un défaut de digestion (enzymes) d'un excès de bactéries (fermentation), puis rappelle que les deux se cumulent souvent.",
+   "tableau": {
+    "colonnes": [
+     "Entité",
+     "Définition",
+     "Mécanisme",
+     "Marqueur discriminant"
+    ],
+    "lignes": [
+     [
+      "SIBO",
+      "≥ 10^3 UFC/mL dans l'aspirat jéjunal",
+      [
+       {
+        "t": "Déconjugaison des sels biliaires",
+        "i": "Les bactéries du grêle déconjuguent les sels biliaires : les micelles se forment mal, d'où stéatorrhée et malabsorption des vitamines A, D, E, K."
+       }
+      ],
+      [
+       {
+        "t": "B12 basse, folates normaux ou élevés",
+        "i": "Les bactéries consomment la B12 et synthétisent des folates ; dans l'IPE seule, la B12 est le plus souvent normale."
+       }
+      ]
+     ],
+     [
+      "IPE",
+      "Sécrétion insuffisante d'enzymes pancréatiques, surtout la lipase",
+      [
+       {
+        "t": "Défaut d'hydrolyse des graisses",
+        "i": "La lipase est la première enzyme déficitaire et la plus labile à l'acidité : la stéatorrhée précède l'azotorrhée."
+       }
+      ],
+      [
+       {
+        "t": "Élastase fécale < 200 µg/g",
+        "i": "L'élastase-1 reflète la sécrétion pancréatique et n'est pas modifiée par les enzymes porcines, contrairement aux autres tests."
+       }
+      ]
+     ],
+     [
+      "Coexistence",
+      "Les deux entités s'associent chez un même patient",
+      [
+       {
+        "t": "L'IPE favorise le SIBO",
+        "i": "Le déficit enzymatique, l'altération du pH et la dysmotilité facilitent la pullulation bactérienne."
+       }
+      ],
+      [
+       {
+        "t": "Réponse partielle aux enzymes seules",
+        "i": "Un patient sous enzymes qui garde ballonnements et diarrhée doit faire évoquer un SIBO associé."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Stéatorrhée clinique seulement après perte de plus de 90 % de la lipase pancréatique.",
+    "SIBO et IPE donnent un tableau semblable de maldigestion.",
+    "La stéatorrhée précède l'azotorrhée, car la lipase défaille avant la trypsine."
+   ],
+   "sources": [
+    "Löhr JM et al., United European Gastroenterol J 2017 (HaPanEU)",
+    "Pimentel M et al., ACG Clinical Guideline SIBO 2020"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Facteurs de risque et causes",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Cherche à l'anamnèse la cause anatomique, motrice, médicamenteuse ou pancréatique, car elle oriente le test et prédit la récidive.",
+   "tableau": {
+    "colonnes": [
+     "Catégorie",
+     "SIBO",
+     "IPE"
+    ],
+    "lignes": [
+     [
+      "Chirurgie",
+      [
+       {
+        "t": "Chirurgie bariatrique ou abdominale",
+        "i": "Anses borgnes, valve iléocæcale réséquée et stase favorisent la colonisation du grêle."
+       }
+      ],
+      [
+       {
+        "t": "Résection pancréatique ou gastrique",
+        "i": "La perte de parenchyme ou l'asynchronisme entre repas et enzymes réduit la digestion des graisses."
+       }
+      ]
+     ],
+     [
+      "Motricité et anatomie",
+      [
+       {
+        "t": "Sclérodermie, diabète neuropathique, diverticules du grêle",
+        "i": "Le péristaltisme défaillant ou les diverticules laissent stagner le contenu et permettent la pullulation."
+       }
+      ],
+      "Obstruction canalaire par tumeur"
+     ],
+     [
+      "Médicaments",
+      [
+       {
+        "t": "IPP au long cours",
+        "i": "L'hypochlorhydrie supprime la barrière acide gastrique, d'où une colonisation par des bactéries orales et coliques."
+       }
+      ],
+      "Peu de médicaments en cause"
+     ],
+     [
+      "Maladies pancréatiques",
+      "Pancréatite chronique (cofacteur par IPE)",
+      [
+       {
+        "t": "Pancréatite chronique alcoolique, mucoviscidose, cancer du pancréas, diabète",
+        "i": "La destruction du parenchyme exocrine est la cause majeure ; le diabète ajoute une atteinte exocrine fréquente."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Chirurgie digestive, IPP et sclérodermie sont les triades à rechercher pour le SIBO.",
+    "La pancréatite chronique alcoolique reste la cause classique d'IPE chez l'adulte.",
+    "La prévalence augmente avec l'âge et les facteurs de risque."
+   ],
+   "sources": [
+    "Pimentel M et al., ACG 2020",
+    "Löhr JM et al., UEG J 2017"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen : symptômes et signes de carence",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Fais parler les selles et le contexte, puis cherche à l'examen les carences en vitamines liposolubles qui prouvent la malabsorption.",
+   "tableau": {
+    "colonnes": [
+     "Carence",
+     "Signe clinique",
+     "Mécanisme"
+    ],
+    "lignes": [
+     [
+      "Vitamine A",
+      [
+       {
+        "t": "Cécité nocturne",
+        "i": "La vitamine A sert à la rhodopsine rétinienne ; sa malabsorption altère d'abord la vision scotopique."
+       }
+      ],
+      "Malabsorption des graisses"
+     ],
+     [
+      "Vitamine D",
+      [
+       {
+        "t": "Ostéomalacie, douleurs osseuses",
+        "i": "Sans vitamine D, le calcium est mal absorbé et la minéralisation osseuse échoue."
+       }
+      ],
+      "Malabsorption des graisses"
+     ],
+     [
+      "Vitamine E",
+      [
+       {
+        "t": "Neuropathie, ataxie",
+        "i": "L'absence d'antioxydant lipophile atteint les cordons postérieurs et les nerfs périphériques."
+       }
+      ],
+      "Malabsorption des graisses"
+     ],
+     [
+      "Vitamine K",
+      [
+       {
+        "t": "Ecchymoses, saignements, INR allongé",
+        "i": "Les facteurs II, VII, IX, X dépendent de la vitamine K ; le TP baisse et l'INR s'allonge."
+       }
+      ],
+      "Malabsorption des graisses"
+     ],
+     [
+      "B12 (SIBO)",
+      [
+       {
+        "t": "Anémie macrocytaire, neuropathie",
+        "i": "Les bactéries captent la B12 avant l'absorption iléale ; ce mécanisme n'existe pas dans l'IPE pure."
+       }
+      ],
+      "Consommation bactérienne"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "IPE : selles volumineuses, pâteuses, flottantes, malodorantes, perte de poids malgré appétit conservé.",
+    "SIBO : ballonnements précoces, flatulences, douleurs, diarrhée fermentaire.",
+    "Rechercher chirurgie, alcool, diabète, IPP, sclérodermie, douleur épigastrique irradiant dans le dos.",
+    "Examiner météorisme, bruits hydroaériques, IMC, fonte musculaire, sclérodactylie, ictère, masse épigastrique."
+   ],
+   "sources": [
+    "Löhr JM et al., UEG J 2017",
+    "Pimentel M et al., ACG 2020"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Drapeaux rouges : exclure d'abord une néoplasie ou une obstruction",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Écarte un cancer pancréatique, digestif ou une obstruction avant de conclure à un SIBO ou à une IPE bénigne.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Maldigestion suspectée : y a-t-il un drapeau rouge ?",
+     "i": "Le SIBO et l'IPE sont des diagnostics d'exclusion d'une cause grave.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Perte de poids rapide involontaire",
+     "i": "Elle impose d'exclure une néoplasie digestive avant toute attribution à un SIBO ou une IPE.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Ictère indolore avec stéatorrhée",
+     "i": "Ce tableau évoque un cancer de la tête du pancréas : scanner pancréatique et tumor board.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Diabète récent après 50 ans avec amaigrissement",
+     "i": "Il peut être un diabète pancréatogène révélateur d'un adénocarcinome pancréatique.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Douleur épigastrique transfixiante vers le dos",
+     "i": "Elle oriente vers une pancréatite chronique ou une tumeur du pancréas.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Anémie, saignement, fièvre, diarrhée nocturne ou sanglante",
+     "i": "Ces signes ne sont pas fonctionnels : rechercher MICI ou néoplasie (endoscopie).",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n1",
+     "t": "Vomissements, distension, douleurs chez un opéré",
+     "i": "Ils suggèrent une obstruction ou une anse borgne : imagerie urgente.",
+     "pec": null,
+     "notion": null
+    }
+   ],
+   "points": [
+    "Une IPE nouvelle sans cause connue impose une imagerie pancréatique.",
+    "Un adénocarcinome peut se révéler par IPE, ictère ou diabète récent."
+   ],
+   "sources": [
+    "Löhr JM et al., UEG J 2017",
+    "Swiss Medical Forum, recommandations sur le cancer du pancréas"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan et diagnostic positif",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Choisis le test selon l'hypothèse : élastase fécale pour l'IPE, test respiratoire pour le SIBO, imagerie si l'IPE est nouvelle, puis bilan nutritionnel.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Maldigestion sans drapeau rouge",
+     "i": "Le test se choisit selon le contexte clinique dominant.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Selles grasses, contexte pancréatique : élastase-1 fécale sur selle formée",
+     "i": "Une diarrhée aqueuse dilue l'échantillon et donne une élastase faussement basse ; l'élastase humaine reste fiable sous enzymes porcines.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Élastase < 200 µg/g (< 100 : sévère)",
+     "i": "Seuil d'IPE ; la valeur < 100 µg/g indique une IPE sévère.",
+     "pec": "ipe",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "IPE nouvelle sans cause : scanner, IRM-cholangiographie ou écho-endoscopie",
+     "i": "Elle exclut tumeur et pancréatite chronique, causes à ne pas manquer.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Ballonnements précoces, facteur de risque : test respiratoire glucose ou lactulose",
+     "i": "Jeûne de 8 à 12 h, repas pauvre en fibres la veille, aucun antibiotique depuis 4 semaines.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "H2 ≥ 20 ppm avant 90 min ou CH4 ≥ 10 ppm",
+     "i": "Seuils de positivité ; la culture de l'aspirat jéjunal (≥ 10^3 UFC/mL) est la référence directe mais invasive et rare.",
+     "pec": "sibo",
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n1",
+     "t": "Bilan nutritionnel : 25-OH D, A, E, TP/INR, B12, folates, ferritine, albumine, Mg, Zn",
+     "i": "Il objective la malabsorption et guide les substitutions.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n1",
+     "t": "Tests négatifs : chercher cœliaque (tTG-IgA + IgA totales), lactose, SII, MICI, giardiase, sels biliaires",
+     "i": "Ce sont les rivaux du même SSP : ils sont traités dans leurs fiches propres.",
+     "pec": null,
+     "notion": null
+    }
+   ],
+   "points": [
+    "La graisse fécale sur 72 h et le test au 13C-triglycérides quantifient la stéatorrhée mais sont peu utilisés.",
+    "Le diagnostic d'IPE associe stéatorrhée, élastase basse et contexte compatible.",
+    "Le diagnostic de SIBO associe symptômes, facteur de risque et test respiratoire positif ; la réponse aux antibiotiques le soutient."
+   ],
+   "sources": [
+    "Rezaie A et al., Am J Gastroenterol 2017 (consensus nord-américain)",
+    "Löhr JM et al., UEG J 2017",
+    "Pimentel M et al., ACG 2020"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Traitement de l'IPE : enzymes pancréatiques",
+   "rubriques": [
+    "chronicManagement"
+   ],
+   "comment": "Donne les enzymes au bon moment, à bonne dose, sans restreindre les graisses, puis juge l'efficacité sur le poids, les selles et les symptômes.",
+   "tableau": {
+    "colonnes": [
+     "Paramètre",
+     "Règle",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Moment",
+      [
+       {
+        "t": "Au début et au milieu du repas, et à chaque collation",
+        "i": "Les enzymes doivent se mélanger au chyme et se vider avec lui ; prises avant ou après, elles perdent leur effet."
+       }
+      ],
+      "Un repas ou une collation sans enzymes reste maldigéré"
+     ],
+     [
+      "Dose initiale",
+      [
+       {
+        "t": "40'000–50'000 UI de lipase au repas principal, la moitié aux collations",
+        "i": "Dose usuelle de départ, ajustée ensuite à la réponse clinique."
+       }
+      ],
+      "Maximum à ne pas dépasser sans avis spécialisé (environ 10'000 UI/kg/j)"
+     ],
+     [
+      "Forme",
+      [
+       {
+        "t": "Capsules gastrorésistantes avalées entières, ou contenu mélangé à un aliment acide",
+        "i": "Croquer les microgranules détruit leur protection et la lipase est inactivée par l'acidité gastrique."
+       }
+      ],
+      "Efficacité conservée"
+     ],
+     [
+      "Réponse insuffisante",
+      [
+       {
+        "t": "Ajouter un IPP et rechercher un SIBO associé",
+        "i": "Un pH duodénal plus élevé protège la lipase ; un SIBO coexistant peut expliquer la persistance des symptômes."
+       }
+      ],
+      "Alors vérifier observance et dose"
+     ],
+     [
+      "Alimentation",
+      [
+       {
+        "t": "Aucune restriction de graisses",
+        "i": "Restreindre les graisses aggrave la dénutrition ; on adapte plutôt les enzymes à la teneur en graisses."
+       }
+      ],
+      "Contrôle sur poids, selles, symptômes"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le traitement enzymatique de l'IPE par pancréatite chronique est généralement à vie.",
+    "La supplémentation en vitamines liposolubles complète les enzymes si le dosage est bas."
+   ],
+   "sources": [
+    "AIPS Swissmedic, Creon",
+    "Löhr JM et al., UEG J 2017"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Traitement du SIBO : antibiotique, cause et récidive",
+   "rubriques": [
+    "chronicManagement",
+    "acuteManagement"
+   ],
+   "comment": "Traite la pullulation par un antibiotique peu absorbé, corrige la cause, substitue les carences et anticipe la récidive.",
+   "tableau": {
+    "colonnes": [
+     "Volet",
+     "Mesure",
+     "Particularité suisse ou raison"
+    ],
+    "lignes": [
+     [
+      "Antibiotique",
+      [
+       {
+        "t": "Rifaximine 1200–1650 mg/j pendant 10 à 14 jours",
+        "i": "Antibiotique peu absorbé, actif dans la lumière du grêle avec peu d'effets systémiques."
+       }
+      ],
+      [
+       {
+        "t": "Hors étiquette en Suisse, garantie du médecin-conseil exigée (art. 71a-d OAMal)",
+        "i": "Sans garantie préalable, la LAMal ne rembourse pas ce traitement hors indication."
+       }
+      ]
+     ],
+     [
+      "Cause",
+      [
+       {
+        "t": "Réévaluer les IPP, prescrire un prokinétique si dysmotilité, traiter l'anomalie anatomique",
+        "i": "Sans correction du facteur favorisant, le SIBO récidive."
+       }
+      ],
+      "Chirurgie correctrice si anse borgne"
+     ],
+     [
+      "Carences",
+      [
+       {
+        "t": "B12 intramusculaire, vitamine D, vitamine K si INR allongé",
+        "i": "On substitue sans attendre : le traitement de la cause agit lentement."
+       }
+      ],
+      "Contrôle du bilan nutritionnel"
+     ],
+     [
+      "Récidive",
+      [
+       {
+        "t": "Cures répétées ou alternées",
+        "i": "La récidive est fréquente après antibiothérapie tant que le facteur favorisant persiste."
+       }
+      ],
+      "Éviter de multiplier les antibiotiques sans cause"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Un test respiratoire de contrôle n'est utile qu'en cas de persistance ou de rechute des symptômes.",
+    "La rifaximine n'est pas une indication enregistrée pour le SIBO en Suisse."
+   ],
+   "sources": [
+    "AIPS Swissmedic",
+    "OAMal art. 71a-d",
+    "Pimentel M et al., ACG 2020"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications, suivi, pronostic et réseau",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Anticipe les complications de la malabsorption et organise un suivi interprofessionnel avec les bons relais.",
+   "tableau": {
+    "colonnes": [
+     "Complication",
+     "Mécanisme",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Dénutrition sévère",
+      [
+       {
+        "t": "Sarcopénie, hypoalbuminémie",
+        "i": "La maldigestion prolongée épuise les réserves protéiques et énergétiques."
+       }
+      ],
+      "Hospitalisation, nutrition entérale avec triglycérides à chaîne moyenne (absorbés sans lipase ni micelles)"
+     ],
+     [
+      "Ostéomalacie, ostéoporose",
+      [
+       {
+        "t": "Carence en vitamine D et calcium",
+        "i": "La malabsorption des graisses réduit l'absorption de la vitamine D et du calcium."
+       }
+      ],
+      "Substitution et ostéodensitométrie"
+     ],
+     [
+      "Coagulopathie",
+      [
+       {
+        "t": "Carence en vitamine K",
+        "i": "Les facteurs vitamino-K dépendants diminuent : l'INR s'allonge et des hémorragies surviennent."
+       }
+      ],
+      "Vitamine K, parentérale si INR allongé"
+     ],
+     [
+      "Anémie",
+      [
+       {
+        "t": "Carence en B12 et en fer",
+        "i": "La B12 est consommée par les bactéries ; le fer s'absorbe mal dans un duodénum altéré."
+       }
+      ],
+      "B12 intramusculaire, fer selon ferritine"
+     ],
+     [
+      "Acidose D-lactique",
+      [
+       {
+        "t": "SIBO sur grêle court",
+        "i": "Les bactéries produisent du D-lactate, non métabolisé par l'homme : confusion, ataxie."
+       }
+      ],
+      "Hospitalisation, antibiotique, régime pauvre en glucides"
+     ],
+     [
+      "Diabète pancréatogène (type 3c)",
+      [
+       {
+        "t": "Pancréatite chronique",
+        "i": "La destruction du parenchyme touche aussi les îlots endocrines."
+       }
+      ],
+      "Dépistage régulier, endocrinologue"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Suivi : poids, IMC, albumine, vitamines A, D, E, INR, B12, ostéodensitométrie.",
+    "Le SIBO s'améliore mais récidive ; l'IPE de la pancréatite chronique est irréversible avec bonne reprise de poids sous enzymes.",
+    "Le médecin de famille coordonne gastroentérologue et diététicien ; tumor board en cas de tumeur."
+   ],
+   "sources": [
+    "Löhr JM et al., UEG J 2017",
+    "Pimentel M et al., ACG 2020"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "ipe",
+   "titre": "IPE : traitement enzymatique au long cours",
+   "but": [
+    "Normaliser la digestion des graisses et supprimer la stéatorrhée.",
+    "Restaurer le poids et l'état nutritionnel.",
+    "Prévenir les carences et les complications osseuses."
+   ],
+   "moyens": {
+    "accueil": [
+     "Mesurer le poids, l'IMC et rechercher les signes de carence.",
+     "Expliquer au patient que les enzymes se prennent à chaque repas.",
+     "Rechercher un drapeau rouge avant de conclure à une IPE bénigne."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Pancrélipase (Creon, enzymes pancréatiques)",
+      "posologie": "40'000–50'000 UI de lipase au repas principal, moitié aux collations, pendant le repas ; ajuster ; ne pas dépasser env. 10'000 UI/kg/j sans avis spécialisé.",
+      "pourquoi": "Remplace la lipase absente pour hydrolyser les graisses pendant la digestion.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "IPP (p. ex. ésoméprazole)",
+      "posologie": "20–40 mg/j per os si réponse insuffisante aux enzymes ; réévaluer régulièrement l'indication.",
+      "pourquoi": "Un pH duodénal plus élevé protège la lipase de l'inactivation acide.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Vitamines liposolubles A, D, E, K",
+      "posologie": "Selon dosage sanguin ; formes hydrosolubles ou en association, adaptées au taux de 25-OH D et à l'INR.",
+      "pourquoi": "Corrige les carences persistantes dues à la malabsorption des graisses.",
+      "source": "[UEG, 2017]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "nutrition",
+      "mesure": "Conseiller un régime sans restriction de graisses, en repas fractionnés, avec un diététicien.",
+      "pourquoi": "Restreindre les graisses aggrave la dénutrition."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Imposer l'arrêt de l'alcool et du tabac en cas de pancréatite chronique.",
+      "pourquoi": "Ils entretiennent la destruction pancréatique."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Enseigner le moment de prise, la déglutition entière des capsules et l'ajustement de dose.",
+      "pourquoi": "L'efficacité dépend de la technique de prise."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Clarifie la prise en charge LAMal des enzymes et de la nutrition clinique."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Soutient le patient et accompagne les symptômes si l'IPE révèle un cancer pancréatique avancé."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Éliminer d'abord un cancer par imagerie si l'IPE est nouvelle.",
+      "Planifier un suivi régulier avec dosages vitaminiques."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Confirme l'IPE par élastase sur selle formée et demande une imagerie pancréatique si la cause est inconnue."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pèse le patient, mesure l'IMC et organise le bilan vitaminique, INR et albumine."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Prescrit la pancrélipase au repas et aux collations, puis ajoute un IPP si réponse insuffisante."
+      },
+      {
+       "temps": "puis",
+       "qui": "diététicien·ne",
+       "fait": "Adapte l'alimentation sans restriction de graisses et ajuste les enzymes à chaque repas."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Dépiste le diabète de type 3c et réalise l'ostéodensitométrie en cas de pancréatite chronique."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'IPE de la pancréatite chronique est généralement irréversible : le traitement enzymatique se poursuit à vie avec une bonne reprise de poids.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Poids et IMC",
+      "quand": "À chaque consultation, puis tous les 3 à 6 mois",
+      "cible": "Reprise puis stabilité du poids"
+     },
+     {
+      "quoi": "Selles et symptômes",
+      "quand": "Après chaque ajustement de dose",
+      "cible": "Disparition de la stéatorrhée"
+     },
+     {
+      "quoi": "Vitamines A, D, E, INR, B12, albumine",
+      "quand": "Une fois par an ou selon carence",
+      "cible": "Valeurs normales"
+     },
+     {
+      "quoi": "Ostéodensitométrie et glycémie",
+      "quand": "Tous les 1 à 2 ans en pancréatite chronique",
+      "cible": "Absence d'ostéoporose et de diabète"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si poids stable, INR normal et alimentation orale possible ; sinon hospitaliser."
+   },
+   "prevention": {
+    "primaire": "Éviter l'alcool pour prévenir la pancréatite chronique.",
+    "secondaire": "Dépister l'IPE chez tout patient avec pancréatite chronique, résection pancréatique ou mucoviscidose.",
+    "tertiaire": "Prévenir carences et ostéoporose par suivi vitaminique et densitométrie."
+   }
+  },
+  {
+   "cle": "sibo",
+   "titre": "SIBO : antibiothérapie et correction de la cause",
+   "but": [
+    "Éradiquer la pullulation bactérienne symptomatique.",
+    "Corriger le facteur favorisant pour éviter la récidive.",
+    "Substituer les carences en B12 et vitamines liposolubles."
+   ],
+   "moyens": {
+    "accueil": [
+     "Rechercher chirurgie, IPP, sclérodermie, diabète neuropathique et diverticules.",
+     "Exclure un drapeau rouge avant le test.",
+     "Vérifier l'absence d'antibiotique dans les 4 semaines précédant le test respiratoire."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Rifaximine (antibiotique peu absorbé)",
+      "posologie": "1200–1650 mg/j (p. ex. 400 mg 3x/j) pendant 10 à 14 jours ; hors étiquette en Suisse.",
+      "pourquoi": "Agit dans la lumière du grêle avec peu d'effets systémiques.",
+      "source": "[ACG, 2020]"
+     },
+     {
+      "molecule": "Hydroxocobalamine (vitamine B12)",
+      "posologie": "1000 µg par voie intramusculaire selon schéma de charge, si B12 basse.",
+      "pourquoi": "Les bactéries consomment la B12 : la carence se corrige sans attendre.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Traiter l'anomalie anatomique chirurgicale (anse borgne, sténose) avec le chirurgien.",
+      "pourquoi": "Sans correction anatomique, la récidive est quasi constante."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Réévaluer l'indication des IPP et prescrire un prokinétique en cas de dysmotilité.",
+      "pourquoi": "Supprime les facteurs favorisant la pullulation."
+     },
+     {
+      "categorie": "nutrition",
+      "mesure": "Faire adapter l'alimentation par le diététicien.",
+      "pourquoi": "Réduit la fermentation et soutient la reprise de poids."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Demande la garantie du médecin-conseil pour la rifaximine hors étiquette (art. 71a-d OAMal)."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre l'information du patient sur l'usage hors étiquette et le consentement."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Confirmer le SIBO par test respiratoire positif avant l'antibiotique.",
+      "Traiter la cause en même temps que l'antibiotique."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Confirme le SIBO par test respiratoire et exclut obstruction ou néoplasie."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "assistant·e social·e",
+       "fait": "Organise la demande de garantie auprès du médecin-conseil pour la rifaximine."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Prescrit la rifaximine 10 à 14 jours et substitue la B12 si elle est basse."
+      },
+      {
+       "temps": "puis",
+       "qui": "gastroentérologue",
+       "fait": "Corrige la cause : IPP, dysmotilité, anatomie."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Réévalue les symptômes et planifie une cure répétée ou alternée en cas de rechute."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le SIBO s'améliore sous traitement ciblé mais récidive souvent tant que le facteur favorisant persiste.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Symptômes (ballonnements, diarrhée)",
+      "quand": "2 à 4 semaines après la cure",
+      "cible": "Amélioration nette"
+     },
+     {
+      "quoi": "B12, folates, ferritine, vitamine D, INR",
+      "quand": "À 3 mois puis annuellement",
+      "cible": "Valeurs normales"
+     },
+     {
+      "quoi": "Récidive",
+      "quand": "À chaque rechute symptomatique",
+      "cible": "Test respiratoire de contrôle seulement si doute"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si l'alimentation orale est possible et l'INR normal."
+   },
+   "prevention": {
+    "primaire": "Limiter les IPP au long cours sans indication claire.",
+    "secondaire": "Traiter la dysmotilité et l'anomalie anatomique pour éviter la récidive.",
+    "tertiaire": "Suivre les carences vitaminiques chez le patient à rechutes répétées."
+   }
+  },
+  {
+   "cle": "denutrition",
+   "titre": "Dénutrition sévère et carences compliquées",
+   "but": [
+    "Corriger la déshydratation, les troubles ioniques et la coagulopathie.",
+    "Assurer un soutien nutritionnel adapté à la malabsorption.",
+    "Traiter la cause en parallèle."
+   ],
+   "moyens": {
+    "accueil": [
+     "Évaluer l'état hémodynamique, l'état neurologique, le poids et l'IMC.",
+     "Prélever INR, albumine, électrolytes, magnésium, zinc, vitamines et ferritine.",
+     "Rechercher une acidose D-lactique si grêle court et confusion."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Phytoménadione (vitamine K1)",
+      "posologie": "10 mg par voie intraveineuse lente si INR allongé ou saignement ; répéter selon INR.",
+      "pourquoi": "Rétablit la synthèse des facteurs vitamine K-dépendants en cas de coagulopathie.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Hydroxocobalamine (vitamine B12)",
+      "posologie": "1000 µg par voie intramusculaire selon schéma de charge.",
+      "pourquoi": "Corrige l'anémie et la neuropathie par carence en B12.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Cholécalciférol (vitamine D) et calcium",
+      "posologie": "Dose de charge puis d'entretien adaptées au taux de 25-OH D et à l'ostéodensitométrie.",
+      "pourquoi": "Prévient ostéomalacie, ostéoporose et fractures.",
+      "source": "[UEG, 2017]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "nutrition",
+      "mesure": "Instaurer un soutien entéral avec triglycérides à chaîne moyenne, avec diététicien.",
+      "pourquoi": "Les triglycérides à chaîne moyenne s'absorbent sans lipase ni micelles."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Corriger la déshydratation et les troubles ioniques par perfusion adaptée.",
+      "pourquoi": "Une déshydratation aggrave la dénutrition et l'état général."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Organise la prise en charge de la nutrition clinique et d'un éventuel séjour de réadaptation."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Hospitaliser le patient dénutri sévère avec coagulopathie ou troubles ioniques.",
+      "Traiter la cause en parallèle de la substitution."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue l'état hémodynamique, prescrit les bilans et la vitamine K parentérale si l'INR est allongé."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose la voie veineuse, perfuse et surveille les constantes."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "diététicien·ne",
+       "fait": "Débute le soutien nutritionnel entéral avec triglycérides à chaîne moyenne."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Traite la cause (enzymes, antibiotique, tumeur) et organise la suite avec le gastroentérologue."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Bonne reprise de poids sous traitement ciblé de la cause ; le risque de fractures et de saignements diminue avec la substitution.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Poids, albumine, électrolytes",
+      "quand": "Quotidien à l'hôpital puis chaque semaine",
+      "cible": "Reprise pondérale et normalisation"
+     },
+     {
+      "quoi": "INR",
+      "quand": "Dans les 24 à 48 h après la vitamine K",
+      "cible": "INR normalisé"
+     },
+     {
+      "quoi": "Vitamines A, D, E, B12",
+      "quand": "À 3 mois",
+      "cible": "Valeurs normales"
+     }
+    ],
+    "sortie": "INR normal, ionogramme stable, apport oral ou entéral suffisant, traitement de la cause en place et suivi organisé."
+   },
+   "prevention": {
+    "primaire": "Dépister tôt la malabsorption chez les patients à risque.",
+    "secondaire": "Substituer rapidement les carences identifiées.",
+    "tertiaire": "Prévenir fractures et saignements par suivi vitaminique et ostéodensitométrie."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6140,
+  "output_tokens": 18283,
+  "output_tokens_details": {
+   "thinking_tokens": 4557
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:34:51",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}
