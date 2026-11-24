@@ -55,8 +55,9 @@ fi = [d for f, d in lire_tout("content/fiches/**/*.json") if "_archives" not in 
 ok45 = sum(1 for d in fi if (d.get("audit") or {}).get("rejector") == "pass")
 pec = sum(1 for d in fi if d.get("priseEnCharge"))
 items = len({os.path.dirname(f) for f in glob.glob("content/items/**/*.json", recursive=True)})
+items += len(glob.glob("content/questions/*/*.json"))   # pipeline notions → questions → correction (une entité = un fichier)
 S = jeu("45 Spec", [("fiches produites", len(fi), 3975, 25), ("fiches validées par l'audit", ok45, 3975, 25), ("fiches avec prise en charge holistique", pec, 3975, 10),
-                    ("entités avec questions A/K'", items, 3975, 25), ("questions jouables dans l'arène", paquet("45spec"), 300, 15)])
+                    ("entités avec questions A/K'/menu long", items, 2675, 25), ("questions jouables dans l'arène", paquet("45spec"), 300, 15)])
 
 maint = dt.datetime.now(dt.timezone(dt.timedelta(hours=1))).strftime("%d.%m.%Y %H:%M")
 jeux = [T, P, X, S]; etat = J("projets/jauges.json") if os.path.exists("projets/jauges.json") else {"historique": []}
