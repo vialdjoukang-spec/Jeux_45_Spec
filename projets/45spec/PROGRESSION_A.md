@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**255 / 500 pathologies du périmètre produites.**
+**258 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -143,9 +143,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 134 | `G47.0_insomnie_aigue_situa__G11-E03` | Insomnie (aiguë situationnelle ou chronique) | NEU | produite |
 | 135 | `I35.0_stenose_aortique__F1_19-E06` | Sténose aortique | CAR | produite |
 | 136 | `K59.0_constipation_chroniq__S3_2-E02` | Constipation chronique fonctionnelle (transit normal ou lent, stase stercorale) | GAS | produite |
-| 137 | `M79.7__G10-E06` | Fibromyalgie | RHU | — |
-| 138 | `N39.4_1__O3_7-E02` | Incontinence urinaire mixte | URO | — |
-| 139 | `N95.2__F1_2-E05` | Atrophie endométriale et vulvo-vaginale (syndrome génito-urinaire de la ménopause) | GYN | — |
+| 137 | `M79.7__G10-E06` | Fibromyalgie | RHU | produite |
+| 138 | `N39.4_1__O3_7-E02` | Incontinence urinaire mixte | URO | produite |
+| 139 | `N95.2__F1_2-E05` | Atrophie endométriale et vulvo-vaginale (syndrome génito-urinaire de la ménopause) | GYN | produite |
 | 140 | `B00.2__O2_9-E06` | Gingivostomatite herpétique aiguë (primo-infection HSV-1) | CMF | produite |
 | 141 | `F44.4_trouble_neurologique__O7_8-E04` | Trouble neurologique fonctionnel (conversion) moteur | PSY | produite |
 | 142 | `G12.0_amyotrophie_spinale___O2_11-E08` | Amyotrophie spinale infantile (SMA) : dépistage néonatal et thérapies géniques | NEU | produite |
