@@ -1,0 +1,576 @@
+{
+ "id": "G72.0__O3_3-E09",
+ "portes": [
+  {
+   "ssp": "O3.3",
+   "nomSSP": "Malnutrition et sarcopénie",
+   "entite": "Myopathie cortisonique chronique",
+   "entiteId": "O3.3-E09"
+  },
+  {
+   "ssp": "O7.22",
+   "nomSSP": "Suspicion d’intolérance ou d’interaction médicamenteuse, y compris phytothérapie et compléments alimentaires",
+   "entite": "Myopathie aux statines (myalgies sans ou avec élévation des CK)",
+   "entiteId": "O7.22-E06"
+  }
+ ],
+ "entite": "Myopathie aux statines (myalgies sans ou avec élévation des CK)",
+ "cim10": "G72.0",
+ "ssp": {
+  "code": "O7.22",
+  "nom": "Suspicion d'intolérance ou d'interaction médicamenteuse, y compris phytothérapie et compléments alimentaires",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Symptômes musculaires sous statine",
+    "i": "Le médecin dose CK et TSH et revoit les médicaments associés.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "TSH élevée",
+    "i": "Hypothyroïdie : la traiter, puis réévaluer.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "CK > 40 fois, urines foncées, créatinine en hausse",
+    "i": "Rhabdomyolyse : arrêt, hydratation, rein.",
+    "pec": "rhabdo",
+    "notion": "c2"
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "CK > 10 fois sans autre cause",
+    "i": "Arrêt de la statine, reprise prudente d'une autre plus tard.",
+    "pec": "sams",
+    "notion": "c2"
+   },
+   {
+    "id": "n5",
+    "parent": "n1",
+    "t": "CK < 4 fois",
+    "i": "Garder une stratégie statine.",
+    "pec": "sams",
+    "notion": "c3"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "CK persistantes après l'arrêt, faiblesse",
+    "i": "Anti-HMGCR : avis neuromusculaire.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n1",
+    "t": "Interaction (macrolide, azolé, ciclosporine)",
+    "i": "Retirer ou remplacer le médicament en cause.",
+    "pec": "sams",
+    "notion": "c2"
+   }
+  ]
+ },
+ "specialites": [
+  "NEU"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Myopathie aux statines : reconnaître les symptômes musculaires sous statine, doser CK et TSH, classer selon le niveau des CK, arrêter au-delà de 10 fois la normale, garder une stratégie à base de statine sinon, et dépister rhabdomyolyse et myopathie anti-HMGCR",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Reconnaître et peser la causalité",
+   "rubriques": [
+    "definition",
+    "epidemiology",
+    "anamnesis",
+    "positiveDiagnosis"
+   ],
+   "comment": "Juge la causalité sur le type de symptômes, leur délai, l'arrêt et la reprise, en gardant l'effet nocebo à l'esprit.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Contenu",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Symptômes",
+      "Douleurs, raideur, crampes, faiblesse symétriques proximales",
+      "Typiques"
+     ],
+     [
+      "Délai",
+      "4 à 6 semaines, hausse de dose, interaction",
+      [
+       {
+        "t": "Lien temporel",
+        "i": "Il soutient la causalité."
+       }
+      ]
+     ],
+     [
+      "Arrêt et reprise",
+      "Régression en semaines, retour dans le mois",
+      "Test de causalité"
+     ],
+     [
+      "Nocebo",
+      "Environ 90 % des symptômes aussi sous placebo",
+      [
+       {
+        "t": "Essai n-of-1",
+        "i": "Il relativise l'attribution."
+       }
+      ]
+     ],
+     [
+      "Différentiel",
+      "Hypothyroïdie, pseudopolyarthrite, effort, autres médicaments",
+      "Autres causes"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Les registres rapportent 7 à 29 % de plaintes."
+   ],
+   "sources": [
+    "[Stroes, Eur Heart J 2015]",
+    "[Wood, N Engl J Med 2020]"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Classer selon les CK",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "hospitalizationComplications",
+    "presumptionRedFlags"
+   ],
+   "comment": "Dose les CK et la TSH devant des symptômes, jamais en routine sans symptôme.",
+   "tableau": {
+    "colonnes": [
+     "CK",
+     "Conduite",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Normales ou < 4 fois",
+      "Garder une stratégie statine",
+      "Bénéfice cardiovasculaire"
+     ],
+     [
+      "4 à 10 fois",
+      [
+       {
+        "t": "Faible risque : arrêt ; haut risque : poursuite surveillée",
+        "i": "Le risque cardiovasculaire pèse dans la décision."
+       }
+      ]
+     ],
+     [
+      "> 10 fois",
+      "Arrêt de la statine",
+      "Risque de rhabdomyolyse"
+     ],
+     [
+      "> 40 fois avec rein ou myoglobinurie",
+      [
+       {
+        "t": "Rhabdomyolyse",
+        "i": "Hydratation, rein, pas de reprise."
+       }
+      ]
+     ],
+     [
+      "Persistantes après l'arrêt",
+      "Anti-HMGCR, neuromusculaire",
+      "Myopathie sous-jacente"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Macrolides, azolés, ciclosporine, gemfibrozil et inhibiteurs de protéase augmentent le risque."
+   ],
+   "sources": [
+    "[Stroes, Eur Heart J 2015]"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Garder la protection cardiovasculaire",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement",
+    "prognosisDischarge"
+   ],
+   "comment": "Cherche la dose maximale tolérée et ajoute des traitements non statiniques.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "t1",
+     "parent": null,
+     "t": "Symptômes avec CK < 4 fois",
+     "i": "Le médecin évalue le risque cardiovasculaire.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "t2",
+     "parent": "t1",
+     "t": "Haut risque",
+     "i": "Pause puis réintroduction, autre statine ou dose plus faible.",
+     "pec": "sams",
+     "notion": null
+    },
+    {
+     "id": "t3",
+     "parent": "t2",
+     "t": "Intolérance persistante",
+     "i": "Prise un jour sur deux d'une statine à longue demi-vie.",
+     "pec": "sams",
+     "notion": null
+    },
+    {
+     "id": "t4",
+     "parent": "t2",
+     "t": "LDL au-dessus de la cible",
+     "i": "Ajout d'ézétimibe.",
+     "pec": "sams",
+     "notion": null
+    },
+    {
+     "id": "t5",
+     "parent": "t4",
+     "t": "Intolérance à au moins 3 statines",
+     "i": "Centre spécialisé, inhibiteur de PCSK9.",
+     "pec": "sams",
+     "notion": null
+    }
+   ],
+   "points": [
+    "Coenzyme Q10 et vitamine D ne sont pas recommandés."
+   ],
+   "sources": [
+    "[Stroes, Eur Heart J 2015]"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Suivre et adresser",
+   "rubriques": [
+    "surveillance",
+    "followUpNetwork",
+    "basicSciences",
+    "clinicalExam"
+   ],
+   "comment": "Surveille la reprise et adresse quand les CK restent élevées.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Conduite",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Reprise après CK élevées",
+      "Faible dose, CK et symptômes",
+      "Dépister la récidive"
+     ],
+     [
+      "Faiblesse objective",
+      "CK, avis neuromusculaire",
+      "Atteinte plus sévère"
+     ],
+     [
+      "CK persistantes",
+      "Anticorps anti-HMGCR",
+      "Myopathie auto-immune"
+     ],
+     [
+      "Remboursement PCSK9",
+      "AIPS et Liste des spécialités",
+      "Particularité suisse"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le mécanisme mitochondrial reste incertain."
+   ],
+   "sources": [
+    "[Stroes, Eur Heart J 2015]",
+    "[Pinal-Fernandez, Curr Rheumatol Rep 2018]"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "sams",
+   "titre": "Symptômes musculaires associés aux statines sans rhabdomyolyse",
+   "but": [
+    "Soulager les symptômes.",
+    "Garder la réduction du risque cardiovasculaire.",
+    "Dépister une atteinte grave."
+   ],
+   "moyens": {
+    "accueil": [
+     "Décrire les symptômes et leur délai.",
+     "Doser CK et TSH.",
+     "Revoir les interactions."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Autre statine à faible dose ou à prise intermittente",
+      "posologie": "Posologie à vérifier dans l'AIPS.",
+      "pourquoi": "Elle garde l'effet hypolipémiant.",
+      "source": "[Stroes, Eur Heart J 2015]"
+     },
+     {
+      "molecule": "Ézétimibe",
+      "posologie": "Posologie à vérifier dans l'AIPS.",
+      "pourquoi": "Premier choix non statinique.",
+      "source": "[Stroes, Eur Heart J 2015]"
+     },
+     {
+      "molecule": "Inhibiteur de PCSK9",
+      "posologie": "Posologie et remboursement à vérifier dans l'AIPS et la Liste des spécialités.",
+      "pourquoi": "Il baisse fortement le LDL avec peu de symptômes musculaires.",
+      "source": "[Stroes, Eur Heart J 2015]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Explication du bénéfice cardiovasculaire et de l'effet nocebo.",
+      "pourquoi": "Elle améliore l'adhésion."
+     },
+     {
+      "categorie": "nutrition",
+      "mesure": "Régime pauvre en graisses saturées, fibres visqueuses, stérols végétaux.",
+      "pourquoi": "Il abaisse le LDL."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Limiter l'alcool et le jus de pamplemousse en excès.",
+      "pourquoi": "Ils augmentent le risque."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "Cardiologie",
+      "apport": "Elle fixe la cible de LDL."
+     },
+     {
+      "discipline": "Neurologie neuromusculaire",
+      "apport": "Elle explore les CK persistantes."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Ne pas abandonner la statine chez le patient à haut risque.",
+      "Doser les CK sur symptômes seulement."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin de famille",
+       "fait": "Évalue symptômes, CK, TSH et interactions."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin de famille",
+       "fait": "Organise pause et réintroduction d'une autre statine."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin de famille",
+       "fait": "Ajoute l'ézétimibe si le LDL reste haut."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste des lipides",
+       "fait": "Prend en charge l'intolérance à au moins 3 statines."
+      }
+     ]
+    }
+   },
+   "pronostic": "La plupart des patients tolèrent une autre statine ou un autre schéma ; l'arrêt injustifié augmente le risque cardiovasculaire.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Symptômes",
+      "quand": "À chaque visite",
+      "cible": "Tolérables"
+     },
+     {
+      "quoi": "LDL",
+      "quand": "Après chaque changement",
+      "cible": "À la cible"
+     },
+     {
+      "quoi": "CK",
+      "quand": "Si symptômes ou reprise après CK élevées",
+      "cible": "< 4 fois la normale"
+     }
+    ],
+    "sortie": "Le suivi redevient habituel quand le schéma est toléré et le LDL à la cible."
+   },
+   "prevention": {
+    "primaire": "Elle repose sur le choix d'une statine et d'une dose adaptées au terrain.",
+    "secondaire": "Elle évite les interactions.",
+    "tertiaire": "Elle maintient la protection cardiovasculaire."
+   }
+  },
+  {
+   "cle": "rhabdo",
+   "titre": "Rhabdomyolyse sous statine",
+   "but": [
+    "Protéger le rein.",
+    "Arrêter la cause."
+   ],
+   "moyens": {
+    "accueil": [
+     "Arrêter statine et médicament interagissant.",
+     "Doser CK, créatinine, potassium, myoglobine urinaire."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Cristalloïdes intraveineux",
+      "posologie": "Volume adapté à l'état hémodynamique et rénal.",
+      "pourquoi": "Ils limitent l'atteinte rénale.",
+      "source": "[Stroes, Eur Heart J 2015]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Bilan entrées-sorties et surveillance de la diurèse.",
+      "pourquoi": "Ils dépistent l'insuffisance rénale."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Ne jamais reprendre cette statine.",
+      "pourquoi": "La récidive est dangereuse."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "Néphrologie",
+      "apport": "Elle prend en charge l'insuffisance rénale aiguë."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Hospitalisation.",
+      "Arrêt définitif de la statine en cause."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin urgentiste",
+       "fait": "Reconnaît la rhabdomyolyse et arrête les médicaments en cause."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose la perfusion et surveille la diurèse."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "interniste",
+       "fait": "Surveille CK, créatinine et potassium."
+      },
+      {
+       "temps": "puis",
+       "qui": "néphrologue",
+       "fait": "Intervient si la fonction rénale s'aggrave."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Choix d'un traitement non statinique.",
+      "Révision des interactions."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "interniste",
+       "fait": "Organise la sortie."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin de famille",
+       "fait": "Introduit l'ézétimibe ou un autre traitement."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste des lipides",
+       "fait": "Discute un inhibiteur de PCSK9."
+      }
+     ]
+    }
+   },
+   "pronostic": "Elle guérit souvent sans séquelle si le rein est protégé tôt.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "CK",
+      "quand": "Quotidien en phase aiguë",
+      "cible": "Décroissance"
+     },
+     {
+      "quoi": "Créatinine et potassium",
+      "quand": "Quotidien",
+      "cible": "Stables"
+     }
+    ],
+    "sortie": "Le patient sort quand les CK baissent et que la fonction rénale est stable."
+   },
+   "prevention": {
+    "primaire": "Elle repose sur la vérification des interactions avant tout ajout.",
+    "secondaire": "Elle passe par l'arrêt immédiat devant des urines foncées.",
+    "tertiaire": "Elle interdit la reprise de la statine en cause."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "_mode": "manuel",
+  "agent": "45spec-NEU"
+ },
+ "signature": {
+  "date": "2026-11-24T13:58:45",
+  "modele": "claude-opus-5-5 (production manuelle sans API, agent 45spec)",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ },
+ "aVerifier": [
+  "Posologies suisses des statines, de l'ézétimibe et des inhibiteurs de PCSK9, et conditions de remboursement (Liste des spécialités, limitatio), à vérifier dans l'AIPS.",
+  "Le chiffre de 90 % (Wood, N Engl J Med 2020) vient d'un essai n-of-1 de 60 patients, publié sous forme de lettre.",
+  "Le consensus EAS date de 2015 ; vérifier une mise à jour plus récente (ESC/EAS dyslipidémies 2019 et mise à jour 2025)."
+ ]
+}
