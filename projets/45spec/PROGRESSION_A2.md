@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-A2`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**12 / 176 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**15 / 176 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -21,9 +21,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 11 | 78 | `R45.8_3__O2_12-E15` | MIG | Idéation suicidaire sans plan actif (crise psychique modérée) | — |
 | 12 | 79 | `T42.4_1__F1_15-E03` | TOX | Intoxication médicamenteuse volontaire (benzodiazépines, psychotropes) | produite |
 | 13 | 80 | `Z30.0_3__O1_9-E03` | GYN | Contraception d'urgence (post-coïtale) après rapport non protégé | produite |
-| 14 | 81 | `Z53.2_3__O7_11-E02` | MIG | Refus d'hospitalisation ou sortie contre avis médical | — |
-| 15 | 83 | `H05.0__F1_12-E13` | OPH | Cellulite pré-septale (périorbitaire) | — |
-| 16 | 88 | `T18.1__O7_7-E12` | MIG | Corps étranger œsophagien non compliqué (impaction alimentaire) | — |
+| 14 | 81 | `Z53.2_3__O7_11-E02` | MIG | Refus d'hospitalisation ou sortie contre avis médical | produite |
+| 15 | 83 | `H05.0__F1_12-E13` | OPH | Cellulite pré-septale (périorbitaire) | produite |
+| 16 | 88 | `T18.1__O7_7-E12` | MIG | Corps étranger œsophagien non compliqué (impaction alimentaire) | produite |
 | 17 | 89 | `T40.2__G8-E19` | TOX | Intoxication aux opioïdes (héroïne, méthadone, morphine, fentanyl) | — |
 | 18 | 105 | `H40.2__F1_12-E14` | OPH | Glaucome aigu par fermeture de l'angle | — |
 | 19 | 111 | `J05.1__F1_11-E14` | ORL | Épiglottite aiguë (supraglottite infectieuse) | — |
