@@ -1,11 +1,19 @@
 {
  "_meta": {
-  "statut": "À REMPLIR",
+  "statut": "AUDITÉ",
   "discipline": "D — Digitalisation & Cybersanté",
   "regles": [
    "La leçon commence par un cas suisse concret et finit par une décision à prendre.",
    "Phrases verbales ; tout sigle figure au glossaire.",
    "Elle renvoie aux SSP sans les recopier."
+  ],
+  "signature": "AAI (Anthropic AI)",
+  "aVerifier": [],
+  "sources": [
+   "Obermeyer Z et al. Dissecting racial bias in an algorithm used to manage the health of populations. Science 2019;366:447",
+   "Wong A et al. External validation of a widely implemented proprietary sepsis prediction model. JAMA Intern Med 2021;181:1065",
+   "Finlayson SG et al. The clinician and dataset shift in artificial intelligence. N Engl J Med 2021;385:283",
+   "Code des obligations, art. 41, 97, 101 et 398, RS 220 ; LRFP, RS 221.112.944"
   ]
  },
  "id": "TRANS_D-S4-01",
@@ -13,57 +21,155 @@
  "lettre": "D",
  "sousOnglet": "TRANS_D_SUB_4",
  "strate": "R",
- "casDOuverture": null,
+ "casDOuverture": "À Winterthour, un hôpital utilise depuis trois ans un algorithme qui alerte en cas de risque de sepsis ; depuis l'introduction d'un nouveau dosage du lactate et l'arrivée d'une population plus âgée, les infirmières constatent de nombreuses fausses alertes et quelques sepsis manqués. Un patient non signalé décède, et sa famille demande qui est responsable. Tu dois décider comment analyser le problème et ce qu'il faut changer.",
  "parties": {
-  "1. Cadre": null,
-  "2. Notions fondamentales": null,
-  "3. Outils et méthodes": null,
-  "4. Décisions et seuils": null,
-  "5. Applications par système": null,
-  "6. Particularités par terrain": null,
-  "7. Pièges et confusions": null,
-  "8. Pratique suisse": null,
-  "9. Exercices et répétition": null
+  "1. Cadre": "Un algorithme apprend les régularités présentes dans ses données d'entraînement, y compris les inégalités, les erreurs de mesure et les habitudes de soins. Il peut donc reproduire ou aggraver des biais et perdre sa performance lorsque les conditions changent. Le médecin qui l'utilise garde la responsabilité de sa décision, car l'outil reste une aide. Comprendre les biais et la dérive permet de détecter les erreurs avant qu'elles ne nuisent et de répartir correctement les responsabilités entre clinicien, hôpital et fabricant.",
+  "2. Notions fondamentales": "Le biais de représentation survient lorsque certains groupes manquent dans les données d'entraînement. Le biais de mesure survient lorsque la variable cible mesure mal le phénomène : un algorithme américain a sous-estimé les besoins de patients noirs parce qu'il prédisait les coûts de santé plutôt que la maladie. La dérive de modèle (dataset shift) désigne la baisse de performance lorsque la population, les pratiques, les tests ou les appareils changent après la mise en service. Le biais d'automatisation pousse l'humain à suivre la machine ; le biais inverse le pousse à l'ignorer après trop de fausses alertes (fatigue des alarmes).",
+  "3. Outils et méthodes": "L'hôpital surveille la performance du modèle en continu : sensibilité, spécificité, valeur prédictive positive et calibration, globalement et par sous-groupe (âge, sexe, origine, service). Il compare ces mesures à la performance initiale et fixe un seuil de dégradation qui déclenche une révision. Il documente chaque changement susceptible d'entraîner une dérive (nouveau test, nouvel appareil, nouvelle population). Il recueille les retours des cliniciens et analyse les erreurs graves. Il garde une procédure claire : le clinicien juge, l'outil propose, et tout désaccord se documente.",
+  "4. Décisions et seuils": "Lorsque la performance chute sous le seuil défini ou qu'une erreur grave apparaît, l'hôpital suspend ou recalibre le modèle, informe les utilisateurs et annonce l'incident grave à Swissmedic si l'outil est un dispositif médical. Le clinicien ne fonde jamais une décision uniquement sur l'algorithme et documente son raisonnement propre. En matière de responsabilité, le médecin répond de sa diligence (CO, art. 398) ; l'hôpital répond de l'organisation, du choix et de la surveillance de l'outil ; le fabricant peut répondre d'un défaut du produit, selon un régime encore discuté pour les logiciels. Pour les hôpitaux publics, le droit cantonal de la responsabilité s'applique.",
+  "5. Applications par système": "En infectiologie et en soins intensifs, les modèles de sepsis souffrent souvent d'une performance externe décevante. En dermatologie, les modèles entraînés sur peau claire manquent des lésions sur peau foncée. En cardiologie, des scores calibrés sur une population étrangère surestiment ou sous-estiment le risque suisse. En radiologie, un changement d'appareil peut faire chuter la performance. En néphrologie, l'ancien ajustement ethnique du DFG illustre un biais intégré à une formule.",
+  "6. Particularités par terrain": "Chez la femme, la sous-représentation dans les données de cardiologie peut conduire à manquer un syndrome coronarien atypique. Chez la personne âgée polymorbide, les modèles entraînés sur des adultes plus jeunes se trompent davantage. Chez les patients migrants ou allophones, les données manquantes sont plus fréquentes. Chez l'enfant, la plupart des modèles adultes ne s'appliquent pas.",
+  "7. Pièges et confusions": "Le premier piège consiste à croire qu'un algorithme est neutre parce qu'il est mathématique. Le deuxième consiste à évaluer la performance une seule fois, à la mise en service. Le troisième consiste à analyser seulement la performance globale, qui masque les écarts entre sous-groupes. Le quatrième consiste à croire que l'utilisation d'un outil certifié décharge le médecin de toute responsabilité. Le dernier consiste à ignorer les signaux des utilisateurs, comme la fatigue des alarmes.",
+  "8. Pratique suisse": "En Suisse, l'ODim exige du fabricant une surveillance après commercialisation, et Swissmedic reçoit les annonces d'incidents graves. Le Code des obligations fonde la responsabilité contractuelle du médecin et de l'établissement privé, et le droit cantonal celle des hôpitaux publics. La loi sur la responsabilité du fait des produits peut concerner le fabricant, mais son application aux logiciels reste discutée. La Confédération prépare une régulation de l'IA fondée sur la convention du Conseil de l'Europe et des adaptations sectorielles.",
+  "9. Exercices et répétition": "Pour t'exercer, imagine trois changements qui peuvent faire dériver un modèle dans ton service et propose un indicateur de surveillance pour chacun. Rejoue le cas d'ouverture en répartissant les responsabilités. La notion revient dans les leçons D sur l'évaluation des dispositifs d'IA, l'onglet E sur les biais et l'onglet P sur l'analyse des causes."
  },
- "decisionFinale": null,
+ "decisionFinale": "Le médecin fait analyser la performance du modèle par sous-groupe et dans le temps, identifie une dérive liée au nouveau dosage du lactate et au vieillissement de la population, fait suspendre ou recalibrer l'outil, annonce l'incident grave à Swissmedic, déclenche une analyse des causes du décès et rappelle à l'équipe que le jugement clinique prime ; il explique à la famille que l'analyse portera sur l'organisation, l'outil et les décisions cliniques.",
  "items": [
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Lausanne, un modèle performant à sa mise en service perd sa précision après un changement d'appareil de laboratoire. Comment s'appelle ce phénomène ?",
+   "options": [
+    "Biais de confirmation",
+    "Dérive de modèle (dataset shift)",
+    "Sur-apprentissage initial",
+    "Biais de publication",
+    "Effet placebo"
+   ],
+   "bonneReponse": "B",
+   "explicationParOption": {
+    "A": "Ce biais cognitif concerne l'humain, pas le modèle.",
+    "B": "Le changement des conditions de mesure fait chuter la performance après la mise en service.",
+    "C": "Le sur-apprentissage existe dès l'entraînement, pas après un changement d'appareil.",
+    "D": "Ce biais concerne la littérature scientifique.",
+    "E": "Cet effet n'a aucun rapport."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Genève, un algorithme prédit les besoins de soins à partir des coûts de santé passés et sous-estime les besoins d'un groupe qui consulte moins. De quel biais s'agit-il ?",
+   "options": [
+    "Biais de mesure de la variable cible",
+    "Biais d'automatisation",
+    "Biais de rappel",
+    "Biais de sélection des médecins",
+    "Biais d'attrition"
+   ],
+   "bonneReponse": "A",
+   "explicationParOption": {
+    "A": "Le coût mesure mal le besoin, et l'accès inégal aux soins se transforme en sous-estimation.",
+    "B": "Ce biais concerne l'utilisateur qui suit la machine.",
+    "C": "Ce biais concerne les études qui reposent sur la mémoire des participants.",
+    "D": "Ce biais ne décrit pas le problème.",
+    "E": "Ce biais concerne les pertes de suivi dans une étude."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "Kprim",
+   "enonce": "À Berne, tu discutes de la responsabilité liée à un outil d'IA. Indique si chaque affirmation est vraie ou fausse.",
+   "options": [
+    "Le médecin reste responsable de sa décision clinique.",
+    "L'usage d'un outil certifié décharge le médecin de toute responsabilité.",
+    "L'hôpital répond de l'organisation et de la surveillance de l'outil.",
+    "La performance globale peut masquer une mauvaise performance dans un sous-groupe."
+   ],
+   "bonneReponse": [
+    true,
+    false,
+    true,
+    true
+   ],
+   "explicationParOption": {
+    "1": "Vrai : l'outil aide, le médecin décide avec diligence.",
+    "2": "Faux : la certification ne supprime pas le devoir de diligence.",
+    "3": "Vrai : le choix et la surveillance relèvent de l'organisation.",
+    "4": "Vrai : l'analyse par sous-groupe est indispensable."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Zurich, les infirmières ignorent désormais les alertes de sepsis après trop de fausses alarmes. Quel phénomène décrit cette situation ?",
+   "options": [
+    "Biais d'automatisation",
+    "Fatigue des alarmes",
+    "Effet Hawthorne",
+    "Biais de publication",
+    "Biais de mesure"
+   ],
+   "bonneReponse": "B",
+   "explicationParOption": {
+    "A": "Le biais d'automatisation pousse au contraire à suivre la machine.",
+    "B": "Les fausses alertes répétées conduisent à négliger aussi les vraies.",
+    "C": "Cet effet décrit le changement de comportement lié à l'observation.",
+    "D": "Ce biais concerne la littérature.",
+    "E": "Ce biais concerne la variable mesurée."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "menu long",
+   "enonce": "À Fribourg, quelle mesure prévient le mieux les erreurs liées à la dérive d'un modèle déjà en service ?",
+   "options": [
+    "Surveiller en continu la performance globale et par sous-groupe, avec un seuil de révision",
+    "Former les médecins une fois à la mise en service",
+    "Augmenter le seuil d'alerte au hasard",
+    "Supprimer les retours des utilisateurs",
+    "Faire confiance au fabricant",
+    "Changer de logiciel chaque année",
+    "Désactiver les alertes la nuit",
+    "Limiter l'outil aux médecins chefs",
+    "Masquer les résultats aux infirmières",
+    "Publier les résultats sur internet",
+    "Doubler le nombre d'alertes",
+    "Interdire tout jugement clinique contraire",
+    "Ne jamais modifier le modèle",
+    "Supprimer la documentation"
+   ],
+   "bonneReponse": "A",
+   "explicationParOption": {
+    "A": "La surveillance continue avec seuil de révision détecte la dérive avant qu'elle ne nuise.",
+    "B": "La formation initiale ne détecte pas la dérive ultérieure.",
+    "C": "Un réglage arbitraire ne corrige pas la cause.",
+    "D": "Les retours des utilisateurs signalent tôt les problèmes.",
+    "E": "L'hôpital doit surveiller lui-même l'outil dans son contexte.",
+    "F": "Le changement systématique ne garantit rien.",
+    "G": "Cette mesure crée des angles morts dangereux.",
+    "H": "La restriction ne corrige pas la performance.",
+    "I": "Cette mesure prive l'équipe d'informations.",
+    "J": "La publication ne constitue pas une surveillance.",
+    "K": "Plus d'alertes aggravent la fatigue des alarmes.",
+    "L": "Le jugement clinique reste indispensable.",
+    "M": "Un modèle qui dérive doit être recalibré ou suspendu.",
+    "N": "La documentation est nécessaire à l'analyse."
+   }
   }
  ],
- "liensSSP": [],
- "bulle": null,
- "glossaire": {}
+ "liensSSP": [
+  "O7.4",
+  "O7.5",
+  "G6"
+ ],
+ "bulle": {
+  "def": "Un biais algorithmique fausse les prédictions pour certains groupes, et la dérive dégrade la performance quand les conditions changent.",
+  "pourquoi": "Le modèle apprend les inégalités et les conditions de ses données, et le monde réel change après la mise en service.",
+  "confusion": "On croit l'algorithme neutre et sa performance fixe, alors qu'elle dépend des données et du temps.",
+  "retenir": "L'hôpital surveille la performance par sous-groupe et dans le temps, et le médecin reste responsable de sa décision."
+ },
+ "glossaire": {
+  "IA": "L'intelligence artificielle désigne des systèmes informatiques qui apprennent des données pour produire des prédictions.",
+  "CO": "Le Code des obligations règle notamment la responsabilité civile et contractuelle.",
+  "LRFP": "La loi sur la responsabilité du fait des produits règle la responsabilité du fabricant pour un produit défectueux.",
+  "ODim": "L'ordonnance sur les dispositifs médicaux règle leur mise sur le marché et leur surveillance en Suisse.",
+  "Swissmedic": "L'Institut suisse des produits thérapeutiques autorise et surveille les médicaments et dispositifs médicaux.",
+  "DFG": "Le débit de filtration glomérulaire estime la fonction rénale.",
+  "SSP": "Une situation de départ (Situation as Starting Point) structure le catalogue PROFILES de l'examen fédéral."
+ }
 }
