@@ -21,11 +21,11 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | M | 12 | 12 |
 | N | 12 | 12 |
 | O | 12 | 12 |
-| P | 9 | 12 |
+| P | 12 | 12 |
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **213** | **228** |
+| **Total** | **216** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -48,6 +48,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_P-S3-02** : Rôle de la Commission fédérale pour la qualité (CFQ) instituée par l'art. 58b LAMal révisé (en vigueur depuis le 1.4.2021).
 - **TRANS_P-S3-03** : Ressources suisses de soutien aux secondes victimes en 2026 (programmes hospitaliers de soutien par les pairs, ReMed de la FMH, recommandations de Sécurité des patients Suisse).
 - **TRANS_P-S3-03** : Données sur la prévalence des symptômes chez les secondes victimes (environ la moitié des soignants impliqués selon les études) : chiffre non écrit.
+- **TRANS_P-S4-01** : Version actuelle du protocole de Londres (Taylor-Adams et Vincent, 2004, révisé ?) et méthodes utilisées par les hôpitaux suisses (analyse systémique, ALARM).
+- **TRANS_P-S4-01** : Recommandations de Sécurité des patients Suisse sur l'analyse systémique des incidents (guide ou formation) en 2026.
+- **TRANS_P-S4-02** : Liste des « never events » du NHS England (révision 2018, suspendue en 2024 ?) et existence d'une liste suisse officielle.
+- **TRANS_P-S4-02** : Recommandations suisses sur le contrôle ultime au lit du patient avant transfusion (Transfusion CRS Suisse, Swissmedic hémovigilance).
+- **TRANS_P-S4-03** : Contenu des art. 58 à 58h LAMal révisés (en vigueur depuis le 1.4.2021) : conventions de qualité entre fédérations d'assureurs et de fournisseurs (art. 58a), Commission fédérale pour la qualité (art. 58b-58c), sanctions (art. 59).
+- **TRANS_P-S4-03** : Exigences de qualité des listes hospitalières cantonales (art. 58d OAMal) et rôle des accréditations et certifications (ISO, EFQM, Joint Commission) dans les hôpitaux suisses.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -61,4 +67,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : P (9/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : R (0/12).
