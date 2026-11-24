@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-A2`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**9 / 176 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**12 / 176 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -17,10 +17,10 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 7 | 59 | `T39.1__F2_11-E14` | TOX | Intoxication au paracétamol (volontaire ou surdosage thérapeutique) | produite |
 | 8 | 61 | `Z60.4__O2_3-E08` | MIG | Harcèlement scolaire et cyberharcèlement (bullying) | produite |
 | 9 | 65 | `T17.1__F1_13-E15` | ORL | Corps étranger nasal enclavé (enfant) | produite |
-| 10 | 77 | `N45.1__S4_9-E01` | URO | Orchi-épididymite aiguë infectieuse | — |
+| 10 | 77 | `N45.1__S4_9-E01` | URO | Orchi-épididymite aiguë infectieuse | produite |
 | 11 | 78 | `R45.8_3__O2_12-E15` | MIG | Idéation suicidaire sans plan actif (crise psychique modérée) | — |
-| 12 | 79 | `T42.4_1__F1_15-E03` | TOX | Intoxication médicamenteuse volontaire (benzodiazépines, psychotropes) | — |
-| 13 | 80 | `Z30.0_3__O1_9-E03` | GYN | Contraception d'urgence (post-coïtale) après rapport non protégé | — |
+| 12 | 79 | `T42.4_1__F1_15-E03` | TOX | Intoxication médicamenteuse volontaire (benzodiazépines, psychotropes) | produite |
+| 13 | 80 | `Z30.0_3__O1_9-E03` | GYN | Contraception d'urgence (post-coïtale) après rapport non protégé | produite |
 | 14 | 81 | `Z53.2_3__O7_11-E02` | MIG | Refus d'hospitalisation ou sortie contre avis médical | — |
 | 15 | 83 | `H05.0__F1_12-E13` | OPH | Cellulite pré-septale (périorbitaire) | — |
 | 16 | 88 | `T18.1__O7_7-E12` | MIG | Corps étranger œsophagien non compliqué (impaction alimentaire) | — |
