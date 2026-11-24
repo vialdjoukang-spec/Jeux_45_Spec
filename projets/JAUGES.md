@@ -1,15 +1,15 @@
 # Jauges « jouable » des 4 jeux
 
-Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **24.11.2026 02:39**.
+Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **24.11.2026 02:42**.
 
-## Tétrade Fondation — 48 %
+## Tétrade Fondation — 51 % (+3)
 
-`█████████░░░░░░░░░░░`
+`██████████░░░░░░░░░░`
 
 | Critère | Fait | Cible | Poids |
 |---|---:|---:|---:|
-| systèmes rédigés | 10 | 14 | 45 |
-| interprétations de courbes | 160 | 119 | 10 |
+| systèmes rédigés | 11 | 14 | 45 |
+| interprétations de courbes | 178 | 119 | 10 |
 | organes en 3D réelle | 46 | 124 | 15 |
 | questions et puzzles jouables dans l'arène | 0 | 100 | 30 |
 
@@ -25,7 +25,7 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 | cas de l'arène « le bon examen » | 20 | 20 | 20 |
 | paquet jouable dans l'arène | 1 | 1 | 15 |
 
-## Transversal — 100 % (+15)
+## Transversal — 100 %
 
 `████████████████████`
 
@@ -52,6 +52,7 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 
 | Date | Tétrade | Paraclinique | Transversal | 45 Spec |
 |---|---:|---:|---:|---:|
+| 24.11.2026 02:42 | 51 % | 97 % | 100 % | 7 % |
 | 24.11.2026 02:31 | 48 % | 97 % | 100 % | 7 % |
 | 24.11.2026 01:55 | 48 % | 97 % | 85 % | 7 % |
 | 24.11.2026 01:41 | 48 % | 97 % | 77 % | 7 % |
