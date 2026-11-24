@@ -20,41 +20,16 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | L | 12 | 12 |
 | M | 12 | 12 |
 | N | 12 | 12 |
-| O | 3 | 12 |
+| O | 6 | 12 |
 | P | 0 | 12 |
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **195** | **228** |
+| **Total** | **198** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
 - **TRANS_A-S4-01** : Contenu des ATF cités comme distracteurs ou repères (130 V 352 de 2004, 137 V 210 de 2011, 143 V 409/418 de 2017) : cohérent avec la doctrine connue mais non relu sur bger.ch (base inaccessible pendant l'audit). Vérifiés : ATF 125 V 351 (critères de valeur probante, guide FMH) et le changement de pratique de 2015 (arrêt 9C_492/2014 publié ATF 141 V 281, circulaire OFAS du 7.7.2015).
-- **TRANS_K-S1-01** : Valeurs indicatives suisses pour le port de charges (SECO, commentaire de l'art. 25 OLT3 ; méthode des indicateurs clés) et outils SUVA de 2026.
-- **TRANS_K-S1-01** : Part des TMS parmi les causes d'absence au travail en Suisse (enquête européenne et suisse sur les conditions de travail, SECO) : chiffre non cité.
-- **TRANS_K-S1-02** : Limites de l'OProMa pour le port de charges (jusqu'au 6e mois : 5 kg régulièrement, 10 kg occasionnellement ; dès le 7e mois : interdiction) et pour le bruit (85 dB(A)) : à confirmer dans le RS 822.111.52.
-- **TRANS_K-S1-02** : Interdiction de travailler entre 20 h et 6 h pendant les 8 semaines précédant l'accouchement (art. 35a al. 4 LTr) et interdiction d'occuper l'accouchée pendant 8 semaines (art. 35a al. 3 LTr).
-- **TRANS_K-S1-03** : Formulation de l'art. 9 LAA : al. 1 (substances nocives ou travaux de la liste de l'annexe 1 OLAA, cause exclusive ou prépondérante, soit plus de 50 %) et al. 2 (autres maladies, cause exclusive ou nettement prépondérante, jurisprudence 75 %).
-- **TRANS_K-S1-03** : Procédure de déclaration : déclaration de sinistre par l'employeur à l'assureur LAA ; obligations du médecin (rapport médical, art. 54a LAA ?).
-- **TRANS_K-S2-01** : Inscription des isocyanates, de la farine et des allergènes de contact professionnels (dont les produits capillaires) dans l'annexe 1 OLAA en vigueur.
-- **TRANS_K-S2-01** : Recommandations ERS/EAACI sur l'asthme professionnel (2012, mises à jour ?) : éviction complète de l'exposition préférable à la réduction.
-- **TRANS_K-S2-02** : Valeurs biologiques tolérables (VBT) SUVA 2026 pour le plomb sanguin (homme, femme de moins de 45 ans), pour le benzène (acide S-phénylmercapturique urinaire) et pour les solvants courants : chiffres non écrits, à reprendre de la liste SUVA « Valeurs limites d'exposition aux postes de travail » en vigueur.
-- **TRANS_K-S2-02** : Moment de prélèvement recommandé pour chaque indicateur (fin de poste, fin de semaine).
-- **TRANS_K-S2-03** : Article de l'OLT1 qui définit les situations de risque imposant l'examen médical obligatoire avant le travail de nuit (art. 45 OLT1 ?) et périodicité de deux ans.
-- **TRANS_K-S2-03** : Classification du travail posté avec perturbation circadienne comme « probablement cancérogène » (groupe 2A) par le CIRC (monographie 124, 2019).
-- **TRANS_K-S3-01** : Interdiction de l'amiante en Suisse depuis 1990 et fonctionnement 2026 de la Fondation pour les victimes de l'amiante (EFA) et du programme de surveillance post-exposition de la SUVA.
-- **TRANS_K-S3-01** : Recommandations suisses sur le dépistage par scanner thoracique faible dose chez les anciens travailleurs exposés à l'amiante et fumeurs.
-- **TRANS_K-S3-02** : Seuils SUVA en vigueur : niveau d'exposition au bruit à partir duquel la SUVA effectue des examens audiométriques (85 dB(A) LEX,8h) et à partir duquel les protecteurs d'ouïe sont obligatoires.
-- **TRANS_K-S3-02** : Critères SUVA de reconnaissance de la surdité professionnelle et barème d'indemnisation (indemnité pour atteinte à l'intégrité).
-- **TRANS_K-S3-03** : Statut du burn-out dans la CIM-11 (QD85, « phénomène lié au travail », non classé comme maladie) et codage suisse en 2026 (CIM-10-GM utilisée pour la facturation).
-- **TRANS_K-S3-03** : Base de l'obligation de l'employeur de protéger la personnalité du travailleur (art. 328 CO) et du harcèlement psychologique (jurisprudence du Tribunal fédéral) ; rôle des inspections cantonales du travail sur les risques psychosociaux (art. 6 LTr, art. 2 OLT3).
-- **TRANS_K-S4-01** : Classement CIRC actuel des agents cités (benzène, poussières de bois, amines aromatiques comme la 2-naphtylamine et la benzidine, amiante, silice) : groupe 1 confirmé.
-- **TRANS_K-S4-01** : Durées de latence et durées d'exposition minimales retenues par la SUVA pour reconnaître l'adénocarcinome de l'ethmoïde lié au bois et le cancer de la vessie lié aux amines aromatiques.
-- **TRANS_K-S4-02** : Limites de dose de l'ORaP (RS 814.501, en vigueur depuis le 1.1.2018) : dose efficace de 20 mSv par an pour les personnes professionnellement exposées, dose équivalente au cristallin de 20 mSv par an, dose à la peau et aux extrémités de 500 mSv par an, 1 mSv pour l'enfant à naître dès l'annonce de la grossesse.
-- **TRANS_K-S4-02** : Catégories A et B des personnes professionnellement exposées et fréquence de lecture des dosimètres (mensuelle ?).
-- **TRANS_K-S4-03** : Exigences médicales minimales de l'annexe 1 OAC pour le 2e groupe (vision, diabète sous insuline, épilepsie, SAOS) en vigueur en 2026.
-- **TRANS_K-S4-03** : Rôle de l'Office fédéral de l'aviation civile (OFAC) et des médecins examinateurs aéronautiques (AME) pour les pilotes selon les règles EASA appliquées en Suisse.
-- **TRANS_K-S4-03** : Droit d'aviser l'autorité cantonale d'un conducteur inapte (art. 15d al. 3 LCR) sans levée du secret.
 - **TRANS_L-S1-01** : Formulation de l'art. 253 CPP (levée de corps par le ministère public en cas d'indices de mort non naturelle) et obligations cantonales d'annonce du médecin (lois de santé cantonales, par exemple VD, GE, NE).
 - **TRANS_L-S1-01** : Modèle et circuit du certificat médical de décès en 2026 (formulaire OFS « Constat de décès » et bulletin confidentiel de la cause de décès).
 - **TRANS_L-S1-02** : Recommandations suisses (SSML, CURML) sur le constat de lésions et les modèles cantonaux de certificat médical de coups et blessures.
@@ -134,6 +109,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_O-S1-02** : Seuils d'adaptation ou de contre-indication des AOD et de la metformine selon le DFG dans l'AIPS suisse (metformine contre-indiquée sous 30 mL/min ; dose maximale réduite entre 30 et 45 mL/min).
 - **TRANS_O-S1-03** : Critères du syndrome sérotoninergique (critères de Hunter) et du syndrome anticholinergique décrits dans les manuels de toxicologie de référence ; disponibilité et posologie de la physostigmine en Suisse.
 - **TRANS_O-S1-03** : Numéro et rôle de Tox Info Suisse (145) en 2026.
+- **TRANS_O-S2-01** : Seuils de QTc retenus (plus de 500 ms ou allongement de plus de 60 ms : risque élevé de torsades) et classification CredibleMeds (risque connu, possible, conditionnel) consultée en 2026.
+- **TRANS_O-S2-01** : Formule de correction recommandée (Fridericia plutôt que Bazett en tachycardie) selon les recommandations AHA/ACCF 2010 et ESC.
+- **TRANS_O-S2-02** : Schéma de N-acétylcystéine recommandé par Tox Info Suisse en 2026 (schéma SNAP en 12 heures ou schéma classique en 21 heures) et nomogramme utilisé.
+- **TRANS_O-S2-02** : Posologies : hydroxocobalamine 5 g IV chez l'adulte ; naloxone 0,04 à 0,4 mg IV titrée ; flumazénil 0,2 mg IV titré ; atropine 1 à 2 mg IV doublée toutes les 5 minutes dans les intoxications aux organophosphorés ; à confirmer dans la liste des antidotes de Tox Info Suisse.
+- **TRANS_O-S2-03** : Délais légaux d'annonce par les professionnels de la santé selon l'ordonnance sur les médicaments (OMéd, art. 61 à 63 : 15 jours pour les effets graves, 60 jours pour les autres ?).
+- **TRANS_O-S2-03** : Nom et fonctionnement du portail d'annonce en 2026 (ElViS ou ElViS 2.0).
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -147,4 +128,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : O (3/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : O (6/12), P (0/12), R (0/12).
