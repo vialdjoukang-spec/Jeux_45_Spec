@@ -46,7 +46,8 @@ h1{font:700 22px Georgia,serif;margin:0 0 4px}.sous{color:var(--sous);font-size:
 .fenetre li{margin:4px 0}.fermer{float:right;font:700 13px A;border:1px solid var(--trait);background:transparent;border-radius:99px;padding:4px 12px;cursor:pointer;color:var(--ink)}
 @media(max-width:760px){.deux{grid-template-columns:1fr}}
 
-.arbre ul[hidden]{display:none!important}.arbre ul>li::before,.arbre ul>li::after,.arbre ul::before{border-color:#1d4ed8!important;border-width:2.5px!important}
+.arbre ul[hidden]{display:none!important}
+.liensv{margin:0 0 10px;font-size:13px}.liensv a{color:var(--acc);font-weight:700}.arbre ul>li::before,.arbre ul>li::after,.arbre ul::before{border-color:#1d4ed8!important;border-width:2.5px!important}
 .noeud{border:1.5px solid #1d4ed8;color:#0f172a}.noeud.racine{background:#fde8ea;border-color:#c8102e;color:#9b0d23;font-weight:700}.noeud.feuille{border:1.5px dashed #64748b;cursor:default}
 .noeud.pec{min-width:200px;border:1.5px solid #c8102e;background:#fff5f5;cursor:pointer}.noeud.pec::after{content:" ▸ prise en charge";color:#c8102e;font-weight:700;font-size:12px}
 .fenetre table td,.fenetre table th{border:1px solid #a9bccd}.fenetre th{background:#f3f6f9;font-weight:700}
@@ -64,7 +65,7 @@ abbr.ab{text-decoration:underline dotted 1px;text-underline-offset:2px;cursor:he
 .opt.bon .k{color:#15803d}.opt.faux .k{color:#dc2626}
 [hidden]{display:none!important}
 </style></head><body>
-<nav><h2>Arène commune</h2><select id="paquet"></select><ol id="liste"></ol><div class="maitrise" id="maitrise" title="Boîtes de Leitner : 0 à 4"></div><div class="fonds" id="fonds" title="Fond de page"></div></nav>
+<nav><h2>Arène commune</h2><p class="liensv"><a href="../veille/index.html">Veille Examen fédéral</a> · <a href="#" onclick="window.Suivi&&Suivi.ouvrir();return false">Ma préparation</a></p><select id="paquet"></select><ol id="liste"></ol><div class="maitrise" id="maitrise" title="Boîtes de Leitner : 0 à 4"></div><div class="fonds" id="fonds" title="Fond de page"></div></nav>
 <main><div class="col">
 <h1 id="titre">Chargement…</h1><div class="sous" id="ss"></div>
 <div class="barre"><span>Score : <b id="score">0</b></span><span class="chrono" id="chrono">—</span><span id="format" class="sous"></span></div>
@@ -112,6 +113,8 @@ function valider(){if(fini)return;fini=true;clearInterval(tick);const q=P.questi
  score+=pts;$('score').textContent=String(score).replace('.',',');
  $('res').insertAdjacentHTML('afterbegin',`<div class="res ${juste?'ok':'ko'}">${juste?'Juste':'À revoir'} : ${String(pts).replace('.',',')}/${max}</div>`);
  boites[q.id]=juste?Math.min(4,(boites[q.id]??0)+1):0;ecrire('arene_'+Q.get('paquet'),boites);
+ try{const pq=Q.get('paquet')||'',pre=pq.split('_')[0],JEUX={'45spec':'45 Spec',paraclinique:'Paraclinique',transversal:'Transversal',tetrade:'Tétrade'},ss=(q.correction&&q.correction.ssp)||q.ssp;
+  window.Suivi&&Suivi.enregistrer({jeu:JEUX[pre]||pre,specialite:pre==='45spec'?pq.slice(7):(JEUX[pre]||pre)+' · '+pq.split('_').slice(1).join(' '),ssp:ss?(ss.code?ss.code+' '+(ss.nom||''):ss).trim():'',notion:q.titre,format:q.format,juste,points:pts,max,temps:(Date.now()-t0)/1000,qid:pq+'/'+q.id});}catch(e){}
  document.querySelector(`#liste li[data-j="${i}"] i`).textContent=boites[q.id];maitrise();
  const ech=(q.echelle||[]).map(([m,t])=>`<dt>${NOMS[m]||m}</dt><dd>${T(t)}</dd>`).join('');
  if(q.correction){const c=q.correction,nb=(n,i,cl)=>`<button class="notion ${cl||''}" data-n="${n.id}"><b>${i}. ${esc(n.titre)}</b><span>${T(n.comment)}</span></button>`;
@@ -163,4 +166,5 @@ $('valider').onclick=valider;$('suivant').onclick=()=>{const L=P.questions.map((
  const p=Q.get('paquet')||idx[0].paquet;$('paquet').value=p;Q.set('paquet',p);$('paquet').onchange=e=>{Q.set('paquet',e.target.value);history.replaceState(null,'','#'+Q);charger(e.target.value);};
  await charger(p);maitrise();if(Q.has('valider'))setTimeout(()=>{document.querySelector('.opt')?.click();valider();},100);document.title='PRET';})();
 }
-</script></body></html>
+</script>
+<script src="../veille/donnees.js"></script><script src="../commun/suivi.js"></script></body></html>
