@@ -1,6 +1,6 @@
 # Progression NEU — production manuelle sans API (agent 45spec-NEU)
 
-Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 20.
+Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 23.
 
 Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts/ecrire_manuel.py SOURCE --spec NEU` (valider() et ecrire() du script de production).
 
@@ -20,13 +20,16 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | E51.2__F1_15-E07 | Encéphalopathie de Gayet-Wernicke (carence aiguë en thiamine) | 25 | 20 | 0 |
 | G00.9__F1_15-E17 | Méningite bactérienne aiguë | 39 | 20 | 0 |
 | G04.9_1__S7_7-E13 | Encéphalite aiguë (herpétique ou auto-immune) | 25 | 20 | 0 |
+| G21.0__F1_15-E11 | Syndrome malin des neuroleptiques | 25 | 20 | 0 |
 | G40.9_premiere_crise_epile__O3_7-E15 | Première crise épileptique (crise inaugurale) | 25 | 20 | 0 |
 | G41.0__S7_10-E11 | État de mal épileptique convulsif généralisé (EME) | 38 | 20 | 0 |
 | G45.9__F1_11-E13 | Accident ischémique transitoire (AIT) avec trouble aigu du langage | 33 | 21 | 0 |
 | G61.0__O4_2-E13 | Syndrome de Guillain-Barré (polyradiculonévrite aiguë) | 36 | 20 | 0 |
+| G93.5_hypertension_intracr__F1_12-E11 | Hypertension intracrânienne secondaire et engagement cérébral | 25 | 20 | 0 |
 | G95.2__O5_3-E12 | Compression médullaire aiguë (paraparésie spastique/flasque aiguë avec troubles de la marche) | 29 | 20 | 0 |
 | I63.9__F1_11-E12 | Accident vasculaire cérébral aigu (AVC ischémique ou hémorragique) | 46 | 24 | 0 |
 | I63.9_avc_de_la_circulatio__F1_15-E14 | AVC de la circulation postérieure (tronc cérébral, cervelet, thrombose basilaire, syndrome de Wallenberg) | 25 | 20 | 0 |
+| I67.0_dissection_des_arter__F1_12-E12 | Dissection des artères cervicales (carotide ou vertébrale) | 25 | 20 | 0 |
 | I67.1__F1_12-E15 | Anévrisme de l'artère communicante postérieure (paralysie du III) | 28 | 20 | 0 |
 
 ## Ordre de priorité retenu (importance pour l'examen)
@@ -51,9 +54,9 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 18. I61.9_hemorragie_intracere__F1_15-E13 — fait
 19. G40.9_premiere_crise_epile__O3_7-E15 — fait
 20. I63.9_avc_de_la_circulatio__F1_15-E14 — fait
-21. I67.0_dissection_des_arter__F1_12-E12
-22. G21.0__F1_15-E11
-23. G93.5_hypertension_intracr__F1_12-E11
+21. I67.0_dissection_des_arter__F1_12-E12 — fait
+22. G21.0__F1_15-E11 — fait
+23. G93.5_hypertension_intracr__F1_12-E11 — fait
 24. G50.0__G10-E08
 25. G44.2__G10-E02
 26. G63.2__O3_2-E10
