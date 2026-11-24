@@ -10,16 +10,18 @@ description: Produit à la main, sans appeler l'API Anthropic, les notions, ques
 
 ## Outil
 - `projets/45spec/psy/lib.py` (modèle validé sur PSY) : helpers `notions()`, `A()`, `K()`, `M()`, `C()`, `cours()`, `pec()` ; `python lib.py <id>` valide puis écrit les trois fichiers.
-- Contrôles ajoutés à valider() : proportions A/Kprim/MenuLong (≈ 13/3/2 sur 18), couverture (chaque notion de poids ≥ 2 citée par ≥ 2 questions d'angles différents), poids 3 ≤ 15 % et poids 2 ≤ 35 %, au moins une série, lieux interdits (CNP, CPCM), disciplines transversales A→S conformes à `data/references/transversales_19_et_systemes.json`.
+- Contrôles ajoutés à valider() : proportions A/Kprim/MenuLong (14/4/2 sur 20 depuis novembre 2026 ; tolérance 0,6–0,8 / 0,12–0,28 / 0,05–0,15), couverture (chaque notion de poids ≥ 2 citée par ≥ 2 questions d'angles différents), poids 3 ≤ 15 % et poids 2 ≤ 35 %, au moins une série, lieux interdits (CNP, CPCM), disciplines transversales A→S conformes à `data/references/transversales_19_et_systemes.json`.
 - `progression.py` régénère `projets/45spec/PROGRESSION_<SPEC>.md` depuis le disque.
 - Pour une autre spécialité : copier `lib.py` et `progression.py`, changer le code de spécialité et l'ordre.
 
 ## Méthode par pathologie
 1. Lire les portes d'entrée (`canoniques()`), pas le message entier.
-2. Planifier AVANT d'écrire : ~29 notions (4 de poids 3, 10 de poids 2), puis 18 questions en assignant les notions et les angles, pour passer la couverture du premier coup.
+2. Planifier AVANT d'écrire : ~29 notions (4 de poids 3, 10 de poids 2), puis 20 questions (14 A, 4 Kprim, 2 menus longs) en assignant les notions et les angles, pour passer la couverture du premier coup.
 3. Diagnostic masqué : ne jamais réunir dans une vignette masquée les trois premiers mots de plus de 4 lettres du nom de l'entité.
 4. Posologies : « à vérifier dans l'AIPS » ; référence incertaine : ne pas l'inventer.
-5. Commit + push toutes les 3 pathologies sur la branche agent, jamais sur main.
+5. Ordre : champ « rang » de `content/pathologies/RANG_RENDEMENT.json` (groupes de rendement A → B → C → D) ; `progression.py` suit cet ordre.
+6. Commit + push toutes les 3 pathologies sur la branche agent, jamais sur main.
+7. git add doit inclure content/notions|questions|corrections/<SPEC>.
 
 Relais : `psych-ultra-ch`, `medical-accuracy-100`, `pipeline-autonomous-builder`.
 
