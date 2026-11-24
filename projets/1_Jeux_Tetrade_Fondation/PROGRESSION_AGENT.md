@@ -45,6 +45,8 @@ Répartition des pathologies par organe : moelle 9, globules rouges 8, globules 
 
 ## 5. Points `aVerifier` (à trancher par Claude ou dans l'AIPS)
 
+> Audit médical du 2026-11-24 : 15 des 22 points sont résolus et sourcés ; 7 restent ouverts avec leur raison (voir `AUDIT_TETRADE.md`). La liste ci-dessous garde l'état d'avant l'audit.
+
 - **Syndrome myélodysplasique** : Les doses d'époétine et de darbépoétine varient selon les centres ; le luspatercept et son remboursement en Suisse restent à vérifier.
 - **Amylose AL** : L'année et la revue de la recommandation ISA-EHA (Wechalekar) restent à confirmer.
 - **Anémie ferriprive** : Le carboxymaltose ferrique peut causer une hypophosphatémie ; la fréquence du contrôle du phosphate reste à préciser selon l'AIPS.

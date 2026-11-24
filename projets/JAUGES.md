@@ -1,15 +1,15 @@
 # Jauges « jouable » des 4 jeux
 
-Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **24.11.2026 00:56**.
+Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **24.11.2026 01:24**.
 
-## Tétrade Fondation — 35 %
+## Tétrade Fondation — 41 % (+6)
 
-`███████░░░░░░░░░░░░░`
+`████████░░░░░░░░░░░░`
 
 | Critère | Fait | Cible | Poids |
 |---|---:|---:|---:|
-| systèmes rédigés | 6 | 14 | 45 |
-| interprétations de courbes | 119 | 119 | 10 |
+| systèmes rédigés | 8 | 14 | 45 |
+| interprétations de courbes | 143 | 119 | 10 |
 | organes en 3D réelle | 46 | 124 | 15 |
 | questions et puzzles jouables dans l'arène | 0 | 100 | 30 |
 
@@ -25,15 +25,15 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 | cas de l'arène « le bon examen » | 20 | 20 | 20 |
 | paquet jouable dans l'arène | 1 | 1 | 15 |
 
-## Transversal — 30 % (+20)
+## Transversal — 49 %
 
-`██████░░░░░░░░░░░░░░`
+`█████████░░░░░░░░░░░`
 
 | Critère | Fait | Cible | Poids |
 |---|---:|---:|---:|
 | structure A → S et lentilles | 1 | 1 | 10 |
-| leçons rédigées | 60 | 228 | 55 |
-| leçons avec QCM | 60 | 228 | 20 |
+| leçons rédigées | 120 | 228 | 55 |
+| leçons avec QCM | 120 | 228 | 20 |
 | paquet jouable dans l'arène | 0 | 1 | 15 |
 
 ## 45 Spec — 7 %
@@ -52,6 +52,8 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 
 | Date | Tétrade | Paraclinique | Transversal | 45 Spec |
 |---|---:|---:|---:|---:|
+| 24.11.2026 01:17 | 41 % | 97 % | 49 % | 7 % |
+| 24.11.2026 01:09 | 35 % | 97 % | 49 % | 7 % |
 | 24.11.2026 00:56 | 35 % | 97 % | 30 % | 7 % |
 | 23.11.2026 23:36 | 35 % | 97 % | 10 % | 7 % |
 | 23.11.2026 19:37 | 35 % | 95 % | 10 % | 7 % |
