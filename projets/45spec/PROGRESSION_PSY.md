@@ -1,6 +1,6 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 28/126.
+Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 31/126.
 
 | # | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|
@@ -32,9 +32,9 @@ Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : importance
 | 26 | F01.9__F1_9-E02 | Démence vasculaire | 29 | 20 | oui |
 | 27 | F05.9_agitation_et_deliriu__O5_3-E04 | Agitation et delirium terminaux (fin de vie) | 29 | 20 | oui |
 | 28 | F06.7__F1_9-E03 | Trouble cognitif léger (MCI — Mild Cognitive Impairment) | 29 | 20 | oui |
-| 29 | F10.3__S7_10-E05 | Crise de sevrage alcoolique | — | — | — |
-| 30 | F12.2__S9_13-E03 | Trouble de l'usage du cannabis | — | — | — |
-| 31 | F19.2__O7_24-E03 | Patient avec trouble psychique sévère ou addiction (accès limité aux s | — | — | — |
+| 29 | F10.3__S7_10-E05 | Crise de sevrage alcoolique | 29 | 20 | oui |
+| 30 | F12.2__S9_13-E03 | Trouble de l'usage du cannabis | 29 | 20 | oui |
+| 31 | F19.2__O7_24-E03 | Patient avec trouble psychique sévère ou addiction (accès limité aux s | 29 | 20 | oui |
 | 32 | F32.1_1__O5_5-E05 | Dépression masquée (présentation somatique d'un épisode dépressif) | — | — | — |
 | 33 | F32.1_3__O7_4-E02 | Dépression et anxiété comorbides d'une maladie chronique | — | — | — |
 | 34 | F32.2_episode_depressif_ma__F1_8-E06 | Épisode dépressif majeur sévère (anorexie, amaigrissement, risque suic | — | — | — |
@@ -153,6 +153,9 @@ Outil : `python projets/45spec/psy/lib.py <id>` (valider() du script + contrôle
 - Démence vasculaire (F01.9) : rang « 2e cause de démence », signes focaux/pseudobulbaires et Memory Clinics = avis d'expert ; seuils du score de Hachinski non retenus (sources discordantes).
 - Delirium terminal (F05.9) : source principale ESMO 2018 ; « globe/fécalome avant sédation » = avis d'expert ; recommandations suisses palliative.ch (BIGORIO) non consultées.
 - Trouble cognitif léger (F06.7) : la ligne directrice AAN 2018 (Petersen) est marquée « retirée » sur PubMed ; chiffres conservés avec cette mention ; correspondance CIM-11 6D71 non vérifiée sur le site OMS.
+- Crise de sevrage alcoolique (F10.3) : délai 6–48 h, mécanisme GABA/NMDA, bilan (glycémie, Na, Mg) et indications du scanner = avis d'expert ; dose du lorazépam (2 mg IV) tirée de l'essai D'Onofrio 1999, posologie suisse à vérifier dans l'AIPS ; LCR art. 15d cité sans lecture du texte.
+- Cannabis (F12.2) : « aucun médicament autorisé » = avis d'expert (revue Cochrane pharmacothérapie non consultée) ; critères d'hyperémèse AGA 2024 lus dans un compte rendu secondaire ; CIM-11 6C41.2 non vérifiée sur le site OMS ; CAST cité sans référence.
+- Patient vulnérable (F19.2) : interaction tabac–CYP1A2–clozapine/olanzapine, traitement agoniste opioïde et dépistages infectieux = avis d'expert ; bilan annuel tiré de NICE QS167 (énoncé visant les minorités, composantes générales).
 - Toutes les posologies portent « à vérifier dans l'AIPS ».
 - Les champs `usage` indiquent `_mode: agent, api: false` (production sans API).
 
