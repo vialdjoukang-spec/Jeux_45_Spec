@@ -423,6 +423,56 @@ const MODELES={
    else if(vm>seuil&&vg>=seuil)m1='Les IgM et les IgG sont présentes : l\'infection est récente ; une séroconversion entre deux prélèvements à 2 ou 3 semaines d\'intervalle la confirme.';
    else m1='Les IgG persistent sans IgM : l\'infection est ancienne ou le sujet est vacciné.';
    note.textContent='Jour '+j+' : IgM = '+vm.toFixed(2)+', IgG = '+vg.toFixed(2)+' (unités arbitraires ; seuil de positivité schématique '+String(seuil).replace('.',',')+'). '+m1+' Les délais exacts varient selon le microbe et le test.';}d();},
+ /* locomoteur : analyse du liquide synovial (leucocytes, neutrophiles, cristaux, sang) */
+ lo_synovie(C){const x=toile(C);const note=document.createElement('p');
+  boutons(C,[['Normal',{l:150,n:20,c:0,s:0}],['Arthrose',{l:800,n:15,c:0,s:0}],['Goutte',{l:20000,n:80,c:1,s:0}],['Chondrocalcinose',{l:15000,n:75,c:2,s:0}],['Polyarthrite rhumatoïde',{l:12000,n:65,c:0,s:0}],['Arthrite septique',{l:85000,n:95,c:0,s:0}],['Hémarthrose',{l:2000,n:40,c:0,s:1}]],o=>{L.set(Math.log10(o.l).toFixed(2));N.set(o.n);Cr.set(o.c);S.set(o.s);d();});
+  const L=cur(C,'log10 des leucocytes (2 = 100 ; 3,3 = 2000 ; 4,7 = 50 000 par µl)',1.7,5.3,0.01,2.18,d),N=cur(C,'Neutrophiles (%)',0,100,1,20,d),Cr=cur(C,'Cristaux (0 aucun, 1 urate, 2 pyrophosphate)',0,2,1,0,d),S=cur(C,'Liquide sanglant (0 non, 1 oui)',0,1,1,0,d);C.appendChild(note);
+  function d(){const W=520,H=300,m=45;x.clearRect(0,0,W,H);x.font='11px A';const X=l=>m+(l-1.7)/3.6*(W-m-15),Y=n=>H-m-n/100*(H-m-15);
+   const z=(l0,l1,col,t)=>{x.fillStyle=col;x.fillRect(X(l0),Y(100),X(l1)-X(l0),Y(0)-Y(100));x.fillStyle='#3a4556';x.fillText(t,X(l0)+3,Y(100)+12);};
+   z(1.7,Math.log10(200),'rgba(31,122,77,0.14)','normal');z(Math.log10(200),Math.log10(2000),'rgba(120,130,140,0.14)','mécanique');z(Math.log10(2000),Math.log10(50000),'rgba(201,138,43,0.16)','inflammatoire');z(Math.log10(50000),5.3,'rgba(224,69,43,0.16)','septique ?');
+   x.strokeStyle='#8a94a3';x.beginPath();x.moveTo(m,H-m);x.lineTo(W-15,H-m);x.moveTo(m,H-m);x.lineTo(m,10);x.stroke();x.fillStyle='#3a4556';
+   for(const v of [100,200,2000,10000,50000,200000]){x.fillText(String(v),X(Math.log10(v))-10,H-m+14);}for(let n=0;n<=100;n+=25){x.textAlign='right';x.fillText(n,m-5,Y(n)+4);x.textAlign='left';}
+   x.fillText('Leucocytes par µl (échelle logarithmique)',W-230,H-8);x.fillText('Neutrophiles (%)',6,12);
+   const l=Math.pow(10,L()),n=N(),c=Cr(),s=S();x.fillStyle='#d11';x.beginPath();x.arc(X(L()),Y(n),6,0,7);x.fill();
+   let m1;
+   if(s)m1='Le liquide est sanglant : tu penses à une hémarthrose (traumatisme avec rupture ligamentaire ou fracture, anticoagulant, hémophilie). Des gouttelettes de graisse à la surface signent une fracture articulaire.';
+   else if(l>=50000||(n>=90&&l>=20000))m1='Leucocytes au-dessus de 50 000 par µl avec plus de 90 % de neutrophiles : l\'arthrite est septique jusqu\'à preuve du contraire, même si des cristaux sont présents. Tu fais la culture, les hémocultures, puis l\'antibiotique et le drainage.';
+   else if(c===1)m1='Des cristaux d\'urate en aiguille, fortement biréfringents, signent une goutte. Tu demandes quand même la culture, car infection et cristaux peuvent coexister.';
+   else if(c===2)m1='Des cristaux de pyrophosphate de calcium, rhomboïdes et faiblement biréfringents, signent une chondrocalcinose. Avant 60 ans, tu cherches une hyperparathyroïdie, une hémochromatose et une hypomagnésémie.';
+   else if(l>=2000)m1='Liquide inflammatoire (2000 à 50 000 leucocytes par µl) sans cristaux : tu penses à une polyarthrite rhumatoïde, une spondyloarthrite, une arthrite de Lyme, une arthrite réactive ou virale ; une infection débutante ou traitée reste possible.';
+   else if(l>=200)m1='Liquide mécanique (200 à 2000 leucocytes par µl) : tu penses à une arthrose, à une lésion méniscale ou à un traumatisme sans hémorragie.';
+   else m1='Liquide normal : clair, visqueux, moins de 200 leucocytes par µl.';
+   note.textContent='Leucocytes = '+Math.round(l)+' par µl ; neutrophiles = '+n+' %. '+m1+' Les seuils restent indicatifs : une arthrite septique peut compter moins de 50 000 leucocytes, surtout chez l\'immunodéprimé ou sur prothèse.';}d();},
+ /* locomoteur : cinétique des CK après une lésion musculaire et seuils de la rhabdomyolyse */
+ lo_ck(C){const x=toile(C);const note=document.createElement('p');
+  boutons(C,[['Normal',{p:120,j:2,q:0}],['Effort intense inhabituel',{p:3000,j:2,q:0}],['Myalgies sous statine',{p:600,j:2,q:0}],['Rhabdomyolyse',{p:40000,j:2,q:0}],['Écrasement ou immobilisation prolongée',{p:150000,j:1,q:0}],['Myosite inflammatoire',{p:4000,j:6,q:1}]],o=>{P.set(Math.log10(o.p).toFixed(2));J.set(o.j);Q.set(o.q);d();});
+  const P=cur(C,'log10 du pic de CK (2 = 100 ; 3 = 1000 ; 4 = 10 000 U/l)',2,5.3,0.01,2.08,d),J=cur(C,'Jour du prélèvement après la lésion',0,10,0.5,2,d),Q=cur(C,'Lésion persistante (0 non, 1 oui)',0,1,1,0,d);C.appendChild(note);
+  const ck=(t,p,q)=>{const b=100;if(q)return b+(p-b)*Math.min(1,t/1.5);return t<1.5?b+(p-b)*t/1.5:b+(p-b)*Math.exp(-Math.LN2*(t-1.5)/1.5);};
+  function d(){const W=520,H=300,m=45;x.clearRect(0,0,W,H);x.font='11px A';const X=t=>m+t/10*(W-m-15),Y=v=>H-m-(Math.log10(Math.max(50,v))-1.7)/3.7*(H-m-15);
+   x.strokeStyle='#e3e7ec';x.fillStyle='#3a4556';for(const v of [100,200,1000,5000,20000,100000]){x.beginPath();x.moveTo(m,Y(v));x.lineTo(W-15,Y(v));x.stroke();x.textAlign='right';x.fillText(String(v),m-5,Y(v)+4);x.textAlign='left';}
+   for(let t=0;t<=10;t+=2)x.fillText(t,X(t)-3,H-m+14);x.fillText('Jours après la lésion',W-130,H-8);x.fillText('CK (U/l, échelle logarithmique)',6,12);
+   x.fillStyle='rgba(201,138,43,0.12)';x.fillRect(m,Y(5000),W-m-15,Y(1000)-Y(5000));x.fillStyle='rgba(224,69,43,0.12)';x.fillRect(m,Y(200000),W-m-15,Y(5000)-Y(200000));
+   x.fillStyle='#3a4556';x.fillText('rhabdomyolyse (> 5 × la norme)',m+5,Y(5000)+14);x.fillText('risque rénal accru',m+5,Y(200000)+14);
+   const p=Math.pow(10,P()),j=J(),q=Q();x.strokeStyle=getComputedStyle(C).getPropertyValue('--c')||'#6b7280';x.lineWidth=2.5;x.beginPath();for(let k=0;k<=100;k++){const t=k/10,[a,b]=[X(t),Y(ck(t,p,q))];k?x.lineTo(a,b):x.moveTo(a,b);}x.stroke();x.lineWidth=1;
+   const v=ck(j,p,q);x.fillStyle='#d11';x.beginPath();x.arc(X(j),Y(v),6,0,7);x.fill();
+   let m1;
+   if(p<=200)m1='Les CK restent dans la norme (environ 200 U/l selon le sexe, l\'origine et le laboratoire) : la douleur ne vient pas d\'une nécrose musculaire.';
+   else if(q)m1='Les CK restent élevées sans décroître : une lésion se poursuit. Tu penses à une myosite inflammatoire, à une myopathie nécrosante (anticorps anti-HMGCR sous statine), à une hypothyroïdie ou à une cause toxique persistante.';
+   else if(p<1000)m1='Élévation modérée des CK : elle suit un effort, une injection intramusculaire, une chute ou une statine. Sous statine, tu arrêtes si les symptômes gênent et tu cherches une hypothyroïdie.';
+   else if(p<5000)m1='CK au-dessus de 5 fois la norme : la définition de la rhabdomyolyse est remplie. Après un effort intense inhabituel, l\'élévation est fréquente et souvent sans gravité si la fonction rénale reste normale ; tu hydrates et tu contrôles.';
+   else m1='Rhabdomyolyse importante : le risque d\'insuffisance rénale aiguë augmente, surtout avec une déshydratation, un sepsis ou une acidose. Tu mesures en urgence la kaliémie, la créatinine, le calcium et le phosphate, tu hydrates par voie intraveineuse et tu cherches un syndrome des loges.';
+   note.textContent='Pic = '+Math.round(p)+' U/l ; au jour '+j+', CK = '+Math.round(v)+' U/l. '+m1+' Les CK culminent 1 à 3 jours après la lésion puis baissent de moitié environ tous les 1,5 jour ; une CK qui ne baisse pas signe une lésion qui continue.';}d();},
+ /* dermatologique : remplissage initial d'une brûlure étendue (formule de Parkland) */
+ de_brulure(C){const x=toile(C);const note=document.createElement('p');
+  boutons(C,[['Brûlure limitée',{p:70,s:10,f:4}],['Brûlure étendue',{p:70,s:30,f:4}],['Grand brûlé',{p:80,s:50,f:4}],['Formule réduite (2 ml)',{p:70,s:30,f:2}]],o=>{P.set(o.p);S.set(o.s);F.set(o.f);d();});
+  const P=cur(C,'Poids (kg)',30,150,1,70,d),S=cur(C,'Surface brûlée au 2e et au 3e degré (%)',1,90,1,10,d),F=cur(C,'Formule (ml par kg et par %)',2,4,1,4,d);C.appendChild(note);
+  function d(){const p=P(),s=S(),f=F(),tot=f*p*s,h8=tot/2/8,h16=tot/2/16;const A=axes(x,520,300,50,[0,24],[0,Math.max(200,Math.ceil(h8/100)*100)],'Heures depuis la brûlure','Débit (ml par heure)');
+   x.fillStyle='rgba(176,122,90,0.45)';const [a0,b0]=A(0,h8),[a1,b1]=A(8,0);x.fillRect(a0,b0,a1-a0,b1-b0);const [c0,e0]=A(8,h16),[c1,e1]=A(24,0);x.fillRect(c0,e0,c1-c0,e1-e0);
+   let m1;
+   if(s<15)m1='Sous environ 15 % de surface chez l\'adulte, une réhydratation orale suffit souvent et la formule ne s\'applique pas ; tu soignes localement et tu adresses selon la localisation (visage, mains, périnée, articulations).';
+   else if(s<20)m1='Entre 15 et 20 % de surface, tu poses une voie veineuse et tu discutes le remplissage selon l\'état circulatoire et la diurèse.';
+   else m1='Au-delà de 20 % de surface, tu perfuses selon la formule et tu transfères vers un centre suisse des grands brûlés (CHUV à Lausanne ou hôpital universitaire de Zurich).';
+   note.textContent='Volume des 24 premières heures = '+f+' × '+p+' kg × '+s+' % = '+Math.round(tot)+' ml de Ringer lactate : la moitié en 8 heures ('+Math.round(h8)+' ml par heure), le reste en 16 heures ('+Math.round(h16)+' ml par heure), comptés depuis l\'heure de la brûlure. '+m1+' Tu adaptes le débit à une diurèse d\'environ 0,5 ml/kg par heure : la formule n\'est qu\'un point de départ et l\'excès de remplissage aggrave l\'œdème.';}d();},
  '3d'(C){const oid=C.dataset.organe;if(!oid){C.textContent='Organe non identifié.';return;}
   C.innerHTML=`<div class=v3d style="position:relative;width:min(520px,80vw);height:360px;border-radius:6px;background:radial-gradient(#2a2f3a,#12151b)"><span class=att style="position:absolute;inset:0;display:grid;place-items:center;color:#aab">Chargement du modèle 3D…</span></div><div class=boutons style="margin-top:6px"><button data-v=face>Face</button><button data-v=profil>Profil</button><button data-v=dessus>Dessus</button><button data-v=rot>Rotation ⏯</button></div><div class=src style="font-size:11px;color:var(--sous);max-width:520px"></div>`;
   (async()=>{const [THREE,{GLTFLoader},{OrbitControls}]=await Promise.all([import('three'),import('three/addons/loaders/GLTFLoader.js'),import('three/addons/controls/OrbitControls.js')]);

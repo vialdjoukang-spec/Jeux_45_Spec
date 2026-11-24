@@ -60,7 +60,36 @@ def conserver(neuf, ancien):
     return ancien if neuf in VIDE and ancien not in VIDE else neuf
 
 
+def _av_source():
+    """aVerifier des pathologies rédigées en texte (systeme_source) : {(nom, def): aVerifier ou None}."""
+    from systemes_rediges import SOURCES
+    return {(x["nom"], x["bulle"].get("def")): x["bulle"].get("aVerifier") for S in SOURCES.values() for l in S["pathos"].values() for x in l}
+
+
+def aligner_aVerifier(o, av):
+    """La source texte fait foi pour aVerifier : un doute retiré de pathologies.txt disparaît du JSON fusionné.
+    Une bulle n'est touchée que si son nom (nom ou label) ET sa définition coïncident avec une pathologie de la source."""
+    if isinstance(o, dict):
+        b = o.get("bulle")
+        if isinstance(b, dict) and (o.get("nom") or o.get("label"), b.get("def")) in av:
+            v = av[(o.get("nom") or o.get("label"), b.get("def"))]
+            if v:
+                b["aVerifier"] = v
+            else:
+                b.pop("aVerifier", None)
+        for x in o.values():
+            aligner_aVerifier(x, av)
+    elif isinstance(o, list):
+        for x in o:
+            aligner_aVerifier(x, av)
+    return o
+
+
+AV_SOURCE = None
+
+
 def ecrire(chemin, obj):
+    global AV_SOURCE
     p = os.path.join(OUT, chemin)
     os.makedirs(os.path.dirname(p), exist_ok=True)
     if os.path.exists(p):   # ne jamais écraser un champ rempli (lots fusionnés, audit de fond)
@@ -68,6 +97,9 @@ def ecrire(chemin, obj):
             obj = conserver(obj, json.load(open(p, encoding="utf-8")))
         except ValueError:
             pass
+        if AV_SOURCE is None:
+            AV_SOURCE = _av_source()
+        aligner_aVerifier(obj, AV_SOURCE)
     json.dump(obj, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     return chemin
 

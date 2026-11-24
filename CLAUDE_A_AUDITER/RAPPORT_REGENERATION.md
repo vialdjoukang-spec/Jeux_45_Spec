@@ -1,6 +1,6 @@
-# Régénération automatique — 2026-11-24 00:17 UTC
+# Régénération automatique — 2026-11-24 01:31 UTC
 
-noeuds : 2869 | organes : 124 | à produire : 45
+noeuds : 3323 | organes : 124 | à produire : 28
 {"tetrade": 493, "pharmaco": 46, "paraclinique": 308, "pratique": 704, "recherche": 1, "schemas": 4} total 1556
 {'corrections': 0, 'acceptees': 502, 'ouvertes': 6, 'fiables': 815, 'examens': 820, 'aCompleter': 38}
 38 examens à compléter, lots dans Production_XAi/Lots_a_produire/complement_presentation
