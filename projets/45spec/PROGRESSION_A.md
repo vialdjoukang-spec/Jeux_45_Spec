@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**321 / 500 pathologies du périmètre produites.**
+**324 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -264,9 +264,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 255 | `F91.3__O2_2-E02` | Trouble oppositionnel avec provocation (TOP) | PEA | produite |
 | 256 | `G40.3_1__F1_19-E04` | Épilepsie généralisée idiopathique (tonico-clonique, myoclonique juvénile) | NEU | produite |
 | 257 | `G44.2__G10-E02` | Céphalée de tension | NEU | produite |
-| 258 | `G56.0__S5_5-E02` | Paresthésies canalaires (canal carpien, nerf ulnaire, méralgie paresthésique) | CMA | — |
-| 259 | `H52.7__S1_2-E03` | Amétropie non corrigée (myopie, hypermétropie, astigmatisme, presbytie) | OPH | — |
-| 260 | `H61.2__S1_10-E05` | Bouchon de cérumen impacté | ORL | — |
+| 258 | `G56.0__S5_5-E02` | Paresthésies canalaires (canal carpien, nerf ulnaire, méralgie paresthésique) | CMA | produite |
+| 259 | `H52.7__S1_2-E03` | Amétropie non corrigée (myopie, hypermétropie, astigmatisme, presbytie) | OPH | produite |
+| 260 | `H61.2__S1_10-E05` | Bouchon de cérumen impacté | ORL | produite |
 | 261 | `H66.9__O2_9-E02` | Otite moyenne aiguë (OMA) du nourrisson | ORL | — |
 | 262 | `H81.1_1__S7_1-E08` | Vertige paroxystique positionnel bénin (VPPB) | ORL | — |
 | 263 | `H91.1__O3_2-E02` | Presbyacousie (surdité neurosensorielle liée à l'âge) | ORL | — |
