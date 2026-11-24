@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**128 / 229 pathologies du périmètre produites.**
+**131 / 229 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans ['INF', 'NEU', 'PED', 'PSY'] (autres agents) ou ['DER', 'GYN', 'HEM', 'MIG', 'OBS', 'OPH', 'ORL', 'RHU', 'TOX', 'URO'] (agent A2).
 
@@ -70,9 +70,9 @@ Hors périmètre : première spécialité dans ['INF', 'NEU', 'PED', 'PSY'] (aut
 | 107 | `I33.0__F1_3-E17` | Endocardite infectieuse (hémorragies en flammèche sous-unguéales et faux panaris d'Osler) | CAR | produite |
 | 110 | `I87.1__F1_16-E17` | Syndrome cave supérieur | ANG | produite |
 | 113 | `J81_deme_aigu_du_poumon___F1_16-E12` | Œdème aigu du poumon cardiogénique | PNE | produite |
-| 114 | `J93.0__F1_18-E13` | Pneumothorax suffocant (sous tension) | CTH | — |
-| 115 | `K40.3__F1_5-E13` | Hernie étranglée (masse inguinale ou crurale irréductible) | CHI | — |
-| 117 | `M72.6__F1_14-E12` | Fasciite nécrosante (gangrène streptococcique ou polymicrobienne) | CPL | — |
+| 114 | `J93.0__F1_18-E13` | Pneumothorax suffocant (sous tension) | CTH | produite |
+| 115 | `K40.3__F1_5-E13` | Hernie étranglée (masse inguinale ou crurale irréductible) | CHI | produite |
+| 117 | `M72.6__F1_14-E12` | Fasciite nécrosante (gangrène streptococcique ou polymicrobienne) | CPL | produite |
 | 121 | `T78.2__F1_1-E17` | Anaphylaxie aiguë (choc anaphylactique) | ALL | — |
 | 122 | `T78.3__F1_16-E13` | Angio-œdème laryngé aigu | ALL | — |
 | 123 | `T79.6__G10-E22` | Syndrome des loges (compartiment) aigu | CHI | — |

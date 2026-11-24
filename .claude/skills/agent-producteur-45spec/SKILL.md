@@ -58,6 +58,11 @@ L'agent écrit lui-même le contenu que le script demanderait à l'API ; il doit
 - Contrôle d'une pathologie déjà produite avec le `valider()` courant : retire l'enveloppe (id, portes, signature…) et `couverture` avant l'appel, sinon le schéma échoue à tort.
 - Les rangs de `RANG_RENDEMENT.json` bougent entre deux fusions de main : relis l'ordre par script après chaque fusion.
 
+## Leçons (agent A, lots 5–6, 24.11.2026)
+- `pec(...)` : la liste `accueil` exige au moins 2 éléments ; une `conduite.urgence` fournie exige 3 étapes.
+- Une pathologie déjà couverte sous un autre code par une autre spécialité (ex. A41.9 sepsis ≈ A41.8 INF) se saute : vérifie l'entité et les portes du fichier existant avant de produire.
+- Un nœud `ssp` peut renvoyer à `c4` (4e bloc de correction) quand le PEC chronique y est traité.
+
 Relais : `ultra-competent-fast-doctor`, `medical-accuracy-100`, `i-write-so-fast`.
 
 Signature : AAI (Anthropic AI)
