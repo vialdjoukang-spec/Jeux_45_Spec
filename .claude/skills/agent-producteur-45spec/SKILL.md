@@ -148,3 +148,11 @@ Signature : AAI (Anthropic AI)
 - Sources suisses ouvrables en ligne : OFSP 2012 « Carence en vitamine D » (edi.admin.ch), OSAV apports vitamine D (blv.admin.ch), OFSP « Faits et chiffres : tabac » (bag.admin.ch) ; NICE CG158 se lit sur nice.org.uk (WebFetch).
 - eutils.ncbi.nlm.nih.gov est refusé par le proxy : passe par le connecteur PubMed, sans contourner.
 - `couverture_compacte.py` signale aussi une notice de poids 2–3 couverte deux fois sous le même angle : ajoute-la à une question d'un autre angle (piège ou application) plutôt que de changer l'angle d'une question juste.
+
+## Leçons (producteur unique, lots 34–36, 24.11.2026)
+- `pec(...)` accepte une liste pharmacologique vide `[]` pour une pathologie sans médicament utile (VPPB, presbyacousie, dysphonie) : n'invente pas de molécule pour remplir le champ.
+- Sources lisibles par WebFetch : recommandations NICE (`nice.org.uk/guidance/ngXX/chapter/recommendations`), PDF AAO repéré par WebSearch, résumés AFP (« Rapid Evidence Review », « Practice Guidelines ») qui reprennent les recommandations AAP ou ACC/AHA ; cite alors l'AFP comme résumé, avec la recommandation d'origine.
+- Sources suisses lisibles : LiMA chapitre 25 (OFSP, modifications au 01.07.2024), mémento AVS 3.07 appareils auditifs (ahv-iv.ch), SSML/SSO facultés visuelles et OAC (sgrm.ch), stratégie HUG « fièvre au retour de voyage », formulaire OFSP de déclaration du paludisme, portail PME (kmu.admin.ch) pour l'absence d'un parent d'enfant malade.
+- Le site escardio.org refuse WebFetch (robots) et PMC renvoie parfois un captcha : passe par `get_full_text_article` (commentaire PMC d'une recommandation) ou par un résumé ACC ou AFP, sans contourner.
+- Deux versions d'une même liste peuvent diverger (JMF 2003 : 8 otites ; JMF 2024 : 4 otites) : cite la version la plus récente lue.
+- Une pathologie NON_MONOGRAPHIQUE garde des vignettes `d` 4–5 masquées ; nommer une autre maladie (paludisme chez un voyageur) ne démasque pas l'entité canonique.
