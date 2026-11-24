@@ -232,9 +232,13 @@ def selection(etape, a):
         cs = [c for c in cs if os.path.exists(chemin("notions", c))]
     rang = os.path.join(R, "content", "pathologies", "RANG_RENDEMENT.json")    # classement par rendement à l'examen (scripts/classer_rendement.py)
     RG = json.load(open(rang, encoding="utf-8"))["pathologies"] if os.path.exists(rang) else {}
+    SUF = {k.split("__")[-1]: v for k, v in RG.items()}      # pathologie fusionnée : id canonique nouveau → meilleur rang de ses portes d'entrée
+    def rg(c):
+        m = [SUF[p["entiteId"].replace(".", "_")] for p in c.get("portes", []) if p["entiteId"].replace(".", "_") in SUF]
+        return RG.get(c["id"]) or (min(m, key=lambda x: x["rang"]) if m else {})
     if getattr(a, "groupe", None):
-        cs = [c for c in cs if RG.get(c["id"], {}).get("groupe") in a.groupe.split(",")]
-    cs.sort(key=lambda c: (RG.get(c["id"], {}).get("rang", 10 ** 6), c["freq"], c["id"]))
+        cs = [c for c in cs if rg(c).get("groupe") in a.groupe.split(",")]
+    cs.sort(key=lambda c: (rg(c).get("rang", 10 ** 6), c["freq"], c["id"]))
     return cs[: a.max] if a.max else cs
 
 

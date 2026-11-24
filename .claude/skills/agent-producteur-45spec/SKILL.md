@@ -9,7 +9,7 @@ description: Produit, sans appel à l'API Anthropic, les notions, questions et c
 L'agent écrit lui-même le contenu que le script demanderait à l'API ; il doit donc respecter les mêmes schémas, la même fonction `valider()` et les mêmes règles de couverture, sinon les fichiers ne passent ni l'audit ni `couverture_notions.py`.
 
 ## Méthode
-1. Liste les pathologies avec `canoniques("<SPEC>")` (ordre fréquence puis id) et saute celles dont les trois fichiers existent.
+1. Liste les pathologies restantes dans l'ordre de `progression.py <SPEC>` (rang de rendement, puis fréquence) et saute celles dont les trois fichiers existent.
 2. Écris une forme compacte par pathologie (`ID`, `N`, `AM`, `Q`, `C` ; `from constructeur_agent_45spec import pec` pour les plans de prise en charge) puis lance `python projets/45spec/constructeur_agent_45spec.py <fichier.py>` : il développe, valide, calcule la couverture et écrit les trois JSON.
 3. Lance d'abord `python projets/45spec/couverture_compacte.py <fichier.py>` : chaque notion de poids ≥ 2 doit apparaître dans deux questions d'angles différents ; poids 3 ≤ 15 %, poids 2 ≤ 35 %.
 4. Mets `m=0` (monographique) dès qu'une vignette nomme le diagnostic ou l'agent ; garde `m=1` pour les starting points.
@@ -37,6 +37,10 @@ L'agent écrit lui-même le contenu que le script demanderait à l'API ; il doit
 - N'appelle jamais une variable de la forme compacte `PLAN` (ni un autre nom d'attribut lu par le constructeur) : `PLAN` est lu comme plan du fichier et casse le schéma.
 - Cible directe pour 28 notions : 4 de poids 3, 9 de poids 2, le reste à 1 ; chaque notion sert au moins une fois ; au plus 6 notions par question ; les 15 rubriques doivent toutes porter une notion (oubli fréquent : `clinicalExam`, `hospitalizationComplications`).
 - Ce skill n'est pas enregistré auprès de l'outil Skill de la session : lis-le dans `.claude/skills/agent-producteur-45spec/SKILL.md` du clone.
+
+## Leçons (lot 10, 24.11.2026)
+- Ordre de production : rang de `content/pathologies/RANG_RENDEMENT.json` (groupe A, puis B, C, D), plus l'ordre fréquence. Une pathologie fusionnée change d'id et manque au classement : on lui donne le meilleur rang de ses portes d'entrée (`entiteId` avec « . » → « _ » = suffixe de la clé du rang), comme le font `selection()` et `progression.py`.
+- Une étape de série qui nomme le diagnostic (« vous suspectez un botulisme ») porte aussi `m=0`.
 
 Relais : `ultra-competent-fast-doctor`, `medical-accuracy-100`, `i-write-so-fast`.
 
