@@ -1,6 +1,6 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 152. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 12/152.
+Pathologies canoniques PSY (canoniques() avec fusions) : 152. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 14/152.
 
 | # | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|
@@ -16,8 +16,8 @@ Pathologies canoniques PSY (canoniques() avec fusions) : 152. Ordre : importance
 | 10 | F03__S9_3-E02 | Trouble neurocognitif majeur (maladie d'Alzheimer / démence fronto-tem | 29 | 18 | oui |
 | 11 | F53.1__O1_2-E15 | Psychose du post-partum (psychose puerpérale) | 28 | 18 | oui |
 | 12 | F42.2__S9_10-E01 | Trouble obsessionnel-compulsif (TOC) — forme vérification / symétrie / | 29 | 18 | oui |
-| 13 | F43.2__O5_5-E01 | Trouble de l'adaptation (après événement stressant de vie) | — | — | — |
-| 14 | F32.3__S9_5-E12 | Épisode dépressif avec caractéristiques psychotiques (dépression mélan | — | — | — |
+| 13 | F43.2__O5_5-E01 | Trouble de l'adaptation (après événement stressant de vie) | 29 | 18 | oui |
+| 14 | F32.3__S9_5-E12 | Épisode dépressif avec caractéristiques psychotiques (dépression mélan | 28 | 18 | oui |
 | 15 | F60.3__O6_8-E07 | Trouble de la personnalité limite (borderline) en crise identitaire ou | — | — | — |
 | 16 | F05.9_2__S9_9-E01 | Infection aiguë du sujet âgé révélée par un delirium (infection urinai | — | — | — |
 | 17 | F20.9__S9_3-E07 | Schizophrénie débutante (phase prodromique / repli) | — | — | — |

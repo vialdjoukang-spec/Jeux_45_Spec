@@ -92,6 +92,8 @@ def controles_vial(nt, qs, cor):
         if x["poids"] >= 2 and (len(c) < 2 or len({a for _, a in c}) < 2): err.append(f"couverture {x['id']} (poids {x['poids']}) : {sorted(c)}")
     p = [x["poids"] for x in nt["notions"]]
     if p.count(3) > 0.15 * len(p) + 0.01 or p.count(2) > 0.35 * len(p) + 0.01: err.append(f"poids 3/2 : {p.count(3)}/{p.count(2)} sur {len(p)}")
+    for q in qs["questions"]:
+        if not all(x.strip() for x in q["sources"]): err.append(f"{q['id']} : source vide")
     if not any(q["serie"] for q in qs["questions"]): err.append("aucune série")
     TR = {t["letter"]: t["name"] for t in json.load(open(os.path.join(R, "data", "references", "transversales_19_et_systemes.json"), encoding="utf-8"))["transversales"]}
     for p in cor["priseEnCharge"]:
