@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-24 13:36 UTC
+# Ouvrier automatique — 2026-11-24 15:13 UTC
 
-Dernier passage : **T3_pec_fiches_existantes** → fait (0.13 USD).
+Dernier passage : **T4_reprise_rejets** → en_cours (0.00 USD).
 
-Le mode pec de scripts/produire_fiches_claude.py existe déjà, a été testé en direct puis exécuté en trois lots (154, 61 et 9 fiches), tous récupérés ; 628 des 779 fiches portent maintenant priseEnCharge, dont 383 avec audit.rejector à null pour réaudit. Les 151 fiches restantes sont rejetées pour erreur de forme ou troncature : le mode pec les exclut volontairement, et T4 les archive puis les resoumet en entier avec le nouveau schéma, donc le critère « toutes les fiches » se complète par T4. Ce passage n'a lancé aucun appel API (module anthropic absent de l'environnement, 0 USD dépensé).
+Credit balance is too low
 
-**Crédit** : 51.81 USD dépensés, 140.19 USD disponibles avant le 27.11.2026 ; aujourd'hui 1.19 / 141.38 USD.
+**Crédit** : 51.97 USD dépensés, 140.03 USD disponibles avant le 27.11.2026 ; aujourd'hui 1.35 / 141.38 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -39,7 +39,7 @@ Le mode pec de scripts/produire_fiches_claude.py existe déjà, a été testé e
 | END_C_lot | fait | 1 | 0.0 |
 | END_C_recup | fait | 1 | 0.0 |
 | T3_pec_fiches_existantes | fait | 8 | 0.133 |
-| T4_reprise_rejets | a_faire | 0 |  |
+| T4_reprise_rejets | en_cours | 2 | 0.0 |
 | T5_items_valides | sans_objet | 0 |  |
 | T7_transversal_lecons | sans_objet | 0 |  |
 | T6_vague_urgences | sans_objet | 0 |  |
