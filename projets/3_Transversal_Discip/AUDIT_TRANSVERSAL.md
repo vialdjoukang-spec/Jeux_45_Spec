@@ -88,4 +88,66 @@ Les 109 points `_meta.aVerifier` d'origine sont réglés, sauf 2 doutes résidue
 - B4-03 : le cadre LEMO est décrit juste (1.1.2020, ONEC, registre du cancer de l'enfant).
 - B1-01, B1-02, B2-01, B2-03, B3-02 et B3-03 : aucune correction n'était nécessaire.
 
+# Lot 2 — lettres C, D, E, G, H
+
+Audit réalisé le 24.11.2026 par Claude, avec la même méthode : chaque chiffre, seuil, article de loi et recommandation datée a été vérifié sur une source primaire (OFSP, juriup.ch pour les lois, ASSM, FMH, PubMed), puis la source a été ajoutée dans `_meta.sources`. Un point resté invérifiable a été retiré ou reformulé avec prudence, jamais inventé.
+
+## Bilan
+
+| Lettre | Auditées | AUDITÉ | Corrigées | Doutes restants |
+|---|---|---|---|---|
+| C | 12 | 12 | 8 | 0 |
+| D | 12 | 12 | 3 | 0 |
+| E | 12 | 12 | 4 | 0 |
+| G | 12 | 12 | 2 | 0 |
+| H | 12 | 12 | 2 | 0 |
+| **Total** | **60** | **60** | **19** | **0** |
+
+Les points `_meta.aVerifier` d'origine sont réglés : soit le texte est confirmé et sourcé, soit le chiffre douteux ne figure pas dans le texte, soit la phrase est reformulée.
+
+## C — Communication clinique
+
+- C1-01 : la base légale du devoir d'information est précisée (LPMéd, art. 40 let. a et c ; CO, art. 398) ; le guide de l'ASSM est nommé ; l'étude bâloise de Langewitz (BMJ 2002) est sourcée par PubMed.
+- C1-03 : la Stratégie nationale Addictions court désormais jusqu'en 2028 (prolongée en août 2024) ; la 4e édition de Miller et Rollnick (2023) est décrite juste (quatre processus, autonomisation) ; la mention du programme « Coaching Santé », introuvable, est retirée ; le remboursement des aides à l'arrêt du tabac renvoie à la liste des spécialités en vigueur, faute de preuve sur les substituts nicotiniques.
+- C2-02 : le « service national d'interprétariat téléphonique soutenu par l'OFSP », non vérifiable en 2026, est remplacé par INTERPRET (centre de compétence désigné par l'OFSP) et sa liste des services régionaux ; le titre exact devient « Interprète avec brevet fédéral » (orientation santé) ; le financement est réglé par chaque canton (OFSP).
+- C2-03 : la recommandation smarter medicine est rectifiée : elle vient de la Société suisse des céphalées (2025) et vise l'imagerie répétée sans changement du type de céphalée et le CT pour céphalée non aiguë.
+- C3-01 : la directive ASSM 2015 sur la contrainte reste en vigueur ; sa révision est en cours (atelier du 22.5.2025).
+- C3-02 : l'obligation de qualité renvoie aux art. 58 à 58h LAMal (révision du 1.4.2021).
+- C4-01 : la prescription (CO, art. 60 al. 1bis et 128a) court dès la connaissance du dommage et de la personne responsable ; la clause RC devient « souvent » au lieu de « en général ».
+- C1-02, C2-01, C3-03, C4-02, C4-03 : aucune correction de fond n'était nécessaire.
+
+## D — Digitalisation et cybersanté
+
+- D1-01 : la section suisse décrit le projet de loi sur le dossier électronique de santé (LDSan) : ouverture automatique avec droit d'opposition, raccordement obligatoire des prestataires, débat parlementaire en 2026, mise en service au plus tôt en 2030 (OFSP).
+- D1-03 : **erreur d'attribution corrigée** : l'exigence de connaître l'état de santé avant de prescrire vient de la LPTh (art. 26 al. 2), et non du Code FMH ; le TARDOC remplace le TARMED depuis le 1.1.2026.
+- D2-01 : la conservation de 20 ans repose sur l'art. 12 du Code FMH, qui demande de s'aligner sur la prescription de 20 ans ; la copie gratuite, la participation plafonnée à 300 CHF et le caractère strictement personnel du droit d'accès sont vérifiés (guide juridique FMH, mise à jour du 18.6.2026).
+- Les neuf autres leçons D sont confirmées sans correction (LSI : signalement en 24 h depuis le 1.4.2025 ; nLPD art. 5, 7, 12, 22, 24, 25 ; LRH art. 32 à 34 ; MDR, règle 11).
+
+## E — Diversité, équité et inclusion
+
+- E1-02 : le nom exact devient « Alliance Compétences en santé » ; l'enquête HLS19-21 (près de la moitié de la population en difficulté) est sourcée.
+- E1-03 et E3-03 : le « service national d'interprétariat » est remplacé par les services d'interprétariat communautaire.
+- E3-01 : la PrEP du VIH est prise en charge sous conditions depuis le 1.7.2024, avec franchise et quote-part, et une évaluation court jusqu'à fin 2026.
+- E3-02 : les montants (franchise de 300 à 2500 CHF, quote-part de 10 % plafonnée à 700 CHF) sont sourcés.
+- Les autres leçons E sont confirmées (art. 124 CP en vigueur depuis le 1.7.2012 ; art. 314c CC ; zolpidem FDA 2013).
+
+## G — Épidémiologie
+
+- G1-02 : les délais de déclaration sont vérifiés sur la liste OFSP du 15.12.2025 ; la décision ne fait plus déclarer par le médecin une salmonellose, une shigellose ou une EHEC confirmée, car le laboratoire déclare, et le médecin vérifie si une déclaration clinique lui incombe (la campylobactériose, par exemple, n'en demande aucune).
+- G4-02 : la même nuance s'applique aux agents d'une TIAC.
+- Tous les calculs des QCM (P ≈ I × D, RR, OR, fractions attribuables, taux d'attaque, seuil d'immunité collective, SMR) ont été recalculés, et tous sont justes.
+
+## H — Éthique biomédicale et fin de vie
+
+- H4-01 : **erreur de fond corrigée (QCM 2 et 4 réécrits)** : la leçon prévoyait, à pronostic équivalent, une règle égalitaire comme l'ordre d'arrivée ou le tirage au sort, et une équipe de triage distincte de l'équipe traitante. Les directives ASSM-SSMI (version 4 du 23.9.2021) excluent au contraire le tirage au sort et la règle « premier arrivé, premier servi », et elles confient la décision à des professionnels expérimentés, sous la responsabilité finale de l'intensiviste le plus expérimenté présent. Le statut vaccinal est explicitement exclu depuis cette version.
+- H1-01 : la 9e édition de Beauchamp et Childress est signalée.
+- H1-02 et H2-02 : les conditions de l'ASSM sur le suicide assisté (2018, adaptées en 2021) sont vérifiées mot à mot : deux entretiens espacés d'au moins deux semaines, souffrance d'un degré extrême jugée insupportable, vérification par une tierce personne indépendante, exclusion des personnes en bonne santé.
+- H1-03 : la feuille de route ProSA (ASSM et OFSP, 2023) est sourcée.
+- Les autres leçons H sont confirmées sans correction.
+
+## Points de vigilance pour le rédacteur
+
+- Le fichier `.claude/skills/REGISTRE.md` n'existe pas dans le dépôt, alors que la mission le cite.
+- Le chiffre de 92 secondes (Langewitz 2002) n'apparaît pas dans le texte ; s'il y est ajouté un jour, il faudra le relire dans l'article (PMC126654), car le résumé PubMed n'est pas disponible.
+
 Signature : AAI (Anthropic AI)
