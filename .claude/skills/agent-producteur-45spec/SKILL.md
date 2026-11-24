@@ -171,3 +171,11 @@ Signature : AAI (Anthropic AI)
 - Deux canoniques voisins (K40.9_1 hernie inguinale de l'homme, K40.9 hernie inguinale ou ombilicale) : le second prend l'angle de ses portes non couvertes (hernie fémorale de la femme, hernie ombilicale, diastase, Spiegel, cirrhose, grossesse, dialyse).
 - Sources de paroi lisibles en texte intégral par `get_full_text_article` : HerniaSurge 2018 (PMC5809582, « Summary for general practitioners » à extraire par script), mise à jour 2023 (PMC10588975, tableaux « Recommendation » en texte), EHS/AHS 2020 circonstances particulières (PMC7093793) ; NICE CG49 se lit sur `nice.org.uk/guidance/cg49/chapter/Recommendations`.
 - Après un redémarrage du serveur, vérifie `git status` et `git log origin/main` : les JSON déjà construits mais non suivis se gardent, il suffit de relancer les contrôles avant le commit.
+
+## Leçons (producteur unique, lot 39, 24.11.2026)
+- Chemins NICE sensibles à la casse : NG12 se lit sur `.../ng12/chapter/recommendations-organised-by-site-of-cancer` (minuscules), CG153 sur `.../cg153/chapter/Recommendations` (R majuscule) ; si une variante renvoie une erreur ou une page tronquée, essaie l'autre.
+- Sources lisibles : ESCP 2020 hémorroïdes (manuscrit accepté sur scispace.com, recommandations 1.1–5.9), DermNet (`/topics/morbilliform-drug-reaction`, `/topics/chronic-plaque-psoriasis`), Swissmedic « Pharmacovigilance » (déclaration ElViS), communiqué de la Ligue contre le cancer du 12.06.2025 (dépistage colorectal remboursé de 50 à 74 ans).
+- Le dépistage colorectal suisse va désormais jusqu'à 74 ans (OPAS, 1er juillet 2025) : ne recopie plus « 50–69 ans ».
+- Entité voisine déjà produite (K64.9 grades et thrombose) : K64.8 prend l'angle de la rectorragie (FIT, seuil de 10 µg/g, anémie ferriprive, anticoagulants, varices rectales).
+- Un « éruption maculopapuleuse » dans la vignette paraphrase « exanthème maculopapuleux » : décris les lésions (« petites taches rosées, un peu surélevées »).
+- `controle_menus_longs.py <SPEC>` affiche « menus longs fautifs : 0 | erreurs valider() : 0 » : filtre cette chaîne pour ne voir que les spécialités fautives.

@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**336 / 500 pathologies du périmètre produites.**
+**339 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -280,10 +280,10 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 271 | `K40.9_1__S4_11-E01` | Hernie inguinale réductible (oblique externe / directe) | CHI | produite |
 | 272 | `K40.9__F1_5-E02` | Hernie inguinale ou ombilicale réductible | CHI | produite |
 | 273 | `K56.4_1__O3_7-E07` | Incontinence fécale par regorgement sur fécalome (fausse diarrhée) | CHI | produite |
-| 274 | `K64.8__F2_8-E01` | Hémorroïdes internes hémorragiques | CHI | — |
+| 274 | `K64.8__F2_8-E01` | Hémorroïdes internes hémorragiques | CHI | produite |
 | 275 | `K80.5__F2_11-E04` | Cholédocholithiase (lithiase de la voie biliaire principale) | GAS | produite |
-| 276 | `L27.0_2__O7_22-E02` | Exanthème maculopapuleux médicamenteux retardé | DER | — |
-| 277 | `L40.0__G9-E06` | Psoriasis en plaques | DER | — |
+| 276 | `L27.0_2__O7_22-E02` | Exanthème maculopapuleux médicamenteux retardé | DER | produite |
+| 277 | `L40.0__G9-E06` | Psoriasis en plaques | DER | produite |
 | 278 | `L70.0__O6_2-E02` | Acné vulgaire (comédons, papules, pustules, nodules) | DER | — |
 | 279 | `M06.9__F2_19-E03` | Polyarthrite rhumatoïde débutante (polyarthrite symétrique des mains/pieds) | RHU | — |
 | 280 | `M41.1__O2_12-E07` | Scoliose idiopathique de l'adolescent | PEA | — |
