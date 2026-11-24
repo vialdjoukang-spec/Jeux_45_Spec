@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-24 11:36 UTC
+# Ouvrier automatique — 2026-11-24 12:35 UTC
 
-Dernier passage : **T3_pec_fiches_existantes** → en_cours (0.09 USD).
+Dernier passage : **T3_pec_fiches_existantes** → en_cours (0.08 USD).
 
-Le mode pec existe dans scripts/produire_fiches_claude.py ; le lot de 154 fiches a déjà été récupéré, et 628 des 779 fiches portent maintenant priseEnCharge (audit.rejector remis à null pour la réaudit). Les 151 fiches restantes sont rejetées pour erreur de forme : le mode pec les exclut volontairement, et T4 les reprend en entier avec un nouveau schéma qui inclut la prise en charge. Je n'ai relancé aucun appel ce passage (module anthropic absent de cet environnement, et rien d'autre à soumettre) ; T3 se clôt quand T4 aura régénéré ces 151 fiches.
+Le mode pec existe déjà dans scripts/produire_fiches_claude.py, et 628 des 779 fiches portent priseEnCharge, avec audit.rejector remis à null pour la réaudit. Les 151 fiches restantes sont rejetées pour erreur de forme : le mode pec les exclut volontairement, car T4 les reprend en entier avec le schéma qui inclut la prise en charge. Je n'ai lancé aucun appel ce passage, car il n'y a rien de nouveau à soumettre ; T3 passera à « fait » quand T4 aura régénéré ces 151 fiches.
 
-**Crédit** : 51.60 USD dépensés, 140.40 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.98 / 141.38 USD.
+**Crédit** : 51.68 USD dépensés, 140.32 USD disponibles avant le 27.11.2026 ; aujourd'hui 1.06 / 141.38 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -38,7 +38,7 @@ Le mode pec existe dans scripts/produire_fiches_claude.py ; le lot de 154 fiches
 | END_Q_recup | fait | 1 | 0.0 |
 | END_C_lot | fait | 1 | 0.0 |
 | END_C_recup | fait | 1 | 0.0 |
-| T3_pec_fiches_existantes | en_cours | 6 | 0.088 |
+| T3_pec_fiches_existantes | en_cours | 7 | 0.084 |
 | T4_reprise_rejets | a_faire | 0 |  |
 | T5_items_valides | sans_objet | 0 |  |
 | T7_transversal_lecons | sans_objet | 0 |  |

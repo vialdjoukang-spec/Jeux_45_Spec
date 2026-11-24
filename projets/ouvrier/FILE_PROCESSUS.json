@@ -455,12 +455,12 @@
    "modele": "claude-sonnet-5-5",
    "budget_usd": 8,
    "etat": "en_cours",
-   "essais": 6,
+   "essais": 7,
    "prompt": "Lis d'abord projets/ouvrier/MISSION_45SPEC.md et applique ses règles constantes. Exécute T3 : ajoute un mode « pec » à scripts/produire_fiches_claude.py qui, en lot, demande seulement le bloc priseEnCharge (schéma conception/donnees/schemas/prise_en_charge.json) pour chaque fiche qui ne l'a pas, et l'insère sans toucher au reste ; teste-le sur 2 fiches en direct, puis soumets le lot ; à la récupération (passage suivant), mets audit.rejector à null pour que Claude réaudite. Mets « fait » quand toutes les fiches ont priseEnCharge.",
    "dernier": {
-    "date": "2026-11-24T11:36:39+00:00",
-    "cout_usd": 0.088,
-    "resume": "Le mode pec existe dans scripts/produire_fiches_claude.py ; le lot de 154 fiches a déjà été récupéré, et 628 des 779 fiches portent maintenant priseEnCharge (audit.rejector remis à null pour la réaudit). Les 151 fiches restantes sont rejetées pour erreur de forme : le mode pec les exclut volontairement, et T4 les reprend en entier avec un nouveau schéma qui inclut la prise en charge. Je n'ai relancé aucun appel ce passage (module anthropic absent de cet environnement, et rien d'autre à soumettre) ; T3 se clôt quand T4 aura régénéré ces 151 fiches."
+    "date": "2026-11-24T12:35:47+00:00",
+    "cout_usd": 0.084,
+    "resume": "Le mode pec existe déjà dans scripts/produire_fiches_claude.py, et 628 des 779 fiches portent priseEnCharge, avec audit.rejector remis à null pour la réaudit. Les 151 fiches restantes sont rejetées pour erreur de forme : le mode pec les exclut volontairement, car T4 les reprend en entier avec le schéma qui inclut la prise en charge. Je n'ai lancé aucun appel ce passage, car il n'y a rien de nouveau à soumettre ; T3 passera à « fait » quand T4 aura régénéré ces 151 fiches."
    }
   },
   {
