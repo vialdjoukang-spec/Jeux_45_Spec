@@ -1,6 +1,6 @@
 # Progression NEU — production manuelle sans API (agent 45spec-NEU)
 
-Pathologies canoniques : 159 ; terminées (notions + questions + correction) : 14.
+Pathologies canoniques : 159 ; terminées (notions + questions + correction) : 17.
 
 Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts/ecrire_manuel.py SOURCE --spec NEU` (valider() et ecrire() du script de production).
 
@@ -14,8 +14,11 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | G51.0__F1_4-E17 | Asymétrie faciale aiguë (paralysie faciale centrale vs périphérique) | 26 | 20 | 0 |
 | G20_1__S7_1-E05 | Maladie de Parkinson et syndromes parkinsoniens (instabilité posturale) | 33 | 21 | 0 |
 | G35__S7_3-E10 | Sclérose en plaques (poussée motrice hémiparétique ou paraparétique) | 35 | 21 | 0 |
+| G44.0__S1_11-E07 | Algie vasculaire de la face (cluster headache) | 25 | 20 | 0 |
 | G70.0__F1_11-E10 | Myasthénie grave (dysphonie et voix nasonnée fatigables) | 31 | 20 | 0 |
+| E51.2__F1_15-E07 | Encéphalopathie de Gayet-Wernicke (carence aiguë en thiamine) | 25 | 20 | 0 |
 | G00.9__F1_15-E17 | Méningite bactérienne aiguë | 39 | 20 | 0 |
+| G04.9_1__S7_7-E13 | Encéphalite aiguë (herpétique ou auto-immune) | 25 | 20 | 0 |
 | G41.0__S7_10-E11 | État de mal épileptique convulsif généralisé (EME) | 38 | 20 | 0 |
 | G45.9__F1_11-E13 | Accident ischémique transitoire (AIT) avec trouble aigu du langage | 33 | 21 | 0 |
 | G61.0__O4_2-E13 | Syndrome de Guillain-Barré (polyradiculonévrite aiguë) | 36 | 20 | 0 |
@@ -39,9 +42,9 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 12. G95.2__O5_3-E12 — fait
 13. I67.1__F1_12-E15 — fait
 14. G51.0__F1_4-E17 — fait
-15. E51.2__F1_15-E07
-16. G04.9_1__S7_7-E13
-17. G44.0__S1_11-E07
+15. E51.2__F1_15-E07 — fait
+16. G04.9_1__S7_7-E13 — fait
+17. G44.0__S1_11-E07 — fait
 18. G50.0__G10-E08
 19. G21.0__F1_15-E11
 20. G63.2__O3_2-E10
