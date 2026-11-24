@@ -4,7 +4,7 @@ Branche : `agent/45spec-PED`. Production par agent Claude **sans API** (même sc
 Ordre : `selection()` (fréquence puis identifiant) pour les 18 premières ; ensuite **ordre révisé par importance pour l'examen** (section ci-dessous). Contrôles : `valider()` sans erreur ; couverture des notions de poids ≥ 2 au moins deux fois sous deux angles ; formats ≈ 70/20/10.
 Les données douteuses portent la mention « à vérifier » dans leur source (AIPS, version de recommandation). Statut d'audit : en attente (`audit.rejector = null`).
 
-**Avancement : 27 / 69 pathologies canoniques complètes (notions + questions + correction).**
+**Avancement : 30 / 69 pathologies canoniques complètes (notions + questions + correction).**
 
 | # | Identifiant | Pathologie | Fréq. | Complet | Notions | Questions |
 |---|---|---|---|---|---|---|
@@ -60,8 +60,8 @@ Les données douteuses portent la mention « à vérifier » dans leur source (A
 | 50 | `P59.3__O1_6-E07` | Ictère au lait de mère (ictère tardif du nourrisson allaité) | 4 | ⬜ |  |  |
 | 51 | `P80.9__G8-E07` | Hypothermie néonatale par perte thermique précoce | 4 | ⬜ |  |  |
 | 52 | `Q05.9__O1_3-E07` | Anomalies de fermeture du tube neural (spina bifida, anencép | 4 | ⬜ |  |  |
-| 53 | `Q53.9__O2_12-E08` | Cryptorchidie (testicule non descendu) | 4 | ⬜ |  |  |
-| 54 | `Q67.3__S1_4-E08` | Plagiocéphalie positionnelle et torticolis musculaire congén | 4 | ⬜ |  |  |
+| 53 | `Q53.9__O2_12-E08` | Cryptorchidie (testicule non descendu) | 4 | ✅ | 26 | 20 |
+| 54 | `Q67.3__S1_4-E08` | Plagiocéphalie positionnelle et torticolis musculaire congén | 4 | ✅ | 26 | 20 |
 | 55 | `Q75.0__S1_13-E05` | Craniosténose (synostose prématurée d'une ou plusieurs sutur | 4 | ⬜ |  |  |
 | 56 | `Q86.0__O2_5-E07` | Syndrome d'alcoolisation fœtale (SAF / TCAF) | 4 | ⬜ |  |  |
 | 57 | `Z62.8__O6_6-E07` | Aliénation parentale / instrumentalisation grave de l'enfant | 4 | ⬜ |  |  |
@@ -70,7 +70,7 @@ Les données douteuses portent la mention « à vérifier » dans leur source (A
 | 60 | `P35.1__O1_1-E09` | RCIU d'origine infectieuse congénitale (CMV, toxoplasmose, r | 5 | ⬜ |  |  |
 | 61 | `Q15.0__O2_9-E10` | Glaucome congénital (buphtalmie, larmoiement, photophobie) | 5 | ⬜ |  |  |
 | 62 | `Q43.0_1__S4_7-E10` | Diverticule de Meckel compliqué (douleur pelvienne / FID) | 5 | ⬜ |  |  |
-| 63 | `Q43.0__S3_9-E10` | Diverticule de Meckel hémorragique (hétérotopie muqueuse gas | 5 | ⬜ |  |  |
+| 63 | `Q43.0__S3_9-E10` | Diverticule de Meckel hémorragique (hétérotopie muqueuse gas | 5 | ✅ | 26 | 20 |
 | 64 | `Q44.2__S6_5-E10` | Atrésie des voies biliaires (ictère cholestatique du nourris | 5 | ✅ | 27 | 21 |
 | 65 | `Q65.8__O2_12-E10` | Dysplasie développementale de la hanche (DDH) | 5 | ✅ | 26 | 21 |
 | 66 | `Q76.3__S5_1-E09` | Scoliose congénitale sur malformation vertébrale (hémivertèb | 5 | ⬜ |  |  |
@@ -144,7 +144,8 @@ Absentes des entités canoniques PED (non produisibles ici) : voir `MANQUES_CATA
 - Identifiant par spécialité parfois différent de l'identifiant global (ex. `A41.9__O2_8-E03` / `A41.9_1__O2_8-E03`) : fichiers nommés comme `selection(--spec PED)`.
 - Doutes levés le 24.11.2026 (sources vérifiées en ligne) : bronchiolite — recommandation suisse SAPP 2003 (Barben, Hammer), cible SpO2 > 92 % (la mention « Paediatrica 2017, 90 % » était fausse) ; nirsévimab — OFSP/CFV mise à jour 2026 (dose unique pour tout nourrisson ≤ 12 mois, première semaine si naissance d'octobre à mars, sinon en octobre ; 50 mg < 5 kg, 100 mg ≥ 5 kg selon SwissPAR) et vaccin maternel entre 32+0 et 36+0 SA ; hypoglycémie — SSN 2021, seuil < 2,6 mmol/L, gel 40 % 0,5 mL/kg ; DDH — échographie de Graf au premier mois, remboursée par l'AOS (Baumann & Schmid, Paediatrica 2023).
 - Sources suisses vérifiées pour les lots suivants : SSN 2023 hyperbilirubinémie (V13 : 350/430 µmol/L à terme, 300/370 avec facteurs de risque) ; SGGG avis n° 68 (2020) anti-D ; consensus européen RDS 2025 (Neonatology 2026) ; SGGG avis n° 41 (bétaméthasone 2 × 12 mg).
-- Reprise (24.11.2026, arrêt avant saturation) : prochaines Q43.0__S3_9-E10, Q53.9__O2_12-E08, Q67.3__S1_4-E08. Déjà vérifié pour Q53.9 : EAU/ESPU Paediatric Urology 2025, chap. 4 (orchidopexie avant 12 mois, au plus tard à 18 mois ; pas d'hormones pour un testicule unilatéral ; laparoscopie si testicule non palpable ; bilan endocrinien et génétique si bilatéral non palpable ; testicule oscillant suivi chaque année jusqu'à la puberté ; échographie non fiable).
+- Lot 11 (24.11.2026) : Meckel hémorragique (Yan & Jiang, méta-analyse 2023 : scintigraphie 99mTc Se ≈ 0,80, Sp ≈ 0,95 ; prémédication par pantoprazole, Pediatr Radiol 2025 ; diverticulectomie, Glenn 2018 ; bolus 10 mL/kg ERC PLS 2021 ; seuil transfusionnel 7 g/dL, TAXI 2018 ; dose IV pédiatrique d'IPP à vérifier dans l'AIPS), cryptorchidie (EAU/ESPU 2025 chap. 4 ; check-lists Pédiatrie suisse 2011 rév. 2017), plagiocéphalie et torticolis (CNS 2016 ; APTA, Kaplan 2018).
+- Reprise : prochaines P39.1__O7_12-E17, P35.1__O1_1-E09, P28.4__S2_1-E09 (rangs 13 à 15 de l'ordre révisé).
 - Skill créé : `.claude/skills/45spec-production-sans-api`.
 
 Signature : AAI (Anthropic AI)
