@@ -51,3 +51,14 @@ L'agent écrit lui-même le contenu que le script demanderait à l'API ; il doit
 Relais : `ultra-competent-fast-doctor`, `medical-accuracy-100`, `i-write-so-fast`.
 
 Signature : AAI (Anthropic AI)
+
+## Leçons (groupe A multi-spécialités, agent A2, 24.11.2026)
+- Agent qui couvre plusieurs spécialités : lance le constructeur avec `SPECS=URO,HEM,TOX,…` (index des canoniques de chaque spécialité) et `PYTHONPATH=projets/45spec`.
+- Suivi d'un groupe de rendement : `python projets/45spec/progression_groupe.py <NOM> <GROUPE> <SPEC1,SPEC2,…>` régénère `PROGRESSION_<NOM>.md` (0 token).
+- Avant chaque lot, `git fetch` de `main` et de toutes les branches `agent/45spec-*`, puis saute toute pathologie dont la correction existe déjà ailleurs.
+- N'écris jamais un DOI que tu n'as pas lu ; un PMID ou une référence vérifiée suffit.
+
+## Leçons (agent A2, lot 4, 24.11.2026)
+- Une ligne de `PROGRESSION_<NOM>.md` peut citer un id absent de `P.canoniques()` (ex. `R45.8_3__O2_12-E15`, porte fusionnée) : le constructeur lèverait `KeyError`. Saute-la, signale-la au rapport et produis la suivante.
+- Après chaque fusion de `main`, régénère la progression : les rangs de `RANG_RENDEMENT.json` bougent.
+- Un menu long dont la vignette nomme l'agent (« ne contiennent que des benzodiazépines ») porte aussi `m=0`.
