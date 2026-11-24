@@ -21,11 +21,11 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | M | 12 | 12 |
 | N | 12 | 12 |
 | O | 12 | 12 |
-| P | 6 | 12 |
+| P | 9 | 12 |
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **210** | **228** |
+| **Total** | **213** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -42,6 +42,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_P-S2-02** : Clauses des assurances RC professionnelles suisses sur la reconnaissance de responsabilité et articulation avec l'excuse (lois « apology » inexistantes en Suisse).
 - **TRANS_P-S2-03** : Proportion de patients présentant au moins une divergence médicamenteuse non intentionnelle à l'admission (souvent citée entre 30 et 70 %) : non écrite faute de chiffre suisse vérifié.
 - **TRANS_P-S2-03** : Format et diffusion en 2026 de l'eMediplan suisse et du dossier électronique du patient (DEP) pour la transmission des traitements.
+- **TRANS_P-S3-01** : Données sur l'effet des interruptions de tâche sur les erreurs d'administration médicamenteuse (Westbrook et al., Arch Intern Med 2010 : risque augmenté d'environ 12 % par interruption) : chiffre non écrit dans le texte.
+- **TRANS_P-S3-01** : Limites de durée du travail des médecins assistants en Suisse (50 heures par semaine selon la LTr depuis 2005) et projet de semaine de 42 + 4 heures.
+- **TRANS_P-S3-02** : Liste actuelle des mesures nationales de l'ANQ en soins aigus (réadmissions potentiellement évitables, infections du site opératoire Swissnoso, chutes et escarres, satisfaction des patients) et publication transparente des résultats par hôpital.
+- **TRANS_P-S3-02** : Rôle de la Commission fédérale pour la qualité (CFQ) instituée par l'art. 58b LAMal révisé (en vigueur depuis le 1.4.2021).
+- **TRANS_P-S3-03** : Ressources suisses de soutien aux secondes victimes en 2026 (programmes hospitaliers de soutien par les pairs, ReMed de la FMH, recommandations de Sécurité des patients Suisse).
+- **TRANS_P-S3-03** : Données sur la prévalence des symptômes chez les secondes victimes (environ la moitié des soignants impliqués selon les études) : chiffre non écrit.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -55,4 +61,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : P (6/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : P (9/12), R (0/12).
