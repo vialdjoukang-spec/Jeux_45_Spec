@@ -1,6 +1,6 @@
 # Progression NEU — production manuelle sans API (agent 45spec-NEU)
 
-Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 32.
+Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 35.
 
 Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts/ecrire_manuel.py SOURCE --spec NEU` (valider() et ecrire() du script de production).
 
@@ -13,13 +13,16 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | G30.9__F1_9-E01 | Maladie d'Alzheimer | 31 | 20 | 0 |
 | G40.2_epilepsie_focale_tem__G11-E17 | Épilepsie focale (temporale, frontale, crise sensitive jacksonienne) | 25 | 20 | 0 |
 | G40.3_1__F1_19-E04 | Épilepsie généralisée idiopathique (tonico-clonique, myoclonique juvénile) | 30 | 20 | 0 |
+| G40.9_1__F1_15-E02 | Paralysie de Todd post-critique (hémiparésie transitoire après crise épileptique) | 27 | 20 | 0 |
 | G43.9__S3_10-E06 | Migraine avec ou sans aura (et syndrome des vomissements cycliques) | 35 | 21 | 0 |
 | G44.2__G10-E02 | Céphalée de tension | 26 | 20 | 0 |
+| G47.0_insomnie_aigue_situa__G11-E03 | Insomnie (aiguë situationnelle ou chronique) | 29 | 20 | 0 |
 | G51.0__F1_4-E17 | Asymétrie faciale aiguë (paralysie faciale centrale vs périphérique) | 26 | 20 | 0 |
 | G63.2__O3_2-E10 | Polyneuropathie diabétique distale symétrique | 25 | 20 | 0 |
 | G31.8__F1_9-E06 | Démence à corps de Lewy (DCL) | 25 | 20 | 0 |
 | G35__S7_3-E10 | Sclérose en plaques (poussée motrice hémiparétique ou paraparétique) | 35 | 21 | 0 |
 | G44.0__S1_11-E07 | Algie vasculaire de la face (cluster headache) | 25 | 20 | 0 |
+| G45.4__S7_7-E14 | Amnésie globale transitoire (ictus amnésique idiopathique) | 27 | 20 | 0 |
 | G50.0__G10-E08 | Névralgie du trijumeau | 27 | 20 | 0 |
 | G70.0__F1_11-E10 | Myasthénie grave (dysphonie et voix nasonnée fatigables) | 31 | 20 | 0 |
 | G97.1__S7_6-E09 | Céphalée post-ponction lombaire (syndrome d'hypotension du LCR) | 26 | 20 | 0 |
@@ -43,102 +46,102 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 
 ## Ordre de priorité retenu (importance pour l'examen)
 
-1. I63.9__F1_11-E12 — fait
-2. G41.0__S7_10-E11 — fait
-3. G00.9__F1_15-E17 — fait
-4. G61.0__O4_2-E13 — fait
-5. G43.9__S3_10-E06 — fait
-6. G45.9__F1_11-E13 — fait
-7. G20_1__S7_1-E05 — fait
-8. G35__S7_3-E10 — fait
-9. G70.0__F1_11-E10 — fait
-10. G30.9__F1_9-E01 — fait
-11. G40.3_1__F1_19-E04 — fait
-12. G95.2__O5_3-E12 — fait
-13. I67.1__F1_12-E15 — fait
-14. G51.0__F1_4-E17 — fait
-15. E51.2__F1_15-E07 — fait
-16. G04.9_1__S7_7-E13 — fait
-17. G44.0__S1_11-E07 — fait
-18. I61.9_hemorragie_intracere__F1_15-E13 — fait
-19. G40.9_premiere_crise_epile__O3_7-E15 — fait
-20. I63.9_avc_de_la_circulatio__F1_15-E14 — fait
-21. I67.0_dissection_des_arter__F1_12-E12 — fait
-22. G21.0__F1_15-E11 — fait
-23. G93.5_hypertension_intracr__F1_12-E11 — fait
-24. G50.0__G10-E08 — fait
-25. G44.2__G10-E02 — fait
-26. G63.2__O3_2-E10 — fait
-27. G40.2_epilepsie_focale_tem__G11-E17 — fait
-28. G25.0__S7_3-E01 — fait
-29. G31.8__F1_9-E06 — fait
-30. G41.9_etat_de_mal_epilepti__F1_15-E16 — fait
-31. G12.2_sclerose_laterale_am__F1_11-E09 — fait
-32. G97.1__S7_6-E09 — fait
-33. G93.2__G15-E20
-34. G25.8__G11-E04
-35. G62.1__S5_5-E04
-36. G93.4__F1_15-E04
-37. G45.4__S7_7-E14
-38. G37.2__F2_7-E18
-39. G31.0_degenerescence_lobai__F1_9-E09
-40. G24.0_1__S7_3-E11
-41. G25.7__S9_6-E04
-42. G24.0__S7_3-E06
-43. G37.3_myelite_transverse_a__S4_15-E12
-44. G61.8__S5_5-E10
-45. G47.0_insomnie_aigue_situa__G11-E03
-46. G47.4__G11-E12
-47. G47.5_trouble_du_comportem__G11-E08
-48. I69.3_sequelles_d_avc_apha__F1_11-E04
-49. G56.2_neuropathie_ulnaire___S5_5-E09
-50. G56.3__S7_8-E04
-51. G57.3__S7_2-E04
-52. G40.3_epilepsie_absences_d__O2_10-E08
-53. G04.9_1__S7_10-E13
-54. G40.4__O2_5-E12
-55. G72.0__O3_3-E09
-56. G90.2__F1_12-E04
-57. G08_thrombose_du_sinus_c__S1_1-E14
-58. G43.1__S7_5-E04
-59. G40.9_1__F1_15-E02
-60. G90.4__O7_14-E14
-61. G72.3__F2_14-E16
-62. G71.0_1__O2_5-E09
-63. G12.0_amyotrophie_spinale___O2_11-E08
-64. G24.3_dystonies_focales_to__F1_11-E11
-65. G93.8__O7_20-E15
-66. G40.9__G14-E11
-67. G93.3_syndrome_de_fatigue___G4-E06
-68. G47.2_troubles_du_rythme_c__G11-E06
-69. G47.1__G11-E14
-70. G44.8__S7_6-E06
-71. G54.0__S5_5-E07
-72. G58.0__S2_12-E05
-73. G62.0__O5_4-E03
-74. G89.3__G10-E09
-75. G90.0__F1_19-E05
-76. G90.8__F1_7-E11
-77. G95.0__S7_9-E08
-78. G96.0__S1_14-E11
-79. G51.3__S1_4-E07
-80. G25.5__S7_3-E12
-81. G80.9__O2_11-E05
-82. G81.1__S7_2-E03
-83. G71.1__O2_11-E10
-84. G04.9__S7_1-E10
-85. G12.2__S2_1-E08
-86. G60.0__O7_23-E06
-87. G71.0__S5_1-E08
-88. G71.2__O2_11-E11
+1. G51.0__F1_4-E17 — fait
+2. G40.9_1__F1_15-E02 — fait
+3. E51.2__F1_15-E07 — fait
+4. G00.9__F1_15-E17 — fait
+5. G21.0__F1_15-E11 — fait
+6. G95.2__O5_3-E12 — fait
+7. G61.0__O4_2-E13 — fait
+8. G30.9__F1_9-E01 — fait
+9. G43.9__S3_10-E06 — fait
+10. G47.0_insomnie_aigue_situa__G11-E03 — fait
+11. G63.2__O3_2-E10 — fait
+12. G45.4__S7_7-E14 — fait
+13. G70.0__F1_11-E10 — fait
+14. G93.4__F1_15-E04
+15. G41.9_etat_de_mal_epilepti__F1_15-E16 — fait
+16. I63.9__F1_11-E12 — fait
+17. G40.3_1__F1_19-E04 — fait
+18. G44.2__G10-E02 — fait
+19. G45.9__F1_11-E13 — fait
+20. I67.0_dissection_des_arter__F1_12-E12 — fait
+21. I67.1__F1_12-E15 — fait
+22. G24.5__S1_6-E02
+23. G25.0__S7_3-E01 — fait
+24. G40.2_epilepsie_focale_tem__G11-E17 — fait
+25. G43.1__S7_5-E04
+26. G44.8__S7_6-E06
+27. G62.0__O5_4-E03
+28. I69.3_sequelles_d_avc_apha__F1_11-E04
+29. G25.8__G11-E04
+30. G31.8__F1_9-E06 — fait
+31. G50.0__G10-E08 — fait
+32. G04.9_1__S7_7-E13 — fait
+33. G08_thrombose_du_sinus_c__S1_1-E14
+34. G40.4__O2_5-E12
+35. G72.3__F2_14-E16
+36. G93.2__G15-E20
+37. I61.9_hemorragie_intracere__F1_15-E13 — fait
+38. I63.9_avc_de_la_circulatio__F1_15-E14 — fait
+39. G35__S7_3-E10 — fait
+40. G44.0__S1_11-E07 — fait
+41. G51.3__S1_4-E07
+42. G72.0__O3_3-E09
+43. G80.9__O2_11-E05
+44. G93.3_syndrome_de_fatigue___G4-E06
+45. G04.9_1__S7_10-E13
+46. G12.0_amyotrophie_spinale___O2_11-E08
+47. G25.5__S7_3-E12
+48. G37.2__F2_7-E18
+49. G37.3_myelite_transverse_a__S4_15-E12
+50. G40.9_premiere_crise_epile__O3_7-E15 — fait
+51. G41.0__S7_10-E11 — fait
+52. G47.5_trouble_du_comportem__G11-E08
+53. G90.4__O7_14-E14
+54. G93.5_hypertension_intracr__F1_12-E11 — fait
+55. G93.8__O7_20-E15
+56. G96.0__S1_14-E11
+57. G20_1__S7_1-E05 — fait
+58. G24.3_dystonies_focales_to__F1_11-E11
+59. G25.7__S9_6-E04
+60. G47.2_troubles_du_rythme_c__G11-E06
+61. G56.2_neuropathie_ulnaire___S5_5-E09
+62. G56.3__S7_8-E04
+63. G57.3__S7_2-E04
+64. G58.0__S2_12-E05
+65. G60.0__O7_23-E06
+66. G62.1__S5_5-E04
+67. G81.1__S7_2-E03
+68. G90.0__F1_19-E05
+69. G90.2__F1_12-E04
+70. G97.1__S7_6-E09 — fait
+71. G12.2_sclerose_laterale_am__F1_11-E09 — fait
+72. G31.0_degenerescence_lobai__F1_9-E09
+73. G20__S3_7-E07
+74. G24.0__S7_3-E06
+75. G40.3_epilepsie_absences_d__O2_10-E08
+76. G40.9__G14-E11
+77. G43.9__O6_1-E08
+78. G54.0__S5_5-E07
+79. G58.8__S4_7-E08
+80. G89.3__G10-E09
+81. G47.1__G11-E14
+82. G04.9__S7_1-E10
+83. G12.2__S2_1-E08
+84. G23.1__S1_6-E08
+85. G25.8_1__S9_10-E10
+86. G47.4__G11-E12
+87. G50.8__G7-E12
+88. G51.2__S1_4-E10
 89. G52.1__S1_10-E09
-90. G58.8__S4_7-E08
-91. G20__S3_7-E07
-92. G23.1__S1_6-E08
-93. G25.8_1__S9_10-E10
-94. G43.9__O6_1-E08
-95. G51.2__S1_4-E10
-96. G50.8__G7-E12
-97. G24.5__S1_6-E02
+90. G61.8__S5_5-E10
+91. G71.0_1__O2_5-E09
+92. G71.0__S5_1-E08
+93. G71.1__O2_11-E10
+94. G71.2__O2_11-E11
+95. G90.8__F1_7-E11
+96. G95.0__S7_9-E08
+97. G24.0_1__S7_3-E11
 
 Signature : AAI (Anthropic AI)
