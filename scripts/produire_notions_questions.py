@@ -230,7 +230,11 @@ def selection(etape, a):
     cs = [c for c in cs if not os.path.exists(chemin(etape, c))]
     if etape in ("questions", "correction"):
         cs = [c for c in cs if os.path.exists(chemin("notions", c))]
-    cs.sort(key=lambda c: (c["freq"], c["id"]))
+    rang = os.path.join(R, "content", "pathologies", "RANG_RENDEMENT.json")    # classement par rendement à l'examen (scripts/classer_rendement.py)
+    RG = json.load(open(rang, encoding="utf-8"))["pathologies"] if os.path.exists(rang) else {}
+    if getattr(a, "groupe", None):
+        cs = [c for c in cs if RG.get(c["id"], {}).get("groupe") in a.groupe.split(",")]
+    cs.sort(key=lambda c: (RG.get(c["id"], {}).get("rang", 10 ** 6), c["freq"], c["id"]))
     return cs[: a.max] if a.max else cs
 
 
@@ -274,5 +278,5 @@ def recuperer(etape, a):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(); ap.add_argument("etape", choices=["notions", "questions", "correction"]); ap.add_argument("mode", choices=["pilote", "soumettre", "recuperer"])
-    ap.add_argument("--spec"); ap.add_argument("--id"); ap.add_argument("--n", type=int, default=3); ap.add_argument("--max", type=int)
+    ap.add_argument("--spec"); ap.add_argument("--id"); ap.add_argument("--n", type=int, default=3); ap.add_argument("--max", type=int); ap.add_argument("--groupe", help="groupes de rendement A,B,C,D (RANG_RENDEMENT.json)")
     a = ap.parse_args(); {"pilote": pilote, "soumettre": soumettre, "recuperer": recuperer}[a.mode](a.etape, a)

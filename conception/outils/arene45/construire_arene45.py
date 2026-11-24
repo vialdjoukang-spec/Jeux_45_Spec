@@ -59,6 +59,9 @@ for k, v in ref.items():
         d = json.load(open(f, encoding="utf-8"))
         if (d.get("audit") or {}).get("rejector") == "rejet":
             continue
+        pid = os.path.basename(f)[:-5]; os.makedirs(f"{OUT}/decks/{c}", exist_ok=True)
+        json.dump({"revele": {"pathologie": d["entite"], "cim10": d.get("cim10"), "notions": {n["id"]: n["enonce"] for n in json.load(open(f.replace("questions", "notions"), encoding="utf-8"))["notions"]} if os.path.exists(f.replace("questions", "notions")) else {}},
+                   "correction": correction(pid, c)}, open(f"{OUT}/decks/{c}/{pid}.json", "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))   # une fois par pathologie, chargé à la demande
         par = collections.defaultdict(list)
         for q in d["questions"]:
             par[(q.get("serie") or {}).get("id") or "isolee_" + q["id"]].append(q)
@@ -66,11 +69,10 @@ for k, v in ref.items():
             qs.sort(key=lambda q: (q.get("serie") or {}).get("etape", 0))
             deck.append({"id": f"P{i + 1:03d}-{sid}", "progressive": not sid.startswith("isolee_"),
                          "questions": [{kk: q[kk] for kk in ("format", "situation", "diagnosticMasque", "stem", "prompt", "options", "statements", "notions", "angle", "difficulte", "ladder", "sources") if kk in q} for q in qs],
-                         "revele": {"pathologie": d["entite"], "cim10": d.get("cim10"), "notions": {n["id"]: n["enonce"] for n in json.load(open(f.replace("questions", "notions"), encoding="utf-8"))["notions"]} if os.path.exists(f.replace("questions", "notions")) else {}},
-                         "audite": (d.get("audit") or {}).get("rejector") == "pass",
-                         "correction": correction(os.path.basename(f)[:-5], c)})
+                         "p": f"{c}/{pid}",
+                         "audite": (d.get("audit") or {}).get("rejector") == "pass"})
     if deck:
-        json.dump({"code": c, "series": deck}, open(f"{OUT}/decks/{c}.json", "w", encoding="utf-8"), ensure_ascii=False)
+        json.dump({"code": c, "series": deck}, open(f"{OUT}/decks/{c}.json", "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
     specs.append({"code": c, "nom": v["nom"], "icone": ICONES.get(c, "medical_services"), "pathologies": canon.get(c, 0),
                   "notions": len(notions), "cochees": sum(n.get("couverture", {}).get("cochee", False) for n in notions),
                   "questions": sum(len(s["questions"]) for s in deck), "series": len(deck)})
