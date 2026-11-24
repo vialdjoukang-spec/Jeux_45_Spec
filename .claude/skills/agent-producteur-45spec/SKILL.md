@@ -135,3 +135,9 @@ Signature : AAI (Anthropic AI)
 - Libellé transversal des urgences : « S Urgences vitales Triage 144 REGA » ; « I » désigne la génétique médicale, jamais les soins intensifs.
 - Une vignette `d` 4–5 ne doit pas trahir le diagnostic par un adjectif d'antécédent (« utérus polymyomateux connu ») : écris « plusieurs masses bénignes connues ».
 - Porte d'entrée « kyste synovial » ou « hernie » d'une pathologie bénigne de la peau : place-la en distracteur ou en question de diagnostic différentiel, sans nommer l'entité dans le `st`.
+
+## Leçons (producteur unique, vérification du lot 31, 24.11.2026)
+- Ne cite jamais une notice que tu n'as pas ouverte : ouvre la notice PubMed (`get_article_metadata`) puis le texte (PMC, ou le PDF officiel trouvé par WebSearch) avant d'écrire chaque seuil ; quand PMC ne livre pas le texte (`full_text` vide), passe par WebFetch sur la page PMC ou le PDF de la société savante.
+- Une revue citée ne couvre que ce qu'elle dit : Weiss 2019 recommande le fer oral en cas d'inflammation légère et le fer IV après 2 semaines d'échec, pas « le fer IV si l'inflammation est active » ; cette indication relève d'une autre source (ECCO 2015 pour les MICI actives).
+- Une recommandation peut avoir été remplacée : KDIGO anémie 2012 → KDIGO 2026 (document officiel sur kdigo.org, résumé PMID 41485807) ; cite le document officiel et vérifie les écarts internes (bilan martial en hémodialyse : 1 à 3 mois dans le texte, chaque mois dans la figure).
+- Contrôles avant fusion en une commande : un script local (menus longs sur toutes les spécialités, `classer_rendement.py`, arène sous `cache_hache.py`, `test_arene.py`) évite les oublis ; `.cache_hache.json` reste dans `.gitignore`.
