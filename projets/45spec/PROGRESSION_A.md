@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**312 / 500 pathologies du périmètre produites.**
+**315 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -243,9 +243,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 234 | `D12.6_polypes_adenomateux___F2_10-E03` | Polypes adénomateux colorectaux | GAS | produite |
 | 235 | `D17.9__F1_5-E08` | Lipome sous-cutané bénin | DER | produite |
 | 236 | `D25.9__S4_5-E05` | Léiomyomes utérins (fibromes utérins) | GYN | produite |
-| 237 | `D47.2__F2_23-E03` | Gammapathie monoclonale de signification indéterminée (MGUS) | HEM | — |
-| 238 | `D63.1__F1_17-E05` | Anémie de la maladie rénale chronique | HEM | — |
-| 239 | `D63.8__F1_17-E02` | Anémie inflammatoire (anémie des maladies chroniques) | HEM | — |
+| 237 | `D47.2__F2_23-E03` | Gammapathie monoclonale de signification indéterminée (MGUS) | HEM | produite |
+| 238 | `D63.1__F1_17-E05` | Anémie de la maladie rénale chronique | HEM | produite |
+| 239 | `D63.8__F1_17-E02` | Anémie inflammatoire (anémie des maladies chroniques) | HEM | produite |
 | 240 | `D69.2__O3_1-E10` | Purpura sénile de Bateman ou fragilité cutanée (diagnostic différentiel bénin) | HEM | — |
 | 241 | `E30.0__O2_1-E01` | Retard pubertaire simple (constitutionnel) | END | produite |
 | 242 | `E30.8_premature_thelarche___O2_1-E07` | Prémature thélarche ou adrénarche bénigne | END | produite |
