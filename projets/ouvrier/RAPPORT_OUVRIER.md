@@ -1,14 +1,10 @@
-# Ouvrier automatique — 2026-11-24 05:35 UTC
+# Ouvrier automatique — 2026-11-24 06:45 UTC
 
-Dernier passage : **END_C_recup** → en_cours (0.00 USD).
+Dernier passage : **T3_pec_fiches_existantes** → en_cours (0.32 USD).
 
-rene45/construire_arene45.py", line 45, in correction
-    return {"theme": d["theme"], "ssp": {**d["ssp"], "algorithme": imbriquer(d["ssp"]["algorithme"])},
-                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: 'str' object is not a mapping
+Le mode « pec » existe dans produire_fiches_claude.py (pec_pilote, pec_soumettre, pec_recuperer, pec_bilan) ; il insère seulement priseEnCharge, répare la forme et remet audit.rejector à null. Le test direct sur 2 fiches CAR a réussi et le lot de 154 fiches est soumis (msgbatch_014L4teTsJAY3oBSZvVHdT16). Au passage suivant, lancer pec_recuperer ; les 151 fiches rejetées avec erreurs de forme sont reprises en entier par T4, donc T3 passera à « fait » une fois le lot récupéré.
 
-
-**Crédit** : 50.62 USD dépensés, 141.38 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.00 / 141.38 USD.
+**Crédit** : 50.94 USD dépensés, 141.06 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.32 / 141.38 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -41,17 +37,17 @@ TypeError: 'str' object is not a mapping
 | END_Q_lot | fait | 1 | 0.0 |
 | END_Q_recup | fait | 1 | 0.0 |
 | END_C_lot | fait | 1 | 0.0 |
-| END_C_recup | en_cours | 1 | 0.0 |
-| T3_pec_fiches_existantes | a_faire | 0 |  |
+| END_C_recup | fait | 1 | 0.0 |
+| T3_pec_fiches_existantes | en_cours | 1 | 0.322 |
 | T4_reprise_rejets | a_faire | 0 |  |
 | T5_items_valides | sans_objet | 0 |  |
 | T7_transversal_lecons | sans_objet | 0 |  |
 | T6_vague_urgences | sans_objet | 0 |  |
-| V2_N_lot | a_faire | 0 |  |
-| V2_N_recup | a_faire | 0 |  |
-| V2_Q_lot | a_faire | 0 |  |
-| V2_Q_recup | a_faire | 0 |  |
-| V2_C_lot | a_faire | 0 |  |
-| V2_C_recup | a_faire | 0 |  |
+| V2_N_lot | bloque | 0 |  |
+| V2_N_recup | bloque | 0 |  |
+| V2_Q_lot | bloque | 0 |  |
+| V2_Q_recup | bloque | 0 |  |
+| V2_C_lot | bloque | 0 |  |
+| V2_C_recup | bloque | 0 |  |
 
 Signature : AAI (Anthropic AI)
