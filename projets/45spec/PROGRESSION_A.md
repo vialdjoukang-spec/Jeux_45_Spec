@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**261 / 500 pathologies du périmètre produites.**
+**264 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -152,15 +152,15 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 143 | `M80.0__F2_20-E14` | Fracture ostéoporotique vertébrale ou périphérique | RHU | produite |
 | 144 | `N41.0__F2_15-E07` | Prostatite aiguë bactérienne | URO | produite |
 | 145 | `O24.4__F2_9-E05` | Diabète gestationnel | GYN | produite |
-| 146 | `D84.1__F1_16-E14` | Angio-œdème bradykinique héréditaire ou sous IEC | ALL | — |
+| 146 | `D84.1__F1_16-E14` | Angio-œdème bradykinique héréditaire ou sous IEC | ALL | produite |
 | 147 | `E80.2__G10-E13` | Porphyrie aiguë intermittente | END | produite |
 | 148 | `F23.9_episode_psychotique___O2_2-E14` | Épisode psychotique aigu (bouffée délirante / premier épisode psychotique) | PSY | produite |
 | 149 | `F30.1_etat_maniaque_aigu_a__G11-E19` | État maniaque aigu avec agitation et mise en danger | PSY | produite |
 | 150 | `G61.0__O4_2-E13` | Syndrome de Guillain-Barré (polyradiculonévrite aiguë) | NEU | produite |
 | 151 | `I67.0_dissection_des_arter__F1_12-E12` | Dissection des artères cervicales (carotide ou vertébrale) | NEU | produite |
 | 152 | `J96.0_insuffisance_respira__F2_1-E13` | Insuffisance respiratoire hypercapnique aiguë (acidose, encéphalopathie) | PNE | produite |
-| 153 | `K55.0__F1_3-E18` | Ischémie mésentérique aiguë (silence auscultatoire et douleur abdominale majeure) | CHI | — |
-| 154 | `K56.1__O2_4-E12` | Invagination intestinale aiguë du nourrisson (boudin d'invagination) | CPE | — |
+| 153 | `K55.0__F1_3-E18` | Ischémie mésentérique aiguë (silence auscultatoire et douleur abdominale majeure) | CHI | produite |
+| 154 | `K56.1__O2_4-E12` | Invagination intestinale aiguë du nourrisson (boudin d'invagination) | CPE | produite |
 | 155 | `K72.0__F2_11-E13` | Hépatite fulminante (insuffisance hépatique aiguë) | GAS | produite |
 | 156 | `K83.0_angiocholite_aigue__F2_11-E15` | Angiocholite aiguë | GAS | produite |
 | 157 | `M00.9__G6-E10` | Arthrite septique aiguë | RHU | — |
