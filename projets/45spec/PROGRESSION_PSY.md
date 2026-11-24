@@ -1,6 +1,6 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « rang » de content/pathologies/RANG_RENDEMENT.json (groupes de rendement A → B → C → D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée). Produites : 49/126.
+Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « rang » de content/pathologies/RANG_RENDEMENT.json (groupes de rendement A → B → C → D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée). Produites : 55/126.
 
 | # | Rang | Groupe | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|---|---|
@@ -10,126 +10,126 @@ Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « r
 | 4 | 18 | A | F43.0_reaction_aigue_au_st__O6_4-E13 | Réaction aiguë au stress et trouble de stress aigu | 29 | 20 | oui |
 | 5 | 23 | A | F05.9_syndrome_confusionne__F1_9-E13 | Syndrome confusionnel aigu (delirium) et sa cause somatique | 29 | 20 | oui |
 | 6 | 24 | A | F42.2_trouble_obsessionnel__S9_10-E01 | Trouble obsessionnel-compulsif (TOC) — forme vérification / symétrie / | 29 | 18 | oui |
-| 7 | 42 | A | F32.1_1__O5_5-E05 | Dépression masquée (présentation somatique d'un épisode dépressif) | 29 | 20 | oui |
-| 8 | 43 | A | F43.2__O5_5-E01 | Trouble de l'adaptation (après événement stressant de vie) | 29 | 18 | oui |
-| 9 | 60 | A | F43.1_trouble_de_stress_po__O6_3-E05 | Trouble de stress post-traumatique (TSPT / PTSD) (> 1 mois) | 29 | 18 | oui |
-| 10 | 64 | A | F05.9_agitation_et_deliriu__O5_3-E04 | Agitation et delirium terminaux (fin de vie) | 29 | 20 | oui |
-| 11 | 65 | A | F32.1_episode_depressif_ca__G4-E01 | Épisode dépressif caractérisé (léger à modéré) | 31 | 18 | oui |
-| 12 | 90 | A | F10.4__F1_15-E09 | Delirium tremens (sevrage alcoolique sévère) | 30 | 18 | oui |
-| 13 | 116 | A | F01.9__F1_9-E02 | Démence vasculaire | 29 | 20 | oui |
-| 14 | 117 | A | F32.9__G11-E05 | Insomnie secondaire à un trouble dépressif ou anxieux | 29 | 20 | oui |
-| 15 | 118 | A | F41.1__G1-E03 | Trouble anxieux généralisé (TAG) | 29 | 18 | oui |
-| 16 | 119 | A | F43.8_trouble_du_deuil_pro__O5_1-E07 | Trouble du deuil prolongé (deuil compliqué) | 29 | 20 | oui |
-| 17 | 127 | A | F44.4_trouble_neurologique__O7_8-E04 | Trouble neurologique fonctionnel (conversion) moteur | 29 | 20 | oui |
-| 18 | 134 | A | F23.9_episode_psychotique___O2_2-E14 | Épisode psychotique aigu (bouffée délirante / premier épisode psychoti | 29 | 18 | oui |
-| 19 | 135 | A | F30.1_etat_maniaque_aigu_a__G11-E19 | État maniaque aigu avec agitation et mise en danger | 29 | 18 | oui |
-| 20 | 149 | A | F03_trouble_neurocogniti__O3_6-E01 | Trouble neurocognitif majeur (maladie d'Alzheimer / démence fronto-tem | 29 | 18 | oui |
-| 21 | 151 | A | F45.2__O7_18-E09 | Anxiété liée à la maladie (hypocondrie / trouble de préoccupation soma | 29 | 20 | oui |
-| 22 | 152 | A | F50.2__O2_6-E05 | Boulimie nerveuse (bulimia nervosa) | 29 | 20 | oui |
-| 23 | 153 | A | F51.0__G11-E01 | Insomnie chronique primaire | 30 | 20 | oui |
-| 24 | 154 | A | F60.3__O6_8-E07 | Trouble de la personnalité limite (borderline) en crise identitaire ou | 28 | 18 | oui |
-| 25 | 236 | A | F10.3__S7_10-E05 | Crise de sevrage alcoolique | 29 | 20 | oui |
-| 26 | 238 | A | F45.1__O7_8-E01 | Trouble à symptomatologie somatique (trouble somatoforme) | 29 | 20 | oui |
-| 27 | 239 | A | F45.3_syndrome_d_hypervent__F2_1-E02 | Syndrome d'hyperventilation psychogène | 29 | 20 | oui |
-| 28 | 240 | A | F50.8__G15-E11 | Hyperphagie boulimique (binge eating disorder) | 29 | 20 | oui |
-| 29 | 241 | A | F63.8__G3-E02 | Polydipsie primaire (potomanie psychogène) | 29 | 20 | oui |
-| 30 | 329 | A | F68.1__O2_3-E09 | Syndrome de Münchhausen par procuration (trouble factice imposé à autr | 29 | 20 | oui |
-| 31 | 395 | A | F06.7__F1_9-E03 | Trouble cognitif léger (MCI — Mild Cognitive Impairment) | 29 | 20 | oui |
-| 32 | 398 | A | F10.2__S9_13-E02 | Trouble de l'usage de l'alcool (consommation à risque / alcoolodépenda | 29 | 18 | oui |
-| 33 | 399 | A | F12.2__S9_13-E03 | Trouble de l'usage du cannabis | 29 | 20 | oui |
-| 34 | 400 | A | F19.2__O7_24-E03 | Patient avec trouble psychique sévère ou addiction (accès limité aux s | 29 | 20 | oui |
-| 35 | 403 | A | F32.1_3__O7_4-E02 | Dépression et anxiété comorbides d'une maladie chronique | 29 | 20 | oui |
-| 36 | 404 | A | F40.0__S9_7-E03 | Agoraphobie (avec ou sans trouble panique) | 29 | 20 | oui |
-| 37 | 405 | A | F40.2__S9_7-E01 | Phobie spécifique (animaux, hauteurs, sang-injection-blessure, avion) | 29 | 20 | oui |
-| 38 | 407 | A | F52.2__S4_10-E02 | Dysfonction érectile psychogène | 29 | 20 | oui |
-| 39 | 408 | A | F60.5__S9_10-E02 | Personnalité obsessionnelle-compulsive (anankastique) | 29 | 20 | oui |
+| 7 | 44 | A | F32.1_1__O5_5-E05 | Dépression masquée (présentation somatique d'un épisode dépressif) | 29 | 20 | oui |
+| 8 | 45 | A | F43.2__O5_5-E01 | Trouble de l'adaptation (après événement stressant de vie) | 29 | 18 | oui |
+| 9 | 64 | A | F43.1_trouble_de_stress_po__O6_3-E05 | Trouble de stress post-traumatique (TSPT / PTSD) (> 1 mois) | 29 | 18 | oui |
+| 10 | 69 | A | F05.9_agitation_et_deliriu__O5_3-E04 | Agitation et delirium terminaux (fin de vie) | 29 | 20 | oui |
+| 11 | 70 | A | F32.1_episode_depressif_ca__G4-E01 | Épisode dépressif caractérisé (léger à modéré) | 31 | 18 | oui |
+| 12 | 98 | A | F10.4__F1_15-E09 | Delirium tremens (sevrage alcoolique sévère) | 30 | 18 | oui |
+| 13 | 129 | A | F01.9__F1_9-E02 | Démence vasculaire | 29 | 20 | oui |
+| 14 | 130 | A | F32.9__G11-E05 | Insomnie secondaire à un trouble dépressif ou anxieux | 29 | 20 | oui |
+| 15 | 131 | A | F41.1__G1-E03 | Trouble anxieux généralisé (TAG) | 29 | 18 | oui |
+| 16 | 132 | A | F43.8_trouble_du_deuil_pro__O5_1-E07 | Trouble du deuil prolongé (deuil compliqué) | 29 | 20 | oui |
+| 17 | 141 | A | F44.4_trouble_neurologique__O7_8-E04 | Trouble neurologique fonctionnel (conversion) moteur | 29 | 20 | oui |
+| 18 | 148 | A | F23.9_episode_psychotique___O2_2-E14 | Épisode psychotique aigu (bouffée délirante / premier épisode psychoti | 29 | 18 | oui |
+| 19 | 149 | A | F30.1_etat_maniaque_aigu_a__G11-E19 | État maniaque aigu avec agitation et mise en danger | 29 | 18 | oui |
+| 20 | 165 | A | F03_trouble_neurocogniti__O3_6-E01 | Trouble neurocognitif majeur (maladie d'Alzheimer / démence fronto-tem | 29 | 18 | oui |
+| 21 | 167 | A | F45.2__O7_18-E09 | Anxiété liée à la maladie (hypocondrie / trouble de préoccupation soma | 29 | 20 | oui |
+| 22 | 168 | A | F50.2__O2_6-E05 | Boulimie nerveuse (bulimia nervosa) | 29 | 20 | oui |
+| 23 | 169 | A | F51.0__G11-E01 | Insomnie chronique primaire | 30 | 20 | oui |
+| 24 | 170 | A | F60.3__O6_8-E07 | Trouble de la personnalité limite (borderline) en crise identitaire ou | 28 | 18 | oui |
+| 25 | 248 | A | F10.3__S7_10-E05 | Crise de sevrage alcoolique | 29 | 20 | oui |
+| 26 | 250 | A | F45.1__O7_8-E01 | Trouble à symptomatologie somatique (trouble somatoforme) | 29 | 20 | oui |
+| 27 | 251 | A | F45.3_syndrome_d_hypervent__F2_1-E02 | Syndrome d'hyperventilation psychogène | 29 | 20 | oui |
+| 28 | 252 | A | F50.8__G15-E11 | Hyperphagie boulimique (binge eating disorder) | 29 | 20 | oui |
+| 29 | 253 | A | F63.8__G3-E02 | Polydipsie primaire (potomanie psychogène) | 29 | 20 | oui |
+| 30 | 342 | A | F68.1__O2_3-E09 | Syndrome de Münchhausen par procuration (trouble factice imposé à autr | 29 | 20 | oui |
+| 31 | 402 | A | F06.7__F1_9-E03 | Trouble cognitif léger (MCI — Mild Cognitive Impairment) | 29 | 20 | oui |
+| 32 | 405 | A | F10.2__S9_13-E02 | Trouble de l'usage de l'alcool (consommation à risque / alcoolodépenda | 29 | 18 | oui |
+| 33 | 406 | A | F12.2__S9_13-E03 | Trouble de l'usage du cannabis | 29 | 20 | oui |
+| 34 | 407 | A | F19.2__O7_24-E03 | Patient avec trouble psychique sévère ou addiction (accès limité aux s | 29 | 20 | oui |
+| 35 | 410 | A | F32.1_3__O7_4-E02 | Dépression et anxiété comorbides d'une maladie chronique | 29 | 20 | oui |
+| 36 | 411 | A | F40.0__S9_7-E03 | Agoraphobie (avec ou sans trouble panique) | 29 | 20 | oui |
+| 37 | 412 | A | F40.2__S9_7-E01 | Phobie spécifique (animaux, hauteurs, sang-injection-blessure, avion) | 29 | 20 | oui |
+| 38 | 414 | A | F52.2__S4_10-E02 | Dysfonction érectile psychogène | 29 | 20 | oui |
+| 39 | 415 | A | F60.5__S9_10-E02 | Personnalité obsessionnelle-compulsive (anankastique) | 29 | 20 | oui |
 | 40 | 738 | B | F53.0__O1_2-E04 | Baby blues (syndrome du 3e jour) | 29 | 20 | oui |
-| 41 | 771 | B | F32.3_episode_depressif_av__O6_8-E12 | Épisode dépressif avec caractéristiques psychotiques (dépression mélan | 28 | 18 | oui |
-| 42 | 772 | B | F44.5_1__F1_19-E08 | Pseudosyncope psychogène | 29 | 20 | oui |
-| 43 | 773 | B | F53.1__O1_2-E15 | Psychose du post-partum (psychose puerpérale) | 28 | 18 | oui |
-| 44 | 865 | B | F31.3__O6_8-E05 | Trouble bipolaire (phase dépressive ou mixte) | 29 | 20 | oui |
-| 45 | 866 | B | F32.9_1__F1_9-E04 | Pseudo-démence dépressive (dépression du sujet âgé) | 29 | 20 | oui |
-| 46 | 867 | B | F45.8_1__S1_7-E08 | Globus pharyngé (boule dans la gorge fonctionnelle) | — | — | — |
-| 47 | 868 | B | F63.3__S6_6-E06 | Trichotillomanie | — | — | — |
-| 48 | 1005 | C | F05.9_1__O3_2-E13 | État confusionnel aigu (delirium) sur cause somatique aiguë | — | — | — |
-| 49 | 1006 | C | F05.9_2__O7_5-E15 | Défaillance aiguë de discernement ou pathologie neuropsychiatrique aig | — | — | — |
-| 50 | 1007 | C | F06.1__S9_3-E14 | Catatonie aiguë (stupeur ou agitation catatonique) | 29 | 20 | oui |
-| 51 | 1008 | C | F10.0__O7_5-E11 | Collègue en état d'ébriété ou sous influence de substances en service  | — | — | — |
-| 52 | 1010 | C | F14.0__S9_6-E12 | Délire agité hyperthermique (excited delirium) sur cocaïne/cathinones | — | — | — |
-| 53 | 1012 | C | F31.6__S9_5-E13 | État mixte bipolaire (dépression agitée / manie dysphorique) | — | — | — |
-| 54 | 1013 | C | F32.2_2__O6_1-E15 | Épisode dépressif sévère avec incapacité fonctionnelle totale | — | — | — |
-| 55 | 1014 | C | F32.2_3__O7_14-E16 | Détresse psychologique aiguë avec rupture de projet et risque suicidai | — | — | — |
-| 56 | 1015 | C | F32.2__O2_10-E13 | Dépression sévère avec risque suicidaire sur échec ou harcèlement scol | — | — | — |
-| 57 | 1017 | C | F40.2_2__S9_7-E13 | Peur irrationnelle aiguë avec refus de soins vitaux (ex. phobie des hô | — | — | — |
-| 58 | 1018 | C | F43.0__O4_6-E15 | Détresse psychologique aiguë suite à l'annonce d'un dépistage positif  | — | — | — |
-| 59 | 1021 | C | F43.0_1__O7_19-E15 | Détresse psychologique majeure ou faux espoirs face à une maladie neur | — | — | — |
-| 60 | 1022 | C | F43.0_2__O7_25-E15 | Détresse psychologique majeure ou culpabilité parentale après annonce  | — | — | — |
-| 61 | 1024 | C | F44.8_1__S9_11-E13 | État dissociatif aigu sévère avec stupeur ou errance dangereuse | — | — | — |
-| 62 | 1558 | C | F07.2__S8_7-E04 | Syndrome post-commotionnel persistant | — | — | — |
-| 63 | 1560 | C | F10.1__O6_1-E06 | Addiction et abus de substances (alcool, cannabis, jeux vidéo/écrans) | — | — | — |
-| 64 | 1562 | C | F10.3_1__S9_1-E06 | Syndrome de sevrage léger à modéré (alcool, benzodiazépines, nicotine, | — | — | — |
-| 65 | 1563 | C | F10.6__F1_9-E08 | Syndrome de Korsakoff et encéphalopathie alcoolique chronique | — | — | — |
-| 66 | 1566 | C | F13.2__S9_13-E04 | Mésusage et dépendance aux benzodiazépines et Z-drugs (zolpidem/zopicl | 29 | 20 | oui |
-| 67 | 1567 | C | F14.2__S9_13-E06 | Trouble de l'usage de la cocaïne et des stimulants (amphétamines, MDMA | — | — | — |
-| 68 | 1568 | C | F17.2__G15-E07 | Sevrage tabagique récent avec prise pondérale | — | — | — |
-| 69 | 1569 | C | F19.1_1__O6_5-E05 | Chemsex (usage sexualisé de substances psychoactives) | — | — | — |
-| 70 | 1570 | C | F19.1__S9_3-E04 | Consommation de substances psychoactives (cannabis, alcool, stimulants | — | — | — |
-| 71 | 1572 | C | F20.9_2__O7_15-E04 | Non-adhésion aux psychotropes (schizophrénie, trouble bipolaire, dépre | — | — | — |
-| 72 | 1573 | C | F31.0__S9_3-E06 | Trouble bipolaire (phase hypomaniaque) | — | — | — |
-| 73 | 1574 | C | F32.1_2__O6_5-E06 | Épisode dépressif ou anxieux chez une personne LGBTQIA+ | — | — | — |
-| 74 | 1575 | C | F32.1__S4_12-E06 | Dépression périménopausique / trouble anxiodépressif | — | — | — |
-| 75 | 1576 | C | F33.0__S9_5-E05 | Trouble affectif saisonnier (dépression hivernale) | — | — | — |
-| 76 | 1577 | C | F34.1__S9_5-E03 | Dysthymie (trouble dépressif persistant) | — | — | — |
-| 77 | 1578 | C | F40.1__S9_7-E04 | Anxiété sociale (phobie sociale) | 29 | 20 | oui |
-| 78 | 1579 | C | F40.2_1__S9_7-E06 | Nosophobie spécifique (cancéro-phobie, cardiophobie, peur du VIH) | — | — | — |
-| 79 | 1580 | C | F41.9_1__O7_21-E05 | Méditation pleine conscience (MBSR), hypnose et approches corps-esprit | — | — | — |
-| 80 | 1581 | C | F41.9__S9_6-E03 | Anxiété sévère ou stress chronique se manifestant par une agitation mo | — | — | — |
-| 81 | 1582 | C | F42.0__S9_10-E05 | Phobies d'impulsion (obsessions agressives, sexuelles ou blasphématoir | — | — | — |
-| 82 | 1583 | C | F42.3__S9_10-E03 | Trouble d'accumulation compulsive (syllogomanie / syndrome de Diogène) | — | — | — |
-| 83 | 1584 | C | F44.5__S7_10-E06 | Crises psychogènes non épileptiques (CPNE / crises fonctionnelles) | — | — | — |
-| 84 | 1585 | C | F45.3__S2_5-E05 | Trouble somatoforme / douleur thoracique non cardiaque fonctionnelle | — | — | — |
-| 85 | 1586 | C | F45.9__O6_4-E04 | Somatisations et troubles fonctionnels induits par le harcèlement | — | — | — |
-| 86 | 1589 | C | F52.4__S4_10-E05 | Éjaculation prématurée (primaire ou acquise) | — | — | — |
-| 87 | 1590 | C | F60.2__S9_8-E06 | Trouble de la personnalité antisociale / psychopathie | — | — | — |
-| 88 | 1591 | C | F63.8_1__S9_8-E04 | Trouble explosif intermittent | — | — | — |
-| 89 | 1592 | C | F64.0__O6_5-E02 | Incongruence de genre / dysphorie de genre chez l'adulte | — | — | — |
-| 90 | 1594 | C | F70__O2_10-E05 | Déficience intellectuelle légère (trouble du développement intellectue | — | — | — |
-| 91 | 1596 | C | F79__O2_5-E04 | Retard global de développement / déficience intellectuelle | — | — | — |
-| 92 | 1893 | D | F13.1_mesusage_reactionnel__O5_1-E09 | Mésusage réactionnel d'alcool ou de benzodiazépines (crise, deuil, aid | — | — | — |
-| 93 | 1906 | D | F45.2_1__O6_2-E06 | Dysmorphophobie (trouble obsessionnel centré sur l'apparence / BDD) | — | — | — |
-| 94 | 1907 | D | F51.4_parasomnies_nrem_som__G11-E09 | Parasomnies NREM (somnambulisme, terreurs nocturnes) | — | — | — |
-| 95 | 1908 | D | F63.0_trouble_du_jeu_et_ad__S9_10-E08 | Trouble du jeu et addictions comportementales | — | — | — |
-| 96 | 2001 | D | F05.9__S9_8-E07 | Syndrome confusionnel / SCPD du sujet âgé avec agressivité | — | — | — |
-| 97 | 2004 | D | F12.1__O2_2-E08 | Mésusage de substances et conduites addictives à l'adolescence (alcool | — | — | — |
-| 98 | 2005 | D | F12.8__S3_10-E09 | Syndrome d'hyperémèse cannabinoïde (SHC) ou syndrome de rumination / v | — | — | — |
-| 99 | 2007 | D | F15.0__S9_6-E07 | Consommation de stimulants ou boissons énergisantes (caféine, méthylph | — | — | — |
-| 100 | 2008 | D | F18.1__S9_13-E09 | Abus de solvants volatils, protoxyde d'azote (« gaz hilarant ») ou GHB | — | — | — |
-| 101 | 2009 | D | F20.9__S9_3-E07 | Schizophrénie débutante (phase prodromique / repli) | 30 | 20 | oui |
-| 102 | 2010 | D | F22.0__S9_7-E09 | Trouble délirant somatique (syndrome d'Ekbom / conviction délirante de | — | — | — |
-| 103 | 2011 | D | F29__O7_11-E09 | Refus de traitement lors d'épisode psychotique ou maniaque aigu | — | — | — |
-| 104 | 2012 | D | F32.2_1__O3_6-E06 | Dépression majeure du sujet âgé avec clinophilie et retrait fonctionne | — | — | — |
-| 105 | 2013 | D | F42.0_1__O6_8-E06 | Trouble obsessionnel-compulsif (TOC) à thématique religieuse, morale o | — | — | — |
-| 106 | 2014 | D | F42.9__O2_2-E09 | Trouble obsessionnel-compulsif (TOC) ou tics / syndrome de Gilles de l | — | — | — |
-| 107 | 2016 | D | F43.1__S9_11-E07 | TSPT complexe (traumas répétés dans l'enfance / violence prolongée) | — | — | — |
-| 108 | 2017 | D | F44.6__S7_9-E10 | Troubles sensitifs fonctionnels (hypoesthésie en « gant/manche » à lim | — | — | — |
-| 109 | 2018 | D | F45.2_2__F1_13-E08 | Halitophobie (pseudo-halitose) | — | — | — |
-| 110 | 2019 | D | F45.2_3__O6_2-E08 | Dysmorphie musculaire (bigorexie) et abus de stéroïdes anabolisants | — | — | — |
-| 111 | 2020 | D | F45.8__G11-E11 | Bruxisme nocturne | — | — | — |
-| 112 | 2021 | D | F50.0_1__S9_10-E06 | Troubles du comportement alimentaire avec rituels obsessionnels (anore | — | — | — |
-| 113 | 2022 | D | F50.8_1__S9_4-E08 | Trouble de restriction/évitement de l'ingestion alimentaire (ARFID) | — | — | — |
-| 114 | 2024 | D | F50.8_2__O7_3-E09 | Orthorexie nerveuse (obsession pathologique de l'alimentation saine) | — | — | — |
-| 115 | 2025 | D | F51.0_1__O2_10-E07 | Privation chronique de sommeil et surexposition aux écrans | — | — | — |
-| 116 | 2026 | D | F52.5__S4_10-E06 | Vaginisme / trouble de la pénétration (douleur génito-pelvienne) | — | — | — |
-| 117 | 2027 | D | F55.5__S9_13-E08 | Mésusage de stéroïdes anabolisants / dopage sportif | — | — | — |
-| 118 | 2433 | D | F10.2_1__O4_7-E10 | Risque neurodégénératif lié aux traumatismes crâniens répétés / alcool | — | — | — |
-| 119 | 2435 | D | F20.9_1__O6_8-E10 | Crise mystique ou délire à thématique religieuse/spirituelle | — | — | — |
-| 120 | 2436 | D | F22__O6_4-E10 | Trouble paranoïaque ou interprétatif mimant un harcèlement | — | — | — |
-| 121 | 2437 | D | F23.8__O6_7-E10 | Épisode psychotique bref ou décompensation maniaque réactionnelle au d | — | — | — |
-| 122 | 2439 | D | F43.1_1__O6_5-E10 | Traumatisme lié à une « thérapie de conversion » (pratique illicite/no | — | — | — |
-| 123 | 2440 | D | F44.0__S9_11-E10 | Amnésie dissociative ou fugue dissociative post-traumatique | — | — | — |
-| 124 | 2441 | D | F44.8__S1_20-E10 | Spasme de convergence fonctionnel | — | — | — |
-| 125 | 2442 | D | F53.8__O1_9-E09 | Déni de grossesse (partiel ou total) | — | — | — |
-| 126 | 2443 | D | F55.2__S9_13-E10 | Mésusage de laxatifs / diurétiques ou d'hormones thyroïdiennes (troubl | — | — | — |
+| 41 | 777 | B | F32.3_episode_depressif_av__O6_8-E12 | Épisode dépressif avec caractéristiques psychotiques (dépression mélan | 28 | 18 | oui |
+| 42 | 778 | B | F44.5_1__F1_19-E08 | Pseudosyncope psychogène | 29 | 20 | oui |
+| 43 | 779 | B | F53.1__O1_2-E15 | Psychose du post-partum (psychose puerpérale) | 28 | 18 | oui |
+| 44 | 867 | B | F31.3__O6_8-E05 | Trouble bipolaire (phase dépressive ou mixte) | 29 | 20 | oui |
+| 45 | 868 | B | F32.9_1__F1_9-E04 | Pseudo-démence dépressive (dépression du sujet âgé) | 29 | 20 | oui |
+| 46 | 869 | B | F45.8_1__S1_7-E08 | Globus pharyngé (boule dans la gorge fonctionnelle) | 29 | 20 | oui |
+| 47 | 870 | B | F63.3__S6_6-E06 | Trichotillomanie | 29 | 20 | oui |
+| 48 | 996 | B | F05.9_1__O3_2-E13 | État confusionnel aigu (delirium) sur cause somatique aiguë | — | — | — |
+| 49 | 997 | B | F05.9_2__O7_5-E15 | Défaillance aiguë de discernement ou pathologie neuropsychiatrique aig | 29 | 20 | oui |
+| 50 | 998 | B | F06.1__S9_3-E14 | Catatonie aiguë (stupeur ou agitation catatonique) | 29 | 20 | oui |
+| 51 | 999 | B | F10.0__O7_5-E11 | Collègue en état d'ébriété ou sous influence de substances en service  | 29 | 20 | oui |
+| 52 | 1001 | C | F14.0__S9_6-E12 | Délire agité hyperthermique (excited delirium) sur cocaïne/cathinones | 29 | 20 | oui |
+| 53 | 1003 | C | F31.6__S9_5-E13 | État mixte bipolaire (dépression agitée / manie dysphorique) | 29 | 20 | oui |
+| 54 | 1004 | C | F32.2_2__O6_1-E15 | Épisode dépressif sévère avec incapacité fonctionnelle totale | — | — | — |
+| 55 | 1005 | C | F32.2_3__O7_14-E16 | Détresse psychologique aiguë avec rupture de projet et risque suicidai | — | — | — |
+| 56 | 1006 | C | F32.2__O2_10-E13 | Dépression sévère avec risque suicidaire sur échec ou harcèlement scol | — | — | — |
+| 57 | 1008 | C | F40.2_2__S9_7-E13 | Peur irrationnelle aiguë avec refus de soins vitaux (ex. phobie des hô | — | — | — |
+| 58 | 1009 | C | F43.0__O4_6-E15 | Détresse psychologique aiguë suite à l'annonce d'un dépistage positif  | — | — | — |
+| 59 | 1012 | C | F43.0_1__O7_19-E15 | Détresse psychologique majeure ou faux espoirs face à une maladie neur | — | — | — |
+| 60 | 1013 | C | F43.0_2__O7_25-E15 | Détresse psychologique majeure ou culpabilité parentale après annonce  | — | — | — |
+| 61 | 1015 | C | F44.8_1__S9_11-E13 | État dissociatif aigu sévère avec stupeur ou errance dangereuse | — | — | — |
+| 62 | 1519 | C | F07.2__S8_7-E04 | Syndrome post-commotionnel persistant | — | — | — |
+| 63 | 1521 | C | F10.1__O6_1-E06 | Addiction et abus de substances (alcool, cannabis, jeux vidéo/écrans) | — | — | — |
+| 64 | 1523 | C | F10.3_1__S9_1-E06 | Syndrome de sevrage léger à modéré (alcool, benzodiazépines, nicotine, | — | — | — |
+| 65 | 1524 | C | F10.6__F1_9-E08 | Syndrome de Korsakoff et encéphalopathie alcoolique chronique | — | — | — |
+| 66 | 1527 | C | F13.2__S9_13-E04 | Mésusage et dépendance aux benzodiazépines et Z-drugs (zolpidem/zopicl | 29 | 20 | oui |
+| 67 | 1528 | C | F14.2__S9_13-E06 | Trouble de l'usage de la cocaïne et des stimulants (amphétamines, MDMA | — | — | — |
+| 68 | 1529 | C | F17.2__G15-E07 | Sevrage tabagique récent avec prise pondérale | — | — | — |
+| 69 | 1530 | C | F19.1_1__O6_5-E05 | Chemsex (usage sexualisé de substances psychoactives) | — | — | — |
+| 70 | 1531 | C | F19.1__S9_3-E04 | Consommation de substances psychoactives (cannabis, alcool, stimulants | — | — | — |
+| 71 | 1533 | C | F20.9_2__O7_15-E04 | Non-adhésion aux psychotropes (schizophrénie, trouble bipolaire, dépre | — | — | — |
+| 72 | 1534 | C | F31.0__S9_3-E06 | Trouble bipolaire (phase hypomaniaque) | — | — | — |
+| 73 | 1535 | C | F32.1_2__O6_5-E06 | Épisode dépressif ou anxieux chez une personne LGBTQIA+ | — | — | — |
+| 74 | 1536 | C | F32.1__S4_12-E06 | Dépression périménopausique / trouble anxiodépressif | — | — | — |
+| 75 | 1537 | C | F33.0__S9_5-E05 | Trouble affectif saisonnier (dépression hivernale) | — | — | — |
+| 76 | 1538 | C | F34.1__S9_5-E03 | Dysthymie (trouble dépressif persistant) | — | — | — |
+| 77 | 1539 | C | F40.1__S9_7-E04 | Anxiété sociale (phobie sociale) | 29 | 20 | oui |
+| 78 | 1540 | C | F40.2_1__S9_7-E06 | Nosophobie spécifique (cancéro-phobie, cardiophobie, peur du VIH) | — | — | — |
+| 79 | 1541 | C | F41.9_1__O7_21-E05 | Méditation pleine conscience (MBSR), hypnose et approches corps-esprit | — | — | — |
+| 80 | 1542 | C | F41.9__S9_6-E03 | Anxiété sévère ou stress chronique se manifestant par une agitation mo | — | — | — |
+| 81 | 1543 | C | F42.0__S9_10-E05 | Phobies d'impulsion (obsessions agressives, sexuelles ou blasphématoir | — | — | — |
+| 82 | 1544 | C | F42.3__S9_10-E03 | Trouble d'accumulation compulsive (syllogomanie / syndrome de Diogène) | — | — | — |
+| 83 | 1545 | C | F44.5__S7_10-E06 | Crises psychogènes non épileptiques (CPNE / crises fonctionnelles) | — | — | — |
+| 84 | 1546 | C | F45.3__S2_5-E05 | Trouble somatoforme / douleur thoracique non cardiaque fonctionnelle | — | — | — |
+| 85 | 1547 | C | F45.9__O6_4-E04 | Somatisations et troubles fonctionnels induits par le harcèlement | — | — | — |
+| 86 | 1550 | C | F52.4__S4_10-E05 | Éjaculation prématurée (primaire ou acquise) | — | — | — |
+| 87 | 1551 | C | F60.2__S9_8-E06 | Trouble de la personnalité antisociale / psychopathie | — | — | — |
+| 88 | 1552 | C | F63.8_1__S9_8-E04 | Trouble explosif intermittent | — | — | — |
+| 89 | 1553 | C | F64.0__O6_5-E02 | Incongruence de genre / dysphorie de genre chez l'adulte | — | — | — |
+| 90 | 1555 | C | F70__O2_10-E05 | Déficience intellectuelle légère (trouble du développement intellectue | — | — | — |
+| 91 | 1557 | C | F79__O2_5-E04 | Retard global de développement / déficience intellectuelle | — | — | — |
+| 92 | 1840 | D | F13.1_mesusage_reactionnel__O5_1-E09 | Mésusage réactionnel d'alcool ou de benzodiazépines (crise, deuil, aid | — | — | — |
+| 93 | 1855 | D | F45.2_1__O6_2-E06 | Dysmorphophobie (trouble obsessionnel centré sur l'apparence / BDD) | — | — | — |
+| 94 | 1856 | D | F51.4_parasomnies_nrem_som__G11-E09 | Parasomnies NREM (somnambulisme, terreurs nocturnes) | — | — | — |
+| 95 | 1857 | D | F63.0_trouble_du_jeu_et_ad__S9_10-E08 | Trouble du jeu et addictions comportementales | — | — | — |
+| 96 | 1942 | D | F05.9__S9_8-E07 | Syndrome confusionnel / SCPD du sujet âgé avec agressivité | — | — | — |
+| 97 | 1945 | D | F12.1__O2_2-E08 | Mésusage de substances et conduites addictives à l'adolescence (alcool | — | — | — |
+| 98 | 1946 | D | F12.8__S3_10-E09 | Syndrome d'hyperémèse cannabinoïde (SHC) ou syndrome de rumination / v | — | — | — |
+| 99 | 1948 | D | F15.0__S9_6-E07 | Consommation de stimulants ou boissons énergisantes (caféine, méthylph | — | — | — |
+| 100 | 1949 | D | F18.1__S9_13-E09 | Abus de solvants volatils, protoxyde d'azote (« gaz hilarant ») ou GHB | — | — | — |
+| 101 | 1950 | D | F20.9__S9_3-E07 | Schizophrénie débutante (phase prodromique / repli) | 30 | 20 | oui |
+| 102 | 1951 | D | F22.0__S9_7-E09 | Trouble délirant somatique (syndrome d'Ekbom / conviction délirante de | — | — | — |
+| 103 | 1952 | D | F29__O7_11-E09 | Refus de traitement lors d'épisode psychotique ou maniaque aigu | — | — | — |
+| 104 | 1953 | D | F32.2_1__O3_6-E06 | Dépression majeure du sujet âgé avec clinophilie et retrait fonctionne | — | — | — |
+| 105 | 1954 | D | F42.0_1__O6_8-E06 | Trouble obsessionnel-compulsif (TOC) à thématique religieuse, morale o | — | — | — |
+| 106 | 1955 | D | F42.9__O2_2-E09 | Trouble obsessionnel-compulsif (TOC) ou tics / syndrome de Gilles de l | — | — | — |
+| 107 | 1957 | D | F43.1__S9_11-E07 | TSPT complexe (traumas répétés dans l'enfance / violence prolongée) | — | — | — |
+| 108 | 1958 | D | F44.6__S7_9-E10 | Troubles sensitifs fonctionnels (hypoesthésie en « gant/manche » à lim | — | — | — |
+| 109 | 1959 | D | F45.2_2__F1_13-E08 | Halitophobie (pseudo-halitose) | — | — | — |
+| 110 | 1960 | D | F45.2_3__O6_2-E08 | Dysmorphie musculaire (bigorexie) et abus de stéroïdes anabolisants | — | — | — |
+| 111 | 1961 | D | F45.8__G11-E11 | Bruxisme nocturne | — | — | — |
+| 112 | 1962 | D | F50.0_1__S9_10-E06 | Troubles du comportement alimentaire avec rituels obsessionnels (anore | — | — | — |
+| 113 | 1963 | D | F50.8_1__S9_4-E08 | Trouble de restriction/évitement de l'ingestion alimentaire (ARFID) | — | — | — |
+| 114 | 1965 | D | F50.8_2__O7_3-E09 | Orthorexie nerveuse (obsession pathologique de l'alimentation saine) | — | — | — |
+| 115 | 1966 | D | F51.0_1__O2_10-E07 | Privation chronique de sommeil et surexposition aux écrans | — | — | — |
+| 116 | 1967 | D | F52.5__S4_10-E06 | Vaginisme / trouble de la pénétration (douleur génito-pelvienne) | — | — | — |
+| 117 | 1968 | D | F55.5__S9_13-E08 | Mésusage de stéroïdes anabolisants / dopage sportif | — | — | — |
+| 118 | 2363 | D | F10.2_1__O4_7-E10 | Risque neurodégénératif lié aux traumatismes crâniens répétés / alcool | — | — | — |
+| 119 | 2365 | D | F20.9_1__O6_8-E10 | Crise mystique ou délire à thématique religieuse/spirituelle | — | — | — |
+| 120 | 2366 | D | F22__O6_4-E10 | Trouble paranoïaque ou interprétatif mimant un harcèlement | — | — | — |
+| 121 | 2367 | D | F23.8__O6_7-E10 | Épisode psychotique bref ou décompensation maniaque réactionnelle au d | — | — | — |
+| 122 | 2369 | D | F43.1_1__O6_5-E10 | Traumatisme lié à une « thérapie de conversion » (pratique illicite/no | — | — | — |
+| 123 | 2370 | D | F44.0__S9_11-E10 | Amnésie dissociative ou fugue dissociative post-traumatique | — | — | — |
+| 124 | 2371 | D | F44.8__S1_20-E10 | Spasme de convergence fonctionnel | — | — | — |
+| 125 | 2372 | D | F53.8__O1_9-E09 | Déni de grossesse (partiel ou total) | — | — | — |
+| 126 | 2373 | D | F55.2__S9_13-E10 | Mésusage de laxatifs / diurétiques ou d'hormones thyroïdiennes (troubl | — | — | — |
 
 Outil : `python projets/45spec/psy/lib.py <id>` (valider() du script + contrôles de Vial : formats, proportions, couverture, lieux interdits).
 
