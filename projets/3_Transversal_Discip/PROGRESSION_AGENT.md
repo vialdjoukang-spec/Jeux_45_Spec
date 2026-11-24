@@ -17,7 +17,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | I | 12 | 12 |
 | J | 12 | 12 |
 | K | 12 | 12 |
-| L | 9 | 12 |
+| L | 12 | 12 |
 | M | 0 | 12 |
 | N | 0 | 12 |
 | O | 0 | 12 |
@@ -25,68 +25,11 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **165** | **228** |
+| **Total** | **168** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
 - **TRANS_A-S4-01** : Contenu des ATF cités comme distracteurs ou repères (130 V 352 de 2004, 137 V 210 de 2011, 143 V 409/418 de 2017) : cohérent avec la doctrine connue mais non relu sur bger.ch (base inaccessible pendant l'audit). Vérifiés : ATF 125 V 351 (critères de valeur probante, guide FMH) et le changement de pratique de 2015 (arrêt 9C_492/2014 publié ATF 141 V 281, circulaire OFAS du 7.7.2015).
-- **TRANS_D-S1-01** : État de la révision complète de la LDEP en 2026 (passage éventuel à un modèle opt-out et obligation pour tous les prestataires ambulatoires).
-- **TRANS_D-S1-01** : Date exacte de l'obligation d'affiliation des EMS et maisons de naissance (15.4.2022) et des nouveaux prestataires ambulatoires admis depuis le 1.1.2022 (art. 37 al. 3 LAMal).
-- **TRANS_D-S1-01** : Liste actuelle des communautés de référence (CARA en Suisse romande : cantons membres en 2026).
-- **TRANS_D-S1-02** : Montant maximal de l'amende pénale de la nLPD (250 000 francs, art. 60 ss) visant les personnes physiques responsables.
-- **TRANS_D-S1-02** : Exemption du registre des activités de traitement pour les entreprises de moins de 250 collaborateurs (art. 24 OPDo) et exception pour le traitement à grande échelle de données sensibles.
-- **TRANS_D-S1-02** : Nom de la société exploitante et prestations actuelles de HIN (Health Info Net AG).
-- **TRANS_D-S1-03** : Disposition exacte de la LPTh (art. 26) et du Code de déontologie FMH sur la prescription après une consultation à distance (connaissance de l'état de santé).
-- **TRANS_D-S1-03** : Entrée en vigueur du TARDOC au 1.1.2026 et positions tarifaires de la consultation à distance.
-- **TRANS_D-S1-03** : Existence en 2026 de recommandations FMH ou eHealth Suisse spécifiques à la télémédecine.
-- **TRANS_D-S2-01** : Délai de réponse de 30 jours au droit d'accès (art. 18 OPDo) : à confirmer.
-- **TRANS_D-S2-01** : Recommandation de la FMH de conserver les dossiers 20 ans après la dernière consultation (alignée sur le délai absolu de l'art. 60 al. 1bis CO) et durées minimales des lois cantonales (VD, GE, NE, FR, VS).
-- **TRANS_D-S2-02** : Inclusion des hôpitaux figurant sur une liste cantonale parmi les infrastructures critiques soumises à l'obligation de signalement (art. 74b LSI).
-- **TRANS_D-S2-02** : Date d'application des amendes (jusqu'à 100 000 francs) pour défaut de signalement à l'OFCS (1.10.2025 ?).
-- **TRANS_D-S2-03** : Format technique actuel de l'eMediplan (CHMED16A, CHMED23A ?) et organisation qui le gère (IG eMediplan / HCI Solutions).
-- **TRANS_D-S2-03** : Proportion de patients présentant au moins une divergence médicamenteuse non intentionnelle à l'admission (souvent citée entre 30 et 70 %) : non écrite faute de chiffre suisse vérifié.
-- **TRANS_D-S3-01** : Date d'entrée en vigueur de l'ODim (26.5.2021) et obligations actuelles du mandataire suisse (CH-REP) faute d'actualisation de l'accord de reconnaissance mutuelle avec l'UE.
-- **TRANS_D-S3-01** : Position suisse 2026 sur la régulation de l'IA (ratification de la convention du Conseil de l'Europe, adaptation sectorielle) et éventuelle reprise du règlement européen sur l'IA pour les dispositifs médicaux.
-- **TRANS_D-S3-02** : Classe de recommandation de la télésurveillance non invasive dans les recommandations ESC 2021 et 2023 sur l'insuffisance cardiaque (IIb ?).
-- **TRANS_D-S3-02** : Conditions de remboursement LAMal des capteurs de glucose en continu (LiMA, patients sous insulinothérapie intensifiée) en 2026.
-- **TRANS_D-S3-02** : Valeur prédictive positive de 0,84 de la notification de pouls irrégulier de l'Apple Heart Study (Perez, NEJM 2019).
-- **TRANS_D-S3-03** : Formulation exacte des art. 32 à 34 LRH (réutilisation de matériel biologique, de données génétiques et de données non génétiques, codées ou non) et de l'art. 2 al. 2 let. c LRH (exclusion des données anonymisées).
-- **TRANS_D-S3-03** : Version en vigueur en 2026 du modèle national de consentement général (swissethics / unimedsuisse) et état de la révision de l'ORH.
-- **TRANS_D-S4-01** : Applicabilité de la loi sur la responsabilité du fait des produits (LRFP) aux logiciels en droit suisse : question doctrinale ouverte en 2026.
-- **TRANS_D-S4-01** : Performance externe de l'Epic Sepsis Model (aire sous la courbe 0,63 selon Wong et al., JAMA Intern Med 2021) : chiffre à confirmer avant citation.
-- **TRANS_D-S4-02** : Formulaire d'annonce en ligne du PFPDT et délais pratiques recommandés (« dans les meilleurs délais », art. 24 nLPD ; pas de délai chiffré dans la loi suisse, contrairement aux 72 heures du RGPD).
-- **TRANS_D-S4-02** : Règles cantonales d'annonce des violations de données pour les hôpitaux publics (préposés cantonaux, par exemple VD et GE).
-- **TRANS_D-S4-03** : Exemples documentés de cyberattaques contre des hôpitaux ou institutions de santé suisses (non cités nominativement dans le texte).
-- **TRANS_D-S4-03** : Existence d'une recommandation nationale suisse (OFCS, H+, CIMHS) sur les procédures dégradées hospitalières en 2026.
-- **TRANS_E-S1-01** : Seuils du 99e percentile de la troponine I hypersensible Abbott (16 ng/L chez la femme, 34 ng/L chez l'homme) : à confirmer selon le dosage local et la notice.
-- **TRANS_E-S1-01** : Résultats du registre suisse AMIS Plus sur les différences de prise en charge entre femmes et hommes (moindre recours à l'angioplastie, délais) : chiffres non cités.
-- **TRANS_E-S1-02** : Proportion de la population suisse avec une littératie en santé générale limitée selon l'enquête HLS19 (environ 49 %) : chiffre à confirmer dans le rapport OFSP 2021.
-- **TRANS_E-S1-02** : Nom actuel de l'Alliance suisse pour les compétences en santé et ses outils pour les professionnels.
-- **TRANS_E-S1-03** : Base exacte de la limitation du choix de l'assureur et du fournisseur de prestations pour les requérants d'asile (art. 82a LAsi) et son application cantonale.
-- **TRANS_E-S1-03** : Accès des sans-papiers aux réductions de primes selon les cantons et contenu de la circulaire de l'OFAS/OFSP (2002) obligeant les assureurs à les affilier.
-- **TRANS_E-S1-03** : Noms actuels des structures de soins pour personnes sans statut légal (CAMSCO à Genève, Unisanté à Lausanne, Meditrina à Zurich).
-- **TRANS_E-S2-01** : Recommandation suisse (Swissmedic, information professionnelle) sur la dose de zolpidem chez la femme, après la réduction décidée par la FDA en 2013 (5 mg pour la forme à libération immédiate).
-- **TRANS_E-S2-01** : Ampleur du surcroît d'effets indésirables chez la femme (souvent cité 1,5 à 1,7 fois) et part des femmes parmi les torsades de pointes médicamenteuses (environ deux tiers) : chiffres à confirmer.
-- **TRANS_E-S2-02** : Procédure actuelle de dépistage sanitaire à l'entrée dans les centres fédéraux pour requérants d'asile (questionnaire, dépistage de la tuberculose par questionnaire, offre vaccinale) en 2026.
-- **TRANS_E-S2-02** : Recommandations suisses spécifiques de dépistage des requérants d'asile (OFSP, Société suisse d'infectiologie) : dépistage VHB, VIH, schistosomiase, strongyloïdose selon l'origine.
-- **TRANS_E-S2-02** : Vaccinations proposées par l'OFSP dans les centres fédéraux (dTpa-IPV, ROR, varicelle, etc.).
-- **TRANS_E-S2-03** : Proportion des erreurs diagnostiques attribuées à des facteurs cognitifs (souvent citée autour de 75 % d'après Graber 2005) : chiffre non écrit dans le texte.
-- **TRANS_E-S2-03** : Données suisses sur la stigmatisation liée au poids dans les soins (enquêtes de l'OFSP ou de Promotion Santé Suisse).
-- **TRANS_E-S3-01** : Prise en charge de la PrEP VIH par l'assurance obligatoire depuis le 1.7.2024 : modalités et franchise.
-- **TRANS_E-S3-01** : Jurisprudence du Tribunal fédéral sur la prise en charge LAMal des traitements d'affirmation de genre (abandon du délai d'observation de deux ans, ATF 2010-2012 ?).
-- **TRANS_E-S3-01** : Position suisse 2026 sur les bloqueurs de puberté chez les mineurs (recommandations de sociétés pédiatriques et endocrinologiques suisses).
-- **TRANS_E-S3-02** : Montants 2026 : franchise ordinaire de 300 francs, franchises à option jusqu'à 2500 francs, quote-part de 10 % plafonnée à 700 francs par an chez l'adulte, contribution hospitalière de 15 francs par jour.
-- **TRANS_E-S3-02** : Part de la population suisse qui renonce à des soins pour raisons financières (enquêtes OFS et Commonwealth Fund) : chiffres non écrits faute de valeur unique vérifiée.
-- **TRANS_E-S3-02** : Statut 2026 des listes cantonales d'assurés en retard de paiement (art. 64a al. 7 LAMal) et entrée en vigueur du contre-projet à l'initiative sur l'allègement des primes.
-- **TRANS_E-S3-03** : Nombre de questions de l'entretien de formulation culturelle du DSM-5 (16 questions dans la version de base) et maintien dans le DSM-5-TR (2022).
-- **TRANS_E-S3-03** : Liste actuelle des centres suisses pour victimes de torture et de guerre (réseau Support for Torture Victims : Berne, Genève, Lausanne, Zurich) et nom actuel de l'association Appartenances.
-- **TRANS_E-S4-01** : Fréquences d'hypoxémie occulte selon Sjoding et al. (NEJM 2020 : environ 12 % chez les patients noirs contre 4 % chez les patients blancs) : chiffres à confirmer avant citation.
-- **TRANS_E-S4-01** : Position de Swissmedic ou de la FDA (projet de guidance 2025) sur la performance des oxymètres selon la pigmentation.
-- **TRANS_E-S4-02** : Estimation du nombre de femmes et filles concernées ou menacées en Suisse (environ 22 000 selon le Réseau suisse contre l'excision, 2019) : chiffre non écrit dans le texte.
-- **TRANS_E-S4-02** : Peine prévue par l'art. 124 CP (peine privative de liberté de dix ans au plus ou peine pécuniaire d'au moins 180 jours-amende) et punissabilité de l'acte commis à l'étranger.
-- **TRANS_E-S4-02** : Droit d'aviser l'APEA des personnes soumises au secret professionnel (art. 314c al. 2 CC, en vigueur depuis le 1.1.2019).
-- **TRANS_E-S4-03** : Proportion de femmes dans les essais cardiovasculaires (souvent citée autour de 30 à 40 %) et de patients de 75 ans et plus : chiffres non écrits faute de source unique vérifiée.
-- **TRANS_E-S4-03** : Exigences actuelles de Swissmedic et des commissions d'éthique suisses sur l'analyse par sexe et l'inclusion des personnes âgées dans les essais (ICH E7, guidance SAGER).
 - **TRANS_G-S1-01** : Chiffres d'incidence et de prévalence du diabète en Suisse utilisés dans les exercices : valeurs pédagogiques arrondies, à remplacer par les données Obsan les plus récentes si on les présente comme réelles.
 - **TRANS_G-S1-02** : Délai de déclaration clinique de la tuberculose par le médecin (1 semaine ?) : absent de l'extrait consulté de la liste alphabétique OFSP du 15.12.2025.
 - **TRANS_G-S1-02** : Déclaration clinique du Covid-19 et de l'influenza saisonnière par le médecin ou seulement par le laboratoire en 2026 : à confirmer dans le guide de déclaration OFSP.
@@ -226,6 +169,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_L-S3-02** : Nom et fonctionnement des groupes de protection de l'enfant des hôpitaux suisses (CAN Team, Groupe de protection de l'enfant) et de la Fondation Protection de l'enfant Suisse.
 - **TRANS_L-S3-03** : Délais d'inaptitude à la conduite après un AIT ou un AVC selon les recommandations suisses (SGRM/SSN) : premier groupe en général 1 à 3 mois selon le déficit, second groupe plus long.
 - **TRANS_L-S3-03** : Critères suisses pour le SAOS : inaptitude en cas de somnolence diurne marquée jusqu'au traitement efficace, réévaluation après 4 à 6 semaines de CPAP avec observance documentée.
+- **TRANS_L-S4-01** : Fréquence des fractures de l'os hyoïde et du cartilage thyroïde selon l'âge dans la pendaison et la strangulation manuelle (ossification liée à l'âge) : chiffres non cités.
+- **TRANS_L-S4-01** : Valeur diagnostique des pétéchies conjonctivales selon le type de pendaison (complète ou incomplète) : à confirmer dans un traité.
+- **TRANS_L-S4-02** : Vitesse d'élimination de l'éthanol retenue par les tribunaux suisses (0,1 à 0,2 ‰ par heure) et formule de Widmark utilisée par les instituts suisses.
+- **TRANS_L-S4-02** : Conditions de néoformation post-mortem d'éthanol (putréfaction, diabète, sepsis) et usage de l'humeur vitrée et de l'urine pour l'interpréter.
+- **TRANS_L-S4-03** : Seuil de carboxyhémoglobine considéré comme signe de vitalité chez la victime d'un incendie (souvent plus de 10 % chez le non-fumeur) et concentration létale habituelle (plus de 50 %).
+- **TRANS_L-S4-03** : Rôle de l'intoxication au cyanure (HCN) dans les incendies et dosages recommandés.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -239,4 +188,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : L (9/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
