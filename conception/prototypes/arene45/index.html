@@ -50,9 +50,10 @@ ul.notions{list-style:none;padding:0;margin:8px 0}ul.notions li{display:flex;gap
 @media(max-width:600px){.opt{flex-wrap:wrap}.vf{margin-left:30px;width:100%}}
 @media(max-width:860px){aside{position:static;width:auto;height:auto;border-right:0;border-bottom:1px solid var(--trait)}#nav{max-height:220px}main{margin:0}.kpi{grid-template-columns:repeat(2,minmax(0,1fr))}.opts.long{grid-template-columns:1fr}.echelle{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:no-preference){.opt,.brouillard div{transition:background .2s,border-color .2s}}
+.liensv{margin:6px 0 10px;font-size:13px}.liensv a{color:#2f6fd0;font-weight:700}
 </style></head><body>
 <aside><div class="marque"><span class="croix"><span class="ms">add</span></span><div><b>MedSuisse Arena 45</b><small>45 spécialités · examen fédéral</small></div></div>
-<nav id="nav" aria-label="Spécialités"></nav><div class="fonds" id="fonds" title="Fond de page"></div>
+<p class="liensv"><a href="../veille/index.html">Veille Examen fédéral</a> · <a href="#" onclick="window.Suivi&&Suivi.ouvrir();return false">Ma préparation</a></p><nav id="nav" aria-label="Spécialités"></nav><div class="fonds" id="fonds" title="Fond de page"></div>
 <div id="duelSide" aria-live="polite"><div class="pane"><span>Série en cours</span><b id="dEtape">—</b></div><div class="pane"><span>Temps restant</span><b id="dChrono">—</b></div><div class="pane"><span>Score de la série</span><b id="dScore">0</b></div>
 <button class="btn sec" id="abandon"><span class="ms">close</span>Quitter la série</button><p class="note">Aucun intitulé n'apparaît ici pendant la série : le diagnostic se mérite.</p></div></aside>
 <main><div class="col" id="vue"></div></main>
@@ -94,10 +95,12 @@ function valider(q,opts){if($('#vue').classList.contains('corrige'))return;clear
  if(q.format==='A')pts=opts.some(o=>o.correct&&choix[o.key])?1:0;
  else if(q.format==='Kprim'){const n=opts.filter(o=>choix[o.key]===o.correct).length;pts=n===4?1:n===3?.5:0;}
  else{const b=opts.filter(o=>o.correct),m=b.filter(o=>!choix[o.key]).length,f=opts.filter(o=>!o.correct&&choix[o.key]).length;pts=Math.max(0,(b.length-m-f)/b.length);}
+ try{const ss=serie.correction&&serie.correction.ssp;window.Suivi&&Suivi.enregistrer({jeu:'45 Spec',specialite:cur.code,ssp:ss?(ss.code+' '+(ss.nom||'')).trim():'',notion:`Série ${serie.id} · étape ${k+1}`,serie:serie.id,format:q.format,juste:pts>=1,points:pts,max:1,temps:(Date.now()-t0)/1000,qid:cur.code+'/'+serie.id+'/'+k});}catch(e){}
  score+=pts;$('#dScore').textContent=score.toFixed(1).replace('.0','').replace('.',',');
  $('#res').innerHTML=`<p class="q" style="color:${pts>=1?'var(--ok)':'var(--ko)'}">${pts>=1?'Juste':'À revoir'} : ${String(pts).replace('.',',')} point</p><div class="actions"><button class="btn" id="suite"><span class="ms">arrow_forward</span>${k+1<serie.questions.length?'Étape suivante':'Révéler le diagnostic'}</button></div>`;
  $('#suite').onclick=()=>{k++;k<serie.questions.length?etape():fin();};}
 function fin(){clearInterval(tick);const n=serie.questions.length,ok=score/n>=.75,r=serie.revele||{};
+ try{r.pathologie&&window.Suivi&&Suivi.nommer(serie.id,r.pathologie);}catch(e){}
  if(ok){const v=etat.vues[cur.code]=etat.vues[cur.code]||[];if(!v.includes(serie.id))v.push(serie.id);ecrire(etat);}
  const vues=[...new Set(serie.questions.flatMap(q=>q.notions||[]))],dern=serie.questions[n-1].ladder||{};
  document.body.classList.remove('duel');
@@ -113,6 +116,7 @@ const fond=f=>{document.documentElement.dataset.fond=f;try{localStorage.setItem(
 $('#fonds').innerHTML=FONDS.map(([k,c,l])=>`<button style="background:${c}" title="${l}" data-f="${k}"></button>`).join('');$('#fonds').onclick=e=>{const b=e.target.closest('button');if(b)fond(b.dataset.f);};
 try{fond(localStorage.getItem('fond')||'ciel')}catch(e){fond('ciel')}
 window.addEventListener('hashchange',()=>{const c=location.hash.slice(1);if(c&&(!cur||c!==cur.code)&&!document.body.classList.contains('duel'))ouvrir(c);});
-(async()=>{const d=await json('specs.json');SPECS=(d&&d.specs)||[];const c=location.hash.slice(1)||'END';await ouvrir(SPECS.some(s=>s.code===c)?c:'END');document.title='MedSuisse Arena 45';document.documentElement.dataset.pret='1';})();
+(async()=>{const d=await json('specs.json');SPECS=(d&&d.specs)||[];try{const m=SPECS.reduce((s,x)=>s+(x.pathologies||0),0)/(SPECS.length||1);window.Suivi&&m&&Suivi.definirPoids(Object.fromEntries(SPECS.map(x=>[x.code,Math.max(.5,Math.min(2,(x.pathologies||m)/m))])));}catch(e){}const c=location.hash.slice(1)||'END';await ouvrir(SPECS.some(s=>s.code===c)?c:'END');document.title='MedSuisse Arena 45';document.documentElement.dataset.pret='1';})();
 }
-</script></body></html>
+</script>
+<script src="../veille/donnees.js"></script><script src="../commun/suivi.js"></script></body></html>

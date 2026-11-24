@@ -36,7 +36,7 @@ h2 span{{display:inline-block;width:26px;color:{c['couleur']}}}h4{{margin:12px 0
 td,th{{border:1px solid #e5e1da;padding:5px 7px;vertical-align:top}}tr:nth-child(even) td{{background:#fff}}.rang{{background:#fff;border-left:5px solid {c['couleur']};padding:7px 10px}}
 #sig{{position:fixed;right:12px;bottom:10px;background:#fff;border:2px solid #000;padding:4px 10px;font:700 11px/1.3 Arial;text-transform:uppercase}}
 @media print{{nav{{display:none}}main{{margin:0;max-width:none}}#sig{{position:static;display:inline-block;margin-top:20px}}section{{break-inside:avoid-page}}}}
-</style></head><body><nav><b style="color:{c['couleur']}">{E(c['id'])}</b>{nav}</nav><main><h1>{E(c['titre'])}</h1><p>Chantier · conception validée le 2026-11-21 · deux audits appliqués</p>{corps}<div id=sig>{SIG}</div></main></body></html>"""
+</style></head><body><nav><b style="color:{c['couleur']}">{E(c['id'])}</b><a href='../../conception/prototypes/veille/index.html' style='margin:6px 0 10px;font-weight:700;color:#1d4ed8'>Veille Examen fédéral</a>{nav}</nav><main><h1>{E(c['titre'])}</h1><p>Chantier · conception validée le 2026-11-21 · deux audits appliqués</p>{corps}<div id=sig>{SIG}</div></main></body></html>"""
 
 def md_audit(c, k, titre):
     return f"# {titre} — {c['titre']}\n\n| Constat | Correction appliquée |\n|---|---|\n" + "\n".join(f"| {a} | {b} |" for a, b in c[k]) + "\n"

@@ -1,0 +1,673 @@
+/* Généré par veille/veille_examen.py — ne pas éditer. AAI (Anthropic AI) */
+window.VEILLE={
+ "titre": "Veille Examen fédéral de médecine humaine (Suisse)",
+ "genere_le": "2026-11-24",
+ "genere_par": "veille/veille_examen.py (GitHub Actions, 0 token)",
+ "session_courante": 2026,
+ "session_suivante": 2027,
+ "tableau_publie": {
+  "2026": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf"
+ },
+ "sources": [
+  {
+   "cle": "examen",
+   "url": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
+   "titre": "Page OFSP : examen fédéral en médecine humaine",
+   "sha256": null,
+   "statut_http": 0,
+   "consulte_le": "2026-11-24"
+  },
+  {
+   "cle": "inscription",
+   "url": "https://www.bag.admin.ch/fr/inscription-a-lexamen-federal",
+   "titre": "Page OFSP : inscription à l'examen fédéral",
+   "sha256": null,
+   "statut_http": 0,
+   "consulte_le": "2026-11-24"
+  },
+  {
+   "cle": "hors_ue",
+   "url": "https://www.bag.admin.ch/fr/deposer-une-demande-de-reconnaissance-dun-diplome-de-profession-medicale-delivre-dans-un-etat-tiers-hors-de-lueaele",
+   "titre": "Page OFSP : diplômes hors UE/AELE",
+   "sha256": null,
+   "statut_http": 0,
+   "consulte_le": "2026-11-24"
+  },
+  {
+   "cle": "pdf_directives_2026",
+   "url": "https://www.bag.admin.ch/dam/fr/sd-web/NGRcSCsXT8zF/20260204_Directives%20MED%202026_f.pdf",
+   "titre": "20260204_Directives MED 2026_f.pdf",
+   "sha256": null,
+   "statut_http": 0,
+   "consulte_le": "2026-11-24"
+  },
+  {
+   "cle": "pdf_tableau_2026",
+   "url": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf",
+   "titre": "Tableau des délais 2026 pour les examens fédéraux en médecine humaine.pdf",
+   "sha256": null,
+   "statut_http": 0,
+   "consulte_le": "2026-11-24"
+  },
+  {
+   "cle": "pdf_infotext_2026",
+   "url": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf",
+   "titre": "20260204_Infotext MED 2026_f.pdf",
+   "sha256": null,
+   "statut_http": 0,
+   "consulte_le": "2026-11-24"
+  },
+  {
+   "cle": "pdf_exigences_2026",
+   "url": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
+   "titre": "20260204_Exigences MED 2026_f.pdf",
+   "sha256": null,
+   "statut_http": 0,
+   "consulte_le": "2026-11-24"
+  }
+ ],
+ "liens": [
+  {
+   "titre": "Page officielle de l'examen (OFSP)",
+   "url": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine"
+  },
+  {
+   "titre": "Inscription à l'examen (OFSP)",
+   "url": "https://www.bag.admin.ch/fr/inscription-a-lexamen-federal"
+  },
+  {
+   "titre": "Portail d'inscription en ligne",
+   "url": "https://healthreg-online.admin.ch/examination-registration"
+  },
+  {
+   "titre": "Tableau des délais 2026 (PDF)",
+   "url": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf"
+  },
+  {
+   "titre": "Informations sur l'examen 2026 (PDF)",
+   "url": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf"
+  },
+  {
+   "titre": "Exigences MEBEKO 2026 (PDF)",
+   "url": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf"
+  },
+  {
+   "titre": "Directives MEBEKO 2026 (PDF)",
+   "url": "https://www.bag.admin.ch/dam/fr/sd-web/NGRcSCsXT8zF/20260204_Directives%20MED%202026_f.pdf"
+  },
+  {
+   "titre": "Ordonnance concernant les examens LPMéd (RS 811.113.3)",
+   "url": "https://www.fedlex.admin.ch/eli/cc/2007/779/fr"
+  },
+  {
+   "titre": "Diplômes hors UE/AELE : reconnaissance et admission",
+   "url": "https://www.bag.admin.ch/fr/deposer-une-demande-de-reconnaissance-dun-diplome-de-profession-medicale-delivre-dans-un-etat-tiers-hors-de-lueaele"
+  },
+  {
+   "titre": "PROFILES (catalogue suisse des objectifs)",
+   "url": "https://www.profilesmed.ch/"
+  },
+  {
+   "titre": "Self-assessment QCM (IML, Berne)",
+   "url": "https://www.iml.unibe.ch/fr/offres/assessment/organisation-examens/self-assessment"
+  }
+ ],
+ "rubriques": [
+  "Session 2027",
+  "Session 2026",
+  "Inscription et documents",
+  "Structure de l'examen",
+  "Taxes",
+  "Langue et lieu",
+  "Retrait et absence",
+  "Compensation des désavantages",
+  "Diplômes étrangers",
+  "Résultats, réussite et recours",
+  "Statistiques de réussite",
+  "Préparation : PROFILES et SSP",
+  "Contact"
+ ],
+ "faits": [
+  {
+   "id": "delai_inscription_2027",
+   "rubrique": "Session 2027",
+   "libelle": "Délai d'inscription 2027",
+   "valeur": null,
+   "statut": "non_publie",
+   "source": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Le Tableau des délais 2027 n'est pas encore publié.",
+   "infobulle": "La veille remplace cette déduction par la date officielle dès que le Tableau des délais 2027 paraît, et elle ouvre alors une issue.",
+   "attendu": "2027-03-31",
+   "attendu_note": "Déduction : l'OFSP fixe chaque année le délai au 31 mars (règle constante, art. 5a de l'ordonnance concernant les examens LPMéd ; 31 mars 2026 pour la session 2026). Ce n'est pas une date officielle."
+  },
+  {
+   "id": "qcm_2027",
+   "rubrique": "Session 2027",
+   "libelle": "Épreuve QCM (CK) 2027",
+   "valeur": null,
+   "statut": "non_publie",
+   "source": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Non publié.",
+   "attendu": "début août 2027",
+   "attendu_note": "Déduction : le QCM a lieu chaque année début août, en deux demi-journées (4 et 6 août 2026). Ce n'est pas une date officielle. La page compte à rebours vers le mardi 3 août 2027, date estimée.",
+   "attendu_iso": "2027-08-03"
+  },
+  {
+   "id": "cs_2027",
+   "rubrique": "Session 2027",
+   "libelle": "Épreuve Clinical Skills (CS) 2027",
+   "valeur": null,
+   "statut": "non_publie",
+   "source": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Non publié.",
+   "attendu": "fin août – début septembre 2027",
+   "attendu_note": "Déduction : en 2026, le CS a lieu du 31 août au 2 septembre."
+  },
+  {
+   "id": "compensation_delai_2027",
+   "rubrique": "Session 2027",
+   "libelle": "Délai de demande de compensation des désavantages 2027",
+   "valeur": null,
+   "statut": "non_publie",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/NGRcSCsXT8zF/20260204_Directives%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Non publié.",
+   "attendu": "2027-03-31",
+   "attendu_note": "Déduction : ce délai coïncide chaque année avec le délai d'inscription (31 mars 2026)."
+  },
+  {
+   "id": "delai_inscription_2026",
+   "rubrique": "Session 2026",
+   "libelle": "Délai d'inscription 2026",
+   "valeur": [
+    "2026-03-31"
+   ],
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Délai d'inscription : 31 mars 2026"
+  },
+  {
+   "id": "qcm_2026",
+   "rubrique": "Session 2026",
+   "libelle": "Épreuve QCM (CK) 2026, deux demi-journées",
+   "valeur": [
+    "2026-08-04",
+    "2026-08-06"
+   ],
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Examen QCM : mardi 4 août 2026 et jeudi 6 août 2026"
+  },
+  {
+   "id": "reserve_2026",
+   "rubrique": "Session 2026",
+   "libelle": "Date de réserve du QCM 2026",
+   "valeur": [
+    "2026-08-25"
+   ],
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Date de réserve QCM : 25 août 2026"
+  },
+  {
+   "id": "cs_2026",
+   "rubrique": "Session 2026",
+   "libelle": "Épreuve Clinical Skills (CS) 2026, une demi-journée",
+   "valeur": [
+    "2026-08-31",
+    "2026-09-02"
+   ],
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "CS entre le 31 août et le 2 septembre 2026"
+  },
+  {
+   "id": "lieux_2026",
+   "rubrique": "Session 2026",
+   "libelle": "Lieux d'examen 2026",
+   "valeur": [
+    "Bâle",
+    "Berne",
+    "Fribourg",
+    "Genève",
+    "Lausanne",
+    "Lugano",
+    "Zurich"
+   ],
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Bâle, Berne, Fribourg, Genève, Lausanne, Lugano, Zurich"
+  },
+  {
+   "id": "decision_2026",
+   "rubrique": "Session 2026",
+   "libelle": "Communication des résultats 2026",
+   "valeur": "au plus tard fin octobre 2026",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Les résultats sont communiqués au plus tard à la fin du mois d'octobre."
+  },
+  {
+   "id": "inscription_en_ligne",
+   "rubrique": "Inscription et documents",
+   "libelle": "Où s'inscrire",
+   "valeur": "En ligne, sur le portail de la Confédération (healthreg-online.admin.ch), dans le délai publié",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/fr/inscription-a-lexamen-federal",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Les candidats doivent s'inscrire en ligne dans les délais prescrits.",
+   "infobulle": "Une inscription après le délai entraîne la non-admission : l'examen est reporté d'un an."
+  },
+  {
+   "id": "inscription_retard",
+   "rubrique": "Inscription et documents",
+   "libelle": "Conséquence d'un retard",
+   "valeur": "Le candidat n'est pas admis ; il repasse l'année suivante",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/fr/inscription-a-lexamen-federal",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Un retard imputable au candidat entraîne un report de l'examen à l'année suivante."
+  },
+  {
+   "id": "documents",
+   "rubrique": "Inscription et documents",
+   "libelle": "Documents à fournir",
+   "valeur": "Les pièces exigées s'affichent dans le formulaire en ligne (icônes « i ») ; une pièce d'identité est exigée le jour de l'examen et pour la consultation du dossier",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/fr/inscription-a-lexamen-federal",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Les informations sur les pièces à joindre sont accessibles via les icônes « i » du formulaire d'inscription.",
+   "infobulle": "La confirmation arrive par courriel automatique ; sans elle, vérifie le dossier spam puis contacte le secrétariat MEBEKO."
+  },
+  {
+   "id": "ck_structure",
+   "rubrique": "Structure de l'examen",
+   "libelle": "Épreuve CK (QCM)",
+   "valeur": "240 questions en deux épreuves de 120 questions, de 3 h 15 chacune ; types A, Kprim et menu long",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "240 questions au total, soit 120 par épreuve partielle, 3 h 15 chacune.",
+   "infobulle": "Le type A demande la meilleure réponse ; le Kprim demande juste ou faux sur 4 propositions ; le menu long se consulte par recherche textuelle."
+  },
+  {
+   "id": "cs_structure",
+   "rubrique": "Structure de l'examen",
+   "libelle": "Épreuve CS (ECOS)",
+   "valeur": "11 stations d'environ 13 minutes avec patients standardisés",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Onze stations ; les exemples durent 13 minutes chacun.",
+   "infobulle": "Les Exigences 2026 mentionnent une fois « douze stations » (§ 5.1.4 f) et onze ailleurs (§ 3.2 b) : la veille signale cette incohérence officielle."
+  },
+  {
+   "id": "compensation_epreuves",
+   "rubrique": "Structure de l'examen",
+   "libelle": "Compensation entre épreuves",
+   "valeur": "Les deux parties du QCM se compensent ; le CK et le CS ne se compensent pas",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Aucune compensation entre les deux épreuves."
+  },
+  {
+   "id": "taxe_inscription",
+   "rubrique": "Taxes",
+   "libelle": "Taxe d'inscription",
+   "valeur": "CHF 200, non remboursable",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Inscription : CHF 200."
+  },
+  {
+   "id": "taxe_examen",
+   "rubrique": "Taxes",
+   "libelle": "Taxe d'examen",
+   "valeur": "CHF 1500",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Examen : CHF 1 500."
+  },
+  {
+   "id": "taxe_diplome",
+   "rubrique": "Taxes",
+   "libelle": "Taxe de diplôme",
+   "valeur": "CHF 500, facturée seulement aux candidats reçus",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Diplôme : CHF 500, facturé uniquement après les résultats."
+  },
+  {
+   "id": "taxe_langue",
+   "rubrique": "Taxes",
+   "libelle": "Inscription d'une langue au MedReg (facultative)",
+   "valeur": "CHF 50 à 100 par langue",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/fr/inscription-a-lexamen-federal",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Chaque inscription linguistique coûte entre 50 et 100 francs."
+  },
+  {
+   "id": "langue_ck",
+   "rubrique": "Langue et lieu",
+   "libelle": "Langue du CK",
+   "valeur": "Allemand, français ou italien, au choix à l'inscription",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "CK : au choix parmi allemand, français ou italien.",
+   "infobulle": "Un candidat allophone peut utiliser un dictionnaire général, jamais médical (Directives, ch. 4.2.1 j)."
+  },
+  {
+   "id": "langue_cs",
+   "rubrique": "Langue et lieu",
+   "libelle": "Langue du CS",
+   "valeur": "En principe la langue du site d'examen ; dans les sites germanophones, le dialecte avec les patients standardisés",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "CS : en principe dans la langue du lieu d'examen."
+  },
+  {
+   "id": "lieu_regle",
+   "rubrique": "Langue et lieu",
+   "libelle": "Attribution du lieu",
+   "valeur": "Le candidat formé en Suisse passe l'examen sur son site d'études ; un transfert vers un site de même langue reste possible (diplômes étrangers non reconnus d'abord, puis volontaires, puis tirage au sort)",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/fr/inscription-a-lexamen-federal",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Les candidats ayant étudié en Suisse passent l'examen sur leur site d'études."
+  },
+  {
+   "id": "retrait_base",
+   "rubrique": "Retrait et absence",
+   "libelle": "Base légale du retrait",
+   "valeur": "Art. 15 et 16 de l'ordonnance concernant les examens LPMéd (RS 811.113.3)",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Référence : art. 15 et 16 de l'ordonnance concernant les examens LPMéd."
+  },
+  {
+   "id": "retrait_procedure",
+   "rubrique": "Retrait et absence",
+   "libelle": "Comment se retirer",
+   "valeur": "Signaler le retrait sans délai au responsable de site, avec les justificatifs ; il juge si les motifs sont justes",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Le retrait doit être signalé sans délai au responsable de site, qui décide de la validité des motifs."
+  },
+  {
+   "id": "retrait_taxes",
+   "rubrique": "Retrait et absence",
+   "libelle": "Conséquences financières",
+   "valeur": "La taxe d'inscription reste due ; la taxe d'examen est due si le retrait survient après l'admission sans justes motifs",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Taxe d'inscription due dans tous les cas."
+  },
+  {
+   "id": "absence",
+   "rubrique": "Retrait et absence",
+   "libelle": "Absence ou interruption sans retrait",
+   "valeur": "L'épreuve est réputée échouée",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Non-présentation ou interruption sans retrait préalable ni justes motifs : échec réputé."
+  },
+  {
+   "id": "compensation_delai",
+   "rubrique": "Compensation des désavantages",
+   "libelle": "Délai",
+   "valeur": "31 mars de l'année d'examen, par courrier postal à la MEBEKO (section formation universitaire, 3003 Berne)",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/NGRcSCsXT8zF/20260204_Directives%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Demande écrite au plus tard le 31 mars 2026 ; ce délai doit impérativement être respecté."
+  },
+  {
+   "id": "compensation_pieces",
+   "rubrique": "Compensation des désavantages",
+   "libelle": "Pièces à joindre",
+   "valeur": "Un certificat ou une expertise médicale de moins de 6 mois, une levée du secret professionnel, les mesures accordées par la faculté",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/NGRcSCsXT8zF/20260204_Directives%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Expertise ou certificat médical de moins de 6 mois ; levée du secret professionnel ; mesures accordées pendant les études.",
+   "infobulle": "La MEBEKO consulte la commission d'examen et le site, puis décide ; le candidat est entendu si les mesures ne peuvent pas être appliquées."
+  },
+  {
+   "id": "hors_ue_36",
+   "rubrique": "Diplômes étrangers",
+   "libelle": "Diplôme hors UE/AELE, 36 mois de clinique en Suisse",
+   "valeur": "Admission directe ; l'examen fédéral doit être réussi dans son intégralité (CK et CS)",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/fr/deposer-une-demande-de-reconnaissance-dun-diplome-de-profession-medicale-delivre-dans-un-etat-tiers-hors-de-lueaele",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "L'examen fédéral doit être réussi dans son intégralité."
+  },
+  {
+   "id": "hors_ue_60",
+   "rubrique": "Diplômes étrangers",
+   "libelle": "Diplôme hors UE/AELE, 60 mois de clinique en Suisse",
+   "valeur": "Admission directe ; seule la partie théorique (QCM en deux parties) doit être réussie",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/fr/deposer-une-demande-de-reconnaissance-dun-diplome-de-profession-medicale-delivre-dans-un-etat-tiers-hors-de-lueaele",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Seule la partie théorique doit être réussie, soit l'épreuve à choix multiple en deux parties.",
+   "infobulle": "Le volet théorique seul vaut donc uniquement pour la voie à 60 mois ; la voie à 36 mois exige l'examen complet."
+  },
+  {
+   "id": "hors_ue_delai",
+   "rubrique": "Diplômes étrangers",
+   "libelle": "Demande d'admission directe",
+   "valeur": "À déposer 6 à 8 semaines avant le 31 mars ; l'admission ne vaut pas inscription",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/fr/deposer-une-demande-de-reconnaissance-dun-diplome-de-profession-medicale-delivre-dans-un-etat-tiers-hors-de-lueaele",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "La demande d'admission directe doit être déposée au plus tard 6 à 8 semaines avant cette échéance."
+  },
+  {
+   "id": "hors_ue_langue",
+   "rubrique": "Diplômes étrangers",
+   "libelle": "Langue pour le MedReg",
+   "valeur": "Niveau B2 au moins dans la langue inscrite",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/fr/deposer-une-demande-de-reconnaissance-dun-diplome-de-profession-medicale-delivre-dans-un-etat-tiers-hors-de-lueaele",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Il faut avoir au moins un niveau B2 dans la langue correspondante."
+  },
+  {
+   "id": "resultats_forme",
+   "rubrique": "Résultats, réussite et recours",
+   "libelle": "Forme des résultats",
+   "valeur": "Réussi ou non réussi, sans note ; courriel bref puis décision formelle par la poste, avec un retour sur le niveau de performance",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Communication au plus tard fin octobre, par décision formelle envoyée par courrier."
+  },
+  {
+   "id": "reussite_ck",
+   "rubrique": "Résultats, réussite et recours",
+   "libelle": "Notation du CK",
+   "valeur": "1 point par réponse juste, aucune pénalité ; Kprim : 3 bonnes sur 4 donnent ½ point ; seuil fixé par Angoff/Hofstee et ancrage",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Un point par réponse juste ; K-prime : trois bonnes réponses partielles donnent un demi-point."
+  },
+  {
+   "id": "reussite_cs",
+   "rubrique": "Résultats, réussite et recours",
+   "libelle": "Notation du CS",
+   "valeur": "Seuil par méthode borderline ; ASM 75 %, communication 25 % ; scores standardisés par jour (moyenne 100, écart-type 10)",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Pondération : domaine ASM 75 %, domaine communication 25 %."
+  },
+  {
+   "id": "repetition",
+   "rubrique": "Résultats, réussite et recours",
+   "libelle": "Répétition",
+   "valeur": "Seule l'épreuve échouée se repasse, deux fois au plus ; trois échecs excluent définitivement",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Une épreuve non réussie peut être répétée deux fois."
+  },
+  {
+   "id": "recours",
+   "rubrique": "Résultats, réussite et recours",
+   "libelle": "Recours",
+   "valeur": "Recours au Tribunal administratif fédéral dans les 30 jours ; consultation du dossier pendant ce délai",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Recours auprès du Tribunal administratif fédéral, dans les 30 jours."
+  },
+  {
+   "id": "stats",
+   "rubrique": "Statistiques de réussite",
+   "libelle": "Taux de réussite publics",
+   "valeur": "Aucun taux de réussite de l'examen n'est publié sur les pages OFSP consultées",
+   "statut": "non_publie",
+   "source": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Les pages OFSP et la statistique des professions médicales 2025 ne donnent pas de taux de réussite.",
+   "infobulle": "La statistique OFSP des professions médicales recense les diplômes délivrés, pas les taux de réussite ; la veille signalera un taux s'il paraît."
+  },
+  {
+   "id": "profiles",
+   "rubrique": "Préparation : PROFILES et SSP",
+   "libelle": "Catalogue des objectifs",
+   "valeur": "PROFILES (situations de départ SSP, EPA) sert de référence au contenu de l'examen",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Catalogue suisse des objectifs d'apprentissage PROFILES."
+  },
+  {
+   "id": "self_assessment",
+   "rubrique": "Préparation : PROFILES et SSP",
+   "libelle": "Auto-évaluation officielle",
+   "valeur": "Self-assessment QCM de l'IML (Université de Berne)",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Self-assessment de l'épreuve QCM (Université de Berne)."
+  },
+  {
+   "id": "contact",
+   "rubrique": "Contact",
+   "libelle": "MEBEKO, section formation universitaire",
+   "valeur": "office@mebeko.admin.ch · +41 58 462 94 83 · vendredi 8 h – 11 h",
+   "statut": "officiel",
+   "source": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "extrait": "Courriel : office@mebeko.admin.ch. Téléphone : +41 58 462 94 83."
+  }
+ ],
+ "signature": "AAI (Anthropic AI)"
+};
