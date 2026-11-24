@@ -1,19 +1,17 @@
 ---
-name: "optimisation-par-cache-hache-autorun"
-description: "Ne refait jamais un travail dont les entrées n'ont pas changé : empreinte sha256, saut automatique, relance seule au changement (hooks, GitHub Actions, cron). S'active dès qu'un script, un audit, un appel API ou une lecture se répète."
+name: optimisation-par-cache-hache-autorun
+description: Ne refait jamais un travail dont les entrées n'ont pas changé. Empreinte sha256 des entrées, saut automatique, relance seule au moindre changement (hooks, GitHub Actions, cron). S'active dès qu'un script, une régénération, un audit, un appel API ou une lecture se répète.
 ---
 
 # Optimisation par cache haché, autoRUN
 
 Un travail déterministe produit la même sortie à partir des mêmes entrées. Si on mémorise l'empreinte des entrées, on peut sauter toute ré-exécution inutile et ne relancer que ce qui a vraiment changé. Le gain est réel (tokens, minutes, crédit API), et la qualité ne bouge pas, puisqu'aucune décision n'est prise sur une copie périmée.
 
-Le script se trouve dans github.com/vialdjoukang-spec/Jeux_45_Spec/tree/main/.claude/skills/optimisation-par-cache-hache-autorun/scripts/cache_hache.py. Copie-le s'il n'est pas sur le disque.
-
 ## 1. Les trois niveaux de cache (du moins cher au plus cher)
-1. **Le calcul local.** Enveloppe chaque script déterministe avec `cache_hache.py`.
+1. **Le calcul local.** Enveloppe chaque script déterministe avec `scripts/cache_hache.py`.
    Exemple : `python cache_hache.py -i 'content/**/*.json' -i scripts/construire.py -o sortie/ -- python scripts/construire.py`.
    Le script hache le contenu des entrées, la commande et les variables déclarées (`-e`), puis il vérifie que les sorties existent et n'ont pas été modifiées à la main. Si rien n'a bougé, il saute le travail. Il ne met jamais un échec en cache.
-2. **Le réseau.** Mets en cache chaque requête HTTP répétée avec `requests-cache` ou `Hishel`, avec une expiration adaptée à la source : 1 jour pour une recommandation, 1 heure pour un état ou une file. Dans GitHub Actions, utilise `actions/cache` avec une clé `hashFiles(...)`.
+2. **Le réseau.** Mets en cache chaque requête HTTP répétée avec `requests-cache` ou `Hishel`, avec une expiration adaptée à la source : 1 jour pour une recommandation, 1 heure pour un état ou une file. Dans GitHub Actions, utilise `actions/cache` avec une clé `hashFiles('requirements.txt', …)`.
 3. **Le modèle.** Ne renvoie jamais le même prompt deux fois.
    - Tiens un registre `empreinte(prompt + modèle + version du gabarit) → sortie`.
    - Côté API Anthropic, place le gros contexte fixe en tête et marque-le `cache_control`, pour que le cache de prompt facture la relecture à prix réduit.

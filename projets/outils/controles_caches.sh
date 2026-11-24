@@ -5,7 +5,8 @@
 # Usage : bash projets/outils/controles_caches.sh [--forcer]      Signature : AAI (Anthropic AI)
 set -e
 cd "$(git rev-parse --show-toplevel)"
-C="python3 .claude/skills/optimisation-par-cache-hache-autorun/scripts/cache_hache.py $1"
+C="python3 .claude/skills/optimisation-par-cache-hache-autorun/scripts/cache_hache.py"
+if [ "$1" = "--forcer" ]; then for n in audit_fond lots_complement auditer_conception auditer_couverture; do $C --oublier $n; done; fi
 $C --nom audit_fond -i 'conception/donnees/paraclinique/topographie/**/*.json' -i projets/outils/audit_fond.py \
    -o SORTIES_DONNEES_FIABLES -- python3 projets/outils/audit_fond.py
 $C --nom lots_complement -i 'SORTIES_DONNEES_FIABLES/**/*.json' -i projets/outils/lots_complement.py \
