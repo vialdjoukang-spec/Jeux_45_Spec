@@ -1,0 +1,697 @@
+{
+ "id": "E83.5_hypercalcemie_malign__F2_20-E16",
+ "portes": [
+  {
+   "ssp": "G3",
+   "nomSSP": "Soif excessive, consommation excessive de liquides (polydipsie)",
+   "entite": "Hypercalcémie maligne (métastases osseuses, PTHrP)",
+   "entiteId": "G3-E11"
+  },
+  {
+   "ssp": "G3",
+   "nomSSP": "Soif excessive, consommation excessive de liquides (polydipsie)",
+   "entite": "Crise hypercalcémique aiguë (> 3.5 mmol/L)",
+   "entiteId": "G3-E17"
+  },
+  {
+   "ssp": "F2.7",
+   "nomSSP": "Électrolytes anormaux",
+   "entite": "Hypercalcémie paranéoplasique ou ostéolytique",
+   "entiteId": "F2.7-E08"
+  },
+  {
+   "ssp": "F2.7",
+   "nomSSP": "Électrolytes anormaux",
+   "entite": "Hypercalcémie maligne sévère (> 3.5 mmol/L)",
+   "entiteId": "F2.7-E16"
+  },
+  {
+   "ssp": "F2.20",
+   "nomSSP": "Diminution de la densité osseuse",
+   "entite": "Crise hypercalcémique aiguë",
+   "entiteId": "F2.20-E16"
+  },
+  {
+   "ssp": "O5.3",
+   "nomSSP": "Prise en charge globale du patient en fin de vie",
+   "entite": "Hypercalcémie maligne symptomatique aiguë",
+   "entiteId": "O5.3-E14"
+  },
+  {
+   "ssp": "O5.4",
+   "nomSSP": "Prise en charge des symptômes réfractaires, notamment douleur et nausées",
+   "entite": "Hypercalcémie maligne symptomatique",
+   "entiteId": "O5.4-E04"
+  }
+ ],
+ "entite": "Hypercalcémie maligne et crise hypercalcémique",
+ "cim10": "E83.5",
+ "ssp": {
+  "code": "G3",
+  "nom": "Soif excessive, consommation excessive de liquides (polydipsie)",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Polydipsie et polyurie",
+    "i": "Porte d'entrée : on confirme la polyurie (> 3 L/24 h) avant d'en chercher la cause.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Glycémie élevée",
+    "i": "Un diabète sucré explique la polyurie osmotique ; on renvoie au SSP du diabète.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "Natrémie et osmolalité urinaire",
+    "i": "Une urine hypotonique oriente vers un diabète insipide ou une polydipsie primaire.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "Calcémie corrigée > 2,6 mmol/L",
+    "i": "L'hypercalcémie provoque un diabète insipide néphrogénique acquis.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Confusion, QT court, calcémie > 3,5 mmol/L",
+    "i": "Ces signes définissent la crise hypercalcémique, urgence vitale.",
+    "pec": "crise_hypercalcemique",
+    "notion": "c3"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "PTH basse et cancer connu ou suspect",
+    "i": "L'hypercalcémie est maligne jusqu'à preuve du contraire ; on cherche le mécanisme.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Calcémie modérée stabilisée, projet oncologique ou palliatif",
+    "i": "Le patient relève du traitement de la tumeur et de la prévention des récidives.",
+    "pec": "long_cours",
+    "notion": "c6"
+   },
+   {
+    "id": "n8",
+    "parent": "n4",
+    "t": "PTH normale ou élevée",
+    "i": "Une hyperparathyroïdie primaire est probable ; on renvoie à son algorithme.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n9",
+    "parent": "n3",
+    "t": "Polydipsie primaire ou diabète insipide central",
+    "i": "Le test de soif ou la copeptine stimulée tranchent ; on renvoie au SSP G3 correspondant.",
+    "pec": null,
+    "notion": null
+   }
+  ]
+ },
+ "specialites": [
+  "END"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Hypercalcémie maligne et crise hypercalcémique : une polyurie-polydipsie avec confusion chez un patient néoplasique impose de doser la calcémie, de constater une PTH effondrée et de traiter sans attendre",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définir et graduer l'hypercalcémie",
+   "rubriques": [
+    "definition",
+    "positiveDiagnosis"
+   ],
+   "comment": "On corrige d'abord la calcémie à l'albumine ou on dose le calcium ionisé, puis on gradue la sévérité.",
+   "tableau": {
+    "colonnes": [
+     "Grade",
+     "Calcémie corrigée",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Légère",
+      "2,6–3,0 mmol/L",
+      [
+       {
+        "t": "Ambulatoire possible",
+        "i": "Le patient tolère souvent ce niveau ; on hydrate et on cherche la cause."
+       }
+      ]
+     ],
+     [
+      "Modérée",
+      "3,0–3,5 mmol/L",
+      [
+       {
+        "t": "Hospitalisation selon les symptômes",
+        "i": "La tolérance dépend surtout de la vitesse d'installation."
+       }
+      ]
+     ],
+     [
+      "Sévère ou crise",
+      "> 3,5 mmol/L ou atteinte neurologique, rénale ou cardiaque",
+      [
+       {
+        "t": "Urgence vitale",
+        "i": "Le risque d'arythmie, de coma et d'insuffisance rénale impose un traitement immédiat."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La calcémie corrigée vaut calcémie totale + 0,02 × (40 − albumine en g/L).",
+    "Le calcium ionisé fait référence quand l'albumine ou le pH sont très anormaux."
+   ],
+   "sources": [
+    "[Endocrine Society, 2023]"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Mécanismes : PTHrP, ostéolyse, calcitriol",
+   "rubriques": [
+    "basicSciences",
+    "epidemiology"
+   ],
+   "comment": "On relie le mécanisme au type de tumeur, car il oriente le bilan et le traitement.",
+   "tableau": {
+    "colonnes": [
+     "Mécanisme",
+     "Part",
+     "Tumeurs typiques",
+     "Indice biologique"
+    ],
+    "lignes": [
+     [
+      "PTHrP humorale",
+      "≈ 80 %",
+      "Épidermoïdes (poumon, ORL), rein, sein",
+      [
+       {
+        "t": "PTH basse, PTHrP élevée, phosphate bas",
+        "i": "La PTHrP mime la PTH sur le récepteur PTH1R, d'où résorption osseuse et réabsorption tubulaire du calcium."
+       }
+      ]
+     ],
+     [
+      "Ostéolyse locale",
+      "≈ 20 %",
+      "Myélome, sein métastatique",
+      [
+       {
+        "t": "PTH basse, PTHrP normale",
+        "i": "Les cytokines tumorales activent RANKL et les ostéoclastes au contact des métastases."
+       }
+      ]
+     ],
+     [
+      "Calcitriol tumoral",
+      "Rare",
+      "Lymphomes",
+      [
+       {
+        "t": "1,25-(OH)2 vitamine D élevée",
+        "i": "La 1α-hydroxylase tumorale augmente l'absorption intestinale du calcium ; les corticoïdes sont alors efficaces."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'hypercalcémie touche environ 10 à 20 % des patients atteints de cancer avancé.",
+    "Le calcium élevé provoque un diabète insipide néphrogénique, d'où polyurie, déshydratation et cercle vicieux."
+   ],
+   "sources": [
+    "[Endocrine Society, 2023]"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Reconnaître le tableau et la gravité",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam",
+    "presumptionRedFlags"
+   ],
+   "comment": "On cherche la triade soif-polyurie, troubles digestifs et troubles neuropsychiques, puis les signes de gravité.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Polyurie, polydipsie, anorexie, nausées, constipation et confusion évoquent l'hypercalcémie chez le patient néoplasique.",
+    "Un QT court, une bradycardie ou un BAV signent une atteinte cardiaque.",
+    "Une confusion, une somnolence ou un coma définissent la crise, même avant le résultat de la calcémie.",
+    "La digoxine devient plus toxique en hypercalcémie."
+   ],
+   "sources": [
+    "[Endocrine Society, 2023]"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Bilan : PTH d'abord, puis le mécanisme",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "On dose la PTH intacte en premier, car elle sépare l'hypercalcémie PTH-dépendante de l'hypercalcémie maligne.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "a1",
+     "parent": null,
+     "t": "Calcémie corrigée élevée",
+     "i": "On confirme sur un second prélèvement ou par le calcium ionisé.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "a2",
+     "parent": "a1",
+     "t": "PTH normale ou élevée",
+     "i": "Une hyperparathyroïdie primaire domine ; elle peut coexister avec un cancer.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "a3",
+     "parent": "a1",
+     "t": "PTH basse",
+     "i": "L'hypercalcémie est PTH-indépendante, donc maligne jusqu'à preuve du contraire.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "a4",
+     "parent": "a3",
+     "t": "PTHrP élevée",
+     "i": "La forme humorale est confirmée ; on cherche la tumeur primitive par scanner thoraco-abdominal.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "a5",
+     "parent": "a3",
+     "t": "Électrophorèse et chaînes légères anormales",
+     "i": "Un myélome est probable ; on complète par imagerie du squelette et avis hématologique.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "a6",
+     "parent": "a3",
+     "t": "1,25-(OH)2 vitamine D élevée",
+     "i": "Un lymphome ou une granulomatose est probable ; les corticoïdes sont indiqués.",
+     "pec": null,
+     "notion": null
+    }
+   ],
+   "points": [
+    "Le bilan de gravité comprend créatinine, électrolytes, magnésium, phosphate et ECG.",
+    "Le traitement ne doit jamais attendre le résultat de la PTHrP."
+   ],
+   "sources": [
+    "[Endocrine Society, 2023]"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Traiter la crise : hydrater, bloquer l'os, relayer",
+   "rubriques": [
+    "acuteManagement",
+    "hospitalizationComplications"
+   ],
+   "comment": "On réhydrate d'abord, puis on bloque la résorption osseuse, car le bisphosphonate ou le dénosumab agit en 2 à 4 jours.",
+   "tableau": {
+    "colonnes": [
+     "Mesure",
+     "Délai d'action",
+     "Pourquoi et limite"
+    ],
+    "lignes": [
+     [
+      "NaCl 0,9 % IV",
+      "Heures",
+      [
+       {
+        "t": "Première mesure",
+        "i": "Elle restaure la filtration et la calciurie ; elle se limite en insuffisance cardiaque ou rénale."
+       }
+      ]
+     ],
+     [
+      "Calcitonine",
+      "4–6 h",
+      [
+       {
+        "t": "Relais de 48–72 h",
+        "i": "Elle agit vite mais modestement, puis une tachyphylaxie apparaît."
+       }
+      ]
+     ],
+     [
+      "Acide zolédronique ou dénosumab",
+      "2–4 jours",
+      [
+       {
+        "t": "Traitement de fond de la crise",
+        "i": "Ils inhibent les ostéoclastes ; l'Endocrine Society 2023 suggère de préférer le dénosumab, sur des preuves indirectes."
+       }
+      ]
+     ],
+     [
+      "Glucocorticoïdes",
+      "2–5 jours",
+      [
+       {
+        "t": "Lymphome, myélome, calcitriol",
+        "i": "Ils bloquent la 1α-hydroxylase ; ils sont inefficaces dans les tumeurs solides."
+       }
+      ]
+     ],
+     [
+      "Hémodialyse",
+      "Heures",
+      [
+       {
+        "t": "Ultime recours",
+        "i": "Elle sert quand l'insuffisance rénale ou cardiaque empêche l'hydratation."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le furosémide ne sert qu'après réhydratation, en cas de surcharge.",
+    "Le nadir de calcémie survient 4 à 7 jours après le bisphosphonate."
+   ],
+   "sources": [
+    "[Endocrine Society, 2023]",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Après la crise : cause, récidive et objectifs de soins",
+   "rubriques": [
+    "chronicManagement",
+    "prognosisDischarge",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "On traite la tumeur, seule mesure durable, et on aligne la suite sur les objectifs du patient.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La récidive est fréquente : le traitement antirésorptif se répète selon la calcémie.",
+    "Un contrôle dentaire précède le traitement prolongé, à cause du risque d'ostéonécrose de la mâchoire.",
+    "L'hypercalcémie maligne annonce une survie médiane de quelques semaines à quelques mois.",
+    "Les directives anticipées et l'équipe de soins palliatifs guident la décision de traiter."
+   ],
+   "sources": [
+    "[Endocrine Society, 2023]",
+    "[palliative ch]"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "crise_hypercalcemique",
+   "titre": "Crise hypercalcémique (calcémie > 3,5 mmol/L ou symptômes graves)",
+   "but": [
+    "Réhydrater et abaisser la calcémie en 24 à 72 heures pour lever l'atteinte neurologique, rénale et cardiaque.",
+    "Prévenir les arythmies et les complications iatrogènes (surcharge, hypocalcémie)."
+   ],
+   "moyens": {
+    "accueil": [
+     "L'équipe installe le patient sous monitorage ECG continu.",
+     "Le médecin arrête calcium, vitamine D, thiazidiques, lithium et digoxine si possible.",
+     "Il vérifie les directives anticipées et le projet oncologique avec le patient ou ses proches."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "NaCl 0,9 % (cristalloïde isotonique)",
+      "posologie": "200–300 mL/h IV après correction de l'hypovolémie, adapté pour une diurèse de 100–150 mL/h ; prudence en insuffisance cardiaque ou rénale.",
+      "pourquoi": "La réhydratation restaure la filtration glomérulaire et augmente l'excrétion urinaire du calcium.",
+      "source": "[Endocrine Society, 2023]"
+     },
+     {
+      "molecule": "Acide zolédronique (bisphosphonate)",
+      "posologie": "4 mg IV en au moins 15 min dans 100 mL, après réhydratation ; prudence si créatinine > 400 µmol/L ; répéter selon la calcémie, pas avant 7 jours.",
+      "pourquoi": "Il inhibe les ostéoclastes ; son effet débute en 2 à 4 jours et dure 3 à 4 semaines.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Dénosumab (anticorps anti-RANKL)",
+      "posologie": "120 mg SC, alternative suggérée par l'Endocrine Society 2023 et option en insuffisance rénale ; indication suisse et garantie de l'assureur à vérifier.",
+      "pourquoi": "Il agit sans élimination rénale et reste efficace après échec des bisphosphonates, mais il expose à l'hypocalcémie.",
+      "source": "[Endocrine Society, 2023]"
+     },
+     {
+      "molecule": "Calcitonine de saumon (hormone hypocalcémiante)",
+      "posologie": "4 UI/kg SC ou IM toutes les 12 h, au plus 48–72 h, en association à l'antirésorptif ; disponibilité suisse à vérifier.",
+      "pourquoi": "Elle abaisse la calcémie en quelques heures en attendant l'effet du zolédronate ou du dénosumab.",
+      "source": "[Endocrine Society, 2023]"
+     },
+     {
+      "molecule": "Prednisone (glucocorticoïde)",
+      "posologie": "40–60 mg/j PO, seulement si lymphome, myélome ou hypercalcémie médiée par le calcitriol.",
+      "pourquoi": "Elle bloque la 1α-hydroxylase tumorale ; elle ne sert pas dans les tumeurs solides à PTHrP.",
+      "source": "[Endocrine Society, 2023]"
+     },
+     {
+      "molecule": "Furosémide (diurétique de l'anse)",
+      "posologie": "20–40 mg IV seulement après réhydratation et en cas de surcharge volémique.",
+      "pourquoi": "Il traite la surcharge, mais il aggrave la déshydratation s'il est donné trop tôt.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "L'infirmier·ère tient le bilan entrées-sorties horaire, pèse le patient chaque jour et surveille l'état de conscience.",
+      "pourquoi": "Ces mesures dépistent la surcharge hydrique et l'aggravation neurologique."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Le néphrologue réalise une hémodialyse à dialysat pauvre en calcium si l'insuffisance rénale ou cardiaque empêche l'hydratation.",
+      "pourquoi": "Elle abaisse la calcémie en quelques heures quand les autres mesures sont impossibles."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "L'équipe mobilise le patient dès que possible.",
+      "pourquoi": "L'immobilisation augmente la résorption osseuse et la calcémie."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Elle aide à décider de l'intensité du traitement selon le pronostic et les souhaits du patient."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Il encadre la représentation thérapeutique et les directives anticipées si le patient est confus."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Le médecin débute la réhydratation sans attendre la PTH ni la PTHrP.",
+      "Il hospitalise en soins continus ou intensifs si la calcémie dépasse 3,5 mmol/L ou si l'ECG est anormal."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il confirme la calcémie corrigée, dose PTH, créatinine, électrolytes et réalise un ECG."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Elle pose la perfusion de NaCl 0,9 %, branche le monitorage et lance le bilan entrées-sorties."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Il prescrit zolédronate ou dénosumab, avec calcitonine si la crise est sévère."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "L'oncologue et l'équipe de soins palliatifs définissent le traitement de la tumeur et les objectifs de soins."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La calcémie se normalise chez la plupart des patients en quelques jours, mais la survie médiane reste de quelques semaines à quelques mois selon la tumeur.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Calcémie corrigée ou ionisée",
+      "quand": "Toutes les 12–24 h",
+      "cible": "Baisse progressive vers < 2,6 mmol/L"
+     },
+     {
+      "quoi": "Créatinine, potassium, magnésium, phosphate",
+      "quand": "Quotidiens",
+      "cible": "Valeurs normales sous perfusion salée"
+     },
+     {
+      "quoi": "ECG continu",
+      "quand": "Tant que la calcémie dépasse 3,5 mmol/L",
+      "cible": "Absence d'arythmie ou de trouble de conduction"
+     },
+     {
+      "quoi": "Bilan entrées-sorties et poids",
+      "quand": "Quotidien",
+      "cible": "Diurèse 100–150 mL/h sans surcharge"
+     }
+    ],
+    "sortie": "Le patient sort quand la calcémie est normalisée, qu'il boit suffisamment et que le projet oncologique ou palliatif est défini."
+   },
+   "prevention": {
+    "primaire": "",
+    "secondaire": "Le médecin dose la calcémie devant une soif, une constipation ou une confusion chez tout patient cancéreux.",
+    "tertiaire": "Le traitement de la tumeur et l'antirésorptif répété préviennent la récidive de la crise."
+   }
+  },
+  {
+   "cle": "long_cours",
+   "titre": "Après la crise : prévention des récidives et soins de support",
+   "but": [
+    "Maintenir une calcémie normale par le traitement de la tumeur et l'antirésorptif.",
+    "Préserver la qualité de vie selon les objectifs du patient."
+   ],
+   "moyens": {
+    "accueil": [
+     "Le médecin explique au patient et aux proches les signes de récidive (soif, constipation, confusion).",
+     "Il revoit les médicaments et supprime calcium, vitamine D et thiazidiques."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Acide zolédronique (bisphosphonate)",
+      "posologie": "4 mg IV en au moins 15 min, répété selon la calcémie (souvent toutes les 3 à 4 semaines) ; dose adaptée au DFG en prévention osseuse selon l'AIPS.",
+      "pourquoi": "Il prévient la récidive et les complications osseuses des métastases.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Dénosumab (anticorps anti-RANKL)",
+      "posologie": "120 mg SC toutes les 4 semaines dans la prévention des complications osseuses ; calcium et vitamine D seulement après normalisation de la calcémie.",
+      "pourquoi": "Il remplace le bisphosphonate en insuffisance rénale ou en cas de récidive sous bisphosphonate.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Le patient boit 2 à 3 L par jour, sauf contre-indication, et reste mobile.",
+      "pourquoi": "L'hydratation et la mobilité limitent la remontée de la calcémie."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Le dentiste contrôle la bouche avant un antirésorptif prolongé.",
+      "pourquoi": "Le contrôle réduit le risque d'ostéonécrose de la mâchoire."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Elle coordonne le contrôle des symptômes et le lieu de soins souhaité."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Elle organise Spitex, moyens auxiliaires et allocation pour impotent si nécessaire."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Le médecin contrôle la calcémie à rythme régulier, plus souvent après une crise.",
+      "Il aligne chaque décision sur les directives anticipées."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "spécialiste",
+       "fait": "L'oncologue adapte le traitement antitumoral, seul moyen de contrôle durable."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin de famille",
+       "fait": "Il contrôle calcémie et créatinine et éduque aux signes de récidive."
+      },
+      {
+       "temps": "puis",
+       "qui": "infirmier·ère",
+       "fait": "L'équipe Spitex ou de soins palliatifs mobile suit le patient à domicile."
+      }
+     ]
+    }
+   },
+   "pronostic": "La récidive est fréquente sans contrôle tumoral ; le pronostic dépend du cancer sous-jacent et reste souvent réservé.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Calcémie et créatinine",
+      "quand": "1 à 2 semaines après la sortie, puis toutes les 3–4 semaines",
+      "cible": "Calcémie normale, créatinine stable"
+     },
+     {
+      "quoi": "Calcémie après dénosumab",
+      "quand": "Dans les 2 semaines",
+      "cible": "Absence d'hypocalcémie"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée quand la calcémie est normale et l'hydratation orale possible."
+   },
+   "prevention": {
+    "primaire": "",
+    "secondaire": "Le contrôle régulier de la calcémie dépiste la récidive avant les symptômes.",
+    "tertiaire": "La continuité oncologique et palliative prévient les réhospitalisations évitables."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "_mode": "rédaction Claude sans API"
+ },
+ "signature": {
+  "date": "2026-11-24",
+  "auteur": "AAI (Anthropic AI)",
+  "reprise": "2026-11-24 : correction complète rédigée par Claude sans API (sortie API vide) (AAI (Anthropic AI))"
+ },
+ "audit": {
+  "rejector": "pass",
+  "claude": "2026-11-24",
+  "par": "Claude (audit médical vague 1, AAI)",
+  "note": "correction complète rédigée par Claude sans API (sortie API vide)"
+ }
+}
