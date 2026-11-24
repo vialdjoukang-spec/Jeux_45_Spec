@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**267 / 500 pathologies du périmètre produites.**
+**279 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -167,32 +167,32 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 158 | `M31.1__F2_10-E13` | Microangiopathie thrombotique (PTT / SHU) | RHU | produite |
 | 159 | `N10_pyelonephrite_aigue___F2_15-E14` | Pyélonéphrite aiguë obstructive | NEP | produite |
 | 160 | `R57.1__F1_1-E15` | Choc hémorragique aigu (hypotension sévère) | INT | produite |
-| 161 | `B02.9__S2_12-E06` | Zona (herpès zoster) | DER | — |
+| 161 | `B02.9__S2_12-E06` | Zona (herpès zoster) | DER | produite |
 | 162 | `B34.9_infection_virale_aig__F2_19-E02` | Infection virale aiguë non spécifique (myalgies, cytopénies transitoires) | INF | produite |
 | 163 | `E66.9__O2_12-E04` | Surpoids et obésité pédiatrique | END | produite |
 | 164 | `E85.0__F2_19-E12` | Fièvre méditerranéenne familiale (FMF) | END | produite |
 | 165 | `F03_trouble_neurocogniti__O3_6-E01` | Trouble neurocognitif majeur (maladie d'Alzheimer / démence fronto-temporale / corps de Lewy) | PSY | produite |
-| 166 | `F10.0__F1_15-E01` | Intoxication éthylique aiguë | TOX | — |
+| 166 | `F10.0__F1_15-E01` | Intoxication éthylique aiguë | TOX | produite |
 | 167 | `F45.2__O7_18-E09` | Anxiété liée à la maladie (hypocondrie / trouble de préoccupation somatique) | PSY | produite |
 | 168 | `F50.2__O2_6-E05` | Boulimie nerveuse (bulimia nervosa) | PSY | produite |
 | 169 | `F51.0__G11-E01` | Insomnie chronique primaire | PSY | produite |
 | 170 | `F60.3__O6_8-E07` | Trouble de la personnalité limite (borderline) en crise identitaire ou affective | PSY | produite |
-| 171 | `F80.9__O2_12-E05` | Retard isolé du langage (trouble développemental du langage / dysphasie) | PEA | — |
-| 172 | `F93.0__O2_10-E04` | Anxiété de séparation (enfant ou adulte) | PEA | — |
+| 171 | `F80.9__O2_12-E05` | Retard isolé du langage (trouble développemental du langage / dysphasie) | PEA | produite |
+| 172 | `F93.0__O2_10-E04` | Anxiété de séparation (enfant ou adulte) | PEA | produite |
 | 173 | `G63.2__O3_2-E10` | Polyneuropathie diabétique distale symétrique | NEU | produite |
-| 174 | `H35.3__O3_2-E05` | Dégénérescence maculaire liée à l'âge (DMLA) | OPH | — |
+| 174 | `H35.3__O3_2-E05` | Dégénérescence maculaire liée à l'âge (DMLA) | OPH | produite |
 | 175 | `I49.4__F1_7-E03` | Extrasystoles ventriculaires ou supraventriculaires | CAR | produite |
 | 176 | `I69.3_sequelles_d_avc_apha__F1_11-E04` | Séquelles d'AVC (aphasie chronique, hémiparésie séquellaire) | NEU | produite |
-| 177 | `I87.2__F1_16-E01` | Insuffisance veineuse chronique (jambes lourdes et crampes nocturnes) | ANG | — |
-| 178 | `J01.9__S1_14-E03` | Rhinosinusite aiguë bactérienne | ORL | — |
+| 177 | `I87.2__F1_16-E01` | Insuffisance veineuse chronique (jambes lourdes et crampes nocturnes) | ANG | produite |
+| 178 | `J01.9__S1_14-E03` | Rhinosinusite aiguë bactérienne | ORL | produite |
 | 179 | `J20.9__F1_3-E01` | Bronchite aiguë (râles bronchiques / ronchi) | PNE | produite |
 | 180 | `J44.9__F2_1-E01` | Évaluation respiratoire préopératoire (BPCO, SAOS, tabac) | PNE | produite |
-| 181 | `K11.7__F1_13-E04` | Xérostomie (hyposialie médicamenteuse, syndrome de Sjögren) | TOX | — |
+| 181 | `K11.7__F1_13-E04` | Xérostomie (hyposialie médicamenteuse, syndrome de Sjögren) | TOX | produite |
 | 182 | `K76.0_steatose_hepatique_m__F2_11-E01` | Stéatose hépatique métabolique (MASLD) | GAS | produite |
-| 183 | `L20.9__F1_4-E03` | Dermatite atopique | DER | — |
-| 184 | `M51.1__S5_2-E02` | Hernie discale traumatique aiguë avec radiculopathie (cervicale ou lombaire) | ORT | — |
-| 185 | `M54.5_1__O5_1-E04` | Troubles musculo-squelettiques (lombalgies, cervicalgies) liés au travail | RHU | — |
-| 186 | `M54.5__G10-E01` | Lombalgie commune non spécifique | RHU | — |
+| 183 | `L20.9__F1_4-E03` | Dermatite atopique | DER | produite |
+| 184 | `M51.1__S5_2-E02` | Hernie discale traumatique aiguë avec radiculopathie (cervicale ou lombaire) | ORT | produite |
+| 185 | `M54.5_1__O5_1-E04` | Troubles musculo-squelettiques (lombalgies, cervicalgies) liés au travail | RHU | produite |
+| 186 | `M54.5__G10-E01` | Lombalgie commune non spécifique | RHU | produite |
 | 187 | `N30.0__F2_15-E01` | Infection urinaire basse (cystite aiguë simple) | URO | — |
 | 188 | `N39.0__O2_9-E04` | Infection somatique occulte du sujet âgé (infection urinaire, pneumonie, fécalome) | URO | — |
 | 189 | `N83.2__F2_18-E06` | Kyste ovarien fonctionnel (folliculaire ou du corps jaune) | GYN | — |

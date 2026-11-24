@@ -1,0 +1,321 @@
+# T4 sur l'abonnement (pause API du 24.11.2026 à jeudi)
+
+Décision de Vial : en attendant le crédit API, les fiches archivées de T4 se refont dans des sessions Claude (abonnement), sans appel API.
+
+## Fait (24.11.2026, 0 token)
+25 fiches réparées mécaniquement (`scripts/reparer_archives_t4.py`, forme seule) et rétablies dans `content/fiches/<SPEC>/` ; 4 gardent leur audit « pass », 21 attendent l'audit 1 bis.
+
+## Procédure par session (au plus 10 fiches)
+1. Prendre les premières fiches non cochées ci-dessous, tronquées d'abord (urgence vitale d'abord si connue).
+2. Lire la fiche archivée : garder tout contenu juste ; écrire seulement les sections manquantes ou cassées, au schéma `scripts/schema_fiche.json` et selon `projets/ouvrier/MISSION_45SPEC.md` (skills `medical-accuracy-100`, `psych-ultra-ch` si psychiatrie).
+3. Valider (jsonschema + premiersGestes numérotés), retirer `motif_archive`, `controles.erreurs: []`, `audit.rejector: null`, signature `{"platform": "Claude (abonnement, sans API)"}`, déplacer vers `content/fiches/<SPEC>/`.
+4. `python3 scripts/generer_reflexes.py` puis `python3 scripts/ebaucher_arenes.py`, cocher ici, committer sur `veille/audit-medical`.
+
+## Tronquées : sections manquantes (173)
+- [ ] ANE G8-E02 — Hypothermie péri-opératoire (anesthésie générale / bloc neur (9 section(s) manquante(s))
+- [ ] ANG S6.4-E01 — Ulcère veineux de jambe (insuffisance veineuse chronique) (10 section(s) manquante(s))
+- [ ] CAR F1.1-E08 — Hypotension artérielle constitutionnelle / vagale bénigne (9 section(s) manquante(s))
+- [ ] CAR F1.16-E02 — Insuffisance cardiaque chronique congestive (9 section(s) manquante(s))
+- [ ] CAR F1.18-E03 — Activité électrique sans pouls (AESP / dissociation électrom (9 section(s) manquante(s))
+- [ ] CAR F1.3-E05 — Insuffisance mitrale (souffle holosystolique apexien) (9 section(s) manquante(s))
+- [ ] CAR F2.2-E12 — Infarctus du myocarde avec sus-décalage du segment ST (STEMI (9 section(s) manquante(s))
+- [ ] CAR F2.2-E17 — Crise hypertensive avec souffrance myocardique aiguë (9 section(s) manquante(s))
+- [ ] CAR F2.24-E03 — Néphroangiosclérose hypertensive (9 section(s) manquante(s))
+- [ ] CAR F2.6-E02 — Hypertrophie ventriculaire gauche (HVG) (9 section(s) manquante(s))
+- [ ] CAR F2.6-E04 — Extrasystoles ventriculaires ou supraventriculaires (9 section(s) manquante(s))
+- [ ] CAR G1-E21 — Crise hypertensive sur phéochromocytome décompensé (9 section(s) manquante(s))
+- [ ] CAR G14-E13 — Syndrome du QT long congénital avec torsades de pointes (9 section(s) manquante(s))
+- [ ] CAR G4-E07 — Insuffisance cardiaque chronique (9 section(s) manquante(s))
+- [ ] CAR O4.7-E13 — Urgence hypertensive avec atteinte aiguë d'organe cible (dis (9 section(s) manquante(s))
+- [ ] CAR O7.14-E13 — Décompensation cardiaque aiguë lors d'un réentraînement à l' (9 section(s) manquante(s))
+- [ ] CAR S1.5-E09 — Maladie de Rendu-Osler-Weber (télangiectasie hémorragique hé (9 section(s) manquante(s))
+- [ ] CAR S2.4-E11 — Syndrome coronarien aigu sans sus-décalage du ST (NSTEMI / a (9 section(s) manquante(s))
+- [ ] CAR S8.12-E01 — Faux anévrisme (pseudo-anévrisme) de l'artère fémorale post- (9 section(s) manquante(s))
+- [ ] CAR S8.5-E07 — Syncope cardiaque déclenchée par l'eau froide (syndrome du Q (11 section(s) manquante(s))
+- [ ] CAR S9.1-E08 — Tachycardie supraventriculaire paroxystique (TSVP / maladie  (9 section(s) manquante(s))
+- [ ] CCT G14-E03 — Dissection aortique aiguë rompue (Stanford A) (9 section(s) manquante(s))
+- [ ] CHI F1.5-E02 — Hernie inguinale ou ombilicale réductible (1 section(s) manquante(s))
+- [ ] CHI S3.4-E03 — Fausse diarrhée du constipé sur fécalome rectal avec inconti (9 section(s) manquante(s))
+- [ ] CHI S3.5-E02 — Fissure anale aiguë ou chronique (9 section(s) manquante(s))
+- [ ] CHI S3.9-E02 — Fissure anale hémorragique (9 section(s) manquante(s))
+- [ ] CHI S6.4-E05 — Infection de plaie post-opératoire ou traumatique simple (su (11 section(s) manquante(s))
+- [ ] CHI S8.10-E03 — Contusion paravertébrale et contracture musculaire dorso-lom (6 section(s) manquante(s))
+- [ ] CHI S8.12-E02 — Hématome périvasculaire et saignement au point de ponction a (11 section(s) manquante(s))
+- [ ] CMF S1.11-E02 — Dysfonctionnement de l'articulation temporo-mandibulaire (SA (10 section(s) manquante(s))
+- [ ] CMF S1.21-E02 — Abcès dentaire avec œdème jugal / fluxion dentaire (9 section(s) manquante(s))
+- [ ] CMF S1.4-E02 — Cellulite / Abcès odontogène jugal ou sous-mandibulaire (9 section(s) manquante(s))
+- [ ] CMF S6.1-E02 — Aphtose buccale récidivante (aphtes communs) (9 section(s) manquante(s))
+- [ ] CMF S8.9-E02 — Lacération contuse et plaie délabrante des tissus mous (9 section(s) manquante(s))
+- [ ] CPL O3.5-E01 — Escarre stade 1 (érythème persistant ne blanchissant pas à l (6 section(s) manquante(s))
+- [ ] CTH S8.11-E01 — Contusion pariétale thoracique simple sans fracture costale (9 section(s) manquante(s))
+- [ ] DER G1-E01 — Hyperhidrose focale primaire (palmo-plantaire, axillaire) (9 section(s) manquante(s))
+- [ ] DER G9-E02 — Xérose cutanée sénile ou hivernale (9 section(s) manquante(s))
+- [ ] DER O7.12-E01 — Infection génitale à Chlamydia trachomatis (10 section(s) manquante(s))
+- [ ] DER O7.12-E03 — Condylomes acuminés et infection à HPV (1 section(s) manquante(s))
+- [ ] DER S3.5-E03 — Prurit anal idiopathique (essentiel) ou de macération (11 section(s) manquante(s))
+- [ ] DER S4.18-E05 — Cervicite muco-purulente à Chlamydia trachomatis ou Neisseri (11 section(s) manquante(s))
+- [ ] DER S6.1-E05 — Condylomes acuminés (verrues ano-génitales à HPV) (11 section(s) manquante(s))
+- [ ] DER S6.3-E01 — Vitiligo (9 section(s) manquante(s))
+- [ ] DER S6.7-E01 — Eczéma atopique / eczéma de contact (papules, vésicules, sui (1 section(s) manquante(s))
+- [ ] END G16-E03 — Hyperthyroïdie (maladie de Basedow ou goitre multinodulaire  (11 section(s) manquante(s))
+- [ ] END O6.2-E03 — Surpoids et obésité avec stigmatisation corporelle (9 section(s) manquante(s))
+- [ ] END O7.23-E02 — Suspicion de maladie auto-inflammatoire ou fièvre récurrente (9 section(s) manquante(s))
+- [ ] END O7.3-E04 — Diabète de type 2 et prédiabète : conseil nutritionnel (9 section(s) manquante(s))
+- [ ] END S4.4-E01 — Syndrome des ovaires polykystiques (SOPK) avec anovulation (9 section(s) manquante(s))
+- [ ] END S6.5-E02 — Syndrome de Gilbert (11 section(s) manquante(s))
+- [ ] GAS F2.23-E02 — Hypoalbuminémie sur cirrhose hépatique (9 section(s) manquante(s))
+- [ ] GAS F2.3-E03 — Insuffisance hépatocellulaire chronique / cirrhose (9 section(s) manquante(s))
+- [ ] GAS F2.8-E03 — Polypes adénomateux colorectaux (FIT positif) (11 section(s) manquante(s))
+- [ ] GAS S2.4-E01 — Reflux gastro-œsophagien (RGO) avec oppression rétrosternale (11 section(s) manquante(s))
+- [ ] GAS S3.1-E02 — Syndrome de l'intestin irritable (SII) (11 section(s) manquante(s))
+- [ ] GAS S3.4-E01 — Syndrome de l'intestin irritable à transit mixte ou alternan (9 section(s) manquante(s))
+- [ ] GAS S3.7-E03 — Constipation induite par les opioïdes (CIO) ou autres médica (9 section(s) manquante(s))
+- [ ] GEN O7.25-E01 — Conseil génétique en oncogénétique (BRCA1/2, syndrome de Lyn (9 section(s) manquante(s))
+- [ ] GYN O1.7-E03 — Anémie ferriprive gravidique (9 section(s) manquante(s))
+- [ ] GYN O1.7-E04 — Nausées et vomissements simples du 1er trimestre (11 section(s) manquante(s))
+- [ ] GYN O1.7-E05 — Reflux gastro-œsophagien (pyrosis) et constipation gravidiqu (11 section(s) manquante(s))
+- [ ] GYN O1.9-E02 — Retard de règles fonctionnel sans grossesse (stress, SOPK, a (10 section(s) manquante(s))
+- [ ] GYN O2.7-E02 — Diminution des mouvements actifs fœtaux (MAF) (11 section(s) manquante(s))
+- [ ] GYN S2.3-E01 — Mastopathie fibrokystique bénigne (dystrophie mammaire) (11 section(s) manquante(s))
+- [ ] GYN S4.12-E01 — Syndrome climatérique physiologique (ménopause naturelle) (9 section(s) manquante(s))
+- [ ] GYN S4.16-E01 — Cystocèle (prolapsus du compartiment antérieur) (9 section(s) manquante(s))
+- [ ] GYN S4.17-E02 — Saignement utérin fonctionnel par dysfonction ovulatoire (6 section(s) manquante(s))
+- [ ] GYN S4.17-E03 — Polype endométrial ou endocervical (9 section(s) manquante(s))
+- [ ] GYN S4.17-E05 — Atrophie endométriale et vulvo-vaginale (syndrome génito-uri (10 section(s) manquante(s))
+- [ ] GYN S4.18-E01 — Vaginose bactérienne (dysbiose à Gardnerella vaginalis) (9 section(s) manquante(s))
+- [ ] HEM F1.17-E01 — Anémie ferriprive (carence martiale) (9 section(s) manquante(s))
+- [ ] HEM F2.16-E01 — Anémie ferriprive (carence martiale) (9 section(s) manquante(s))
+- [ ] HEM F2.3-E01 — Traitement par antivitamine K (INR allongé) (6 section(s) manquante(s))
+- [ ] HEM O7.19-E02 — Thérapies CAR-T et immunothérapies géniques en oncologie (11 section(s) manquante(s))
+- [ ] INF G5-E02 — Gastro-entérite aiguë virale (10 section(s) manquante(s))
+- [ ] LEG G13-E01 — Suicide par pendaison ou strangulation (9 section(s) manquante(s))
+- [ ] LEG O3.1-E02 — Maltraitance psychologique ou verbale (6 section(s) manquante(s))
+- [ ] LEG O6.3-E02 — Violence psychologique et contrôle coercitif dans le couple (10 section(s) manquante(s))
+- [ ] LEG S9.12-E03 — Intoxication médicamenteuse volontaire bénigne à modérée (ap (1 section(s) manquante(s))
+- [ ] MIG F1.2-E01 — Variations anatomiques physiologiques des organes génitaux e (10 section(s) manquante(s))
+- [ ] MIG F2.21-E01 — Carence martiale (ferriprive) (9 section(s) manquante(s))
+- [ ] MIG F2.21-E02 — Carence en vitamine D (hypovitaminose D) (10 section(s) manquante(s))
+- [ ] MIG F2.9-E02 — Prédiabète (hyperglycémie à jeun / intolérance au glucose) (9 section(s) manquante(s))
+- [ ] MIG O2.1-E02 — Petite taille familiale (constitutionnelle) (9 section(s) manquante(s))
+- [ ] MIG O2.1-E03 — Retard pondéral / cassure de courbe pondérale d'origine nutr (9 section(s) manquante(s))
+- [ ] MIG O2.11-E02 — Hypotonie transitoire sur infection aiguë ou déshydratation (9 section(s) manquante(s))
+- [ ] MIG O4.1-E01 — Bilan d'aptitude sportive normal chez le sujet sain (10 section(s) manquante(s))
+- [ ] MIG O4.4-E02 — Gestion d'un résultat biologique faussement positif ou varia (9 section(s) manquante(s))
+- [ ] MIG O5.3-E03 — Râles agoniques (encombrement bronchique de fin de vie) (6 section(s) manquante(s))
+- [ ] MIG O5.4-E02 — Nausées et vomissements réfractaires en soins palliatifs (11 section(s) manquante(s))
+- [ ] MIG O5.5-E03 — Épuisement des proches aidants (11 section(s) manquante(s))
+- [ ] MIG O6.2-E01 — Insatisfaction corporelle normale / préoccupation esthétique (10 section(s) manquante(s))
+- [ ] MIG O6.7-E01 — Deuil normal (réaction aiguë et processus d'adaptation à la  (9 section(s) manquante(s))
+- [ ] MIG O6.7-E02 — Deuil anticipé face à la maladie grave ou terminale d'un pro (1 section(s) manquante(s))
+- [ ] MIG O7.10-E01 — Consentement éclairé pour chirurgie élective ou anesthésie (11 section(s) manquante(s))
+- [ ] MIG O7.11-E02 — Refus d'hospitalisation ou sortie contre avis médical (9 section(s) manquante(s))
+- [ ] MIG O7.11-E03 — Refus de dépistage ou d'examen complémentaire invasif (11 section(s) manquante(s))
+- [ ] MIG O7.13-E01 — Barrière linguistique nécessitant un interprétariat communau (6 section(s) manquante(s))
+- [ ] MIG O7.13-E03 — Carence en vitamine D ou carence martiale chez patients migr (1 section(s) manquante(s))
+- [ ] MIG O7.15-E01 — Inobservance dans l'hypertension artérielle ou dyslipidémie (11 section(s) manquante(s))
+- [ ] MIG O7.16-E03 — Gestion périopératoire des anticoagulants et antiagrégants (11 section(s) manquante(s))
+- [ ] MIG O7.17-E02 — Certificat d'aptitude sportive ou scolaire (6 section(s) manquante(s))
+- [ ] MIG O7.2-E01 — Incapacité de travail temporaire pour pathologie aiguë bénig (9 section(s) manquante(s))
+- [ ] MIG O7.23-E01 — Errance diagnostique devant symptômes multisystémiques chron (9 section(s) manquante(s))
+- [ ] MIG O7.24-E01 — Sujet âgé polymorbide, fragile et isolé (11 section(s) manquante(s))
+- [ ] MIG O7.4-E01 — Non-observance thérapeutique liée aux facteurs psychosociaux (11 section(s) manquante(s))
+- [ ] MIG S1.21-E01 — Adénopathie cervicale réactionnelle infectieuse (ORL, virale (6 section(s) manquante(s))
+- [ ] MIG S3.2-E01 — Météorisme fonctionnel / syndrome de l'intestin irritable av (6 section(s) manquante(s))
+- [ ] MIG S6.2-E06 — Hématome traumatique simple (sous-cutané ou musculaire) (9 section(s) manquante(s))
+- [ ] MIG S7.1-E03 — Ataxie proprioceptive (polyneuropathie diabétique, carence B (11 section(s) manquante(s))
+- [ ] MIG S7.1-E09 — Malaise vasovagal / lipothymie posturale (11 section(s) manquante(s))
+- [ ] MIG S7.4-E01 — Aphasie vasculaire post-AVC (Broca, Wernicke, globale) (9 section(s) manquante(s))
+- [ ] MTR G4-E04 — Syndrome d'épuisement professionnel (burn-out) (9 section(s) manquante(s))
+- [ ] NEP F2.12-E02 — Insuffisance rénale aiguë (IRA) prérénale fonctionnelle (11 section(s) manquante(s))
+- [ ] NEP F2.7-E03 — Hyperkaliémie modérée sur IRC et bloqueurs du SRAA (11 section(s) manquante(s))
+- [ ] NEU O3.2-E01 — Maladie d'Alzheimer (11 section(s) manquante(s))
+- [ ] NEU S1.6-E02 — Myokymie palpébrale bénigne (fasciculations de la paupière) (9 section(s) manquante(s))
+- [ ] NEU S7.10-E02 — Épilepsie focale (structurale : sclérose hippocampique, tume (9 section(s) manquante(s))
+- [ ] NEU S7.5-E04 — Migraine vestibulaire (9 section(s) manquante(s))
+- [ ] NEU S7.6-E01 — Céphalée de tension épisodique ou chronique (9 section(s) manquante(s))
+- [ ] NEU S7.6-E06 — Céphalée cervicogénique / sinusite aiguë (11 section(s) manquante(s))
+- [ ] OPH S1.17-E05 — Hémorragie sous-conjonctivale spontanée (9 section(s) manquante(s))
+- [ ] OPH S1.2-E03 — Vices de réfraction non corrigés (myopie, hypermétropie, ast (6 section(s) manquante(s))
+- [ ] OPH S1.20-E02 — Pseudostrabisme (épicanthus du nourrisson) (11 section(s) manquante(s))
+- [ ] ORL G5-E01 — Infection virale des voies respiratoires supérieures (rhinop (9 section(s) manquante(s))
+- [ ] ORL S1.14-E01 — Rhinite aiguë virale (rhume banal / rhinopharyngite) (11 section(s) manquante(s))
+- [ ] ORL S1.18-E03 — Hypertrophie adéno-amygdalienne de l'enfant (SAOS pédiatriqu (9 section(s) manquante(s))
+- [ ] ORL S1.19-E01 — Pharyngite / angine aiguë virale (10 section(s) manquante(s))
+- [ ] ORL S1.8-E02 — Otite moyenne aiguë perforée (otorrhée purulente) (1 section(s) manquante(s))
+- [ ] ORL S2.6-E02 — Rhinopharyngite / syndrome de toux des voies aériennes supér (11 section(s) manquante(s))
+- [ ] ORL S7.5-E02 — Névrite vestibulaire (déficit vestibulaire unilatéral aigu) (9 section(s) manquante(s))
+- [ ] ORL S8.6-E02 — Corps étranger du conduit auditif externe (CAE) (11 section(s) manquante(s))
+- [ ] ORT S5.3-E03 — Hallux valgus et déformations de l'avant-pied (9 section(s) manquante(s))
+- [ ] ORT S8.3-E01 — Contusion musculaire simple (béquille / choc direct) (9 section(s) manquante(s))
+- [ ] PAT F2.10-E02 — Adénocarcinome ou carcinome épidermoïde sur biopsie d'organe (9 section(s) manquante(s))
+- [ ] PEA O2.10-E01 — Troubles spécifiques des apprentissages (dyslexie, dysorthog (9 section(s) manquante(s))
+- [ ] PEA O2.5-E01 — Retard isolé du langage (trouble développemental du langage  (11 section(s) manquante(s))
+- [ ] PEA O2.5-E03 — Retard moteur simple / trouble développemental de la coordin (1 section(s) manquante(s))
+- [ ] PEA O6.1-E02 — Phobie scolaire / refus scolaire anxieux (10 section(s) manquante(s))
+- [ ] PEA S7.7-E07 — Trouble du déficit de l'attention avec ou sans hyperactivité (9 section(s) manquante(s))
+- [ ] PEA S9.2-E03 — TDAH de l'adulte (persistant ou diagnostiqué tardivement) (11 section(s) manquante(s))
+- [ ] PEA S9.6-E01 — TDAH forme hyperactive-impulsive ou mixte de l'enfant (9 section(s) manquante(s))
+- [ ] PED O1.1-E01 — Prématurité tardive (34 0/7 – 36 6/7 SA) (9 section(s) manquante(s))
+- [ ] PED O1.1-E02 — Retard de croissance intra-utérin (RCIU) / Petit poids pour  (9 section(s) manquante(s))
+- [ ] PED O2.11-E03 — Hypotonie physiologique du prématuré (11 section(s) manquante(s))
+- [ ] PED O2.8-E01 — Mort subite inexpliquée du nourrisson (MSN / MIN / SIDS) (9 section(s) manquante(s))
+- [ ] PNE F2.4-E01 — Pneumonie communautaire (infiltrat alvéolaire) (9 section(s) manquante(s))
+- [ ] PNE S2.10-E01 — Asthme bronchique (sibilances expiratoires récidivantes) (9 section(s) manquante(s))
+- [ ] PNE S2.2-E03 — Crise d'asthme aiguë (tachypnée puis bradypnée d'épuisement) (9 section(s) manquante(s))
+- [ ] PSP O1.3-E04 — Conseil préconceptionnel et prévention des anomalies du tube (11 section(s) manquante(s))
+- [ ] PSP O4.2-E02 — Rappels vaccinaux de l'adulte (dTpa, FSME, grippe saisonnièr (6 section(s) manquante(s))
+- [ ] PSP O4.3-E01 — Sédentarité et insuffisance d'activité physique (9 section(s) manquante(s))
+- [ ] PSP O4.3-E03 — Alimentation déséquilibrée et excès pondéral (9 section(s) manquante(s))
+- [ ] PSP O4.5-E03 — Conseil préconceptionnel et prévention des anomalies congéni (11 section(s) manquante(s))
+- [ ] PSP O4.6-E01 — Dépistage du cancer colorectal (FIT vs coloscopie) en décisi (9 section(s) manquante(s))
+- [ ] PSP O4.6-E04 — Dépistage du cancer du col de l'utérus (frottis Pap / test H (11 section(s) manquante(s))
+- [ ] PSP O4.7-E02 — Prédiabète et prévention du diabète de type 2 (syndrome méta (9 section(s) manquante(s))
+- [ ] PSP O6.5-E04 — Infections sexuellement transmissibles et besoins de prévent (9 section(s) manquante(s))
+- [ ] PSY F1.8-E03 — Anorexie mentale (trouble des conduites alimentaires) (9 section(s) manquante(s))
+- [ ] PSY G1-E03 — Trouble anxieux généralisé et attaques de panique (11 section(s) manquante(s))
+- [ ] PSY G11-E01 — Insomnie chronique primaire (6 section(s) manquante(s))
+- [ ] PSY G3-E02 — Polydipsie primaire (potomanie psychogène) (9 section(s) manquante(s))
+- [ ] PSY O5.5-E01 — Détresse psychologique et trouble de l'adaptation face à la  (9 section(s) manquante(s))
+- [ ] PSY O6.4-E01 — Trouble de l'adaptation avec anxiété ou humeur dépressive su (11 section(s) manquante(s))
+- [ ] PSY O6.8-E02 — Trouble anxieux généralisé et troubles anxieux apparentés (9 section(s) manquante(s))
+- [ ] PSY O6.8-E04 — Trouble de l'adaptation face à un stresseur psychosocial (9 section(s) manquante(s))
+- [ ] PSY O7.4-E02 — Dépression et anxiété comorbides d'une maladie chronique (9 section(s) manquante(s))
+- [ ] PSY S4.10-E02 — Dysfonction érectile psychogène (9 section(s) manquante(s))
+- [ ] PSY S7.7-E02 — Démence vasculaire / trouble neurocognitif vasculaire (9 section(s) manquante(s))
+- [ ] PSY S9.1-E01 — Trouble anxieux généralisé (TAG) (9 section(s) manquante(s))
+- [ ] PSY S9.10-E02 — Personnalité obsessionnelle-compulsive (anankastique) (9 section(s) manquante(s))
+- [ ] PSY S9.11-E03 — Deuil normal vs trouble du deuil prolongé (> 12 mois) (6 section(s) manquante(s))
+
+## Forme cassée : sections illisibles (130)
+- [ ] ALL S1.15-E02 — Hypertrophie chronique des cornets inférieurs (rhinite aller
+- [ ] ANE O7.16-E02 — Bilan cardiovasculaire préopératoire (score RCRI de Lee, MET
+- [ ] ANG F1.16-E01 — Insuffisance veineuse chronique des membres inférieurs
+- [ ] ANG G12-E01 — Insuffisance veineuse chronique des membres inférieurs
+- [ ] CAR F1.10-E08 — Cardiopathie congénitale cyanogène (tétralogie de Fallot, sy
+- [ ] CAR F1.18-E01 — Fibrillation ventriculaire sur cardiopathie ischémique aiguë
+- [ ] CAR F1.18-E05 — Bradycardie extrême / bloc auriculo-ventriculaire complet (B
+- [ ] CAR F1.19-E07 — Trouble conductif paroxystique (maladie du sinus, BAV paroxy
+- [ ] CAR F1.3-E17 — Endocardite infectieuse aiguë (souffle cardiaque fébrile de 
+- [ ] CAR F1.7-E02 — Fibrillation auriculaire (pouls irrégulier irrégulièrement)
+- [ ] CAR F1.7-E12 — Syndrome du QT long congénital ou acquis
+- [ ] CAR F1.7-E16 — Bloc auriculo-ventriculaire complet (3e degré) symptomatique
+- [ ] CAR F2.2-E05 — Myopéricardite / myocardite aiguë
+- [ ] CAR F2.4-E02 — Insuffisance cardiaque gauche et surcharge pulmonaire
+- [ ] CAR F2.6-E06 — Cardiopathie ischémique chronique (ondes Q séquellaires)
+- [ ] CAR F2.6-E18 — Torsades de pointes sur QT long
+- [ ] CAR G14-E16 — Tamponnade péricardique aiguë sur rupture de paroi libre pos
+- [ ] CAR G5-E16 — Syndrome coronarien aigu (SCA) à présentation atypique
+- [ ] CAR O7.9-E13 — Endocardite infectieuse nosocomiale sur valve prothétique ou
+- [ ] CAR S1.12-E13 — Acouphène pulsatile aigu sur dissection carotidienne ou fist
+- [ ] CAR S2.11-E01 — Extrasystoles auriculaires ou ventriculaires bénignes sur cœ
+- [ ] CAR S2.7-E08 — Fibrillation auriculaire à réponse ventriculaire rapide
+- [ ] CAR S4.11-E10 — Anévrisme ou pseudo-anévrisme de l'artère fémorale commune
+- [ ] CAR S4.12-E13 — Crise hypertensive ou infarctus myocardique en post-ménopaus
+- [ ] CAR S9.6-E10 — Chorée de Sydenham ou syndrome PANDAS/PANS post-streptococci
+- [ ] CHI S3.3-E01 — Hernie abdominale pariétale réductible (ombilicale, inguinal
+- [ ] CHI S3.3-E02 — Fécalome sigmoïdien palpable
+- [ ] CHI S4.11-E01 — Hernie inguinale réductible (oblique externe / directe)
+- [ ] CMA S7.9-E02 — Paresthésies canalaires (canal carpien, nerf ulnaire, méralg
+- [ ] CMF F1.13-E02 — Maladie parodontale chronique (gingivite, parodontite)
+- [ ] CMF O2.9-E03 — Poussée dentaire / éruption dentaire
+- [ ] CPL O3.5-E02 — Escarre stade 2 (phlyctène ou désépidermisation superficiell
+- [ ] CPL S6.4-E04 — Escarre (ulcère de pression)
+- [ ] CTH S8.11-E02 — Fracture(s) de côte(s) simple(s) (1 à 2 côtes sans volet)
+- [ ] CTH S8.3-E03 — Contusion thoracique pariétale (sans fracture costale déplac
+- [ ] DER F1.2-E03 — Condylomes acuminés (verrues génitales à HPV)
+- [ ] DER G2-E02 — Lipome sous-cutané bénin
+- [ ] DER G9-E03 — Urticaire aiguë idiopathique ou allergique
+- [ ] DER O6.2-E02 — Acné vulgaire et séquelles cicatricielles
+- [ ] DER O7.22-E02 — Exanthème maculopapuleux médicamenteux retardé
+- [ ] DER S4.13-E02 — Urétrite gonococcique (Neisseria gonorrhoeae)
+- [ ] DER S6.3-E02 — Pityriasis versicolor
+- [ ] DER S6.6-E04 — Hirsutisme sur syndrome des ovaires polykystiques (SOPK) ou 
+- [ ] END F2.13-E03 — Hypertriglycéridémie modérée secondaire (alcool, alimentatio
+- [ ] END F2.14-E01 — Hypothyroïdie primaire sur thyroïdite de Hashimoto
+- [ ] END O2.6-E06 — Obésité pédiatrique (exogène / multifactorielle)
+- [ ] END O7.15-E02 — Mauvaise adhésion au traitement du diabète de type 2
+- [ ] END O7.3-E03 — Dyslipidémie et hypercholestérolémie : adaptation diététique
+- [ ] END S4.1-E01 — Retard pubertaire simple (constitutionnel)
+- [ ] GAS F1.6-E03 — Météorisme abdominal fonctionnel (tympanisme diffus)
+- [ ] GAS F2.10-E03 — Polype adénomateux dysplasique colorectal
+- [ ] GAS S2.9-E02 — Régurgitations sur reflux gastro-œsophagien / hernie hiatale
+- [ ] GEN O1.3-E03 — Échographie morphologique du 2e trimestre (20–22 SA)
+- [ ] GEN O7.23-E03 — Suspicion de maladie héréditaire du tissu conjonctif (Marfan
+- [ ] GYN O1.4-E01 — Œdèmes physiologiques des membres inférieurs de fin de gross
+- [ ] GYN O2.7-E01 — Retard de croissance intra-utérin (RCIU) diagnostiqué in ute
+- [ ] GYN O4.5-E01 — Conseil contraceptif et choix d'une méthode adaptée (combiné
+- [ ] GYN S4.18-E03 — Leucorrhée physiologique
+- [ ] GYN S4.6-E01 — Léiomyomes utérins (fibromes utérins)
+- [ ] GYN S4.6-E02 — Kyste ovarien fonctionnel (folliculaire ou du corps jaune)
+- [ ] GYN S4.8-E02 — Contraception progestative seule (pilule microprogestative, 
+- [ ] HEM F2.16-E02 — Anémie inflammatoire (anémie des maladies chroniques)
+- [ ] HEM F2.23-E03 — Gammapathie monoclonale de signification indéterminée (MGUS)
+- [ ] HEM F2.5-E03 — Leucocytose réactionnelle sous corticothérapie ou stress
+- [ ] HEM S6.2-E01 — Ecchymoses traumatiques bénignes / purpura sénile de Bateman
+- [ ] INF F2.19-E02 — Infection virale aiguë bénigne
+- [ ] INF F2.5-E01 — Infection bactérienne aiguë avec hyperleucocytose à neutroph
+- [ ] INF F2.5-E02 — Infection virale aiguë (lymphocytose ou leucopénie transitoi
+- [ ] INF O7.6-E02 — Infection par le VIH contrôlée ou nouvellement diagnostiquée
+- [ ] INF S3.1-E01 — Gastro-entérite aiguë infectieuse
+- [ ] INF S6.9-E06 — Érythème migrant (borréliose de Lyme précoce)
+- [ ] LEG G13-E02 — Chute mortelle (accidentelle ou précipitation)
+- [ ] LEG O6.3-E01 — Violence conjugale physique chronique
+- [ ] MIG F1.4-E01 — Ictère cutanéo-muqueux et conjonctival (lithiase, hépatite, 
+- [ ] MIG F1.8-E02 — Cachexie néoplasique (cancer digestif, pulmonaire, pancréati
+- [ ] MIG G2-E01 — Adénopathie réactionnelle bénigne (infection ORL/virale)
+- [ ] MIG O2.4-E02 — Réaction vaccinale locale ou fébrile bénigne post-vaccinale
+- [ ] MIG O3.6-E02 — Déconditionnement physique et syndrome post-chute
+- [ ] MIG O7.17-E01 — Certificat d'incapacité de travail (maladie LAMal vs acciden
+- [ ] MIG O7.19-E03 — Cadre éthique et légal suisse : thérapie somatique vs modifi
+- [ ] MIG O7.21-E03 — Remboursement LAMal des 5 médecines complémentaires reconnue
+- [ ] MIG S1.18-E01 — Ronflement primaire bénin (ronchopathie simple)
+- [ ] MIG S3.10-E02 — Nausées et vomissements induits par les médicaments ou la ch
+- [ ] MIG S7.10-E04 — Fasciculations bénignes (syndrome des fasciculations bénigne
+- [ ] MTR O6.4-E03 — Mobbing professionnel (harcèlement moral au travail)
+- [ ] MTR O7.10-E03 — Information thérapeutique et consentement médicamenteux
+- [ ] NEP F2.12-E01 — Insuffisance rénale chronique (IRC) diabétique ou hypertensi
+- [ ] NEP F2.22-E01 — Pseudo-polyglobulie par hémoconcentration
+- [ ] NEP F2.7-E02 — Hypokaliémie modérée sous diurétiques
+- [ ] NEU F1.11-E03 — Dysarthrie chronique sur maladie de Parkinson (hypophonie mo
+- [ ] NEU O5.1-E02 — Trouble du sommeil chronique de l'aidant (hypervigilance noc
+- [ ] NEU S1.23-E03 — Aura migraineuse visuelle (scotome scintillant / phosphènes)
+- [ ] NEU S1.4-E01 — Paralysie faciale périphérique idiopathique (paralysie de Be
+- [ ] NEU S7.3-E01 — Tremblement essentiel
+- [ ] NEU S7.3-E02 — Tremblement parkinsonien (de repos)
+- [ ] NEU S7.7-E01 — Maladie d'Alzheimer (trouble neurocognitif majeur amnésique 
+- [ ] ONC S2.3-E02 — Fibroadénome mammaire
+- [ ] OPH F1.12-E03 — Myosis ou mydriase iatrogène topique (collyres)
+- [ ] OPH O2.12-E02 — Trouble de la réfraction ou amblyopie dépistée
+- [ ] OPH O3.2-E03 — Cataracte sénile (déficit visuel réversible)
+- [ ] OPH S1.17-E04 — Syndrome de l'œil sec (kératoconjonctivite sèche)
+- [ ] OPH S1.22-E01 — Orgelet (hordéole aigu)
+- [ ] OPH S1.23-E01 — Amétropie non corrigée (myopie, hypermétropie, astigmatisme,
+- [ ] ORL F1.13-E01 — Halitose d'origine linguale (enduit saburral)
+- [ ] ORL O6.1-E01 — Infections respiratoires aiguës ou gastro-entérites récidiva
+- [ ] ORL S1.10-E01 — Otite moyenne aiguë (OMA) bactérienne ou virale
+- [ ] ORL S1.12-E02 — Bouchon de cérumen obstructif (surdité de transmission)
+- [ ] ORL S1.3-E01 — Laryngite aiguë virale catarrhale
+- [ ] ORL S1.3-E03 — Lésions bénignes exophytiques des cordes vocales (nodules, p
+- [ ] ORL S1.8-E01 — Otite externe aiguë bactérienne (otite du baigneur)
+- [ ] ORT S5.2-E02 — Lombosciatique / radiculopathie sur hernie discale lombaire
+- [ ] ORT S6.8-E05 — Hématome sous-unguéal traumatique
+- [ ] ORT S7.8-E02 — Radiculopathie déficitaire cervicale ou lombaire sur hernie 
+- [ ] ORT S8.10-E01 — Entorse cervicale bénigne post-traumatique (coup du lapin / 
+- [ ] PEA F1.11-E02 — Bégaiement développemental (trouble de la fluence verbale)
+- [ ] PEA S9.2-E01 — Trouble déficit de l'attention avec ou sans hyperactivité (T
+- [ ] PED O2.6-E01 — Reflux gastro-œsophagien (RGO) physiologique du nourrisson
+- [ ] PED S6.5-E01 — Ictère physiologique / au lait maternel du nouveau-né
+- [ ] PNE G11-E02 — Syndrome d'apnées-hypopnées obstructives du sommeil (SAOS)
+- [ ] PNE G14-E02 — Embolie pulmonaire massive fatale
+- [ ] PNE O7.15-E03 — Technique d'inhalation incorrecte ou oubli dans l'asthme et 
+- [ ] PNE S2.10-E02 — Bronchite aiguë avec sibilances
+- [ ] PNE S2.2-E04 — Pneumonie communautaire (tachypnée fébrile)
+- [ ] PNE S2.6-E01 — Bronchite aiguë virale
+- [ ] PSP O4.6-E02 — Dépistage du cancer du sein par mammographie (bénéfices vs s
+- [ ] PSP O4.6-E03 — Dépistage du cancer de la prostate par PSA (décision partagé
+- [ ] PSY O3.6-E01 — Trouble neurocognitif majeur (démence) avec perte d'autonomi
+- [ ] PSY O5.1-E03 — Épisode dépressif caractérisé ou trouble anxieux chez le pro
+- [ ] PSY O5.3-E04 — Agitation et confusion terminales (delirium de fin de vie)
+- [ ] PSY S9.1-E02 — Trouble panique (attaques de panique récurrentes)
+
+Signature : AAI (Anthropic AI)
