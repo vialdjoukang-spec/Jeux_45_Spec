@@ -166,3 +166,8 @@ Signature : AAI (Anthropic AI)
 - Sources ORL lisibles : stratégie HUG « IVRS » 2021 (PDF hug.ch par WebFetch : durée, signes d'alarme, critères de sinusite bactérienne, Centor, doses d'antalgiques) ; résumé PubMed des recommandations AAO-HNSF (rhinite allergique 2015, amygdalectomie 2019) et AAP (SAOS de l'enfant 2012), dont les « action statements » figurent en entier ; résumé exécutif EPOS 2020 par WebFetch sur scispace.com.
 - Un PMID tiré de mémoire pour un consensus AAO-HNSF (septoplastie) pointait vers un article d'anthropologie : n'utilise que les PMID renvoyés par `search_articles`.
 - Une porte d'entrée nommée par un symptôme qui reprend le libellé (« nez bouché » pour l'obstruction nasale chronique) reste acceptable dans une vignette `d` 4–5 si la question porte sur une autre décision (rhinite médicamenteuse, alarme unilatérale).
+
+## Leçons (producteur unique, lot 38, 24.11.2026)
+- Deux canoniques voisins (K40.9_1 hernie inguinale de l'homme, K40.9 hernie inguinale ou ombilicale) : le second prend l'angle de ses portes non couvertes (hernie fémorale de la femme, hernie ombilicale, diastase, Spiegel, cirrhose, grossesse, dialyse).
+- Sources de paroi lisibles en texte intégral par `get_full_text_article` : HerniaSurge 2018 (PMC5809582, « Summary for general practitioners » à extraire par script), mise à jour 2023 (PMC10588975, tableaux « Recommendation » en texte), EHS/AHS 2020 circonstances particulières (PMC7093793) ; NICE CG49 se lit sur `nice.org.uk/guidance/cg49/chapter/Recommendations`.
+- Après un redémarrage du serveur, vérifie `git status` et `git log origin/main` : les JSON déjà construits mais non suivis se gardent, il suffit de relancer les contrôles avant le commit.

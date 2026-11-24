@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**333 / 500 pathologies du périmètre produites.**
+**336 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -277,9 +277,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 268 | `J15.9__O7_9-E02` | Pneumonie nosocomiale (acquise à l'hôpital ou sous ventilation) | PNE | produite |
 | 269 | `J34.2__S1_15-E01` | Obstruction nasale chronique (rhinite allergique, déviation septale, polypose) | ALL | produite |
 | 270 | `J35.3__S1_18-E03` | Hypertrophie adéno-amygdalienne de l'enfant (SAOS pédiatrique) | ORL | produite |
-| 271 | `K40.9_1__S4_11-E01` | Hernie inguinale réductible (oblique externe / directe) | CHI | — |
-| 272 | `K40.9__F1_5-E02` | Hernie inguinale ou ombilicale réductible | CHI | — |
-| 273 | `K56.4_1__O3_7-E07` | Incontinence fécale par regorgement sur fécalome (fausse diarrhée) | CHI | — |
+| 271 | `K40.9_1__S4_11-E01` | Hernie inguinale réductible (oblique externe / directe) | CHI | produite |
+| 272 | `K40.9__F1_5-E02` | Hernie inguinale ou ombilicale réductible | CHI | produite |
+| 273 | `K56.4_1__O3_7-E07` | Incontinence fécale par regorgement sur fécalome (fausse diarrhée) | CHI | produite |
 | 274 | `K64.8__F2_8-E01` | Hémorroïdes internes hémorragiques | CHI | — |
 | 275 | `K80.5__F2_11-E04` | Cholédocholithiase (lithiase de la voie biliaire principale) | GAS | produite |
 | 276 | `L27.0_2__O7_22-E02` | Exanthème maculopapuleux médicamenteux retardé | DER | — |
