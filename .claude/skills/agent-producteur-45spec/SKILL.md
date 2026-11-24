@@ -141,3 +141,10 @@ Signature : AAI (Anthropic AI)
 - Une revue citée ne couvre que ce qu'elle dit : Weiss 2019 recommande le fer oral en cas d'inflammation légère et le fer IV après 2 semaines d'échec, pas « le fer IV si l'inflammation est active » ; cette indication relève d'une autre source (ECCO 2015 pour les MICI actives).
 - Une recommandation peut avoir été remplacée : KDIGO anémie 2012 → KDIGO 2026 (document officiel sur kdigo.org, résumé PMID 41485807) ; cite le document officiel et vérifie les écarts internes (bilan martial en hémodialyse : 1 à 3 mois dans le texte, chaque mois dans la figure).
 - Contrôles avant fusion en une commande : un script local (menus longs sur toutes les spécialités, `classer_rendement.py`, arène sous `cache_hache.py`, `test_arene.py`) évite les oublis ; `.cache_hache.json` reste dans `.gitignore`.
+
+## Leçons (producteur unique, lots 32–33, 24.11.2026)
+- Une forme compacte laissée non suivie par un producteur arrêté (ex. `a94_D69_2.py`) se reprend, mais on rouvre chaque notice citée : un abstract qui ne contient pas l'affirmation (siège des lésions, émollients) oblige à changer de source (DermNet, page officielle) ou à écrire « Expert ».
+- Un PMID tiré de mémoire peut pointer vers un autre article (Sanders 2010 → lettre sur la mort subite du nourrisson) : vérifie le titre renvoyé par `get_article_metadata` avant de l'écrire.
+- Sources suisses ouvrables en ligne : OFSP 2012 « Carence en vitamine D » (edi.admin.ch), OSAV apports vitamine D (blv.admin.ch), OFSP « Faits et chiffres : tabac » (bag.admin.ch) ; NICE CG158 se lit sur nice.org.uk (WebFetch).
+- eutils.ncbi.nlm.nih.gov est refusé par le proxy : passe par le connecteur PubMed, sans contourner.
+- `couverture_compacte.py` signale aussi une notice de poids 2–3 couverte deux fois sous le même angle : ajoute-la à une question d'un autre angle (piège ou application) plutôt que de changer l'angle d'une question juste.
