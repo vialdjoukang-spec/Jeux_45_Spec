@@ -1,6 +1,6 @@
 # Progression NEU — production manuelle sans API (agent 45spec-NEU)
 
-Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 29.
+Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 32.
 
 Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts/ecrire_manuel.py SOURCE --spec NEU` (valider() et ecrire() du script de production).
 
@@ -22,6 +22,7 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | G44.0__S1_11-E07 | Algie vasculaire de la face (cluster headache) | 25 | 20 | 0 |
 | G50.0__G10-E08 | Névralgie du trijumeau | 27 | 20 | 0 |
 | G70.0__F1_11-E10 | Myasthénie grave (dysphonie et voix nasonnée fatigables) | 31 | 20 | 0 |
+| G97.1__S7_6-E09 | Céphalée post-ponction lombaire (syndrome d'hypotension du LCR) | 26 | 20 | 0 |
 | I61.9_hemorragie_intracere__F1_15-E13 | Hémorragie intracérébrale (intraparenchymateuse, du tronc, sur trouble de l'hémostase) | 26 | 20 | 0 |
 | E51.2__F1_15-E07 | Encéphalopathie de Gayet-Wernicke (carence aiguë en thiamine) | 25 | 20 | 0 |
 | G00.9__F1_15-E17 | Méningite bactérienne aiguë | 39 | 20 | 0 |
@@ -29,6 +30,7 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | G21.0__F1_15-E11 | Syndrome malin des neuroleptiques | 25 | 20 | 0 |
 | G40.9_premiere_crise_epile__O3_7-E15 | Première crise épileptique (crise inaugurale) | 25 | 20 | 0 |
 | G41.0__S7_10-E11 | État de mal épileptique convulsif généralisé (EME) | 38 | 20 | 0 |
+| G41.9_etat_de_mal_epilepti__F1_15-E16 | État de mal épileptique non convulsif (dont état de mal d'absences) | 25 | 20 | 0 |
 | G45.9__F1_11-E13 | Accident ischémique transitoire (AIT) avec trouble aigu du langage | 33 | 21 | 0 |
 | G61.0__O4_2-E13 | Syndrome de Guillain-Barré (polyradiculonévrite aiguë) | 36 | 20 | 0 |
 | G93.5_hypertension_intracr__F1_12-E11 | Hypertension intracrânienne secondaire et engagement cérébral | 25 | 20 | 0 |
@@ -37,6 +39,7 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | I63.9_avc_de_la_circulatio__F1_15-E14 | AVC de la circulation postérieure (tronc cérébral, cervelet, thrombose basilaire, syndrome de Wallenberg) | 25 | 20 | 0 |
 | I67.0_dissection_des_arter__F1_12-E12 | Dissection des artères cervicales (carotide ou vertébrale) | 25 | 20 | 0 |
 | I67.1__F1_12-E15 | Anévrisme de l'artère communicante postérieure (paralysie du III) | 28 | 20 | 0 |
+| G12.2_sclerose_laterale_am__F1_11-E09 | Sclérose latérale amyotrophique (SLA / maladie de Charcot) | 25 | 20 | 0 |
 
 ## Ordre de priorité retenu (importance pour l'examen)
 
@@ -69,9 +72,9 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 27. G40.2_epilepsie_focale_tem__G11-E17 — fait
 28. G25.0__S7_3-E01 — fait
 29. G31.8__F1_9-E06 — fait
-30. G41.9_etat_de_mal_epilepti__F1_15-E16
-31. G12.2_sclerose_laterale_am__F1_11-E09
-32. G97.1__S7_6-E09
+30. G41.9_etat_de_mal_epilepti__F1_15-E16 — fait
+31. G12.2_sclerose_laterale_am__F1_11-E09 — fait
+32. G97.1__S7_6-E09 — fait
 33. G93.2__G15-E20
 34. G25.8__G11-E04
 35. G62.1__S5_5-E04
