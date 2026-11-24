@@ -1,9 +1,8 @@
-# Ouvrier automatique — 2026-11-23 23:38 UTC
+# Ouvrier automatique — 2026-11-24 00:35 UTC
 
-Dernier passage : **END_N_lot** → fait (0.00 USD).
+Dernier passage : **END_N_recup** → en_cours (0.00 USD).
 
-notions : 325 entité(s) à produire.
-lot msgbatch_01EQEtoFQ1CRmhFG58U6S4r6
+msgbatch_01EQEtoFQ1CRmhFG58U6S4r6 : 314 écrites, 11 échecs.
 
 
 **Crédit** : 50.62 USD dépensés, 141.38 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.00 / 141.38 USD.
@@ -35,7 +34,7 @@ lot msgbatch_01EQEtoFQ1CRmhFG58U6S4r6
 | END_C_pilote | fait | 1 | 0.276 |
 | V1_fusions | fait | 1 | 0.223 |
 | END_N_lot | fait | 1 | 0.0 |
-| END_N_recup | a_faire | 0 |  |
+| END_N_recup | en_cours | 1 | 0.0 |
 | END_Q_lot | a_faire | 0 |  |
 | END_Q_recup | a_faire | 0 |  |
 | END_C_lot | a_faire | 0 |  |
