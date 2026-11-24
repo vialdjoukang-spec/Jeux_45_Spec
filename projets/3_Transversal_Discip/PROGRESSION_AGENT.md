@@ -18,14 +18,14 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | J | 12 | 12 |
 | K | 12 | 12 |
 | L | 12 | 12 |
-| M | 3 | 12 |
+| M | 6 | 12 |
 | N | 0 | 12 |
 | O | 0 | 12 |
 | P | 0 | 12 |
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **171** | **228** |
+| **Total** | **174** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -158,6 +158,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_M-S1-02** : Niveau de preuve du ventilateur dirigé vers le visage (essais randomisés de petite taille) et de l'oxygène chez le patient non hypoxémique (pas de bénéfice démontré).
 - **TRANS_M-S1-03** : Critères INTERMED ou outils suisses de repérage des besoins palliatifs (SPICT, question surprise) recommandés par l'OFSP et palliative.ch.
 - **TRANS_M-S1-03** : Prise en charge LAMal des équipes mobiles de soins palliatifs et des prestations de coordination en 2026 (révision de l'OPAS et motion sur le financement des soins palliatifs).
+- **TRANS_M-S2-01** : Ratios d'équianalgésie utilisés en Suisse : morphine orale 30 mg ≈ oxycodone orale 15-20 mg ≈ hydromorphone orale 6 mg ; morphine SC = 1/2 à 1/3 de la dose orale ; fentanyl transdermique 12 µg/h ≈ morphine orale 30 mg par jour (ratio approximatif 100:1) ; réduction de 25 à 50 % lors de la rotation.
+- **TRANS_M-S2-01** : Recommandations sur la buprénorphine transdermique et l'hydromorphone en insuffisance rénale (DFG < 30 mL/min) selon palliative.ch et l'EAPC.
+- **TRANS_M-S2-02** : Posologies palliatives usuelles : butylscopolamine 20 mg SC toutes les 4 à 6 heures (ou glycopyrronium 0,2 mg SC) pour les râles ; halopéridol 0,5 à 1,5 mg SC pour les nausées d'origine chimique et 0,5 à 2 mg pour le délirium ; métoclopramide 10 mg trois fois par jour (contre-indiqué en occlusion complète) ; selon palliative.ch et l'AIPS.
+- **TRANS_M-S2-02** : Données Cochrane sur l'absence d'efficacité démontrée des anticholinergiques dans les râles agoniques par rapport au placebo.
+- **TRANS_M-S2-03** : Posologies initiales : prégabaline 25 à 75 mg deux fois par jour avec adaptation rénale ; duloxétine 30 puis 60 mg par jour ; méthadone réservée aux équipes expérimentées ; radiothérapie antalgique en fraction unique de 8 Gy pour les métastases osseuses (ESTRO/ASTRO).
+- **TRANS_M-S2-03** : Recommandations ESMO 2018 et NeuPSIG sur le choix des coantalgiques dans la douleur neuropathique cancéreuse.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -171,4 +177,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : M (3/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : M (6/12), N (0/12), O (0/12), P (0/12), R (0/12).
