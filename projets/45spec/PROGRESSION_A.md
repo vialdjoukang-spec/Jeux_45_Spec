@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**339 / 500 pathologies du périmètre produites.**
+**342 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -284,9 +284,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 275 | `K80.5__F2_11-E04` | Cholédocholithiase (lithiase de la voie biliaire principale) | GAS | produite |
 | 276 | `L27.0_2__O7_22-E02` | Exanthème maculopapuleux médicamenteux retardé | DER | produite |
 | 277 | `L40.0__G9-E06` | Psoriasis en plaques | DER | produite |
-| 278 | `L70.0__O6_2-E02` | Acné vulgaire (comédons, papules, pustules, nodules) | DER | — |
-| 279 | `M06.9__F2_19-E03` | Polyarthrite rhumatoïde débutante (polyarthrite symétrique des mains/pieds) | RHU | — |
-| 280 | `M41.1__O2_12-E07` | Scoliose idiopathique de l'adolescent | PEA | — |
+| 278 | `L70.0__O6_2-E02` | Acné vulgaire (comédons, papules, pustules, nodules) | DER | produite |
+| 279 | `M06.9__F2_19-E03` | Polyarthrite rhumatoïde débutante (polyarthrite symétrique des mains/pieds) | RHU | produite |
+| 280 | `M41.1__O2_12-E07` | Scoliose idiopathique de l'adolescent | PEA | produite |
 | 281 | `M81.0__F2_20-E01` | Ostéoporose post-ménopausique primitive | RHU | — |
 | 282 | `N10_pyelonephrite_aigue___F2_15-E04` | Pyélonéphrite aiguë simple (non obstructive) | NEP | produite |
 | 283 | `N20.0__F2_15-E03` | Lithiase urinaire (colique néphrétique avec microhématurie) | URO | — |

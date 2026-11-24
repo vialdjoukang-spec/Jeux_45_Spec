@@ -179,3 +179,9 @@ Signature : AAI (Anthropic AI)
 - Entité voisine déjà produite (K64.9 grades et thrombose) : K64.8 prend l'angle de la rectorragie (FIT, seuil de 10 µg/g, anémie ferriprive, anticoagulants, varices rectales).
 - Un « éruption maculopapuleuse » dans la vignette paraphrase « exanthème maculopapuleux » : décris les lésions (« petites taches rosées, un peu surélevées »).
 - `controle_menus_longs.py <SPEC>` affiche « menus longs fautifs : 0 | erreurs valider() : 0 » : filtre cette chaîne pour ne voir que les spécialités fautives.
+
+## Leçons (producteur unique, lot 40, 24.11.2026)
+- La casse des chemins NICE varie d'une recommandation à l'autre : NG198 répond en minuscules (`/chapter/recommendations`), NG100 et CG153 avec une majuscule ; essaie les deux avant de conclure à un blocage.
+- SOSORT 2016 (scoliose, PMID 29435499) se lit en texte intégral par `get_full_text_article` (PMC5795289) ; extrais par motif (Adams, scoliomètre, IRM, rapport filles-garçons) au lieu de lire 185 000 caractères.
+- Une vignette `d` 4–5 sur un effet du méthotrexate ne cite pas l'indication par son nom (« pour une polyarthrite ») quand la pathologie canonique est la polyarthrite : écris « pour une maladie articulaire ».
+- Pathologie NON_MONOGRAPHIQUE sans médicament (M41.1) : `PLAN = "non_monographique"` et liste pharmacologique vide `[]` passent `valider()`.
