@@ -42,6 +42,9 @@ def correction(cid, spec):
     if not os.path.exists(f):
         return None
     d = json.load(open(f, encoding="utf-8"))
+    # Correction rejetée à l'audit ou de forme invalide (sortie tronquée) : la série reste jouable, sans correction.
+    if (d.get("audit") or {}).get("rejector") == "rejet" or not isinstance(d.get("ssp"), dict) or not isinstance(d.get("notions"), list):
+        return None
     return {"theme": d["theme"], "ssp": {**d["ssp"], "algorithme": imbriquer(d["ssp"]["algorithme"])},
             "notions": [{"id": x["id"], "titre": x["titre"], "rubriques": x.get("rubriques", []), "comment": x["comment"], "sources": x.get("sources", []),
                          "cours": {k: v for k, v in {"tableau": x.get("tableau"), "arbre": imbriquer(x.get("arbre")), "points": x.get("points")}.items() if v}} for x in d["notions"]],
