@@ -102,3 +102,60 @@ Source vérifiée en ligne : Swiss TPH, recommandations de traitement du paludis
 - Audit médical de Claude sur `hemato/pathologies.txt`, `infectio/pathologies.txt` et les 24 interprétations `he_*` et `ii_*`, puis fusion sur main.
 - Système suivant : locomoteur et rhumatologique (11 organes), puis dermatologique (les infections cutanées de l'érysipèle y renverront).
 - Correctif conseillé à `generer_json.py` : écrire les leçons transversales avec la même indentation que leur source et ne plus dédoublonner l'IGRA, pour que la régénération ne produise plus de bruit.
+
+## 9. Système ophtalmologique et ORL : jouable (branche `agent/tetrade-orl`, 2026-11-24)
+
+Le plan (`conception/plans/tetrade.plan.json`) regroupe l'œil et l'ORL en un seul système « Ophtalmologique & ORL » de 9 organes : l'agent a suivi ce regroupement.
+
+| Élément | Valeur |
+|---|---|
+| Organes rédigés | 5 (paupières et voies lacrymales, globe oculaire, voies optiques, oreille externe et moyenne, oreille interne) |
+| Organes en renvoi (`LIENS`) | 4 : Nez et sinus → Respiratoire (Fosses nasales et sinus) ; Cavité buccale et pharynx → Digestif et Respiratoire ; Larynx → Respiratoire ; Glandes salivaires → Digestif |
+| Volets propres | 9 (`V` dans `orl/contenu.txt`) |
+| Mots-clés d'anatomie et de physiologie | 75 (anatomie → vue 3D ; physiologie → 12 ouvrent une fenêtre de courbe) |
+| Sémiologie | 8 temps d'examen, 15 temps par organe, 46 signes (typiques, atypiques, 1 signe unique assumé : déficit pupillaire afférent) |
+| Pathologies du système | 40 : 10 TF, 17 F, 8 U, 5 R (chaque organe a ses 4 paliers) |
+| Pathologies ajoutées aux maisons | 5 : polypose nasosinusienne (F) et carcinome du nasopharynx (R) aux fosses nasales, carcinome de l'oropharynx (F) au pharynx, carcinome du larynx (F) au larynx, tumeur de la parotide (F) à la cavité buccale |
+| Glossaire | 26 sigles nouveaux (`orl/glossaire.txt`) + 3 au glossaire respiratoire |
+| Fenêtres nouvelles (canvas) | `or_refraction` (œil réduit, accommodation de Hofstetter), `or_pio` (équation de Goldmann), `or_audio` (audiogramme tonal, grades OMS 2021) |
+| Interprétations corrélées | 18 scénarios nouveaux (`or_*`), statut RÉDIGÉ — à auditer |
+
+Répartition par organe : paupières 7, globe 12, voies optiques 6, oreille externe et moyenne 8, oreille interne 7.
+
+Renvois sans doublon vers le système neurologique (par nom) : paralysie faciale de Bell, schwannome vestibulaire, paralysies oculomotrices, myasthénie oculaire, artérite à cellules géantes, migraine, AVC ; vers l'endocrinien : adénome hypophysaire et apoplexie.
+
+### Changements de moteur
+
+- `systemes_rediges.py` : une ligne `Ophtalmologique & ORL` (préfixe `or_`, couleur `#5b6574`).
+- `construire_config_tetrade.py` : 4 entrées `LIENS` (Nez et sinus, Cavité buccale et pharynx, Larynx, Glandes salivaires).
+- `fenetres.js` : 3 modèles canvas ; aucune fonction existante modifiée.
+- `projets/retours/migrations_ids.json` : 5 renommages `org_ophtal_*` → `or_*`. Les 4 organes en renvoi gardent leur identifiant `org_ophtal_*` (dont `org_ophtal_larynx`, qui porte un modèle 3D produit).
+- Non fait, à décider par un humain : purger un `aVerifier` levé dans la source lors de la régénération (défaut relevé dans `AUDIT_TETRADE.md`). La correction exige d'assouplir `non_perte.py` ; l'agent n'a pas touché à la garde.
+
+### Vérifications passées avant le push
+
+- `construire_config_tetrade.py` → 3109 nœuds, 36 organes encore à produire.
+- `construire_plans.py`, `generer_json.py`, `rendre_plans.py` → plans écrits, PDF générés (non commités).
+- `audit_fond.py` → 0 correction, 815 examens fiables.
+- `auditer_conception.py` → **RÉUSSI 34/34** ; `auditer_couverture.py` → **RÉUSSI**.
+- `non_perte.py` → **OK (0 perte)**, après restauration des deux `2_cou/ganglions_cervicaux.json` depuis main (défaut IGRA connu).
+- `verifier_interpretations.py` → **160/160, 0 défaut**.
+- Playwright sans écran (routage de fichiers) : `or_refraction`, `or_pio`, `or_audio`, tous les scénarios et tous les curseurs aux extrêmes, **0 erreur JS**, valeurs plausibles (emmétropie 0 D, myopie axiale −4,75 D, PIO normale 16 mmHg, crise de fermeture 62 mmHg, otosclérose avec encoche de Carhart, surdité brusque 65 dB HL).
+
+### Sources vérifiées en ligne pendant la production
+
+- SGRM 2024 (fiche vision, d'après l'OAC annexe 1) : groupe 1, acuité 0,5 au meilleur œil et 0,2 à l'autre (0,6 si un seul œil) ; champ binoculaire horizontal d'au moins 120 degrés, 50 de chaque côté, 20 en haut et en bas ; champ central normal jusqu'à 20 degrés.
+- Mémento AVS 3.07 (état au 1er janvier 2023) : forfait de 630 francs pour une oreille, 1237,50 francs pour les deux, au plus tous les 5 ans.
+- Plebani, Paediatrica 2023;34(1) (CHUV) : antibiotique d'emblée avant 2 ans, otite bilatérale ou perforée ; amoxicilline 25 mg/kg 2 fois par jour (au plus 1 g), 5 jours dès 2 ans, 10 jours avant 2 ans ou si perforation.
+- PubMed : chaque référence datée a été confrontée à sa notice (Owen 2019, Mac Grory 2021, Bartalena 2021, Chandrasekhar 2019, Basura 2020, Rosenfeld 2014 et 2016, Schwartz 2017, Bhattacharyya 2017, Stachler 2018, Carelli 2017, Petzold 2022, Mollan 2018, Friedman 2013, Strupp 2004, Kattah 2009, Minor 1998, Yung 2017, Lopez-Escamez 2015, Adrion 2016, Dua 2001, Gazzard 2019, Yam 2019, Schmidt-Erfurth 2014, Jabs 2005, Chandler 1970, Bossi 2021, Machiels 2020, AAO Blepharitis 2024, Conjunctivitis 2024, PVD 2025).
+
+### Points `aVerifier` (19)
+
+Sécheresse oculaire (TFOS DEWS III) ; blépharite (dose de doxycycline) ; dacryocystite et cellulite orbitaire (schéma antibiotique) ; orbitopathie (téprotumumab en Suisse) ; myopie (atropine faible en Suisse) ; DMLA (mise à jour après EURETINA 2014) ; rétinopathie diabétique (intervalle suisse) ; occlusion de l'artère centrale (thrombolyse) ; kératite amibienne (polihexanide en Suisse) ; ischémie du nerf optique (15 % de l'œil adelphe) ; Leber (idébénone en Suisse) ; otite moyenne (dose adulte) ; otite externe (spécialité suisse) ; mastoïdite et otite nécrosante (antibiotiques) ; névrite vestibulaire (corticoïdes) ; traumatisme sonore (corticoïdes, seuil Suva) ; polypose (dupilumab, Liste des spécialités). Toutes les posologies gardent « à vérifier dans l'AIPS ».
+
+### Suite proposée
+
+- Audit médical de Claude sur `orl/pathologies.txt`, les 5 ajouts des maisons et les 18 interprétations `or_*`, puis fusion sur main (après la branche `agent/tetrade-loco`).
+- Production des modèles 3D des 5 organes `or_*` (absents de `anatomie3d/index.json`, comme les organes `he_*`).
+
+Signature : AAI (Anthropic AI)
