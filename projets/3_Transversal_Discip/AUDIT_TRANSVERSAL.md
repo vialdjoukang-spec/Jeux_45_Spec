@@ -220,3 +220,43 @@ Audit réalisé le 24.11.2026 par Claude, avec la même méthode : chaque chiffr
 - Le doute du lot 1 sur S4-01 reste ouvert.
 
 Signature : AAI (Anthropic AI)
+
+# Lot 4 — lettres P et R, et doute A-S4-01
+
+Audit réalisé le 24.11.2026 par Claude, avec la même méthode. Les sources primaires consultées sont l'OFSP (développement de la qualité, art. 58 à 58h LAMal), la FMH (Bulletin des médecins suisses 2024 sur les CIRS ; aide à l'orientation lors d'incidents médicaux), H+ (convention de qualité, art. 58a LAMal), NHS England, le SECO, l'OSAV, l'OFEV, l'OFSP (FSME), PubMed (Haynes 2009, Westbrook 2010, Hickman 2021) et le recueil des ATF de l'Université de Berne (servat.unibe.ch). bger.ch et fedlex restaient inaccessibles, et le quota de Legal Data Hunter était épuisé.
+
+## Bilan
+
+| Lettre | Auditées | AUDITÉ | Corrigées | Doutes restants |
+|---|---|---|---|---|
+| P | 12 | 12 | 4 | 0 |
+| R | 12 | 12 | 3 | 0 |
+| A (S4-01) | 1 | 1 | 1 | 0 |
+| **Total** | **25** | **25** | **8** | **0** |
+
+## A-S4-01 — doute du lot 1 levé
+
+- ATF 130 V 352 (12.3.2004, troubles somatoformes douloureux), ATF 137 V 210 (28.6.2011, procédure équitable dans les expertises COMAI ; attribution aléatoire selon la FMH), ATF 143 V 409 et 418 (30.11.2017, troubles dépressifs et procédure structurée pour tous les troubles psychiques) : contenu conforme à la leçon.
+- **Distracteur remplacé** : le contenu de l'ATF 146 V 51 n'a pas pu être vérifié ; le QCM 1 utilise désormais l'ATF 143 V 409, dont l'explication est sourcée.
+
+## P — Sécurité des patients et qualité
+
+- P2-02 : **recommandations corrigées** : le délai « idéalement dans les 24 heures » n'avait aucune source suisse ; la FMH demande une information « dans les meilleurs délais ». L'assurance RC ne reçoit des données du patient qu'avec son accord (secret professionnel), sans aveu de responsabilité. Le titre français « Quand un incident survient » n'a pas pu être vérifié : la brochure est rattachée à sa source vérifiée (« Wenn etwas schief geht », adaptation du consensus de Harvard « When Things Go Wrong », 2006), et le QCM 5 est réécrit.
+- P2-01 : **affirmation juridique précisée** : l'art. 58g let. c OAMal exige un système interne de rapports et d'apprentissage ; aucune base légale ne protège encore les déclarations CIRS (motion 18.4210 adoptée en 2020).
+- P1-01 : « la plupart des hôpitaux suisses » (non sourcé) est remplacé par la checklist suisse de 2012, progress! 2013-2015 et la reconnaissance dans la convention de qualité depuis 2023. Haynes 2009 est vérifié (1,5 % à 0,8 % ; 11,0 % à 7,0 %).
+- P1-03 : le retrait « large » des électrolytes concentrés en Suisse (non sourcé) est reformulé comme recommandation internationale.
+- Vérifiés : art. 58 à 58b LAMal (1.4.2021, conventions approuvées par le Conseil fédéral, CFQ), ANQ, LTr applicable aux médecins assistants depuis le 1.1.2005 (SECO), Westbrook 2010, protocole de Londres, cadre NHS des never events (maintenu en 2025 pendant une phase exploratoire).
+
+## R — Santé environnementale et climat
+
+- R2-02 : **erreur corrigée (QCM 1)** : l'affirmation « Genève ajoutée en 2024 » n'est pas vérifiable ; l'OFSP classe toute la Suisse sauf le Tessin en zone à risque, sans date pour Genève.
+- R1-02 : la mention de GOLD est retirée ; seul GINA intègre l'impact environnemental des inhalateurs.
+- R3-02 : le remboursement « sur prescription d'un allergologue » est remplacé par les limitations de la Liste des spécialités.
+- Vérifiés : StAR lancée en 2015 et plan One Health 2024-2027 (26.6.2024), valeur PM2,5 de l'OPair depuis 2018 et valeurs OMS 2021 plus strictes, pyramide alimentaire 2024 avec durabilité, desflurane interdit dans l'UE dès le 1.1.2026 sauf nécessité médicale, valeurs PFAS de l'OPBD et reprise prévue de la valeur UE, FSME dès 3 ans, Hickman 2021, CIM-11.
+
+## Points de vigilance
+
+- Les chiffres que le rédacteur avait laissés hors du texte (surmortalité estivale, PRG des gaz, prévalence de la rhinite, part des émissions du secteur de la santé) n'ont pas été ajoutés.
+- L'art. 58g let. c OAMal est cité d'après la FMH (BMS 2024), car fedlex était inaccessible ; l'aVerifier initial parlait de l'art. 58d.
+
+Signature : AAI (Anthropic AI)
