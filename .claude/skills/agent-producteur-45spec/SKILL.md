@@ -161,3 +161,8 @@ Signature : AAI (Anthropic AI)
 - Une recommandation se cite d'après son propre texte, jamais d'après un commentaire, un résumé ACC ou AFP : I73.9 citait l'ESC 2024 d'après un commentaire, avec des classes et des niveaux non relus et un « 25 % » d'IPS normal absent du texte.
 - L'ESC 2024 (PMID 39210722) se lit par WebFetch sur academic.oup.com (`/eurheartj/article/45/36/3538/7738955`, 857 000 caractères, pages par `offset` de 100 000 ; le texte PAD tient entre 100 000 et 200 000) ; les tableaux de recommandations n'y apparaissent pas en texte : n'écris donc ni classe ni niveau que tu n'as pas lus.
 - Un « risque élevé d'amputation » ne vaut pas pour la claudication (ESC 2024 : 1 % d'amputations majeures contre 9 % dans l'ischémie menaçante).
+
+## Leçons (producteur unique, lot 37, 24.11.2026)
+- Sources ORL lisibles : stratégie HUG « IVRS » 2021 (PDF hug.ch par WebFetch : durée, signes d'alarme, critères de sinusite bactérienne, Centor, doses d'antalgiques) ; résumé PubMed des recommandations AAO-HNSF (rhinite allergique 2015, amygdalectomie 2019) et AAP (SAOS de l'enfant 2012), dont les « action statements » figurent en entier ; résumé exécutif EPOS 2020 par WebFetch sur scispace.com.
+- Un PMID tiré de mémoire pour un consensus AAO-HNSF (septoplastie) pointait vers un article d'anthropologie : n'utilise que les PMID renvoyés par `search_articles`.
+- Une porte d'entrée nommée par un symptôme qui reprend le libellé (« nez bouché » pour l'obstruction nasale chronique) reste acceptable dans une vignette `d` 4–5 si la question porte sur une autre décision (rhinite médicamenteuse, alarme unilatérale).
