@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API (format exact de `scripts/produire_notions_questions.py`), branche `agent/45spec-INF`.
 
-**27 / 61 pathologies canoniques produites** (notions + questions + correction), ordre de rendement à l'examen (`content/pathologies/RANG_RENDEMENT.json` : groupe A, puis B, C, D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée).
+**30 / 61 pathologies canoniques produites** (notions + questions + correction), ordre de rendement à l'examen (`content/pathologies/RANG_RENDEMENT.json` : groupe A, puis B, C, D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée).
 
 Fusions : 15 groupes dans `content/pathologies/fusions_INF.json` ; doublons déjà produits archivés dans `projets/45spec/archives_fusion/INF`.
 
@@ -28,11 +28,11 @@ Statut d'audit : en attente (`audit.rejector = null`). Les chiffres incertains p
 | 16 | B | 737 | `B27.0_mononucleose_infecti__F2_5-E04` | Mononucléose infectieuse (EBV) et syndrome mononucléosique à CMV | produite |
 | 17 | B | 753 | `A39.2__F1_4-E12` | Purpura fulminans (méningococcémie / sepsis fulminant) | produite |
 | 18 | B | 755 | `B00.4__F1_9-E16` | Encéphalite infectieuse aiguë (encéphalite herpétique HSV-1) | produite |
-| 19 | B | 756 | `B00.5__S1_17-E14` | Kératite dendritique herpétique (HSV-1) | — |
+| 19 | B | 756 | `B00.5__S1_17-E14` | Kératite dendritique herpétique (HSV-1) | produite |
 | 20 | B | 850 | `A07.1__F2_8-E07` | Giardiase (lambliase intestinale) | produite |
 | 21 | B | 855 | `B80__F2_8-E12` | Oxyurose (entérobiase à Enterobius vermicularis) | produite |
-| 22 | B | 930 | `A03.9_enterocolite_bacteri__F2_8-E16` | Entérocolite bactérienne invasive sévère (Salmonella, Shigella, STEC) | — |
-| 23 | B | 934 | `A36.0__S1_19-E15` | Diphtérie pharyngée (angine pseudomembraneuse toxique) | — |
+| 22 | B | 930 | `A03.9_enterocolite_bacteri__F2_8-E16` | Entérocolite bactérienne invasive sévère (Salmonella, Shigella, STEC) | produite |
+| 23 | B | 934 | `A36.0__S1_19-E15` | Diphtérie pharyngée (angine pseudomembraneuse toxique) | produite |
 | 24 | B | 935 | `A40.3__O7_6-E12` | Sepsis fulminant chez le patient asplénique (OPSI) | — |
 | 25 | B | 936 | `A41.0__O1_6-E15` | Sepsis maternel sur mastite ou endométrite associée | — |
 | 26 | B | 938 | `A41.8_sepsis_et_choc_septi__G4-E20` | Sepsis et choc septique de l'adulte | — |

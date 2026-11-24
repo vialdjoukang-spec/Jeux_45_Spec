@@ -42,6 +42,11 @@ L'agent écrit lui-même le contenu que le script demanderait à l'API ; il doit
 - Ordre de production : rang de `content/pathologies/RANG_RENDEMENT.json` (groupe A, puis B, C, D), plus l'ordre fréquence. Une pathologie fusionnée change d'id et manque au classement : on lui donne le meilleur rang de ses portes d'entrée (`entiteId` avec « . » → « _ » = suffixe de la clé du rang), comme le font `selection()` et `progression.py`.
 - Une étape de série qui nomme le diagnostic (« vous suspectez un botulisme ») porte aussi `m=0`.
 
+## Leçons (lot 12, 24.11.2026)
+- Correction : chaque bloc `notions` porte au plus 4 rubriques ; `conduite.urgence.etapes` en exige au moins 3.
+- Catégories non pharmacologiques exactes : psychothérapie, éducation thérapeutique, geste ou chirurgie, rééducation, nutrition, soins infirmiers, social et assurances, hygiène de vie, autre (« hygiène » seul est refusé).
+- Une Kprim ou une A dont la vignette nomme le diagnostic (« kératite dendritique ») porte `m=0`, même hors série.
+
 Relais : `ultra-competent-fast-doctor`, `medical-accuracy-100`, `i-write-so-fast`.
 
 Signature : AAI (Anthropic AI)
