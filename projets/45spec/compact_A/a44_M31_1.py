@@ -53,7 +53,7 @@ Q = [
 {"f":"A","m":0,"s":("S1",4,4),"st":"L'activité d'ADAMTS13 revient à moins de 5 % avec un inhibiteur ; vous retenez un PTT immun.",
  "p":"Que pouvez-vous ajouter aux échanges plasmatiques et aux corticoïdes ?","o":A((1,"Caplacizumab et rituximab","ISTH."),(0,"Héparine thérapeutique","Faux."),(0,"Transfusions de plaquettes répétées","Danger."),(0,"Éculizumab en première intention","SHU atypique."),(0,"Antibiotiques","Faux.")),
  "n":n("caplac","rituximab","adamts"),"a":"application","d":3,"l":("PTT immun.","Anticorps anti-ADAMTS13.","< 5 %.","Inhibiteur.","Caplacizumab, rituximab.","Éculizumab.","Ajouter caplacizumab et rituximab.")},
-{"f":"A","st":"Chez une patiente avec suspicion de PTT et 9 G/L de plaquettes, sans saignement, on doit poser un cathéter d'aphérèse ; l'infirmière propose une transfusion de plaquettes.",
+{"f":"A","m":0,"st":"Chez une patiente avec suspicion de PTT et 9 G/L de plaquettes, sans saignement, on doit poser un cathéter d'aphérèse ; l'infirmière propose une transfusion de plaquettes.",
  "p":"Que répondez-vous ?","o":A((1,"Vous évitez la transfusion de plaquettes en l'absence d'hémorragie grave","Thromboses."),(0,"Vous transfusez deux concentrés systématiquement","Piège."),(0,"Vous renoncez à l'aphérèse","Danger."),(0,"Vous donnez de l'acide tranexamique en continu","Faux."),(0,"Vous attendez des plaquettes à 50 G/L","Retard.")),
  "n":n("plaquettes","redflag"),"a":"piège","d":3,"l":("Transfusion.","Thromboses.","9 G/L.","Sans saignement.","Éviter.","Transfuser.","Pas de plaquettes sans hémorragie grave.")},
 {"f":"A","st":"Un enfant de 4 ans a eu 3 jours de diarrhée sanglante ; il urine peu, il est pâle et ses plaquettes valent 40 G/L avec des schizocytes au frottis.",

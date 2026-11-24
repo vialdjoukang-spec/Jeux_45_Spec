@@ -94,3 +94,9 @@ Signature : AAI (Anthropic AI)
 - Libellés transversaux : il n'existe pas de « H Gériatrie » ; pour la fin de vie, prends « M Médecine palliative » ; vérifie un libellé par `grep '"discipline"' content/corrections` avant de l'écrire.
 - Sources suisses vérifiables en ligne : stratégies et protocoles des HUG (hug.ch, par ex. infections urinaires 2026, diabète gestationnel 2022) et pages OFSP ; préfère-les à un avis d'expert.
 - Une pathologie pédiatrique du groupe A (ex. K56.1, CPE) crée un nouveau dossier de spécialité : le constructeur le fait seul, et l'arène génère le deck.
+
+## Leçons (agent A, lots 15–16, 24.11.2026)
+- `valider()` ne repère dans la vignette que le libellé complet du diagnostic masqué : une vignette qui dit « zona », « PTT » ou « retard de langage » porte quand même `m=0` ; relis chaque `st` avant de lancer le constructeur.
+- Recommandation longue sur PMC (captcha WebFetch) : `get_full_text_article` du connecteur PubMed écrit le texte sur disque ; extrais par script les blocs « Recommendation N » au lieu de lire le fichier entier.
+- Pathologie sans urgence : la clé de `pec` est libre (ex. « orienter », « suivi ») ; passe `urg=None` et fournis `horsUrgence`, et reprends la même clé dans les nœuds `ssp`.
+- Ne pousse jamais avec `-f` : la branche agent se met à jour par `git merge --ff-only main` puis un push simple.

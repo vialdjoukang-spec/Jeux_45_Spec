@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**267 / 500 pathologies du périmètre produites.**
+**270 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -167,17 +167,17 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 158 | `M31.1__F2_10-E13` | Microangiopathie thrombotique (PTT / SHU) | RHU | produite |
 | 159 | `N10_pyelonephrite_aigue___F2_15-E14` | Pyélonéphrite aiguë obstructive | NEP | produite |
 | 160 | `R57.1__F1_1-E15` | Choc hémorragique aigu (hypotension sévère) | INT | produite |
-| 161 | `B02.9__S2_12-E06` | Zona (herpès zoster) | DER | — |
+| 161 | `B02.9__S2_12-E06` | Zona (herpès zoster) | DER | produite |
 | 162 | `B34.9_infection_virale_aig__F2_19-E02` | Infection virale aiguë non spécifique (myalgies, cytopénies transitoires) | INF | produite |
 | 163 | `E66.9__O2_12-E04` | Surpoids et obésité pédiatrique | END | produite |
 | 164 | `E85.0__F2_19-E12` | Fièvre méditerranéenne familiale (FMF) | END | produite |
 | 165 | `F03_trouble_neurocogniti__O3_6-E01` | Trouble neurocognitif majeur (maladie d'Alzheimer / démence fronto-temporale / corps de Lewy) | PSY | produite |
-| 166 | `F10.0__F1_15-E01` | Intoxication éthylique aiguë | TOX | — |
+| 166 | `F10.0__F1_15-E01` | Intoxication éthylique aiguë | TOX | produite |
 | 167 | `F45.2__O7_18-E09` | Anxiété liée à la maladie (hypocondrie / trouble de préoccupation somatique) | PSY | produite |
 | 168 | `F50.2__O2_6-E05` | Boulimie nerveuse (bulimia nervosa) | PSY | produite |
 | 169 | `F51.0__G11-E01` | Insomnie chronique primaire | PSY | produite |
 | 170 | `F60.3__O6_8-E07` | Trouble de la personnalité limite (borderline) en crise identitaire ou affective | PSY | produite |
-| 171 | `F80.9__O2_12-E05` | Retard isolé du langage (trouble développemental du langage / dysphasie) | PEA | — |
+| 171 | `F80.9__O2_12-E05` | Retard isolé du langage (trouble développemental du langage / dysphasie) | PEA | produite |
 | 172 | `F93.0__O2_10-E04` | Anxiété de séparation (enfant ou adulte) | PEA | — |
 | 173 | `G63.2__O3_2-E10` | Polyneuropathie diabétique distale symétrique | NEU | produite |
 | 174 | `H35.3__O3_2-E05` | Dégénérescence maculaire liée à l'âge (DMLA) | OPH | — |
