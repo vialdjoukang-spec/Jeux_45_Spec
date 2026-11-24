@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**131 / 229 pathologies du périmètre produites.**
+**134 / 229 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans ['INF', 'NEU', 'PED', 'PSY'] (autres agents) ou ['DER', 'GYN', 'HEM', 'MIG', 'OBS', 'OPH', 'ORL', 'RHU', 'TOX', 'URO'] (agent A2).
 
@@ -73,9 +73,9 @@ Hors périmètre : première spécialité dans ['INF', 'NEU', 'PED', 'PSY'] (aut
 | 114 | `J93.0__F1_18-E13` | Pneumothorax suffocant (sous tension) | CTH | produite |
 | 115 | `K40.3__F1_5-E13` | Hernie étranglée (masse inguinale ou crurale irréductible) | CHI | produite |
 | 117 | `M72.6__F1_14-E12` | Fasciite nécrosante (gangrène streptococcique ou polymicrobienne) | CPL | produite |
-| 121 | `T78.2__F1_1-E17` | Anaphylaxie aiguë (choc anaphylactique) | ALL | — |
-| 122 | `T78.3__F1_16-E13` | Angio-œdème laryngé aigu | ALL | — |
-| 123 | `T79.6__G10-E22` | Syndrome des loges (compartiment) aigu | CHI | — |
+| 121 | `T78.2__F1_1-E17` | Anaphylaxie aiguë (choc anaphylactique) | ALL | produite |
+| 122 | `T78.3__F1_16-E13` | Angio-œdème laryngé aigu | ALL | produite |
+| 123 | `T79.6__G10-E22` | Syndrome des loges (compartiment) aigu | CHI | produite |
 | 127 | `E28.2__G15-E05` | Syndrome des ovaires polykystiques (SOPK) | END | produite |
 | 128 | `E66.0_obesite_de_l_adulte__G15-E01` | Obésité de l'adulte | END | produite |
 | 135 | `I35.0_stenose_aortique__F1_19-E06` | Sténose aortique | CAR | produite |
