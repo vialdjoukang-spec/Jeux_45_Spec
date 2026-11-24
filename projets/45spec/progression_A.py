@@ -2,8 +2,8 @@
 import os, json, glob
 R = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 RG = json.load(open(os.path.join(R, "content", "pathologies", "RANG_RENDEMENT.json"), encoding="utf-8"))["pathologies"]
-AUTRES = {"PSY", "NEU", "INF", "PED"}                                   # autres agents
-A2 = {"ORL", "OPH", "GYN", "OBS", "URO", "MIG", "HEM", "TOX", "DER", "RHU"}  # agent/45spec-A2 (décision du 24.11.2026)
+AUTRES = set()  # 24.11.2026 14:27 : agent A seul producteur, tout le groupe A
+A2 = set()  # agent A2 arrêté le 24.11.2026
 ok = lambda k, v: all(os.path.exists(os.path.join(R, "content", d, v["codes"][0], k + ".json")) for d in ("notions", "questions", "corrections"))
 L = sorted((v["rang"], k, v) for k, v in RG.items() if v.get("groupe") == "A")
 lig = ["# Progression 45 Spec — groupe A (agent A)", "",
