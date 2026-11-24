@@ -1,11 +1,19 @@
 {
  "_meta": {
-  "statut": "À REMPLIR",
+  "statut": "AUDITÉ",
   "discipline": "D — Digitalisation & Cybersanté",
   "regles": [
    "La leçon commence par un cas suisse concret et finit par une décision à prendre.",
    "Phrases verbales ; tout sigle figure au glossaire.",
    "Elle renvoie aux SSP sans les recopier."
+  ],
+  "signature": "AAI (Anthropic AI)",
+  "aVerifier": [],
+  "sources": [
+   "IG eMediplan, spécifications eMediplan (consultées le 23.11.2026)",
+   "HL7 International, FHIR R4 ; eHealth Suisse, formats d'échange CH EPR",
+   "OMS, Medication Without Harm, 3e défi mondial pour la sécurité des patients, 2017",
+   "Sécurité des patients Suisse, programme pilote « progress! La sécurité de la médication aux interfaces »"
   ]
  },
  "id": "TRANS_D-S2-03",
@@ -13,57 +21,140 @@
  "lettre": "D",
  "sousOnglet": "TRANS_D_SUB_1",
  "strate": "F",
- "casDOuverture": null,
+ "casDOuverture": "À Aarau, une femme de 81 ans sort de l'hôpital après une décompensation cardiaque ; la lettre de sortie liste neuf médicaments, mais le plan papier qu'elle apporte à son médecin de famille en compte onze, et la pharmacie possède une troisième liste. Deux semaines plus tard, elle prend à la fois l'ancien et le nouveau diurétique et chute. Tu dois décider comment sécuriser la transmission de sa médication.",
  "parties": {
-  "1. Cadre": null,
-  "2. Notions fondamentales": null,
-  "3. Outils et méthodes": null,
-  "4. Décisions et seuils": null,
-  "5. Applications par système": null,
-  "6. Particularités par terrain": null,
-  "7. Pièges et confusions": null,
-  "8. Pratique suisse": null,
-  "9. Exercices et répétition": null
+  "1. Cadre": "Les transitions de soins (entrée et sortie d'hôpital, passage en EMS, changement de médecin) concentrent les erreurs de médication, parce que chaque acteur possède une liste différente. L'interopérabilité désigne la capacité de systèmes informatiques différents à échanger des données et à les utiliser sans ressaisie. Elle réduit les erreurs de transcription et rend la liste à jour accessible à tous. En Suisse, l'eMediplan offre un format commun de plan de médication, lisible par l'humain et par la machine grâce à un code QR.",
+  "2. Notions fondamentales": "La réconciliation médicamenteuse compare la liste la plus complète possible, obtenue de plusieurs sources, avec les prescriptions en cours, et elle corrige toute divergence non intentionnelle. Une divergence intentionnelle est un changement voulu et documenté ; une divergence non intentionnelle est une omission, un doublon ou une erreur de dose. HL7 désigne une famille de normes d'échange de données de santé, et FHIR en est la version moderne fondée sur des ressources web. L'interopérabilité comprend un niveau technique (transmettre), sémantique (utiliser le même vocabulaire, par exemple les codes de médicaments) et organisationnel (définir qui met à jour).",
+  "3. Outils et méthodes": "Le médecin établit à l'entrée une liste complète en croisant au moins deux sources : entretien avec le patient, boîtes apportées, pharmacie, médecin de famille et DEP. À la sortie, il produit un plan eMediplan avec code QR, qui indique chaque médicament, sa dose, son horaire, l'indication et les changements (arrêtés, nouveaux, modifiés). Le médecin de famille ou le pharmacien scanne le code QR et importe le plan sans ressaisie. Le patient reçoit une version lisible et l'explication des changements, et le plan est déposé dans le DEP s'il en possède un.",
+  "4. Décisions et seuils": "Le médecin réconcilie systématiquement la médication à chaque transition, en priorité chez le patient âgé, polymédiqué (cinq médicaments ou plus) ou porteur de médicaments à haut risque (anticoagulants, insuline, opioïdes, digoxine). Il justifie chaque changement dans la lettre de sortie, parce qu'un arrêt non expliqué sera souvent repris par erreur. Il désigne un responsable unique de la liste après la sortie, en général le médecin de famille. Il vérifie la compréhension du patient par reformulation.",
+  "5. Applications par système": "En cardiologie, les diurétiques, les anticoagulants et les antiarythmiques causent les erreurs les plus graves aux transitions. En endocrinologie, les changements de schéma d'insuline exposent à l'hypoglycémie. En gériatrie, la polymédication multiplie les doublons. En psychiatrie, l'arrêt brutal d'un traitement ou un doublon de psychotropes expose au sevrage ou au surdosage. En antalgie, les changements d'opioïdes exposent au surdosage.",
+  "6. Particularités par terrain": "Chez la personne âgée en EMS, l'infirmière et le pharmacien de l'EMS participent à la réconciliation. Chez l'enfant, les doses dépendent du poids et le plan doit indiquer les volumes de sirop. Chez le patient allophone, le plan traduit et expliqué réduit les erreurs. Chez le patient qui gère seul plusieurs prescripteurs, le pharmacien joue un rôle central de synthèse.",
+  "7. Pièges et confusions": "Le premier piège consiste à recopier la liste du dossier précédent sans la vérifier. Le deuxième consiste à confondre une liste de médicaments avec un plan de médication, qui inclut horaires, indications et changements. Le troisième consiste à oublier l'automédication, les gouttes, les patchs et les médicaments pris seulement certains jours. Le quatrième consiste à croire que l'échange électronique supprime toute erreur ; une liste fausse reste fausse. Le dernier consiste à ne pas expliquer au patient les médicaments arrêtés.",
+  "8. Pratique suisse": "En Suisse, l'eMediplan est soutenu par plusieurs organisations professionnelles et cantons, et il peut être intégré au DEP. Les pharmaciens réalisent des entretiens de polymédication remboursés selon une convention tarifaire. eHealth Suisse définit les formats d'échange fondés sur les normes internationales, dont FHIR. La fondation Sécurité des patients Suisse a mené un programme national sur la sécurité de la médication aux interfaces.",
+  "9. Exercices et répétition": "Pour t'exercer, prends trois listes discordantes d'un même patient fictif et produis une liste réconciliée en marquant chaque divergence comme intentionnelle ou non. Rédige la partie médication d'une lettre de sortie avec les changements expliqués. La notion revient dans l'onglet P (transitions de soins, réconciliation) et dans l'onglet O (déprescription, interactions)."
  },
- "decisionFinale": null,
+ "decisionFinale": "Le médecin de famille réconcilie la médication en croisant la lettre de sortie, le plan papier, la liste de la pharmacie et les boîtes de la patiente, supprime le doublon de diurétique, établit un eMediplan unique avec code QR qu'il partage avec la pharmacie et dépose dans le DEP, explique chaque changement à la patiente et à sa fille, et se désigne comme responsable de la liste.",
  "items": [
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Sion, à l'admission d'un patient de 78 ans polymédiqué, comment établis-tu la meilleure liste de médicaments ?",
+   "options": [
+    "Tu recopies la dernière lettre de sortie",
+    "Tu croises au moins deux sources (patient, boîtes, pharmacie, médecin traitant, DEP)",
+    "Tu demandes seulement au patient",
+    "Tu te fies à la liste de l'assureur",
+    "Tu attends la visite du lendemain"
+   ],
+   "bonneReponse": "B",
+   "explicationParOption": {
+    "A": "La lettre peut être dépassée ou fausse.",
+    "B": "Le croisement de sources détecte omissions, doublons et erreurs de dose.",
+    "C": "Le patient oublie souvent des médicaments, surtout les gouttes et les patchs.",
+    "D": "La liste de remboursement ne reflète pas la prise réelle.",
+    "E": "Le délai expose à des omissions ou à des doublons dès l'admission."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Lausanne, un médecin hospitalier arrête un bêtabloquant pendant le séjour. Comment évite-t-il que le médecin de famille le reprenne par erreur ?",
+   "options": [
+    "Il ne mentionne pas l'arrêt",
+    "Il indique dans le plan de sortie que le médicament est arrêté et pourquoi",
+    "Il demande au patient de s'en souvenir",
+    "Il raye le médicament à la main sur l'ancienne ordonnance",
+    "Il en parle seulement à l'infirmière"
+   ],
+   "bonneReponse": "B",
+   "explicationParOption": {
+    "A": "Un arrêt non mentionné sera souvent repris.",
+    "B": "L'arrêt explicite et justifié permet une décision éclairée du médecin suivant.",
+    "C": "La mémoire du patient n'est pas une source fiable.",
+    "D": "La rature n'est ni datée ni justifiée.",
+    "E": "L'information ne parvient pas au médecin de famille."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "Kprim",
+   "enonce": "À Genève, tu expliques l'interopérabilité à une équipe. Indique si chaque affirmation est vraie ou fausse.",
+   "options": [
+    "FHIR est une norme d'échange de données de santé fondée sur des ressources web.",
+    "L'eMediplan contient un code QR lisible par la machine.",
+    "L'échange électronique supprime toute erreur de médication.",
+    "L'interopérabilité sémantique exige un vocabulaire commun."
+   ],
+   "bonneReponse": [
+    true,
+    true,
+    false,
+    true
+   ],
+   "explicationParOption": {
+    "1": "Vrai : FHIR est la norme moderne de HL7.",
+    "2": "Vrai : le code QR permet l'import sans ressaisie.",
+    "3": "Faux : une liste fausse transmise électroniquement reste fausse.",
+    "4": "Vrai : les systèmes doivent comprendre les mêmes codes."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Fribourg, quelle différence distingue une divergence intentionnelle d'une divergence non intentionnelle ?",
+   "options": [
+    "La divergence intentionnelle est toujours une erreur",
+    "La divergence intentionnelle est un changement voulu et documenté",
+    "La divergence non intentionnelle est toujours sans conséquence",
+    "Les deux sont équivalentes",
+    "La divergence intentionnelle concerne seulement les génériques"
+   ],
+   "bonneReponse": "B",
+   "explicationParOption": {
+    "A": "Le changement voulu n'est pas une erreur s'il est documenté.",
+    "B": "Le changement voulu et documenté est légitime ; seule la divergence non voulue doit être corrigée.",
+    "C": "Une omission d'anticoagulant peut être grave.",
+    "D": "Elles appellent des actions différentes.",
+    "E": "La définition ne dépend pas du type de produit."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Bienne, quel patient bénéficie en priorité d'une réconciliation médicamenteuse à la sortie ?",
+   "options": [
+    "Un homme de 30 ans sans traitement",
+    "Une femme de 84 ans sous anticoagulant, insuline et huit autres médicaments",
+    "Un étudiant opéré d'une appendicite sans traitement chronique",
+    "Une femme de 40 ans sous contraception orale seule",
+    "Un enfant hospitalisé une nuit pour observation"
+   ],
+   "bonneReponse": "B",
+   "explicationParOption": {
+    "A": "Le risque est minimal.",
+    "B": "L'âge, la polymédication et les médicaments à haut risque rendent la réconciliation prioritaire.",
+    "C": "Le risque reste faible sans traitement chronique.",
+    "D": "Le risque reste faible avec un seul médicament.",
+    "E": "Le risque est faible sans traitement chronique."
+   }
   }
  ],
- "liensSSP": [],
- "bulle": null,
- "glossaire": {}
+ "liensSSP": [
+  "O3.4",
+  "O7.22",
+  "O7.15",
+  "S7.1"
+ ],
+ "bulle": {
+  "def": "La réconciliation médicamenteuse compare toutes les sources de la médication à chaque transition et corrige les divergences non voulues.",
+  "pourquoi": "Chaque acteur possède une liste différente, et les transitions concentrent les erreurs graves.",
+  "confusion": "On confond liste de médicaments et plan de médication, qui ajoute horaires, indications et changements.",
+  "retenir": "Le médecin croise au moins deux sources, explique chaque changement et partage un plan unique, par exemple l'eMediplan."
+ },
+ "glossaire": {
+  "eMediplan": "Ce format suisse de plan de médication contient un code QR lisible par les logiciels.",
+  "HL7": "Health Level Seven est une famille de normes d'échange de données de santé.",
+  "FHIR": "Fast Healthcare Interoperability Resources est la norme HL7 moderne fondée sur des ressources web.",
+  "DEP": "Le dossier électronique du patient rassemble des documents de santé partagés.",
+  "EMS": "L'établissement médico-social héberge des personnes âgées dépendantes.",
+  "QR": "Le code QR (Quick Response) est un code-barres en deux dimensions.",
+  "OMS": "L'Organisation mondiale de la santé coordonne la santé publique internationale.",
+  "CH EPR": "Ce terme désigne les spécifications suisses d'échange pour le dossier électronique du patient.",
+  "SSP": "Une situation de départ (Situation as Starting Point) structure le catalogue PROFILES de l'examen fédéral."
+ }
 }
