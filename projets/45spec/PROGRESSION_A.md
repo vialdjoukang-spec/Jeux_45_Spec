@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**115 / 226 pathologies du périmètre produites.**
+**118 / 226 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans ['INF', 'NEU', 'PED', 'PSY'] (autres agents) ou ['DER', 'GYN', 'HEM', 'MIG', 'OBS', 'OPH', 'ORL', 'RHU', 'TOX', 'URO'] (agent A2).
 
@@ -27,11 +27,11 @@ Hors périmètre : première spécialité dans ['INF', 'NEU', 'PED', 'PSY'] (aut
 | 20 | `E87.2__F2_1-E03` | Acidose lactique de type A (hypoperfusion tissulaire, choc, sepsis) | NEP | produite |
 | 22 | `J44.1__F1_10-E02` | Exacerbation aiguë sévère de BPCO | PNE | produite |
 | 23 | `K25.4_hemorragie_digestive__O3_4-E10` | Hémorragie digestive haute ulcéreuse ou sur AINS | GAS | produite |
-| 24 | `S72.0__F2_20-E13` | Fracture ostéoporotique du fémur proximal | ORT | — |
+| 24 | `S72.0__F2_20-E13` | Fracture ostéoporotique du fémur proximal | ORT | produite |
 | 26 | `E10.1_acidocetose_diabetiq__F1_13-E11` | Acidocétose diabétique | END | produite |
 | 27 | `E83.5_hypercalcemie_malign__F2_20-E16` | Hypercalcémie maligne et crise hypercalcémique | END | produite |
-| 28 | `I60.9__F1_19-E15` | Hémorragie sous-arachnoïdienne (rupture d'anévrisme intracrânien) | NCH | — |
-| 29 | `I71.3__F1_5-E14` | Rupture d'anévrisme de l'aorte abdominale | CVA | — |
+| 28 | `I60.9__F1_19-E15` | Hémorragie sous-arachnoïdienne (rupture d'anévrisme intracrânien) | NCH | produite |
+| 29 | `I71.3__F1_5-E14` | Rupture d'anévrisme de l'aorte abdominale | CVA | produite |
 | 30 | `I80.2__F1_10-E07` | Thrombose veineuse profonde (fièvre thrombo-embolique) | ANG | — |
 | 31 | `K90.0__F1_8-E04` | Maladie cœliaque (malabsorption) | GAS | produite |
 | 32 | `N04.9__F1_16-E05` | Syndrome néphrotique | NEP | produite |
