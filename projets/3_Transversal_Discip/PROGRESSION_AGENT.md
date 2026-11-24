@@ -23,9 +23,9 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | O | 12 | 12 |
 | P | 12 | 12 |
 | Q | 12 | 12 |
-| R | 6 | 12 |
+| R | 9 | 12 |
 | S | 12 | 12 |
-| **Total** | **222** | **228** |
+| **Total** | **225** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -66,6 +66,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_R-S2-02** : Zones à risque FSME (toute la Suisse sauf le Tessin, Genève ajoutée en 2024) et nombre annuel de cas déclarés (record en 2023-2024 ?).
 - **TRANS_R-S2-03** : Résultats de l'étude EAT-Lancet (Willett et al., 2019 ; mise à jour 2025) sur le régime de santé planétaire et réduction des émissions et de la mortalité estimées.
 - **TRANS_R-S2-03** : Recommandations alimentaires suisses de l'OSAV (pyramide alimentaire 2024) et recommandations d'activité physique de l'OFSPO (150 minutes d'activité modérée par semaine).
+- **TRANS_R-S3-01** : Potentiels de réchauffement global (sur 100 ans) des gaz anesthésiques : desflurane environ 2500, sévoflurane environ 130, protoxyde d'azote environ 270 avec une longue durée de vie atmosphérique ; à confirmer dans les références récentes.
+- **TRANS_R-S3-01** : Restriction du desflurane par le règlement européen sur les gaz fluorés (UE 2024/573, interdiction d'usage dès le 1.1.2026 sauf nécessité médicale) et position suisse (ORRChim) ; nombre d'hôpitaux suisses ayant renoncé au desflurane.
+- **TRANS_R-S3-02** : Données suisses de MétéoSuisse sur l'allongement des saisons polliniques et l'augmentation des concentrations de pollen de bouleau et de graminées ; extension de l'ambroisie en Suisse.
+- **TRANS_R-S3-02** : Prévalence de la rhinite allergique en Suisse (environ 20 % de la population ?) : chiffre non écrit dans le texte.
+- **TRANS_R-S3-03** : Part du secteur de la santé dans les émissions de gaz à effet de serre en Suisse (environ 6 à 7 % selon les études récentes ?) : chiffre non écrit.
+- **TRANS_R-S3-03** : Classification suisse des déchets médicaux (aide à l'exécution de l'OFEV sur l'élimination des déchets médicaux, OMoD) et catégories de déchets infectieux.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -79,4 +85,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : R (6/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : R (9/12).
