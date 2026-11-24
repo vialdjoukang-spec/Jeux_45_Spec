@@ -117,3 +117,5 @@ Signature : AAI (Anthropic AI)
 - Le schéma refuse un `pourquoi` de `pec` trop court (« Ils protègent l'os. ») : écris une phrase complète d'au moins une dizaine de mots.
 - Question `d` 4–5 sur une intoxication : ne nomme pas l'agent dans le `st` (« traitée par un thymorégulateur », « comprimés prescrits par son psychiatre ») ; si l'agent doit être nommé, mets `m=0` et une difficulté ≤ 3.
 - Un nom canonique peut doubler un fichier existant (S27.0 « pneumothorax compressif » ≈ CTH J93.0) alors que ses portes visent une autre entité (pneumothorax traumatique simple) : produis-la sous l'angle de la porte non couverte au lieu de la sauter, et signale-le au rapport.
+- Une vignette `d` 4–5 ne paraphrase pas non plus le libellé entre parenthèses du nom canonique (« thrombose des veines sus-hépatiques » pour Budd-Chiari) : décris les constatations, pas l'entité.
+- Vérifie toujours l'année de la recommandation par PubMed : une version plus récente peut exister (EASL maladies vasculaires du foie 2016 → 2025, PMID 41224629).
