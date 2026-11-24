@@ -12,6 +12,13 @@ F = json.load(open(FF, encoding="utf-8"))
 D = json.load(open(DEP, encoding="utf-8")) if os.path.exists(DEP) else []
 maint = datetime.datetime.now(datetime.timezone.utc)
 aujourd = maint.astimezone(datetime.timezone(datetime.timedelta(hours=1))).date().isoformat()
+# Refus définitifs de l'API : réessayer ne sert à rien. Au premier, l'ouvrier se met en pause (F["pause"]) et ne repasse
+# qu'après levée de la pause par Vial (supprimer la clé « pause » de FILE_PROCESSUS.json). Fermeté du 24.11.2026.
+FATAL = ("credit balance is too low", "insufficient credit", "billing", "invalid x-api-key", "authentication_error",
+         "permission_error", "api key", "account has been disabled")
+def fatal(texte):
+    t = str(texte).lower()
+    return next((m for m in FATAL if m in t), None)
 
 
 def sortie(**kv):
@@ -42,6 +49,8 @@ Tâche « %s » : %s
 """
 
 if sys.argv[1] == "prendre":
+    if F.get("pause"):
+        sortie(tache="", raison=f"ouvrier en pause depuis {F['pause'].get('date')} : {F['pause'].get('raison')}"); sys.exit(0)
     total, reste, pj, jour, fin = budget()
     if maint >= fin or reste <= 0.5:
         sortie(tache="", raison="crédit épuisé ou expiré"); sys.exit(0)
@@ -107,6 +116,19 @@ elif sys.argv[1] == "terminer":
             etat = "fait" if lots and all(x.get("recupere") for x in lots) else "en_cours"
         else:
             etat = "fait" if ok else "en_cours"
+    texte = f"{r.get('result', '')} {st.get('resume', '')}"
+    if os.path.exists("/tmp/erreurs.txt"):
+        texte += open("/tmp/erreurs.txt", encoding="utf-8", errors="ignore").read()[-3000:]
+    if res == "-" and os.path.exists("/tmp/sortie_script.txt"):
+        texte += open("/tmp/sortie_script.txt", encoding="utf-8", errors="ignore").read()[-3000:]
+    m = fatal(texte) if etat != "fait" else None
+    if m:                                              # refus définitif : pause immédiate, aucun essai ni échec compté, rien à publier
+        F["pause"] = {"date": maint.isoformat(timespec="seconds"), "tache": tid, "raison": f"refus définitif de l'API (« {m} »)"}
+        json.dump(F, open(FF, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        if os.path.exists(STAT):
+            os.remove(STAT)
+        sortie(fatal="1", raison=F["pause"]["raison"])
+        print(f"PAUSE : {tid} → {F['pause']['raison']} ; l'ouvrier s'arrête sans réessayer."); sys.exit(0)
     t["essais"] += 1
     api = "API Error" in str(r.get("result", ""))          # panne d'accès à l'API : ce n'est pas un échec de la tâche
     if r.get("is_error") and etat != "fait" and not api:

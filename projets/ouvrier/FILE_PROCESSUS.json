@@ -468,15 +468,15 @@
    "titre": "45 Spec T4 : reprise des fiches tronquées ou en erreur",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 6,
-   "etat": "bloque",
-   "essais": 4,
+   "etat": "en_cours",
+   "essais": 0,
    "prompt": "Lis d'abord projets/ouvrier/MISSION_45SPEC.md et applique ses règles constantes. Exécute T4 : repère les fiches dont controles.erreurs n'est pas vide ou audit.rejector == 'rejet', déplace-les dans content/fiches/_archives/ en gardant le motif, puis resoumets-les en lot avec le schéma actuel et récupère-les. Mets « fait » quand aucune fiche active n'est en erreur.",
    "dernier": {
     "date": "2026-11-24T16:36:15+00:00",
     "cout_usd": 0.0,
     "resume": "Credit balance is too low"
    },
-   "echecs": 3
+   "echecs": 0
   },
   {
    "id": "T5_items_valides",
@@ -579,5 +579,11 @@
   }
  ],
  "_note": "L'état vivant de la file se trouve sur la branche veille/audit-medical ; cette copie de main sert de déclencheur.",
- "_relance": "2026-11-23T23:38:04+00:00"
+ "_relance": "2026-11-23T23:38:04+00:00",
+ "pause": {
+  "date": "2026-11-24T16:36:15+00:00",
+  "tache": "T4_reprise_rejets",
+  "raison": "refus définitif de l'API (« credit balance is too low ») ; crédit épuisé jusqu'à jeudi (décision de Vial du 24.11)"
+ },
+ "_regles_pause": "Au premier refus définitif de l'API (crédit épuisé, clé invalide), l'ouvrier écrit « pause », se désactive et ne réessaie plus. Pour relancer : supprimer la clé « pause », réactiver le workflow ouvrier.yml (et décommenter son schedule)."
 }
