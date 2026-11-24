@@ -260,3 +260,12 @@ Contrôles : chaîne complète réussie (conception 34/34, couverture, non-perte
 Jauge mesurée sur la branche : Tétrade **51 → 81 %** (arène 0 → 108/100).
 
 Points à auditer par Claude : relecture médicale des 108 vignettes (doses citées : adrénaline IM 0,5 mg, Parkland 4 ml/kg/%, seuils FENa, CRB-65, critères de Light, 4T). Remarque : `arene.html` charge `atk400/700.woff2` depuis son dossier, ignorés par `.gitignore` ; en local sans copie, la police Atkinson Hyperlegible retombe sur la police de secours.
+## 12. Organes 3D réels : 46 → 76 / 124 (branche `agent/tetrade-3d`, 2026-11-24)
+
+30 organes ajoutés à `conception/outils/anatomie3d/organes_fma.json`, construits par `construire_organes.py` depuis BodyParts3D 4.0 (CC BY-SA 2.1 JP) : circulation pulmonaire (cv), 7 organes de la Psyché (substrat neural : lobes, système limbique, striatum, thalamus, tronc ; champ `note` « avis d'expert »), organes lymphoïdes, thymus, rate, moelle osseuse (sternum, os coxal, sacrum), nez, cavité buccale (arcades dentaires, mandibule, maxillaires, 2 organes), plancher pelvien, globe oculaire, voies optiques, paupières, les 10 organes osseux et musculaires du locomoteur et l'épiderme.
+
+Occultation : nouveau champ `rogner` (boîte pelvienne du skill 3d-images-upload-super) ; la peau perd ses faces génitales avant export, vérifié sur un rendu de face. Aucun maillage génital chargé.
+
+Non produits faute de maillage dans BodyParts3D (pas de devis inventé) : péricarde, conduction, artères des membres, microcirculation, plèvre, pharynx, larynx, thyroïde, parathyroïdes, glandes salivaires, ganglions, nerfs et plexus, oreille, sein, utérus, ovaires, trompes, placenta, organes cellulaires (sang, immunité) et pédiatriques. Piste : Z-Anatomy ou TotalSegmentator (thyroïde, larynx, utérus) via GitHub Actions.
+
+Les `.glb` restent hors Git (`.gitignore`) ; `index.json` est versionné et le script les régénère à l'identique (46 anciens inchangés). Chaîne complète réussie. Jauge Tétrade sur la branche : 51 → 55 %.
