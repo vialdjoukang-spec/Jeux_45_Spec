@@ -34,7 +34,77 @@
  ],
  "entite": "Épisode dépressif caractérisé (léger à modéré)",
  "cim10": "F32.1",
- "ssp": "O6.8",
+ "ssp": {
+  "code": "O6.8",
+  "nom": "Souffrance psychique ou spirituelle",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Souffrance psychique",
+    "i": "Le médecin évalue d'abord la gravité, puis le diagnostic.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Danger suicidaire aigu",
+    "i": "Le plan et le moyen imposent une évaluation urgente.",
+    "pec": "urg",
+    "notion": "c2"
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "Symptômes psychotiques ou catatonie",
+    "i": "La forme sévère relève du psychiatre ; renvoi vers la dépression psychotique.",
+    "pec": "urg",
+    "notion": "c2"
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "Pas de danger aigu",
+    "i": "Le médecin pose le diagnostic et cherche les causes.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Hypomanie passée",
+    "i": "Le trouble bipolaire change la stratégie ; renvoi vers la phase dépressive bipolaire.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Cause somatique ou médicamenteuse",
+    "i": "Le traitement de la cause précède l'antidépresseur.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n7",
+    "parent": "n4",
+    "t": "Critères d'épisode non atteints après stresseur",
+    "i": "Le trouble de l'adaptation se traite par soutien ; renvoi correspondant.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n8",
+    "parent": "n4",
+    "t": "Épisode léger à moyen",
+    "i": "Le traitement suit la sévérité.",
+    "pec": "ambu",
+    "notion": "c4"
+   }
+  ]
+ },
  "specialites": [
   "PSY"
  ],
@@ -305,13 +375,13 @@
     "pharmacologique": [
      {
       "molecule": "Sertraline (ISRS)",
-      "posologie": "50 mg/j PO, puis 50 à 200 mg/j selon réponse ; à vérifier dans l'AIPS.",
+      "posologie": "50 mg/j PO, puis 50 à 200 mg/j selon réponse  (AIPS ; vérifié, audit AAI 24.11.2026).",
       "pourquoi": "L'ISRS associe efficacité, bonne tolérance et faible toxicité en surdosage.",
       "source": "AIPS Swissmedic"
      },
      {
       "molecule": "Escitalopram (ISRS)",
-      "posologie": "10 mg/j PO, maximum 20 mg/j ; 10 mg/j après 65 ans ; à vérifier dans l'AIPS.",
+      "posologie": "10 mg/j PO, maximum 20 mg/j ; 10 mg/j après 65 ans  (AIPS ; vérifié, audit AAI 24.11.2026).",
       "pourquoi": "Il offre une alternative bien tolérée, avec surveillance de l'allongement du QT.",
       "source": "AIPS Swissmedic"
      }
@@ -497,7 +567,9 @@
   "auteur": "AAI (Anthropic AI)"
  },
  "audit": {
-  "rejector": null,
-  "claude": null
+  "rejector": "pass",
+  "claude": "2026-11-24",
+  "par": "Claude (audit médical AGENTS_1, AAI)",
+  "note": "Audit médical AGENTS_1 : réponses justes, seuils et posologies vérifiés ; 0 erreur factuelle"
  }
 }

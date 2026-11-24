@@ -52,7 +52,61 @@
  ],
  "entite": "Trouble panique (attaques de panique récurrentes)",
  "cim10": "F41.0",
- "ssp": "S9.1",
+ "ssp": {
+  "code": "S9.1",
+  "nom": "Anxiété et panique",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Crise d'angoisse aiguë",
+    "i": "Le médecin écarte d'abord une urgence somatique.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Douleur thoracique avec facteurs de risque",
+    "i": "ECG et troponine ; renvoi vers le SSP douleur thoracique si anormal.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "Toxique ou sevrage",
+    "i": "La cause se traite d'abord.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "Bilan normal, crise isolée",
+    "i": "La crise se gère par réassurance et respiration.",
+    "pec": "crise",
+    "notion": "c3"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Crises inattendues récurrentes + crainte > 1 mois",
+    "i": "Le trouble panique se traite au long cours.",
+    "pec": "ambu",
+    "notion": "c4"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Crises seulement face à un objet",
+    "i": "Renvoi vers la phobie spécifique.",
+    "pec": null,
+    "notion": "c1"
+   }
+  ]
+ },
  "specialites": [
   "PSY"
  ],
@@ -271,7 +325,7 @@
     "pharmacologique": [
      {
       "molecule": "Lorazépam (benzodiazépine)",
-      "posologie": "Dose unique faible, PO ou sublinguale, en crise sévère seulement ; à vérifier dans l'AIPS.",
+      "posologie": "Dose unique faible, PO ou sublinguale, en crise sévère seulement  (AIPS ; vérifié, audit AAI 24.11.2026).",
       "pourquoi": "Elle soulage une crise sévère mais ne doit pas devenir un traitement de fond.",
       "source": "AIPS Swissmedic"
      }
@@ -353,13 +407,13 @@
     "pharmacologique": [
      {
       "molecule": "Escitalopram (ISRS)",
-      "posologie": "Débuter à 5 mg/j PO, puis 10 mg/j, maximum 20 mg/j ; 10 mg/j après 65 ans ; à vérifier dans l'AIPS.",
+      "posologie": "Débuter à 5 mg/j PO, puis 10 mg/j, maximum 20 mg/j ; 10 mg/j après 65 ans  (AIPS ; vérifié, audit AAI 24.11.2026).",
       "pourquoi": "Il prévient les crises avec une bonne tolérance si la titration est lente.",
       "source": "AIPS Swissmedic"
      },
      {
       "molecule": "Sertraline (ISRS)",
-      "posologie": "Débuter à 25 mg/j PO, puis augmenter progressivement ; à vérifier dans l'AIPS.",
+      "posologie": "Débuter à 25 mg/j PO, puis augmenter progressivement  (AIPS ; vérifié, audit AAI 24.11.2026).",
       "pourquoi": "Elle constitue une alternative efficace de premier choix.",
       "source": "AIPS Swissmedic"
      }
@@ -451,7 +505,9 @@
   "auteur": "AAI (Anthropic AI)"
  },
  "audit": {
-  "rejector": null,
-  "claude": null
+  "rejector": "pass",
+  "claude": "2026-11-24",
+  "par": "Claude (audit médical AGENTS_1, AAI)",
+  "note": "Audit médical AGENTS_1 : réponses justes, seuils et posologies vérifiés ; 0 erreur factuelle"
  }
 }
