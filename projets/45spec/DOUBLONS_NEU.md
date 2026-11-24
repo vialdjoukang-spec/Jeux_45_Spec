@@ -8,4 +8,4 @@ Règle (24.11.2026) : avant chaque pathologie, l'agent cherche le même trouble 
 | G04.9_1__S7_7-E13 | Encéphalite aiguë (herpétique ou auto-immune) | INF B00.4__F1_9-E16 (encéphalite herpétique) | produit avant la règle ; recouvrement partiel (volet auto-immun propre à NEU) |
 | G63.2__O3_2-E10 | Polyneuropathie diabétique | main END E11.4_neuropathie_diabetiq__G10-E05 | produit avant la règle ; à arbitrer lors de la fusion |
 
-Vérifiées sans doublon dans ce lot : G44.8 (céphalée cervicogénique / sinusite aiguë).
+Vérifiées sans doublon (lot 14) : G44.8 (céphalée cervicogénique / sinusite aiguë), G62.0 (douleur neuropathique réfractaire), I69.3 (séquelles d'AVC).

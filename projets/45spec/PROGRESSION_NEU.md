@@ -1,6 +1,6 @@
 # Progression NEU — production manuelle sans API (agent 45spec-NEU)
 
-Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 38.
+Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 41.
 
 Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts/ecrire_manuel.py SOURCE --spec NEU` (valider() et ecrire() du script de production).
 
@@ -18,9 +18,12 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | G43.1__S7_5-E04 | Migraine vestibulaire | 27 | 20 | 0 |
 | G43.9__S3_10-E06 | Migraine avec ou sans aura (et syndrome des vomissements cycliques) | 35 | 21 | 0 |
 | G44.2__G10-E02 | Céphalée de tension | 26 | 20 | 0 |
+| G44.8__S7_6-E06 | Céphalée cervicogénique / sinusite aiguë | 27 | 20 | 0 |
 | G47.0_insomnie_aigue_situa__G11-E03 | Insomnie (aiguë situationnelle ou chronique) | 29 | 20 | 0 |
 | G51.0__F1_4-E17 | Asymétrie faciale aiguë (paralysie faciale centrale vs périphérique) | 26 | 20 | 0 |
+| G62.0__O5_4-E03 | Douleur neuropathique réfractaire (post-chimiothérapie, envahissement plexique) | 27 | 20 | 0 |
 | G63.2__O3_2-E10 | Polyneuropathie diabétique distale symétrique | 25 | 20 | 0 |
+| I69.3_sequelles_d_avc_apha__F1_11-E04 | Séquelles d'AVC (aphasie chronique, hémiparésie séquellaire) | 27 | 20 | 0 |
 | G31.8__F1_9-E06 | Démence à corps de Lewy (DCL) | 25 | 20 | 0 |
 | G35__S7_3-E10 | Sclérose en plaques (poussée motrice hémiparétique ou paraparétique) | 35 | 21 | 0 |
 | G44.0__S1_11-E07 | Algie vasculaire de la face (cluster headache) | 25 | 20 | 0 |
@@ -74,9 +77,9 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 23. G25.0__S7_3-E01 — fait
 24. G40.2_epilepsie_focale_tem__G11-E17 — fait
 25. G43.1__S7_5-E04 — fait
-26. G44.8__S7_6-E06
-27. G62.0__O5_4-E03
-28. I69.3_sequelles_d_avc_apha__F1_11-E04
+26. G44.8__S7_6-E06 — fait
+27. G62.0__O5_4-E03 — fait
+28. I69.3_sequelles_d_avc_apha__F1_11-E04 — fait
 29. G25.8__G11-E04
 30. G31.8__F1_9-E06 — fait
 31. G50.0__G10-E08 — fait
@@ -146,5 +149,17 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 95. G90.8__F1_7-E11
 96. G95.0__S7_9-E08
 97. G24.0_1__S7_3-E11
+
+## Doublons inter-spécialités
+
+Règle (24.11.2026) : avant chaque pathologie, l'agent cherche le même trouble sous un autre code sur main et sur agent/45spec-PSY, -INF et -PED ; s'il existe, il saute la pathologie et la note ici.
+
+| id NEU | entité NEU | déjà produit sous | statut |
+|---|---|---|---|
+| G47.0_insomnie_aigue_situa__G11-E03 | Insomnie | PSY F51.0__G11-E01 (insomnie chronique primaire), PSY F32.9__G11-E05 (insomnie secondaire) | produit avant la règle ; à arbitrer lors de la fusion |
+| G04.9_1__S7_7-E13 | Encéphalite aiguë (herpétique ou auto-immune) | INF B00.4__F1_9-E16 (encéphalite herpétique) | produit avant la règle ; recouvrement partiel (volet auto-immun propre à NEU) |
+| G63.2__O3_2-E10 | Polyneuropathie diabétique | main END E11.4_neuropathie_diabetiq__G10-E05 | produit avant la règle ; à arbitrer lors de la fusion |
+
+Vérifiées sans doublon (lot 14) : G44.8 (céphalée cervicogénique / sinusite aiguë), G62.0 (douleur neuropathique réfractaire), I69.3 (séquelles d'AVC).
 
 Signature : AAI (Anthropic AI)
