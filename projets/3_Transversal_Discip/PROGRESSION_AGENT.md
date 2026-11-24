@@ -19,13 +19,13 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | K | 12 | 12 |
 | L | 12 | 12 |
 | M | 12 | 12 |
-| N | 3 | 12 |
+| N | 6 | 12 |
 | O | 0 | 12 |
 | P | 0 | 12 |
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **183** | **228** |
+| **Total** | **186** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -159,6 +159,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_N-S1-02** : Exemples des listes « top 5 » de Smarter Medicine pour la médecine interne générale ambulatoire en vigueur en 2026.
 - **TRANS_N-S1-03** : Disponibilité et remboursement en Suisse en 2026 de la varénicline (retrait du Champix en 2021, retour de génériques ?) et de la cytisine ; remboursement des substituts nicotiniques par la LAMal.
 - **TRANS_N-S1-03** : Prévalence du tabagisme en Suisse (Enquête suisse sur la santé 2022, environ un quart des adultes) : chiffre non écrit dans le texte.
+- **TRANS_N-S2-01** : Recommandations OFSP 2025 pour l'asplénie : vaccin pneumococcique conjugué de valence supérieure à 13, méningocoques ACWY et B, Hib, grippe annuelle ; calendrier par rapport à une splénectomie programmée (au moins 2 semaines avant) ou en urgence (2 semaines après).
+- **TRANS_N-S2-01** : Recommandation VRS chez l'adulte (≥ 75 ans et ≥ 60 ans à risque ?) et remboursement en 2026.
+- **TRANS_N-S2-02** : Données suisses sur les inégalités sociales de santé (Obsan, OFS : écart d'espérance de vie selon le niveau de formation) : chiffres non écrits dans le texte.
+- **TRANS_N-S2-02** : Existence et nom des outils suisses de repérage de la précarité en consultation (par exemple le score DiPCare-Q, Unisanté).
+- **TRANS_N-S2-03** : Seuils de l'AUDIT-C utilisés en Suisse (souvent ≥ 4 chez l'homme et ≥ 3 chez la femme) et définition suisse du verre standard (10 à 12 g d'alcool pur selon Addiction Suisse).
+- **TRANS_N-S2-03** : Repères de consommation à faible risque de la Commission fédérale pour les questions liées aux addictions (CFANT, 2018) : au plus 2 verres standards par jour pour l'homme et 1 pour la femme, avec des jours sans alcool.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -172,4 +178,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : N (3/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : N (6/12), O (0/12), P (0/12), R (0/12).
