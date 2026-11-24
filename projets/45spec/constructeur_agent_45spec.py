@@ -2,7 +2,7 @@
 import sys, os, json, datetime as dt, importlib.util, collections
 R = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))); sys.path.insert(0, R + "/scripts")
 import produire_notions_questions as P
-IDX = {c["id"]: c for c in P.canoniques("INF")}
+IDX = {c["id"]: c for sp in os.environ.get("SPECS", "INF").split(",") for c in P.canoniques(sp)}   # SPECS=URO,HEM,… (agent multi-spécialités)
 MOD = "claude-opus-5-5"
 
 def nodes(L):

@@ -1,0 +1,402 @@
+{
+ "id": "Z53.2_3__O7_11-E02",
+ "portes": [
+  {
+   "ssp": "O7.11",
+   "nomSSP": "Patient refusant un traitement",
+   "entite": "Refus d'hospitalisation ou sortie contre avis médical",
+   "entiteId": "O7.11-E02"
+  },
+  {
+   "ssp": "O7.11",
+   "nomSSP": "Patient refusant un traitement",
+   "entite": "Sortie contre avis médical avec risque vital immédiat (SCA, AVC, sepsis)",
+   "entiteId": "O7.11-E12"
+  }
+ ],
+ "entite": "Refus d'hospitalisation ou sortie contre avis médical",
+ "cim10": "Z53.2",
+ "ssp": {
+  "code": "O7.11",
+  "nom": "Patient refusant un traitement",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient qui refuse ou veut partir",
+    "i": "On écoute ses motifs et on vérifie sa stabilité.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Drapeau rouge (SCA, sepsis, confusion, risque suicidaire)",
+    "i": "On évalue le discernement en priorité.",
+    "pec": "sca",
+    "notion": "c2"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Patient discernant",
+    "i": "On informe des risques, on négocie un compromis et on documente.",
+    "pec": "sca",
+    "notion": "c3"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Patient incapable de discernement en danger",
+    "i": "On soigne selon la volonté présumée et on contacte le représentant.",
+    "pec": "sca",
+    "notion": "c3"
+   },
+   {
+    "id": "n5",
+    "parent": "n2",
+    "t": "Danger lié à un trouble psychique",
+    "i": "On envisage un placement à des fins d'assistance.",
+    "pec": "sca",
+    "notion": "c5"
+   },
+   {
+    "id": "n6",
+    "parent": "n3",
+    "t": "Départ maintenu",
+    "i": "On sécurise la sortie et on organise le suivi.",
+    "pec": "sca",
+    "notion": "c4"
+   }
+  ]
+ },
+ "specialites": [
+  "MIG"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Refus d'hospitalisation ou sortie contre avis médical : écouter, évaluer le discernement, informer, réduire les risques et respecter le cadre légal suisse",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Comprendre la demande",
+   "rubriques": [
+    "definition",
+    "epidemiology",
+    "basicSciences",
+    "anamnesis"
+   ],
+   "comment": "On explore les motifs, souvent pratiques et solubles.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le sevrage non traité est un motif fréquent.",
+    "La sortie contre avis double environ le risque de décès et de réadmission."
+   ],
+   "sources": [
+    "[Garland A et al., Rates of readmission and death associated with leaving hospital against medical advice, CMAJ 2013;185:1207-14, PMID 23979869]",
+    "[Southern WN et al., Increased risk of mortality and readmission among patients discharged against medical advice, Am J Med 2012;125:594-602, PMID 22513194]",
+    "[Avis d'expert, médecine d'urgence et éthique clinique] (à vérifier)"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Évaluer",
+   "rubriques": [
+    "clinicalExam",
+    "presumptionRedFlags",
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "On vérifie la stabilité, les drapeaux rouges et le discernement pour cette décision.",
+   "tableau": {
+    "colonnes": [
+     "Capacité",
+     "Question posée",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Comprendre",
+      "Le patient peut-il redire l'information ?",
+      [
+       {
+        "t": "Hochement de tête",
+        "i": "Ne prouve pas la compréhension."
+       }
+      ]
+     ],
+     [
+      "Apprécier",
+      "Applique-t-il l'information à sa propre situation ?",
+      [
+       {
+        "t": "Déni",
+        "i": "Peut traduire une incapacité."
+       }
+      ]
+     ],
+     [
+      "Se forger une volonté",
+      "Compare-t-il les options selon ses valeurs ?",
+      [
+       {
+        "t": "Choix déraisonnable",
+        "i": "Ne prouve pas l'incapacité."
+       }
+      ]
+     ],
+     [
+      "Exprimer et maintenir",
+      "Communique-t-il un choix stable ?",
+      [
+       {
+        "t": "Délirium",
+        "i": "Le choix fluctue."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le discernement est présumé.",
+    "On réévalue si l'état change."
+   ],
+   "sources": [
+    "[ASSM, Directives médico-éthiques « Capacité de discernement dans la pratique médicale », approuvées le 29.11.2018, éd. 2019]"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Décider",
+   "rubriques": [
+    "positiveDiagnosis",
+    "acuteManagement"
+   ],
+   "comment": "On respecte le patient discernant et on protège le patient non discernant.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "d1",
+     "parent": null,
+     "t": "Demande de départ",
+     "i": "Écouter et évaluer.",
+     "pec": "sca",
+     "notion": null
+    },
+    {
+     "id": "d2",
+     "parent": "d1",
+     "t": "Patient discernant",
+     "i": "Informer, négocier, sécuriser la sortie.",
+     "pec": "sca",
+     "notion": null
+    },
+    {
+     "id": "d3",
+     "parent": "d1",
+     "t": "Incapable et en danger",
+     "i": "Soins urgents selon la volonté présumée, représentant.",
+     "pec": "sca",
+     "notion": null
+    },
+    {
+     "id": "d4",
+     "parent": "d1",
+     "t": "Danger lié à un trouble psychique",
+     "i": "Placement à des fins d'assistance.",
+     "pec": "sca",
+     "notion": null
+    }
+   ],
+   "points": [
+    "On ne retient jamais un patient discernant.",
+    "Le placement vise un trouble psychique, une déficience mentale ou un grave état d'abandon."
+   ],
+   "sources": [
+    "[Code civil suisse (CC), art. 16, 377-379, 426-439 (droit de la protection de l'adulte)]",
+    "[ASSM, Directives médico-éthiques « Capacité de discernement dans la pratique médicale », approuvées le 29.11.2018, éd. 2019]"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Sécuriser la sortie",
+   "rubriques": [
+    "chronicManagement",
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "surveillance"
+   ],
+   "comment": "On réduit les risques après le départ.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Ordonnance, consignes écrites, lettre, contrôle.",
+    "La signature ne remplace pas la documentation."
+   ],
+   "sources": [
+    "[Garland A et al., Rates of readmission and death associated with leaving hospital against medical advice, CMAJ 2013;185:1207-14, PMID 23979869]",
+    "[Avis d'expert, médecine d'urgence et éthique clinique] (à vérifier)"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Réseau et droits",
+   "rubriques": [
+    "followUpNetwork"
+   ],
+   "comment": "On s'appuie sur le médecin de famille, l'addictologie et l'APEA.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Recours au juge dans les dix jours.",
+    "Le patient peut revenir à tout moment."
+   ],
+   "sources": [
+    "[Code civil suisse (CC), art. 16, 377-379, 426-439 (droit de la protection de l'adulte)]"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "sca",
+   "titre": "Sortie contre avis médical",
+   "but": [
+    "On respecte l'autodétermination du patient discernant.",
+    "On réduit les risques du départ."
+   ],
+   "moyens": {
+    "accueil": [
+     "On écoute les motifs sans jugement.",
+     "On vérifie la stabilité et le discernement."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Traitement étiologique en relais oral",
+      "posologie": "Selon la pathologie et l'antibiogramme ; posologie à vérifier dans l'AIPS.",
+      "pourquoi": "Il réduit le risque de rechute après le départ.",
+      "source": "[Avis d'expert, médecine d'urgence et éthique clinique] (à vérifier) ; AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
+     },
+     {
+      "molecule": "Benzodiazépine en cas de sevrage alcoolique, avec thiamine",
+      "posologie": "Protocole guidé par les symptômes (score CIWA-Ar) ; posologie à vérifier dans l'AIPS.",
+      "pourquoi": "Elle lève un motif fréquent de départ.",
+      "source": "[Avis d'expert, médecine d'urgence et éthique clinique] (à vérifier) ; AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "social et assurances",
+      "mesure": "On cherche une solution pratique (enfants, animal, travail).",
+      "pourquoi": "Beaucoup de départs ont un motif concret."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "On remet des consignes d'alarme écrites.",
+      "pourquoi": "Le patient doit reconnaître la complication."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "On applique les art. 16, 378, 379 et 426-439 CC."
+     },
+     {
+      "discipline": "C Communication clinique",
+      "apport": "On mène un entretien sans jugement et on vérifie la compréhension."
+     },
+     {
+      "discipline": "H Éthique biomédicale & Fin de vie",
+      "apport": "On respecte l'autonomie tout en protégeant le patient vulnérable."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "On sécurise la situation clinique.",
+      "On évalue le discernement."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "infirmier",
+       "fait": "Il signale la demande de départ et mesure les constantes."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin des urgences",
+       "fait": "Il évalue le discernement et informe des risques."
+      },
+      {
+       "temps": "puis",
+       "qui": "psychiatre",
+       "fait": "Il donne un second avis en cas de doute ou de risque suicidaire."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "On prépare la sortie.",
+      "On organise le suivi."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin hospitalier",
+       "fait": "Il remet ordonnance, consignes et lettre."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin de famille",
+       "fait": "Il revoit le patient à 24-48 heures."
+      },
+      {
+       "temps": "puis",
+       "qui": "assistant social",
+       "fait": "Il mobilise le réseau d'addictologie ou social."
+      }
+     ]
+    }
+   },
+   "pronostic": "La sortie contre avis double environ le risque de décès et de réadmission ; une sortie préparée réduit ce risque.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Appel ou contrôle",
+      "quand": "24-48 heures après la sortie",
+      "cible": "Absence de complication"
+     },
+     {
+      "quoi": "Résultats en attente",
+      "quand": "Transmis au médecin de famille",
+      "cible": "Aucun résultat perdu"
+     }
+    ],
+    "sortie": "On consigne le discernement, l'information et les alternatives, puis on remet ordonnance, consignes et lettre."
+   },
+   "prevention": {
+    "primaire": "On informe régulièrement sur l'attente et on écoute tôt les craintes.",
+    "secondaire": "On traite le sevrage et on négocie des compromis.",
+    "tertiaire": "On suit le patient et on lui laisse la porte ouverte."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "_mode": "agent_sans_api",
+  "note": "Produit directement par l'agent Claude, sans appel à l'API Anthropic."
+ },
+ "signature": {
+  "date": "2026-11-24T14:16:36",
+  "modele": "claude-opus-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": "pass",
+  "claude": null
+ }
+}

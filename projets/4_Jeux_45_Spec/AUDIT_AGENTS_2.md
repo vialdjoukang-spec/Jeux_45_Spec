@@ -57,3 +57,16 @@ Les 15 pathologies auditées portent `audit.rejector = "pass"` dans leurs trois 
 - F31.6 Q19 : le DSM-5-TR n'inclut pas l'agitation psychomotrice dans les caractéristiques mixtes, alors que la CIM et la clinique l'admettent. La réponse reste juste dans le cadre de la CIM.
 
 Signature : AAI (Anthropic AI)
+
+## Addendum (24.11.2026, après l'arrêt des producteurs)
+
+| Branche | Nouveaux fichiers | Contrôle mécanique | Audit médical | Erreurs | Verdict |
+|---|---|---|---|---|---|
+| A2 (lot 5 : Z53.2_3, H05.0, T18.1) | 3 (15 au total) | 0 anomalie sur 300 QCM | Z53.2_3, T18.1 (CC art. 378, 379, 426, 429, 439 ; ESGE 2016) | 0 | **Fusionnable** |
+| B (K64.9, K71.9, L01.0) | 3 | 0 anomalie sur 60 QCM | K64.9, K71.9 (OPAS art. 12e, EASL DILI 2019, LPTh art. 59) | 0 | **Fusionnable** |
+| NEU (G04.9_1, G12.0, G25.5, G37.2, G37.3, G47.5) | 6 | 0 anomalie sur 120 QCM | G37.2 (ESE 2014), G04.9_1 (Annegers 1987, FEBSTAT), G12.0 (dépistage néonatal SMA dès le 01.07.2024, OFSP) | 0 | **Fusionnable** |
+| reprise (E11.9, I49.5, I75.0, E87.6, B18.9 ; CAR I35.0 Q11) | 5 corrections | `valider()` sans erreur ; END, CAR, NEP et GAS : 0 anomalie sur 5637 QCM | rédaction auditée | 6 corrigées | **Fusionnable** |
+
+Les marques `audit.rejector = "pass"` de B et de NEU n'ont pas été poussées, car l'auditeur n'avait pas l'autorisation de pousser sur ces branches. Les fusions sur main restent à faire par une session autorisée.
+
+Signature : AAI (Anthropic AI)
