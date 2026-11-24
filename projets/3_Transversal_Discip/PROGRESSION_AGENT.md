@@ -23,9 +23,9 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | O | 12 | 12 |
 | P | 12 | 12 |
 | Q | 12 | 12 |
-| R | 0 | 12 |
+| R | 3 | 12 |
 | S | 12 | 12 |
-| **Total** | **216** | **228** |
+| **Total** | **219** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -54,6 +54,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_P-S4-02** : Recommandations suisses sur le contrôle ultime au lit du patient avant transfusion (Transfusion CRS Suisse, Swissmedic hémovigilance).
 - **TRANS_P-S4-03** : Contenu des art. 58 à 58h LAMal révisés (en vigueur depuis le 1.4.2021) : conventions de qualité entre fédérations d'assureurs et de fournisseurs (art. 58a), Commission fédérale pour la qualité (art. 58b-58c), sanctions (art. 59).
 - **TRANS_P-S4-03** : Exigences de qualité des listes hospitalières cantonales (art. 58d OAMal) et rôle des accréditations et certifications (ISO, EFQM, Joint Commission) dans les hôpitaux suisses.
+- **TRANS_R-S1-01** : Surmortalité estimée en Suisse lors des étés 2003, 2015, 2019 et 2022 (environ 975 décès en 2003 ; environ 600 en 2022 selon Swiss TPH et l'OFS) : chiffres non écrits dans le texte.
+- **TRANS_R-S1-01** : Seuils des alertes canicule de MétéoSuisse (niveaux 3 et 4 selon la température moyenne journalière sur plusieurs jours) et cantons disposant d'un plan canicule en 2026.
+- **TRANS_R-S1-02** : Empreinte carbone comparée des aérosols-doseurs à HFA (environ 20 à 30 fois celle des inhalateurs à poudre sèche selon les études britanniques) et part des inhalateurs dans les émissions du système de santé (environ 3 % au NHS) : chiffres non écrits.
+- **TRANS_R-S1-02** : Calendrier du passage des aérosols-doseurs à des gaz à faible potentiel de réchauffement (HFA-152a, HFO-1234ze) et règlement européen sur les gaz fluorés (2024) ; disponibilité en Suisse.
+- **TRANS_R-S1-03** : Données suisses de consommation d'antibiotiques en médecine humaine et vétérinaire et taux de résistance (rapport Swiss Antibiotic Resistance Report 2024 d'anresis.ch et de l'OSAV).
+- **TRANS_R-S1-03** : Date et objectifs de la Stratégie Antibiorésistance Suisse (StAR, adoptée en 2015) et du plan One Health 2024-2027.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -67,4 +73,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : R (3/12).
