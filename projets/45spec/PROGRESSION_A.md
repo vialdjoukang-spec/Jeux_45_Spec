@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**122 / 230 pathologies du périmètre produites.**
+**125 / 230 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans ['INF', 'NEU', 'PED', 'PSY'] (autres agents) ou ['DER', 'GYN', 'HEM', 'MIG', 'OBS', 'OPH', 'ORL', 'RHU', 'TOX', 'URO'] (agent A2).
 
@@ -49,11 +49,11 @@ Hors périmètre : première spécialité dans ['INF', 'NEU', 'PED', 'PSY'] (aut
 | 54 | `N18.5_maladie_renale_chron__F1_16-E06` | Maladie rénale chronique | NEP | produite |
 | 55 | `S43.0__O4_1-E14` | Luxation postérieure de l'épaule | ORT | produite |
 | 57 | `T74.1_4__O6_3-E01` | Violence conjugale physique chronique | LEG | produite |
-| 59 | `Z73.0__G4-E04` | Épuisement professionnel (burnout) | MTR | — |
+| 59 | `Z73.0__G4-E04` | Épuisement professionnel (burnout) | MTR | produite |
 | 62 | `E10.9__F1_8-E08` | Diabète de type 1 | END | produite |
 | 63 | `E22.2__F2_7-E01` | Hyponatrémie euvolémique sur SIADH | END | produite |
-| 66 | `F84.0__O2_12-E09` | Trouble du spectre de l'autisme (TSA) dépisté précocement | PEA | — |
-| 67 | `F90.0__O2_10-E02` | Trouble du déficit de l'attention avec ou sans hyperactivité (TDAH) | PEA | — |
+| 66 | `F84.0__O2_12-E09` | Trouble du spectre de l'autisme (TSA) dépisté précocement | PEA | produite |
+| 67 | `F90.0__O2_10-E02` | Trouble du déficit de l'attention avec ou sans hyperactivité (TDAH) | PEA | produite |
 | 69 | `I95.1__F1_1-E02` | Hypotension orthostatique | CAR | — |
 | 70 | `K58.9_syndrome_de_l_intest__O7_7-E02` | Syndrome de l'intestin irritable | GAS | produite |
 | 78 | `I40.9__F2_2-E05` | Myocardite aiguë | CAR | produite |
