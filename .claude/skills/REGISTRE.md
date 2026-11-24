@@ -11,6 +11,7 @@
 | agent-producteur-45spec | Production 45 Spec sans API au format du script (constructeur + contrôle de couverture dans projets/45spec) | agent qui remplace l'API pour une spécialité | ultra-competent-fast-doctor |
 | concept-corelator | Corrélations physiopathologie → thérapeutique | courbes, mécanismes | medical-accuracy-100 |
 | 45spec-production-sans-api | Production à la main des notions, questions et corrections 45 Spec au format du script (outil projets/45spec/agent_ecrire.py) | agent qui remplace l'API pour une spécialité 45 Spec | pipeline-autonomous-builder |
+| gratis-dashboard-live | Tableau de bord de progression live et gratuit (Actions + Pages) ; mise en œuvre : projets/outils/mesurer_tableau.py, tableau/, tableau.yml, pages.yml | progression, jauges, « où en est-on », suivi en direct | pipeline-autonomous-builder, dataviz |
 
 Dotation minimale de chaque agent : les cinq premiers skills ci-dessus (décision de Vial, 24.11.2026).
 Signature : AAI (Anthropic AI)
