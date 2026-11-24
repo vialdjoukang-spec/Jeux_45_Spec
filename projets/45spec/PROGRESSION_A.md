@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**252 / 500 pathologies du périmètre produites.**
+**255 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -126,12 +126,12 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 117 | `M72.6__F1_14-E12` | Fasciite nécrosante (gangrène streptococcique ou polymicrobienne) | CPL | produite |
 | 118 | `O00.1__O1_7-E11` | Grossesse extra-utérine (GEU) rompue | GYN | produite |
 | 119 | `R45.8_2__O6_1-E11` | Crise suicidaire aiguë chez un jeune LGBTQIA+ (rejet familial ou dysphorie) | MIG | produite |
-| 120 | `T43.2__G1-E18` | Syndrome sérotoninergique aigu | TOX | — |
+| 120 | `T43.2__G1-E18` | Syndrome sérotoninergique aigu | TOX | produite |
 | 121 | `T78.2__F1_1-E17` | Anaphylaxie aiguë (choc anaphylactique) | ALL | produite |
 | 122 | `T78.3__F1_16-E13` | Angio-œdème laryngé aigu | ALL | produite |
 | 123 | `T79.6__G10-E22` | Syndrome des loges (compartiment) aigu | CHI | produite |
-| 124 | `A56.0__O4_5-E02` | Urétrite à Chlamydia trachomatis (sérovars D-K) | DER | — |
-| 125 | `A63.0__F1_2-E03` | Condylomes acuminés (verrues génitales à HPV) | DER | — |
+| 124 | `A56.0__O4_5-E02` | Urétrite à Chlamydia trachomatis (sérovars D-K) | DER | produite |
+| 125 | `A63.0__F1_2-E03` | Condylomes acuminés (verrues génitales à HPV) | DER | produite |
 | 126 | `B37.0_candidose_muqueuse_s__O5_3-E08` | Candidose muqueuse superficielle (muguet oropharyngé, vulvo-vaginite) | INF | produite |
 | 127 | `E28.2__G15-E05` | Syndrome des ovaires polykystiques (SOPK) | END | produite |
 | 128 | `E66.0_obesite_de_l_adulte__G15-E01` | Obésité de l'adulte | END | produite |
