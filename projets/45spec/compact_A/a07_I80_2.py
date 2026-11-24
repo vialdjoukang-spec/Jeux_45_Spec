@@ -5,7 +5,7 @@ WELLS = "[Wells et al., N Engl J Med 2003;349:1227]"
 ADJ = "[Righini et al., JAMA 2014;311:1117 (ADJUST-PE ; validé pour l'EP, transposé à la TVP : à vérifier)]"
 SOX = "[Kahn et al., Lancet 2014;383:880 (essai SOX)]"
 EXP = "Avis d'expert (à vérifier)"
-AIPS = "AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
+AIPS = "AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS ; RCP Xarelto EMA (ClCr < 15 non recommandé, 15–29 prudence)"
 _N = [
 ("def","definition","critère",1,0,EXP,"On appelle thrombose veineuse profonde proximale un thrombus qui atteint la veine poplitée ou les veines plus hautes ; une thrombose limitée aux veines du mollet est dite distale."),
 ("epi","epidemiology","terrain particulier",2,0,ESC+" ; "+EXP,"La chirurgie, l'immobilisation, le cancer actif, la grossesse, le post-partum, les œstrogènes et les antécédents thrombo-emboliques augmentent le risque."),
@@ -20,7 +20,7 @@ _N = [
 ("echo","workupGoldStandard","examen",3,0,ESC,"L'échographie de compression veineuse confirme le diagnostic : une veine qui ne se comprime pas sous la sonde contient un thrombus."),
 ("diff","positiveDiagnosis","diagnostic différentiel",1,0,EXP,"On discute un kyste de Baker rompu, une déchirure musculaire, un hématome, une dermohypodermite et un œdème d'insuffisance veineuse ou cardiaque."),
 ("doac","acuteManagement","molécule",3,0,ESC,"Hors cancer, grossesse et syndrome des antiphospholipides, on préfère un anticoagulant oral direct (AOD) en première intention."),
-("riva","acuteManagement","posologie",2,0,AIPS,"Le rivaroxaban se donne à 15 mg deux fois par jour pendant 21 jours, puis 20 mg une fois par jour avec un repas ; on l'évite si la clairance de la créatinine tombe sous 30 mL/min (à vérifier dans l'AIPS)."),
+("riva","acuteManagement","posologie",2,0,AIPS,"Le rivaroxaban se donne à 15 mg deux fois par jour pendant 21 jours, puis 20 mg une fois par jour avec un repas ; on ne le recommande pas si la clairance de la créatinine tombe sous 15 mL/min et on l'emploie avec prudence entre 15 et 29 mL/min, car son exposition augmente (à vérifier dans l'AIPS)."),
 ("apix","acuteManagement","posologie",1,0,AIPS,"L'apixaban se donne à 10 mg deux fois par jour pendant 7 jours, puis 5 mg deux fois par jour."),
 ("lmwh","acuteManagement","terrain particulier",2,0,ESC+" ; "+AIPS,"Pendant la grossesse, on traite par héparine de bas poids moléculaire (HBPM) dosée au poids, car les AOD sont contre-indiqués ; en cas de cancer, on choisit une HBPM ou un AOD selon le risque hémorragique."),
 ("ambu","acuteManagement","décision",2,0,ESC+" ; "+EXP,"On traite la plupart des patients en ambulatoire et on les fait marcher tôt, car le lit n'apporte aucun bénéfice et la marche soulage les symptômes."),

@@ -4,7 +4,7 @@ PLAN = "non_monographique"
 OMS = "[OMS, « Burn-out an occupational phenomenon », CIM-11, 28.05.2019]"
 SENB = "[Swiss Expert Network on Burnout, Swiss Med Forum 2016, doi:10.4414/smf.2016.02698 (contenu à vérifier)]"
 CO = "[CO art. 336c al. 1 let. b ; art. 324a]"
-LAI = "[LAI art. 3b, détection précoce (à vérifier)]"
+LAI = "[LAI art. 3abis et 3b (détection précoce, teneur au 1.1.2022) ; OFAS, page « Détection et intervention précoces », consultée le 24.11.2026]"
 EXP = "Avis d'expert (à vérifier)"
 AIPS = "AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
 _N = [
@@ -26,7 +26,7 @@ _N = [
 ("ad","acuteManagement","molécule",2,0,SENB+" ; "+AIPS,"Aucun médicament ne traite le burnout lui-même ; on prescrit un antidépresseur (ISRS) seulement si un épisode dépressif est présent."),
 ("sleep","acuteManagement","décision",1,0,EXP,"On restaure le sommeil, l'activité physique et les temps de récupération."),
 ("rtw","chronicManagement","décision",2,0,SENB+" ; "+EXP,"On planifie une reprise progressive avec l'employeur et, si possible, le médecin du travail, en adaptant la charge."),
-("case","chronicManagement","contexte suisse",1,1,LAI,"Après une incapacité de travail ininterrompue d'au moins 30 jours, on peut communiquer le cas à l'AI pour une détection précoce (à vérifier)."),
+("case","chronicManagement","contexte suisse",1,1,LAI,"On peut communiquer à l'AI, pour une détection précoce, toute personne en incapacité de travail ou menacée de l'être, sans délai minimal depuis le 1.1.2022 ; l'assuré en est informé avant la communication."),
 ("mede","chronicManagement","terrain particulier",1,1,EXP,"Les médecins et soignants épuisés trouvent un soutien confidentiel spécifique, par exemple le réseau ReMed de la FMH (à vérifier)."),
 ("compli","hospitalizationComplications","complication",1,0,EXP,"Sans prise en charge, le burnout évolue vers une dépression, un abus d'alcool ou de substances et un risque suicidaire."),
 ("hosp","hospitalizationComplications","décision",1,0,EXP,"On hospitalise en cas de risque suicidaire ou d'épuisement qui empêche les soins ambulatoires."),
@@ -75,7 +75,7 @@ Q = [
  "n":n("336c","apg"),"a":"application","d":3,"l":("Licenciement.","Temps inopportun.","3 ans.","Ancienneté.","90 jours.","30 jours.","2e–5e année = 90 jours."),"src":CO},
 {"f":"A","m":0,"st":"Un patient en burnout reste en incapacité totale depuis 6 semaines, sans perspective claire de reprise.",
  "p":"Quelle démarche suisse pouvez-vous engager ?","o":A((1,"Une communication à l'AI pour une détection précoce","Maintien en emploi."),(0,"Une demande de rente immédiate","Prématuré."),(0,"Une déclaration à la LAA","Pas un accident."),(0,"Une dénonciation à l'employeur","Faux."),(0,"Aucune démarche avant 2 ans","Retard.")),
- "n":n("case","rtw"),"a":"direct","d":3,"l":("Incapacité.","Désinsertion.","6 semaines.","Détection précoce.","Annonce AI.","Rente.","≥ 30 jours = détection précoce."),"src":LAI},
+ "n":n("case","rtw"),"a":"direct","d":3,"l":("Incapacité.","Désinsertion.","6 semaines.","Détection précoce.","Annonce AI.","Rente.","Incapacité ou menace d'incapacité = détection précoce, sans délai minimal."),"src":LAI},
 {"f":"A","m":0,"st":"Une médecin assistante en burnout n'ose pas consulter par crainte pour sa réputation.",
  "p":"Quelle orientation lui proposez-vous ?","o":A((1,"Un soutien confidentiel destiné aux médecins, par exemple le réseau ReMed","Ressource dédiée."),(0,"Attendre la fin de sa formation","Danger."),(0,"Se traiter elle-même","Faux."),(0,"Informer son chef de service","Secret."),(0,"Changer de spécialité","Prématuré.")),
  "n":n("mede","prev"),"a":"application","d":2,"l":("Médecin épuisé.","Stigmatisation.","Crainte.","Ressource dédiée.","ReMed.","Auto-traitement.","Soignant = soutien dédié."),"src":EXP},
@@ -118,7 +118,7 @@ C = {"theme":"Burnout : le définir selon la CIM-11 comme phénomène profession
    "arbre":[("t1",None,"Épuisement au travail","On fait un entretien clinique et un bilan de base.",None,None),("t2","t1","Dépression associée","On ajoute un ISRS à la psychothérapie.",None,None),("t3","t1","Sans dépression","On combine psychothérapie, incapacité adaptée et hygiène de vie.",None,None),("t4","t1","Risque suicidaire","On hospitalise.",None,None)],
    "points":["MBI : recherche, pas diagnostic."],"sources":[SENB]},
   {"titre":"Reprise et droits","rub":["chronicManagement","hospitalizationComplications","followUpNetwork","surveillance"],"comment":"On protège l'emploi et on prévient la rechute.",
-   "points":["Reprise progressive avec l'employeur.","Art. 336c CO : 30/90/180 jours ; certificat sans diagnostic.","Détection précoce AI après 30 jours."],"sources":[CO,LAI]}],
+   "points":["Reprise progressive avec l'employeur.","Art. 336c CO : 30/90/180 jours ; certificat sans diagnostic.","Détection précoce AI dès l'incapacité ou sa menace, sans délai minimal (art. 3abis LAI)."],"sources":[CO,LAI]}],
  "ssp":("O6.9","Problèmes liés aux conditions de travail, à l'épuisement professionnel, au chômage et aux difficultés financières",True,[
    ("n1",None,"Plainte d'épuisement lié au travail","On évalue la gravité et le risque suicidaire.",None,"c2"),
    ("n2","n1","Idées suicidaires avec plan","On hospitalise.","aigu","c3"),
