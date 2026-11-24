@@ -21,39 +21,15 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | M | 12 | 12 |
 | N | 12 | 12 |
 | O | 12 | 12 |
-| P | 0 | 12 |
+| P | 3 | 12 |
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **204** | **228** |
+| **Total** | **207** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
 - **TRANS_A-S4-01** : Contenu des ATF cités comme distracteurs ou repères (130 V 352 de 2004, 137 V 210 de 2011, 143 V 409/418 de 2017) : cohérent avec la doctrine connue mais non relu sur bger.ch (base inaccessible pendant l'audit). Vérifiés : ATF 125 V 351 (critères de valeur probante, guide FMH) et le changement de pratique de 2015 (arrêt 9C_492/2014 publié ATF 141 V 281, circulaire OFAS du 7.7.2015).
-- **TRANS_N-S1-01** : Rappels dT de l'adulte dans le Plan de vaccination suisse 2025 (dTpa à 25 ans, puis dT tous les 20 ans jusqu'à 65 ans, puis tous les 10 ans) et rappel à 45 ans mentionné.
-- **TRANS_N-S1-01** : Recommandation et remboursement de la vaccination contre le VRS chez l'adulte (recommandation OFSP du 18.11.2024) et chez la femme enceinte en 2026.
-- **TRANS_N-S1-02** : Définition de la prévention quaternaire (Jamoulle, 1986 ; reprise par la WONCA en 2003) et son usage dans la campagne Smarter Medicine – Choosing Wisely Switzerland.
-- **TRANS_N-S1-02** : Exemples des listes « top 5 » de Smarter Medicine pour la médecine interne générale ambulatoire en vigueur en 2026.
-- **TRANS_N-S1-03** : Disponibilité et remboursement en Suisse en 2026 de la varénicline (retrait du Champix en 2021, retour de génériques ?) et de la cytisine ; remboursement des substituts nicotiniques par la LAMal.
-- **TRANS_N-S1-03** : Prévalence du tabagisme en Suisse (Enquête suisse sur la santé 2022, environ un quart des adultes) : chiffre non écrit dans le texte.
-- **TRANS_N-S2-01** : Recommandations OFSP 2025 pour l'asplénie : vaccin pneumococcique conjugué de valence supérieure à 13, méningocoques ACWY et B, Hib, grippe annuelle ; calendrier par rapport à une splénectomie programmée (au moins 2 semaines avant) ou en urgence (2 semaines après).
-- **TRANS_N-S2-01** : Recommandation VRS chez l'adulte (≥ 75 ans et ≥ 60 ans à risque ?) et remboursement en 2026.
-- **TRANS_N-S2-02** : Données suisses sur les inégalités sociales de santé (Obsan, OFS : écart d'espérance de vie selon le niveau de formation) : chiffres non écrits dans le texte.
-- **TRANS_N-S2-02** : Existence et nom des outils suisses de repérage de la précarité en consultation (par exemple le score DiPCare-Q, Unisanté).
-- **TRANS_N-S2-03** : Seuils de l'AUDIT-C utilisés en Suisse (souvent ≥ 4 chez l'homme et ≥ 3 chez la femme) et définition suisse du verre standard (10 à 12 g d'alcool pur selon Addiction Suisse).
-- **TRANS_N-S2-03** : Repères de consommation à faible risque de la Commission fédérale pour les questions liées aux addictions (CFANT, 2018) : au plus 2 verres standards par jour pour l'homme et 1 pour la femme, avec des jours sans alcool.
-- **TRANS_N-S3-01** : Fenêtre recommandée pour le dTpa pendant la grossesse en Suisse (idéalement au 2e trimestre, entre 13 et 26 semaines ?) et recommandation 2024-2026 sur le vaccin maternel contre le VRS (Abrysvo entre 32 et 36 semaines) versus nirsevimab chez le nourrisson.
-- **TRANS_N-S3-01** : Recommandation suisse sur la vaccination contre le Covid-19 pendant la grossesse en 2026.
-- **TRANS_N-S3-02** : Score de risque recommandé en Suisse en 2026 (AGLA, fondé sur PROCAM, ou SCORE2/SCORE2-OP de l'ESC) et catégories de risque à 10 ans.
-- **TRANS_N-S3-02** : Cibles de LDL-cholestérol des recommandations ESC/EAS 2019 et mise à jour 2025 (très haut risque < 1,4 mmol/L, haut risque < 1,8 mmol/L, risque intermédiaire < 2,6 mmol/L, faible risque < 3,0 mmol/L), reprises par l'AGLA.
-- **TRANS_N-S3-03** : Date d'adoption de la politique des quatre piliers (début des années 1990) et de son inscription dans la LStup révisée (votation de 2008, en vigueur depuis le 1.7.2011).
-- **TRANS_N-S3-03** : Disponibilité et remboursement en 2026 de la naloxone intranasale pour les usagers et leurs proches en Suisse.
-- **TRANS_N-S4-01** : Délais recommandés par l'OFSP entre un vaccin vivant et le début d'une immunosuppression (au moins 4 semaines) et seuils d'immunosuppression (par exemple prednisone ≥ 20 mg par jour pendant ≥ 14 jours) contre-indiquant les vaccins vivants.
-- **TRANS_N-S4-01** : Recommandation suisse du vaccin recombinant contre le zona chez l'adulte immunodéprimé (âge minimal 18 ou 50 ans selon la situation) en 2026.
-- **TRANS_N-S4-02** : Nombre annuel de suicides en Suisse (environ 1000, hors assistance au suicide, selon l'OFS) : chiffre non écrit dans le texte.
-- **TRANS_N-S4-02** : Plan d'action national de prévention du suicide (Confédération et cantons, 2016) et numéros 143 (La Main Tendue) et 147 (Pro Juventute, jeunes) : à vérifier pour 2026.
-- **TRANS_N-S4-03** : Prise en charge de la PrEP VIH par l'assurance obligatoire depuis le 1.7.2024 (conditions, médecins autorisés, franchise et quote-part).
-- **TRANS_N-S4-03** : Schéma « à la demande » 2-1-1 réservé aux hommes ayant des rapports avec des hommes (pas pour les rapports vaginaux) selon les recommandations suisses (CFIST) et européennes (EACS 2024).
 - **TRANS_O-S1-01** : Classement des inhibiteurs et inducteurs puissants du CYP3A4 selon la FDA (tableau des substrats, inhibiteurs et inducteurs, mise à jour 2023) et intégration dans les outils suisses (compendium.ch, mediQ, Pharmavista).
 - **TRANS_O-S1-01** : Contre-indication de l'association de la simvastatine avec la clarithromycine dans l'AIPS suisse.
 - **TRANS_O-S1-02** : Recommandation KDIGO 2024 sur l'usage de l'équation CKD-EPI 2021 sans coefficient ethnique et sur le recours à la cystatine C ; usage persistant de Cockcroft-Gault dans certaines AIPS.
@@ -78,6 +54,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_O-S4-02** : Fourchettes de lithiémie (0,6 à 0,8 mmol/L en entretien, jusqu'à 1,0 mmol/L selon la situation ; 0,4 à 0,7 chez la personne âgée) et taux résiduels cibles du tacrolimus selon le délai après greffe : à confirmer dans les protocoles locaux.
 - **TRANS_O-S4-03** : Seuils de surface cutanée décollée : SJS < 10 %, chevauchement 10 à 30 %, NET > 30 % ; score SCORTEN et algorithme ALDEN : à confirmer dans les références.
 - **TRANS_O-S4-03** : Critères RegiSCAR pour le DRESS et délai d'apparition typique (2 à 8 semaines) ; association HLA-B*58:01 et allopurinol, HLA-B*15:02 et carbamazépine.
+- **TRANS_P-S1-01** : Résultats de l'étude de Haynes (NEJM 2009) : mortalité de 1,5 % à 0,8 % et complications de 11 % à 7 % après introduction de la checklist ; à confirmer avant citation chiffrée.
+- **TRANS_P-S1-01** : Programme pilote progress! « La sécurité en chirurgie » de Sécurité des patients Suisse (2012-2015) et taux d'utilisation actuel de la checklist dans les hôpitaux suisses.
+- **TRANS_P-S1-02** : Références originales du modèle de Reason (Human Error, 1990 ; BMJ 2000;320:768-770) et distinction entre erreurs actives et conditions latentes.
+- **TRANS_P-S1-02** : Modèle de la « culture juste » (just culture) et algorithme de décision sur la responsabilité individuelle (par exemple l'arbre de culpabilité de Reason).
+- **TRANS_P-S1-03** : Recommandations de Sécurité des patients Suisse sur le KCl concentré (programme progress! « La sécurité de la médication », retrait des ampoules concentrées des unités) et sur l'identification des patients (deux identifiants).
+- **TRANS_P-S1-03** : Liste suisse des médicaments à haut risque (high-alert) et doubles contrôles recommandés.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -91,4 +73,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : P (3/12), R (0/12).
