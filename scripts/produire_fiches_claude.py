@@ -150,6 +150,9 @@ def selection(a):
         cs = [c for c in cs if a.spec.upper() in c["codes"]]
     if a.id:
         cs = [c for c in cs if c["id"] == a.id]
+    if getattr(a, "ids_fichier", None):
+        ids = set(json.load(open(a.ids_fichier, encoding="utf-8")))
+        cs = [c for c in cs if c["id"] in ids]
     if a.ssp:
         cs = [c for c in cs if c["ssp"] == a.ssp]
     cs.sort(key=lambda c: (c["freq"], (c["codes"] or ["ZZZ"])[0], c["id"]))   # du plus banal au plus rare
@@ -380,7 +383,7 @@ def bilan(a):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(); sp = ap.add_subparsers(dest="cmd", required=True)
     for nom in ("pilote", "soumettre", "statut", "recuperer", "bilan", "pec_pilote", "pec_soumettre", "pec_recuperer", "pec_bilan"):
-        p = sp.add_parser(nom); p.add_argument("--spec"); p.add_argument("--id"); p.add_argument("--ssp"); p.add_argument("--max", type=int)
+        p = sp.add_parser(nom); p.add_argument("--spec"); p.add_argument("--id"); p.add_argument("--ids-fichier", dest="ids_fichier"); p.add_argument("--ssp"); p.add_argument("--max", type=int)
         p.add_argument("--n", type=int, default=2); p.add_argument("--modele", default=MODELE_DEFAUT); p.add_argument("--sec", action="store_true")
         p.add_argument("--inclure-rejets", dest="inclure_rejets", action="store_true")
     a = ap.parse_args(); globals()[a.cmd](a)
