@@ -19,42 +19,17 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | K | 12 | 12 |
 | L | 12 | 12 |
 | M | 12 | 12 |
-| N | 9 | 12 |
+| N | 12 | 12 |
 | O | 0 | 12 |
 | P | 0 | 12 |
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **189** | **228** |
+| **Total** | **192** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
 - **TRANS_A-S4-01** : Contenu des ATF cités comme distracteurs ou repères (130 V 352 de 2004, 137 V 210 de 2011, 143 V 409/418 de 2017) : cohérent avec la doctrine connue mais non relu sur bger.ch (base inaccessible pendant l'audit). Vérifiés : ATF 125 V 351 (critères de valeur probante, guide FMH) et le changement de pratique de 2015 (arrêt 9C_492/2014 publié ATF 141 V 281, circulaire OFAS du 7.7.2015).
-- **TRANS_J-S1-01** : Durée de friction recommandée (20 à 30 secondes selon l'OMS 2009) et volume de solution (3 mL environ, ou quantité suffisante pour couvrir les mains).
-- **TRANS_J-S1-01** : Nom et périodicité actuels de la mesure nationale de l'observance de l'hygiène des mains (Swissnoso, programme « Clean Hands »).
-- **TRANS_J-S1-02** : Recommandations de Swissnoso en vigueur en 2026 sur le masque pour la grippe et le VRS (masque chirurgical) et sur le masque FFP2 pour le Covid-19 en milieu hospitalier.
-- **TRANS_J-S1-02** : Classification suisse de la varicelle et du zona disséminé (précautions aériennes et de contact).
-- **TRANS_J-S1-03** : Prise en charge des frais par l'assurance-accidents (LAA) de l'exposé, y compris les analyses de la personne source, selon la mise à jour CFIST 2025.
-- **TRANS_J-S1-03** : Statut du risque de transmission du VHB après exposition percutanée (22 à 31 % si source HBeAg positive, estimation ancienne) chez un soignant non vacciné.
-- **TRANS_J-S2-01** : Contenu exact du module Swissnoso de prévention des bactériémies sur cathéter (programme national « progress! Sécurité des sondes vésicales » de Sécurité des patients Suisse, 2015-2018) et des bundles CLABSI en 2026.
-- **TRANS_J-S2-01** : Choix préférentiel du site sous-clavier pour le CVC non tunnelisé chez l'adulte (CDC 2011, mis à jour) et balance avec le risque de pneumothorax.
-- **TRANS_J-S2-02** : Recommandations ESCMID 2021 (van Prehn et al.) et IDSA/SHEA 2021 : fidaxomicine 200 mg 2 fois par jour pendant 10 jours en premier choix, vancomycine 125 mg 4 fois par jour pendant 10 jours en alternative ; disponibilité et remboursement en Suisse en 2026.
-- **TRANS_J-S2-02** : Statut 2026 du bezlotoxumab (retrait du marché annoncé) et accès suisse à la transplantation de microbiote fécal.
-- **TRANS_J-S2-03** : Recommandations Swissnoso en vigueur sur l'antibioprophylaxie : céfazoline 2 g IV dans les 60 minutes avant l'incision, 3 g si poids ≥ 120 kg, réinjection après 4 heures ; durée maximale 24 heures.
-- **TRANS_J-S2-03** : Programme Swissnoso de surveillance des infections du site opératoire (participation obligatoire ANQ) et module d'intervention SSI.
-- **TRANS_J-S3-01** : Recommandations nationales Swissnoso sur les EPC (2018, mise à jour ?) et dépistage à l'admission des patients hospitalisés à l'étranger dans les 12 derniers mois.
-- **TRANS_J-S3-01** : Déclaration obligatoire des EPC par les laboratoires à l'OFSP depuis le 1.1.2016 : formulation et délai.
-- **TRANS_J-S3-01** : Schéma de décolonisation du SARM : mupirocine nasale 2 % deux fois par jour et toilette à la chlorhexidine pendant 5 jours (pratique usuelle, variable selon les hôpitaux).
-- **TRANS_J-S3-02** : Recommandations OFSP en vigueur en 2026 pour le personnel de santé (Plan de vaccination suisse, chapitre « Personnel de santé ») : cible anti-HBs ≥ 100 UI/L, recommandation COVID-19, hépatite A et méningocoques pour certains personnels.
-- **TRANS_J-S3-02** : Base légale permettant à un employeur hospitalier d'exiger une vaccination ou d'écarter un soignant non immun de certains postes (LTr, OPA, droit cantonal).
-- **TRANS_J-S3-03** : Indications de la prophylaxie antifongique par posaconazole (300 mg par jour, comprimés gastro-résistants, après une dose de charge) selon ECIL et l'AIPS suisse : induction de LAM ou SMD, maladie du greffon contre l'hôte sous immunosuppression.
-- **TRANS_J-S3-03** : Recommandations suisses ou ECIL sur les chambres à air filtré HEPA et la gestion des chantiers hospitaliers.
-- **TRANS_J-S4-01** : Obligation de déclaration des éclosions nosocomiales au médecin cantonal selon l'ordonnance sur les épidémies (OEp, art. 12 ? déclaration des foyers inhabituels) et délai.
-- **TRANS_J-S4-01** : Recommandations Swissnoso 2026 sur la gestion d'une éclosion à EPC (dépistage hebdomadaire des contacts, cohortage, personnel dédié).
-- **TRANS_J-S4-02** : Référence et contenu de l'ordonnance suisse sur la prévention de la maladie de Creutzfeldt-Jakob lors des interventions médico-chirurgicales (OMCJ, RS 818.101.21 ?, 2002) : stérilisation à la vapeur à 134 °C pendant 18 minutes des dispositifs médicaux réutilisables invasifs.
-- **TRANS_J-S4-02** : Déclaration clinique obligatoire de la MCJ à l'OFSP et rôle du Centre national de référence des maladies à prions (NRPE, Zurich).
-- **TRANS_J-S4-03** : Valeur maximale de Legionella spp. dans l'eau des douches (1000 UFC/L, art. 9 OPBD) et objectif « non détectable » pour les unités à haut risque selon le module 12 OSAV/OFSP (2018).
-- **TRANS_J-S4-03** : Délai et modalités de déclaration de la légionellose (déclaration clinique et laboratoire à l'OFSP).
 - **TRANS_K-S1-01** : Valeurs indicatives suisses pour le port de charges (SECO, commentaire de l'art. 25 OLT3 ; méthode des indicateurs clés) et outils SUVA de 2026.
 - **TRANS_K-S1-01** : Part des TMS parmi les causes d'absence au travail en Suisse (enquête européenne et suisse sur les conditions de travail, SECO) : chiffre non cité.
 - **TRANS_K-S1-02** : Limites de l'OProMa pour le port de charges (jusqu'au 6e mois : 5 kg régulièrement, 10 kg occasionnellement ; dès le 7e mois : interdiction) et pour le bruit (85 dB(A)) : à confirmer dans le RS 822.111.52.
@@ -147,6 +122,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_N-S3-02** : Cibles de LDL-cholestérol des recommandations ESC/EAS 2019 et mise à jour 2025 (très haut risque < 1,4 mmol/L, haut risque < 1,8 mmol/L, risque intermédiaire < 2,6 mmol/L, faible risque < 3,0 mmol/L), reprises par l'AGLA.
 - **TRANS_N-S3-03** : Date d'adoption de la politique des quatre piliers (début des années 1990) et de son inscription dans la LStup révisée (votation de 2008, en vigueur depuis le 1.7.2011).
 - **TRANS_N-S3-03** : Disponibilité et remboursement en 2026 de la naloxone intranasale pour les usagers et leurs proches en Suisse.
+- **TRANS_N-S4-01** : Délais recommandés par l'OFSP entre un vaccin vivant et le début d'une immunosuppression (au moins 4 semaines) et seuils d'immunosuppression (par exemple prednisone ≥ 20 mg par jour pendant ≥ 14 jours) contre-indiquant les vaccins vivants.
+- **TRANS_N-S4-01** : Recommandation suisse du vaccin recombinant contre le zona chez l'adulte immunodéprimé (âge minimal 18 ou 50 ans selon la situation) en 2026.
+- **TRANS_N-S4-02** : Nombre annuel de suicides en Suisse (environ 1000, hors assistance au suicide, selon l'OFS) : chiffre non écrit dans le texte.
+- **TRANS_N-S4-02** : Plan d'action national de prévention du suicide (Confédération et cantons, 2016) et numéros 143 (La Main Tendue) et 147 (Pro Juventute, jeunes) : à vérifier pour 2026.
+- **TRANS_N-S4-03** : Prise en charge de la PrEP VIH par l'assurance obligatoire depuis le 1.7.2024 (conditions, médecins autorisés, franchise et quote-part).
+- **TRANS_N-S4-03** : Schéma « à la demande » 2-1-1 réservé aux hommes ayant des rapports avec des hommes (pas pour les rapports vaginaux) selon les recommandations suisses (CFIST) et européennes (EACS 2024).
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -160,4 +141,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : N (9/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : O (0/12), P (0/12), R (0/12).
