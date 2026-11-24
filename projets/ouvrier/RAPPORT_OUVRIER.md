@@ -1,8 +1,8 @@
-# Ouvrier automatique — 2026-11-24 14:38 UTC
+# Ouvrier automatique — 2026-11-24 15:13 UTC
 
-Dernier passage : **T4_reprise_rejets** → en_cours (0.16 USD).
+Dernier passage : **T4_reprise_rejets** → en_cours (0.00 USD).
 
-J'ai archivé 328 fiches en erreur de forme (schéma) dans content/fiches/_archives/ avec leur motif (clé motif_archive). Je les ai resoumises en lot (msgbatch_01AmjDpEKHyHBu48ghHZiRKz, option --ids-fichier ajoutée au script, coût estimé 15 USD, sous le plafond total). Le lot est encore en traitement : le passage suivant doit lancer « recuperer », puis vérifier qu'aucune fiche active n'est en erreur.
+Credit balance is too low
 
 **Crédit** : 51.97 USD dépensés, 140.03 USD disponibles avant le 27.11.2026 ; aujourd'hui 1.35 / 141.38 USD.
 
@@ -39,7 +39,7 @@ J'ai archivé 328 fiches en erreur de forme (schéma) dans content/fiches/_archi
 | END_C_lot | fait | 1 | 0.0 |
 | END_C_recup | fait | 1 | 0.0 |
 | T3_pec_fiches_existantes | fait | 8 | 0.133 |
-| T4_reprise_rejets | en_cours | 1 | 0.16 |
+| T4_reprise_rejets | en_cours | 2 | 0.0 |
 | T5_items_valides | sans_objet | 0 |  |
 | T7_transversal_lecons | sans_objet | 0 |  |
 | T6_vague_urgences | sans_objet | 0 |  |
