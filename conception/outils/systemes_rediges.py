@@ -14,5 +14,6 @@ REDIGES = {
     "Ophtalmologique & ORL": {"dossier": "orl", "prefixe": "or_", "couleur": "#5b6574", "ids": {}},
     "Locomoteur & rhumatologique": {"dossier": "loco", "prefixe": "lo_", "couleur": "#6b7280", "ids": {}},
     "Dermatologique": {"dossier": "derma", "prefixe": "de_", "couleur": "#b07a5a", "ids": {}},
+    "Pédiatrique (croissance et développement)": {"dossier": "pediatrie", "prefixe": "pe_", "couleur": "#2e8b57", "ids": {"Croissance staturo-pondérale": "org_pediat_croissance_staturo_ponderale", "Développement psychomoteur": "org_pediat_developpement_psychomoteur", "Puberté": "org_pediat_puberte", "Adaptation néonatale (vie extra-utérine)": "org_pediat_adaptation_neonatale_vie_extra", "Génétique et dysmorphies": "org_pediat_genetique_et_dysmorphies"}},
 }
 SOURCES = {s: charger(c["dossier"]) for s, c in REDIGES.items()}
