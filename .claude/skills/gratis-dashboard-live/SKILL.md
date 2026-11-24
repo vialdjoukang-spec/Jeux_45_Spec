@@ -8,9 +8,9 @@ description: Construit un tableau de bord de progression live, gratuit et héber
 Un tableau de bord de progression vaut par trois qualités : il dit vrai (il mesure les fichiers réels, jamais une estimation recopiée), il se met à jour seul, et il ne coûte rien. Ce skill le bâtit sur GitHub, sans serveur ni modèle payant : un robot GitHub Actions mesure le dépôt, écrit des JSON, et une page statique servie par GitHub Pages les affiche.
 
 ## 1. Architecture (0 token, 0 franc)
-- **Mesure** : `outils/mesurer.py` lit le dépôt (fichiers, statuts d'audit, files de tâches, branches) et écrit `tableau/donnees/*.json`. Chaque chiffre porte sa règle de calcul et le fichier qui le prouve.
-- **Robot** : `.github/workflows/tableau.yml`, déclenché par `schedule` (toutes les 5 à 15 minutes ; GitHub peut retarder un cron), par `push` sur les chemins mesurés et par `workflow_dispatch`. Il commite les JSON avec `[skip ci]` pour ne pas boucler.
-- **Affichage** : `tableau/index.html`, page statique qui lit les JSON par `fetch` et se rafraîchit seule (toutes les 60 s). Publication par GitHub Pages (dossier `/tableau` ou branche `gh-pages`) ; dépôt public requis pour Pages gratuit, sinon proposer l'artifact Claude ou Cloudflare Pages.
+- **Mesure** : un script de mesure (ici `projets/outils/mesurer_tableau.py`, qui réutilise `projets/jauges.json` au lieu de recalculer les jauges) lit le dépôt (fichiers, statuts d'audit, files de tâches, branches) et écrit `tableau/donnees/*.json`. Chaque chiffre porte sa règle de calcul et le fichier qui le prouve.
+- **Robot** : `.github/workflows/tableau.yml`, déclenché par `schedule` (toutes les 5 à 15 minutes ; GitHub peut retarder un cron), par `push` sur les chemins mesurés et par `workflow_dispatch`. Il commite les JSON avec `[skip ci]` pour ne pas boucler, et seulement si autre chose que les horodatages a changé.
+- **Affichage** : `tableau/index.html`, page statique qui lit les JSON par `fetch` et se rafraîchit seule (toutes les 60 s). Publication par GitHub Pages (workflow `pages.yml` : upload-pages-artifact + deploy-pages, source « GitHub Actions » ; la page lit d'abord les JSON de main sur raw.githubusercontent.com, donc les données restent live sans redéploiement) ; dépôt public requis pour Pages gratuit, sinon proposer l'artifact Claude ou Cloudflare Pages.
 - **Historique** : `tableau/donnees/historique.jsonl`, une ligne par mesure quand une valeur change, pour tracer les courbes.
 
 ## 2. Niveau de détail attendu (coque → centre)
@@ -23,7 +23,7 @@ Un tableau de bord de progression vaut par trois qualités : il dit vrai (il mes
 7. **Journal** : 20 derniers événements (fusion, audit, échec de workflow).
 
 ## 3. Règles de présentation
-Police Atkinson Hyperlegible pour le texte, fond clair (bleu ciel par défaut), colonne contenue avec sommaire latéral numéroté, couleurs douces et accessibles (relais `color-theme-graphic-expert`), graphiques en canvas sans SVG décoratif, chaque chiffre expliqué en infobulle, phrases verbales. Jamais de contenu confidentiel (questions d'examen, secrets) dans les JSON publiés.
+Police Atkinson Hyperlegible pour le texte, fond clair (bleu ciel par défaut), colonne contenue avec sommaire latéral numéroté, couleurs douces et accessibles, validées par `dataviz` (`validate_palette.js`), graphiques en canvas sans SVG décoratif, chaque chiffre expliqué en infobulle, phrases verbales. Jamais de contenu confidentiel (questions d'examen, secrets) dans les JSON publiés.
 
 ## 4. Vérifier avant d'annoncer
 1. Lancer `mesurer.py` en local et comparer deux chiffres au décompte manuel des fichiers.
@@ -34,6 +34,6 @@ Police Atkinson Hyperlegible pour le texte, fond clair (bleu ciel par défaut), 
 ## 5. Si GitHub Pages n'est pas possible
 Proposer, dans cet ordre : publier `index.html` comme artifact Claude republié à chaque ronde ; Cloudflare Pages relié au dépôt (gratuit, dépôt privé accepté) ; à défaut, `JAUGES.md` rendu par GitHub.
 
-Relais : `pipeline-autonomous-builder` (workflow), `dataviz` (forme des graphiques), `harness-for-long` (rondes qui lisent le tableau).
+Relais : `pipeline-autonomous-builder` (workflow), `dataviz` (forme et couleurs des graphiques), `harness-for-long` (rondes qui lisent le tableau).
 
 Signature : AAI (Anthropic AI)

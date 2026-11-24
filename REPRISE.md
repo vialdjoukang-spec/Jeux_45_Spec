@@ -82,6 +82,17 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Pilote Jeux_45_Spec : `python scripts/produire_fiches_claude.py pilote --spec CAR --n 2` (schéma `scripts/schema_fiche.json` : `glossaire` et `examens.items.visee` obligatoires). Vial envoie les 2 fiches pour audit.
 - Skill `obsidian-like-complex-network` : les liens droits sont déjà en place dans le compte ; la copie du dépôt est corrigée et synchronisée (nouvelles fenêtres, paliers). Mise à jour du compte proposée le 2026-11-21 (fenêtres + paliers).
 
+## Blocages et décisions en attente (lu par le tableau de bord `tableau/`)
+Format obligatoire, une ligne par point : `- [qui peut débloquer] ce qu'il faut faire`. Retirer la ligne dès que le point est réglé ; le robot `tableau.yml` la publie en 10 minutes.
+- [Vial] Décider du catalogue pédiatrique : 6 pathologies majeures manquent encore en version enfant (ronde du 24.11, 13:20).
+- [Vial] Trancher le cas des entités deuil et divorce, partagées entre plusieurs spécialités.
+- [Vial] Dire si F30.1 reste une pathologie monographique.
+- [Vial] Fermer l'issue GitHub #30, qui signale une fausse alerte de la veille.
+- [Crédit API] La file API reste en pause jusqu'au nouveau crédit annoncé jeudi 26.11 ; la V2 attend ce crédit.
+- [Claude] Reporter sur main le correctif de rang (meilleur rang des portes, branche agent/45spec-INF), puis relancer scripts/classer_rendement.py.
+- [Claude] Régénérer les 5 corrections restantes de la vague 1 (E11.9, I49.5, I75.0, E87.6, B18.9).
+- [Claude] Auditer puis fusionner les branches agent/45spec-INF, agent/45spec-NEU, agent/45spec-PED et agent/45spec-A.
+
 ## 11. Façon de répondre à Vial
 - Réponse directe et brève ; vérité sans complaisance ; critique constructive et un « plus » à chaque proposition.
 - Solution la plus économique et efficace proposée une fois, en GRAS MAJUSCULE et en couleur.
@@ -271,3 +282,11 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Défaut connu : une pathologie fusionnée sur branche change d'id et perd son rang ; corrigé sur agent/45spec-INF (meilleur rang des portes) → à reporter sur main à la fusion, puis relancer classer_rendement.py.
 - Agents en cours : PSY, NEU, INF (production), agent/45spec-A (groupe A des autres spécialités), auditeur des 4 branches (AUDIT_AGENTS_1.md) ; PED réorienté (reste B/C/D seulement).
 - Décisions en attente de Vial : catalogue pédiatrique (6 pathologies majeures absentes en version enfant) ; deuil/divorce partagés ; F30.1 monographique.
+- Défaut connu : une pathologie fusionnée sur branche change d'id et perd son rang ; corrigé sur agent/45spec-INF (meilleur rang des portes) → à reporter sur main à la fusion, puis relancer classer_rendement.py.
+- Agents en cours : PSY, NEU, INF (production), agent/45spec-A (groupe A des autres spécialités), auditeur des 4 branches (AUDIT_AGENTS_1.md) ; PED réorienté (reste B/C/D seulement).
+- Décisions en attente de Vial : catalogue pédiatrique (6 pathologies majeures absentes en version enfant) ; deuil/divorce partagés ; F30.1 monographique.
+
+## 24.11 14:30 — Décision de Vial : production 45 Spec ralentie à 1 agent jusqu'à jeudi
+- Producteur unique : agent/45spec-A, file continue (groupe A entier dans l'ordre du rang, puis B) ; il fusionne lui-même sur main après chaque lot de 3, avec contrôles (valider, menus longs, classer_rendement, arène 45). À relancer dès qu'il s'arrête.
+- Agents A2, B, NEU arrêtés ; un auditeur audite leurs branches (et PSY, reprise des 5 corrections vague 1) puis fusionne lui-même sur main (AUDIT_AGENTS_2.md).
+- API : groupe A en pause jusqu'au crédit de jeudi.
