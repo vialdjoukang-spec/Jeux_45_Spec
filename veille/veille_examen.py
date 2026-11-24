@@ -26,7 +26,8 @@ UA = "Jeux45Spec-veille/1.0 (veille non commerciale de l'examen federal; +https:
 AUJ = dt.date.today().isoformat()
 MOIS = {m: i + 1 for i, m in enumerate("janvier février mars avril mai juin juillet août septembre octobre novembre décembre".split())}
 MOIS.update({"fevrier": 2, "aout": 8, "decembre": 12})
-VILLES = ["Bâle", "Berne", "Fribourg", "Genève", "Lausanne", "Lugano", "Zurich"]
+VILLES = {"Bâle": ("bâle", "basel"), "Berne": ("berne", "bern"), "Fribourg": ("fribourg", "freiburg"), "Genève": ("genève", "genf", "ginevra"),
+          "Lausanne": ("lausanne", "losanna"), "Lugano": ("lugano",), "Zurich": ("zurich", "zürich", "zurigo")}
 RE_DATE = re.compile(r"(\d{1,2})(?:er)?\s*\.?\s*(janvier|février|fevrier|mars|avril|mai|juin|juillet|août|aout|septembre|octobre|novembre|décembre|decembre)\s+(\d{4})", re.I)
 
 
@@ -85,12 +86,19 @@ def lire_source(url, etat, journal, pdf=False):
     cache = os.path.join(CACHE, nom_cache(url))
     st, b, h = get(url, etat)
     e = etat.setdefault(url, {})
-    e["dernier_statut"], e["consulte_le"] = st, AUJ
+    avant = e.get("dernier_statut")
+    e["dernier_statut"] = st
+    if st in (200, 304): e["consulte_le"] = AUJ
     if st == 304 and os.path.exists(cache):
-        return open(cache, encoding="utf-8").read(), []
+        return open(cache, encoding="utf-8").read(), e.get("liens", [])
     if st != 200 or b is None:
-        journal.append(f"- {AUJ} : source inaccessible ({st or 'réseau'}) : {url} — valeur précédente conservée, aucun contournement.")
-        return (open(cache, encoding="utf-8").read() if os.path.exists(cache) else None), []
+        if avant != st:  # une seule note par panne, pas une par jour
+            journal.append(f"- {AUJ} : source inaccessible ({st or 'réseau'}) : {url} — valeur précédente conservée, aucun contournement.")
+        if os.path.exists(cache):
+            t = open(cache, encoding="utf-8").read()
+            e.setdefault("sha256", sha(t))  # empreinte du dernier texte lu, jamais effacée par une panne
+            return t, e.get("liens", [])
+        return None, []
     liens = []
     if pdf or b[:4] == b"%PDF":
         t = norm(pdf_texte(b))
@@ -118,8 +126,10 @@ def classer_pdf(texte, url):
     return None, an
 
 
-def lignes_avec(t, *mots):
-    return [l for l in t.split("\n") if any(m.lower() in l.lower() for m in mots)]
+def lignes_avec(t, *mots, suite=0):
+    """Lignes contenant un des mots ; suite=1 y joint la ligne suivante (dates placées sous l'intitulé)."""
+    ls = t.split("\n")
+    return [" ".join(ls[i:i + 1 + suite]) for i, l in enumerate(ls) if any(m.lower() in l.lower() for m in mots)]
 
 
 def dates(l): return [iso(m) for m in RE_DATE.finditer(l)]
@@ -130,13 +140,15 @@ def extraire_tableau(t, an):
     for cle, mots in (("delai_inscription", ("inscription", "délai d'inscription")), ("qcm", ("QCM", "choix multiple")),
                       ("cs", ("Clinical Skills", "ECOS")), ("reserve", ("réserve",))):
         ds = []
-        for l in lignes_avec(t, *mots):
-            if cle != "reserve" and "réserve" in l.lower(): continue
+        for l in lignes_avec(t, *mots, suite=1):
+            if cle != "reserve" and "réserve" in l.lower(): l = l.lower().split("réserve")[0]
             ds += [d for d in dates(l) if d.startswith(str(an))]
         if cle == "reserve": ds = ds[:1]
         if cle == "delai_inscription": ds = ds[:1]
         if ds: f[cle] = sorted(set(ds))
-    vs = [v for v in VILLES if v.lower() in t.lower()]
+    # lieux : seulement la ligne « Lieu de l'examen » (les noms y sont en langue locale : Basel, Freiburg, Zürich)
+    ligne = " ".join(lignes_avec(t, "lieu de l", "lieux de l", "prüfungsort")).lower()
+    vs = [v for v, alias in VILLES.items() if any(re.search(r"\b" + re.escape(a) + r"\b", ligne) for a in alias)]
     if vs: f["lieux"] = vs
     return f
 
@@ -181,7 +193,8 @@ def main():
     for f in faits.values():
         src = next((s for s in sources.values() if s["url"] == f["source"]), None)
         if src and src.get("sha256"):
-            f["sha256"], f["consulte_le"] = src["sha256"], AUJ
+            f["sha256"] = src["sha256"]
+            f["consulte_le"] = etat.get(src["url"], {}).get("consulte_le") or f.get("consulte_le")
         if src and src.get("texte") and f.get("motif"):
             v, ext = chercher(src["texte"], f["motif"])
             f["verifie_auto"] = bool(v)
@@ -196,7 +209,7 @@ def main():
         for cle, val in ex.items():
             fid = f"{cle}_{an}"
             base = faits.get(fid, {"id": fid, "rubrique": f"Session {an}", "libelle": cle})
-            base.update(valeur=val, statut="officiel", source=s["url"], consulte_le=AUJ, sha256=s.get("sha256"), verifie_auto=True,
+            base.update(valeur=val, statut="officiel", source=s["url"], consulte_le=etat.get(s["url"], {}).get("consulte_le") or base.get("consulte_le"), sha256=s.get("sha256"), verifie_auto=True,
                         extrait=f"Tableau des délais {an} (PDF officiel)")
             base.pop("attendu", None)
             faits[fid] = base

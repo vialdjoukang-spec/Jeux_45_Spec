@@ -249,11 +249,13 @@ window.VEILLE={
    "rubrique": "Session 2026",
    "libelle": "Lieux d'examen 2026",
    "valeur": [
+    "Bâle",
     "Berne",
     "Fribourg",
     "Genève",
     "Lausanne",
-    "Lugano"
+    "Lugano",
+    "Zurich"
    ],
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf",
