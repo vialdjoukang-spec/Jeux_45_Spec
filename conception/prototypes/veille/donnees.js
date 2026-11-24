@@ -13,56 +13,56 @@ window.VEILLE={
    "cle": "examen",
    "url": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
    "titre": "Page OFSP : examen fédéral en médecine humaine",
-   "sha256": null,
-   "statut_http": 0,
+   "sha256": "3c1dfc3ed31d4fc96e920c9c95d6530eae0849840ad5910c35d3a012a17e6e99",
+   "statut_http": 200,
+   "consulte_le": "2026-11-24"
+  },
+  {
+   "cle": "pdf_tableau_2026",
+   "url": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf",
+   "titre": "Tableau des délais 2026 pour les examens fédéraux en médecine humainePDF144.87 kB26 novembre 2025",
+   "sha256": "d8e5777b92697f3bc0d9fd199608ce943369cdcb0649fc810ac49e6d0f1984f9",
+   "statut_http": 200,
+   "consulte_le": "2026-11-24"
+  },
+  {
+   "cle": "pdf_infotext_2026",
+   "url": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf",
+   "titre": "Informations concernant l'examen fédéral en médecine humainePDF359.75 kB18 mars 2026",
+   "sha256": "cd2d5f32fd1ed6baf51c02f72203ff644c5245f9238740fb2fafeaa4c88136e1",
+   "statut_http": 200,
+   "consulte_le": "2026-11-24"
+  },
+  {
+   "cle": "pdf_exigences_2026",
+   "url": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
+   "titre": "Exigences de la Commission de professions médicales concernant l'examen fédéral en médecine humainePDF273.90 kB18 mars 2026",
+   "sha256": "ea82a722b538e9f835d79a3109475920b963afd20a7ba1051db4744f102de657",
+   "statut_http": 200,
+   "consulte_le": "2026-11-24"
+  },
+  {
+   "cle": "pdf_directives_2026",
+   "url": "https://www.bag.admin.ch/dam/fr/sd-web/NGRcSCsXT8zF/20260204_Directives%20MED%202026_f.pdf",
+   "titre": "Directives de la Commission des professions médicales pour l'examen fédéral en médecine humainePDF288.96 kB18 mars 2026",
+   "sha256": "04cefa214d34b19ff2b00504453bbe9b980ad264f4fedfa774333b867704620a",
+   "statut_http": 200,
    "consulte_le": "2026-11-24"
   },
   {
    "cle": "inscription",
    "url": "https://www.bag.admin.ch/fr/inscription-a-lexamen-federal",
    "titre": "Page OFSP : inscription à l'examen fédéral",
-   "sha256": null,
-   "statut_http": 0,
+   "sha256": "5b620d770014c325ca7122678bce1f1b648ac46658f47ce0144fa63f068267a5",
+   "statut_http": 200,
    "consulte_le": "2026-11-24"
   },
   {
    "cle": "hors_ue",
    "url": "https://www.bag.admin.ch/fr/deposer-une-demande-de-reconnaissance-dun-diplome-de-profession-medicale-delivre-dans-un-etat-tiers-hors-de-lueaele",
    "titre": "Page OFSP : diplômes hors UE/AELE",
-   "sha256": null,
-   "statut_http": 0,
-   "consulte_le": "2026-11-24"
-  },
-  {
-   "cle": "pdf_directives_2026",
-   "url": "https://www.bag.admin.ch/dam/fr/sd-web/NGRcSCsXT8zF/20260204_Directives%20MED%202026_f.pdf",
-   "titre": "20260204_Directives MED 2026_f.pdf",
-   "sha256": null,
-   "statut_http": 0,
-   "consulte_le": "2026-11-24"
-  },
-  {
-   "cle": "pdf_tableau_2026",
-   "url": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf",
-   "titre": "Tableau des délais 2026 pour les examens fédéraux en médecine humaine.pdf",
-   "sha256": null,
-   "statut_http": 0,
-   "consulte_le": "2026-11-24"
-  },
-  {
-   "cle": "pdf_infotext_2026",
-   "url": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf",
-   "titre": "20260204_Infotext MED 2026_f.pdf",
-   "sha256": null,
-   "statut_http": 0,
-   "consulte_le": "2026-11-24"
-  },
-  {
-   "cle": "pdf_exigences_2026",
-   "url": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
-   "titre": "20260204_Exigences MED 2026_f.pdf",
-   "sha256": null,
-   "statut_http": 0,
+   "sha256": "04c09761d261ed559d6bc461bbb8f5590150b139ffefd473ee06eaabf220a4e0",
+   "statut_http": 200,
    "consulte_le": "2026-11-24"
   }
  ],
@@ -136,7 +136,7 @@ window.VEILLE={
    "statut": "non_publie",
    "source": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
    "consulte_le": "2026-11-24",
-   "sha256": null,
+   "sha256": "3c1dfc3ed31d4fc96e920c9c95d6530eae0849840ad5910c35d3a012a17e6e99",
    "verifie_auto": false,
    "extrait": "Le Tableau des délais 2027 n'est pas encore publié.",
    "infobulle": "La veille remplace cette déduction par la date officielle dès que le Tableau des délais 2027 paraît, et elle ouvre alors une issue.",
@@ -151,7 +151,7 @@ window.VEILLE={
    "statut": "non_publie",
    "source": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
    "consulte_le": "2026-11-24",
-   "sha256": null,
+   "sha256": "3c1dfc3ed31d4fc96e920c9c95d6530eae0849840ad5910c35d3a012a17e6e99",
    "verifie_auto": false,
    "extrait": "Non publié.",
    "attendu": "début août 2027",
@@ -166,7 +166,7 @@ window.VEILLE={
    "statut": "non_publie",
    "source": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
    "consulte_le": "2026-11-24",
-   "sha256": null,
+   "sha256": "3c1dfc3ed31d4fc96e920c9c95d6530eae0849840ad5910c35d3a012a17e6e99",
    "verifie_auto": false,
    "extrait": "Non publié.",
    "attendu": "fin août – début septembre 2027",
@@ -180,7 +180,7 @@ window.VEILLE={
    "statut": "non_publie",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/NGRcSCsXT8zF/20260204_Directives%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
+   "sha256": "04cefa214d34b19ff2b00504453bbe9b980ad264f4fedfa774333b867704620a",
    "verifie_auto": false,
    "extrait": "Non publié.",
    "attendu": "2027-03-31",
@@ -196,9 +196,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Délai d'inscription : 31 mars 2026"
+   "sha256": "d8e5777b92697f3bc0d9fd199608ce943369cdcb0649fc810ac49e6d0f1984f9",
+   "verifie_auto": true,
+   "extrait": "Tableau des délais 2026 (PDF officiel)"
   },
   {
    "id": "qcm_2026",
@@ -211,9 +211,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Examen QCM : mardi 4 août 2026 et jeudi 6 août 2026"
+   "sha256": "d8e5777b92697f3bc0d9fd199608ce943369cdcb0649fc810ac49e6d0f1984f9",
+   "verifie_auto": true,
+   "extrait": "e Date de l'examen : Examen QCM (2 demi-journées) Le mardi 4 août 2026 et le jeudi 6 août 2026 Clinical Skills Prüfungen (1 demi-"
   },
   {
    "id": "reserve_2026",
@@ -225,9 +225,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Date de réserve QCM : 25 août 2026"
+   "sha256": "d8e5777b92697f3bc0d9fd199608ce943369cdcb0649fc810ac49e6d0f1984f9",
+   "verifie_auto": true,
+   "extrait": "Tableau des délais 2026 (PDF officiel)"
   },
   {
    "id": "cs_2026",
@@ -240,29 +240,27 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "CS entre le 31 août et le 2 septembre 2026"
+   "sha256": "d8e5777b92697f3bc0d9fd199608ce943369cdcb0649fc810ac49e6d0f1984f9",
+   "verifie_auto": true,
+   "extrait": "lls Prüfungen (1 demi-journée) Entre le 31 août 2026 et le 2 septembre 2026 Date de réserve QCM : 25 août 2026 Observations importante"
   },
   {
    "id": "lieux_2026",
    "rubrique": "Session 2026",
    "libelle": "Lieux d'examen 2026",
    "valeur": [
-    "Bâle",
     "Berne",
     "Fribourg",
     "Genève",
     "Lausanne",
-    "Lugano",
-    "Zurich"
+    "Lugano"
    ],
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Bâle, Berne, Fribourg, Genève, Lausanne, Lugano, Zurich"
+   "sha256": "d8e5777b92697f3bc0d9fd199608ce943369cdcb0649fc810ac49e6d0f1984f9",
+   "verifie_auto": true,
+   "extrait": "Tableau des délais 2026 (PDF officiel)"
   },
   {
    "id": "decision_2026",
@@ -272,9 +270,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Les résultats sont communiqués au plus tard à la fin du mois d'octobre."
+   "sha256": "cd2d5f32fd1ed6baf51c02f72203ff644c5245f9238740fb2fafeaa4c88136e1",
+   "verifie_auto": true,
+   "extrait": "es partielles) sont envoyés aux candidats au plus tard à la fin du mois d’octobre. 7. Date de l’examen et inscription aux épreuves a) L’exame"
   },
   {
    "id": "inscription_en_ligne",
@@ -284,9 +282,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/fr/inscription-a-lexamen-federal",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Les candidats doivent s'inscrire en ligne dans les délais prescrits.",
+   "sha256": "5b620d770014c325ca7122678bce1f1b648ac46658f47ce0144fa63f068267a5",
+   "verifie_auto": true,
+   "extrait": "Inscription à l'examen fédéral Aller au contenu principal Toutes l",
    "infobulle": "Une inscription après le délai entraîne la non-admission : l'examen est reporté d'un an."
   },
   {
@@ -297,9 +295,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/fr/inscription-a-lexamen-federal",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Un retard imputable au candidat entraîne un report de l'examen à l'année suivante."
+   "sha256": "5b620d770014c325ca7122678bce1f1b648ac46658f47ce0144fa63f068267a5",
+   "verifie_auto": true,
+   "extrait": "te du candidat. Conséquence: report de l'examen fédéral à l'année suivante. Informations sur chaque examen des diverses professions In"
   },
   {
    "id": "documents",
@@ -309,7 +307,7 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/fr/inscription-a-lexamen-federal",
    "consulte_le": "2026-11-24",
-   "sha256": null,
+   "sha256": "5b620d770014c325ca7122678bce1f1b648ac46658f47ce0144fa63f068267a5",
    "verifie_auto": false,
    "extrait": "Les informations sur les pièces à joindre sont accessibles via les icônes « i » du formulaire d'inscription.",
    "infobulle": "La confirmation arrive par courriel automatique ; sans elle, vérifie le dossier spam puis contacte le secrétariat MEBEKO."
@@ -322,9 +320,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "240 questions au total, soit 120 par épreuve partielle, 3 h 15 chacune.",
+   "sha256": "cd2d5f32fd1ed6baf51c02f72203ff644c5245f9238740fb2fafeaa4c88136e1",
+   "verifie_auto": true,
+   "extrait": "e dure 3 heures et 15 minutes. Le QCM comporte un total de 240 questions (120 questions par épreuve partielle). Chaque ép",
    "infobulle": "Le type A demande la meilleure réponse ; le Kprim demande juste ou faux sur 4 propositions ; le menu long se consulte par recherche textuelle."
   },
   {
@@ -335,9 +333,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Onze stations ; les exemples durent 13 minutes chacun.",
+   "sha256": "cd2d5f32fd1ed6baf51c02f72203ff644c5245f9238740fb2fafeaa4c88136e1",
+   "verifie_auto": true,
+   "extrait": "n de la situation initiale. L’épreuve CS se compose de onze stations différentes. Des mannequins ou des modèles peuvent être uti",
    "infobulle": "Les Exigences 2026 mentionnent une fois « douze stations » (§ 5.1.4 f) et onze ailleurs (§ 3.2 b) : la veille signale cette incohérence officielle."
   },
   {
@@ -348,9 +346,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Aucune compensation entre les deux épreuves."
+   "sha256": "ea82a722b538e9f835d79a3109475920b963afd20a7ba1051db4744f102de657",
+   "verifie_auto": true,
+   "extrait": "ent sur les deux méthodes ci-dessus, mais également sur la compensation du degré de difficulté de l’examen en com- paraison avec c"
   },
   {
    "id": "taxe_inscription",
@@ -360,9 +358,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Inscription : CHF 200."
+   "sha256": "cd2d5f32fd1ed6baf51c02f72203ff644c5245f9238740fb2fafeaa4c88136e1",
+   "verifie_auto": true,
+   "extrait": "parties en trois catégo- ries : a) taxe d’inscription : CHF 200.00 ; b) taxe d’examen : CHF 1'500.00 ; c) taxe pour l’octro"
   },
   {
    "id": "taxe_examen",
@@ -372,9 +370,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Examen : CHF 1 500."
+   "sha256": "cd2d5f32fd1ed6baf51c02f72203ff644c5245f9238740fb2fafeaa4c88136e1",
+   "verifie_auto": true,
+   "extrait": "a) taxe d’inscription : CHF 200.00 ; b) taxe d’examen : CHF 1'500.00 ; c) taxe pour l’octroi du diplôme, y compris la carte p"
   },
   {
    "id": "taxe_diplome",
@@ -384,9 +382,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/KdRYk-5ILb74/20260204_Infotext%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Diplôme : CHF 500, facturé uniquement après les résultats."
+   "sha256": "cd2d5f32fd1ed6baf51c02f72203ff644c5245f9238740fb2fafeaa4c88136e1",
+   "verifie_auto": true,
+   "extrait": ", en cas de réussite de l’examen fédéral, l’attestation de diplôme) ainsi qu’un feedback (informations sur le niveau de la pe"
   },
   {
    "id": "taxe_langue",
@@ -396,9 +394,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/fr/inscription-a-lexamen-federal",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Chaque inscription linguistique coûte entre 50 et 100 francs."
+   "sha256": "5b620d770014c325ca7122678bce1f1b648ac46658f47ce0144fa63f068267a5",
+   "verifie_auto": true,
+   "extrait": "es connaissances linguistiques est soumise à émoluments (de 50.00 à 100.00 francs). Les connaissances linguistiques peuven"
   },
   {
    "id": "langue_ck",
@@ -408,9 +406,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "CK : au choix parmi allemand, français ou italien.",
+   "sha256": "ea82a722b538e9f835d79a3109475920b963afd20a7ba1051db4744f102de657",
+   "verifie_auto": true,
+   "extrait": "rich : allemand ; Genève et Lausanne : français ; Lugano : italien ou allemand ; Fribourg : allemand ou français). La langue",
    "infobulle": "Un candidat allophone peut utiliser un dictionnaire général, jamais médical (Directives, ch. 4.2.1 j)."
   },
   {
@@ -421,9 +419,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "CS : en principe dans la langue du lieu d'examen."
+   "sha256": "ea82a722b538e9f835d79a3109475920b963afd20a7ba1051db4744f102de657",
+   "verifie_auto": true,
+   "extrait": "lité de transférer des candi- dats sur un autre site où la langue d’examen est la même. Cette solution permet d’éviter qu’il"
   },
   {
    "id": "lieu_regle",
@@ -433,9 +431,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/fr/inscription-a-lexamen-federal",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Les candidats ayant étudié en Suisse passent l'examen sur leur site d'études."
+   "sha256": "5b620d770014c325ca7122678bce1f1b648ac46658f47ce0144fa63f068267a5",
+   "verifie_auto": true,
+   "extrait": "ur l'inscription et des informations complémentaires sur ce site web. Exigences de l'inscription et lien pour l'inscription"
   },
   {
    "id": "retrait_base",
@@ -445,9 +443,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Référence : art. 15 et 16 de l'ordonnance concernant les examens LPMéd."
+   "sha256": "ea82a722b538e9f835d79a3109475920b963afd20a7ba1051db4744f102de657",
+   "verifie_auto": true,
+   "extrait": "n a) Pour ces situations, se reporter aux dispositions des art. 15 et 16 de l’ordonnance concer- nant les examens LPMéd. Le f"
   },
   {
    "id": "retrait_procedure",
@@ -457,9 +455,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Le retrait doit être signalé sans délai au responsable de site, qui décide de la validité des motifs."
+   "sha256": "ea82a722b538e9f835d79a3109475920b963afd20a7ba1051db4744f102de657",
+   "verifie_auto": true,
+   "extrait": "près l’enregistrement des résultats d’examen, l’OFSP envoie sans délai à chaque candidat, par courrier électronique (à l’adresse"
   },
   {
    "id": "retrait_taxes",
@@ -469,9 +467,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Taxe d'inscription due dans tous les cas."
+   "sha256": "ea82a722b538e9f835d79a3109475920b963afd20a7ba1051db4744f102de657",
+   "verifie_auto": true,
+   "extrait": "ion en ligne rappelle également ces dispo- sitions. b) La taxe d'inscription est due dans tous les cas. c) En cas de retr"
   },
   {
    "id": "absence",
@@ -481,9 +479,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Non-présentation ou interruption sans retrait préalable ni justes motifs : échec réputé."
+   "sha256": "ea82a722b538e9f835d79a3109475920b963afd20a7ba1051db4744f102de657",
+   "verifie_auto": true,
+   "extrait": "mens 4. Inscription, retrait de l’inscription, renonciation/interruption, organisation, date et lieu 5. Correction et évaluation 6."
   },
   {
    "id": "compensation_delai",
@@ -493,9 +491,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/NGRcSCsXT8zF/20260204_Directives%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Demande écrite au plus tard le 31 mars 2026 ; ce délai doit impérativement être respecté."
+   "sha256": "04cefa214d34b19ff2b00504453bbe9b980ad264f4fedfa774333b867704620a",
+   "verifie_auto": true,
+   "extrait": "tion doivent être envoyées par écrit au plus tard jusqu’au 31 mars 2026 à l’adresse : Office fédéral de la santé publique, Com"
   },
   {
    "id": "compensation_pieces",
@@ -505,9 +503,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/NGRcSCsXT8zF/20260204_Directives%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Expertise ou certificat médical de moins de 6 mois ; levée du secret professionnel ; mesures accordées pendant les études.",
+   "sha256": "04cefa214d34b19ff2b00504453bbe9b980ad264f4fedfa774333b867704620a",
+   "verifie_auto": true,
+   "extrait": "médicale ou le certificat médical doivent dater de moins de 6 mois. La section formation universitaire de la MEBEKO se réserv",
    "infobulle": "La MEBEKO consulte la commission d'examen et le site, puis décide ; le candidat est entendu si les mesures ne peuvent pas être appliquées."
   },
   {
@@ -518,9 +516,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/fr/deposer-une-demande-de-reconnaissance-dun-diplome-de-profession-medicale-delivre-dans-un-etat-tiers-hors-de-lueaele",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "L'examen fédéral doit être réussi dans son intégralité."
+   "sha256": "04c09761d261ed559d6bc461bbb8f5590150b139ffefd473ee06eaabf220a4e0",
+   "verifie_auto": true,
+   "extrait": "’examen fédéral. L’examen fédéral doit être réussi dans son intégralité. L’autorisation de pratiquer une activité salariée dans le"
   },
   {
    "id": "hors_ue_60",
@@ -530,9 +528,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/fr/deposer-une-demande-de-reconnaissance-dun-diplome-de-profession-medicale-delivre-dans-un-etat-tiers-hors-de-lueaele",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Seule la partie théorique doit être réussie, soit l'épreuve à choix multiple en deux parties.",
+   "sha256": "04c09761d261ed559d6bc461bbb8f5590150b139ffefd473ee06eaabf220a4e0",
+   "verifie_auto": true,
+   "extrait": "ées en termes de nombre d’heures et d’années d’enseignement théorique et pratique dans une université ou une haute école d’un niv",
    "infobulle": "Le volet théorique seul vaut donc uniquement pour la voie à 60 mois ; la voie à 36 mois exige l'examen complet."
   },
   {
@@ -543,9 +541,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/fr/deposer-une-demande-de-reconnaissance-dun-diplome-de-profession-medicale-delivre-dans-un-etat-tiers-hors-de-lueaele",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "La demande d'admission directe doit être déposée au plus tard 6 à 8 semaines avant cette échéance."
+   "sha256": "04c09761d261ed559d6bc461bbb8f5590150b139ffefd473ee06eaabf220a4e0",
+   "verifie_auto": true,
+   "extrait": "nvoyées par e-mail en règle générale dans un délai de 3 à 4 semaines après réception Les demandes sont traitées dans l’ordre de"
   },
   {
    "id": "hors_ue_langue",
@@ -555,9 +553,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/fr/deposer-une-demande-de-reconnaissance-dun-diplome-de-profession-medicale-delivre-dans-un-etat-tiers-hors-de-lueaele",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Il faut avoir au moins un niveau B2 dans la langue correspondante."
+   "sha256": "04c09761d261ed559d6bc461bbb8f5590150b139ffefd473ee06eaabf220a4e0",
+   "verifie_auto": true,
+   "extrait": "ur être inscrit au MedReg, il faut avoir au moins un niveau B2 dans la langue correspondante, attesté par : un diplôme de"
   },
   {
    "id": "resultats_forme",
@@ -567,9 +565,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Communication au plus tard fin octobre, par décision formelle envoyée par courrier."
+   "sha256": "ea82a722b538e9f835d79a3109475920b963afd20a7ba1051db4744f102de657",
+   "verifie_auto": true,
+   "extrait": "procédure s’applique pour l’établissement des conditions de réussite, et les résultats sont analysés pour déceler tout désava"
   },
   {
    "id": "reussite_ck",
@@ -579,9 +577,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Un point par réponse juste ; K-prime : trois bonnes réponses partielles donnent un demi-point."
+   "sha256": "ea82a722b538e9f835d79a3109475920b963afd20a7ba1051db4744f102de657",
+   "verifie_auto": true,
+   "extrait": "établi préala- blement pour chaque critère d’évaluation. 1 Angoff WH. 1971. Scales, norms and equivalent scores. In: Thorndik"
   },
   {
    "id": "reussite_cs",
@@ -591,9 +589,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Pondération : domaine ASM 75 %, domaine communication 25 %."
+   "sha256": "ea82a722b538e9f835d79a3109475920b963afd20a7ba1051db4744f102de657",
+   "verifie_auto": true,
+   "extrait": "Les conditions de réussite sont définies selon la méthode « borderline ». Les examinateurs portent deux appréciations globales pa"
   },
   {
    "id": "repetition",
@@ -603,9 +601,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Une épreuve non réussie peut être répétée deux fois."
+   "sha256": "ea82a722b538e9f835d79a3109475920b963afd20a7ba1051db4744f102de657",
+   "verifie_auto": true,
+   "extrait": "re répétée. c) Une épreuve non réussie pourra être répétée deux fois. d) Le candidat qui a échoué trois fois à l’examen fédéral"
   },
   {
    "id": "recours",
@@ -615,9 +613,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/dam/fr/sd-web/fL9EvX0YPT2d/20260204_Exigences%20MED%202026_f.pdf",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Recours auprès du Tribunal administratif fédéral, dans les 30 jours."
+   "sha256": "ea82a722b538e9f835d79a3109475920b963afd20a7ba1051db4744f102de657",
+   "verifie_auto": true,
+   "extrait": "ès du Tribunal administratif fédéral, au plus tard dans les 30 jours suivant la réception de la décision formelle sur l’examen"
   },
   {
    "id": "stats",
@@ -627,7 +625,7 @@ window.VEILLE={
    "statut": "non_publie",
    "source": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
    "consulte_le": "2026-11-24",
-   "sha256": null,
+   "sha256": "3c1dfc3ed31d4fc96e920c9c95d6530eae0849840ad5910c35d3a012a17e6e99",
    "verifie_auto": false,
    "extrait": "Les pages OFSP et la statistique des professions médicales 2025 ne donnent pas de taux de réussite.",
    "infobulle": "La statistique OFSP des professions médicales recense les diplômes délivrés, pas les taux de réussite ; la veille signalera un taux s'il paraît."
@@ -640,9 +638,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Catalogue suisse des objectifs d'apprentissage PROFILES."
+   "sha256": "3c1dfc3ed31d4fc96e920c9c95d6530eae0849840ad5910c35d3a012a17e6e99",
+   "verifie_auto": true,
+   "extrait": "catalogue pour la médecine humaine conformément à la LPMéd (PROFILES) en vigueur depuis le 01.01.2018. La mise en place de PROFI"
   },
   {
    "id": "self_assessment",
@@ -652,9 +650,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Self-assessment de l'épreuve QCM (Université de Berne)."
+   "sha256": "3c1dfc3ed31d4fc96e920c9c95d6530eae0849840ad5910c35d3a012a17e6e99",
+   "verifie_auto": true,
+   "extrait": "éroulement général de l’épreuve Clinical skills Lien sur le self assessment de l’épreuve QCM Self-Assessment épreuve QCM Inf"
   },
   {
    "id": "contact",
@@ -664,9 +662,9 @@ window.VEILLE={
    "statut": "officiel",
    "source": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
    "consulte_le": "2026-11-24",
-   "sha256": null,
-   "verifie_auto": false,
-   "extrait": "Courriel : office@mebeko.admin.ch. Téléphone : +41 58 462 94 83."
+   "sha256": "3c1dfc3ed31d4fc96e920c9c95d6530eae0849840ad5910c35d3a012a17e6e99",
+   "verifie_auto": true,
+   "extrait": "pensation peut être déposé par courrier postal auprès de la MEBEKO, section formation universitaire, jusqu'au 31 mars 2026. Ta"
   }
  ],
  "signature": "AAI (Anthropic AI)"
