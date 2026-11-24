@@ -137,6 +137,8 @@ def couverture(qd, nd_):
 def main(fichier, quoi="tout"):
     g = runpy.run_path(fichier, init_globals={k: v for k, v in globals().items() if k[:1].isupper() or k in ("nd", "notions", "questions", "correction", "cell")})
     idx = {c["id"]: c for c in P.canoniques()}
+    if g["ID"] not in idx:                     # identifiant calculé par spécialité, comme selection() --spec
+        idx.update({c["id"]: c for c in P.canoniques(g.get("SPEC", os.environ.get("SPEC", "PED")))})
     c = idx[g["ID"]]; ok = True
     for etape, cle_ in (("notions", "NOT"), ("questions", "QS"), ("correction", "COR")):
         if quoi not in ("tout", etape) or cle_ not in g:
