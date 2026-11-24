@@ -245,7 +245,7 @@ Signature : AAI (Anthropic AI)
 
 ## 14. Système gynéco-obstétrical : jouable (branche `agent/tetrade-sys-gyneco`, 2026-11-24)
 
-7 organes (seins, ovaires, trompes, utérus et col, vagin et vulve, plancher pelvien, placenta et unité fœto-placentaire), identifiants `org_gyneco_*` conservés par `ids` (préfixe `gy_`). 11 volets propres, 6 temps d'examen (dont examen des seins et examen obstétrical), 29 pathologies en 4 paliers, 28 sigles. Organes génitaux externes : texte seulement.
+7 organes (seins, ovaires, trompes, utérus et col, vagin et vulve, plancher pelvien, placenta et unité fœto-placentaire), identifiants `org_gyneco_*` conservés par `ids` (préfixe `gy_`). 11 volets propres, 6 temps d'examen (dont examen des seins et examen obstétrical), 33 pathologies (9 TF, 9 F, 8 U, 7 R), 37 signes, 29 sigles. Organes génitaux externes : texte seulement.
 
 Renvois sans doublon : SOPK, insuffisance ovarienne prématurée, aménorrhée hypothalamique, hyperstimulation, tumeur virilisante, diabète gestationnel, Sheehan → Endocrinien ; compression aorto-cave → Cardiovasculaire.
 
