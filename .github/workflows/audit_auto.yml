@@ -27,4 +27,4 @@ jobs:
           git config user.name "audit-auto"
           git config user.email "audit-auto@users.noreply.github.com"
           git add -A -- "*RAPPORT_AUTO.md"
-          git diff --cached --quiet || (git commit -m "Rapport d'audit automatique [skip ci]" && git push)
+          git diff --cached --quiet || (git commit -m "Rapport d'audit automatique [skip ci]" && for i in 1 2 3 4 5; do git pull -q --rebase && git push && break; sleep $((i*7)); done)
