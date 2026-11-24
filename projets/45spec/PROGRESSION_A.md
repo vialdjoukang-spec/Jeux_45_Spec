@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**318 / 500 pathologies du périmètre produites.**
+**321 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -255,13 +255,13 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 246 | `E78.0_hypercholesterolemie__F2_13-E01` | Hypercholestérolémie polygénique | END | produite |
 | 247 | `E86_hemoconcentration_re__F2_22-E01` | Hémoconcentration relative | NEP | produite |
 | 248 | `F10.3__S7_10-E05` | Crise de sevrage alcoolique | PSY | produite |
-| 249 | `F17.2_1__O4_3-E02` | Tabagisme actif et dépendance à la nicotine | PSP | — |
+| 249 | `F17.2_1__O4_3-E02` | Tabagisme actif et dépendance à la nicotine | PSP | produite |
 | 250 | `F45.1__O7_8-E01` | Trouble à symptomatologie somatique (trouble somatoforme) | PSY | produite |
 | 251 | `F45.3_syndrome_d_hypervent__F2_1-E02` | Syndrome d'hyperventilation psychogène | PSY | produite |
 | 252 | `F50.8__G15-E11` | Hyperphagie boulimique (binge eating disorder) | PSY | produite |
 | 253 | `F63.8__G3-E02` | Polydipsie primaire (potomanie psychogène) | PSY | produite |
-| 254 | `F81.0__O2_10-E01` | Trouble spécifique des apprentissages (dyslexie, dyscalculie, dyspraxie) | PEA | — |
-| 255 | `F91.3__O2_2-E02` | Trouble oppositionnel avec provocation (TOP) | PEA | — |
+| 254 | `F81.0__O2_10-E01` | Trouble spécifique des apprentissages (dyslexie, dyscalculie, dyspraxie) | PEA | produite |
+| 255 | `F91.3__O2_2-E02` | Trouble oppositionnel avec provocation (TOP) | PEA | produite |
 | 256 | `G40.3_1__F1_19-E04` | Épilepsie généralisée idiopathique (tonico-clonique, myoclonique juvénile) | NEU | produite |
 | 257 | `G44.2__G10-E02` | Céphalée de tension | NEU | produite |
 | 258 | `G56.0__S5_5-E02` | Paresthésies canalaires (canal carpien, nerf ulnaire, méralgie paresthésique) | CMA | — |
