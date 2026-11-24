@@ -156,3 +156,8 @@ Signature : AAI (Anthropic AI)
 - Le site escardio.org refuse WebFetch (robots) et PMC renvoie parfois un captcha : passe par `get_full_text_article` (commentaire PMC d'une recommandation) ou par un résumé ACC ou AFP, sans contourner.
 - Deux versions d'une même liste peuvent diverger (JMF 2003 : 8 otites ; JMF 2024 : 4 otites) : cite la version la plus récente lue.
 - Une pathologie NON_MONOGRAPHIQUE garde des vignettes `d` 4–5 masquées ; nommer une autre maladie (paludisme chez un voyageur) ne démasque pas l'entité canonique.
+
+## Leçons (producteur unique, vérification ESC 2024 de I73.9, 24.11.2026)
+- Une recommandation se cite d'après son propre texte, jamais d'après un commentaire, un résumé ACC ou AFP : I73.9 citait l'ESC 2024 d'après un commentaire, avec des classes et des niveaux non relus et un « 25 % » d'IPS normal absent du texte.
+- L'ESC 2024 (PMID 39210722) se lit par WebFetch sur academic.oup.com (`/eurheartj/article/45/36/3538/7738955`, 857 000 caractères, pages par `offset` de 100 000 ; le texte PAD tient entre 100 000 et 200 000) ; les tableaux de recommandations n'y apparaissent pas en texte : n'écris donc ni classe ni niveau que tu n'as pas lus.
+- Un « risque élevé d'amputation » ne vaut pas pour la claudication (ESC 2024 : 1 % d'amputations majeures contre 9 % dans l'ischémie menaçante).
