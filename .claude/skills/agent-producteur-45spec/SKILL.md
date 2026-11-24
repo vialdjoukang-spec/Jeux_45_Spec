@@ -20,6 +20,14 @@ L'agent écrit lui-même le contenu que le script demanderait à l'API ; il doit
 - Sources : SSI, OFSP, Swiss TPH, AIPS d'abord ; toute posologie « à vérifier dans l'AIPS » ; tout doute porte « (à vérifier) » dans `source`. Jamais de référence inventée.
 - Ne lance pas `couverture_notions.py` sur une branche agent : il réécrit les fichiers des autres spécialités.
 
+## Leçons (lot 5, 24.11.2026)
+- Travaille dans un clone privé (`git clone --single-branch --branch agent/45spec-<SPEC> … /home/claude/aai_<spec>45`) : un dossier partagé peut être basculé sur une autre branche par un autre agent.
+- Lance le constructeur avec `PYTHONPATH=projets/45spec` ; versionne les formes compactes dans `projets/45spec/compact_<SPEC>/`.
+- Régénère la progression avec `python projets/45spec/progression.py <SPEC>` (0 token), jamais à la main.
+- Fusions : une fusion change l'id canonique ; renomme alors les trois fichiers déjà produits de la cible (`git mv`, réaligne id, portes, entité, spécialités) et archive les doublons produits dans `projets/45spec/archives_fusion/<SPEC>/`.
+- Disciplines transversales : reprends les libellés A→S de `conception/donnees/tetrade/transversales/outils/` (ex. « J Hygiène hospitalière », « N Médecine sociale Prévention OFSP »).
+- Natures de notion : uniquement l'énumération `NATURES` du script (« contexte » seul est refusé) ; `surveillance.suivi` exige au moins deux lignes.
+
 Relais : `ultra-competent-fast-doctor`, `medical-accuracy-100`, `i-write-so-fast`.
 
 Signature : AAI (Anthropic AI)
