@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API (format exact de `scripts/produire_notions_questions.py`), branche `agent/45spec-INF`.
 
-**15 / 61 pathologies canoniques produites** (notions + questions + correction), ordre du script (fréquence puis identifiant).
+**18 / 61 pathologies canoniques produites** (notions + questions + correction), ordre du script (fréquence puis identifiant).
 
 Fusions : 15 groupes dans `content/pathologies/fusions_INF.json` ; doublons déjà produits archivés dans `projets/45spec/archives_fusion/INF`.
 
@@ -25,9 +25,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Les chiffres incertains p
 | 13 | `A38__S6_9-E09` | Scarlatine / exanthème infectieux toxinique bénin de l'enfant | produite |
 | 14 | `A46_erysipele_dermohypod__G12-E18` | Érysipèle (dermohypodermite bactérienne aiguë non nécrosante) | produite |
 | 15 | `A69.2__S1_4-E06` | Neuroborréliose de Lyme avec paralysie faciale périphérique (uni- ou bilatérale) | produite |
-| 16 | `B08.5__S1_19-E06` | Herpangine ou syndrome pieds-mains-bouche (Coxsackievirus) | — |
-| 17 | `B26.0_oreillons_parotidite__S1_21-E05` | Oreillons (parotidite, orchite ourlienne) | — |
-| 18 | `B27.0_mononucleose_infecti__F2_5-E04` | Mononucléose infectieuse (EBV) et syndrome mononucléosique à CMV | — |
+| 16 | `B08.5__S1_19-E06` | Herpangine ou syndrome pieds-mains-bouche (Coxsackievirus) | produite |
+| 17 | `B26.0_oreillons_parotidite__S1_21-E05` | Oreillons (parotidite, orchite ourlienne) | produite |
+| 18 | `B27.0_mononucleose_infecti__F2_5-E04` | Mononucléose infectieuse (EBV) et syndrome mononucléosique à CMV | produite |
 | 19 | `B37.8__O1_6-E05` | Candidose mammaire et mamelonnaire (muguet du couple mère-enfant) | — |
 | 20 | `B80__F2_8-E12` | Oxyurose (entérobiase à Enterobius vermicularis) | — |
 | 21 | `B95.6__O7_9-E06` | Portage ou infection nosocomiale à bactérie multirésistante (SARM, BLSE, EPC) | — |
