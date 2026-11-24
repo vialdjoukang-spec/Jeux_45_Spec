@@ -146,9 +146,41 @@ Sources vérifiées en ligne : Wüthrich, Alromaih et So, Swiss Med Wkly 2016;14
 
 Autres points ouverts : toutes les posologies portent « à vérifier dans l'AIPS » ; les biothérapies, inhibiteurs de JAK, immunosuppresseurs et chimiothérapies des sarcomes restent décidés par le spécialiste, sans dose chiffrée.
 
+## 10. Système dermatologique : jouable (branche `agent/tetrade-loco`)
+
+| Élément | Valeur |
+|---|---|
+| Organes rédigés | 6 (épiderme, derme et hypoderme, poils et cheveux, ongles, glandes sudorales et sébacées, muqueuses) |
+| Volets propres | 7 |
+| Mots-clés | 32 (anatomie → vue 3D ; physiologie → fenêtre nouvelle `de_brulure`, formule de Parkland) |
+| Sémiologie | 5 temps d'examen, 12 temps par organe, 30 signes (27 typiques, 3 atypiques) |
+| Pathologies | 32 : 7 TF, 14 F, 5 U, 6 R (les ongles n'ont pas de palier « urgence » propre) |
+| Glossaire | 27 sigles nouveaux |
+| Interprétations corrélées | 4 scénarios `de_brulure` |
+
+Renvois sans doublon : érysipèle, fasciite nécrosante, nécrolyse épidermique toxique, urticaire aiguë et angio-œdème → Infectieux ; zona → Neurologique ; Raynaud primaire → Cardiovasculaire ; aphtose et Sjögren → Digestif ; lupus systémique, rhumatisme psoriasique et myosites → Locomoteur ; SOPK → Endocrinien. **L'érysipèle de l'infectieux renvoie désormais vers Dermatologique** (portes d'entrée : ulcère veineux, escarre, onychomycose). Les muqueuses génitales sont nommées sans aucune image.
+
+Changements de moteur : une ligne `Dermatologique` dans `systemes_rediges.py` (préfixe `de_`, couleur `#b07a5a`) ; 1 modèle canvas `de_brulure` ; 6 renommages `org_dermat_*` → `de_*` déclarés. Vérifications : chaîne complète réussie (34/34, couverture, non-perte 0, interprétations 159/159) ; Playwright 0 erreur JS sur `de_brulure`.
+
+### Points `aVerifier` (dermatologique)
+
+- **Psoriasis en plaques** : L'année et la revue de la dernière mise à jour de la recommandation EuroGuiDerm sur le psoriasis restent à confirmer.
+- **Mélanome** : La recommandation suisse sur le mélanome (Swiss Melanoma Guidelines) n'a pas été lue ; le rythme du suivi suisse reste à confirmer.
+- **Eczéma herpeticum** : La dose et la durée du valaciclovir dans l'eczéma herpeticum de l'adulte restent à confirmer ; aucune recommandation dédiée n'a été lue.
+- **Brûlure étendue** : Le volume initial de remplissage (2 ou 4 ml/kg par % de surface) varie selon les centres ; à confirmer avec le protocole des centres suisses des brûlés.
+- **Sclérodermie systémique** : Une mise à jour EULAR plus récente (2023) sur la sclérodermie existerait ; à confirmer.
+- **Alopécie androgénétique** : L'usage du minoxidil oral à faible dose, hors autorisation en Suisse, reste à vérifier.
+- **Pelade** : L'autorisation et le remboursement du baricitinib dans la pelade sévère en Suisse restent à vérifier dans l'AIPS ; la référence Meah 2020 reste à confirmer.
+- **Acné vulgaire** : La version la plus récente de la recommandation européenne sur l'acné et les conditions suisses de prescription de l'isotrétinoïne restent à vérifier.
+- **Hyperhidrose primaire** : La référence Nawrocki et Cha 2019 et le remboursement suisse de la toxine botulique dans l'hyperhidrose restent à vérifier.
+- **Coup de chaleur** : La référence de la Wilderness Medical Society (2019) et la cible d'arrêt du refroidissement restent à confirmer.
+- **Lichen plan buccal** : Aucune recommandation européenne sur le lichen plan buccal n'a été lue ; le rythme de surveillance reste à confirmer.
+- **Érythème polymorphe majeur** : La place des corticoïdes systémiques dans l'érythème polymorphe majeur reste discutée ; aucune recommandation n'a été lue.
+
 ## 8. Suite proposée
 
 - Audit médical de Claude sur `hemato/pathologies.txt`, `infectio/pathologies.txt` et les 24 interprétations `he_*` et `ii_*`, puis fusion sur main.
 - Locomoteur fait (section 9) : audit médical de Claude sur `loco/pathologies.txt` et les 13 interprétations `lo_*`, puis fusion.
-- Système suivant : dermatologique (les infections cutanées de l'érysipèle y renverront).
+- Dermatologique fait (section 10) : audit médical de Claude sur `derma/pathologies.txt` et `de_brulure`.
+- Système suivant : ophtalmologique et ORL.
 - Correctif conseillé à `generer_json.py` : écrire les leçons transversales avec la même indentation que leur source et ne plus dédoublonner l'IGRA, pour que la régénération ne produise plus de bruit.

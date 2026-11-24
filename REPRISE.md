@@ -74,7 +74,7 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Catalogue paraclinique : 66 organes, 601 examens listés (champs à remplir).
 
 ## 9. Méthode convenue pour la suite
-1. Système par système (cardiovasculaire, respiratoire, digestif, rénal, neurologique, endocrinien, hématologique, infectieux et locomoteur faits ; prochain : dermatologique) selon le skill `systeme-jouable-builder`.
+1. Système par système (cardiovasculaire, respiratoire, digestif, rénal, neurologique, endocrinien, hématologique, infectieux, locomoteur et dermatologique faits ; prochain : ophtalmologique et ORL) selon le skill `systeme-jouable-builder`.
 2. Depuis le 2026-11-22 (soir), Vial donne son accord d'office pour ce projet : Claude produit sans attendre de validation et l'informe ensuite.
 3. Audit bloquant après chaque lot ; commit et push.
 
@@ -232,6 +232,11 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Renvois sans doublon : ostéoporose, ostéomalacie, Paget (Endocrinien) ; radiculopathies, spondylodiscite, canal carpien (Neurologique) ; artérite à cellules géantes (Cardiovasculaire) ; Still, fasciite nécrosante (Infectieux).
 - Nouvelles fenêtres canvas `lo_synovie` (liquide articulaire) et `lo_ck` (cinétique des CK), testées sans écran, 0 erreur JS ; 13 interprétations ; 11 renommages `org_locomo_*` → `lo_*` déclarés.
 - Reste à faire : audit médical de Claude puis fusion ; détail dans `projets/1_Jeux_Tetrade_Fondation/PROGRESSION_AGENT.md` (section 9).
+
+## Dermatologique (2026-11-24, agent Tétrade, branche `agent/tetrade-loco`)
+- Le système « Dermatologique » est jouable : `conception/outils/derma/` ; registre (préfixe `de_`, couleur `#b07a5a`).
+- 6 organes, 5 temps d'examen, 30 signes ; 32 pathologies (7 TF, 14 F, 5 U, 6 R), 12 points `aVerifier` ; fenêtre `de_brulure` (Parkland) testée, 0 erreur JS.
+- L'érysipèle (Infectieux) renvoie vers Dermatologique pour ses portes d'entrée ; 6 renommages `org_dermat_*` → `de_*` déclarés.
 
 ## Infectieux & immunitaire (2026-11-24, agent Tétrade, branche `agent/tetrade`)
 - Le système « Infectieux & immunitaire » est jouable : `conception/outils/infectio/` ; registre (préfixe `ii_`, couleur `#16897b`).
