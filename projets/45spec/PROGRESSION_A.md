@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**294 / 500 pathologies du périmètre produites.**
+**300 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -216,16 +216,16 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 207 | `S27.1__S8_11-E05` | Hémothorax traumatique (non massif) | CTH | produite |
 | 208 | `T43.0__O7_26-E06` | Intoxication aux antidépresseurs (tricycliques, ISRS) ou lithium | TOX | produite |
 | 209 | `A48.3__F2_19-E16` | Syndrome de choc toxique (staphylococcique ou streptococcique) | INF | produite |
-| 210 | `E03.5__F1_15-E10` | Coma myxœdémateux (hypothyroïdie décompensée) | INT | — |
+| 210 | `E03.5__F1_15-E10` | Coma myxœdémateux (hypothyroïdie décompensée) | INT | produite |
 | 211 | `E25.0__O2_1-E12` | Hyperplasie congénitale des surrénales (HCS) forme non classique (tardive) | END | produite |
 | 212 | `G45.9__F1_11-E13` | Accident ischémique transitoire (AIT) avec trouble aigu du langage | NEU | produite |
 | 213 | `G93.5_hypertension_intracr__F1_12-E11` | Hypertension intracrânienne secondaire et engagement cérébral | NEU | produite |
 | 214 | `I31.9_tamponnade_pericardi__F1_18-E12` | Tamponnade péricardique | CAR | produite |
-| 215 | `I82.0__F2_11-E17` | Syndrome de Budd-Chiari (thrombose des veines sus-hépatiques) | ANG | — |
-| 216 | `J80__F1_10-E14` | Syndrome de détresse respiratoire aiguë (SDRA) | INT | — |
-| 217 | `J94.2__F1_6-E12` | Hémothorax massif (traumatique ou iatrogène) | CTH | — |
-| 218 | `K22.3_1__F2_18-E17` | Syndrome de Boerhaave (rupture spontanée transmurale de l'œsophage) | CTH | — |
-| 219 | `K56.2__F2_4-E18` | Volvulus du sigmoïde (image en grain de café) | CHI | — |
+| 215 | `I82.0__F2_11-E17` | Syndrome de Budd-Chiari (thrombose des veines sus-hépatiques) | ANG | produite |
+| 216 | `J80__F1_10-E14` | Syndrome de détresse respiratoire aiguë (SDRA) | INT | produite |
+| 217 | `J94.2__F1_6-E12` | Hémothorax massif (traumatique ou iatrogène) | CTH | produite |
+| 218 | `K22.3_1__F2_18-E17` | Syndrome de Boerhaave (rupture spontanée transmurale de l'œsophage) | CTH | produite |
+| 219 | `K56.2__F2_4-E18` | Volvulus du sigmoïde (image en grain de café) | CHI | produite |
 | 220 | `K85.8_pancreatite_aigue__F2_13-E12` | Pancréatite aiguë | GAS | produite |
 | 221 | `L51.1__F1_4-E15` | Syndrome de Stevens-Johnson / nécrolyse épidermique toxique (Lyell) | DER | — |
 | 222 | `N01.9__F2_12-E15` | Glomérulonéphrite rapidement progressive (GNRP / syndrome pneumo-rénal) | NEP | produite |
