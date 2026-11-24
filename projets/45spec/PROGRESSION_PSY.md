@@ -1,6 +1,6 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 24/126.
+Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 25/126.
 
 | # | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|
@@ -28,7 +28,7 @@ Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : importance
 | 22 | F31.3__O6_8-E05 | Trouble bipolaire (phase dépressive ou mixte) | 29 | 20 | oui |
 | 23 | F06.1__S9_3-E14 | Catatonie aiguë (stupeur ou agitation catatonique) | 29 | 20 | oui |
 | 24 | F40.1__S9_7-E04 | Anxiété sociale (phobie sociale) | 29 | 20 | oui |
-| 25 | F50.2__O2_6-E05 | Boulimie nerveuse (bulimia nervosa) | — | — | — |
+| 25 | F50.2__O2_6-E05 | Boulimie nerveuse (bulimia nervosa) | 29 | 20 | oui |
 | 26 | F01.9__F1_9-E02 | Démence vasculaire | — | — | — |
 | 27 | F05.9_agitation_et_deliriu__O5_3-E04 | Agitation et delirium terminaux (fin de vie) | — | — | — |
 | 28 | F06.7__F1_9-E03 | Trouble cognitif léger (MCI — Mild Cognitive Impairment) | — | — | — |
@@ -149,6 +149,7 @@ Outil : `python projets/45spec/psy/lib.py <id>` (valider() du script + contrôle
 - Bipolaire (F31.3) : posologie de la lurasidone et indication suisse exacte de la quétiapine retard à vérifier dans l'AIPS (compendium.ch inaccessible) ; rythme de surveillance rénale/thyroïdienne sous lithium à vérifier.
 - Catatonie (F06.1) : dose du test au lorazépam non fixée par la BAP 2023 (protocole local, à vérifier) ; mesures générales (thromboprophylaxie, escarres) = avis d'expert.
 - Phobie sociale (F40.1) : indication suisse de l'escitalopram et de la sertraline à vérifier dans l'AIPS ; « pas de benzodiazépines au long cours » à confirmer dans NICE CG159 ; conditions OPAS du modèle de la prescription à vérifier.
+- Boulimie (F50.2) : indication suisse de la fluoxétine dans la boulimie à vérifier dans l'AIPS ; signes physiques, biologie des vomissements et complications digestives = avis d'expert (non adossés à une source écrite consultée).
 - Toutes les posologies portent « à vérifier dans l'AIPS ».
 - Les champs `usage` indiquent `_mode: agent, api: false` (production sans API).
 
