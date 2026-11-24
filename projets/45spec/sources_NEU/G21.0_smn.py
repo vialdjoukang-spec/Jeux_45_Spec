@@ -2,7 +2,7 @@ ID = "G21.0__F1_15-E11"
 PLAN = "monographique"
 NOTIONS = [
 "def|critère|2||[Gurrera, J Clin Psychiatry, 2011 ; DSM-5-TR]|Le syndrome malin des neuroleptiques associe, après exposition à un antagoniste dopaminergique, hyperthermie, rigidité généralisée, altération de la conscience et instabilité autonome, avec CK élevées.",  # N01
-"epi|chiffre|1||[Strawn, Am J Psychiatry, 2007 ; à vérifier]|Le syndrome est rare, de l'ordre de quelques cas pour 10 000 patients exposés, mais il reste potentiellement mortel.",  # N02
+"epi|chiffre|1||[Strawn, Am J Psychiatry, 2007]|Le syndrome est rare, de l'ordre de quelques cas pour 10 000 patients exposés, mais il reste potentiellement mortel.",  # N02
 "bas|mécanisme|1||[Strawn, Am J Psychiatry, 2007]|Le blocage brutal des récepteurs dopaminergiques D2 dans l'hypothalamus et le striatum dérègle la thermorégulation et le tonus musculaire.",  # N03
 "bas|terrain particulier|2||[Strawn, 2007 ; avis d'expert]|Un antipsychotique de haute puissance, une voie intramusculaire, une augmentation rapide des doses, la déshydratation et l'agitation augmentent le risque.",  # N04
 "ana|terrain particulier|2||[avis d'expert]|L'arrêt brutal d'un traitement dopaminergique chez un parkinsonien provoque un tableau identique, ce qui impose de le reprendre.",  # N05
@@ -16,11 +16,11 @@ NOTIONS = [
 "pos|diagnostic différentiel|1||[avis d'expert]|Le syndrome anticholinergique donne une peau sèche et chaude, une mydriase et une rétention urinaire, sans rigidité marquée.",  # N13
 "pos|diagnostic différentiel|1||[avis d'expert]|La catatonie maligne ressemble au syndrome malin et répond aussi aux benzodiazépines et à l'électroconvulsivothérapie.",  # N14
 "acu|décision|3||[avis d'expert]|L'antipsychotique s'arrête immédiatement, et le patient reçoit hydratation intraveineuse, refroidissement et surveillance, souvent aux soins intensifs.",  # N15
-"acu|molécule|2||[avis d'expert ; AIPS Swissmedic]|Le lorazépam soulage rigidité et agitation ; la bromocriptine ou le dantrolène se discutent dans les formes sévères, posologies à vérifier dans l'AIPS.",  # N16
+"acu|molécule|2|S|[Strawn, Am J Psychiatry, 2007 ; AIPS Swissmedic]|Le lorazépam soulage rigidité et agitation ; la bromocriptine ou le dantrolène se discutent dans les formes sévères, le dantrolène IV n'étant autorisé en Suisse que pour l'hyperthermie maligne (usage hors indication).",  # N16
 "acu|piège|1||[avis d'expert]|Un antipsychotique supplémentaire pour calmer l'agitation aggrave le syndrome.",  # N17
 "hos|complication|2||[avis d'expert]|La rhabdomyolyse expose à l'insuffisance rénale aiguë et à l'hyperkaliémie, d'où le suivi de la créatinine, du potassium et de la diurèse.",  # N18
 "hos|complication|1||[avis d'expert]|La pneumonie d'inhalation, la CIVD et la thrombose veineuse compliquent les formes sévères.",  # N19
-"pro|pronostic|1||[Strawn, 2007 ; à vérifier]|La mortalité a baissé avec la reconnaissance précoce, mais elle reste de l'ordre de 5 à 10 %.",  # N20
+"pro|pronostic|1||[Guinart, Acta Psychiatr Scand, 2021]|La mortalité reste de l'ordre de 5 à 10 % dans les séries publiées, et l'absence d'arrêt de l'antipsychotique la multiplie environ par 4.",  # N20
 "sur|décision|1||[avis d'expert]|La température, les constantes, les CK, la fonction rénale et la vigilance se surveillent jusqu'à normalisation.",  # N21
 "chr|décision|1||[avis d'expert]|La reprise d'un antipsychotique attend au moins 2 semaines après la guérison et privilégie une molécule de faible puissance augmentée lentement.",  # N22
 "chr|molécule|1||[avis d'expert]|L'électroconvulsivothérapie reste une option dans les formes réfractaires ou avec catatonie.",  # N23
@@ -158,11 +158,10 @@ CORRECTION = dict(
             [("d'abord", "psychiatre", "Choisit une molécule de faible puissance."),
              ("ensuite", "médecin de famille", "Inscrit l'antécédent au dossier."),
              ("puis", "patient·e", "Signale tout nouveau traitement antidopaminergique.")]),
-   pronostic="La mortalité reste de l'ordre de 5 à 10 % ; la guérison survient souvent en 1 à 2 semaines.",
+   pronostic="La mortalité reste de l'ordre de 5 à 10 % [Guinart, 2021] ; la guérison survient souvent en 1 à 2 semaines.",
    suivi=[("Température et constantes", "Continue", "Normalisation"), ("CK et créatinine", "Quotidienne", "Décroissance"), ("Vigilance", "Pluriquotidienne", "Retour à l'état antérieur")],
    sortie="Le patient sort après normalisation clinique et biologique.",
    prevention=["Elle augmente les doses lentement.", "Elle évite l'IM chez le patient déshydraté.", "Elle ne stoppe jamais brutalement la dopa d'un parkinsonien."]),
  ])
-AVERIFIER = ["Incidence et mortalité chiffrées du syndrome malin (Strawn, Am J Psychiatry, 2007) à vérifier.",
-             "Posologies du lorazépam, de la bromocriptine et du dantrolène à vérifier dans l'AIPS.",
-             "Disponibilité du dantrolène IV hors anesthésie en Suisse à vérifier."]
+AVERIFIER = ["Taux d'incidence exact cité par Strawn 2007 (texte intégral non consulté) à vérifier.",
+             "Posologies du lorazépam et de la bromocriptine à vérifier dans l'AIPS."]

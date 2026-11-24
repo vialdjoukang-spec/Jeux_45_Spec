@@ -1,20 +1,20 @@
 ID = "I61.9_hemorragie_intracere__F1_15-E13"
 PLAN = "monographique"
 NOTIONS = [
-"def|critère|1||[ESO, Steiner, 2014 ; avis d'expert]|L'hémorragie intracérébrale spontanée désigne un saignement non traumatique dans le parenchyme cérébral, qui peut s'étendre aux ventricules.",  # N01
+"def|critère|1||[ESO-EANS, Steiner, Eur Stroke J, 2025 ; avis d'expert]|L'hémorragie intracérébrale spontanée désigne un saignement non traumatique dans le parenchyme cérébral, qui peut s'étendre aux ventricules.",  # N01
 "epi|chiffre|1||[Feigin, Lancet Neurol, 2021 ; à vérifier]|L'hémorragie intracérébrale représente environ 10 à 20 % des AVC en Europe, mais elle cause une part bien plus grande des décès par AVC.",  # N02
 "bas|mécanisme|2||[Greenberg, Lancet Neurol, 2022]|L'artériolopathie hypertensive saigne dans les régions profondes (putamen, thalamus, pont, cervelet), alors que l'angiopathie amyloïde cérébrale saigne dans les lobes chez le sujet âgé.",  # N03
-"bas|terrain particulier|2||[ESO, 2014 ; avis d'expert]|Les anticoagulants, une thrombopénie sévère, une malformation vasculaire, une tumeur ou une thrombose veineuse cérébrale sont des causes à rechercher.",  # N04
+"bas|terrain particulier|2||[ESO-EANS, 2025 ; avis d'expert]|Les anticoagulants, une thrombopénie sévère, une malformation vasculaire, une tumeur ou une thrombose veineuse cérébrale sont des causes à rechercher.",  # N04
 "ana|symptôme|1||[avis d'expert]|Le déficit focal brutal s'accompagne souvent de céphalée, de vomissements et d'une baisse de vigilance qui s'aggravent dans les premières heures.",  # N05
 "exa|signe|1||[avis d'expert]|Une hémorragie du pont donne un coma brutal, des pupilles en myosis serré et une tétraparésie, avec un pronostic très sombre.",  # N06
 "exa|signe|1||[avis d'expert]|Une hémorragie cérébelleuse donne vertige, vomissements, ataxie et céphalée occipitale, puis menace le tronc cérébral et provoque une hydrocéphalie.",  # N07
-"red|piège|3||[ESO, 2014 ; AHA/ASA, 2022]|La clinique ne distingue pas l'hémorragie de l'infarctus : seule l'imagerie cérébrale immédiate le fait, avant tout traitement antithrombotique ou thrombolytique.",  # N08
+"red|piège|3||[ESO-EANS, 2025 ; AHA/ASA, 2022]|La clinique ne distingue pas l'hémorragie de l'infarctus : seule l'imagerie cérébrale immédiate le fait, avant tout traitement antithrombotique ou thrombolytique.",  # N08
 "gold|examen|3||[AHA/ASA, 2022]|Le scanner cérébral sans injection confirme l'hémorragie en urgence ; l'angio-CT associé cherche une malformation et le spot sign, marqueur d'expansion.",  # N09
 "alt|examen|1||[Charidimou, Lancet Neurol, 2022]|L'IRM avec séquences de susceptibilité cherche microsaignements lobaires et sidérose superficielle, qui soutiennent une angiopathie amyloïde selon les critères de Boston 2.0.",  # N10
 "pos|chiffre|1||[Kothari, Stroke, 1996]|Le volume de l'hématome s'estime par la formule ABC/2 à partir des trois diamètres mesurés au scanner.",  # N11
 "pos|diagnostic différentiel|1||[avis d'expert]|Une transformation hémorragique d'un infarctus, une tumeur qui saigne ou une thrombose veineuse cérébrale peuvent mimer une hémorragie primaire.",  # N12
-"acu|seuil|3||[AHA/ASA, 2022 ; ESO, 2014]|La pression artérielle systolique s'abaisse rapidement et de façon soutenue vers 140 mmHg, sans descendre sous 130 mmHg, pour limiter l'expansion de l'hématome.",  # N13
-"acu|molécule|2|S|[AHA/ASA, 2022 ; AIPS Swissmedic]|Sous antivitamine K, le concentré de complexe prothrombinique et la vitamine K intraveineuse corrigent l'INR en urgence, posologies à vérifier dans l'AIPS.",  # N14
+"acu|seuil|3||[AHA/ASA, 2022 ; ESO-EANS, Steiner, 2025]|La pression artérielle systolique s'abaisse tôt, idéalement dans les 2 heures, vers 140 mmHg pour un hématome petit ou moyen, sans descendre sous 130 mmHg selon l'AHA/ASA, ni chuter de plus de 70 mmHg selon l'ESO-EANS, pour limiter l'expansion de l'hématome.",  # N13
+"acu|molécule|2|S|[ESO-EANS, Steiner, 2025 ; Swissmedic, 2020]|Sous dabigatran, l'idarucizumab neutralise l'effet ; sous apixaban ou rivaroxaban, l'andexanet alfa, autorisé en Suisse depuis 2020, ou un concentré de complexe prothrombinique se discutent, car l'ESO-EANS 2025 ne tranche pas et l'andexanet expose à des thromboses.",  # N15
 "acu|molécule|2|S|[AHA/ASA, 2022 ; AIPS Swissmedic]|Sous dabigatran, l'idarucizumab neutralise l'effet ; sous anti-Xa, l'andexanet alfa ou un concentré de complexe prothrombinique s'utilisent selon le protocole local, disponibilité à vérifier.",  # N15
 "acu|piège|2||[Baharoglu, PATCH, Lancet, 2016]|La transfusion de plaquettes chez un patient sous antiagrégant non opéré n'améliore pas le pronostic et l'aggrave même.",  # N16
 "acu|décision|2||[AHA/ASA, 2022]|Une hémorragie cérébelleuse avec compression du tronc, hydrocéphalie ou dégradation neurologique justifie une évacuation chirurgicale urgente.",  # N17
@@ -85,7 +85,7 @@ dict(masque=False, sit="monographique", format="Kprim", stem="Vous calculez le p
  notions="N22 N11 N23", angle="direct", diff=3, ladder=L("Pronostic.", "Score ICH.", "Âge, volume, ventricules.", "Usage du score.", "Informer sans prédire seul.", "Limiter trop tôt.", "Score ≠ décision."), sources="[Hemphill, Stroke, 2001]"),
 dict(format="Kprim", stem="Une femme de 62 ans présente un déficit brutal du membre supérieur droit et une dysarthrie depuis 1 heure.", prompt="Évaluez chacune des affirmations suivantes.",
  items=["V: Aucun signe clinique ne permet de distinguer sûrement un infarctus d'une hémorragie. || Seule l'imagerie tranche.", "V: L'imagerie cérébrale précède tout antithrombotique. || Une hémorragie le contre-indique.", "F: Une céphalée exclut un infarctus. || Elle oriente sans exclure.", "F: Une PA très élevée prouve une hémorragie. || Elle s'observe aussi dans l'infarctus."],
- notions="N08 N05", angle="piège", diff=2, ladder=L("Déficit brutal.", "Deux mécanismes.", "Céphalée, HTA.", "Distinction.", "Imagerie.", "Clinique seule.", "Image d'abord."), sources="[ESO, 2014]"),
+ notions="N08 N05", angle="piège", diff=2, ladder=L("Déficit brutal.", "Deux mécanismes.", "Céphalée, HTA.", "Distinction.", "Imagerie.", "Clinique seule.", "Image d'abord."), sources="[ESO-EANS, 2025]"),
 dict(masque=False, sit="monographique", format="Kprim", stem="Un hématome intracérébral lobaire est découvert chez un homme de 34 ans normotendu, sans traitement.", prompt="Évaluez chacune des affirmations suivantes.",
  items=["V: Une angiographie par CT, IRM ou cathétérisme cherche une malformation vasculaire. || Le sujet jeune et normotendu l'impose.", "V: Une tumeur qui saigne fait partie du différentiel. || L'IRM la cherche à distance.", "V: Une thrombose veineuse cérébrale peut se révéler par un hématome. || Elle se cherche sur l'imagerie veineuse.", "F: L'angiopathie amyloïde est la cause la plus probable. || Elle touche le sujet âgé."],
  notions="N04 N12 N09", angle="application", diff=3, ladder=L("Hématome du sujet jeune.", "Causes secondaires.", "Normotendu.", "Bilan étiologique.", "Angiographie, IRM.", "Amyloïde.", "Jeune : malformation."), sources="[AHA/ASA, 2022]"),
@@ -115,7 +115,7 @@ CORRECTION = dict(
      ["PA", "PAS vers 140 mmHg, pas sous 130", [("Expansion", "La pression entretient le saignement précoce.")]],
      ["AVK", "CCP + vitamine K IV", [("Rapidité", "Le CCP corrige en minutes, la vitamine K maintient.")]],
      ["Dabigatran", "Idarucizumab", [("Spécifique", "Il lie le dabigatran.")]],
-     ["Anti-Xa", "Andexanet alfa ou CCP", [("Protocole local", "La disponibilité varie ; à vérifier.")]],
+     ["Anti-Xa", "Andexanet alfa ou CCP", [("Sans vainqueur", "L'ESO-EANS 2025 ne tranche pas ; l'andexanet expose à des thromboses.")]],
      ["Antiagrégant sans chirurgie", "Pas de plaquettes", [("PATCH", "La transfusion aggrave le pronostic.")]]]),
    points=["Posologies à vérifier dans l'AIPS."], sources=["[AHA/ASA, 2022]"]),
   dict(titre="Chirurgie et complications", rub=["acu", "hos"], comment="Repère ce qui menace le tronc et ce qui se prévient.",
@@ -150,7 +150,7 @@ CORRECTION = dict(
     pharma=[("Urapidil ou labétalol IV (antihypertenseurs)", "Titration vers PAS 140 mmHg ; à vérifier dans l'AIPS.", "La baisse précoce limite l'expansion.", "[AHA/ASA, 2022]"),
             ("Concentré de complexe prothrombinique + vitamine K", "Dose selon INR et poids ; à vérifier dans l'AIPS.", "Ils corrigent l'effet des AVK.", "[AIPS Swissmedic]"),
             ("Idarucizumab", "Dose fixe selon l'AIPS ; à vérifier.", "Il neutralise le dabigatran.", "[AIPS Swissmedic]"),
-            ("Andexanet alfa", "Selon l'AIPS et le protocole local ; disponibilité à vérifier.", "Il neutralise les anti-Xa.", "[AHA/ASA, 2022]")],
+            ("Andexanet alfa", "Dans les 15 h après la dernière dose d'anti-Xa ; posologie selon l'AIPS.", "Il neutralise l'apixaban et le rivaroxaban, au prix d'un risque thrombotique.", "[ESO-EANS, Steiner, 2025 ; Swissmedic, 2020]")],
     nonpharma=[("geste ou chirurgie", "Évacuation d'un hématome cérébelleux compressif, dérivation ventriculaire.", "Elles lèvent la compression du tronc et l'hydrocéphalie."),
                ("rééducation", "Physiothérapie, ergothérapie, logopédie précoces.", "Elles améliorent la récupération.")],
     transversal=[("Neurochirurgie", "Elle décide de l'évacuation ou de la dérivation."), ("Soins palliatifs", "Ils accompagnent les formes graves selon la volonté du patient.")]),
@@ -169,6 +169,4 @@ CORRECTION = dict(
    prevention=["Elle repose sur le contrôle de la PA.", "Elle réévalue l'indication des antithrombotiques.", "Elle limite l'alcool."]),
  ])
 AVERIFIER = ["Proportion des hémorragies intracérébrales parmi les AVC en Suisse à vérifier.",
-             "Disponibilité et remboursement de l'andexanet alfa en Suisse à vérifier dans l'AIPS.",
-             "Mise à jour éventuelle de la recommandation ESO 2014 sur l'hémorragie intracérébrale à vérifier.",
-             "Doses de CCP, idarucizumab, urapidil et labétalol à vérifier dans l'AIPS."]
+             "Doses d'urapidil et de labétalol à vérifier dans l'AIPS ; CCP 30-50 UI/kg si INR ≥ 2 sous AVK selon ESO-EANS 2025."]

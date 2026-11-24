@@ -16,7 +16,7 @@ NOTIONS = [
 "pos|diagnostic différentiel|1||[avis d'expert]|L'hémorragie méningée se cherche si la céphalée est brutale, car une dissection vertébrale intracrânienne peut saigner.",  # N13
 "acu|décision|2||[ESO, 2021 ; Debette, 2021]|La présence d'une dissection ne contre-indique pas la thrombolyse intraveineuse d'un AVC dans les délais, ni la thrombectomie d'une occlusion proximale.",  # N14
 "acu|molécule|3||[TREAT-CAD, Engelter, Lancet Neurol, 2021 ; CADISS, Lancet Neurol, 2015]|Un antiagrégant ou un anticoagulant se prescrivent pour prévenir l'AVC ; les essais CADISS et TREAT-CAD n'ont pas établi la supériorité claire de l'un sur l'autre.",  # N15
-"acu|contexte suisse|1|S|[TREAT-CAD, Engelter, Lancet Neurol, 2021]|L'essai TREAT-CAD, conduit principalement en Suisse, n'a pas montré la non-infériorité de l'aspirine face aux antivitamines K.",  # N16
+"acu|contexte suisse|1|S|[TREAT-CAD, Engelter, Lancet Neurol, 2021]|L'essai TREAT-CAD, conduit en Suisse, en Allemagne et au Danemark, n'a pas montré la non-infériorité de l'aspirine face aux antivitamines K : 23 % contre 15 % d'événements à 90 jours, dont 7 infarctus cérébraux sous aspirine et aucun sous AVK.",  # N16
 "acu|piège|2||[Debette, ESO, 2021]|Une dissection intracrânienne avec hémorragie sous-arachnoïdienne contre-indique les antithrombotiques.",  # N17
 "hos|complication|1||[avis d'expert]|Le risque de récidive ischémique se concentre dans les premières semaines.",  # N18
 "pro|pronostic|1||[Debette, ESO, 2021]|La plupart des dissections recanalisent ou s'améliorent dans les 3 à 6 mois, et la récidive de dissection est rare.",  # N19
@@ -160,6 +160,6 @@ CORRECTION = dict(
    sortie="Le suivi est ambulatoire après exclusion d'un AVC évolutif.",
    prevention=["Elle évite les manipulations cervicales.", "Elle cherche un terrain en cas de récidive.", "Elle informe des signes d'alerte."]),
  ])
-AVERIFIER = ["Résultats chiffrés exacts de TREAT-CAD (Engelter, Lancet Neurol, 2021) et de CADISS (Lancet Neurol, 2015) à vérifier.",
+AVERIFIER = ["Résultats chiffrés exacts de CADISS (Lancet Neurol, 2015) à vérifier.",
              "Durée recommandée du traitement antithrombotique selon ESO 2021 (Debette, Eur Stroke J) à vérifier.",
              "Posologies d'aspirine et d'anticoagulants à vérifier dans l'AIPS."]

@@ -29,7 +29,7 @@ NOTIONS = [
 "hos|complication|1||[avis d'expert]|Un arrêt brutal du traitement peut provoquer un état de mal épileptique.",  # N26
 "pro|pronostic|1||[avis d'expert]|L'épilepsie-absences de l'enfant guérit souvent à l'adolescence, alors que l'épilepsie myoclonique juvénile persiste souvent à l'âge adulte.",  # N27
 "sur|décision|1||[avis d'expert]|Le suivi évalue les crises, l'observance, la tolérance, l'humeur et le projet de grossesse, sans dosage systématique des taux.",  # N28
-"fol|contexte suisse|2|S|[Ligue suisse contre l'Épilepsie, directives sur l'aptitude à la conduite]|Après une crise, le médecin informe le patient de l'inaptitude temporaire à la conduite selon les directives de la Ligue suisse contre l'Épilepsie.",  # N29
+"fol|contexte suisse|2|S|[Ligue suisse contre l'Épilepsie, directives aptitude à la conduite, 2019]|Une épilepsie avérée impose en général 1 an sans crise avant de reconduire une voiture, et 5 ans sans crise et sans traitement pour un permis poids lourd ou minibus ; le médecin en informe le patient.",  # N29
 "fol|contexte suisse|1|S|[Epi-Suisse]|Epi-Suisse et la Ligue suisse contre l'Épilepsie informent les patients sur la scolarité, le travail, le sport et la conduite.",  # N30
 ]
 ANGLES = [
@@ -170,6 +170,5 @@ CORRECTION = dict(
    sortie="Le suivi est ambulatoire.",
    prevention=["Elle n'existe pas de façon spécifique.", "Elle repose sur l'observance et l'éviction des déclencheurs.", "Elle prévient SUDEP, accidents et complications de grossesse."]),
  ])
-AVERIFIER = ["Durées d'inaptitude à la conduite selon les directives de la Ligue suisse contre l'Épilepsie à vérifier.",
-             "Mesures Swissmedic récentes concernant le valproate chez l'homme (risque paternel) à vérifier.",
+AVERIFIER = ["Mesures Swissmedic récentes concernant le valproate chez l'homme (risque paternel) à vérifier.",
              "Dose d'acide folique recommandée chez la femme épileptique traitée à vérifier."]

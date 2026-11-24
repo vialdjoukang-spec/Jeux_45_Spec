@@ -23,7 +23,7 @@ NOTIONS = [
 "hos|complication|1||[avis d'expert]|Une crise expose aux traumatismes, aux brûlures, à la luxation postérieure de l'épaule et à la noyade.",  # N20
 "pro|pronostic|1||[Krumholz, AAN/AES, 2015]|Une crise provoquée récidive peu si sa cause est corrigée, alors qu'une crise non provoquée récidive surtout en cas d'EEG anormal, de lésion ou de crise nocturne.",  # N21
 "sur|décision|1||[avis d'expert]|Le patient tient un journal des crises et revoit le neurologue avec les résultats de l'EEG et de l'IRM.",  # N22
-"fol|contexte suisse|2|S|[Ligue suisse contre l'épilepsie, aptitude à la conduite ; LCR art. 15d]|L'aptitude à conduire est suspendue après une première crise selon les directives suisses, et le médecin peut signaler une inaptitude à l'autorité sans violer le secret.",  # N23
+"fol|contexte suisse|2|S|[Ligue suisse contre l'Épilepsie, directives aptitude à la conduite, 2019 ; LCR art. 15d]|Après une première crise non provoquée, le patient ne conduit pas de voiture pendant 6 mois (3 mois si EEG et IRM sont sans particularité et qu'un traitement est pris), et pendant 2 ans pour un permis poids lourd ou minibus ; le médecin peut signaler une inaptitude à l'autorité sans violer le secret.",  # N23
 "fol|prévention|1||[avis d'expert]|Le patient évite de se baigner seul, préfère la douche au bain et ne nage que sous surveillance, car une crise dans l'eau peut noyer.",  # N24
 "fol|prévention|1||[avis d'expert]|Un sommeil régulier, la modération de l'alcool et l'information des proches sur les premiers secours réduisent le risque et les conséquences d'une récidive.",  # N25
 ]
@@ -165,6 +165,5 @@ CORRECTION = dict(
    sortie="Le patient sort après récupération complète et exclusion d'une cause aiguë grave.",
    prevention=["Elle évite la privation de sommeil et l'excès d'alcool.", "Elle forme les proches aux premiers secours.", "Elle sécurise conduite et baignade."]),
  ])
-AVERIFIER = ["Délais d'inaptitude à la conduite après une première crise selon la Ligue suisse contre l'épilepsie à vérifier (groupe 1 et groupe 2).",
-             "Date et contenu exacts des restrictions Swissmedic sur le valproate à vérifier.",
+AVERIFIER = [             "Date et contenu exacts des restrictions Swissmedic sur le valproate à vérifier.",
              "Posologies du lévétiracétam, de la lamotrigine et des benzodiazépines à vérifier dans l'AIPS."]
