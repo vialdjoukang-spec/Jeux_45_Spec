@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API (format exact de `scripts/produire_notions_questions.py`), branche `agent/45spec-INF`.
 
-**11 / 61 pathologies canoniques produites** (notions + questions + correction), ordre du script (fréquence puis identifiant).
+**12 / 61 pathologies canoniques produites** (notions + questions + correction), ordre du script (fréquence puis identifiant).
 
 Fusions : 15 groupes dans `content/pathologies/fusions_INF.json` ; doublons déjà produits archivés dans `projets/45spec/archives_fusion/INF`.
 
@@ -21,7 +21,7 @@ Statut d'audit : en attente (`audit.rejector = null`). Les chiffres incertains p
 | 9 | `B37.2__S6_9-E04` | Intertrigo candidosique ou dermatophytique des grands plis | produite |
 | 10 | `A04.5__S3_9-E06` | Colite infectieuse aiguë dysentérique ou IST rectale (Campylobacter, Shigella, EIEC, Chlamydia/gonocoque) | produite |
 | 11 | `A04.7__F2_8-E08` | Infection à Clostridioides difficile | produite |
-| 12 | `A07.1__F2_8-E07` | Giardiase (lambliase intestinale) | — |
+| 12 | `A07.1__F2_8-E07` | Giardiase (lambliase intestinale) | produite |
 | 13 | `A38__S6_9-E09` | Scarlatine / exanthème infectieux toxinique bénin de l'enfant | — |
 | 14 | `A46_erysipele_dermohypod__G12-E18` | Érysipèle (dermohypodermite bactérienne aiguë non nécrosante) | — |
 | 15 | `A69.2__S1_4-E06` | Neuroborréliose de Lyme avec paralysie faciale périphérique (uni- ou bilatérale) | — |
