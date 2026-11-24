@@ -1,6 +1,6 @@
 # Progression NEU — production manuelle sans API (agent 45spec-NEU)
 
-Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 41.
+Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 44.
 
 Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts/ecrire_manuel.py SOURCE --spec NEU` (valider() et ecrire() du script de production).
 
@@ -24,6 +24,7 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | G62.0__O5_4-E03 | Douleur neuropathique réfractaire (post-chimiothérapie, envahissement plexique) | 27 | 20 | 0 |
 | G63.2__O3_2-E10 | Polyneuropathie diabétique distale symétrique | 25 | 20 | 0 |
 | I69.3_sequelles_d_avc_apha__F1_11-E04 | Séquelles d'AVC (aphasie chronique, hémiparésie séquellaire) | 27 | 20 | 0 |
+| G25.8__G11-E04 | Syndrome des jambes sans repos (SJSR / maladie de Willis-Ekbom) | 26 | 20 | 0 |
 | G31.8__F1_9-E06 | Démence à corps de Lewy (DCL) | 25 | 20 | 0 |
 | G35__S7_3-E10 | Sclérose en plaques (poussée motrice hémiparétique ou paraparétique) | 35 | 21 | 0 |
 | G44.0__S1_11-E07 | Algie vasculaire de la face (cluster headache) | 25 | 20 | 0 |
@@ -36,7 +37,9 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | E51.2__F1_15-E07 | Encéphalopathie de Gayet-Wernicke (carence aiguë en thiamine) | 25 | 20 | 0 |
 | G00.9__F1_15-E17 | Méningite bactérienne aiguë | 39 | 20 | 0 |
 | G04.9_1__S7_7-E13 | Encéphalite aiguë (herpétique ou auto-immune) | 25 | 20 | 0 |
+| G08_thrombose_du_sinus_c__S1_1-E14 | Thrombose du sinus caverneux (septique) et fistule carotido-caverneuse | 27 | 20 | 0 |
 | G21.0__F1_15-E11 | Syndrome malin des neuroleptiques | 25 | 20 | 0 |
+| G40.4__O2_5-E12 | Spasmes infantiles (syndrome de West) | 26 | 20 | 0 |
 | G40.9_premiere_crise_epile__O3_7-E15 | Première crise épileptique (crise inaugurale) | 25 | 20 | 0 |
 | G41.0__S7_10-E11 | État de mal épileptique convulsif généralisé (EME) | 38 | 20 | 0 |
 | G41.9_etat_de_mal_epilepti__F1_15-E16 | État de mal épileptique non convulsif (dont état de mal d'absences) | 25 | 20 | 0 |
@@ -80,12 +83,12 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 26. G44.8__S7_6-E06 — fait
 27. G62.0__O5_4-E03 — fait
 28. I69.3_sequelles_d_avc_apha__F1_11-E04 — fait
-29. G25.8__G11-E04
+29. G25.8__G11-E04 — fait
 30. G31.8__F1_9-E06 — fait
 31. G50.0__G10-E08 — fait
 32. G04.9_1__S7_7-E13 — fait
-33. G08_thrombose_du_sinus_c__S1_1-E14
-34. G40.4__O2_5-E12
+33. G08_thrombose_du_sinus_c__S1_1-E14 — fait
+34. G40.4__O2_5-E12 — fait
 35. G72.3__F2_14-E16
 36. G93.2__G15-E20
 37. I61.9_hemorragie_intracere__F1_15-E13 — fait
@@ -161,5 +164,6 @@ Règle (24.11.2026) : avant chaque pathologie, l'agent cherche le même trouble 
 | G63.2__O3_2-E10 | Polyneuropathie diabétique | main END E11.4_neuropathie_diabetiq__G10-E05 | produit avant la règle ; à arbitrer lors de la fusion |
 
 Vérifiées sans doublon (lot 14) : G44.8 (céphalée cervicogénique / sinusite aiguë), G62.0 (douleur neuropathique réfractaire), I69.3 (séquelles d'AVC).
+Vérifiées sans doublon (lot 15) : G25.8 (jambes sans repos), G08 (sinus caverneux, fistule carotido-caverneuse), G40.4 (syndrome de West) ; aucune autre branche (main, PSY, INF, PED, état du 24.11.2026) ne les contient.
 
 Signature : AAI (Anthropic AI)

@@ -9,3 +9,4 @@ Règle (24.11.2026) : avant chaque pathologie, l'agent cherche le même trouble 
 | G63.2__O3_2-E10 | Polyneuropathie diabétique | main END E11.4_neuropathie_diabetiq__G10-E05 | produit avant la règle ; à arbitrer lors de la fusion |
 
 Vérifiées sans doublon (lot 14) : G44.8 (céphalée cervicogénique / sinusite aiguë), G62.0 (douleur neuropathique réfractaire), I69.3 (séquelles d'AVC).
+Vérifiées sans doublon (lot 15) : G25.8 (jambes sans repos), G08 (sinus caverneux, fistule carotido-caverneuse), G40.4 (syndrome de West) ; aucune autre branche (main, PSY, INF, PED, état du 24.11.2026) ne les contient.
