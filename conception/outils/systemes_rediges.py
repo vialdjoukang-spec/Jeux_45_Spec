@@ -14,5 +14,6 @@ REDIGES = {
     "Ophtalmologique & ORL": {"dossier": "orl", "prefixe": "or_", "couleur": "#5b6574", "ids": {}},
     "Locomoteur & rhumatologique": {"dossier": "loco", "prefixe": "lo_", "couleur": "#6b7280", "ids": {}},
     "Dermatologique": {"dossier": "derma", "prefixe": "de_", "couleur": "#b07a5a", "ids": {}},
+    "Gynéco-obstétrical": {"dossier": "gyneco", "prefixe": "gy_", "couleur": "#c2185b", "ids": {"Seins": "org_gyneco_seins", "Ovaires": "org_gyneco_ovaires", "Trompes": "org_gyneco_trompes", "Utérus et col": "org_gyneco_uterus_et_col", "Vagin et vulve": "org_gyneco_vagin_et_vulve", "Plancher pelvien": "org_gyneco_plancher_pelvien", "Placenta et unité fœto-placentaire": "org_gyneco_placenta_et_unite_fto_placenta"}},
 }
 SOURCES = {s: charger(c["dossier"]) for s, c in REDIGES.items()}

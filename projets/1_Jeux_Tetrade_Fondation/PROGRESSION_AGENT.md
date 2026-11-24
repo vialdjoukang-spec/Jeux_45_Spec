@@ -242,3 +242,14 @@ Sécheresse oculaire (TFOS DEWS III) ; blépharite (dose de doxycycline) ; dacry
 - Production des modèles 3D des 5 organes `or_*` (absents de `anatomie3d/index.json`, comme les organes `he_*`).
 
 Signature : AAI (Anthropic AI)
+
+## 14. Système gynéco-obstétrical : jouable (branche `agent/tetrade-sys-gyneco`, 2026-11-24)
+
+7 organes (seins, ovaires, trompes, utérus et col, vagin et vulve, plancher pelvien, placenta et unité fœto-placentaire), identifiants `org_gyneco_*` conservés par `ids` (préfixe `gy_`). 11 volets propres, 6 temps d'examen (dont examen des seins et examen obstétrical), 29 pathologies en 4 paliers, 28 sigles. Organes génitaux externes : texte seulement.
+
+Renvois sans doublon : SOPK, insuffisance ovarienne prématurée, aménorrhée hypothalamique, hyperstimulation, tumeur virilisante, diabète gestationnel, Sheehan → Endocrinien ; compression aorto-cave → Cardiovasculaire.
+
+Contrôles : conception 34/34, couverture, non-perte 0, interprétations 177/177, plans 31/31. **Défaut préexistant sur main, sans lien** : `conception/outils/tests/test_veille_suivi.py` échoue (`KeyError: 'revele'`) aussi sur un clone propre de origin/main.
+
+### Points `aVerifier` (gynéco, 4)
+Hydrosalpinx avant FIV (recommandation ESHRE précise) ; intervalle suisse du dépistage du col (avis d'experts SSGO en vigueur) ; abcès de Bartholin (aucune recommandation dédiée) ; doxylamine-pyridoxine en Suisse. Avis d'expert assumés : fibroadénome (avec BI-RADS), Meigs, Fitz-Hugh-Curtis, fistule vésico-vaginale, léiomyosarcome (avec la mise en garde FDA 2014). Chimiothérapies et thérapies ciblées : doses laissées à l'oncologue.
