@@ -1,6 +1,6 @@
-# Veille automatique — 2026-11-24 06:35
+# Veille automatique — 2026-11-24 16:49
 
-19 nouveau(x) lot(s) : 19 fusionné(s), 0 refusé(s) ou partiel(s).
+27 nouveau(x) lot(s) : 27 fusionné(s), 0 refusé(s) ou partiel(s).
 
 ## Lots
 - 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/2_Biologie/1_Analyses_individuelles/1_Theorie/PB01_Analyses_Hematologie_31-analyses_production_XAi.json` (production-xai-athena-biologie) : 1 fusionnés, 0 refusés → projets/retours/rapport_fusion.md
@@ -22,9 +22,17 @@
 - 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/5_Imagerie_Images_et_Cas/P25_Cas_cliniques_Thorax_le_bon_examen_production_XAi.json` (production-xai-athena-formules) : 1 fusionnés, 0 refusés → projets/retours/rapport_fusion.md
 - 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/6_Formules_Criteres_SmarterMedicine/P21_Formules_et_Criteres_diagnostiques_production_XAi.json` (production-xai-athena-formules) : 2 fusionnés, 0 refusés → projets/retours/rapport_fusion.md
 - 🟩 `CLAUDE_A_AUDITER/Grok-Production-XAi/projets/lots/2_Paraclinique/6_Formules_Criteres_SmarterMedicine/P22_SmarterMedicine_recommandations_suisses_production_XAi.json` (production-xai-athena-formules) : 1 fusionnés, 0 refusés → projets/retours/rapport_fusion.md
+- 🟩 `Production_XAi/Lots_traites/4_thorax/aorte_thoracique_et_arteres_pulmonaires.json` (HEAD) : 1 fusionnés, 0 refusés → projets/retours/rapport_fusion.md
+- 🟩 `Production_XAi/Lots_traites/4_thorax/coeur_et_pericarde.json` (HEAD) : 1 fusionnés, 0 refusés → projets/retours/rapport_fusion.md
+- 🟩 `Production_XAi/Lots_traites/4_thorax/mediastin.json` (HEAD) : 1 fusionnés, 0 refusés → projets/retours/rapport_fusion.md
+- 🟩 `Production_XAi/Lots_traites/4_thorax/oesophage.json` (HEAD) : 1 fusionnés, 0 refusés → projets/retours/rapport_fusion.md
+- 🟩 `Production_XAi/Lots_traites/4_thorax/paroi_thoracique_et_cotes.json` (HEAD) : 1 fusionnés, 0 refusés → projets/retours/rapport_fusion.md
+- 🟩 `Production_XAi/Lots_traites/4_thorax/plevre.json` (HEAD) : 1 fusionnés, 0 refusés → projets/retours/rapport_fusion.md
+- 🟩 `Production_XAi/Lots_traites/4_thorax/poumons_et_voies_aeriennes.json` (HEAD) : 1 fusionnés, 0 refusés → projets/retours/rapport_fusion.md
+- 🟩 `Production_XAi/Lots_traites/4_thorax/seins.json` (HEAD) : 1 fusionnés, 0 refusés → projets/retours/rapport_fusion.md
 
 ## Contrôles après fusion
-- Audit de fond : {'corrections': 0, 'acceptees': 502, 'ouvertes': 6, 'fiables': 815, 'examens': 820, 'aCompleter': 27}
+- Audit de fond : {'corrections': 0, 'acceptees': 506, 'ouvertes': 6, 'fiables': 815, 'examens': 820, 'aCompleter': 27}
 - Lots de complément : 27 examens à compléter, lots dans Production_XAi/Lots_a_produire/complement_presentation
 - Audit de conception : RÉUSSI 34/34
 - Audit de couverture : RÉUSSI {'regions': 9, 'organes': 82, 'prelevements': 23, 'Imagerie': 292, 'Biologie': 280, 'Exploration fonctionnelle': 151, 'Endoscopie': 35, 'Anatomopathologie / biopsie': 62}
