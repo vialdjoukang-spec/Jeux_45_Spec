@@ -296,3 +296,16 @@ Contrôles : conception 34/34, couverture, non-perte 0, interprétations 177/177
 
 ### Points `aVerifier` (gynéco, 4)
 Hydrosalpinx avant FIV (recommandation ESHRE précise) ; intervalle suisse du dépistage du col (avis d'experts SSGO en vigueur) ; abcès de Bartholin (aucune recommandation dédiée) ; doxylamine-pyridoxine en Suisse. Avis d'expert assumés : fibroadénome (avec BI-RADS), Meigs, Fitz-Hugh-Curtis, fistule vésico-vaginale, léiomyosarcome (avec la mise en garde FDA 2014). Chimiothérapies et thérapies ciblées : doses laissées à l'oncologue.
+## 15. Système pédiatrique : jouable (branche `agent/tetrade-sys-pediatrie`, 2026-11-24)
+
+5 organes (croissance staturo-pondérale, développement psychomoteur, puberté, adaptation néonatale, génétique et dysmorphies), identifiants `org_pediat_*` conservés par `ids` (préfixe `pe_`). 7 volets, 27 mots-clés, 6 temps d'examen (mesures et courbes, développement, nouveau-né, morphologie…), 29 signes, 24 pathologies (5 TF, 8 F, 6 U, 5 R), 23 sigles.
+
+Renvois sans doublon : puberté précoce ou retardée, Prader-Willi, DiGeorge → Endocrinien ; bronchiolite, faux croup → Respiratoire ; maladie cœliaque → Digestif. Contexte suisse : courbes OMS adoptées par la Société suisse de pédiatrie, dépistage néonatal (mucoviscidose), APEA.
+
+Contrôles : conception 34/34, couverture, non-perte 0, interprétations 177/177, plans 31/31 ; `test_veille_suivi.py` échoue aussi sur main (défaut préexistant).
+
+### Points `aVerifier` (pédiatrie, 4)
+Article du Code civil sur l'avis à l'APEA (314c ou 314d) ; version suisse en vigueur sur l'ictère néonatal ; seuil et année des recommandations suisses sur l'hypoglycémie néonatale ; mise à jour 2024 des recommandations sur le syndrome de Turner. Avis d'expert assumés : retard de langage, thélarche prématurée, épiphysiolyse, tachypnée transitoire, atrésie des voies biliaires, X fragile, retard de croissance psychosocial.
+
+### Merge conseillé
+Les trois branches système modifient la même zone de `systemes_rediges.py` (une ligne chacune après « Dermatologique ») : conflit trivial, garder les trois lignes. Après fusion des 3 systèmes, la jauge « systèmes rédigés » passe de 11 à 14/14.

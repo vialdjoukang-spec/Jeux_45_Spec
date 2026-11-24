@@ -264,6 +264,9 @@ Claude a relu, avec la méthode des lots 1 à 3, les 33 pathologies du système 
 ## Lot 4 (gynéco-obstétrical) — 2026-11-24
 
 Claude a relu, avec la méthode des lots 1 à 3, les 33 pathologies du système gynéco-obstétrical (7 organes), leur sémiologie, leur contenu et leur glossaire : chaque dose (méthotrexate 50 mg/m², ocytocine 5 UI IV lente, acide tranexamique 1 g en 10 min dans les 3 h, sulfate de magnésium 4 g puis 1 g/h, aspirine 150 mg de 12 à 36 semaines), chaque seuil (HPP > 500 ml, fibrinogène < 2 g/l, endomètre > 4 mm, Amsel 3 sur 4, protéinurie ≥ 30 mg/mmol, cible 135/85 mmHg) et chaque référence. Aucune référence n'était inventée ; deux étaient dépassées.
+## Lot 4 (pédiatrique) — 2026-11-24
+
+Claude a relu, avec la méthode des lots 1 à 3, les 24 pathologies du système pédiatrique (5 organes), leur sémiologie, leur contenu et leur glossaire : chaque seuil (IMC > P97, mots à 16 mois, M-CHAT de 16 à 30 mois, corset de 20 à 40°, ictère prolongé > 2 semaines, sepsis précoce < 72 h, Kasai < 60 jours), chaque dose (SRO 50–100 ml/kg en 4 h, NaCl 0,9 % 20 ml/kg, glucose 10 % 2 ml/kg) et chaque référence. Aucune référence n'était inventée ; une était dépassée (Turner 2017).
 
 ### L4.1 Bilan
 
@@ -275,6 +278,9 @@ Paliers : les 33 restent tels quels (9 TF, 10 F, 7 U, 7 R). Deux paliers TF se l
 | Gynéco-obstétrical (33 pathologies, 7 organes, sémiologie, glossaire) | 33 | 6 pathologies | 4 sur 4 (un point nouveau, plus précis, reste ouvert sur le col) | 1 |
 
 Paliers : les 33 restent justes (9 TF, 9 F, 8 U, 7 R) ; aucun reclassement.
+| Pédiatrique (24 pathologies, 5 organes, sémiologie, glossaire) | 24 | 4 pathologies | 4 sur 4 | 0 |
+
+Paliers : les 24 restent tels quels (5 TF, 8 F, 6 U, 5 R). La trisomie 21 (TF) et la mucoviscidose (F) se lisent relativement à leur organe (génétique), pas à la population générale ; Claude les garde et le signale.
 
 ### L4.2 Erreurs de fond corrigées
 
@@ -312,6 +318,10 @@ Paliers : les 33 restent justes (9 TF, 9 F, 8 U, 7 R) ; aucun reclassement.
 | Lésion précancéreuse du col | Intervalle suisse non précisé | SSGO n° 50 : cytologie /3 ans de 21 à 29 ans ; cytologie ou test HPV /3 ans de 30 à 70 ans ; pas de co-test | SSGO, avis d'experts n° 50 (01.03.2018) |
 | Hydrosalpinx | « ESHRE » sans titre | Revue Cochrane : salpingectomie avant FIV (preuve modérée) | Melo et al., Cochrane 2020 (CD002125) |
 | Abcès de Bartholin | Avis d'expert seul | Aucune technique ne s'impose ; aucune recommandation européenne dédiée | Illingworth, BJOG 2020 (PubMed 31876985) |
+| Hypoglycémie néonatale | Seuil renvoyé au « protocole local » | < 2,6 mmol/l dès 35+0 SA (ancien seuil 2,5) ; < 2,0 mmol/l : forme sévère ; gel de dextrose 40 % 0,5 ml/kg | SSN, Schulzke et al., Paediatrica 2021;32(1) |
+| Syndrome de Turner | Recommandation 2017 | Recommandation 2024 (consensus d'Aarhus 2023) | Gravholt, Eur J Endocrinol 2024;190:G53 (PubMed 38748847) |
+| Ictère néonatal | Version suisse non datée | SSN, version 13/2023 | paediatrieschweiz.ch |
+| Retard de croissance psychosocial | Article 314c ou 314d incertain | 314c : droit d'aviser du médecin soumis au secret ; 314d : obligation des professionnels non soumis au secret | Code civil suisse (révision 2019) |
 
 ### L4.3 Les 4 doutes `aVerifier`
 
@@ -325,5 +335,13 @@ Paliers : les 33 restent justes (9 TF, 9 F, 8 U, 7 R) ; aucun reclassement.
 ### L4.4 Chaîne relancée
 
 `construire_config_tetrade.py`, `construire_plans.py`, `generer_json.py`, `rendre_plans.py` (31/31), `audit_fond.py` (0 correction), `auditer_conception.py` **34/34** (après réécriture de 3 sigles de revue), `auditer_couverture.py` **RÉUSSI**, `non_perte.py` **OK** (après restauration connue des deux `2_cou/ganglions_cervicaux.json`), `verifier_interpretations.py` **177/177, 0 défaut**, `test_aligner_aVerifier.py` **OK**. Un seul `aVerifier` reste dans les JSON d'organes (utérus et col).
+| 1 | Retard de croissance psychosocial | Résolu : art. 314c | CC |
+| 2 | Ictère néonatal | Résolu : version 13/2023 | SSN |
+| 3 | Hypoglycémie néonatale | Résolu : 2021, < 2,6 mmol/l | SSN |
+| 4 | Turner | Résolu : 2024 | PubMed 38748847 |
+
+### L4.4 Chaîne relancée
+
+`construire_config_tetrade.py`, `construire_plans.py`, `generer_json.py`, `rendre_plans.py` (31/31), `audit_fond.py` (0 correction), `auditer_conception.py` **34/34**, `auditer_couverture.py` **RÉUSSI**, `non_perte.py` **OK** (après restauration connue des deux `2_cou/ganglions_cervicaux.json`), `verifier_interpretations.py` **177/177, 0 défaut**, `test_aligner_aVerifier.py` **OK**. Aucun `aVerifier` ne reste dans les JSON d'organes pédiatriques.
 
 Signature : AAI (Anthropic AI)
