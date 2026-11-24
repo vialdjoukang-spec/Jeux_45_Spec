@@ -1,10 +1,10 @@
 # Progression PED — MedSuisse Arena 45 (45 Spec)
 
 Branche : `agent/45spec-PED`. Production par agent Claude **sans API** (même schéma, même `valider()` que `scripts/produire_notions_questions.py`), outil : `projets/45spec/agent_ecrire.py`.
-Ordre : `selection()` (fréquence puis identifiant) pour les 18 premières ; ensuite **ordre révisé par importance pour l'examen** (section ci-dessous). Contrôles : `valider()` sans erreur ; couverture des notions de poids ≥ 2 au moins deux fois sous deux angles ; formats ≈ 70/20/10.
+Ordre : `selection()` (fréquence puis identifiant) pour les 18 premières ; puis ordre révisé par importance (section ci-dessous) ; **depuis le lot 13 (24.11.2026), ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json` (groupes de rendement A → B → C → D)**. Contrôles d'`agent_ecrire.py` : poids 3 ≤ 15 % et poids 2 ≤ 35 % des notions (bloquants). Contrôles : `valider()` sans erreur ; couverture des notions de poids ≥ 2 au moins deux fois sous deux angles ; formats ≈ 70/20/10.
 Les données douteuses portent la mention « à vérifier » dans leur source (AIPS, version de recommandation). Statut d'audit : en attente (`audit.rejector = null`).
 
-**Avancement : 33 / 69 pathologies canoniques complètes (notions + questions + correction).**
+**Avancement : 36 / 69 pathologies canoniques complètes (notions + questions + correction).**
 
 | # | Identifiant | Pathologie | Fréq. | Complet | Notions | Questions |
 |---|---|---|---|---|---|---|
@@ -33,9 +33,9 @@ Les données douteuses portent la mention « à vérifier » dans leur source (A
 | 23 | `P22.0__O1_1-E11` | Syndrome de détresse respiratoire néonatale (maladie des mem | 3 | ✅ | 25 | 20 |
 | 24 | `P36.9__O1_1-E15` | Sepsis néonatal précoce (< 72 h) | 3 | ✅ | 28 | 21 |
 | 25 | `P39.1__O7_12-E17` | Conjonctivite néonatale (à gonocoque ou Chlamydia trachomati | 3 | ✅ | 26 | 20 |
-| 26 | `P52.2__O1_1-E14` | Hémorragie intraventriculaire (HIV) du prématuré | 3 | ⬜ |  |  |
-| 27 | `P55.0_1__O1_3-E13` | Incompatibilité rhésus sévère avec anémie fœtale (allo-immun | 3 | ⬜ |  |  |
-| 28 | `P56.0__F2_17-E15` | Anasarque fœto-placentaire (hydrops fetalis) sur allo-immuni | 3 | ⬜ |  |  |
+| 26 | `P52.2__O1_1-E14` | Hémorragie intraventriculaire (HIV) du prématuré | 3 | ✅ | 26 | 20 |
+| 27 | `P55.0_1__O1_3-E13` | Incompatibilité rhésus sévère avec anémie fœtale (allo-immun | 3 | ✅ | 25 | 20 |
+| 28 | `P56.0__F2_17-E15` | Anasarque fœto-placentaire (hydrops fetalis) sur allo-immuni | 3 | ✅ | 27 | 20 |
 | 29 | `P57.9__F2_17-E16` | Ictère nucléaire (encéphalopathie bilirubinique aiguë) | 3 | ✅ | 26 | 20 |
 | 30 | `P61.4__O2_7-E14` | Anémie fœtale sévère sur hémorragie fœto-maternelle massive  | 3 | ⬜ |  |  |
 | 31 | `P70.4__O1_1-E12` | Hypoglycémie néonatale sévère ou symptomatique | 3 | ✅ | 27 | 21 |
@@ -150,3 +150,22 @@ Absentes des entités canoniques PED (non produisibles ici) : voir `MANQUES_CATA
 - Skill créé : `.claude/skills/45spec-production-sans-api`.
 
 Signature : AAI (Anthropic AI)
+
+## Ordre par groupes de rendement (RANG_RENDEMENT.json, depuis le 24.11.2026)
+
+Aucune pathologie PED restante n'appartient au groupe A. Les pathologies partagées dont le premier code n'est pas PED (Z63.4 deuil normal → MIG, Z63.5 détresse face au divorce → PEA, et les autres Z6x partagées) s'écrivent dans le dossier de l'autre spécialité : elles restent en fin de file pour éviter les doublons entre agents.
+
+| Rang | Groupe | Identifiant | Statut |
+|---|---|---|---|
+| 712 | B | `Z63.4__O6_7-E01` (dossier MIG) | reportée (partagée) |
+| 713 | B | `Z63.5__O6_6-E02` (dossier PEA) | reportée (partagée) |
+| 831 | B | `P52.2__O1_1-E14` | ✅ lot 13 |
+| 1267 | C | `P55.0_1__O1_3-E13` | ✅ lot 13 |
+| 1268 | C | `P56.0__F2_17-E15` | ✅ lot 13 |
+| 1270 | C | `P61.4__O2_7-E14` | ⬜ |
+| 1273 | C | `P77.9__O1_1-E13` | ⬜ |
+| 1274 | C | `P77__S3_9-E14` | ⬜ |
+| 1275 | C | `P80.8__O1_1-E16` | ⬜ |
+| 1276 | C | `P83.2__O1_3-E12` | ⬜ |
+| 1278 | C | `P94.0__O2_11-E18` | ⬜ |
+| 1280 | C | `Q30.0__S1_15-E11` | ⬜ |

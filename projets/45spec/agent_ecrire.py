@@ -134,6 +134,16 @@ def couverture(qd, nd_):
     return faibles, absentes, fm
 
 
+def parts_poids(d):
+    """Règle 5bis du prompt : poids 3 ≤ 15 % et poids 2 ≤ 35 % des notions ; bloque l'écriture si dépassé."""
+    n = len(d["notions"]) or 1; e = []
+    for p, plafond in ((3, 0.15), (2, 0.35)):
+        k = sum(x["poids"] == p for x in d["notions"])
+        if k > plafond * n:
+            e.append(f"poids {p} : {k}/{n} notions ({k / n:.0%}) > {plafond:.0%} (au plus {int(plafond * n)})")
+    return e
+
+
 def main(fichier, quoi="tout"):
     g = runpy.run_path(fichier, init_globals={k: v for k, v in globals().items() if k[:1].isupper() or k in ("nd", "notions", "questions", "correction", "cell")})
     idx = {c["id"]: c for c in P.canoniques()}
@@ -145,8 +155,13 @@ def main(fichier, quoi="tout"):
             continue
         d = g[cle_]
         err = P.valider(etape, d, c)
+        if etape == "notions" and not err:
+            err = parts_poids(d)
         if err:
-            ok = False; print(etape, "ERREURS :", *err, sep="\n  "); continue
+            ok = False; print(etape, "ERREURS :", *err, sep="\n  ")
+            if etape == "notions":
+                break                          # sans notions écrites, questions et correction ne peuvent pas se valider
+            continue
         p = ecrire(etape, c, d, err); print(etape, "OK →", os.path.relpath(p, R))
         if etape == "notions":
             print("  notions :", len(d["notions"]), "poids3 :", sum(n["poids"] == 3 for n in d["notions"]), "poids2 :", sum(n["poids"] == 2 for n in d["notions"]))
