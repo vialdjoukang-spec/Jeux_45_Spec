@@ -19,41 +19,17 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | K | 12 | 12 |
 | L | 12 | 12 |
 | M | 12 | 12 |
-| N | 6 | 12 |
+| N | 9 | 12 |
 | O | 0 | 12 |
 | P | 0 | 12 |
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **186** | **228** |
+| **Total** | **189** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
 - **TRANS_A-S4-01** : Contenu des ATF cités comme distracteurs ou repères (130 V 352 de 2004, 137 V 210 de 2011, 143 V 409/418 de 2017) : cohérent avec la doctrine connue mais non relu sur bger.ch (base inaccessible pendant l'audit). Vérifiés : ATF 125 V 351 (critères de valeur probante, guide FMH) et le changement de pratique de 2015 (arrêt 9C_492/2014 publié ATF 141 V 281, circulaire OFAS du 7.7.2015).
-- **TRANS_I-S1-01** : Exemples de maladies choisis selon leur mode de transmission (mucoviscidose AR, Huntington AD, hémophilie A récessive liée à l'X, MELAS mitochondriale) : classiques, sans chiffre.
-- **TRANS_I-S1-02** : Exigence éventuelle d'un consentement écrit pour certaines analyses (la LAGH exige un consentement libre et exprès ; forme écrite à vérifier dans l'OAGH).
-- **TRANS_I-S1-02** : Liste des analyses que peut prescrire un médecin sans titre de spécialiste ni qualification en génétique (art. 5 OAGH), mise à jour 2026.
-- **TRANS_I-S1-03** : Liste exacte des maladies dépistées en 2026 (le dépliant de 2022 en cite onze, dont l'amyotrophie spinale ; la page OFSP mentionne « dix analyses ») et date d'ajout de l'amyotrophie spinale.
-- **TRANS_I-S1-03** : Caractère facultatif du dépistage et modalités du refus parental en Suisse.
-- **TRANS_I-S2-01** : Critères d'indication suisses au test BRCA et conditions de remboursement par la liste des analyses (LAMal) en 2026 (souvent alignés sur une probabilité de mutation d'au moins 10 %).
-- **TRANS_I-S2-01** : Âges de début de la surveillance et de la chirurgie préventive chez les porteuses BRCA1/2 (IRM mammaire annuelle dès 25-30 ans, annexectomie vers 35-40 ans pour BRCA1 et 40-45 ans pour BRCA2) selon les recommandations NCCN et ESMO 2024-2026.
-- **TRANS_I-S2-02** : Seuils suisses de remboursement LAMal : DPNI remboursé si le risque combiné du premier trimestre est d'au moins 1/1000 ; diagnostic invasif proposé si le risque est d'au moins 1/380 (avis d'experts SSGO) : à confirmer dans l'OPAS et l'avis d'experts en vigueur.
-- **TRANS_I-S2-02** : Valeurs prédictives positives du DPNI pour la trisomie 21 selon l'âge (ordres de grandeur de 50 % chez une femme jeune à faible risque et plus de 90 % chez une femme à haut risque) : à confirmer avant de citer des chiffres.
-- **TRANS_I-S2-03** : Position de Swissmedic (information professionnelle) sur le test de déficit en DPD avant fluoropyrimidines, après la recommandation de l'EMA de 2020.
-- **TRANS_I-S2-03** : Remboursement LAMal des analyses pharmacogénétiques (DPYD, HLA-B*57:01, CYP2C19, TPMT) dans la liste des analyses 2026.
-- **TRANS_I-S2-03** : Réduction de dose de 50 % chez les porteurs hétérozygotes de variants DPYD (score d'activité 1 ou 1,5) selon le CPIC 2017/2024.
-- **TRANS_I-S3-01** : Formulation exacte de l'art. 16 LAGH révisée (en vigueur depuis le 1.12.2022) et de ses exceptions de l'al. 2 (risque minimal, protection de la santé de la famille, transplantation).
-- **TRANS_I-S3-01** : Recommandations de la Société suisse de génétique médicale (SSGM) sur le test présymptomatique des mineurs et âge minimal pratique retenu par les consultations (18 ans pour la maladie de Huntington).
-- **TRANS_I-S3-02** : Seuils de répétitions CAG dans HTT (26 ou moins normal, 27-35 intermédiaire, 36-39 pénétrance réduite, 40 ou plus pénétrance complète) selon les recommandations de l'ACMG et de l'EHDN.
-- **TRANS_I-S3-02** : Seuils de répétitions CGG du gène FMR1 (prémutation 55-200, mutation complète plus de 200).
-- **TRANS_I-S3-03** : Nombre de gènes de la liste ACMG SF v3.3 (2025 ; 84 gènes ?) et position suisse ou européenne (ESHG, prudence et opt-in).
-- **TRANS_I-S3-03** : Articles de la LAGH révisée sur les informations excédentaires (art. 9 éviter autant que possible, art. 27 chez l'incapable de discernement) et choix du patient avant l'analyse (art. 6).
-- **TRANS_I-S4-01** : Liste complète des assurances visées à l'art. 43 al. 1 LAGH (let. a à c : prévoyance professionnelle obligatoire, assurances sociales, indemnités journalières obligatoires ?) et formulation exacte de l'art. 44 sur les assurances privées au-delà des seuils.
-- **TRANS_I-S4-01** : Sanctions pénales prévues par la LAGH révisée en cas d'exigence ou d'utilisation illicite de résultats génétiques.
-- **TRANS_I-S4-02** : Conditions exactes de l'art. 5a LPMA (maladie grave, risque héréditaire, manifestation avant 50 ans, absence de thérapie efficace) et limite de 12 embryons développés par cycle (art. 17 al. 1 LPMA) depuis le 1.9.2017.
-- **TRANS_I-S4-02** : Remboursement ou non par l'assurance obligatoire du diagnostic préimplantatoire et de la fécondation in vitro en 2026.
-- **TRANS_I-S4-03** : Calendrier de publication de la mise à jour bayésienne des critères ACMG/AMP (ClinGen SVI, version 4 annoncée en 2025-2026) et son adoption par les laboratoires suisses.
-- **TRANS_I-S4-03** : Pratique suisse de reclassification des VUS et obligation éventuelle du laboratoire de recontacter le prescripteur.
 - **TRANS_J-S1-01** : Durée de friction recommandée (20 à 30 secondes selon l'OMS 2009) et volume de solution (3 mL environ, ou quantité suffisante pour couvrir les mains).
 - **TRANS_J-S1-01** : Nom et périodicité actuels de la mesure nationale de l'observance de l'hygiène des mains (Swissnoso, programme « Clean Hands »).
 - **TRANS_J-S1-02** : Recommandations de Swissnoso en vigueur en 2026 sur le masque pour la grippe et le VRS (masque chirurgical) et sur le masque FFP2 pour le Covid-19 en milieu hospitalier.
@@ -165,6 +141,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_N-S2-02** : Existence et nom des outils suisses de repérage de la précarité en consultation (par exemple le score DiPCare-Q, Unisanté).
 - **TRANS_N-S2-03** : Seuils de l'AUDIT-C utilisés en Suisse (souvent ≥ 4 chez l'homme et ≥ 3 chez la femme) et définition suisse du verre standard (10 à 12 g d'alcool pur selon Addiction Suisse).
 - **TRANS_N-S2-03** : Repères de consommation à faible risque de la Commission fédérale pour les questions liées aux addictions (CFANT, 2018) : au plus 2 verres standards par jour pour l'homme et 1 pour la femme, avec des jours sans alcool.
+- **TRANS_N-S3-01** : Fenêtre recommandée pour le dTpa pendant la grossesse en Suisse (idéalement au 2e trimestre, entre 13 et 26 semaines ?) et recommandation 2024-2026 sur le vaccin maternel contre le VRS (Abrysvo entre 32 et 36 semaines) versus nirsevimab chez le nourrisson.
+- **TRANS_N-S3-01** : Recommandation suisse sur la vaccination contre le Covid-19 pendant la grossesse en 2026.
+- **TRANS_N-S3-02** : Score de risque recommandé en Suisse en 2026 (AGLA, fondé sur PROCAM, ou SCORE2/SCORE2-OP de l'ESC) et catégories de risque à 10 ans.
+- **TRANS_N-S3-02** : Cibles de LDL-cholestérol des recommandations ESC/EAS 2019 et mise à jour 2025 (très haut risque < 1,4 mmol/L, haut risque < 1,8 mmol/L, risque intermédiaire < 2,6 mmol/L, faible risque < 3,0 mmol/L), reprises par l'AGLA.
+- **TRANS_N-S3-03** : Date d'adoption de la politique des quatre piliers (début des années 1990) et de son inscription dans la LStup révisée (votation de 2008, en vigueur depuis le 1.7.2011).
+- **TRANS_N-S3-03** : Disponibilité et remboursement en 2026 de la naloxone intranasale pour les usagers et leurs proches en Suisse.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -178,4 +160,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : N (6/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : N (9/12), O (0/12), P (0/12), R (0/12).
