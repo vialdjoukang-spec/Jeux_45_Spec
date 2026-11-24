@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**273 / 500 pathologies du périmètre produites.**
+**276 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -184,12 +184,12 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 175 | `I49.4__F1_7-E03` | Extrasystoles ventriculaires ou supraventriculaires | CAR | produite |
 | 176 | `I69.3_sequelles_d_avc_apha__F1_11-E04` | Séquelles d'AVC (aphasie chronique, hémiparésie séquellaire) | NEU | produite |
 | 177 | `I87.2__F1_16-E01` | Insuffisance veineuse chronique (jambes lourdes et crampes nocturnes) | ANG | produite |
-| 178 | `J01.9__S1_14-E03` | Rhinosinusite aiguë bactérienne | ORL | — |
+| 178 | `J01.9__S1_14-E03` | Rhinosinusite aiguë bactérienne | ORL | produite |
 | 179 | `J20.9__F1_3-E01` | Bronchite aiguë (râles bronchiques / ronchi) | PNE | produite |
 | 180 | `J44.9__F2_1-E01` | Évaluation respiratoire préopératoire (BPCO, SAOS, tabac) | PNE | produite |
-| 181 | `K11.7__F1_13-E04` | Xérostomie (hyposialie médicamenteuse, syndrome de Sjögren) | TOX | — |
+| 181 | `K11.7__F1_13-E04` | Xérostomie (hyposialie médicamenteuse, syndrome de Sjögren) | TOX | produite |
 | 182 | `K76.0_steatose_hepatique_m__F2_11-E01` | Stéatose hépatique métabolique (MASLD) | GAS | produite |
-| 183 | `L20.9__F1_4-E03` | Dermatite atopique | DER | — |
+| 183 | `L20.9__F1_4-E03` | Dermatite atopique | DER | produite |
 | 184 | `M51.1__S5_2-E02` | Hernie discale traumatique aiguë avec radiculopathie (cervicale ou lombaire) | ORT | — |
 | 185 | `M54.5_1__O5_1-E04` | Troubles musculo-squelettiques (lombalgies, cervicalgies) liés au travail | RHU | — |
 | 186 | `M54.5__G10-E01` | Lombalgie commune non spécifique | RHU | — |
