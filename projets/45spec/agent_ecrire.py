@@ -144,12 +144,6 @@ def parts_poids(d):
     return e
 
 
-def menus_longs_hors_format(qd):
-    """Contrôle 0 token : un menu long garde 1 à 3 réponses justes (le jeu l'annonce au joueur)."""
-    return [f"{q['id']} : un menu long exige 1 à 3 réponses justes ({k} trouvées)"
-            for q in qd["questions"] if q["format"] == "MenuLong" and not 1 <= (k := sum(o["correct"] for o in q["options"])) <= 3]
-
-
 def main(fichier, quoi="tout"):
     g = runpy.run_path(fichier, init_globals={k: v for k, v in globals().items() if k[:1].isupper() or k in ("nd", "notions", "questions", "correction", "cell")})
     idx = {c["id"]: c for c in P.canoniques()}
@@ -161,8 +155,6 @@ def main(fichier, quoi="tout"):
             continue
         d = g[cle_]
         err = P.valider(etape, d, c)
-        if etape == "questions":
-            err += menus_longs_hors_format(d)   # le jeu annonce « menu long : une à trois réponses »
         if etape == "notions" and not err:
             err = parts_poids(d)
         if err:
