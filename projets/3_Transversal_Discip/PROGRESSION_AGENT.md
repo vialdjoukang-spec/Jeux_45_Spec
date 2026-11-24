@@ -20,12 +20,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | L | 12 | 12 |
 | M | 12 | 12 |
 | N | 12 | 12 |
-| O | 0 | 12 |
+| O | 3 | 12 |
 | P | 0 | 12 |
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **192** | **228** |
+| **Total** | **195** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -128,6 +128,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_N-S4-02** : Plan d'action national de prévention du suicide (Confédération et cantons, 2016) et numéros 143 (La Main Tendue) et 147 (Pro Juventute, jeunes) : à vérifier pour 2026.
 - **TRANS_N-S4-03** : Prise en charge de la PrEP VIH par l'assurance obligatoire depuis le 1.7.2024 (conditions, médecins autorisés, franchise et quote-part).
 - **TRANS_N-S4-03** : Schéma « à la demande » 2-1-1 réservé aux hommes ayant des rapports avec des hommes (pas pour les rapports vaginaux) selon les recommandations suisses (CFIST) et européennes (EACS 2024).
+- **TRANS_O-S1-01** : Classement des inhibiteurs et inducteurs puissants du CYP3A4 selon la FDA (tableau des substrats, inhibiteurs et inducteurs, mise à jour 2023) et intégration dans les outils suisses (compendium.ch, mediQ, Pharmavista).
+- **TRANS_O-S1-01** : Contre-indication de l'association de la simvastatine avec la clarithromycine dans l'AIPS suisse.
+- **TRANS_O-S1-02** : Recommandation KDIGO 2024 sur l'usage de l'équation CKD-EPI 2021 sans coefficient ethnique et sur le recours à la cystatine C ; usage persistant de Cockcroft-Gault dans certaines AIPS.
+- **TRANS_O-S1-02** : Seuils d'adaptation ou de contre-indication des AOD et de la metformine selon le DFG dans l'AIPS suisse (metformine contre-indiquée sous 30 mL/min ; dose maximale réduite entre 30 et 45 mL/min).
+- **TRANS_O-S1-03** : Critères du syndrome sérotoninergique (critères de Hunter) et du syndrome anticholinergique décrits dans les manuels de toxicologie de référence ; disponibilité et posologie de la physostigmine en Suisse.
+- **TRANS_O-S1-03** : Numéro et rôle de Tox Info Suisse (145) en 2026.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -141,4 +147,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : O (3/12), P (0/12), R (0/12).
