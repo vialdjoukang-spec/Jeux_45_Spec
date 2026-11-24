@@ -20,12 +20,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | L | 12 | 12 |
 | M | 12 | 12 |
 | N | 12 | 12 |
-| O | 9 | 12 |
+| O | 12 | 12 |
 | P | 0 | 12 |
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **201** | **228** |
+| **Total** | **204** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -72,6 +72,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_O-S3-02** : Traitement du syndrome malin des neuroleptiques (dantrolène, bromocriptine) : niveau de preuve faible, à confirmer.
 - **TRANS_O-S3-03** : Version 3 des critères STOPP/START (O'Mahony et al., Eur Geriatr Med 2023) et liste PRISCUS 2.0 (2023) ; adaptation suisse éventuelle.
 - **TRANS_O-S3-03** : Outils suisses de déprescription et rôle du pharmacien (polymedication check en officine) en 2026.
+- **TRANS_O-S4-01** : Posologie du fomépizole (dose de charge 15 mg/kg IV puis 10 mg/kg toutes les 12 heures) et seuils d'indication de l'hémodialyse (acidose sévère, atteinte visuelle, insuffisance rénale, concentrations élevées) selon l'EXTRIP 2015 et Tox Info Suisse.
+- **TRANS_O-S4-01** : Formule de l'osmolalité calculée utilisée en Suisse (2 × Na + glucose + urée, en mmol/L, ± éthanol × 1,25) et seuil du trou osmolaire (> 10 mOsm/kg).
+- **TRANS_O-S4-02** : Cibles du suivi de la vancomycine (aire sous la courbe AUC24/CMI de 400 à 600 mg·h/L selon ASHP/IDSA 2020) et pratique des hôpitaux suisses (résiduelle encore utilisée dans certains établissements).
+- **TRANS_O-S4-02** : Fourchettes de lithiémie (0,6 à 0,8 mmol/L en entretien, jusqu'à 1,0 mmol/L selon la situation ; 0,4 à 0,7 chez la personne âgée) et taux résiduels cibles du tacrolimus selon le délai après greffe : à confirmer dans les protocoles locaux.
+- **TRANS_O-S4-03** : Seuils de surface cutanée décollée : SJS < 10 %, chevauchement 10 à 30 %, NET > 30 % ; score SCORTEN et algorithme ALDEN : à confirmer dans les références.
+- **TRANS_O-S4-03** : Critères RegiSCAR pour le DRESS et délai d'apparition typique (2 à 8 semaines) ; association HLA-B*58:01 et allopurinol, HLA-B*15:02 et carbamazépine.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -85,4 +91,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : O (9/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : P (0/12), R (0/12).
