@@ -17,7 +17,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | I | 12 | 12 |
 | J | 12 | 12 |
 | K | 12 | 12 |
-| L | 6 | 12 |
+| L | 9 | 12 |
 | M | 0 | 12 |
 | N | 0 | 12 |
 | O | 0 | 12 |
@@ -25,37 +25,11 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **162** | **228** |
+| **Total** | **165** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
 - **TRANS_A-S4-01** : Contenu des ATF cités comme distracteurs ou repères (130 V 352 de 2004, 137 V 210 de 2011, 143 V 409/418 de 2017) : cohérent avec la doctrine connue mais non relu sur bger.ch (base inaccessible pendant l'audit). Vérifiés : ATF 125 V 351 (critères de valeur probante, guide FMH) et le changement de pratique de 2015 (arrêt 9C_492/2014 publié ATF 141 V 281, circulaire OFAS du 7.7.2015).
-- **TRANS_C-S1-01** : Titre exact et année du guide ASSM sur la communication dans la pratique médicale (2013 ?).
-- **TRANS_C-S1-01** : Durée moyenne de parole spontanée de 92 secondes (Langewitz et al., BMJ 2002, policlinique de Bâle) : chiffre à confirmer dans l'article original.
-- **TRANS_C-S1-02** : Proportion de patients qui oublient 40 à 80 % de l'information médicale reçue (Kessels 2003) : chiffre classique, à confirmer.
-- **TRANS_C-S1-02** : Existence et nom actuel des aides à la décision publiées par Unisanté ou le Collège de médecine de premier recours.
-- **TRANS_C-S1-03** : Structure en quatre processus (engager, focaliser, évoquer, planifier) maintenue dans la 4e édition de Miller et Rollnick (2023) : vérifier la terminologie exacte.
-- **TRANS_C-S1-03** : Nom actuel du programme suisse « Coaching Santé » du Collège de médecine de premier recours (CMPR).
-- **TRANS_C-S2-01** : Nom exact et organisme actuel du cours suisse de formation à la communication en oncologie (cours CST de la Ligue suisse contre le cancer).
-- **TRANS_C-S2-01** : Droit du patient de ne pas savoir : ancrage précis en droit suisse (principe général, art. 6 LAGH pour la génétique).
-- **TRANS_C-S2-02** : Numéro et opérateur actuels du Service national d'interprétariat téléphonique (0842 442 442, géré par AOZ à Zurich ?).
-- **TRANS_C-S2-02** : Absence de prise en charge de l'interprétariat communautaire par l'assurance obligatoire LAMal en 2026 (financement par hôpitaux, cantons ou programmes OFSP).
-- **TRANS_C-S2-02** : Intitulé exact du titre fédéral : « interprète communautaire avec brevet fédéral » (INTERPRET).
-- **TRANS_C-S2-03** : Origine de l'acronyme ICE dans la formation britannique (Royal College of General Practitioners, années 1980-1990) : attribution exacte à confirmer.
-- **TRANS_C-S2-03** : Données d'efficacité de l'exploration ICE sur la satisfaction et la réduction des reconsultations : niveau de preuve modéré, à confirmer.
-- **TRANS_C-S3-01** : Date de la dernière version des directives ASSM « Mesures de contrainte en médecine » (2015 ; révision annoncée ?).
-- **TRANS_C-S3-01** : Renvoi exact de l'art. 438 CC aux art. 383 à 385 CC pour les mesures limitant la liberté de mouvement dans le placement à des fins d'assistance.
-- **TRANS_C-S3-02** : Titre et année de la publication de Sécurité des patients Suisse sur le « Speak Up » (cahier n° 7, 2013 ?).
-- **TRANS_C-S3-02** : Proportion d'événements indésirables graves liés à un défaut de communication (souvent citée autour de 70 % d'après la Joint Commission) : chiffre ancien et contesté, non écrit dans le texte.
-- **TRANS_C-S3-03** : Âge indicatif à partir duquel l'OFSP considère qu'un adolescent est en général capable de discernement pour la vaccination (souvent 12 à 14 ans) : valeur d'usage, non légale.
-- **TRANS_C-S3-03** : Contenu exact des art. 6, 21 et 22 LEp sur l'obligation vaccinale cantonale pour des groupes ciblés.
-- **TRANS_C-S4-01** : Titre et année de la brochure de Sécurité des patients Suisse « Quand un incident survient » (2006) et de l'aide à l'orientation FMH lors d'incidents médicaux.
-- **TRANS_C-S4-01** : Délais de prescription de l'art. 60 al. 1bis CO depuis le 1.1.2020 (3 ans relatif, 20 ans absolu en cas de lésion corporelle ou de décès) et règles cantonales pour les hôpitaux publics.
-- **TRANS_C-S4-01** : Clauses usuelles des assurances RC professionnelles suisses interdisant la reconnaissance de responsabilité sans accord de l'assureur.
-- **TRANS_C-S4-02** : Version en vigueur des directives ASSM « Mesures de soins intensifs » (2013) et éventuelle révision 2024-2026.
-- **TRANS_C-S4-02** : Effet de l'approche VALUE (Lautrette, NEJM 2007) sur les symptômes de stress post-traumatique des proches à 90 jours : vérifier les chiffres avant de les citer.
-- **TRANS_C-S4-03** : Nom et fonctionnement actuels du service suisse d'interprètes en langue des signes (procom) et prise en charge des frais (AI, établissement).
-- **TRANS_C-S4-03** : Loi sur l'égalité pour les handicapés (LHand) : portée exacte de l'obligation d'adaptation pour les prestataires de soins publics.
 - **TRANS_D-S1-01** : État de la révision complète de la LDEP en 2026 (passage éventuel à un modèle opt-out et obligation pour tous les prestataires ambulatoires).
 - **TRANS_D-S1-01** : Date exacte de l'obligation d'affiliation des EMS et maisons de naissance (15.4.2022) et des nouveaux prestataires ambulatoires admis depuis le 1.1.2022 (art. 37 al. 3 LAMal).
 - **TRANS_D-S1-01** : Liste actuelle des communautés de référence (CARA en Suisse romande : cantons membres en 2026).
@@ -246,6 +220,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_L-S2-02** : Définition du viol selon l'art. 190 CP révisé (droit pénal en matière sexuelle, en vigueur depuis le 1.7.2024).
 - **TRANS_L-S2-03** : Intervalles indicatifs de la rigidité (début 2 à 4 h, complète 6 à 12 h, résolution 24 à 48 h) et des lividités (apparition 20 à 30 min, fixation vers 10 à 12 h) : très variables, à confirmer dans un traité de référence.
 - **TRANS_L-S2-03** : Précision du nomogramme de Henssge (intervalle de confiance à 95 % de ± 2,8 h à ± 7 h selon les conditions).
+- **TRANS_L-S3-01** : Distances de tir indicatives (tir à bout touchant, à courte distance avec tatouage de poudre jusqu'à environ 50 cm à 1 m selon l'arme et la munition) : ordres de grandeur variables, à confirmer dans un traité.
+- **TRANS_L-S3-01** : Règles cantonales et du CPP sur la conservation des vêtements et des projectiles extraits à l'hôpital (chaîne de possession).
+- **TRANS_L-S3-02** : Formulation actuelle de l'art. 314c CC (droit d'aviser pour les personnes soumises au secret professionnel, en vigueur depuis le 1.1.2019) et obligations cantonales d'aviser pour les médecins.
+- **TRANS_L-S3-02** : Nom et fonctionnement des groupes de protection de l'enfant des hôpitaux suisses (CAN Team, Groupe de protection de l'enfant) et de la Fondation Protection de l'enfant Suisse.
+- **TRANS_L-S3-03** : Délais d'inaptitude à la conduite après un AIT ou un AVC selon les recommandations suisses (SGRM/SSN) : premier groupe en général 1 à 3 mois selon le déficit, second groupe plus long.
+- **TRANS_L-S3-03** : Critères suisses pour le SAOS : inaptitude en cas de somnolence diurne marquée jusqu'au traitement efficace, réévaluation après 4 à 6 semaines de CPAP avec observance documentée.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -259,4 +239,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : L (6/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : L (9/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
