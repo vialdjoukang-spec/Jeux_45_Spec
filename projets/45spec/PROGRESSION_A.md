@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**270 / 500 pathologies du périmètre produites.**
+**273 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -178,12 +178,12 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 169 | `F51.0__G11-E01` | Insomnie chronique primaire | PSY | produite |
 | 170 | `F60.3__O6_8-E07` | Trouble de la personnalité limite (borderline) en crise identitaire ou affective | PSY | produite |
 | 171 | `F80.9__O2_12-E05` | Retard isolé du langage (trouble développemental du langage / dysphasie) | PEA | produite |
-| 172 | `F93.0__O2_10-E04` | Anxiété de séparation (enfant ou adulte) | PEA | — |
+| 172 | `F93.0__O2_10-E04` | Anxiété de séparation (enfant ou adulte) | PEA | produite |
 | 173 | `G63.2__O3_2-E10` | Polyneuropathie diabétique distale symétrique | NEU | produite |
-| 174 | `H35.3__O3_2-E05` | Dégénérescence maculaire liée à l'âge (DMLA) | OPH | — |
+| 174 | `H35.3__O3_2-E05` | Dégénérescence maculaire liée à l'âge (DMLA) | OPH | produite |
 | 175 | `I49.4__F1_7-E03` | Extrasystoles ventriculaires ou supraventriculaires | CAR | produite |
 | 176 | `I69.3_sequelles_d_avc_apha__F1_11-E04` | Séquelles d'AVC (aphasie chronique, hémiparésie séquellaire) | NEU | produite |
-| 177 | `I87.2__F1_16-E01` | Insuffisance veineuse chronique (jambes lourdes et crampes nocturnes) | ANG | — |
+| 177 | `I87.2__F1_16-E01` | Insuffisance veineuse chronique (jambes lourdes et crampes nocturnes) | ANG | produite |
 | 178 | `J01.9__S1_14-E03` | Rhinosinusite aiguë bactérienne | ORL | — |
 | 179 | `J20.9__F1_3-E01` | Bronchite aiguë (râles bronchiques / ronchi) | PNE | produite |
 | 180 | `J44.9__F2_1-E01` | Évaluation respiratoire préopératoire (BPCO, SAOS, tabac) | PNE | produite |
