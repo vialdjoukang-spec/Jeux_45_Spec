@@ -37,6 +37,20 @@ for f in sorted(glob.glob("content/items/*/**/*.json", recursive=True)):
             continue
         paquets[p].append(q(it.get("id") or f"{d['entite']}_{i}", "Kprim" if it["format"].startswith("K") else "A", d["entite"], it["stem"], it["prompt"],
                             opts, it.get("ladder"), it.get("sources"), f))
+for f in sorted(glob.glob("conception/donnees/tetrade/transversales/lecons/*/*.json")):   # Transversal : QCM des leçons auditées
+    d = json.load(open(f, encoding="utf-8"))
+    if (d.get("_meta") or {}).get("statut") != "AUDITÉ":
+        continue
+    p = "transversal_" + d.get("lettre", os.path.basename(os.path.dirname(f))); noms[p] = f"Transversal — lettre {d.get('lettre', '')}"
+    for i, it in enumerate(d.get("items", [])):
+        ex, br, op = it.get("explicationParOption") or {}, it.get("bonneReponse"), it.get("options") or []
+        if isinstance(br, list):
+            opts = [{"k": str(j + 1), "t": t, "ok": bool(br[j]), "why": ex.get(str(j + 1), "")} for j, t in enumerate(op)]; fmt = "Kprim"
+        else:
+            opts = [{"k": chr(65 + j), "t": t, "ok": chr(65 + j) == br, "why": ex.get(chr(65 + j), "")} for j, t in enumerate(op)]; fmt = "A"
+        if len(opts) < 2 or not any(o["ok"] for o in opts):
+            continue
+        paquets[p].append(q(f"{d['id']}_{i + 1}", fmt, d["titre"], it.get("enonce", ""), "", opts, None, (d.get("_meta") or {}).get("sources"), f))
 CORR = {os.path.basename(f)[:-5]: json.load(open(f, encoding="utf-8")) for f in glob.glob("conception/donnees/corrections/*.json")}
 for L in paquets.values():                     # correction enrichie : thème, notions abordées (cours en fenêtre), SSP et algorithme
     for q in L:
