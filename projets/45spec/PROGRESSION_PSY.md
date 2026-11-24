@@ -1,6 +1,6 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 139. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 15/139.
+Pathologies canoniques PSY (canoniques() avec fusions) : 139. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 18/139.
 
 | # | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|
@@ -19,9 +19,9 @@ Pathologies canoniques PSY (canoniques() avec fusions) : 139. Ordre : importance
 | 13 | F43.2__O5_5-E01 | Trouble de l'adaptation (après événement stressant de vie) | 29 | 18 | oui |
 | 14 | F32.3__S9_5-E12 | Épisode dépressif avec caractéristiques psychotiques (dépression mélan | 28 | 18 | oui |
 | 15 | F60.3__O6_8-E07 | Trouble de la personnalité limite (borderline) en crise identitaire ou | 28 | 18 | oui |
-| 16 | F05.9_syndrome_confusionne__F1_9-E13 | Syndrome confusionnel aigu (delirium) et sa cause somatique | — | — | — |
-| 17 | F20.9__S9_3-E07 | Schizophrénie débutante (phase prodromique / repli) | — | — | — |
-| 18 | F44.4_trouble_neurologique__O7_8-E04 | Trouble neurologique fonctionnel (conversion) moteur | — | — | — |
+| 16 | F05.9_syndrome_confusionne__F1_9-E13 | Syndrome confusionnel aigu (delirium) et sa cause somatique | 29 | 20 | oui |
+| 17 | F20.9__S9_3-E07 | Schizophrénie débutante (phase prodromique / repli) | 30 | 20 | oui |
+| 18 | F44.4_trouble_neurologique__O7_8-E04 | Trouble neurologique fonctionnel (conversion) moteur | 29 | 20 | oui |
 | 19 | F45.1__O7_8-E01 | Trouble à symptomatologie somatique (trouble somatoforme) | — | — | — |
 | 20 | F51.0__G11-E01 | Insomnie chronique primaire | — | — | — |
 | 21 | F13.2__S9_13-E04 | Mésusage et dépendance aux benzodiazépines et Z-drugs (zolpidem/zopicl | — | — | — |
@@ -151,6 +151,10 @@ Outil : `python projets/45spec/psy/lib.py <id>` (valider() du script + contrôle
 - Remboursement des antidémentiels : limitation de la liste des spécialités à confirmer.
 - Indication TSPT de la sertraline dans l'AIPS suisse à confirmer.
 - Proportion de décès par suicide dans le trouble borderline (5 à 10 % souvent cité) à confirmer.
+- Fusions PSY (24.11.2026) : recoupements laissés hors fusion pour ne pas changer les identifiants déjà produits — variantes maniaques (F30.1, F30.1_episode…) vs F30.1_1 ; F41.0_1 vs F41.0 ; F32.9_1 vs F32.1 ; F23.0/F23.1/F23.9_1 vs F23.9 ; F43.1_2 vs F43.1 ; F42.2_1/_2 vs F42.2 ; F03_1/_2 vs F03 ; F32.3_1 vs F32.3. À fusionner plus tard en renommant les fichiers produits, si Vial le valide.
+- Delirium : quétiapine hors indication dans Parkinson/Lewy ; durée maximale de l'antipsychotique selon NICE à confirmer.
+- Schizophrénie : calendrier du suivi métabolique (NICE CG178) à confirmer ; TIPP (CHUV) et FePsy (Bâle) cités comme programmes, sans référence bibliographique.
+- TNF : « déficit aigu → filière AVC d'abord » est un avis d'expert, sans source écrite retenue.
 - Toutes les posologies portent « à vérifier dans l'AIPS ».
 - Les champs `usage` indiquent `_mode: agent, api: false` (production sans API).
 
