@@ -1,6 +1,6 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « rang » de content/pathologies/RANG_RENDEMENT.json (groupes de rendement A → B → C → D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée). Produites : 37/126.
+Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « rang » de content/pathologies/RANG_RENDEMENT.json (groupes de rendement A → B → C → D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée). Produites : 40/126.
 
 | # | Rang | Groupe | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|---|---|
@@ -36,10 +36,10 @@ Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « r
 | 30 | 400 | A | F19.2__O7_24-E03 | Patient avec trouble psychique sévère ou addiction (accès limité aux s | 29 | 20 | oui |
 | 31 | 403 | A | F32.1_3__O7_4-E02 | Dépression et anxiété comorbides d'une maladie chronique | — | — | — |
 | 32 | 405 | A | F40.0__S9_7-E03 | Agoraphobie (avec ou sans trouble panique) | 29 | 20 | oui |
-| 33 | 406 | A | F40.2__S9_7-E01 | Phobie spécifique (animaux, hauteurs, sang-injection-blessure, avion) | — | — | — |
+| 33 | 406 | A | F40.2__S9_7-E01 | Phobie spécifique (animaux, hauteurs, sang-injection-blessure, avion) | 29 | 20 | oui |
 | 34 | 407 | A | F45.3_syndrome_d_hypervent__F2_1-E02 | Syndrome d'hyperventilation psychogène | — | — | — |
-| 35 | 411 | A | F52.2__S4_10-E02 | Dysfonction érectile psychogène | — | — | — |
-| 36 | 412 | A | F60.5__S9_10-E02 | Personnalité obsessionnelle-compulsive (anankastique) | — | — | — |
+| 35 | 411 | A | F52.2__S4_10-E02 | Dysfonction érectile psychogène | 29 | 20 | oui |
+| 36 | 412 | A | F60.5__S9_10-E02 | Personnalité obsessionnelle-compulsive (anankastique) | 29 | 20 | oui |
 | 37 | 742 | B | F53.0__O1_2-E04 | Baby blues (syndrome du 3e jour) | — | — | — |
 | 38 | 775 | B | F23.9_episode_psychotique___O2_2-E14 | Épisode psychotique aigu (bouffée délirante / premier épisode psychoti | 29 | 18 | oui |
 | 39 | 776 | B | F30.1_etat_maniaque_aigu_a__G11-E19 | État maniaque aigu avec agitation et mise en danger | 29 | 18 | oui |
@@ -158,6 +158,9 @@ Outil : `python projets/45spec/psy/lib.py <id>` (valider() du script + contrôle
 - Patient vulnérable (F19.2) : interaction tabac–CYP1A2–clozapine/olanzapine, traitement agoniste opioïde et dépistages infectieux = avis d'expert ; bilan annuel tiré de NICE QS167 (énoncé visant les minorités, composantes générales).
 - Groupe A (rangs 112-405, novembre 2026) : directives SMOB (évaluation psychique avant chirurgie bariatrique) citées sans lecture du texte ; Sheridan 2003 (Child Abuse Negl 27(4)) vérifié par résumé, auteur confirmé de mémoire ; critère CIM-10 « six mois » de F45.2 et « deux situations sur quatre » de F40.0 tirés des critères de recherche CIM-10, non relus en ligne ; groupes de protection de l'enfant des hôpitaux suisses = avis d'expert.
 - Lisdexamfétamine : autorisée en Suisse pour le TDAH seulement (résumé RMP Swissmedic) ; indication hyperphagie boulimique à confirmer dans l'AIPS.
+- Phobie spécifique (F40.2) : absence de médicament recommandé et effet des benzodiazépines sur l'exposition = avis d'expert ; CIM-10 sans durée minimale, CIM-11 « plusieurs mois » (findacode, reprise du texte OMS).
+- Dysfonction érectile psychogène (F52.2) : EAU (chapitre 5) consulté en ligne sans numéro de version affiché ; remboursement des inhibiteurs de la PDE5 par l'assurance de base à vérifier sur la Liste des spécialités ; effets sexuels des antidépresseurs et focalisation sensorielle = avis d'expert.
+- Personnalité anankastique (F60.5) : nombre de traits exigé par les critères de recherche CIM-10 discordant (au moins trois selon Fineberg 2014, souvent lu « au moins quatre ») : à vérifier dans les DCR-10 ; aucune question ne porte sur ce nombre.
 - Toutes les posologies portent « à vérifier dans l'AIPS ».
 - Les champs `usage` indiquent `_mode: agent, api: false` (production sans API).
 
