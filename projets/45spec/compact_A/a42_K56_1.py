@@ -2,6 +2,7 @@ from constructeur_agent_45spec import pec
 ID = "K56.1__O2_4-E12"
 HW = "[Hwang, Yoon, Kim et al. 2023, Current diagnosis and image-guided reduction for intussusception in children, Clin Exp Pediatr 66(1), PMID 35798026]"
 OFSP = "[OFSP, Rotavirus : vaccination complémentaire des nourrissons depuis le 1.1.2024, bag.admin.ch, consulté le 24.11.2026]"
+FAL = "[Fallon et al. 2013, Needle decompression to avoid tension pneumoperitoneum after pneumatic reduction of pediatric intussusception, Pediatr Radiol 43(6):662-7, PMID 23283408]"
 EXP = "Avis d'expert (à vérifier)"
 AIPS = "AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
 _N = [
@@ -18,7 +19,7 @@ _N = [
 ("asp","workupAlternatives","examen",1,0,HW,"La radiographie de l'abdomen manque de sensibilité ; elle sert surtout à chercher un pneumopéritoine."),
 ("contr","workupAlternatives","examen",1,0,EXP,"L'absence de flux Doppler dans le boudin ou du liquide piégé font craindre une ischémie et un échec de la réduction."),
 ("reduction","acuteManagement","décision",3,0,HW,"On réduit par lavement pneumatique sous fluoroscopie (environ 83 % de succès) ou hydrostatique sous échographie (73 à 86 %), chirurgien prévenu."),
-("perf","acuteManagement","complication",2,0,HW+" ; "+EXP,"La perforation complique environ 0,4 % des lavements ; un pneumopéritoine sous tension s'exsuffle à l'aiguille avant la chirurgie."),
+("perf","acuteManagement","complication",2,0,HW+" ; "+FAL,"La perforation complique environ 0,4 % des lavements ; un pneumopéritoine sous tension s'exsuffle à l'aiguille avant la chirurgie."),
 ("repeat","acuteManagement","décision",2,0,HW,"Si la première tentative réduit partiellement un enfant stable sans péritonite, on refait un lavement après 15 minutes à quelques heures ; il réussit environ une fois sur deux."),
 ("reanim","acuteManagement","décision",2,0,EXP,"Avant la réduction, on pose une voie veineuse, on remplit, on calme la douleur et on met une sonde gastrique si l'enfant vomit."),
 ("chir","acuteManagement","décision",2,0,HW,"On opère en cas de contre-indication au lavement, d'échec de la réduction, de cause organique ou de perforation."),
@@ -29,7 +30,7 @@ _N = [
 ("prono","prognosisDischarge","pronostic",1,0,EXP,"Le pronostic est excellent si l'on diagnostique et réduit tôt."),
 ("sortie","prognosisDischarge","décision",1,0,EXP,"Après une réduction réussie, on observe l'enfant quelques heures, on reprend l'alimentation et on le laisse sortir avec des consignes claires."),
 ("surv","surveillance","examen",1,0,EXP,"On surveille signes vitaux, douleur, vomissements et selles après la réduction."),
-("rota","followUpNetwork","contexte suisse",1,1,OFSP+" ; "+EXP,"En Suisse, l'OFSP recommande depuis 2024 la vaccination orale contre le rotavirus à 2 et 4 mois, remboursée par l'assurance de base ; le léger risque d'invagination après la première dose justifie l'information des parents (à vérifier)."),
+("rota","followUpNetwork","contexte suisse",1,1,OFSP+" ; "+EXP,"En Suisse, l'OFSP recommande depuis 2024 la vaccination orale contre le rotavirus à 2 et 4 mois (1re dose avant 16 semaines), remboursée par l'assurance obligatoire des soins ; le léger risque d'invagination après la première dose justifie l'information des parents (à vérifier)."),
 ("reseau","followUpNetwork","décision",1,0,EXP,"Le radiologue pédiatrique réduit, le chirurgien pédiatrique reste disponible ; on transfère l'enfant vers un centre pédiatrique."),
 ("parents","followUpNetwork","décision",1,0,EXP,"On explique aux parents les signes de récidive qui imposent de revenir."),
 ]
