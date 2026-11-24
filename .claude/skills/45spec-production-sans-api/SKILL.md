@@ -20,6 +20,9 @@ Le script `produire_notions_questions.py` valide et écrit trois fichiers par pa
 - Les pathologies partagées dont le premier code n'est pas la spécialité s'écrivent dans le dossier de l'autre spécialité : les traiter en dernier pour éviter les doublons entre agents.
 - Les fichiers de travail en dehors du dépôt doivent porter un nom propre à l'agent : plusieurs agents partagent `/home/claude`.
 - Un chiffre incertain porte « à vérifier » dans `source` ; aucune référence inventée.
+- Bornes du schéma qui font échouer `valider()` : 6 notions au plus par question ; 4 rubriques, 5 points et 4 sources au plus par notion de correction ; algorithme SSP d'au moins 6 nœuds ; `nature` et `categorie` (non pharmacologique) limitées à leurs énumérations (ex. « diagnostic différentiel », jamais « discriminant » ; « geste ou chirurgie », jamais « ventilation »).
+- Une vignette dont `stem + prompt` contient les trois premiers mots longs du nom de l'entité échoue si `diagnosticMasque` vaut vrai : passer `situ="m", masq=False` pour les questions monographiques.
+- Ordre de la file : depuis le 24.11.2026, PED suit l'ordre révisé par importance pour l'examen (section de `PROGRESSION_PED.md`), et non plus `selection()`.
 
 Relais : `pipeline-autonomous-builder`, `medical-accuracy-100`, `i-write-so-fast`.
 
