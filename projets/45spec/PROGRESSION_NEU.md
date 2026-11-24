@@ -1,6 +1,6 @@
 # Progression NEU — production manuelle sans API (agent 45spec-NEU)
 
-Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 49.
+Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 50.
 
 Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts/ecrire_manuel.py SOURCE --spec NEU` (valider() et ecrire() du script de production).
 
@@ -34,6 +34,7 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | G70.0__F1_11-E10 | Myasthénie grave (dysphonie et voix nasonnée fatigables) | 31 | 20 | 0 |
 | G72.0__O3_3-E09 | Myopathie aux statines (myalgies sans ou avec élévation des CK) | 26 | 20 | 0 |
 | G80.9__O2_11-E05 | Paralysie cérébrale (phase hypotonique précoce) | 26 | 20 | 0 |
+| G93.3_syndrome_de_fatigue___G4-E06 | Syndrome de fatigue chronique (encéphalomyélite myalgique) et asthénie post-infectieuse | 25 | 20 | 0 |
 | G93.4__F1_15-E04 | Encéphalopathie métabolique (hyponatrémie sévère, hypercalcémie, urémie) | 27 | 20 | 0 |
 | G97.1__S7_6-E09 | Céphalée post-ponction lombaire (syndrome d'hypotension du LCR) | 26 | 20 | 0 |
 | I61.9_hemorragie_intracere__F1_15-E13 | Hémorragie intracérébrale (intraparenchymateuse, du tronc, sur trouble de l'hémostase) | 26 | 20 | 0 |
@@ -103,7 +104,7 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 41. G51.3__S1_4-E07 — fait
 42. G72.0__O3_3-E09 — fait
 43. G80.9__O2_11-E05 — fait
-44. G93.3_syndrome_de_fatigue___G4-E06
+44. G93.3_syndrome_de_fatigue___G4-E06 — fait
 45. G04.9_1__S7_10-E13
 46. G12.0_amyotrophie_spinale___O2_11-E08
 47. G25.5__S7_3-E12
@@ -172,7 +173,7 @@ Vérifiées sans doublon (lot 14) : G44.8 (céphalée cervicogénique / sinusite
 Vérifiées sans doublon (lot 15) : G25.8 (jambes sans repos), G08 (sinus caverneux, fistule carotido-caverneuse), G40.4 (syndrome de West) ; aucune autre branche (main, PSY, INF, PED, état du 24.11.2026) ne les contient.
 Vérifiées sans doublon (lot 16) : G72.3 (paralysie périodique thyrotoxique ; seulement citée dans END E05.9 et NEP E87.6), G93.2 (hypertension intracrânienne idiopathique ; distincte de NEU G93.5, secondaire), G51.3 (spasme hémifacial) ; main, PSY, INF, PED vérifiées le 24.11.2026.
 
-Vérifiées sans doublon (lot 17) : G72.0 (myopathie aux statines), G80.9 (paralysie cérébrale ; PED ne la contient que comme mention dans P07.3) ; main, PSY, INF, PED vérifiées le 24.11.2026.
+Vérifiées sans doublon (lot 17) : G72.0 (myopathie aux statines), G80.9 (paralysie cérébrale ; PED ne la contient que comme mention dans P07.3), G93.3 (fatigue chronique ; distincte de PSY F45.1 et F45.2) ; main, PSY, INF, PED vérifiées le 24.11.2026.
 Recouvrement partiel repéré pour la suite : G04.9_1__S7_10-E13 (convulsions fébriles complexes) face à PED R56.0__S7_10-E03 (convulsions fébriles simples) ; à arbitrer avant production.
 
 Signature : AAI (Anthropic AI)
