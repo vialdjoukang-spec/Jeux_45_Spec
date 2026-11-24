@@ -34,7 +34,7 @@ L'agent écrit lui-même le contenu que le script demanderait à l'API ; il doit
 - Vérification en ligne : si WebFetch est bloqué (permission non répondue), passe par le connecteur PubMed (`get_full_text_article` sur PMC) ; ne contourne jamais un blocage par curl.
 
 ## Leçons (lot 8–9, 24.11.2026)
-- N'appelle jamais une variable de la forme compacte `PLAN` (ni un autre nom d'attribut lu par le constructeur) : `PLAN` est lu comme plan du fichier et casse le schéma.
+- `PLAN` est lu comme plan du fichier : n'y mets que `PLAN = "non_monographique"` quand `circuit` vaut NON_MONOGRAPHIQUE (sinon omets-le) ; n'utilise ce nom pour rien d'autre.
 - Cible directe pour 28 notions : 4 de poids 3, 9 de poids 2, le reste à 1 ; chaque notion sert au moins une fois ; au plus 6 notions par question ; les 15 rubriques doivent toutes porter une notion (oubli fréquent : `clinicalExam`, `hospitalizationComplications`).
 - Ce skill n'est pas enregistré auprès de l'outil Skill de la session : lis-le dans `.claude/skills/agent-producteur-45spec/SKILL.md` du clone.
 
@@ -51,6 +51,11 @@ L'agent écrit lui-même le contenu que le script demanderait à l'API ; il doit
 - Pour un agent qui produit par groupe de rendement (toutes spécialités), le constructeur lit `canoniques(None)` (variable `SPEC` vide) : l'id et les `codes` correspondent alors à `RANG_RENDEMENT.json` ; `canoniques("<SPEC>")` peut tronquer `codes` et les portes.
 - Le périmètre se tient par script (`progression_A.py`) : saute les pathologies déjà produites sur main et les spécialités confiées à d'autres agents (PSY, NEU, INF, PED ; ORL, OPH, GYN, OBS, URO, MIG, HEM, TOX, DER, RHU pour l'agent A2).
 - Avant chaque lot, refais `git fetch` de main et vérifie qu'aucun autre agent n'a produit la pathologie suivante.
+
+## Leçons (agent A, lots 3–4, 24.11.2026)
+- `conduite.*.etapes[].temps` n'accepte que « d'abord », « en même temps », « ensuite », « puis » (« à 3 mois » est refusé : mets le délai dans « fait »).
+- Contrôle d'une pathologie déjà produite avec le `valider()` courant : retire l'enveloppe (id, portes, signature…) et `couverture` avant l'appel, sinon le schéma échoue à tort.
+- Les rangs de `RANG_RENDEMENT.json` bougent entre deux fusions de main : relis l'ordre par script après chaque fusion.
 
 Relais : `ultra-competent-fast-doctor`, `medical-accuracy-100`, `i-write-so-fast`.
 
