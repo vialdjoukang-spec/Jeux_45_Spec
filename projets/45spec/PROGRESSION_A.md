@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**285 / 500 pathologies du périmètre produites.**
+**288 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -201,11 +201,11 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 192 | `T14.0_1__S6_2-E06` | Hématome traumatique simple (sous-cutané ou musculaire) | MIG | produite |
 | 193 | `B27.0_mononucleose_infecti__F2_5-E04` | Mononucléose infectieuse (EBV) et syndrome mononucléosique à CMV | INF | produite |
 | 194 | `E16.2__F1_15-E12` | Hypoglycémie sévère avec coma | INT | produite |
-| 195 | `G24.3_dystonies_focales_to__F1_11-E11` | Dystonies focales (torticolis spasmodique, blépharospasme, dysphonie spasmodique, crampe de l'écrivain) | NEU | — |
+| 195 | `G24.3_dystonies_focales_to__F1_11-E11` | Dystonies focales (torticolis spasmodique, blépharospasme, dysphonie spasmodique, crampe de l'écrivain) | NEU | produite |
 | 196 | `G45.4__S7_7-E14` | Amnésie globale transitoire (ictus amnésique idiopathique) | NEU | produite |
 | 197 | `G93.4__F1_15-E04` | Encéphalopathie métabolique (hyponatrémie sévère, hypercalcémie, urémie) | NEU | produite |
-| 198 | `I62.0__F1_9-E15` | Hématome sous-dural chronique décompensé | NCH | — |
-| 199 | `J05.0__S1_3-E12` | Laryngite aiguë sous-glottique de l'enfant (faux croup) | ORL | — |
+| 198 | `I62.0__F1_9-E15` | Hématome sous-dural chronique décompensé | NCH | produite |
+| 199 | `J05.0__S1_3-E12` | Laryngite aiguë sous-glottique de l'enfant (faux croup) | ORL | produite |
 | 200 | `J81__S8_5-E02` | Œdème pulmonaire aigu grave avec choc (grade 4 de Szpilman) | PNE | produite |
 | 201 | `K50.9__F1_8-E07` | Maladie inflammatoire chronique de l'intestin (Crohn / RCUH) | GAS | produite |
 | 202 | `M35.3__F2_19-E04` | Polymyalgia rheumatica (pseudopolyarthrite rhizomélique) | RHU | — |
