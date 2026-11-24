@@ -1,0 +1,876 @@
+{
+ "id": "E11.0__F2_9-E14",
+ "portes": [
+  {
+   "ssp": "G3",
+   "nomSSP": "Soif excessive, consommation excessive de liquides (polydipsie)",
+   "entite": "État hyperosmolaire hyperglycémique",
+   "entiteId": "G3-E15"
+  },
+  {
+   "ssp": "F2.9",
+   "nomSSP": "Glycémie et marqueurs de l’homéostasie glucidique anormaux",
+   "entite": "État hyperosmolaire hyperglycémique (HHS)",
+   "entiteId": "F2.9-E14"
+  },
+  {
+   "ssp": "O4.7",
+   "nomSSP": "Évaluation partagée des facteurs de risque et de protection des maladies fréquentes menaçant la vie, notamment cardiovasculaires, métaboliques, oncologiques et neurologiques",
+   "entite": "État hyperosmolaire ou acidocétose diabétique inaugurale",
+   "entiteId": "O4.7-E14"
+  }
+ ],
+ "entite": "État hyperosmolaire hyperglycémique (HHS)",
+ "cim10": "E11.0",
+ "ssp": {
+  "code": "F2.9",
+  "nom": "Glycémie et marqueurs de l'homéostasie glucidique anormaux",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Le patient présente-t-il une glycémie anormale ?",
+    "i": "Tu confirmes d'emblée par glycémie plasmatique veineuse, gazométrie et BHB, car la capillaire est imprécise aux valeurs extrêmes ou en choc.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "La glycémie est-elle basse (hypoglycémie) ?",
+    "i": "L'hypoglycémie suit un autre cheminement : tu sors de cet algorithme.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : tu renvoies à la branche hypoglycémie du SSP F2.9.",
+    "i": "Hypoglycémie et HHS miment tous deux un AVC : la glycémie capillaire immédiate les différencie chez tout patient confus.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "La glycémie est-elle élevée avec confusion ou déshydratation ?",
+    "i": "Cette présentation oriente vers une urgence hyperglycémique, qu'il faut classer selon l'acidose.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Le pH est-il < 7.30 ou les HCO3- < 18 mmol/L ?",
+    "i": "Une acidose franche exclut un HHS pur ; le seuil définit la DKA.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Oui, avec BHB ≥ 3 et glycémie < 33.3 mmol/L ou osmolalité < 320 : DKA.",
+    "i": "Le BHB ≥ 3 mmol/L confirme la cétose ; tu renvoies au SSP de l'acidocétose.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n7",
+    "parent": "n5",
+    "t": "Oui, mais glycémie peu élevée avec lactate élevé ou sous SGLT2 : MALA ou DKA euglycémique.",
+    "i": "La glycémie basse malgré l'acidose oriente vers metformine (lactate) ou SGLT2 (cétose) ; tu renvoies à ces SSP.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n8",
+    "parent": "n5",
+    "t": "Oui, avec glycémie ≥ 33.3 mmol/L et osmolalité effective ≥ 320 : forme mixte.",
+    "i": "Le chevauchement DKA et HHS exige de traiter les deux composantes.",
+    "pec": "hhs_urgence",
+    "notion": "c1"
+   },
+   {
+    "id": "n9",
+    "parent": "n4",
+    "t": "Le pH est-il > 7.30, les HCO3- > 18 mmol/L et le BHB < 3 mmol/L ?",
+    "i": "Ces trois critères valident l'absence d'acidocétose significative.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "La glycémie est-elle ≥ 33.3 mmol/L et l'osmolalité effective ≥ 320 mOsm/kg ?",
+    "i": "Les deux seuils définissent le HHS ; l'osmolalité se calcule par 2 × natrémie + glycémie, sans l'urée.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Oui : HHS confirmé, urgence immédiate.",
+    "i": "Tu démarres le remplissage, tu contrôles le potassium puis tu débutes l'insuline IV faible dose.",
+    "pec": "hhs_urgence",
+    "notion": "c7"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Tu cherches et traites le facteur déclenchant en même temps.",
+    "i": "Infection, AVC, infarctus ou médicament hyperglycémiant entretiennent l'état et déterminent le pronostic.",
+    "pec": "hhs_urgence",
+    "notion": "c4"
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "L'osmolalité est-elle < 300 mOsm/kg avec état mental normal ?",
+    "i": "Ce critère marque la résolution et autorise le relais sous-cutané.",
+    "pec": null,
+    "notion": "c8"
+   },
+   {
+    "id": "n14",
+    "parent": "n13",
+    "t": "Oui : relais par insuline sous-cutanée et suivi gériatrique.",
+    "i": "Le relais chevauche la perfusion d'une à deux heures ; le traitement de fond est ensuite réévalué.",
+    "pec": "hhs_long_cours",
+    "notion": "c9"
+   },
+   {
+    "id": "n15",
+    "parent": "n10",
+    "t": "Non : hyperglycémie sans critère de HHS.",
+    "i": "Une glycémie < 33.3 mmol/L ou une osmolalité < 320 exclut le HHS ; tu renvoies à diabète de type 2 déséquilibré ou hyperglycémie de stress ou cortico-induite du SSP F2.9.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n16",
+    "parent": "n1",
+    "t": "La glycémie est-elle élevée chez un patient stable et asymptomatique ?",
+    "i": "Il s'agit d'un bilan non urgent : tu renvoies à diabète de type 2, prédiabète ou diabète de type 1 dans le même SSP.",
+    "pec": null,
+    "notion": null
+   }
+  ]
+ },
+ "specialites": [
+  "END"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "État hyperosmolaire hyperglycémique (HHS)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition et critères : HHS, acidocétose et formes mixtes",
+   "rubriques": [
+    "definition",
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu poses le diagnostic au lit en calculant l'osmolalité effective, puis tu cherches l'acidose et la cétonémie pour trancher entre HHS, acidocétose et forme mixte.",
+   "tableau": {
+    "colonnes": [
+     "Entité",
+     "Glycémie",
+     "pH / HCO3-",
+     "Bêta-hydroxybutyrate",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "HHS",
+      "≥ 33.3 mmol/L",
+      ">7.30 / >18 mmol/L",
+      "< 3 mmol/L",
+      [
+       {
+        "t": "Osmolalité effective ≥ 320 mOsm/kg, sans Kussmaul",
+        "i": "La carence insulinique reste partielle : elle freine la cétogenèse mais pas la production hépatique de glucose, donc l'hyperosmolalité domine et il n'y a pas d'acidose."
+       }
+      ]
+     ],
+     [
+      "Acidocétose diabétique (DKA)",
+      "Souvent ≥ 14 mmol/L (parfois plus basse)",
+      "< 7.30 / < 18 mmol/L",
+      "≥ 3 mmol/L",
+      [
+       {
+        "t": "Acidose cétosique avec respiration de Kussmaul et haleine acétonique",
+        "i": "La carence insulinique est quasi totale : lipolyse et cétogenèse massives créent l'acidose métabolique à trou anionique ; ce n'est pas le cas du HHS."
+       }
+      ]
+     ],
+     [
+      "Forme mixte DKA + HHS",
+      "≥ 33.3 mmol/L",
+      "< 7.30 / < 18 mmol/L",
+      "≥ 3 mmol/L",
+      [
+       {
+        "t": "Acidose cétosique ET osmolalité effective ≥ 320",
+        "i": "Les consensus récents admettent ce chevauchement ; il faut traiter les deux composantes, sinon l'une des deux est laissée sans correction."
+       }
+      ]
+     ],
+     [
+      "Acidose lactique sous metformine (MALA)",
+      "Peu élevée ou normale",
+      "Acidose franche, lactate élevé",
+      "< 3 mmol/L",
+      [
+       {
+        "t": "Lactate très élevé, insuffisance rénale, glycémie modeste",
+        "i": "Le mécanisme est l'accumulation de metformine avec production de lactate ; l'absence d'hyperosmolalité exclut le HHS."
+       }
+      ]
+     ],
+     [
+      "Acidocétose euglycémique sous SGLT2",
+      "Peu élevée (< 14 mmol/L)",
+      "< 7.30 / < 18 mmol/L",
+      "≥ 3 mmol/L",
+      [
+       {
+        "t": "Cétose franche malgré glycémie peu élevée",
+        "i": "L'inhibiteur du SGLT2 élimine le glucose dans l'urine et favorise la cétogenèse ; la glycémie normale ne doit donc pas faire écarter l'acidocétose."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Critères du HHS : glycémie plasmatique ≥ 33.3 mmol/L, osmolalité effective ≥ 320 mOsm/kg, pH > 7.30, HCO3- > 18 mmol/L, BHB < 3 mmol/L.",
+    "Osmolalité effective = 2 × natrémie + glycémie (mmol/L) ; l'urée est exclue, car elle diffuse librement à travers les membranes cellulaires.",
+    "Exemple : natrémie 140 mmol/L et glycémie 40 mmol/L donnent 2 × 140 + 40 = 320 mOsm/kg.",
+    "Le HHS se code E11.0 en CIM-10 (diabète de type 2 avec coma), ce qui sert au codage hospitalier."
+   ],
+   "sources": [
+    "Consensus ADA/EASD/ADCES/JBDS/AACE/DTS 2024 sur les urgences hyperglycémiques",
+    "PROFILES SSP F2.9"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie et terrain",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Tu penses au HHS chez tout sujet âgé, dépendant ou institutionnalisé, qui devient confus, car la soif est atténuée et la mortalité reste élevée.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le HHS est nettement moins fréquent que la DKA, mais sa mortalité atteint environ 10 à 20 %, contre moins de 1 % pour la DKA en centre expérimenté.",
+    "Le patient typique est âgé, polymorbide, souvent dépendant ou en EMS, avec une soif diminuée et un accès limité à l'eau.",
+    "Le HHS peut révéler un diabète de type 2 méconnu, notamment après une infection ou un traitement hyperglycémiant (corticoïdes).",
+    "La mortalité dépend surtout de l'âge, des comorbidités, du facteur déclenchant et de la profondeur du coma."
+   ],
+   "sources": [
+    "Consensus ADA/EASD/ADCES/JBDS/AACE/DTS 2024",
+    "PROFILES SSP F2.9"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Physiopathologie : pourquoi pas de cétose, pourquoi 6 à 10 L de déficit",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Tu relies la carence insulinique partielle à l'absence de cétose et la diurèse osmotique à la déshydratation intracellulaire qui explique la confusion.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Une carence insulinique relative freine la lipolyse et la cétogenèse, mais n'empêche ni la production hépatique de glucose ni l'hyperglycémie.",
+    "La diurèse osmotique prolongée élimine plus d'eau que de sodium : le déficit hydrique atteint 100 à 200 mL/kg, soit 6 à 10 L.",
+    "L'hyperosmolalité effective attire l'eau hors des neurones ; cette déshydratation cérébrale explique les troubles de conscience et les signes focaux.",
+    "L'hyperglycémie attire l'eau vers le secteur extracellulaire et abaisse la natrémie mesurée, qui peut sembler normale malgré une déshydratation majeure : d'où la natrémie corrigée.",
+    "L'hypovolémie et l'insuffisance rénale du sujet âgé réduisent l'excrétion urinaire du glucose, ce qui aggrave l'hyperglycémie (cercle vicieux)."
+   ],
+   "sources": [
+    "Consensus ADA/EASD/ADCES/JBDS/AACE/DTS 2024",
+    "PROFILES SSP F2.9"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Anamnèse et examen clinique",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Tu cherches une installation lente sur des jours, un facteur déclenchant et une déshydratation majeure sans Kussmaul ni haleine acétonique.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "L'anamnèse retrouve polyurie, soif (souvent atténuée), amaigrissement et confusion progressive sur plusieurs jours à semaines ; une chute inexpliquée en EMS impose un dosage de la glycémie.",
+    "Le facteur déclenchant existe dans la majorité des cas : infection (pneumonie, urinaire), AVC, infarctus, pancréatite ou arrêt du traitement.",
+    "Tu recherches les médicaments favorisants : corticoïdes, antipsychotiques atypiques, diurétiques thiazidiques ou de l'anse.",
+    "L'examen objective muqueuses sèches, pli cutané persistant, tachycardie, hypotension, troubles de conscience corrélés à l'osmolalité effective plutôt qu'à la glycémie.",
+    "L'absence de Kussmaul et d'haleine acétonique distingue cliniquement le HHS de la DKA ; un déficit focal peut mimer un AVC et régresse souvent après correction."
+   ],
+   "sources": [
+    "Consensus ADA/EASD/ADCES/JBDS/AACE/DTS 2024",
+    "PROFILES SSP F2.9"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Signes d'alarme",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Tu repères d'emblée coma, choc, thromboses et sepsis ou infarctus masqués, car ils décident de l'admission en soins intensifs.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Un coma ou un Glasgow abaissé impose la protection des voies aériennes et l'admission en soins intensifs.",
+    "Un choc hypovolémique (hypotension persistante, lactates élevés, oligurie) exige un remplissage immédiat.",
+    "L'hyperviscosité et la déshydratation créent un état prothrombotique : thrombose veineuse ou artérielle, embolie pulmonaire, AVC, ischémie mésentérique.",
+    "Des convulsions ou un déficit focal persistant après correction justifient une imagerie cérébrale.",
+    "Une oligo-anurie traduit une insuffisance rénale aiguë prérénale ; un sepsis ou un syndrome coronarien aigu déclencheur peut passer inaperçu."
+   ],
+   "sources": [
+    "Consensus ADA/EASD/ADCES/JBDS/AACE/DTS 2024",
+    "PROFILES SSP F2.9"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Bilan initial et recherche étiologique",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Tu confirmes le diagnostic par glycémie veineuse, ionogramme, gaz et BHB sans attendre, puis tu cherches le déclencheur en parallèle.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Une glycémie capillaire peut être imprécise aux valeurs extrêmes ou en choc : elle est confirmée par une glycémie plasmatique veineuse.",
+    "Le ionogramme donne natrémie, kaliémie et osmolalité effective ; la natrémie corrigée ajoute environ 1.6 à 2.4 mmol/L par 5.6 mmol/L de glycémie au-delà de 5.6.",
+    "Exemple : natrémie 140 mmol/L et glycémie 40 mmol/L donnent une natrémie corrigée d'environ 150 mmol/L, soit un déficit hydrique libre majeur.",
+    "La gazométrie confirme pH > 7.30 et HCO3- > 18 ; le lactate détecte l'hypoperfusion ; le BHB est préféré à la cétonurie pour exclure une acidocétose.",
+    "Créatinine et urée (IRA prérénale), CRP, formule sanguine, hémocultures, urine, radiographie du thorax, ECG et troponine, phosphate, magnésium, CK ; imagerie cérébrale si déficit focal ; lipase si douleurs abdominales ; HbA1c."
+   ],
+   "sources": [
+    "Consensus ADA/EASD/ADCES/JBDS/AACE/DTS 2024",
+    "PROFILES SSP F2.9"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge aiguë : l'ordre compte",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Tu remplis d'abord, tu contrôles la kaliémie avant l'insuline, tu corrèges lentement l'osmolalité et tu traites le déclencheur en même temps.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Le patient reçoit-il d'abord 15 à 20 mL/kg de NaCl 0.9 % en 1 h ?",
+     "i": "La déshydratation de 6 à 10 L est la priorité ; une insuline précoce sans remplissage aggrave le collapsus en faisant entrer l'eau dans les cellules.",
+     "pec": "hhs_urgence",
+     "notion": "c7"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "La kaliémie est-elle < 3.5 mmol/L ?",
+     "i": "L'insuline fait baisser la kaliémie : en dessous de 3.5 mmol/L, elle expose à une arythmie grave.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : différer l'insuline et substituer le potassium.",
+     "i": "Le potassium est corrigé avant l'insuline jusqu'à K ≥ 3.5 mmol/L, sous monitorage ECG.",
+     "pec": "hhs_urgence",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "La kaliémie est-elle entre 3.5 et 5 mmol/L ?",
+     "i": "Cette plage autorise l'insuline tout en prévenant l'hypokaliémie induite.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Oui : insuline IV 0.05 UI/kg/h et 20 à 30 mmol de KCl par litre.",
+     "i": "La faible dose limite la chute trop rapide de la glycémie et de l'osmolalité, donc le risque d'œdème cérébral.",
+     "pec": "hhs_urgence",
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "La kaliémie est-elle > 5 mmol/L ?",
+     "i": "Le potassium n'est pas ajouté, car l'insuline va le faire baisser.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Oui : insuline sans potassium, kaliémie contrôlée toutes les 2 h.",
+     "i": "Tu ajoutes le potassium dès que la kaliémie passe sous 5 mmol/L.",
+     "pec": "hhs_urgence",
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n1",
+     "t": "La natrémie corrigée est-elle élevée ?",
+     "i": "Une natrémie corrigée élevée traduit un déficit hydrique libre : un soluté hypotonique est alors plus adapté.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n9",
+     "parent": "n8",
+     "t": "Oui : passer au NaCl 0.45 % ; sinon garder le NaCl 0.9 %.",
+     "i": "Les cristalloïdes balancés restent acceptables ; l'osmolalité effective ne doit pas baisser de plus de 3 mOsm/kg/h.",
+     "pec": "hhs_urgence",
+     "notion": null
+    },
+    {
+     "id": "n10",
+     "parent": "n1",
+     "t": "La glycémie approche-t-elle 16.7 mmol/L ?",
+     "i": "À ce seuil, le glucose 5 % évite l'hypoglycémie tout en laissant l'insuline achever la correction de l'osmolalité.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n11",
+     "parent": "n10",
+     "t": "Oui : ajouter du glucose 5 % et poursuivre l'insuline.",
+     "i": "L'insuline est poursuivie jusqu'à osmolalité effective < 300 mOsm/kg et normalisation de l'état mental.",
+     "pec": "hhs_urgence",
+     "notion": null
+    }
+   ],
+   "points": [
+    "L'HBPM prophylactique est prescrite d'emblée, adaptée à la fonction rénale, car le HHS est fortement prothrombotique.",
+    "Le facteur déclenchant est traité simultanément (antibiotiques, prise en charge de l'AVC ou de l'infarctus).",
+    "La metformine et les inhibiteurs du SGLT2 sont suspendus pendant l'épisode."
+   ],
+   "sources": [
+    "Consensus ADA/EASD/ADCES/JBDS/AACE/DTS 2024",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications hospitalières et surveillance",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance"
+   ],
+   "comment": "Tu anticipes chaque complication par un monitorage précis, car la correction elle-même est source d'accidents.",
+   "tableau": {
+    "colonnes": [
+     "Complication",
+     "Mécanisme",
+     "Prévention / surveillance"
+    ],
+    "lignes": [
+     [
+      "Hypokaliémie et hypophosphatémie",
+      [
+       {
+        "t": "Entrée du potassium et du phosphate dans les cellules sous insuline",
+        "i": "L'insuline stimule la Na-K-ATPase et le transport cellulaire ; le déficit total en potassium est déjà élevé par la diurèse osmotique."
+       }
+      ],
+      "Kaliémie toutes les 2 h, ECG, substitution si K < 3.5 mmol/L"
+     ],
+     [
+      "Hypoglycémie iatrogène",
+      [
+       {
+        "t": "Insuline poursuivie alors que la glycémie devient basse",
+        "i": "L'insuline reste nécessaire pour corriger l'osmolalité, donc le glucose 5 % est ajouté, au lieu d'arrêter l'insuline."
+       }
+      ],
+      "Glycémie capillaire horaire, glucose 5 % vers 16.7 mmol/L"
+     ],
+     [
+      "Œdème cérébral ou démyélinisation osmotique",
+      [
+       {
+        "t": "Correction trop rapide de l'osmolalité",
+        "i": "Les neurones déshydratés ont accumulé des osmoles : une baisse brutale de l'osmolalité plasmatique fait entrer l'eau dans les cellules cérébrales."
+       }
+      ],
+      "Osmolalité effective ≤ 3 mOsm/kg/h, état neurologique en continu"
+     ],
+     [
+      "Œdème pulmonaire",
+      [
+       {
+        "t": "Remplissage massif chez l'insuffisant cardiaque ou rénal",
+        "i": "Le sujet âgé tolère mal l'excès volémique ; le remplissage est adapté à l'hémodynamique et non au seul déficit calculé."
+       }
+      ],
+      "Bilan hydrique, diurèse horaire, auscultation, remplissage prudent"
+     ],
+     [
+      "Thromboembolie",
+      [
+       {
+        "t": "Hyperviscosité et déshydratation prothrombotiques",
+        "i": "L'hémoconcentration et l'immobilisation augmentent la coagulabilité ; l'HBPM est donc systématique, pas seulement en cas de facteur de risque."
+       }
+      ],
+      "HBPM prophylactique adaptée à la fonction rénale"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Glycémie capillaire toutes les heures sous insuline IV ; natrémie corrigée, osmolalité effective et kaliémie toutes les 2 h au début.",
+    "Diurèse horaire, bilan hydrique, état neurologique et constantes sont surveillés en continu.",
+    "Un coma, un choc ou une instabilité hémodynamique justifient les soins intensifs ou une unité de surveillance continue.",
+    "La résolution est atteinte quand l'osmolalité effective est < 300 mOsm/kg, l'hypovolémie corrigée et l'état mental normal."
+   ],
+   "sources": [
+    "Consensus ADA/EASD/ADCES/JBDS/AACE/DTS 2024",
+    "PROFILES SSP F2.9"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Après la crise : traitement de fond, pronostic et réseau",
+   "rubriques": [
+    "chronicManagement",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Tu prépares le retour en relayant l'insuline, en évaluant la fragilité et en organisant l'hydratation et le suivi à domicile.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le relais par insuline sous-cutanée chevauche la perfusion d'une à deux heures avant son arrêt, puis le traitement antidiabétique est réévalué.",
+    "L'évaluation gériatrique fixe des objectifs d'HbA1c individualisés et moins stricts chez le patient fragile.",
+    "L'éducation du patient et des proches porte sur l'hydratation et la surveillance glycémique, car la récidive est probable sans accès sûr à l'eau.",
+    "Le retour à domicile exige un traitement adapté, une autonomie évaluée et un accès sûr à l'hydratation.",
+    "Le suivi associe médecin de famille, diabétologue, gériatre, et en Suisse Spitex ou EMS."
+   ],
+   "sources": [
+    "Consensus ADA/EASD/ADCES/JBDS/AACE/DTS 2024",
+    "PROFILES SSP F2.9"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "hhs_urgence",
+   "titre": "HHS : urgence initiale (remplissage, insuline, déclencheur)",
+   "but": [
+    "Corriger la déshydratation et normaliser lentement l'osmolalité effective sans provoquer d'œdème cérébral.",
+    "Traiter le facteur déclenchant et prévenir thromboses, dyskaliémies et hypoglycémie."
+   ],
+   "moyens": {
+    "accueil": [
+     "Tu poses deux voies veineuses, tu monitores ECG, saturation, tension et diurèse, et tu sondes la vessie si oligurie.",
+     "Tu fais une glycémie capillaire immédiate puis tu confirmes par glycémie veineuse, ionogramme, gaz, BHB, lactate, créatinine.",
+     "Tu protèges les voies aériennes si Glasgow abaissé et tu préviens les soins intensifs."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Chlorure de sodium 0.9 % (cristalloïde)",
+      "posologie": "15 à 20 mL/kg IV la 1re heure, puis débit adapté à l'hémodynamique et à la natrémie corrigée ; NaCl 0.45 % si natrémie corrigée élevée.",
+      "pourquoi": "Le déficit de 6 à 10 L est la cause du collapsus ; le remplissage est la priorité absolue avant l'insuline.",
+      "source": "[ADA/EASD/ADCES/JBDS/AACE/DTS, 2024]"
+     },
+     {
+      "molecule": "Insuline humaine rapide IV continue (Actrapid®)",
+      "posologie": "0.05 UI/kg/h au pousse-seringue, après remplissage initial et si kaliémie ≥ 3.5 mmol/L ; contrôle glycémique horaire.",
+      "pourquoi": "La faible dose évite une baisse trop rapide de l'osmolalité ; une insuline précoce aggrave le collapsus.",
+      "source": "[ADA/EASD/ADCES/JBDS/AACE/DTS, 2024]"
+     },
+     {
+      "molecule": "Chlorure de potassium (électrolyte)",
+      "posologie": "K < 3.5 mmol/L : substituer et différer l'insuline ; 3.5 à 5 mmol/L : 20 à 30 mmol par litre de soluté ; > 5 mmol/L : aucun apport.",
+      "pourquoi": "L'insuline fait chuter la kaliémie ; un déficit non corrigé provoque arythmie et faiblesse respiratoire.",
+      "source": "[ADA/EASD/ADCES/JBDS/AACE/DTS, 2024]"
+     },
+     {
+      "molecule": "Glucose 5 % (soluté)",
+      "posologie": "Ajouté au soluté quand la glycémie approche 16.7 mmol/L, avec poursuite de l'insuline IV.",
+      "pourquoi": "Cet apport évite l'hypoglycémie pendant que l'insuline termine la correction de l'osmolalité.",
+      "source": "[ADA/EASD/ADCES/JBDS/AACE/DTS, 2024]"
+     },
+     {
+      "molecule": "Énoxaparine (HBPM)",
+      "posologie": "40 mg SC 1×/j ; 20 mg SC 1×/j si clairance de la créatinine < 30 mL/min (selon AIPS) ; héparine non fractionnée si insuffisance rénale sévère.",
+      "pourquoi": "L'hyperviscosité et la déshydratation rendent le HHS fortement prothrombotique, d'où une prophylaxie systématique.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Antibiotique selon le foyer (anti-infectieux)",
+      "posologie": "Choix et dose selon foyer, gravité et fonction rénale, après hémocultures, dès suspicion de sepsis.",
+      "pourquoi": "L'infection est le déclencheur le plus fréquent et conditionne la mortalité du HHS.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Tu mesures la diurèse horaire, le bilan hydrique, l'état neurologique et les constantes en continu.",
+      "pourquoi": "Le monitorage guide le remplissage et détecte œdème pulmonaire ou cérébral."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Tu surveilles la glycémie capillaire toutes les heures et les ions toutes les 2 h.",
+      "pourquoi": "Ce rythme évite une baisse trop rapide, l'hypoglycémie et les dyskaliémies."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Tu suspends metformine et inhibiteurs du SGLT2 et tu recherches un foyer infectieux, un AVC ou un infarctus.",
+      "pourquoi": "Ces médicaments aggravent déshydratation ou acidose, et le déclencheur doit être traité."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Tu vérifies la capacité de discernement, les directives anticipées et le représentant thérapeutique du patient confus."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Tu discutes les limites thérapeutiques et le projet de soins si les comorbidités ou le coma sont sévères."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Tu considères le HHS comme une urgence vitale immédiate à surveillance continue.",
+      "Tu remplis avant d'administrer l'insuline et tu contrôles la kaliémie avant de la débuter.",
+      "Tu limites la baisse de l'osmolalité effective à 3 mOsm/kg/h au plus."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il évalue ABC et Glasgow, confirme le HHS par osmolalité effective et BHB, et décide du lieu de soins."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Elle pose les voies, lance 15 à 20 mL/kg de NaCl 0.9 % et prélève ionogramme, gaz, hémocultures."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Il contrôle la kaliémie, puis prescrit insuline IV 0.05 UI/kg/h et potassium selon le palier."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Il cherche le déclencheur (ECG, troponine, radiographie, urine) et débute antibiotiques ou traitement de l'AVC."
+      },
+      {
+       "temps": "puis",
+       "qui": "infirmier·ère",
+       "fait": "Elle mesure glycémie horaire, ions toutes les 2 h et diurèse, et ajoute le glucose 5 % vers 16.7 mmol/L."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Il prescrit l'HBPM, demande les soins intensifs si coma ou choc et vise l'osmolalité effective < 300."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La mortalité atteint environ 10 à 20 %, nettement plus que celle de la DKA, et dépend de l'âge, des comorbidités, du déclencheur, du coma et des thromboses.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Glycémie capillaire",
+      "quand": "Toutes les heures sous insuline IV",
+      "cible": "Baisse progressive ; glucose 5 % ajouté vers 16.7 mmol/L"
+     },
+     {
+      "quoi": "Natrémie corrigée, osmolalité effective, kaliémie",
+      "quand": "Toutes les 2 h au début",
+      "cible": "Osmolalité effective en baisse ≤ 3 mOsm/kg/h, K ≥ 3.5 mmol/L"
+     },
+     {
+      "quoi": "Diurèse, bilan hydrique, état neurologique, constantes",
+      "quand": "En continu",
+      "cible": "Hémodynamique stable, diurèse restaurée, conscience améliorée"
+     },
+     {
+      "quoi": "Phosphate, magnésium, créatinine",
+      "quand": "Régulièrement durant l'insuline",
+      "cible": "Pas de déplétion ; fonction rénale en amélioration"
+     }
+    ],
+    "sortie": "Sortie des soins intensifs ou de la surveillance quand l'osmolalité effective est < 300 mOsm/kg, l'hypovolémie corrigée, l'état mental normal et le patient alimenté sous insuline sous-cutanée."
+   },
+   "prevention": {
+    "primaire": "Tu surveilles la glycémie et l'hydratation des diabétiques âgés, surtout sous corticoïdes ou diurétiques, et tu dépistes le diabète de type 2 méconnu.",
+    "secondaire": "Tu fais doser la glycémie devant toute confusion ou chute inexpliquée du sujet âgé, pour diagnostiquer précocement.",
+    "tertiaire": "Tu préviens thromboses, hypoglycémie et séquelles neurologiques par HBPM, monitorage et correction lente."
+   }
+  },
+  {
+   "cle": "hhs_long_cours",
+   "titre": "Après résolution : relais, gériatrie et prévention de la récidive",
+   "but": [
+    "Assurer un relais sûr vers un traitement antidiabétique adapté à la fragilité du patient.",
+    "Prévenir la récidive par l'hydratation, la surveillance glycémique et un réseau de soins."
+   ],
+   "moyens": {
+    "accueil": [
+     "Tu vérifies que l'osmolalité effective est < 300 mOsm/kg et que l'état mental est revenu à la normale.",
+     "Tu expliques au patient et aux proches la cause de l'épisode et les signes d'alerte."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Insuline sous-cutanée (schéma basal ou basal-bolus)",
+      "posologie": "Première injection sous-cutanée 1 à 2 h avant l'arrêt de la perfusion IV ; dose adaptée au poids, à la fonction rénale et aux glycémies.",
+      "pourquoi": "Le chevauchement évite le rebond hyperglycémique, car la demi-vie de l'insuline IV est de quelques minutes.",
+      "source": "[ADA/EASD/ADCES/JBDS/AACE/DTS, 2024]"
+     },
+     {
+      "molecule": "Traitement antidiabétique oral réévalué",
+      "posologie": "Reprise de la metformine selon la fonction rénale (AIPS) ; SGLT2 réintroduit avec prudence chez le sujet fragile ou déshydraté.",
+      "pourquoi": "La reprise dépend de la fonction rénale, du risque de déshydratation et de la fragilité du patient.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Tu éduques le patient et les proches sur l'hydratation, les signes de décompensation et la surveillance glycémique.",
+      "pourquoi": "La soif atténuée du sujet âgé rend l'éducation et l'hydratation encadrée indispensables."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Tu réalises une évaluation gériatrique et fixes des objectifs d'HbA1c individualisés, moins stricts chez le patient fragile.",
+      "pourquoi": "Un contrôle trop strict expose à l'hypoglycémie sans bénéfice chez le patient fragile."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Tu organises Spitex, EMS ou aide à l'hydratation et à la surveillance glycémique.",
+      "pourquoi": "Un accès sûr à l'eau et à la surveillance conditionne le retour à domicile."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Tu organises le financement des soins à domicile ou de l'EMS (LAMal, allocation pour impotent) et le matériel de mesure."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Tu consignes les directives anticipées et le projet de soins avec le représentant thérapeutique."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Tu vises un traitement simple, sûr et adapté à l'autonomie du patient.",
+      "Tu coordonnes diabétologue, gériatre, médecin de famille et soins à domicile avant la sortie."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il confirme la résolution et passe à l'insuline sous-cutanée en chevauchant la perfusion d'une à deux heures."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "diabétologue",
+       "fait": "Il réévalue le traitement antidiabétique selon HbA1c, fonction rénale et fragilité."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Elle éduque patient et proches sur hydratation, glycémie capillaire et signes d'alerte."
+      },
+      {
+       "temps": "puis",
+       "qui": "assistant·e social·e",
+       "fait": "Il ou elle organise Spitex ou EMS et l'accès sûr à l'hydratation avant le retour à domicile."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Il planifie le suivi chez le médecin de famille et le gériatre sous quelques jours."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le retour à domicile est possible si le traitement est adapté et l'hydratation sûre ; sinon la récidive est probable, et le pronostic dépend des comorbidités et de la fragilité.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Glycémies capillaires et hydratation",
+      "quand": "Quotidiennement après la sortie, puis selon le traitement",
+      "cible": "Glycémies stables sans hypoglycémie ni déshydratation"
+     },
+     {
+      "quoi": "HbA1c, créatinine, kaliémie",
+      "quand": "Contrôle à quelques jours puis à 3 mois",
+      "cible": "HbA1c individualisée, fonction rénale stable"
+     },
+     {
+      "quoi": "Évaluation gériatrique (autonomie, cognition, accès à l'eau)",
+      "quand": "Avant la sortie, puis au suivi",
+      "cible": "Autonomie suffisante ou soutien Spitex ou EMS en place"
+     }
+    ],
+    "sortie": "Sortie quand l'état mental est normal, l'alimentation et l'hydratation orale suffisantes, l'insuline sous-cutanée stable, le déclencheur traité et le soutien à domicile ou en EMS organisé."
+   },
+   "prevention": {
+    "primaire": "Tu adaptes diurétiques et corticoïdes chez le diabétique âgé et tu garantis un accès à l'eau.",
+    "secondaire": "Tu fais éduquer les proches et les soignants d'EMS à repérer soif, polyurie et confusion.",
+    "tertiaire": "Tu évites l'hypoglycémie et les récidives par un traitement individualisé et un suivi rapproché."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7571,
+  "output_tokens": 19086,
+  "output_tokens_details": {
+   "thinking_tokens": 5046
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:35:00",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

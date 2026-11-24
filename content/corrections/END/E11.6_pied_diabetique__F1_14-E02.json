@@ -1,0 +1,1366 @@
+{
+ "id": "E11.6_pied_diabetique__F1_14-E02",
+ "portes": [
+  {
+   "ssp": "S6.4",
+   "nomSSP": "Plaie infectée, retard de cicatrisation, ulcères cutanés",
+   "entite": "Mal perforant plantaire / ulcère du pied diabétique",
+   "entiteId": "S6.4-E03"
+  },
+  {
+   "ssp": "S6.4",
+   "nomSSP": "Plaie infectée, retard de cicatrisation, ulcères cutanés",
+   "entite": "Infection sévère du pied diabétique menaçant le membre (phlegmon / ostéo-arthrite)",
+   "entiteId": "S6.4-E13"
+  },
+  {
+   "ssp": "F1.14",
+   "nomSSP": "Gangrène",
+   "entite": "Pied diabétique neuro-ischémique avec nécrose distale",
+   "entiteId": "F1.14-E02"
+  },
+  {
+   "ssp": "O3.5",
+   "nomSSP": "Escarres",
+   "entite": "Mal perforant plantaire (ulcère neuropathique diabétique)",
+   "entiteId": "O3.5-E08"
+  }
+ ],
+ "entite": "Pied diabétique",
+ "cim10": "E11.6",
+ "ssp": {
+  "code": "O3.5",
+  "nom": "Escarres",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Ulcère plantaire indolore chez un patient diabétique (mal perforant)",
+    "i": "Porte d'entrée O3.5 : ulcère d'hyperpression sur pied insensible ; on cherche ensuite gravité, neuropathie, perfusion et infection.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Signes de gravité immédiate ? (SIRS, nécrose humide, crépitations, pied froid sans pouls)",
+    "i": "Ils signent une infection sévère ou une ischémie critique menaçant le membre et la vie, donc urgence avant tout bilan détaillé.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : hospitalisation urgente",
+    "i": "Antibiothérapie IV large, drainage ou débridement chirurgical, avis vasculaire ; le retard augmente le risque d'amputation.",
+    "pec": "urgence_membre",
+    "notion": "c5"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : confirmer la neuropathie (monofilament 10 g + 2e test)",
+    "i": "La perte de sensibilité protectrice est le critère diagnostique du mal perforant ; un seul test est insuffisant.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Sensibilité conservée : chercher une autre cause d'ulcère",
+    "i": "Ulcère artériel, veineux, pyoderma gangrenosum, Marjolin ou escarre de pression ; on renvoie au SSP S6.4 « Plaie infectée, retard de cicatrisation, ulcères cutanés ».",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Neuropathie confirmée : évaluer la perfusion (pouls, IPS, Doppler, pression d'orteil)",
+    "i": "L'AOMI est présente chez environ la moitié des patients ; l'IPS > 1,3 est non fiable, d'où la pression d'orteil.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Pression d'orteil < 30 mmHg ou TcPO2 < 25 mmHg",
+    "i": "Ischémie sévère : imagerie vasculaire urgente et revascularisation ; la cicatrisation est impossible sans perfusion.",
+    "pec": "urgence_membre",
+    "notion": "c6"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Perfusion correcte : chercher une infection (≥ 2 signes)",
+    "i": "Érythème, chaleur, tuméfaction, douleur, pus ; neuropathie et ischémie peuvent atténuer ces signes.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Infection modérée à sévère",
+    "i": "Érythème > 2 cm, atteinte profonde ou SIRS : hospitalisation, antibiothérapie IV et avis chirurgical.",
+    "pec": "urgence_membre",
+    "notion": "c5"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Pas d'infection ou infection légère : stylet stérile + radiographie",
+    "i": "Le contact osseux fait suspecter une ostéite, qui change la durée de l'antibiothérapie.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Contact osseux ou radiographie suspecte",
+    "i": "Ostéite probable : IRM ou biopsie osseuse selon le doute, puis antibiothérapie d'environ 6 semaines.",
+    "pec": "osteite",
+    "notion": "c6"
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Stylet négatif, radiographie normale : ulcère neuropathique non compliqué",
+    "i": "Débridement du cal, décharge non amovible, soins de plaie ; antibiotique oral seulement si infection légère.",
+    "pec": "ulcere_neuropathique",
+    "notion": "c8"
+   },
+   {
+    "id": "n13",
+    "parent": "n12",
+    "t": "Surface réduite de ≥ 50 % à 4 semaines",
+    "i": "Évolution favorable : poursuivre décharge et suivi hebdomadaire jusqu'à cicatrisation (6 à 12 semaines).",
+    "pec": "ulcere_neuropathique",
+    "notion": "c8"
+   },
+   {
+    "id": "n14",
+    "parent": "n12",
+    "t": "Réduction < 50 % à 4 semaines",
+    "i": "Réévaluer infection, ischémie, observance de la décharge ; envisager biopsie (Marjolin) et revascularisation si perfusion limite.",
+    "pec": "osteite",
+    "notion": "c5"
+   },
+   {
+    "id": "n15",
+    "parent": "n12",
+    "t": "Ulcère cicatrisé",
+    "i": "La rémission est à très haut risque de récidive (40 % à 1 an) : chaussures sur mesure, podologie, suivi tous les 1 à 3 mois.",
+    "pec": "remission",
+    "notion": "c9"
+   },
+   {
+    "id": "n16",
+    "parent": "n6",
+    "t": "Pied rouge, chaud, œdématié, ΔT > 2 °C, peau fermée ou plaie",
+    "i": "Suspicion de pied de Charcot aigu après exclusion de l'infection : décharge non amovible, radiographie/IRM, avis orthopédique.",
+    "pec": "ulcere_neuropathique",
+    "notion": "c1"
+   }
+  ]
+ },
+ "specialites": [
+  "END"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Pied diabétique : ulcère neuropathique (mal perforant plantaire)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définitions : ulcère du pied diabétique, mal perforant, pied de Charcot",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Je distingue la plaie (ulcère), sa localisation typique (mal perforant) et l'ostéo-arthropathie (Charcot), car chacune appelle un geste différent.",
+   "tableau": {
+    "colonnes": [
+     "Terme",
+     "Définition",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "Ulcère du pied diabétique (IWGDF)",
+      "Plaie cutanée située à la cheville ou en dessous chez une personne diabétique.",
+      [
+       {
+        "t": "Toute plaie ≤ cheville",
+        "i": "La définition est topographique et ne préjuge ni de la cause (neuropathie, ischémie) ni de l'infection ; il faut donc toujours chercher ces deux éléments."
+       }
+      ]
+     ],
+     [
+      "Mal perforant plantaire",
+      "Ulcère neuropathique d'hyperpression sous une tête métatarsienne ou au talon, entouré d'hyperkératose.",
+      [
+       {
+        "t": "Indolore, plantaire, pouls présents",
+        "i": "L'insensibilité explique l'absence de douleur ; des pouls perçus orientent vers une origine neuropathique pure, contrairement à l'ulcère ischémique des orteils ou des bords du pied."
+       }
+      ]
+     ],
+     [
+      "Pied de Charcot",
+      "Ostéo-arthropathie neuropathique destructrice, distincte de l'ulcère mais souvent associée.",
+      [
+       {
+        "t": "Pied rouge, chaud, œdématié, peau parfois fermée",
+        "i": "La plaie n'est pas indispensable ; on pense à Charcot devant un pied chaud (ΔT > 2 °C) sans infection évidente, et non à une cellulite simple."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le mal perforant est le prototype de l'escarre « d'hyperpression » sur pied insensible : il relève du SSP O3.5 mais aussi S6.4.",
+    "Un ulcère du pied diabétique n'est jamais « seulement neuropathique » avant d'avoir exclu ischémie et infection.",
+    "Le pied de Charcot déforme la voûte plantaire et crée des ulcères de médiopied."
+   ],
+   "sources": [
+    "IWGDF 2023",
+    "SSED/SGED"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie : un risque d'amputation et de mortalité élevé",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Je retiens quelques chiffres clés pour justifier le dépistage annuel et la prévention des récidives.",
+   "tableau": {
+    "colonnes": [
+     "Indicateur",
+     "Valeur",
+     "Conséquence"
+    ],
+    "lignes": [
+     [
+      "Risque cumulé d-ulcère sur la vie",
+      "19 à 34 % des diabétiques",
+      [
+       {
+        "t": "Dépistage de tout diabétique",
+        "i": "Le risque touche une personne sur trois à cinq ; l'examen annuel des pieds au monofilament doit donc être systématique, pas réservé aux patients symptomatiques."
+       }
+      ]
+     ],
+     [
+      "Récidive après cicatrisation",
+      "≈ 40 % à 1 an, ≈ 65 % à 5 ans",
+      [
+       {
+        "t": "Cicatrisation = rémission, pas guérison",
+        "i": "La neuropathie et les déformations persistent ; sans chaussures thérapeutiques ni suivi rapproché, la même zone d'hyperpression s'ulcère à nouveau."
+       }
+      ]
+     ],
+     [
+      "Ulcère avant amputation majeure",
+      "≈ 80 % des amputations non traumatiques",
+      [
+       {
+        "t": "Prévenir l'ulcère évite l'amputation",
+        "i": "L'amputation est presque toujours précédée d'un ulcère, donc la prise en charge précoce de l'ulcère est le levier principal."
+       }
+      ]
+     ],
+     [
+      "Mortalité à 5 ans",
+      "≈ 30 % après ulcère, ≈ 70 % après amputation majeure",
+      [
+       {
+        "t": "Marqueur de risque cardiovasculaire",
+        "i": "L'ulcère reflète une maladie vasculaire et rénale avancée ; il faut traiter globalement les facteurs de risque, pas seulement la plaie."
+       }
+      ]
+     ],
+     [
+      "AOMI associée",
+      "≈ 50 % des ulcères",
+      [
+       {
+        "t": "Ulcères neuro-ischémiques fréquents",
+        "i": "La composante ischémique est fréquente et peut passer inaperçue car la neuropathie masque la claudication ; on cherche donc l'AOMI chez tous."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le pied diabétique est la première cause d'amputation non traumatique.",
+    "Dépistage annuel au minimum chez tout diabétique (SSED)."
+   ],
+   "sources": [
+    "IWGDF 2023",
+    "SSED/SGED"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Physiopathologie : triade neuropathie sensitive, motrice et autonome",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Je relie chaque type de neuropathie à son signe : l'insensibilité cache la plaie, les déformations créent la pression, la sécheresse ouvre la porte d'entrée.",
+   "tableau": {
+    "colonnes": [
+     "Atteinte",
+     "Mécanisme",
+     "Conséquence clinique"
+    ],
+    "lignes": [
+     [
+      "Neuropathie sensitive",
+      "Perte de la sensibilité protectrice",
+      [
+       {
+        "t": "Plaie indolore, découverte fortuite",
+        "i": "Sans douleur, le patient continue à marcher sur la plaie ; la pression répétée l'approfondit jusqu'à l'os sans qu'il consulte."
+       }
+      ]
+     ],
+     [
+      "Neuropathie motrice",
+      "Atrophie des muscles intrinsèques",
+      [
+       {
+        "t": "Orteils en griffe, têtes métatarsiennes saillantes",
+        "i": "Le déséquilibre fléchisseurs-extenseurs déplace le coussin adipeux et crée des pics de pression plantaire sous les têtes métatarsiennes."
+       }
+      ]
+     ],
+     [
+      "Neuropathie autonome",
+      "Anhidrose, shunts artério-veineux",
+      [
+       {
+        "t": "Peau sèche fissurée, pied chaud, veines dilatées",
+        "i": "Les fissures ouvrent une porte d'entrée aux germes ; les shunts rendent le pied chaud et peuvent masquer une ischémie (pouls parfois perçus)."
+       }
+      ]
+     ],
+     [
+      "Hyperkératose",
+      "Cal = corps étranger plantaire",
+      [
+       {
+        "t": "Anneau périulcéreux, hémorragie sous-calleuse",
+        "i": "Le cal augmente la pression locale et se fissure en profondeur ; son débridement réduit donc la pression et fait partie du traitement."
+       }
+      ]
+     ],
+     [
+      "Hyperglycémie, ischémie",
+      "Altération de la cicatrisation et des leucocytes",
+      [
+       {
+        "t": "Surinfection, extension à l'os",
+        "i": "Les défenses locales sont abaissées ; l'infection s'étend plus vite et donne moins de signes locaux."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Pression mécanique répétée + insensibilité = ulcère ; la glycémie seule ne l'explique pas.",
+    "Le pied neuropathique pur est chaud et sec, le pied ischémique est froid et pâle."
+   ],
+   "sources": [
+    "IWGDF 2023"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Anamnèse et examen clinique du pied à risque",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Je cherche d'abord les facteurs de risque et les déclencheurs, puis je prouve la neuropathie par deux tests et j'exclus l'ischémie par les pouls.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Geste ou seuil",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Neuropathie",
+      "Monofilament 10 g sur au moins 3 sites plantaires par pied + 2e test",
+      [
+       {
+        "t": "Deux tests combinés",
+        "i": "Un seul test peut être faussement négatif ; le second (diapason 128 Hz sur l'hallux, piqûre, réflexes achilléens) confirme la perte de sensibilité protectrice."
+       }
+      ]
+     ],
+     [
+      "Perfusion",
+      "Palpation des pouls pédieux et tibial postérieur",
+      [
+       {
+        "t": "Pieds chaud rose versus froid pâle",
+        "i": "Des pouls perçus et un pied chaud orientent vers le neuropathique pur ; l'absence de pouls impose l'IPS et la pression d'orteil."
+       }
+      ]
+     ],
+     [
+      "Plaie",
+      "Taille, profondeur, siège, bords, infection, ischémie (Wagner, Texas, SINBAD, WIfI)",
+      [
+       {
+        "t": "Classification validée",
+        "i": "Elle standardise le suivi et la communication ; WIfI intègre ischémie et infection et prédit le risque d'amputation."
+       }
+      ]
+     ],
+     [
+      "Pied à risque",
+      "Déformations, cals, fissures, ongles incarnés, mycose interdigitale",
+      [
+       {
+        "t": "Lésions préulcératives",
+        "i": "Elles désignent la porte d'entrée et la zone de pression à décharger avant l'ulcération."
+       }
+      ]
+     ],
+     [
+      "Anamnèse",
+      "Antécédent d'ulcère ou d'amputation, durée du diabète, tabac, marche pieds nus",
+      [
+       {
+        "t": "Antécédent d'ulcère",
+        "i": "C'est le prédicteur le plus fort de nouvel ulcère ; il place le patient en catégorie IWGDF 3."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le patient découvre souvent la plaie par hasard (tache sur la chaussette).",
+    "La neuropathie peut masquer claudication et douleurs de repos.",
+    "Une hyperglycémie inexpliquée peut être le seul signe d'infection."
+   ],
+   "sources": [
+    "IWGDF 2023",
+    "SSED/SGED"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Signaux d'alarme : infection, ostéite, Charcot, ischémie sévère",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Je classe l'infection par grade car il décide du lieu de soins, et je garde en tête que neuropathie et ischémie atténuent les signes.",
+   "tableau": {
+    "colonnes": [
+     "Grade IWGDF/IDSA",
+     "Critères",
+     "Prise en charge"
+    ],
+    "lignes": [
+     [
+      "1 – non infecté",
+      "Aucun signe d'inflammation",
+      [
+       {
+        "t": "Pas d'antibiotique",
+        "i": "Un traitement sans infection clinique n'améliore pas la cicatrisation et sélectionne des résistances ; on n'utilise pas non plus d'écouvillon."
+       }
+      ]
+     ],
+     [
+      "2 – légère",
+      "≥ 2 signes (érythème ≤ 2 cm, chaleur, tuméfaction, douleur, pus) limités à la peau",
+      [
+       {
+        "t": "Antibiotique oral 1 à 2 semaines",
+        "i": "L'infection reste superficielle et due surtout aux cocci à Gram positif ; un spectre ciblé suffit."
+       }
+      ]
+     ],
+     [
+      "3 – modérée",
+      "Érythème > 2 cm ou atteinte profonde (abcès, fascia, os), sans SIRS",
+      [
+       {
+        "t": "Hospitalisation, avis chirurgical",
+        "i": "L'atteinte profonde exige drainage ou débridement et bilan vasculaire ; un traitement ambulatoire est insuffisant."
+       }
+      ]
+     ],
+     [
+      "4 – sévère",
+      "Infection + ≥ 2 critères SIRS",
+      [
+       {
+        "t": "Urgence vitale et membre",
+        "i": "Le sepsis impose antibiothérapie IV large, stabilisation et chirurgie urgente ; chaque heure de retard augmente le risque d'amputation."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Contact osseux au stylet, os visible ou orteil « en saucisse » : suspecter une ostéite.",
+    "Pied rouge, chaud, œdématié avec ΔT > 2 °C : Charcot aigu après exclusion de l'infection.",
+    "Nécrose, pied froid sans pouls, crépitations, bulles, odeur fétide : évaluation vasculaire et chirurgicale urgente.",
+    "Absence de réduction de 50 % de la surface en 4 semaines : réévaluer infection, ischémie, décharge."
+   ],
+   "sources": [
+    "IWGDF/IDSA 2023",
+    "IWGDF 2023"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Bilan : AOMI, ostéite, bactériologie",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Je recherche l'AOMI chez tous, puis j'escalade l'imagerie osseuse de la radiographie à l'IRM et à la biopsie seulement si le doute persiste.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Ulcère du pied diabétique",
+     "i": "Tout ulcère reçoit anamnèse, pouls, IPS, Doppler pédieux et pression d'orteil selon l'IWGDF.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "IPS < 0,9",
+     "i": "Il évoque une AOMI ; la pression d'orteil et le Doppler précisent la sévérité.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "IPS > 1,3",
+     "i": "Il traduit une médiacalcinose et sous-estime la perfusion ; il faut mesurer la pression d'orteil.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Pression d'orteil < 30 mmHg ou TcPO2 < 25 mmHg",
+     "i": "Ces seuils définissent une ischémie sévère : imagerie vasculaire urgente en vue de revascularisation.",
+     "pec": "urgence_membre",
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Ulcère profond ou suspicion d'ostéite : stylet + radiographie du pied",
+     "i": "Le stylet métallique stérile touchant l'os a une valeur prédictive positive élevée si la probabilité préalable est forte ; la radiographie est la première imagerie.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Radiographie normale mais suspicion persistante : IRM",
+     "i": "Les signes radiologiques d'ostéite n'apparaissent qu'après 2 à 4 semaines ; l'IRM est la plus performante pour ostéite et abcès.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "IRM impossible ou ininterprétable (matériel) : scintigraphie leucocytes marqués ou PET",
+     "i": "Ces examens sont des alternatives quand l'IRM est contre-indiquée ou parasitée par le matériel.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n6",
+     "t": "Doute persistant ou échec thérapeutique : biopsie osseuse (culture + histologie)",
+     "i": "C'est la référence pour confirmer l'ostéite et cibler l'antibiothérapie.",
+     "pec": "osteite",
+     "notion": null
+    }
+   ],
+   "points": [
+    "Prélèvement par curetage ou biopsie profonde après débridement, jamais par écouvillon superficiel, et seulement si la plaie est infectée.",
+    "CRP, leucocytes et VS > 70 mm/h soutiennent l'ostéite sans la confirmer.",
+    "Bilan général : glycémie, HbA1c, créatinine (choix des antibiotiques et du produit de contraste), rétinopathie et néphropathie."
+   ],
+   "sources": [
+    "IWGDF 2023",
+    "IWGDF/IDSA 2023"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Diagnostic positif et différentiels",
+   "rubriques": [
+    "positiveDiagnosis"
+   ],
+   "comment": "Je pose le diagnostic sur trois éléments (plaie plantaire d'hyperpression indolore, perte de sensibilité, pouls perçus) et j'écarte les autres ulcères par leur siège et leur douleur.",
+   "tableau": {
+    "colonnes": [
+     "Entité",
+     "Siège et douleur",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "Ulcère neuropathique",
+      "Plantaire (têtes métatarsiennes, talon), indolore",
+      [
+       {
+        "t": "Cal, pouls présents, monofilament perdu",
+        "i": "L'hyperpression chez un pied insensible explique le siège et l'absence de douleur ; la perfusion est conservée."
+       }
+      ]
+     ],
+     [
+      "Ulcère ischémique",
+      "Orteils, talon latéral, bords du pied ; douloureux",
+      [
+       {
+        "t": "Pied froid, pâle, pouls absents",
+        "i": "La douleur persiste si la neuropathie est partielle ; l'IPS ou la pression d'orteil l'objective, contrairement au neuropathique."
+       }
+      ]
+     ],
+     [
+      "Escarre de pression du talon",
+      "Talon chez patient alité",
+      [
+       {
+        "t": "Alitement, érythème persistant non blanchissable",
+        "i": "Elle suit une pression prolongée et non une marche sur pied insensible ; la classification NPIAP stades 1 à 4 s'applique."
+       }
+      ]
+     ],
+     [
+      "Ulcère veineux",
+      "Malléolaire, jambe",
+      [
+       {
+        "t": "Œdème, dermite ocre",
+        "i": "Le siège est supramalléolaire et non plantaire ; le Doppler veineux confirme l'insuffisance."
+       }
+      ]
+     ],
+     [
+      "Pyoderma gangrenosum",
+      "Bords violacés, très douloureux",
+      [
+       {
+        "t": "Aggravation après débridement (pathergie)",
+        "i": "La douleur vive et le pathergie le distinguent d'un ulcère neuropathique indolore ; la biopsie exclut une infection."
+       }
+      ]
+     ],
+     [
+      "Ulcère de Marjolin",
+      "Plaie chronique atypique, bords exubérants",
+      [
+       {
+        "t": "Plaie ancienne qui bourgeonne",
+        "i": "Un carcinome épidermoïde se développe sur plaie chronique ; toute plaie atypique non cicatrisante impose une biopsie."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Ulcère neuro-ischémique mixte possible : les deux mécanismes coexistent fréquemment.",
+    "Une plaie chronique qui ne cicatrise pas malgré des soins optimaux impose une biopsie."
+   ],
+   "sources": [
+    "IWGDF 2023",
+    "NPIAP 2019"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Prise en charge aiguë : décharge, débridement, antibiothérapie, revascularisation",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Je commence par décharger de façon non amovible, je débride, je traite l'infection uniquement si elle est clinique et je cherche l'ischémie qui bloque la cicatrisation.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Ulcère plantaire de l'avant-pied ou du médiopied",
+     "i": "Le choix de la décharge dépend du siège, de l'infection et de l'ischémie.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Plâtre de contact total (non amovible, montant au genou)",
+     "i": "Première intention IWGDF : il force l'adhérence, ce qui est décisif chez un patient insensible qui ne ressent pas la gêne.",
+     "pec": "ulcere_neuropathique",
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Contre-indication (infection modérée à sévère, ischémie importante) : botte amovible montant au genou",
+     "i": "Le plâtre masque la plaie et gêne le suivi ; la botte permet l'inspection tout en déchargeant.",
+     "pec": "ulcere_neuropathique",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "À défaut : chaussure de décharge de l'avant-pied (type Barouk)",
+     "i": "Dernier recours, efficacité moindre et adhérence aléatoire ; à réserver quand ni plâtre ni botte ne sont possibles.",
+     "pec": "ulcere_neuropathique",
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Ulcère du talon ou infection profonde",
+     "i": "Pas de plâtre standard : décharge adaptée au talon, infection traitée en priorité.",
+     "pec": "urgence_membre",
+     "notion": null
+    }
+   ],
+   "points": [
+    "Débridement tranchant de l'hyperkératose et des tissus dévitalisés, répété selon l'évolution.",
+    "Plaie non infectée : aucun antibiotique. Infection légère : 1 à 2 semaines, amoxicilline-acide clavulanique en première ligne ; modérée à sévère : large spectre IV et hospitalisation.",
+    "Ostéite sans résection : environ 6 semaines ; amputation mineure avec marge positive : environ 3 semaines.",
+    "Revascularisation si pression d'orteil < 30 mmHg ou ulcère non cicatrisé après 4 à 6 semaines de soins optimaux.",
+    "Vérifier le statut antitétanique (rappel si dernier ≥ 5 ans, plan de vaccination suisse)."
+   ],
+   "sources": [
+    "IWGDF 2023",
+    "IWGDF/IDSA 2023",
+    "OFSP plan de vaccination"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Long cours, complications, pronostic et réseau",
+   "rubriques": [
+    "chronicManagement",
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Je classe le patient dans une catégorie de risque IWGDF et je règle la fréquence de suivi et la prévention sur cette catégorie.",
+   "tableau": {
+    "colonnes": [
+     "Catégorie IWGDF",
+     "Critères",
+     "Suivi"
+    ],
+    "lignes": [
+     [
+      "0 – très faible",
+      "Pas de perte de sensibilité, pas d'AOMI",
+      [
+       {
+        "t": "Annuel",
+        "i": "Le risque est minime ; un examen annuel au monofilament avec palpation des pouls (SSED) suffit."
+       }
+      ]
+     ],
+     [
+      "1 – faible",
+      "Neuropathie ou AOMI isolée",
+      [
+       {
+        "t": "Tous les 6 à 12 mois",
+        "i": "Un facteur de risque unique justifie une éducation et un contrôle plus fréquent, sans chaussures sur mesure d'emblée."
+       }
+      ]
+     ],
+     [
+      "2 – modéré",
+      "Neuropathie + AOMI, ou neuropathie/AOMI + déformation",
+      [
+       {
+        "t": "Tous les 3 à 6 mois",
+        "i": "Le cumul de facteurs augmente la probabilité d'ulcère ; on ajoute chaussures thérapeutiques et soins podologiques."
+       }
+      ]
+     ],
+     [
+      "3 – élevé",
+      "Antécédent d'ulcère ou d'amputation, ou insuffisance rénale terminale",
+      [
+       {
+        "t": "Tous les 1 à 3 mois",
+        "i": "Le risque de récidive atteint 40 % à 1 an ; le suivi rapproché permet de traiter les cals et vérifier l'usure des chaussures."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Chaussures thérapeutiques sur mesure en permanence (réduction d'environ 30 % de la pression), prescrites par le médecin et confectionnées par un orthopédiste-bottier.",
+    "Éducation : inspection quotidienne, jamais pieds nus, hydratation sauf entre les orteils, coupe droite des ongles.",
+    "Chirurgie de décharge (ténotomie des fléchisseurs, allongement du tendon d'Achille, résection de tête métatarsienne) en cas de récidive.",
+    "Thermométrie cutanée biquotidienne chez le patient à très haut risque ; écart > 2 °C sur deux jours : réduire la marche.",
+    "Complications : ostéite, phlegmon, fasciite nécrosante, sepsis, amputation, effondrement de Charcot.",
+    "Cicatrisation en 6 à 12 semaines si décharge stricte ; ischémie, infection profonde, insuffisance rénale terminale et mauvaise observance l'allongent."
+   ],
+   "sources": [
+    "IWGDF 2023",
+    "SSED/SGED"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence_membre",
+   "titre": "Infection modérée à sévère ou ischémie critique menaçant le membre",
+   "but": [
+    "Contrôler l'infection et le sepsis par antibiothérapie IV et drainage chirurgical précoce.",
+    "Rétablir la perfusion si ischémie sévère (pression d'orteil < 30 mmHg).",
+    "Sauver le membre et la vie en limitant le niveau d'amputation."
+   ],
+   "moyens": {
+    "accueil": [
+     "Mesurer les signes vitaux, évaluer les critères SIRS et poser une voie veineuse.",
+     "Prélever hémocultures, CRP, leucocytes, glycémie, créatinine, gaz du sang avant les antibiotiques.",
+     "Retirer chaussettes et pansement et examiner tout le pied, y compris les espaces interdigitaux."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Pipéracilline-tazobactam (pénicilline à large spectre + inhibiteur de β-lactamase)",
+      "posologie": "4,5 g IV toutes les 8 h, adapter à la clairance de la créatinine ; relais oral selon cultures.",
+      "pourquoi": "Il couvre cocci Gram positif, Gram négatif et anaérobies, ce qui convient aux infections modérées à sévères polymicrobiennes.",
+      "source": "IWGDF/IDSA 2023 ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Vancomycine (glycopeptide)",
+      "posologie": "15 à 20 mg/kg IV toutes les 12 h, dosage résiduel, adapter à la fonction rénale ; à ajouter si risque de SARM.",
+      "pourquoi": "Elle couvre le SARM en cas d'antécédent, de colonisation ou d'infection sévère ; la fonction rénale limite la dose.",
+      "source": "IWGDF/IDSA 2023 ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Insuline (basale-bolus)",
+      "posologie": "Schéma basal-bolus adapté, glycémie cible hospitalière environ 7,8 à 10 mmol/L ; suspendre metformine si sepsis, insuffisance rénale ou produit de contraste.",
+      "pourquoi": "L'hyperglycémie altère la fonction leucocytaire ; l'insuline permet un contrôle rapide pendant l'infection sévère.",
+      "source": "SSED/SGED"
+     },
+     {
+      "molecule": "Vaccin dTpa (diphtérie-tétanos-coqueluche)",
+      "posologie": "Une dose de 0,5 mL IM si dernier rappel ≥ 5 ans pour une plaie à risque.",
+      "pourquoi": "Une plaie souillée chronique expose au tétanos ; le plan de vaccination suisse prévoit un rappel selon l'ancienneté.",
+      "source": "OFSP plan de vaccination"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Drainer l'abcès et débrider les tissus nécrosés au bloc opératoire dans les heures qui suivent.",
+      "pourquoi": "Le contrôle de la source est aussi important que les antibiotiques pour sauver le membre."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Imager les artères et revasculariser si pression d'orteil < 30 mmHg.",
+      "pourquoi": "Sans perfusion, la cicatrisation est impossible et l'amputation devient inévitable."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Instaurer une décharge totale et des soins de plaie quotidiens.",
+      "pourquoi": "La pression continue aggrave la plaie malgré l'antibiothérapie."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantit l'information et le consentement éclairé avant toute amputation, y compris sous contrainte de temps."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Propose des objectifs de soins centrés sur le confort si l'ischémie n'est pas revascularisable chez un patient fragile."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Hospitaliser en unité avec accès chirurgical et vasculaire.",
+      "Contrôler glycémie, créatinine et état volumique toutes les 6 à 8 h.",
+      "Instaurer décharge totale du pied et surveiller l'état général."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue les critères SIRS et l'instabilité hémodynamique, puis prescrit hémocultures et antibiotiques IV sans attendre."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose deux voies, prélève le bilan et contrôle la glycémie capillaire."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Mesure IPS, pression d'orteil et palpe les pouls pour détecter l'ischémie."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Le chirurgien drainie ou débride le foyer ; le vasculaire évalue la revascularisation."
+      },
+      {
+       "temps": "puis",
+       "qui": "infectiologue",
+       "fait": "Adapte l'antibiothérapie aux cultures profondes et fixe la durée."
+      },
+      {
+       "temps": "puis",
+       "qui": "assistant·e social·e",
+       "fait": "Prépare la sortie, la prise en charge à domicile et les chaussures thérapeutiques."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Une infection sévère ou une ischémie critique entraîne souvent une amputation ; la mortalité à 5 ans atteint environ 70 % après amputation majeure.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Signes vitaux, SIRS, état local de la plaie",
+      "quand": "Toutes les 4 à 8 h en phase aiguë",
+      "cible": "Apyrexie, disparition du SIRS en 48 à 72 h"
+     },
+     {
+      "quoi": "CRP et leucocytes",
+      "quand": "Tous les 2 à 3 jours",
+      "cible": "Tendance décroissante"
+     },
+     {
+      "quoi": "Glycémie",
+      "quand": "Avant chaque repas et au coucher",
+      "cible": "Environ 7,8 à 10 mmol/L"
+     },
+     {
+      "quoi": "Fonction rénale (vancomycine, produit de contraste)",
+      "quand": "Tous les 2 à 3 jours",
+      "cible": "Créatinine stable"
+     }
+    ],
+    "sortie": "Apyrexie, absence de SIRS, source contrôlée chirurgicalement, perfusion adéquate ou revascularisée, antibiothérapie orale ou ambulatoire organisée, décharge et suivi en consultation pied diabétique sous 1 semaine."
+   },
+   "prevention": {
+    "primaire": "Dépister tout diabétique chaque année au monofilament avec palpation des pouls et éduquer aux soins des pieds.",
+    "secondaire": "Traiter précocement toute plaie et toute lésion préulcérative pour éviter l'infection profonde.",
+    "tertiaire": "Prévenir la récidive et la nouvelle amputation par suivi rapproché, chaussures sur mesure et revascularisation si nécessaire."
+   }
+  },
+  {
+   "cle": "ulcere_neuropathique",
+   "titre": "Ulcère neuropathique non compliqué : décharge et soins de plaie",
+   "but": [
+    "Cicatriser en 6 à 12 semaines grâce à une décharge non amovible stricte.",
+    "Éviter l'infection et l'ostéite par des soins de plaie réguliers.",
+    "Identifier précocement l'ischémie ou la surinfection qui retarde la cicatrisation."
+   ],
+   "moyens": {
+    "accueil": [
+     "Retirer la chaussure et inspecter les deux pieds.",
+     "Mesurer la plaie, la photographier et la classer (SINBAD, Texas ou WIfI).",
+     "Rechercher signes d'infection, ischémie et contact osseux au stylet stérile."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Amoxicilline-acide clavulanique (aminopénicilline + inhibiteur de β-lactamase)",
+      "posologie": "875/125 mg PO 2×/j pendant 1 à 2 semaines, uniquement si infection légère ; adapter à la clairance.",
+      "pourquoi": "Elle couvre les cocci Gram positif et la flore mixte d'une infection légère ; sans infection clinique elle n'est pas indiquée.",
+      "source": "IWGDF/IDSA 2023 ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Vaccin dTpa (diphtérie-tétanos-coqueluche)",
+      "posologie": "Une dose de 0,5 mL IM si dernier rappel ≥ 5 ans.",
+      "pourquoi": "La plaie chronique souillée est à risque de tétanos ; le rappel suit le plan de vaccination suisse.",
+      "source": "OFSP plan de vaccination"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Débrider l'hyperkératose et les tissus dévitalisés à chaque consultation.",
+      "pourquoi": "Le cal élève la pression locale et masque une collection ; le débridement stimule la cicatrisation."
+     },
+     {
+      "categorie": "rééducation",
+      "mesure": "Poser un plâtre de contact total montant au genou en première intention.",
+      "pourquoi": "Une décharge non amovible garantit l'observance chez un patient insensible."
+     },
+     {
+      "categorie": "rééducation",
+      "mesure": "Utiliser une botte amovible puis une chaussure de type Barouk si le plâtre est contre-indiqué.",
+      "pourquoi": "Ces alternatives restent possibles en cas d'infection ou d'ischémie, avec une efficacité moindre."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer pourquoi on ne marche jamais pieds nus et comment inspecter les pieds chaque jour.",
+      "pourquoi": "Le patient ne sent pas la douleur et doit compenser par la vue."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Clarifie l'incapacité de travail et la prise en charge des soins de plaie et des chaussures thérapeutiques."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Interdire la marche pieds nus et limiter la marche prolongée.",
+      "Optimiser la glycémie et arrêter le tabac.",
+      "Chercher l'AOMI chez tous les patients."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Confirme la neuropathie, évalue pouls, IPS, pression d'orteil et exclut infection et contact osseux."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Nettoie la plaie, applique un pansement non adhérent et mesure la surface."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Débride le cal et pose le plâtre de contact total ou la botte de décharge."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Porte sa décharge en continu et revient chaque semaine."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Réévalue à 4 semaines : si surface réduite de moins de 50 %, cherche infection, ischémie, biopsie."
+      }
+     ]
+    }
+   },
+   "pronostic": "Cicatrisation généralement en 6 à 12 semaines si l'ulcère n'est ni infecté ni ischémique et si la décharge est respectée.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Surface et profondeur de la plaie",
+      "quand": "Chaque semaine",
+      "cible": "Réduction ≥ 50 % à 4 semaines"
+     },
+     {
+      "quoi": "Signes d'infection et contact osseux",
+      "quand": "À chaque consultation",
+      "cible": "Absence d'érythème, d'écoulement et d'os palpable"
+     },
+     {
+      "quoi": "État de la décharge et usure des chaussures",
+      "quand": "À chaque consultation",
+      "cible": "Décharge intacte, observance totale"
+     },
+     {
+      "quoi": "HbA1c",
+      "quand": "Tous les 3 mois",
+      "cible": "Cible individualisée avec le diabétologue"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si l'ulcère n'est pas infecté, la perfusion est adéquate et la décharge est possible ; hospitaliser si infection modérée à sévère."
+   },
+   "prevention": {
+    "primaire": "Dépister tout diabétique chaque année et éduquer aux soins des pieds.",
+    "secondaire": "Traiter les cals et lésions préulcératives et porter des chaussures adaptées.",
+    "tertiaire": "Évaluer la chirurgie de décharge en cas de récidive malgré un traitement optimal."
+   }
+  },
+  {
+   "cle": "osteite",
+   "titre": "Ostéite du pied diabétique et ulcère non cicatrisant",
+   "but": [
+    "Confirmer l'ostéite et identifier le germe par biopsie osseuse.",
+    "Éradiquer l'infection par antibiotiques ciblés ± résection osseuse.",
+    "Réévaluer l'ischémie et la décharge si la cicatrisation stagne."
+   ],
+   "moyens": {
+    "accueil": [
+     "Tester au stylet stérile et noter le contact osseux.",
+     "Demander radiographie du pied et dosage de la CRP et de la VS.",
+     "Évaluer la perfusion et les signes systémiques."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Amoxicilline-acide clavulanique (aminopénicilline + inhibiteur de β-lactamase)",
+      "posologie": "2,2 g IV 3×/j en traitement empirique initial, adapter à la culture osseuse et à la clairance.",
+      "pourquoi": "Elle offre un spectre large en attendant la biopsie osseuse ; le traitement est ensuite ciblé selon l'antibiogramme.",
+      "source": "IWGDF/IDSA 2023 ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réaliser une biopsie osseuse (culture et histologie) en cas de doute ou d'échec.",
+      "pourquoi": "Elle reste la référence diagnostique et oriente le choix antibiotique."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Envisager la résection osseuse en cas d'os nécrosé, d'abcès ou de non-réponse.",
+      "pourquoi": "Elle raccourcit l'antibiothérapie à environ 3 semaines si la marge est positive."
+     },
+     {
+      "categorie": "rééducation",
+      "mesure": "Maintenir la décharge non amovible pendant le traitement.",
+      "pourquoi": "La pression prolonge la plaie et favorise la récidive."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Aide à fixer des objectifs de soins réalistes chez un patient polymorbide non revascularisable."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Équilibrer le diabète et vérifier la fonction rénale.",
+      "Réaliser un bilan vasculaire complet.",
+      "Réunir une équipe pluridisciplinaire de pied diabétique."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Teste au stylet, demande radiographie puis IRM si la radiographie est normale et le doute persiste."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Le chirurgien ou le radiologue prélève une biopsie osseuse pour culture et histologie."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infectiologue",
+       "fait": "Choisit l'antibiotique selon le germe et fixe la durée : environ 6 semaines sans résection."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Suit CRP, plaie et imagerie ; en cas d'échec, discute résection osseuse ou revascularisation."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'ostéite sans résection nécessite environ 6 semaines d'antibiotiques ; elle augmente le risque d'amputation mineure et de récidive.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "CRP et VS",
+      "quand": "Toutes les 1 à 2 semaines",
+      "cible": "Décroissance progressive"
+     },
+     {
+      "quoi": "Plaie et contact osseux",
+      "quand": "Chaque semaine",
+      "cible": "Réduction de surface et disparition du contact osseux"
+     },
+     {
+      "quoi": "Radiographie ou IRM",
+      "quand": "À 6 semaines ou si dégradation",
+      "cible": "Stabilité ou régression des lésions osseuses"
+     }
+    ],
+    "sortie": "Biopsie obtenue ou antibiotique ciblé instauré, source contrôlée, relais oral ou OPAT organisé, CRP en baisse, consultation pied diabétique sous 1 semaine."
+   },
+   "prevention": {
+    "primaire": "Traiter tout ulcère profond sans retard pour prévenir l'extension à l'os.",
+    "secondaire": "Surveiller le contact osseux à chaque consultation chez tout patient ayant un ulcère chronique.",
+    "tertiaire": "Prévenir la récidive après résection par chaussures sur mesure et suivi rapproché."
+   }
+  },
+  {
+   "cle": "remission",
+   "titre": "Rémission et prévention des récidives (long cours)",
+   "but": [
+    "Prévenir la récidive (≈ 40 % à 1 an) par décharge permanente et suivi rapproché.",
+    "Traiter les facteurs vasculaires et métaboliques qui retardent la cicatrisation.",
+    "Maintenir l'autonomie du patient par l'éducation."
+   ],
+   "moyens": {
+    "accueil": [
+     "Classer le patient en catégorie IWGDF et fixer la fréquence de suivi.",
+     "Examiner les deux pieds, les chaussures et la peau à chaque visite."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Atorvastatine (statine)",
+      "posologie": "40 à 80 mg PO 1×/j selon le risque cardiovasculaire, adapter en cas d'insuffisance hépatique.",
+      "pourquoi": "Le patient a un risque cardiovasculaire très élevé et souvent une AOMI ; la statine réduit les événements.",
+      "source": "ESC 2024 ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Acide acétylsalicylique (antiagrégant)",
+      "posologie": "100 mg PO 1×/j en cas d'AOMI symptomatique ou revascularisée.",
+      "pourquoi": "Il réduit les événements cardiovasculaires et les complications ischémiques chez le patient avec AOMI.",
+      "source": "ESC 2024 ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Prescrire des chaussures thérapeutiques sur mesure confectionnées par un orthopédiste-bottier et les porter en permanence.",
+      "pourquoi": "Elles réduisent la pression plantaire d'environ 30 % et préviennent la récidive."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Organiser les soins podologiques réguliers (callosités, ongles).",
+      "pourquoi": "Ils éliminent les zones d'hyperpression avant l'ulcération."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Enseigner l'inspection quotidienne, l'hydratation sauf entre les orteils et la coupe droite des ongles.",
+      "pourquoi": "Le patient insensible doit compenser par la vue."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Obtenir l'arrêt du tabac et optimiser la glycémie.",
+      "pourquoi": "Le tabac et l'hyperglycémie altèrent la perfusion et la cicatrisation."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Proposer une chirurgie de décharge en cas de récidive malgré un traitement optimal.",
+      "pourquoi": "Elle corrige la déformation qui crée la pression."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Facilite la prise en charge des chaussures thérapeutiques et des soins et soutient la reprise du travail."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Contrôler pieds et chaussures à chaque visite.",
+      "Contrôler pression artérielle, lipides et HbA1c.",
+      "Rappeler au patient de consulter dès qu'il découvre une plaie."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Classe le patient en catégorie IWGDF et fixe le rythme de suivi."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "L'orthopédiste-bottier confectionne les chaussures sur mesure et vérifie leur usure."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Enseigne les soins des pieds et la thermométrie cutanée biquotidienne chez le patient à très haut risque."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Revoit le patient tous les 1 à 3 mois en catégorie 3 et réévalue la décharge."
+      }
+     ]
+    }
+   },
+   "pronostic": "Après cicatrisation, la récidive atteint environ 40 % à 1 an et 65 % à 5 ans sans prévention stricte ; la mortalité à 5 ans est d'environ 30 %.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Examen des pieds au monofilament et pouls",
+      "quand": "Annuel, 6–12 mois, 3–6 mois ou 1–3 mois selon la catégorie IWGDF",
+      "cible": "Absence de nouvelle lésion"
+     },
+     {
+      "quoi": "Température cutanée à domicile",
+      "quand": "Deux fois par jour chez le patient à très haut risque",
+      "cible": "Écart < 2 °C entre les deux pieds"
+     },
+     {
+      "quoi": "Usure des chaussures thérapeutiques",
+      "quand": "À chaque visite",
+      "cible": "Décharge efficace conservée"
+     },
+     {
+      "quoi": "HbA1c, lipides, pression artérielle",
+      "quand": "Tous les 3 à 6 mois",
+      "cible": "Cibles individualisées"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : plaie cicatrisée, chaussures sur mesure disponibles, patient éduqué, rendez-vous de suivi fixé selon la catégorie IWGDF."
+   },
+   "prevention": {
+    "primaire": "Dépistage annuel de tout diabétique au monofilament avec palpation des pouls (SSED).",
+    "secondaire": "Chaussures thérapeutiques, podologie régulière, traitement des cals.",
+    "tertiaire": "Chirurgie de décharge si récidive, suivi pluridisciplinaire et revascularisation si AOMI."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": [
+   "SCHEMA: [\"Chaussures thérapeutiques sur mesure en permanence (réduction d'environ 30 % de la pression), prescrites par le médecin et confectionnées par un orthopédiste-"
+  ]
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 8782,
+  "output_tokens": 23709,
+  "output_tokens_details": {
+   "thinking_tokens": 5526
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:34:52",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

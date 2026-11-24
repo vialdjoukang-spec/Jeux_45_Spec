@@ -1,0 +1,1518 @@
+{
+ "id": "I47.2_tachycardie_ventricu__F1_7-E13",
+ "portes": [
+  {
+   "ssp": "S2.11",
+   "nomSSP": "Palpitations",
+   "entite": "Tachycardie ventriculaire (TV) soutenue",
+   "entiteId": "S2.11-E11"
+  },
+  {
+   "ssp": "F1.7",
+   "nomSSP": "Bradycardie, tachycardie, pouls irrégulier",
+   "entite": "Tachycardie ventriculaire (TV) soutenue",
+   "entiteId": "F1.7-E13"
+  },
+  {
+   "ssp": "F2.6",
+   "nomSSP": "Électrocardiogramme anormal",
+   "entite": "Tachycardie ventriculaire soutenue (TV)",
+   "entiteId": "F2.6-E14"
+  }
+ ],
+ "entite": "Tachycardie ventriculaire monomorphe soutenue",
+ "cim10": "I47.2",
+ "ssp": {
+  "code": "F1.7",
+  "nom": "Bradycardie, tachycardie, pouls irrégulier",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient avec tachycardie (> 100/min) et suspicion de TV",
+    "i": "Le SSP F1.7 démarre devant une fréquence anormale ; la TV soutenue est une tachycardie régulière à QRS larges.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Pouls absent",
+    "i": "Le patient est en arrêt cardiaque, pas dans le cadre de ce SSP.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "RCP et défibrillation non synchronisée",
+    "i": "Renvoie au SSP Arrêt cardiorespiratoire ; algorithme du Swiss Resuscitation Council.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "Pouls présent : évaluer l'instabilité",
+    "i": "Critères : PAS < 90 mmHg, conscience altérée, douleur angineuse, œdème pulmonaire.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Instable : cardioversion synchronisée immédiate",
+    "i": "Elle ne doit pas attendre l'ECG complet, car le choc restaure rapidement le débit.",
+    "pec": "tv_instable",
+    "notion": "c7"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Stable : monitoring et ECG 12 dérivations en tachycardie",
+    "i": "L'ECG avant traitement permet de chercher dissociation AV, Brugada, Vereckei.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "QRS fins (< 120 ms)",
+    "i": "Le circuit est supraventriculaire ; ce n'est pas une TV.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Renvoi vers FA, flutter, Bouveret ou tachycardie sinusale",
+    "i": "Ces entités du même SSP se distinguent par la régularité et l'onde P.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n9",
+    "parent": "n6",
+    "t": "QRS larges (≥ 120 ms) mais irréguliers",
+    "i": "Évoque FA avec bloc de branche, FA préexcitée ou TV polymorphe, et non TV monomorphe.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "Renvoi vers FA préexcitée ou torsades de pointes",
+    "i": "Le traitement diffère : pas d'adénosine ni de vérapamil sur voie accessoire, magnésium pour torsades.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n11",
+    "parent": "n6",
+    "t": "QRS larges, réguliers, monomorphes : TV jusqu'à preuve du contraire",
+    "i": "Le risque d'une erreur thérapeutique sur TV est plus grave que celui d'une TSV traitée comme TV.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Critères de TV ou cardiopathie connue",
+    "i": "Dissociation AV, capture, fusion, concordance négative, Brugada, Vereckei ou cardiopathie suffisent.",
+    "pec": "tv_stable",
+    "notion": "c5"
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "Doute persistant sur TSV aberrante",
+    "i": "On traite comme une TV ; adénosine, vérapamil et diltiazem sont proscrits.",
+    "pec": "tv_stable",
+    "notion": "c7"
+   },
+   {
+    "id": "n14",
+    "parent": "n11",
+    "t": "Sus-décalage ST ou troponine élevée",
+    "i": "L'ischémie aiguë impose une coronarographie urgente en plus du traitement antiarythmique.",
+    "pec": "tv_stable",
+    "notion": "c4"
+   },
+   {
+    "id": "n15",
+    "parent": "n11",
+    "t": "≥ 3 épisodes en 24 h",
+    "i": "Définit l'orage rythmique, qui requiert un avis rythmologique urgent.",
+    "pec": "tv_orage",
+    "notion": "c4"
+   },
+   {
+    "id": "n16",
+    "parent": "n12",
+    "t": "Après conversion : bilan du substrat et prévention des récidives",
+    "i": "ETT, coronarographie, IRM, étude électrophysiologique, puis DAI, antiarythmique, ablation.",
+    "pec": "tv_long_cours",
+    "notion": "c8"
+   }
+  ]
+ },
+ "specialites": [
+  "CAR"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Tachycardie ventriculaire monomorphe soutenue",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définir la TV et la distinguer de ses imitateurs",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Tu poses d'abord les mots (soutenue, monomorphe, idiopathique), puis tu retiens qu'une tachycardie régulière à QRS larges se traite comme une TV tant qu'on n'a pas prouvé le contraire.",
+   "tableau": {
+    "colonnes": [
+     "Terme",
+     "Critère",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "TV (définition)",
+      "Au moins 3 complexes ventriculaires consécutifs à plus de 100/min.",
+      [
+       {
+        "t": "Origine sous le faisceau de His",
+        "i": "Le foyer ou le circuit est ventriculaire ; les QRS sont larges (≥ 120 ms) parce que la dépolarisation se propage lentement de cellule à cellule."
+       }
+      ]
+     ],
+     [
+      "TV soutenue",
+      "Dure plus de 30 secondes, ou impose un traitement plus précoce par instabilité hémodynamique.",
+      [
+       {
+        "t": "Seuil de 30 s non attendu si instable",
+        "i": "L'instabilité raccourcit le délai : on ne laisse jamais un patient en choc « atteindre 30 secondes » avant de cardioverser."
+       }
+      ]
+     ],
+     [
+      "TV monomorphe",
+      "QRS identiques d'un battement à l'autre.",
+      [
+       {
+        "t": "Circuit fixe de réentrée",
+        "i": "Une morphologie stable traduit un circuit unique autour d'une cicatrice ; elle diffère de la TV polymorphe (ischémie aiguë, QT long) dont le traitement est autre."
+       }
+      ]
+     ],
+     [
+      "TV polymorphe",
+      "QRS de morphologie variable.",
+      [
+       {
+        "t": "Chercher ischémie ou QT long",
+        "i": "Les torsades de pointes (QT long) se traitent par magnésium et arrêt des médicaments en cause, pas par amiodarone qui allonge le QT."
+       }
+      ]
+     ],
+     [
+      "TV idiopathique",
+      "Cœur structurellement sain ; chambre de chasse du VD (aspect BBG, axe inférieur) ou fascicule gauche.",
+      [
+       {
+        "t": "Ablation en 1re intention",
+        "i": "Il n'existe pas de cicatrice : le foyer est focal et curable par ablation ; le pronostic est bon et le DAI rarement nécessaire."
+       }
+      ]
+     ],
+     [
+      "Diagnostics différentiels",
+      "TSV avec bloc de branche ou aberrance, tachycardie antidromique sur voie accessoire, FA préexcitée.",
+      [
+       {
+        "t": "Présumer TV",
+        "i": "Traiter une TV comme une TSV (vérapamil, diltiazem, adénosine) peut provoquer un collapsus ; l'erreur inverse est bien moins dangereuse."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Toute tachycardie régulière à QRS larges est une TV jusqu'à preuve du contraire, surtout chez un cardiopathe.",
+    "Soutenue = plus de 30 s ou instabilité ; monomorphe = circuit unique.",
+    "Une TV peut être bien tolérée : la tolérance ne distingue pas TV et TSV."
+   ],
+   "sources": [
+    "ESC 2022 Ventricular arrhythmias and prevention of sudden cardiac death",
+    "AHA/ACC/HRS 2017 Ventricular arrhythmias"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Substrats et mécanisme : pourquoi la cicatrice fait tourner le circuit",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences"
+   ],
+   "comment": "Tu retiens que 80 % des TV monomorphes soutenues reposent sur une cardiopathie structurelle et que le mécanisme dominant est une réentrée autour d'une cicatrice avec isthme de conduction lente.",
+   "tableau": {
+    "colonnes": [
+     "Substrat",
+     "Mécanisme",
+     "Examen qui le démontre"
+    ],
+    "lignes": [
+     [
+      "Cicatrice d'infarctus",
+      "Le plus fréquent ; isthme de conduction lente dans la cicatrice entretient la réentrée.",
+      [
+       {
+        "t": "ETT, coronarographie, IRM",
+        "i": "La FEVG et l'anévrisme guident le DAI ; la coronarographie cherche une ischémie active, car une TV monomorphe sur cicatrice persiste malgré la revascularisation."
+       }
+      ]
+     ],
+     [
+      "Cardiomyopathie dilatée",
+      "Cicatrices mésomyocardiques ou fibrose diffuse créant des circuits.",
+      [
+       {
+        "t": "IRM avec rehaussement tardif",
+        "i": "Le rehaussement mésomyocardique documente la fibrose et le risque rythmique, indépendamment de la FEVG."
+       }
+      ]
+     ],
+     [
+      "Cardiomyopathie arythmogène du VD",
+      "Remplacement fibro-adipeux du VD, TV d'aspect BBG.",
+      [
+       {
+        "t": "IRM, génétique, ECG de base",
+        "i": "Le VD est l'origine, d'où la morphologie BBG ; un dépistage familial est nécessaire car la maladie est héréditaire."
+       }
+      ]
+     ],
+     [
+      "Myocardite, sarcoïdose",
+      "Inflammation puis cicatrice.",
+      [
+       {
+        "t": "IRM, TEP, biopsie selon contexte",
+        "i": "La sarcoïdose peut aussi donner un BAV : l'ECG de base et l'IRM orientent vers elle chez un patient jeune."
+       }
+      ]
+     ],
+     [
+      "Cardiopathie congénitale opérée (Fallot)",
+      "Cicatrice de ventriculotomie ou de patch.",
+      [
+       {
+        "t": "Antécédents chirurgicaux",
+        "i": "L'anamnèse de chirurgie cardiaque suffit à rendre la TV très probable devant des QRS larges."
+       }
+      ]
+     ],
+     [
+      "Cœur sain, canalopathie",
+      "Foyer ectopique ou trouble canalaire.",
+      [
+       {
+        "t": "Épreuve d'effort, Holter, génétique",
+        "i": "La TV catécholaminergique se révèle à l'effort ; la recherche génétique est ciblée sur ce profil."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "80 % des TV monomorphes soutenues surviennent sur cardiopathie structurelle.",
+    "Réentrée autour d'une cicatrice : un isthme lent entretient le circuit.",
+    "La dissociation AV existe car le sinus active les oreillettes indépendamment des ventricules."
+   ],
+   "sources": [
+    "ESC 2022 Ventricular arrhythmias",
+    "Société Suisse de Cardiologie, cours cardiologie"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen : repérer la TV, même bien tolérée",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Tu cherches la cardiopathie et les facteurs déclenchants à l'interrogatoire, puis tu cherches la dissociation AV à l'examen, sans te laisser rassurer par une bonne tolérance.",
+   "tableau": {
+    "colonnes": [
+     "Signe ou piège",
+     "Constat",
+     "Explication"
+    ],
+    "lignes": [
+     [
+      "Pouls",
+      "Rapide et régulier, 140 à 220/min.",
+      [
+       {
+        "t": "Régulier",
+        "i": "Une tachycardie irrégulière à QRS larges oriente vers FA préexcitée ou TV polymorphe, pas vers une TV monomorphe."
+       }
+      ]
+     ],
+     [
+      "Ondes a canon jugulaires irrégulières",
+      "Visibles au cou, d'intensité variable.",
+      [
+       {
+        "t": "Dissociation AV",
+        "i": "L'oreillette se contracte parfois contre une tricuspide fermée, car elle bat à son propre rythme sans lien avec les ventricules."
+       }
+      ]
+     ],
+     [
+      "B1 variable et PAS variable",
+      "Variation battement à battement.",
+      [
+       {
+        "t": "Remplissage ventriculaire variable",
+        "i": "L'intervalle AV change à chaque cycle, donc le remplissage et la pression artérielle changent aussi."
+       }
+      ]
+     ],
+     [
+      "Bonne tolérance",
+      "Patient paucisymptomatique, parfois même fonctionnel.",
+      [
+       {
+        "t": "N'exclut pas la TV",
+        "i": "Une TV lente sur cœur peu altéré peut être tolérée des heures ; conclure à une TSV expose à une erreur thérapeutique grave."
+       }
+      ]
+     ],
+     [
+      "Manœuvres vagales",
+      "Sans effet.",
+      [
+       {
+        "t": "N'interrompent pas une TV",
+        "i": "Le circuit est ventriculaire et ne dépend pas du nœud AV ; ces manœuvres ne doivent jamais retarder la prise en charge d'un patient instable."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Interroge : infarctus, insuffisance cardiaque, chirurgie cardiaque, DAI, mort subite familiale avant 50 ans.",
+    "Cherche les précipitants : médicaments allongeant le QT, antiarythmiques de classe I, digoxine, diurétiques hypokaliémiants, cocaïne.",
+    "Recherche les signes de gravité : hypotension, marbrures, conscience altérée, râles, turgescence jugulaire."
+   ],
+   "sources": [
+    "ESC 2022 Ventricular arrhythmias",
+    "AHA/ACC/HRS 2017 Ventricular arrhythmias"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Signes d'alarme et situations qui changent la conduite",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Tu définis l'instabilité par quatre critères et tu te demandes ensuite si le patient a un pouls, une ischémie aiguë, un imitateur métabolique ou un orage rythmique.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Conduite",
+     "Raison"
+    ],
+    "lignes": [
+     [
+      "Instabilité : PAS < 90 mmHg, conscience altérée, angor, œdème pulmonaire",
+      "Cardioversion synchronisée immédiate",
+      [
+       {
+        "t": "Ne pas tenter de médicament d'abord",
+        "i": "Les antiarythmiques sont lents et hypotenseurs ; le choc restaure le rythme en secondes et évite le choc cardiogénique."
+       }
+      ]
+     ],
+     [
+      "TV sans pouls",
+      "RCP et défibrillation non synchronisée (algorithme SRC)",
+      [
+       {
+        "t": "Traitée comme un arrêt cardiaque",
+        "i": "Sans débit, la synchronisation retarde le choc et n'apporte rien ; le risque de FV est déjà réalisé."
+       }
+      ]
+     ],
+     [
+      "Sus-décalage de ST ou troponine élevée",
+      "Coronarographie urgente",
+      [
+       {
+        "t": "Ischémie aiguë associée",
+        "i": "Traiter l'ischémie est nécessaire, mais la TV monomorphe sur cicatrice reste possible sans ischémie active."
+       }
+      ]
+     ],
+     [
+      "Hyperkaliémie, intoxication par classe I ou tricycliques",
+      "Corriger la cause (calcium IV, bicarbonate)",
+      [
+       {
+        "t": "QRS larges simulant une TV",
+        "i": "Le blocage des canaux sodiques élargit le QRS ; un antiarythmique de plus aggraverait la situation."
+       }
+      ]
+     ],
+     [
+      "≥ 3 épisodes soutenus en 24 h",
+      "Avis rythmologique urgent",
+      [
+       {
+        "t": "Orage rythmique",
+        "i": "Les récidives après cardioversion exigent sédation, bêtabloquant IV et ablation urgente, pas des chocs répétés."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'instabilité justifie le choc sans ECG complet.",
+    "Le pouls absent bascule en réanimation.",
+    "Pense toujours aux imitateurs métaboliques et toxiques."
+   ],
+   "sources": [
+    "Swiss Resuscitation Council 2021",
+    "ESC 2022 Ventricular arrhythmias"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "ECG : critères de TV et pièges",
+   "rubriques": [
+    "workupGoldStandard",
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu enregistres un ECG 12 dérivations en tachycardie si le patient est stable, puis tu cherches les signes pathognomoniques avant les algorithmes de morphologie.",
+   "tableau": {
+    "colonnes": [
+     "Critère",
+     "Ce qu'il montre",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Dissociation AV, capture, fusion",
+      "Pathognomonique d'une TV.",
+      [
+       {
+        "t": "Absente dans 25 à 30 % des TV",
+        "i": "Une conduction rétrograde 1:1 vers l'oreillette masque la dissociation, donc son absence n'exclut pas la TV."
+       }
+      ]
+     ],
+     [
+      "Algorithme de Brugada",
+      "TV si pas de RS en précordiales, RS > 100 ms ou dissociation AV.",
+      [
+       {
+        "t": "Sensibilité imparfaite",
+        "i": "Il s'applique en plusieurs étapes ; en cas de doute, on traite comme une TV, surtout chez un cardiopathe."
+       }
+      ]
+     ],
+     [
+      "Critère de Vereckei en aVR",
+      "TV si R initial, r ou q > 40 ms, encoche, ou rapport vi/vt ≤ 1.",
+      [
+       {
+        "t": "Dérivation unique",
+        "i": "Il est plus rapide que Brugada mais ne remplace pas l'analyse de la dissociation AV."
+       }
+      ]
+     ],
+     [
+      "Concordance précordiale",
+      "Négative (QRS négatifs de V1 à V6) évoque une TV.",
+      [
+       {
+        "t": "Positive : TV ou antidromique",
+        "i": "Une concordance positive peut venir d'une voie accessoire postérieure ; la voie accessoire explique pourquoi ce critère seul ne tranche pas."
+       }
+      ]
+     ],
+     [
+      "Morphologie BBD ou BBG",
+      "BBD : origine VG ; BBG : VD ou septum.",
+      [
+       {
+        "t": "Oriente l'origine, pas le diagnostic",
+        "i": "Cette morphologie localise le foyer pour l'ablation ; elle ne distingue pas TV et TSV aberrante."
+       }
+      ]
+     ],
+     [
+      "QRS identiques à un bloc de branche connu",
+      "Oriente vers une TSV avec aberrance.",
+      [
+       {
+        "t": "Compare avec l'ECG de base",
+        "i": "Un QRS strictement identique à celui du bloc connu suggère que la conduction passe par le nœud AV."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Chez un cardiopathe, une tachycardie régulière à QRS larges est une TV dans la très grande majorité des cas, même sans critère formel.",
+    "L'ECG ne retarde jamais la cardioversion d'un patient instable."
+   ],
+   "sources": [
+    "Brugada P, Circulation 1991",
+    "Vereckei A, Heart Rhythm 2008",
+    "ESC 2022 Ventricular arrhythmias"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Bilan étiologique et déclenchants corrigeables",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Tu cherches les déclencheurs corrigeables (K+, Mg2+, ischémie), puis tu documentes le substrat pour décider du DAI et de l'ablation.",
+   "tableau": {
+    "colonnes": [
+     "Examen",
+     "Apport",
+     "Moment"
+    ],
+    "lignes": [
+     [
+      "Biologie",
+      "K+, Mg2+, Ca2+, créatinine, troponine, TSH.",
+      [
+       {
+        "t": "Déclencheurs corrigeables",
+        "i": "Hypokaliémie, hypomagnésémie et ischémie favorisent la TV ; leur correction est obligatoire, mais elle ne dispense pas du bilan du substrat."
+       }
+      ]
+     ],
+     [
+      "ETT",
+      "FEVG, cicatrice ou anévrisme, VD, valvulopathies.",
+      [
+       {
+        "t": "Dès la stabilisation",
+        "i": "La FEVG conditionne l'indication du DAI (seuil de 40 % après TV bien tolérée sur cardiopathie ischémique)."
+       }
+      ]
+     ],
+     [
+      "Coronarographie",
+      "Sténose accessible à la revascularisation.",
+      [
+       {
+        "t": "Urgente si ischémie aiguë",
+        "i": "Une revascularisation ne supprime pas le substrat cicatriciel, mais elle traite une ischémie déclenchante."
+       }
+      ]
+     ],
+     [
+      "IRM cardiaque avec gadolinium",
+      "Cicatrice, myocardite, sarcoïdose, DAVD.",
+      [
+       {
+        "t": "Après stabilisation",
+        "i": "Elle demande un patient stable et prépare l'ablation en localisant la cicatrice."
+       }
+      ]
+     ],
+     [
+      "Étude électrophysiologique",
+      "Mécanisme, cartographie, stimulation programmée.",
+      [
+       {
+        "t": "Prépare l'ablation",
+        "i": "Elle confirme le circuit et permet de le détruire dans le même temps."
+       }
+      ]
+     ],
+     [
+      "Épreuve d'effort, Holter, génétique",
+      "TV catécholaminergique, cardiomyopathie héréditaire, canalopathie.",
+      [
+       {
+        "t": "Si cœur apparemment sain",
+        "i": "Elle cible le patient jeune sans cardiopathie évidente, pour proposer un dépistage familial."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le bilan ne retarde jamais le traitement d'un patient instable.",
+    "L'ECG avant tout traitement est une règle chez le patient stable."
+   ],
+   "sources": [
+    "ESC 2022 Ventricular arrhythmias",
+    "AHA/ACC/HRS 2017 Ventricular arrhythmias"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge aiguë : choc ou médicament selon la tolérance",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Tu choisis d'abord selon le pouls et l'instabilité : choc synchronisé si instable, monitoring puis amiodarone si stable, et jamais de vérapamil devant un doute.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "a1",
+     "parent": null,
+     "t": "Tachycardie régulière à QRS larges",
+     "i": "Elle est présumée TV jusqu'à preuve du contraire ; la première question porte sur le pouls et l'instabilité.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "a2",
+     "parent": "a1",
+     "t": "Pouls absent : RCP et défibrillation non synchronisée",
+     "i": "Une TV sans pouls est un arrêt cardiaque ; la défibrillation suit l'algorithme du Swiss Resuscitation Council.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "a3",
+     "parent": "a1",
+     "t": "Pouls présent et instable : cardioversion synchronisée sous sédation brève",
+     "i": "Instabilité = PAS < 90 mmHg, conscience altérée, angor ou œdème pulmonaire ; première énergie biphasique de 120 à 150 J, puis augmentation.",
+     "pec": "tv_instable",
+     "notion": "c4"
+    },
+    {
+     "id": "a4",
+     "parent": "a3",
+     "t": "Après 3 chocs inefficaces : amiodarone 300 mg IV, nouveau choc",
+     "i": "L'amiodarone augmente la réponse au choc ; elle se perfuse en 10 à 20 min, puis 900 mg en 24 h.",
+     "pec": "tv_instable",
+     "notion": "c7"
+    },
+    {
+     "id": "a5",
+     "parent": "a1",
+     "t": "Pouls présent et stable : monitoring, voie veineuse, ECG 12 dérivations, défibrillateur à portée",
+     "i": "La stabilité peut s'effondrer ; tout traitement médicamenteux se donne sous monitoring avec choc prêt.",
+     "pec": "tv_stable",
+     "notion": "c5"
+    },
+    {
+     "id": "a6",
+     "parent": "a5",
+     "t": "Amiodarone 300 mg IV en 20 à 60 min puis 900 mg/24 h",
+     "i": "Elle ne dépend pas de la FEVG et reste utilisable en insuffisance cardiaque ; se dilue uniquement dans le glucose 5 %.",
+     "pec": "tv_stable",
+     "notion": "c7"
+    },
+    {
+     "id": "a7",
+     "parent": "a5",
+     "t": "Procaïnamide si TV bien tolérée sans insuffisance cardiaque sévère ni infarctus aigu",
+     "i": "Elle est efficace mais hypotensive et pro-arythmique ; peu disponible en Suisse, la lidocaïne étant moins efficace sauf en contexte ischémique.",
+     "pec": "tv_stable",
+     "notion": "c7"
+    },
+    {
+     "id": "a8",
+     "parent": "a5",
+     "t": "Ne jamais donner vérapamil, diltiazem ni adénosine en cas de doute",
+     "i": "Ils peuvent provoquer un collapsus sur TV ; la TV fasciculaire est l'exception, jamais à traiter sans avis spécialisé.",
+     "pec": null,
+     "notion": "c7"
+    },
+    {
+     "id": "a9",
+     "parent": "a5",
+     "t": "Corriger K+ et Mg2+ et traiter l'ischémie",
+     "i": "Ces déclencheurs entretiennent la TV ; une ischémie aiguë impose une coronarographie urgente.",
+     "pec": "tv_stable",
+     "notion": "c6"
+    },
+    {
+     "id": "a10",
+     "parent": "a5",
+     "t": "≥ 3 épisodes en 24 h : orage rythmique",
+     "i": "Il faut un avis rythmologique urgent, bêtabloquant IV, sédation et ablation, car les chocs répétés sont inefficaces seuls.",
+     "pec": "tv_orage",
+     "notion": "c4"
+    }
+   ],
+   "points": [
+    "Les manœuvres vagales ne sont pas un traitement de la TV.",
+    "L'amiodarone IV peut causer hypotension, bradycardie et phlébite en veine périphérique."
+   ],
+   "sources": [
+    "Swiss Resuscitation Council 2021",
+    "ESC 2022 Ventricular arrhythmias",
+    "AIPS Swissmedic amiodarone IV"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Traitement au long cours : DAI, antiarythmiques, ablation",
+   "rubriques": [
+    "chronicManagement"
+   ],
+   "comment": "Tu décides d'abord du DAI selon la tolérance, la FEVG et la cause réversible, puis tu ajoutes bêtabloquant, amiodarone ou ablation pour réduire les chocs.",
+   "tableau": {
+    "colonnes": [
+     "Mesure",
+     "Indication",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "DAI prévention secondaire",
+      "TV ou FV mal tolérée sans cause réversible, espérance de vie > 1 an.",
+      [
+       {
+        "t": "Réduit la mortalité (AVID)",
+        "i": "Le DAI traite l'arrêt par choc et l'emporte sur les antiarythmiques seuls ; une cause réversible (ischémie aiguë, trouble ionique) supprime l'indication."
+       }
+      ]
+     ],
+     [
+      "DAI après TV bien tolérée",
+      "Cardiopathie ischémique chronique avec FEVG ≤ 40 %.",
+      [
+       {
+        "t": "Tolérance ne protège pas",
+        "i": "La bonne tolérance n'évite pas la dégénérescence en FV quand la FEVG est basse."
+       }
+      ]
+     ],
+     [
+      "Type de DAI",
+      "Stimulation anti-tachycardique nécessaire pour la TV monomorphe.",
+      [
+       {
+        "t": "DAI sous-cutané inadapté",
+        "i": "Il ne délivre pas de stimulation antitachycardique, qui interrompt souvent la TV sans choc."
+       }
+      ]
+     ],
+     [
+      "Amiodarone + bêtabloquant",
+      "Réduction des chocs du DAI.",
+      [
+       {
+        "t": "Supérieur au bêtabloquant seul (OPTIC)",
+        "i": "L'association diminue davantage les chocs que le bêtabloquant seul, mais l'amiodarone a une toxicité d'organe à surveiller."
+       }
+      ]
+     ],
+     [
+      "Ablation par cathéter",
+      "Chocs récidivants malgré antiarythmiques ; 1re intention si TV idiopathique.",
+      [
+       {
+        "t": "Détruit l'isthme ou le foyer",
+        "i": "Elle supprime le circuit mais ne remplace pas le DAI quand la cardiopathie est sévère."
+       }
+      ]
+     ],
+     [
+      "Classe IC (flécaïnide, propafénone)",
+      "Contre-indiquée en cardiopathie ischémique ou structurelle.",
+      [
+       {
+        "t": "Surmortalité (CAST)",
+        "i": "Ces médicaments bloquent le sodium et favorisent la réentrée sur cicatrice."
+       }
+      ]
+     ],
+     [
+      "Revascularisation et traitement de l'insuffisance cardiaque",
+      "Ischémie active, insuffisance cardiaque à optimiser.",
+      [
+       {
+        "t": "Ne supprime pas la cicatrice",
+        "i": "Revasculariser traite une ischémie déclenchante, mais la TV monomorphe sur cicatrice persiste."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le DAI est la seule mesure qui protège de la mort subite.",
+    "Les antiarythmiques et l'ablation réduisent les récidives et les chocs."
+   ],
+   "sources": [
+    "ESC 2022 Ventricular arrhythmias",
+    "AVID 1997",
+    "OPTIC 2006",
+    "CAST 1989"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Complications, surveillance, pronostic et suivi",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Tu surveilles le rythme en soins intensifs, tu anticipes les effets de l'amiodarone et du DAI, et tu organises le suivi, la conduite automobile et le dépistage familial.",
+   "tableau": {
+    "colonnes": [
+     "Complication",
+     "Mécanisme",
+     "Prévention ou surveillance"
+    ],
+    "lignes": [
+     [
+      "FV et mort subite",
+      "Dégénérescence d'une TV rapide ou sur FEVG altérée.",
+      [
+       {
+        "t": "Monitoring, DAI",
+        "i": "Le monitoring permet le choc immédiat ; le DAI protège après la sortie."
+       }
+      ]
+     ],
+     [
+      "Choc cardiogénique, œdème pulmonaire",
+      "Perte du remplissage et baisse du débit.",
+      [
+       {
+        "t": "Cardioversion précoce",
+        "i": "Le choc restaure rapidement le débit ; un délai médicamenteux l'aggrave."
+       }
+      ]
+     ],
+     [
+      "Tachycardiomyopathie",
+      "TV incessante qui dégrade la FEVG.",
+      [
+       {
+        "t": "Ablation précoce",
+        "i": "Elle supprime la cause ; la FEVG récupère souvent, ce qui modifie l'indication du DAI."
+       }
+      ]
+     ],
+     [
+      "Effets de l'amiodarone IV",
+      "Hypotension, bradycardie, phlébite en veine périphérique.",
+      [
+       {
+        "t": "Voie centrale si possible",
+        "i": "La concentration élevée irrite la veine périphérique ; le débit de perfusion limite l'hypotension."
+       }
+      ]
+     ],
+     [
+      "Effets de l'amiodarone au long cours",
+      "Dysthyroïdie, fibrose pulmonaire, hépatotoxicité, dépôts cornéens, photosensibilité, QT long.",
+      [
+       {
+        "t": "TSH, transaminases, radiographie thoracique, ECG",
+        "i": "Le contrôle régulier détecte l'atteinte avant les symptômes ; examen ophtalmologique si symptômes visuels."
+       }
+      ]
+     ],
+     [
+      "Complications du DAI",
+      "Chocs inappropriés, infection du boîtier, détresse psychologique.",
+      [
+       {
+        "t": "Contrôle tous les 3 à 6 mois",
+        "i": "L'interrogation vérifie thérapies délivrées, batterie et sondes ; un choc approprié signe un mauvais pronostic."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le risque de récidive reste élevé sans DAI et sans traitement de la cardiopathie ; une FEVG basse aggrave le pronostic.",
+    "Le patient reste sous monitoring continu en soins intensifs ou continus jusqu'au contrôle durable du rythme.",
+    "Contrôle K+, Mg2+ et QT et répète l'ECG 12 dérivations après la conversion.",
+    "Prévois cardiologue et rythmologue en centre d'électrophysiologie, réadaptation cardiaque remboursée par la LAMal.",
+    "Les recommandations européennes imposent 3 mois sans conduite privée après DAI en prévention secondaire ; les conducteurs professionnels sont inaptes.",
+    "Propose un dépistage familial et un conseil génétique si cardiomyopathie héréditaire ou canalopathie."
+   ],
+   "sources": [
+    "ESC 2022 Ventricular arrhythmias",
+    "AIPS Swissmedic amiodarone",
+    "LAMal, réadaptation cardiaque"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "tv_instable",
+   "titre": "TV instable : cardioversion synchronisée immédiate",
+   "but": [
+    "Restaurer rapidement un rythme sinusal et une perfusion efficace.",
+    "Éviter la dégénérescence en fibrillation ventriculaire.",
+    "Identifier et traiter la cause déclenchante."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installer le patient en salle de réanimation avec monitoring ECG, SpO2 et tension artérielle.",
+     "Poser une voie veineuse et placer les patchs de défibrillation.",
+     "Donner de l'oxygène si l'hypoxémie est avérée.",
+     "Préparer le chariot de réanimation et l'équipe de sédation."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Sédation brève (propofol ou étomidate, hypnotique)",
+      "posologie": "IV, bolus fractionnés titrés à l'effet sous monitoring, selon l'AIPS ; analgésie associée si possible.",
+      "pourquoi": "Elle évite la douleur du choc chez un patient conscient, sans retarder la cardioversion.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Amiodarone (antiarythmique de classe III)",
+      "posologie": "Après 3 chocs inefficaces : 300 mg IV en 10 à 20 min, nouveau choc, puis 900 mg en 24 h ; dilution uniquement dans glucose 5 %.",
+      "pourquoi": "Elle améliore la réponse aux chocs répétés et prévient la récidive immédiate.",
+      "source": "AIPS Swissmedic ; Swiss Resuscitation Council 2021"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Délivrer un choc électrique synchronisé biphasique de 120 à 150 J, puis augmenter l'énergie si échec.",
+      "pourquoi": "La synchronisation sur le QRS évite le choc sur l'onde T, qui provoquerait une FV."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Passer en défibrillation non synchronisée si le pouls disparaît.",
+      "pourquoi": "Une TV sans pouls est un arrêt cardiaque et suit l'algorithme de réanimation."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveiller conscience, pression artérielle et rythme en continu après le choc.",
+      "pourquoi": "La récidive est fréquente et nécessite une réponse immédiate."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'urgence, informe ensuite le patient et ses proches, et obtient le consentement différé."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Ne pas retarder le choc par un ECG complet ni par un médicament.",
+      "Ne pas utiliser les manœuvres vagales.",
+      "Rechercher un SCA, un trouble ionique ou une intoxication.",
+      "Transférer en soins intensifs cardiologiques après conversion."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Reconnaît l'instabilité, déclare l'urgence vitale et dirige l'équipe."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Branche le monitoring, pose la voie veineuse et colle les patchs de défibrillation."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Assure les voies aériennes et la sédation brève."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Délivre le choc synchronisé de 120 à 150 J après avoir vérifié la fonction SYNC."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Augmente l'énergie si échec, puis passe à l'amiodarone après 3 chocs inefficaces."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Enregistre un ECG 12 dérivations après conversion et prélève K+, Mg2+, troponine."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le choc restaure le rythme sinusal dans la grande majorité des TV monomorphes ; le risque de récidive reste élevé sans traitement du substrat.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Rythme et tension artérielle",
+      "quand": "En continu en soins intensifs",
+      "cible": "Rythme sinusal, PAS ≥ 90 mmHg."
+     },
+     {
+      "quoi": "K+ et Mg2+",
+      "quand": "À l'arrivée puis régulièrement",
+      "cible": "Normalisés ; K+ ≥ 4,0 mmol/l."
+     },
+     {
+      "quoi": "ECG 12 dérivations post-conversion",
+      "quand": "Immédiatement après le choc",
+      "cible": "Absence d'ischémie aiguë, QT normal."
+     }
+    ],
+    "sortie": "Pas de sortie directe : transfert en soins intensifs cardiologiques ; sortie hospitalière seulement après contrôle durable du rythme et cause établie."
+   },
+   "prevention": {
+    "primaire": "Traiter la cardiopathie ischémique et l'insuffisance cardiaque, corriger K+ et Mg2+, éviter les médicaments allongeant le QT.",
+    "secondaire": "Évaluer le DAI, l'ablation et le traitement antiarythmique après la première TV.",
+    "tertiaire": "Réadaptation cardiaque et soutien psychologique après le choc ou le DAI."
+   }
+  },
+  {
+   "cle": "tv_stable",
+   "titre": "TV monomorphe bien tolérée",
+   "but": [
+    "Convertir la TV sans provoquer de collapsus.",
+    "Corriger les déclencheurs et traiter une ischémie aiguë.",
+    "Préparer le bilan du substrat."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installer le patient sous monitoring avec voie veineuse.",
+     "Enregistrer l'ECG 12 dérivations avant tout médicament.",
+     "Garder le défibrillateur à portée de main.",
+     "Prélever K+, Mg2+, Ca2+, créatinine, troponine, TSH."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Amiodarone (antiarythmique de classe III)",
+      "posologie": "300 mg IV en 20 à 60 min, puis 900 mg en 24 h ; dilution uniquement dans glucose 5 % ; voie centrale si possible.",
+      "pourquoi": "Elle reste utilisable en insuffisance cardiaque et en post-infarctus, contrairement au procaïnamide.",
+      "source": "AIPS Swissmedic ; ESC 2022"
+     },
+     {
+      "molecule": "Procaïnamide (classe IA), peu ou pas disponible en Suisse",
+      "posologie": "10 mg/kg IV en 20 min, seulement sans insuffisance cardiaque sévère ni infarctus aigu.",
+      "pourquoi": "Elle convertit efficacement mais est hypotensive et pro-arythmique ; l'amiodarone est donc préférée en Suisse.",
+      "source": "ESC 2022"
+     },
+     {
+      "molecule": "Lidocaïne (classe IB)",
+      "posologie": "1 à 1,5 mg/kg IV en bolus, selon contexte ischémique.",
+      "pourquoi": "Elle est moins efficace en général, mais utile quand une ischémie entretient la TV.",
+      "source": "AHA/ACC/HRS 2017"
+     },
+     {
+      "molecule": "Sulfate de magnésium",
+      "posologie": "2 g IV en 10 à 20 min si hypomagnésémie.",
+      "pourquoi": "L'hypomagnésémie entretient la TV ; la substitution est sûre et rapide.",
+      "source": "ESC 2022"
+     },
+     {
+      "molecule": "Chlorure de potassium",
+      "posologie": "Substitution IV sous monitoring pour viser K+ 4,0 à 5,0 mmol/l.",
+      "pourquoi": "L'hypokaliémie favorise les récidives ; une correction trop rapide expose à l'hyperkaliémie.",
+      "source": "ESC 2022"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Cardioverser sous sédation si la tolérance se dégrade ou si les médicaments échouent.",
+      "pourquoi": "Le choc reste le traitement le plus efficace et le plus sûr en cas d'échec."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Organiser une coronarographie urgente en cas de sus-décalage de ST ou de troponine élevée.",
+      "pourquoi": "Elle traite une ischémie aiguë qui entretient les arythmies."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Ne jamais donner vérapamil, diltiazem ni adénosine en cas de doute sur la nature de la tachycardie.",
+      "pourquoi": "Ces médicaments peuvent provoquer un collapsus sur TV."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Informe le patient du diagnostic, des options et des restrictions de conduite."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Garder le défibrillateur prêt tant que la TV persiste.",
+      "Ne pas administrer plusieurs antiarythmiques de classes différentes en même temps.",
+      "Rechercher des facteurs déclenchants toxiques ou médicamenteux."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Vérifie la stabilité, réalise l'ECG 12 dérivations et pose la suspicion de TV."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Branche le monitoring, pose la voie veineuse et prélève K+, Mg2+, troponine."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Administre amiodarone 300 mg en 20 à 60 min, puis 900 mg sur 24 h."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Corrige K+ et Mg2+ et traite l'ischémie aiguë."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Le cardiologue-rythmologue guide le bilan et l'éventuel DAI ou ablation."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La conversion est fréquente, mais le risque de récidive reste élevé sans traitement du substrat ; la FEVG conditionne le pronostic.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Rythme, tension artérielle",
+      "quand": "En continu en soins intensifs ou continus",
+      "cible": "Rythme sinusal stable, PAS ≥ 90 mmHg."
+     },
+     {
+      "quoi": "K+, Mg2+, QT",
+      "quand": "Régulièrement",
+      "cible": "K+ ≥ 4,0 mmol/l ; QT non allongé."
+     },
+     {
+      "quoi": "Site de perfusion d'amiodarone",
+      "quand": "Toutes les heures",
+      "cible": "Absence de phlébite."
+     }
+    ],
+    "sortie": "Sortie après contrôle durable du rythme, cause établie, bilan du substrat réalisé et stratégie DAI ou ablation décidée."
+   },
+   "prevention": {
+    "primaire": "Corriger les troubles ioniques et éviter les médicaments pro-arythmiques.",
+    "secondaire": "Planifier DAI, ablation et traitement de la cardiopathie.",
+    "tertiaire": "Suivre régulièrement en rythmologie et éduquer le patient sur les symptômes d'alarme."
+   }
+  },
+  {
+   "cle": "tv_orage",
+   "titre": "Orage rythmique",
+   "but": [
+    "Stopper les récidives de TV soutenue.",
+    "Réduire le tonus sympathique.",
+    "Traiter le substrat par ablation urgente."
+   ],
+   "moyens": {
+    "accueil": [
+     "Admettre en soins intensifs avec monitoring continu.",
+     "Prévenir un rythmologue et un centre d'électrophysiologie.",
+     "Contrôler K+, Mg2+, troponine et la fonction thyroïdienne."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Bêtabloquant IV (par exemple métoprolol, classe II)",
+      "posologie": "Titrée sous monitoring selon l'AIPS ; contre-indiqué en choc cardiogénique.",
+      "pourquoi": "L'orage s'accompagne d'une activation sympathique, que le bêtabloquant réduit.",
+      "source": "AIPS Swissmedic ; ESC 2022"
+     },
+     {
+      "molecule": "Amiodarone (classe III)",
+      "posologie": "300 mg IV puis 900 mg en 24 h, dilution dans glucose 5 %.",
+      "pourquoi": "Elle réduit les récidives et se combine au bêtabloquant.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Sédation profonde",
+      "posologie": "Selon protocole de soins intensifs, titrée à l'effet.",
+      "pourquoi": "Elle diminue le tonus sympathique et facilite la ventilation et l'ablation.",
+      "source": "ESC 2022"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réaliser une ablation par cathéter urgente.",
+      "pourquoi": "Elle détruit le circuit et réduit les récidives quand les médicaments échouent."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveiller les chocs du DAI et le support hémodynamique.",
+      "pourquoi": "Les chocs répétés dégradent la fonction ventriculaire et le moral du patient."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Discute les chocs répétés et les objectifs de soins chez un patient très altéré."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Éviter les chocs répétés sans traitement de fond.",
+      "Corriger tous les déclencheurs.",
+      "Envisager un transfert en centre d'électrophysiologie."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Reconnaît l'orage (≥ 3 épisodes en 24 h) et appelle le rythmologue."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Surveille le rythme en continu et prépare le défibrillateur."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Débute bêtabloquant IV, amiodarone et sédation profonde."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Le rythmologue réalise l'ablation urgente."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "L'orage est un marqueur de mauvais pronostic et de mortalité accrue ; l'ablation réduit les récidives.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Épisodes de TV et chocs",
+      "quand": "En continu",
+      "cible": "Aucun épisode soutenu."
+     },
+     {
+      "quoi": "Fonction ventriculaire (ETT)",
+      "quand": "Pendant l'hospitalisation",
+      "cible": "FEVG stable ou en amélioration."
+     }
+    ],
+    "sortie": "Pas de sortie tant que persistent des récidives ; sortie après contrôle durable et stratégie ablation ou DAI définie."
+   },
+   "prevention": {
+    "primaire": "Traiter précocement la cardiopathie et corriger les déclencheurs.",
+    "secondaire": "Programmer ablation et optimiser antiarythmiques et bêtabloquant.",
+    "tertiaire": "Prévoir suivi rapproché du DAI et soutien psychologique."
+   }
+  },
+  {
+   "cle": "tv_long_cours",
+   "titre": "Prévention des récidives et suivi au long cours",
+   "but": [
+    "Prévenir la mort subite par un DAI quand il est indiqué.",
+    "Réduire les récidives et les chocs.",
+    "Traiter la cardiopathie et organiser le suivi."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer le diagnostic, les risques et les restrictions de conduite.",
+     "Planifier le bilan du substrat : ETT, coronarographie, IRM, étude électrophysiologique.",
+     "Associer le cardiologue référent et le rythmologue."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Bêtabloquant (par exemple bisoprolol, classe II)",
+      "posologie": "Débuter à 1,25 mg/j et titrer jusqu'à 10 mg/j selon fréquence et tension, selon l'AIPS.",
+      "pourquoi": "Il réduit les arythmies et traite l'insuffisance cardiaque ; il constitue la base du traitement.",
+      "source": "AIPS Swissmedic ; ESC 2022"
+     },
+     {
+      "molecule": "Amiodarone orale (classe III)",
+      "posologie": "Attaque 600 mg/j (3 × 200 mg) pendant 8 à 10 jours, puis entretien à la dose minimale efficace, soit 100 à 200 mg/j.",
+      "pourquoi": "Associée au bêtabloquant, elle réduit davantage les chocs que le bêtabloquant seul (OPTIC).",
+      "source": "AIPS Swissmedic ; OPTIC 2006"
+     },
+     {
+      "molecule": "Flécaïnide, propafénone (classe IC) : à ne pas prescrire",
+      "posologie": "Contre-indiqués en cardiopathie ischémique ou structurelle.",
+      "pourquoi": "Ils augmentent la mortalité après infarctus (CAST) et favorisent la réentrée sur cicatrice.",
+      "source": "AIPS Swissmedic ; CAST 1989"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Implanter un DAI avec stimulation anti-tachycardique, et non un DAI sous-cutané.",
+      "pourquoi": "La stimulation antitachycardique interrompt souvent la TV monomorphe sans choc."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Proposer une ablation par cathéter en cas de chocs récidivants ou de TV idiopathique.",
+      "pourquoi": "Elle supprime le circuit ; elle est de 1re intention quand le cœur est sain."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Revasculariser une ischémie active et optimiser le traitement de l'insuffisance cardiaque.",
+      "pourquoi": "Cela traite un déclencheur, mais ne supprime pas le substrat cicatriciel."
+     },
+     {
+      "categorie": "rééducation",
+      "mesure": "Prescrire une réadaptation cardiaque.",
+      "pourquoi": "Elle améliore la capacité fonctionnelle ; elle est remboursée par la LAMal."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer la conduite à tenir devant un choc du DAI et les restrictions de conduite.",
+      "pourquoi": "Le patient doit savoir quand consulter et quand il peut conduire."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Encadre l'aptitude à la conduite : 3 mois sans conduite privée après DAI en prévention secondaire, inaptitude professionnelle."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Organise l'arrêt de travail, la réadaptation remboursée par la LAMal et l'évaluation de l'AI si besoin."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Discute la désactivation des chocs du DAI en fin de vie."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Évaluer l'indication du DAI selon la tolérance, la FEVG et la cause réversible.",
+      "Proposer un dépistage familial si cardiomyopathie héréditaire ou canalopathie.",
+      "Surveiller la toxicité de l'amiodarone."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Établit la cause et exclut une cause réversible avant d'indiquer le DAI."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "spécialiste",
+       "fait": "Le rythmologue réalise l'étude électrophysiologique et propose l'ablation."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Implante le DAI et programme la stimulation antitachycardique."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Introduit bêtabloquant et amiodarone, et optimise l'insuffisance cardiaque."
+      },
+      {
+       "temps": "puis",
+       "qui": "assistant·e social·e",
+       "fait": "Organise l'arrêt de travail, la réadaptation cardiaque et les démarches d'assurance."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Se présente aux contrôles du DAI et respecte les restrictions de conduite."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le DAI réduit la mortalité totale par rapport aux antiarythmiques seuls (AVID) ; une FEVG basse et des chocs appropriés aggravent le pronostic.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Interrogation du DAI",
+      "quand": "Tous les 3 à 6 mois, télémonitoring possible",
+      "cible": "Batterie et sondes normales, thérapies appropriées."
+     },
+     {
+      "quoi": "TSH et transaminases sous amiodarone",
+      "quand": "Régulièrement",
+      "cible": "Valeurs normales."
+     },
+     {
+      "quoi": "Radiographie thoracique et ECG sous amiodarone",
+      "quand": "Régulièrement",
+      "cible": "Pas de fibrose, QT non allongé."
+     },
+     {
+      "quoi": "Examen ophtalmologique",
+      "quand": "En cas de symptômes visuels",
+      "cible": "Pas de neuropathie optique."
+     },
+     {
+      "quoi": "FEVG (ETT)",
+      "quand": "Selon évolution",
+      "cible": "Stable ou en amélioration."
+     }
+    ],
+    "sortie": "Sortie après contrôle durable du rythme, DAI implanté ou stratégie décidée, éducation faite et suivi rythmologique programmé."
+   },
+   "prevention": {
+    "primaire": "Traiter l'infarctus et l'insuffisance cardiaque pour réduire le risque de TV.",
+    "secondaire": "DAI, antiarythmique, ablation et traitement de la cardiopathie après la première TV.",
+    "tertiaire": "Réadaptation cardiaque, soutien psychologique, dépistage familial et suivi du DAI."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": [
+   "SCHEMA: ['Le risque de récidive reste élevé sans DAI et sans traitement de la cardiopathie ; une FEVG basse aggrave le pronostic.', \"Le patient reste sous monitoring co"
+  ]
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7763,
+  "output_tokens": 27976,
+  "output_tokens_details": {
+   "thinking_tokens": 8947
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:34:55",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

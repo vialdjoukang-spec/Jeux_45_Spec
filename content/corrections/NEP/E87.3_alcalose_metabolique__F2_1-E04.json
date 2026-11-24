@@ -1,0 +1,1027 @@
+{
+ "id": "E87.3_alcalose_metabolique__F2_1-E04",
+ "portes": [
+  {
+   "ssp": "F2.1",
+   "nomSSP": "Gaz du sang anormaux",
+   "entite": "Alcalose métabolique par pertes digestives hautes",
+   "entiteId": "F2.1-E04"
+  },
+  {
+   "ssp": "F2.1",
+   "nomSSP": "Gaz du sang anormaux",
+   "entite": "Alcalose métabolique iatrogène sous diurétiques",
+   "entiteId": "F2.1-E05"
+  }
+ ],
+ "entite": "Alcalose métabolique",
+ "cim10": "E87.3",
+ "ssp": {
+  "code": "F2.1",
+  "nom": "Gaz du sang anormaux",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Gaz du sang anormaux : lire pH, PaCO2, HCO3-",
+    "i": "Le pH distingue acidémie et alcalémie ; PaCO2 et HCO3- désignent le trouble primaire.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "pH > 7,45 (alcalémie)",
+    "i": "Seuil d'alcalémie ; cette branche contient l'alcalose métabolique.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "pH < 7,35 (acidémie)",
+    "i": "Sort du cadre de cette entité : renvoie vers les autres entités du SSP F2.1 (acidoses métaboliques, acidose respiratoire, intoxications).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "pH 7,35–7,45 avec HCO3- ou PaCO2 anormaux",
+    "i": "Évoque un trouble compensé ou mixte (ex. acidose respiratoire chronique) : renvoie vers le SSP F2.1 correspondant.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n5",
+    "parent": "n2",
+    "t": "PaCO2 basse, HCO3- normal ou bas : alcalose respiratoire",
+    "i": "Trouble primaire respiratoire (hyperventilation, embolie pulmonaire, salicylés) : renvoie vers le SSP F2.1 correspondant.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n6",
+    "parent": "n2",
+    "t": "HCO3- > 26 et PaCO2 élevée : alcalose métabolique",
+    "i": "Le HCO3- est le trouble primaire et la PaCO2 monte par hypoventilation compensatoire.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "PaCO2 conforme à l'attendue (≈ 0,6–0,7 mmHg par mmol/L de HCO3- en excès) ?",
+    "i": "Un écart important signale un trouble respiratoire associé (trouble mixte).",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Non : trouble respiratoire associé",
+    "i": "Sort du cadre : réévaluer ventilation et renvoyer vers le SSP F2.1 des troubles respiratoires.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n9",
+    "parent": "n7",
+    "t": "Oui : gravité ? pH > 7,55, K+ < 3,0, confusion, tétanie, IRA",
+    "i": "Ces critères imposent l'hospitalisation, l'ECG et une correction rapide.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "Oui : alcalose sévère ou hypokaliémie sévère",
+    "i": "Risque d'arythmie ventriculaire et d'encéphalopathie hépatique chez le cirrhotique : prise en charge en urgence.",
+    "pec": "urgence",
+    "notion": "c4"
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "Non : diurétique de l'anse ou thiazidique en cours ?",
+    "i": "La prise de diurétique oriente vers l'alcalose de contraction, cause ambulatoire la plus fréquente.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Oui : ClU non interprétable ; évaluer volémie, K+, Mg2+",
+    "i": "Le diurétique actif maintient un ClU élevé ; la clinique et la créatinine tranchent.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n13",
+    "parent": "n12",
+    "t": "Hypovolémie : réduire le diurétique, NaCl 0,9 % + KCl",
+    "i": "Corrige l'alcalose chlorure-sensible en restaurant volume et chlore.",
+    "pec": "contraction_diuretique",
+    "notion": "c7"
+   },
+   {
+    "id": "n14",
+    "parent": "n12",
+    "t": "Congestion persistante : KCl + Mg, puis épargneur potassique",
+    "i": "Le NaCl serait délétère chez l'insuffisant cardiaque ou le cirrhotique ; l'antagoniste de l'aldostérone corrige K+ et alcalose.",
+    "pec": "long_cours",
+    "notion": "c8"
+   },
+   {
+    "id": "n15",
+    "parent": "n11",
+    "t": "Non : mesurer le chlore urinaire",
+    "i": "Hors diurétique, le ClU sépare les alcaloses chlorure-sensibles et résistantes (seuil 20 mmol/L).",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n16",
+    "parent": "n15",
+    "t": "ClU < 20 : vomissements, aspiration gastrique, laxatifs",
+    "i": "Le rein retient le Cl- ; la cause digestive haute se corrige avec NaCl et KCl (porte d'entrée « pertes digestives hautes »).",
+    "pec": "contraction_diuretique",
+    "notion": "c1"
+   },
+   {
+    "id": "n17",
+    "parent": "n15",
+    "t": "ClU > 20 avec hypertension : rénine et aldostérone",
+    "i": "Évoque hyperaldostéronisme, réglisse ou Cushing ; avis endocrinologique, hors du cadre de la contraction.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n18",
+    "parent": "n15",
+    "t": "ClU > 20 sans hypertension : Gitelman, Bartter, abus caché",
+    "i": "Dosage urinaire des diurétiques, calciurie et magnésémie ; avis néphrologique.",
+    "pec": null,
+    "notion": "c6"
+   }
+  ]
+ },
+ "specialites": [
+  "NEP",
+  "TOX"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Alcalose métabolique de contraction sous diurétiques (SSP F2.1 Gaz du sang anormaux)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définir l'alcalose métabolique et la classer selon le chlore urinaire",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Pose d'abord pH > 7,45 avec HCO3- > 26 mmol/L, puis classe l'alcalose en chlorure-sensible ou chlorure-résistante grâce au chlore urinaire, en te souvenant que le diurétique actif fausse ce dosage.",
+   "tableau": {
+    "colonnes": [
+     "Type",
+     "Chlore urinaire",
+     "Exemples",
+     "Volémie / tension",
+     "Réponse au NaCl 0,9 %"
+    ],
+    "lignes": [
+     [
+      "Chlorure-sensible",
+      [
+       {
+        "t": "< 20 mmol/L",
+        "i": "Le rein retient avidement le Cl- quand il en manque, donc le ClU est bas ; cette règle ne vaut qu'en dehors d'un diurétique actif."
+       }
+      ],
+      "Vomissements, aspiration gastrique, diurétique arrêté depuis quelques jours",
+      "Hypovolémie, tension normale ou basse",
+      [
+       {
+        "t": "Corrige avec NaCl + KCl",
+        "i": "Restaurer volume et chlore lève le frein rénal à l'excrétion de HCO3- ; la phase d'entretien disparaît."
+       }
+      ]
+     ],
+     [
+      "Chlorure-résistante",
+      [
+       {
+        "t": "> 20 mmol/L",
+        "i": "Un excès minéralocorticoïde ou une anomalie tubulaire fait perdre du Cl- en continu malgré l'alcalose."
+       }
+      ],
+      "Hyperaldostéronisme, réglisse, Cushing, Gitelman, Bartter",
+      "Volume normal ou augmenté, hypertension (sauf Gitelman et Bartter)",
+      [
+       {
+        "t": "Ne corrige pas avec NaCl",
+        "i": "L'aldostérone ou le défaut tubulaire entretient l'alcalose ; seul le traitement de la cause (ex. spironolactone) la corrige."
+       }
+      ]
+     ],
+     [
+      "Sous diurétique actif (cas du SSP)",
+      [
+       {
+        "t": "> 20 mmol/L, non interprétable",
+        "i": "Le diurétique force la perte urinaire de Cl- : le ClU est faussement élevé alors que l'alcalose reste chlorure-sensible."
+       }
+      ],
+      "Furosémide, torasémide, hydrochlorothiazide",
+      "Normo- ou hypovolémie, parfois œdèmes persistants",
+      [
+       {
+        "t": "Corrige si le volume est réduit",
+        "i": "L'apport de volume et de Cl- reste efficace ; en cas de congestion, on privilégie KCl et épargneur potassique à la place du NaCl."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'alcalose métabolique associe pH artériel > 7,45 et HCO3- primairement > 26 mmol/L.",
+    "L'alcalose de contraction naît d'une perte de liquide extracellulaire pauvre en HCO3-, qui concentre le bicarbonate restant.",
+    "La phase de génération (perte de H+ ou gain de HCO3-) précède une phase d'entretien par défaut d'excrétion rénale de HCO3-.",
+    "Le seuil ClU de 20 mmol/L sépare chlorure-sensible et chlorure-résistante."
+   ],
+   "sources": [
+    "Cours PROFILES SSP F2.1",
+    "Équilibre acido-basique, néphrologie (références suisses SSN)"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie et physiopathologie sous diurétiques",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences"
+   ],
+   "comment": "Relie chaque classe de diurétique à son transporteur tubulaire, puis comprends comment l'hypovolémie, l'aldostérone et l'hypokaliémie entretiennent l'alcalose après la génération initiale.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Cible",
+     "Effet tubulaire",
+     "Conséquence acido-basique"
+    ],
+    "lignes": [
+     [
+      "Diurétique de l'anse (furosémide, torasémide)",
+      [
+       {
+        "t": "NKCC2 (anse de Henle)",
+        "i": "Le blocage de ce cotransporteur Na-K-2Cl augmente fortement l'apport distal de Na+ et la perte de Cl-."
+       }
+      ],
+      "Natriurèse et chlorurie massives, contraction volémique",
+      [
+       {
+        "t": "Alcalose de contraction",
+        "i": "Le HCO3- se concentre dans un volume réduit et le déficit en Cl- freine son excrétion."
+       }
+      ]
+     ],
+     [
+      "Thiazidique (hydrochlorothiazide, chlortalidone, indapamide)",
+      [
+       {
+        "t": "NCC (tube contourné distal)",
+        "i": "Le blocage de NCC augmente l'apport distal de Na+ mais de façon plus modérée que l'anse, d'où une alcalose souvent moins marquée."
+       }
+      ],
+      "Natriurèse, chlorurie, perte de K+ et de Mg2+",
+      [
+       {
+        "t": "Alcalose hypokaliémique, hypomagnésémie",
+        "i": "La perte de Mg2+ rend l'hypokaliémie réfractaire à la seule supplémentation potassique."
+       }
+      ]
+     ],
+     [
+      "Hyperaldostéronisme secondaire",
+      [
+       {
+        "t": "ENaC et H+-ATPase (cellules intercalaires)",
+        "i": "L'hypovolémie active l'aldostérone, qui stimule ENaC et la H+-ATPase ; K+ et H+ sont alors sécrétés en excès."
+       }
+      ],
+      "Sécrétion distale accrue de K+ et H+",
+      [
+       {
+        "t": "Entretien de l'alcalose",
+        "i": "L'hypokaliémie fait entrer H+ dans les cellules et stimule l'ammoniogenèse rénale, ce qui persiste malgré l'arrêt du diurétique."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Les diurétiques constituent la cause iatrogène principale d'alcalose métabolique en ambulatoire.",
+    "Le risque est maximal chez le patient âgé, insuffisant cardiaque, cirrhotique ou hypertendu, à forte dose ou en association séquentielle anse plus thiazidique.",
+    "Vomissements et aspiration gastrique forment l'autre grande cause, hospitalière, de type chlorure-sensible.",
+    "Tant que volume et chlore ne sont pas corrigés, l'alcalose persiste même sans diurétique."
+   ],
+   "sources": [
+    "Cours PROFILES SSP F2.1",
+    "AIPS Swissmedic (diurétiques)"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen clinique orientés",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Cherche systématiquement le diurétique, sa dose et ses associations, puis les autres sources de perte acide ou d'apport alcalin, avant d'évaluer la volémie au lit du malade.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "L'anamnèse précise la molécule (furosémide, torasémide, hydrochlorothiazide, chlortalidone, indapamide), la dose, l'association séquentielle et tout changement récent.",
+    "Elle recherche aussi vomissements, aspiration gastrique, laxatifs, antiacides calciques, bicarbonate, corticoïdes et réglisse (pseudo-hyperaldostéronisme avec hypertension).",
+    "Le patient décrit faiblesse, crampes, paresthésies, palpitations ou polyurie, mais l'alcalose modérée reste souvent asymptomatique.",
+    "L'examen cherche une hypovolémie (hypotension orthostatique, muqueuses sèches, perte de poids) ou des œdèmes persistants chez l'insuffisant cardiaque ou le cirrhotique."
+   ],
+   "sources": [
+    "Cours PROFILES SSP F2.1"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Signes d'alarme et critères d'hospitalisation",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Dépiste l'hypokaliémie sévère par l'ECG et repère les patients à risque d'arythmie ou d'encéphalopathie, car la gravité dépend plus du potassium que du pH.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Une kaliémie < 3,0 mmol/L impose un ECG et une correction rapide à cause du risque d'arythmie ventriculaire.",
+    "L'ECG montre un aplatissement de T, une onde U, un sous-décalage de ST et un QT allongé avec risque de torsades de pointes.",
+    "Chez le cirrhotique, alcalose et hypokaliémie augmentent l'ammoniogenèse et le passage de NH3 au cerveau, ce qui déclenche l'encéphalopathie hépatique.",
+    "L'hypokaliémie potentialise la toxicité de la digoxine et des médicaments allongeant le QT.",
+    "Un pH > 7,55, une confusion, des convulsions, une tétanie ou une insuffisance rénale aiguë fonctionnelle avec hypovolémie sévère justifient l'hospitalisation."
+   ],
+   "sources": [
+    "Cours PROFILES SSP F2.1",
+    "ESC 2021 (insuffisance cardiaque)"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan : gazométrie, ionogramme, magnésium, chlore urinaire",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Confirme l'alcalémie par gazométrie, vérifie que la PaCO2 correspond à la compensation attendue, dose le magnésium d'emblée et n'interprète le chlore urinaire qu'en tenant compte du diurétique.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La gazométrie artérielle montre pH > 7,45, HCO3- élevé et PaCO2 augmentée par compensation.",
+    "La PaCO2 monte d'environ 0,6 à 0,7 mmHg par mmol/L de HCO3- en excès ; un écart important signale un trouble respiratoire associé.",
+    "L'ionogramme montre K+ bas, Cl- bas et HCO3- élevé ; créatinine et urée évaluent la contraction volémique.",
+    "Le magnésium se dose d'emblée, car l'hypomagnésémie rend l'hypokaliémie réfractaire.",
+    "Le chlore urinaire reste > 20 mmol/L sous diurétique actif ; rénine et aldostérone ne se dosent qu'en cas d'hypertension avec ClU élevé persistant, sans diurétique ni réglisse."
+   ],
+   "sources": [
+    "Cours PROFILES SSP F2.1"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Diagnostic positif et différentiel",
+   "rubriques": [
+    "positiveDiagnosis"
+   ],
+   "comment": "Pose le diagnostic sur alcalémie avec HCO3- élevé et hypokaliémie sous diurétique, puis écarte les troubles respiratoires et les tubulopathies par la lecture croisée de pH, PaCO2 et HCO3-.",
+   "tableau": {
+    "colonnes": [
+     "Entité",
+     "pH",
+     "PaCO2",
+     "HCO3-",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "Alcalose métabolique sous diurétique",
+      "> 7,45",
+      "↑ compensatoire",
+      "↑ primaire",
+      [
+       {
+        "t": "K+ et Cl- bas sous diurétique",
+        "i": "Le contexte médicamenteux et l'hypokaliémie hypochlorémique orientent vers la contraction ; aucun autre trouble de la liste ne l'associe."
+       }
+      ]
+     ],
+     [
+      "Acidose respiratoire chronique compensée (BPCO)",
+      "Bas ou normal",
+      "↑ primaire",
+      "↑ compensatoire",
+      [
+       {
+        "t": "pH non alcalin",
+        "i": "Le trouble primaire est la PaCO2 élevée ; HCO3- monte par compensation rénale sans rendre le pH alcalin."
+       }
+      ]
+     ],
+     [
+      "Alcalose respiratoire",
+      "> 7,45",
+      "↓ primaire",
+      "Normal ou ↓",
+      [
+       {
+        "t": "PaCO2 basse",
+        "i": "HCO3- n'est pas élevé, à l'inverse de l'alcalose métabolique ; pense à l'hyperventilation ou à l'embolie pulmonaire."
+       }
+      ]
+     ],
+     [
+      "Gitelman / Bartter",
+      "> 7,45",
+      "↑ compensatoire",
+      "↑",
+      [
+       {
+        "t": "Hypocalciurie et hypomagnésémie (Gitelman)",
+        "i": "Ces tubulopathies miment thiazidique ou diurétique de l'anse mais surviennent sans prise de diurétique ; l'hypocalciurie oriente vers Gitelman."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le diagnostic repose sur pH > 7,45, HCO3- élevé, PaCO2 compensatoire, hypokaliémie et hypochlorémie sous diurétique.",
+    "Un patient niant tout diurétique avec ClU élevé et alcalose hypokaliémique fait évoquer un abus caché, confirmé par le dosage urinaire des diurétiques."
+   ],
+   "sources": [
+    "Cours PROFILES SSP F2.1"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge aiguë : escalade thérapeutique",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Traite la cause d'abord, corrige volume, chlore, potassium et magnésium ensemble, puis n'escalade vers l'épargneur potassique, l'acétazolamide ou les soins intensifs que si l'alcalose persiste.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Alcalose métabolique sous diurétique confirmée",
+     "i": "pH > 7,45, HCO3- > 26 mmol/L, K+ et Cl- bas sous diurétique de l'anse ou thiazidique.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Gravité ? pH > 7,55, K+ < 3,0, confusion, tétanie, IRA",
+     "i": "Ces critères justifient l'hospitalisation, car ils exposent aux arythmies, à l'encéphalopathie et à l'aggravation rénale.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : hospitaliser, ECG, KCl IV monitoré + Mg",
+     "i": "KCl IV ≤ 10 mmol/h en périphérie, jusqu'à 20 mmol/h sous monitorage ECG ; le magnésium se corrige en même temps.",
+     "pec": "urgence",
+     "notion": "c7"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non : forme non compliquée",
+     "i": "Une alcalose modérée reste souvent asymptomatique et se prend en charge à l'ambulatoire.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Identifier la cause, réduire ou suspendre le diurétique",
+     "i": "Premier geste, possible si volémie et congestion le permettent ; sinon on poursuit en corrigeant K+.",
+     "pec": null,
+     "notion": "c2"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Patient hypovolémique ?",
+     "i": "L'hypovolémie entretient l'alcalose chlorure-sensible ; le volume conditionne le choix entre NaCl et épargneur potassique.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Oui : NaCl 0,9 % + KCl",
+     "i": "Restaure volume extracellulaire et chlore, et lève le frein rénal à l'excrétion de HCO3-.",
+     "pec": "contraction_diuretique",
+     "notion": "c1"
+    },
+    {
+     "id": "n8",
+     "parent": "n6",
+     "t": "Non (congestion persistante) : KCl + magnésium",
+     "i": "Le NaCl aggraverait la surcharge ; le KCl apporte le chlore et corrige l'hypokaliémie qui entretient l'alcalose.",
+     "pec": "contraction_diuretique",
+     "notion": "c2"
+    },
+    {
+     "id": "n9",
+     "parent": "n8",
+     "t": "K+ bas ou alcalose persistante : spironolactone ou amiloride",
+     "i": "Bloque l'aldostérone ou ENaC ; contre-indiqué en cas d'hyperkaliémie ou d'insuffisance rénale sévère.",
+     "pec": "long_cours",
+     "notion": "c8"
+    },
+    {
+     "id": "n10",
+     "parent": "n9",
+     "t": "Surcharge persistante + alcalose sévère : acétazolamide 250–500 mg ponctuel",
+     "i": "Favorise la bicarbonaturie mais aggrave la perte de K+ ; donc usage ponctuel avec contrôle ionique.",
+     "pec": "contraction_diuretique",
+     "notion": null
+    },
+    {
+     "id": "n11",
+     "parent": "n10",
+     "t": "Réfractaire (pH > 7,55, IR ou IC) : soins intensifs",
+     "i": "HCl dilué par voie centrale ou hémodialyse ; la mortalité augmente au-delà de pH 7,55 chez le patient critique.",
+     "pec": "urgence",
+     "notion": "c9"
+    }
+   ],
+   "points": [
+    "Le premier geste identifie la cause puis réduit ou suspend le diurétique.",
+    "Le KCl corrige l'hypokaliémie et apporte le chlore ; il se limite à 10 mmol/h en périphérie et 20 mmol/h sous monitorage ECG.",
+    "Le magnésium se corrige en même temps, sinon l'hypokaliémie résiste.",
+    "Spironolactone 25 à 100 mg/j ou amiloride corrigent hypokaliémie et alcalose.",
+    "L'acétazolamide 250 à 500 mg ponctuel reste réservé à la surcharge persistante avec alcalose sévère."
+   ],
+   "sources": [
+    "Cours PROFILES SSP F2.1",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Prise en charge au long cours et surveillance",
+   "rubriques": [
+    "chronicManagement",
+    "surveillance"
+   ],
+   "comment": "Maintiens la dose minimale efficace de diurétique, protège le potassium par les traitements à visée pronostique et contrôle l'ionogramme à intervalles fixes après chaque modification.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La dose minimale efficace de diurétique contrôle congestion ou pression artérielle, et son indication se réévalue régulièrement.",
+    "Dans l'insuffisance cardiaque à FEVG réduite, antagonistes des minéralocorticoïdes et IEC/ARA/ARNI limitent la perte potassique et ont une indication pronostique.",
+    "La kaliémie cible chez le cardiaque se situe entre 4,0 et 5,0 mmol/L.",
+    "Kaliémie et créatininémie se contrôlent à 1 puis 4 semaines après introduction ou augmentation d'un antagoniste des minéralocorticoïdes ; l'association à un IEC/ARA exige un contrôle strict.",
+    "Le patient apprend à suspendre temporairement les diurétiques lors de vomissements ou diarrhées et à limiter la réglisse."
+   ],
+   "sources": [
+    "ESC 2021 (insuffisance cardiaque)",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Complications, pronostic et réseau de suivi",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Anticipe les arythmies et l'hypoventilation, rappelle que la forme de contraction est réversible, et organise le suivi autour du médecin de famille avec avis spécialisé en cas de réfractarité.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "L'hypokaliémie sévère provoque arythmies ventriculaires, torsades de pointes, faiblesse musculaire, rhabdomyolyse et iléus paralytique.",
+    "L'alcalose entraîne une hypoventilation compensatoire avec hypoxémie et déplace la courbe de l'hémoglobine vers la gauche, ce qui réduit la libération tissulaire d'oxygène.",
+    "L'alcalose de contraction se corrige après réduction du diurétique et correction de volume et K+ ; la mortalité du patient critique augmente au-delà de pH 7,55.",
+    "Le médecin de famille suit l'ionogramme et adapte le diurétique, tandis que le cardiologue ajuste le traitement de l'insuffisance cardiaque.",
+    "Une alcalose réfractaire ou un doute sur hyperaldostéronisme, Bartter ou Gitelman justifie un avis néphrologique ou endocrinologique ; Spitex et pharmacien soutiennent les contrôles chez le patient âgé."
+   ],
+   "sources": [
+    "Cours PROFILES SSP F2.1"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence",
+   "titre": "Alcalose métabolique sévère ou symptomatique (hospitalisation)",
+   "but": [
+    "Corriger rapidement l'hypokaliémie et l'hypomagnésémie pour prévenir arythmies ventriculaires et encéphalopathie.",
+    "Faire baisser le pH sous 7,55 en traitant la cause et en restaurant volume et chlore."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installer le patient sous monitorage ECG et saturation, avec voie veineuse.",
+     "Évaluer la volémie et rechercher confusion, tétanie et signes de congestion.",
+     "Prélever gazométrie, ionogramme, magnésium, créatinine et urée avant tout traitement."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Chlorure de potassium IV (KCl, électrolyte)",
+      "posologie": "≤ 10 mmol/h par voie périphérique ; jusqu'à 20 mmol/h sous monitorage ECG ; kaliémie toutes les 4 à 6 h.",
+      "pourquoi": "Corrige l'hypokaliémie qui entretient l'alcalose et apporte le chlore nécessaire, avec limite de vitesse pour éviter l'hyperkaliémie.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Magnésium (supplément électrolytique)",
+      "posologie": "Environ 10–20 mmol/j, IV si symptomatique ou QT long, sinon voie orale fractionnée ; adapter à la fonction rénale.",
+      "pourquoi": "Sans correction de l'hypomagnésémie, l'hypokaliémie reste réfractaire à la supplémentation potassique.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Chlorure de sodium 0,9 % (cristalloïde)",
+      "posologie": "Bolus de 500 mL puis réévaluation clinique de la volémie ; prudent en cas d'insuffisance cardiaque ou de cirrhose.",
+      "pourquoi": "Restaure le volume extracellulaire et le chlore, ce qui lève le frein rénal à l'excrétion de HCO3- chez l'hypovolémique.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Acétazolamide (inhibiteur de l'anhydrase carbonique)",
+      "posologie": "250–500 mg en dose ponctuelle, uniquement si surcharge persistante avec alcalose sévère ; contrôler K+.",
+      "pourquoi": "Favorise la bicarbonaturie mais aggrave la perte de K+, donc usage ponctuel et jamais en première intention.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveiller le bilan hydrique, la diurèse et le monitorage ECG en continu.",
+      "pourquoi": "Détecte précocement arythmie et surcorrection du potassium."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Prévoir en soins intensifs l'HCl dilué par voie centrale ou l'hémodialyse en cas d'échec.",
+      "pourquoi": "L'alcalose réfractaire avec insuffisance rénale ou cardiaque dépasse les moyens médicamenteux usuels."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Guide l'information et le consentement du patient confus ou sans capacité de discernement, en associant les proches ou le représentant."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Aide à fixer des objectifs de soins chez l'insuffisant cardiaque terminal, où le diurétique garde un rôle symptomatique."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Hospitaliser le patient avec monitorage ECG continu.",
+      "Suspendre le diurétique tant que volémie et congestion le permettent.",
+      "Corriger simultanément K+, Mg2+, volume et chlore."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue la volémie, demande un ECG et identifie la cause et les critères de gravité."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose la voie veineuse, branche le monitorage ECG et prélève gazométrie, ionogramme et magnésium."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Prescrit KCl IV à vitesse limitée et magnésium, puis NaCl 0,9 % si hypovolémie."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Contrôle la kaliémie toutes les 4 à 6 heures et surveille le rythme."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Intensiviste ou néphrologue évalue HCl central ou hémodialyse si pH > 7,55 réfractaire."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "L'alcalose de contraction se corrige après correction de volume et de K+ ; la mortalité du patient critique augmente nettement au-delà de pH 7,55.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Kaliémie",
+      "quand": "Toutes les 4 à 6 h pendant la perfusion de KCl",
+      "cible": "Vers 4,0–5,0 mmol/L sans dépasser la norme"
+     },
+     {
+      "quoi": "ECG et rythme",
+      "quand": "En continu sous KCl IV",
+      "cible": "Disparition de l'onde U et du QT long, sans arythmie"
+     },
+     {
+      "quoi": "pH et HCO3- (gazométrie)",
+      "quand": "Répéter après correction initiale",
+      "cible": "pH < 7,45 et HCO3- en baisse"
+     },
+     {
+      "quoi": "Créatinine, urée, volémie",
+      "quand": "Quotidien",
+      "cible": "Retour à la créatinine de base"
+     }
+    ],
+    "sortie": "pH < 7,55 stable, K+ ≥ 3,5 mmol/L sans perfusion IV, ECG normalisé, absence de confusion ou de tétanie, créatinine stable et plan de diurétique défini."
+   },
+   "prevention": {
+    "primaire": "Prescrire la dose minimale efficace de diurétique et contrôler l'ionogramme après chaque modification.",
+    "secondaire": "Dépister hypokaliémie et hypomagnésémie chez tout patient sous diurétique, surtout âgé, cardiaque ou cirrhotique.",
+    "tertiaire": "Éviter la récidive en associant épargneur potassique ou traitement pronostique et en réévaluant l'indication du diurétique."
+   }
+  },
+  {
+   "cle": "contraction_diuretique",
+   "titre": "Alcalose de contraction sous diurétique non compliquée",
+   "but": [
+    "Corriger volume, chlore et potassium pour supprimer la phase d'entretien de l'alcalose.",
+    "Garder un contrôle de la congestion avec la plus faible dose de diurétique."
+   ],
+   "moyens": {
+    "accueil": [
+     "Identifier le diurétique, la dose et les autres sources de perte acide ou d'apport alcalin.",
+     "Mesurer tension couchée et debout, poids et signes de congestion.",
+     "Prélever ionogramme, magnésium, créatinine et faire un ECG si K+ < 3,5 mmol/L."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Chlorure de potassium oral (KCl, électrolyte)",
+      "posologie": "Environ 20–40 mmol/j en 2 à 3 prises au repas, titré sur la kaliémie à 48–72 h ; prudence si insuffisance rénale.",
+      "pourquoi": "Corrige l'hypokaliémie qui entretient l'alcalose et apporte le chlore ; le contrôle évite l'hyperkaliémie.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Spironolactone (antagoniste des minéralocorticoïdes)",
+      "posologie": "25–100 mg/j per os ; contrôle K+ et créatinine à 1 puis 4 semaines ; contre-indiquée si hyperkaliémie ou insuffisance rénale sévère.",
+      "pourquoi": "Bloque l'aldostérone qui sécrète K+ et H+, corrigeant à la fois hypokaliémie et alcalose.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Amiloride (diurétique épargneur potassique, bloqueur d'ENaC)",
+      "posologie": "Dose usuelle 5–10 mg/j per os, contrôle de K+ et de la créatinine ; contre-indiqué si hyperkaliémie ou insuffisance rénale sévère.",
+      "pourquoi": "Alternative à la spironolactone qui bloque ENaC et réduit la perte distale de K+ et de H+.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Chlorure de sodium 0,9 % (cristalloïde)",
+      "posologie": "500 mL avec réévaluation de la volémie, uniquement si hypovolémie ; éviter en cas de congestion.",
+      "pourquoi": "Restaure volume et chlore et corrige l'alcalose chlorure-sensible ; il est inutile voire nuisible en surcharge.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Enseigner au patient de suspendre temporairement le diurétique lors de vomissements ou diarrhées.",
+      "pourquoi": "Évite la contraction volémique aiguë et l'aggravation de l'alcalose."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Limiter la consommation de réglisse et apporter potassium alimentaire.",
+      "pourquoi": "La glycyrrhizine provoque un pseudo-hyperaldostéronisme avec hypokaliémie et alcalose."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Organise les soins à domicile Spitex pris en charge par l'assurance obligatoire pour les contrôles biologiques."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Réduire ou suspendre le diurétique si la congestion le permet.",
+      "Corriger potassium et magnésium en même temps.",
+      "Contrôler l'ionogramme dans les jours qui suivent."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Identifie la cause, évalue la volémie et décide de réduire le diurétique."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Prescrit KCl oral et magnésium, plus NaCl 0,9 % si hypovolémie."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "pharmacien",
+       "fait": "Vérifie interactions (digoxine, QT long, IEC/ARA) et soutient l'adhésion thérapeutique."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Ajoute spironolactone ou amiloride si K+ reste bas, et contrôle K+ et créatinine à 1 puis 4 semaines."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Demande un avis néphrologique ou endocrinologique si l'alcalose reste réfractaire."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'alcalose de contraction est réversible après réduction du diurétique et correction de volume et K+, et reste facilement contrôlable sous KCl ou spironolactone.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Kaliémie et magnésémie",
+      "quand": "48–72 h après le début du KCl, puis à 1 et 4 semaines",
+      "cible": "K+ 4,0–5,0 mmol/L chez le cardiaque"
+     },
+     {
+      "quoi": "Créatinine et urée",
+      "quand": "Idem, et à chaque ajustement du diurétique",
+      "cible": "Créatinine stable, sans insuffisance rénale fonctionnelle"
+     },
+     {
+      "quoi": "HCO3- sur ionogramme ou gazométrie",
+      "quand": "À 1 semaine",
+      "cible": "Retour vers ≤ 26 mmol/L"
+     },
+     {
+      "quoi": "Poids et tension orthostatique",
+      "quand": "À chaque consultation",
+      "cible": "Euvolémie sans œdèmes ni hypotension"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée, autorisée si pH < 7,55, K+ ≥ 3,0 mmol/L, ECG normal, absence de confusion et patient capable de suivre les contrôles."
+   },
+   "prevention": {
+    "primaire": "Prescrire la dose minimale efficace de diurétique et contrôler K+ une à deux semaines après toute introduction.",
+    "secondaire": "Dépister précocement hypokaliémie et alcalose par ionogramme régulier chez le patient âgé ou cirrhotique.",
+    "tertiaire": "Associer un antagoniste des minéralocorticoïdes lorsque l'indication cardiaque existe pour limiter les récidives."
+   }
+  },
+  {
+   "cle": "long_cours",
+   "titre": "Suivi au long cours du patient sous diurétique",
+   "but": [
+    "Maintenir la kaliémie entre 4,0 et 5,0 mmol/L chez le cardiaque et prévenir la récidive d'alcalose.",
+    "Réévaluer régulièrement l'indication du diurétique pour garder la dose minimale efficace."
+   ],
+   "moyens": {
+    "accueil": [
+     "Revoir la liste de médicaments avec dose, association séquentielle anse plus thiazidique et récents changements.",
+     "Vérifier la volémie, le poids et les résultats récents d'ionogramme."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Spironolactone (antagoniste des minéralocorticoïdes)",
+      "posologie": "25–100 mg/j per os ; contrôle K+ et créatinine à 1 puis 4 semaines après introduction ou augmentation de dose.",
+      "pourquoi": "Limite la perte potassique et a une indication pronostique dans l'insuffisance cardiaque à fraction d'éjection réduite.",
+      "source": "ESC 2021 ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "IEC / ARA / ARNI (inhibiteurs du système rénine-angiotensine)",
+      "posologie": "Selon l'AIPS de la molécule, titrer progressivement avec contrôle de K+ et de la créatinine à 1–2 semaines.",
+      "pourquoi": "Limitent la perte potassique et ont une indication pronostique ; leur association aux épargneurs potassiques exige un contrôle strict de K+.",
+      "source": "ESC 2021 ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Apprendre au patient à reconnaître crampes, faiblesse, palpitations et à suspendre le diurétique en cas de vomissements ou diarrhées.",
+      "pourquoi": "Réduit le risque de contraction aiguë et de décompensation ionique."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Organiser les contrôles biologiques avec Spitex et le pharmacien chez le patient âgé polymédiqué.",
+      "pourquoi": "Soutient l'adhésion et rend le suivi ionique réalisable à domicile."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise la couverture des soins à domicile et des contrôles répétés pour le patient âgé ou invalide."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Réévaluer l'indication et la dose du diurétique à chaque consultation.",
+      "Associer les traitements à visée pronostique qui épargnent le potassium.",
+      "Contrôler régulièrement ionogramme et créatinine."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Contrôle ionogramme, créatinine et volémie, puis ajuste le diurétique à la dose minimale efficace."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "spécialiste",
+       "fait": "Le cardiologue optimise le traitement de l'insuffisance cardiaque (antagoniste minéralocorticoïde, IEC/ARA/ARNI)."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "pharmacien",
+       "fait": "Vérifie interactions et adhésion, notamment digoxine et médicaments allongeant le QT."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Le soignant Spitex prélève les contrôles et pèse le patient à domicile."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Le néphrologue ou l'endocrinologue évalue une alcalose réfractaire ou un hyperaldostéronisme, Bartter ou Gitelman."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'alcalose reste facilement contrôlable avec la dose minimale de diurétique et un traitement épargnant le potassium ; le risque principal est l'arythmie en cas d'hypokaliémie non détectée.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Kaliémie et créatinine",
+      "quand": "1 puis 4 semaines après toute modification, puis régulièrement",
+      "cible": "K+ 4,0–5,0 mmol/L chez le cardiaque, créatinine stable"
+     },
+     {
+      "quoi": "Magnésémie",
+      "quand": "Avec chaque ionogramme sous thiazidique ou anse",
+      "cible": "Valeur normale pour éviter l'hypokaliémie réfractaire"
+     },
+     {
+      "quoi": "Poids, tension, œdèmes",
+      "quand": "À chaque consultation",
+      "cible": "Euvolémie avec dose minimale efficace"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée, sans hospitalisation tant que K+ reste ≥ 3,5 mmol/L et la créatinine stable."
+   },
+   "prevention": {
+    "primaire": "Prescrire la dose minimale efficace et éviter l'association séquentielle anse plus thiazidique sans nécessité.",
+    "secondaire": "Contrôler l'ionogramme à intervalles fixes et dépister l'hypokaliémie avant les symptômes.",
+    "tertiaire": "Prévenir arythmie et décompensation par maintien de K+ 4,0–5,0 mmol/L et information du patient."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6820,
+  "output_tokens": 21535,
+  "output_tokens_details": {
+   "thinking_tokens": 6027
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:35:06",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

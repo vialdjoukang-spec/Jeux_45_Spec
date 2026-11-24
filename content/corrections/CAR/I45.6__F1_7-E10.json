@@ -1,0 +1,1349 @@
+{
+ "id": "I45.6__F1_7-E10",
+ "portes": [
+  {
+   "ssp": "S2.11",
+   "nomSSP": "Palpitations",
+   "entite": "Syndrome de Wolff-Parkinson-White (WPW) / réentrée sur voie accessoire",
+   "entiteId": "S2.11-E07"
+  },
+  {
+   "ssp": "F1.7",
+   "nomSSP": "Bradycardie, tachycardie, pouls irrégulier",
+   "entite": "Syndrome de Wolff-Parkinson-White (pré-excitation ventriculaire)",
+   "entiteId": "F1.7-E10"
+  },
+  {
+   "ssp": "F2.6",
+   "nomSSP": "Électrocardiogramme anormal",
+   "entite": "Syndrome de Wolff-Parkinson-White (pré-excitation)",
+   "entiteId": "F2.6-E10"
+  }
+ ],
+ "entite": "Syndrome de Wolff-Parkinson-White (pré-excitation ventriculaire)",
+ "cim10": "I45.6",
+ "ssp": {
+  "code": "F1.7",
+  "nom": "Bradycardie, tachycardie, pouls irrégulier",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient avec bradycardie, tachycardie ou pouls irrégulier",
+    "i": "Premier temps : ABCDE, monitorage, voie veineuse et ECG 12 dérivations.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Instabilité (hypotension, syncope, douleur thoracique, œdème pulmonaire) ?",
+    "i": "L'instabilité prime sur le diagnostic de mécanisme.",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui et tachycardie : cardioversion électrique synchronisée immédiate",
+    "i": "Elle traite réentrée, FA pré-excitée et TV sans bloquer le nœud AV.",
+    "pec": "urgence_fa_preexcitee_instable",
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Oui et bradycardie instable : atropine puis stimulation",
+    "i": "Cette situation sort du cadre du WPW : elle renvoie aux autres entités du SSP F1.7 (BAV, bradycardie iatrogène ou hyperkaliémie).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n5",
+    "parent": "n2",
+    "t": "Non : analyser l'ECG 12 dérivations (fréquence, QRS, régularité, onde P, onde delta)",
+    "i": "Ces cinq éléments orientent vers le mécanisme.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Fréquence basse (< 50/min)",
+    "i": "Bradycardie : dysfonction sinusale, BAV, cause médicamenteuse ; hors WPW, renvoi aux autres entités du SSP F1.7.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n7",
+    "parent": "n5",
+    "t": "Rythme sinusal avec PR court et onde delta (porte S2.11 ou F2.6)",
+    "i": "Pré-excitation de repos : on distingue pattern asymptomatique et WPW symptomatique ; renvoi aux SSP S2.11 (palpitations) et F2.6 (ECG anormal).",
+    "pec": "preexcitation_asymptomatique",
+    "notion": "c5"
+   },
+   {
+    "id": "n8",
+    "parent": "n5",
+    "t": "Tachycardie à QRS fins (< 120 ms)",
+    "i": "Le nœud AV conduit normalement l'activation ventriculaire.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Régulière, onde P devant chaque QRS, début progressif",
+    "i": "Tachycardie sinusale : traiter fièvre, anémie, douleur, hypovolémie, hyperthyroïdie ; hors WPW.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Irrégulière, sans onde P",
+    "i": "FA à QRS fins : contrôle de fréquence et anticoagulation selon CHA2DS2-VASc, après avoir vérifié qu'aucune pré-excitation n'existe sur un ECG antérieur.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n11",
+    "parent": "n8",
+    "t": "Régulière, ~150/min fixe, ondes F en dents de scie",
+    "i": "Flutter auriculaire : l'adénosine démasque les ondes F ; hors WPW sauf conduction 1:1 par la voie accessoire.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n12",
+    "parent": "n8",
+    "t": "Régulière, début et fin brusques, 150 à 250/min",
+    "i": "Réentrée (AVNRT ou AVRT orthodromique) : l'interrompre en bloquant le nœud AV.",
+    "pec": "crise_orthodromique_stable",
+    "notion": "c7"
+   },
+   {
+    "id": "n13",
+    "parent": "n12",
+    "t": "Après conversion : ECG de repos avec onde delta",
+    "i": "Une pré-excitation visible fait diagnostiquer un WPW avec AVRT orthodromique ; indication d'ablation.",
+    "pec": "ablation_symptomatique",
+    "notion": "c8"
+   },
+   {
+    "id": "n14",
+    "parent": "n12",
+    "t": "Après conversion : ECG de repos normal",
+    "i": "AVNRT (maladie de Bouveret) ou voie cachée : adresser au rythmologue pour ablation.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n15",
+    "parent": "n5",
+    "t": "Tachycardie à QRS larges (≥ 120 ms)",
+    "i": "Le diagnostic doit exclure TV et FA pré-excitée avant tout médicament.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n16",
+    "parent": "n15",
+    "t": "Irrégulière, QRS de largeur variable, > 200/min, patient jeune",
+    "i": "FA pré-excitée stable : aucun bloqueur du nœud AV (adénosine, vérapamil, diltiazem, bêtabloquant, digoxine, amiodarone).",
+    "pec": "urgence_fa_preexcitee_instable",
+    "notion": "c4"
+   },
+   {
+    "id": "n17",
+    "parent": "n15",
+    "t": "Régulière, QRS larges",
+    "i": "TV jusqu'à preuve du contraire ; le vérapamil est proscrit ; un AVRT antidromique reste possible avec voie connue.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n18",
+    "parent": "n15",
+    "t": "Polymorphe avec QT long, axe tournant",
+    "i": "Torsades de pointes : magnésium IV, correction des causes ; renvoi aux autres entités du SSP F1.7.",
+    "pec": null,
+    "notion": null
+   }
+  ]
+ },
+ "specialites": [
+  "CAR"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Syndrome de Wolff-Parkinson-White (pré-excitation ventriculaire)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définir pré-excitation, WPW, voie cachée et Mahaim",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Distingue l'aspect ECG (pré-excitation) du syndrome (pré-excitation plus tachyarythmie symptomatique), puis demande-toi si la voie conduit en antérograde, en rétrograde ou de façon décrémentielle.",
+   "tableau": {
+    "colonnes": [
+     "Entité",
+     "Définition",
+     "Conséquence pratique"
+    ],
+    "lignes": [
+     [
+      "Pré-excitation asymptomatique (pattern WPW)",
+      "Onde delta et PR court à l'ECG, sans aucune tachyarythmie ni symptôme.",
+      [
+       {
+        "t": "Ce n'est pas un syndrome de WPW",
+        "i": "Le syndrome exige une arythmie symptomatique ; le pattern seul impose une stratification du risque mais pas forcément une ablation."
+       }
+      ]
+     ],
+     [
+      "Syndrome de WPW",
+      "Pré-excitation ECG associée à des tachyarythmies symptomatiques (palpitations, syncope).",
+      [
+       {
+        "t": "Ablation de première intention",
+        "i": "La voie accessoire est la cause de l'arythmie ; la supprimer guérit dans environ 95 % des cas, ce qu'aucun antiarythmique n'obtient."
+       }
+      ]
+     ],
+     [
+      "Voie accessoire cachée",
+      "Voie conduisant uniquement en rétrograde (ventricule vers oreillette).",
+      [
+       {
+        "t": "ECG de repos normal, AVRT orthodromique possible",
+        "i": "Sans conduction antérograde, il n'y a pas d'onde delta ; seule la crise de tachycardie régulière à QRS fins révèle la voie."
+       }
+      ]
+     ],
+     [
+      "Fibres de Mahaim",
+      "Voie atrio-fasciculaire à conduction décrémentielle, souvent droite.",
+      [
+       {
+        "t": "Tachycardie antidromique en aspect de BBG",
+        "i": "La voie s'insère dans le ventricule droit : l'activation part de la droite, d'où un aspect de bloc de branche gauche et non d'onde delta classique."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Pattern WPW sans symptôme : pas de syndrome, mais stratification du risque.",
+    "Voie cachée : ECG de repos normal, tachycardie orthodromique possible.",
+    "Mahaim : conduction décrémentielle, tachycardie antidromique en BBG.",
+    "Le faisceau de Kent court-circuite le nœud AV (aucun filtre)."
+   ],
+   "sources": [
+    "ESC 2019 SVT Guidelines",
+    "ACC/AHA/HRS 2015 SVT"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie, siège des voies et associations",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences"
+   ],
+   "comment": "Pense à une pré-excitation chez l'adolescent ou le jeune adulte découvert sur ECG, puis cherche une cardiopathie associée (Ebstein, cardiomyopathie hypertrophique génétique) et une histoire familiale.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Donnée",
+     "Pourquoi y penser"
+    ],
+    "lignes": [
+     [
+      "Prévalence",
+      "Environ 0,1 à 0,3 % de la population.",
+      [
+       {
+        "t": "Découverte fortuite fréquente",
+        "i": "L'ECG de dépistage (sport, bilan préopératoire, assurance) révèle souvent la pré-excitation chez un patient asymptomatique ; la mort subite est rarement la première manifestation."
+       }
+      ]
+     ],
+     [
+      "Maladie d'Ebstein",
+      "Souvent plusieurs voies droites.",
+      [
+       {
+        "t": "Souffle de régurgitation tricuspide : faire une ETT",
+        "i": "La valve tricuspide malformée s'associe à des voies accessoires droites, parfois multiples, donc à un risque rythmique plus élevé."
+       }
+      ]
+     ],
+     [
+      "PRKAG2, maladie de Danon",
+      "Cardiomyopathies hypertrophiques génétiques avec pré-excitation.",
+      [
+       {
+        "t": "Pré-excitation plus hypertrophie : ETT et avis génétique",
+        "i": "Ce n'est pas une voie de Kent classique ; la pré-excitation est liée à une maladie de surcharge, avec un pronostic propre."
+       }
+      ]
+     ],
+     [
+      "Formes familiales",
+      "Rares, recherche chez les apparentés.",
+      [
+       {
+        "t": "Interroger mort subite et pré-excitation familiales",
+        "i": "Des formes familiales existent ; un ECG de dépistage des apparentés au 1er degré peut se discuter."
+       }
+      ]
+     ],
+     [
+      "Siège des voies",
+      "Paroi libre gauche > postéroseptal > paroi libre droite > antéroseptal.",
+      [
+       {
+        "t": "Antéroseptal et médioseptal : risque de bloc AV à l'ablation",
+        "i": "Ces voies sont proches du faisceau de His ; on utilise alors une technique prudente (cryoablation) et on informe du risque."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Prévalence 0,1 à 0,3 %.",
+    "Ebstein : voies droites, parfois multiples.",
+    "PRKAG2 et Danon : pré-excitation avec hypertrophie.",
+    "Voie gauche la plus fréquente."
+   ],
+   "sources": [
+    "ESC 2019 SVT Guidelines",
+    "ACC/AHA/HRS 2015 SVT"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Physiopathologie et rythmes du WPW à l'ECG",
+   "rubriques": [
+    "basicSciences",
+    "positiveDiagnosis",
+    "clinicalExam"
+   ],
+   "comment": "Reconnais le rythme par la régularité, la largeur du QRS et la présence de delta, car chaque rythme mène à une conduite opposée.",
+   "tableau": {
+    "colonnes": [
+     "Rythme",
+     "QRS et régularité",
+     "Mécanisme",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Rythme sinusal pré-excité",
+      "PR < 120 ms, onde delta, QRS ≥ 120 ms par fusion.",
+      "La voie accessoire active le ventricule sans délai nodal.",
+      [
+       {
+        "t": "Aucun traitement aigu",
+        "i": "Le patient n'est pas en crise ; il faut stratifier le risque et éviter digoxine et vérapamil."
+       }
+      ]
+     ],
+     [
+      "AVRT orthodromique (90 à 95 % des réentrées)",
+      "QRS fins, réguliers, 150 à 250/min, onde P rétrograde après le QRS, pas de delta pendant la crise.",
+      "Descente par le nœud AV, remontée par la voie accessoire.",
+      [
+       {
+        "t": "Valsalva modifié puis adénosine",
+        "i": "Le nœud AV fait partie du circuit : le bloquer interrompt la réentrée, ce qui ne marche pas en FA pré-excitée."
+       }
+      ]
+     ],
+     [
+      "AVRT antidromique",
+      "QRS larges, réguliers, en aspect de BBG ou de pré-excitation maximale.",
+      "Descente par la voie accessoire, remontée par le nœud AV.",
+      [
+       {
+        "t": "Traiter comme une tachycardie à QRS larges de nature incertaine",
+        "i": "Elle ressemble à une TV ; le vérapamil est proscrit car le diagnostic reste incertain."
+       }
+      ]
+     ],
+     [
+      "FA pré-excitée",
+      "QRS larges, irréguliers, de largeur variable, souvent > 200/min.",
+      "Conduction des ondes de FA par la voie accessoire, sans filtre nodal.",
+      [
+       {
+        "t": "Cardioversion ou antiarythmique de classe I/III, jamais de bloqueur nodal",
+        "i": "Bloquer le nœud AV dirige toute la conduction par la voie accessoire, accélère la réponse ventriculaire et peut déclencher une FV."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Delta négatif : simule une onde Q d'infarctus.",
+    "Onde R dominante en V1 : voie gauche ; BBG : voie droite ou septale.",
+    "Pouls régulier 150 à 250/min en tachycardie réciproque.",
+    "Évaluer la tolérance : PA, conscience, douleur thoracique, dyspnée."
+   ],
+   "sources": [
+    "ESC 2019 SVT Guidelines",
+    "ACC/AHA/HRS 2015 SVT"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Red flags : FA pré-excitée et médicaments contre-indiqués",
+   "rubriques": [
+    "presumptionRedFlags",
+    "acuteManagement"
+   ],
+   "comment": "Devant une tachycardie irrégulière à QRS larges chez un sujet jeune, bannis tout bloqueur du nœud AV avant même de discuter le traitement.",
+   "tableau": {
+    "colonnes": [
+     "Médicament (classe)",
+     "Statut en FA pré-excitée",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Adénosine (purinergique)",
+      [
+       {
+        "t": "Contre-indiquée",
+        "i": "Elle bloque le nœud AV, favorise la conduction par la voie accessoire et peut induire une FA rapide, d'où un défibrillateur à portée."
+       }
+      ],
+      "Son usage reste légitime en AVRT orthodromique à QRS fins."
+     ],
+     [
+      "Vérapamil, diltiazem (inhibiteurs calciques)",
+      [
+       {
+        "t": "Contre-indiqués (AIPS : vérapamil dans WPW avec FA)",
+        "i": "Ils bloquent le nœud AV et peuvent raccourcir la période réfractaire de la voie ; ils provoquent aussi une hypotension qui accroît le tonus sympathique."
+       }
+      ],
+      "Ils sont proscrits aussi dans toute tachycardie à QRS larges incertaine."
+     ],
+     [
+      "Bêtabloquants",
+      [
+       {
+        "t": "Contre-indiqués en FA pré-excitée",
+        "i": "Même mécanisme de blocage nodal sans effet sur la voie accessoire ; ils ne servent qu'en AVRT orthodromique stable."
+       }
+      ],
+      "Ils restent une option de prévention des crises orthodromiques en attendant l'ablation."
+     ],
+     [
+      "Digoxine (glycoside)",
+      [
+       {
+        "t": "Contre-indiquée (AIPS)",
+        "i": "Elle bloque le nœud AV et raccourcit la période réfractaire de la voie accessoire, ce qui accélère la réponse ventriculaire même en rythme sinusal pré-excité."
+       }
+      ],
+      "Elle est inappropriée même en dehors de la crise."
+     ],
+     [
+      "Amiodarone IV (classe III)",
+      [
+       {
+        "t": "Contre-indiquée en FA pré-excitée",
+        "i": "Elle bloque le nœud AV et expose à une FV ; les recommandations la jugent potentiellement dangereuse dans ce contexte."
+       }
+      ],
+      "Elle garde sa place en TV à QRS larges avérée."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Tachycardie avec instabilité : cardioversion synchronisée, quel que soit le mécanisme.",
+    "Tachycardie régulière à QRS larges incertaine : vérapamil proscrit, traiter comme une TV.",
+    "Même en rythme sinusal pré-excité : pas de digoxine ni de vérapamil.",
+    "La mort subite peut être la première manifestation, mais rarement."
+   ],
+   "sources": [
+    "ESC 2019 SVT Guidelines",
+    "AIPS Swissmedic",
+    "ACC/AHA/HRS 2015 SVT"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan et stratification du risque",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Commence par l'ECG 12 dérivations, puis cherche des marqueurs de bas risque non invasifs et confirme par l'exploration électrophysiologique, qui précède l'ablation dans la même séance.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Pré-excitation à l'ECG 12 dérivations",
+     "i": "PR < 120 ms, onde delta, QRS ≥ 120 ms : le diagnostic ECG repose sur ces trois critères.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Tachyarythmie symptomatique documentée ou syncope",
+     "i": "C'est le syndrome de WPW, avec indication d'ablation sans stratification préalable.",
+     "pec": "ablation_symptomatique",
+     "notion": "c8"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Asymptomatique : ETT, Holter, épreuve d'effort",
+     "i": "L'ETT cherche Ebstein et cardiomyopathie ; l'effort et le Holter cherchent une disparition de l'onde delta.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Disparition brutale de delta à l'effort ou pré-excitation intermittente",
+     "i": "Elle suggère une période réfractaire longue donc un risque faible, mais sa valeur prédictive reste limitée.",
+     "pec": "preexcitation_asymptomatique",
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n3",
+     "t": "Pré-excitation persistante, sportif de compétition, profession à risque",
+     "i": "Le risque ne peut pas être exclu de façon non invasive : on propose l'exploration électrophysiologique.",
+     "pec": "preexcitation_asymptomatique",
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "EP : RR pré-excité le plus court ≤ 250 ms en FA induite, voies multiples ou AVRT inductible",
+     "i": "Ces trois critères définissent une voie à haut risque, avec ablation recommandée.",
+     "pec": "ablation_symptomatique",
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n5",
+     "t": "EP sans critère de haut risque",
+     "i": "Le risque est faible : suivi, ou ablation selon le choix éclairé du patient.",
+     "pec": "preexcitation_asymptomatique",
+     "notion": null
+    }
+   ],
+   "points": [
+    "ETT : maladie d'Ebstein, cardiomyopathie hypertrophique.",
+    "Holter ou enregistreur d'événements : documente tachycardie paroxystique et pré-excitation intermittente.",
+    "L'EP précise nombre et siège des voies et enchaîne avec l'ablation.",
+    "Un delta négatif simule un infarctus ; la pré-excitation imite un BBG ou une hypertrophie."
+   ],
+   "sources": [
+    "ESC 2019 SVT Guidelines",
+    "ACC/AHA/HRS 2015 SVT"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Diagnostic différentiel des tachycardies régulières et irrégulières",
+   "rubriques": [
+    "positiveDiagnosis",
+    "presumptionRedFlags"
+   ],
+   "comment": "Trie d'abord par largeur du QRS et régularité, puis cherche l'onde P et la pré-excitation sur l'ECG de base.",
+   "tableau": {
+    "colonnes": [
+     "Entité",
+     "QRS et régularité",
+     "Discriminant",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Tachycardie sinusale",
+      "Fins, réguliers, début progressif.",
+      [
+       {
+        "t": "Onde P normale devant chaque QRS, fréquence < 150 à 160/min en général",
+        "i": "La tachycardie sinusale s'accélère et ralentit progressivement ; une réentrée démarre et s'arrête brusquement."
+       }
+      ],
+      "On cherche fièvre, anémie, douleur, hypovolémie, hyperthyroïdie."
+     ],
+     [
+      "AVNRT (Bouveret)",
+      "Fins, réguliers, début et fin brusques.",
+      [
+       {
+        "t": "Absence de delta au repos, P rétrograde noyée dans le QRS (pseudo-r' en V1)",
+        "i": "Le circuit est intranodal, sans voie accessoire ; la P rétrograde est quasi simultanée au QRS, contrairement à l'AVRT où elle le suit."
+       }
+      ],
+      "Le traitement aigu est identique à l'AVRT orthodromique."
+     ],
+     [
+      "Flutter auriculaire typique",
+      "Fins, réguliers, ventriculaire souvent 150/min.",
+      [
+       {
+        "t": "Ondes F en dents de scie, fréquence auriculaire ~300/min",
+        "i": "L'adénosine bloque transitoirement le nœud AV et démasque les ondes F, ce que ne fait pas une réentrée."
+       }
+      ],
+      "Un flutter avec conduction 1:1 sur voie accessoire est une urgence."
+     ],
+     [
+      "FA pré-excitée",
+      "Larges, irréguliers, > 200/min.",
+      [
+       {
+        "t": "Largeur variable des QRS et pré-excitation visible en rythme sinusal",
+        "i": "La TV polymorphe est irrégulière mais ne montre ni largeur variable avec fusion ni delta au repos."
+       }
+      ],
+      "Toute erreur par bloqueur nodal peut tuer."
+     ],
+     [
+      "TV soutenue",
+      "Larges, réguliers.",
+      [
+       {
+        "t": "Dissociation AV, capture, fusion, concordance précordiale",
+        "i": "Ces signes sont spécifiques de TV ; l'AVRT antidromique est un diagnostic d'exclusion chez un patient avec voie connue."
+       }
+      ],
+      "Devant l'incertitude, traiter comme une TV et ne pas donner de vérapamil."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Régulière à QRS fins : réentrée, sinusale, flutter.",
+    "Larges et irrégulière chez un jeune : FA pré-excitée.",
+    "Larges et régulière : TV jusqu'à preuve du contraire."
+   ],
+   "sources": [
+    "ESC 2019 SVT Guidelines",
+    "ACC/AHA/HRS 2015 SVT"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge aiguë selon la tolérance et le rythme",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Évalue d'abord la tolérance, puis traite selon que le circuit passe par le nœud AV (orthodromique) ou non (FA pré-excitée).",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Tachycardie : hypotension, syncope, douleur thoracique, œdème pulmonaire ?",
+     "i": "Une instabilité impose le choc quel que soit le mécanisme, sans perte de temps à chercher la cause.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Oui : cardioversion électrique synchronisée immédiate sous sédation brève",
+     "i": "Elle interrompt réentrée comme FA, sans le risque proarythmique des médicaments.",
+     "pec": "urgence_fa_preexcitee_instable",
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Non : ECG 12 dérivations pendant la crise",
+     "i": "La largeur, la régularité et la pré-excitation de base orientent le traitement.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "QRS fins, réguliers (AVRT orthodromique)",
+     "i": "Le nœud AV fait partie du circuit : on le bloque pour l'interrompre.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Valsalva modifié (15 s à 40 mmHg puis décubitus, jambes levées 15 s)",
+     "i": "La manœuvre stimule le tonus vagal ; la version modifiée convertit plus souvent que le Valsalva simple (essai REVERT).",
+     "pec": "crise_orthodromique_stable",
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Échec : adénosine 6 mg puis 12 mg IV en bolus rapide, défibrillateur prêt",
+     "i": "Demi-vie < 10 s, flush bref ; elle peut induire une FA pré-excitée, d'où le monitorage ; asthme sévère : l'éviter.",
+     "pec": "crise_orthodromique_stable",
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Échec : vérapamil, diltiazem ou bêtabloquant IV seulement sans pré-excitation au repos, sinon cardioversion",
+     "i": "Ces agents ne s'envisagent qu'en AVRT, car en présence de pré-excitation une FA pourrait survenir.",
+     "pec": "crise_orthodromique_stable",
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n3",
+     "t": "QRS larges irréguliers, FA pré-excitée stable",
+     "i": "Il faut ralentir ou convertir la voie accessoire, sans bloquer le nœud AV.",
+     "pec": "urgence_fa_preexcitee_instable",
+     "notion": "c4"
+    },
+    {
+     "id": "n9",
+     "parent": "n8",
+     "t": "Ibutilide, procaïnamide ou flécaïnide IV, ou cardioversion électrique",
+     "i": "Ces agents allongent la période réfractaire de la voie ; la cardioversion reste le choix le plus sûr si indisponibles.",
+     "pec": "urgence_fa_preexcitee_instable",
+     "notion": null
+    },
+    {
+     "id": "n10",
+     "parent": "n3",
+     "t": "QRS larges réguliers, mécanisme incertain",
+     "i": "Le risque de TV prime : le vérapamil est proscrit et on traite comme une TV.",
+     "pec": null,
+     "notion": "c6"
+    }
+   ],
+   "points": [
+    "Instabilité : choc synchronisé, toujours.",
+    "Stable à QRS fins réguliers : Valsalva modifié, puis adénosine.",
+    "Stable à QRS larges irréguliers : ibutilide, procaïnamide, flécaïnide ou choc.",
+    "Larges et réguliers : TV jusqu'à preuve du contraire."
+   ],
+   "sources": [
+    "ESC 2019 SVT Guidelines",
+    "ACC/AHA/HRS 2015 SVT",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Traitement de fond, ablation et situations particulières",
+   "rubriques": [
+    "chronicManagement",
+    "followUpNetwork"
+   ],
+   "comment": "Propose l'ablation à tout patient symptomatique ou à haut risque, puis adapte la décision au terrain (asymptomatique, grossesse, sport, refus).",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Attitude",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Patient symptomatique",
+      [
+       {
+        "t": "Ablation par cathéter de première intention (~95 % de succès)",
+        "i": "Elle supprime la voie accessoire, donc l'arythmie et le risque de mort subite ; les antiarythmiques ne font que supprimer partiellement les crises."
+       }
+      ],
+      "Elle précède l'EP dans la même séance, ce qui évite une deuxième procédure."
+     ],
+     [
+      "Asymptomatique",
+      [
+       {
+        "t": "EP pour stratifier ; ablation si propriétés à haut risque",
+        "i": "Le risque individuel est faible mais pas nul ; l'EP sépare les voies à risque (RR ≤ 250 ms, voies multiples, AVRT inductible) des autres."
+       }
+      ],
+      "Une exploration se justifie surtout chez le sportif de compétition ou en profession à risque."
+     ],
+     [
+      "Ablation refusée ou impossible",
+      [
+       {
+        "t": "Flécaïnide ou propafénone, sans cardiopathie ischémique ou structurelle",
+        "i": "Les classes Ic allongent la période réfractaire de la voie ; elles sont proarythmiques sur cicatrice ou ischémie, d'où la contre-indication."
+       }
+      ],
+      "On évite digoxine, vérapamil et diltiazem au long cours."
+     ],
+     [
+      "Grossesse",
+      [
+       {
+        "t": "Adénosine et cardioversion sûres ; ablation reportée ou avec exposition minimale aux rayons X",
+        "i": "Le choc ne compromet pas le fœtus et l'adénosine a une demi-vie très courte ; la radiation fœtale est le seul enjeu de l'ablation."
+       }
+      ],
+      "Un suivi obstétrical et rythmologique est coordonné."
+     ],
+     [
+      "Sport",
+      [
+       {
+        "t": "Évaluation du risque ; reprise du sport de compétition discutée après ablation réussie",
+        "i": "La pré-excitation expose à la FA lors de l'effort adrénergique ; après ablation réussie, le risque est levé."
+       }
+      ],
+      "Une restriction particulière n'est plus nécessaire après une ablation réussie."
+     ],
+     [
+      "Complications de l'ablation",
+      [
+       {
+        "t": "Bloc AV complet (voies antéroseptales ou médioseptales), tamponnade (rare)",
+        "i": "La proximité du faisceau de His expose au bloc AV ; la perforation myocardique est exceptionnelle."
+       }
+      ],
+      "Le consentement éclairé mentionne ces risques."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Ablation : première intention si symptomatique.",
+    "Asymptomatique : EP, ablation si haut risque.",
+    "Alternatives médicamenteuses : flécaïnide ou propafénone seulement sans cardiopathie.",
+    "Informer sur les manœuvres vagales."
+   ],
+   "sources": [
+    "ESC 2019 SVT Guidelines",
+    "ACC/AHA/HRS 2015 SVT"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Complications, pronostic et suivi",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "Retiens que la FA pré-excitée est le mécanisme de la mort subite, que l'ablation réussie guérit, et que le suivi se centre sur la récidive de la pré-excitation.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La FA complique 10 à 30 % des WPW et constitue le mécanisme principal de mort subite.",
+    "FA pré-excitée : fibrillation ventriculaire, défibrillation immédiate puis ablation avant la sortie.",
+    "Tachycardie incessante ou très rapide : hypotension, ischémie, œdème pulmonaire, syncope ; pré-excitation chronique chez l'enfant : cardiomyopathie réversible après ablation.",
+    "Après ablation : ECG de contrôle, suivi à 3 mois ; récidive chez quelques pour cent, nouvelle évaluation.",
+    "Adresser au rythmologue ; dépister les apparentés au 1er degré par ECG si forme familiale."
+   ],
+   "sources": [
+    "ESC 2019 SVT Guidelines",
+    "ACC/AHA/HRS 2015 SVT"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence_fa_preexcitee_instable",
+   "titre": "Tachycardie instable ou FA pré-excitée",
+   "but": [
+    "Restaurer rapidement un rythme sinusal sans bloquer le nœud AV.",
+    "Prévenir la fibrillation ventriculaire et la mort subite."
+   ],
+   "moyens": {
+    "accueil": [
+     "Placer le patient en salle de déchoc avec monitorage continu ECG, PA et SpO2.",
+     "Poser les patchs du défibrillateur et une voie veineuse avant tout médicament.",
+     "Réaliser un ECG 12 dérivations sans retarder le choc si le patient est instable.",
+     "Arrêter tout bloqueur du nœud AV en cours (bêtabloquant, inhibiteur calcique, digoxine)."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Flécaïnide (antiarythmique classe Ic)",
+      "posologie": "Environ 2 mg/kg IV en 10 min sous monitorage, si FA pré-excitée stable et sans cardiopathie structurelle ni ischémique.",
+      "pourquoi": "Il allonge la période réfractaire de la voie accessoire et convertit la FA sans bloquer le nœud AV.",
+      "source": "ESC 2019 SVT ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Ibutilide (antiarythmique classe III)",
+      "posologie": "1 mg IV en 10 min (0,01 mg/kg si < 60 kg), répétable une fois ; surveiller le QT ; disponibilité suisse limitée.",
+      "pourquoi": "Il allonge la période réfractaire de la voie et convertit la FA ; le risque est la torsade de pointes.",
+      "source": "ACC/AHA/HRS 2015 SVT ; ESC 2019 SVT"
+     },
+     {
+      "molecule": "Procaïnamide (antiarythmique classe Ia)",
+      "posologie": "Environ 10 mg/kg IV en 20 min, surveiller la PA et le QRS ; disponibilité suisse variable.",
+      "pourquoi": "Il ralentit la conduction par la voie accessoire et convertit la FA pré-excitée stable, avec un risque d'hypotension.",
+      "source": "ESC 2019 SVT"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réaliser une cardioversion électrique synchronisée biphasique de 120 à 200 J sous sédation brève, en augmentant l'énergie si échec.",
+      "pourquoi": "C'est le traitement le plus rapide et le plus sûr, indispensable si le patient est instable."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveiller en continu le rythme, la PA et la conscience pendant et après le choc.",
+      "pourquoi": "Une récidive de FA pré-excitée ou une FV peut survenir juste après la conversion."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer au patient pourquoi aucun médicament de type bloqueur nodal ne doit lui être donné et lui remettre une carte.",
+      "pourquoi": "Un autre soignant pourrait lui donner un médicament dangereux lors d'une prochaine crise."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'information et le consentement ou l'urgence vitale pour le choc et la sédation."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Établit l'incapacité de travail et organise l'accès aux soins de rythmologie."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Monitorer le rythme, la PA et la SpO2 en continu.",
+      "Garder le défibrillateur à portée jusqu'à la conversion.",
+      "Interdire tout bloqueur du nœud AV tant que la pré-excitation n'est pas exclue."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Reconnaît une tachycardie irrégulière à QRS larges et évalue la tolérance hémodynamique."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Branche le monitorage, pose la voie veineuse et les patchs du défibrillateur."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Prépare la sédation brève et protège les voies aériennes."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Délivre le choc synchronisé si instable ; si stable, choisit flécaïnide, ibutilide ou procaïnamide."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Contrôle l'ECG 12 dérivations après conversion et appelle le cardiologue rythmologue."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Organise l'hospitalisation monitorée et planifie l'ablation avant la sortie."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La cardioversion convertit la grande majorité des FA pré-excitées ; le risque de récidive persiste tant que la voie n'est pas ablatée, et l'ablation guérit dans environ 95 % des cas.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Rythme et PA",
+      "quand": "Monitorage continu pendant au moins 24 h",
+      "cible": "Rythme sinusal stable, aucune récidive"
+     },
+     {
+      "quoi": "ECG 12 dérivations",
+      "quand": "Après conversion",
+      "cible": "PR et onde delta documentés, QT correct après ibutilide"
+     },
+     {
+      "quoi": "Kaliémie et magnésémie",
+      "quand": "À l'admission",
+      "cible": "K+ ≥ 4,0 mmol/l, Mg2+ normal"
+     }
+    ],
+    "sortie": "Rythme sinusal stable, ablation réalisée ou programmée rapidement chez le rythmologue, patient informé des signes d'alarme et de l'interdiction des bloqueurs nodaux."
+   },
+   "prevention": {
+    "primaire": "Sans objet pour une malformation congénitale ; dépister par ECG les apparentés au 1er degré en cas de forme familiale.",
+    "secondaire": "Ablation de la voie accessoire pour prévenir toute récidive de FA pré-excitée.",
+    "tertiaire": "Éviter les bloqueurs du nœud AV en attendant l'ablation et surveiller après la procédure."
+   }
+  },
+  {
+   "cle": "crise_orthodromique_stable",
+   "titre": "Crise de tachycardie orthodromique stable",
+   "but": [
+    "Interrompre la réentrée avec le moins d'effets indésirables.",
+    "Rechercher la pré-excitation sur l'ECG après la conversion."
+   ],
+   "moyens": {
+    "accueil": [
+     "Prendre l'ECG 12 dérivations pendant la crise avant tout geste.",
+     "Poser une voie veineuse large et monitorer le patient.",
+     "Préparer le défibrillateur avant l'adénosine.",
+     "Vérifier l'absence d'asthme sévère et de prise de théophylline ou de caféine."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Adénosine (purinergique)",
+      "posologie": "6 mg IV en bolus rapide suivi de NaCl 0,9 % ; si échec 12 mg ; 3 mg d'emblée si dipyridamole, voie centrale ou greffé cardiaque.",
+      "pourquoi": "Elle bloque transitoirement le nœud AV (demi-vie < 10 s) et interrompt la réentrée ; elle peut induire une FA.",
+      "source": "ESC 2019 SVT ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Réaliser un Valsalva modifié : 15 s d'effort expiratoire à 40 mmHg, puis décubitus avec jambes levées 15 s.",
+      "pourquoi": "Cette manœuvre vagale convertit mieux que le Valsalva simple (essai REVERT) et est sans risque."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Pratiquer la cardioversion électrique synchronisée si tous les moyens échouent ou si le patient s'instabilise.",
+      "pourquoi": "Elle reste efficace et rapide quand le circuit résiste aux manœuvres et à l'adénosine."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Apprendre au patient le Valsalva modifié et les signes qui imposent de consulter en urgence.",
+      "pourquoi": "Il peut ainsi interrompre lui-même des crises brèves et consulter à temps si syncope ou crise prolongée."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Documente l'incapacité de travail pendant la crise et au besoin pendant l'ablation."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Monitorer le rythme et la PA en continu.",
+      "Garder le défibrillateur à portée de main pendant l'adénosine.",
+      "Ne donner vérapamil, diltiazem ou bêtabloquant que sans pré-excitation au repos."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Vérifie sur l'ECG des QRS fins réguliers sans delta et la stabilité hémodynamique."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose la voie veineuse large et prépare l'adénosine et le défibrillateur."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "patient·e",
+       "fait": "Réalise le Valsalva modifié guidé par le médecin."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Administre l'adénosine 6 mg puis 12 mg en cas d'échec, en bolus rapide avec rinçage."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Enregistre l'ECG de repos après conversion et cherche l'onde delta."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Évalue l'ablation en consultation de rythmologie, en urgence si la crise est récidivante."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La plupart des crises orthodromiques cèdent aux manœuvres vagales ou à l'adénosine ; la récidive est fréquente tant que la voie n'est pas ablatée.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Rythme et PA",
+      "quand": "Pendant et 1 à 2 h après la conversion",
+      "cible": "Rythme sinusal, PA stable"
+     },
+     {
+      "quoi": "ECG de repos",
+      "quand": "Après conversion",
+      "cible": "Pré-excitation notée ou absente"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si crise stable convertie, rythme sinusal durable, pas de FA pré-excitée ni de syncope, et rendez-vous rapide chez le rythmologue."
+   },
+   "prevention": {
+    "primaire": "Sans objet.",
+    "secondaire": "Ablation de la voie accessoire ; en attendant, Valsalva modifié à la maison.",
+    "tertiaire": "Consulter en urgence si crise prolongée ou syncope."
+   }
+  },
+  {
+   "cle": "ablation_symptomatique",
+   "titre": "WPW symptomatique ou voie à haut risque : traitement de fond",
+   "but": [
+    "Supprimer définitivement la voie accessoire.",
+    "Éviter la récidive d'arythmie et la mort subite."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer la nature de la voie accessoire et le but de l'ablation.",
+     "Recueillir les antécédents familiaux de mort subite et la profession ou le sport pratiqué.",
+     "Arrêter les bloqueurs nodaux inadaptés (digoxine, vérapamil) en cas de pré-excitation manifeste."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Flécaïnide (antiarythmique classe Ic)",
+      "posologie": "50 à 100 mg 2 fois par jour, maximum 300 mg par jour, seulement si ablation refusée ou impossible et sans cardiopathie.",
+      "pourquoi": "Il allonge la période réfractaire de la voie accessoire ; il est proarythmique en cas de cicatrice ou d'ischémie.",
+      "source": "ESC 2019 SVT ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Propafénone (antiarythmique classe Ic)",
+      "posologie": "150 mg 3 fois par jour, adapter à la fonction hépatique et au poids selon l'AIPS.",
+      "pourquoi": "Alternative à la flécaïnide avec les mêmes contre-indications structurelles.",
+      "source": "AIPS Swissmedic ; ESC 2019 SVT"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réaliser une exploration électrophysiologique puis l'ablation par cathéter de la voie accessoire dans la même séance (cryoablation pour les voies septales).",
+      "pourquoi": "Le succès avoisine 95 % ; la cryoablation limite le risque de bloc AV près du faisceau de His."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Informer le patient des risques (bloc AV, tamponnade, récidive) et obtenir son consentement.",
+      "pourquoi": "Les complications sont rares mais graves ; un consentement éclairé est exigé."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Discuter la reprise du sport de compétition après ablation réussie.",
+      "pourquoi": "Après succès, le risque rythmique est levé et aucune restriction particulière n'est nécessaire."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Encadre l'information, le consentement et l'aptitude professionnelle (conduite, aviation, sport)."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Organise l'incapacité de travail péri-procédurale et la prise en charge par l'assurance."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Adresser le patient à un centre d'électrophysiologie.",
+      "Planifier l'ablation à court terme si syncope ou voie à haut risque.",
+      "Prévoir une prise en charge particulière chez la femme enceinte (report ou exposition minimale aux rayons X)."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Confirme le diagnostic par ECG et adresse le patient au rythmologue."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Réalise l'ETT pour exclure Ebstein ou cardiomyopathie, puis l'exploration électrophysiologique."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "spécialiste",
+       "fait": "Ablate la voie dans la même séance après avoir précisé son siège et ses propriétés."
+      },
+      {
+       "temps": "puis",
+       "qui": "infirmier·ère",
+       "fait": "Surveille le site de ponction et le rythme après la procédure."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Contrôle l'ECG de repos et organise le suivi à 3 mois."
+      }
+     ]
+    }
+   },
+   "pronostic": "Après ablation réussie (environ 95 %), le patient est guéri, sans antiarythmique ni restriction particulière ; une récidive survient chez quelques pour cent et justifie une réévaluation.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "ECG de contrôle",
+      "quand": "Après la procédure",
+      "cible": "Disparition de l'onde delta, PR normal"
+     },
+     {
+      "quoi": "Suivi clinique",
+      "quand": "Vers 3 mois",
+      "cible": "Aucune palpitation, aucun épisode de syncope"
+     },
+     {
+      "quoi": "Récidive de palpitations ou de pré-excitation",
+      "quand": "En cas de symptôme",
+      "cible": "Réévaluation rythmologique, nouvelle ablation si besoin"
+     }
+    ],
+    "sortie": "ECG sans onde delta, absence de complication au site de ponction ou d'épanchement péricardique, rythme stable ; la sortie se fait souvent le jour même ou le lendemain."
+   },
+   "prevention": {
+    "primaire": "Sans objet (voie congénitale) ; dépistage ECG des apparentés au 1er degré en cas de forme familiale.",
+    "secondaire": "Ablation pour prévenir la récidive de tachyarythmie.",
+    "tertiaire": "Suivi à 3 mois et réévaluation en cas de récidive ou de nouveaux symptômes."
+   }
+  },
+  {
+   "cle": "preexcitation_asymptomatique",
+   "titre": "Pré-excitation asymptomatique : stratification du risque",
+   "but": [
+    "Identifier les patients à risque de FA rapide et de mort subite.",
+    "Éviter une ablation inutile chez les patients à faible risque."
+   ],
+   "moyens": {
+    "accueil": [
+     "Rassurer : la mort subite est rarement la première manifestation.",
+     "Rechercher palpitations, syncope et antécédents familiaux de mort subite.",
+     "Préciser la profession et l'activité sportive."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Réaliser ECG 12 dérivations, ETT, épreuve d'effort et Holter.",
+      "pourquoi": "La disparition brutale de l'onde delta à l'effort suggère un faible risque, mais sa valeur prédictive reste limitée."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Proposer l'exploration électrophysiologique si pré-excitation persistante, sport de compétition ou profession à risque.",
+      "pourquoi": "Elle mesure l'intervalle RR pré-excité le plus court, les voies multiples et l'inductibilité d'AVRT."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Enseigner les manœuvres vagales et les signes d'alarme (palpitations, syncope).",
+      "pourquoi": "Une crise apparue plus tard justifie alors une consultation rapide et une ablation."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre l'aptitude au sport de compétition et aux professions à risque."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise l'impact de l'ECG de dépistage sur les assurances et le travail."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Éviter digoxine et vérapamil en cas de pré-excitation manifeste.",
+      "Dépister par ECG les apparentés au 1er degré si forme familiale."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Confirme la pré-excitation à l'ECG et exclut tout symptôme rythmique."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Prescrit ETT, épreuve d'effort et Holter, puis adresse au cardiologue."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Réalise l'exploration électrophysiologique si le profil l'impose et ablate si haut risque."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Consulte en urgence en cas de palpitations prolongées ou de syncope."
+      }
+     ]
+    }
+   },
+   "pronostic": "Une pré-excitation asymptomatique non traitée garde un pronostic généralement favorable, et l'onde delta peut disparaître avec l'âge.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Symptômes (palpitations, syncope)",
+      "quand": "À chaque consultation",
+      "cible": "Absence de symptôme"
+     },
+     {
+      "quoi": "ECG de repos",
+      "quand": "Suivi régulier chez le cardiologue",
+      "cible": "Pré-excitation stable, aucune nouvelle arythmie"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : patient asymptomatique, hémodynamiquement stable, sans syncope ni critère de haut risque."
+   },
+   "prevention": {
+    "primaire": "Sans objet ; dépistage ECG des apparentés en cas de forme familiale.",
+    "secondaire": "Ablation si EP montre une voie à haut risque.",
+    "tertiaire": "Suivi cardiologique et reconsultation dès le moindre symptôme."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6835,
+  "output_tokens": 27329,
+  "output_tokens_details": {
+   "thinking_tokens": 9306
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:35:05",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

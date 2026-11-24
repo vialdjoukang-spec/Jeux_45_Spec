@@ -1,0 +1,1157 @@
+{
+ "id": "G47.3_1__S1_18-E14",
+ "portes": [
+  {
+   "ssp": "S1.18",
+   "nomSSP": "Ronflement",
+   "entite": "SAOS sévère avec endormissement au volant ou arythmie nocturne grave",
+   "entiteId": "S1.18-E14"
+  }
+ ],
+ "entite": "SAOS sévère avec endormissement au volant ou arythmie nocturne grave",
+ "cim10": "G47.3",
+ "ssp": {
+  "code": "S1.18",
+  "nom": "Ronflement",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Ronflement de l'adulte",
+    "i": "Porte d'entrée S1.18 : on cherche d'abord un drapeau rouge avant de classer le ronflement.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Stridor, détresse, coma ou obstruction post-opératoire immédiate ?",
+    "i": "Un stridor ou un stertor n'est pas un ronflement : urgence vitale.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : sortir du SSP",
+    "i": "Renvoie vers le SSP dyspnée aiguë ou trouble de la conscience, avec libération des voies aériennes.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : anamnèse avec témoin, profession, Epworth",
+    "i": "Le témoin est plus fiable que le patient ; l'Epworth > 10 définit la somnolence excessive.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Endormissement au volant, accident, conducteur professionnel ou syncope/pauses ?",
+    "i": "Drapeaux rouges accidentels et rythmiques : bilan urgent et interdiction temporaire de conduire.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Oui : interdire de conduire et PSG prioritaire avec ECG/Holter",
+    "i": "Polysomnographie en centre du sommeil sans délai ; Holter si syncope ou palpitations.",
+    "pec": "urgence_securite",
+    "notion": "c7"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "IAH ≥ 30/h avec somnolence ou événement",
+    "i": "SAOS sévère à risque immédiat confirmé : CPAP en première ligne.",
+    "pec": "cpap_long_cours",
+    "notion": "c1"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Pauses > 3 s, BAV de haut degré ou FA",
+    "i": "Risque rythmique : cardiologue, anticoagulation selon CHA2DS2-VA, traiter d'abord le SAOS avant tout stimulateur.",
+    "pec": "arythmie_fa",
+    "notion": "c8"
+   },
+   {
+    "id": "n9",
+    "parent": "n6",
+    "t": "IAH < 5/h malgré somnolence",
+    "i": "Cause alternative à chercher : TSH, médicaments sédatifs, narcolepsie ou autre hypersomnie (renvoi vers le SSP somnolence).",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n10",
+    "parent": "n6",
+    "t": "Hypercapnie diurne avec obésité",
+    "i": "Syndrome obésité-hypoventilation : gaz du sang, ventilation non invasive à discuter, risque de décompensation hypercapnique.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n11",
+    "parent": "n5",
+    "t": "Non : STOP-Bang et examen ORL",
+    "i": "Un score ≥ 3 indique un risque élevé de SAOS ; l'examen cherche rétrognathie, Mallampati, obstruction nasale.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "STOP-Bang ≥ 3 sans comorbidité majeure",
+    "i": "Polygraphie ambulatoire (type III) suffit ; PSG si doute ou comorbidité.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n13",
+    "parent": "n12",
+    "t": "SAOS confirmé (IAH ≥ 15 ou ≥ 5 symptomatique)",
+    "i": "Traitement selon sévérité : CPAP, orthèse ou mesures positionnelles.",
+    "pec": "cpap_long_cours",
+    "notion": "c8"
+   },
+   {
+    "id": "n14",
+    "parent": "n11",
+    "t": "STOP-Bang < 3 ou IAH < 5/h",
+    "i": "Ronflement primaire : perte de poids, éviter alcool et sédatifs le soir, traitement d'une obstruction nasale.",
+    "pec": null,
+    "notion": "c6"
+   }
+  ]
+ },
+ "specialites": [
+  "PNE"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "SAOS sévère avec endormissement au volant ou arythmie nocturne grave",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définir le SAOS sévère à risque immédiat",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Tu classes d'abord par l'IAH, puis tu qualifies l'urgence par l'événement (accident, syncope, pause) et non par le chiffre seul.",
+   "tableau": {
+    "colonnes": [
+     "Niveau",
+     "IAH (/h)",
+     "Conduite pratique"
+    ],
+    "lignes": [
+     [
+      "Ronflement primaire",
+      [
+       {
+        "t": "IAH < 5",
+        "i": "Sans somnolence ni désaturation, aucun collapsus pathologique : on traite les facteurs favorisants, pas de CPAP."
+       }
+      ],
+      "Conseils d'hygiène de vie, pas de bilan urgent."
+     ],
+     [
+      "SAOS léger",
+      [
+       {
+        "t": "IAH 5 à < 15",
+        "i": "Ne pose le diagnostic que si symptômes (somnolence, apnées témoignées) : le seuil dépend donc de la clinique."
+       }
+      ],
+      "Traiter si symptomatique, orthèse ou mesures positionnelles possibles."
+     ],
+     [
+      "SAOS modéré",
+      [
+       {
+        "t": "IAH 15 à < 30",
+        "i": "Un IAH ≥ 15 suffit seul au diagnostic, même sans symptôme."
+       }
+      ],
+      "CPAP si symptomatique ou comorbidité cardiovasculaire."
+     ],
+     [
+      "SAOS sévère",
+      [
+       {
+        "t": "IAH ≥ 30",
+        "i": "Seuil de sévérité ; devient urgent seulement avec endormissement au volant, accident ou pauses/BAV nocturnes."
+       }
+      ],
+      "CPAP en première ligne et interdiction de conduire jusqu'à efficacité prouvée."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Une apnée obstructive est une baisse du flux ≥ 90 % pendant ≥ 10 s avec efforts respiratoires persistants.",
+    "Une hypopnée est une baisse du flux ≥ 30 % pendant ≥ 10 s avec désaturation ≥ 3 % ou micro-éveil.",
+    "La pause sinusale est significative au-delà de 3 s ; un BAV de haut degré nocturne est un critère de gravité.",
+    "L'entité urgente associe SAOS sévère et risque immédiat accidentel ou rythmique."
+   ],
+   "sources": [
+    "AASM 2012/2023",
+    "SSMSC (Société suisse de recherche sur le sommeil)",
+    "OAC annexe 1"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie et facteurs de risque",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Tu retiens que le SAOS est très fréquent en Suisse et que le risque routier n'est normalisé que par une CPAP efficace.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "HypnoLaus (Lausanne) : IAH ≥ 15/h chez environ 50 % des hommes et 23 % des femmes de 40 à 85 ans.",
+    "Le SAOS non traité multiplie par 2 à 7 le risque d'accident de la route.",
+    "Facteurs de risque : obésité, sexe masculin, âge, rétrognathie, alcool, sédatifs, ménopause.",
+    "Sous CPAP efficace, le risque d'accident se rapproche de celui de la population générale."
+   ],
+   "sources": [
+    "HypnoLaus (Heinzer, Lancet Respir Med 2015)",
+    "Directives suisses de médecine du trafic"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Physiopathologie : du collapsus à la pause cardiaque",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Tu relies chaque symptôme à un mécanisme : le collapsus provoque l'hypoxie, l'hypoxie provoque le réflexe vagal, et les micro-éveils provoquent la somnolence.",
+   "tableau": {
+    "colonnes": [
+     "Mécanisme",
+     "Conséquence",
+     "Pourquoi cela compte"
+    ],
+    "lignes": [
+     [
+      "Baisse du tonus du génioglosse et pression inspiratoire négative",
+      [
+       {
+        "t": "Collapsus répété des voies aériennes supérieures",
+        "i": "Il explique ronflement et apnées ; l'alcool et les sédatifs l'aggravent en abaissant encore le tonus."
+       }
+      ],
+      "Cause directe des apnées et des désaturations."
+     ],
+     [
+      "Hypoxie et hypercapnie",
+      [
+       {
+        "t": "Chémoréflexe avec hypertonie vagale",
+        "i": "Il produit bradycardie, pauses sinusales et BAV en fin d'apnée, surtout en sommeil paradoxal."
+       }
+      ],
+      "Explique les syncopes et la mort subite nocturne."
+     ],
+     [
+      "Micro-éveils répétés",
+      [
+       {
+        "t": "Sommeil fragmenté",
+        "i": "Il cause la somnolence diurne et les micro-sommeils, donc les endormissements au volant."
+       }
+      ],
+      "Explique le risque accidentel."
+     ],
+     [
+      "Troubles fonctionnels du nœud",
+      [
+       {
+        "t": "Pas de maladie intrinsèque du nœud",
+        "i": "Les pauses et BAV régressent le plus souvent sous CPAP : on traite le SAOS avant tout stimulateur."
+       }
+      ],
+      "Évite un pacemaker inutile."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le mécanisme vagal est réflexe et réversible, d'où la priorité donnée à la CPAP.",
+    "Une cardiopathie sous-jacente ou une FA rapide aggrave le pronostic rythmique."
+   ],
+   "sources": [
+    "ESC 2022 (arythmies ventriculaires, SAOS)",
+    "SSMSC"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Anamnèse, examen et drapeaux rouges",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam",
+    "presumptionRedFlags"
+   ],
+   "comment": "Tu interroges le témoin et la profession avant tout, car l'accident ou la syncope décide du caractère urgent.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Ce que tu cherches",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Conduite",
+      [
+       {
+        "t": "Endormissement au feu rouge, accident ou quasi-accident",
+        "i": "C'est un drapeau rouge : il impose un bilan urgent et l'interdiction temporaire de conduire."
+       }
+      ],
+      "Risque routier immédiat."
+     ],
+     [
+      "Profession",
+      [
+       {
+        "t": "Chauffeur poids lourd, bus, taxi, machiniste",
+        "i": "Ils relèvent du groupe médical 2, aux exigences plus strictes que les conducteurs privés."
+       }
+      ],
+      "Bilan prioritaire avant toute reprise du travail."
+     ],
+     [
+      "Rythme",
+      [
+       {
+        "t": "Syncope, pré-syncope, palpitations, réveil en suffocation",
+        "i": "Ils orientent vers une bradyarythmie nocturne : Holter, avec pauses > 3 s ou BAV de haut degré comme critères de gravité."
+       }
+      ],
+      "Un SAOS sévère et une bradyarythmie sont à chercher ensemble."
+     ],
+     [
+      "Somnolence",
+      [
+       {
+        "t": "Epworth > 10 (excessive), > 15 (sévère)",
+        "i": "Score de 8 situations notées de 0 à 24 ; il est subjectif, d'où le TME si doute médico-légal."
+       }
+      ],
+      "Quantifie le risque."
+     ],
+     [
+      "Témoin",
+      [
+       {
+        "t": "Ronflements forts, pauses respiratoires",
+        "i": "Le conjoint est plus fiable que le patient, qui sous-estime ses symptômes."
+       }
+      ],
+      "Oriente le diagnostic."
+     ],
+     [
+      "Examen",
+      [
+       {
+        "t": "IMC, tour de cou > 40 cm, Mallampati, rétrognathie, obstruction nasale, pouls, TA",
+        "i": "Mesure le rétrécissement des voies aériennes ; une SpO2 d'éveil basse avec obésité évoque un syndrome obésité-hypoventilation."
+       }
+      ],
+      "Cherche aussi les signes d'insuffisance cardiaque droite."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Chercher alcool, benzodiazépines, hypnotiques et opioïdes, qui aggravent le collapsus.",
+    "Céphalées matinales, nycturie, bouche sèche et HTA résistante accompagnent le SAOS sévère.",
+    "Hypercapnie diurne avec obésité : penser au syndrome obésité-hypoventilation et au risque de décompensation aiguë."
+   ],
+   "sources": [
+    "SSMSC",
+    "OAC annexe 1",
+    "ESC 2018 syncope"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan : examen de référence et alternatives",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Tu choisis l'enregistrement du sommeil selon la gravité et tu ajoutes le rythme cardiaque dès qu'il y a syncope ou palpitations.",
+   "tableau": {
+    "colonnes": [
+     "Examen",
+     "Place",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Polysomnographie de laboratoire (type I)",
+      [
+       {
+        "t": "Référence, priorisée en centre du sommeil reconnu",
+        "i": "Elle calcule l'IAH par heure de sommeil et corrèle les pauses ou BAV aux apnées ; en cas d'accident ou de conduite professionnelle, on n'attend pas le délai habituel."
+       }
+      ],
+      "Prouve le lien causal avec l'arythmie."
+     ],
+     [
+      "Polygraphie ambulatoire (type III)",
+      [
+       {
+        "t": "Forte probabilité sans comorbidité majeure",
+        "i": "Largement utilisée en Suisse mais sans EEG : elle sous-estime l'IAH ; pas adaptée si arythmie suspectée ou comorbidité."
+       }
+      ],
+      "Alternative à la PSG dans le cas simple."
+     ],
+     [
+      "ECG 12 dérivations puis Holter",
+      [
+       {
+        "t": "Syncope ou palpitations",
+        "i": "Recherche pauses, BAV et FA ; un moniteur implantable est proposé si la syncope reste inexpliquée malgré un Holter négatif."
+       }
+      ],
+      "Documente le risque rythmique."
+     ],
+     [
+      "Test de maintien d'éveil (TME)",
+      [
+       {
+        "t": "Aptitude à la conduite",
+        "i": "4 essais de 40 min ; latence moyenne < 8 min anormale ; objective la vigilance, ce que l'Epworth ne fait pas."
+       }
+      ],
+      "Utile pour la médecine du trafic."
+     ],
+     [
+      "Test OSLER",
+      [
+       {
+        "t": "Alternative au TME",
+        "i": "Mesure la résistance au sommeil par une tâche de réponse à des stimuli lumineux."
+       }
+      ],
+      "Moins répandu que le TME."
+     ],
+     [
+      "STOP-Bang, TSH, échocardiographie, gaz du sang",
+      [
+       {
+        "t": "Dépistage et recherche de cause",
+        "i": "STOP-Bang ≥ 3 indique un risque élevé, ≥ 5 une probabilité élevée de SAOS modéré à sévère ; TSH, échographie et gaz du sang cherchent hypothyroïdie, cardiopathie, hypoventilation."
+       }
+      ],
+      "Complètent sans remplacer la PSG."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le STOP-Bang dépiste mais ne pose pas le diagnostic.",
+    "Gaz du sang ou bicarbonates si obésité avec SpO2 d'éveil basse."
+   ],
+   "sources": [
+    "SSMSC",
+    "AASM 2017",
+    "ESC 2018 syncope"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Diagnostic positif et diagnostics différentiels",
+   "rubriques": [
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu poses le diagnostic sur l'IAH ≥ 30/h plus un événement, et tu écartes les causes de ronflement qui ne sont pas un SAOS.",
+   "tableau": {
+    "colonnes": [
+     "Hypothèse",
+     "Discriminant",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "SAOS sévère à risque",
+      [
+       {
+        "t": "IAH ≥ 30/h + Epworth > 10 ou accident ou pauses/BAV",
+        "i": "Les pauses ou BAV survenant en fin d'apnée avec désaturation, surtout en sommeil paradoxal, prouvent le lien causal."
+       }
+      ],
+      "Retenu."
+     ],
+     [
+      "Ronflement primaire",
+      [
+       {
+        "t": "IAH < 5/h, pas de somnolence",
+        "i": "Aucune désaturation ni somnolence : pas de risque routier ni rythmique."
+       }
+      ],
+      "Exclu par la PSG."
+     ],
+     [
+      "Syndrome obésité-hypoventilation",
+      [
+       {
+        "t": "Hypercapnie diurne, bicarbonates élevés",
+        "i": "L'hypoventilation persiste éveillé, contrairement au SAOS pur ; la CPAP seule peut être insuffisante."
+       }
+      ],
+      "Risque de décompensation hypercapnique."
+     ],
+     [
+      "Hypothyroïdie ou acromégalie",
+      [
+       {
+        "t": "TSH anormale, macroglossie",
+        "i": "Infiltration des tissus mous des voies aériennes ; le traitement endocrinien peut réduire l'IAH."
+       }
+      ],
+      "Chercher en cas de signes évocateurs."
+     ],
+     [
+      "Stridor ou stertor",
+      [
+       {
+        "t": "Bruit aigu en détresse ou coma",
+        "i": "Un stridor inspiratoire (épiglottite, laryngite) ou un stertor (coma, AVC, intoxication) est une urgence vitale, pas un ronflement."
+       }
+      ],
+      "Renvoi vers le SSP dyspnée ou trouble de conscience."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Autres causes à évoquer : obstruction nasale, rétrognathie, tumeur pharyngolaryngée, ronflement iatrogène.",
+    "Chez l'enfant, penser à l'hypertrophie adéno-amygdalienne."
+   ],
+   "sources": [
+    "AASM",
+    "SSMSC"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Conduite à tenir en urgence et cadre légal suisse",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Tu interdis de conduire le jour même, tu documentes par écrit et tu sais que seule l'autorité cantonale retire le permis.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "SAOS sévère avec endormissement au volant, accident ou arythmie nocturne",
+     "i": "Situation urgente : le risque est immédiat, accidentel ou rythmique.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Interdire formellement de conduire et informer par écrit",
+     "i": "L'interdiction dure jusqu'à la mise en route de la CPAP et la preuve de son efficacité clinique ; l'écrit protège médicalement et juridiquement.",
+     "pec": "urgence_securite",
+     "notion": "c7"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Le patient accepte et cesse de conduire",
+     "i": "Le médecin ne signale rien ; le suivi se fait en centre du sommeil.",
+     "pec": null,
+     "notion": "c7"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Le patient persiste à conduire",
+     "i": "Selon LCR art. 15d al. 3, le médecin peut signaler l'inaptitude à l'autorité cantonale sans être lié par le secret professionnel.",
+     "pec": null,
+     "notion": "c7"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Signalement au service cantonal des automobiles",
+     "i": "Seule l'autorité cantonale peut retirer le permis ; le médecin ne le retire pas lui-même.",
+     "pec": null,
+     "notion": "c7"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Pauses > 3 s ou BAV de haut degré symptomatiques",
+     "i": "Critère de gravité rythmique ; justifie monitoring et avis cardiologique.",
+     "pec": "arythmie_fa",
+     "notion": "c1"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Éviter bêta-bloquants et diltiazem, traiter d'abord le SAOS",
+     "i": "Ils aggraveraient la bradycardie ; la CPAP fait le plus souvent régresser les pauses avant toute discussion de stimulateur.",
+     "pec": "cpap_long_cours",
+     "notion": "c3"
+    },
+    {
+     "id": "n8",
+     "parent": "n1",
+     "t": "Reprise de la conduite après CPAP",
+     "i": "Autorisée sur preuve d'observance et d'efficacité (contrôle à 1 mois) ; le médecin du trafic évalue l'aptitude, avec TME si doute.",
+     "pec": "cpap_long_cours",
+     "notion": "c5"
+    }
+   ],
+   "points": [
+    "Un accident survenu après information du patient sur son inaptitude peut engager sa responsabilité pénale.",
+    "La remise de la CPAP passe par les ligues pulmonaires et est remboursée par l'assurance de base (LiMA)."
+   ],
+   "sources": [
+    "LCR art. 15d",
+    "OAC annexe 1",
+    "LiMA"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Traitement au long cours : CPAP et arythmie",
+   "rubriques": [
+    "chronicManagement"
+   ],
+   "comment": "Tu traites d'abord le SAOS par CPAP puis tu adaptes l'arythmie à la cardiopathie, car la CPAP seule régresse souvent les pauses.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Choix",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "SAOS sévère symptomatique",
+      [
+       {
+        "t": "CPAP ≥ 4 h par nuit",
+        "i": "Traitement de première ligne : il normalise la somnolence et le risque routier."
+       }
+      ],
+      "Observance contrôlée à 1 mois."
+     ],
+     [
+      "Intolérance à la CPAP",
+      [
+       {
+        "t": "Orthèse d'avancée mandibulaire, perte de poids, thérapie positionnelle, stimulation du nerf hypoglosse",
+        "i": "Alternatives de seconde ligne ; la stimulation hypoglosse est réservée à des patients sélectionnés."
+       }
+      ],
+      "Moins efficaces que la CPAP en SAOS sévère."
+     ],
+     [
+      "FA avec CHA2DS2-VA ≥ 2",
+      [
+       {
+        "t": "Apixaban 5 mg 2×/j (2,5 mg si 2 critères : âge ≥ 80 ans, poids ≤ 60 kg, créatinine ≥ 133 µmol/L)",
+        "i": "L'anticoagulation orale directe est préférée aux antivitamines K ; la dose réduite exige 2 critères sur 3."
+       }
+      ],
+      "Le score déjà élevé impose l'anticoagulation."
+     ],
+     [
+      "Contrôle du rythme",
+      [
+       {
+        "t": "Amiodarone si cardiopathie ; flécaïnide contre-indiqué",
+        "i": "Le flécaïnide est proarythmique en cardiopathie ischémique ou structurelle ; l'amiodarone est alors l'antiarythmique de choix."
+       }
+      ],
+      "Évite la mort subite."
+     ],
+     [
+      "Après cardioversion ou ablation",
+      [
+       {
+        "t": "CPAP maintenue",
+        "i": "Elle diminue le risque de récidive de FA."
+       }
+      ],
+      "Un SAOS non traité fait échouer le contrôle du rythme."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La CPAP n'a pas prouvé de réduire les événements cardiovasculaires en prévention secondaire (SAVE).",
+    "Le but de la CPAP est donc symptomatique, routier et rythmique, non cardioprotecteur démontré."
+   ],
+   "sources": [
+    "ESC 2024 FA",
+    "SAVE (McEvoy, NEJM 2016)",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Complications, surveillance, pronostic et réseau",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Tu cites l'accident mortel et la mort subite, tu planifies le contrôle d'observance à 1 mois et tu coordonnes pneumologue, médecin du trafic et cardiologue.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Complications : accident mortel, mort subite rythmique, FA, HTA résistante, AVC, insuffisance cardiaque.",
+    "Périopératoire : intubation difficile et dépression respiratoire sous opioïdes ; oxygène non contrôlé ou sédatifs peuvent déclencher une décompensation hypercapnique (SOH).",
+    "Surveillance : observance CPAP à 1 mois, ECG ou Holter sous CPAP, kaliémie 4,0–4,5 mmol/L, créatinine annuelle sous AOD, TSH et bilan hépatique tous les 6 mois sous amiodarone.",
+    "Pronostic : la somnolence s'améliore en jours à semaines sous CPAP observante.",
+    "Réseau : pneumologue (centre du sommeil), médecin du trafic reconnu, cardiologue."
+   ],
+   "sources": [
+    "SSMSC",
+    "ESC 2024 FA",
+    "AIPS Swissmedic"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence_securite",
+   "titre": "Urgence : sécuriser le risque routier et rythmique",
+   "but": [
+    "Empêcher tout accident en interdisant de conduire dès la consultation.",
+    "Documenter rapidement le SAOS sévère et l'arythmie par PSG et Holter.",
+    "Débuter la CPAP sans délai pour faire régresser somnolence et pauses."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installer le patient et mesurer les constantes (TA, pouls, SpO2) à l'arrivée.",
+     "Faire un ECG 12 dérivations si syncope, palpitations ou pouls anormal.",
+     "Demander au conjoint ou témoin de décrire ronflements, apnées et conduite.",
+     "Arrêter alcool, benzodiazépines, hypnotiques et opioïdes."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Informer le patient de son inaptitude à conduire et consigner l'information par écrit.",
+      "pourquoi": "Protège médicalement et juridiquement ; une conduite après information engage la responsabilité pénale du patient."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Prioriser la polysomnographie dans un centre du sommeil reconnu.",
+      "pourquoi": "Un accident ou une conduite professionnelle justifient d'éviter le délai habituel."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveiller en monitoring si pauses ou BAV de haut degré symptomatiques.",
+      "pourquoi": "Détecte une asystolie ou un BAV complet avant la mort subite."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Précise que le médecin peut signaler l'inaptitude à l'autorité cantonale sans secret professionnel (LCR art. 15d)."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Anticipe la perte de revenu du conducteur professionnel et le remboursement de la CPAP par l'assurance de base (LiMA)."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Interdire de conduire dès la consultation et le consigner par écrit.",
+      "Éviter bêta-bloquants et diltiazem si pauses ou BAV.",
+      "Surveiller en monitoring si syncope ou pauses > 3 s."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Informe le patient de l'inaptitude à conduire et l'écrit au dossier."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Met en place ECG, monitoring et mesure SpO2 pour repérer pauses ou BAV."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Demande PSG prioritaire et Holter ECG, et appelle le centre du sommeil."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Le pneumologue lance la CPAP rapidement ; le cardiologue évalue l'arythmie."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Signale l'inaptitude à l'autorité cantonale si le patient persiste à conduire."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Sous CPAP observante, la somnolence s'améliore en jours à semaines et le risque d'accident rejoint celui de la population générale.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Observance CPAP (heures par nuit, fuites, IAH résiduel)",
+      "quand": "1 mois",
+      "cible": "≥ 4 h par nuit, IAH résiduel bas"
+     },
+     {
+      "quoi": "ECG ou Holter sous CPAP",
+      "quand": "Après début CPAP",
+      "cible": "Disparition des pauses > 3 s et des BAV"
+     },
+     {
+      "quoi": "Epworth",
+      "quand": "1 mois",
+      "cible": "≤ 10"
+     }
+    ],
+    "sortie": "Sortie si hémodynamique stable, sans pause ni BAV symptomatique, CPAP organisée et interdiction de conduire comprise et écrite ; sinon hospitalisation sous monitoring."
+   },
+   "prevention": {
+    "primaire": "Dépister le SAOS chez les conducteurs professionnels à risque et déconseiller alcool et sédatifs le soir.",
+    "secondaire": "Rechercher systématiquement un SAOS chez tout patient avec accident par somnolence ou syncope inexpliquée.",
+    "tertiaire": "Prévenir la récidive d'accident par suivi d'observance avant reprise de la conduite."
+   }
+  },
+  {
+   "cle": "cpap_long_cours",
+   "titre": "Long cours : CPAP et reprise de la conduite",
+   "but": [
+    "Normaliser la somnolence et le risque routier par une CPAP observante.",
+    "Autoriser la reprise de la conduite sur preuve d'efficacité.",
+    "Réduire les récidives de FA et les pauses nocturnes."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer la CPAP et son but routier et rythmique.",
+     "Évaluer le masque, la tolérance et les fuites dès le départ."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Initier une CPAP nocturne, ≥ 4 h par nuit, via la ligue pulmonaire.",
+      "pourquoi": "Traitement de première ligne du SAOS sévère symptomatique."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Conseiller perte de poids, arrêt de l'alcool le soir et sommeil en décubitus latéral.",
+      "pourquoi": "Réduit le collapsus pharyngé et l'IAH."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Proposer orthèse d'avancée mandibulaire, thérapie positionnelle ou stimulation hypoglosse sélectionnée si intolérance CPAP.",
+      "pourquoi": "Alternatives de seconde ligne lorsque la CPAP échoue."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Éduquer sur l'observance et la somnolence au volant.",
+      "pourquoi": "L'adhésion conditionne l'efficacité et l'aptitude à conduire."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Organise le remboursement de la CPAP par l'assurance de base (LiMA) et l'arrêt de travail éventuel."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre la reprise de la conduite avec le médecin du trafic et le service cantonal des automobiles."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Maintenir l'interdiction de conduire jusqu'à preuve d'efficacité.",
+      "Éviter sédatifs et alcool.",
+      "Programmer le suivi en centre du sommeil."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "spécialiste",
+       "fait": "Le pneumologue titre la CPAP et choisit le masque."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "patient·e",
+       "fait": "Utilise la CPAP chaque nuit ≥ 4 h et note les difficultés."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Contrôle l'observance et l'IAH résiduel à 1 mois."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Demande l'avis du médecin du trafic, avec TME si doute, avant la reprise."
+      },
+      {
+       "temps": "puis",
+       "qui": "assistant·e social·e",
+       "fait": "Aide aux démarches professionnelles et d'assurance."
+      }
+     ]
+    }
+   },
+   "pronostic": "La CPAP observante normalise la somnolence et le risque d'accident, mais n'a pas prouvé de réduire les événements cardiovasculaires en prévention secondaire (SAVE).",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Observance CPAP, fuites, IAH résiduel",
+      "quand": "1 mois puis au moins annuellement",
+      "cible": "≥ 4 h par nuit, IAH résiduel bas"
+     },
+     {
+      "quoi": "Somnolence (Epworth), TME si doute",
+      "quand": "Avant reprise de la conduite",
+      "cible": "Epworth ≤ 10 ; latence au TME ≥ 8 min"
+     },
+     {
+      "quoi": "Poids et tension artérielle",
+      "quand": "À chaque consultation",
+      "cible": "Perte de poids, TA contrôlée"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si CPAP organisée, patient sans syncope ni arythmie documentée, et interdiction de conduire comprise."
+   },
+   "prevention": {
+    "primaire": "Maintenir un poids sain et éviter alcool et sédatifs le soir.",
+    "secondaire": "Traiter précocement tout SAOS symptomatique pour éviter FA, HTA résistante et AVC.",
+    "tertiaire": "Assurer l'observance à long terme pour éviter la récidive de somnolence et de FA."
+   }
+  },
+  {
+   "cle": "arythmie_fa",
+   "titre": "Arythmie associée : pauses, BAV, FA",
+   "but": [
+    "Stabiliser le rythme sans aggraver une bradycardie nocturne.",
+    "Prévenir l'AVC par anticoagulation selon le CHA2DS2-VA.",
+    "Éviter un stimulateur inutile en traitant d'abord le SAOS."
+   ],
+   "moyens": {
+    "accueil": [
+     "Poser monitoring continu et ECG 12 dérivations.",
+     "Doser kaliémie, créatinine et TSH avant tout antiarythmique."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Métoprolol (bêta-bloquant), FA rapide stable sans bradycardie",
+      "posologie": "2,5–5 mg IV toutes les 5 min, maximum 15 mg.",
+      "pourquoi": "Contrôle la fréquence de la FA rapide stable ; interdit si pauses ou BAV de haut degré.",
+      "source": "[ESC 2024 FA]"
+     },
+     {
+      "molecule": "Diltiazem (inhibiteur calcique non dihydropyridinique)",
+      "posologie": "0,25 mg/kg IV en 2 min ; éviter si insuffisance cardiaque à FEVG réduite.",
+      "pourquoi": "Alternative au métoprolol pour le contrôle de fréquence ; à éviter en cas de pauses ou BAV.",
+      "source": "[ESC 2024 FA]"
+     },
+     {
+      "molecule": "Adénosine (antiarythmique), TSV régulière",
+      "posologie": "6 mg IV en bolus rapide, puis 12 mg si effet insuffisant.",
+      "pourquoi": "Interrompt la TSV régulière par bloc nodal transitoire, demi-vie très brève.",
+      "source": "[ESC 2019 TSV]"
+     },
+     {
+      "molecule": "Apixaban (anticoagulant oral direct) si CHA2DS2-VA ≥ 2",
+      "posologie": "5 mg 2×/j PO ; 2,5 mg 2×/j si 2 critères parmi âge ≥ 80 ans, poids ≤ 60 kg, créatinine ≥ 133 µmol/L.",
+      "pourquoi": "Prévient l'AVC dans la FA avec un risque hémorragique inférieur aux antivitamines K.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Rivaroxaban (anticoagulant oral direct)",
+      "posologie": "20 mg/j PO au repas ; 15 mg/j si DFG 15–49 mL/min.",
+      "pourquoi": "Alternative à l'apixaban si fonction rénale conservée, à prendre au repas.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Amiodarone (antiarythmique classe III) si cardiopathie",
+      "posologie": "Charge selon le cardiologue, puis 100–200 mg/j PO ; TSH et bilan hépatique tous les 6 mois.",
+      "pourquoi": "Seul contrôle du rythme sûr en cardiopathie structurelle, où le flécaïnide est contre-indiqué.",
+      "source": "[ESC 2024 FA]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Pratiquer une cardioversion électrique synchronisée à 100–200 J si instabilité hémodynamique.",
+      "pourquoi": "Rétablit le rythme en urgence sans attendre l'effet des médicaments."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Proposer un moniteur cardiaque implantable si la syncope reste inexpliquée malgré un Holter négatif.",
+      "pourquoi": "Détecte une arythmie rare que le Holter n'a pas captée."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Discuter un stimulateur seulement si pauses ou BAV persistent sous CPAP.",
+      "pourquoi": "Les troubles du SAOS sont fonctionnels et régressent le plus souvent sous CPAP."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'inaptitude à conduire tant que syncope ou arythmie non contrôlée."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Monitorer en continu et obtenir une voie veineuse.",
+      "Corriger la kaliémie à 4,0–4,5 mmol/L.",
+      "Garder l'interdiction de conduire."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "infirmier·ère",
+       "fait": "Pose monitoring, ECG 12 dérivations et voie veineuse."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Évalue la stabilité hémodynamique et cherche le type d'arythmie."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Réalise une cardioversion synchronisée 100–200 J si instabilité."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Donne métoprolol ou diltiazem si FA rapide stable, adénosine si TSV régulière."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Évite bêta-bloquants et diltiazem si pauses ou BAV, et surveille en monitoring."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Traiter le SAOS avant tout stimulateur.",
+      "Évaluer le CHA2DS2-VA à chaque FA.",
+      "Contrôler fonction rénale avant l'AOD."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "spécialiste",
+       "fait": "Le cardiologue évalue la cardiopathie et choisit rythme ou fréquence."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Prescrit l'AOD si CHA2DS2-VA ≥ 2 et adapte la dose."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Le pneumologue installe la CPAP pour réduire la récidive de FA."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Contrôle ECG, kaliémie, créatinine annuelle et TSH sous amiodarone."
+      }
+     ]
+    }
+   },
+   "pronostic": "Les pauses et BAV nocturnes régressent le plus souvent sous CPAP ; la cardiopathie ou la FA rapide aggravent le pronostic rythmique.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "ECG ou Holter sous CPAP",
+      "quand": "Après début CPAP",
+      "cible": "Disparition des pauses > 3 s et des BAV"
+     },
+     {
+      "quoi": "Kaliémie",
+      "quand": "À l'introduction puis régulièrement",
+      "cible": "4,0–4,5 mmol/L"
+     },
+     {
+      "quoi": "Créatinine et DFG sous AOD",
+      "quand": "Au moins 1 fois par an",
+      "cible": "Dose adaptée au DFG"
+     },
+     {
+      "quoi": "TSH et bilan hépatique sous amiodarone",
+      "quand": "Environ tous les 6 mois",
+      "cible": "Valeurs normales"
+     }
+    ],
+    "sortie": "Sortie si rythme ou fréquence contrôlés, hémodynamique stable, anticoagulation prescrite si indiquée, CPAP organisée et suivi cardiologique fixé."
+   },
+   "prevention": {
+    "primaire": "Traiter précocement le SAOS pour prévenir la FA.",
+    "secondaire": "Anticoaguler selon le CHA2DS2-VA pour prévenir l'AVC.",
+    "tertiaire": "Maintenir la CPAP après cardioversion ou ablation pour réduire la récidive de FA."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7507,
+  "output_tokens": 18023,
+  "output_tokens_details": {
+   "thinking_tokens": 3580
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-24T05:34:57",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}
