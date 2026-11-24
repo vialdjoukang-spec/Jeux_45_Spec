@@ -1,6 +1,6 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « rang » de content/pathologies/RANG_RENDEMENT.json (groupes de rendement A → B → C → D). Produites : 34/126.
+Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « rang » de content/pathologies/RANG_RENDEMENT.json (groupes de rendement A → B → C → D). Produites : 37/126.
 
 | # | Rang | Groupe | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|---|---|
@@ -17,11 +17,11 @@ Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « r
 | 11 | 230 | A | F10.3__S7_10-E05 | Crise de sevrage alcoolique | 29 | 20 | oui |
 | 12 | 235 | A | F45.1__O7_8-E01 | Trouble à symptomatologie somatique (trouble somatoforme) | 29 | 20 | oui |
 | 13 | 236 | A | F50.8__G15-E11 | Hyperphagie boulimique (binge eating disorder) | 29 | 20 | oui |
-| 14 | 237 | A | F63.8__G3-E02 | Polydipsie primaire (potomanie psychogène) | — | — | — |
-| 15 | 325 | A | F68.1__O2_3-E09 | Syndrome de Münchhausen par procuration (trouble factice imposé à autr | — | — | — |
+| 14 | 237 | A | F63.8__G3-E02 | Polydipsie primaire (potomanie psychogène) | 29 | 20 | oui |
+| 15 | 325 | A | F68.1__O2_3-E09 | Syndrome de Münchhausen par procuration (trouble factice imposé à autr | 29 | 20 | oui |
 | 16 | 399 | A | F12.2__S9_13-E03 | Trouble de l'usage du cannabis | 29 | 20 | oui |
 | 17 | 400 | A | F19.2__O7_24-E03 | Patient avec trouble psychique sévère ou addiction (accès limité aux s | 29 | 20 | oui |
-| 18 | 405 | A | F40.0__S9_7-E03 | Agoraphobie (avec ou sans trouble panique) | — | — | — |
+| 18 | 405 | A | F40.0__S9_7-E03 | Agoraphobie (avec ou sans trouble panique) | 29 | 20 | oui |
 | 19 | 406 | A | F40.2__S9_7-E01 | Phobie spécifique (animaux, hauteurs, sang-injection-blessure, avion) | — | — | — |
 | 20 | 411 | A | F52.2__S4_10-E02 | Dysfonction érectile psychogène | — | — | — |
 | 21 | 412 | A | F60.5__S9_10-E02 | Personnalité obsessionnelle-compulsive (anankastique) | — | — | — |
@@ -156,6 +156,8 @@ Outil : `python projets/45spec/psy/lib.py <id>` (valider() du script + contrôle
 - Crise de sevrage alcoolique (F10.3) : délai 6–48 h, mécanisme GABA/NMDA, bilan (glycémie, Na, Mg) et indications du scanner = avis d'expert ; dose du lorazépam (2 mg IV) tirée de l'essai D'Onofrio 1999, posologie suisse à vérifier dans l'AIPS ; LCR art. 15d cité sans lecture du texte.
 - Cannabis (F12.2) : « aucun médicament autorisé » = avis d'expert (revue Cochrane pharmacothérapie non consultée) ; critères d'hyperémèse AGA 2024 lus dans un compte rendu secondaire ; CIM-11 6C41.2 non vérifiée sur le site OMS ; CAST cité sans référence.
 - Patient vulnérable (F19.2) : interaction tabac–CYP1A2–clozapine/olanzapine, traitement agoniste opioïde et dépistages infectieux = avis d'expert ; bilan annuel tiré de NICE QS167 (énoncé visant les minorités, composantes générales).
+- Groupe A (rangs 112-405, novembre 2026) : directives SMOB (évaluation psychique avant chirurgie bariatrique) citées sans lecture du texte ; Sheridan 2003 (Child Abuse Negl 27(4)) vérifié par résumé, auteur confirmé de mémoire ; critère CIM-10 « six mois » de F45.2 et « deux situations sur quatre » de F40.0 tirés des critères de recherche CIM-10, non relus en ligne ; groupes de protection de l'enfant des hôpitaux suisses = avis d'expert.
+- Lisdexamfétamine : autorisée en Suisse pour le TDAH seulement (résumé RMP Swissmedic) ; indication hyperphagie boulimique à confirmer dans l'AIPS.
 - Toutes les posologies portent « à vérifier dans l'AIPS ».
 - Les champs `usage` indiquent `_mode: agent, api: false` (production sans API).
 
