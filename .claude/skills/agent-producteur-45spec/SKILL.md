@@ -185,3 +185,9 @@ Signature : AAI (Anthropic AI)
 - SOSORT 2016 (scoliose, PMID 29435499) se lit en texte intégral par `get_full_text_article` (PMC5795289) ; extrais par motif (Adams, scoliomètre, IRM, rapport filles-garçons) au lieu de lire 185 000 caractères.
 - Une vignette `d` 4–5 sur un effet du méthotrexate ne cite pas l'indication par son nom (« pour une polyarthrite ») quand la pathologie canonique est la polyarthrite : écris « pour une maladie articulaire ».
 - Pathologie NON_MONOGRAPHIQUE sans médicament (M41.1) : `PLAN = "non_monographique"` et liste pharmacologique vide `[]` passent `valider()`.
+
+## Leçons (producteur unique, lot 41, 24.11.2026)
+- Sources lisibles par WebFetch : NICE NG118 (lithiase) et NG123 (incontinence de la femme) sur `/chapter/Recommendations` ; EAU Urolithiasis 2026 en version de poche (PDF cloudfront lié depuis uroweb.org ; les chapitres HTML répondent « Not found ») ; SVGO 2020 sur `smw.ch/article/doi/smw.2020.20352` ; RCP ANSM d'une molécule (posologie, mode de prise, contre-indications) quand l'AIPS suisse ne s'ouvre pas, avec « version suisse à vérifier dans l'AIPS ».
+- Fedlex (OPAS) ne s'affiche pas sans JavaScript : un remboursement LAMal non lu (DXA, nombre de séances de physiothérapie) s'écrit « à vérifier dans l'OPAS ».
+- Une page WebFetch peut tronquer une liste (NICE 1.5.2) : n'écris pas les options manquantes, cite seulement celles lues.
+- Contrôle du masquage en 0 token : un petit script qui charge la forme compacte et cherche les mots interdits dans `st` et `p` des questions sans `m` (et compte les `d` 4–5 masqués) évite une relecture manuelle.

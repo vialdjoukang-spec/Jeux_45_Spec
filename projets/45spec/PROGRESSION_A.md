@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**342 / 500 pathologies du périmètre produites.**
+**345 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -287,10 +287,10 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 278 | `L70.0__O6_2-E02` | Acné vulgaire (comédons, papules, pustules, nodules) | DER | produite |
 | 279 | `M06.9__F2_19-E03` | Polyarthrite rhumatoïde débutante (polyarthrite symétrique des mains/pieds) | RHU | produite |
 | 280 | `M41.1__O2_12-E07` | Scoliose idiopathique de l'adolescent | PEA | produite |
-| 281 | `M81.0__F2_20-E01` | Ostéoporose post-ménopausique primitive | RHU | — |
+| 281 | `M81.0__F2_20-E01` | Ostéoporose post-ménopausique primitive | RHU | produite |
 | 282 | `N10_pyelonephrite_aigue___F2_15-E04` | Pyélonéphrite aiguë simple (non obstructive) | NEP | produite |
-| 283 | `N20.0__F2_15-E03` | Lithiase urinaire (colique néphrétique avec microhématurie) | URO | — |
-| 284 | `N39.3__O3_7-E01` | Incontinence urinaire d'effort (femme) | URO | — |
+| 283 | `N20.0__F2_15-E03` | Lithiase urinaire (colique néphrétique avec microhématurie) | URO | produite |
+| 284 | `N39.3__O3_7-E01` | Incontinence urinaire d'effort (femme) | URO | produite |
 | 285 | `N40.0__F1_5-E07` | Hypertrophie bénigne de la prostate (HBP) au toucher rectal | URO | — |
 | 286 | `N40__F2_15-E06` | Hypertrophie bénigne de la prostate (HBP) décompensée | URO | — |
 | 287 | `N43.3__F1_2-E09` | Hydrocèle vaginale bénigne | URO | — |
