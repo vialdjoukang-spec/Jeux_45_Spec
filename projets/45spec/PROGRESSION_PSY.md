@@ -1,6 +1,6 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « rang » de content/pathologies/RANG_RENDEMENT.json (groupes de rendement A → B → C → D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée). Produites : 46/126.
+Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « rang » de content/pathologies/RANG_RENDEMENT.json (groupes de rendement A → B → C → D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée). Produites : 49/126.
 
 | # | Rang | Groupe | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|---|---|
@@ -43,12 +43,12 @@ Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « r
 | 37 | 405 | A | F40.2__S9_7-E01 | Phobie spécifique (animaux, hauteurs, sang-injection-blessure, avion) | 29 | 20 | oui |
 | 38 | 407 | A | F52.2__S4_10-E02 | Dysfonction érectile psychogène | 29 | 20 | oui |
 | 39 | 408 | A | F60.5__S9_10-E02 | Personnalité obsessionnelle-compulsive (anankastique) | 29 | 20 | oui |
-| 40 | 738 | B | F53.0__O1_2-E04 | Baby blues (syndrome du 3e jour) | — | — | — |
+| 40 | 738 | B | F53.0__O1_2-E04 | Baby blues (syndrome du 3e jour) | 29 | 20 | oui |
 | 41 | 771 | B | F32.3_episode_depressif_av__O6_8-E12 | Épisode dépressif avec caractéristiques psychotiques (dépression mélan | 28 | 18 | oui |
-| 42 | 772 | B | F44.5_1__F1_19-E08 | Pseudosyncope psychogène | — | — | — |
+| 42 | 772 | B | F44.5_1__F1_19-E08 | Pseudosyncope psychogène | 29 | 20 | oui |
 | 43 | 773 | B | F53.1__O1_2-E15 | Psychose du post-partum (psychose puerpérale) | 28 | 18 | oui |
 | 44 | 865 | B | F31.3__O6_8-E05 | Trouble bipolaire (phase dépressive ou mixte) | 29 | 20 | oui |
-| 45 | 866 | B | F32.9_1__F1_9-E04 | Pseudo-démence dépressive (dépression du sujet âgé) | — | — | — |
+| 45 | 866 | B | F32.9_1__F1_9-E04 | Pseudo-démence dépressive (dépression du sujet âgé) | 29 | 20 | oui |
 | 46 | 867 | B | F45.8_1__S1_7-E08 | Globus pharyngé (boule dans la gorge fonctionnelle) | — | — | — |
 | 47 | 868 | B | F63.3__S6_6-E06 | Trichotillomanie | — | — | — |
 | 48 | 1005 | C | F05.9_1__O3_2-E13 | État confusionnel aigu (delirium) sur cause somatique aiguë | — | — | — |
