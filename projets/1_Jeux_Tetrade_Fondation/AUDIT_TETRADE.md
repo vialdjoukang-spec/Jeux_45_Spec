@@ -225,3 +225,39 @@ Fusion de `origin/main` (locomoteur, dermatologique, correctif `aligner_aVerifie
 Sources inaccessibles depuis la session : swissmedicinfo.ch, ssi.guidelines.ch, la Liste des spécialités (OFSP) ; compendium.ch a répondu cette fois. Les autres posologies gardent « à vérifier dans l'AIPS ».
 
 Signature : AAI (Anthropic AI)
+
+## Lot 4 (pédiatrique) — 2026-11-24
+
+Claude a relu, avec la méthode des lots 1 à 3, les 24 pathologies du système pédiatrique (5 organes), leur sémiologie, leur contenu et leur glossaire : chaque seuil (IMC > P97, mots à 16 mois, M-CHAT de 16 à 30 mois, corset de 20 à 40°, ictère prolongé > 2 semaines, sepsis précoce < 72 h, Kasai < 60 jours), chaque dose (SRO 50–100 ml/kg en 4 h, NaCl 0,9 % 20 ml/kg, glucose 10 % 2 ml/kg) et chaque référence. Aucune référence n'était inventée ; une était dépassée (Turner 2017).
+
+### L4.1 Bilan
+
+| Système | Vérifiées | Corrigées | Doutes résolus | Doutes restants |
+|---|---|---|---|---|
+| Pédiatrique (24 pathologies, 5 organes, sémiologie, glossaire) | 24 | 4 pathologies | 4 sur 4 | 0 |
+
+Paliers : les 24 restent tels quels (5 TF, 8 F, 6 U, 5 R). La trisomie 21 (TF) et la mucoviscidose (F) se lisent relativement à leur organe (génétique), pas à la population générale ; Claude les garde et le signale.
+
+### L4.2 Erreurs de fond corrigées
+
+| Pathologie | Erreur | Correction | Source |
+|---|---|---|---|
+| Hypoglycémie néonatale | Seuil renvoyé au « protocole local » | < 2,6 mmol/l dès 35+0 SA (ancien seuil 2,5) ; < 2,0 mmol/l : forme sévère ; gel de dextrose 40 % 0,5 ml/kg | SSN, Schulzke et al., Paediatrica 2021;32(1) |
+| Syndrome de Turner | Recommandation 2017 | Recommandation 2024 (consensus d'Aarhus 2023) | Gravholt, Eur J Endocrinol 2024;190:G53 (PubMed 38748847) |
+| Ictère néonatal | Version suisse non datée | SSN, version 13/2023 | paediatrieschweiz.ch |
+| Retard de croissance psychosocial | Article 314c ou 314d incertain | 314c : droit d'aviser du médecin soumis au secret ; 314d : obligation des professionnels non soumis au secret | Code civil suisse (révision 2019) |
+
+### L4.3 Les 4 doutes `aVerifier`
+
+| # | Pathologie | Résultat | Source |
+|---|---|---|---|
+| 1 | Retard de croissance psychosocial | Résolu : art. 314c | CC |
+| 2 | Ictère néonatal | Résolu : version 13/2023 | SSN |
+| 3 | Hypoglycémie néonatale | Résolu : 2021, < 2,6 mmol/l | SSN |
+| 4 | Turner | Résolu : 2024 | PubMed 38748847 |
+
+### L4.4 Chaîne relancée
+
+`construire_config_tetrade.py`, `construire_plans.py`, `generer_json.py`, `rendre_plans.py` (31/31), `audit_fond.py` (0 correction), `auditer_conception.py` **34/34**, `auditer_couverture.py` **RÉUSSI**, `non_perte.py` **OK** (après restauration connue des deux `2_cou/ganglions_cervicaux.json`), `verifier_interpretations.py` **177/177, 0 défaut**, `test_aligner_aVerifier.py` **OK**. Aucun `aVerifier` ne reste dans les JSON d'organes pédiatriques.
+
+Signature : AAI (Anthropic AI)
