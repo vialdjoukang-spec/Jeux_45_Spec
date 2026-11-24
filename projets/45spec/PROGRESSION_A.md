@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**315 / 500 pathologies du périmètre produites.**
+**318 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -246,11 +246,11 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 237 | `D47.2__F2_23-E03` | Gammapathie monoclonale de signification indéterminée (MGUS) | HEM | produite |
 | 238 | `D63.1__F1_17-E05` | Anémie de la maladie rénale chronique | HEM | produite |
 | 239 | `D63.8__F1_17-E02` | Anémie inflammatoire (anémie des maladies chroniques) | HEM | produite |
-| 240 | `D69.2__O3_1-E10` | Purpura sénile de Bateman ou fragilité cutanée (diagnostic différentiel bénin) | HEM | — |
+| 240 | `D69.2__O3_1-E10` | Purpura sénile de Bateman ou fragilité cutanée (diagnostic différentiel bénin) | HEM | produite |
 | 241 | `E30.0__O2_1-E01` | Retard pubertaire simple (constitutionnel) | END | produite |
 | 242 | `E30.8_premature_thelarche___O2_1-E07` | Prémature thélarche ou adrénarche bénigne | END | produite |
-| 243 | `E46__F1_8-E01` | Dénutrition du sujet âgé ou fragilisé | MIG | — |
-| 244 | `E55.9__F2_21-E02` | Carence en vitamine D (hypovitaminose D) | MIG | — |
+| 243 | `E46__F1_8-E01` | Dénutrition du sujet âgé ou fragilisé | MIG | produite |
+| 244 | `E55.9__F2_21-E02` | Carence en vitamine D (hypovitaminose D) | MIG | produite |
 | 245 | `E73.9__O7_7-E01` | Intolérance au lactose (déficit en lactase) | END | produite |
 | 246 | `E78.0_hypercholesterolemie__F2_13-E01` | Hypercholestérolémie polygénique | END | produite |
 | 247 | `E86_hemoconcentration_re__F2_22-E01` | Hémoconcentration relative | NEP | produite |
