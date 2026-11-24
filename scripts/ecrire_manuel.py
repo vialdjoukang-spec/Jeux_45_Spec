@@ -111,6 +111,9 @@ def main():
     if "questions" in a.etapes and "QUESTIONS" in src:      # contrôles de couverture (règle 8ter) et d'interdits, hors valider()
         q = questions(src)["questions"]; f = [x["format"] for x in q]; N = notions(src)["notions"]
         print("formats", {k: f.count(k) for k in set(f)}, "séries", sorted({x["serie"]["id"] for x in q if x["serie"]}))
+        nb = len(N); p3 = sum(n["poids"] == 3 for n in N); p2 = sum(n["poids"] == 2 for n in N)
+        if p3 > 0.15 * nb or p2 > 0.35 * nb:
+            print(f"  poids hors règle 5bis : poids 3 = {p3}/{nb}, poids 2 = {p2}/{nb}"); total += 1
         for n in N:
             qs = [x for x in q if n["id"] in x["notions"]]
             if n["poids"] >= 2 and (len(qs) < 2 or len({x["angle"] for x in qs}) < 2):

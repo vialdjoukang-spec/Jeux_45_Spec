@@ -1,6 +1,6 @@
 # Progression NEU — production manuelle sans API (agent 45spec-NEU)
 
-Pathologies canoniques : 159 ; terminées (notions + questions + correction) : 2.
+Pathologies canoniques : 159 ; terminées (notions + questions + correction) : 5.
 
 Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts/ecrire_manuel.py SOURCE --spec NEU` (valider() et ecrire() du script de production).
 
@@ -8,16 +8,19 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 
 | id | entité | notions | questions | erreurs valider() |
 |---|---|---|---|---|
+| G43.9__S3_10-E06 | Migraine avec ou sans aura (et syndrome des vomissements cycliques) | 35 | 21 | 0 |
+| G00.9__F1_15-E17 | Méningite bactérienne aiguë | 39 | 20 | 0 |
 | G41.0__S7_10-E11 | État de mal épileptique convulsif généralisé (EME) | 38 | 20 | 0 |
+| G61.0__O4_2-E13 | Syndrome de Guillain-Barré (polyradiculonévrite aiguë) | 36 | 20 | 0 |
 | I63.9__F1_11-E12 | Accident vasculaire cérébral aigu (AVC ischémique ou hémorragique) | 46 | 24 | 0 |
 
 ## Ordre de priorité retenu (importance pour l'examen)
 
 1. I63.9__F1_11-E12 — fait
 2. G41.0__S7_10-E11 — fait
-3. G00.9__F1_15-E17
-4. G61.0__O4_2-E13
-5. G43.9__S3_10-E06
+3. G00.9__F1_15-E17 — fait
+4. G61.0__O4_2-E13 — fait
+5. G43.9__S3_10-E06 — fait
 6. G45.9__F1_11-E13
 7. G20_1__S7_1-E05
 8. G35__S7_3-E10
