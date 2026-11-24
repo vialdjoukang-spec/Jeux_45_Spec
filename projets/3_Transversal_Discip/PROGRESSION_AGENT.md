@@ -17,7 +17,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | I | 12 | 12 |
 | J | 12 | 12 |
 | K | 12 | 12 |
-| L | 3 | 12 |
+| L | 6 | 12 |
 | M | 0 | 12 |
 | N | 0 | 12 |
 | O | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **159** | **228** |
+| **Total** | **162** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -239,6 +239,13 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_L-S1-02** : Usage d'une règle graduée et d'une échelle colorimétrique dans les photographies médico-légales selon les recommandations des instituts suisses.
 - **TRANS_L-S1-03** : Valeurs limites de l'ordonnance de l'OFROU (OOCCR-OFROU) pour la tolérance zéro des stupéfiants : THC 1,5 µg/L, cocaïne 15 µg/L, morphine libre 15 µg/L, amphétamine 15 µg/L, MDMA 15 µg/L (à confirmer).
 - **TRANS_L-S1-03** : Règle exacte de l'art. 31 al. 2 LCR et de l'art. 2 OCR sur l'incapacité de conduire due aux médicaments.
+- **TRANS_L-S2-01** : Droit du médecin d'aviser l'autorité en cas de violence domestique sans levée du secret selon le droit cantonal (par exemple loi de santé vaudoise) et art. 314c CC pour les enfants ; absence d'obligation générale d'annonce pour l'adulte capable de discernement.
+- **TRANS_L-S2-01** : Règles de l'art. 55a CP révisé (en vigueur depuis le 1.7.2020) sur la suspension de la procédure en cas de violence dans le couple.
+- **TRANS_L-S2-02** : Délai maximal de la PEP VIH après exposition sexuelle selon les recommandations suisses en vigueur (48 heures ; idéalement dans les premières heures).
+- **TRANS_L-S2-02** : Délais de prélèvement médico-légal recommandés par les instituts suisses (prélèvements vaginaux jusqu'à 7 jours, anaux et oraux plus courts) et contenu du kit cantonal.
+- **TRANS_L-S2-02** : Définition du viol selon l'art. 190 CP révisé (droit pénal en matière sexuelle, en vigueur depuis le 1.7.2024).
+- **TRANS_L-S2-03** : Intervalles indicatifs de la rigidité (début 2 à 4 h, complète 6 à 12 h, résolution 24 à 48 h) et des lividités (apparition 20 à 30 min, fixation vers 10 à 12 h) : très variables, à confirmer dans un traité de référence.
+- **TRANS_L-S2-03** : Précision du nomogramme de Henssge (intervalle de confiance à 95 % de ± 2,8 h à ± 7 h selon les conditions).
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -252,4 +259,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : L (3/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : L (6/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
