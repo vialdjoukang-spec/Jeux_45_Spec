@@ -17,7 +17,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | I | 12 | 12 |
 | J | 12 | 12 |
 | K | 12 | 12 |
-| L | 0 | 12 |
+| L | 3 | 12 |
 | M | 0 | 12 |
 | N | 0 | 12 |
 | O | 0 | 12 |
@@ -25,7 +25,7 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **156** | **228** |
+| **Total** | **159** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -233,6 +233,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_K-S4-03** : Exigences médicales minimales de l'annexe 1 OAC pour le 2e groupe (vision, diabète sous insuline, épilepsie, SAOS) en vigueur en 2026.
 - **TRANS_K-S4-03** : Rôle de l'Office fédéral de l'aviation civile (OFAC) et des médecins examinateurs aéronautiques (AME) pour les pilotes selon les règles EASA appliquées en Suisse.
 - **TRANS_K-S4-03** : Droit d'aviser l'autorité cantonale d'un conducteur inapte (art. 15d al. 3 LCR) sans levée du secret.
+- **TRANS_L-S1-01** : Formulation de l'art. 253 CPP (levée de corps par le ministère public en cas d'indices de mort non naturelle) et obligations cantonales d'annonce du médecin (lois de santé cantonales, par exemple VD, GE, NE).
+- **TRANS_L-S1-01** : Modèle et circuit du certificat médical de décès en 2026 (formulaire OFS « Constat de décès » et bulletin confidentiel de la cause de décès).
+- **TRANS_L-S1-02** : Recommandations suisses (SSML, CURML) sur le constat de lésions et les modèles cantonaux de certificat médical de coups et blessures.
+- **TRANS_L-S1-02** : Usage d'une règle graduée et d'une échelle colorimétrique dans les photographies médico-légales selon les recommandations des instituts suisses.
+- **TRANS_L-S1-03** : Valeurs limites de l'ordonnance de l'OFROU (OOCCR-OFROU) pour la tolérance zéro des stupéfiants : THC 1,5 µg/L, cocaïne 15 µg/L, morphine libre 15 µg/L, amphétamine 15 µg/L, MDMA 15 µg/L (à confirmer).
+- **TRANS_L-S1-03** : Règle exacte de l'art. 31 al. 2 LCR et de l'art. 2 OCR sur l'incapacité de conduire due aux médicaments.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -246,4 +252,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : L (0/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : L (3/12), M (0/12), N (0/12), O (0/12), P (0/12), R (0/12).
