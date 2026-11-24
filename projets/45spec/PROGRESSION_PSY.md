@@ -1,6 +1,6 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « rang » de content/pathologies/RANG_RENDEMENT.json (groupes de rendement A → B → C → D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée). Produites : 52/126.
+Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « rang » de content/pathologies/RANG_RENDEMENT.json (groupes de rendement A → B → C → D ; rang d'une pathologie fusionnée = meilleur rang de ses portes d'entrée). Produites : 55/126.
 
 | # | Rang | Groupe | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|---|---|
@@ -54,9 +54,9 @@ Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : champ « r
 | 48 | 996 | B | F05.9_1__O3_2-E13 | État confusionnel aigu (delirium) sur cause somatique aiguë | — | — | — |
 | 49 | 997 | B | F05.9_2__O7_5-E15 | Défaillance aiguë de discernement ou pathologie neuropsychiatrique aig | 29 | 20 | oui |
 | 50 | 998 | B | F06.1__S9_3-E14 | Catatonie aiguë (stupeur ou agitation catatonique) | 29 | 20 | oui |
-| 51 | 999 | B | F10.0__O7_5-E11 | Collègue en état d'ébriété ou sous influence de substances en service  | — | — | — |
-| 52 | 1001 | C | F14.0__S9_6-E12 | Délire agité hyperthermique (excited delirium) sur cocaïne/cathinones | — | — | — |
-| 53 | 1003 | C | F31.6__S9_5-E13 | État mixte bipolaire (dépression agitée / manie dysphorique) | — | — | — |
+| 51 | 999 | B | F10.0__O7_5-E11 | Collègue en état d'ébriété ou sous influence de substances en service  | 29 | 20 | oui |
+| 52 | 1001 | C | F14.0__S9_6-E12 | Délire agité hyperthermique (excited delirium) sur cocaïne/cathinones | 29 | 20 | oui |
+| 53 | 1003 | C | F31.6__S9_5-E13 | État mixte bipolaire (dépression agitée / manie dysphorique) | 29 | 20 | oui |
 | 54 | 1004 | C | F32.2_2__O6_1-E15 | Épisode dépressif sévère avec incapacité fonctionnelle totale | — | — | — |
 | 55 | 1005 | C | F32.2_3__O7_14-E16 | Détresse psychologique aiguë avec rupture de projet et risque suicidai | — | — | — |
 | 56 | 1006 | C | F32.2__O2_10-E13 | Dépression sévère avec risque suicidaire sur échec ou harcèlement scol | — | — | — |

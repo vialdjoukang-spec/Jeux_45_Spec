@@ -1,0 +1,438 @@
+{
+ "id": "F10.0__O7_5-E11",
+ "portes": [
+  {
+   "ssp": "O7.5",
+   "nomSSP": "Erreurs ou fautes d’un collègue ou d’un autre professionnel de santé",
+   "entite": "Collègue en état d'ébriété ou sous influence de substances en service clinique",
+   "entiteId": "O7.5-E11"
+  }
+ ],
+ "entite": "Collègue en état d'ébriété ou sous influence de substances en service clinique",
+ "cim10": "F10.0",
+ "ssp": {
+  "code": "O7.5",
+  "nom": "Erreurs ou fautes d’un collègue ou d’un autre professionnel de santé",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Collègue suspect d'intoxication en service",
+    "i": "Le médecin protège d'abord les patients.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Retrait immédiat et information du cadre",
+    "i": "Les patients sont repris par un autre soignant.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Somnolence, bradypnée, myosis",
+    "i": "Urgence médicale, naloxone si opioïde.",
+    "pec": "urg",
+    "notion": "c2"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Doute sur une cause organique",
+    "i": "Glycémie, examen neurologique.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n5",
+    "parent": "n2",
+    "t": "Intoxication sans danger vital",
+    "i": "Accompagnement, pas de conduite, documentation.",
+    "pec": "urg",
+    "notion": "c2"
+   },
+   {
+    "id": "n6",
+    "parent": "n1",
+    "t": "Après l'épisode",
+    "i": "Entretien, soin, ReMed, revue des actes.",
+    "pec": "suivi",
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Reprise",
+    "i": "Progressive, avec tests convenus.",
+    "pec": "suivi",
+    "notion": "c4"
+   }
+  ]
+ },
+ "specialites": [
+  "PSY"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Collègue intoxiqué en service : retirer immédiatement, écarter une cause organique, empêcher la conduite, informer le cadre, puis orienter vers soin, ReMed et suivi structuré",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Reconnaître",
+   "rubriques": [
+    "definition",
+    "epidemiology",
+    "clinicalExam"
+   ],
+   "comment": "Tu reconnais une intoxication par ses signes et tu n'acceptes pas le silence de l'équipe.",
+   "tableau": {
+    "colonnes": [
+     "Substance",
+     "Signe",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Alcool",
+      "Haleine, ataxie, nystagmus",
+      [
+       {
+        "t": "Écarter l'hypoglycémie",
+        "i": "Imitation possible."
+       }
+      ]
+     ],
+     [
+      "Opioïdes",
+      "Myosis, bradypnée",
+      [
+       {
+        "t": "Naloxone",
+        "i": "Dépression respiratoire."
+       }
+      ]
+     ],
+     [
+      "Stimulants",
+      "Mydriase, agitation",
+      [
+       {
+        "t": "Surveillance",
+        "i": "Risque cardiovasculaire."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Haleine, ataxie, pupilles.",
+    "La couverture retarde l'aide."
+   ],
+   "sources": [
+    "Avis d'expert",
+    "[OMS, CIM-10 F10.0 intoxication aiguë due à l'alcool ; F11.0-F19.0 pour les autres substances]"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Protéger",
+   "rubriques": [
+    "presumptionRedFlags",
+    "acuteManagement"
+   ],
+   "comment": "Tu retires le collègue, tu l'empêches de conduire et tu informes le cadre.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "a1",
+     "parent": null,
+     "t": "Collègue intoxiqué en service",
+     "i": "Danger vital ?",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "a2",
+     "parent": "a1",
+     "t": "Somnolence, bradypnée",
+     "i": "Urgence, naloxone.",
+     "pec": "urg",
+     "notion": null
+    },
+    {
+     "id": "a3",
+     "parent": "a1",
+     "t": "Intoxication sans danger vital",
+     "i": "Retrait, accompagnement, documentation.",
+     "pec": "urg",
+     "notion": null
+    }
+   ],
+   "points": [
+    "Retrait immédiat.",
+    "Pas de volant."
+   ],
+   "sources": [
+    "Avis d'expert",
+    "[Ordonnance de l'Assemblée fédérale concernant les taux limites d'alcool admis en matière de circulation routière (RS 741.13) : 0,5 ‰ ; 0,1 ‰ pour les nouveaux conducteurs et les chauffeurs professionnels]"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Constater",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu constates cliniquement, avec consentement pour tout test, et tu écartes l'organique.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Glycémie capillaire.",
+    "Pas de test forcé."
+   ],
+   "sources": [
+    "Avis d'expert"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Soigner et réintégrer",
+   "rubriques": [
+    "chronicManagement",
+    "prognosisDischarge",
+    "surveillance"
+   ],
+   "comment": "Tu orientes vers un programme structuré qui permet souvent la reprise.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "78,7 % exercent à 5 ans.",
+    "Reprise progressive."
+   ],
+   "sources": [
+    "[McLellan AT et al., BMJ 2008;337:a2038, doi:10.1136/bmj.a2038, cohorte de 802 médecins suivis par 16 programmes de santé américains]",
+    "[FMH, ReMed, réseau de soutien pour médecins, hotline 24 h sur 24, remed.fmh.ch, consulté le 24 novembre 2026]"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Encadrer",
+   "rubriques": [
+    "hospitalizationComplications",
+    "followUpNetwork"
+   ],
+   "comment": "Tu revois les actes, tu déclares, et tu respectes la LPMéd et le secret.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "LPMéd art. 36, 38, 40, 43.",
+    "Secret envers l'employeur."
+   ],
+   "sources": [
+    "[LPMéd (RS 811.11) art. 36 (garanties physiques et psychiques), art. 38 (retrait de l'autorisation), art. 40 let. a (exercer avec soin et conscience professionnelle), art. 43 (mesures disciplinaires)]",
+    "[Code pénal suisse (RS 311.0) art. 321, secret professionnel]"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urg",
+   "titre": "Phase aiguë",
+   "but": [
+    "Protéger les patients.",
+    "Protéger le collègue.",
+    "Documenter."
+   ],
+   "moyens": {
+    "accueil": [
+     "Le médecin parle calmement au collègue.",
+     "Le médecin note les faits et les témoins."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Naloxone",
+      "posologie": "Selon le protocole d'urgence ; à vérifier dans l'AIPS",
+      "pourquoi": "Elle antagonise une dépression respiratoire due aux opioïdes.",
+      "source": "Avis d'expert"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Le cadre réorganise la garde.",
+      "pourquoi": "Les patients restent pris en charge."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Un soignant accompagne le collègue.",
+      "pourquoi": "Il prévient la conduite et une aggravation."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "P Qualité, Sécurité & Gestion de l'erreur",
+      "apport": "L'équipe revoit les actes et déclare l'événement."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Le médecin connaît les devoirs de la LPMéd."
+     },
+     {
+      "discipline": "K Médecine du travail & Ergonomie",
+      "apport": "Le médecin du travail participe à la reprise."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Retrait immédiat.",
+      "Pas de conduite."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin présent",
+       "fait": "Il retire le collègue."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "cadre de garde",
+       "fait": "Il réorganise le service."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "urgentiste",
+       "fait": "Il traite une intoxication sévère."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le pronostic immédiat est bon si l'intoxication est reconnue et le collègue protégé.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Vigilance",
+      "quand": "en continu",
+      "cible": "normale"
+     },
+     {
+      "quoi": "Fréquence respiratoire",
+      "quand": "en continu",
+      "cible": "≥ 12/min"
+     }
+    ],
+    "sortie": "Le collègue quitte l'hôpital accompagné, sans conduire."
+   },
+   "prevention": {
+    "primaire": "La prévention de l'épuisement.",
+    "secondaire": "Le repérage précoce des signaux d'alerte.",
+    "tertiaire": "Le suivi structuré après la reprise."
+   }
+  },
+  {
+   "cle": "suivi",
+   "titre": "Soin et réintégration",
+   "but": [
+    "Traiter le trouble de l'usage.",
+    "Réintégrer en sécurité."
+   ],
+   "moyens": {
+    "accueil": [
+     "Le médecin traitant reste indépendant de la hiérarchie.",
+     "L'équipe protège la confidentialité."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Un addictologue conduit le traitement.",
+      "pourquoi": "Il traite la dépendance."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Le collègue contacte ReMed.",
+      "pourquoi": "Le réseau soutient de façon confidentielle."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Le médecin traitant respecte le secret professionnel."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Traitement.",
+      "Tests convenus."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "addictologue",
+       "fait": "Il traite."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin du travail",
+       "fait": "Il organise la reprise progressive."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin traitant",
+       "fait": "Il suit les tests."
+      }
+     ]
+    }
+   },
+   "pronostic": "Avec un programme structuré, la plupart des médecins exercent encore à cinq ans.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Tests toxicologiques",
+      "quand": "selon le contrat",
+      "cible": "négatifs"
+     },
+     {
+      "quoi": "Fonctionnement au travail",
+      "quand": "mensuel",
+      "cible": "stable"
+     }
+    ],
+    "sortie": "Le suivi s'allège après une période prolongée d'abstinence."
+   },
+   "prevention": {
+    "primaire": "La prévention de l'épuisement.",
+    "secondaire": "L'aide précoce par ReMed.",
+    "tertiaire": "Le suivi après la reprise."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "_mode": "agent",
+  "api": false,
+  "modele": "claude-opus-5-5 (agent, sans API)"
+ },
+ "signature": {
+  "date": "2026-11-24T14:07:27",
+  "modele": "claude-opus-5-5 (agent, sans API)",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}
