@@ -1,0 +1,306 @@
+{
+ "_lot": {
+  "producteur": "Production XAI (équipe Grok, Athéna)",
+  "tache": "P04",
+  "titre": "Remplir les examens de la région 4. Thorax (8 organes, 102 examens)",
+  "projet": "2_Jeux_Paraclinique",
+  "nombreFichiers": 8,
+  "consigne": "Chaque clé de « fichiers » est le chemin exact du fichier dans le dépôt Jeux_45_Spec. Remplis les valeurs, garde les chemins et les clés, rends le même objet.",
+  "aVerifier": [
+   "conception/donnees/paraclinique/topographie/4_thorax/seins.json › seins__mammographie › irradiation_mSv : 0,4 mSv : valeur typique de l'OFSP pour une « Aufnahme der weiblichen Brust » (page « Strahlendosen in der Medizin », 20 fois une radiographie des poumons) ; la directive R-06-06 ne porte que sur le CT.",
+   "conception/donnees/paraclinique/topographie/4_thorax/seins.json › seins__tomosynthese › irradiation_mSv : 0,4 mSv repris de la valeur OFSP de la mammographie ; aucune dose efficace propre à la tomosynthèse n'a été relue dans une source suisse ; l'EUSOBI (Marcon et al., 2024) indique seulement que la mammographie de synthèse évite un cliché supplémentaire.",
+   "conception/donnees/paraclinique/topographie/4_thorax/seins.json › seins__macrobiopsie_stereotaxique › irradiation_mSv : 0,4 mSv retenu comme ordre de grandeur (valeur OFSP de la mammographie) ; aucune dose efficace de la biopsie stéréotaxique n'a été relue ; le rapport HPA-CRCE-012 (Hart et al., 2010) recense l'examen sans lui attribuer de dose."
+  ]
+ },
+ "fichiers": {
+  "conception/donnees/paraclinique/topographie/4_thorax/seins.json": {
+   "_meta": {
+    "region": "4. Thorax",
+    "organe": "Seins",
+    "statut": "LISTE COMPLÈTE — indication, principe, interprétation et bulle à remplir"
+   },
+   "examens": [
+    {
+     "id": "seins__mammographie",
+     "modalite": "Imagerie",
+     "nom": "Mammographie (classification BI-RADS)",
+     "visees": [
+      "diagnostique"
+     ],
+     "signeRecherche": "Masse, microcalcifications, distorsion",
+     "seuil": "Selon l'ACR (atlas BI-RADS, 5e édition, 2013), la catégorie 3 correspond à un risque de cancer de plus de 0 % et d'au plus 2 %, la catégorie 4 à un risque de plus de 2 % et de moins de 95 %, et la catégorie 5 à un risque d'au moins 95 %.",
+     "indication": "Selon la Ligue suisse contre le cancer (brochure de dépistage, 2024), les programmes cantonaux invitent les femmes à une mammographie tous les deux ans dès 50 ans ; selon l'ACR (masses palpables, 2022), on la fait aussi en premier devant une masse palpable à partir de 40 ans.",
+     "discriminant": "Elle montre les microcalcifications, et selon l'EUSOBI (Bick et al., 2020) on prélève les calcifications suspectes sans traduction échographique sous guidage mammographique.",
+     "avantageSelectif": "Selon la Ligue suisse contre le cancer (2024), c'est la méthode de dépistage du cancer du sein la mieux étudiée, et près de la moitié des cantons l'ont organisée en programme.",
+     "plutotQue": "Selon l'ACR (masses palpables, 2022), on la préfère à l'échographie seule devant une masse palpable dès 40 ans, alors qu'avant 30 ans l'échographie passe en premier.",
+     "limite": "Selon l'EUSOBI (Marcon et al., 2024), le dépistage mammographique expose au faux positif et au surdiagnostic, et on lui ajoute l'IRM chez les femmes aux seins extrêmement denses.",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": null,
+     "precautions": "On la réserve aux indications reconnues, car selon l'OFSP une mammographie délivre environ 0,4 mSv, soit 20 fois une radiographie des poumons.",
+     "irradiation_mSv": 0.4,
+     "delai": "programmé",
+     "prelevementRef": null,
+     "bulle": {
+      "def": "La mammographie radiographie chaque sein comprimé pour en montrer la densité, les masses et les calcifications.",
+      "pourquoi": "Un cancer se présente souvent comme une masse irrégulière ou un foyer de microcalcifications, plus dense que la graisse voisine.",
+      "confusion": "Une asymétrie due à la superposition des tissus imite une masse, mais elle disparaît sur les clichés complémentaires.",
+      "retenir": "Le compte rendu se classe en catégories BI-RADS, et selon l'ACR (2013) une catégorie 4 ou 5 impose un prélèvement."
+     }
+    },
+    {
+     "id": "seins__tomosynthese",
+     "modalite": "Imagerie",
+     "nom": "Tomosynthèse",
+     "visees": [
+      "diagnostique"
+     ],
+     "signeRecherche": "Lésion masquée par superposition",
+     "seuil": "On classe le résultat en catégories BI-RADS, comme pour la mammographie, et selon l'ACR (2013) une catégorie 4 ou 5 impose un diagnostic tissulaire.",
+     "indication": "Selon l'EUSOBI (Marcon et al., 2024), on peut la faire à la place de la mammographie pour le dépistage, et selon l'ACR (masses palpables, 2022) elle vaut la mammographie diagnostique devant une masse palpable à partir de 40 ans.",
+     "discriminant": "Selon l'EUSOBI (Marcon et al., 2024), elle reconstruit des coupes du sein à partir de plusieurs projections à faible dose, ce qui dégage les lésions cachées par la superposition des tissus.",
+     "avantageSelectif": "Dans l'essai TOSYMA (Heindel et al., 2022), elle a détecté 7,1 cancers invasifs pour 1000 femmes dépistées, contre 4,8 avec la mammographie numérique.",
+     "plutotQue": "Selon l'EUSOBI (Marcon et al., 2024), on l'associe à une mammographie de synthèse reconstruite à partir des coupes plutôt qu'à un second cliché, ce qui réduit l'irradiation sans perte de performance.",
+     "limite": "Selon l'EUSOBI (Marcon et al., 2024), son bénéfice reste limité dans les seins très denses, elle peut accroître le surdiagnostic de tumeurs lentes, et son effet sur les cancers d'intervalle reste discuté.",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": null,
+     "precautions": "Elle irradie le sein comme une mammographie, et on lui applique les mêmes règles de justification, avec un ordre de grandeur de 0,4 mSv donné par l'OFSP pour la mammographie.",
+     "irradiation_mSv": 0.4,
+     "delai": "programmé",
+     "prelevementRef": null,
+     "bulle": {
+      "def": "La tomosynthèse acquiert plusieurs projections du sein sous différents angles et les reconstruit en coupes fines.",
+      "pourquoi": "Une lésion cachée par les tissus superposés sur un cliché unique se détache lorsqu'on lit le sein coupe par coupe.",
+      "confusion": "Une image de superposition imite une lésion en mammographie, mais elle disparaît sur les coupes de tomosynthèse.",
+      "retenir": "Selon l'essai TOSYMA (2022), elle détecte plus de cancers invasifs que la mammographie numérique."
+     }
+    },
+    {
+     "id": "seins__echographie_mammaire",
+     "modalite": "Imagerie",
+     "nom": "Échographie mammaire",
+     "visees": [
+      "diagnostique",
+      "therapeutique"
+     ],
+     "signeRecherche": "Kyste ou masse solide",
+     "seuil": "Selon l'ACR (BI-RADS échographie, 2013), une masse solide ovale, circonscrite et parallèle à la peau, ou un kyste compliqué isolé, relève de la catégorie 3, avec un risque de cancer d'au plus 2 % et un contrôle à six mois.",
+     "indication": "Selon l'ACR (masses palpables, 2022), c'est l'examen initial d'une masse palpable avant 30 ans, et après 40 ans elle complète la mammographie.",
+     "discriminant": "Elle sépare d'emblée un kyste d'une masse solide, et selon l'ACR (BI-RADS, 2013) un kyste simple est une lésion bénigne de catégorie 2.",
+     "avantageSelectif": "Elle n'irradie pas et guide la plupart des prélèvements, car selon l'EUSOBI (Bick et al., 2020) on préfère le guidage échographique dès que la lésion y est bien visible.",
+     "plutotQue": "Chez la femme à haut risque ou aux seins extrêmement denses, l'EUSOBI (Marcon et al., 2024) ne la propose en dépistage complémentaire que si l'IRM n'est pas disponible.",
+     "limite": "Elle dépend de l'opérateur et voit mal les microcalcifications, que l'EUSOBI (Bick et al., 2020) fait prélever sous guidage mammographique lorsqu'elles n'ont pas de traduction échographique.",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": null,
+     "precautions": "Elle n'utilise pas de rayonnements ionisants et convient donc à la femme jeune, enceinte ou allaitante.",
+     "irradiation_mSv": 0,
+     "delai": "programmé",
+     "prelevementRef": null,
+     "bulle": {
+      "def": "L'échographie mammaire explore le sein avec une sonde de haute fréquence, sans irradiation.",
+      "pourquoi": "Le liquide d'un kyste laisse passer les ultrasons et paraît noir, alors qu'une masse solide renvoie des échos.",
+      "confusion": "Un kyste compliqué imite une masse solide, mais il reste ovale, bien limité et sans vascularisation interne.",
+      "retenir": "Selon l'ACR (2022), avant 30 ans, une masse palpable s'explore d'abord par l'échographie."
+     }
+    },
+    {
+     "id": "seins__irm_mammaire",
+     "modalite": "Imagerie",
+     "nom": "IRM mammaire",
+     "visees": [
+      "diagnostique"
+     ],
+     "signeRecherche": "Prise de contraste suspecte",
+     "seuil": "On classe aussi l'IRM en catégories BI-RADS, et selon l'ACR (2013) une catégorie 4 ou 5 impose un diagnostic tissulaire, sous guidage IRM si la lésion n'est visible qu'en IRM selon l'EUSOBI (Bick et al., 2020).",
+     "indication": "Selon l'EUSOBI (Marcon et al., 2024), on la fait chaque année dès 25 ans chez la femme à haut risque génétique, chez celle dont le risque cumulé atteint au moins 20 % et après une irradiation thoracique ou en mantelet.",
+     "discriminant": "Selon l'EUSOBI (Marcon et al., 2024), sa sensibilité ne dépend pas de la densité mammaire, à la différence de la mammographie.",
+     "avantageSelectif": "Selon l'EUSOBI (Marcon et al., 2024), on la propose aussi aux femmes aux seins extrêmement denses, au moins tous les quatre ans entre 50 et 70 ans.",
+     "plutotQue": "Selon l'EUSOBI (Marcon et al., 2024), on la préfère à l'échographie de dépistage complémentaire, qu'on ne propose que si l'IRM n'est pas disponible.",
+     "limite": "Elle exige une injection de gadolinium, et l'EUSOBI (Marcon et al., 2024) la réserve au haut risque et aux seins extrêmement denses, et non au dépistage de toutes les femmes.",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": null,
+     "precautions": "On vérifie avant l'examen les contre-indications de l'IRM, comme un dispositif implanté, et celles de l'injection de gadolinium.",
+     "irradiation_mSv": 0,
+     "delai": "programmé",
+     "prelevementRef": null,
+     "bulle": {
+      "def": "L'IRM mammaire étudie les deux seins après injection de gadolinium, sans rayonnement ionisant.",
+      "pourquoi": "Un cancer crée des vaisseaux nouveaux et prend le contraste plus vite et plus fort que le tissu voisin.",
+      "confusion": "Le rehaussement normal du tissu glandulaire imite une lésion, mais il est diffus et symétrique.",
+      "retenir": "Selon l'EUSOBI (2024), la femme à haut risque génétique fait une IRM chaque année dès 25 ans."
+     }
+    },
+    {
+     "id": "seins__microbiopsie_echoguidee",
+     "modalite": "Anatomopathologie / biopsie",
+     "nom": "Microbiopsie échoguidée",
+     "visees": [
+      "diagnostique"
+     ],
+     "signeRecherche": "Histologie d'une masse suspecte",
+     "seuil": "Le résultat se lit en histologie, et selon l'EUSOBI (Bick et al., 2020) le radiologue vérifie toujours que l'histologie concorde avec l'aspect de la lésion prélevée.",
+     "indication": "On la fait devant une lésion de catégorie BI-RADS 4 ou 5 visible à l'échographie, car l'ACR (2013) impose alors un diagnostic tissulaire et l'EUSOBI (Bick et al., 2020) préfère le guidage échographique quand la lésion y est bien visible.",
+     "discriminant": "Elle prélève des carottes de tissu, le plus souvent à l'aiguille de 14 G, selon l'EUSOBI (Bick et al., 2020), ce qui donne une histologie et non une simple cytologie.",
+     "avantageSelectif": "Selon l'EUSOBI (Bick et al., 2020), son taux de faux négatifs à l'aiguille de 14 G sous échographie varie de 1,2 à 3,3 %, avec une moyenne de 2 %.",
+     "plutotQue": "On la préfère à la cytoponction, que l'EUSOBI (Bick et al., 2020) réserve surtout au drainage des kystes compliqués, des séromes, des hématomes et des abcès.",
+     "limite": "Selon l'EUSOBI (Bick et al., 2020), elle n'échantillonne qu'une partie d'une lésion hétérogène, et le risque de sous-estimation histologique persiste.",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": null,
+     "precautions": "Selon l'EUSOBI (Bick et al., 2020), on recherche avant le geste un trouble de la coagulation et un traitement antiplaquettaire ou anticoagulant, et le pneumothorax reste une complication très rare.",
+     "irradiation_mSv": 0,
+     "delai": "programmé",
+     "prelevementRef": "biopsies_tissulaires",
+     "bulle": {
+      "def": "La microbiopsie échoguidée prélève des carottes de tissu mammaire à l'aiguille, sous contrôle échographique.",
+      "pourquoi": "Seule l'histologie affirme un cancer et en donne le type, ce que l'imagerie ne peut que suspecter.",
+      "confusion": "Un résultat bénin rassure à tort s'il ne concorde pas avec une image suspecte, et c'est la concordance qui tranche.",
+      "retenir": "Selon l'EUSOBI (2020), on vérifie toujours la concordance entre l'histologie et l'imagerie."
+     }
+    },
+    {
+     "id": "seins__macrobiopsie_stereotaxique",
+     "modalite": "Anatomopathologie / biopsie",
+     "nom": "Macrobiopsie stéréotaxique",
+     "visees": [
+      "diagnostique"
+     ],
+     "signeRecherche": "Microcalcifications suspectes",
+     "seuil": "Selon l'EUSOBI (Bick et al., 2020), la radiographie des fragments doit montrer les calcifications prélevées, preuve que la cible a été atteinte.",
+     "indication": "Selon l'EUSOBI (Bick et al., 2020), on l'utilise pour les microcalcifications et les distorsions architecturales vues en mammographie ou en tomosynthèse, sans traduction échographique.",
+     "discriminant": "Elle aspire de gros fragments avec des aiguilles de 12 à 7 G, et l'EUSOBI (Bick et al., 2020) décrit jusqu'à 12 carottes ou plus à l'aiguille de 9 ou 12 G.",
+     "avantageSelectif": "Selon l'EUSOBI (Bick et al., 2020), elle prélève environ 1 g de tissu ou plus, ce qui réduit sans l'annuler le risque de faux négatif et de sous-estimation.",
+     "plutotQue": "On la préfère à la microbiopsie pour les calcifications, et l'EUSOBI (Bick et al., 2020) recommande de poser un clip lorsque la petite lésion risque de disparaître après le geste.",
+     "limite": "Elle exige une compression du sein et un repérage radiologique, et selon l'EUSOBI (Bick et al., 2020) la concordance entre histologie et imagerie reste à vérifier.",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": null,
+     "precautions": "Selon l'EUSOBI (Bick et al., 2020), on recherche avant le geste un trouble de la coagulation et un traitement antiplaquettaire ou anticoagulant.",
+     "irradiation_mSv": 0.4,
+     "delai": "programmé",
+     "prelevementRef": "biopsies_tissulaires",
+     "bulle": {
+      "def": "La macrobiopsie stéréotaxique prélève du tissu par aspiration, guidée par des clichés mammographiques sous deux angles.",
+      "pourquoi": "Les microcalcifications ne se voient souvent qu'en mammographie, et seul ce guidage permet de les atteindre.",
+      "confusion": "Des calcifications bénignes imitent des calcifications suspectes, et seule l'histologie des fragments tranche.",
+      "retenir": "Selon l'EUSOBI (2020), on radiographie les fragments pour prouver que les calcifications ont été prélevées."
+     }
+    },
+    {
+     "id": "seins__cytoponction_de_kyste",
+     "modalite": "Anatomopathologie / biopsie",
+     "nom": "Cytoponction de kyste",
+     "visees": [
+      "diagnostique",
+      "therapeutique"
+     ],
+     "signeRecherche": "Kyste douloureux ou compliqué",
+     "seuil": "Selon l'ACR (BI-RADS échographie, 2013), un kyste simple est bénin (catégorie 2), alors qu'un kyste compliqué isolé relève de la catégorie 3.",
+     "indication": "Selon l'EUSOBI (Bick et al., 2020), on ponctionne à l'aiguille fine sous échographie un kyste compliqué, un kyste douloureux qui gonfle, un sérome, un hématome ou un abcès du sein.",
+     "discriminant": "Elle vide la collection et soulage dans le même geste, et selon l'EUSOBI (Bick et al., 2020) c'est une alternative efficace à la chirurgie de l'abcès du sein.",
+     "avantageSelectif": "Selon l'EUSOBI (Bick et al., 2020), elle utilise une aiguille fine, de diamètre bien inférieur à celui des aiguilles de microbiopsie.",
+     "plutotQue": "Devant un kyste complexe, à paroi ou cloisons épaisses ou avec une portion solide, l'EUSOBI (Bick et al., 2020) préfère la microbiopsie.",
+     "limite": "Elle ne donne qu'une cytologie, sans l'architecture du tissu, d'où le choix de la microbiopsie dès qu'une composante solide existe selon l'EUSOBI (Bick et al., 2020).",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": null,
+     "precautions": "Selon l'EUSOBI (Bick et al., 2020), on recherche un trouble de la coagulation ou un traitement anticoagulant avant le geste, et le pneumothorax reste une complication très rare.",
+     "irradiation_mSv": 0,
+     "delai": "programmé",
+     "prelevementRef": "ponction_de_kyste_d_abces_ou_de_collecti",
+     "bulle": {
+      "def": "La cytoponction aspire le contenu d'un kyste du sein à l'aiguille fine, sous échographie.",
+      "pourquoi": "Un kyste tendu fait mal, et le vider soulage tout en permettant d'analyser le liquide.",
+      "confusion": "Un kyste complexe à portion solide imite un kyste compliqué, mais il demande une microbiopsie.",
+      "retenir": "Selon l'EUSOBI (2020), on ponctionne un kyste pour soulager la douleur ou pour drainer un kyste compliqué ou un abcès."
+     }
+    },
+    {
+     "id": "seins__recepteurs_hormonaux_her2_ki_67",
+     "modalite": "Anatomopathologie / biopsie",
+     "nom": "Récepteurs hormonaux, HER2, Ki-67",
+     "visees": [
+      "diagnostique",
+      "therapeutique"
+     ],
+     "signeRecherche": "Profil RE, RP, HER2 et Ki-67",
+     "seuil": "Selon l'ASCO/CAP (Allison et al., 2020), la tumeur est positive pour les récepteurs aux œstrogènes si au moins 1 % des noyaux sont marqués, et faiblement positive entre 1 et 10 % ; selon l'ASCO/CAP (Wolff et al., 2018), HER2 est positif en immunohistochimie 3+ et équivoque en 2+, ce qui impose une hybridation in situ.",
+     "indication": "Selon l'ASCO/CAP (Allison et al., 2020 ; Wolff et al., 2018), on détermine les récepteurs hormonaux et HER2 sur tout cancer du sein invasif nouvellement diagnostiqué, car ils guident l'hormonothérapie et les traitements anti-HER2.",
+     "discriminant": "Selon le groupe international Ki67 (Nielsen et al., 2021), un Ki-67 d'au plus 5 % ou d'au moins 30 % aide à décider de la chimiothérapie dans les tumeurs RE positives, HER2 négatives, de stade T1-2 N0-1.",
+     "avantageSelectif": "Selon l'ASCO/CAP (Allison et al., 2020), le statut des récepteurs aux œstrogènes est à la fois pronostique et prédictif de la réponse à l'hormonothérapie, ce que le type histologique seul ne dit pas.",
+     "plutotQue": "Selon l'ASCO/CAP (Wolff et al., 2018), on complète un score HER2 2+ par une hybridation in situ plutôt que de conclure sur l'immunohistochimie seule.",
+     "limite": "Selon le groupe international Ki67 (Nielsen et al., 2021), les valeurs de Ki-67 entre 5 et 30 % varient trop d'un laboratoire à l'autre pour guider le traitement.",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": null,
+     "precautions": "Selon l'ASCO/CAP (Allison et al., 2020), on plonge le tissu dans le formol en moins d'une heure et on le fixe de 6 à 72 heures, faute de quoi le marquage peut être faussement négatif.",
+     "irradiation_mSv": 0,
+     "delai": "programmé",
+     "prelevementRef": "biopsies_tissulaires",
+     "bulle": {
+      "def": "Ces marquages mesurent sur le tissu tumoral les récepteurs hormonaux, la protéine HER2 et la proportion de cellules qui se divisent.",
+      "pourquoi": "Une tumeur qui porte des récepteurs aux œstrogènes répond à l'hormonothérapie, et une tumeur HER2 positive aux traitements anti-HER2.",
+      "confusion": "Selon l'ASCO/CAP (2018), un score HER2 2+ n'est pas positif mais équivoque, tant que l'hybridation in situ n'a pas tranché.",
+      "retenir": "Selon l'ASCO/CAP (2020), une tumeur est RE positive dès 1 % de noyaux marqués."
+     }
+    },
+    {
+     "id": "seins__recherche_genetique_brca1_2",
+     "modalite": "Biologie",
+     "nom": "Recherche génétique BRCA1/2 (conseil génétique)",
+     "visees": [
+      "diagnostique",
+      "etiologique",
+      "therapeutique"
+     ],
+     "signeRecherche": "Variant pathogène BRCA1 ou BRCA2",
+     "seuil": "Selon la directive suisse du SAKK (Stoll et al., 2021), on teste notamment une femme atteinte d'un cancer du sein à 40 ans ou moins, d'un cancer triple négatif à 60 ans ou moins, et tout homme atteint d'un cancer du sein.",
+     "indication": "Selon la directive suisse du SAKK (Stoll et al., 2021), on le propose aussi devant un cancer épithélial non mucineux de l'ovaire à tout âge, une ascendance juive ashkénaze ou un variant pathogène déjà connu dans la famille.",
+     "discriminant": "Selon Stoll et al. (2021), un variant germinal confirme le syndrome de prédisposition et ouvre le test des apparentés, une surveillance renforcée, une chirurgie prophylactique et, dans certains cancers avancés, un inhibiteur de PARP.",
+     "avantageSelectif": "Selon Stoll et al. (2021), BRCA1 et BRCA2 confèrent un risque cumulé de cancer du sein de 72 % et de 69 %, ce qui justifie une prévention ciblée chez les porteuses.",
+     "plutotQue": "Selon Stoll et al. (2021), on préfère un panel multigène à l'analyse de BRCA1 et BRCA2 seuls, car il est plus efficace et plus rentable.",
+     "limite": "Il peut révéler un variant de signification inconnue, que la directive du SAKK (Stoll et al., 2021) demande d'expliquer au patient avant le test.",
+     "referencePour": [],
+     "smarterMedicine": null,
+     "radioAnatomieNormale": null,
+     "precautions": "Selon Stoll et al. (2021), un conseil génétique avant et après le test est obligatoire, et l'assurance obligatoire ne rembourse l'analyse qu'après ce conseil et un consentement éclairé (OPAS, art. 12d).",
+     "irradiation_mSv": 0,
+     "delai": "programmé",
+     "prelevementRef": "sang_veineux",
+     "bulle": {
+      "def": "La recherche génétique analyse dans l'ADN du sang les gènes BRCA1 et BRCA2, après un conseil génétique.",
+      "pourquoi": "Un variant pathogène de ces gènes empêche la réparation de l'ADN et augmente fortement le risque de cancer du sein et de l'ovaire.",
+      "confusion": "Un variant de signification inconnue n'est pas un variant pathogène, et il ne doit pas modifier la prise en charge.",
+      "retenir": "Selon le SAKK (2021), le conseil génétique est obligatoire avant et après le test."
+     }
+    }
+   ],
+   "glossaire": {
+    "ACR": "American College of Radiology, société américaine de radiologie qui publie l'atlas BI-RADS et des critères de pertinence de l'imagerie.",
+    "BI-RADS": "Breast Imaging Reporting and Data System : classification de l'ACR qui range les images du sein en catégories de 0 à 6 selon le risque de cancer.",
+    "EUSOBI": "European Society of Breast Imaging, société européenne d'imagerie du sein.",
+    "OFSP": "Office fédéral de la santé publique, autorité suisse de radioprotection.",
+    "IRM": "Imagerie par résonance magnétique : imagerie en coupes fondée sur un champ magnétique, sans rayonnement ionisant.",
+    "TOSYMA": "Essai randomisé allemand qui a comparé la tomosynthèse et la mammographie numérique dans le dépistage.",
+    "G": "Gauge : unité de diamètre des aiguilles ; plus le nombre est petit, plus l'aiguille est grosse.",
+    "RE": "Récepteurs aux œstrogènes mesurés sur la tumeur.",
+    "RP": "Récepteurs à la progestérone mesurés sur la tumeur.",
+    "HER2": "Récepteur 2 du facteur de croissance épidermique humain, cible des traitements anti-HER2.",
+    "Ki-67": "Protéine des cellules en division ; sa proportion estime la vitesse de prolifération de la tumeur.",
+    "ASCO": "American Society of Clinical Oncology, société américaine d'oncologie clinique.",
+    "CAP": "College of American Pathologists, collège américain des pathologistes.",
+    "BRCA1": "Gène de réparation de l'ADN dont un variant pathogène prédispose au cancer du sein et de l'ovaire.",
+    "BRCA2": "Gène de réparation de l'ADN dont un variant pathogène prédispose au cancer du sein, de l'ovaire, de la prostate et du pancréas.",
+    "SAKK": "Groupe suisse de recherche clinique sur le cancer, qui publie la directive suisse de conseil et de test génétique.",
+    "PARP": "Poly(ADP-ribose) polymérase : enzyme de réparation de l'ADN ciblée par certains traitements des cancers liés à BRCA.",
+    "OPAS": "Ordonnance sur les prestations de l'assurance des soins, qui fixe les prestations remboursées par l'assurance obligatoire.",
+    "ADN": "Acide désoxyribonucléique, support de l'information génétique.",
+    "T1-2 N0-1": "Stades TNM d'une petite tumeur (T1 ou T2) sans atteinte ganglionnaire ou avec une atteinte limitée (N0 ou N1).",
+    "mSv": "Millisievert : unité de dose efficace, qui mesure l'effet biologique des rayonnements ionisants."
+   }
+  }
+ }
+}

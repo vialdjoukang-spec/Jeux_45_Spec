@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**264 / 500 pathologies du périmètre produites.**
+**267 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -163,10 +163,10 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 154 | `K56.1__O2_4-E12` | Invagination intestinale aiguë du nourrisson (boudin d'invagination) | CPE | produite |
 | 155 | `K72.0__F2_11-E13` | Hépatite fulminante (insuffisance hépatique aiguë) | GAS | produite |
 | 156 | `K83.0_angiocholite_aigue__F2_11-E15` | Angiocholite aiguë | GAS | produite |
-| 157 | `M00.9__G6-E10` | Arthrite septique aiguë | RHU | — |
-| 158 | `M31.1__F2_10-E13` | Microangiopathie thrombotique (PTT / SHU) | RHU | — |
+| 157 | `M00.9__G6-E10` | Arthrite septique aiguë | RHU | produite |
+| 158 | `M31.1__F2_10-E13` | Microangiopathie thrombotique (PTT / SHU) | RHU | produite |
 | 159 | `N10_pyelonephrite_aigue___F2_15-E14` | Pyélonéphrite aiguë obstructive | NEP | produite |
-| 160 | `R57.1__F1_1-E15` | Choc hémorragique aigu (hypotension sévère) | INT | — |
+| 160 | `R57.1__F1_1-E15` | Choc hémorragique aigu (hypotension sévère) | INT | produite |
 | 161 | `B02.9__S2_12-E06` | Zona (herpès zoster) | DER | — |
 | 162 | `B34.9_infection_virale_aig__F2_19-E02` | Infection virale aiguë non spécifique (myalgies, cytopénies transitoires) | INF | produite |
 | 163 | `E66.9__O2_12-E04` | Surpoids et obésité pédiatrique | END | produite |
