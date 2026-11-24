@@ -45,7 +45,7 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 | fiches produites | 476 | 3975 | 25 |
 | fiches validées par l'audit | 85 | 3975 | 25 |
 | fiches avec prise en charge holistique | 476 | 3975 | 10 |
-| entités avec questions A/K'/menu long | 576 | 2675 | 25 |
+| entités avec questions A/K'/menu long | 579 | 2675 | 25 |
 | questions jouables dans l'arène | 6 | 300 | 15 |
 
 ## Historique
