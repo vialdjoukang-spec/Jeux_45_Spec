@@ -1,0 +1,834 @@
+{
+ "id": "G41.0__S7_10-E11",
+ "portes": [
+  {
+   "ssp": "S7.10",
+   "nomSSP": "Secousses musculaires, fasciculations, convulsions, crise épileptique et état de mal épileptique",
+   "entite": "État de mal épileptique convulsif généralisé (EME)",
+   "entiteId": "S7.10-E11"
+  }
+ ],
+ "entite": "État de mal épileptique convulsif généralisé (EME)",
+ "cim10": "G41.0",
+ "ssp": {
+  "code": "S7.10",
+  "nom": "Secousses musculaires, fasciculations, convulsions, crise épileptique et état de mal épileptique",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Mouvements anormaux ou convulsions",
+    "i": "Le premier tri distingue la crise en cours, qui est une urgence, de l'événement terminé.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Crise en cours depuis plus de 5 minutes ou crises sans réveil ?",
+    "i": "Ce seuil définit l'état de mal et impose un traitement immédiat.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : ABC, glycémie, benzodiazépine pleine dose",
+    "i": "La première ligne arrête la plupart des crises si elle est donnée tôt et à dose suffisante.",
+    "pec": "eme_urgence",
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n3",
+    "t": "Persistance : deuxième ligne IV",
+    "i": "Le lévétiracétam, le valproate ou la fosphénytoïne s'équivalent.",
+    "pec": "eme_urgence",
+    "notion": "c4"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Persistance : anesthésie aux soins intensifs",
+    "i": "L'état de mal réfractaire exige intubation et EEG continu.",
+    "pec": "eme_urgence",
+    "notion": "c4"
+   },
+   {
+    "id": "n6",
+    "parent": "n3",
+    "t": "Arrêt des mouvements sans réveil : EEG",
+    "i": "Un état de mal non convulsif peut persister.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n2",
+    "t": "Signes de crise psychogène (yeux fermés, asynchronie)",
+    "i": "Les signes positifs évitent une escalade inutile ; ils renvoient au SSP des troubles fonctionnels.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n8",
+    "parent": "n1",
+    "t": "Événement terminé, conscience revenue",
+    "i": "La crise unique se bilanne en ambulatoire ou aux urgences selon la cause.",
+    "pec": "eme_suite",
+    "notion": null
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Perte de connaissance brève avec secousses après une station debout",
+    "i": "La syncope convulsivante renvoie au SSP de la syncope (F1.19).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n10",
+    "parent": "n2",
+    "t": "Fièvre ou confusion préalable",
+    "i": "Une méningo-encéphalite impose l'aciclovir et l'antibiothérapie sans attendre.",
+    "pec": "eme_urgence",
+    "notion": "c2"
+   },
+   {
+    "id": "n11",
+    "parent": "n5",
+    "t": "Après contrôle : cause et traitement de fond",
+    "i": "La cause dicte le pronostic et la prévention de la récidive.",
+    "pec": "eme_suite",
+    "notion": "c6"
+   }
+  ]
+ },
+ "specialites": [
+  "NEU"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "État de mal épileptique convulsif : traiter par paliers chronométrés et chercher la cause",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition opérationnelle et temps critiques",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Raisonne en deux temps : t1 dit quand traiter, t2 dit quand les lésions deviennent durables.",
+   "tableau": {
+    "colonnes": [
+     "Forme",
+     "Sous-forme",
+     "t1 (traiter)",
+     "t2 (lésions)"
+    ],
+    "lignes": [
+     [
+      "Convulsive",
+      "Tonico-clonique généralisée",
+      [
+       {
+        "t": "5 minutes",
+        "i": "Au-delà, l'arrêt spontané devient improbable et le traitement doit commencer."
+       }
+      ],
+      [
+       {
+        "t": "30 minutes",
+        "i": "La mort neuronale débute par excitotoxicité."
+       }
+      ]
+     ],
+     [
+      "Non convulsive",
+      "Focale avec altération de la conscience",
+      [
+       {
+        "t": "10 minutes",
+        "i": "La décharge focale s'auto-entretient moins vite."
+       }
+      ],
+      [
+       {
+        "t": "Plus de 60 minutes",
+        "i": "Le risque lésionnel est plus tardif."
+       }
+      ]
+     ],
+     [
+      "Non convulsive",
+      "Absences",
+      [
+       {
+        "t": "10 à 15 minutes",
+        "i": "Le risque immédiat est faible."
+       }
+      ],
+      [
+       {
+        "t": "Inconnu",
+        "i": "Les données manquent pour fixer t2."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Deux crises sans retour à la conscience valent un état de mal.",
+    "Le temps de traitement compte plus que la définition historique de 30 minutes."
+   ],
+   "sources": [
+    "[Trinka, Epilepsia, 2015]"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Causes",
+   "rubriques": [
+    "epidemiology",
+    "presumptionRedFlags"
+   ],
+   "comment": "Cherche d'abord la cause rapidement réversible, puis la cause grave à traiter sans délai.",
+   "tableau": {
+    "colonnes": [
+     "Classe",
+     "Cause",
+     "Indice",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "Épilepsie connue",
+      "Arrêt ou sous-dosage du traitement",
+      "Taux bas",
+      [
+       {
+        "t": "Cause la plus fréquente",
+        "i": "L'observance se vérifie par le taux sanguin."
+       }
+      ]
+     ],
+     [
+      "Métabolique",
+      "Hypoglycémie, hyponatrémie, hypocalcémie",
+      "Glycémie, ionogramme",
+      [
+       {
+        "t": "Correction immédiate",
+        "i": "Les crises cèdent seulement après correction."
+       }
+      ]
+     ],
+     [
+      "Toxique",
+      "Sevrage alcoolique, intoxication",
+      "Anamnèse, toxiques",
+      [
+       {
+        "t": "Phénytoïne inefficace dans le sevrage",
+        "i": "Les benzodiazépines traitent le sevrage ; Tox Info Suisse (145) guide l'antidote."
+       }
+      ]
+     ],
+     [
+      "Infectieuse",
+      "Méningite, encéphalite",
+      "Fièvre, confusion",
+      [
+       {
+        "t": "Aciclovir sans attendre",
+        "i": "L'encéphalite herpétique se traite avant la confirmation."
+       }
+      ]
+     ],
+     [
+      "Structurelle",
+      "AVC, tumeur, traumatisme",
+      "Signes focaux",
+      [
+       {
+        "t": "CT après stabilisation",
+        "i": "Un premier état de mal impose une imagerie."
+       }
+      ]
+     ],
+     [
+      "Obstétricale",
+      "Éclampsie",
+      "Grossesse ou post-partum",
+      [
+       {
+        "t": "Sulfate de magnésium",
+        "i": "Il traite l'éclampsie mieux que les antiépileptiques."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Un premier état de mal de l'adulte impose une recherche de cause."
+   ],
+   "sources": [
+    "[AES, 2016]"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Crise épileptique ou psychogène",
+   "rubriques": [
+    "clinicalExam",
+    "positiveDiagnosis"
+   ],
+   "comment": "Repère les signes positifs de crise psychogène pour éviter une intubation inutile.",
+   "tableau": {
+    "colonnes": [
+     "Signe",
+     "Valeur",
+     "Oriente vers",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Yeux",
+      "Fermés, résistent à l'ouverture",
+      "Crise psychogène",
+      [
+       {
+        "t": "Yeux ouverts dans l'épilepsie",
+        "i": "La crise généralisée ouvre les yeux par activation motrice diffuse."
+       }
+      ]
+     ],
+     [
+      "Mouvements",
+      "Asynchrones, fluctuants, latéraux de la tête",
+      "Crise psychogène",
+      [
+       {
+        "t": "Synchronie épileptique",
+        "i": "La décharge généralisée synchronise les deux hémicorps."
+       }
+      ]
+     ],
+     [
+      "Langue",
+      "Morsure latérale",
+      "Crise épileptique",
+      [
+       {
+        "t": "Contraction massétérine",
+        "i": "La contraction tonique mord le bord latéral."
+       }
+      ]
+     ],
+     [
+      "Prolactine",
+      "Élevée à 10-20 min",
+      "Crise épileptique",
+      [
+       {
+        "t": "Sensibilité limitée",
+        "i": "Une valeur normale n'exclut pas une crise."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La vidéo-EEG confirme la crise psychogène."
+   ],
+   "sources": [
+    "[LaFrance, Epilepsia, 2013]",
+    "[AAN, 2005]"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Traitement par paliers",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Avance d'un palier dès que le précédent échoue, sans sous-doser.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "t1",
+     "parent": null,
+     "t": "Crise > 5 minutes ou crises sans réveil",
+     "i": "Le seuil t1 de l'ILAE déclenche le traitement.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "t2",
+     "parent": "t1",
+     "t": "Glycémie, ABC, thiamine si alcool",
+     "i": "On corrige d'emblée ce qui entretient les crises.",
+     "pec": "eme_urgence",
+     "notion": null
+    },
+    {
+     "id": "t3",
+     "parent": "t1",
+     "t": "Palier 1 (5-20 min) : benzodiazépine pleine dose",
+     "i": "Lorazépam 0,1 mg/kg IV (max 4 mg) ou midazolam 10 mg IM, répétable une fois.",
+     "pec": "eme_urgence",
+     "notion": null
+    },
+    {
+     "id": "t4",
+     "parent": "t3",
+     "t": "Palier 2 (20-40 min) : lévétiracétam, valproate ou fosphénytoïne",
+     "i": "ESETT montre une efficacité équivalente ; le terrain choisit.",
+     "pec": "eme_urgence",
+     "notion": null
+    },
+    {
+     "id": "t5",
+     "parent": "t4",
+     "t": "Palier 3 (> 40 min) : anesthésie et EEG continu",
+     "i": "L'état de mal réfractaire impose intubation et soins intensifs.",
+     "pec": "eme_urgence",
+     "notion": null
+    },
+    {
+     "id": "t6",
+     "parent": "t5",
+     "t": "Plus de 24 h sous anesthésie : super-réfractaire",
+     "i": "Le neurologue et l'intensiviste discutent les options de recours.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "t7",
+     "parent": "t4",
+     "t": "Arrêt des convulsions sans réveil",
+     "i": "Un EEG cherche un état de mal non convulsif persistant.",
+     "pec": "eme_urgence",
+     "notion": null
+    }
+   ],
+   "points": [
+    "Le sous-dosage des benzodiazépines est l'erreur la plus fréquente.",
+    "Le valproate s'évite chez la femme en âge de procréer."
+   ],
+   "sources": [
+    "[AES, 2016]",
+    "[Kapur, NEJM, 2019]",
+    "[Silbergleit, NEJM, 2012]"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Complications et pronostic",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "surveillance"
+   ],
+   "comment": "Surveille les complications systémiques et estime le pronostic par la cause et le score STESS.",
+   "tableau": {
+    "colonnes": [
+     "Domaine",
+     "Complication",
+     "Conduite",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "Musculaire",
+      "Rhabdomyolyse",
+      "Hydratation, CK, créatinine",
+      [
+       {
+        "t": "Myoglobine néphrotoxique",
+        "i": "Elle précipite dans les tubules rénaux."
+       }
+      ]
+     ],
+     [
+      "Métabolique",
+      "Acidose lactique",
+      "Abstention de bicarbonate",
+      [
+       {
+        "t": "Transitoire",
+        "i": "Le lactate se métabolise après l'arrêt des convulsions."
+       }
+      ]
+     ],
+     [
+      "Respiratoire",
+      "Pneumonie d'aspiration",
+      "Protection des voies aériennes",
+      [
+       {
+        "t": "Vigilance basse",
+        "i": "La perte des réflexes de déglutition favorise l'aspiration."
+       }
+      ]
+     ],
+     [
+      "Cardiaque",
+      "Arythmie, cardiomyopathie de stress",
+      "ECG, monitoring",
+      [
+       {
+        "t": "Décharge catécholaminergique",
+        "i": "Elle sidère le myocarde."
+       }
+      ]
+     ],
+     [
+      "Pronostic",
+      "Score STESS",
+      "Information des proches",
+      [
+       {
+        "t": "≥ 3 défavorable",
+        "i": "Le score lausannois intègre conscience, type de crise, âge et antécédents."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La cause pèse plus que l'âge seul."
+   ],
+   "sources": [
+    "[Rossetti, J Neurol, 2008]"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Suite et particularités suisses",
+   "rubriques": [
+    "chronicManagement",
+    "followUpNetwork"
+   ],
+   "comment": "Prépare la sortie par le traitement de fond, la conduite et le plan d'urgence.",
+   "tableau": {
+    "colonnes": [
+     "Thème",
+     "Mesure",
+     "Acteur",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "Traitement de fond",
+      "Antiépileptique adapté",
+      "Neurologue",
+      [
+       {
+        "t": "Observance",
+        "i": "L'arrêt du traitement explique la plupart des états de mal de l'épileptique."
+       }
+      ]
+     ],
+     [
+      "Conduite",
+      "Inaptitude temporaire",
+      "Médecin, office de la circulation",
+      [
+       {
+        "t": "LCR art. 15d",
+        "i": "Le médecin peut signaler un conducteur inapte sans accord."
+       }
+      ]
+     ],
+     [
+      "Plan d'urgence",
+      "Midazolam buccal ou intranasal",
+      "Proches, école",
+      [
+       {
+        "t": "Traitement avant le 144",
+        "i": "Le traitement précoce raccourcit la crise."
+       }
+      ]
+     ],
+     [
+      "Soutien",
+      "Centre d'épileptologie, Epi-Suisse",
+      "Réseau",
+      [
+       {
+        "t": "Information du patient",
+        "i": "Epi-Suisse soutient les personnes épileptiques en Suisse."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Les directives de la Ligue suisse contre l'Épilepsie fixent l'aptitude à la conduite."
+   ],
+   "sources": [
+    "[Ligue suisse contre l'Épilepsie]",
+    "[LCR art. 15d]"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "eme_urgence",
+   "titre": "État de mal convulsif : traitement par paliers",
+   "but": [
+    "Arrêter les crises le plus tôt possible.",
+    "Corriger la cause et prévenir les complications systémiques."
+   ],
+   "moyens": {
+    "accueil": [
+     "Protéger le patient, libérer les voies aériennes et donner de l'oxygène.",
+     "Mesurer la glycémie capillaire et poser une voie veineuse.",
+     "Noter l'heure de début et chronométrer chaque palier."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Lorazépam (benzodiazépine)",
+      "posologie": "0,1 mg/kg IV, maximum 4 mg par dose, répétable une fois après 5-10 min ; à vérifier dans l'AIPS.",
+      "pourquoi": "Il arrête la crise en potentialisant le GABA-A tant que les récepteurs restent en surface.",
+      "source": "[AES, 2016 ; AIPS Swissmedic]"
+     },
+     {
+      "molecule": "Midazolam (benzodiazépine)",
+      "posologie": "10 mg IM si > 40 kg, 5 mg si 13-40 kg ; voie buccale chez l'enfant selon l'âge ; à vérifier dans l'AIPS.",
+      "pourquoi": "Il permet un traitement rapide sans voie veineuse.",
+      "source": "[Silbergleit, NEJM, 2012]"
+     },
+     {
+      "molecule": "Lévétiracétam (antiépileptique)",
+      "posologie": "60 mg/kg IV, maximum 4500 mg, en 10-15 min ; adaptation rénale ensuite ; à vérifier dans l'AIPS.",
+      "pourquoi": "Il arrête l'état de mal dans environ la moitié des cas avec peu d'interactions.",
+      "source": "[Kapur, NEJM, 2019]"
+     },
+     {
+      "molecule": "Valproate (antiépileptique)",
+      "posologie": "40 mg/kg IV, maximum 3000 mg, en 10 min ; à éviter chez la femme en âge de procréer et en cas d'hépatopathie ; à vérifier dans l'AIPS.",
+      "pourquoi": "Il offre une efficacité équivalente avec peu d'effet hémodynamique.",
+      "source": "[Kapur, NEJM, 2019]"
+     },
+     {
+      "molecule": "Propofol (anesthésique)",
+      "posologie": "Bolus 1-2 mg/kg puis perfusion titrée sous EEG continu, après intubation ; à vérifier dans l'AIPS.",
+      "pourquoi": "Il supprime la décharge réfractaire aux deux premières lignes.",
+      "source": "[Brophy, Neurocrit Care, 2012]"
+     },
+     {
+      "molecule": "Thiamine (vitamine B1)",
+      "posologie": "Au moins 100 mg IV avant le glucose chez l'alcoolique ou le dénutri ; à vérifier dans l'AIPS.",
+      "pourquoi": "Elle prévient l'encéphalopathie de Gayet-Wernicke déclenchée par le glucose.",
+      "source": "[avis d'expert]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Placer le patient en position latérale, aspirer et monitorer la saturation.",
+      "pourquoi": "Ces gestes protègent les voies aériennes."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Intuber le patient en état de mal réfractaire.",
+      "pourquoi": "L'intubation permet l'anesthésie et protège de l'aspiration."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "T Toxicologie clinique",
+      "apport": "Tox Info Suisse (145) oriente l'antidote d'une crise toxique."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Chronométrer chaque palier et ne jamais sous-doser les benzodiazépines.",
+      "Traiter d'emblée hypoglycémie, fièvre infectieuse et éclampsie."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue ABC, glycémie et heure de début, et prescrit la benzodiazépine."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose la voie, prélève ionogramme, taux d'antiépileptiques et toxiques."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Donne la deuxième ligne si la crise persiste après deux doses."
+      },
+      {
+       "temps": "puis",
+       "qui": "intensiviste",
+       "fait": "Intube et anesthésie l'état de mal réfractaire sous EEG continu."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "neurologue",
+       "fait": "Interprète l'EEG et oriente la recherche de cause."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "radiologue",
+       "fait": "Réalise le CT cérébral après stabilisation."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La mortalité de l'état de mal convulsif de l'adulte avoisine 15 à 20 % (chiffre à vérifier) et dépend surtout de la cause ; un score STESS ≥ 3 prédit une évolution défavorable [Rossetti, J Neurol, 2008].",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Vigilance et EEG",
+      "quand": "En continu jusqu'au réveil",
+      "cible": "Absence de décharge"
+     },
+     {
+      "quoi": "CK et créatinine",
+      "quand": "Toutes les 12-24 h",
+      "cible": "Baisse de la CK, créatinine stable"
+     },
+     {
+      "quoi": "Température",
+      "quand": "Toutes les heures au début",
+      "cible": "Apyrexie"
+     },
+     {
+      "quoi": "Taux d'antiépileptiques",
+      "quand": "À l'admission puis selon besoin",
+      "cible": "Taux thérapeutique"
+     }
+    ],
+    "sortie": "Le patient sort quand il n'a plus de crise, que la vigilance est normale, que la cause est traitée et qu'un traitement de fond et un plan d'urgence sont en place."
+   },
+   "prevention": {
+    "primaire": "",
+    "secondaire": "Elle repose sur l'observance du traitement de fond et le traitement de la cause.",
+    "tertiaire": "Elle limite les séquelles par la réadaptation cognitive si nécessaire."
+   }
+  },
+  {
+   "cle": "eme_suite",
+   "titre": "Après l'état de mal : traitement de fond, conduite et plan d'urgence",
+   "but": [
+    "Prévenir la récidive.",
+    "Préserver la sécurité et l'insertion sociale du patient."
+   ],
+   "moyens": {
+    "accueil": [
+     "Revoir le patient en consultation de neurologie après la sortie.",
+     "Vérifier l'observance et la tolérance du traitement de fond."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Lévétiracétam (antiépileptique)",
+      "posologie": "Dose d'entretien de 500 à 1500 mg 2×/j selon la fonction rénale ; à vérifier dans l'AIPS.",
+      "pourquoi": "Il prévient la récidive avec peu d'interactions médicamenteuses.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer l'observance, les facteurs déclenchants et le plan d'urgence.",
+      "pourquoi": "Le patient informé évite l'arrêt du traitement."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Informer l'employeur selon l'accord du patient et adapter le poste.",
+      "pourquoi": "Le maintien en emploi se prépare tôt."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Elle encadre l'information sur la conduite et le signalement selon la LCR."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Revoir le patient à 1 et 3 mois.",
+      "Documenter l'information donnée sur la conduite."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "neurologue",
+       "fait": "Fixe le traitement de fond et la durée d'inaptitude à la conduite."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin de famille",
+       "fait": "Surveille l'observance et la tolérance."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Applique le plan d'urgence avec ses proches."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le risque de récidive reste élevé si la cause persiste ou si l'observance est mauvaise.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Crises",
+      "quand": "À chaque consultation",
+      "cible": "Absence de crise"
+     },
+     {
+      "quoi": "Effets indésirables",
+      "quand": "À chaque consultation",
+      "cible": "Bonne tolérance"
+     }
+    ],
+    "sortie": "La prise en charge est ambulatoire."
+   },
+   "prevention": {
+    "primaire": "",
+    "secondaire": "Elle repose sur l'observance et l'éviction des facteurs déclenchants.",
+    "tertiaire": "Elle passe par Epi-Suisse et le centre d'épileptologie pour le soutien."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "_mode": "manuel",
+  "agent": "45spec-NEU"
+ },
+ "signature": {
+  "date": "2026-11-24T11:25:57",
+  "modele": "claude-opus-5-5 (production manuelle sans API, agent 45spec)",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ },
+ "aVerifier": [
+  "Mortalité de l'état de mal convulsif de l'adulte (15 à 20 %) à confirmer.",
+  "Disponibilité de la fosphénytoïne en Suisse (sinon phénytoïne IV) à vérifier dans l'AIPS.",
+  "Durées d'inaptitude à la conduite selon les directives de la Ligue suisse contre l'Épilepsie non chiffrées : à vérifier."
+ ]
+}
