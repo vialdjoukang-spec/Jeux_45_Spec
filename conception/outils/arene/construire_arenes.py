@@ -51,6 +51,55 @@ for f in sorted(glob.glob("conception/donnees/tetrade/transversales/lecons/*/*.j
         if len(opts) < 2 or not any(o["ok"] for o in opts):
             continue
         paquets[p].append(q(f"{d['id']}_{i + 1}", fmt, d["titre"], it.get("enonce", ""), "", opts, None, (d.get("_meta") or {}).get("sources"), f))
+
+# Tétrade : questions de raisonnement écrites en texte (conception/donnees/tetrade/arene/<dossier>.txt), adossées à une
+# pathologie rédigée du système (sa ligne « s » devient la source) ; un titre ne trahit jamais le diagnostic.
+import re as _re, sys as _sys
+sys_path = "conception/outils"; _sys.path.insert(0, sys_path)
+from systemes_rediges import REDIGES as _RED
+_NOMSYS = {c["dossier"]: s for s, c in _RED.items()}
+_GENERIQUES = {"aiguë", "aigu", "chronique", "syndrome", "maladie", "primaire", "primitive", "secondaire", "grave", "sévère", "commune", "simple"}
+def _sources_patho(dossier):
+    S, nom = {}, None
+    for l in open(f"conception/outils/{dossier}/pathologies.txt", encoding="utf-8"):
+        if l.startswith("@ "): nom = l.split("|", 1)[1].strip()
+        elif l.startswith("s ") and nom: S[nom] = l[2:].strip()
+    return S
+_err = []
+for f in sorted(glob.glob("conception/donnees/tetrade/arene/*.txt")):
+    dos = os.path.basename(f)[:-4]; P = _sources_patho(dos); p = "tetrade_" + dos
+    noms[p] = f"Tétrade — {_NOMSYS.get(dos, dos)} (raisonnement clinique)"; cur = None
+    def _fin(c):
+        if not c: return
+        o, ok = c["options"], sum(x["ok"] for x in c["options"])
+        if c["format"] == "A" and (len(o) != 5 or ok != 1): _err.append(f"{c['id']} : un type A demande 5 options dont 1 juste")
+        if c["format"] == "Kprim" and len(o) != 4: _err.append(f"{c['id']} : un Kprim demande 4 affirmations")
+        if any(not x["why"] for x in o) or not c["stem"]: _err.append(f"{c['id']} : énoncé ou explication vide")
+        if c["_x"] not in P: _err.append(f"{c['id']} : pathologie inconnue « {c['_x']} » dans {dos}/pathologies.txt")
+        mots = [m for m in _re.findall(r"[\wÀ-ÿ'-]{6,}", c["_x"].lower()) if m not in _GENERIQUES]
+        if any(m in c["titre"].lower() for m in mots): _err.append(f"{c['id']} : le titre trahit le diagnostic")
+        src = P.get(c["_x"], ""); x = c.pop("_x"); lien = c.pop("_i", None)
+        c["origine"] = f"conception/outils/{dos}/pathologies.txt#{x}" + (f" · courbe {lien}" if lien else "")
+        c["sources"] = [src] if src else []
+        paquets[p].append(c)
+    for l in open(f, encoding="utf-8"):
+        l = l.rstrip("\n")
+        if l.startswith("## "):
+            _fin(cur); i_, fm, ti = [x.strip() for x in l[3:].split("|", 2)]
+            cur = q(f"{p}_{i_}", "Kprim" if fm == "K" else "A", ti, "", "", [], None, None, ""); cur["_x"] = ""
+        elif cur is None or not l.strip() or l.startswith("#"): continue
+        elif l.startswith("S "): cur["stem"] = l[2:]
+        elif l.startswith("P "): cur["prompt"] = l[2:]
+        elif l[:2] in ("+ ", "- "):
+            t, w = (l[2:].split(" || ", 1) + [""])[:2]; n = len(cur["options"])
+            cur["options"].append({"k": str(n + 1) if cur["format"] == "Kprim" else "ABCDE"[n], "t": t.strip(), "ok": l[0] == "+", "why": w.strip()})
+        elif l.startswith("C "):
+            m = [x.strip() for x in l[2:].split(" || ")]; cur["echelle"] = [[k, v] for k, v in zip(["mechanism", "discriminant", "anchor"], m) if v]
+        elif l.startswith("X "): cur["_x"] = l[2:].strip()
+        elif l.startswith("I "): cur["_i"] = l[2:].strip()
+    _fin(cur)
+if _err:
+    raise SystemExit("Arène Tétrade — erreurs :\n" + "\n".join(_err))
 CORR = {os.path.basename(f)[:-5]: json.load(open(f, encoding="utf-8")) for f in glob.glob("conception/donnees/corrections/*.json")}
 for L in paquets.values():                     # correction enrichie : thème, notions abordées (cours en fenêtre), SSP et algorithme
     for q in L:

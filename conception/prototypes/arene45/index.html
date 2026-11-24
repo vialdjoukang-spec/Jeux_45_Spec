@@ -76,7 +76,7 @@ function accueil(){document.body.classList.remove('duel');clearInterval(tick);co
  <div class="actions"><button class="btn" id="go" ${n?'':'disabled'}><span class="ms">swords</span>Lancer une série (zéro spoiler)</button></div>
  <p class="note">${n?`${n} série(s) disponible(s). Une série suit le même patient d'étape en étape ; la pathologie, les notions et la correction complète se révèlent à la fin.`:'Aucune question n’est encore prête pour cette spécialité.'}</p>`;
  const g=$('#go');if(g)g.onclick=lancer;}
-function lancer(){const vues=etat.vues[cur.code]||[],libres=deck.series.filter(x=>!vues.includes(x.id));serie=(libres.length?libres:deck.series)[Math.floor(Math.random()*(libres.length||deck.series.length))];k=0;score=0;document.body.classList.add('duel');etape();}
+function lancer(){const vues=etat.vues[cur.code]||[],libres=deck.series.filter(x=>!vues.includes(x.id));serie=(libres.length?libres:deck.series)[Math.floor(Math.random()*(libres.length||deck.series.length))];if(serie.p&&!serie._ok)json('decks/'+serie.p+'.json').then(x=>{if(x)Object.assign(serie,x);serie._ok=1});k=0;score=0;document.body.classList.add('duel');etape();}
 function etape(){const q=serie.questions[k];choix={};$('#dEtape').textContent=`${k+1} / ${serie.questions.length}`;$('#dScore').textContent=score;
  const fmt={A:'Une seule réponse',Kprim:'Vrai ou faux (Kprim)',MenuLong:'Menu long : une à trois réponses'}[q.format];
  const opts=q.format==='Kprim'?q.statements.map((s,i)=>({key:String(i+1),text:s.text,correct:s.true,why:s.why})):q.options;
@@ -99,7 +99,7 @@ function valider(q,opts){if($('#vue').classList.contains('corrige'))return;clear
  score+=pts;$('#dScore').textContent=score.toFixed(1).replace('.0','').replace('.',',');
  $('#res').innerHTML=`<p class="q" style="color:${pts>=1?'var(--ok)':'var(--ko)'}">${pts>=1?'Juste':'À revoir'} : ${String(pts).replace('.',',')} point</p><div class="actions"><button class="btn" id="suite"><span class="ms">arrow_forward</span>${k+1<serie.questions.length?'Étape suivante':'Révéler le diagnostic'}</button></div>`;
  $('#suite').onclick=()=>{k++;k<serie.questions.length?etape():fin();};}
-function fin(){clearInterval(tick);const n=serie.questions.length,ok=score/n>=.75,r=serie.revele||{};
+function fin(){clearInterval(tick);if(serie.p&&!serie._ok){json('decks/'+serie.p+'.json').then(x=>{if(x)Object.assign(serie,x);serie._ok=1;fin()});return;}const n=serie.questions.length,ok=score/n>=.75,r=serie.revele||{};
  try{r.pathologie&&window.Suivi&&Suivi.nommer(serie.id,r.pathologie);}catch(e){}
  if(ok){const v=etat.vues[cur.code]=etat.vues[cur.code]||[];if(!v.includes(serie.id))v.push(serie.id);ecrire(etat);}
  const vues=[...new Set(serie.questions.flatMap(q=>q.notions||[]))],dern=serie.questions[n-1].ladder||{};
