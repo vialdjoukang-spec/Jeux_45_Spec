@@ -353,6 +353,76 @@ const MODELES={
    else m1='L\'osmolalité plasmatique reste dans la plage normale (275 à 295 mOsm/kg) et la sécrétion suit la courbe attendue.';
    note.textContent='Osmolalité plasmatique = 2 × '+Na()+' + '+Gl()+' + '+Ur()+' = '+po.toFixed(0)+' mOsm/kg. Osmolalité urinaire estimée = '+uo.toFixed(0)+' mOsm/kg ; diurèse estimée = 600 / '+uo.toFixed(0)+' = '+di.toFixed(1)+' l par jour. '+m1;}d();},
 
+ /* hématologique : classification d'une anémie par le VGM et les réticulocytes ; indice de Mentzer */
+ he_anemie(C){const x=toile(C);const note=document.createElement('p');
+  boutons(C,[['Normal',{h:145,v:90,r:60,g:4.8}],['Carence en fer',{h:95,v:70,r:35,g:4.1}],['Trait thalassémique',{h:118,v:64,r:70,g:5.8}],['Carence en vitamine B12',{h:85,v:115,r:20,g:2.4}],['Hémolyse',{h:90,v:98,r:250,g:2.9}],['Anémie inflammatoire ou rénale',{h:100,v:86,r:30,g:3.5}],['Hémorragie aiguë (J5)',{h:95,v:94,r:180,g:3.2}]],o=>{H.set(o.h);V.set(o.v);R.set(o.r);G.set(o.g);d();});
+  const H=cur(C,'Hémoglobine (g/l)',40,180,1,145,d),V=cur(C,'VGM (fl)',55,130,1,90,d),R=cur(C,'Réticulocytes (G/l)',5,400,5,60,d),G=cur(C,'Globules rouges (T/l)',1.5,7,0.1,4.8,d);C.appendChild(note);
+  function d(){const A=axes(x,520,300,45,[55,130],[0,400],'VGM (fl)','Réticulocytes (G/l)');
+   const z=(v0,v1,r0,r1,col,t)=>{const [a,b]=A(v0,r1),[c,e]=A(v1,r0);x.fillStyle=col;x.fillRect(a,b,c-a,e-b);x.fillStyle='#3a4556';x.fillText(t,a+4,b+13);};
+   z(55,80,0,100,'rgba(201,138,43,0.18)','microcytaire');z(80,100,0,100,'rgba(120,130,140,0.14)','normocytaire');z(100,130,0,100,'rgba(142,92,196,0.16)','macrocytaire');z(55,130,100,400,'rgba(31,122,77,0.12)','régénérative : perte ou destruction périphérique');
+   const h=H(),v=V(),r=R(),g=G(),[a,b]=A(v,Math.min(400,r));x.fillStyle='#d11';x.beginPath();x.arc(a,b,6,0,7);x.fill();
+   const mz=v/g;let m1;
+   if(h>=130)m1='L\'hémoglobine reste au-dessus du seuil de l\'OMS chez l\'homme (130 g/l ; 120 g/l chez la femme non enceinte) : il n\'y a pas d\'anémie chez l\'homme.';
+   else if(r>=100)m1='L\'anémie est régénérative : la moelle répond. Tu cherches une hémolyse (LDH, haptoglobine, bilirubine libre, test de Coombs, frottis) ou un saignement aigu.';
+   else if(v<80)m1=mz<13?'Microcytose avec globules rouges nombreux (indice de Mentzer = '+mz.toFixed(1)+', sous 13) : tu penses à un trait thalassémique et tu demandes la ferritine puis l\'électrophorèse de l\'hémoglobine.':'Microcytose arégénérative (indice de Mentzer = '+mz.toFixed(1)+', au-dessus de 13) : tu penses d\'abord à la carence en fer et tu doses la ferritine.';
+   else if(v>100)m1='Macrocytose arégénérative : tu doses la vitamine B12 et les folates, tu cherches l\'alcool, l\'hypothyroïdie, un médicament (méthotrexate, hydroxyurée) et, chez le sujet âgé, un syndrome myélodysplasique.';
+   else m1='Anémie normocytaire arégénérative : tu cherches une inflammation (CRP, ferritine), une insuffisance rénale (créatinine), une hypothyroïdie et, si une autre lignée baisse, une atteinte de la moelle.';
+   note.textContent='Hémoglobine = '+h+' g/l ; VGM = '+v+' fl ; réticulocytes = '+r+' G/l. '+m1+' Une anémie qui touche aussi les plaquettes ou les globules blancs impose un frottis et souvent une ponction de moelle.';}d();},
+ /* hématologique : bilan martial — ferritine, saturation de la transferrine et CRP */
+ he_fer(C){const x=toile(C);const note=document.createElement('p');
+  boutons(C,[['Normal',{f:120,s:30,c:2}],['Carence absolue',{f:8,s:7,c:2}],['Carence masquée par l\'inflammation',{f:70,s:12,c:40}],['Anémie inflammatoire',{f:450,s:12,c:60}],['Carence fonctionnelle (insuffisance cardiaque)',{f:180,s:15,c:4}],['Surcharge (hémochromatose)',{f:1200,s:75,c:2}]],o=>{F.set(Math.log10(o.f));S.set(o.s);Cr.set(o.c);d();});
+  const F=cur(C,'log10 de la ferritine (0,7 = 5 ; 2 = 100 ; 3 = 1000 µg/l)',0.6,3.5,0.05,2.08,d),S=cur(C,'Saturation de la transferrine (%)',2,95,1,30,d),Cr=cur(C,'CRP (mg/l)',0,150,1,2,d);C.appendChild(note);
+  function d(){const W=520,H=300,m=45;x.clearRect(0,0,W,H);x.font='11px A';const X=s=>m+s/100*(W-m-15),Y=l=>H-m-(l-0.6)/2.9*(H-m-15);
+   x.strokeStyle='#e3e7ec';x.fillStyle='#3a4556';for(const v of [5,10,30,100,300,1000,3000]){const l=Math.log10(v);x.beginPath();x.moveTo(m,Y(l));x.lineTo(W-15,Y(l));x.stroke();x.textAlign='right';x.fillText(String(v),m-5,Y(l)+4);}
+   x.textAlign='left';for(let s=0;s<=100;s+=20)x.fillText(s,X(s)-6,H-m+14);x.fillText('Saturation de la transferrine (%)',W-200,H-8);x.fillText('Ferritine (µg/l, échelle logarithmique)',6,12);
+   const zr=(s0,s1,f0,f1,col,t)=>{x.fillStyle=col;x.fillRect(X(s0),Y(Math.log10(f1)),X(s1)-X(s0),Y(Math.log10(f0))-Y(Math.log10(f1)));x.fillStyle='#3a4556';x.fillText(t,X(s0)+3,Y(Math.log10(f1))+12);};
+   zr(0,100,4,30,'rgba(224,69,43,0.14)','carence absolue (ferritine < 30)');zr(0,20,100,3000,'rgba(201,138,43,0.16)','fer piégé');zr(0,20,30,100,'rgba(224,69,43,0.07)','carence si CRP > 5');zr(45,100,300,3000,'rgba(142,92,196,0.16)','surcharge');
+   const f=Math.pow(10,F()),s=S(),c=Cr(),infl=c>5,[a,b]=[X(s),Y(F())];x.fillStyle='#d11';x.beginPath();x.arc(a,b,6,0,7);x.fill();
+   let m1;
+   if(f<30)m1='Ferritine sous 30 µg/l : les réserves sont vides, la carence en fer est certaine. Tu cherches la perte de sang ou le défaut d\'absorption.';
+   else if(infl&&f<100&&s<20)m1='La CRP élevée gonfle la ferritine : une ferritine sous 100 µg/l avec une saturation sous 20 % signe encore une carence en fer.';
+   else if(s>45&&f>300)m1='Saturation au-dessus de 45 % avec ferritine élevée : tu penses à une surcharge en fer (hémochromatose HFE, transfusions répétées) et tu cherches la mutation C282Y.';
+   else if(s<20&&infl)m1='Ferritine normale ou haute avec saturation basse et CRP élevée : l\'hepcidine de l\'inflammation piège le fer dans les macrophages (anémie inflammatoire). Tu traites la cause.';
+   else if(s<20&&f<300)m1='Saturation sous 20 % avec ferritine entre 100 et 300 µg/l sans inflammation nette : tu penses à une carence fonctionnelle, comme dans l\'insuffisance cardiaque, où le fer intraveineux est indiqué.';
+   else if(f>300&&infl)m1='Ferritine élevée avec saturation normale et CRP haute : la ferritine monte comme protéine de l\'inflammation, pas par surcharge.';
+   else m1='Le bilan martial reste dans les normes.';
+   note.textContent='Ferritine = '+f.toFixed(0)+' µg/l ; saturation = '+s+' % ; CRP = '+c+' mg/l. '+m1+' La ferritine reflète les réserves, la saturation reflète le fer disponible pour la moelle ; les seuils viennent du consensus suisse de 2019 et varient selon la maladie (insuffisance rénale, cancer).';}d();},
+ /* hématologique : lecture de l'hémostase (plaquettes, TP en %, TCA, fibrinogène, D-dimères) et score ISTH de CIVD */
+ he_coag(C){const x=toile(C);const note=document.createElement('p');
+  boutons(C,[['Normal',{p:250,t:100,a:30,f:3,dd:0.3}],['Antivitamine K',{p:250,t:25,a:42,f:3,dd:0.3}],['Héparine non fractionnée',{p:230,t:90,a:75,f:3,dd:0.4}],['Hémophilie A',{p:250,t:100,a:65,f:3,dd:0.3}],['Insuffisance hépatique',{p:90,t:40,a:45,f:1.4,dd:1.2}],['CIVD',{p:35,t:35,a:55,f:0.8,dd:12}],['Purpura thrombotique (PTT)',{p:15,t:95,a:31,f:3,dd:1.5}]],o=>{P.set(o.p);T.set(o.t);Ac.set(o.a);Fb.set(o.f);D.set(o.dd);d();});
+  const P=cur(C,'Plaquettes (G/l)',5,500,5,250,d),T=cur(C,'TP selon Quick (%)',10,130,1,100,d),Ac=cur(C,'TCA (s ; norme ≈ 25 à 36)',20,120,1,30,d),Fb=cur(C,'Fibrinogène (g/l)',0.3,6,0.1,3,d),D=cur(C,'D-dimères (mg/l FEU)',0.1,20,0.1,0.3,d);C.appendChild(note);
+  function d(){const W=520,H=300;x.clearRect(0,0,W,H);x.font='11px A';
+   const L=[['Plaquettes (G/l)',P(),0,500,150,400],['TP (%)',T(),0,130,70,120],['TCA (s)',Ac(),20,120,25,36],['Fibrinogène (g/l)',Fb(),0,6,1.8,4],['D-dimères (mg/l)',D(),0,20,0,0.5]];
+   L.forEach(([n,v,mn,mx,a0,a1],i)=>{const y=20+i*55,X=u=>150+(Math.min(mx,Math.max(mn,u))-mn)/(mx-mn)*340;x.fillStyle='#3a4556';x.fillText(n,10,y+15);
+    x.fillStyle='rgba(224,69,43,0.18)';x.fillRect(X(mn),y,X(mx)-X(mn),20);x.fillStyle='rgba(31,122,77,0.35)';x.fillRect(X(a0),y,X(a1)-X(a0),20);
+    x.fillStyle='#d11';x.beginPath();x.moveTo(X(v),y+22);x.lineTo(X(v)-6,y+32);x.lineTo(X(v)+6,y+32);x.fill();x.fillStyle='#3a4556';x.fillText(String(v).replace('.',','),X(v)+8,y+32);});
+   const p=P(),t=T(),a=Ac(),f=Fb(),dd=D();
+   const sc=(p<50?2:p<100?1:0)+(dd>5?3:dd>0.5?2:0)+(t<40?2:t<70?1:0)+(f<1?1:0);
+   const tpb=t<70,tcal=a>36;let m1;
+   if(p<100&&!tpb&&!tcal&&f>=1.5)m1='Thrombopénie avec TP, TCA et fibrinogène normaux : tu cherches une destruction périphérique (PTI, médicament) ou, avec des schistocytes et une hémolyse, une microangiopathie thrombotique (PTT) qui ne consomme pas les facteurs.';
+   else if(tpb&&tcal&&(p<100||f<1.5))m1='TP et TCA allongés avec plaquettes ou fibrinogène bas : tu penses à une CIVD (D-dimères très élevés) ou à une insuffisance hépatique (D-dimères modérés, facteur V bas, facteur VIII normal).';
+   else if(tpb&&!tcal)m1='TP bas avec TCA normal : la voie extrinsèque est touchée (facteur VII, de demi-vie courte). Tu penses à une antivitamine K, à une carence en vitamine K ou au début d\'une insuffisance hépatique.';
+   else if(!tpb&&tcal)m1='TCA allongé avec TP normal : la voie intrinsèque est touchée. Tu penses à l\'héparine non fractionnée, à une hémophilie (facteur VIII ou IX), à une maladie de von Willebrand ou, sans saignement, à un anticoagulant lupique qui expose à la thrombose. Le test de mélange sépare un déficit (corrigé) d\'un inhibiteur (non corrigé).';
+   else if(tpb&&tcal)m1='TP et TCA allongés avec plaquettes et fibrinogène normaux : tu penses à une antivitamine K à forte dose, à un anticoagulant oral direct ou à un déficit d\'un facteur commun (X, V, II).';
+   else m1='Plaquettes, TP et TCA normaux : un saignement inexpliqué fait chercher une maladie de von Willebrand, une thrombopathie (aspirine, clopidogrel) ou un déficit en facteur XIII, que ces tests ne voient pas.';
+   note.textContent=m1+' Score ISTH de CIVD = '+sc+' (plaquettes '+(p<50?2:p<100?1:0)+', D-dimères '+(dd>5?3:dd>0.5?2:0)+', TP '+(t<40?2:t<70?1:0)+', fibrinogène '+(f<1?1:0)+') : '+(sc>=5?'un score d\'au moins 5 signe une CIVD manifeste si une maladie causale existe.':'score sous 5 : pas de CIVD manifeste ; tu répètes le score en 24 heures si la maladie causale persiste.')+' Le score d\'origine compte l\'allongement du TP en secondes ; la conversion en pourcentage de Quick reste approximative et les seuils des D-dimères dépendent du laboratoire.';}d();},
+ /* infectieux et immunitaire : cinétique schématique des IgM et des IgG (réponse primaire, réponse secondaire, déficit humoral) */
+ ii_anticorps(C){const x=toile(C);const note=document.createElement('p');let MEM=0;
+  boutons(C,[['Primo-infection (jour 10)',{j:10,m:0,c:100}],['Primo-infection tardive (jour 40)',{j:40,m:0,c:100}],['Rappel vaccinal (réponse secondaire)',{j:10,m:1,c:100}],['Déficit en anticorps (DICV)',{j:30,m:1,c:10}]],o=>{J.set(o.j);MEM=o.m;Cp.set(o.c);d();});
+  const J=cur(C,'Jour du prélèvement après le contact',0,90,1,10,d),Cp=cur(C,'Capacité de production d\'anticorps (%)',0,100,5,100,d);C.appendChild(note);
+  const g=(t,t0,k,dec)=>t<t0?0:(1-Math.exp(-(t-t0)/k))*Math.exp(-Math.max(0,t-t0-3*k)/dec);
+  const igm=(t,m,c)=>c/100*(m?0.25:1)*g(t,5,3,15),igg=(t,m,c)=>c/100*(m?4:1)*g(t,m?2:10,m?2.5:7,m?400:300);
+  function d(){const A=axes(x,520,300,45,[0,90],[0,4.2],'Jours après le contact','Anticorps (unités arbitraires)');const m=MEM,c=Cp(),j=J();
+   for(const [f,col,t] of [[igm,'#c98a2b','IgM'],[igg,'#16897b','IgG']]){x.strokeStyle=col;x.lineWidth=2.5;x.beginPath();for(let i=0;i<=180;i++){const t2=i/2,[a,b]=A(t2,f(t2,m,c));i?x.lineTo(a,b):x.moveTo(a,b);}x.stroke();const [a,b]=A(80,f(80,m,c));x.fillStyle=col;x.fillText(t,a,b-6);}
+   x.lineWidth=1;const [aj]=A(j,0),[,bt]=A(j,4.2),[,bb]=A(j,0);x.strokeStyle='#d11';x.setLineDash([4,4]);x.beginPath();x.moveTo(aj,bt);x.lineTo(aj,bb);x.stroke();x.setLineDash([]);
+   const vm=igm(j,m,c),vg=igg(j,m,c),seuil=0.1;let m1;
+   if(c<30)m1='La production d\'anticorps reste faible malgré le contact : tu penses à un déficit humoral (DICV, rituximab, lymphome) et tu ne te fies pas à une sérologie négative ; tu cherches le microbe par PCR ou culture.';
+   else if(m)m1='Au second contact, les lymphocytes B mémoire produisent vite beaucoup d\'IgG, avec peu d\'IgM : c\'est le principe du rappel vaccinal.';
+   else if(j<5)m1='Le prélèvement précède l\'apparition des anticorps (fenêtre sérologique) : une sérologie négative n\'exclut pas l\'infection ; tu répètes le test ou tu demandes une PCR.';
+   else if(vm>seuil&&vg<seuil)m1='Les IgM sont présentes sans IgG : l\'infection est très récente.';
+   else if(vm>seuil&&vg>=seuil)m1='Les IgM et les IgG sont présentes : l\'infection est récente ; une séroconversion entre deux prélèvements à 2 ou 3 semaines d\'intervalle la confirme.';
+   else m1='Les IgG persistent sans IgM : l\'infection est ancienne ou le sujet est vacciné.';
+   note.textContent='Jour '+j+' : IgM = '+vm.toFixed(2)+', IgG = '+vg.toFixed(2)+' (unités arbitraires ; seuil de positivité schématique '+String(seuil).replace('.',',')+'). '+m1+' Les délais exacts varient selon le microbe et le test.';}d();},
  '3d'(C){const oid=C.dataset.organe;if(!oid){C.textContent='Organe non identifié.';return;}
   C.innerHTML=`<div class=v3d style="position:relative;width:min(520px,80vw);height:360px;border-radius:6px;background:radial-gradient(#2a2f3a,#12151b)"><span class=att style="position:absolute;inset:0;display:grid;place-items:center;color:#aab">Chargement du modèle 3D…</span></div><div class=boutons style="margin-top:6px"><button data-v=face>Face</button><button data-v=profil>Profil</button><button data-v=dessus>Dessus</button><button data-v=rot>Rotation ⏯</button></div><div class=src style="font-size:11px;color:var(--sous);max-width:520px"></div>`;
   (async()=>{const [THREE,{GLTFLoader},{OrbitControls}]=await Promise.all([import('three'),import('three/addons/loaders/GLTFLoader.js'),import('three/addons/controls/OrbitControls.js')]);

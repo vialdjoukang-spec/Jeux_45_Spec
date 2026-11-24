@@ -57,7 +57,15 @@ LIENS = {"Circulation pulmonaire": {"def": "La circulation pulmonaire relie le v
          "Pharynx": {"def": "Le pharynx est le carrefour musculaire où se croisent l'air et les aliments ; il assure le temps pharyngé de la déglutition.",
           "pourquoi": "Son contenu complet (anatomie, physiologie, sémiologie, pathologies) vit dans le système respiratoire pour éviter une copie.",
           "confusion": "La dysphagie haute (fausse route, toux au repas) vient du pharynx ; la dysphagie basse, rétrosternale, vient de l'œsophage.",
-          "retenir": "Tu ouvres Respiratoire → Pharynx pour la déglutition, l'angine, l'abcès péri-amygdalien et l'apnée obstructive."}}
+          "retenir": "Tu ouvres Respiratoire → Pharynx pour la déglutition, l'angine, l'abcès péri-amygdalien et l'apnée obstructive."},
+         "Thymus": {"def": "Le thymus éduque les lymphocytes T dans l'enfance, puis il s'involue et se remplace par de la graisse chez l'adulte.",
+          "pourquoi": "Son contenu complet (anatomie, physiologie, sémiologie, pathologies) vit dans le système endocrinien pour éviter une copie.",
+          "confusion": "Une masse du médiastin antérieur peut être un thymome, un lymphome, une tumeur germinale ou un goitre plongeant : le lymphome se traite ici, aux ganglions lymphatiques.",
+          "retenir": "Tu ouvres Endocrinien → Thymus pour le thymome, la myasthénie associée et le syndrome de DiGeorge."},
+         "Organes lymphoïdes (moelle, thymus, rate, ganglions, MALT)": {"def": "Les organes lymphoïdes fabriquent les lymphocytes (moelle, thymus) puis les mettent au contact des antigènes (rate, ganglions, MALT).",
+          "pourquoi": "Chaque organe a une seule maison pour éviter une copie : moelle, rate et ganglions au système hématologique, thymus au système endocrinien ; le MALT est décrit aux barrières.",
+          "confusion": "Une adénopathie ou une grosse rate peuvent venir d'une infection (réponse immune) ou d'une hémopathie : la biopsie tranche quand elles persistent.",
+          "retenir": "Tu ouvres Hématologique → Rate ou Ganglions lymphatiques, Endocrinien → Thymus, et Infectieux → Barrières pour le MALT."}}
 N = []
 for sysn, orgs in SYSTEMES.items():
     anc, cote, coul = RACINES[sysn]

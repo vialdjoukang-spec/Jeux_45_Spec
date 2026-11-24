@@ -1,11 +1,17 @@
 {
  "_meta": {
-  "statut": "À REMPLIR",
+  "statut": "AUDITÉ",
   "discipline": "B — Biostatistique & EBM",
   "regles": [
    "La leçon commence par un cas suisse concret et finit par une décision à prendre.",
    "Phrases verbales ; tout sigle figure au glossaire.",
    "Elle renvoie aux SSP sans les recopier."
+  ],
+  "signature": "AAI (Anthropic AI)",
+  "aVerifier": [],
+  "sources": [
+   "Wasserstein RL, Lazar NA, ASA statement on p-values (Am Stat 2016)",
+   "Altman DG, Bland JM, Absence of evidence is not evidence of absence (BMJ 1995)"
   ]
  },
  "id": "TRANS_B-S3-03",
@@ -13,57 +19,138 @@
  "lettre": "B",
  "sousOnglet": "TRANS_B_SUB_2",
  "strate": "MF",
- "casDOuverture": null,
+ "casDOuverture": "À l'Hôpital de Liestal, deux études arrivent le même jour sur ton bureau. La première, avec 40 000 patients, montre qu'un antihypertenseur réduit la pression systolique de 1 mmHg de plus que le comparateur, avec p < 0,001. La seconde, avec 60 patients, montre une réduction de mortalité de 30 % sous un nouveau traitement, avec p = 0,12, et les auteurs concluent à « l'absence d'effet ». Le chef de service te demande laquelle doit changer votre pratique.",
  "parties": {
-  "1. Cadre": null,
-  "2. Notions fondamentales": null,
-  "3. Outils et méthodes": null,
-  "4. Décisions et seuils": null,
-  "5. Applications par système": null,
-  "6. Particularités par terrain": null,
-  "7. Pièges et confusions": null,
-  "8. Pratique suisse": null,
-  "9. Exercices et répétition": null
+  "1. Cadre": "Un test statistique répond à une question précise : si le traitement n'avait aucun effet, quelle serait la probabilité d'observer une différence au moins aussi grande que celle observée ? Cette probabilité est la valeur p. Elle ne mesure ni la taille de l'effet, ni son importance clinique, ni la probabilité que l'hypothèse soit vraie. Deux erreurs menacent toute conclusion : l'erreur alpha, qui conclut à un effet qui n'existe pas, et l'erreur bêta, qui manque un effet qui existe. La puissance statistique, qui vaut 1 − bêta, mesure la capacité d'une étude à détecter un effet réel.",
+  "2. Notions fondamentales": "L'erreur de type I (alpha) consiste à rejeter l'hypothèse nulle alors qu'elle est vraie, c'est-à-dire un faux positif ; le seuil conventionnel vaut 5 %. L'erreur de type II (bêta) consiste à ne pas rejeter l'hypothèse nulle alors qu'elle est fausse, c'est-à-dire un faux négatif ; on vise souvent bêta de 10 à 20 %, soit une puissance de 80 à 90 %. La puissance augmente avec la taille de l'échantillon, la taille de l'effet recherché et le nombre d'événements, et elle diminue avec la variabilité. L'intervalle de confiance à 95 % donne la gamme des valeurs compatibles avec les données ; il informe à la fois sur la significativité (s'il exclut l'absence d'effet) et sur la précision. Les comparaisons multiples augmentent le risque d'erreur alpha : avec 20 tests indépendants, la probabilité d'au moins un faux positif dépasse 60 %.",
+  "3. Outils et méthodes": "Le lecteur regarde d'abord la taille de l'effet et son intervalle de confiance, puis la valeur p. Il compare l'effet à la différence minimale cliniquement importante (DMCI), c'est-à-dire la plus petite différence qui compte pour le patient. Il vérifie que le calcul de taille d'échantillon a été fait à l'avance, avec une hypothèse d'effet réaliste. Devant un résultat non significatif, il examine l'intervalle de confiance : s'il est large et inclut des effets importants, l'étude manquait de puissance et ne prouve pas l'absence d'effet. Devant de nombreux critères ou sous-groupes, il cherche une correction des comparaisons multiples, par exemple la méthode de Bonferroni, et il distingue critère principal et critères secondaires.",
+  "4. Décisions et seuils": "Le médecin modifie sa pratique quand l'effet est cliniquement important, statistiquement robuste et reproduit. Il ne modifie pas sa pratique pour un effet statistiquement significatif mais cliniquement négligeable, comme une différence de 1 mmHg. Il ne conclut pas à l'absence d'effet quand une petite étude n'est pas significative mais montre un effet potentiellement important avec un intervalle large ; il attend une étude suffisamment puissante. Il considère le critère principal comme la base de la conclusion, et les critères secondaires et les sous-groupes comme générateurs d'hypothèses. Il se méfie des résultats p juste sous 0,05 obtenus après de nombreuses analyses, signe possible de « p-hacking ».",
+  "5. Applications par système": "En cardiologie, les grands essais détectent des différences minimes de pression ou de cholestérol, dont l'importance clinique doit être jugée. En oncologie, des gains de survie statistiquement significatifs de quelques semaines posent la question de leur pertinence. En psychiatrie, les échelles de dépression exigent une DMCI pour interpréter des différences de points. En maladies rares, les petites études manquent souvent de puissance. En génomique, les comparaisons multiples imposent des seuils de significativité beaucoup plus stricts. La leçon relie les SSP de l'évaluation partagée des risques, de la pression artérielle anormale et des maladies rares.",
+  "6. Particularités par terrain": "Chez la personne âgée et chez l'enfant, les sous-groupes d'âge sont souvent petits et peu puissants, ce qui rend leurs résultats fragiles. Chez la femme, la sous-représentation historique dans les essais a limité la puissance des analyses par sexe. Chez les patients atteints de maladies rares, les méthodes bayésiennes et les registres complètent les essais classiques.",
+  "7. Pièges et confusions": "Le premier piège consiste à confondre significativité statistique et importance clinique. Le deuxième consiste à interpréter p comme la probabilité que l'hypothèse nulle soit vraie. Le troisième consiste à conclure « pas d'effet » à partir d'une étude non significative peu puissante. Le quatrième consiste à multiplier les analyses jusqu'à obtenir p < 0,05. Le cinquième consiste à donner autant de poids à un sous-groupe qu'au critère principal. Le dernier consiste à ignorer l'intervalle de confiance.",
+  "8. Pratique suisse": "En Suisse, swissethics exige dans chaque protocole un calcul de taille d'échantillon justifié. Les CTU suisses offrent un soutien statistique aux investigateurs. Le Fonds national suisse soutient la science ouverte et l'enregistrement préalable des analyses. Les revues médicales suisses, comme le Swiss Medical Weekly, demandent la présentation des intervalles de confiance.",
+  "9. Exercices et répétition": "Pour t'exercer, interprète les deux études du cas en termes de taille d'effet, d'intervalle de confiance, de puissance et d'importance clinique. Calcule ensuite la probabilité d'au moins un faux positif avec 5, 10 et 20 tests indépendants au seuil de 5 %. La notion revient dans les leçons B sur l'intention de traiter, les forest plots et GRADE."
  },
- "decisionFinale": null,
+ "decisionFinale": "Tu expliques que la première étude, très puissante, montre un effet statistiquement significatif mais cliniquement négligeable de 1 mmHg, qui ne justifie pas de changer la pratique ; tu expliques que la seconde, peu puissante, n'a pas démontré d'effet sur la mortalité mais n'a pas non plus prouvé son absence, puisque l'intervalle de confiance inclut probablement un bénéfice important ; tu proposes d'attendre une étude suffisamment puissante, parce que ni la valeur p seule ni l'absence de significativité ne suffisent à décider.",
  "items": [
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Lausanne, que signifie p = 0,03 dans un essai ?",
+   "options": [
+    "La probabilité que le traitement soit inefficace vaut 3 %",
+    "Si le traitement n'avait aucun effet, une différence au moins aussi grande serait observée dans 3 % des cas",
+    "L'effet est cliniquement important",
+    "La probabilité que le résultat soit vrai vaut 97 %",
+    "L'étude est sans biais"
+   ],
+   "bonneReponse": "B",
+   "explicationParOption": {
+    "A": "La valeur p ne donne pas la probabilité de l'hypothèse.",
+    "B": "C'est la définition de la valeur p sous l'hypothèse nulle.",
+    "C": "La valeur p ne mesure pas l'importance clinique.",
+    "D": "Cette interprétation est erronée.",
+    "E": "La valeur p ne renseigne pas sur les biais."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Berne, une petite étude non significative montre un RR de 0,70 avec un intervalle de 0,45 à 1,10. Que conclus-tu ?",
+   "options": [
+    "Le traitement n'a aucun effet",
+    "L'étude manque probablement de puissance et ne permet pas de conclure",
+    "Le traitement est nocif",
+    "Le traitement réduit certainement le risque de 30 %",
+    "L'étude prouve l'équivalence"
+   ],
+   "bonneReponse": "B",
+   "explicationParOption": {
+    "A": "L'intervalle inclut un effet bénéfique important ; l'absence d'effet n'est pas démontrée.",
+    "B": "L'intervalle large, qui va d'un bénéfice important à un léger effet néfaste, signale un manque de puissance.",
+    "C": "La majeure partie de l'intervalle suggère plutôt un bénéfice.",
+    "D": "La significativité n'est pas atteinte et l'incertitude reste grande.",
+    "E": "L'équivalence exige un intervalle étroit dans des marges prédéfinies."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "Kprim",
+   "enonce": "Tu enseignes l'inférence statistique à Genève. Indique si chaque affirmation est vraie ou fausse.",
+   "options": [
+    "L'erreur alpha correspond à un faux positif.",
+    "La puissance vaut 1 − bêta.",
+    "La puissance diminue quand la taille de l'échantillon augmente.",
+    "Les comparaisons multiples augmentent le risque d'erreur alpha."
+   ],
+   "bonneReponse": [
+    true,
+    true,
+    false,
+    true
+   ],
+   "explicationParOption": {
+    "1": "Vrai : on conclut à un effet inexistant.",
+    "2": "Vrai : c'est sa définition.",
+    "3": "Faux : la puissance augmente avec la taille de l'échantillon.",
+    "4": "Vrai : chaque test ajoute une chance de faux positif."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Zurich, un essai de 50 000 patients montre une baisse du LDL de 0,05 mmol/L, p < 0,0001, sans effet sur les événements cliniques. Que conclus-tu ?",
+   "options": [
+    "Le traitement doit être prescrit à tous",
+    "L'effet est statistiquement significatif mais probablement sans importance clinique",
+    "L'essai est faux",
+    "La valeur p prouve un bénéfice clinique",
+    "L'essai manque de puissance"
+   ],
+   "bonneReponse": "B",
+   "explicationParOption": {
+    "A": "Un effet minime sur un critère biologique ne justifie pas une prescription générale.",
+    "B": "Une très grande étude détecte des différences minimes sans importance clinique.",
+    "C": "Rien ne suggère une erreur.",
+    "D": "La valeur p ne mesure pas l'importance clinique.",
+    "E": "L'essai est au contraire très puissant."
+   }
   },
   {
-   "type": null,
-   "enonce": null,
-   "options": [],
-   "bonneReponse": null,
-   "explicationParOption": {}
+   "type": "A",
+   "enonce": "À Fribourg, un article teste 20 sous-groupes et trouve un effet significatif dans un seul, avec p = 0,04. Comment l'interprètes-tu ?",
+   "options": [
+    "Comme une preuve solide d'effet dans ce sous-groupe",
+    "Comme un résultat probablement dû au hasard, à confirmer",
+    "Comme une preuve d'absence d'effet global",
+    "Comme une erreur bêta",
+    "Comme un résultat à appliquer immédiatement"
+   ],
+   "bonneReponse": "B",
+   "explicationParOption": {
+    "A": "Avec 20 tests, un faux positif au seuil de 5 % est attendu.",
+    "B": "Les comparaisons multiples rendent ce résultat fragile ; il génère une hypothèse.",
+    "C": "Ce résultat ne renseigne pas sur l'effet global.",
+    "D": "Il s'agit plutôt d'un risque d'erreur alpha.",
+    "E": "Un résultat exploratoire ne doit pas changer la pratique."
+   }
   }
  ],
- "liensSSP": [],
- "bulle": null,
- "glossaire": {}
+ "liensSSP": [
+  "O4.7",
+  "F1.1",
+  "O7.23",
+  "O4.6",
+  "F2.13",
+  "O7.21"
+ ],
+ "bulle": {
+  "def": "La valeur p mesure la compatibilité des données avec l'absence d'effet ; la puissance mesure la capacité à détecter un effet réel.",
+  "pourquoi": "Elles aident à éviter les faux positifs et les faux négatifs, sans mesurer l'importance clinique.",
+  "confusion": "On confond significativité statistique et importance clinique, ou absence de significativité et absence d'effet.",
+  "retenir": "Taille de l'effet et intervalle de confiance d'abord, valeur p ensuite, critère principal avant les sous-groupes."
+ },
+ "glossaire": {
+  "DMCI": "La différence minimale cliniquement importante est la plus petite différence qui compte pour le patient.",
+  "RR": "Le risque relatif rapporte le risque du groupe traité à celui du groupe contrôle.",
+  "LDL": "Le cholestérol des lipoprotéines de basse densité est un facteur de risque cardiovasculaire.",
+  "CTU": "La Clinical Trials Unit soutient la conduite des études cliniques.",
+  "SSP": "Une situation de départ structure le catalogue PROFILES de l'examen fédéral."
+ }
 }

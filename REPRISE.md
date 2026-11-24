@@ -74,7 +74,7 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Catalogue paraclinique : 66 organes, 601 examens listés (champs à remplir).
 
 ## 9. Méthode convenue pour la suite
-1. Système par système (cardiovasculaire, respiratoire et digestif faits ; prochain : rénal, neurologique ou endocrinien) selon le skill `systeme-jouable-builder`.
+1. Système par système (cardiovasculaire, respiratoire, digestif, rénal, neurologique, endocrinien et hématologique faits ; prochain : infectieux et immunitaire) selon le skill `systeme-jouable-builder`.
 2. Depuis le 2026-11-22 (soir), Vial donne son accord d'office pour ce projet : Claude produit sans attendre de validation et l'informe ensuite.
 3. Audit bloquant après chaque lot ; commit et push.
 
@@ -215,3 +215,20 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
   - constructeur Tétrade (hématologie-oncologie, puis infectieux-immunitaire) sur `agent/tetrade`.
 - API : 45 Spec, vague 1 puis vague 2 jusqu'au plafond de 192 USD.
 - Claude : Paraclinique (clichés), audits, fusions, rondes de nuit toutes les 2 h, rapport à 07:30.
+
+## Hématologique & oncologique (2026-11-24, agent Tétrade, branche `agent/tetrade`)
+- Le système « Hématologique & oncologique » est jouable : `conception/outils/hemato/` (contenu, sémiologie, pathologies, glossaire, temps) ; registre `systemes_rediges.py` (préfixe `he_`, couleur `#a33`).
+- 6 organes rédigés en anatomie, physiologie et sémiologie (5 temps d'examen) ; le **thymus** garde sa maison dans l'endocrinien et devient un renvoi (`LIENS` dans `construire_config_tetrade.py`).
+- 45 pathologies en 4 paliers (8 TF, 18 F, 13 U, 6 R), bilan par visée (gold standard compris), traitements dosés, source datée ; l'oncologie y entre par les urgences (lyse tumorale, neutropénie fébrile, syndrome cave supérieur, leucémies aiguës) et par les métastases ganglionnaires.
+- Nouveau champ facultatif `aVerifier:` dans `pathologies.txt` (lu par `systeme_source.py`, stocké dans la bulle) : il porte chaque doute au lieu d'une affirmation ; 13 pathologies en portent un.
+- Nouvelles fenêtres canvas testées sans écran (0 erreur JS, tous les scénarios et les valeurs extrêmes) : `he_anemie` (VGM × réticulocytes, indice de Mentzer), `he_fer` (ferritine, saturation, CRP ; seuils du consensus suisse 2019), `he_coag` (plaquettes, TP, TCA, fibrinogène, D-dimères ; score ISTH de CIVD). `odc` et `do2` sont réutilisées. Interprétations corrélées ajoutées (20 scénarios), à auditer.
+- Les 6 renommages `org_hemato_*` → `he_*` sont déclarés dans `projets/retours/migrations_ids.json`. Audits : conception 34/34, couverture réussie, non-perte OK, interprétations 0 défaut.
+- Anomalie préexistante sur main (non corrigée ici) : `generer_json.py` dédoublonne l'analyse IGRA (apostrophe droite ou courbe) dans `2_cou/ganglions_cervicaux.json`, et `non_perte.py` le compte comme une perte ; l'agent a restauré ces 2 fichiers depuis main avant chaque commit.
+- Reste à faire : audit médical de Claude (`hemato/pathologies.txt`, interprétations `he_*`), puis relecture de Vial ; points `aVerifier` listés dans `projets/1_Jeux_Tetrade_Fondation/PROGRESSION_AGENT.md`.
+
+## Infectieux & immunitaire (2026-11-24, agent Tétrade, branche `agent/tetrade`)
+- Le système « Infectieux & immunitaire » est jouable : `conception/outils/infectio/` ; registre (préfixe `ii_`, couleur `#16897b`).
+- 4 organes rédigés (barrières, immunité innée, immunité adaptative, complément), 4 temps d'examen ; « Organes lymphoïdes » renvoie vers ses maisons (moelle, rate, ganglions : hématologique ; thymus : endocrinien ; MALT décrit aux barrières).
+- 17 pathologies en 4 paliers (3 TF, 5 F, 5 U, 4 R ; le complément n'a pas de palier « très fréquent ») ; le choc septique (cardiovasculaire), les méningites (neurologique), la fièvre méditerranéenne familiale et l'angio-œdème bradykinique aux IEC restent dans leurs maisons.
+- Nouvelle fenêtre `ii_anticorps` (IgM et IgG, réponse primaire et secondaire, déficit humoral), testée sans écran, 0 erreur JS ; 4 interprétations.
+- Les 4 renommages `org_infect_*` → `ii_*` sont déclarés dans `migrations_ids.json`.
