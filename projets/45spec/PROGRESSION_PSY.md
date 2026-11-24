@@ -1,6 +1,6 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 25/126.
+Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 28/126.
 
 | # | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|
@@ -29,9 +29,9 @@ Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : importance
 | 23 | F06.1__S9_3-E14 | Catatonie aiguë (stupeur ou agitation catatonique) | 29 | 20 | oui |
 | 24 | F40.1__S9_7-E04 | Anxiété sociale (phobie sociale) | 29 | 20 | oui |
 | 25 | F50.2__O2_6-E05 | Boulimie nerveuse (bulimia nervosa) | 29 | 20 | oui |
-| 26 | F01.9__F1_9-E02 | Démence vasculaire | — | — | — |
-| 27 | F05.9_agitation_et_deliriu__O5_3-E04 | Agitation et delirium terminaux (fin de vie) | — | — | — |
-| 28 | F06.7__F1_9-E03 | Trouble cognitif léger (MCI — Mild Cognitive Impairment) | — | — | — |
+| 26 | F01.9__F1_9-E02 | Démence vasculaire | 29 | 20 | oui |
+| 27 | F05.9_agitation_et_deliriu__O5_3-E04 | Agitation et delirium terminaux (fin de vie) | 29 | 20 | oui |
+| 28 | F06.7__F1_9-E03 | Trouble cognitif léger (MCI — Mild Cognitive Impairment) | 29 | 20 | oui |
 | 29 | F10.3__S7_10-E05 | Crise de sevrage alcoolique | — | — | — |
 | 30 | F12.2__S9_13-E03 | Trouble de l'usage du cannabis | — | — | — |
 | 31 | F19.2__O7_24-E03 | Patient avec trouble psychique sévère ou addiction (accès limité aux s | — | — | — |
@@ -150,6 +150,9 @@ Outil : `python projets/45spec/psy/lib.py <id>` (valider() du script + contrôle
 - Catatonie (F06.1) : dose du test au lorazépam non fixée par la BAP 2023 (protocole local, à vérifier) ; mesures générales (thromboprophylaxie, escarres) = avis d'expert.
 - Phobie sociale (F40.1) : indication suisse de l'escitalopram et de la sertraline à vérifier dans l'AIPS ; « pas de benzodiazépines au long cours » à confirmer dans NICE CG159 ; conditions OPAS du modèle de la prescription à vérifier.
 - Boulimie (F50.2) : indication suisse de la fluoxétine dans la boulimie à vérifier dans l'AIPS ; signes physiques, biologie des vomissements et complications digestives = avis d'expert (non adossés à une source écrite consultée).
+- Démence vasculaire (F01.9) : rang « 2e cause de démence », signes focaux/pseudobulbaires et Memory Clinics = avis d'expert ; seuils du score de Hachinski non retenus (sources discordantes).
+- Delirium terminal (F05.9) : source principale ESMO 2018 ; « globe/fécalome avant sédation » = avis d'expert ; recommandations suisses palliative.ch (BIGORIO) non consultées.
+- Trouble cognitif léger (F06.7) : la ligne directrice AAN 2018 (Petersen) est marquée « retirée » sur PubMed ; chiffres conservés avec cette mention ; correspondance CIM-11 6D71 non vérifiée sur le site OMS.
 - Toutes les posologies portent « à vérifier dans l'AIPS ».
 - Les champs `usage` indiquent `_mode: agent, api: false` (production sans API).
 
