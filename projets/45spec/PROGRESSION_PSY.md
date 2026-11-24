@@ -1,6 +1,6 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 21/126.
+Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 24/126.
 
 | # | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|
@@ -25,9 +25,9 @@ Pathologies canoniques PSY (canoniques() avec fusions) : 126. Ordre : importance
 | 19 | F45.1__O7_8-E01 | Trouble à symptomatologie somatique (trouble somatoforme) | 29 | 20 | oui |
 | 20 | F51.0__G11-E01 | Insomnie chronique primaire | 30 | 20 | oui |
 | 21 | F13.2__S9_13-E04 | Mésusage et dépendance aux benzodiazépines et Z-drugs (zolpidem/zopicl | 29 | 20 | oui |
-| 22 | F31.3__O6_8-E05 | Trouble bipolaire (phase dépressive ou mixte) | — | — | — |
-| 23 | F06.1__S9_3-E14 | Catatonie aiguë (stupeur ou agitation catatonique) | — | — | — |
-| 24 | F40.1__S9_7-E04 | Anxiété sociale (phobie sociale) | — | — | — |
+| 22 | F31.3__O6_8-E05 | Trouble bipolaire (phase dépressive ou mixte) | 29 | 20 | oui |
+| 23 | F06.1__S9_3-E14 | Catatonie aiguë (stupeur ou agitation catatonique) | 29 | 20 | oui |
+| 24 | F40.1__S9_7-E04 | Anxiété sociale (phobie sociale) | 29 | 20 | oui |
 | 25 | F50.2__O2_6-E05 | Boulimie nerveuse (bulimia nervosa) | — | — | — |
 | 26 | F01.9__F1_9-E02 | Démence vasculaire | — | — | — |
 | 27 | F05.9_agitation_et_deliriu__O5_3-E04 | Agitation et delirium terminaux (fin de vie) | — | — | — |
@@ -146,6 +146,9 @@ Outil : `python projets/45spec/psy/lib.py <id>` (valider() du script + contrôle
 - Trouble somatique : ATF 141 V 281 (2015) cité de mémoire, à confirmer ; le Q10 cite « CIM-10 E21 » pour l'hyperparathyroïdie.
 - Insomnie : disponibilité suisse du daridorexant et article OPAS du modèle de la prescription (2022) à confirmer dans l'AIPS et le RS.
 - Benzodiazépines : détection urinaire des Z-drugs (avis d'expert) ; équivalences de doses à vérifier dans l'AIPS.
+- Bipolaire (F31.3) : posologie de la lurasidone et indication suisse exacte de la quétiapine retard à vérifier dans l'AIPS (compendium.ch inaccessible) ; rythme de surveillance rénale/thyroïdienne sous lithium à vérifier.
+- Catatonie (F06.1) : dose du test au lorazépam non fixée par la BAP 2023 (protocole local, à vérifier) ; mesures générales (thromboprophylaxie, escarres) = avis d'expert.
+- Phobie sociale (F40.1) : indication suisse de l'escitalopram et de la sertraline à vérifier dans l'AIPS ; « pas de benzodiazépines au long cours » à confirmer dans NICE CG159 ; conditions OPAS du modèle de la prescription à vérifier.
 - Toutes les posologies portent « à vérifier dans l'AIPS ».
 - Les champs `usage` indiquent `_mode: agent, api: false` (production sans API).
 

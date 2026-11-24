@@ -1,0 +1,453 @@
+{
+ "id": "F31.3__O6_8-E05",
+ "portes": [
+  {
+   "ssp": "S9.5",
+   "nomSSP": "Modification de l’humeur",
+   "entite": "Trouble bipolaire (type I ou II) en phase dépressive",
+   "entiteId": "S9.5-E04"
+  },
+  {
+   "ssp": "O6.8",
+   "nomSSP": "Souffrance psychique ou spirituelle",
+   "entite": "Trouble bipolaire (phase dépressive ou mixte)",
+   "entiteId": "O6.8-E05"
+  }
+ ],
+ "entite": "Trouble bipolaire (phase dépressive ou mixte)",
+ "cim10": "F31.3",
+ "ssp": {
+  "code": "S9.5",
+  "nom": "Modification de l’humeur",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Humeur dépressive",
+    "i": "Le médecin cherche une hypomanie ou une manie passée.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Aucune hypomanie",
+    "i": "Renvoi vers l'épisode dépressif (S9.5).",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "Hypomanie ou manie passée",
+    "i": "Le diagnostic de dépression bipolaire se pose.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n4",
+    "parent": "n3",
+    "t": "Risque suicidaire aigu ou psychose",
+    "i": "L'hospitalisation protège.",
+    "pec": "aigu",
+    "notion": "c3"
+   },
+   {
+    "id": "n5",
+    "parent": "n3",
+    "t": "Caractéristiques mixtes",
+    "i": "L'antidépresseur s'arrête ; un antipsychotique ou un thymorégulateur s'instaure.",
+    "pec": "aigu",
+    "notion": "c2"
+   },
+   {
+    "id": "n6",
+    "parent": "n3",
+    "t": "Dépression sans danger immédiat",
+    "i": "Le traitement de première intention débute en ambulatoire.",
+    "pec": "long",
+    "notion": "c2"
+   }
+  ]
+ },
+ "specialites": [
+  "PSY"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Dépression bipolaire et état mixte : reconnaître la polarité, éviter l'antidépresseur seul, traiter et prévenir le suicide",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Reconnaître la polarité",
+   "rubriques": [
+    "definition",
+    "anamnesis",
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu cherches l'hypomanie passée devant toute dépression, avec un proche.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Discriminant",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Dépression bipolaire I",
+      "Manie passée",
+      [
+       {
+        "t": "Thymorégulateur",
+        "i": "L'antidépresseur seul expose au virage."
+       }
+      ]
+     ],
+     [
+      "Dépression bipolaire II",
+      "Hypomanie passée",
+      [
+       {
+        "t": "Quétiapine",
+        "i": "Première intention."
+       }
+      ]
+     ],
+     [
+      "Caractéristiques mixtes",
+      "Sommeil réduit, tachypsychie",
+      [
+       {
+        "t": "Pas d'antidépresseur",
+        "i": "Il aggrave la mixité."
+       }
+      ]
+     ],
+     [
+      "Dépression unipolaire",
+      "Aucune hypomanie",
+      [
+       {
+        "t": "Antidépresseur",
+        "i": "Pas de risque de virage."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "≥ 2 épisodes, dont un (hypo)maniaque.",
+    "Mixte : deux pôles ≥ 2 semaines."
+   ],
+   "sources": [
+    "[OMS, CIM-10 F31]",
+    "[Yatham, 2018, Bipolar Disord, CANMAT/ISBD, doi:10.1111/bdi.12609]"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Traiter l'épisode",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Tu choisis quétiapine, lithium, lamotrigine ou lurasidone, et tu arrêtes l'antidépresseur seul.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Quétiapine 50 → 300 mg en 4 jours.",
+    "Lurasidone autorisée en Suisse."
+   ],
+   "sources": [
+    "[Yatham, 2018, Bipolar Disord, CANMAT/ISBD, doi:10.1111/bdi.12609]",
+    "[EMA, RCP Seroquel, annexe III, rubrique 4.2]",
+    "[OFSP, 2020, Latuda : extension d'indication]"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Protéger",
+   "rubriques": [
+    "presumptionRedFlags",
+    "hospitalizationComplications"
+   ],
+   "comment": "Tu évalues le suicide à chaque visite et tu hospitalises si le risque est aigu ou psychotique.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "a1",
+     "parent": null,
+     "t": "Dépression bipolaire",
+     "i": "Le risque suicidaire s'évalue.",
+     "pec": "aigu",
+     "notion": "c1"
+    },
+    {
+     "id": "a2",
+     "parent": "a1",
+     "t": "Risque aigu ou psychose",
+     "i": "L'hospitalisation s'organise.",
+     "pec": "aigu",
+     "notion": null
+    },
+    {
+     "id": "a3",
+     "parent": "a1",
+     "t": "Risque faible, soutien présent",
+     "i": "Le suivi ambulatoire rapproché suffit.",
+     "pec": "long",
+     "notion": null
+    }
+   ],
+   "points": [
+    "Mixte = risque suicidaire ↑.",
+    "PAFA en dernier recours."
+   ],
+   "sources": [
+    "[Yatham, 2018, Bipolar Disord, CANMAT/ISBD, doi:10.1111/bdi.12609]",
+    "[CC art. 426]"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Maintenir",
+   "rubriques": [
+    "chronicManagement",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "Tu stabilises par lithium ou lamotrigine, tu surveilles les taux et tu ajoutes la psychoéducation.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Lithémie 0,6-0,8 (âgé 0,4-0,6).",
+    "Lamotrigine : titration lente."
+   ],
+   "sources": [
+    "[Nolen, 2019, Bipolar Disord, ISBD/IGSLi, doi:10.1111/bdi.12805]",
+    "[RCP Lamictal, ANSM, rubrique 4.2]",
+    "[Yatham, 2018, Bipolar Disord, CANMAT/ISBD, doi:10.1111/bdi.12609]"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "aigu",
+   "titre": "Dépression bipolaire ou état mixte grave",
+   "but": [
+    "Protéger la vie.",
+    "Traiter l'épisode sans virage.",
+    "Préparer l'entretien."
+   ],
+   "moyens": {
+    "accueil": [
+     "Le médecin évalue le suicide et les moyens disponibles.",
+     "Le médecin associe un proche avec l'accord du patient."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Quétiapine",
+      "posologie": "50, 100, 200 puis 300 mg au coucher (J1-J4) ; à vérifier dans l'AIPS.",
+      "pourquoi": "Elle traite la dépression et l'insomnie.",
+      "source": "RCP Seroquel (EMA) ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Lithium",
+      "posologie": "Dose adaptée à une lithémie de 0,60-0,80 mmol/L ; à vérifier dans l'AIPS.",
+      "pourquoi": "Il traite, prévient et réduit le suicide.",
+      "source": "ISBD/IGSLi 2019 ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "L'équipe infirmière surveille le risque suicidaire.",
+      "pourquoi": "Le risque fluctue."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "L'équipe régularise les rythmes.",
+      "pourquoi": "La privation de sommeil déstabilise."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Le PAFA (CC art. 426) reste le dernier recours si le danger persiste."
+     },
+     {
+      "discipline": "O Pharmacologie, Toxicologie & Sécurité",
+      "apport": "Le pharmacien vérifie les interactions du lithium."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Sécuriser.",
+      "Arrêter l'antidépresseur seul."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "psychiatre",
+       "fait": "Il évalue suicide et psychose."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "infirmier·ère",
+       "fait": "Il ou elle surveille et sécurise."
+      },
+      {
+       "temps": "puis",
+       "qui": "psychiatre",
+       "fait": "Il instaure le traitement."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "L'épisode répond en quelques semaines, mais la récidive reste fréquente sans traitement d'entretien.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Idées suicidaires",
+      "quand": "chaque jour",
+      "cible": "absentes"
+     },
+     {
+      "quoi": "Lithémie",
+      "quand": "après chaque changement de dose",
+      "cible": "0,60-0,80 mmol/L"
+     }
+    ],
+    "sortie": "La sortie suppose un risque suicidaire faible et un suivi ambulatoire planifié."
+   },
+   "prevention": {
+    "primaire": "La psychoéducation familiale repère tôt les prodromes.",
+    "secondaire": "Le dépistage de l'hypomanie évite l'antidépresseur seul.",
+    "tertiaire": "Le traitement d'entretien prévient les récidives."
+   }
+  },
+  {
+   "cle": "long",
+   "titre": "Traitement ambulatoire et entretien",
+   "but": [
+    "Obtenir la rémission.",
+    "Prévenir les récidives.",
+    "Maintenir l'insertion."
+   ],
+   "moyens": {
+    "accueil": [
+     "Le médecin explique la maladie et ses rythmes.",
+     "Le médecin construit un plan de crise écrit."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Lamotrigine",
+      "posologie": "25 mg 2 sem., 50 mg 2 sem., 100 mg, puis 200 mg ; moitié sous valproate ; à vérifier dans l'AIPS.",
+      "pourquoi": "Elle prévient surtout les dépressions.",
+      "source": "RCP Lamictal ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Lurasidone",
+      "posologie": "Posologie à vérifier dans l'AIPS.",
+      "pourquoi": "Option autorisée en Suisse dans la dépression bipolaire I.",
+      "source": "OFSP 2020 ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Le psychologue conduit une TCC ou une thérapie des rythmes sociaux.",
+      "pourquoi": "Elle réduit les rechutes."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "L'équipe propose une psychoéducation familiale.",
+      "pourquoi": "Elle repère les prodromes."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales & Expertise",
+      "apport": "Le médecin annonce tôt à l'AI pour la réadaptation professionnelle."
+     },
+     {
+      "discipline": "O Pharmacologie, Toxicologie & Sécurité",
+      "apport": "Le pharmacien rappelle les interactions du lithium (AINS, IEC, thiazides)."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Un plan de crise.",
+      "Un seul prescripteur coordonne."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "psychiatre",
+       "fait": "Il pose le diagnostic et choisit le traitement."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin de famille",
+       "fait": "Il surveille rein, thyroïde et poids."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "psychologue",
+       "fait": "Il conduit la psychoéducation."
+      },
+      {
+       "temps": "puis",
+       "qui": "psychiatre",
+       "fait": "Il ajuste l'entretien."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'évolution reste récurrente ; l'adhésion au traitement d'entretien améliore le pronostic.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Créatinine, TSH, calcémie",
+      "quand": "régulièrement sous lithium (rythme à vérifier dans l'AIPS)",
+      "cible": "stables"
+     },
+     {
+      "quoi": "Humeur et sommeil",
+      "quand": "à chaque visite",
+      "cible": "euthymie"
+     }
+    ],
+    "sortie": "Le suivi spécialisé se poursuit au long cours."
+   },
+   "prevention": {
+    "primaire": "La régularité du sommeil protège.",
+    "secondaire": "Le repérage des prodromes permet une intervention précoce.",
+    "tertiaire": "Le traitement d'entretien limite les récidives."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "_mode": "agent",
+  "api": false,
+  "modele": "claude-opus-5-5 (agent, sans API)"
+ },
+ "signature": {
+  "date": "2026-11-24T12:27:07",
+  "modele": "claude-opus-5-5 (agent, sans API)",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}
