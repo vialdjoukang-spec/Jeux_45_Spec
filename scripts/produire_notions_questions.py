@@ -113,7 +113,9 @@ def canoniques(spec=None):
     VIDE = {"de", "du", "la", "le", "les", "des", "et", "ou", "sur", "avec", "sans", "par", "aigue", "aigu", "chronique", "syndrome", "maladie", "severe"}
     mots = lambda c: {m for m in cle(c["entite"]["nom"]).split() if len(m) > 2 and m not in VIDE}
     import glob
-    FUS = {e: g["nom"] for f in glob.glob(os.path.join(R, "content", "pathologies", "fusions_*.json")) for g in json.load(open(f, encoding="utf-8"))["groupes"] for e in g["entites"]}
+    GR = [g for f in sorted(glob.glob(os.path.join(R, "content", "pathologies", "fusions_*.json"))) for g in json.load(open(f, encoding="utf-8"))["groupes"]]
+    FUS = {e: g["nom"] for g in GR for e in g["entites"]}
+    FID = {g["nom"]: g["id"] for g in GR if g.get("id")}   # « id » facultatif : garde l'identifiant d'une pathologie déjà produite (ses fichiers restent valides)
     grp = {}
     for c in PF.cibles():
         if spec and spec.upper() not in c["codes"]:
@@ -133,7 +135,7 @@ def canoniques(spec=None):
             rep = {**rep, "entite": {**rep["entite"], "nom": k[2:]}}; k = (rep["entite"].get("cim10") or "F") + "_" + cle(k[2:])[:20].replace(" ", "_")
         out.append({**rep, "freq": min(c["freq"] for c in L), "urgent": any(c["urgent"] for c in L),
                     "codes": sorted({x for c in L for x in c["codes"]}, key=lambda x: (x not in rep["codes"], x)),
-                    "id": re.sub(r"[^A-Za-z0-9_.-]", "_", k)[:40] + "__" + min(c["id"] for c in L),
+                    "id": FID.get(rep["entite"]["nom"]) or re.sub(r"[^A-Za-z0-9_.-]", "_", k)[:40] + "__" + min(c["id"] for c in L),
                     "portes": [{"ssp": c["ssp"], "nomSSP": c["nomSSP"], "entite": c["entite"]["nom"], "entiteId": c["entite"]["id"]} for c in L]})
     return sorted(out, key=lambda c: (c["freq"], c["id"]))
 
