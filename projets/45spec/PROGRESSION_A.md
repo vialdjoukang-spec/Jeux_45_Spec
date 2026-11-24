@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**125 / 229 pathologies du périmètre produites.**
+**128 / 229 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans ['INF', 'NEU', 'PED', 'PSY'] (autres agents) ou ['DER', 'GYN', 'HEM', 'MIG', 'OBS', 'OPH', 'ORL', 'RHU', 'TOX', 'URO'] (agent A2).
 
@@ -54,7 +54,7 @@ Hors périmètre : première spécialité dans ['INF', 'NEU', 'PED', 'PSY'] (aut
 | 68 | `E22.2__F2_7-E01` | Hyponatrémie euvolémique sur SIADH | END | produite |
 | 71 | `F84.0__O2_12-E09` | Trouble du spectre de l'autisme (TSA) dépisté précocement | PEA | produite |
 | 72 | `F90.0__O2_10-E02` | Trouble du déficit de l'attention avec ou sans hyperactivité (TDAH) | PEA | produite |
-| 75 | `I95.1__F1_1-E02` | Hypotension orthostatique | CAR | — |
+| 75 | `I95.1__F1_1-E02` | Hypotension orthostatique | CAR | produite |
 | 76 | `K58.9_syndrome_de_l_intest__O7_7-E02` | Syndrome de l'intestin irritable | GAS | produite |
 | 84 | `I40.9__F2_2-E05` | Myocardite aiguë | CAR | produite |
 | 85 | `I44.2__F1_18-E05` | Bloc auriculo-ventriculaire complet (3e degré) symptomatique | CAR | produite |
@@ -65,10 +65,10 @@ Hors périmètre : première spécialité dans ['INF', 'NEU', 'PED', 'PSY'] (aut
 | 94 | `E16.2_hypoglycemie_severe__F1_17-E17` | Hypoglycémie sévère | END | produite |
 | 95 | `E27.2__F1_8-E16` | Crise addisonienne (insuffisance surrénalienne aiguë) | END | produite |
 | 97 | `E87.8__F1_8-E12` | Syndrome de renutrition inappropriée (refeeding syndrome) | NEP | produite |
-| 103 | `G83.4__G10-E20` | Syndrome de la queue de cheval (anesthésie en selle aiguë) | NCH | — |
+| 103 | `G83.4__G10-E20` | Syndrome de la queue de cheval (anesthésie en selle aiguë) | NCH | produite |
 | 106 | `I10_urgence_hypertensive__F1_1-E13` | Urgence hypertensive (crise hypertensive avec atteinte d'organe cible) | CAR | produite |
 | 107 | `I33.0__F1_3-E17` | Endocardite infectieuse (hémorragies en flammèche sous-unguéales et faux panaris d'Osler) | CAR | produite |
-| 110 | `I87.1__F1_16-E17` | Syndrome cave supérieur | ANG | — |
+| 110 | `I87.1__F1_16-E17` | Syndrome cave supérieur | ANG | produite |
 | 113 | `J81_deme_aigu_du_poumon___F1_16-E12` | Œdème aigu du poumon cardiogénique | PNE | produite |
 | 114 | `J93.0__F1_18-E13` | Pneumothorax suffocant (sous tension) | CTH | — |
 | 115 | `K40.3__F1_5-E13` | Hernie étranglée (masse inguinale ou crurale irréductible) | CHI | — |
