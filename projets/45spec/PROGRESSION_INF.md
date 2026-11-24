@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API (format exact de `scripts/produire_notions_questions.py`), branche `agent/45spec-INF`.
 
-**3 / 82 pathologies canoniques produites** (notions + questions + correction), ordre du script (fréquence puis identifiant).
+**6 / 82 pathologies canoniques produites** (notions + questions + correction), ordre du script (fréquence puis identifiant).
 
 Statut d'audit : en attente (`audit.rejector = null`). Les chiffres incertains portent la mention « à vérifier » dans le champ source.
 
@@ -11,9 +11,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Les chiffres incertains p
 | 1 | `A08.4__G5-E02` | Gastro-entérite aiguë virale | produite |
 | 2 | `A09.0__F2_8-E02` | Gastro-entérite infectieuse (bactérienne ou virale) | produite |
 | 3 | `A09.9__S3_1-E01` | Gastro-entérite aiguë infectieuse | produite |
-| 4 | `A49.9__F2_19-E01` | Infection bactérienne communautaire aiguë (pneumonie, pyélonéphrite, érysipèle) | — |
-| 5 | `A69.2_1__S5_6-E08` | Arthrite de Lyme (borréliose tardive) | — |
-| 6 | `B00.1__S6_1-E03` | Herpès labial ou génital (HSV-1 / HSV-2) | — |
+| 4 | `A49.9__F2_19-E01` | Infection bactérienne communautaire aiguë (pneumonie, pyélonéphrite, érysipèle) | produite |
+| 5 | `A69.2_1__S5_6-E08` | Arthrite de Lyme (borréliose tardive) | produite |
+| 6 | `B00.1__S6_1-E03` | Herpès labial ou génital (HSV-1 / HSV-2) | produite |
 | 7 | `B24_1__O7_6-E02` | Infection par le VIH contrôlée ou nouvellement diagnostiquée | — |
 | 8 | `B30.9__S1_17-E01` | Conjonctivite aiguë virale (adénovirus) | — |
 | 9 | `B34.9_1__F2_19-E02` | Infection virale aiguë (lymphocytose ou leucopénie transitoire) | — |
