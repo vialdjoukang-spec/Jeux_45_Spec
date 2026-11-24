@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**249 / 500 pathologies du périmètre produites.**
+**252 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -122,10 +122,10 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 113 | `J81_deme_aigu_du_poumon___F1_16-E12` | Œdème aigu du poumon cardiogénique | PNE | produite |
 | 114 | `J93.0__F1_18-E13` | Pneumothorax suffocant (sous tension) | CTH | produite |
 | 115 | `K40.3__F1_5-E13` | Hernie étranglée (masse inguinale ou crurale irréductible) | CHI | produite |
-| 116 | `M31.6__F1_5-E16` | Artérite à cellules géantes (maladie de Horton) | RHU | — |
+| 116 | `M31.6__F1_5-E16` | Artérite à cellules géantes (maladie de Horton) | RHU | produite |
 | 117 | `M72.6__F1_14-E12` | Fasciite nécrosante (gangrène streptococcique ou polymicrobienne) | CPL | produite |
-| 118 | `O00.1__O1_7-E11` | Grossesse extra-utérine (GEU) rompue | GYN | — |
-| 119 | `R45.8_2__O6_1-E11` | Crise suicidaire aiguë chez un jeune LGBTQIA+ (rejet familial ou dysphorie) | MIG | — |
+| 118 | `O00.1__O1_7-E11` | Grossesse extra-utérine (GEU) rompue | GYN | produite |
+| 119 | `R45.8_2__O6_1-E11` | Crise suicidaire aiguë chez un jeune LGBTQIA+ (rejet familial ou dysphorie) | MIG | produite |
 | 120 | `T43.2__G1-E18` | Syndrome sérotoninergique aigu | TOX | — |
 | 121 | `T78.2__F1_1-E17` | Anaphylaxie aiguë (choc anaphylactique) | ALL | produite |
 | 122 | `T78.3__F1_16-E13` | Angio-œdème laryngé aigu | ALL | produite |
