@@ -3,6 +3,9 @@ ID = "M80.0__F2_20-E14"
 SVGO = "[Ferrari, Lippuner, Lamy, Meier pour la SVGO 2020, 2020 recommendations for osteoporosis treatment according to fracture risk, Swiss Med Wkly 150:w20352]"
 ECTS = "[Tsourdi et al. 2020, Fracture risk and management of discontinuation of denosumab therapy, position statement ECTS, J Clin Endocrinol Metab, PMID 33103722]"
 EXP = "Avis d'expert (à vérifier)"
+MSD = "[MSD Manual Professional, Vertebral compression fractures, consulté le 24.11.2026]"
+RCR = "[Royal College of Radiologists 2021, Radiological guidance for the recognition and reporting of osteoporotic vertebral fragility fractures]"
+LSR = "[Ligue suisse contre le rhumatisme 2022, Update rhumatologie : documentation ostéoporose (prestations OPAS)]"
 AIPS = "AIPS Swissmedic (compendium.ch) — posologie à vérifier dans l'AIPS"
 _N = [
 ("def","definition","critère",1,0,SVGO+" ; "+EXP,"Une fracture de fragilité survient lors d'un traumatisme à basse énergie, comme une chute de sa hauteur ; la densitométrie définit l'ostéoporose par un T-score ≤ −2,5."),
@@ -11,10 +14,10 @@ _N = [
 ("risque","anamnesis","terrain particulier",2,0,SVGO,"L'âge, le sexe féminin, une fracture antérieure, une fracture de hanche chez un parent, les glucocorticoïdes, le tabac, l'alcool, la polyarthrite et un faible poids augmentent le risque."),
 ("symp","anamnesis","symptôme",1,0,EXP,"La patiente décrit une douleur dorsale ou lombaire brutale après un effort minime, ou découvre une perte de taille."),
 ("exam","clinicalExam","signe",2,0,EXP,"L'examen trouve une perte de taille, une cyphose dorsale, une distance côtes-bassin réduite et une douleur à la percussion de l'épineuse."),
-("redflag","presumptionRedFlags","décision",3,0,EXP,"Un déficit neurologique, de la fièvre, un cancer connu, une douleur nocturne ou une fracture haute (au-dessus de T7) font suspecter une fracture pathologique et imposent une IRM."),
+("redflag","presumptionRedFlags","décision",3,0,MSD,"Un déficit neurologique, de la fièvre, un cancer connu, une douleur nocturne ou une fracture isolée haute (au-dessus de T4) font suspecter une fracture pathologique et imposent une IRM."),
 ("secondaire","positiveDiagnosis","examen",2,0,EXP,"On cherche une ostéoporose secondaire : calcémie, phosphatémie, créatinine, 25-OH-vitamine D, TSH, formule sanguine, phosphatase alcaline et électrophorèse des protéines (testostérone chez l'homme)."),
 ("myelome","positiveDiagnosis","diagnostic différentiel",2,0,EXP,"On écarte un myélome, une métastase (sein, prostate, poumon, rein, thyroïde) et une spondylodiscite avant de retenir l'ostéoporose."),
-("radio","workupGoldStandard","examen",3,0,EXP,"La radiographie de profil du rachis dorsolombaire, ou l'évaluation vertébrale en DXA, confirme le tassement ; Genant classe la perte de hauteur en grade 1 (20–25 %), 2 (25–40 %) et 3 (> 40 %)."),
+("radio","workupGoldStandard","examen",3,0,RCR,"La radiographie de profil du rachis dorsolombaire, ou l'évaluation vertébrale en DXA, confirme le tassement ; Genant classe la perte de hauteur en grade 1 (20–25 %), 2 (25–40 %) et 3 (> 40 %)."),
 ("dxa","workupGoldStandard","examen",2,0,SVGO,"La DXA de la hanche et du rachis mesure la densité ; après une fracture vertébrale de fragilité, on traite quel que soit le T-score."),
 ("irm","workupAlternatives","examen",1,0,EXP,"L'IRM (séquence STIR) date la fracture par l'œdème osseux et distingue une fracture maligne d'une fracture ostéoporotique."),
 ("frax","workupAlternatives","critère",1,1,SVGO,"Le FRAX suisse calcule la probabilité de fracture majeure à 10 ans ; le seuil d'intervention suisse dépend de l'âge (environ 10 % à 50 ans, 30 % à 72 ans)."),
@@ -31,7 +34,7 @@ _N = [
 ("chute","prognosisDischarge","prévention",1,0,EXP,"On prévient les chutes : revue des médicaments sédatifs, vision, aménagement du domicile et exercices d'équilibre."),
 ("surv","surveillance","examen",1,0,SVGO,"Chez les patients à risque élevé, on refait la DXA après 2 ans et on réévalue le risque avant de poursuivre."),
 ("fls","followUpNetwork","décision",1,0,EXP,"Une filière fracture (fracture liaison service) repère chaque fracture de fragilité et assure le bilan et le traitement."),
-("suisse","followUpNetwork","contexte suisse",1,1,EXP,"En Suisse, l'assurance de base rembourse la DXA sous conditions (fracture de fragilité, corticothérapie, hypogonadisme) et la SVGO publie le seuil FRAX suisse (à vérifier dans l'OPAS)."),
+("suisse","followUpNetwork","contexte suisse",1,1,LSR+" ; "+SVGO,"En Suisse, l'OPAS fait rembourser la DXA dans des indications précises : fracture sans traumatisme adéquat, corticothérapie d'au moins 5 mg/j d'équivalent prednisone pendant au moins 3 mois, hypogonadisme, hyperparathyroïdie primaire, malabsorption, VIH, et contrôle du traitement tous les 2 ans ; la SVGO fixe les seuils d'intervention FRAX suisses."),
 ]
 K = {k: i+1 for i, (k, *_r) in enumerate(_N)}
 N = [t[1:] for t in _N]
