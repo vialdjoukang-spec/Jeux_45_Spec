@@ -4,7 +4,7 @@ Branche : `agent/45spec-PED`. Production par agent Claude **sans API** (même sc
 Ordre : celui de `selection()` (fréquence puis identifiant). Contrôles : `valider()` sans erreur ; couverture des notions de poids ≥ 2 au moins deux fois sous deux angles ; formats ≈ 70/20/10.
 Les données douteuses portent la mention « à vérifier » dans leur source (AIPS, version de recommandation). Statut d'audit : en attente (`audit.rejector = null`).
 
-**Avancement : 9 / 69 pathologies canoniques complètes (notions + questions + correction).**
+**Avancement : 12 / 69 pathologies canoniques complètes (notions + questions + correction).**
 
 | # | Identifiant | Pathologie | Fréq. | Complet | Notions | Questions |
 |---|---|---|---|---|---|---|
@@ -17,9 +17,9 @@ Les données douteuses portent la mention « à vérifier » dans leur source (A
 | 7 | `P59.9__S6_5-E01` | Ictère physiologique / au lait maternel du nouveau-né | 1 | ✅ | 30 | 20 |
 | 8 | `Q75.3__S1_13-E01` | Macrocéphalie familiale bénigne (mégalencéphalie familiale) | 1 | ✅ | 30 | 21 |
 | 9 | `R10.4__O2_9-E01` | Coliques du nourrisson (pleurs excessifs fonctionnels) | 1 | ✅ | 29 | 21 |
-| 10 | `R56.0__S7_10-E03` | Convulsions fébriles simples de l'enfant (6 mois – 5 ans) | 1 | ⬜ |  |  |
-| 11 | `R63.3__O2_6-E02` | Néophobie alimentaire physiologique et sélectivité bénigne d | 1 | ⬜ |  |  |
-| 12 | `R95__G14-E08` | Syndrome de mort subite du nourrisson (MSN / MIN) | 1 | ⬜ |  |  |
+| 10 | `R56.0__S7_10-E03` | Convulsions fébriles simples de l'enfant (6 mois – 5 ans) | 1 | ✅ | 30 | 21 |
+| 11 | `R63.3__O2_6-E02` | Néophobie alimentaire physiologique et sélectivité bénigne d | 1 | ✅ | 29 | 21 |
+| 12 | `R95__G14-E08` | Syndrome de mort subite du nourrisson (MSN / MIN) | 1 | ✅ | 30 | 20 |
 | 13 | `Z63.4__O6_7-E01` | Deuil normal (réaction aiguë et processus d'adaptation à la  | 1 | ⬜ |  |  |
 | 14 | `Z63.5__O6_6-E02` | Détresse psychologique et somatisations de l'enfant face au  | 1 | ⬜ |  |  |
 | 15 | `Z71.8__O2_2-E04` | Crises de colère / opposition physiologiques du jeune enfant | 1 | ⬜ |  |  |
