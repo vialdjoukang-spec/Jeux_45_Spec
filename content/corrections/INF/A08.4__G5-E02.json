@@ -1,0 +1,579 @@
+{
+ "id": "A08.4__G5-E02",
+ "portes": [
+  {
+   "ssp": "G5",
+   "nomSSP": "Sensation de maladie",
+   "entite": "Gastro-entérite aiguë virale",
+   "entiteId": "G5-E02"
+  },
+  {
+   "ssp": "S3.10",
+   "nomSSP": "Nausées, vomissements",
+   "entite": "Gastro-entérite aiguë virale ou toxi-infection alimentaire",
+   "entiteId": "S3.10-E01"
+  }
+ ],
+ "entite": "Gastro-entérite aiguë virale",
+ "cim10": "A08.4",
+ "ssp": {
+  "code": "S3.10",
+  "nom": "Nausées, vomissements",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Nausées et vomissements aigus",
+    "i": "On évalue d'abord la gravité et l'hydratation.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Signes de choc, léthargie, déshydratation ≥ 10 %",
+    "i": "Ils imposent une réhydratation IV immédiate.",
+    "pec": "pec_hosp",
+    "notion": "c2"
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "Douleur localisée, défense, vomissements bilieux",
+    "i": "Ils évoquent une urgence chirurgicale ; renvoi au SSP S3.1 Douleur abdominale.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "Polyurie, polypnée, diabète connu",
+    "i": "On mesure glycémie et cétones pour exclure une acidocétose.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n5",
+    "parent": "n1",
+    "t": "Malaise collectif au domicile sans diarrhée",
+    "i": "On dose la carboxyhémoglobine pour exclure le CO.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n6",
+    "parent": "n1",
+    "t": "Céphalée brutale, raideur, signes neurologiques",
+    "i": "Ils évoquent une cause neurologique ; renvoi au SSP des céphalées.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n7",
+    "parent": "n1",
+    "t": "Retard de règles chez la femme",
+    "i": "Un test de grossesse s'impose avant tout traitement.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n8",
+    "parent": "n1",
+    "t": "Diarrhée aqueuse associée, contage, sans signe d'alarme",
+    "i": "Ce tableau évoque une gastro-entérite virale.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Incubation 1–6 h après un repas commun",
+    "i": "Une toxine préformée explique ce délai ; le traitement reste symptomatique.",
+    "pec": "pec_amb",
+    "notion": "c1"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Incubation 12–48 h, hiver, cas groupés",
+    "i": "Le norovirus est l'agent le plus probable.",
+    "pec": "pec_amb",
+    "notion": "c1"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Terrain fragile ou déshydratation modérée à sévère",
+    "i": "On demande ionogramme, créatinine et glycémie et on adapte les médicaments.",
+    "pec": "pec_hosp",
+    "notion": "c4"
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Adulte sain, hydratation conservée",
+    "i": "On traite à domicile par SRO, sans examen.",
+    "pec": "pec_amb",
+    "notion": "c4"
+   },
+   {
+    "id": "n13",
+    "parent": "n10",
+    "t": "Foyer en institution",
+    "i": "On signale au médecin cantonal et on confirme par PCR.",
+    "pec": null,
+    "notion": "c5"
+   }
+  ]
+ },
+ "specialites": [
+  "INF"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Gastro-entérite aiguë virale",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Reconnaître la gastro-entérite virale et son agent",
+   "rubriques": [
+    "definition",
+    "epidemiology",
+    "anamnesis"
+   ],
+   "comment": "Pars de l'incubation et du terrain : ils désignent l'agent sans aucun examen.",
+   "tableau": {
+    "colonnes": [
+     "Agent",
+     "Incubation",
+     "Terrain",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "Norovirus",
+      "12–48 h",
+      "Adulte, EMS, hôpital, hiver",
+      [
+       {
+        "t": "Vomissements en jet",
+        "i": "Ils signent le norovirus et expliquent la contamination par aérosols ; le rotavirus atteint surtout l'enfant."
+       }
+      ]
+     ],
+     [
+      "Rotavirus",
+      "≈ 2 jours",
+      "Enfant < 5 ans",
+      [
+       {
+        "t": "Déshydratation marquée",
+        "i": "La diarrhée dure plusieurs jours et déshydrate davantage le petit enfant."
+       }
+      ]
+     ],
+     [
+      "Toxine préformée (S. aureus, B. cereus)",
+      "1–6 h",
+      "Repas commun",
+      [
+       {
+        "t": "Délai court",
+        "i": "La toxine est déjà présente dans l'aliment ; aucune multiplication n'est nécessaire."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Une diarrhée aiguë compte au moins trois selles molles par jour depuis moins de 14 jours.",
+    "Le norovirus domine chez l'adulte et dans les flambées institutionnelles.",
+    "Un cas familial décalé de 1 à 2 jours oriente vers une transmission virale."
+   ],
+   "sources": [
+    "[CDC/HICPAC, 2011, norovirus]",
+    "[ESPGHAN/ESPID, 2014]"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Évaluer la déshydratation",
+   "rubriques": [
+    "clinicalExam",
+    "hospitalizationComplications"
+   ],
+   "comment": "Chiffre la perte de poids chez l'enfant et cherche l'orthostatisme chez l'adulte.",
+   "tableau": {
+    "colonnes": [
+     "Degré",
+     "Perte de poids",
+     "Signes",
+     "Voie"
+    ],
+    "lignes": [
+     [
+      "Minime",
+      "< 3 %",
+      "Peu de signes",
+      "Orale à domicile"
+     ],
+     [
+      "Modérée",
+      "3–9 %",
+      [
+       {
+        "t": "Recoloration lente, pli",
+        "i": "Ce sont les signes les plus fiables chez l'enfant."
+       }
+      ],
+      "Orale (SRO), parfois sonde"
+     ],
+     [
+      "Sévère",
+      "≥ 10 %",
+      [
+       {
+        "t": "Léthargie, choc",
+        "i": "Ils imposent une réhydratation IV rapide."
+       }
+      ],
+      "Intraveineuse"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La diurèse conservée n'exclut pas la déshydratation.",
+    "Chez l'adulte âgé, on cherche hypotension orthostatique, oligurie et confusion."
+   ],
+   "sources": [
+    "[ESPGHAN/ESPID, 2014]"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Ne pas manquer un rival grave",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Avant de rassurer, élimine ce qui vomit sans être une gastro-entérite.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "a1",
+     "parent": null,
+     "t": "Vomissements ou malaise nauséeux",
+     "i": "On cherche d'abord les drapeaux rouges.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "a2",
+     "parent": "a1",
+     "t": "Sang, fièvre élevée, douleur localisée",
+     "i": "Ils orientent vers une colite invasive ou une urgence chirurgicale.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "a3",
+     "parent": "a1",
+     "t": "Polyurie, polypnée",
+     "i": "On mesure la glycémie : acidocétose.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "a4",
+     "parent": "a1",
+     "t": "Malaise collectif sans diarrhée",
+     "i": "On mesure la carboxyhémoglobine : CO.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "a5",
+     "parent": "a1",
+     "t": "Femme âgée, diabétique, malaise",
+     "i": "On fait un ECG : SCA inférieur.",
+     "pec": null,
+     "notion": null
+    }
+   ],
+   "points": [
+    "Le vomissement est un symptôme, non un diagnostic.",
+    "L'oxymètre standard ne détecte pas la carboxyhémoglobine."
+   ],
+   "sources": [
+    "[Avis d'expert]"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Traiter : réhydrater, rien de plus",
+   "rubriques": [
+    "acuteManagement",
+    "workupGoldStandard"
+   ],
+   "comment": "Retiens que le soluté oral fait l'essentiel et que l'antibiotique n'a aucune place.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "On donne un SRO à osmolarité réduite par petites quantités fréquentes.",
+    "Chez l'enfant modérément déshydraté, on vise 50–100 ml/kg en 3–4 h.",
+    "L'ondansétron en dose unique facilite la réhydratation orale de l'enfant.",
+    "On suspend diurétiques, IEC/ARA2, metformine et iSGLT2 chez le patient déshydraté."
+   ],
+   "sources": [
+    "[ESPGHAN/ESPID, 2014]",
+    "[OMS, 2005]"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Hygiène, éviction et santé publique",
+   "rubriques": [
+    "chronicManagement",
+    "followUpNetwork",
+    "surveillance"
+   ],
+   "comment": "Protège l'entourage : savon, chlore, 48 heures d'éviction.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le savon prime sur le gel hydro-alcoolique pour le norovirus.",
+    "Le personnel de cuisine et de soins attend 48 h après les symptômes.",
+    "Un foyer institutionnel se signale au médecin cantonal (à vérifier selon l'ordonnance en vigueur)."
+   ],
+   "sources": [
+    "[CDC/HICPAC, 2011, norovirus]"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "pec_amb",
+   "titre": "Gastro-entérite virale simple à domicile",
+   "but": [
+    "Maintenir l'hydratation jusqu'à la guérison spontanée.",
+    "Prévenir la transmission à l'entourage."
+   ],
+   "moyens": {
+    "accueil": [
+     "On évalue l'hydratation et les drapeaux rouges.",
+     "On explique l'évolution spontanée en 1 à 3 jours.",
+     "On donne des consignes écrites de reconsultation."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Soluté de réhydratation orale à osmolarité réduite",
+      "posologie": "Petites quantités fréquentes, à volonté chez l'adulte ; enfant modérément déshydraté 50–100 ml/kg en 3–4 h ; à vérifier dans l'AIPS.",
+      "pourquoi": "Il compense les pertes grâce au cotransport sodium-glucose préservé.",
+      "source": "[OMS, 2005]"
+     },
+     {
+      "molecule": "Ondansétron (antagoniste 5-HT3)",
+      "posologie": "Dose unique chez l'enfant vomissant, dose selon le poids ; à vérifier dans l'AIPS.",
+      "pourquoi": "Il réduit les vomissements et permet la réhydratation orale.",
+      "source": "[ESPGHAN/ESPID, 2014]"
+     },
+     {
+      "molecule": "Lopéramide (opioïde périphérique)",
+      "posologie": "Adulte, forme non fébrile et non sanglante, courte durée ; dose et âge limite à vérifier dans l'AIPS.",
+      "pourquoi": "Il diminue le nombre de selles chez l'adulte sans signe invasif.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "nutrition",
+      "mesure": "On réalimente précocement avec une alimentation normale.",
+      "pourquoi": "Le jeûne n'accélère pas la guérison."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "On se lave les mains au savon et on désinfecte au chlore.",
+      "pourquoi": "Le norovirus résiste au gel hydro-alcoolique."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "On établit un certificat d'éviction de 48 h pour les métiers à risque."
+     },
+     {
+      "discipline": "N Médecine sociale Prévention OFSP",
+      "apport": "On rappelle la vaccination du nourrisson contre le rotavirus selon le plan suisse."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "On ne prescrit ni examen ni antibiotique sans signe d'alarme.",
+      "On suspend temporairement les médicaments à risque rénal."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il cherche les drapeaux rouges et évalue l'hydratation."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Il prescrit le SRO et explique l'hygiène."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Il reconsulte si sang, fièvre élevée ou intolérance orale."
+      }
+     ]
+    }
+   },
+   "pronostic": "La guérison survient spontanément en 24 à 72 heures chez l'adulte sain.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Tolérance orale et diurèse",
+      "quand": "24–48 h",
+      "cible": "Boire et uriner normalement"
+     },
+     {
+      "quoi": "Nombre de selles",
+      "quand": "Quotidien",
+      "cible": "Diminution en 2–3 jours"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire."
+   },
+   "prevention": {
+    "primaire": "On se lave les mains et on vaccine le nourrisson contre le rotavirus.",
+    "secondaire": "On isole le malade et on applique l'éviction de 48 h.",
+    "tertiaire": "On reprend progressivement les médicaments suspendus après la guérison."
+   }
+  },
+  {
+   "cle": "pec_hosp",
+   "titre": "Gastro-entérite avec déshydratation sévère ou terrain fragile",
+   "but": [
+    "Restaurer la volémie et corriger les électrolytes.",
+    "Prévenir l'insuffisance rénale et la transmission nosocomiale."
+   ],
+   "moyens": {
+    "accueil": [
+     "On isole le patient en chambre seule avec précautions contact.",
+     "On mesure constantes, poids et diurèse.",
+     "On pose une voie veineuse si choc ou échec oral."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "NaCl 0,9 % ou Ringer lactate (cristalloïde)",
+      "posologie": "Bolus de 20 ml/kg en cas de choc, puis réhydratation selon le déficit ; à vérifier dans l'AIPS.",
+      "pourquoi": "Il restaure rapidement la volémie.",
+      "source": "[ESPGHAN/ESPID, 2014]"
+     },
+     {
+      "molecule": "Chlorure de potassium (électrolyte)",
+      "posologie": "Supplément selon la kaliémie et la diurèse ; à vérifier dans l'AIPS.",
+      "pourquoi": "Il corrige l'hypokaliémie liée aux pertes digestives.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "On applique les précautions contact et l'hygiène au savon.",
+      "pourquoi": "Elles évitent la flambée nosocomiale."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "J Hygiène hospitalière",
+      "apport": "On organise le regroupement des cas et la déclaration du foyer."
+     },
+     {
+      "discipline": "O Pharmacologie Toxicologie Sécurité",
+      "apport": "On révise les médicaments à risque rénal pendant la déshydratation."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "On restaure la volémie avant tout autre geste.",
+      "On isole le patient dès l'admission."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il évalue le choc et prescrit le remplissage."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Il pose la voie veineuse et prélève ionogramme et créatinine."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Il suspend diurétiques, IEC/ARA2, metformine et iSGLT2."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "L'hygiéniste organise les précautions et la déclaration."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le pronostic est bon après réhydratation, mais la mortalité augmente chez le sujet âgé fragile.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Diurèse",
+      "quand": "Toutes les 4–6 h",
+      "cible": "> 0,5 ml/kg/h"
+     },
+     {
+      "quoi": "Créatinine et kaliémie",
+      "quand": "Quotidien",
+      "cible": "Retour à la valeur de base"
+     },
+     {
+      "quoi": "Poids",
+      "quand": "Quotidien",
+      "cible": "Récupération du poids antérieur"
+     }
+    ],
+    "sortie": "Le patient sort quand il tolère l'alimentation orale, urine normalement et que la créatinine se normalise."
+   },
+   "prevention": {
+    "primaire": "On applique l'hygiène des mains dans l'institution.",
+    "secondaire": "On isole et on déclare le foyer.",
+    "tertiaire": "On réintroduit les médicaments suspendus sous contrôle de la créatinine."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "_mode": "agent_sans_api",
+  "note": "Produit directement par l'agent Claude, sans appel à l'API Anthropic."
+ },
+ "signature": {
+  "date": "2026-11-24T11:30:12",
+  "modele": "claude-opus-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}
