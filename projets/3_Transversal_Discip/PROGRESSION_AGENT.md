@@ -18,41 +18,18 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | J | 12 | 12 |
 | K | 12 | 12 |
 | L | 12 | 12 |
-| M | 6 | 12 |
+| M | 9 | 12 |
 | N | 0 | 12 |
 | O | 0 | 12 |
 | P | 0 | 12 |
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **174** | **228** |
+| **Total** | **177** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
 - **TRANS_A-S4-01** : Contenu des ATF cités comme distracteurs ou repères (130 V 352 de 2004, 137 V 210 de 2011, 143 V 409/418 de 2017) : cohérent avec la doctrine connue mais non relu sur bger.ch (base inaccessible pendant l'audit). Vérifiés : ATF 125 V 351 (critères de valeur probante, guide FMH) et le changement de pratique de 2015 (arrêt 9C_492/2014 publié ATF 141 V 281, circulaire OFAS du 7.7.2015).
-- **TRANS_H-S1-01** : Édition la plus récente de Beauchamp et Childress, Principles of Biomedical Ethics (8e éd., 2019 ; une 9e édition existe-t-elle ?).
-- **TRANS_H-S1-02** : Statut de la reprise des directives ASSM « Attitude face à la fin de vie et à la mort » (2018, adaptées en 2021) dans le Code de déontologie de la FMH en 2026.
-- **TRANS_H-S1-02** : Peine de l'art. 114 CP (meurtre sur la demande de la victime) après l'harmonisation des peines de 2023.
-- **TRANS_H-S1-03** : Nom et état actuel de la feuille de route nationale « Projet de soins anticipé » (OFSP et ASSM, 2023) et du modèle zurichois ACP-NOPA.
-- **TRANS_H-S1-03** : Contenu exact des art. 370 à 373 CC (directives anticipées) et de l'art. 360 CC (mandat pour cause d'inaptitude).
-- **TRANS_H-S2-01** : Version 2026 des directives ASSM « Décisions de réanimation » (2021) et « Mesures de soins intensifs » (2013 ; révision ?), et formulation de la notion de traitement « futile » ou « disproportionné ».
-- **TRANS_H-S2-02** : Peine prévue par l'art. 115 CP (peine privative de liberté de cinq ans au plus ou peine pécuniaire) après l'harmonisation des peines de 2023.
-- **TRANS_H-S2-02** : Règles cantonales sur l'assistance au suicide dans les hôpitaux et EMS subventionnés (par exemple Vaud et Neuchâtel) et obligation d'annonce comme mort non naturelle.
-- **TRANS_H-S2-02** : Base légale de la prescription du pentobarbital sodique (LStup, Compendium) et exigences cantonales.
-- **TRANS_H-S2-03** : Montant limite des cadeaux de valeur modeste selon l'OIPTh (300 francs par an et par professionnel ?) et contenu de l'art. 55 LPTh révisé (en vigueur depuis le 1.1.2020).
-- **TRANS_H-S2-03** : Version en vigueur des directives ASSM « Collaboration corps médical – industrie » (2013 ; révision 2022 ?).
-- **TRANS_H-S2-03** : Obligation de répercuter les avantages et rabais selon l'art. 56 al. 3 LAMal.
-- **TRANS_H-S3-01** : Données selon lesquelles une titration correcte des opioïdes en fin de vie ne raccourcit pas la survie (Sykes et Thorns 2003, Maltoni 2012 pour la sédation) : formulation prudente à conserver.
-- **TRANS_H-S3-02** : Recommandations de l'ASSM sur l'éthique clinique (« Éthique clinique : recommandations », 2012 ; mise à jour ?) et structures existantes dans les hôpitaux suisses en 2026.
-- **TRANS_H-S3-02** : Caractère consultatif des avis des conseils d'éthique clinique en droit suisse (aucune base légale décisionnelle).
-- **TRANS_H-S3-03** : Contenu de la révision d'octobre 2024 de la Déclaration d'Helsinki (Assemblée générale de l'AMM, Helsinki) concernant le placebo et les personnes vulnérables.
-- **TRANS_H-S3-03** : Articles de la LRH sur le consentement (art. 16), la recherche en situation d'urgence (art. 30-31) et les personnes vulnérables (art. 21-24), et catégories de risque A, B, C de l'OClin.
-- **TRANS_H-S4-01** : Version la plus récente des directives ASSM/SSMI « Triage des traitements de soins intensifs en cas de pénurie des ressources » (publiées en mars 2020, actualisées plusieurs fois, dernière version 2021 ou ultérieure).
-- **TRANS_H-S4-01** : Usage de l'échelle de fragilité clinique (Clinical Frailty Scale) dans la version actuelle et position sur le statut vaccinal comme critère (exclu).
-- **TRANS_H-S4-02** : Article du Code de déontologie FMH qui reconnaît la liberté du médecin de refuser un traitement hors urgence et impose d'assurer la continuité (art. 5 ?).
-- **TRANS_H-S4-02** : Règles cantonales sur l'objection de conscience dans les hôpitaux publics pour l'interruption de grossesse (art. 119 CP) et l'assistance au suicide en institution.
-- **TRANS_H-S4-03** : Position de l'ASSM sur l'alimentation et l'hydratation artificielles comme traitement médical dans les directives « Attitude face à la fin de vie et à la mort » (2018/2021) et « Mesures de soins intensifs ».
-- **TRANS_H-S4-03** : Délais diagnostiques classiques de l'état végétatif permanent (3 mois après lésion non traumatique, 12 mois après lésion traumatique ; recommandations AAN 2018 plus prudentes).
 - **TRANS_I-S1-01** : Exemples de maladies choisis selon leur mode de transmission (mucoviscidose AR, Huntington AD, hémophilie A récessive liée à l'X, MELAS mitochondriale) : classiques, sans chiffre.
 - **TRANS_I-S1-02** : Exigence éventuelle d'un consentement écrit pour certaines analyses (la LAGH exige un consentement libre et exprès ; forme écrite à vérifier dans l'OAGH).
 - **TRANS_I-S1-02** : Liste des analyses que peut prescrire un médecin sans titre de spécialiste ni qualification en génétique (art. 5 OAGH), mise à jour 2026.
@@ -164,6 +141,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_M-S2-02** : Données Cochrane sur l'absence d'efficacité démontrée des anticholinergiques dans les râles agoniques par rapport au placebo.
 - **TRANS_M-S2-03** : Posologies initiales : prégabaline 25 à 75 mg deux fois par jour avec adaptation rénale ; duloxétine 30 puis 60 mg par jour ; méthadone réservée aux équipes expérimentées ; radiothérapie antalgique en fraction unique de 8 Gy pour les métastases osseuses (ESTRO/ASTRO).
 - **TRANS_M-S2-03** : Recommandations ESMO 2018 et NeuPSIG sur le choix des coantalgiques dans la douleur neuropathique cancéreuse.
+- **TRANS_M-S3-01** : Version en vigueur des recommandations BIGORIO 2005 sur la sédation palliative (palliative.ch) et éventuelle mise à jour ; recommandations EAPC 2009 et révision 2024 (Surges et al.).
+- **TRANS_M-S3-01** : Posologies du midazolam SC : bolus de 2,5 à 5 mg, perfusion initiale de 0,5 à 1 mg/h titrée ; à confirmer dans le protocole local et l'AIPS.
+- **TRANS_M-S3-02** : Posologies usuelles en occlusion maligne : dexaméthasone 8 à 16 mg par jour pendant 5 jours puis arrêt si inefficace ; octréotide 100 à 200 µg SC toutes les 8 heures (ou 300 à 600 µg par jour en continu) ; butylscopolamine 60 à 120 mg par jour SC ; halopéridol 0,5 à 1,5 mg SC ; selon MASCC et palliative.ch.
+- **TRANS_M-S3-02** : Place de la sonde de gastrostomie de décharge (venting PEG) et des endoprothèses digestives selon l'ESMO.
+- **TRANS_M-S3-03** : Outils d'évaluation spirituelle validés en français (SPIR, FICA) et recommandations suisses (palliative.ch, groupe spiritualité) sur l'accompagnement spirituel.
+- **TRANS_M-S3-03** : Données sur le deuil prolongé (trouble de deuil prolongé, CIM-11 6B42 et DSM-5-TR) : critères de durée (au moins 6 mois dans la CIM-11, 12 mois dans le DSM-5-TR).
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -177,4 +160,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : M (6/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : M (9/12), N (0/12), O (0/12), P (0/12), R (0/12).
