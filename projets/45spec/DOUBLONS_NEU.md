@@ -14,3 +14,5 @@ Vérifiées sans doublon (lot 16) : G72.3 (paralysie périodique thyrotoxique ; 
 
 Vérifiées sans doublon (lot 17) : G72.0 (myopathie aux statines), G80.9 (paralysie cérébrale ; PED ne la contient que comme mention dans P07.3), G93.3 (fatigue chronique ; distincte de PSY F45.1 et F45.2) ; main, PSY, INF, PED vérifiées le 24.11.2026.
 Recouvrement partiel repéré pour la suite : G04.9_1__S7_10-E13 (convulsions fébriles complexes) face à PED R56.0__S7_10-E03 (convulsions fébriles simples) ; à arbitrer avant production.
+
+Vérifiées sans doublon (lot 18) : G04.9_1__S7_10-E13 (convulsions fébriles complexes, produite sous l'angle complexe — critères, indications de PL/IRM/EEG, risque d'épilepsie, Dravet — pour ne pas répéter PED R56.0 simples), G12.0 (amyotrophie spinale ; seulement citée dans NEU G80.9 comme diagnostic différentiel), G25.5 (hémiballisme) ; main, PSY, INF, PED vérifiées le 24.11.2026.

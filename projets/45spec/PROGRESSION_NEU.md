@@ -1,6 +1,6 @@
 # Progression NEU — production manuelle sans API (agent 45spec-NEU)
 
-Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 50.
+Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 53.
 
 Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts/ecrire_manuel.py SOURCE --spec NEU` (valider() et ecrire() du script de production).
 
@@ -24,6 +24,7 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | G62.0__O5_4-E03 | Douleur neuropathique réfractaire (post-chimiothérapie, envahissement plexique) | 27 | 20 | 0 |
 | G63.2__O3_2-E10 | Polyneuropathie diabétique distale symétrique | 25 | 20 | 0 |
 | I69.3_sequelles_d_avc_apha__F1_11-E04 | Séquelles d'AVC (aphasie chronique, hémiparésie séquellaire) | 27 | 20 | 0 |
+| G12.0_amyotrophie_spinale___O2_11-E08 | Amyotrophie spinale infantile (SMA) : dépistage néonatal et thérapies géniques | 26 | 20 | 0 |
 | G25.8__G11-E04 | Syndrome des jambes sans repos (SJSR / maladie de Willis-Ekbom) | 26 | 20 | 0 |
 | G31.8__F1_9-E06 | Démence à corps de Lewy (DCL) | 25 | 20 | 0 |
 | G35__S7_3-E10 | Sclérose en plaques (poussée motrice hémiparétique ou paraparétique) | 35 | 21 | 0 |
@@ -40,9 +41,11 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | I61.9_hemorragie_intracere__F1_15-E13 | Hémorragie intracérébrale (intraparenchymateuse, du tronc, sur trouble de l'hémostase) | 26 | 20 | 0 |
 | E51.2__F1_15-E07 | Encéphalopathie de Gayet-Wernicke (carence aiguë en thiamine) | 25 | 20 | 0 |
 | G00.9__F1_15-E17 | Méningite bactérienne aiguë | 39 | 20 | 0 |
+| G04.9_1__S7_10-E13 | Convulsions fébriles complexes / méningo-encéphalite convulsivante | 27 | 20 | 0 |
 | G04.9_1__S7_7-E13 | Encéphalite aiguë (herpétique ou auto-immune) | 25 | 20 | 0 |
 | G08_thrombose_du_sinus_c__S1_1-E14 | Thrombose du sinus caverneux (septique) et fistule carotido-caverneuse | 27 | 20 | 0 |
 | G21.0__F1_15-E11 | Syndrome malin des neuroleptiques | 25 | 20 | 0 |
+| G25.5__S7_3-E12 | Hémiballisme aigu sur AVC du noyau sous-thalamique (corps de Luys) | 26 | 20 | 0 |
 | G40.4__O2_5-E12 | Spasmes infantiles (syndrome de West) | 26 | 20 | 0 |
 | G40.9_premiere_crise_epile__O3_7-E15 | Première crise épileptique (crise inaugurale) | 25 | 20 | 0 |
 | G41.0__S7_10-E11 | État de mal épileptique convulsif généralisé (EME) | 38 | 20 | 0 |
@@ -105,9 +108,9 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 42. G72.0__O3_3-E09 — fait
 43. G80.9__O2_11-E05 — fait
 44. G93.3_syndrome_de_fatigue___G4-E06 — fait
-45. G04.9_1__S7_10-E13
-46. G12.0_amyotrophie_spinale___O2_11-E08
-47. G25.5__S7_3-E12
+45. G04.9_1__S7_10-E13 — fait
+46. G12.0_amyotrophie_spinale___O2_11-E08 — fait
+47. G25.5__S7_3-E12 — fait
 48. G37.2__F2_7-E18
 49. G37.3_myelite_transverse_a__S4_15-E12
 50. G40.9_premiere_crise_epile__O3_7-E15 — fait
