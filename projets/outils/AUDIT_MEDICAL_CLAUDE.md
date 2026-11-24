@@ -44,6 +44,7 @@ La branche reçoit deux sources : les lots réparés par la veille, et le travai
 ## 2. Contrôler puis publier
 
 1. Relancer `audit_fond.py`, `lots_complement.py`, `auditer_conception.py` et `auditer_couverture.py` et `non_perte.py` (aucune valeur remplie sur main ne doit disparaître) : tout doit passer.
+   Raccourci : `bash projets/outils/controles_caches.sh` lance les cinq ; les quatre premiers passent par le cache haché et sont sautés si leurs entrées, leur script et leurs sorties n'ont pas bougé (`--forcer` pour tout relancer). Un échec n'est jamais mis en cache ; `non_perte.py` est toujours relancé.
 2. Déplacer les entrées traitées de `EN_ATTENTE_AUDIT_MEDICAL.json` vers `projets/retours/audits_medicaux.json`
    (verdict, corrections, sources), puis vider la file d'attente (`[]`).
 3. Committer sur `veille/audit-medical`, pousser, ouvrir la PR vers `main`, puis la fusionner :
