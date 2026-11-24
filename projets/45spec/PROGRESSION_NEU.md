@@ -1,6 +1,6 @@
 # Progression NEU — production manuelle sans API (agent 45spec-NEU)
 
-Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 35.
+Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 38.
 
 Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts/ecrire_manuel.py SOURCE --spec NEU` (valider() et ecrire() du script de production).
 
@@ -9,11 +9,13 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | id | entité | notions | questions | erreurs valider() |
 |---|---|---|---|---|
 | G20_1__S7_1-E05 | Maladie de Parkinson et syndromes parkinsoniens (instabilité posturale) | 33 | 21 | 0 |
+| G24.5__S1_6-E02 | Myokymie palpébrale bénigne (fasciculations de la paupière) | 27 | 20 | 0 |
 | G25.0__S7_3-E01 | Tremblement essentiel | 25 | 20 | 0 |
 | G30.9__F1_9-E01 | Maladie d'Alzheimer | 31 | 20 | 0 |
 | G40.2_epilepsie_focale_tem__G11-E17 | Épilepsie focale (temporale, frontale, crise sensitive jacksonienne) | 25 | 20 | 0 |
 | G40.3_1__F1_19-E04 | Épilepsie généralisée idiopathique (tonico-clonique, myoclonique juvénile) | 30 | 20 | 0 |
 | G40.9_1__F1_15-E02 | Paralysie de Todd post-critique (hémiparésie transitoire après crise épileptique) | 27 | 20 | 0 |
+| G43.1__S7_5-E04 | Migraine vestibulaire | 27 | 20 | 0 |
 | G43.9__S3_10-E06 | Migraine avec ou sans aura (et syndrome des vomissements cycliques) | 35 | 21 | 0 |
 | G44.2__G10-E02 | Céphalée de tension | 26 | 20 | 0 |
 | G47.0_insomnie_aigue_situa__G11-E03 | Insomnie (aiguë situationnelle ou chronique) | 29 | 20 | 0 |
@@ -25,6 +27,7 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | G45.4__S7_7-E14 | Amnésie globale transitoire (ictus amnésique idiopathique) | 27 | 20 | 0 |
 | G50.0__G10-E08 | Névralgie du trijumeau | 27 | 20 | 0 |
 | G70.0__F1_11-E10 | Myasthénie grave (dysphonie et voix nasonnée fatigables) | 31 | 20 | 0 |
+| G93.4__F1_15-E04 | Encéphalopathie métabolique (hyponatrémie sévère, hypercalcémie, urémie) | 27 | 20 | 0 |
 | G97.1__S7_6-E09 | Céphalée post-ponction lombaire (syndrome d'hypotension du LCR) | 26 | 20 | 0 |
 | I61.9_hemorragie_intracere__F1_15-E13 | Hémorragie intracérébrale (intraparenchymateuse, du tronc, sur trouble de l'hémostase) | 26 | 20 | 0 |
 | E51.2__F1_15-E07 | Encéphalopathie de Gayet-Wernicke (carence aiguë en thiamine) | 25 | 20 | 0 |
@@ -59,7 +62,7 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 11. G63.2__O3_2-E10 — fait
 12. G45.4__S7_7-E14 — fait
 13. G70.0__F1_11-E10 — fait
-14. G93.4__F1_15-E04
+14. G93.4__F1_15-E04 — fait
 15. G41.9_etat_de_mal_epilepti__F1_15-E16 — fait
 16. I63.9__F1_11-E12 — fait
 17. G40.3_1__F1_19-E04 — fait
@@ -67,10 +70,10 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 19. G45.9__F1_11-E13 — fait
 20. I67.0_dissection_des_arter__F1_12-E12 — fait
 21. I67.1__F1_12-E15 — fait
-22. G24.5__S1_6-E02
+22. G24.5__S1_6-E02 — fait
 23. G25.0__S7_3-E01 — fait
 24. G40.2_epilepsie_focale_tem__G11-E17 — fait
-25. G43.1__S7_5-E04
+25. G43.1__S7_5-E04 — fait
 26. G44.8__S7_6-E06
 27. G62.0__O5_4-E03
 28. I69.3_sequelles_d_avc_apha__F1_11-E04
