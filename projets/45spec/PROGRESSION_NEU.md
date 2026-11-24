@@ -1,6 +1,6 @@
 # Progression NEU — production manuelle sans API (agent 45spec-NEU)
 
-Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 17.
+Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 20.
 
 Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts/ecrire_manuel.py SOURCE --spec NEU` (valider() et ecrire() du script de production).
 
@@ -16,14 +16,17 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | G35__S7_3-E10 | Sclérose en plaques (poussée motrice hémiparétique ou paraparétique) | 35 | 21 | 0 |
 | G44.0__S1_11-E07 | Algie vasculaire de la face (cluster headache) | 25 | 20 | 0 |
 | G70.0__F1_11-E10 | Myasthénie grave (dysphonie et voix nasonnée fatigables) | 31 | 20 | 0 |
+| I61.9_hemorragie_intracere__F1_15-E13 | Hémorragie intracérébrale (intraparenchymateuse, du tronc, sur trouble de l'hémostase) | 26 | 20 | 0 |
 | E51.2__F1_15-E07 | Encéphalopathie de Gayet-Wernicke (carence aiguë en thiamine) | 25 | 20 | 0 |
 | G00.9__F1_15-E17 | Méningite bactérienne aiguë | 39 | 20 | 0 |
 | G04.9_1__S7_7-E13 | Encéphalite aiguë (herpétique ou auto-immune) | 25 | 20 | 0 |
+| G40.9_premiere_crise_epile__O3_7-E15 | Première crise épileptique (crise inaugurale) | 25 | 20 | 0 |
 | G41.0__S7_10-E11 | État de mal épileptique convulsif généralisé (EME) | 38 | 20 | 0 |
 | G45.9__F1_11-E13 | Accident ischémique transitoire (AIT) avec trouble aigu du langage | 33 | 21 | 0 |
 | G61.0__O4_2-E13 | Syndrome de Guillain-Barré (polyradiculonévrite aiguë) | 36 | 20 | 0 |
 | G95.2__O5_3-E12 | Compression médullaire aiguë (paraparésie spastique/flasque aiguë avec troubles de la marche) | 29 | 20 | 0 |
 | I63.9__F1_11-E12 | Accident vasculaire cérébral aigu (AVC ischémique ou hémorragique) | 46 | 24 | 0 |
+| I63.9_avc_de_la_circulatio__F1_15-E14 | AVC de la circulation postérieure (tronc cérébral, cervelet, thrombose basilaire, syndrome de Wallenberg) | 25 | 20 | 0 |
 | I67.1__F1_12-E15 | Anévrisme de l'artère communicante postérieure (paralysie du III) | 28 | 20 | 0 |
 
 ## Ordre de priorité retenu (importance pour l'examen)
@@ -45,9 +48,9 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 15. E51.2__F1_15-E07 — fait
 16. G04.9_1__S7_7-E13 — fait
 17. G44.0__S1_11-E07 — fait
-18. I61.9_hemorragie_intracere__F1_15-E13
-19. G40.9_premiere_crise_epile__O3_7-E15
-20. I63.9_avc_de_la_circulatio__F1_15-E14
+18. I61.9_hemorragie_intracere__F1_15-E13 — fait
+19. G40.9_premiere_crise_epile__O3_7-E15 — fait
+20. I63.9_avc_de_la_circulatio__F1_15-E14 — fait
 21. I67.0_dissection_des_arter__F1_12-E12
 22. G21.0__F1_15-E11
 23. G93.5_hypertension_intracr__F1_12-E11

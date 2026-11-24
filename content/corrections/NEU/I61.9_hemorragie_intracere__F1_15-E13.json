@@ -1,0 +1,538 @@
+{
+ "id": "I61.9_hemorragie_intracere__F1_15-E13",
+ "portes": [
+  {
+   "ssp": "G14",
+   "nomSSP": "Décès inattendu ou mort subite",
+   "entite": "Accident vasculaire cérébral hémorragique massif du tronc cérébral",
+   "entiteId": "G14-E07"
+  },
+  {
+   "ssp": "S7.6",
+   "nomSSP": "Céphalées",
+   "entite": "Hémorragie intraparenchymateuse / AVC hémorragique (céphalée brutale + déficit focal)",
+   "entiteId": "S7.6-E16"
+  },
+  {
+   "ssp": "F1.15",
+   "nomSSP": "Altération ou perte de conscience, coma",
+   "entite": "Hémorragie intracérébrale ou sous-arachnoïdienne aiguë",
+   "entiteId": "F1.15-E13"
+  },
+  {
+   "ssp": "F2.25",
+   "nomSSP": "Thrombopénie, thrombocytose",
+   "entite": "Hémorragie intracrânienne sur thrombopénie sévère",
+   "entiteId": "F2.25-E17"
+  }
+ ],
+ "entite": "Hémorragie intracérébrale (intraparenchymateuse, du tronc, sur trouble de l'hémostase)",
+ "cim10": "I61.9",
+ "ssp": {
+  "code": "S7.6",
+  "nom": "Céphalées",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Céphalée brutale",
+    "i": "Le premier tri cherche un déficit ou une baisse de vigilance.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Déficit focal ou trouble de vigilance",
+    "i": "L'imagerie immédiate s'impose.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Hématome intraparenchymateux",
+    "i": "Hémorragie intracérébrale.",
+    "pec": "hic",
+    "notion": "c1"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Sang sous-arachnoïdien",
+    "i": "Hémorragie méningée : angio-CT des anévrismes (même SSP).",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n5",
+    "parent": "n2",
+    "t": "Scanner normal",
+    "i": "Infarctus possible : filière AVC ischémique.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n6",
+    "parent": "n3",
+    "t": "Anticoagulant ou thrombopénie",
+    "i": "Antagonisation ou plaquettes.",
+    "pec": "hic",
+    "notion": "c2"
+   },
+   {
+    "id": "n7",
+    "parent": "n3",
+    "t": "PAS élevée",
+    "i": "Baisse vers 140 mmHg.",
+    "pec": "hic",
+    "notion": "c2"
+   },
+   {
+    "id": "n8",
+    "parent": "n3",
+    "t": "Cervelet compressif",
+    "i": "Neurochirurgie urgente.",
+    "pec": "hic",
+    "notion": "c3"
+   },
+   {
+    "id": "n9",
+    "parent": "n1",
+    "t": "Céphalée isolée sans drapeau rouge",
+    "i": "Céphalée primaire à évaluer (même SSP).",
+    "pec": null,
+    "notion": "c1"
+   }
+  ]
+ },
+ "specialites": [
+  "NEU"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Hémorragie intracérébrale : la prouver par l'imagerie, abaisser la PA vers 140 mmHg, antagoniser l'anticoagulant, opérer le cervelet compressif et chercher la cause selon le siège",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Siège et cause",
+   "rubriques": [
+    "basicSciences",
+    "workupAlternatives"
+   ],
+   "comment": "Déduis la cause probable du siège et du terrain.",
+   "tableau": {
+    "colonnes": [
+     "Siège",
+     "Terrain",
+     "Cause probable",
+     "Indice"
+    ],
+    "lignes": [
+     [
+      "Profond (putamen, thalamus, pont, cervelet)",
+      "Hypertendu",
+      "Artériolopathie hypertensive",
+      [
+       {
+        "t": "Perforantes",
+        "i": "La lipohyalinose touche les petites artères profondes."
+       }
+      ]
+     ],
+     [
+      "Lobaire",
+      "Sujet âgé",
+      "Angiopathie amyloïde",
+      [
+       {
+        "t": "Microsaignements corticaux",
+        "i": "L'IRM de susceptibilité les montre (Boston 2.0)."
+       }
+      ]
+     ],
+     [
+      "Lobaire",
+      "Sujet jeune normotendu",
+      "Malformation, thrombose veineuse, tumeur",
+      [
+       {
+        "t": "Angiographie",
+        "i": "Elle cherche la lésion sous-jacente."
+       }
+      ]
+     ],
+     [
+      "Tout siège",
+      "Anticoagulant ou thrombopénie",
+      "Trouble de l'hémostase",
+      [
+       {
+        "t": "INR, plaquettes",
+        "i": "Ils guident l'antagonisation."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le scanner sans injection confirme, l'angio-CT complète."
+   ],
+   "sources": [
+    "[Greenberg, Lancet Neurol, 2022]",
+    "[Charidimou, Lancet Neurol, 2022]"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Les heures qui comptent",
+   "rubriques": [
+    "acuteManagement",
+    "hospitalizationComplications"
+   ],
+   "comment": "Freine l'expansion de l'hématome dès l'imagerie.",
+   "tableau": {
+    "colonnes": [
+     "Mesure",
+     "Modalité",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "PA",
+      "PAS vers 140 mmHg, pas sous 130",
+      [
+       {
+        "t": "Expansion",
+        "i": "La pression entretient le saignement précoce."
+       }
+      ]
+     ],
+     [
+      "AVK",
+      "CCP + vitamine K IV",
+      [
+       {
+        "t": "Rapidité",
+        "i": "Le CCP corrige en minutes, la vitamine K maintient."
+       }
+      ]
+     ],
+     [
+      "Dabigatran",
+      "Idarucizumab",
+      [
+       {
+        "t": "Spécifique",
+        "i": "Il lie le dabigatran."
+       }
+      ]
+     ],
+     [
+      "Anti-Xa",
+      "Andexanet alfa ou CCP",
+      [
+       {
+        "t": "Protocole local",
+        "i": "La disponibilité varie ; à vérifier."
+       }
+      ]
+     ],
+     [
+      "Antiagrégant sans chirurgie",
+      "Pas de plaquettes",
+      [
+       {
+        "t": "PATCH",
+        "i": "La transfusion aggrave le pronostic."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Posologies à vérifier dans l'AIPS."
+   ],
+   "sources": [
+    "[AHA/ASA, 2022]"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Chirurgie et complications",
+   "rubriques": [
+    "acuteManagement",
+    "hospitalizationComplications"
+   ],
+   "comment": "Repère ce qui menace le tronc et ce qui se prévient.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "h1",
+     "parent": null,
+     "t": "Hématome confirmé",
+     "i": "Le siège décide de la chirurgie.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "h2",
+     "parent": "h1",
+     "t": "Cervelet compressif ou hydrocéphalie",
+     "i": "Évacuation ou dérivation urgente.",
+     "pec": "hic",
+     "notion": null
+    },
+    {
+     "id": "h3",
+     "parent": "h1",
+     "t": "Supratentoriel stable",
+     "i": "Traitement médical en stroke unit.",
+     "pec": "hic",
+     "notion": null
+    },
+    {
+     "id": "h4",
+     "parent": "h3",
+     "t": "Prévention",
+     "i": "CPI dès l'admission, test de déglutition, glycémie, température.",
+     "pec": "hic",
+     "notion": null
+    },
+    {
+     "id": "h5",
+     "parent": "h3",
+     "t": "À éviter",
+     "i": "Corticoïdes, prophylaxie antiépileptique systématique.",
+     "pec": "hic",
+     "notion": null
+    }
+   ],
+   "points": [
+    "L'expansion explique la dégradation précoce."
+   ],
+   "sources": [
+    "[AHA/ASA, 2022]",
+    "[CLOTS 3, Lancet, 2013]"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Pronostic et suite",
+   "rubriques": [
+    "prognosisDischarge",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "Informe sans condamner trop tôt et prépare la prévention secondaire.",
+   "tableau": {
+    "colonnes": [
+     "Thème",
+     "Conduite",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Score ICH",
+      "Glasgow, volume, ventricules, infratentoriel, âge ≥ 80",
+      "Il estime la mortalité."
+     ],
+     [
+      "Limitation des soins",
+      "Selon les directives anticipées",
+      "Un ordre précoce injustifié aggrave l'issue."
+     ],
+     [
+      "PA au long cours",
+      "< 130/80 mmHg",
+      "Elle réduit la récidive."
+     ],
+     [
+      "Anticoagulation pour FA",
+      [
+       {
+        "t": "Au cas par cas",
+        "i": "Les essais restent limités."
+       }
+      ],
+      "Discussion neurologique"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Mortalité à un mois proche de 40 %."
+   ],
+   "sources": [
+    "[van Asch, Lancet Neurol, 2010]"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "hic",
+   "titre": "Hémorragie intracérébrale aiguë",
+   "but": [
+    "Limiter l'expansion de l'hématome.",
+    "Prévenir complications et récidive."
+   ],
+   "moyens": {
+    "accueil": [
+     "Imagerie cérébrale immédiate.",
+     "INR, plaquettes, anticoagulant pris et heure de la dernière dose."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Urapidil ou labétalol IV (antihypertenseurs)",
+      "posologie": "Titration vers PAS 140 mmHg ; à vérifier dans l'AIPS.",
+      "pourquoi": "La baisse précoce limite l'expansion.",
+      "source": "[AHA/ASA, 2022]"
+     },
+     {
+      "molecule": "Concentré de complexe prothrombinique + vitamine K",
+      "posologie": "Dose selon INR et poids ; à vérifier dans l'AIPS.",
+      "pourquoi": "Ils corrigent l'effet des AVK.",
+      "source": "[AIPS Swissmedic]"
+     },
+     {
+      "molecule": "Idarucizumab",
+      "posologie": "Dose fixe selon l'AIPS ; à vérifier.",
+      "pourquoi": "Il neutralise le dabigatran.",
+      "source": "[AIPS Swissmedic]"
+     },
+     {
+      "molecule": "Andexanet alfa",
+      "posologie": "Selon l'AIPS et le protocole local ; disponibilité à vérifier.",
+      "pourquoi": "Il neutralise les anti-Xa.",
+      "source": "[AHA/ASA, 2022]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Évacuation d'un hématome cérébelleux compressif, dérivation ventriculaire.",
+      "pourquoi": "Elles lèvent la compression du tronc et l'hydrocéphalie."
+     },
+     {
+      "categorie": "rééducation",
+      "mesure": "Physiothérapie, ergothérapie, logopédie précoces.",
+      "pourquoi": "Elles améliorent la récupération."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "Neurochirurgie",
+      "apport": "Elle décide de l'évacuation ou de la dérivation."
+     },
+     {
+      "discipline": "Soins palliatifs",
+      "apport": "Ils accompagnent les formes graves selon la volonté du patient."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Scanner et angio-CT immédiats.",
+      "PAS vers 140 mmHg en moins d'une heure, pas sous 130."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin urgentiste",
+       "fait": "Demande l'imagerie et l'hémostase."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Mesure PA et Glasgow de façon répétée."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "neurologue",
+       "fait": "Dirige l'antagonisation et l'admission en stroke unit."
+      },
+      {
+       "temps": "puis",
+       "qui": "neurochirurgien·ne",
+       "fait": "Évalue l'hématome cérébelleux ou l'hydrocéphalie."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "PA < 130/80 mmHg au long cours.",
+      "IRM étiologique à distance."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "neurologue",
+       "fait": "Établit la cause et la prévention secondaire."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin de famille",
+       "fait": "Contrôle la PA et l'observance."
+      },
+      {
+       "temps": "puis",
+       "qui": "équipe de réadaptation",
+       "fait": "Organise la réadaptation."
+      }
+     ]
+    }
+   },
+   "pronostic": "La mortalité à un mois avoisine 40 % ; le score ICH l'estime sans dicter la décision.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Glasgow et déficit",
+      "quand": "Horaire en phase aiguë",
+      "cible": "Stabilité"
+     },
+     {
+      "quoi": "PA",
+      "quand": "Continue puis à chaque consultation",
+      "cible": "< 130/80 mmHg au long cours"
+     },
+     {
+      "quoi": "Scanner de contrôle",
+      "quand": "Si dégradation",
+      "cible": "Pas d'expansion"
+     }
+    ],
+    "sortie": "La sortie vers la réadaptation suit la stabilisation neurologique et le contrôle tensionnel."
+   },
+   "prevention": {
+    "primaire": "Elle repose sur le contrôle de la PA.",
+    "secondaire": "Elle réévalue l'indication des antithrombotiques.",
+    "tertiaire": "Elle limite l'alcool."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "_mode": "manuel",
+  "agent": "45spec-NEU"
+ },
+ "signature": {
+  "date": "2026-11-24T12:12:51",
+  "modele": "claude-opus-5-5 (production manuelle sans API, agent 45spec)",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ },
+ "aVerifier": [
+  "Proportion des hémorragies intracérébrales parmi les AVC en Suisse à vérifier.",
+  "Disponibilité et remboursement de l'andexanet alfa en Suisse à vérifier dans l'AIPS.",
+  "Mise à jour éventuelle de la recommandation ESO 2014 sur l'hémorragie intracérébrale à vérifier.",
+  "Doses de CCP, idarucizumab, urapidil et labétalol à vérifier dans l'AIPS."
+ ]
+}
