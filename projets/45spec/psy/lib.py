@@ -93,6 +93,11 @@ def controles_vial(nt, qs, cor):
     p = [x["poids"] for x in nt["notions"]]
     if p.count(3) > 0.15 * len(p) + 0.01 or p.count(2) > 0.35 * len(p) + 0.01: err.append(f"poids 3/2 : {p.count(3)}/{p.count(2)} sur {len(p)}")
     if not any(q["serie"] for q in qs["questions"]): err.append("aucune série")
+    TR = {t["letter"]: t["name"] for t in json.load(open(os.path.join(R, "data", "references", "transversales_19_et_systemes.json"), encoding="utf-8"))["transversales"]}
+    for p in cor["priseEnCharge"]:
+        for t in p["moyens"]["transversal"]:
+            l, _, n = t["discipline"].partition(" ")
+            if l not in TR or not TR[l].startswith(n.split(" (")[0][:12]): err.append(f"discipline inconnue : {t['discipline']}")
     return err
 
 

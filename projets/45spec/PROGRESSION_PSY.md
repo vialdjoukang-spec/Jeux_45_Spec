@@ -1,15 +1,15 @@
 # Progression PSY — MedSuisse Arena 45 (production par agent, sans API)
 
-Pathologies canoniques PSY (canoniques() avec fusions) : 152. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 3/152.
+Pathologies canoniques PSY (canoniques() avec fusions) : 152. Ordre : importance pour l'examen fédéral, puis ordre du script. Produites : 6/152.
 
 | # | Id | Pathologie | Notions | Questions | Correction |
 |---|---|---|---|---|---|
 | 1 | F32.1__G4-E01 | Épisode dépressif caractérisé (léger à modéré) | 31 | 18 | oui |
 | 2 | F10.4__F1_15-E09 | Delirium tremens (sevrage alcoolique sévère) | 30 | 18 | oui |
 | 3 | F41.1__G1-E03 | Trouble anxieux généralisé (TAG) | 29 | 18 | oui |
-| 4 | F43.1__O6_3-E05 | Trouble de stress post-traumatique (TSPT / PTSD) (> 1 mois) | — | — | — |
-| 5 | F41.0__S2_1-E07 | Trouble panique (attaques de panique récurrentes) | — | — | — |
-| 6 | F50.0__F1_8-E03 | Anorexie mentale (trouble des conduites alimentaires) | — | — | — |
+| 4 | F43.1__O6_3-E05 | Trouble de stress post-traumatique (TSPT / PTSD) (> 1 mois) | 29 | 18 | oui |
+| 5 | F41.0__S2_1-E07 | Trouble panique (attaques de panique récurrentes) | 29 | 18 | oui |
+| 6 | F50.0__F1_8-E03 | Anorexie mentale (trouble des conduites alimentaires) | 30 | 18 | oui |
 | 7 | F23.9__O2_2-E14 | Épisode psychotique aigu (bouffée délirante / premier épisode psychoti | — | — | — |
 | 8 | F30.1_1__O6_8-E14 | État maniaque aigu avec agitation et mise en danger | — | — | — |
 | 9 | F10.2__S9_13-E02 | Trouble de l'usage de l'alcool (consommation à risque / alcoolodépenda | — | — | — |
