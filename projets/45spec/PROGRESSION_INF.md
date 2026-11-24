@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API (format exact de `scripts/produire_notions_questions.py`), branche `agent/45spec-INF`.
 
-**9 / 82 pathologies canoniques produites** (notions + questions + correction), ordre du script (fréquence puis identifiant).
+**12 / 82 pathologies canoniques produites** (notions + questions + correction), ordre du script (fréquence puis identifiant).
 
 Statut d'audit : en attente (`audit.rejector = null`). Les chiffres incertains portent la mention « à vérifier » dans le champ source.
 
@@ -17,9 +17,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Les chiffres incertains p
 | 7 | `B24_1__O7_6-E02` | Infection par le VIH contrôlée ou nouvellement diagnostiquée | produite |
 | 8 | `B30.9__S1_17-E01` | Conjonctivite aiguë virale (adénovirus) | produite |
 | 9 | `B34.9_1__F2_19-E02` | Infection virale aiguë (lymphocytose ou leucopénie transitoire) | produite |
-| 10 | `B34.9__S5_4-E01` | Myalgies virales aiguës (grippe, entérovirus, COVID-19) | — |
-| 11 | `B37.0_1__S6_1-E01` | Candidose buccale (muguet) et vulvo-vaginale | — |
-| 12 | `B37.0__S1_9-E02` | Candidose oropharyngée (muguet buccal, perlèche) | — |
+| 10 | `B34.9__S5_4-E01` | Myalgies virales aiguës (grippe, entérovirus, COVID-19) | produite |
+| 11 | `B37.0_1__S6_1-E01` | Candidose buccale (muguet) et vulvo-vaginale | produite |
+| 12 | `B37.0__S1_9-E02` | Candidose oropharyngée (muguet buccal, perlèche) | produite |
 | 13 | `B37.2__S6_9-E04` | Intertrigo candidosique ou dermatophytique des grands plis | — |
 | 14 | `B37.3__S4_18-E02` | Vulvo-vaginite candidosique (mycose à Candida albicans) | — |
 | 15 | `A04.5__S3_9-E06` | Colite infectieuse aiguë dysentérique ou IST rectale (Campylobacter, Shigella, EIEC, Chlamydia/gonocoque) | — |
