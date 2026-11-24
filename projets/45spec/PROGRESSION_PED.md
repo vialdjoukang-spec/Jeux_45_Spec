@@ -81,7 +81,7 @@ Les données douteuses portent la mention « à vérifier » dans leur source (A
 ## Ordre de production révisé (priorité examen fédéral, 24.11.2026)
 
 La file restante ne suit plus `selection()` (fréquence brute) mais l'importance pour l'examen fédéral suisse : urgences vitales et pathologies fréquentes du nouveau-né et du nourrisson d'abord, puis malformations dépistées, puis entités rares, enfin entités psychosociales et partagées (MIG/PEA) en dernier.
-Absentes des entités canoniques PED (non produisibles ici, à signaler au catalogue) : méningite bactérienne de l'enfant, asthme, laryngite, otite moyenne aiguë, pneumonie communautaire, infection urinaire fébrile, invagination, sténose du pylore, maltraitance, diabète de type 1/acidocétose, épilepsie, gastro-entérite avec déshydratation du nourrisson.
+Absentes des entités canoniques PED (non produisibles ici) : voir `MANQUES_CATALOGUE_PED.md` — laryngite, OMA, invagination, sténose du pylore, maltraitance et épilepsie existent dans d'autres spécialités (ORL, CPE, LEG, NEU) ; méningite, asthme, pneumonie, infection urinaire fébrile, diabète de type 1 et gastro-entérite courante de l'enfant n'existent qu'en version générale.
 
 | Rang | Identifiant | Pathologie |
 |---|---|---|
