@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**258 / 500 pathologies du périmètre produites.**
+**261 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -149,9 +149,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 140 | `B00.2__O2_9-E06` | Gingivostomatite herpétique aiguë (primo-infection HSV-1) | CMF | produite |
 | 141 | `F44.4_trouble_neurologique__O7_8-E04` | Trouble neurologique fonctionnel (conversion) moteur | PSY | produite |
 | 142 | `G12.0_amyotrophie_spinale___O2_11-E08` | Amyotrophie spinale infantile (SMA) : dépistage néonatal et thérapies géniques | NEU | produite |
-| 143 | `M80.0__F2_20-E14` | Fracture ostéoporotique vertébrale ou périphérique | RHU | — |
-| 144 | `N41.0__F2_15-E07` | Prostatite aiguë bactérienne | URO | — |
-| 145 | `O24.4__F2_9-E05` | Diabète gestationnel | GYN | — |
+| 143 | `M80.0__F2_20-E14` | Fracture ostéoporotique vertébrale ou périphérique | RHU | produite |
+| 144 | `N41.0__F2_15-E07` | Prostatite aiguë bactérienne | URO | produite |
+| 145 | `O24.4__F2_9-E05` | Diabète gestationnel | GYN | produite |
 | 146 | `D84.1__F1_16-E14` | Angio-œdème bradykinique héréditaire ou sous IEC | ALL | — |
 | 147 | `E80.2__G10-E13` | Porphyrie aiguë intermittente | END | produite |
 | 148 | `F23.9_episode_psychotique___O2_2-E14` | Épisode psychotique aigu (bouffée délirante / premier épisode psychotique) | PSY | produite |
