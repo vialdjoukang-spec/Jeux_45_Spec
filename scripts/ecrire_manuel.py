@@ -111,6 +111,9 @@ def main():
     if "questions" in a.etapes and "QUESTIONS" in src:      # contrôles de couverture (règle 8ter) et d'interdits, hors valider()
         q = questions(src)["questions"]; f = [x["format"] for x in q]; N = notions(src)["notions"]
         print("formats", {k: f.count(k) for k in set(f)}, "séries", sorted({x["serie"]["id"] for x in q if x["serie"]}))
+        for x in q:                                          # le jeu annonce « menu long : une à trois réponses »
+            if x["format"] == "MenuLong" and not 1 <= sum(o["correct"] for o in x["options"]) <= 3:
+                print(f"  {x['id']} : un menu long exige 1 à 3 réponses justes"); total += 1
         nb = len(N); p3 = sum(n["poids"] == 3 for n in N); p2 = sum(n["poids"] == 2 for n in N)
         if p3 > 0.15 * nb or p2 > 0.35 * nb:
             print(f"  poids hors règle 5bis : poids 3 = {p3}/{nb}, poids 2 = {p2}/{nb}"); total += 1

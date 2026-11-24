@@ -17,7 +17,7 @@ Pourquoi : l'agent remplace l'appel API ; il doit produire le même JSON, valid�
 ## Règles qui font échouer le plus souvent
 - Natures et catégories : seules les valeurs des énumérations passent (pas « score », pas « hygiène de vie » comme nature).
 - Poids : poids 3 ≤ 15 %, poids 2 ≤ 35 % des notions ; chaque notion de poids ≥ 2 dans ≥ 2 questions d'angles différents.
-- Formats : ~14 A (5 options, 1 juste), 4 Kprim (4 énoncés), 2 menus longs (12 à 20 options).
+- Formats : ~14 A (5 options, 1 juste), 4 Kprim (4 énoncés), 2 menus longs (12 à 20 options, **1 à 3 justes**, énoncé « Choisissez les TROIS… » si 3 justes) ; le jeu annonce « une à trois réponses » et `ecrire_manuel.py` échoue au-delà.
 - Notions : au moins 25 notions par pathologie.
 - priseEnCharge.horsUrgence : au moins 3 étapes.
 - priseEnCharge : accueil 2-5, étapes 3-8, suivi 2-6, mesuresGenerales ≥ 2.
