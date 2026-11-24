@@ -18,6 +18,38 @@ window.VEILLE={
    "consulte_le": "2026-11-24"
   },
   {
+   "cle": "inscription",
+   "url": "https://www.bag.admin.ch/fr/inscription-a-lexamen-federal",
+   "titre": "Page OFSP : inscription à l'examen fédéral",
+   "sha256": "5b620d770014c325ca7122678bce1f1b648ac46658f47ce0144fa63f068267a5",
+   "statut_http": 200,
+   "consulte_le": "2026-11-24"
+  },
+  {
+   "cle": "hors_ue",
+   "url": "https://www.bag.admin.ch/fr/deposer-une-demande-de-reconnaissance-dun-diplome-de-profession-medicale-delivre-dans-un-etat-tiers-hors-de-lueaele",
+   "titre": "Page OFSP : diplômes hors UE/AELE",
+   "sha256": "04c09761d261ed559d6bc461bbb8f5590150b139ffefd473ee06eaabf220a4e0",
+   "statut_http": 200,
+   "consulte_le": "2026-11-24"
+  },
+  {
+   "cle": "statistiques",
+   "url": "https://www.bag.admin.ch/fr/statistiques-professions-medicales",
+   "titre": "Page OFSP : statistiques des professions médicales",
+   "sha256": null,
+   "statut_http": null,
+   "consulte_le": null
+  },
+  {
+   "cle": "pdf_directives_2026",
+   "url": "https://www.bag.admin.ch/dam/fr/sd-web/NGRcSCsXT8zF/20260204_Directives%20MED%202026_f.pdf",
+   "titre": "Directives de la Commission des professions médicales pour l'examen fédéral en médecine humainePDF288.96 kB18 mars 2026",
+   "sha256": "04cefa214d34b19ff2b00504453bbe9b980ad264f4fedfa774333b867704620a",
+   "statut_http": 200,
+   "consulte_le": "2026-11-24"
+  },
+  {
    "cle": "pdf_tableau_2026",
    "url": "https://www.bag.admin.ch/dam/fr/sd-web/288COTC16Hkv/Tableau%20des%20d%C3%A9lais%202026%20pour%20les%20examens%20f%C3%A9d%C3%A9raux%20en%20m%C3%A9decine%20humaine.pdf",
    "titre": "Tableau des délais 2026 pour les examens fédéraux en médecine humainePDF144.87 kB26 novembre 2025",
@@ -42,28 +74,12 @@ window.VEILLE={
    "consulte_le": "2026-11-24"
   },
   {
-   "cle": "pdf_directives_2026",
-   "url": "https://www.bag.admin.ch/dam/fr/sd-web/NGRcSCsXT8zF/20260204_Directives%20MED%202026_f.pdf",
-   "titre": "Directives de la Commission des professions médicales pour l'examen fédéral en médecine humainePDF288.96 kB18 mars 2026",
-   "sha256": "04cefa214d34b19ff2b00504453bbe9b980ad264f4fedfa774333b867704620a",
-   "statut_http": 200,
-   "consulte_le": "2026-11-24"
-  },
-  {
-   "cle": "inscription",
-   "url": "https://www.bag.admin.ch/fr/inscription-a-lexamen-federal",
-   "titre": "Page OFSP : inscription à l'examen fédéral",
-   "sha256": "5b620d770014c325ca7122678bce1f1b648ac46658f47ce0144fa63f068267a5",
-   "statut_http": 200,
-   "consulte_le": "2026-11-24"
-  },
-  {
-   "cle": "hors_ue",
-   "url": "https://www.bag.admin.ch/fr/deposer-une-demande-de-reconnaissance-dun-diplome-de-profession-medicale-delivre-dans-un-etat-tiers-hors-de-lueaele",
-   "titre": "Page OFSP : diplômes hors UE/AELE",
-   "sha256": "04c09761d261ed559d6bc461bbb8f5590150b139ffefd473ee06eaabf220a4e0",
-   "statut_http": 200,
-   "consulte_le": "2026-11-24"
+   "cle": "pdf_statistiques_2024",
+   "url": "https://www.bag.admin.ch/dam/fr/sd-web/e74vfcoZPQT7/Statistik%202024%20eidg.%20Pr%C3%BCfung.pdf",
+   "titre": "Statistik 2024 eidg. Prüfung.pdf",
+   "sha256": null,
+   "statut_http": null,
+   "consulte_le": null
   }
  ],
  "liens": [
@@ -110,6 +126,10 @@ window.VEILLE={
   {
    "titre": "Self-assessment QCM (IML, Berne)",
    "url": "https://www.iml.unibe.ch/fr/offres/assessment/organisation-examens/self-assessment"
+  },
+  {
+   "titre": "Statistiques des examens fédéraux (OFSP)",
+   "url": "https://www.bag.admin.ch/fr/statistiques-professions-medicales"
   }
  ],
  "rubriques": [
@@ -213,7 +233,7 @@ window.VEILLE={
    "consulte_le": "2026-11-24",
    "sha256": "d8e5777b92697f3bc0d9fd199608ce943369cdcb0649fc810ac49e6d0f1984f9",
    "verifie_auto": true,
-   "extrait": "e Date de l'examen : Examen QCM (2 demi-journées) Le mardi 4 août 2026 et le jeudi 6 août 2026 Clinical Skills Prüfungen (1 demi-"
+   "extrait": "Tableau des délais 2026 (PDF officiel)"
   },
   {
    "id": "reserve_2026",
@@ -242,7 +262,7 @@ window.VEILLE={
    "consulte_le": "2026-11-24",
    "sha256": "d8e5777b92697f3bc0d9fd199608ce943369cdcb0649fc810ac49e6d0f1984f9",
    "verifie_auto": true,
-   "extrait": "lls Prüfungen (1 demi-journée) Entre le 31 août 2026 et le 2 septembre 2026 Date de réserve QCM : 25 août 2026 Observations importante"
+   "extrait": "Tableau des délais 2026 (PDF officiel)"
   },
   {
    "id": "lieux_2026",
@@ -620,17 +640,43 @@ window.VEILLE={
    "extrait": "ès du Tribunal administratif fédéral, au plus tard dans les 30 jours suivant la réception de la décision formelle sur l’examen"
   },
   {
-   "id": "stats",
    "rubrique": "Statistiques de réussite",
-   "libelle": "Taux de réussite publics",
-   "valeur": "Aucun taux de réussite de l'examen n'est publié sur les pages OFSP consultées",
-   "statut": "non_publie",
-   "source": "https://www.bag.admin.ch/fr/examen-federal-en-medecine-humaine",
+   "statut": "officiel",
    "consulte_le": "2026-11-24",
-   "sha256": "3c1dfc3ed31d4fc96e920c9c95d6530eae0849840ad5910c35d3a012a17e6e99",
+   "sha256": null,
    "verifie_auto": false,
-   "extrait": "Les pages OFSP et la statistique des professions médicales 2025 ne donnent pas de taux de réussite.",
-   "infobulle": "La statistique OFSP des professions médicales recense les diplômes délivrés, pas les taux de réussite ; la veille signalera un taux s'il paraît."
+   "id": "stats_2024_ch",
+   "libelle": "Examen fédéral 2024, candidats formés en Suisse",
+   "valeur": "1349 réussites et 34 échecs, soit environ 97,5 % de réussite",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/e74vfcoZPQT7/Statistik%202024%20eidg.%20Pr%C3%BCfung.pdf",
+   "extrait": "Candidats pour l'examen fédéral en médecine humaine : ✓ 212 1 301 5 33 0 169 6 235 12 55 0 344 10 (total 1349 réussis).",
+   "infobulle": "Le PDF OFSP donne, par site, les réussites (✓) et les échecs (X) ; le taux se calcule (1349 ÷ 1383). Il compte les candidats de l'année, pas les seuls premiers essais, et il ne sépare pas le QCM du CS."
+  },
+  {
+   "rubrique": "Statistiques de réussite",
+   "statut": "officiel",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "id": "stats_2024_etranger",
+   "libelle": "Examen fédéral 2024, titulaires d'un diplôme étranger",
+   "valeur": "57 réussites et 40 échecs, soit environ 59 % de réussite",
+   "source": "https://www.bag.admin.ch/dam/fr/sd-web/e74vfcoZPQT7/Statistik%202024%20eidg.%20Pr%C3%BCfung.pdf",
+   "extrait": "Examen fédéral pour personnes ayant un diplôme étranger : 4 8 13 9 5 9 5 2 10 10 2 0 18 2 (total 57 réussis).",
+   "infobulle": "Ce groupe réunit surtout les diplômes hors UE/AELE admis à l'examen ; le taux se calcule (57 ÷ 97)."
+  },
+  {
+   "rubrique": "Statistiques de réussite",
+   "statut": "officiel",
+   "consulte_le": "2026-11-24",
+   "sha256": null,
+   "verifie_auto": false,
+   "id": "stats_derniere_annee",
+   "libelle": "Dernière statistique d'examen publiée",
+   "valeur": "2024",
+   "source": "https://www.bag.admin.ch/fr/statistiques-professions-medicales",
+   "extrait": "Examens fédéraux 2024 (PDF) et tableau des données brutes (XLSX, en allemand).",
+   "infobulle": "Le robot relit la page OFSP des statistiques ; il ouvre une issue dès qu'une année plus récente paraît."
   },
   {
    "id": "profiles",

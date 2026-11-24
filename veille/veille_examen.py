@@ -120,7 +120,7 @@ def classer_pdf(texte, url):
     s = (texte + " " + urllib.parse.unquote(url)).lower()
     an = re.search(r"(20\d\d)", urllib.parse.unquote(url.split("/")[-1])) or re.search(r"(20\d\d)", texte)
     an = int(an.group(1)) if an else None
-    for cle, mots in (("tableau", ("délais", "delais", "termintabelle")), ("directives", ("directives", "weisungen")),
+    for cle, mots in (("statistiques", ("statistik", "statistique")), ("tableau", ("délais", "delais", "termintabelle")), ("directives", ("directives", "weisungen")),
                       ("exigences", ("exigences", "anforderungen")), ("infotext", ("infotext", "informations concernant"))):
         if any(m in s for m in mots): return cle, an
     return None, an
@@ -213,6 +213,12 @@ def main():
                         extrait=f"Tableau des délais {an} (PDF officiel)")
             base.pop("attendu", None)
             faits[fid] = base
+    # 4 bis. statistiques : la dernière année « Examens fédéraux AAAA » de la page OFSP
+    st = sources.get("statistiques", {}).get("texte")
+    ans = [int(a) for a in re.findall(r"(?:Examens f[ée]d[ée]raux|eidg\.? Pr[üu]fung\w*)\s+(20\d\d)", st or "", re.I)]
+    if ans and "stats_derniere_annee" in faits:
+        f = faits["stats_derniere_annee"]
+        f.update(valeur=str(max(ans)), verifie_auto=True, sha256=sources["statistiques"].get("sha256") or f.get("sha256"))
     if session_suiv not in tableaux:
         print(f"Tableau des délais {session_suiv} : non publié (attendu, déduction conservée).")
 
