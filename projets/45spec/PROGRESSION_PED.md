@@ -4,7 +4,7 @@ Branche : `agent/45spec-PED`. Production par agent Claude **sans API** (même sc
 Ordre : `selection()` (fréquence puis identifiant) pour les 18 premières ; puis ordre révisé par importance (section ci-dessous) ; **depuis le lot 13 (24.11.2026), ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json` (groupes de rendement A → B → C → D)**. Contrôles d'`agent_ecrire.py` : poids 3 ≤ 15 % et poids 2 ≤ 35 % des notions (bloquants). Contrôles : `valider()` sans erreur ; couverture des notions de poids ≥ 2 au moins deux fois sous deux angles ; formats ≈ 70/20/10.
 Les données douteuses portent la mention « à vérifier » dans leur source (AIPS, version de recommandation). Statut d'audit : en attente (`audit.rejector = null`).
 
-**Avancement : 36 / 69 pathologies canoniques complètes (notions + questions + correction).**
+**Avancement : 39 / 69 pathologies canoniques complètes (notions + questions + correction).**
 
 | # | Identifiant | Pathologie | Fréq. | Complet | Notions | Questions |
 |---|---|---|---|---|---|---|
@@ -37,11 +37,11 @@ Les données douteuses portent la mention « à vérifier » dans leur source (A
 | 27 | `P55.0_1__O1_3-E13` | Incompatibilité rhésus sévère avec anémie fœtale (allo-immun | 3 | ✅ | 25 | 20 |
 | 28 | `P56.0__F2_17-E15` | Anasarque fœto-placentaire (hydrops fetalis) sur allo-immuni | 3 | ✅ | 27 | 20 |
 | 29 | `P57.9__F2_17-E16` | Ictère nucléaire (encéphalopathie bilirubinique aiguë) | 3 | ✅ | 26 | 20 |
-| 30 | `P61.4__O2_7-E14` | Anémie fœtale sévère sur hémorragie fœto-maternelle massive  | 3 | ⬜ |  |  |
+| 30 | `P61.4__O2_7-E14` | Anémie fœtale sévère sur hémorragie fœto-maternelle massive  | 3 | ✅ | 26 | 20 |
 | 31 | `P70.4__O1_1-E12` | Hypoglycémie néonatale sévère ou symptomatique | 3 | ✅ | 27 | 21 |
 | 32 | `P74.1__O1_6-E13` | Déshydratation hypernatrémique sévère du nouveau-né allaité | 3 | ✅ | 27 | 21 |
-| 33 | `P77.9__O1_1-E13` | Entérocolite nécrosante (ECN) du nouveau-né | 3 | ⬜ |  |  |
-| 34 | `P77__S3_9-E14` | Entérocolite nécrosante du nouveau-né prématuré (ECN) | 3 | ⬜ |  |  |
+| 33 | `P77.9__O1_1-E13` | Entérocolite nécrosante (ECN) du nouveau-né | 3 | ✅ | 26 | 20 |
+| 34 | `P77__S3_9-E14` | Entérocolite nécrosante du nouveau-né prématuré (ECN) | 3 | ✅ | 25 | 20 |
 | 35 | `P80.8__O1_1-E16` | Hypothermie néonatale sévère (< 35,0 °C) | 3 | ⬜ |  |  |
 | 36 | `P83.2__O1_3-E12` | Hygroma kystique cervical avec hydrops fœtal (anasarque T1/T | 3 | ⬜ |  |  |
 | 37 | `P94.0__O2_11-E18` | Myasthénie néonatale transitoire ou syndrome myasthénique co | 3 | ⬜ |  |  |
@@ -162,9 +162,9 @@ Aucune pathologie PED restante n'appartient au groupe A. Les pathologies partag�
 | 831 | B | `P52.2__O1_1-E14` | ✅ lot 13 |
 | 1267 | C | `P55.0_1__O1_3-E13` | ✅ lot 13 |
 | 1268 | C | `P56.0__F2_17-E15` | ✅ lot 13 |
-| 1270 | C | `P61.4__O2_7-E14` | ⬜ |
-| 1273 | C | `P77.9__O1_1-E13` | ⬜ |
-| 1274 | C | `P77__S3_9-E14` | ⬜ |
+| 1270 | C | `P61.4__O2_7-E14` | ✅ lot 14 |
+| 1273 | C | `P77.9__O1_1-E13` | ✅ lot 14 |
+| 1274 | C | `P77__S3_9-E14` | ✅ lot 14 |
 | 1275 | C | `P80.8__O1_1-E16` | ⬜ |
 | 1276 | C | `P83.2__O1_3-E12` | ⬜ |
 | 1278 | C | `P94.0__O2_11-E18` | ⬜ |
