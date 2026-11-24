@@ -242,3 +242,70 @@ Sécheresse oculaire (TFOS DEWS III) ; blépharite (dose de doxycycline) ; dacry
 - Production des modèles 3D des 5 organes `or_*` (absents de `anatomie3d/index.json`, comme les organes `he_*`).
 
 Signature : AAI (Anthropic AI)
+
+## 11. Arène Tétrade : 108 questions jouables (branche `agent/tetrade-arene`, 2026-11-24)
+
+| Élément | Valeur |
+|---|---|
+| Paquets | 11 `tetrade_<dossier>` (un par système rédigé sur main) |
+| Questions | 108 : 92 type A (5 options, 1 juste), 16 Kprim (4 affirmations) |
+| Répartition | cardio 12, neuro 12, respi 11, digestif 11, endocrino 11, hémato 10, rénal 10, ORL 9, loco 8, infectio 7, derma 7 |
+| Interprétations de courbes | 30 questions liées à une courbe (`I` : ecg, spiro, gazometrie, fena, osmo, en_tsh_t4, he_fer, or_audio, lo_ck…) |
+| Correction | explication par option + échelle mécanisme / discriminant / ancre |
+
+Fonctionnement (0 token) : les sources sont du texte, `conception/donnees/tetrade/arene/<dossier>.txt` (format en tête de `cardio.txt`). `construire_arenes.py` les lit, rattache chaque question à une pathologie rédigée (`X nom exact`) dont la ligne `s` devient la source affichée, et **échoue bruyamment** si : type A sans 5 options ou sans réponse unique, Kprim sans 4 affirmations, explication vide, pathologie inconnue, ou **titre qui contient un mot du diagnostic**. Aucune référence nouvelle n'est donc créée : la source est celle de la pathologie déjà auditée.
+
+Contrôles : chaîne complète réussie (conception 34/34, couverture, non-perte 0, interprétations 177/177, plans 31/31) ; `conception/outils/tests/test_arene_tetrade.py` (Playwright sans écran, routage de fichiers) joue les 108 questions avec la bonne réponse : **0 erreur JS**, chaque question reconnue « Juste » et sourcée.
+
+Jauge mesurée sur la branche : Tétrade **51 → 81 %** (arène 0 → 108/100).
+
+Points à auditer par Claude : relecture médicale des 108 vignettes (doses citées : adrénaline IM 0,5 mg, Parkland 4 ml/kg/%, seuils FENa, CRB-65, critères de Light, 4T). Remarque : `arene.html` charge `atk400/700.woff2` depuis son dossier, ignorés par `.gitignore` ; en local sans copie, la police Atkinson Hyperlegible retombe sur la police de secours.
+## 12. Organes 3D réels : 46 → 76 / 124 (branche `agent/tetrade-3d`, 2026-11-24)
+
+30 organes ajoutés à `conception/outils/anatomie3d/organes_fma.json`, construits par `construire_organes.py` depuis BodyParts3D 4.0 (CC BY-SA 2.1 JP) : circulation pulmonaire (cv), 7 organes de la Psyché (substrat neural : lobes, système limbique, striatum, thalamus, tronc ; champ `note` « avis d'expert »), organes lymphoïdes, thymus, rate, moelle osseuse (sternum, os coxal, sacrum), nez, cavité buccale (arcades dentaires, mandibule, maxillaires, 2 organes), plancher pelvien, globe oculaire, voies optiques, paupières, les 10 organes osseux et musculaires du locomoteur et l'épiderme.
+
+Occultation : nouveau champ `rogner` (boîte pelvienne du skill 3d-images-upload-super) ; la peau perd ses faces génitales avant export, vérifié sur un rendu de face. Aucun maillage génital chargé.
+
+Non produits faute de maillage dans BodyParts3D (pas de devis inventé) : péricarde, conduction, artères des membres, microcirculation, plèvre, pharynx, larynx, thyroïde, parathyroïdes, glandes salivaires, ganglions, nerfs et plexus, oreille, sein, utérus, ovaires, trompes, placenta, organes cellulaires (sang, immunité) et pédiatriques. Piste : Z-Anatomy ou TotalSegmentator (thyroïde, larynx, utérus) via GitHub Actions.
+
+Les `.glb` restent hors Git (`.gitignore`) ; `index.json` est versionné et le script les régénère à l'identique (46 anciens inchangés). Chaîne complète réussie. Jauge Tétrade sur la branche : 51 → 55 %.
+## 13. Système Psyché : jouable (branche `agent/tetrade-sys-psyche`, 2026-11-24)
+
+| Élément | Valeur |
+|---|---|
+| Organes rédigés | 7 (fonctions cognitives, perception et pensée, affects et humeur, pulsions-motivation-comportement, conscience de soi et personnalité, sommeil et vigilance, récompense et addictions) |
+| Volets propres | 15 ; mots-clés 60 (l'« anatomie » décrit les circuits qui portent la fonction, sans en faire la cause unique) |
+| Sémiologie | 6 temps (ordre AMDP : interrogatoire → examen somatique et toxique), 14 temps par organe, 39 signes ; cataplexie = signe unique assumé |
+| Pathologies | 33 : 9 TF, 10 F, 7 U, 7 R, code CIM-10 dans « retenir » |
+| Glossaire | 31 sigles |
+| Identifiants | les 7 `org_psyche_*` sont **conservés** par `ids` dans `systemes_rediges.py` (préfixe `ps_` pour le reste) : aucune migration, et les clés 3D de la branche `agent/tetrade-3d` restent valides |
+
+Renvois sans doublon : Alzheimer, trouble cognitif léger, encéphalite limbique, syndromes malin et sérotoninergique → Neurologique ; apnées → Respiratoire ; retard de phase → Endocrinien ; renutrition inappropriée → Endocrinien ; dépression respiratoire aux opioïdes → Respiratoire. Contexte suisse : PAFA (Code civil, art. 426), directives ASSM sur la contrainte, La Main Tendue (143), Tox Info Suisse (145), SSAM, OFSP.
+
+Contrôles : chaîne complète réussie (conception 34/34, couverture, non-perte 0, interprétations 177/177, plans 31/31). Aucune fenêtre de courbe nouvelle (la jauge des interprétations dépasse déjà sa cible).
+
+### Points `aVerifier` (Psyché, 9)
+TDAH (conditions suisses des psychostimulants) ; physostigmine (disponibilité, dose) ; mise à jour SSPP dépression après 2016 ; lisdexamfétamine dans l'hyperphagie (AIPS) ; trouble de symptôme somatique (recommandation dédiée) ; jambes sans repos (année AASM 2024 ou 2025) ; SSAM alcool (titre, année) ; tabac (recommandation suisse, disponibilité de la varénicline) ; OFSP/SSAM agonistes opioïdes (version). Sources sans recommandation dédiée signalées « avis d'expert » : pseudo-démence, Charles Bonnet, trouble factice, syndrome anticholinergique.
+## 14. Système gynéco-obstétrical : jouable (branche `agent/tetrade-sys-gyneco`, 2026-11-24)
+
+7 organes (seins, ovaires, trompes, utérus et col, vagin et vulve, plancher pelvien, placenta et unité fœto-placentaire), identifiants `org_gyneco_*` conservés par `ids` (préfixe `gy_`). 11 volets propres, 6 temps d'examen (dont examen des seins et examen obstétrical), 33 pathologies (9 TF, 9 F, 8 U, 7 R), 37 signes, 29 sigles. Organes génitaux externes : texte seulement.
+
+Renvois sans doublon : SOPK, insuffisance ovarienne prématurée, aménorrhée hypothalamique, hyperstimulation, tumeur virilisante, diabète gestationnel, Sheehan → Endocrinien ; compression aorto-cave → Cardiovasculaire.
+
+Contrôles : conception 34/34, couverture, non-perte 0, interprétations 177/177, plans 31/31. **Défaut préexistant sur main, sans lien** : `conception/outils/tests/test_veille_suivi.py` échoue (`KeyError: 'revele'`) aussi sur un clone propre de origin/main.
+
+### Points `aVerifier` (gynéco, 4)
+Hydrosalpinx avant FIV (recommandation ESHRE précise) ; intervalle suisse du dépistage du col (avis d'experts SSGO en vigueur) ; abcès de Bartholin (aucune recommandation dédiée) ; doxylamine-pyridoxine en Suisse. Avis d'expert assumés : fibroadénome (avec BI-RADS), Meigs, Fitz-Hugh-Curtis, fistule vésico-vaginale, léiomyosarcome (avec la mise en garde FDA 2014). Chimiothérapies et thérapies ciblées : doses laissées à l'oncologue.
+## 15. Système pédiatrique : jouable (branche `agent/tetrade-sys-pediatrie`, 2026-11-24)
+
+5 organes (croissance staturo-pondérale, développement psychomoteur, puberté, adaptation néonatale, génétique et dysmorphies), identifiants `org_pediat_*` conservés par `ids` (préfixe `pe_`). 7 volets, 27 mots-clés, 6 temps d'examen (mesures et courbes, développement, nouveau-né, morphologie…), 29 signes, 24 pathologies (5 TF, 8 F, 6 U, 5 R), 23 sigles.
+
+Renvois sans doublon : puberté précoce ou retardée, Prader-Willi, DiGeorge → Endocrinien ; bronchiolite, faux croup → Respiratoire ; maladie cœliaque → Digestif. Contexte suisse : courbes OMS adoptées par la Société suisse de pédiatrie, dépistage néonatal (mucoviscidose), APEA.
+
+Contrôles : conception 34/34, couverture, non-perte 0, interprétations 177/177, plans 31/31 ; `test_veille_suivi.py` échoue aussi sur main (défaut préexistant).
+
+### Points `aVerifier` (pédiatrie, 4)
+Article du Code civil sur l'avis à l'APEA (314c ou 314d) ; version suisse en vigueur sur l'ictère néonatal ; seuil et année des recommandations suisses sur l'hypoglycémie néonatale ; mise à jour 2024 des recommandations sur le syndrome de Turner. Avis d'expert assumés : retard de langage, thélarche prématurée, épiphysiolyse, tachypnée transitoire, atrésie des voies biliaires, X fragile, retard de croissance psychosocial.
+
+### Merge conseillé
+Les trois branches système modifient la même zone de `systemes_rediges.py` (une ligne chacune après « Dermatologique ») : conflit trivial, garder les trois lignes. Après fusion des 3 systèmes, la jauge « systèmes rédigés » passe de 11 à 14/14.

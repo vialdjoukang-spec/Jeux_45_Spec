@@ -1,0 +1,51 @@
+# Veille Examen fédéral de médecine humaine (0 token) : télécharge les pages et PDF officiels OFSP/MEBEKO
+# quand ils changent, met à jour veille/examen_federal.json et veille/HISTORIQUE.md, et ouvre une issue
+# si un fait change ou si le Tableau des délais de la session suivante paraît.
+# Signature : AAI (Anthropic AI)
+name: Veille Examen fédéral
+on:
+  schedule:
+    - cron: "17 5 * * *"   # chaque jour, 05:17 UTC
+  workflow_dispatch:
+  push:
+    paths:
+      - "veille/veille_examen.py"
+      - "veille/socle.json"
+      - ".github/workflows/veille_examen.yml"
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: veille-examen-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Outil PDF
+        run: command -v pdftotext || (sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils)
+      - uses: actions/cache@v4
+        with:
+          path: veille/etat_sources.json
+          key: veille-examen-${{ github.ref_name }}-${{ github.run_id }}
+          restore-keys: veille-examen-${{ github.ref_name }}-
+      - name: Veille
+        run: python3 veille/veille_examen.py
+      - name: Issue si un fait change
+        if: hashFiles('veille/.issue.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create veille-examen --color 1d76db --description "Veille Examen fédéral" 2>/dev/null || true
+          gh issue create --title "Veille Examen fédéral : changement détecté ($(date -u +%F))" --body-file veille/.issue.md --label veille-examen
+          rm veille/.issue.md
+      - name: Enregistrer
+        run: |
+          git config user.name "veille-examen"
+          git config user.email "veille-examen@users.noreply.github.com"
+          git add veille/examen_federal.json veille/HISTORIQUE.md veille/cache conception/prototypes/veille/donnees.js
+          git diff --cached --quiet && { echo "rien de neuf"; exit 0; }
+          git commit -qm "Veille Examen fédéral : mise à jour $(date -u +%F) [skip ci]"
+          git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}"
