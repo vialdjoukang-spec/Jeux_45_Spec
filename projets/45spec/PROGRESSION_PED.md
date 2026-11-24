@@ -2,18 +2,18 @@
 
 Branche : `agent/45spec-PED`. Production par agent Claude **sans API** (même schéma, même `valider()` que `scripts/produire_notions_questions.py`), outil : `projets/45spec/agent_ecrire.py`.
 Ordre : celui de `selection()` (fréquence puis identifiant). Contrôles : `valider()` sans erreur ; couverture des notions de poids ≥ 2 au moins deux fois sous deux angles ; formats ≈ 70/20/10.
-Les données douteuses portent la mention « à vérifier » dans leur source (AIPS, version de recommandation).
+Les données douteuses portent la mention « à vérifier » dans leur source (AIPS, version de recommandation). Statut d'audit : en attente (`audit.rejector = null`).
 
-**Avancement : 3 / 69 pathologies canoniques complètes (notions + questions + correction).**
+**Avancement : 6 / 69 pathologies canoniques complètes (notions + questions + correction).**
 
 | # | Identifiant | Pathologie | Fréq. | Complet | Notions | Questions |
 |---|---|---|---|---|---|---|
 | 1 | `K21.9__O2_6-E01` | Reflux gastro-œsophagien (RGO) physiologique du nourrisson | 1 | ✅ | 33 | 20 |
 | 2 | `P05.1__O1_1-E02` | Retard de croissance intra-utérin (RCIU) / Petit poids pour  | 1 | ✅ | 34 | 22 |
 | 3 | `P07.3_1__O2_11-E03` | Hypotonie physiologique du prématuré | 1 | ✅ | 31 | 21 |
-| 4 | `P07.3__O1_1-E01` | Grande prématurité (28 0/7 – 31 6/7 SA) | 1 | ⬜ |  |  |
-| 5 | `P08.1__O1_1-E03` | Macrosomie fœtale (LGA / poids > 4000 g ou > 90e percentile) | 1 | ⬜ |  |  |
-| 6 | `P55.1__F2_17-E02` | Incompatibilité ABO mère-nouveau-né | 1 | ⬜ |  |  |
+| 4 | `P07.3__O1_1-E01` | Grande prématurité (28 0/7 – 31 6/7 SA) | 1 | ✅ | 33 | 23 |
+| 5 | `P08.1__O1_1-E03` | Macrosomie fœtale (LGA / poids > 4000 g ou > 90e percentile) | 1 | ✅ | 30 | 20 |
+| 6 | `P55.1__F2_17-E02` | Incompatibilité ABO mère-nouveau-né | 1 | ✅ | 30 | 21 |
 | 7 | `P59.9__S6_5-E01` | Ictère physiologique / au lait maternel du nouveau-né | 1 | ⬜ |  |  |
 | 8 | `Q75.3__S1_13-E01` | Macrocéphalie familiale bénigne (mégalencéphalie familiale) | 1 | ⬜ |  |  |
 | 9 | `R10.4__O2_9-E01` | Coliques du nourrisson (pleurs excessifs fonctionnels) | 1 | ⬜ |  |  |
