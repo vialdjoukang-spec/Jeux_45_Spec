@@ -1,6 +1,6 @@
 # Progression NEU — production manuelle sans API (agent 45spec-NEU)
 
-Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 26.
+Pathologies canoniques : 97 ; terminées (notions + questions + correction) : 29.
 
 Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts/ecrire_manuel.py SOURCE --spec NEU` (valider() et ecrire() du script de production).
 
@@ -9,12 +9,15 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | id | entité | notions | questions | erreurs valider() |
 |---|---|---|---|---|
 | G20_1__S7_1-E05 | Maladie de Parkinson et syndromes parkinsoniens (instabilité posturale) | 33 | 21 | 0 |
+| G25.0__S7_3-E01 | Tremblement essentiel | 25 | 20 | 0 |
 | G30.9__F1_9-E01 | Maladie d'Alzheimer | 31 | 20 | 0 |
+| G40.2_epilepsie_focale_tem__G11-E17 | Épilepsie focale (temporale, frontale, crise sensitive jacksonienne) | 25 | 20 | 0 |
 | G40.3_1__F1_19-E04 | Épilepsie généralisée idiopathique (tonico-clonique, myoclonique juvénile) | 30 | 20 | 0 |
 | G43.9__S3_10-E06 | Migraine avec ou sans aura (et syndrome des vomissements cycliques) | 35 | 21 | 0 |
 | G44.2__G10-E02 | Céphalée de tension | 26 | 20 | 0 |
 | G51.0__F1_4-E17 | Asymétrie faciale aiguë (paralysie faciale centrale vs périphérique) | 26 | 20 | 0 |
 | G63.2__O3_2-E10 | Polyneuropathie diabétique distale symétrique | 25 | 20 | 0 |
+| G31.8__F1_9-E06 | Démence à corps de Lewy (DCL) | 25 | 20 | 0 |
 | G35__S7_3-E10 | Sclérose en plaques (poussée motrice hémiparétique ou paraparétique) | 35 | 21 | 0 |
 | G44.0__S1_11-E07 | Algie vasculaire de la face (cluster headache) | 25 | 20 | 0 |
 | G50.0__G10-E08 | Névralgie du trijumeau | 27 | 20 | 0 |
@@ -63,9 +66,9 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 24. G50.0__G10-E08 — fait
 25. G44.2__G10-E02 — fait
 26. G63.2__O3_2-E10 — fait
-27. G40.2_epilepsie_focale_tem__G11-E17
-28. G25.0__S7_3-E01
-29. G31.8__F1_9-E06
+27. G40.2_epilepsie_focale_tem__G11-E17 — fait
+28. G25.0__S7_3-E01 — fait
+29. G31.8__F1_9-E06 — fait
 30. G41.9_etat_de_mal_epilepti__F1_15-E16
 31. G12.2_sclerose_laterale_am__F1_11-E09
 32. G97.1__S7_6-E09
