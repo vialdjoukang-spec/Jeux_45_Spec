@@ -18,14 +18,14 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 | J | 12 | 12 |
 | K | 12 | 12 |
 | L | 12 | 12 |
-| M | 9 | 12 |
+| M | 12 | 12 |
 | N | 0 | 12 |
 | O | 0 | 12 |
 | P | 0 | 12 |
 | Q | 12 | 12 |
 | R | 0 | 12 |
 | S | 12 | 12 |
-| **Total** | **177** | **228** |
+| **Total** | **180** | **228** |
 
 ## Points à vérifier (_meta.aVerifier)
 
@@ -147,6 +147,12 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 - **TRANS_M-S3-02** : Place de la sonde de gastrostomie de décharge (venting PEG) et des endoprothèses digestives selon l'ESMO.
 - **TRANS_M-S3-03** : Outils d'évaluation spirituelle validés en français (SPIR, FICA) et recommandations suisses (palliative.ch, groupe spiritualité) sur l'accompagnement spirituel.
 - **TRANS_M-S3-03** : Données sur le deuil prolongé (trouble de deuil prolongé, CIM-11 6B42 et DSM-5-TR) : critères de durée (au moins 6 mois dans la CIM-11, 12 mois dans le DSM-5-TR).
+- **TRANS_M-S4-01** : Stratégies recommandées en cas d'hyperalgésie induite par les opioïdes (réduction de dose, rotation vers la méthadone ou la buprénorphine, kétamine à faible dose) : niveau de preuve faible, à confirmer dans les revues récentes.
+- **TRANS_M-S4-01** : Critères cliniques proposés pour distinguer hyperalgésie, tolérance et progression (absence de consensus formel).
+- **TRANS_M-S4-02** : Dose de midazolam en cas d'hémorragie terminale (souvent 5 à 10 mg IV, IM ou SC, ou intranasal ou buccal, à répéter) selon les protocoles palliatifs : à confirmer dans le protocole local et palliative.ch.
+- **TRANS_M-S4-02** : Facteurs prédictifs d'hémorragie cataclysmique (saignements sentinelles, tumeur ulcérée proche d'un gros vaisseau, carotide irradiée) : données de faible niveau de preuve.
+- **TRANS_M-S4-03** : Formulation exacte des art. 114 et 115 CP après l'harmonisation des peines (2023) et position des directives ASSM 2018 sur l'assistance au suicide (reprise dans le Code de déontologie FMH : statut 2026).
+- **TRANS_M-S4-03** : Données sur l'effet de la sédation palliative sur la survie (Maltoni 2012, études de cohorte) : à citer avec prudence.
 - **TRANS_S-S4-01** : Le titre (catalogue) annonce une « méthode suisse » de tri que l'audit n'a pas pu identifier dans les sources officielles : le SSC élabore un concept national d'afflux massif ; le corps de la leçon reste juste. Décider s'il faut renommer le titre au catalogue.
 
 ## Conventions de format utilisées (pour l'audit et le moteur de jeu)
@@ -160,4 +166,4 @@ Signature : AAI (Anthropic AI). Statut des leçons rédigées : « RÉDIGÉ — 
 
 ## Arrêt et reprise
 
-Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : M (9/12), N (0/12), O (0/12), P (0/12), R (0/12).
+Premier agent : S, F, Q, A, B. Second agent (reprise) : C, D, E, G, H, puis I à P, R dans cet ordre. Lettres restantes : N (0/12), O (0/12), P (0/12), R (0/12).
