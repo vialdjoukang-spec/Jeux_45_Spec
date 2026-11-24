@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-A2`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**3 / 176 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**6 / 176 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -11,9 +11,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 1 | 15 | `R33__F2_15-E15` | URO | Globe vésical chronique (rétention urinaire indolore) | produite |
 | 2 | 25 | `D68.0__F2_22-E14` | HEM | Maladie de von Willebrand | produite |
 | 3 | 33 | `T58__F1_15-E18` | TOX | Intoxication au monoxyde de carbone (CO) | produite |
-| 4 | 34 | `D50.9__F1_17-E01` | HEM | Anémie ferriprive (carence martiale) | — |
-| 5 | 37 | `E16.0__F2_9-E03` | TOX | Hypoglycémie iatrogène (insuline, sulfonylurées) | — |
-| 6 | 43 | `H06.2__F1_12-E01` | OPH | Orbitopathie dysthyroïdienne (maladie de Basedow) | — |
+| 4 | 34 | `D50.9__F1_17-E01` | HEM | Anémie ferriprive (carence martiale) | produite |
+| 5 | 37 | `E16.0__F2_9-E03` | TOX | Hypoglycémie iatrogène (insuline, sulfonylurées) | produite |
+| 6 | 43 | `H06.2__F1_12-E01` | OPH | Orbitopathie dysthyroïdienne (maladie de Basedow) | produite |
 | 7 | 53 | `T39.1__F2_11-E14` | TOX | Intoxication au paracétamol (volontaire ou surdosage thérapeutique) | — |
 | 8 | 55 | `Z60.4__O2_3-E08` | MIG | Harcèlement scolaire et cyberharcèlement (bullying) | — |
 | 9 | 57 | `T17.1__F1_13-E15` | ORL | Corps étranger nasal enclavé (enfant) | — |
