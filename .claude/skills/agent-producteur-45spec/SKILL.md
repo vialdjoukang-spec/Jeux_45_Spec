@@ -111,3 +111,9 @@ Signature : AAI (Anthropic AI)
 - `controle_menus_longs.py` ne contrôle que la spécialité passée en argument (INF par défaut) : boucle sur `ls content/questions` pour obtenir « 0 menu long fautif » sur tout le contenu.
 - Un menu long `d` 4–5 garde le diagnostic masqué : son `st` ne doit pas nommer l'entité, même en négatif (« les éléments qui excluent une cystite simple » la nomme).
 - Test sans écran de l'arène : `python -m http.server` sur la racine du clone, puis Playwright sur `conception/prototypes/arene45/index.html` (pageerror, console error, réponses ≥ 400).
+
+## Leçons (producteur unique, lots 23–24, 24.11.2026)
+- `couverture_compacte.py` n'affiche rien quand tout est conforme ; seul le constructeur affiche le bilan (`err {}`).
+- Le schéma refuse un `pourquoi` de `pec` trop court (« Ils protègent l'os. ») : écris une phrase complète d'au moins une dizaine de mots.
+- Question `d` 4–5 sur une intoxication : ne nomme pas l'agent dans le `st` (« traitée par un thymorégulateur », « comprimés prescrits par son psychiatre ») ; si l'agent doit être nommé, mets `m=0` et une difficulté ≤ 3.
+- Un nom canonique peut doubler un fichier existant (S27.0 « pneumothorax compressif » ≈ CTH J93.0) alors que ses portes visent une autre entité (pneumothorax traumatique simple) : produis-la sous l'angle de la porte non couverte au lieu de la sauter, et signale-le au rapport.

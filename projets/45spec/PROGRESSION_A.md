@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**291 / 500 pathologies du périmètre produites.**
+**294 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -212,9 +212,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 203 | `N17.0__F2_12-E05` | Nécrose tubulaire aiguë (NTA) ischémique ou toxique | NEP | produite |
 | 204 | `O44.1__O1_5-E05` | Placenta praevia | GYN | produite |
 | 205 | `O60.0__O1_4-E05` | Menace d'accouchement prématuré (MAP) | GYN | produite |
-| 206 | `S27.0__S8_11-E03` | Pneumothorax compressif (pneumothorax sous tension) | CTH | — |
-| 207 | `S27.1__S8_11-E05` | Hémothorax traumatique (non massif) | CTH | — |
-| 208 | `T43.0__O7_26-E06` | Intoxication aux antidépresseurs (tricycliques, ISRS) ou lithium | TOX | — |
+| 206 | `S27.0__S8_11-E03` | Pneumothorax compressif (pneumothorax sous tension) | CTH | produite |
+| 207 | `S27.1__S8_11-E05` | Hémothorax traumatique (non massif) | CTH | produite |
+| 208 | `T43.0__O7_26-E06` | Intoxication aux antidépresseurs (tricycliques, ISRS) ou lithium | TOX | produite |
 | 209 | `A48.3__F2_19-E16` | Syndrome de choc toxique (staphylococcique ou streptococcique) | INF | produite |
 | 210 | `E03.5__F1_15-E10` | Coma myxœdémateux (hypothyroïdie décompensée) | INT | — |
 | 211 | `E25.0__O2_1-E12` | Hyperplasie congénitale des surrénales (HCS) forme non classique (tardive) | END | produite |
