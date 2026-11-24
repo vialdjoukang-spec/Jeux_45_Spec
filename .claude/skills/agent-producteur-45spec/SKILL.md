@@ -191,3 +191,5 @@ Signature : AAI (Anthropic AI)
 - Fedlex (OPAS) ne s'affiche pas sans JavaScript : un remboursement LAMal non lu (DXA, nombre de séances de physiothérapie) s'écrit « à vérifier dans l'OPAS ».
 - Une page WebFetch peut tronquer une liste (NICE 1.5.2) : n'écris pas les options manquantes, cite seulement celles lues.
 - Contrôle du masquage en 0 token : un petit script qui charge la forme compacte et cherche les mots interdits dans `st` et `p` des questions sans `m` (et compte les `d` 4–5 masqués) évite une relecture manuelle.
+- Les decks de l'arène (`conception/prototypes/arene45/decks/<SPEC>.json`, `decks/<SPEC>/<id>.json`, `specs.json`) sont suivis par git : ajoute `conception` au commit, sinon `git pull --rebase` refuse de tourner.
+- Deux canoniques voisins de la même entité (N40.0 HBP au toucher rectal, N40 HBP décompensée) se répartissent par porte : symptômes, toucher rectal et traitement médical pour le premier ; rétention aiguë, hématurie, indications et choix chirurgicaux pour le second.

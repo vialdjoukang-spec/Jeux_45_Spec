@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**345 / 500 pathologies du périmètre produites.**
+**348 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -291,9 +291,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 282 | `N10_pyelonephrite_aigue___F2_15-E04` | Pyélonéphrite aiguë simple (non obstructive) | NEP | produite |
 | 283 | `N20.0__F2_15-E03` | Lithiase urinaire (colique néphrétique avec microhématurie) | URO | produite |
 | 284 | `N39.3__O3_7-E01` | Incontinence urinaire d'effort (femme) | URO | produite |
-| 285 | `N40.0__F1_5-E07` | Hypertrophie bénigne de la prostate (HBP) au toucher rectal | URO | — |
-| 286 | `N40__F2_15-E06` | Hypertrophie bénigne de la prostate (HBP) décompensée | URO | — |
-| 287 | `N43.3__F1_2-E09` | Hydrocèle vaginale bénigne | URO | — |
+| 285 | `N40.0__F1_5-E07` | Hypertrophie bénigne de la prostate (HBP) au toucher rectal | URO | produite |
+| 286 | `N40__F2_15-E06` | Hypertrophie bénigne de la prostate (HBP) décompensée | URO | produite |
+| 287 | `N43.3__F1_2-E09` | Hydrocèle vaginale bénigne | URO | produite |
 | 288 | `N84.0__S4_17-E03` | Polype endométrial ou cervical | GYN | — |
 | 289 | `N94.3__S4_5-E02` | Trouble dysphorique prémenstruel (TDPM) | GYN | — |
 | 290 | `N94.4__S4_5-E01` | Dysménorrhée primaire | GYN | — |
