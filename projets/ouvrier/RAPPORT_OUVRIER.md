@@ -1,4 +1,4 @@
-# Ouvrier automatique — 2026-11-24 01:47 UTC
+# Ouvrier automatique — 2026-11-24 02:34 UTC
 
 Dernier passage : **END_N_recup** → en_cours (0.00 USD).
 
@@ -33,7 +33,7 @@ Dernier passage : **END_N_recup** → en_cours (0.00 USD).
 | END_C_pilote | fait | 1 | 0.276 |
 | V1_fusions | fait | 1 | 0.223 |
 | END_N_lot | fait | 1 | 0.0 |
-| END_N_recup | en_cours | 3 | 0.0 |
+| END_N_recup | en_cours | 4 | 0.0 |
 | END_Q_lot | a_faire | 0 |  |
 | END_Q_recup | a_faire | 0 |  |
 | END_C_lot | a_faire | 0 |  |
