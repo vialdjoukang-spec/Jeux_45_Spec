@@ -264,3 +264,10 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Reste vague 1 : 5 corrections à régénérer (E11.9, I49.5, I75.0, E87.6, B18.9).
 - Agents en cours : 45 Spec PSY, NEU, INF, PED (branches agent/45spec-*), Tétrade (agent/tetrade-arene, -3d, -sys-*).
 - Skills des agents : 1, 2, 4, 5, 7, 8 + medical-accuracy-100 ; 3 et 6 ajoutés par message à 11:50. Issue GitHub #30 (fausse alerte veille) à fermer par Vial.
+
+## 24.11 13:20 — Ronde abonnement
+- Tétrade : 5 branches auditées (lot 4) fusionnées → jauge 94 %.
+- 45 Spec : classement par rendement (scripts/classer_rendement.py, RANG_RENDEMENT.json, groupes A/B/C/D) ; file API repointée sur --groupe A --max 400 (en pause jusqu'au crédit de jeudi).
+- Défaut connu : une pathologie fusionnée sur branche change d'id et perd son rang ; corrigé sur agent/45spec-INF (meilleur rang des portes) → à reporter sur main à la fusion, puis relancer classer_rendement.py.
+- Agents en cours : PSY, NEU, INF (production), agent/45spec-A (groupe A des autres spécialités), auditeur des 4 branches (AUDIT_AGENTS_1.md) ; PED réorienté (reste B/C/D seulement).
+- Décisions en attente de Vial : catalogue pédiatrique (6 pathologies majeures absentes en version enfant) ; deuil/divorce partagés ; F30.1 monographique.
