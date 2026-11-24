@@ -4,7 +4,7 @@ Branche : `agent/45spec-PED`. Production par agent Claude **sans API** (même sc
 Ordre : celui de `selection()` (fréquence puis identifiant). Contrôles : `valider()` sans erreur ; couverture des notions de poids ≥ 2 au moins deux fois sous deux angles ; formats ≈ 70/20/10.
 Les données douteuses portent la mention « à vérifier » dans leur source (AIPS, version de recommandation). Statut d'audit : en attente (`audit.rejector = null`).
 
-**Avancement : 17 / 69 pathologies canoniques complètes (notions + questions + correction).**
+**Avancement : 18 / 69 pathologies canoniques complètes (notions + questions + correction).**
 
 | # | Identifiant | Pathologie | Fréq. | Complet | Notions | Questions |
 |---|---|---|---|---|---|---|
@@ -25,7 +25,7 @@ Les données douteuses portent la mention « à vérifier » dans leur source (A
 | 15 | `Z71.8__O2_2-E04` | Crises de colère / opposition physiologiques du jeune enfant | 1 | ✅ | 28 | 21 |
 | 16 | `A41.9__O2_8-E03` | Infection foudroyante méconnue du nourrisson (sepsis à ménin | 2 | ✅ | 30 | 20 |
 | 17 | `P08.2__O1_1-E06` | Grossesse prolongée / Post-maturité (>= 42 0/7 SA) | 2 | ✅ | 28 | 20 |
-| 18 | `Q39.3__S2_9-E05` | Anneau de Schatzki (anneau muqueux œsophagien inférieur) | 2 | ⬜ |  |  |
+| 18 | `Q39.3__S2_9-E05` | Anneau de Schatzki (anneau muqueux œsophagien inférieur) | 2 | ✅ | 26 | 19 |
 | 19 | `R68.1__O2_8-E08` | Malaise grave du nourrisson (BRUE à haut risque / ancien ALT | 2 | ✅ | 28 | 21 |
 | 20 | `Z63.4_1__O6_7-E05` | Deuil périnatal (fausse couche, IMG, mortinatalité, mort sub | 2 | ⬜ |  |  |
 | 21 | `J21.0__S2_1-E12` | Bronchiolite aiguë du nourrisson | 3 | ✅ | 29 | 21 |
@@ -77,5 +77,12 @@ Les données douteuses portent la mention « à vérifier » dans leur source (A
 | 67 | `Q77.4__S5_3-E10` | Achondroplasie / dysplasie squelettique génétique | 5 | ⬜ |  |  |
 | 68 | `Q85.1__S6_3-E10` | Sclérose tubéreuse de Bourneville (macules hypomélaniques en | 5 | ⬜ |  |  |
 | 69 | `Q89.2__S1_9-E10` | Kyste du tractus thyréoglosse ou kyste branchial cervical | 5 | ⬜ |  |  |
+
+## Notes de production
+
+- Pathologies partagées dont le premier code n'est pas PED (Z63.4 deuils, Z63.5 divorce) : écrites par le script dans `MIG/` ou `PEA/` ; reportées en fin de file pour éviter un doublon avec les agents MIG/PEA.
+- Les amorces du gabarit (`P.message`) contiennent du bruit adulte (ex. « paracétamol 1 g », « 1,5–2 L/j ») dans des entités néonatales : il n'a jamais été repris ; posologies pédiatriques en mg/kg « à vérifier dans l'AIPS ».
+- Identifiant par spécialité parfois différent de l'identifiant global (ex. `A41.9__O2_8-E03` / `A41.9_1__O2_8-E03`) : fichiers nommés comme `selection(--spec PED)`.
+- Skill créé : `.claude/skills/45spec-production-sans-api`.
 
 Signature : AAI (Anthropic AI)
