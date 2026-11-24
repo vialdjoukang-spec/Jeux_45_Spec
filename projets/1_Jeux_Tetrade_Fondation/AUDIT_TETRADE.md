@@ -225,3 +225,123 @@ Fusion de `origin/main` (locomoteur, dermatologique, correctif `aligner_aVerifie
 Sources inaccessibles depuis la session : swissmedicinfo.ch, ssi.guidelines.ch, la Liste des spécialités (OFSP) ; compendium.ch a répondu cette fois. Les autres posologies gardent « à vérifier dans l'AIPS ».
 
 Signature : AAI (Anthropic AI)
+
+## Lot 4 (arène Tétrade, 108 questions) — 2026-11-24
+
+Claude a relu les 108 questions des 11 paquets (`conception/donnees/tetrade/arene/*.txt`) : chaque réponse juste, chaque explication des distracteurs, chaque dose, seuil et critère. Les points demandés ont été vérifiés : adrénaline IM 0,5 mg chez l'adulte, répétable après 5 min (EAACI 2021) ; formule de Parkland 4 ml × kg × % surface, moitié en 8 h depuis la brûlure ; FENa < 1 % (fonctionnelle) contre > 2 % (nécrose tubulaire) ; CRB-65 = 4 (pression basse comptée dès une diastolique ≤ 60 mmHg) ; critères de Light (protéines 0,64 > 0,5 ; LDH > 2/3 de la limite sérique) ; score 4T élevé (chute > 50 %, J5–J10, thrombose, pas d'autre cause). Toutes les réponses justes restent justes ; aucune question n'a changé de réponse.
+
+### L4.1 Bilan
+
+| Paquet | Questions | Corrigées | Doutes restants |
+|---|---|---|---|
+| Cardio | 12 | 1 (FA : score) | 0 |
+| Derma | 7 | 1 (Parkland : surface comptée) | 0 |
+| Rénal | 10 | 1 (FENa sous diurétique) | 0 |
+| Digestif | 11 | 1 (hémorragie non variqueuse) | 0 |
+| Endocrino, hémato, infectio, loco, neuro, ORL, respi | 68 | 0 | 0 |
+
+### L4.2 Erreurs de fond corrigées
+
+| Question | Erreur | Correction | Source |
+|---|---|---|---|
+| Cardio 07 (FA) | CHA2DS2-VASc = 4 avec le sexe féminin | CHA2DS2-VA (ESC 2024, sans le sexe) = 3 ; anticoagulation recommandée dès 2 | Van Gelder et al., ESC 2024 AF, Eur Heart J 2024 ; ACC, Ten points to remember (17.09.2024) |
+| Derma 03 (Parkland) | « surface au deuxième degré profond et plus » | Tout le deuxième degré (superficiel et profond) et le troisième degré ; seul le premier degré est exclu | ABLS/ISBI, définition de la surface brûlée |
+| Rénal 01 (IRA) | « en l'absence de diurétique de l'anse » alors que la patiente prend un thiazide | Tout diurétique élève la FENa ; une FENa basse sous thiazide reste parlante ; sinon, FEurée < 35 % | physiologie rénale ; avis d'expert |
+| Digestif 03 (ulcère) | Transfusion libérale qui « augmente la pression portale » dans une hémorragie non variqueuse | Elle augmente la mortalité et les récidives ; cible 70 à 80 g/l | Villanueva, N Engl J Med 2013 ; ESGE 2021 |
+
+Vérifications sans correction, utiles à noter : l'andexanet alfa (Ondexxya®) est bien autorisé par Swissmedic depuis le 02.12.2020 pour les hémorragies menaçantes sous apixaban ou rivaroxaban ; le seuil de 3,5 mmol/l de potassium avant l'insuline dans l'acidocétose correspond au consensus ADA/EASD/JBDS 2024.
+
+### L4.3 Chaîne relancée
+
+`construire_arenes.py` (11 paquets Tétrade régénérés), puis `construire_config_tetrade.py`, `construire_plans.py`, `generer_json.py`, `rendre_plans.py` (31/31), `audit_fond.py` (0 correction), `auditer_conception.py` **34/34**, `auditer_couverture.py` **RÉUSSI**, `non_perte.py` **OK** (après restauration connue des deux `2_cou/ganglions_cervicaux.json`), `verifier_interpretations.py` **177/177, 0 défaut**, `test_arene_tetrade.py` **108 questions, 0 erreur**, `test_aligner_aVerifier.py` **OK**.
+
+### L4.4 Branche 3D (contrôle sans médecine)
+
+Les 30 organes ajoutés par `agent/tetrade-3d` portent des noms fidèles à leurs identifiants FMA (vérifiés dans `parts_list_e.txt` de BodyParts3D : poumon → artère et veines pulmonaires, lobes cérébraux, amygdale, hippocampe, noyaux gris, thymus, rate, sternum, os coxal, globe oculaire, voies optiques, os et muscles). Aucun organe n'inclut de maillage génital (testicules exclus ; le pénis n'a pas de maillage) ; la boîte de rognage de la peau (x ±58, y −230 à −60, z 630 à 790 mm) couvre toute la saillie génitale (testicules à z 690–719, saillie maximale y −206), et le rendu de contrôle ne montre aucun reste. Seule remarque de forme : l'identifiant `org_infect_organes_lymphoides_moelle_thym` évoque la moelle, mais le maillage ne contient que le thymus et la rate, comme sa note le dit. Branche jugée prête, sans modification.
+## Lot 4 (Psyché) — 2026-11-24
+
+Claude a relu, avec la méthode des lots 1 à 3, les 33 pathologies du système Psyché (7 organes), leur sémiologie, leur contenu et leur glossaire. Chaque dose, seuil, critère et référence datée a été confronté aux sources suisses d'abord (Swissmedic, OFSP, Tox Info Suisse, SGAD, SSAM), puis européennes et PubMed. Aucune référence n'était inventée ; trois étaient dépassées ou introuvables.
+## Lot 4 (gynéco-obstétrical) — 2026-11-24
+
+Claude a relu, avec la méthode des lots 1 à 3, les 33 pathologies du système gynéco-obstétrical (7 organes), leur sémiologie, leur contenu et leur glossaire : chaque dose (méthotrexate 50 mg/m², ocytocine 5 UI IV lente, acide tranexamique 1 g en 10 min dans les 3 h, sulfate de magnésium 4 g puis 1 g/h, aspirine 150 mg de 12 à 36 semaines), chaque seuil (HPP > 500 ml, fibrinogène < 2 g/l, endomètre > 4 mm, Amsel 3 sur 4, protéinurie ≥ 30 mg/mmol, cible 135/85 mmHg) et chaque référence. Aucune référence n'était inventée ; deux étaient dépassées.
+## Lot 4 (pédiatrique) — 2026-11-24
+
+Claude a relu, avec la méthode des lots 1 à 3, les 24 pathologies du système pédiatrique (5 organes), leur sémiologie, leur contenu et leur glossaire : chaque seuil (IMC > P97, mots à 16 mois, M-CHAT de 16 à 30 mois, corset de 20 à 40°, ictère prolongé > 2 semaines, sepsis précoce < 72 h, Kasai < 60 jours), chaque dose (SRO 50–100 ml/kg en 4 h, NaCl 0,9 % 20 ml/kg, glucose 10 % 2 ml/kg) et chaque référence. Aucune référence n'était inventée ; une était dépassée (Turner 2017).
+
+### L4.1 Bilan
+
+| Système | Vérifiées | Corrigées | Doutes résolus | Doutes restants |
+|---|---|---|---|---|
+| Psyché (33 pathologies, 7 organes, sémiologie, glossaire) | 33 | 9 pathologies + glossaire (AMCS, CIM-11, HUG, SGAD, SGBP, TAO ajoutés) | 5 sur 9 (3 autres réduits à un seul point) | 4 |
+
+Paliers : les 33 restent tels quels (9 TF, 10 F, 7 U, 7 R). Deux paliers TF se lisent comme relatifs à leur organe et non à la population générale : la psychose induite par le cannabis et l'hyperphagie boulimique ; Claude les garde, faute d'un meilleur candidat TF dans ces organes, et les signale.
+| Gynéco-obstétrical (33 pathologies, 7 organes, sémiologie, glossaire) | 33 | 6 pathologies | 4 sur 4 (un point nouveau, plus précis, reste ouvert sur le col) | 1 |
+
+Paliers : les 33 restent justes (9 TF, 9 F, 8 U, 7 R) ; aucun reclassement.
+| Pédiatrique (24 pathologies, 5 organes, sémiologie, glossaire) | 24 | 4 pathologies | 4 sur 4 | 0 |
+
+Paliers : les 24 restent tels quels (5 TF, 8 F, 6 U, 5 R). La trisomie 21 (TF) et la mucoviscidose (F) se lisent relativement à leur organe (génétique), pas à la population générale ; Claude les garde et le signale.
+
+### L4.2 Erreurs de fond corrigées
+
+| Pathologie | Erreur | Correction | Source |
+|---|---|---|---|
+| TDAH de l'adulte | « symptômes avant 12 ans » attribué au code CIM-10 F90.0 | La CIM-10 exige un début avant 7 ans ; la CIM-11 et le DSM-5 admettent 12 ans | OMS, CIM-10 (critères de recherche F90) ; CIM-11 6A05 |
+| Syndrome anticholinergique | Physostigmine sans dose ni statut | Anticholium® non autorisé en Suisse, stocké par les centres régionaux ; 0,5–1 mg IV lente, répétable toutes les 15 min, jusqu'à 2 mg | Liste des antidotes 2022/2023 (Bulletin OFSP 45/22) |
+| Épisode dépressif | Recommandation suisse 2016 présentée comme en vigueur | Mise à jour SGAD/SGBP/SSPP 2024 | Ars Medici 17/2024 ; Brühl et Kawohl, Ther Umsch 2026;83:14 (PubMed 41878757) |
+| Anorexie mentale | « le taux de mortalité le plus élevé » | « l'un des taux les plus élevés » (les troubles liés aux opioïdes rivalisent) | avis d'expert, formulation prudente |
+| Narcolepsie de type 1 | Modafinil « 100–200 mg » | 200 mg le matin (100 mg chez le sujet âgé), au plus 400 mg/j | information du produit ; à vérifier dans l'AIPS |
+| Dépendance au tabac | Champix® présenté comme disponible | Autorisation suisse radiée le 07.06.2024 | Swissmedic, fiche Champix® |
+| Trouble de l'usage de l'alcool | Recommandation SSAM citée sans titre (introuvable) | Remplacée par une source suisse lue : stratégie alcool HUG 2021 | HUG, SMPR 2021 |
+| Trouble de l'usage des opioïdes | Recommandations OFSP/SSAM sans titre ni année | « Recommandations médicales relatives au TAO du syndrome de dépendance aux opioïdes », SSAM 2020 | fr.ch (document cantonal) |
+| Trouble de symptôme somatique | « avis d'expert » seul | Recommandation S3 germanophone (avec Bâle) | Roenneberg, Dtsch Arztebl Int 2019 (PubMed 31554544) |
+
+### L4.3 Les 9 doutes `aVerifier`
+
+| # | Pathologie | Résultat | Source |
+|---|---|---|---|
+| 1 | Syndrome anticholinergique | Résolu : dose et statut de la physostigmine | Liste des antidotes OFSP 2022/2023 |
+| 2 | Jambes sans repos | Résolu : J Clin Sleep Med 2025;21:137-152 (en ligne en 2024) | PubMed 39324694 |
+| 3 | Trouble de symptôme somatique | Résolu : S3 2019 | PubMed 31554544 |
+| 4 | Alcool | Résolu par remplacement de la source | HUG 2021 |
+| 5 | Opioïdes | Résolu : SSAM 2020 | fr.ch |
+| 6 | TDAH | Réduit : conditions Swissmedic lues ; **reste** le remboursement (LS) | Swissmedic 2012 |
+| 7 | Dépression | Réduit : mise à jour 2024 confirmée ; **reste** la lecture du texte intégral | Ars Medici 2024 ; PubMed 41878757 |
+| 8 | Tabac | Réduit : Champix® radié ; **reste** l'existence d'un générique suisse | Swissmedic |
+| 9 | Hyperphagie boulimique | **Reste** : indication suisse de la lisdexamfétamine introuvable (compendium.ch muet) | — |
+
+### L4.4 Chaîne relancée
+
+`construire_config_tetrade.py` (3762 nœuds), `construire_plans.py`, `generer_json.py`, `rendre_plans.py` (31/31), `audit_fond.py` (0 correction), `auditer_conception.py` **34/34** (après ajout de 6 sigles), `auditer_couverture.py` **RÉUSSI**, `non_perte.py` **OK** (après restauration connue des deux `2_cou/ganglions_cervicaux.json`), `verifier_interpretations.py` **177/177, 0 défaut**, `test_aligner_aVerifier.py` **OK**. Les 4 `aVerifier` restants figurent seuls dans les JSON d'organes.
+| Cancer du sein | ESMO 2019 cité comme en vigueur | ESMO 2024 (Loibl et al.) | Ann Oncol 2024;35:159 (PubMed 38101773) |
+| Nausées et vomissements de la grossesse | RCOG 69 de 2016 ; doxylamine-pyridoxine « selon la disponibilité » | RCOG 69 révisé en 2024 ; Cariban® autorisé en Suisse dans cette indication | PubMed 38311315 ; Gynäkologie 1/2021 |
+| Lésion précancéreuse du col | Intervalle suisse non précisé | SSGO n° 50 : cytologie /3 ans de 21 à 29 ans ; cytologie ou test HPV /3 ans de 30 à 70 ans ; pas de co-test | SSGO, avis d'experts n° 50 (01.03.2018) |
+| Hydrosalpinx | « ESHRE » sans titre | Revue Cochrane : salpingectomie avant FIV (preuve modérée) | Melo et al., Cochrane 2020 (CD002125) |
+| Abcès de Bartholin | Avis d'expert seul | Aucune technique ne s'impose ; aucune recommandation européenne dédiée | Illingworth, BJOG 2020 (PubMed 31876985) |
+| Hypoglycémie néonatale | Seuil renvoyé au « protocole local » | < 2,6 mmol/l dès 35+0 SA (ancien seuil 2,5) ; < 2,0 mmol/l : forme sévère ; gel de dextrose 40 % 0,5 ml/kg | SSN, Schulzke et al., Paediatrica 2021;32(1) |
+| Syndrome de Turner | Recommandation 2017 | Recommandation 2024 (consensus d'Aarhus 2023) | Gravholt, Eur J Endocrinol 2024;190:G53 (PubMed 38748847) |
+| Ictère néonatal | Version suisse non datée | SSN, version 13/2023 | paediatrieschweiz.ch |
+| Retard de croissance psychosocial | Article 314c ou 314d incertain | 314c : droit d'aviser du médecin soumis au secret ; 314d : obligation des professionnels non soumis au secret | Code civil suisse (révision 2019) |
+
+### L4.3 Les 4 doutes `aVerifier`
+
+| # | Pathologie | Résultat | Source |
+|---|---|---|---|
+| 1 | Hydrosalpinx | Résolu par une source primaire lue | Cochrane 2020 |
+| 2 | Col (dépistage) | Résolu pour l'intervalle ; **reste** un avis SSGO plus récent et le remboursement LAMal du test HPV primaire | SSGO n° 50 |
+| 3 | Bartholin | Résolu | PubMed 31876985 |
+| 4 | Nausées de la grossesse | Résolu : Cariban® autorisé | Gynäkologie 1/2021 |
+
+### L4.4 Chaîne relancée
+
+`construire_config_tetrade.py`, `construire_plans.py`, `generer_json.py`, `rendre_plans.py` (31/31), `audit_fond.py` (0 correction), `auditer_conception.py` **34/34** (après réécriture de 3 sigles de revue), `auditer_couverture.py` **RÉUSSI**, `non_perte.py` **OK** (après restauration connue des deux `2_cou/ganglions_cervicaux.json`), `verifier_interpretations.py` **177/177, 0 défaut**, `test_aligner_aVerifier.py` **OK**. Un seul `aVerifier` reste dans les JSON d'organes (utérus et col).
+| 1 | Retard de croissance psychosocial | Résolu : art. 314c | CC |
+| 2 | Ictère néonatal | Résolu : version 13/2023 | SSN |
+| 3 | Hypoglycémie néonatale | Résolu : 2021, < 2,6 mmol/l | SSN |
+| 4 | Turner | Résolu : 2024 | PubMed 38748847 |
+
+### L4.4 Chaîne relancée
+
+`construire_config_tetrade.py`, `construire_plans.py`, `generer_json.py`, `rendre_plans.py` (31/31), `audit_fond.py` (0 correction), `auditer_conception.py` **34/34**, `auditer_couverture.py` **RÉUSSI**, `non_perte.py` **OK** (après restauration connue des deux `2_cou/ganglions_cervicaux.json`), `verifier_interpretations.py` **177/177, 0 défaut**, `test_aligner_aVerifier.py` **OK**. Aucun `aVerifier` ne reste dans les JSON d'organes pédiatriques.
+
+Signature : AAI (Anthropic AI)

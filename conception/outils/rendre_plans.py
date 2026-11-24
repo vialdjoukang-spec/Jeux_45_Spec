@@ -161,7 +161,7 @@ h4{{color:var(--c);margin:1em 0 .3em}}h5{{margin:.2em 0;color:#555}}.t{{overflow
 .alerte{{background:#fde8e6;color:#9b1c13;border-radius:6px;padding:8px 12px;font-weight:700}}.bloc li{{margin:.25em 0}}.ok{{color:#2f7d32;font-weight:700}}.ko{{color:#b3261e;font-weight:700}}.leg{{color:#555;font-size:.85rem}}
 #signature-ia{{position:fixed;right:12px;bottom:10px;z-index:9999;background:#fff;border:2px solid #000;padding:4px 10px;font:700 11px/1.3 Arial,sans-serif;text-transform:uppercase;color:#000}}
 @media print{{aside{{display:none}}main{{margin-left:0}}h2{{break-after:avoid}}tr,.carte{{break-inside:avoid}}#signature-ia{{position:fixed}}}}
-</style></head><body><aside><h3>Sommaire</h3>{nav}</aside><main><header><div class="col"><h1>{E(p['titre'])}</h1><p>{E(p['sousTitre'])}</p><span class="st">{E(p['statut'])} · v{E(p['version'])} · {E(p['date'])}</span></div></header><div class="col">{corps}</div></main>
+</style></head><body><aside><h3>Sommaire</h3><a href='../prototypes/veille/index.html'><b>↗</b>Veille Examen fédéral</a>{nav}</aside><main><header><div class="col"><h1>{E(p['titre'])}</h1><p>{E(p['sousTitre'])}</p><span class="st">{E(p['statut'])} · v{E(p['version'])} · {E(p['date'])}</span></div></header><div class="col">{corps}</div></main>
 <div id="signature-ia">DÉBUT : {E(sig['start']).upper()} · MODÈLE : {E(sig['model']).upper()} · PLATEFORME : {E(sig['platform']).upper()}</div></body></html>"""
 
 

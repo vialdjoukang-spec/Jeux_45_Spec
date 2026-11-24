@@ -47,6 +47,9 @@ for oid, ps in pieces.items():
     if not ps:
         index[oid] = {"nom": CONF["organes"][oid]["nom"], "statut": "à produire (pièce absente de BodyParts3D)"}; continue
     m = trimesh.util.concatenate([trimesh.load(f"{D}stl/{p}.stl") for p in ps])
+    if CONF["organes"][oid].get("rogner"):   # occultation des organes génitaux externes : faces retirées dans la boîte pelvienne
+        (x0, x1), (y0, y1), (z0, z1) = CONF["organes"][oid]["rogner"]; c = m.triangles_center
+        m.update_faces(~((c[:, 0] > x0) & (c[:, 0] < x1) & (c[:, 1] > y0) & (c[:, 1] < y1) & (c[:, 2] > z0) & (c[:, 2] < z1))); m.remove_unreferenced_vertices()
     if len(m.faces) > 30000:
         v, f = fs.simplify(m.vertices.astype(np.float32), m.faces.astype(np.int32), target_reduction=1 - 30000 / len(m.faces)); m = trimesh.Trimesh(v, f)
     m.apply_translation(-m.bounds.mean(axis=0))
@@ -54,6 +57,8 @@ for oid, ps in pieces.items():
     sc = trimesh.Scene(); sc.add_geometry(m, node_name=oid, geom_name=oid); sc.export(os.path.join(SORTIE, oid + ".glb"))
     index[oid] = {"nom": CONF["organes"][oid]["nom"], "statut": "produit", "pieces": len(ps), "faces": len(m.faces),
                   "taille_mm": [round(x) for x in m.extents], "source": CONF["_meta"]["source"]}
+    if CONF["organes"][oid].get("note"):
+        index[oid]["note"] = CONF["organes"][oid]["note"]
     print(f"{oid} : {len(ps)} pièces, {len(m.faces)} faces", flush=True)
 json.dump({"_meta": CONF["_meta"], "organes": index}, open(os.path.join(SORTIE, "index.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"organes 3D : {sum(1 for x in index.values() if x['statut'] == 'produit')} produits / {len(index)}")

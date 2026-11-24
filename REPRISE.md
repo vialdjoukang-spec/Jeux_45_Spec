@@ -256,3 +256,11 @@ Chaque projet contient : `chantier.json`, `.html`, `.pdf`, `audit_1.md`, `audit_
 - Mode « pec » de `scripts/produire_fiches_claude.py` : `pec_pilote`, `pec_soumettre`, `pec_recuperer`, `pec_bilan` ; il demande seulement le bloc priseEnCharge (schéma commun), le répare en forme (moyens rendu en texte), l'insère sans toucher au reste et remet `audit.rejector` à null.
 - Test direct sur 2 fiches (CAR) réussi ; lot de 154 fiches soumis (msgbatch_014L4teTsJAY3oBSZvVHdT16, suivi dans `batchs_fiches.json`, mode pec). Récupération : `pec_recuperer` au passage suivant.
 - 151 fiches rejetées avec erreurs de forme restent exclues : T4 les reprend en entier avec priseEnCharge (`--inclure-rejets` les ajouterait).
+
+## 24.11 11:50 — Reprise sur l'abonnement (décision de Vial 11:23 : « puise dans l'abonnement, renouvelé dans 48 h »)
+- API en pause (V2 bloquée) jusqu'au nouveau crédit ; coût réel vague 1 ≈ 155 USD / 192 (lots batch non comptés dans depense.json).
+- Fusionné sur main : veille examen fédéral (veille/, conception/prototypes/veille, commun/suivi.js) ; vague 1 auditée (40 pathologies, ≈ 0,4 % d'erreur, rapport projets/4_Jeux_45_Spec/AUDIT_VAGUE1.md).
+- Arène 45 allégée : corrections par pathologie chargées à la demande (decks/<SPEC>/<id>.json).
+- Reste vague 1 : 5 corrections à régénérer (E11.9, I49.5, I75.0, E87.6, B18.9).
+- Agents en cours : 45 Spec PSY, NEU, INF, PED (branches agent/45spec-*), Tétrade (agent/tetrade-arene, -3d, -sys-*).
+- Skills des agents : 1, 2, 4, 5, 7, 8 + medical-accuracy-100 ; 3 et 6 ajoutés par message à 11:50. Issue GitHub #30 (fausse alerte veille) à fermer par Vial.

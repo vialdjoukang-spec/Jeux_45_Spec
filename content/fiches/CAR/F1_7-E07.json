@@ -56,7 +56,7 @@
   {
    "ordre": 6,
    "action": "Poser l'indication de stimulateur DDD si corrélation établie, et d'anticoagulation si FA associée.",
-   "pourquoi": "Le pacemaker traite les symptômes ; le score CHA2DS2-VASc guide l'anticoagulation contre l'AVC."
+   "pourquoi": "Le pacemaker traite les symptômes ; le score CHA2DS2-VA guide l'anticoagulation contre l'AVC."
   }
  ],
  "drapeauxRouges": [
@@ -78,7 +78,7 @@
   {
    "signe": "FA associée sans anticoagulation",
    "signification": "Le syndrome tachy-brady expose à l'embolie cérébrale par stase auriculaire, indépendamment de la bradycardie.",
-   "action": "Calculer le score CHA2DS2-VASc et débuter un anticoagulant oral direct si indiqué."
+   "action": "Calculer le score CHA2DS2-VA et débuter un anticoagulant oral direct si indiqué."
   }
  ],
  "presentation": {
@@ -218,7 +218,7 @@
   },
   {
    "etape": 5,
-   "mesure": "Anticoagulation orale si FA associée, selon le score CHA2DS2-VASc",
+   "mesure": "Anticoagulation orale si FA associée, selon le score CHA2DS2-VA",
    "posologie": "Dose de l'anticoagulant oral direct selon AIPS (âge, poids, fonction rénale)",
    "pourquoi": "Elle réduit le risque d'AVC cardio-embolique, qui persiste malgré le pacemaker.",
    "source": "ESC 2020 sur la FA ; AIPS"
@@ -269,7 +269,7 @@
   {
    "erreur": "Penser que le pacemaker allonge la survie et prévient l'AVC.",
    "type": "confusion_mecanisme",
-   "correction": "Il soulage les symptômes sans améliorer la survie ; l'AVC sur FA nécessite une anticoagulation selon le score CHA2DS2-VASc."
+   "correction": "Il soulage les symptômes sans améliorer la survie ; l'AVC sur FA nécessite une anticoagulation selon le score CHA2DS2-VA."
   },
   {
    "erreur": "Se contenter d'un ECG normal et conclure à l'absence de maladie après une syncope.",
@@ -320,7 +320,7 @@
   },
   {
    "rubrique": "chronicManagement",
-   "developpement": "Le traitement définitif est l'implantation d'un stimulateur cardiaque double chambre (DDD) en cas de symptômes corrélés, car il soulage les symptômes sans allonger la survie. La FA associée impose l'anticoagulation selon le score CHA2DS2-VASc. Les antiarythmiques ne se prescrivent qu'après la sécurisation par le stimulateur. L'éducation du patient et la coordination avec le médecin de famille complètent la prise en charge."
+   "developpement": "Le traitement définitif est l'implantation d'un stimulateur cardiaque double chambre (DDD) en cas de symptômes corrélés, car il soulage les symptômes sans allonger la survie. La FA associée impose l'anticoagulation selon le score CHA2DS2-VA. Les antiarythmiques ne se prescrivent qu'après la sécurisation par le stimulateur. L'éducation du patient et la coordination avec le médecin de famille complètent la prise en charge."
   },
   {
    "rubrique": "hospitalizationComplications",
@@ -395,7 +395,7 @@
    "definition": "C'est un mode de stimulation double chambre qui détecte et stimule l'oreillette et le ventricule selon les besoins."
   },
   {
-   "terme": "CHA2DS2-VASc",
+   "terme": "CHA2DS2-VA",
    "definition": "Ce score évalue le risque d'AVC en cas de FA pour décider de l'anticoagulation."
   },
   {
@@ -423,10 +423,219 @@
  "signature": {
   "start": "2026-11-23 02:37",
   "model": "claude-sonnet-5-5",
-  "platform": "API Claude (Message Batches)"
+  "platform": "API Claude (Message Batches)",
+  "pec": {
+   "date": "2026-11-24 09:38",
+   "model": "claude-sonnet-5-5",
+   "platform": "API Claude (mode pec)"
+  }
  },
  "audit": {
-  "rejector": null,
+  "rejector": "pass",
   "human": null
+ },
+ "priseEnCharge": {
+  "but": [
+   "Corréler les symptômes aux pauses ou à la bradycardie pour confirmer la dysfonction sinusale.",
+   "Supprimer syncopes et chutes, en traitant d'abord toute cause réversible avant de stimuler.",
+   "Prévenir l'AVC cardio-embolique lorsqu'une fibrillation auriculaire accompagne le syndrome tachy-brady."
+  ],
+  "moyens": {
+   "accueil": [
+    "Installer le patient en position couchée sous monitoring continu, avec une voie veineuse périphérique.",
+    "Mesurer tension, fréquence, saturation et glycémie capillaire dès l'arrivée.",
+    "Établir la liste complète des médicaments, avec les bradycardisants et les heures de prise.",
+    "Interroger sur les syncopes, les chutes, les traumatismes et le contexte de survenue.",
+    "Expliquer au patient et à ses proches le diagnostic probable et le plan d'examens."
+   ],
+   "pharmacologique": [
+    {
+     "molecule": "Atropine (anticholinergique, parasympatholytique)",
+     "posologie": "0,5 mg IV en bolus, répétable toutes les 3–5 min, maximum 3 mg. Urgence seulement.",
+     "pourquoi": "Elle bloque le tonus vagal et accélère la fréquence sinusale en cas de bradycardie mal tolérée.",
+     "source": "ERC 2021"
+    },
+    {
+     "molecule": "Isoprénaline (bêta-agoniste non sélectif)",
+     "posologie": "Perfusion IV débutée à 5 µg/min, titrée sur la fréquence cardiaque ; dose exacte à vérifier dans l'AIPS. Courte durée, en soins intensifs.",
+     "pourquoi": "Elle accélère le rythme si l'atropine échoue, en attendant la stimulation temporaire ou définitive.",
+     "source": "ERC 2021 ; AIPS Swissmedic"
+    },
+    {
+     "molecule": "Céfazoline (céphalosporine de 1re génération)",
+     "posologie": "2 g IV en dose unique, 30–60 min avant l'incision de l'implantation du stimulateur.",
+     "pourquoi": "Elle réduit le risque d'infection de la loge et des sondes, complication grave du pacemaker.",
+     "source": "ESC 2021 stimulation cardiaque ; AIPS Swissmedic"
+    },
+    {
+     "molecule": "Apixaban (anticoagulant oral direct, anti-Xa)",
+     "posologie": "5 mg per os 2 fois par jour, au long cours ; 2,5 mg 2 fois par jour si deux critères parmi âge ≥ 80 ans, poids ≤ 60 kg, créatinine ≥ 133 µmol/l.",
+     "pourquoi": "Il prévient l'AVC si FA associée et score CHA2DS2-VA ≥ 2 (recommandé), à envisager dès 1.",
+     "source": "ESC 2024 FA ; AIPS Swissmedic"
+    }
+   ],
+   "nonPharmacologique": [
+    {
+     "categorie": "geste ou chirurgie",
+     "mesure": "Implanter un stimulateur double chambre DDD, avec minimisation de la stimulation ventriculaire, si la corrélation symptomatique est établie.",
+     "pourquoi": "Il supprime les syncopes et améliore la qualité de vie, sans effet démontré sur la survie."
+    },
+    {
+     "categorie": "geste ou chirurgie",
+     "mesure": "Poser un stimulateur temporaire par sonde endocavitaire si l'atropine et l'isoprénaline échouent.",
+     "pourquoi": "Il maintient un débit cérébral suffisant en attendant l'implantation définitive."
+    },
+    {
+     "categorie": "éducation thérapeutique",
+     "mesure": "Apprendre au patient à reconnaître prodromes, symptômes d'alerte et signes d'infection de la loge.",
+     "pourquoi": "Une consultation rapide limite traumatismes, récidives de syncope et complications du stimulateur."
+    },
+    {
+     "categorie": "soins infirmiers",
+     "mesure": "Surveiller la plaie, le pansement et le bras homolatéral après l'implantation.",
+     "pourquoi": "Elle détecte précocement hématome, infection et déplacement de sonde."
+    },
+    {
+     "categorie": "hygiène de vie",
+     "mesure": "Sécuriser le domicile, adapter les chaussures et éviter les stimulus vagaux déclenchants.",
+     "pourquoi": "Elle réduit le risque de chute avec fracture chez la personne âgée."
+    },
+    {
+     "categorie": "social et assurances",
+     "mesure": "Informer sur la suspension de la conduite jusqu'à l'implantation, puis sur sa reprise selon les règles de médecine du trafic.",
+     "pourquoi": "La syncope menace la sécurité routière du patient et d'autrui."
+    }
+   ],
+   "transversal": [
+    {
+     "discipline": "A Assurances sociales",
+     "apport": "Organise l'incapacité de travail, l'assurance maladie et, si besoin, l'AI ou l'aide à domicile."
+    },
+    {
+     "discipline": "F Droit médical suisse",
+     "apport": "Encadre le consentement éclairé, le devoir d'information et l'aptitude à la conduite."
+    },
+    {
+     "discipline": "M Médecine palliative",
+     "apport": "Discute objectifs de soins et directives anticipées chez le patient âgé polymorbide avant l'implantation."
+    }
+   ]
+  },
+  "conduite": {
+   "urgence": {
+    "mesuresGenerales": [
+     "Monitorer en continu et préparer matériel de réanimation et électrodes de stimulation externe.",
+     "Garder une voie veineuse et oxygéner si la saturation est inférieure à 94 %.",
+     "Rechercher une cause réversible : hyperkaliémie, hypothyroïdie, hypothermie, bradycardisants."
+    ],
+    "etapes": [
+     {
+      "temps": "d'abord",
+      "qui": "médecin responsable",
+      "fait": "Évalue la stabilité et lit l'ECG 12 dérivations, pour exclure un bloc AV."
+     },
+     {
+      "temps": "en même temps",
+      "qui": "infirmier·ère",
+      "fait": "Pose le monitoring et la voie veineuse, puis prélève kaliémie, TSH, créatinine et glycémie."
+     },
+     {
+      "temps": "en même temps",
+      "qui": "second médecin",
+      "fait": "Révise les médicaments et arrête tout bradycardisant, pour traiter la cause iatrogène."
+     },
+     {
+      "temps": "ensuite",
+      "qui": "médecin responsable",
+      "fait": "Administre l'atropine 0,5 mg IV si hypotension, choc ou confusion, à répéter jusqu'à 3 mg."
+     },
+     {
+      "temps": "puis",
+      "qui": "médecin responsable",
+      "fait": "Débute l'isoprénaline ou la stimulation temporaire si l'atropine échoue, en soins intensifs."
+     },
+     {
+      "temps": "puis",
+      "qui": "spécialiste",
+      "fait": "Le cardiologue-électrophysiologue planifie l'implantation du stimulateur définitif sans délai."
+     }
+    ]
+   },
+   "horsUrgence": {
+    "mesuresGenerales": [
+     "Corriger d'abord les causes réversibles avant de poser l'indication de stimulation.",
+     "Documenter la corrélation symptôme-rythme avant toute implantation.",
+     "Évaluer le risque de chute et l'aptitude à la conduite à chaque consultation."
+    ],
+    "etapes": [
+     {
+      "temps": "d'abord",
+      "qui": "médecin responsable",
+      "fait": "Réalise l'ECG, examine le patient et arrête les bradycardisants non indispensables."
+     },
+     {
+      "temps": "en même temps",
+      "qui": "infirmier·ère",
+      "fait": "Organise le bilan biologique et la pose du Holter 24–72 h ou de l'enregistreur."
+     },
+     {
+      "temps": "ensuite",
+      "qui": "spécialiste",
+      "fait": "Le cardiologue propose un ILR si les syncopes sont rares et le bilan non invasif négatif."
+     },
+     {
+      "temps": "puis",
+      "qui": "médecin responsable",
+      "fait": "Calcule le score CHA2DS2-VA et débute l'anticoagulation si FA associée."
+     },
+     {
+      "temps": "puis",
+      "qui": "spécialiste",
+      "fait": "Implante le stimulateur DDD si la dysfonction sinusale explique les symptômes."
+     },
+     {
+      "temps": "en même temps",
+      "qui": "assistant·e social·e",
+      "fait": "Organise l'arrêt de travail, l'aide à domicile et les démarches d'assurance."
+     }
+    ]
+   }
+  },
+  "pronostic": "La dysfonction sinusale est chronique et progressive, mais le pronostic vital reste bon avec un stimulateur. Le pacemaker supprime les syncopes sans allonger la survie, et le risque d'AVC persiste si FA (ESC 2021).",
+  "surveillance": {
+   "suivi": [
+    {
+     "quoi": "Syncopes, présyncopes, chutes et tolérance à l'effort",
+     "quand": "À chaque consultation, puis tous les 6–12 mois",
+     "cible": "Aucune syncope ni chute ; capacité d'effort conservée"
+    },
+    {
+     "quoi": "Plaie de la loge du stimulateur",
+     "quand": "À 7–14 jours après l'implantation",
+     "cible": "Plaie sèche, sans hématome, rougeur ni écoulement"
+    },
+    {
+     "quoi": "Contrôle du stimulateur : seuils, détection, impédances, charge de stimulation",
+     "quand": "Dans les 2–12 semaines, puis tous les 6–12 mois",
+     "cible": "Paramètres stables ; stimulation ventriculaire minimale"
+    },
+    {
+     "quoi": "Rythme sur ECG ou télémonitoring : détection de FA",
+     "quand": "À chaque contrôle du stimulateur",
+     "cible": "Aucune FA non traitée ; anticoagulation adaptée si FA"
+    },
+    {
+     "quoi": "Kaliémie, créatinine, TSH et dose de l'anticoagulant",
+     "quand": "Au moins une fois par an, ou si changement clinique",
+     "cible": "K+ normal ; fonction rénale stable ; TSH normale"
+    }
+   ],
+   "sortie": "Sortie si le patient est stable sans pause symptomatique ni syncope, avec fréquence cardiaque stable. Après implantation : plaie propre, radiographie thorax sans pneumothorax, sondes en place, seuils corrects, anticoagulation fixée. Prise en charge ambulatoire d'emblée si l'ECG est stable, sans pause > 3 s ni drapeau rouge."
+  },
+  "prevention": {
+   "primaire": "Éviter les associations bradycardisantes chez la personne âgée et contrôler la kaliémie et la TSH.",
+   "secondaire": "Identifier tôt les causes réversibles, documenter les pauses et dépister la FA chez le patient symptomatique.",
+   "tertiaire": "Suivre le stimulateur régulièrement, anticoaguler si indiqué et prévenir chutes, infections de loge et récidives."
+  }
  }
 }
