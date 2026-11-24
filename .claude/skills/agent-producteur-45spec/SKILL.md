@@ -119,3 +119,9 @@ Signature : AAI (Anthropic AI)
 - Un nom canonique peut doubler un fichier existant (S27.0 « pneumothorax compressif » ≈ CTH J93.0) alors que ses portes visent une autre entité (pneumothorax traumatique simple) : produis-la sous l'angle de la porte non couverte au lieu de la sauter, et signale-le au rapport.
 - Une vignette `d` 4–5 ne paraphrase pas non plus le libellé entre parenthèses du nom canonique (« thrombose des veines sus-hépatiques » pour Budd-Chiari) : décris les constatations, pas l'entité.
 - Vérifie toujours l'année de la recommandation par PubMed : une version plus récente peut exister (EASL maladies vasculaires du foie 2016 → 2025, PMID 41224629).
+
+## Leçons (producteur unique, lots 26–27, 24.11.2026)
+- Une question A `d` 4–5 garde aussi son `p` (prompt) sans le diagnostic : « en cas d'annexe tordue » ou « origine médicamenteuse avec nécrose de l'épiderme » le révèlent ; écris « votre hypothèse principale ».
+- Une étape de série vue au bloc (« annexe tordue sur trois tours ») nomme le diagnostic : `m=0` et `d` ≤ 3.
+- `couverture_compacte.py` affiche « Nxx p1 [] » quand une notion de poids 1 ne sert à aucune question : rattache-la à une question proche avant le constructeur.
+- Entité voisine déjà produite (S27.1 → J94.2, O00.1 → O00.9) : prends l'angle de la porte non couverte (iatrogène et réanimation hémostatique ; GEU non rompue, méthotrexate, échec contraceptif).

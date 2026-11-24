@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**300 / 500 pathologies du périmètre produites.**
+**303 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -227,10 +227,10 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 218 | `K22.3_1__F2_18-E17` | Syndrome de Boerhaave (rupture spontanée transmurale de l'œsophage) | CTH | produite |
 | 219 | `K56.2__F2_4-E18` | Volvulus du sigmoïde (image en grain de café) | CHI | produite |
 | 220 | `K85.8_pancreatite_aigue__F2_13-E12` | Pancréatite aiguë | GAS | produite |
-| 221 | `L51.1__F1_4-E15` | Syndrome de Stevens-Johnson / nécrolyse épidermique toxique (Lyell) | DER | — |
+| 221 | `L51.1__F1_4-E15` | Syndrome de Stevens-Johnson / nécrolyse épidermique toxique (Lyell) | DER | produite |
 | 222 | `N01.9__F2_12-E15` | Glomérulonéphrite rapidement progressive (GNRP / syndrome pneumo-rénal) | NEP | produite |
-| 223 | `N83.5__O1_7-E13` | Torsion d'annexe (kyste ou masse ovarienne tordue) | GYN | — |
-| 224 | `O00.9__F1_17-E13` | Grossesse extra-utérine (GEU) rompue ou non rompue (échec contraceptif) | GYN | — |
+| 223 | `N83.5__O1_7-E13` | Torsion d'annexe (kyste ou masse ovarienne tordue) | GYN | produite |
+| 224 | `O00.9__F1_17-E13` | Grossesse extra-utérine (GEU) rompue ou non rompue (échec contraceptif) | GYN | produite |
 | 225 | `O01.9__O1_7-E14` | Môle hydatiforme (grossesse môlaire complète ou partielle) | GYN | — |
 | 226 | `S06.5__F1_15-E15` | Hématome sous-dural aigu (HSDA) grave | NCH | — |
 | 227 | `T17.9__F1_10-E13` | Inhalation massive / fausse route mortelle (corps étranger ou régurgitation) | LEG | — |
