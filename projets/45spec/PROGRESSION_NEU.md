@@ -1,6 +1,6 @@
 # Progression NEU — production manuelle sans API (agent 45spec-NEU)
 
-Pathologies canoniques : 159 ; terminées (notions + questions + correction) : 11.
+Pathologies canoniques : 159 ; terminées (notions + questions + correction) : 14.
 
 Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts/ecrire_manuel.py SOURCE --spec NEU` (valider() et ecrire() du script de production).
 
@@ -11,6 +11,7 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | G30.9__F1_9-E01 | Maladie d'Alzheimer | 31 | 20 | 0 |
 | G40.3_1__F1_19-E04 | Épilepsie généralisée idiopathique (tonico-clonique, myoclonique juvénile, absences) | 30 | 20 | 0 |
 | G43.9__S3_10-E06 | Migraine avec ou sans aura (et syndrome des vomissements cycliques) | 35 | 21 | 0 |
+| G51.0__F1_4-E17 | Asymétrie faciale aiguë (paralysie faciale centrale vs périphérique) | 26 | 20 | 0 |
 | G20_1__S7_1-E05 | Maladie de Parkinson et syndromes parkinsoniens (instabilité posturale) | 33 | 21 | 0 |
 | G35__S7_3-E10 | Sclérose en plaques (poussée motrice hémiparétique ou paraparétique) | 35 | 21 | 0 |
 | G70.0__F1_11-E10 | Myasthénie grave (dysphonie et voix nasonnée fatigables) | 31 | 20 | 0 |
@@ -18,7 +19,9 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 | G41.0__S7_10-E11 | État de mal épileptique convulsif généralisé (EME) | 38 | 20 | 0 |
 | G45.9__F1_11-E13 | Accident ischémique transitoire (AIT) avec trouble aigu du langage | 33 | 21 | 0 |
 | G61.0__O4_2-E13 | Syndrome de Guillain-Barré (polyradiculonévrite aiguë) | 36 | 20 | 0 |
+| G95.2__O5_3-E12 | Compression médullaire aiguë (paraparésie spastique/flasque aiguë avec troubles de la marche) | 29 | 20 | 0 |
 | I63.9__F1_11-E12 | Accident vasculaire cérébral aigu (AVC ischémique ou hémorragique) | 46 | 24 | 0 |
+| I67.1__F1_12-E15 | Anévrisme de l'artère communicante postérieure (paralysie du III) | 28 | 20 | 0 |
 
 ## Ordre de priorité retenu (importance pour l'examen)
 
@@ -33,9 +36,9 @@ Méthode : source compacte `projets/45spec/sources_NEU/*.py` → `python scripts
 9. G70.0__F1_11-E10 — fait
 10. G30.9__F1_9-E01 — fait
 11. G40.3_1__F1_19-E04 — fait
-12. G95.2__O5_3-E12
-13. I67.1__F1_12-E15
-14. G51.0__F1_4-E17
+12. G95.2__O5_3-E12 — fait
+13. I67.1__F1_12-E15 — fait
+14. G51.0__F1_4-E17 — fait
 15. E51.2__F1_15-E07
 16. G04.9_1__S7_7-E13
 17. G44.0__S1_11-E07
