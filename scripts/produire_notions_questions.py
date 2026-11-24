@@ -141,7 +141,13 @@ def canoniques(spec=None):
 
 
 def chemin(etape, c):
-    return os.path.join(DOS[etape], (c["codes"] or ["SANS_SPEC"])[0], c["id"] + ".json")
+    p = os.path.join(DOS[etape], (c["codes"] or ["SANS_SPEC"])[0], c["id"] + ".json")
+    if not os.path.exists(p):                     # fichier déjà produit sous une autre spécialité (l'ordre des codes change après fusion) : on le retrouve
+        import glob as _g
+        autres = _g.glob(os.path.join(DOS[etape], "*", c["id"] + ".json"))
+        if autres:
+            return autres[0]
+    return p
 
 
 def message(etape, c):
