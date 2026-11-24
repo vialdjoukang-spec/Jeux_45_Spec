@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**306 / 500 pathologies du périmètre produites.**
+**309 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -234,10 +234,10 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 225 | `O01.9__O1_7-E14` | Môle hydatiforme (grossesse môlaire complète ou partielle) | GYN | produite |
 | 226 | `S06.5__F1_15-E15` | Hématome sous-dural aigu (HSDA) grave | NCH | produite |
 | 227 | `T17.9__F1_10-E13` | Inhalation massive / fausse route mortelle (corps étranger ou régurgitation) | LEG | produite |
-| 228 | `T67.0__G6-E20` | Coup de chaleur d'exercice (hyperthermie > 40 °C avec dysfonction SNC) | MIG | — |
-| 229 | `T74.1__G13-E20` | Syndrome du bébé secoué (traumatisme crânien non accidentel) | LEG | — |
+| 228 | `T67.0__G6-E20` | Coup de chaleur d'exercice (hyperthermie > 40 °C avec dysfonction SNC) | MIG | produite |
+| 229 | `T74.1__G13-E20` | Syndrome du bébé secoué (traumatisme crânien non accidentel) | LEG | produite |
 | 230 | `A49.9__F2_19-E01` | Infection bactérienne communautaire aiguë (pneumonie, pyélonéphrite, érysipèle) | INF | produite |
-| 231 | `A54.0__O7_12-E02` | Urétrite gonococcique (Neisseria gonorrhoeae) | DER | — |
+| 231 | `A54.0__O7_12-E02` | Urétrite gonococcique (Neisseria gonorrhoeae) | DER | produite |
 | 232 | `A69.2_1__S5_6-E08` | Arthrite de Lyme (borréliose tardive) | INF | produite |
 | 233 | `C44.9__S6_4-E10` | Carcinome basocellulaire (CBC) | DER | — |
 | 234 | `D12.6_polypes_adenomateux___F2_10-E03` | Polypes adénomateux colorectaux | GAS | produite |
