@@ -12,3 +12,5 @@
 
 Dotation minimale de chaque agent : les cinq premiers skills ci-dessus (décision de Vial, 24.11.2026).
 Signature : AAI (Anthropic AI)
+
+| production-45spec-sans-api | Production manuelle (sans API) des notions/questions/corrections 45 Spec via lib.py et contrôles | agent qui remplace l'API pour une spécialité 45 Spec | psych-ultra-ch, medical-accuracy-100 |
