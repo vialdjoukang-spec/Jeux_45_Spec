@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-24 06:45 UTC
+# Ouvrier automatique — 2026-11-24 07:38 UTC
 
-Dernier passage : **T3_pec_fiches_existantes** → en_cours (0.32 USD).
+Dernier passage : **T3_pec_fiches_existantes** → en_cours (0.20 USD).
 
-Le mode « pec » existe dans produire_fiches_claude.py (pec_pilote, pec_soumettre, pec_recuperer, pec_bilan) ; il insère seulement priseEnCharge, répare la forme et remet audit.rejector à null. Le test direct sur 2 fiches CAR a réussi et le lot de 154 fiches est soumis (msgbatch_014L4teTsJAY3oBSZvVHdT16). Au passage suivant, lancer pec_recuperer ; les 151 fiches rejetées avec erreurs de forme sont reprises en entier par T4, donc T3 passera à « fait » une fois le lot récupéré.
+Le mode pec existe et a été corrigé (consigne de forme, réparation des champs rendus en texte). Le premier lot a donné 91 insertions sur 154 ; 2 fiches de test en direct passent, et 567 fiches sur 779 portent maintenant priseEnCharge. Un second lot de 61 fiches est soumis (msgbatch_016ZJgjrZR6pjXCEpVQDYBpL) à récupérer au prochain passage avec pec_recuperer ; les 151 fiches rejetées pour erreurs de forme restent à T4, et audit.rejector vaut null pour la réaudition.
 
-**Crédit** : 50.94 USD dépensés, 141.06 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.32 / 141.38 USD.
+**Crédit** : 51.14 USD dépensés, 140.86 USD disponibles avant le 27.11.2026 ; aujourd'hui 0.52 / 141.38 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -38,7 +38,7 @@ Le mode « pec » existe dans produire_fiches_claude.py (pec_pilote, pec_soumett
 | END_Q_recup | fait | 1 | 0.0 |
 | END_C_lot | fait | 1 | 0.0 |
 | END_C_recup | fait | 1 | 0.0 |
-| T3_pec_fiches_existantes | en_cours | 1 | 0.322 |
+| T3_pec_fiches_existantes | en_cours | 2 | 0.199 |
 | T4_reprise_rejets | a_faire | 0 |  |
 | T5_items_valides | sans_objet | 0 |  |
 | T7_transversal_lecons | sans_objet | 0 |  |

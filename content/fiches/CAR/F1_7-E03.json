@@ -427,12 +427,171 @@
  "signature": {
   "start": "2026-11-23 02:37",
   "model": "claude-sonnet-5-5",
-  "platform": "API Claude (Message Batches)"
+  "platform": "API Claude (Message Batches)",
+  "pec": {
+   "date": "2026-11-24 07:36",
+   "model": "claude-sonnet-5-5",
+   "platform": "API Claude (mode pec)"
+  }
  },
  "audit": {
   "rejector": "pass",
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "par": "Claude (audit médical)",
-  "motif": "Premiers gestes, drapeaux rouges, examens, posologies et chiffres clés conformes aux recommandations citées."
+  "motif": "priseEnCharge auditée : posologies, cibles, délais et critères de sortie conformes aux recommandations citées. Correction : Posologies chiffrées ajoutées (KCl retard, magnésium, métoprolol succinate ; AIPS Swissmedic)."
+ },
+ "priseEnCharge": {
+  "but": [
+   "Écarter une cardiopathie sous-jacente ou une arythmie de mauvais pronostic chez le patient consulté.",
+   "Soulager les palpitations en traitant les facteurs favorisants et l'anxiété.",
+   "Dépister et traiter une charge élevée en ESV avant toute cardiomyopathie rythmique."
+  ],
+  "moyens": {
+   "accueil": [
+    "Accueillir le patient dans un lieu calme et prendre ses palpitations au sérieux.",
+    "Rechercher d'emblée syncope, douleur thoracique, dyspnée et antécédents familiaux de mort subite.",
+    "Mesurer pouls, tension et saturation avant tout autre geste.",
+    "Enregistrer un ECG 12 dérivations dès la consultation."
+   ],
+   "pharmacologique": [
+    {
+     "molecule": "Potassium (électrolyte), substitution si K+ < 3,5 mmol/l",
+     "posologie": "Chlorure de potassium retard 20–40 mmol/j PO en 2–3 prises, selon le déficit ; contrôle de la kaliémie sous 48–72 h.",
+     "pourquoi": "L'hypokaliémie abaisse le seuil arythmogène ; sa correction supprime souvent les extrasystoles.",
+     "source": "AIPS Swissmedic"
+    },
+    {
+     "molecule": "Magnésium (électrolyte), substitution si hypomagnésémie",
+     "posologie": "Magnésium 10–15 mmol/j PO en 2–3 prises (diarrhée possible) ; contrôle de la magnésémie à 2–4 semaines ; prudence si DFG < 30 mL/min.",
+     "pourquoi": "L'hypomagnésémie favorise les ESV et accompagne souvent l'hypokaliémie, notamment sous diurétiques.",
+     "source": "AIPS Swissmedic"
+    },
+    {
+     "molecule": "Métoprolol (bêtabloquant cardiosélectif)",
+     "posologie": "Métoprolol succinate 25–50 mg/j PO, augmenté selon fréquence et tension jusqu'à 200 mg/j au maximum. Contre-indiqué en cas d'asthme sévère, de bloc AV ou de bradycardie.",
+     "pourquoi": "Il réduit l'excitabilité adrénergique ; il est réservé aux symptômes très gênants sans contre-indication.",
+     "source": "AIPS Swissmedic"
+    }
+   ],
+   "nonPharmacologique": [
+    {
+     "categorie": "éducation thérapeutique",
+     "mesure": "Expliquer le caractère bénin des extrasystoles et les signes qui doivent faire reconsulter.",
+     "pourquoi": "La réassurance diminue l'anxiété, qui entretient la perception des palpitations."
+    },
+    {
+     "categorie": "hygiène de vie",
+     "mesure": "Réduire caféine, alcool, tabac et stimulants, dormir mieux et pratiquer une activité physique régulière.",
+     "pourquoi": "Ces facteurs augmentent l'automaticité ectopique ; leur suppression diminue souvent les symptômes."
+    },
+    {
+     "categorie": "psychothérapie",
+     "mesure": "Proposer une gestion du stress ou une thérapie cognitivo-comportementale si l'anxiété domine.",
+     "pourquoi": "L'anxiété amplifie les symptômes et entretient le cercle vicieux des palpitations."
+    },
+    {
+     "categorie": "geste ou chirurgie",
+     "mesure": "Discuter une ablation par radiofréquence si la charge dépasse 10–15 % ou en cas de cardiomyopathie rythmique.",
+     "pourquoi": "Supprimer le foyer ectopique permet de récupérer la FEVG et de contrôler les symptômes réfractaires."
+    },
+    {
+     "categorie": "social et assurances",
+     "mesure": "Délivrer un certificat d'arrêt de travail si les symptômes sont invalidants, et clarifier l'aptitude professionnelle.",
+     "pourquoi": "Une incapacité transitoire ouvre droit aux indemnités journalières de l'assurance maladie ou de l'employeur."
+    }
+   ],
+   "transversal": [
+    {
+     "discipline": "A Assurances sociales",
+     "apport": "Clarifie l'incapacité de travail et la couverture des indemnités journalières en cas de symptômes invalidants."
+    },
+    {
+     "discipline": "F Droit médical suisse",
+     "apport": "Encadre l'information du patient et le consentement éclairé avant bêtabloquant ou ablation."
+    },
+    {
+     "discipline": "M Médecine palliative",
+     "apport": "Sans objet en situation bénigne ; elle n'intervient qu'en cas de cardiopathie avancée associée."
+    }
+   ]
+  },
+  "conduite": {
+   "urgence": null,
+   "horsUrgence": {
+    "mesuresGenerales": [
+     "Trier d'emblée le patient entre cœur sain et cardiopathie à risque rythmique.",
+     "Éviter tout antiarythmique systématique en l'absence de cardiopathie, par risque proarythmique.",
+     "Planifier une consultation de suivi pour réévaluer symptômes et examens."
+    ],
+    "etapes": [
+     {
+      "temps": "d'abord",
+      "qui": "médecin responsable",
+      "fait": "Recherche les signes de gravité, examine le cœur et vérifie l'absence de souffle ou d'insuffisance cardiaque."
+     },
+     {
+      "temps": "en même temps",
+      "qui": "infirmier·ère",
+      "fait": "Mesure pouls et tension, enregistre l'ECG 12 dérivations et prélève K+, Mg2+ et TSH."
+     },
+     {
+      "temps": "ensuite",
+      "qui": "médecin responsable",
+      "fait": "Interprète l'ECG et le bilan, puis corrige les facteurs favorisants et les troubles ioniques."
+     },
+     {
+      "temps": "puis",
+      "qui": "médecin responsable",
+      "fait": "Organise Holter 24 h et ETT si symptômes marqués, ESV fréquentes ou ECG anormal."
+     },
+     {
+      "temps": "puis",
+      "qui": "spécialiste",
+      "fait": "Le cardiologue réalise test d'effort et IRM si drapeaux rouges, ou charge supérieure à 10 %."
+     },
+     {
+      "temps": "ensuite",
+      "qui": "patient·e",
+      "fait": "Applique les mesures d'hygiène de vie et signale syncope ou aggravation des palpitations."
+     }
+    ]
+   }
+  },
+  "pronostic": "Sur cœur sain, le pronostic est excellent et les extrasystoles restent bénignes sans surmortalité. Une charge élevée (> 10–15 %) expose à une cardiomyopathie rythmique, réversible après suppression des ESV.",
+  "surveillance": {
+   "suivi": [
+    {
+     "quoi": "Symptômes (palpitations, dyspnée, syncope)",
+     "quand": "Contrôle à 4–6 semaines, puis selon l'évolution",
+     "cible": "Régression des palpitations, absence de syncope ou de dyspnée"
+    },
+    {
+     "quoi": "Kaliémie et magnésémie après substitution",
+     "quand": "48–72 h après le début de la correction",
+     "cible": "K+ ≥ 3,5 mmol/l (idéalement 4–5) et Mg2+ normal"
+    },
+    {
+     "quoi": "Charge en ESV au Holter 24 h",
+     "quand": "Selon le bilan initial, puis annuel si > 10 %",
+     "cible": "Charge < 10 %, stable, sans salves de TV non soutenue"
+    },
+    {
+     "quoi": "FEVG à l'ETT",
+     "quand": "À 6–12 mois si charge élevée ou symptômes",
+     "cible": "FEVG > 50 %, stable ou en amélioration"
+    },
+    {
+     "quoi": "Fréquence cardiaque et tension sous bêtabloquant",
+     "quand": "À 1–2 semaines après introduction ou changement de dose",
+     "cible": "Fréquence de repos > 50/min, sans hypotension symptomatique"
+    }
+   ],
+   "sortie": "Prise en charge ambulatoire d'emblée : patient stable, ECG sans FA, bloc, pré-excitation ni QT long, sans signe de gravité. Hospitaliser en cas de syncope, TV soutenue ou instabilité hémodynamique."
+  },
+  "prevention": {
+   "primaire": "Limiter caféine, alcool, tabac et stimulants, dormir suffisamment et traiter les facteurs de risque cardiovasculaires.",
+   "secondaire": "Dépister par ECG, Holter et ETT toute cardiopathie sous-jacente ou charge élevée en ESV, et corriger K+ et Mg2+.",
+   "tertiaire": "Surveiller la FEVG chez les patients à forte charge pour prévenir la cardiomyopathie rythmique, et adresser en cardiologie si besoin."
+  }
  }
 }

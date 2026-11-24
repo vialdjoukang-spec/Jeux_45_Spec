@@ -233,6 +233,7 @@ SYSTEME_PEC = SYSTEME.split("RÈGLES BLOQUANTES")[0].split("Tu rédiges")[0] + (
     "3. " + SYSTEME.split("6 bis. ")[1].split("\n7.")[0] + "\n"
     "4. Cohérence : la prise en charge reste compatible avec premiersGestes, examens et traitement de la fiche fournie ; chaque médicament porte une posologie chiffrée (dose, voie, rythme, durée ou cible), jamais « selon protocole ».\n"
     "5. Concision : chaque phrase de 20 mots au plus ; respecte les bornes du schéma ; conduite.urgence vaut null si la situation n'est jamais une urgence.\n"
+    "6. FORME (bloquant) : les six clés but, moyens, conduite, pronostic, surveillance, prevention sont TOUTES présentes au niveau supérieur ; chacune est un objet ou un tableau JSON natif, jamais une chaîne de texte contenant du JSON ; « moyens » contient exactement accueil, pharmacologique, nonPharmacologique, transversal ; aucune autre clé (pas de « sortie », « horsUrgence » ni « etapes » au niveau supérieur : la sortie va dans surveillance, les étapes dans conduite).\n"
     "Tu réponds UNIQUEMENT en appelant l'outil emettre_pec.")
 
 
@@ -262,6 +263,19 @@ def pec_params(d, modele):
 
 def pec_reparer(pec):
     """Forme seulement (0 token) : « moyens » rendu en texte JSON (parfois sans ses clés finales, égarées au niveau supérieur)."""
+    for k, v in list(pec.items()):   # n'importe quel champ rendu en texte JSON
+        if isinstance(v, str) and v.lstrip().startswith(("{", "[")):
+            for fin in ("", "}", "]}", "]"):
+                try:
+                    pec[k] = json.loads(v + fin); break
+                except ValueError:
+                    continue
+    for k in ("accueil", "pharmacologique", "nonPharmacologique", "transversal"):   # champs égarés ou rendus en texte
+        if isinstance(pec.get(k), str) and pec[k].lstrip().startswith(("{", "[")):
+            try:
+                pec[k] = json.loads(pec[k])
+            except ValueError:
+                pass
     m = pec.get("moyens")
     if isinstance(m, str):
         for fin in ("", "}", "]}", "]}}"):
