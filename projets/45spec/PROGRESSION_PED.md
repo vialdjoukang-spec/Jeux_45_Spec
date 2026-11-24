@@ -4,7 +4,7 @@ Branche : `agent/45spec-PED`. Production par agent Claude **sans API** (même sc
 Ordre : `selection()` (fréquence puis identifiant) pour les 18 premières ; ensuite **ordre révisé par importance pour l'examen** (section ci-dessous). Contrôles : `valider()` sans erreur ; couverture des notions de poids ≥ 2 au moins deux fois sous deux angles ; formats ≈ 70/20/10.
 Les données douteuses portent la mention « à vérifier » dans leur source (AIPS, version de recommandation). Statut d'audit : en attente (`audit.rejector = null`).
 
-**Avancement : 24 / 69 pathologies canoniques complètes (notions + questions + correction).**
+**Avancement : 27 / 69 pathologies canoniques complètes (notions + questions + correction).**
 
 | # | Identifiant | Pathologie | Fréq. | Complet | Notions | Questions |
 |---|---|---|---|---|---|---|
@@ -30,13 +30,13 @@ Les données douteuses portent la mention « à vérifier » dans leur source (A
 | 20 | `Z63.4_1__O6_7-E05` | Deuil périnatal (fausse couche, IMG, mortinatalité, mort sub | 2 | ⬜ |  |  |
 | 21 | `J21.0__S2_1-E12` | Bronchiolite aiguë du nourrisson | 3 | ✅ | 29 | 21 |
 | 22 | `J21.9__F1_10-E16` | Bronchiolite aiguë grave du nourrisson avec apnées et cyanos | 3 | ✅ | 29 | 21 |
-| 23 | `P22.0__O1_1-E11` | Syndrome de détresse respiratoire néonatale (maladie des mem | 3 | ⬜ |  |  |
+| 23 | `P22.0__O1_1-E11` | Syndrome de détresse respiratoire néonatale (maladie des mem | 3 | ✅ | 25 | 20 |
 | 24 | `P36.9__O1_1-E15` | Sepsis néonatal précoce (< 72 h) | 3 | ✅ | 28 | 21 |
 | 25 | `P39.1__O7_12-E17` | Conjonctivite néonatale (à gonocoque ou Chlamydia trachomati | 3 | ⬜ |  |  |
 | 26 | `P52.2__O1_1-E14` | Hémorragie intraventriculaire (HIV) du prématuré | 3 | ⬜ |  |  |
 | 27 | `P55.0_1__O1_3-E13` | Incompatibilité rhésus sévère avec anémie fœtale (allo-immun | 3 | ⬜ |  |  |
 | 28 | `P56.0__F2_17-E15` | Anasarque fœto-placentaire (hydrops fetalis) sur allo-immuni | 3 | ⬜ |  |  |
-| 29 | `P57.9__F2_17-E16` | Ictère nucléaire (encéphalopathie bilirubinique aiguë) | 3 | ⬜ |  |  |
+| 29 | `P57.9__F2_17-E16` | Ictère nucléaire (encéphalopathie bilirubinique aiguë) | 3 | ✅ | 26 | 20 |
 | 30 | `P61.4__O2_7-E14` | Anémie fœtale sévère sur hémorragie fœto-maternelle massive  | 3 | ⬜ |  |  |
 | 31 | `P70.4__O1_1-E12` | Hypoglycémie néonatale sévère ou symptomatique | 3 | ✅ | 27 | 21 |
 | 32 | `P74.1__O1_6-E13` | Déshydratation hypernatrémique sévère du nouveau-né allaité | 3 | ✅ | 27 | 21 |
@@ -56,7 +56,7 @@ Les données douteuses portent la mention « à vérifier » dans leur source (A
 | 46 | `Z63.5_1__O6_6-E13` | Fugue ou mise en danger aiguë d'un enfant/adolescent lors d' | 3 | ⬜ |  |  |
 | 47 | `P05.0__O1_1-E08` | Petit poids constitutionnel (SGA sans RCIU pathologique) | 4 | ⬜ |  |  |
 | 48 | `P07.2__O1_1-E07` | Extrême prématurité (< 28 0/7 SA) | 4 | ⬜ |  |  |
-| 49 | `P55.0__F2_17-E08` | Maladie hémolytique du nouveau-né par incompatibilité RhD | 4 | ⬜ |  |  |
+| 49 | `P55.0__F2_17-E08` | Maladie hémolytique du nouveau-né par incompatibilité RhD | 4 | ✅ | 26 | 20 |
 | 50 | `P59.3__O1_6-E07` | Ictère au lait de mère (ictère tardif du nourrisson allaité) | 4 | ⬜ |  |  |
 | 51 | `P80.9__G8-E07` | Hypothermie néonatale par perte thermique précoce | 4 | ⬜ |  |  |
 | 52 | `Q05.9__O1_3-E07` | Anomalies de fermeture du tube neural (spina bifida, anencép | 4 | ⬜ |  |  |
@@ -142,6 +142,8 @@ Absentes des entités canoniques PED (non produisibles ici, à signaler au catal
 - Pathologies partagées dont le premier code n'est pas PED (Z63.4 deuils, Z63.5 divorce) : écrites par le script dans `MIG/` ou `PEA/` ; reportées en fin de file pour éviter un doublon avec les agents MIG/PEA.
 - Les amorces du gabarit (`P.message`) contiennent du bruit adulte (ex. « paracétamol 1 g », « 1,5–2 L/j ») dans des entités néonatales : il n'a jamais été repris ; posologies pédiatriques en mg/kg « à vérifier dans l'AIPS ».
 - Identifiant par spécialité parfois différent de l'identifiant global (ex. `A41.9__O2_8-E03` / `A41.9_1__O2_8-E03`) : fichiers nommés comme `selection(--spec PED)`.
+- Doutes levés le 24.11.2026 (sources vérifiées en ligne) : bronchiolite — recommandation suisse SAPP 2003 (Barben, Hammer), cible SpO2 > 92 % (la mention « Paediatrica 2017, 90 % » était fausse) ; nirsévimab — OFSP/CFV mise à jour 2026 (dose unique pour tout nourrisson ≤ 12 mois, première semaine si naissance d'octobre à mars, sinon en octobre ; 50 mg < 5 kg, 100 mg ≥ 5 kg selon SwissPAR) et vaccin maternel entre 32+0 et 36+0 SA ; hypoglycémie — SSN 2021, seuil < 2,6 mmol/L, gel 40 % 0,5 mL/kg ; DDH — échographie de Graf au premier mois, remboursée par l'AOS (Baumann & Schmid, Paediatrica 2023).
+- Sources suisses vérifiées pour les lots suivants : SSN 2023 hyperbilirubinémie (V13 : 350/430 µmol/L à terme, 300/370 avec facteurs de risque) ; SGGG avis n° 68 (2020) anti-D ; consensus européen RDS 2025 (Neonatology 2026) ; SGGG avis n° 41 (bétaméthasone 2 × 12 mg).
 - Skill créé : `.claude/skills/45spec-production-sans-api`.
 
 Signature : AAI (Anthropic AI)
