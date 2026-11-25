@@ -2,35 +2,39 @@ from constructeur_agent_45spec import pec
 ID = "S30.0__S8_10-E03"
 LIR = "[Lirette et al., Coccydynia: an overview of the anatomy, etiology, and treatment of coccyx pain, Ochsner J 2014;14:84-7, PMID 24688338, résumé lu le 25.11.2026]"
 MAI = "[Maigne et al., Causes and mechanisms of common coccydynia: role of body mass index and coccygeal trauma, Spine 2000;25:3072-9, PMID 11145819, résumé lu le 25.11.2026]"
+AND = "[Andersen et al., Coccydynia—The Efficacy of Available Treatment Options: A Systematic Review, Global Spine J 2022;12:1611-23, PMID 34927468, PMC9393997, texte intégral lu le 25.11.2026]"
+GIR = "[GIRFT et NHS England, National Suspected Cauda Equina Syndrome Pathway, février 2023, PDF spinal.co.uk lu le 25.11.2026]"
+URI = "[Urits et al., Sacral Insufficiency Fractures: a Review of Risk Factors, Clinical Presentation, and Management, Curr Pain Headache Rep 2020;24:10, PMID 32067155, résumé lu le 25.11.2026]"
+LAA = "[OFSP, « Assurance-accidents : qui est assuré à titre obligatoire ? », bag.admin.ch, page lue le 25.11.2026]"
 EXP = "Avis d'expert, médecine de l'appareil locomoteur et urgences (à vérifier)"
 _N = [
-("def","definition","critère",3,0,LIR+" ; "+EXP,"La coccygodynie est une douleur de la région du coccyx ; la forme post-traumatique suit typiquement une chute sur les fesses ou un accouchement."),
+("def","definition","critère",3,0,AND+" ; "+LIR,"La coccygodynie est une douleur du coccyx ou des tissus voisins ; elle suit surtout un traumatisme, un accouchement, une obésité ou un amaigrissement rapide."),
 ("tripod","definition","mécanisme",1,0,LIR,"En position assise, le coccyx forme avec les deux tubérosités ischiatiques le trépied qui porte le poids du corps."),
 ("risk","epidemiology","terrain particulier",2,0,LIR+" ; "+MAI,"L'obésité et le sexe féminin augmentent le risque de coccygodynie."),
 ("trauma_recent","epidemiology","chiffre",1,0,MAI,"Un traumatisme survenu dans le mois précédant la douleur fait passer le taux d'instabilité de 55,6 % à 77,1 %."),
 ("mech","basicSciences","mécanisme",1,0,MAI,"Les lésions en cause sont la luxation postérieure, l'hypermobilité, la luxation antérieure et les spicules ; la luxation postérieure touche 51 % des obèses contre 3,7 % des minces."),
-("hx","anamnesis","symptôme",3,0,EXP,"La douleur apparaît en position assise et au passage de la position assise à debout, après une chute sur les fesses."),
+("hx","anamnesis","symptôme",3,0,AND,"La position assise est typiquement douloureuse ; la douleur peut aussi gêner les rapports sexuels ou la défécation."),
 ("paraverteb","anamnesis","diagnostic différentiel",1,0,EXP,"Une contusion paravertébrale dorsolombaire donne une douleur musculaire et une contracture, sans déficit neurologique."),
-("exam","clinicalExam","examen",2,0,EXP,"La palpation du coccyx reproduit la douleur ; on teste la sensibilité du périnée, le tonus anal et la force des membres inférieurs."),
-("cauda","presumptionRedFlags","signe",3,0,EXP,"Une anesthésie en selle, des troubles sphinctériens ou un déficit des membres inférieurs font craindre un syndrome de la queue de cheval, par exemple sur fracture du sacrum : on demande une IRM urgente."),
-("red_other","presumptionRedFlags","signe",1,0,EXP,"Une douleur sans traumatisme, nocturne, avec fièvre, perte de poids ou antécédent de cancer fait chercher une tumeur (chordome) ou une infection."),
-("osteopor","presumptionRedFlags","terrain particulier",1,0,EXP,"Chez le sujet âgé ostéoporotique, une chute assise peut provoquer une fracture du sacrum par insuffisance, souvent invisible sur la radiographie."),
+("exam","clinicalExam","examen",2,0,GIR+" ; "+EXP,"La palpation du coccyx reproduit la douleur (à vérifier) ; on note la sensibilité périanale et la force des membres inférieurs ; un toucher rectal n'est pas nécessaire pour décider d'une IRM en cas de suspicion de queue de cheval."),
+("cauda","presumptionRedFlags","signe",3,0,GIR,"Une sensibilité périnéale ou génitale altérée, une difficulté à uriner, la perte de la sensation de besoin rectal, un trouble sexuel ou un déficit des deux jambes font suspecter un syndrome de la queue de cheval : on demande une IRM en urgence, au plus tard dans les 4 heures."),
+("red_other","presumptionRedFlags","signe",1,0,AND+" ; "+EXP,"Une coccygodynie peut être secondaire à un cancer ou à une infection : une douleur sans traumatisme, nocturne, avec fièvre ou perte de poids fait chercher une tumeur (chordome) ou une infection (à vérifier)."),
+("osteopor","presumptionRedFlags","terrain particulier",1,0,URI+" ; "+EXP,"La fracture du sacrum par insuffisance, fréquente et souvent méconnue, survient sur un os fragile ; elle est souvent invisible sur la radiographie standard (à vérifier)."),
 ("dyn","workupGoldStandard","examen",2,0,MAI,"Les radiographies dynamiques, debout puis en position assise douloureuse, identifient la lésion en cause dans 69,2 % des cas."),
-("noimag_acute","workupGoldStandard","piège",2,0,EXP,"Après une chute récente sans signe d'alarme, on ne fait pas d'imagerie systématique (à vérifier)."),
+("noimag_acute","workupGoldStandard","piège",2,0,AND+" ; "+EXP,"La forme aiguë est le plus souvent légère et guérit sans traitement en quelques semaines à quelques mois ; sans signe d'alarme, on ne fait pas d'imagerie systématique (à vérifier)."),
 ("mri","workupAlternatives","examen",1,0,EXP,"On réserve l'IRM ou le scanner aux signes d'alarme, aux fractures suspectées et aux douleurs inexpliquées."),
 ("block","workupAlternatives","examen",1,0,MAI,"Un bloc anesthésique sous fluoroscopie permet de confirmer la lésion en cause."),
-("ddx","positiveDiagnosis","diagnostic différentiel",2,0,EXP,"On distingue une fracture du sacrum ou du bassin, une sacro-iliite, un kyste pilonidal infecté, un abcès périanal, une douleur lombaire projetée et un chordome."),
+("ddx","positiveDiagnosis","diagnostic différentiel",2,0,AND,"On distingue les causes extracoccygiennes : kyste pilonidal, abcès périanal, hémorroïdes, maladie d'un organe pelvien, atteinte lombosacrée, sacro-iliaque, du muscle piriforme ou du sacrum."),
 ("conserv","acuteManagement","pronostic",3,0,LIR,"Le traitement conservateur réussit dans 90 % des cas, et beaucoup de douleurs disparaissent sans traitement médical."),
-("cushion","acuteManagement","décision",2,0,EXP,"On conseille un coussin en coin ou évidé, on évite la position assise prolongée et l'on donne un antalgique simple ou un AINS (à vérifier)."),
-("analg","acuteManagement","molécule",1,0,EXP,"Le paracétamol ou un AINS suffit en général ; doses à vérifier dans l'AIPS (Swissmedic)."),
+("cushion","acuteManagement","décision",2,0,AND,"On conseille un coussin en U ou en coin et l'on propose un AINS, des massages, des étirements ou de la physiothérapie."),
+("analg","acuteManagement","molécule",1,0,AND,"Un AINS fait partie du traitement conservateur ; dose à vérifier dans l'AIPS (Swissmedic)."),
 ("chronic_pain","hospitalizationComplications","complication",1,0,LIR,"Une douleur réfractaire peut s'installer ; la psychothérapie fait partie des options."),
 ("refract","chronicManagement","décision",2,0,LIR,"Dans les cas réfractaires, on propose la rééducation du plancher pelvien, la manipulation et le massage, la neurostimulation transcutanée, la psychothérapie, les injections de corticoïdes, un bloc nerveux, voire une stimulation médullaire ou une chirurgie."),
 ("multi","chronicManagement","décision",1,0,LIR,"Une approche multidisciplinaire (physiothérapie, ergonomie, médicaments, injections, psychothérapie) offre la meilleure chance de succès."),
-("surgery","chronicManagement","piège",1,0,LIR,"La chirurgie reste une option tardive : l'efficacité des nouvelles techniques doit encore être démontrée."),
+("surgery","chronicManagement","piège",1,0,AND+" ; "+LIR,"La coccygectomie se réserve aux douleurs réfractaires aux traitements conservateurs et interventionnels ; elle a le taux de complications le plus élevé (11 %, surtout des infections)."),
 ("progn","prognosisDischarge","pronostic",1,0,LIR,"Le pronostic est bon : 9 patients sur 10 guérissent par traitement conservateur."),
 ("surv","surveillance","décision",1,0,EXP,"On réévalue après quelques semaines ; une douleur qui persiste fait demander des radiographies dynamiques (à vérifier)."),
 ("net","followUpNetwork","décision",1,0,EXP,"Le médecin de famille traite ; le physiothérapeute, le spécialiste de la douleur et le psychothérapeute interviennent dans les formes réfractaires."),
-("swiss","followUpNetwork","contexte suisse",1,1,EXP,"En Suisse, l'assurance-accidents prend en charge la coccygodynie post-traumatique d'un salarié (à vérifier)."),
+("swiss","followUpNetwork","contexte suisse",1,1,LAA,"En Suisse, l'assurance-accidents (LAA) couvre le salarié, y compris pour une chute de loisirs s'il travaille au moins 8 heures par semaine chez le même employeur."),
 ]
 K = {k: i+1 for i, (k, *_r) in enumerate(_N)}
 N = [t[1:] for t in _N]
@@ -48,7 +52,7 @@ Q = [
  "p":"Que proposez-vous ?","o":A((1,"Une prise en charge multidisciplinaire : physiothérapie, ergonomie, injection, voire psychothérapie","Lirette 2014."),(0,"Une coccygectomie immédiate","Faux."),(0,"Un plâtre","Faux."),(0,"Un opioïde au long cours","Faux."),(0,"Rien","Faux.")),
  "n":n("refract","multi","surgery"),"a":"application","d":3,"l":("Réfractaire.","Instabilité.","Hypermobilité.","Travail.","Multidisciplinaire.","Chirurgie d'emblée.","Réfractaire : multidisciplinaire.")},
 {"f":"A","st":"Un homme de 30 ans est tombé sur les fesses en snowboard. Il a mal au bas du dos, ne sent plus bien le périnée et a du mal à uriner.",
- "p":"Quelle est votre conduite ?","o":A((1,"Une IRM urgente pour un syndrome de la queue de cheval","Expert."),(0,"Un coussin et un AINS","Piège."),(0,"Des radiographies dynamiques","Faux."),(0,"Une physiothérapie","Faux."),(0,"Un contrôle dans un mois","Faux.")),
+ "p":"Quelle est votre conduite ?","o":A((1,"Une IRM urgente pour un syndrome de la queue de cheval","GIRFT 2023 : IRM dans les 4 heures."),(0,"Un coussin et un AINS","Piège."),(0,"Des radiographies dynamiques","Faux."),(0,"Une physiothérapie","Faux."),(0,"Un contrôle dans un mois","Faux.")),
  "n":n("cauda","exam","mri"),"a":"piège","d":5,"l":("Neurologie.","Racines sacrées.","Périnée.","Rétention.","IRM urgente.","Conservateur.","Anesthésie en selle : urgence.")},
 {"f":"A","st":"Une femme de 78 ans, ostéoporotique, est tombée en arrière en position assise. Elle a une douleur sacrée intense et marche difficilement ; la radiographie du bassin ne montre pas de fracture.",
  "p":"Quelle est votre conduite ?","o":A((1,"Un scanner ou une IRM à la recherche d'une fracture du sacrum","Expert."),(0,"Un coussin et un retour à domicile","Piège."),(0,"Des radiographies dynamiques","Faux."),(0,"Une infiltration","Faux."),(0,"Aucune imagerie","Faux.")),
@@ -81,28 +85,29 @@ Q = [
  "p":"Que proposez-vous ?","o":A((1,"Une approche multidisciplinaire qui inclut une psychothérapie","Lirette 2014."),(0,"Une coccygectomie sans autre évaluation","Faux."),(0,"Des opioïdes à forte dose","Faux."),(0,"L'arrêt du suivi","Faux."),(0,"Un plâtre","Faux.")),
  "n":n("chronic_pain","multi","net"),"a":"application","d":3,"l":("Chronicité.","Sensibilisation.","Un an.","Humeur.","Multidisciplinaire.","Chirurgie.","Douleur chronique : approche globale.")},
 {"f":"Kprim","m":0,"st":"Après une chute sur les fesses, vous cherchez une atteinte de la queue de cheval.",
- "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"Une anesthésie en selle est un signe d'alarme.","Expert."),(1,"Une rétention urinaire est un signe d'alarme.","Expert."),(1,"Un déficit des membres inférieurs est un signe d'alarme.","Expert."),(0,"Une douleur en position assise est un signe d'alarme.","Faux.")),
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"Une anesthésie en selle est un signe d'alarme.","GIRFT 2023."),(1,"Une rétention urinaire est un signe d'alarme.","GIRFT 2023."),(1,"Un déficit des membres inférieurs est un signe d'alarme.","GIRFT 2023."),(0,"Une douleur en position assise est un signe d'alarme.","Faux.")),
  "n":n("cauda","exam"),"a":"direct","d":2,"l":("Alarme.","Racines sacrées.","Selle.","Rétention.","Trier.","Douleur assise.","Selle, sphincters, déficit.")},
 {"f":"Kprim","m":0,"st":"Vous demandez des radiographies dynamiques pour une coccygodynie persistante.",
  "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"On compare une radiographie debout et une en position assise douloureuse.","Maigne 2000."),(1,"La luxation postérieure est plus fréquente chez l'obèse.","Maigne 2000."),(1,"Elles identifient la lésion dans environ 70 % des cas.","Maigne 2000."),(0,"On fait une IRM d'emblée chez tous les patients.","Faux.")),
  "n":n("dyn","mech","risk"),"a":"direct","d":3,"l":("Radiographies.","Instabilité.","Assis.","Obésité.","Interpréter.","IRM.","Debout puis assis.")},
 {"f":"Kprim","m":0,"st":"Vous traitez une coccygodynie récente.",
- "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"On conseille un coussin en coin ou évidé.","Expert."),(1,"On évite la position assise prolongée.","Expert."),(1,"Un antalgique simple suffit souvent.","Expert."),(0,"La coccygectomie est la première intention.","Faux.")),
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"On conseille un coussin en coin ou évidé.","Andersen 2022."),(1,"On évite la position assise prolongée.","Expert (à vérifier)."),(1,"Un antalgique simple suffit souvent.","Andersen 2022 : AINS, guérison fréquente."),(0,"La coccygectomie est la première intention.","Faux.")),
  "n":n("cushion","conserv","surgery","analg"),"a":"direct","d":3,"l":("Traitement.","Décharge.","Coussin.","Antalgique.","Traiter.","Chirurgie.","Coussin, antalgique, patience.")},
 {"f":"Kprim","m":0,"st":"Une coccygodynie résiste au traitement conservateur.",
  "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"La rééducation du plancher pelvien est une option.","Lirette 2014."),(1,"Une injection de corticoïde est une option.","Lirette 2014."),(1,"La psychothérapie est une option.","Lirette 2014."),(0,"Une immobilisation plâtrée est indiquée.","Faux.")),
  "n":n("refract","chronic_pain","surv","swiss"),"a":"direct","d":3,"l":("Réfractaire.","Options.","Plancher pelvien.","Injection.","Choisir.","Plâtre.","Options multiples, pas de plâtre.")},
 {"f":"MenuLong","st":"Une femme de 45 ans est tombée sur les fesses dans un escalier.",
- "p":"Choisissez les TROIS signes qui imposent une IRM urgente.","o":A((1,"Une anesthésie du périnée","Expert."),(1,"Une rétention urinaire","Expert."),(1,"Une faiblesse des deux jambes","Expert."),(0,"Une douleur en position assise","Faux."),(0,"Une douleur en se levant","Faux."),(0,"Une ecchymose fessière","Faux."),(0,"Une douleur à la palpation","Faux."),(0,"Une obésité","Faux."),(0,"Une douleur en voiture","Faux."),(0,"Une douleur en défécation","Faux."),(0,"Un âge de 45 ans","Faux."),(0,"Une raideur lombaire","Faux.")),
+ "p":"Choisissez les TROIS signes qui imposent une IRM urgente.","o":A((1,"Une anesthésie du périnée","GIRFT 2023."),(1,"Une rétention urinaire","GIRFT 2023."),(1,"Une faiblesse des deux jambes","GIRFT 2023."),(0,"Une douleur en position assise","Faux."),(0,"Une douleur en se levant","Faux."),(0,"Une ecchymose fessière","Faux."),(0,"Une douleur à la palpation","Faux."),(0,"Une obésité","Faux."),(0,"Une douleur en voiture","Faux."),(0,"Une douleur en défécation","Faux."),(0,"Un âge de 45 ans","Faux."),(0,"Une raideur lombaire","Faux.")),
  "n":n("cauda","hx","exam"),"a":"piège","d":4,"l":("Alarme.","Queue de cheval.","Périnée.","Rétention, faiblesse.","IRM.","Douleur assise.","Selle, rétention, déficit.")},
 {"f":"MenuLong","m":0,"st":"Vous évoquez les diagnostics différentiels d'une coccygodynie.",
- "p":"Choisissez les TROIS diagnostics à évoquer.","o":A((1,"Une fracture du sacrum","Expert."),(1,"Un kyste pilonidal infecté","Expert."),(1,"Un chordome","Expert."),(0,"Une otite","Faux."),(0,"Une cholécystite","Faux."),(0,"Une conjonctivite","Faux."),(0,"Une angine","Faux."),(0,"Une sinusite","Faux."),(0,"Une épicondylite","Faux."),(0,"Un canal carpien","Faux."),(0,"Une tendinite de l'épaule","Faux."),(0,"Une gingivite","Faux.")),
+ "p":"Choisissez les TROIS diagnostics à évoquer.","o":A((1,"Une fracture du sacrum","Andersen 2022."),(1,"Un kyste pilonidal infecté","Andersen 2022."),(1,"Un chordome","Expert."),(0,"Une otite","Faux."),(0,"Une cholécystite","Faux."),(0,"Une conjonctivite","Faux."),(0,"Une angine","Faux."),(0,"Une sinusite","Faux."),(0,"Une épicondylite","Faux."),(0,"Un canal carpien","Faux."),(0,"Une tendinite de l'épaule","Faux."),(0,"Une gingivite","Faux.")),
  "n":n("ddx","osteopor","red_other"),"a":"direct","d":3,"l":("Diagnostic.","Région sacrée.","Fracture.","Pilonidal, chordome.","Évoquer.","Autre région.","Sacrum, pilonidal, chordome.")},
 ]
 for _q in Q: _q["src"] = EXP
 for _i in (2, 7, 8, 13, 17): Q[_i]["src"] = LIR
 for _i in (1, 10, 12, 15): Q[_i]["src"] = MAI
-Q[0]["src"] = [LIR, EXP]; Q[9]["src"] = [LIR, MAI]
+Q[0]["src"] = [AND, LIR]; Q[3]["src"] = GIR; Q[4]["src"] = [URI, EXP]; Q[5]["src"] = [AND, EXP]; Q[6]["src"] = [AND, EXP]
+Q[14]["src"] = GIR; Q[16]["src"] = AND; Q[18]["src"] = GIR; Q[19]["src"] = [AND, EXP]; Q[9]["src"] = [LIR, MAI]
 C = {"theme":"Contusion pelvienne et coccygodynie post-traumatique : douleur assise, trépied assis, obésité et sexe féminin, signes de queue de cheval, fracture du sacrum du sujet âgé, tumeur, kyste pilonidal, traitement conservateur efficace dans 90 % des cas, radiographies dynamiques, prise en charge multidisciplinaire des formes réfractaires",
  "notions":[
   {"titre":"Comprendre","rub":["definition","epidemiology","basicSciences","anamnesis"],"comment":"Le coccyx porte le poids assis ; une chute sur les fesses peut le rendre instable.",

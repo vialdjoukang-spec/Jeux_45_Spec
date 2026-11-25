@@ -2,12 +2,18 @@ from constructeur_agent_45spec import pec
 ID = "S20.2__S8_11-E01"
 ACR = "[ACR Appropriateness Criteria Rib Fractures, Henry et al., J Am Coll Radiol 2019;16(5S):S227-S234, PMID 31054749, résumé lu le 25.11.2026]"
 EAST = "[EAST et Trauma Anesthesiology Society, Pain management for blunt thoracic trauma, Galvagno et al., J Trauma Acute Care Surg 2016;81:936-951, PMID 27533913, résumé lu le 25.11.2026]"
+BAT = "[Battle et al., Risk factors that predict mortality in patients with blunt chest wall trauma: systematic review and meta-analysis, Injury 2012;43:8-17, PMID 21256488, résumé lu le 25.11.2026]"
+BUL = "[Bulger et al., Rib fractures in the elderly, J Trauma 2000;48:1040-6, PMID 10866248, résumé lu le 25.11.2026]"
+EMO = "[Émond et al., Functional impact of a minor thoracic injury: age, delayed hemothorax and rib fracture effects, Ann Surg 2015;262:1115-22, PMID 25243544, résumé lu le 25.11.2026]"
+RAC = "[Racine et al., Delayed complications and functional outcome of isolated sternal fracture after emergency department discharge, CJEM 2016;18:349-57, PMID 27346634, résumé lu le 25.11.2026]"
+ALR = "[Alrajhi et al., Test characteristics of ultrasonography for the detection of pneumothorax: systematic review and meta-analysis, Chest 2012;141:703-8, PMID 21868468, résumé lu le 25.11.2026]"
+LAA = "[OFSP, « Assurance-accidents : qui est assuré à titre obligatoire ? », bag.admin.ch, page lue le 25.11.2026]"
 EXP = "Avis d'expert, chirurgie thoracique et urgences (à vérifier)"
 _N = [
 ("def","definition","critère",3,0,EXP,"La contusion thoracique pariétale est une lésion des tissus mous de la paroi après un traumatisme fermé, sans fracture costale déplacée ; elle donne une douleur mécanique, accrue par l'inspiration et la toux."),
 ("ribfx_common","definition","chiffre",1,0,ACR,"La fracture de côte est la lésion thoracique la plus fréquente après un traumatisme fermé mineur."),
-("epi","epidemiology","contexte suisse",1,1,EXP,"En Suisse, elle survient surtout lors de chutes, d'accidents de sport et de la circulation (à vérifier)."),
-("elderly","epidemiology","terrain particulier",2,0,EXP,"Chez le sujet âgé ou insuffisant respiratoire, même une lésion pariétale expose à une pneumonie et à une insuffisance respiratoire : on abaisse le seuil d'hospitalisation."),
+("epi","epidemiology","chiffre",1,0,EMO,"Environ 75 % des patients avec un traumatisme thoracique mineur rentrent à domicile après leur passage aux urgences."),
+("elderly","epidemiology","terrain particulier",2,0,BAT+" ; "+BUL,"Un âge de 65 ans ou plus, trois fractures costales ou plus et une maladie préexistante, surtout cardiopulmonaire, prédisent la mortalité après un traumatisme thoracique fermé : on abaisse le seuil d'hospitalisation."),
 ("mech","basicSciences","mécanisme",1,0,EXP,"La douleur limite l'inspiration profonde et la toux, ce qui favorise l'atélectasie et la pneumonie."),
 ("hx","anamnesis","terrain particulier",1,0,EXP,"On précise le mécanisme et l'énergie, la dyspnée, une maladie pulmonaire, un traitement anticoagulant et l'âge."),
 ("anticoag","anamnesis","piège",1,0,EXP,"Sous anticoagulant, on surveille un hématome pariétal ou un hémothorax retardé."),
@@ -19,19 +25,19 @@ _N = [
 ("ribseries","workupGoldStandard","piège",2,0,ACR,"Des clichés costaux dédiés apportent peu : une fracture costale isolée non vue ne change en général ni la prise en charge ni l'évolution."),
 ("ct","workupAlternatives","examen",1,0,EXP,"On demande un scanner thoracique ou abdominal en cas de haute énergie, d'anomalie radiologique ou de suspicion de lésion viscérale."),
 ("pathfx","workupAlternatives","examen",1,0,ACR,"Devant une fracture pathologique suspectée, le scanner thoracique ou la scintigraphie osseuse complètent la radiographie."),
-("us","workupAlternatives","examen",1,0,EXP,"L'échographie au lit (eFAST) cherche un pneumothorax, un épanchement pleural ou péritonéal."),
+("us","workupAlternatives","examen",1,0,ALR,"L'échographie détecte le pneumothorax avec une sensibilité de 91 % et une spécificité de 98 %, contre 50 % de sensibilité pour la radiographie en décubitus."),
 ("dx","positiveDiagnosis","critère",1,0,EXP,"On retient une contusion pariétale quand l'examen et la radiographie n'ont montré ni lésion viscérale ni fracture déplacée."),
 ("ddx","positiveDiagnosis","diagnostic différentiel",2,0,EXP,"On distingue une fracture costale ou sternale, un pneumothorax, un hémothorax, une lésion splénique ou hépatique, une fracture pathologique et une douleur thoracique d'origine cardiaque."),
 ("analg","acuteManagement","décision",3,0,EAST+" ; "+EXP,"On assure une analgésie suffisante pour respirer et tousser : une analgésie multimodale (recommandation conditionnelle), d'abord paracétamol régulier et AINS en l'absence de contre-indication ; doses à vérifier dans l'AIPS (Swissmedic)."),
 ("breathe","acuteManagement","décision",2,0,EXP,"On encourage inspirations profondes, toux et mobilisation précoce ; on ne serre pas le thorax par un bandage."),
 ("epidural","acuteManagement","décision",1,0,EAST,"Pour une douleur sévère hospitalisée, la péridurale est une option conditionnelle, fondée sur des preuves de très faible qualité."),
-("pneumonia","hospitalizationComplications","complication",1,0,EXP,"Une pneumonie peut compliquer une analgésie insuffisante, surtout chez le sujet âgé."),
-("delayed_ptx","hospitalizationComplications","complication",1,0,EXP,"Un pneumothorax ou un hémothorax peut apparaître secondairement : une dyspnée nouvelle impose une nouvelle imagerie."),
+("pneumonia","hospitalizationComplications","complication",1,0,BUL+" ; "+BAT,"Après des fractures costales, la pneumonie touchait 31 % des patients âgés contre 17 % des plus jeunes ; une pneumonie multiplie environ par 5 le risque de décès."),
+("delayed_ptx","hospitalizationComplications","complication",1,0,RAC+" ; "+EMO,"Un hémothorax retardé apparaît dans les 14 jours chez 6 % des traumatismes thoraciques mineurs sans fracture et 23 % de ceux avec fracture costale : une dyspnée nouvelle impose une nouvelle imagerie."),
 ("return","chronicManagement","décision",1,0,EXP,"On reprend le sport et le travail progressivement selon la douleur, en général en quelques semaines (à vérifier)."),
-("progn","prognosisDischarge","pronostic",1,0,EXP,"Le pronostic est bon ; la douleur diminue en quelques semaines."),
+("progn","prognosisDischarge","pronostic",1,0,EMO,"Près d'un patient sur cinq garde une incapacité modérée à sévère à 90 jours ; un hémothorax retardé et le nombre de fractures costales aggravent le pronostic fonctionnel."),
 ("surv","surveillance","décision",1,0,EXP,"On remet des consignes : une dyspnée, une fièvre, une hémoptysie ou une douleur croissante imposent de reconsulter."),
 ("net","followUpNetwork","décision",1,0,EXP,"Le médecin de famille suit la douleur ; le physiothérapeute respiratoire aide le patient âgé ou fragile."),
-("swiss","followUpNetwork","contexte suisse",1,1,EXP,"En Suisse, l'assurance-accidents prend en charge l'accident ; la campagne Smarter Medicine invite à éviter l'imagerie inutile (à vérifier)."),
+("swiss","followUpNetwork","contexte suisse",1,1,LAA,"En Suisse, l'assurance-accidents (LAA) couvre le salarié, y compris pour un accident de loisirs s'il travaille au moins 8 heures par semaine chez le même employeur."),
 ]
 K = {k: i+1 for i, (k, *_r) in enumerate(_N)}
 N = [t[1:] for t in _N]
@@ -74,13 +80,13 @@ Q = [
  "n":n("anticoag","hx"),"a":"application","d":3,"l":("Anticoagulant.","Saignement.","Hématome.","Hémothorax.","Surveiller.","Thrombose.","Anticoagulé : saignement.")},
 {"f":"A","m":0,"st":"Un footballeur de 25 ans a une contusion thoracique pariétale.",
  "p":"Quand reprend-il le sport ?","o":A((1,"Progressivement selon la douleur, en général en quelques semaines","Expert (à vérifier)."),(0,"Le lendemain en compétition","Faux."),(0,"Après six mois","Faux."),(0,"Jamais","Faux."),(0,"Après une IRM de contrôle","Faux.")),
- "n":n("return","progn","epi"),"a":"application","d":3,"l":("Reprise.","Cicatrisation.","Douleur.","Semaines.","Reprendre.","Le lendemain.","Reprise progressive.")},
+ "n":n("return","progn","swiss"),"a":"application","d":3,"l":("Reprise.","Cicatrisation.","Douleur.","Semaines.","Reprendre.","Le lendemain.","Reprise progressive.")},
 {"f":"A","m":0,"st":"Vous palpez la paroi d'un patient après un traumatisme thoracique.",
  "p":"Que signifie une crépitation neigeuse sous la peau ?","o":A((1,"Un emphysème sous-cutané, qui fait chercher un pneumothorax","Expert."),(0,"Une contusion banale","Faux."),(0,"Un hématome","Faux."),(0,"Une fracture consolidée","Faux."),(0,"Un œdème","Faux.")),
  "n":n("exam","compress"),"a":"direct","d":3,"l":("Palpation.","Air sous la peau.","Crépitation.","Neigeuse.","Interpréter.","Hématome.","Emphysème : pneumothorax.")},
 {"f":"A","m":0,"st":"Un patient demande des radiographies spéciales des côtes après une contusion thoracique mineure ; la radiographie du thorax est normale.",
  "p":"Que lui répondez-vous ?","o":A((1,"Elles changeraient rarement la prise en charge, qui reste la même","ACR 2019."),(0,"Elles sont indispensables","Faux."),(0,"Un scanner est nécessaire","Faux."),(0,"Une IRM est préférable","Faux."),(0,"Une scintigraphie est nécessaire","Faux.")),
- "n":n("ribseries","swiss"),"a":"application","d":3,"l":("Imagerie.","Utilité.","Clichés costaux.","Prise en charge identique.","Expliquer.","Indispensables.","Pas de clichés inutiles.")},
+ "n":n("ribseries","epi"),"a":"application","d":3,"l":("Imagerie.","Utilité.","Clichés costaux.","Prise en charge identique.","Expliquer.","Indispensables.","Pas de clichés inutiles.")},
 {"f":"Kprim","m":0,"st":"Vous évaluez un traumatisme thoracique fermé.",
  "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"Une dyspnée fait chercher un pneumothorax.","Expert."),(1,"Un emphysème sous-cutané est un signe d'alarme.","Expert."),(1,"Une diminution du murmure est un signe d'alarme.","Expert."),(0,"Une douleur à l'inspiration profonde est un signe d'alarme.","Faux : banale.")),
  "n":n("red","exam"),"a":"direct","d":2,"l":("Alarme.","Plèvre.","Dyspnée.","Murmure.","Trier.","Douleur.","Dyspnée, emphysème, murmure.")},
@@ -91,7 +97,7 @@ Q = [
  "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"On propose une analgésie multimodale.","EAST 2016."),(1,"On encourage les inspirations profondes et la toux.","Expert."),(1,"On mobilise tôt.","Expert."),(0,"On pose un bandage thoracique serré.","Faux.")),
  "n":n("analg","breathe","net"),"a":"direct","d":3,"l":("Traitement.","Ventilation.","Multimodale.","Toux.","Traiter.","Bandage.","Antalgie, respiration, mobilisation.")},
 {"f":"Kprim","m":0,"st":"Vous prenez en charge une contusion thoracique chez une personne âgée.",
- "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"Le risque de pneumonie est plus élevé.","Expert."),(1,"On abaisse le seuil d'hospitalisation.","Expert."),(1,"Sous anticoagulant, on surveille un hémothorax retardé.","Expert."),(0,"Le pronostic est identique à celui d'un sujet jeune.","Faux.")),
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"Le risque de pneumonie est plus élevé.","Bulger 2000 : 31 % contre 17 %."),(1,"On abaisse le seuil d'hospitalisation.","Battle 2012 : âge ≥ 65 ans."),(1,"Sous anticoagulant, on surveille un hémothorax retardé.","Expert."),(0,"Le pronostic est identique à celui d'un sujet jeune.","Faux.")),
  "n":n("elderly","pneumonia","anticoag","mech"),"a":"application","d":3,"l":("Âge.","Réserve.","Pneumonie.","Anticoagulant.","Hospitaliser.","Pronostic identique.","Âgé : prudence.")},
 {"f":"MenuLong","st":"Un homme de 50 ans a heurté le guidon de son vélo avec le thorax.",
  "p":"Choisissez les TROIS éléments qui imposent une imagerie et une surveillance urgentes.","o":A((1,"Une saturation à 88 %","Expert."),(1,"Une crépitation neigeuse sous la peau","Expert."),(1,"Une tension à 85/50 mmHg","Expert."),(0,"Une douleur à la toux","Faux."),(0,"Une ecchymose","Faux."),(0,"Une douleur à la palpation","Faux."),(0,"Un âge de 50 ans","Faux."),(0,"Une douleur en riant","Faux."),(0,"Un tabagisme ancien","Faux."),(0,"Une douleur en se tournant au lit","Faux."),(0,"Une éraflure cutanée","Faux."),(0,"Une raideur du dos","Faux.")),
@@ -103,6 +109,7 @@ Q = [
 for _q in Q: _q["src"] = EXP
 for _i in (0, 5, 7, 13, 15): Q[_i]["src"] = ACR
 for _i in (1, 9, 16): Q[_i]["src"] = [EAST, EXP]
+Q[2]["src"] = [RAC, EMO, ALR]; Q[3]["src"] = [BAT, BUL, EXP]; Q[10]["src"] = [RAC, EXP]; Q[11]["src"] = [EMO, LAA, EXP]; Q[17]["src"] = [BUL, BAT, EXP]; Q[18]["src"] = [ALR, EXP]
 C = {"theme":"Contusion thoracique pariétale : radiographie standard suffisante après traumatisme mineur (ACR 2019), pas de clichés costaux, signes d'alarme pleuraux, lésions viscérales et fracture pathologique, analgésie multimodale (EAST 2016), respiration et mobilisation, sujet âgé et anticoagulé, complications secondaires",
  "notions":[
   {"titre":"Comprendre","rub":["definition","epidemiology","basicSciences","anamnesis"],"comment":"Une lésion bénigne de la paroi, dangereuse surtout par la douleur qui empêche de respirer.",
