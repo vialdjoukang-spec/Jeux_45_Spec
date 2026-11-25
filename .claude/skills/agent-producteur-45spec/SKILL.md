@@ -259,3 +259,10 @@ Signature : AAI (Anthropic AI)
 - N'écris jamais un premier auteur que tu n'as pas lu : cite alors le titre, la revue et le PMID seuls.
 - Les rapports OFSP anciens (acide folique 2002) servent pour un fait stable (fermeture du tube neural J15–J28), pas pour une posologie.
 - `curl` sur une ressource NICE en `/resources/...pdf` renvoie une page HTML : vérifie `file` avant `pdftotext`.
+
+## Leçons (producteur unique, lot 53, 25.11.2026)
+- Un bloc de correction accepte au plus 4 sources (`sources` : 1 à 4) ; une cinquième fait échouer le schéma (« SCHEMA: [...] »).
+- `/home/claude/outils/aips.py` écrit dans `/tmp/src/` : crée ce dossier (`mkdir -p /tmp/src`) après un redémarrage, sinon le script échoue après la recherche.
+- Sources lisibles : NICE CG76 (adhésion) sur `/chapter/Recommendations` (la page `1-Guidance` ne donne que l'introduction) ; NICE NG234 sur `/chapter/Recommendations` (minuscules : erreur) ; NICE NG239 (B12) en PDF direct par `curl` (lien `/resources/...-pdf-66143904531397`, repéré par WebSearch) ; convention LOA V de pharmaSuisse (PDF, art. 6 semainier : ≥ 3 médicaments, sur prescription, au plus 1×/semaine ; le Polymedikations-Check n'y figure plus) ; page OFSP « participation aux coûts » (300 CHF, 10 %, 700 CHF, 40 %) ; NHS Highland TAM441 (folates) ; EHA-ESMO 2021 myélome en texte intégral (PMC7861652, soins de support seulement en annexe) ; Rajkumar 2024 (PMC11404783, critères IMWG chiffrés, prophylaxies).
+- Une recommandation de NICE peut contredire une autre sur un même symptôme (fatigue seule : pas de dosage des folates selon NHS Highland, mais signe possible de carence en B12 selon NG239) : formule la question sur la vitamine précise.
+- Pathologie « comportement » (non-adhésion) : la vignette `d` 4–5 masquée décrit les constatations (boîtes scellées, déséquilibre inexpliqué, renouvellements manqués) sans « adhésion » ni « observance » ; la porte financière (O7.4) se traite par la franchise et la quote-part.

@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**378 / 500 pathologies du périmètre produites.**
+**381 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -325,11 +325,11 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 316 | `Z31.6__O1_3-E04` | Conseil préconceptionnel et prévention des anomalies congénitales (acide folique) | PSP | produite |
 | 317 | `Z60.3__O5_5-E07` | Barrière linguistique nécessitant un interprétariat communautaire | MIG | produite |
 | 318 | `Z71.8_7__O5_5-E02` | Détresse spirituelle et questionnement existentiel | MIG | produite |
-| 319 | `Z91.1_1__O3_4-E05` | Non-adhésion thérapeutique liée à la complexité du schéma | MIG | — |
+| 319 | `Z91.1_1__O3_4-E05` | Non-adhésion thérapeutique liée à la complexité du schéma | MIG | produite |
 | 320 | `B17.9_hepatite_virale_aigu__F2_11-E06` | Hépatite virale aiguë (VHA, VHB, VHE) | GAS | produite |
-| 321 | `C90.0__F2_16-E11` | Myélome multiple (plasmocytome médullaire) | HEM | — |
+| 321 | `C90.0__F2_16-E11` | Myélome multiple (plasmocytome médullaire) | HEM | produite |
 | 322 | `E21.0_hyperparathyroidie_p__F2_20-E05` | Hyperparathyroïdie primaire | END | produite |
-| 323 | `E53.8__F1_9-E07` | Carence en folates (vitamine B9) | HEM | — |
+| 323 | `E53.8__F1_9-E07` | Carence en folates (vitamine B9) | HEM | produite |
 | 324 | `G93.3_syndrome_de_fatigue___G4-E06` | Syndrome de fatigue chronique (encéphalomyélite myalgique) et asthénie post-infectieuse | NEU | produite |
 | 325 | `I42.1_cardiomyopathie_hype__F1_19-E10` | Cardiomyopathie hypertrophique | CAR | produite |
 | 326 | `N02.8__F2_12-E08` | Néphropathie à IgA (maladie de Berger) | NEP | produite |
