@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**369 / 500 pathologies du périmètre produites.**
+**372 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -316,9 +316,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 307 | `S93.4__O4_1-E02` | Entorse aiguë de la cheville (ligament collatéral latéral) | ORT | produite |
 | 308 | `T16__S1_8-E09` | Corps étranger du conduit auditif externe (CAE) | ORL | produite |
 | 309 | `T30.2__S8_2-E02` | Brûlure thermique du 2e degré profond | CPL | produite |
-| 310 | `T42.4__G8-E08` | Hypothermie sur intoxication aux sédatifs / benzodiazépines | TOX | — |
-| 311 | `T74.3_1__O2_3-E03` | Maltraitance psychologique ou verbale | LEG | — |
-| 312 | `X61__G13-E04` | Intoxication médicamenteuse volontaire mortelle | LEG | — |
+| 310 | `T42.4__G8-E08` | Hypothermie sur intoxication aux sédatifs / benzodiazépines | TOX | produite |
+| 311 | `T74.3_1__O2_3-E03` | Maltraitance psychologique ou verbale | LEG | produite |
+| 312 | `X61__G13-E04` | Intoxication médicamenteuse volontaire mortelle | LEG | produite |
 | 313 | `Z02.5__O4_1-E01` | Certificat d'aptitude sportive ou scolaire | MIG | — |
 | 314 | `Z15.0__F2_10-E08` | Conseil génétique en oncogénétique (BRCA1/2, syndrome de Lynch) | GEN | — |
 | 315 | `Z23_1__O2_4-E01` | Vaccination de base du nourrisson et de l'enfant (plan suisse OFSP) | PSP | — |
