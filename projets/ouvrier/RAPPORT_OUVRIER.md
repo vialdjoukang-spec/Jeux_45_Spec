@@ -1,13 +1,14 @@
-# Ouvrier automatique — 2026-11-24 16:36 UTC
+# Ouvrier automatique — 2026-11-25 22:37 UTC
 
-Dernier passage : **T4_reprise_rejets** → bloque (0.00 USD).
+Dernier passage : **T0_ping_api** → en_cours (0.00 USD).
 
-Credit balance is too low
+API Error: 400 You have reached your specified API usage limits. You will regain access on 2026-12-01 at 00:00 UTC.
 
-**Crédit** : 51.97 USD dépensés, 140.03 USD disponibles avant le 27.11.2026 ; aujourd'hui 1.35 / 141.38 USD.
+**Crédit** : 0.00 USD dépensés, 190.00 USD disponibles avant le 31.01.2027 ; aujourd'hui 0.00 / 190.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
+| T0_ping_api | en_cours | 0 | 0.0 |
 | complement_3 | fait | 1 | 0.03 |
 | complement_1 | fait | 1 | 0.133 |
 | complement_2 | fait | 1 | 0.035 |
@@ -39,7 +40,7 @@ Credit balance is too low
 | END_C_lot | fait | 1 | 0.0 |
 | END_C_recup | fait | 1 | 0.0 |
 | T3_pec_fiches_existantes | fait | 8 | 0.133 |
-| T4_reprise_rejets | bloque | 4 | 0.0 |
+| T4_reprise_rejets | en_cours | 0 | 0.0 |
 | T5_items_valides | sans_objet | 0 |  |
 | T7_transversal_lecons | sans_objet | 0 |  |
 | T6_vague_urgences | sans_objet | 0 |  |
