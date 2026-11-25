@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**384 / 500 pathologies du périmètre produites.**
+**387 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -339,9 +339,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 330 | `A35__S1_11-E09` | Tétanos céphalique ou généralisé (trismus inaugural) | INF | produite |
 | 331 | `A52.1_neurosyphilis_y_comp__F1_12-E09` | Neurosyphilis (y compris syphilis oculaire et otique) | INF | produite |
 | 332 | `C74.0_tumeur_gonadique_ou___O2_1-E15` | Tumeur gonadique ou surrénalienne sécrétante | END | produite |
-| 333 | `D59.3__F2_12-E17` | Syndrome hémolytique et urémique (SHU) | HEM | — |
-| 334 | `D65__F2_25-E15` | Coagulation intravasculaire disséminée (CIVD) aiguë | HEM | — |
-| 335 | `D70__F2_16-E19` | Neutropénie fébrile post-chimiothérapie | HEM | — |
+| 333 | `D59.3__F2_12-E17` | Syndrome hémolytique et urémique (SHU) | HEM | produite |
+| 334 | `D65__F2_25-E15` | Coagulation intravasculaire disséminée (CIVD) aiguë | HEM | produite |
+| 335 | `D70__F2_16-E19` | Neutropénie fébrile post-chimiothérapie | HEM | produite |
 | 336 | `E11.0__F2_9-E14` | État hyperosmolaire hyperglycémique (HHS) | END | produite |
 | 337 | `E34.0_syndrome_carcinoide___G1-E13` | Syndrome carcinoïde et crise carcinoïde | END | produite |
 | 338 | `E66.2__G11-E16` | Syndrome obésité-hypoventilation (syndrome de Pickwick) | END | produite |

@@ -272,3 +272,11 @@ Signature : AAI (Anthropic AI)
 - Une copie de recommandation hébergée par un tiers (glowm.com, hse.ie) peut renvoyer du HTML ou du JavaScript au lieu du PDF : vérifie `file`, puis passe à une autre source lue sans contourner.
 - Un item de questionnaire de connaissances (Bazzoun 2026) n'est pas une recommandation : cite-le « item de connaissance, à vérifier dans une recommandation ».
 - Vignette `d` 4–5 sur la syphilis : écris « les deux tests sérologiques demandés » et décris les pupilles sans « Argyll Robertson », sinon `m=0`.
+
+## Leçons (producteur unique, lot 55, 25.11.2026)
+- `get_full_text_article` renvoie désormais le texte entier dans le contexte (plus sur disque) : pour une recommandation longue, préfère WebFetch sur la page PMC avec une consigne ciblée (« quote verbatim the recommendations on… ») ; PMC répond sans captcha à WebFetch (IDSA 2017 diarrhées PMC5850553, SEOM 2018 PMC6339667, Iba 2019 PMC6603393).
+- `/home/claude/outils/aips.py` prend le premier produit trouvé : pour une molécule générique (pipéracilline-tazobactam), passe le nom commercial complet (« Piperacillin Tazob Sandoz 4.5 »), sinon le script s'arrête sans résumé.
+- La limitation LS du Compendium (Soliris : garantie de paiement, ADAMTS13 > 5 %, STEC négatif, renouvellement à 6 mois puis chaque année) fournit une notion suisse solide pour les médicaments orphelins.
+- Sources lisibles : formulaire OFSP EHEC (déclaration clinique en 24 heures au médecin cantonal, incubation 2–10 jours) et aperçu OFSP des déclarations obligatoires du 15.12.2025 (PDF bag.admin.ch) ; Wada 2014 (J Intensive Care, PDF biomedcentral : synthèse BCSH, JSTH, SISET et ISTH sur la CIVD ; le seuil de fibrinogène y porte une coquille « g/dl ») ; NICE CG151 sur `/chapter/Recommendations`. La copie BCSH 2009 sur confluence renvoie du HTML.
+- Deux recommandations peuvent diverger sur une durée (NICE CG151 : arrêt à la réponse ; SEOM 2018 : au moins 7 jours) : écris chaque énoncé avec sa source au lieu de trancher.
+- Entité voisine déjà produite (M31.1, MAT) : D59.3 prend l'angle de la forme post-diarrhéique de l'enfant, du pneumocoque et du complément ; D65 prend l'angle de la coagulation consommée qui la distingue de la MAT.
