@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**405 / 500 pathologies du périmètre produites.**
+**408 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -375,9 +375,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 366 | `T58.9__G5-E19` | Intoxication au monoxyde de carbone (CO) | TOX | produite |
 | 367 | `T74.2__O6_3-E11` | Agression sexuelle aiguë (prise en charge médico-légale et infectieuse urgente) | LEG | produite |
 | 368 | `T79.5__G12-E21` | Syndrome d'écrasement (crush syndrome) et rhabdomyolyse massive | CHI | produite |
-| 369 | `T86.9_1__O7_15-E12` | Rejet aigu de greffe sur arrêt des immunosuppresseurs | MIG | — |
-| 370 | `Z20.6__O4_5-E11` | Prophylaxie post-exposition VIH (PEP) dans les 48 heures | MIG | — |
-| 371 | `A09.0__O7_1-E02` | Diarrhée du voyageur (turista) aiguë ou persistante | TRO | — |
+| 369 | `T86.9_1__O7_15-E12` | Rejet aigu de greffe sur arrêt des immunosuppresseurs | MIG | produite |
+| 370 | `Z20.6__O4_5-E11` | Prophylaxie post-exposition VIH (PEP) dans les 48 heures | MIG | produite |
+| 371 | `A09.0__O7_1-E02` | Diarrhée du voyageur (turista) aiguë ou persistante | TRO | produite |
 | 372 | `B00.1__S6_1-E03` | Herpès labial ou génital (HSV-1 / HSV-2) | INF | produite |
 | 373 | `B24_1__O7_6-E02` | Infection par le VIH contrôlée ou nouvellement diagnostiquée | INF | produite |
 | 374 | `B30.9__S1_17-E01` | Conjonctivite aiguë virale (adénovirus) | INF | produite |

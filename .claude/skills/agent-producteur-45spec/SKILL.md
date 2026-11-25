@@ -322,3 +322,11 @@ Signature : AAI (Anthropic AI)
 - `aips.py` écrit le Brevier dans `/tmp/src/aips_<nom>.txt` : lis ce fichier, la sortie console ne montre que le nombre de caractères.
 - Entité voisine déjà produite (T58 CO aigu) : T58.9 prend l'angle du CO méconnu (symptômes collectifs ou qui cèdent hors du domicile, exposition chronique en fausse migraine, virose sans fièvre du nourrisson, COHb tardive sous-estimée) ; S2k allemande 2021 en texte intégral (PMC8607608).
 - Agression sexuelle (T74.2) : les vignettes `d` 4–5 masquées décrivent « rapport imposé », « réveil dévêtue avec amnésie », sans « viol », « agression » ni « sexuel » ; une étape qui nomme le constat d'agression prend `m=0`.
+
+## Leçons (producteur unique, lot 62, 25.11.2026)
+- Sources lisibles par `curl` : résumé exécutif KDIGO 2009 greffe rénale (`kdigo.org/wp-content/uploads/2017/02/KITxpGL_summary.pdf`, mise en page en deux colonnes : coupe chaque ligne vers 66 caractères avant le grep) ; CDC Yellow Book 2026 `.../hcp/preparing-international-travelers/travelers-diarrhea.html` et `.../hcp/post-travel-evaluation/post-travel-diarrhea.html` (l'ancien chemin `travel-associated-infections-diseases` renvoie 404) ; healthytravel.ch `/fr/health-risks` (fiche suisse « diarrhée »).
+- `get_full_text_article` renvoie `full_text` vide pour J Travel Med (Riddle 2017, PMC5731448) : cite le résumé et prends les détails dans une source lue (Yellow Book).
+- Un texte PMC de plus de 100 000 caractères (IDSA 2009 cathéters) arrive dans un fichier `/tmp/claude-tool-results/...txt` : extrais les recommandations par expressions régulières au lieu de le lire.
+- Discordances à écrire avec chaque source : lopéramide au plus 16 mg/j (CDC) contre 12 mg/j (healthytravel.ch) ; incidence 30–70 % en 2 semaines (CDC) contre 10–40 % (healthytravel.ch).
+- Z20.6 après T74.2 : la même source CFIST 2025 sert aux deux ; Z20.6 prend l'angle des expositions consenties (préservatif rompu, source indétectable, PrEP mal prise avec seuils de 4 et 6 prises sur 7 jours, aiguille trouvée, coût LAMal, passage à la PrEP).
+- Pathologie NON_MONOGRAPHIQUE « comportement » (T86.9_1) : les vignettes `d` 4–5 décrivent « oublie parfois ses comprimés », « remède naturel acheté en droguerie », « taux résiduel bas » sans « rejet », « millepertuis » ni « adhésion ».
