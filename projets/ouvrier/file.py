@@ -30,12 +30,12 @@ def sortie(**kv):
 
 def budget():
     b = F["budget"]
-    total = sum(x["cout"] for x in D)
+    total = sum(x["cout"] for x in D if x.get("date", "") >= b.get("depuis", ""))   # Vial 25.11 : seul le crédit en cours compte
     plafond = min(b["credit_usd"] - b["reserve_usd"], b.get("plafond_total_usd", b["credit_usd"]))   # plafond fixé par Vial dans FILE_PROCESSUS.json
     reste = plafond - total
     fin = datetime.datetime.fromisoformat(b["expire"])
     jours = max(1, math.ceil((fin - maint).total_seconds() / 86400))
-    jour = sum(x["cout"] for x in D if x["jour"] == aujourd)
+    jour = sum(x["cout"] for x in D if x["jour"] == aujourd and x.get("date", "") >= b.get("depuis", ""))
     plafond_jour = max(0.0, reste + jour) / (1 if b.get("sans_repartition_journaliere") else jours)   # Vial 23.11 : pleine vitesse jusqu'au plafond total
     return total, reste, plafond_jour, jour, fin
 
