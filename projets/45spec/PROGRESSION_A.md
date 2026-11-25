@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**402 / 500 pathologies du périmètre produites.**
+**405 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -372,9 +372,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 363 | `O85__O1_2-E13` | Endométrite du post-partum | GYN | produite |
 | 364 | `R65.2__F1_1-E16` | Choc septique | INT | — |
 | 365 | `T17.5__S2_2-E08` | Corps étranger bronchique méconnu (toux chronique / pneumopathie récidivante) | ORL | produite |
-| 366 | `T58.9__G5-E19` | Intoxication au monoxyde de carbone (CO) | TOX | — |
-| 367 | `T74.2__O6_3-E11` | Agression sexuelle aiguë (prise en charge médico-légale et infectieuse urgente) | LEG | — |
-| 368 | `T79.5__G12-E21` | Syndrome d'écrasement (crush syndrome) et rhabdomyolyse massive | CHI | — |
+| 366 | `T58.9__G5-E19` | Intoxication au monoxyde de carbone (CO) | TOX | produite |
+| 367 | `T74.2__O6_3-E11` | Agression sexuelle aiguë (prise en charge médico-légale et infectieuse urgente) | LEG | produite |
+| 368 | `T79.5__G12-E21` | Syndrome d'écrasement (crush syndrome) et rhabdomyolyse massive | CHI | produite |
 | 369 | `T86.9_1__O7_15-E12` | Rejet aigu de greffe sur arrêt des immunosuppresseurs | MIG | — |
 | 370 | `Z20.6__O4_5-E11` | Prophylaxie post-exposition VIH (PEP) dans les 48 heures | MIG | — |
 | 371 | `A09.0__O7_1-E02` | Diarrhée du voyageur (turista) aiguë ou persistante | TRO | — |

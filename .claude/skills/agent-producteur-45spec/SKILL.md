@@ -314,3 +314,11 @@ Signature : AAI (Anthropic AI)
 - NICE NG133 (hypertension et grossesse) en PDF complet par `curl` : schéma du sulfate de magnésium, antihypertenseurs, pas de corticoïde pour traiter le HELLP, contrôle à 48–72 heures, aspirine 75–150 mg dès 12 semaines.
 - R65.2 (choc septique) est couvert par A41.8 INF « sepsis et choc septique » : on le saute comme A41.9.
 - Après un redémarrage, vérifie `git status` : les JSON construits et non suivis se gardent ; relance les contrôles avant le commit.
+
+## Leçons (producteur unique, lot 61, 25.11.2026)
+- PEP VIH en Suisse : depuis les recommandations CFIST du 07.11.2025, le délai maximal passe de 72 à 48 heures (première dose idéalement dans les 4 heures ; schéma dolutégravir + emtricitabine/ténofovir disoproxil, 4 semaines ; contrôle à 2 semaines, test VIH final à 12 semaines). Ne recopie plus « 72 heures » ; le piège 60 heures (contraception d'urgence encore possible, PEP non) fait une bonne question `d` 5.
+- Les anciens liens OFSP `/dam/bag/fr/dokumente/...` renvoient 404 : prends les liens `/dam/fr/sd-web/...` ou `/dam/de/sd-web/...` renvoyés par WebSearch (PDF CFIST PEP professionnelle en français, non professionnelle en allemand).
+- Sources lisibles par `curl` sans WebFetch : aide-aux-victimes.ch (142, gratuité, anonymat, droits des victimes d'infractions sexuelles), hug.ch/gynecologie/agression-sexuelle (préservation des preuves, délai de 30 minutes, constat même sans plainte), ge.ch « preuves et examen médical » (levée du secret), curml.ch UMV, page CDC 2021 « sexual-assault-adults », toxinfo.ch/notruf-145, NICE NG116 `/chapter/recommendations`.
+- `aips.py` écrit le Brevier dans `/tmp/src/aips_<nom>.txt` : lis ce fichier, la sortie console ne montre que le nombre de caractères.
+- Entité voisine déjà produite (T58 CO aigu) : T58.9 prend l'angle du CO méconnu (symptômes collectifs ou qui cèdent hors du domicile, exposition chronique en fausse migraine, virose sans fièvre du nourrisson, COHb tardive sous-estimée) ; S2k allemande 2021 en texte intégral (PMC8607608).
+- Agression sexuelle (T74.2) : les vignettes `d` 4–5 masquées décrivent « rapport imposé », « réveil dévêtue avec amnésie », sans « viol », « agression » ni « sexuel » ; une étape qui nomme le constat d'agression prend `m=0`.
