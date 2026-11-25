@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**387 / 500 pathologies du périmètre produites.**
+**390 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -350,14 +350,14 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 341 | `E88.9_decompensation_d_une__O2_5-E11` | Décompensation d'une maladie métabolique héréditaire | END | produite |
 | 342 | `F68.1__O2_3-E09` | Syndrome de Münchhausen par procuration (trouble factice imposé à autrui) | PSY | produite |
 | 343 | `G08_thrombose_du_sinus_c__S1_1-E14` | Thrombose du sinus caverneux (septique) et fistule carotido-caverneuse | NEU | produite |
-| 344 | `I26.9__O6_5-E14` | Thrombose veineuse profonde ou embolie pulmonaire sous THM oral | ANG | — |
+| 344 | `I26.9__O6_5-E14` | Thrombose veineuse profonde ou embolie pulmonaire sous THM oral | ANG | produite |
 | 345 | `I47.2_tachycardie_ventricu__F1_7-E13` | Tachycardie ventriculaire monomorphe soutenue | CAR | produite |
 | 346 | `I47.2_torsades_de_pointes__F1_7-E15` | Torsades de pointes | CAR | produite |
 | 347 | `I51.8__F2_2-E07` | Cardiomyopathie de stress (syndrome de Tako-Tsubo) | CAR | produite |
 | 348 | `I67.1__F1_12-E15` | Anévrisme de l'artère communicante postérieure (paralysie du III) | NEU | produite |
 | 349 | `I77.7__S1_1-E12` | Dissection de l'artère vertébrale ou carotidienne | CAR | produite |
-| 350 | `J93.1__F1_6-E13` | Pneumothorax spontané complet (tympanisme unilatéral aigu) | CTH | — |
-| 351 | `K35.8__O1_7-E15` | Appendicite aiguë simple (non perforée) | CHI | — |
+| 350 | `J93.1__F1_6-E13` | Pneumothorax spontané complet (tympanisme unilatéral aigu) | CTH | produite |
+| 351 | `K35.8__O1_7-E15` | Appendicite aiguë simple (non perforée) | CHI | produite |
 | 352 | `K56.6_3__F2_4-E09` | Iléus mécanique grêlique ou colique | CHI | — |
 | 353 | `K56.6__G16-E20` | Occlusion intestinale aiguë sur carcinose péritonéale | CHI | — |
 | 354 | `K62.3__O3_7-E14` | Prolapsus rectal complet étranglé | GAS | produite |
