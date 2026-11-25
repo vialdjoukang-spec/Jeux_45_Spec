@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**372 / 500 pathologies du périmètre produites.**
+**375 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -319,9 +319,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 310 | `T42.4__G8-E08` | Hypothermie sur intoxication aux sédatifs / benzodiazépines | TOX | produite |
 | 311 | `T74.3_1__O2_3-E03` | Maltraitance psychologique ou verbale | LEG | produite |
 | 312 | `X61__G13-E04` | Intoxication médicamenteuse volontaire mortelle | LEG | produite |
-| 313 | `Z02.5__O4_1-E01` | Certificat d'aptitude sportive ou scolaire | MIG | — |
-| 314 | `Z15.0__F2_10-E08` | Conseil génétique en oncogénétique (BRCA1/2, syndrome de Lynch) | GEN | — |
-| 315 | `Z23_1__O2_4-E01` | Vaccination de base du nourrisson et de l'enfant (plan suisse OFSP) | PSP | — |
+| 313 | `Z02.5__O4_1-E01` | Certificat d'aptitude sportive ou scolaire | MIG | produite |
+| 314 | `Z15.0__F2_10-E08` | Conseil génétique en oncogénétique (BRCA1/2, syndrome de Lynch) | GEN | produite |
+| 315 | `Z23_1__O2_4-E01` | Vaccination de base du nourrisson et de l'enfant (plan suisse OFSP) | PSP | produite |
 | 316 | `Z31.6__O1_3-E04` | Conseil préconceptionnel et prévention des anomalies congénitales (acide folique) | PSP | — |
 | 317 | `Z60.3__O5_5-E07` | Barrière linguistique nécessitant un interprétariat communautaire | MIG | — |
 | 318 | `Z71.8_7__O5_5-E02` | Détresse spirituelle et questionnement existentiel | MIG | — |

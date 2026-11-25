@@ -247,3 +247,9 @@ Signature : AAI (Anthropic AI)
 - Une fiche voisine déjà produite (T42.4_1, coma toxique et flumazénil) laisse à T42.4 l'angle du froid : mesure centrale, système suisse faussé par l'intoxication, mobilisation douce, critères ECLS, chocs et adrénaline sous 30 °C.
 - Suicide (X61) : angle médico-légal (légiste, police, ministère public, préservation des lieux) et évaluation du survivant (pas d'échelle de risque, suivi à 48 heures, ASSIP, limitation des moyens) ; aucune dose ni méthode.
 - Après un refus de permission WebFetch, ne relance que des URL déjà renvoyées par un WebSearch : elles passent sans nouvelle demande.
+
+## Leçons (producteur unique, lot 51, 25.11.2026)
+- Sources lisibles : plan de vaccination suisse 2026 en PDF direct (bag.admin.ch, `pdftotext -layout` puis grep : schéma 2 + 1, RORV 9/12 mois, rotavirus, VRS, Ag HBs, contre-indications p. 43, rattrapage) ; critères internationaux de l'ECG de l'athlète (Drezner 2017, PDF complet sur acsep.org.au) ; Albiński 2022 (SMW, proposition suisse d'évaluation cardiovasculaire du jeune sportif, smw.ch par WebFetch) ; NICE CG164 (`/chapter/Recommendations`) ; NICE DG27 seulement en `nice.org.uk/guidance/DG27/chapter/1-recommendations` (les autres casses échouent) ; BSG 2020 hérédité colorectale (PMC7034349) ; texte de la LAGH (état 01.12.2022) en PDF sur curml.ch.
+- `get_article_metadata` renvoie des centaines d'auteurs pour un consortium (Kuchenbaecker) : demande un PMID à la fois et ne relis pas la notice deux fois.
+- Pathologie « acte » (certificat, conseil, vaccination) : la vignette `d` 4–5 masquée ne contient pas le libellé de l'acte (« certificat », « aptitude », « BRCA », « Lynch », « plan de vaccination », « vaccination de base ») ; elle décrit la situation et la décision. Passe `masque.py` avec ces mots.
+- Une série dont l'étape 2 nomme le gène ou l'acte prend `m=0` même si l'étape 1 reste masquée.

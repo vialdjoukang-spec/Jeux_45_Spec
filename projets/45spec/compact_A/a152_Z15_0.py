@@ -1,0 +1,141 @@
+from constructeur_agent_45spec import pec
+ID = "Z15.0__F2_10-E08"
+PLAN = "non_monographique"
+KUC = "[Kuchenbaecker KB et al., Risks of breast, ovarian, and contralateral breast cancer for BRCA1 and BRCA2 mutation carriers, JAMA 2017;317:2402-2416, PMID 28632866, résumé lu le 25.11.2026]"
+NICE = "[NICE CG164, Familial breast cancer: classification, care and managing breast cancer and related risks in people with a family history of breast cancer, 2013 (mis à jour 2023), chapitre « Recommendations », nice.org.uk lu le 25.11.2026]"
+DG = "[NICE DG27, Molecular testing strategies for Lynch syndrome in people with colorectal cancer, 2017, chapitre « Recommendations », nice.org.uk lu le 25.11.2026]"
+BSG = "[Monahan KJ et al., Guidelines for the management of hereditary colorectal cancer from the BSG, ACPGBI and UKCGG, Gut 2020;69:411-444, PMID 31780574, texte intégral PMC7034349 lu le 25.11.2026]"
+LAGH = "[Loi fédérale sur l'analyse génétique humaine (LAGH, RS 810.12), état au 01.12.2022, art. 5–8, 16, 20–21, 43–44, texte lu le 25.11.2026]"
+EXP = "Avis d'expert, génétique médicale (à vérifier)"
+_N = [
+("def","definition","critère",1,0,NICE,"Le conseil en oncogénétique évalue le risque familial de cancer et propose un test quand la probabilité de porter une variante BRCA1 ou BRCA2 atteint 10 % ou plus."),
+("ad","basicSciences","mécanisme",1,0,EXP,"Les variantes pathogènes de BRCA1/2 et des gènes de réparation des mésappariements (MLH1, MSH2, MSH6, PMS2) se transmettent sur le mode autosomique dominant : chaque enfant d'un porteur a un risque de 50 % (à vérifier)."),
+("kuc","epidemiology","chiffre",3,0,KUC,"Le risque cumulé de cancer du sein jusqu'à 80 ans atteint 72 % pour BRCA1 et 69 % pour BRCA2 ; celui du cancer de l'ovaire 44 % et 17 %."),
+("contra","epidemiology","chiffre",1,0,KUC,"Vingt ans après un premier cancer du sein, le risque de cancer controlatéral atteint 40 % pour BRCA1 et 26 % pour BRCA2."),
+("famrisk","epidemiology","terrain particulier",1,0,KUC,"Chez une porteuse, le risque de cancer du sein augmente avec le nombre de parentes du 1er et du 2e degré atteintes."),
+("ref","anamnesis","critère",1,0,NICE,"On adresse pour avis une personne dont une parente du 1er degré a eu un cancer du sein avant 40 ans ou dont un parent masculin du 1er degré a eu un cancer du sein à tout âge."),
+("ref2","anamnesis","critère",2,0,NICE,"Un cancer du sein bilatéral, un cancer de l'ovaire à tout âge dans la famille et une ascendance juive (risque de porter BRCA1/2 multiplié par 5 à 10) font demander un avis spécialisé."),
+("tree","clinicalExam","examen",1,0,EXP,"On dessine l'arbre généalogique sur trois générations avec le type de cancer et l'âge au diagnostic de chaque apparenté (à vérifier)."),
+("affected","positiveDiagnosis","piège",3,0,NICE,"La recherche de la variante se fait d'abord chez un apparenté atteint ; on teste une personne indemne seulement quand aucun apparenté atteint n'est disponible."),
+("dg","workupGoldStandard","examen",3,0,DG,"Tout cancer colorectal est testé dès le diagnostic par immunohistochimie des quatre protéines de réparation (MLH1, MSH2, MSH6, PMS2) ou par recherche d'instabilité des microsatellites, sans retarder le traitement."),
+("mlh1","workupAlternatives","décision",2,0,DG,"Si MLH1 manque à l'immunohistochimie, on cherche d'abord BRAF V600E, puis, s'il est absent, une hyperméthylation du promoteur de MLH1 ; si elle est absente, on fait le test constitutionnel."),
+("msh2","workupAlternatives","décision",2,0,DG,"Si MSH2, MSH6 ou PMS2 manquent, on confirme directement le syndrome de Lynch par un test de l'ADN constitutionnel."),
+("amst","presumptionRedFlags","piège",1,0,BSG,"Les critères d'Amsterdam et de Bethesda servaient autrefois à sélectionner les familles ; le test tumoral universel les a remplacés."),
+("consent","acuteManagement","contexte suisse",3,1,LAGH,"Une analyse génétique exige le consentement libre et exprès de la personne, après une information suffisante ; elle peut le révoquer en tout temps (art. 5 LAGH)."),
+("counsel","acuteManagement","contexte suisse",2,1,LAGH,"Avant et après une analyse présymptomatique, le médecin assure un conseil non directif, consigné, suivi d'un temps de réflexion adéquat (art. 21 LAGH)."),
+("prescr","acuteManagement","contexte suisse",1,1,LAGH,"Seul un médecin titulaire du titre postgrade fédéral de la spécialité concernée ou d'une qualification en génétique humaine peut prescrire une analyse génétique médicale (art. 20 LAGH)."),
+("notknow","hospitalizationComplications","contexte suisse",2,1,LAGH,"Toute personne peut refuser de connaître tout ou partie des informations sur son patrimoine génétique (art. 8 LAGH)."),
+("relat","hospitalizationComplications","contexte suisse",1,1,LAGH,"Le résultat ne peut être communiqué à un tiers, apparentés compris, qu'avec le consentement de la personne (art. 7 LAGH) ; on l'encourage à informer elle-même sa famille."),
+("minor","hospitalizationComplications","contexte suisse",2,1,LAGH,"Une personne incapable de discernement, par exemple un jeune enfant, n'est testée que si la protection de sa santé l'exige (art. 16 LAGH)."),
+("mri","chronicManagement","décision",2,0,NICE,"Une porteuse de BRCA1/2 reçoit une IRM mammaire annuelle de 30 à 49 ans et une mammographie annuelle de 40 à 69 ans ; on n'offre pas d'IRM de 20 à 29 ans."),
+("rrso","chronicManagement","décision",1,0,NICE,"On discute la salpingo-ovariectomie de réduction de risque et l'on la diffère jusqu'à ce que la femme ait achevé son projet familial ; la mastectomie bilatérale ne convient qu'à une petite proportion de femmes."),
+("chemo","chronicManagement","molécule",1,0,NICE,"Une femme préménopausée à haut risque reçoit du tamoxifène 5 ans ; on l'arrête 2 mois avant une conception ; on ne prolonge pas au-delà de 5 ans sans cancer personnel."),
+("colo","chronicManagement","décision",2,0,BSG,"Les porteurs d'une variante MLH1 ou MSH2 ont une coloscopie tous les 2 ans dès 25 ans, ceux d'une variante MSH6 ou PMS2 dès 35 ans, jusqu'à 75 ans."),
+("asa","chronicManagement","molécule",1,0,BSG,"On informe les porteurs d'un syndrome de Lynch que l'aspirine quotidienne réduit le risque de cancer colorectal ; la dose optimale reste incertaine (600 mg dans l'essai CAPP2)."),
+("ugi","prognosisDischarge","piège",1,0,BSG,"La surveillance de l'estomac, de l'intestin grêle et du pancréas n'est pas indiquée hors essai clinique dans le syndrome de Lynch."),
+("hrt","surveillance","prévention",1,0,NICE,"On ne prescrit pas la pilule dans le seul but de prévenir un cancer ; un traitement hormonal de la ménopause reste aussi bref et aussi faiblement dosé que possible chez une femme à risque familial."),
+("insur","followUpNetwork","contexte suisse",2,1,LAGH,"Une assurance sociale, la prévoyance professionnelle, une assurance-vie jusqu'à 400 000 francs et une assurance-invalidité facultative jusqu'à 40 000 francs de rente annuelle ne peuvent ni demander ni utiliser un résultat présymptomatique (art. 43 LAGH)."),
+("insur2","followUpNetwork","contexte suisse",1,1,LAGH,"Au-delà de ces montants, l'assureur ne peut recevoir le résultat que par son médecin mandaté, qui ne lui transmet que le groupe de risque (art. 44 LAGH)."),
+]
+K = {k: i+1 for i, (k, *_r) in enumerate(_N)}
+N = [t[1:] for t in _N]
+n = lambda *ks: [K[k] for k in ks]
+AM = ["Tester d'abord l'apparenté atteint.","Perte de MLH1 : BRAF puis méthylation avant le test constitutionnel.","Pas de test présymptomatique chez l'enfant sans bénéfice immédiat.","Droit de ne pas savoir.","L'assureur-vie ≤ 400 000 francs ne peut pas demander le résultat.","Pas de surveillance gastrique ou pancréatique de routine."]
+A = lambda *o: list(o)
+Q = [
+{"f":"A","s":("S1",1,3),"st":"Une femme de 34 ans consulte : sa mère a eu un cancer de l'ovaire à 49 ans et sa tante maternelle un cancer du sein à 42 ans. Sa mère, vivante, est suivie en oncologie. La patiente demande « une prise de sang pour savoir ».",
+ "p":"Quelle stratégie proposez-vous ?","o":A((1,"Proposer d'abord à sa mère, apparentée atteinte, la recherche de la variante familiale","NICE CG164 (1.5.5)."),(0,"Tester la patiente d'emblée par un panel complet","Piège : apparenté atteint d'abord."),(0,"Rassurer, le cancer de l'ovaire n'étant pas héréditaire","Faux."),(0,"Faire un dosage du CA-125","Faux."),(0,"Proposer une IRM mammaire et ne rien tester","Faux.")),
+ "n":n("affected","ref2","tree","mri"),"a":"piège","d":5,"l":("Famille.","Hérédité.","Ovaire, sein jeune.","Atteinte d'abord.","Tester.","Test direct.","Tester la mère.")},
+{"f":"A","m":0,"s":("S1",2,3),"st":"La mère porte une variante pathogène de BRCA1. Sa fille est maintenant testée et porte la même variante ; elle a 34 ans et un projet de grossesse.",
+ "p":"Quelle surveillance mammaire proposez-vous maintenant ?","o":A((1,"Une IRM mammaire annuelle, la mammographie annuelle débutant à 40 ans","NICE CG164 (1.6.3, 1.6.7)."),(0,"Une mammographie tous les 2 ans dès 50 ans","Faux."),(0,"Une échographie seule tous les 5 ans","Faux."),(0,"Aucune surveillance avant la ménopause","Faux."),(0,"Un scanner thoracique annuel","Faux.")),
+ "n":n("mri","kuc"),"a":"application","d":3,"l":("BRCA1.","Risque.","34 ans.","IRM 30–49.","Surveiller.","Mammographie seule.","IRM annuelle.")},
+{"f":"A","s":("S1",3,3),"st":"Elle demande ce qu'elle peut faire pour son risque ovarien, sans renoncer à sa grossesse.",
+ "p":"Que lui répondez-vous ?","o":A((1,"On discute la salpingo-ovariectomie de réduction de risque et on la diffère jusqu'à la fin du projet familial","NICE CG164 (1.7.62)."),(0,"Une ovariectomie immédiate est obligatoire","Faux."),(0,"La pilule suffit à prévenir le cancer","Faux : NICE 1.7.7."),(0,"Le risque ovarien est nul avec BRCA1","Faux : 44 %."),(0,"Un dosage annuel du CA-125 remplace la chirurgie","Faux.")),
+ "n":n("rrso","kuc","hrt"),"a":"application","d":3,"l":("Ovaire.","Risque.","Projet familial.","Différer.","Conseiller.","Pilule.","Chirurgie après les enfants.")},
+{"f":"A","st":"Un homme de 41 ans est opéré d'un adénocarcinome du côlon. L'immunohistochimie de la tumeur montre une perte d'expression de MSH2 et de MSH6 ; MLH1 et PMS2 sont présents.",
+ "p":"Quelle est l'étape suivante ?","o":A((1,"Un test de l'ADN constitutionnel, après information et consentement","NICE DG27 (1.2)."),(0,"Une recherche de BRAF V600E","Piège : seulement si MLH1 manque."),(0,"Une recherche d'hyperméthylation du promoteur de MLH1","Piège."),(0,"Aucune, la tumeur étant réséquée","Faux."),(0,"Un dosage de l'ACE seul","Faux.")),
+ "n":n("msh2","dg","consent"),"a":"piège","d":5,"l":("Tumeur.","Réparation.","MSH2/MSH6 perdus.","Constitutionnel direct.","Tester.","BRAF.","Test constitutionnel.")},
+{"f":"A","st":"Une femme de 72 ans a un cancer du côlon droit. L'immunohistochimie montre une perte de MLH1 et de PMS2.",
+ "p":"Quelle est l'étape suivante ?","o":A((1,"Rechercher BRAF V600E, puis, s'il manque, une hyperméthylation du promoteur de MLH1","NICE DG27 (1.2)."),(0,"Test constitutionnel immédiat de toute la famille","Piège."),(0,"Conclure à une forme héréditaire certaine","Faux."),(0,"Arrêter là, vu l'âge","Faux."),(0,"Refaire une coloscopie","Faux.")),
+ "n":n("mlh1","dg","amst"),"a":"piège","d":4,"l":("Tumeur.","Méthylation.","MLH1 perdu.","Sporadique possible.","Trier.","Germinal direct.","BRAF puis méthylation.")},
+{"f":"A","st":"Une mère porteuse d'une variante pathogène connue dans la famille, responsable de cancers du sein et de l'ovaire chez l'adulte, veut faire tester sa fille de 9 ans « pour savoir ».",
+ "p":"Que lui répondez-vous ?","o":A((1,"Que le test n'est pas indiqué avant que l'enfant puisse décider, car il n'apporte aucun bénéfice de santé dans l'enfance","LAGH art. 16 ; NICE CG164."),(0,"Que le test est obligatoire dès la naissance","Faux."),(0,"Que l'on peut tester avec le seul accord de la mère, sans limite","Piège."),(0,"Qu'il faut une IRM mammaire annuelle dès 9 ans","Faux."),(0,"Qu'on teste plutôt le père","Faux.")),
+ "n":n("minor","mri","ad"),"a":"application","d":4,"l":("Enfant.","Discernement.","9 ans.","Pas de bénéfice.","Différer.","Accord parental.","Attendre.")},
+{"f":"A","st":"Une femme de 30 ans a appris qu'elle porte une variante pathogène familiale à haut risque de cancer du sein. Elle refuse que ses deux sœurs soient informées.",
+ "p":"Que faites-vous ?","o":A((1,"Respecter son refus, tout en l'encourageant à informer ses sœurs et en lui proposant de l'aider","LAGH art. 7."),(0,"Appeler les sœurs pour les prévenir","Piège : consentement requis."),(0,"Envoyer le résultat à leur médecin","Faux."),(0,"Refuser de la suivre","Faux."),(0,"Informer l'assureur","Faux.")),
+ "n":n("relat","counsel","notknow"),"a":"piège","d":4,"l":("Résultat.","Secret.","Sœurs.","Consentement.","Respecter.","Appeler.","Encourager.")},
+{"f":"A","st":"Un homme de 45 ans, en bonne santé, porteur d'une variante pathogène familiale découverte par un test présymptomatique, demande une assurance-vie de 300 000 francs. L'assureur pose une question sur les tests génétiques.",
+ "p":"Que lui expliquez-vous ?","o":A((1,"Que l'assureur ne peut ni demander ni utiliser ce résultat pour ce montant","LAGH art. 43."),(0,"Qu'il doit déclarer le résultat","Piège."),(0,"Que le médecin doit transmettre le résultat","Faux."),(0,"Que l'assurance doit être refusée","Faux."),(0,"Que seule l'assurance-maladie de base peut le demander","Faux.")),
+ "n":n("insur","insur2"),"a":"piège","d":4,"l":("Assurance.","Protection.","300 000 francs.","≤ 400 000.","Expliquer.","Déclarer.","Pas de déclaration.")},
+{"f":"A","st":"Une femme de 28 ans dont le père a eu un cancer du côlon à 44 ans et la grand-mère un cancer de l'endomètre veut savoir si elle doit « tout savoir » avant de se décider.",
+ "p":"Quel principe de la loi suisse lui rappelez-vous ?","o":A((1,"Qu'elle a le droit de ne pas être informée de tout ou partie des résultats","LAGH art. 8."),(0,"Que le test est obligatoire dans les familles à risque","Faux."),(0,"Que le résultat sera envoyé à son employeur","Faux."),(0,"Que son consentement ne peut plus être retiré","Faux."),(0,"Que le conseil doit l'orienter vers le test","Faux : non directif.")),
+ "n":n("notknow","counsel","consent"),"a":"application","d":4,"l":("Droit.","Autonomie.","Famille.","Ne pas savoir.","Rappeler.","Obligation.","Droit de ne pas savoir.")},
+{"f":"A","m":0,"st":"Vous informez une porteuse de BRCA1 de ses risques.",
+ "p":"Quel risque cumulé de cancer du sein jusqu'à 80 ans retenez-vous ?","o":A((1,"Environ 72 %","Kuchenbaecker 2017."),(0,"Environ 12 %","Faux."),(0,"Environ 30 %","Faux."),(0,"Environ 95 %","Faux."),(0,"Environ 5 %","Faux.")),
+ "n":n("kuc","famrisk"),"a":"direct","d":1,"l":("Risque.","BRCA1.","80 ans.","72 %.","Informer.","12 %.","72 %.")},
+{"f":"A","m":0,"st":"Vous comparez BRCA1 et BRCA2.",
+ "p":"Quel risque cumulé de cancer de l'ovaire jusqu'à 80 ans est juste ?","o":A((1,"44 % pour BRCA1 et 17 % pour BRCA2","Kuchenbaecker 2017."),(0,"17 % pour BRCA1 et 44 % pour BRCA2","Faux."),(0,"Moins de 2 % pour les deux","Faux."),(0,"Plus de 80 % pour les deux","Faux."),(0,"Aucun risque ovarien pour BRCA2","Faux.")),
+ "n":n("kuc","contra"),"a":"direct","d":2,"l":("Ovaire.","Gène.","BRCA1 > BRCA2.","44 / 17 %.","Comparer.","Inversion.","44 et 17 %.")},
+{"f":"A","m":0,"st":"Un porteur d'une variante MSH6 du syndrome de Lynch, âgé de 28 ans, demande quand commencer les coloscopies.",
+ "p":"Que lui répondez-vous ?","o":A((1,"Dès 35 ans, puis tous les 2 ans jusqu'à 75 ans","BSG 2020."),(0,"Dès 25 ans, tous les 2 ans","Faux : MLH1 et MSH2."),(0,"Dès 50 ans, comme la population","Faux."),(0,"Tous les 10 ans dès 40 ans","Faux."),(0,"Une coloscopie annuelle dès 18 ans","Faux.")),
+ "n":n("colo","ugi"),"a":"application","d":3,"l":("Lynch.","Gène.","MSH6.","35 ans.","Planifier.","25 ans.","35 ans, tous les 2 ans.")},
+{"f":"A","m":0,"st":"Un patient porteur d'un syndrome de Lynch demande quels autres examens de dépistage il devrait faire.",
+ "p":"Quelle affirmation est juste selon la BSG 2020 ?","o":A((1,"La surveillance de l'estomac, de l'intestin grêle et du pancréas n'est pas indiquée hors essai clinique","BSG 2020."),(0,"Une IRM pancréatique annuelle est recommandée","Faux."),(0,"Une capsule de l'intestin grêle tous les ans","Faux."),(0,"Une gastroscopie annuelle dès 20 ans","Faux."),(0,"Un scanner abdominal annuel","Faux.")),
+ "n":n("ugi","asa","colo"),"a":"direct","d":3,"l":("Surveillance.","Organes.","Lynch.","Hors essai.","Limiter.","IRM.","Côlon seul.")},
+{"f":"A","m":0,"st":"Une porteuse de BRCA2 préménopausée de 38 ans, à haut risque, souhaite une chimioprévention.",
+ "p":"Que proposez-vous ?","o":A((1,"Du tamoxifène pendant 5 ans, arrêté 2 mois avant une conception","NICE CG164 (1.7.21, 1.7.29)."),(0,"De l'anastrozole pendant 10 ans","Faux : postménopause."),(0,"Une pilule œstroprogestative","Faux."),(0,"Du tamoxifène à vie","Faux."),(0,"De l'aspirine 600 mg","Faux.")),
+ "n":n("chemo","hrt"),"a":"application","d":3,"l":("Prévention.","Récepteurs.","Préménopause.","Tamoxifène 5 ans.","Proposer.","Anastrozole.","Tamoxifène.")},
+{"f":"Kprim","m":0,"st":"Vous appliquez NICE CG164 pour adresser une patiente en consultation d'oncogénétique.",
+ "p":"Ces situations justifient-elles un avis ?","o":A((1,"Sa sœur a eu un cancer du sein à 37 ans.","NICE 1.3.3."),(1,"Son père a eu un cancer du sein.","NICE 1.3.3."),(1,"Sa mère a eu un cancer du sein bilatéral.","NICE 1.3.4."),(0,"Sa grand-mère a eu un cancer du sein unilatéral à 78 ans, seule atteinte de la famille.","Faux.")),
+ "n":n("ref","ref2","def","affected"),"a":"direct","d":2,"l":("Antécédents.","Hérédité.","Jeune, homme, ovaire.","Critères.","Adresser.","Cas tardif isolé.","Critères NICE.")},
+{"f":"Kprim","m":0,"st":"Vous préparez une analyse génétique présymptomatique de syndrome de Lynch en Suisse.",
+ "p":"Ces affirmations sur la LAGH sont-elles vraies ou fausses ?","o":A((1,"Le conseil est non directif et consigné.","Art. 21."),(1,"Un temps de réflexion adéquat sépare le conseil de l'analyse.","Art. 21."),(1,"La personne peut révoquer son consentement en tout temps.","Art. 5."),(0,"Tout médecin sans titre spécifique peut prescrire n'importe quelle analyse.","Faux : art. 20.")),
+ "n":n("counsel","consent","prescr"),"a":"direct","d":3,"l":("Loi.","Autonomie.","Conseil.","Art. 5, 20, 21.","Préparer.","Tout médecin.","LAGH.")},
+{"f":"Kprim","m":0,"st":"Vous organisez le dépistage tumoral du syndrome de Lynch dans un service de chirurgie colorectale.",
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"Tout cancer colorectal est testé dès le diagnostic.","NICE DG27."),(1,"On utilise l'immunohistochimie des 4 protéines ou l'instabilité des microsatellites.","NICE DG27."),(1,"On ne retarde pas le traitement en attendant le résultat.","NICE DG27."),(0,"On ne teste que les familles remplissant les critères d'Amsterdam.","Faux : test universel.")),
+ "n":n("dg","amst","msh2","mlh1"),"a":"direct","d":2,"l":("Dépistage.","Réparation.","Universel.","IHC ou MSI.","Organiser.","Amsterdam.","Tester tous.")},
+{"f":"Kprim","m":0,"st":"Un porteur de syndrome de Lynch souscrit des assurances.",
+ "p":"Ces affirmations sur la LAGH sont-elles vraies ou fausses ?","o":A((1,"L'assurance-maladie sociale ne peut pas demander le résultat présymptomatique.","Art. 43."),(1,"Une assurance-invalidité facultative jusqu'à 40 000 francs de rente annuelle ne peut pas le demander.","Art. 43."),(1,"Au-delà des plafonds, seul le médecin mandaté reçoit le résultat et transmet le groupe de risque.","Art. 44."),(0,"La prévoyance professionnelle surobligatoire peut l'exiger.","Faux : art. 43.")),
+ "n":n("insur","insur2","relat"),"a":"application","d":3,"l":("Assurances.","Protection.","Plafonds.","Art. 43–44.","Expliquer.","Prévoyance.","Plafonds LAGH.")},
+{"f":"MenuLong","st":"Une femme de 40 ans, indemne, consulte après le décès de sa mère d'un cancer de l'ovaire à 52 ans ; sa sœur de 45 ans vit avec un cancer du sein triple négatif diagnostiqué à 39 ans. Elle demande ce qu'il faut faire maintenant.",
+ "p":"Choisissez les TROIS démarches justes.","o":A((1,"Dessiner l'arbre généalogique sur trois générations","Expert (à vérifier)."),(1,"Proposer à sa sœur atteinte la recherche d'une variante en premier","NICE 1.5.5."),(1,"Assurer un conseil non directif avec consentement écrit avant toute analyse","LAGH art. 5, 21."),(0,"Tester d'emblée ses enfants mineurs","Faux : art. 16."),(0,"Rassurer, la mère étant décédée","Faux."),(0,"Doser le CA-125 tous les 3 mois","Faux."),(0,"Programmer une ovariectomie sans test","Faux."),(0,"Prescrire une pilule pour prévenir le cancer","Faux : NICE 1.7.7."),(0,"Informer ses cousines sans son accord","Faux : art. 7."),(0,"Débuter une IRM pancréatique","Faux."),(0,"Attendre un second cancer dans la famille","Faux."),(0,"Exiger l'accord de son employeur","Faux.")),
+ "n":n("tree","affected","consent","ref2","minor"),"a":"piège","d":5,"l":("Famille.","Hérédité.","Ovaire, sein jeune.","Atteinte d'abord.","Organiser.","Test des mineurs.","Arbre, atteinte, conseil.")},
+{"f":"MenuLong","m":0,"st":"Vous suivez une porteuse de BRCA1 de 35 ans, sans cancer, après un conseil génétique.",
+ "p":"Choisissez les TROIS mesures justes.","o":A((1,"Une IRM mammaire annuelle","NICE 1.6.7."),(1,"Une discussion de la salpingo-ovariectomie après le projet familial","NICE 1.7.62."),(1,"Un traitement hormonal éventuel aussi bref et faiblement dosé que possible","NICE 1.7.12."),(0,"Une mammographie annuelle dès 20 ans","Faux."),(0,"Une IRM annuelle dès 20 ans","Faux : pas avant 30."),(0,"Une coloscopie tous les 2 ans dès 25 ans","Faux : Lynch."),(0,"Une pilule pour prévenir le cancer","Faux."),(0,"Du tamoxifène à vie","Faux."),(0,"Un scanner thoracique annuel","Faux."),(0,"Aucune surveillance avant 50 ans","Faux."),(0,"Un dosage annuel du CA-125 à la place de la chirurgie","Faux."),(0,"Une mastectomie bilatérale obligatoire","Faux.")),
+ "n":n("mri","rrso","hrt","chemo"),"a":"application","d":3,"l":("Suivi.","Risque.","35 ans.","IRM, chirurgie différée.","Suivre.","Mammographie à 20 ans.","IRM, RRSO, THM bref.")},
+]
+for _q in Q: _q["src"] = NICE
+for i in (3,4,15): Q[i]["src"] = DG
+for i in (5,): Q[i]["src"] = [LAGH, NICE]
+for i in (6,7,8,14,16): Q[i]["src"] = LAGH
+Q[9]["src"] = KUC; Q[10]["src"] = KUC; Q[11]["src"] = BSG; Q[12]["src"] = BSG; Q[17]["src"] = [EXP, NICE, LAGH]
+C = {"theme":"Conseil en oncogénétique (BRCA1/2, syndrome de Lynch) : critères d'orientation, test de l'apparenté atteint, dépistage tumoral universel du cancer colorectal, surveillance des porteurs et cadre suisse de la LAGH (consentement, droit de ne pas savoir, mineurs, assurances)",
+ "notions":[
+  {"titre":"Comprendre","rub":["definition","basicSciences","epidemiology","anamnesis"],"comment":"Une variante BRCA1/2 donne un risque de cancer du sein d'environ 70 % jusqu'à 80 ans ; l'histoire familiale oriente vers la consultation.",
+   "points":["BRCA1 : sein 72 %, ovaire 44 %.","BRCA2 : sein 69 %, ovaire 17 %."],"sources":[KUC,NICE,EXP]},
+  {"titre":"Tester","rub":["clinicalExam","positiveDiagnosis","workupGoldStandard","workupAlternatives"],"comment":"On teste d'abord l'apparenté atteint ; tout cancer colorectal est testé pour une déficience de la réparation des mésappariements.",
+   "arbre":[("d1",None,"Cancer colorectal diagnostiqué","On fait l'immunohistochimie des 4 protéines ou l'instabilité des microsatellites.",None,None),("d2","d1","Perte de MLH1","On cherche BRAF V600E, puis l'hyperméthylation du promoteur.",None,None),("d3","d2","BRAF et méthylation négatifs","On fait le test constitutionnel.",None,None),("d4","d1","Perte de MSH2, MSH6 ou PMS2","On fait directement le test constitutionnel.",None,None),("d5","d1","Expression conservée","On ne poursuit pas la recherche de Lynch par cette voie.",None,None)],
+   "points":["Apparenté atteint d'abord."],"sources":[DG,NICE]},
+  {"titre":"Encadrer","rub":["presumptionRedFlags","acuteManagement","hospitalizationComplications"],"comment":"La LAGH exige un consentement libre et exprès, un conseil non directif et protège le droit de ne pas savoir et les mineurs.",
+   "tab":(["Règle","Contenu","Source"],[["Consentement","Libre, exprès, révocable",[("LAGH","Art. 5.")]],["Conseil","Non directif, consigné, temps de réflexion",[("LAGH","Art. 21.")]],["Incapable de discernement","Test seulement si sa santé l'exige",[("LAGH","Art. 16.")]],["Assurances","Pas de demande sous les plafonds",[("LAGH","Art. 43–44.")]]]),
+   "points":["Droit de ne pas savoir (art. 8)."],"sources":[LAGH]},
+  {"titre":"Surveiller","rub":["chronicManagement","prognosisDischarge","surveillance","followUpNetwork"],"comment":"La surveillance dépend du gène : IRM mammaire de 30 à 49 ans pour BRCA ; coloscopie tous les 2 ans dès 25 ou 35 ans pour Lynch.",
+   "points":["Salpingo-ovariectomie après le projet familial.","Aspirine dans le Lynch."],"sources":[NICE,BSG,LAGH]}],
+ "ssp":("O7.25","Demande de conseil génétique",True,[
+   ("n1",None,"Demande de conseil pour un risque familial de cancer","On dessine l'arbre généalogique et l'on applique les critères d'orientation.","conseil","c1"),
+   ("n2","n1","Apparenté atteint disponible","On lui propose d'abord la recherche de variante.","conseil","c2"),
+   ("n3","n1","Cancer colorectal chez le patient","On teste la tumeur (IHC ou MSI) puis on suit l'algorithme.","conseil","c2"),
+   ("n4","n2","Variante familiale identifiée","On propose le test présymptomatique aux apparentés majeurs après conseil.","conseil","c3"),
+   ("n5","n4","Porteur","On organise la surveillance et la réduction du risque selon le gène.","conseil","c4"),
+   ("n6","n4","Mineur","On diffère le test tant qu'il n'apporte pas de bénéfice de santé.","conseil","c3")]),
+ "pec":[
+  pec("conseil","Conseil en oncogénétique",["On identifie les familles à risque héréditaire de cancer.","On réduit le risque de cancer des porteurs dans le respect de la LAGH."],
+      ["On recueille l'histoire familiale sur trois générations.","On explique la démarche, ses conséquences et le droit de ne pas savoir."],
+      [("Tamoxifène","À vérifier dans l'AIPS (NICE CG164 : 5 ans chez la femme préménopausée à haut risque)","Il réduit le risque de cancer du sein chez la femme à haut risque.",NICE),("Acide acétylsalicylique","À vérifier dans l'AIPS (BSG 2020 : dose optimale incertaine, 600 mg/j dans CAPP2)","Il réduit le risque de cancer colorectal dans le syndrome de Lynch.",BSG)],
+      [("geste ou chirurgie","On discute la salpingo-ovariectomie de réduction de risque après le projet familial.","Elle réduit le risque de cancer ovarien, peu dépistable."),("éducation thérapeutique","On explique la surveillance adaptée au gène et son calendrier.","L'adhésion à la surveillance conditionne son bénéfice."),("psychothérapie","On propose un soutien psychologique autour de l'annonce et des décisions.","Le résultat pèse sur la personne et sa famille.")],
+      [("I Génétique médicale Conseil","On assure le conseil non directif, l'interprétation de la variante et le dépistage en cascade."),("F Droit médical suisse","On applique la LAGH : consentement, droit de ne pas savoir, mineurs et assurances.")],
+      None,
+      (["On évalue le risque familial.","On teste l'apparenté atteint, puis les apparentés.","On organise la surveillance selon le gène."],[("d'abord","médecin de famille","Il repère les critères d'orientation et adresse en consultation de génétique."),("ensuite","généticien","Il conseille, obtient le consentement, prescrit et interprète le test."),("puis","spécialistes d'organe","Ils assurent IRM mammaire, coloscopies et chirurgie de réduction de risque.")]),
+      "Le risque cumulé de cancer du sein atteint environ 70 % jusqu'à 80 ans chez les porteuses de BRCA1/2 ; une surveillance et une chirurgie adaptées réduisent ce risque.",
+      [("IRM mammaire (BRCA)","Chaque année de 30 à 49 ans","Détection précoce"),("Coloscopie (Lynch)","Tous les 2 ans dès 25 ou 35 ans selon le gène","Ablation des lésions précancéreuses")],"Le suivi dure toute la vie et passe au dépistage de la population après 69 ans pour la mammographie.",
+      ("On identifie les familles à risque.","On dépiste les porteurs par une surveillance intensive.","On réduit le risque de second cancer et l'on informe les apparentés.")),]}
