@@ -205,3 +205,9 @@ Signature : AAI (Anthropic AI)
 - WebFetch refuse une URL jamais vue (provenance) : fais d'abord un WebSearch qui la renvoie.
 - Discordance à signaler dans la notion : NAMS 2023 ne recommande ni plantes ni soja, NICE NG23 admet que les isoflavones peuvent aider avec une sécurité incertaine.
 - Sujet d'une demande (IVG) : les vignettes `d` 4–5 masquées disent « grossesse non prévue » et « comprimés prescrits », jamais le geste ni les molécules.
+
+## Leçons (producteur unique, lot 45, 25.11.2026)
+- Sources lisibles : RCOG Green-top 69 (2024) en PDF complet sur rightdecisions.scot.nhs.uk (WebFetch, 134 000 caractères ; l'annexe des doses manque) ; CMAJ 2021 « Carence en fer et anémie ferriprive durant la grossesse » en français (PMC8568089) ; Mohr 2022, cohorte bernoise de rétention urinaire du post-partum (PMC9206615, définitions et protocole) ; Cochrane 2020 sur les tranchées (résumé, PMID 33078388).
+- La recommandation BSH 2020 (fer et grossesse, PMID 31578718) n'a ni résumé ni PMC, et le dépôt QMUL est bloqué : ne la cite pas, prends une source lue (CMAJ 2021).
+- Une forme compacte peut assigner `src` en boucle (`for _q in Q: _q["src"] = X`) puis corriger quelques questions : plus sûr qu'une liste `_SRC` de 20 éléments mal alignée.
+- Un menu long sur des facteurs de risque doit exclure des distracteurs les autres facteurs connus (primiparité, travail long, césarienne) : sinon il gagne une réponse juste de trop.

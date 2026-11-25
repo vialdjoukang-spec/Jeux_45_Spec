@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**354 / 500 pathologies du périmètre produites.**
+**357 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -300,9 +300,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 291 | `N95.1_1__O4_5-E08` | Ménopause et syndrome climatérique (évaluation du traitement hormonal substitutif) | GYN | produite |
 | 292 | `N95.1__G1-E02` | Bouffées vasomotrices de la ménopause (climatère) | GYN | produite |
 | 293 | `O04.9__O1_8-E01` | Interruption volontaire de grossesse (IVG) médicamenteuse précoce (<= 7–9 SA) | GYN | produite |
-| 294 | `O21.0__O1_7-E04` | Nausées et vomissements simples du 1er trimestre | GYN | — |
-| 295 | `O90.8__O1_2-E02` | Rétention aiguë d'urine du post-partum | GYN | — |
-| 296 | `O99.0__O1_2-E05` | Anémie ferriprive gravidique | GYN | — |
+| 294 | `O21.0__O1_7-E04` | Nausées et vomissements simples du 1er trimestre | GYN | produite |
+| 295 | `O90.8__O1_2-E02` | Rétention aiguë d'urine du post-partum | GYN | produite |
+| 296 | `O99.0__O1_2-E05` | Anémie ferriprive gravidique | GYN | produite |
 | 297 | `R00.0__F1_7-E01` | Tachycardie sinusale réactionnelle (fièvre, anémie, douleur, hypovolémie) | MIG | — |
 | 298 | `R11.2__O5_4-E07` | Nausées et vomissements chimio-induits réfractaires | MIG | — |
 | 299 | `R59.0_1__F1_5-E01` | Adénopathies inguinales réactionnelles (infections membre inférieur / IST) | MIG | — |
