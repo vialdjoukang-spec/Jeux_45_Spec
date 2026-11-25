@@ -355,3 +355,9 @@ Signature : AAI (Anthropic AI)
 - `aips.py` qui répond « aucun produit » (Esmya, Roctavian) ne prouve pas une absence d'autorisation : écris « non trouvé au Compendium, statut suisse à vérifier ».
 - `get_article_metadata` sur deux articles du NEJM dépasse la limite et part sur disque : demande un PMID à la fois ou lis le JSON par script.
 - Deux canoniques de la même entité (D25.9 masse pelvienne, D25.9_1 saignement vaginal) : le second prend l'angle du bilan des règles abondantes (NICE NG88 : examens utiles et inutiles, hystéroscopie, seuil de 3 cm, saignement aigu, produits suisses) ; signale l'écart de posologie de l'acide tranexamique entre le Brevier suisse et la fiche voisine.
+
+## Leçons (producteur unique, lot 66, 25.11.2026)
+- EHRA 2021 (guide pratique des AOD, PMID 33895845) : PMC ne livre pas le texte ; le manuscrit accepté se lit en PDF par `curl` sur openaccess.sgul.ac.uk (lien renvoyé par WebSearch ; la copie uhasselt renvoie du HTML). Extrais par motifs (figure 9, « Missed dose », « calibrated », « CrCl/10 », tableau INR de la warfarine) et cite « manuscrit accepté ».
+- Briefs suisses utiles aux anticoagulants : Konakion (vitamine K selon l'INR, urgence, saignement grave, par molécule), Marcoumar (charge, contre-indications, grossesse), Beriplex (TIH et CIVD contre-indiquées, débit), Praxbind, Ondexxya (doses faible et forte), Xarelto (repas, contre-indications), Fragmin.
+- `aips.py "Protamin"` renvoie un vaccin FSME : vérifie le nom du produit dans la sortie avant de citer un Brevier.
+- Trois canoniques voisins (D68.3_1 ecchymoses, D68.3_2 AVK, D68.3_3 AOD et héparines) se répartissent ainsi : gravité et co-médications ; INR et vitamine K ; tests spécifiques, antidotes et TIH. Les vignettes `d` 4–5 décrivent « comprimés dosés selon l'INR », « gélule deux fois par jour », « injections sous-cutanées quotidiennes » sans nommer la classe.

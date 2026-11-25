@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**417 / 500 pathologies du périmètre produites.**
+**420 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -391,9 +391,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 382 | `D24__S2_3-E02` | Fibroadénome mammaire | ONC | produite |
 | 383 | `D25.9_1__S4_17-E01` | Léiomyome (fibrome) utérin | GYN | produite |
 | 384 | `D66_2__O7_19-E01` | Thérapie génique dans les maladies hématologiques (hémophilie, drépanocytose) | HEM | produite |
-| 385 | `D68.3_1__S6_2-E02` | Ecchymoses et hématomes iatrogènes sous anticoagulants ou antiagrégants | TOX | — |
-| 386 | `D68.3_2__F2_3-E01` | Traitement par antivitamine K (INR allongé) | HEM | — |
-| 387 | `D68.3_3__F2_3-E02` | Traitement par anticoagulants oraux directs (AOD) ou héparines | HEM | — |
+| 385 | `D68.3_1__S6_2-E02` | Ecchymoses et hématomes iatrogènes sous anticoagulants ou antiagrégants | TOX | produite |
+| 386 | `D68.3_2__F2_3-E01` | Traitement par antivitamine K (INR allongé) | HEM | produite |
+| 387 | `D68.3_3__F2_3-E02` | Traitement par anticoagulants oraux directs (AOD) ou héparines | HEM | produite |
 | 388 | `D69.6_1__F2_25-E01` | Pseudo-thrombopénie à l'EDTA (agrégats plaquettaires) | HEM | — |
 | 389 | `D72.8__F2_5-E03` | Leucocytose réactionnelle sous corticothérapie ou stress | HEM | — |
 | 390 | `D75.1__F2_22-E02` | Polyglobulie secondaire à une hypoxie chronique (BPCO, SAOS, tabac) | HEM | — |
