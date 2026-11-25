@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**390 / 500 pathologies du périmètre produites.**
+**393 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -358,10 +358,10 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 349 | `I77.7__S1_1-E12` | Dissection de l'artère vertébrale ou carotidienne | CAR | produite |
 | 350 | `J93.1__F1_6-E13` | Pneumothorax spontané complet (tympanisme unilatéral aigu) | CTH | produite |
 | 351 | `K35.8__O1_7-E15` | Appendicite aiguë simple (non perforée) | CHI | produite |
-| 352 | `K56.6_3__F2_4-E09` | Iléus mécanique grêlique ou colique | CHI | — |
-| 353 | `K56.6__G16-E20` | Occlusion intestinale aiguë sur carcinose péritonéale | CHI | — |
+| 352 | `K56.6_3__F2_4-E09` | Iléus mécanique grêlique ou colique | CHI | produite |
+| 353 | `K56.6__G16-E20` | Occlusion intestinale aiguë sur carcinose péritonéale | CHI | produite |
 | 354 | `K62.3__O3_7-E14` | Prolapsus rectal complet étranglé | GAS | produite |
-| 355 | `K65.0__F2_18-E18` | Péritonite secondaire sur perforation d'organe creux | CHI | — |
+| 355 | `K65.0__F2_18-E18` | Péritonite secondaire sur perforation d'organe creux | CHI | produite |
 | 356 | `L53.9__G8-E10` | Érythrodermie (> 90 % de la surface corporelle rouge et squameuse) | DER | — |
 | 357 | `N44.0__F1_2-E11` | Torsion du cordon spermatique | URO | — |
 | 358 | `N47.2__F1_2-E12` | Paraphimosis étranglé | URO | — |

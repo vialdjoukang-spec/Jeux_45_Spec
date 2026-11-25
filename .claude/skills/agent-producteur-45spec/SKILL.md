@@ -287,3 +287,10 @@ Signature : AAI (Anthropic AI)
 - WSES 2020 appendicite (PMC7386163) se lit en PDF complet sur wjes.biomedcentral.com ; extrais les « Statement » et « Recommendation » par `grep -A4`. Le PDF de Thorax (BTS 2023) renvoie du HTML par `curl` : seule la page article par WebFetch a donné le résumé des recommandations, sans conseils d'avion ni de plongée (écrits « à vérifier »).
 - Une permission WebFetch sans réponse bloque aussi les variantes d'URL (pmc.ncbi.nlm.nih.gov au lieu de www.ncbi.nlm.nih.gov/pmc) : n'appelle que l'URL exacte renvoyée par WebSearch.
 - Une vignette `d` 4–5 sur une TEV décrit la jambe ou la dyspnée sans « thrombose », « embolie » ni « caillot » ; une question qui cite l'antécédent prend `m=0` et `d` 3.
+
+## Leçons (producteur unique, lot 57, 25.11.2026)
+- Sources lisibles en texte intégral par `get_full_text_article` : Bologna 2017 occlusion sur brides (PMC6006983, tableau 5 des recommandations), WSES 2017 urgences du cancer colorectal (PMC6090779, énoncés 1.1–4.1), MASCC 2022 occlusion maligne (PMC9046338, tableau 3), WSES 2017 infections intra-abdominales (PMC5504840, 110 000 caractères : extrais les « (Recommendation » par grep). Un texte de plus de 50 000 caractères arrive sur disque : `json.loads` puis grep.
+- liguecancer.ch se lit par `curl` (page « Dépistage du cancer du côlon ») : vérifie soi-même une source suisse reprise d'un lot précédent au lieu de la recopier.
+- Le Brevier du Compendium fournit des pièges suisses utiles : l'occlusion maligne n'est pas une indication de Sandostatin, et la notice de Buscopan contre-indique l'iléus obstructif, alors que la MASCC en discute l'usage palliatif.
+- `get_article_metadata` sur une recommandation WSES renvoie des dizaines d'auteurs : préfère `convert_article_ids` pour obtenir le PMC, et cite le titre sans premier auteur si tu ne l'as pas lu.
+- Trois canoniques voisins d'occlusion (K56.6_3, K56.6, K56.2 volvulus) se répartissent ainsi : brides et cancer colique sténosant ; occlusion maligne palliative (NON_MONOGRAPHIQUE) ; volvulus.
