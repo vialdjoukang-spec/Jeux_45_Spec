@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**375 / 500 pathologies du périmètre produites.**
+**378 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -322,9 +322,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 313 | `Z02.5__O4_1-E01` | Certificat d'aptitude sportive ou scolaire | MIG | produite |
 | 314 | `Z15.0__F2_10-E08` | Conseil génétique en oncogénétique (BRCA1/2, syndrome de Lynch) | GEN | produite |
 | 315 | `Z23_1__O2_4-E01` | Vaccination de base du nourrisson et de l'enfant (plan suisse OFSP) | PSP | produite |
-| 316 | `Z31.6__O1_3-E04` | Conseil préconceptionnel et prévention des anomalies congénitales (acide folique) | PSP | — |
-| 317 | `Z60.3__O5_5-E07` | Barrière linguistique nécessitant un interprétariat communautaire | MIG | — |
-| 318 | `Z71.8_7__O5_5-E02` | Détresse spirituelle et questionnement existentiel | MIG | — |
+| 316 | `Z31.6__O1_3-E04` | Conseil préconceptionnel et prévention des anomalies congénitales (acide folique) | PSP | produite |
+| 317 | `Z60.3__O5_5-E07` | Barrière linguistique nécessitant un interprétariat communautaire | MIG | produite |
+| 318 | `Z71.8_7__O5_5-E02` | Détresse spirituelle et questionnement existentiel | MIG | produite |
 | 319 | `Z91.1_1__O3_4-E05` | Non-adhésion thérapeutique liée à la complexité du schéma | MIG | — |
 | 320 | `B17.9_hepatite_virale_aigu__F2_11-E06` | Hépatite virale aiguë (VHA, VHB, VHE) | GAS | produite |
 | 321 | `C90.0__F2_16-E11` | Myélome multiple (plasmocytome médullaire) | HEM | — |

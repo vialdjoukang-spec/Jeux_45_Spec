@@ -253,3 +253,9 @@ Signature : AAI (Anthropic AI)
 - `get_article_metadata` renvoie des centaines d'auteurs pour un consortium (Kuchenbaecker) : demande un PMID à la fois et ne relis pas la notice deux fois.
 - Pathologie « acte » (certificat, conseil, vaccination) : la vignette `d` 4–5 masquée ne contient pas le libellé de l'acte (« certificat », « aptitude », « BRCA », « Lynch », « plan de vaccination », « vaccination de base ») ; elle décrit la situation et la décision. Passe `masque.py` avec ces mots.
 - Une série dont l'étape 2 nomme le gène ou l'acte prend `m=0` même si l'étape 1 reste masquée.
+
+## Leçons (producteur unique, lot 52, 25.11.2026)
+- Sources lisibles : avis d'experts SSGO n° 33 « Conseil pré-conceptionnel » 2010 (PDF sggg.ch) ; fiche SSN « Les folates » 2026 (valeurs OSAV 2022 ; 400 µg au moins 4 semaines avant) — discordance à signaler avec la SSGO 2010 (2 à 3 mois avant) ; Cochrane 2015 acide folique (PMID 26662928) ; page OFSP « Interprétariat communautaire » ; document CHUV 2015 sur l'interprétariat (service national 0842 442 442, à revérifier) ; Flores 2012 (PMID 22424655) ; brochure palliative.ch 2024 sur le Spiritual Care (STIV-RePer, NASCA, kit d'indicateurs) ; Monod 2010 SDAT (PMID 21144024) ; Kissane 2001 démoralisation (PMID 11324179).
+- N'écris jamais un premier auteur que tu n'as pas lu : cite alors le titre, la revue et le PMID seuls.
+- Les rapports OFSP anciens (acide folique 2002) servent pour un fait stable (fermeture du tube neural J15–J28), pas pour une posologie.
+- `curl` sur une ressource NICE en `/resources/...pdf` renvoie une page HTML : vérifie `file` avant `pdftotext`.

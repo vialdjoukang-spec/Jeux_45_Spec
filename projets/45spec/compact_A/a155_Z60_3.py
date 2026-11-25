@@ -1,0 +1,141 @@
+from constructeur_agent_45spec import pec
+ID = "Z60.3__O5_5-E07"
+PLAN = "non_monographique"
+OFSP = "[OFSP, page « Interprétariat communautaire », bag.admin.ch lue le 25.11.2026]"
+CHUV = "[CHUV, Département femme-mère-enfant, « Compétences transculturelles et interprétariat », S. Ratnam, 2015, PDF chuv.ch lu le 25.11.2026 (coordonnées à vérifier)]"
+FLO = "[Flores G et al., Errors of medical interpretation and their potential clinical consequences: professional versus ad hoc versus no interpreters, Ann Emerg Med 2012;60:545-553, PMID 22424655, résumé lu le 25.11.2026]"
+TIS = "[Perception of the use of a telephone interpreting service during primary care consultations: a qualitative study with allophone migrants, PLoS One 2022;17:e0264832, PMID 35290383, texte intégral PMC8923434 lu le 25.11.2026]"
+EXP = "Avis d'expert, médecine des migrants (à vérifier)"
+_N = [
+("def","definition","critère",1,1,OFSP,"L'interprète communautaire professionnel traduit dans les deux sens, de façon complète et fidèle, respecte la confidentialité et reste neutre."),
+("notrad","definition","critère",1,1,CHUV,"L'interprète communautaire n'est pas un simple traducteur : il est formé à une éthique professionnelle et apporte des compétences transculturelles à l'entretien."),
+("n200","epidemiology","chiffre",1,1,OFSP,"En Suisse, environ 200 000 personnes ne comprennent ni une langue nationale ni l'anglais ; plus de la moitié des professionnels de santé rencontrent souvent une barrière linguistique."),
+("jac","epidemiology","chiffre",2,0,CHUV,"Sans langue commune, les patients subissent plus d'examens inutiles, d'hospitalisations et d'erreurs, des séjours plus longs, reçoivent moins d'antalgiques, comprennent moins et adhèrent moins aux traitements."),
+("safety","basicSciences","mécanisme",2,0,OFSP,"Les difficultés de compréhension compromettent la sécurité des patients et entraînent des soins excessifs, insuffisants ou inadaptés et des coûts inutiles."),
+("flo","basicSciences","chiffre",3,0,FLO,"Les erreurs d'interprétation à conséquence clinique potentielle sont moins fréquentes avec un interprète professionnel (12 %) qu'avec un interprète improvisé (22 %) ou sans interprète (20 %)."),
+("train","basicSciences","chiffre",1,0,FLO,"Chez les interprètes professionnels, au moins 100 heures de formation abaissent la part d'erreurs à conséquence clinique (2 % contre 12 %) ; les années d'expérience n'ont pas cet effet."),
+("benef","positiveDiagnosis","pronostic",2,0,CHUV,"Le recours à un interprète s'associe à un meilleur usage des soins, de meilleurs résultats cliniques, une meilleure observance et une plus grande satisfaction, nettement plus avec des professionnels."),
+("consent","presumptionRedFlags","piège",3,0,TIS,"Un interprète professionnel permet d'obtenir un consentement éclairé, ce qu'un proche improvisé ne garantit pas."),
+("adhoc","presumptionRedFlags","piège",3,0,FLO,"Un proche, un enfant ou un collègue plurilingue non formé n'est pas un interprète professionnel : ses erreurs ont plus souvent des conséquences cliniques."),
+("child","presumptionRedFlags","piège",1,0,EXP,"On évite de faire traduire un enfant, surtout pour un sujet grave, intime ou psychique (à vérifier)."),
+("staff","workupAlternatives","décision",1,0,CHUV,"Un collaborateur plurilingue non formé n'est pas une solution optimale : il peut être débordé émotionnellement et n'a pas d'espace pour se préparer ni pour débriefer."),
+("tel","workupGoldStandard","contexte suisse",2,1,CHUV,"Le service national d'interprétariat téléphonique (0842 442 442, 24 heures sur 24, 7 jours sur 7) convient aux entretiens brefs de 10 à 20 minutes, souvent complétés ensuite par un interprète présent (numéro à vérifier)."),
+("tellim","workupAlternatives","piège",3,0,TIS,"L'interprétariat par téléphone se prête mal aux entretiens à forte charge émotionnelle, aux décisions de vie ou de mort et à la santé mentale ; la vidéo combine rapidité et image."),
+("telok","workupAlternatives","décision",1,0,TIS,"L'interprétariat téléphonique est accessible à tout moment et facilite l'accès aux soins non programmés."),
+("third","clinicalExam","piège",1,0,TIS,"Une troisième langue rudimentaire, comme un anglais approximatif, ne remplace pas un interprète."),
+("prep","acuteManagement","décision",1,0,EXP,"On prépare l'entretien avec l'interprète, on parle à la première personne en regardant le patient, en phrases courtes, et l'on débriefe après un entretien difficile (à vérifier)."),
+("sex","acuteManagement","décision",1,0,TIS,"Pour une consultation gynécologique, certaines patientes préfèrent une interprète femme ; on en tient compte quand c'est possible."),
+("psych","acuteManagement","décision",1,0,TIS,"Un interprète permet au patient d'aborder des motifs psychiques cachés derrière une plainte physique."),
+("culture","anamnesis","terrain particulier",2,0,CHUV,"La culture influence le seuil de consultation, la formulation de la plainte, la compréhension des causes, la perception de la gravité et les attentes envers le traitement."),
+("formul","anamnesis","examen",1,0,CHUV,"La « formulation culturelle » est un outil pour recueillir les représentations du patient sur sa maladie."),
+("fin","hospitalizationComplications","contexte suisse",2,1,OFSP,"Le financement de l'interprétariat communautaire lors des traitements médicaux varie selon les cantons."),
+("interpret","followUpNetwork","contexte suisse",1,1,OFSP,"L'association INTERPRET promeut l'interprétariat communautaire en Suisse et répertorie les services régionaux."),
+("cert","followUpNetwork","contexte suisse",1,1,CHUV,"Les interprètes communautaires suivent une formation de base (certificat suisse d'interprète communautaire), des formations continues et des supervisions."),
+("chronic","chronicManagement","décision",1,0,TIS,"L'interprète est particulièrement utile au suivi des maladies chroniques, à la psychiatrie et à la prévention."),
+("trust","prognosisDischarge","pronostic",1,0,TIS,"Le patient perçoit l'interprète comme le pont qui fonde la confiance et l'alliance thérapeutique."),
+("ask","surveillance","décision",1,0,TIS,"Les patients ignorent souvent qu'un service d'interprétariat existe : c'est au médecin de le proposer."),
+("delay","chronicManagement","complication",1,0,TIS,"La crainte de ne pas être compris pousse des patients à retarder ou à abandonner leurs soins."),
+]
+K = {k: i+1 for i, (k, *_r) in enumerate(_N)}
+N = [t[1:] for t in _N]
+n = lambda *ks: [K[k] for k in ks]
+AM = ["Un enfant n'est pas un interprète.","Le téléphone ne convient pas à une annonce grave ni à la psychiatrie.","Un anglais approximatif ne suffit pas.","Pas de consentement éclairé sans compréhension.","Le patient ne demande pas : le médecin propose.","Financement cantonal variable."]
+A = lambda *o: list(o)
+Q = [
+{"f":"A","s":("S1",1,3),"st":"Une femme érythréenne de 38 ans, arrivée depuis 8 mois, ne parle que le tigrinya. Elle vient pour des douleurs abdominales récurrentes, accompagnée de sa fille de 11 ans qui parle français.",
+ "p":"Comment menez-vous l'entretien ?","o":A((1,"Faire appel à un interprète professionnel plutôt qu'à la fille","Flores 2012 ; OFSP."),(0,"Faire traduire la fille, c'est plus rapide","Piège."),(0,"Mener l'entretien en anglais simplifié","Faux."),(0,"Se fier à l'examen physique seul","Faux."),(0,"Reporter sans solution","Faux.")),
+ "n":n("adhoc","child","flo"),"a":"piège","d":4,"l":("Communication.","Erreurs.","Fille de 11 ans.","Professionnel.","Organiser.","Enfant.","Interprète professionnel.")},
+{"f":"A","s":("S1",2,3),"st":"Avec l'interprète, elle décrit aussi des insomnies, des cauchemars et une grande tristesse depuis son voyage.",
+ "p":"Que retenez-vous ?","o":A((1,"L'interprète permet d'aborder des motifs psychiques cachés derrière la plainte physique","Étude PLoS One 2022."),(0,"Ces plaintes ne relèvent pas du médecin","Faux."),(0,"Il faut renvoyer l'interprète pour parler de ce sujet","Faux."),(0,"Ces symptômes sont culturels et sans importance","Piège."),(0,"Seul un scanner peut trancher","Faux.")),
+ "n":n("psych","culture"),"a":"application","d":3,"l":("Plainte.","Psychotraumatisme.","Insomnies.","Motif caché.","Explorer.","Culturel.","Motif psychique.")},
+{"f":"A","s":("S1",3,3),"st":"Vous prévoyez une gastroscopie et devez obtenir son consentement.",
+ "p":"Quelle condition est indispensable ?","o":A((1,"Une information comprise, avec un interprète professionnel","Étude PLoS One 2022."),(0,"La signature d'un formulaire en français","Piège."),(0,"L'accord de sa fille","Faux."),(0,"L'accord de son assistant social","Faux."),(0,"Aucun consentement, c'est un examen courant","Faux.")),
+ "n":n("consent","adhoc"),"a":"application","d":3,"l":("Consentement.","Compréhension.","Gastroscopie.","Information comprise.","Informer.","Signature.","Information comprise.")},
+{"f":"A","st":"Aux urgences, à 3 h du matin, un homme de 50 ans qui ne parle que le pachto présente une douleur thoracique. Aucun interprète ne peut venir sur place.",
+ "p":"Que faites-vous pour l'anamnèse ?","o":A((1,"Appeler le service national d'interprétariat téléphonique pour un entretien bref","CHUV 2015."),(0,"Attendre le matin pour l'anamnèse","Piège."),(0,"Utiliser un traducteur en ligne seul","Faux."),(0,"Demander à un autre patient de traduire","Faux."),(0,"Renoncer à l'anamnèse","Faux.")),
+ "n":n("tel","telok"),"a":"application","d":4,"l":("Urgence.","Accès.","Nuit.","Téléphone.","Appeler.","Attendre.","Service téléphonique.")},
+{"f":"A","st":"Vous devez annoncer à un homme de 60 ans, qui ne parle que le turc, un cancer du poumon métastatique et discuter des soins palliatifs.",
+ "p":"Quelle organisation choisissez-vous ?","o":A((1,"Un interprète professionnel présent, avec préparation et débriefing","Étude PLoS One 2022 ; CHUV 2015."),(0,"Un interprète par téléphone pour aller plus vite","Piège : charge émotionnelle."),(0,"Son fils, pour adoucir la nouvelle","Faux."),(0,"Un collègue turcophone non formé","Faux."),(0,"Une lettre traduite","Faux.")),
+ "n":n("tellim","prep","staff"),"a":"piège","d":5,"l":("Annonce.","Émotion.","Cancer.","Présentiel.","Préparer.","Téléphone.","Interprète présent.")},
+{"f":"A","st":"Une femme kurde de 25 ans consulte pour des pertes vaginales. Le service propose un interprète masculin.",
+ "p":"Que faites-vous ?","o":A((1,"Lui demander si elle préfère une interprète femme et l'organiser si possible","Étude PLoS One 2022."),(0,"Imposer l'interprète disponible sans lui demander","Faux."),(0,"Faire traduire son mari","Piège."),(0,"Renoncer à l'examen","Faux."),(0,"Mener l'entretien par gestes","Faux.")),
+ "n":n("sex","adhoc"),"a":"application","d":4,"l":("Intimité.","Préférence.","Gynécologie.","Interprète femme.","Demander.","Mari.","Demander sa préférence.")},
+{"f":"A","st":"Un homme syrien de 45 ans, diabétique, ne comprend pas son schéma d'insuline ; il répond « oui » à tout en anglais approximatif. Son HbA1c reste élevée.",
+ "p":"Quelle mesure est la plus utile ?","o":A((1,"Une éducation thérapeutique avec un interprète professionnel","Étude PLoS One 2022 ; CHUV 2015."),(0,"Augmenter les doses d'insuline","Piège."),(0,"Continuer en anglais, il dit comprendre","Faux."),(0,"Remettre une brochure en français","Faux."),(0,"Hospitaliser pour une semaine","Faux.")),
+ "n":n("third","chronic","jac","safety","benef"),"a":"piège","d":5,"l":("Observance.","Compréhension.","« Oui » à tout.","Langue.","Éduquer.","Doses.","Interprète et éducation.")},
+{"f":"A","st":"Un patient afghan arrivé récemment manque ses rendez-vous ; l'assistante sociale rapporte qu'il « n'ose pas venir, car personne ne le comprend ».",
+ "p":"Que proposez-vous ?","o":A((1,"Lui proposer d'emblée un interprète pour les prochaines consultations","Étude PLoS One 2022."),(0,"Attendre qu'il le demande lui-même","Piège : il ignore souvent que c'est possible."),(0,"Le renvoyer aux urgences","Faux."),(0,"Clore le dossier","Faux."),(0,"Exiger qu'il apprenne le français","Faux.")),
+ "n":n("ask","delay"),"a":"piège","d":4,"l":("Accès.","Renoncement.","Rendez-vous manqués.","Proposer.","Proposer.","Attendre.","Proposer d'emblée.")},
+{"f":"A","m":0,"st":"Vous lisez l'étude de Flores sur l'interprétariat aux urgences pédiatriques.",
+ "p":"Quelle proportion d'erreurs à conséquence clinique potentielle avec un interprète improvisé ?","o":A((1,"22 %","Flores 2012."),(0,"2 %","Faux : professionnels formés ≥ 100 h."),(0,"12 %","Faux : professionnels."),(0,"50 %","Faux."),(0,"0 %","Faux.")),
+ "n":n("flo","train"),"a":"direct","d":2,"l":("Preuve.","Erreurs.","Improvisé.","22 %.","Retenir.","12 %.","22 %.")},
+{"f":"A","m":0,"st":"Vous présentez la barrière linguistique en Suisse.",
+ "p":"Combien de personnes ne comprennent ni une langue nationale ni l'anglais selon l'OFSP ?","o":A((1,"Environ 200 000","OFSP."),(0,"Environ 2000","Faux."),(0,"Environ 2 millions","Faux."),(0,"Environ 20 000","Faux."),(0,"Personne","Faux.")),
+ "n":n("n200"),"a":"direct","d":1,"l":("Chiffre.","Population.","Suisse.","200 000.","Retenir.","2 millions.","200 000.")},
+{"f":"A","m":0,"st":"Un collègue doute de l'utilité de l'interprétariat communautaire.",
+ "p":"Quel effet de la barrière linguistique lui citez-vous ?","o":A((1,"Plus d'examens inutiles et d'erreurs médicales","CHUV 2015."),(0,"Des séjours hospitaliers plus courts","Faux."),(0,"Plus d'antalgiques reçus","Faux."),(0,"Une meilleure observance","Faux."),(0,"Aucun effet mesurable","Faux.")),
+ "n":n("jac","safety","benef"),"a":"direct","d":2,"l":("Effets.","Sécurité.","Examens, erreurs.","Coûts.","Argumenter.","Séjours courts.","Plus d'erreurs.")},
+{"f":"A","m":0,"st":"Un hôpital veut améliorer son interprétariat communautaire.",
+ "p":"Quel facteur réduit le plus les erreurs des interprètes professionnels selon Flores ?","o":A((1,"Au moins 100 heures de formation","Flores 2012."),(0,"Les années d'expérience","Faux."),(0,"La parenté avec le patient","Faux."),(0,"La même nationalité","Faux."),(0,"L'âge de l'interprète","Faux.")),
+ "n":n("train","cert"),"a":"application","d":3,"l":("Qualité.","Formation.","100 h.","Formation.","Choisir.","Expérience.","Formation.")},
+{"f":"A","m":0,"st":"Vous voulez organiser un interprétariat communautaire pour un patient ambulatoire dans votre canton.",
+ "p":"Qu'en est-il du financement ?","o":A((1,"Il varie selon les cantons","OFSP."),(0,"Il est toujours payé par le patient","Faux."),(0,"La LAMal le rembourse toujours","Faux (à vérifier)."),(0,"Il est interdit en ambulatoire","Faux."),(0,"Il est financé par l'employeur","Faux.")),
+ "n":n("fin","interpret"),"a":"direct","d":3,"l":("Financement.","Système.","Canton.","Variable.","Organiser.","LAMal.","Cantonal.")},
+{"f":"A","m":0,"st":"Un patient d'une autre culture consulte pour une fatigue (barrière linguistique résolue par un interprète).",
+ "p":"Quel outil vous aide à recueillir ses représentations de la maladie ?","o":A((1,"La formulation culturelle","CHUV 2015."),(0,"Le score de Glasgow","Faux."),(0,"Le MMSE","Faux."),(0,"Une échelle visuelle analogique","Faux."),(0,"Un questionnaire en français","Faux.")),
+ "n":n("formul","culture"),"a":"direct","d":2,"l":("Culture.","Représentations.","Fatigue.","Formulation culturelle.","Recueillir.","Questionnaire.","Formulation culturelle.")},
+{"f":"Kprim","m":0,"st":"Vous travaillez avec un interprète communautaire professionnel.",
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"Il traduit dans les deux sens de façon complète et fidèle.","OFSP."),(1,"Il est tenu à la confidentialité et à la neutralité.","OFSP."),(1,"Il apporte des compétences transculturelles.","CHUV 2015."),(0,"Il peut résumer ce qu'il juge inutile.","Faux.")),
+ "n":n("def","notrad","prep"),"a":"direct","d":2,"l":("Rôle.","Éthique.","Fidélité.","Neutralité.","Collaborer.","Résumer.","Fidèle et neutre.")},
+{"f":"Kprim","m":0,"st":"Vous choisissez le mode d'interprétariat pour un patient allophone.",
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"Le téléphone convient à un entretien bref et urgent.","CHUV 2015."),(1,"La vidéo combine la rapidité du téléphone et l'image.","Étude PLoS One 2022."),(1,"Une consultation psychiatrique se prête mal au téléphone.","Étude PLoS One 2022."),(0,"Le téléphone convient le mieux pour annoncer un décès.","Faux.")),
+ "n":n("tel","tellim","telok"),"a":"application","d":3,"l":("Mode.","Situation.","Téléphone, vidéo.","Limites.","Choisir.","Annonce.","Selon la situation.")},
+{"f":"Kprim","m":0,"st":"Vous évaluez les solutions improvisées face à un patient allophone.",
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"Un collaborateur plurilingue non formé n'est pas une solution optimale.","CHUV 2015."),(1,"Un anglais rudimentaire ne remplace pas un interprète.","Étude PLoS One 2022."),(1,"Sans interprète, la part d'erreurs à conséquence clinique atteint 20 %.","Flores 2012."),(0,"Un proche fait moins d'erreurs qu'un professionnel, car il connaît le patient.","Faux.")),
+ "n":n("staff","third","adhoc","flo"),"a":"piège","d":3,"l":("Improvisation.","Erreurs.","Proche, collègue.","Limites.","Évaluer.","Proche.","Professionnel.")},
+{"f":"Kprim","m":0,"st":"Vous évaluez l'effet de l'interprétariat professionnel sur les soins d'un patient allophone.",
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"Il améliore l'observance.","CHUV 2015."),(1,"Il renforce la confiance et l'alliance thérapeutique.","Étude PLoS One 2022."),(1,"Il est particulièrement utile au suivi des maladies chroniques.","Étude PLoS One 2022."),(0,"Il augmente les coûts sans bénéfice clinique.","Faux.")),
+ "n":n("benef","trust","chronic","safety"),"a":"direct","d":3,"l":("Effets.","Alliance.","Observance.","Bénéfices.","Évaluer.","Coûts.","Bénéfices.")},
+{"f":"MenuLong","st":"Un homme somalien de 30 ans, qui ne parle que le somali, consulte pour une toux depuis 6 semaines. Il vient avec un voisin qui « parle un peu français ».",
+ "p":"Choisissez les TROIS mesures justes.","o":A((1,"Faire appel à un interprète professionnel, sur place ou par téléphone","OFSP ; CHUV 2015."),(1,"Vérifier par reformulation qu'il a compris les examens proposés","Expert (à vérifier)."),(1,"Lui proposer un interprète pour le suivi des prochaines consultations","Étude PLoS One 2022."),(0,"Faire traduire le voisin pour les questions intimes","Faux."),(0,"Mener l'entretien en anglais rudimentaire","Faux."),(0,"Se contenter de la radiographie","Faux."),(0,"Demander à un enfant présent dans la salle d'attente","Faux."),(0,"Lui faire signer un consentement en français","Faux."),(0,"Utiliser un traducteur en ligne pour l'annonce d'un diagnostic","Faux."),(0,"Attendre qu'il apprenne le français","Faux."),(0,"Laisser l'interprète résumer","Faux."),(0,"Refuser la consultation","Faux.")),
+ "n":n("adhoc","consent","ask","third","tel"),"a":"piège","d":5,"l":("Langue.","Erreurs.","Voisin.","Professionnel.","Organiser.","Voisin.","Interprète, vérifier, suivi.")},
+{"f":"MenuLong","m":0,"st":"Vous rédigez la procédure d'interprétariat communautaire de votre cabinet.",
+ "p":"Choisissez les TROIS principes justes.","o":A((1,"Préparer l'entretien avec l'interprète et débriefer après un entretien difficile","CHUV 2015 ; Expert."),(1,"Parler au patient à la première personne, en phrases courtes","Expert (à vérifier)."),(1,"Proposer activement l'interprétariat, car les patients ignorent qu'il existe","Étude PLoS One 2022."),(0,"Utiliser les enfants pour les entretiens courts","Faux."),(0,"Réserver l'interprète aux urgences vitales","Faux."),(0,"Demander à l'interprète de donner son avis médical","Faux."),(0,"Préférer toujours le téléphone, moins cher","Faux."),(0,"Ne jamais noter la présence d'un interprète","Faux."),(0,"Choisir un proche pour la confidentialité","Faux."),(0,"Exclure la psychiatrie de l'interprétariat","Faux."),(0,"Laisser l'interprète mener l'entretien","Faux."),(0,"Exiger un paiement du patient","Faux.")),
+ "n":n("prep","ask","interpret","fin"),"a":"application","d":3,"l":("Procédure.","Qualité.","Préparer.","Principes.","Organiser.","Enfants.","Préparer, parler, proposer.")},
+]
+for _q in Q: _q["src"] = TIS
+for i in (0,): Q[i]["src"] = [FLO, OFSP]
+for i in (3,10,13): Q[i]["src"] = CHUV
+for i in (8,11): Q[i]["src"] = FLO
+for i in (9,12): Q[i]["src"] = OFSP
+Q[14]["src"] = [OFSP, CHUV]; Q[15]["src"] = [CHUV, TIS]; Q[16]["src"] = [CHUV, TIS, FLO]; Q[17]["src"] = [CHUV, TIS]; Q[18]["src"] = [OFSP, CHUV, TIS, EXP]; Q[19]["src"] = [CHUV, TIS, EXP]; Q[4]["src"] = [TIS, CHUV]; Q[6]["src"] = [TIS, CHUV]
+C = {"theme":"Barrière linguistique et interprétariat communautaire : interprète professionnel plutôt que proche ou enfant (erreurs 12 % contre 22 %), consentement éclairé, téléphone pour l'urgence brève, présentiel pour l'annonce grave et la psychiatrie, financement cantonal",
+ "notions":[
+  {"titre":"Comprendre","rub":["definition","epidemiology","basicSciences","anamnesis"],"comment":"La barrière linguistique touche environ 200 000 personnes en Suisse et compromet la sécurité des soins.",
+   "points":["Erreurs à conséquence : 12 % (professionnel) contre 22 % (improvisé).","La culture modèle la plainte."],"sources":[OFSP,CHUV,FLO]},
+  {"titre":"Choisir l'interprète","rub":["clinicalExam","positiveDiagnosis","workupGoldStandard","workupAlternatives"],"comment":"L'interprète professionnel est la règle ; le mode dépend de l'urgence et du contenu.",
+   "tab":(["Situation","Mode","Source"],[["Urgence brève, nuit","Téléphone (service national)",[("CHUV 2015","10–20 min.")]],["Annonce grave, psychiatrie","Interprète présent",[("PLoS One 2022","Limites du téléphone.")]],["Suivi chronique","Interprète régulier",[("PLoS One 2022","Alliance.")]]]),
+   "points":["Pas d'enfant interprète."],"sources":[CHUV,TIS]},
+  {"titre":"Conduire l'entretien","rub":["presumptionRedFlags","acuteManagement","hospitalizationComplications"],"comment":"On prépare l'entretien, on vérifie la compréhension et l'on ne fonde jamais un consentement sur une traduction improvisée.",
+   "arbre":[("d1",None,"Patient sans langue commune","On propose un interprète professionnel.",None,None),("d2","d1","Urgence sans interprète sur place","On appelle le service téléphonique.",None,None),("d3","d1","Annonce grave ou santé mentale","On organise un interprète présent.",None,None),("d4","d1","Consultation intime","On demande la préférence de sexe de l'interprète.",None,None),("d5","d1","Consentement à un geste","On informe avec l'interprète et l'on vérifie la compréhension.",None,None)],
+   "points":["Financement cantonal."],"sources":[TIS,EXP,OFSP]},
+  {"titre":"Suivre","rub":["chronicManagement","prognosisDischarge","surveillance","followUpNetwork"],"comment":"L'interprète fonde l'alliance et l'accès aux soins ; le médecin le propose activement.",
+   "points":["INTERPRET, services régionaux.","Certificat suisse d'interprète communautaire."],"sources":[TIS,OFSP,CHUV]}],
+ "ssp":("O7.13","Patient d’un autre milieu culturel, migration",True,[
+   ("n1",None,"Patient sans langue commune","On propose un interprète professionnel.","interpreter","c2"),
+   ("n2","n1","Urgence brève","On appelle le service national d'interprétariat téléphonique.","interpreter","c2"),
+   ("n3","n1","Annonce grave ou santé mentale","On organise un interprète présent.","interpreter","c3"),
+   ("n4","n1","Proche ou enfant proposé","On refuse poliment et l'on fait appel à un professionnel.","interpreter","c3"),
+   ("n5","n1","Consentement","On informe avec l'interprète et l'on vérifie la compréhension.","interpreter","c3"),
+   ("n6","n1","Suivi chronique","On planifie un interprète à chaque consultation.","interpreter","c4")]),
+ "pec":[
+  pec("interpreter","Barrière linguistique et interprétariat communautaire",["On garantit une communication fiable et sûre.","On permet un consentement éclairé et un suivi efficace."],
+      ["On repère la langue du patient et son besoin d'interprète.","On lui propose activement un interprète professionnel."],
+      [],
+      [("social et assurances","On organise l'interprétariat communautaire et son financement cantonal.","Le financement varie selon les cantons."),("éducation thérapeutique","On mène l'éducation thérapeutique avec l'interprète et l'on vérifie la compréhension.","L'observance dépend de la compréhension."),("autre","On choisit le mode d'interprétariat selon l'urgence et le contenu de l'entretien.","Le téléphone ne convient pas aux entretiens graves.")],
+      [("E Diversité Équité Inclusion","On adapte les soins à la langue et à la culture du patient."),("C Communication clinique","On mène l'entretien en trialogue avec l'interprète.")],
+      None,
+      (["On repère le besoin.","On choisit le mode.","On vérifie la compréhension et l'on planifie le suivi."],[("d'abord","médecin","Il propose un interprète professionnel."),("ensuite","interprète communautaire","Il traduit de façon complète, fidèle et neutre."),("puis","médecin","Il vérifie la compréhension et planifie un interprète pour le suivi.")]),
+      "Avec un interprète professionnel, les erreurs à conséquence clinique diminuent nettement, et l'observance comme la satisfaction s'améliorent.",
+      [("Présence d'un interprète","À chaque consultation","Interprète professionnel noté au dossier"),("Compréhension","À la fin de chaque entretien","Reformulation correcte par le patient")],"Le besoin d'interprète diminue quand le patient maîtrise la langue.",
+      ("On propose l'interprétariat dès le premier contact.","On évite les interprètes improvisés.","On maintient l'interprète pour le suivi chronique.")),]}
