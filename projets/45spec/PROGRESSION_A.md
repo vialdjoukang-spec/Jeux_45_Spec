@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**399 / 500 pathologies du périmètre produites.**
+**402 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -368,10 +368,10 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 359 | `N49.3__F1_2-E13` | Gangrène de Fournier (fasciite nécrosante périnéale) | CPL | produite |
 | 360 | `N49.8__F1_14-E13` | Gangrène de Fournier (fasciite nécrosante périnéale) | CPL | produite |
 | 361 | `O03.1__O1_7-E12` | Fausse couche spontanée hémorragique (avortement incomplet) | GYN | produite |
-| 362 | `O14.2__F2_11-E18` | Syndrome HELLP | GYN | — |
-| 363 | `O85__O1_2-E13` | Endométrite du post-partum | GYN | — |
+| 362 | `O14.2__F2_11-E18` | Syndrome HELLP | GYN | produite |
+| 363 | `O85__O1_2-E13` | Endométrite du post-partum | GYN | produite |
 | 364 | `R65.2__F1_1-E16` | Choc septique | INT | — |
-| 365 | `T17.5__S2_2-E08` | Corps étranger bronchique méconnu (toux chronique / pneumopathie récidivante) | ORL | — |
+| 365 | `T17.5__S2_2-E08` | Corps étranger bronchique méconnu (toux chronique / pneumopathie récidivante) | ORL | produite |
 | 366 | `T58.9__G5-E19` | Intoxication au monoxyde de carbone (CO) | TOX | — |
 | 367 | `T74.2__O6_3-E11` | Agression sexuelle aiguë (prise en charge médico-légale et infectieuse urgente) | LEG | — |
 | 368 | `T79.5__G12-E21` | Syndrome d'écrasement (crush syndrome) et rhabdomyolyse massive | CHI | — |

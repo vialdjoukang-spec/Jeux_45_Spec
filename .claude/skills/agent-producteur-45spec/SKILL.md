@@ -307,3 +307,10 @@ Signature : AAI (Anthropic AI)
 - Discordances à écrire avec chaque source : débridement radical (WSES 2018) contre épargne cutanée (revue 2025) ; immunoglobulines IV suggérées pour le streptocoque A (WSES) mais non recommandées dans la gangrène de Fournier (revue 2025) ; anti-D au premier trimestre (NICE 2026 contre notice suisse de Rhophylac).
 - Sources lisibles par `curl` : MHRA Drug Safety Update (gov.uk, SGLT2 et gangrène de Fournier, 18.02.2019) ; page Swissmedic « Pharmacovigilance » (déclaration directe des professionnels depuis le 1er janvier 2021) ; Brevier MisoOne (indication suisse limitée à l'interruption jusqu'à 49 jours) et Rhophylac.
 - `masque.py` signale aussi les formes de l'entité (« grossesse arrêtée » pour une fausse couche, « fascias nécrosés » pour une fasciite) : décris les constatations (embryon sans activité cardiaque, fascias gris qui ne saignent pas).
+
+## Leçons (producteur unique, lot 60, 25.11.2026)
+- Ne devine jamais un identifiant PMC : passe toujours par `convert_article_ids` ; un PMC tiré de mémoire a renvoyé un article sans rapport (isotrétinoïne) et gaspillé des milliers de tokens.
+- `get_article_metadata` sur une revue Cochrane donne souvent un résumé en langage clair utile (fréquence, facteurs de risque, complications) quand PMC ne livre pas le texte.
+- NICE NG133 (hypertension et grossesse) en PDF complet par `curl` : schéma du sulfate de magnésium, antihypertenseurs, pas de corticoïde pour traiter le HELLP, contrôle à 48–72 heures, aspirine 75–150 mg dès 12 semaines.
+- R65.2 (choc septique) est couvert par A41.8 INF « sepsis et choc septique » : on le saute comme A41.9.
+- Après un redémarrage, vérifie `git status` : les JSON construits et non suivis se gardent ; relance les contrôles avant le commit.
