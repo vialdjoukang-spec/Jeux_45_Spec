@@ -76,6 +76,7 @@ jobs:
             --max-budget-usd "${{ steps.file.outputs.budget }}" --output-format json \
             --dangerously-skip-permissions > /tmp/resultat.json 2> /tmp/erreurs.txt || true
           tail -c 1500 /tmp/erreurs.txt || true
+          echo '--- résultat (début) ---'; head -c 1200 /tmp/resultat.json || true
       - name: Enregistrer le coût et l'état
         id: fin
         if: steps.file.outputs.tache != ''
