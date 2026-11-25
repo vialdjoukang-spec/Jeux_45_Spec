@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**357 / 500 pathologies du périmètre produites.**
+**360 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -303,9 +303,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 294 | `O21.0__O1_7-E04` | Nausées et vomissements simples du 1er trimestre | GYN | produite |
 | 295 | `O90.8__O1_2-E02` | Rétention aiguë d'urine du post-partum | GYN | produite |
 | 296 | `O99.0__O1_2-E05` | Anémie ferriprive gravidique | GYN | produite |
-| 297 | `R00.0__F1_7-E01` | Tachycardie sinusale réactionnelle (fièvre, anémie, douleur, hypovolémie) | MIG | — |
-| 298 | `R11.2__O5_4-E07` | Nausées et vomissements chimio-induits réfractaires | MIG | — |
-| 299 | `R59.0_1__F1_5-E01` | Adénopathies inguinales réactionnelles (infections membre inférieur / IST) | MIG | — |
+| 297 | `R00.0__F1_7-E01` | Tachycardie sinusale réactionnelle (fièvre, anémie, douleur, hypovolémie) | MIG | produite |
+| 298 | `R11.2__O5_4-E07` | Nausées et vomissements chimio-induits réfractaires | MIG | produite |
+| 299 | `R59.0_1__F1_5-E01` | Adénopathies inguinales réactionnelles (infections membre inférieur / IST) | MIG | produite |
 | 300 | `R59.0__G2-E01` | Adénopathie réactionnelle bénigne (infection ORL/virale) | MIG | — |
 | 301 | `R95__G14-E08` | Syndrome de mort subite du nourrisson (MSN / MIN) | PED | produite |
 | 302 | `S06.0_1__O4_1-E09` | Commotion cérébrale liée au sport | NCH | — |

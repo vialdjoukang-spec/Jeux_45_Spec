@@ -211,3 +211,11 @@ Signature : AAI (Anthropic AI)
 - La recommandation BSH 2020 (fer et grossesse, PMID 31578718) n'a ni résumé ni PMC, et le dépôt QMUL est bloqué : ne la cite pas, prends une source lue (CMAJ 2021).
 - Une forme compacte peut assigner `src` en boucle (`for _q in Q: _q["src"] = X`) puis corriger quelques questions : plus sûr qu'une liste `_SRC` de 20 éléments mal alignée.
 - Un menu long sur des facteurs de risque doit exclure des distracteurs les autres facteurs connus (primiparité, travail long, césarienne) : sinon il gagne une réponse juste de trop.
+
+## Leçons (producteur unique, lot 46, 25.11.2026)
+- ESC 2019 tachycardies supraventriculaires (PMID 31504425, sans PMC) se lit en PDF complet sur le dépôt de l'Université de Berne (boris.unibe.ch, repéré par WebSearch) ; la section « tachycardie sinusale » (tableau des causes, TSI, POTS, réentrée sinusale) se trouve entre les offsets 100 000 et 200 000.
+- MASCC/ESMO 2023 antiémétiques : les volets « haut risque » (PMC10739516) et « plusieurs jours, haute dose et percée » (PMC10725845) se lisent en entier par `get_full_text_article` ; les volets « risque modéré » et « non pharmacologique » n'ont qu'un résumé lisible : cite-les comme « résumé lu ».
+- AFP 2016 sur les adénopathies a une mise à jour AFP 2025 (Falk et al.) : lis les deux ; seule la version 2016 décrit l'aine (jusqu'à 2 cm chez l'adulte sain, lymphomes rarement inguinaux).
+- Pages CDC 2021 des IST (`cdc.gov/std/treatment-guidelines/lgv.htm`, `p-and-s-syphilis.htm`) se lisent par WebFetch après un WebSearch ; elles donnent schémas, partenaires et suivi sérologique.
+- Une pathologie NON_MONOGRAPHIQUE de soins de support (R11.2) garde des vignettes `d` 4–5 masquées en prenant pour réponse une autre cause (métastase cérébrale, constipation, hypercalcémie) : c'est le piège classique de l'examen.
+- Natures : « contexte suisse » exige `suisse=1` ; pour une notion non suisse, prends « terrain particulier ».

@@ -1,0 +1,142 @@
+from constructeur_agent_45spec import pec
+ID = "R59.0_1__F1_5-E01"
+AFP25 = "[Falk, Joseph et Dieujuste, Lymphadenopathy: Evaluation and Differential Diagnosis, Am Fam Physician 2025;112(3):286-293, texte lu (aafp.org) le 25.11.2026]"
+AFP16 = "[Gaddey et Riegel, Unexplained Lymphadenopathy: Evaluation and Differential Diagnosis, Am Fam Physician 2016;94(11):896-903, PMID 27929264, texte lu (aafp.org) le 25.11.2026]"
+LGV = "[CDC 2021, STI Treatment Guidelines, Lymphogranuloma Venereum, page lue (cdc.gov) le 25.11.2026]"
+SYPH = "[CDC 2021, STI Treatment Guidelines, Primary and Secondary Syphilis, page lue (cdc.gov) le 25.11.2026]"
+EXP = "Avis d'expert, médecine interne et infectiologie (à vérifier)"
+_N = [
+("def","definition","seuil",3,0,AFP16,"Un ganglion est anormal par sa taille (plus de 1 cm) ou sa consistance ; des ganglions inguinaux jusqu'à 2 cm se rencontrent chez beaucoup d'adultes sains."),
+("react","definition","critère",2,0,EXP,"Une adénopathie réactionnelle se présente comme un ou plusieurs petits ganglions ovalaires, mobiles et sensibles, avec une porte d'entrée dans le territoire de drainage : membre inférieur, périnée, organes génitaux externes, région anale."),
+("epi","epidemiology","chiffre",1,0,AFP16,"En premier recours, l'incidence annuelle des adénopathies inexpliquées vaut 0,6 % ; 1,1 % d'entre elles sont malignes."),
+("age","epidemiology","chiffre",2,0,AFP16,"Un cancer se trouve chez 4 % des patients de 40 ans ou plus qui ont une adénopathie inexpliquée, contre 0,4 % avant 40 ans."),
+("mech","basicSciences","mécanisme",1,0,EXP,"Les antigènes bactériens ou viraux drainés par la lymphe provoquent une prolifération lymphoïde réactionnelle dans le ganglion régional."),
+("causes","anamnesis","diagnostic différentiel",3,0,AFP16,"Dans l'aine, les causes infectieuses comprennent les infections sexuellement transmissibles (herpès, lymphogranulomatose vénérienne, chancre mou, syphilis) et les infections cutanées du membre inférieur."),
+("hx","anamnesis","symptôme",1,0,EXP,"On demande une plaie du pied, une mycose, une ulcération génitale, des rapports à risque, une griffure de chat, un voyage, et des symptômes généraux."),
+("exam","clinicalExam","examen",2,0,AFP25+" ; "+EXP,"On décrit le siège, la taille, la consistance, la mobilité et la sensibilité du ganglion, on précise s'il est localisé ou généralisé (C), et l'on examine les pieds, les jambes, le périnée, l'anus et les organes génitaux."),
+("red","presumptionRedFlags","signe",3,0,AFP25,"Un ganglion de plus de 2 cm, dur ou fixé, une localisation sus-claviculaire ou épitrochléenne, une persistance au-delà de 4 semaines, de la fièvre, des sueurs nocturnes ou une perte de poids font craindre une cause maligne ou granulomateuse."),
+("malig","presumptionRedFlags","diagnostic différentiel",2,0,AFP16,"Dans l'aine, on pense aux carcinomes épidermoïdes du pénis et de la vulve et au mélanome ; les lymphomes se révèlent rarement par une adénopathie inguinale ; la moitié des carcinomes du pénis ou de l'urètre en donnent une."),
+("obs","workupGoldStandard","décision",2,0,AFP16+" ; "+AFP25,"Quand une cause maligne paraît peu probable, on observe une adénopathie localisée pendant 4 semaines ; au-delà, on demande imagerie et biologie."),
+("std_test","workupGoldStandard","examen",2,0,LGV,"En cas de suspicion de lymphogranulomatose vénérienne, on fait un test d'amplification de Chlamydia trachomatis sur l'ulcère ou la ponction du ganglion ; on teste aussi les autres infections sexuellement transmissibles, dont le VIH."),
+("us","workupAlternatives","examen",1,0,EXP,"L'échographie précise la taille, la forme et le hile du ganglion et le distingue d'une hernie ou d'un abcès (à vérifier)."),
+("biopsy","workupAlternatives","examen",1,0,AFP25+" ; "+AFP16,"La biopsie au trocart est une bonne technique initiale (B) ; la cytoponction peut aider à distinguer un ganglion réactionnel d'un ganglion malin (C)."),
+("dx","positiveDiagnosis","critère",1,0,EXP,"On retient une adénopathie réactionnelle quand un ganglion sensible accompagne une porte d'entrée identifiée dans son territoire."),
+("ddx_hernia","positiveDiagnosis","diagnostic différentiel",2,0,EXP,"On distingue une hernie inguinale ou fémorale, qui grossit à la toux et se réduit, un anévrisme fémoral, qui bat, un abcès et une dilatation de la crosse de la grande veine saphène."),
+("lgv_cl","positiveDiagnosis","signe",1,0,LGV,"La lymphogranulomatose vénérienne donne chez les hétérosexuels une adénopathie inguinale ou fémorale douloureuse, souvent unilatérale ; un ulcère ou une papule transitoire peut survenir au point d'inoculation."),
+("treat_cause","acuteManagement","décision",3,0,EXP+" ; "+AFP25,"On traite la porte d'entrée : antibiotique pour une infection bactérienne de la peau ou une lymphadénite, antifongique pour un intertrigo, traitement spécifique d'une infection sexuellement transmissible."),
+("steroids","acuteManagement","piège",2,0,AFP16+" ; "+AFP25,"On évite les corticoïdes avant un diagnostic, car ils peuvent masquer un lymphome ou une leucémie."),
+("lgv_tt","acuteManagement","posologie",1,0,LGV,"On traite la lymphogranulomatose vénérienne par doxycycline 100 mg deux fois par jour pendant 21 jours (à vérifier dans l'AIPS, Swissmedic)."),
+("syph_tt","acuteManagement","posologie",1,0,SYPH,"On traite la syphilis primaire ou secondaire de l'adulte par benzathine-pénicilline G 2,4 millions d'unités en une injection intramusculaire (à vérifier dans l'AIPS, Swissmedic)."),
+("bubo","hospitalizationComplications","complication",1,0,LGV+" ; "+EXP,"Un ganglion qui se ramollit et devient fluctuant forme un bubon ou un abcès ; on le ponctionne à travers la peau saine ou on l'incise et le draine."),
+("partners","chronicManagement","prévention",1,0,LGV,"Les partenaires des 60 jours précédant les symptômes d'une lymphogranulomatose vénérienne sont examinés, testés et, sans symptômes, traités par doxycycline 100 mg deux fois par jour pendant 7 jours."),
+("hiv","chronicManagement","prévention",2,0,LGV+" ; "+SYPH,"Toute syphilis ou lymphogranulomatose vénérienne fait tester le VIH et les autres infections sexuellement transmissibles ; on propose une prophylaxie préexposition si le test VIH est négatif."),
+("progn","prognosisDischarge","pronostic",1,0,EXP,"Une adénopathie réactionnelle régresse en quelques semaines quand la porte d'entrée guérit."),
+("surv","surveillance","examen",1,0,SYPH,"Après une syphilis primaire ou secondaire, on refait un contrôle clinique et sérologique à 6 et 12 mois ; un titre non tréponémique qui ne baisse pas de 4 fois en 12 mois peut signer un échec."),
+("net","followUpNetwork","décision",1,0,EXP,"Le médecin de famille trouve la porte d'entrée ; le dermatovénérologue ou un centre de santé sexuelle prend en charge une infection sexuellement transmissible ; le chirurgien fait la biopsie."),
+("swiss","followUpNetwork","contexte suisse",1,1,EXP,"En Suisse, la syphilis et d'autres infections sexuellement transmissibles sont à déclaration obligatoire auprès de l'OFSP selon des critères précis (à vérifier sur bag.admin.ch)."),
+]
+K = {k: i+1 for i, (k, *_r) in enumerate(_N)}
+N = [t[1:] for t in _N]
+n = lambda *ks: [K[k] for k in ks]
+AM = ["Examiner pieds, périnée et organes génitaux.","Inguinal jusqu'à 2 cm : souvent normal.","Pas de corticoïdes avant le diagnostic.","Persistance > 4 semaines : explorer.","Hernie : impulsion à la toux.","IST : tester le VIH."]
+A = lambda *o: list(o)
+Q = [
+{"f":"A","s":("S1",1,3),"st":"Un homme de 35 ans, jardinier, a remarqué depuis cinq jours une petite boule sensible dans le pli de l'aine droite. Vous palpez un nodule ovalaire de 1,5 cm, ferme, mobile et douloureux. Il n'a ni fièvre ni perte de poids.",
+ "p":"Quel geste fait avancer le diagnostic ?","o":A((1,"Examiner le pied, la jambe, le périnée et les organes génitaux à la recherche d'une porte d'entrée","AFP 2025 ; expert."),(0,"Demander d'emblée un scanner thoraco-abdominal","Faux."),(0,"Faire une exérèse du ganglion","Faux."),(0,"Demander une TEP","Faux."),(0,"Prescrire des corticoïdes","Piège.")),
+ "n":n("exam","react","hx","causes","def"),"a":"application","d":4,"l":("Aine.","Drainage.","1,5 cm, sensible.","Mobile.","Chercher la porte d'entrée.","Imagerie d'emblée.","Examiner tout le territoire.")},
+{"f":"A","s":("S1",2,3),"st":"Vous trouvez une plaie infectée du gros orteil droit avec une traînée rouge sur la face interne de la jambe.",
+ "p":"Quelle est votre conduite ?","o":A((1,"Vous traitez l'infection cutanée et revoyez le ganglion après guérison","Expert ; AFP 2025."),(0,"Vous faites une biopsie du ganglion","Faux."),(0,"Vous prescrivez des corticoïdes","Faux."),(0,"Vous rassurez sans traitement","Faux."),(0,"Vous demandez une IRM du pelvis","Faux.")),
+ "n":n("treat_cause","progn","dx"),"a":"application","d":3,"l":("Porte d'entrée.","Lymphangite.","Orteil.","Traînée rouge.","Traiter.","Biopsie.","Traiter la porte d'entrée.")},
+{"f":"A","s":("S1",3,3),"st":"Six semaines plus tard, la plaie est guérie, mais le ganglion mesure 2,5 cm ; il est dur et n'est plus douloureux.",
+ "p":"Quelle est votre conduite ?","o":A((1,"Vous demandez une imagerie et une biologie, puis une biopsie","AFP 2016 et 2025."),(0,"Vous poursuivez l'observation trois mois","Piège."),(0,"Vous donnez un deuxième antibiotique","Faux."),(0,"Vous prescrivez des corticoïdes","Faux."),(0,"Vous concluez à un ganglion réactionnel","Faux.")),
+ "n":n("red","obs","biopsy"),"a":"piège","d":4,"l":("Persistance.","Cause non réactionnelle.","2,5 cm, dur.","Plus de 4 semaines.","Explorer.","Observer.","Persistance > 4 semaines : explorer.")},
+{"f":"A","st":"Un homme de 29 ans a une masse douloureuse de 3 cm dans le pli de l'aine gauche, devenue fluctuante. Il avait remarqué une petite ulcération indolore du gland il y a deux semaines, qui a disparu. Il a eu plusieurs partenaires.",
+ "p":"Quelle est votre conduite ?","o":A((1,"Un test d'amplification de Chlamydia trachomatis sur la ponction, puis doxycycline pendant 21 jours","CDC 2021."),(0,"Une exérèse pour exclure un lymphome","Faux."),(0,"De l'amoxicilline pendant 7 jours","Faux."),(0,"Des corticoïdes","Faux."),(0,"Une dose unique d'azithromycine","Piège : schéma insuffisant.")),
+ "n":n("lgv_cl","lgv_tt","std_test","causes","hiv"),"a":"piège","d":5,"l":("Bubon.","Chlamydia L1–L3.","Ulcère transitoire.","Ganglion fluctuant.","NAAT, doxycycline.","Dose unique.","Doxycycline 21 jours.")},
+{"f":"A","st":"Une femme de 45 ans a un ganglion de 2 cm dans l'aine gauche, dur et indolore, depuis six semaines. Elle a maigri de 3 kg. Une lésion pigmentée du mollet gauche s'est récemment élargie et a changé de couleur.",
+ "p":"Quelle est votre conduite ?","o":A((1,"Vous orientez rapidement vers un dermatologue et une biopsie","AFP 2016 : mélanome ; AFP 2025."),(0,"Vous donnez des antibiotiques deux semaines","Faux."),(0,"Vous prescrivez des corticoïdes","Faux."),(0,"Vous observez trois mois","Faux."),(0,"Vous la rassurez","Faux.")),
+ "n":n("malig","red","biopsy","treat_cause"),"a":"piège","d":4,"l":("Indolore.","Métastase.","Dur, 6 semaines.","Lésion pigmentée.","Biopsie.","Antibiotique.","Ganglion dur et lésion pigmentée : mélanome ?")},
+{"f":"A","st":"Un homme de 25 ans a une ulcération génitale indurée et indolore depuis une semaine, avec des ganglions inguinaux bilatéraux fermes et peu douloureux.",
+ "p":"Quel traitement et quel examen proposez-vous ?","o":A((1,"Benzathine-pénicilline G 2,4 millions d'unités en une injection intramusculaire, et un test VIH","CDC 2021."),(0,"De l'aciclovir","Faux : l'herpès donne des vésicules douloureuses."),(0,"Un antifongique","Faux."),(0,"De la doxycycline 21 jours sans autre test","Faux."),(0,"Aucun traitement","Faux.")),
+ "n":n("syph_tt","hiv","causes","std_test"),"a":"application","d":4,"l":("Ulcère.","Tréponème.","Induré, indolore.","Ganglions bilatéraux.","Pénicilline, VIH.","Aciclovir.","Chancre : pénicilline et VIH.")},
+{"f":"A","st":"Un homme de 60 ans a une tuméfaction de l'aine droite qui grossit quand il tousse et disparaît en position couchée.",
+ "p":"Quelle est votre hypothèse ?","o":A((1,"Une hernie inguinale","Expert."),(0,"Un ganglion réactionnel","Faux : il ne se réduit pas."),(0,"Un lymphome","Faux."),(0,"Un anévrisme fémoral","Faux : il bat."),(0,"Un abcès","Faux.")),
+ "n":n("ddx_hernia","exam"),"a":"piège","d":3,"l":("Masse de l'aine.","Paroi.","Toux.","Réductible.","Hernie.","Ganglion.","Impulsion à la toux : hernie.")},
+{"f":"A","m":0,"st":"Un collègue propose de la prednisone pour une adénopathie inguinale inexpliquée qui persiste.",
+ "p":"Que lui répondez-vous ?","o":A((1,"On évite les corticoïdes avant un diagnostic, car ils peuvent masquer un lymphome","AFP 2016 et 2025."),(0,"Ils accélèrent la guérison","Faux."),(0,"Ils remplacent la biopsie","Faux."),(0,"Ils traitent une syphilis","Faux."),(0,"Ils sont la règle après 40 ans","Faux.")),
+ "n":n("steroids"),"a":"piège","d":3,"l":("Corticoïdes.","Lymphocytes.","Inexpliquée.","Persiste.","Éviter.","Prednisone.","Pas de corticoïdes sans diagnostic.")},
+{"f":"A","m":0,"st":"Vous palpez les aines d'un adulte en bonne santé.",
+ "p":"Jusqu'à quelle taille un ganglion inguinal se rencontre-t-il souvent chez un adulte sain ?","o":A((1,"2 cm","AFP 2016."),(0,"5 mm","Faux."),(0,"4 cm","Faux."),(0,"Aucun ganglion n'est palpable","Faux."),(0,"1 mm","Faux.")),
+ "n":n("def"),"a":"direct","d":2,"l":("Taille.","Drainage permanent.","Aine.","2 cm.","Mesurer.","1 cm.","Inguinal : jusqu'à 2 cm.")},
+{"f":"A","m":0,"st":"Vous informez un patient qui a une adénopathie inexpliquée.",
+ "p":"Quelle proportion de cancers trouve-t-on chez les patients de 40 ans ou plus ?","o":A((1,"Environ 4 %","AFP 2016."),(0,"Environ 0,4 %","Faux : avant 40 ans."),(0,"Environ 40 %","Faux."),(0,"Environ 80 %","Faux."),(0,"Aucun","Faux.")),
+ "n":n("age","epi"),"a":"direct","d":2,"l":("Risque.","Âge.","40 ans.","4 %.","Informer.","40 %.","4 % après 40 ans.")},
+{"f":"A","m":0,"st":"Vous cherchez la cause d'une adénopathie inguinale suspecte.",
+ "p":"Quel cancer peut se révéler par une adénopathie inguinale ?","o":A((1,"Un carcinome épidermoïde de la vulve","AFP 2016."),(0,"Un cancer papillaire de la thyroïde","Faux."),(0,"Un cancer gastrique","Faux : ganglion sus-claviculaire gauche."),(0,"Un cancer bronchique","Faux."),(0,"Un cancer du sein","Faux : axillaire.")),
+ "n":n("malig"),"a":"direct","d":3,"l":("Territoire.","Drainage.","Vulve.","Pénis, mélanome.","Chercher.","Estomac.","Aine : vulve, pénis, mélanome.")},
+{"f":"A","m":0,"st":"Vous traitez une lymphogranulomatose vénérienne.",
+ "p":"Que proposez-vous à sa partenaire, asymptomatique, des 60 derniers jours ?","o":A((1,"Un examen, des tests et un traitement par doxycycline pendant 7 jours","CDC 2021."),(0,"Rien sans symptôme","Faux."),(0,"Doxycycline pendant 21 jours","Faux : 7 jours."),(0,"Une sérologie dans un an","Faux."),(0,"Un vaccin","Faux.")),
+ "n":n("partners","lgv_tt"),"a":"application","d":3,"l":("Partenaire.","Transmission.","60 jours.","Asymptomatique.","Traiter.","21 jours.","Partenaire : doxycycline 7 jours.")},
+{"f":"A","m":0,"st":"Vous avez traité une syphilis primaire.",
+ "p":"Comment surveillez-vous la guérison ?","o":A((1,"Par un contrôle clinique et sérologique à 6 et 12 mois","CDC 2021."),(0,"Par une ponction lombaire systématique","Faux."),(0,"Par un test tréponémique qui doit se négativer","Faux."),(0,"Par aucun contrôle","Faux."),(0,"Par une culture","Faux.")),
+ "n":n("surv","syph_tt"),"a":"application","d":3,"l":("Suivi.","Titre non tréponémique.","6 mois.","12 mois.","Contrôler.","Test tréponémique.","Baisse de 4 fois en 12 mois.")},
+{"f":"A","st":"Une femme de 30 ans s'est blessée à la jambe il y a dix jours. Le ganglion de l'aine, d'abord sensible, est devenu rouge, chaud et fluctuant.",
+ "p":"Quelle est votre conduite ?","o":A((1,"Une ponction ou un drainage et un antibiotique","Expert ; CDC 2021 pour les bubons."),(0,"Des corticoïdes","Faux."),(0,"Une simple observation","Faux."),(0,"Une TEP","Faux."),(0,"Un antifongique","Faux.")),
+ "n":n("bubo","treat_cause","mech"),"a":"application","d":3,"l":("Collection.","Suppuration.","Fluctuant.","Rouge, chaud.","Drainer.","Observer.","Abcès : drainer.")},
+{"f":"Kprim","m":0,"st":"Vous évaluez une adénopathie inguinale.",
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"Un ganglion de plus de 2 cm, dur ou fixé, inquiète.","AFP 2025."),(1,"Des sueurs nocturnes et une perte de poids inquiètent.","AFP 2025."),(1,"Une persistance au-delà de 4 semaines fait explorer.","AFP 2025."),(0,"Un ganglion mobile et sensible inquiète davantage.","Faux.")),
+ "n":n("red","obs"),"a":"direct","d":2,"l":("Alarme.","Malignité.","Dur.","4 semaines.","Explorer.","Mobile, sensible.","Dur, fixé, persistant, signes B.")},
+{"f":"Kprim","m":0,"st":"Vous examinez un patient qui a une adénopathie inguinale.",
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"On décrit le siège, la taille, la consistance, la mobilité et la sensibilité.","AFP 2025."),(1,"On précise si l'adénopathie est localisée ou généralisée.","AFP 2025."),(1,"On examine les pieds, le périnée et les organes génitaux.","Expert."),(0,"La palpation de l'aine seule suffit.","Faux.")),
+ "n":n("exam","react","dx"),"a":"direct","d":3,"l":("Examen.","Territoire.","Consistance.","Localisée.","Décrire.","Aine seule.","Décrire et examiner tout le territoire.")},
+{"f":"Kprim","m":0,"st":"Vous prenez en charge une infection sexuellement transmissible révélée par une adénopathie inguinale.",
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"On teste le VIH.","CDC 2021."),(1,"On propose une prophylaxie préexposition si le VIH est négatif.","CDC 2021."),(1,"Le test d'amplification est l'approche préférée pour la lymphogranulomatose vénérienne.","CDC 2021."),(0,"Des corticoïdes accélèrent la guérison.","Faux.")),
+ "n":n("hiv","std_test","steroids","net"),"a":"application","d":3,"l":("IST.","Co-infection.","VIH.","PrEP.","Tester.","Corticoïdes.","IST : tester le VIH.")},
+{"f":"Kprim","m":0,"st":"Vous explorez une adénopathie inguinale persistante.",
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A((1,"L'échographie précise la taille et la structure du ganglion.","Expert."),(1,"La biopsie au trocart est une bonne technique initiale.","AFP 2025."),(1,"En Suisse, certaines infections sexuellement transmissibles sont à déclaration obligatoire.","Expert, OFSP (à vérifier)."),(0,"Une TEP est l'examen de première intention.","Faux.")),
+ "n":n("us","biopsy","swiss","obs","ddx_hernia"),"a":"direct","d":3,"l":("Explorer.","Structure.","Échographie.","Trocart.","Choisir.","TEP.","Échographie, biopsie au trocart.")},
+{"f":"MenuLong","st":"Un homme de 42 ans a depuis une semaine une petite boule sensible dans le pli de l'aine gauche.",
+ "p":"Choisissez les TROIS éléments à rechercher en priorité.","o":A((1,"Une plaie ou une mycose du pied gauche","AFP 2016 ; expert."),(1,"Une ulcération génitale","AFP 2016."),(1,"Un rapport sexuel non protégé récent","AFP 2016 ; expert."),(0,"Une angine récente","Faux : drainage cervical."),(0,"Une plaie de la main","Faux : drainage axillaire."),(0,"Une carie dentaire","Faux."),(0,"Un eczéma du cuir chevelu","Faux."),(0,"Un antécédent d'appendicectomie","Faux."),(0,"Une myopie","Faux."),(0,"Une allergie au pollen","Faux."),(0,"Le groupe sanguin","Faux."),(0,"La consommation de café","Faux.")),
+ "n":n("causes","hx","react","exam"),"a":"piège","d":4,"l":("Territoire.","Drainage lymphatique.","Aine gauche.","Sensible.","Chercher la porte.","Autre territoire.","Pied, génitaux, rapports.")},
+{"f":"MenuLong","m":0,"st":"Vous suivez une adénopathie inguinale.",
+ "p":"Choisissez les TROIS éléments qui imposent une exploration rapide.","o":A((1,"Un ganglion de plus de 2 cm, dur et fixé","AFP 2025."),(1,"Des sueurs nocturnes et une perte de poids","AFP 2025."),(1,"Une persistance au-delà de 4 semaines","AFP 2025."),(0,"Une sensibilité à la palpation","Faux."),(0,"Une mobilité","Faux."),(0,"Une porte d'entrée visible au pied","Faux."),(0,"Une taille de 1 cm","Faux."),(0,"Une régression nette","Faux."),(0,"Une forme ovalaire","Faux."),(0,"Une consistance souple","Faux."),(0,"Une apparition après une plaie","Faux."),(0,"Un âge de 25 ans","Faux.")),
+ "n":n("red","obs","age"),"a":"application","d":3,"l":("Alarme.","Malignité.","Dur, fixé.","Signes généraux.","Explorer.","Sensible.","Taille, signes B, durée.")},
+]
+for _q in Q: _q["src"] = AFP25
+for _i in (0, 1, 6, 14): Q[_i]["src"] = [AFP25, EXP]
+for _i in (2, 4, 7, 15, 18): Q[_i]["src"] = [AFP16, AFP25]
+for _i in (8, 9, 10): Q[_i]["src"] = AFP16
+for _i in (3, 11): Q[_i]["src"] = LGV
+for _i in (5, 12): Q[_i]["src"] = SYPH
+Q[13]["src"] = [LGV, EXP]; Q[16]["src"] = [LGV, SYPH]; Q[17]["src"] = [AFP16, EXP]
+C = {"theme":"Adénopathies inguinales réactionnelles : taille normale (jusqu'à 2 cm), examen de tout le territoire de drainage, causes infectieuses (peau du membre inférieur, IST), signes d'alarme, observation de 4 semaines, pas de corticoïdes, cancers à drainage inguinal, lymphogranulomatose vénérienne et syphilis, test VIH, hernie en diagnostic différentiel",
+ "notions":[
+  {"titre":"Comprendre","rub":["definition","epidemiology","basicSciences","anamnesis"],"comment":"Le ganglion de l'aine réagit à une infection de son territoire ; le cancer est rare avant 40 ans.",
+   "tab":(["Territoire","Cause","Source"],[["Membre inférieur","Plaie, mycose, infection cutanée",[("AFP 2016","Infections cutanées.")]],["Organes génitaux","Herpès, syphilis, lymphogranulomatose, chancre mou",[("AFP 2016","IST.")]],["Peau, pénis, vulve","Mélanome, carcinome épidermoïde",[("AFP 2016","Cancers.")]]]),
+   "points":["Jusqu'à 2 cm chez l'adulte sain.","4 % de cancers après 40 ans."],"sources":[AFP16,EXP]},
+  {"titre":"Évaluer","rub":["clinicalExam","presumptionRedFlags","workupGoldStandard","workupAlternatives"],"comment":"On examine tout le territoire, on cherche les signes d'alarme et l'on observe 4 semaines s'ils manquent.",
+   "arbre":[("d1",None,"Ganglion de l'aine","On examine tout le territoire de drainage.",None,None),("d2","d1","Porte d'entrée trouvée","On la traite et on revoit le ganglion.",None,None),("d3","d1","Ulcération génitale","On teste les IST et le VIH.",None,None),("d4","d1","Signes d'alarme","On demande imagerie, biologie et biopsie.",None,None),("d5","d2","Persistance > 4 semaines","On explore.",None,None)],
+   "points":["Dur, fixé, > 2 cm, signes B : explorer."],"sources":[AFP25,AFP16,LGV]},
+  {"titre":"Traiter","rub":["positiveDiagnosis","acuteManagement","hospitalizationComplications","chronicManagement"],"comment":"On traite la cause, jamais par corticoïdes à l'aveugle.",
+   "tab":(["Cause","Conduite","Source"],[["Infection cutanée","Antibiotique et soins de la plaie",[("Expert","À vérifier.")]],["Lymphogranulomatose vénérienne","Doxycycline 100 mg 2×/j, 21 jours ; partenaires 7 jours",[("CDC 2021","NAAT.")]],["Syphilis primaire","Benzathine-pénicilline G 2,4 MU IM",[("CDC 2021","Contrôle à 6 et 12 mois.")]],["Bubon ou abcès","Ponction ou drainage",[("CDC 2021","À travers la peau saine.")]]]),
+   "points":["Pas de corticoïdes avant le diagnostic.","Test VIH."],"sources":[LGV,SYPH,AFP16,EXP]},
+  {"titre":"Suivre","rub":["prognosisDischarge","surveillance","followUpNetwork"],"comment":"Le ganglion régresse avec sa cause ; sinon, on explore.",
+   "points":["Syphilis : contrôle à 6 et 12 mois.","Déclaration OFSP à vérifier."],"sources":[SYPH,EXP]}],
+ "ssp":("S4.11","Gonflement ou douleur de l'aine",True,[
+   ("n1",None,"Boule de l'aine","On distingue ganglion, hernie, anévrisme et abcès.","orienter","c3"),
+   ("n2","n1","Ganglion sensible","On examine tout le territoire de drainage.","orienter","c2"),
+   ("n3","n2","Porte d'entrée cutanée","On la traite et on revoit le ganglion.","orienter","c3"),
+   ("n4","n2","Ulcération génitale ou rapport à risque","On teste les IST et le VIH et l'on traite.","orienter","c3"),
+   ("n5","n2","Signes d'alarme ou persistance > 4 semaines","On demande imagerie, biologie et biopsie.","orienter","c2"),
+   ("n6","n3","Régression","On clôt le suivi.","orienter","c4")]),
+ "pec":[
+  pec("orienter","Adénopathies inguinales réactionnelles",["On trouve et on traite la porte d'entrée.","On ne manque pas une cause maligne."],
+      ["On examine tout le territoire de drainage.","On demande les rapports à risque avec tact."],
+      [("Doxycycline","100 mg deux fois par jour pendant 21 jours pour une lymphogranulomatose vénérienne ; à vérifier dans l'AIPS (Swissmedic).","Elle guérit l'infection à Chlamydia trachomatis des sérotypes L.",LGV),("Benzathine-pénicilline G","2,4 millions d'unités en une injection intramusculaire pour une syphilis primaire ; à vérifier dans l'AIPS (Swissmedic).","Elle guérit la syphilis primaire ou secondaire.",SYPH)],
+      [("soins infirmiers","On soigne la plaie ou l'intertrigo du pied.","La porte d'entrée guérit et le ganglion régresse."),("éducation thérapeutique","On explique le dépistage des IST et le préservatif.","On prévient les récidives."),("geste ou chirurgie","On ponctionne ou on draine un bubon ou un abcès.","On évacue la collection.")],
+      [("N Médecine sociale Prévention OFSP","On informe les partenaires et l'on déclare les IST selon les critères."),("C Communication clinique","On aborde la sexualité sans jugement.")],
+      None,
+      (["On examine.","On traite la cause.","On revoit le ganglion."],[("d'abord","médecin de famille","Il examine tout le territoire et traite la porte d'entrée."),("ensuite","dermatovénérologue","Il prend en charge une IST et ses partenaires."),("puis","chirurgien","Il fait une biopsie si le ganglion persiste ou inquiète.")]),
+      "Le ganglion réactionnel régresse en quelques semaines quand la cause guérit.",
+      [("Taille du ganglion","4 semaines après le traitement","Régression"),("Sérologie de la syphilis","6 et 12 mois","Baisse de 4 fois du titre")],"Le suivi s'arrête quand le ganglion a régressé.",
+      ("On protège les rapports sexuels.","On dépiste et traite les IST et les partenaires.","On explore tout ganglion persistant.")),]}
