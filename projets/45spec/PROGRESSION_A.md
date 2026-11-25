@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**411 / 500 pathologies du périmètre produites.**
+**414 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -385,9 +385,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 376 | `B36.0__S6_3-E02` | Pityriasis versicolor | DER | produite |
 | 377 | `B37.2__S6_9-E04` | Intertrigo candidosique ou dermatophytique des grands plis | INF | produite |
 | 378 | `C44.9_1__S6_7-E08` | Kératose actinique et carcinome épidermoïde cutané (CEC) | DER | produite |
-| 379 | `C80.1_2__F2_10-E02` | Adénocarcinome ou carcinome épidermoïde sur biopsie d'organe | PAT | — |
-| 380 | `C80.1__G16-E01` | Néoplasie maligne solide (poumon, côlon, pancréas, estomac) | ONC | — |
-| 381 | `C91.0__O7_19-E02` | Thérapies CAR-T et immunothérapies géniques en oncologie | HEM | — |
+| 379 | `C80.1_2__F2_10-E02` | Adénocarcinome ou carcinome épidermoïde sur biopsie d'organe | PAT | produite |
+| 380 | `C80.1__G16-E01` | Néoplasie maligne solide (poumon, côlon, pancréas, estomac) | ONC | produite |
+| 381 | `C91.0__O7_19-E02` | Thérapies CAR-T et immunothérapies géniques en oncologie | HEM | produite |
 | 382 | `D24__S2_3-E02` | Fibroadénome mammaire | ONC | — |
 | 383 | `D25.9_1__S4_17-E01` | Léiomyome (fibrome) utérin | GYN | — |
 | 384 | `D66_2__O7_19-E01` | Thérapie génique dans les maladies hématologiques (hémophilie, drépanocytose) | HEM | — |
