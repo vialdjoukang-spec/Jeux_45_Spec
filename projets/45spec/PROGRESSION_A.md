@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**408 / 500 pathologies du périmètre produites.**
+**411 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -381,10 +381,10 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 372 | `B00.1__S6_1-E03` | Herpès labial ou génital (HSV-1 / HSV-2) | INF | produite |
 | 373 | `B24_1__O7_6-E02` | Infection par le VIH contrôlée ou nouvellement diagnostiquée | INF | produite |
 | 374 | `B30.9__S1_17-E01` | Conjonctivite aiguë virale (adénovirus) | INF | produite |
-| 375 | `B35.1__S6_8-E01` | Onychomycose (dermatophyte Trichophyton rubrum) | DER | — |
-| 376 | `B36.0__S6_3-E02` | Pityriasis versicolor | DER | — |
+| 375 | `B35.1__S6_8-E01` | Onychomycose (dermatophyte Trichophyton rubrum) | DER | produite |
+| 376 | `B36.0__S6_3-E02` | Pityriasis versicolor | DER | produite |
 | 377 | `B37.2__S6_9-E04` | Intertrigo candidosique ou dermatophytique des grands plis | INF | produite |
-| 378 | `C44.9_1__S6_7-E08` | Kératose actinique et carcinome épidermoïde cutané (CEC) | DER | — |
+| 378 | `C44.9_1__S6_7-E08` | Kératose actinique et carcinome épidermoïde cutané (CEC) | DER | produite |
 | 379 | `C80.1_2__F2_10-E02` | Adénocarcinome ou carcinome épidermoïde sur biopsie d'organe | PAT | — |
 | 380 | `C80.1__G16-E01` | Néoplasie maligne solide (poumon, côlon, pancréas, estomac) | ONC | — |
 | 381 | `C91.0__O7_19-E02` | Thérapies CAR-T et immunothérapies géniques en oncologie | HEM | — |
