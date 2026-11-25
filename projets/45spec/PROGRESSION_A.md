@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**381 / 500 pathologies du périmètre produites.**
+**384 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -333,11 +333,11 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 324 | `G93.3_syndrome_de_fatigue___G4-E06` | Syndrome de fatigue chronique (encéphalomyélite myalgique) et asthénie post-infectieuse | NEU | produite |
 | 325 | `I42.1_cardiomyopathie_hype__F1_19-E10` | Cardiomyopathie hypertrophique | CAR | produite |
 | 326 | `N02.8__F2_12-E08` | Néphropathie à IgA (maladie de Berger) | NEP | produite |
-| 327 | `N80.0__S4_17-E04` | Adénomyose utérine | GYN | — |
-| 328 | `N90.8__F1_2-E06` | Mutilations génitales féminines (MGF/E) et séquelles | LEG | — |
+| 327 | `N80.0__S4_17-E04` | Adénomyose utérine | GYN | produite |
+| 328 | `N90.8__F1_2-E06` | Mutilations génitales féminines (MGF/E) et séquelles | LEG | produite |
 | 329 | `A05.1_botulisme__F1_11-E16` | Botulisme | INF | produite |
 | 330 | `A35__S1_11-E09` | Tétanos céphalique ou généralisé (trismus inaugural) | INF | produite |
-| 331 | `A52.1_neurosyphilis_y_comp__F1_12-E09` | Neurosyphilis (y compris syphilis oculaire et otique) | INF | — |
+| 331 | `A52.1_neurosyphilis_y_comp__F1_12-E09` | Neurosyphilis (y compris syphilis oculaire et otique) | INF | produite |
 | 332 | `C74.0_tumeur_gonadique_ou___O2_1-E15` | Tumeur gonadique ou surrénalienne sécrétante | END | produite |
 | 333 | `D59.3__F2_12-E17` | Syndrome hémolytique et urémique (SHU) | HEM | — |
 | 334 | `D65__F2_25-E15` | Coagulation intravasculaire disséminée (CIVD) aiguë | HEM | — |
