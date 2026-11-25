@@ -7,8 +7,8 @@
   "plafond_par_passage_usd": 40,
   "espace_de_travail": "Default (projets/ouvrier/workspace_id.txt)",
   "test": "2026-11-23 00:55",
-  "plafond_total_usd": 190,
-  "note_vial": "25.11.2026 23:31 : nouveau crédit API de 200 USD ; tempête d'agents par l'API seulement ; plafond 190 USD (5 % de marge) ; arrêt au premier refus de l'API.",
+  "plafond_total_usd": 120,
+  "note_vial": "25.11.2026 23:31 : nouveau crédit API de 200 USD ; tempête d'agents par l'API seulement ; plafond 190 USD (5 % de marge) ; arrêt au premier refus de l'API. Répartition : 120 USD pour Jeux_45_Spec (jeux avancés puis 45 Spec), 70 USD réservés au cours de psychiatrie et à l'allemand.",
   "sans_repartition_journaliere": true,
   "depuis": "2026-11-25T22:30:00+00:00"
  },
@@ -18,11 +18,11 @@
    "titre": "Vérification : l'API répond et le crédit est disponible",
    "modele": "claude-haiku-5-5",
    "budget_usd": 0.5,
-   "etat": "en_cours",
+   "etat": "fait",
    "essais": 1,
    "fin": "une_fois",
    "prompt": "Réponds seulement : API OK. N'écris aucun fichier.",
-   "note": "Test de Vial 25.11 avant la tempête.",
+   "note": "Test de Vial 25.11 avant la tempête. Réussi le 25.11 22:41 (0,0022 USD) : l'API répond.",
    "dernier": {
     "date": "2026-11-25T22:41:59+00:00",
     "cout_usd": 0.002,
@@ -481,6 +481,26 @@
    }
   },
   {
+   "id": "P3_paraclinique_cliches",
+   "titre": "Paraclinique : clichés réels pour les 342 entités qui n'en ont pas",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 12,
+   "etat": "a_faire",
+   "essais": 0,
+   "prompt": "Charge les skills 3d-images-upload-super, medical-accuracy-100, optimisation-par-cache-hache-autorun et i-never-waste-token (.claude/skills ou leurs règles). Le jeu Paraclinique compte 1 265 entités avec cliché sur 1 607 (critère « entités avec cliché » de projets/outils/jauges.py). Trouve les entités sans cliché, et pour chacune une vraie image médicale sous licence libre (Open-i NLM, Wikimedia Commons, MedPix), avec l'URL source, l'auteur et la licence. Jamais de SVG, jamais d'image dessinée ; organes génitaux externes exclus. Traite environ 60 entités par passage, par ordre de fréquence clinique ; une entité sans image fiable reste sans image, avec une note. Enregistre au format déjà utilisé par les entités qui ont un cliché. Lance ensuite les régénérations et les audits du jeu (non_perte compris). Écris statut.json : « fait » quand plus aucune entité utile ne peut recevoir d'image, sinon « en_cours ».",
+   "note": "Tempête 25.11 (Vial), priorité 3 : jeux les plus avancés."
+  },
+  {
+   "id": "P3_tetrade_3d",
+   "titre": "Tétrade : vraie 3D pour les 48 organes qui n'en ont pas",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 12,
+   "etat": "a_faire",
+   "essais": 0,
+   "prompt": "Charge les skills 3d-rotatable-anatomy-generator, 3d-images-upload-super, organ-catalog-great-master et optimisation-par-cache-hache-autorun. La Tétrade a 76 organes en vraie 3D sur 124 (critère « organes en 3D réelle » de projets/outils/jauges.py). Pour chaque organe manquant, prends d'abord un maillage réel existant sous licence (BodyParts3D, Z-Anatomy), sinon un volume segmenté (TotalSegmentator, sous-ensemble public) converti par voxel_vers_glb.py. Garde chaque .glb sous 15 Mo, note la source et la licence, et exclus les organes génitaux externes. Jamais de SVG ni de forme dessinée. Branche chaque modèle dans la vue 3D du jeu, comme les 76 existants, puis lance les audits du jeu. Traite environ 12 organes par passage. Écris statut.json : « fait » quand les 124 organes sont couverts ou que les restants n'ont aucune source réelle (liste-les), sinon « en_cours ».",
+   "note": "Tempête 25.11 (Vial), priorité 3 : jeux les plus avancés."
+  },
+  {
    "id": "T4_reprise_rejets",
    "titre": "45 Spec T4 : reprise des fiches tronquées ou en erreur",
    "modele": "claude-sonnet-5-5",
@@ -531,10 +551,10 @@
    "commande": "python scripts/produire_notions_questions.py notions soumettre --groupe A --max 400",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 5,
-   "etat": "bloque",
+   "etat": "a_faire",
    "essais": 0,
    "fin": "une_fois",
-   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
+   "note": "Tempête 25.11 (Vial) : reprise sur le nouveau crédit ; groupe A, puis B, C, D ; selection() saute le déjà-produit."
   },
   {
    "id": "V2_N_recup",
@@ -542,11 +562,11 @@
    "commande": "python scripts/produire_notions_questions.py notions recuperer",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
-   "etat": "bloque",
+   "etat": "a_faire",
    "essais": 0,
    "fin": "lots_recuperes",
    "suivi": "scripts/batchs_notions_questions.json",
-   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
+   "note": "Tempête 25.11 (Vial) : reprise sur le nouveau crédit ; groupe A, puis B, C, D ; selection() saute le déjà-produit."
   },
   {
    "id": "V2_Q_lot",
@@ -554,10 +574,10 @@
    "commande": "python scripts/produire_notions_questions.py questions soumettre --groupe A --max 400",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 13,
-   "etat": "bloque",
+   "etat": "a_faire",
    "essais": 0,
    "fin": "une_fois",
-   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
+   "note": "Tempête 25.11 (Vial) : reprise sur le nouveau crédit ; groupe A, puis B, C, D ; selection() saute le déjà-produit."
   },
   {
    "id": "V2_Q_recup",
@@ -565,11 +585,11 @@
    "commande": "python scripts/produire_notions_questions.py questions recuperer",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
-   "etat": "bloque",
+   "etat": "a_faire",
    "essais": 0,
    "fin": "lots_recuperes",
    "suivi": "scripts/batchs_notions_questions.json",
-   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
+   "note": "Tempête 25.11 (Vial) : reprise sur le nouveau crédit ; groupe A, puis B, C, D ; selection() saute le déjà-produit."
   },
   {
    "id": "V2_C_lot",
@@ -577,10 +597,10 @@
    "commande": "python scripts/produire_notions_questions.py correction soumettre --groupe A --max 400",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 6,
-   "etat": "bloque",
+   "etat": "a_faire",
    "essais": 0,
    "fin": "une_fois",
-   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
+   "note": "Tempête 25.11 (Vial) : reprise sur le nouveau crédit ; groupe A, puis B, C, D ; selection() saute le déjà-produit."
   },
   {
    "id": "V2_C_recup",
@@ -588,11 +608,11 @@
    "commande": "python scripts/produire_notions_questions.py correction recuperer && python scripts/couverture_notions.py && python conception/outils/arene45/construire_arene45.py",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
-   "etat": "bloque",
+   "etat": "a_faire",
    "essais": 0,
    "fin": "lots_recuperes",
    "suivi": "scripts/batchs_notions_questions.json",
-   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
+   "note": "Tempête 25.11 (Vial) : reprise sur le nouveau crédit ; groupe A, puis B, C, D ; selection() saute le déjà-produit."
   }
  ],
  "_note": "L'état vivant de la file se trouve sur la branche veille/audit-medical ; cette copie de main sert de déclencheur.",
