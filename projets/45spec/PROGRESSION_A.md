@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**396 / 500 pathologies du périmètre produites.**
+**399 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -365,9 +365,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 356 | `L53.9__G8-E10` | Érythrodermie (> 90 % de la surface corporelle rouge et squameuse) | DER | produite |
 | 357 | `N44.0__F1_2-E11` | Torsion du cordon spermatique | URO | produite |
 | 358 | `N47.2__F1_2-E12` | Paraphimosis étranglé | URO | produite |
-| 359 | `N49.3__F1_2-E13` | Gangrène de Fournier (fasciite nécrosante périnéale) | CPL | — |
-| 360 | `N49.8__F1_14-E13` | Gangrène de Fournier (fasciite nécrosante périnéale) | CPL | — |
-| 361 | `O03.1__O1_7-E12` | Fausse couche spontanée hémorragique (avortement incomplet) | GYN | — |
+| 359 | `N49.3__F1_2-E13` | Gangrène de Fournier (fasciite nécrosante périnéale) | CPL | produite |
+| 360 | `N49.8__F1_14-E13` | Gangrène de Fournier (fasciite nécrosante périnéale) | CPL | produite |
+| 361 | `O03.1__O1_7-E12` | Fausse couche spontanée hémorragique (avortement incomplet) | GYN | produite |
 | 362 | `O14.2__F2_11-E18` | Syndrome HELLP | GYN | — |
 | 363 | `O85__O1_2-E13` | Endométrite du post-partum | GYN | — |
 | 364 | `R65.2__F1_1-E16` | Choc septique | INT | — |
