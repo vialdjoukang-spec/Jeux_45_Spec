@@ -361,3 +361,8 @@ Signature : AAI (Anthropic AI)
 - Briefs suisses utiles aux anticoagulants : Konakion (vitamine K selon l'INR, urgence, saignement grave, par molécule), Marcoumar (charge, contre-indications, grossesse), Beriplex (TIH et CIVD contre-indiquées, débit), Praxbind, Ondexxya (doses faible et forte), Xarelto (repas, contre-indications), Fragmin.
 - `aips.py "Protamin"` renvoie un vaccin FSME : vérifie le nom du produit dans la sortie avant de citer un Brevier.
 - Trois canoniques voisins (D68.3_1 ecchymoses, D68.3_2 AVK, D68.3_3 AOD et héparines) se répartissent ainsi : gravité et co-médications ; INR et vitamine K ; tests spécifiques, antidotes et TIH. Les vignettes `d` 4–5 décrivent « comprimés dosés selon l'INR », « gélule deux fois par jour », « injections sous-cutanées quotidiennes » sans nommer la classe.
+
+## Règle SSP+ (Vial, 25.11.2026)
+- Un SSP+ est un point de départ hors catalogue, jamais un SSP officiel ni son synonyme ; il porte « (+) » à droite de son code : G17(+) et suivants après G16 ; pour S, F et O, le numéro suit le dernier officiel du groupe parent (S1.24(+) après S1.23).
+- La source unique est `projets/ssp_plus/ssp_plus_v2.json` (codes attribués par `numeroter.py`, contrôlés par `controle.py`) ; `data/ssp_etendus/` reste l'archive des anciens codes (`ancienCode`).
+- On n'ajoute un SSP+ que s'il est appuyé par une source lue ; on ne force jamais.

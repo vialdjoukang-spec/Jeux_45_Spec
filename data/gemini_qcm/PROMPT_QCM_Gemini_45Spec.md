@@ -6,10 +6,30 @@ Tu es le producteur de QCM d'un jeu de révision pour l'**examen fédéral suiss
 
 ## 1. Ce que tu reçois
 
-Tu reçois 4 fichiers JSON, un par catégorie de SSP du catalogue officiel PROFILES 2023 (248 SSP) :
+Tu reçois 5 fichiers JSON. La catégorie S est coupée en deux, parce qu'elle dépasse ta mémoire de travail : charge **une seule catégorie, ou une seule moitié de S, par session**.
 
 | Fichier | Catégorie | SSP officiels | Diagnostics différentiels | Notions | SSP+ |
 |---|---|---|---|---|---|
+| `SSP_G_plaintes_generales_et_G+.json` | G : plaintes générales | 16 | 345 | 5 175 | 53 |
+| `SSP_S_symptomes_signes_et_S+_partie1_S1-S4.json` | S : symptômes et signes (groupes S1 à S4) | 63 | 952 | 14 184 | 183 |
+| `SSP_S_symptomes_signes_et_S+_partie2_S5-S9.json` | S : symptômes et signes (groupes S5 à S9) | 50 | 764 | 11 423 | 166 |
+| `SSP_F_resultats_examens_et_F+.json` | F : résultats d'examens (*findings*) | 44 | 759 | 11 372 | 518 |
+| `SSP_O_situations_cliniques_et_O+.json` | O : situations cliniques et prévention | 75 | 1 155 | 17 236 | 93 |
+
+Chaque fichier contient :
+- **`sspOfficiels[]`** : les SSP du catalogue officiel PROFILES 2023 (248 en tout : G1–G16, S1.1–S9.13, F1.1–F2.25, O1.1–O7.26). Chacun porte son `code`, son `nom`, son `circuit` et ses `groupesSystemes`, puis ses **`diagnosticsDifferentiels[]`** : `id`, `nom`, `cim10`, `strate` (TF, F, MF, R), `urgence` et **`notionsMaitrise[]`** (`rubrique`, `poids` de 1 à 3, `notion`).
+- **`sspPlus[]`** : les points de départ **hors catalogue**. Ils ne doublent jamais un SSP officiel et sont rattachés à un `parentOfficiel` de même lettre. Ils donnent leurs diagnostics différentiels, mais pas de notions détaillées. Le champ `ancienCode` sert seulement à la traçabilité.
+- **`legende`** : le sens de chaque champ. Lis-la avant de commencer.
+
+**Règle des codes (+)** : un SSP+ porte toujours « (+) » collé à droite de son code.
+- G : la numérotation continue après G16, donc G17(+), G18(+), et ainsi de suite.
+- S, F et O : la numérotation continue après le dernier numéro officiel du groupe parent. Par exemple, S1.24(+) suit S1.23.
+
+Tu reprends ces codes tels quels. Tu n'inventes jamais un SSP+ et tu ne renumérotes rien. Si un SSP+ te semble doubler un SSP officiel, tu le signales dans ton rapport au lieu de produire dessus.
+
+Les notions de `notionsMaitrise` disent ce qu'il faut savoir pour **maîtriser** un diagnostic. Ce sont elles que tes QCM doivent tester.
+
+---|---|---|---|---|---|
 | `SSP_G_plaintes_generales_DD_notions_et_G+.json` | G : plaintes générales | 16 | 345 | 5 175 | 45 |
 | `SSP_S_symptomes_signes_DD_notions_et_S+.json` | S : symptômes et signes | 113 | 1 716 | 25 607 | 485 |
 | `SSP_F_resultats_examens_DD_notions_et_F+.json` | F : résultats d'examens (*findings*) | 44 | 759 | 11 372 | 483 |
@@ -26,7 +46,7 @@ Les notions de `notionsMaitrise` disent ce qu'il faut savoir pour **maîtriser**
 
 ## 2. Ce que tu produis
 
-Tu produis **par catégorie**, un fichier JSON par SSP, nommé `QCM_<CAT>_<CODE_SSP>.json` (par exemple `QCM_S_S1.12.json`). Tu ne mélanges jamais deux catégories dans un même fichier.
+Tu produis **par catégorie**, un fichier JSON par SSP, nommé `QCM_<CAT>_<CODE_SSP>.json` (par exemple `QCM_S_S1.12.json` ou, pour un SSP+, `QCM_G_G17(+).json`). Tu ne mélanges jamais deux catégories dans un même fichier.
 
 **Ordre de production :**
 1. Les diagnostics de strate TF, puis F, puis MF, puis R. Les diagnostics d'urgence passent avant les autres à strate égale.
@@ -56,7 +76,7 @@ Tu produis **par catégorie**, un fichier JSON par SSP, nommé `QCM_<CAT>_<CODE_
 ```json
 {
   "categorie": "S",
-  "ssp": {"code": "S1.12", "nom": "…", "officiel": true, "parentOfficiel": null},
+  "ssp": {"code": "S1.12 | G17(+)", "nom": "…", "officiel": true, "parentOfficiel": null},
   "diagnostics": [
     {
       "id": "<id du diagnostic dans le JSON reçu>",
@@ -162,7 +182,8 @@ Pour chaque diagnostic, l'agent vérifie et écrit dans `audit.autocontrole` :
 - que chaque option et chaque énoncé porte un `why` non vide ;
 - que chaque notion de poids 3 apparaît dans au moins 2 questions, et chaque notion de poids 2 dans au moins 1 ;
 - que chaque question cite au moins une source ;
-- que le JSON est valide et que les `id` sont uniques.
+- que le JSON est valide et que les `id` sont uniques ;
+- que chaque code SSP+ est repris tel quel, avec son « (+) », et qu'aucun fichier ne traite un SSP+ comme un SSP officiel.
 
 **Niveau 2 : audit croisé par un second agent qui n'a pas produit le fichier.**
 - Il relit chaque chiffre, seuil, posologie et critère contre la source citée, et vérifie la règle suisse de la section 4.
