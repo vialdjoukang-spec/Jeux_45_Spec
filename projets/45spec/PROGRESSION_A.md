@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**414 / 500 pathologies du périmètre produites.**
+**417 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -388,9 +388,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 379 | `C80.1_2__F2_10-E02` | Adénocarcinome ou carcinome épidermoïde sur biopsie d'organe | PAT | produite |
 | 380 | `C80.1__G16-E01` | Néoplasie maligne solide (poumon, côlon, pancréas, estomac) | ONC | produite |
 | 381 | `C91.0__O7_19-E02` | Thérapies CAR-T et immunothérapies géniques en oncologie | HEM | produite |
-| 382 | `D24__S2_3-E02` | Fibroadénome mammaire | ONC | — |
-| 383 | `D25.9_1__S4_17-E01` | Léiomyome (fibrome) utérin | GYN | — |
-| 384 | `D66_2__O7_19-E01` | Thérapie génique dans les maladies hématologiques (hémophilie, drépanocytose) | HEM | — |
+| 382 | `D24__S2_3-E02` | Fibroadénome mammaire | ONC | produite |
+| 383 | `D25.9_1__S4_17-E01` | Léiomyome (fibrome) utérin | GYN | produite |
+| 384 | `D66_2__O7_19-E01` | Thérapie génique dans les maladies hématologiques (hémophilie, drépanocytose) | HEM | produite |
 | 385 | `D68.3_1__S6_2-E02` | Ecchymoses et hématomes iatrogènes sous anticoagulants ou antiagrégants | TOX | — |
 | 386 | `D68.3_2__F2_3-E01` | Traitement par antivitamine K (INR allongé) | HEM | — |
 | 387 | `D68.3_3__F2_3-E02` | Traitement par anticoagulants oraux directs (AOD) ou héparines | HEM | — |
