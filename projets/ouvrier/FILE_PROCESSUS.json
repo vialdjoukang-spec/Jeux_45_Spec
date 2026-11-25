@@ -2,16 +2,28 @@
  "_regles": "File de processus en chaîne. L'ouvrier GitHub (ouvrier.yml) prend la première tâche « a_faire » ou « en_cours », l'exécute par l'API Anthropic, publie sur la branche veille/audit-medical, puis Claude l'audite médicalement chaque heure avant main. Trois échecs → « bloque ».",
  "budget": {
   "credit_usd": 200,
-  "expire": "2026-11-27T00:00:00+01:00",
-  "reserve_usd": 8,
-  "plafond_par_passage_usd": 90,
+  "expire": "2027-01-31T00:00:00+01:00",
+  "reserve_usd": 10,
+  "plafond_par_passage_usd": 40,
   "espace_de_travail": "Default (projets/ouvrier/workspace_id.txt)",
   "test": "2026-11-23 00:55",
-  "plafond_total_usd": 192,
-  "note_vial": "23.11.2026 21:07 : Vial autorise le crédit entier (200 USD moins 8 de réserve), car il expire le 27.11.",
-  "sans_repartition_journaliere": true
+  "plafond_total_usd": 190,
+  "note_vial": "25.11.2026 23:31 : nouveau crédit API de 200 USD ; tempête d'agents par l'API seulement ; plafond 190 USD (5 % de marge) ; arrêt au premier refus de l'API.",
+  "sans_repartition_journaliere": true,
+  "depuis": "2026-11-25T22:30:00+00:00"
  },
  "taches": [
+  {
+   "id": "T0_ping_api",
+   "titre": "Vérification : l'API répond et le crédit est disponible",
+   "modele": "claude-haiku-5-5",
+   "budget_usd": 0.05,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "une_fois",
+   "prompt": "Réponds seulement : API OK. N'écris aucun fichier.",
+   "note": "Test de Vial 25.11 avant la tempête."
+  },
   {
    "id": "complement_3",
    "titre": "Compléments de présentation, région 3_rachis_moelle_et_racines",
@@ -580,10 +592,5 @@
  ],
  "_note": "L'état vivant de la file se trouve sur la branche veille/audit-medical ; cette copie de main sert de déclencheur.",
  "_relance": "2026-11-23T23:38:04+00:00",
- "pause": {
-  "date": "2026-11-24T16:36:15+00:00",
-  "tache": "T4_reprise_rejets",
-  "raison": "refus définitif de l'API (« credit balance is too low ») ; crédit épuisé jusqu'à jeudi (décision de Vial du 24.11)"
- },
  "_regles_pause": "Au premier refus définitif de l'API (crédit épuisé, clé invalide), l'ouvrier écrit « pause », se désactive et ne réessaie plus. Pour relancer : supprimer la clé « pause », réactiver le workflow ouvrier.yml (et décommenter son schedule)."
 }
