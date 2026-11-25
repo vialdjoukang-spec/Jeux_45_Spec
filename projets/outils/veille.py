@@ -5,6 +5,10 @@ toutes les branches production-xai-* (sur ces branches, seulement après le cont
 ancien lot écrase une valeur plus récente.
 Usage : python projets/outils/veille.py [--essai] [--amorcer]
   --amorcer : enregistre les lots existants comme déjà traités, sans rien fusionner (premier lancement).
+Cache d'échec (skill optimisation-par-cache-hache-autorun) : un échec n'est jamais mis en cache comme réussite, mais son
+empreinte (lots nouveaux + données + outils) est notée dans projets/retours/veille_echec.json. Tant qu'elle ne change pas,
+la veille ne refait ni la fusion ni le rapport : pas de nouveau commit, donc pas de nouvelle session d'audit Claude pour
+le même échec. Un nouveau lot, une donnée ou un outil modifié, ou la suppression du fichier relancent tout.
 Signature : AAI (Anthropic AI)"""
 import hashlib, json, os, re, subprocess, sys, tempfile, datetime
 
@@ -12,6 +16,7 @@ RAC = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))
 REGISTRE = os.path.join(RAC, "projets", "retours", "veille_traites.json")
 RAPPORT = os.path.join(RAC, "CLAUDE_A_AUDITER", "RAPPORT_VEILLE.md")
 ATTENTE = os.path.join(RAC, "CLAUDE_A_AUDITER", "EN_ATTENTE_AUDIT_MEDICAL.json")
+ECHEC = os.path.join(RAC, "projets", "retours", "veille_echec.json")
 DOSSIERS = ("CLAUDE_A_AUDITER/", "POUR CLAUDE A AUDITER/", "Production_XAi/Lots_traites/")
 essai, amorcer = "--essai" in sys.argv, "--amorcer" in sys.argv
 git = lambda *a: subprocess.run(["git", "-C", RAC, *a], capture_output=True, text=True).stdout
@@ -61,6 +66,14 @@ if sans_contre_audit:
     print(f"veille : {len(sans_contre_audit)} lot(s) de branche en attente du contre-audit XAi (CONTRE_AUDIT_OK absent)")
 if not nouveaux:
     print("veille : aucun nouveau lot"); sys.exit(0)
+
+# 1 bis. Même échec que le dernier passage (mêmes lots, mêmes données, mêmes outils) : rien à refaire
+arbres = [git("rev-parse", f"HEAD:{d}").strip() for d in ("conception/donnees", "SORTIES_DONNEES_FIABLES", "projets/outils", "conception/outils")]
+empreinte = hashlib.sha256(json.dumps([sorted(h for _, _, h, _ in nouveaux), arbres]).encode()).hexdigest()
+dernier = json.load(open(ECHEC, encoding="utf-8")) if os.path.exists(ECHEC) else {}
+if not essai and dernier.get("empreinte") == empreinte:
+    print(f"veille : {len(nouveaux)} lot(s) en échec déjà signalé le {dernier.get('heure')} (même empreinte) ; rien à refaire")
+    sys.exit(0)
 
 # 2. Réparation, puis fusion dans l'ordre des chemins (les sous-lots d'un même organe restent groupés)
 lignes, fusionnes, refuses = [], 0, 0
@@ -113,6 +126,11 @@ open(RAPPORT, "w", encoding="utf-8").write(
      "corrige, puis ouvre et fusionne la PR vers main. Rien n'arrive sur main sans cet audit.\n") +
     "\nSignature : AAI (Anthropic AI)\n")
 if not essai:
+    if echec:
+        json.dump({"empreinte": empreinte, "lots": len(nouveaux), "heure": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")},
+                  open(ECHEC, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    elif os.path.exists(ECHEC):
+        os.remove(ECHEC)
     json.dump(attente, open(ATTENTE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     json.dump(registre, open(REGISTRE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"veille : {len(nouveaux)} nouveaux, {fusionnes} fusionnés, {refuses} refusés ; {'ÉCHEC' if echec else 'OK'}")

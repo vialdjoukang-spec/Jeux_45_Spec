@@ -74,6 +74,7 @@ jobs:
             git add -A -- . ':!.veille_cadence.json'
           else
             git add CLAUDE_A_AUDITER/RAPPORT_VEILLE.md      # échec : seul le rapport part, les lots seront repris
+            git add projets/retours/veille_echec.json 2>/dev/null || true   # empreinte de l'échec : pas de re-signalement identique
             git checkout -- .
           fi
           git diff --cached --quiet || git commit -m "Veille : lots réparés et audités mécaniquement, en attente d'audit médical [skip ci]"
