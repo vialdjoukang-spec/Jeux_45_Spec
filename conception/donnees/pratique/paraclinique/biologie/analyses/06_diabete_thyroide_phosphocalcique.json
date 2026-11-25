@@ -8,7 +8,7 @@
    "Aventure par type d'examen",
    "Lecture d'image et de tracé"
   ],
-  "statut": "À REMPLIR",
+  "statut": "PRODUIT — à auditer",
   "regles": [
    "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
    "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
@@ -16,6 +16,9 @@
    "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
    "mode : un des modes du projet (voir _meta.modes).",
    "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+  ],
+  "aVerifier": [
+   "toutes les entités › contexte : cas cliniques suisses inventés pour l'exercice ; les valeurs et seuils viennent des fiches citées"
   ]
  },
  "entites": [
@@ -23,6 +26,45 @@
    "ref": "glucose",
    "nom": "Glucose",
    "defis": [
+    {
+     "id": "glucose-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Une glycémie à jeun ≥ 7,0 mmol/l est un critère de diabète, qu'une mesure un autre jour doit confirmer, selon le guide mediX (2025).",
+      "pourquoiFaux": "Poser le diagnostic sur une seule valeur sans symptôme ignore l'exigence de confirmation."
+     },
+     "sources": [
+      "mediX, guide Diabète sucré (2025)",
+      "ADA, Standards of Care in Diabetes 2026, section 2 (diagnostic)"
+     ],
+     "contexte": "Un homme de 52 ans, à Fribourg, fait un bilan chez son médecin de famille, sans symptôme.",
+     "valeurAvecUnite": "Glycémie à jeun 7,4 mmol/l",
+     "question": "Que faire de ce résultat ?",
+     "reponse": "Confirmer par une 2e mesure un autre jour"
+    },
+    {
+     "id": "glucose-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "La glycolyse abaisse la glycémie avec le temps, selon les HUG (2026) ; le fluorure la bloque, selon l'USZ (2026).",
+      "pourquoiFaux": "Traiter une hypoglycémie sur ce tube confond un artefact avec une maladie."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "USZ, Institut de chimie clinique, préanalytique (2026)"
+     ],
+     "situation": "Un tube de glycémie sans fluorure attend 4 heures au cabinet avant l'envoi.",
+     "piege": "Lire une glycémie basse comme une hypoglycémie.",
+     "bonneConduite": "Reprélever et envoyer le tube immédiatement, ou utiliser un tube au fluorure."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -63,6 +105,44 @@
    "nom": "HbA1c",
    "defis": [
     {
+     "id": "hba1c-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Une HbA1c de 5,7 à 6,4 % définit le prédiabète, selon l'ADA (2026).",
+      "pourquoiFaux": "Le diabète exige ≥ 6,5 % (48 mmol/mol), selon l'ADA (2026)."
+     },
+     "sources": [
+      "ADA, Standards of Care in Diabetes 2026, section 2 (diagnostic)"
+     ],
+     "contexte": "Une femme de 45 ans, à Neuchâtel, a une HbA1c de contrôle.",
+     "valeurAvecUnite": "HbA1c 6,1 % (43 mmol/mol)",
+     "question": "Comment classer ce résultat ?",
+     "reponse": "Prédiabète"
+    },
+    {
+     "id": "hba1c-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Le renouvellement accéléré des globules rouges abaisse l'HbA1c, selon l'ADA (2026) ; mediX (2025) l'exclut alors du diagnostic.",
+      "pourquoiFaux": "Se fier à cette HbA1c méconnaît l'interférence de l'hémolyse."
+     },
+     "sources": [
+      "ADA, Standards of Care in Diabetes 2026, section 2 (diagnostic)",
+      "mediX, guide Diabète sucré (2025)"
+     ],
+     "situation": "Un patient de 60 ans a une anémie hémolytique et une HbA1c à 4,9 %.",
+     "piege": "Conclure à un excellent équilibre glycémique.",
+     "bonneConduite": "Juger la glycémie par une autre méthode, comme la glycémie à jeun."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -101,6 +181,43 @@
    "ref": "insuline",
    "nom": "Insuline",
    "defis": [
+    {
+     "id": "insuline-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Pendant une hypoglycémie < 3,0 mmol/l, une insuline ≥ 18 pmol/l signe un hyperinsulinisme, selon l'Endocrine Society (2009).",
+      "pourquoiFaux": "Une insuline dans l'intervalle usuel n'est pas normale quand la glycémie est basse, selon l'Endocrine Society (2009)."
+     },
+     "sources": [
+      "Endocrine Society, recommandation sur l'hypoglycémie de l'adulte (2009)"
+     ],
+     "contexte": "Une femme de 38 ans, à Sion, fait un malaise à jeun ; un prélèvement est fait pendant le malaise.",
+     "valeurAvecUnite": "Glycémie 2,6 mmol/l, insuline 45 pmol/l",
+     "question": "Que montre ce couple de valeurs ?",
+     "reponse": "Un hyperinsulinisme"
+    },
+    {
+     "id": "insuline-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) n'analysent pas l'insuline en cas d'hémolyse et exigent un transport sur glace.",
+      "pourquoiFaux": "Rendre ce résultat expose à une valeur fausse, inutilisable pour le diagnostic."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un tube d'insuline arrive hémolysé et à température ambiante après 2 heures.",
+     "piege": "Rendre le résultat tel quel.",
+     "bonneConduite": "Reprélever, laisser coaguler 5 à 10 minutes, puis transporter sur glace."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -141,6 +258,43 @@
    "nom": "Peptide C",
    "defis": [
     {
+     "id": "peptide_c-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "L'insuline exogène élève l'insuline et freine le peptide C sous 0,2 nmol/l, selon l'Endocrine Society (2009).",
+      "pourquoiFaux": "Un insulinome donnerait un peptide C ≥ 0,2 nmol/l, selon l'Endocrine Society (2009)."
+     },
+     "sources": [
+      "Endocrine Society, recommandation sur l'hypoglycémie de l'adulte (2009)"
+     ],
+     "contexte": "Une infirmière de 29 ans, à Berne, est hospitalisée pour des hypoglycémies répétées.",
+     "valeurAvecUnite": "Insuline élevée, peptide C < 0,2 nmol/l",
+     "question": "Quel mécanisme évoquer ?",
+     "reponse": "Une insuline injectée"
+    },
+    {
+     "id": "peptide_c-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "L'ADA (2026) déconseille le dosage du peptide C dans les 2 semaines suivant une urgence hyperglycémique.",
+      "pourquoiFaux": "Un dosage trop précoce peut faire classer à tort le diabète."
+     },
+     "sources": [
+      "ADA, Standards of Care in Diabetes 2026, section 2 (diagnostic)"
+     ],
+     "situation": "Un patient sort de réanimation pour acidocétose il y a 5 jours ; on veut typer son diabète.",
+     "piege": "Doser le peptide C tout de suite.",
+     "bonneConduite": "Attendre au moins 2 semaines après l'urgence hyperglycémique."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -179,6 +333,43 @@
    "ref": "cetonemie",
    "nom": "Cétonémie (β-hydroxybutyrate)",
    "defis": [
+    {
+     "id": "cetonemie-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "Une cétose ≥ 3,0 mmol/l avec glycémie < 11,1 mmol/l évoque l'acidocétose euglycémique, selon le consensus ADA (2024).",
+      "pourquoiFaux": "Une glycémie normale n'exclut pas l'acidocétose : environ 10 % sont euglycémiques, selon le consensus ADA (2024)."
+     },
+     "sources": [
+      "ADA et sociétés associées, consensus sur les crises hyperglycémiques de l'adulte (2024)"
+     ],
+     "contexte": "Un homme de 55 ans, à Lucerne, sous inhibiteur de SGLT2, vomit depuis 24 heures.",
+     "valeurAvecUnite": "β-hydroxybutyrate 4,2 mmol/l, glyc. 9 mmol/l",
+     "question": "Que retenir ?",
+     "reponse": "Possible acidocétose euglycémique"
+    },
+    {
+     "id": "cetonemie-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Le CHUV (2026) exige l'acide perchlorique et la glace pour ce dosage.",
+      "pourquoiFaux": "Un tube ordinaire ne respecte pas la préparation exigée."
+     },
+     "sources": [
+      "CHUV, catalogue des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un dosage quantitatif des corps cétoniques est prélevé dans un tube ordinaire laissé à température ambiante.",
+     "piege": "Croire que le tube habituel suffit.",
+     "bonneConduite": "Mélanger 1 ml de sang à l'acide perchlorique refroidi et garder sur glace."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -219,6 +410,44 @@
    "nom": "Glycémie capillaire",
    "defis": [
     {
+     "id": "glycemie_capillaire-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Une glycémie < 3,0 mmol/l définit le niveau 2, selon l'ADA (2026, objectifs glycémiques).",
+      "pourquoiFaux": "Le niveau 1 va de 3,0 à moins de 3,9 mmol/l, selon l'ADA (2026)."
+     },
+     "sources": [
+      "ADA, Standards of Care in Diabetes 2026, section 6 (objectifs glycémiques)"
+     ],
+     "contexte": "Un patient diabétique de 70 ans, à Lugano, est confus ; on mesure sa glycémie au doigt.",
+     "valeurAvecUnite": "Glycémie capillaire 2,8 mmol/l",
+     "question": "Comment classer cette hypoglycémie ?",
+     "reponse": "Hypoglycémie de niveau 2"
+    },
+    {
+     "id": "glycemie_capillaire-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Les lecteurs capillaires sont imprécis aux valeurs basses, selon la Revue médicale suisse (2013).",
+      "pourquoiFaux": "Se fier au lecteur seul expose à un faux diagnostic d'hypoglycémie."
+     },
+     "sources": [
+      "Revue médicale suisse, hypoglycémie non diabétique (2013)",
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un lecteur capillaire affiche 2,4 mmol/l chez un patient sans aucun symptôme.",
+     "piege": "Poser un diagnostic d'hypoglycémie sur le seul lecteur.",
+     "bonneConduite": "Confirmer par une glycémie veineuse au laboratoire."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -257,6 +486,44 @@
    "ref": "tsh",
    "nom": "TSH",
    "defis": [
+    {
+     "id": "tsh-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Une TSH élevée avec une T4 libre normale définit l'hypothyroïdie infraclinique, selon l'ETA (2013).",
+      "pourquoiFaux": "Une hypothyroïdie manifeste demanderait une T4 libre basse, selon l'ETA (2014)."
+     },
+     "sources": [
+      "ETA, recommandation sur l'hypothyroïdie infraclinique (2013)",
+      "ETA, recommandation sur l'hypothyroïdie infraclinique de la grossesse et de l'enfance (2014)"
+     ],
+     "contexte": "Une femme de 50 ans, à Lausanne, fatiguée, a une TSH de dépistage.",
+     "valeurAvecUnite": "TSH 7,2 mUI/l, T4 libre 15 pmol/l",
+     "question": "Quel diagnostic retenir ?",
+     "reponse": "Hypothyroïdie infraclinique"
+    },
+    {
+     "id": "tsh-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Les hausses transitoires de TSH sont fréquentes, dont la convalescence d'une maladie non thyroïdienne ; on répète après 2 à 3 mois, selon l'ETA (2013).",
+      "pourquoiFaux": "Traiter sur une valeur isolée expose à un traitement inutile."
+     },
+     "sources": [
+      "ETA, recommandation sur l'hypothyroïdie infraclinique (2013)"
+     ],
+     "situation": "Une TSH à 6,8 mUI/l est découverte une seule fois chez un patient en convalescence d'une pneumonie.",
+     "piege": "Débuter la lévothyroxine d'emblée.",
+     "bonneConduite": "Recontrôler la TSH avec la T4 libre et les anti-TPO après 2 à 3 mois."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -297,6 +564,43 @@
    "nom": "T4 libre",
    "defis": [
     {
+     "id": "t4_libre-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Une T4 libre basse avec une TSH élevée, ou une TSH > 10 mUI/l, définit l'hypothyroïdie manifeste en grossesse, selon l'ETA (2014).",
+      "pourquoiFaux": "Une forme infraclinique exigerait une T4 libre normale, selon l'ETA (2013)."
+     },
+     "sources": [
+      "ETA, recommandation sur l'hypothyroïdie infraclinique de la grossesse et de l'enfance (2014)"
+     ],
+     "contexte": "Une femme de 34 ans, à Genève, enceinte de 10 semaines, a un bilan thyroïdien.",
+     "valeurAvecUnite": "TSH 12 mUI/l, T4 libre 10 pmol/l",
+     "question": "Quel diagnostic retenir ?",
+     "reponse": "Hypothyroïdie manifeste"
+    },
+    {
+     "id": "t4_libre-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) dosent la TSH seule, puis la T4 libre si TSH > 6,0 mUI/l, et la T4 libre avec la T3 libre si TSH < 0,4 mUI/l.",
+      "pourquoiFaux": "Avec une TSH normale, la T4 libre n'améliore pas le diagnostic, selon les HUG (2026)."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un médecin demande TSH, T4 libre et T3 libre d'emblée chez un adulte sans maladie hypophysaire.",
+     "piege": "Croire que les trois dosages améliorent le diagnostic.",
+     "bonneConduite": "Demander la TSH seule en première intention."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -335,6 +639,43 @@
    "ref": "t3_libre",
    "nom": "T3 libre",
    "defis": [
+    {
+     "id": "t3_libre-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Une TSH effondrée avec une T3 libre au-dessus de 6,8 pmol/l signe une thyrotoxicose, selon les HUG (2026).",
+      "pourquoiFaux": "Une TSH normale aurait rendu la T3 libre inutile, selon les HUG (2026)."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "contexte": "Un homme de 41 ans, à Zurich, a des palpitations et a perdu 5 kg.",
+     "valeurAvecUnite": "TSH < 0,05 mUI/l, T3 libre 11 pmol/l",
+     "question": "Que conclure ?",
+     "reponse": "Une thyrotoxicose"
+    },
+    {
+     "id": "t3_libre-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) ne dosent la T3 libre que si la TSH est < 0,4 mUI/l.",
+      "pourquoiFaux": "Ce dosage n'améliore pas le diagnostic hors maladie hypothalamo-hypophysaire."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un interne veut doser la T3 libre chez un patient dont la TSH vaut 2,1 mUI/l.",
+     "piege": "Penser que la T3 libre précise un bilan normal.",
+     "bonneConduite": "Ne pas doser la T3 libre quand la TSH est entre 0,4 et 6,0 mUI/l."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -375,6 +716,45 @@
    "nom": "Anticorps anti-TPO",
    "defis": [
     {
+     "id": "anticorps_anti_tpo-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Des anti-TPO au-dessus de 5,61 UI/ml orientent vers une thyroïdite de Hashimoto, positifs chez jusqu'à 90 % des patients, selon Medics (2026).",
+      "pourquoiFaux": "Le titre ne mesure pas l'activité de la maladie, selon Medics (2026)."
+     },
+     "sources": [
+      "Medics Labor, répertoire des analyses (2026)",
+      "ETA, recommandation sur l'hypothyroïdie infraclinique (2013)"
+     ],
+     "contexte": "Une femme de 46 ans, à Bienne, a une TSH élevée et une T4 libre normale.",
+     "valeurAvecUnite": "Anti-TPO 210 UI/ml",
+     "question": "Quelle cause évoquer ?",
+     "reponse": "Une thyroïdite auto-immune"
+    },
+    {
+     "id": "anticorps_anti_tpo-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "« Aucune mesure répétée si des anticorps anti-thyroperoxydase (Ac anti-TPO) ont été détectés au préalable. », selon Smarter Medicine (2025).",
+      "pourquoiFaux": "Le titre ne suit pas l'activité clinique, selon Medics (2026) : le répéter n'apporte rien."
+     },
+     "sources": [
+      "Smarter Medicine, Top 5 de la Société suisse d'endocrinologie et de diabétologie (2025)",
+      "Medics Labor, répertoire des analyses (2026)"
+     ],
+     "situation": "Les anti-TPO d'une patiente, positifs l'an passé, sont redemandés au contrôle annuel.",
+     "piege": "Répéter le dosage pour suivre la maladie.",
+     "bonneConduite": "Ne pas répéter les anti-TPO déjà positifs."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -413,6 +793,45 @@
    "ref": "anticorps_anti_thyroglobuline",
    "nom": "Anticorps anti-thyroglobuline",
    "defis": [
+    {
+     "id": "anticorps_anti_thyroglobuline-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Des anti-Tg positifs aident à reconnaître une thyroïdite auto-immune à anti-TPO négatifs, selon Medics (2026) ; l'ETA (2014) recommande ce dosage dans ce cas.",
+      "pourquoiFaux": "Des anti-TPO négatifs n'excluent pas l'auto-immunité, selon l'ETA (2014)."
+     },
+     "sources": [
+      "Medics Labor, répertoire des analyses (2026)",
+      "ETA, recommandation sur l'hypothyroïdie infraclinique de la grossesse et de l'enfance (2014)"
+     ],
+     "contexte": "Une femme de 39 ans, à Coire, a une TSH élevée et des anti-TPO négatifs.",
+     "valeurAvecUnite": "Anti-thyroglobuline 85 UI/ml",
+     "question": "Que conclure ?",
+     "reponse": "Thyroïdite auto-immune possible"
+    },
+    {
+     "id": "anticorps_anti_thyroglobuline-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "Les anti-Tg perturbent le dosage de la thyroglobuline, selon Medics (2026).",
+      "pourquoiFaux": "Une thyroglobuline faussée peut cacher une récidive."
+     },
+     "sources": [
+      "Medics Labor, répertoire des analyses (2026)",
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Une thyroglobuline de suivi après cancer thyroïdien est demandée seule.",
+     "piege": "Interpréter la thyroglobuline sans les anti-Tg.",
+     "bonneConduite": "Doser les anti-thyroglobuline avec la thyroglobuline."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -453,6 +872,45 @@
    "nom": "TRAb (anti-récepteur de la TSH)",
    "defis": [
     {
+     "id": "trab-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Des TRAb au-dessus de 3,10 UI/l avec une thyrotoxicose signent une maladie de Basedow, selon l'ETA (2018) et Medics (2026).",
+      "pourquoiFaux": "Une thyroïdite de Hashimoto donne plus rarement des TRAb, à titre plus bas, selon Medics (2026)."
+     },
+     "sources": [
+      "ETA, recommandation sur la maladie de Basedow (2018)",
+      "Medics Labor, répertoire des analyses (2026)"
+     ],
+     "contexte": "Une femme de 31 ans, à Winterthour, a une thyrotoxicose et une exophtalmie.",
+     "valeurAvecUnite": "TRAb 14 UI/l",
+     "question": "Quel diagnostic retenir ?",
+     "reponse": "Maladie de Basedow"
+    },
+    {
+     "id": "trab-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "Les TRAb passent le placenta et peuvent causer une hyperthyroïdie fœtale ou néonatale, selon Medics (2026) ; l'ETA (2018) recommande leur dosage en grossesse.",
+      "pourquoiFaux": "Les ignorer expose le bébé à une hyperthyroïdie non anticipée."
+     },
+     "sources": [
+      "Medics Labor, répertoire des analyses (2026)",
+      "ETA, recommandation sur la maladie de Basedow (2018)"
+     ],
+     "situation": "Une femme traitée pour un Basedow devient enceinte ; personne ne redemande ses TRAb.",
+     "piege": "Croire que les TRAb ne concernent que la mère.",
+     "bonneConduite": "Doser les TRAb pendant la grossesse."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -491,6 +949,43 @@
    "ref": "thyroglobuline",
    "nom": "Thyroglobuline",
    "defis": [
+    {
+     "id": "thyroglobuline-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Après thyroïdectomie, le dosage sert à détecter tôt une nouvelle sécrétion de thyroglobuline, selon les HUG (2026).",
+      "pourquoiFaux": "Après thyroïdectomie, la valeur attendue est < 0,2 µg/l, et non l'intervalle de la population, selon les HUG (2026)."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "contexte": "Une femme de 50 ans, à Genève, est suivie après thyroïdectomie totale pour cancer.",
+     "valeurAvecUnite": "Thyroglobuline qui redevient détectable",
+     "question": "Que signifie ce résultat ?",
+     "reponse": "Une nouvelle sécrétion de Tg"
+    },
+    {
+     "id": "thyroglobuline-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) ne recommandent pas ce dosage dans le bilan initial des maladies thyroïdiennes.",
+      "pourquoiFaux": "La thyroglobuline sert au suivi après thyroïdectomie, pas au bilan initial."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un médecin demande une thyroglobuline dans le bilan initial d'un goitre.",
+     "piege": "Croire que la thyroglobuline aide au bilan initial.",
+     "bonneConduite": "Ne pas doser la thyroglobuline dans le bilan initial."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -531,6 +1026,43 @@
    "nom": "Calcitonine",
    "defis": [
     {
+     "id": "calcitonine-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "Une hausse progressive au-dessus de 150 pg/ml après chirurgie fait refaire une imagerie, selon l'ATA (2015).",
+      "pourquoiFaux": "C'est la hausse progressive au-dessus de 150 pg/ml qui fait refaire une imagerie, selon l'ATA (2015)."
+     },
+     "sources": [
+      "ATA, recommandation révisée sur le cancer médullaire de la thyroïde (2015)"
+     ],
+     "contexte": "Un homme de 58 ans, à Bâle, a un nodule thyroïdien opéré pour cancer médullaire.",
+     "valeurAvecUnite": "Calcitonine 320 pg/ml, en hausse, opéré",
+     "question": "Que faire ?",
+     "reponse": "Refaire une imagerie"
+    },
+    {
+     "id": "calcitonine-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Le CHUV (2026) fixe ces conditions et demande d'éviter l'hémolyse.",
+      "pourquoiFaux": "Ignorer les IPP et le délai fausse la calcitonine."
+     },
+     "sources": [
+      "CHUV, catalogue des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un patient sous IPP vient pour une calcitonine ; le tube attendra une heure avant le transport.",
+     "piege": "Prélever sans tenir compte des IPP ni du délai.",
+     "bonneConduite": "Prélever avant la prise d'IPP, idéalement après 2 semaines d'arrêt ; centrifuger et congeler si transport > 30 minutes."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -569,6 +1101,43 @@
    "ref": "pth",
    "nom": "PTH",
    "defis": [
+    {
+     "id": "pth-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Une PTH normale avec hypercalcémie est inappropriée et oriente vers une hyperparathyroïdie primaire, selon la Revue médicale suisse (2015).",
+      "pourquoiFaux": "Une hypercalcémie d'autre cause freinerait la PTH, qui ne serait pas dans l'intervalle."
+     },
+     "sources": [
+      "Revue médicale suisse, hyperparathyroïdie primaire (2015)"
+     ],
+     "contexte": "Une femme de 62 ans, à Lausanne, a une hypercalcémie découverte par hasard.",
+     "valeurAvecUnite": "Calcium élevé, PTH 5,9 pmol/l",
+     "question": "Comment lire cette PTH ?",
+     "reponse": "Inappropriée : hyperparathyroïdie"
+    },
+    {
+     "id": "pth-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) exigent l'EDTA pour la stabilité et un prélèvement à jeun le matin.",
+      "pourquoiFaux": "Ce prélèvement ne respecte pas les conditions de stabilité et d'horaire."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Une PTH est prélevée l'après-midi, non à jeun, sur un tube sec.",
+     "piege": "Croire que l'heure et le tube sont indifférents.",
+     "bonneConduite": "Prélever à jeun le matin entre 7 et 10 heures, sur tube EDTA."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -609,6 +1178,44 @@
    "nom": "25-OH-vitamine D",
    "defis": [
     {
+     "id": "25_oh_vitamine_d-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Sous 25 nmol/l chez l'adulte, on parle de déficience, selon les HUG (2026).",
+      "pourquoiFaux": "L'insuffisance correspond à 25–50 nmol/l, selon les HUG (2026)."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "contexte": "Une femme de 70 ans, à Fribourg, a une ostéoporose fracturaire.",
+     "valeurAvecUnite": "25-OH-vitamine D 21 nmol/l",
+     "question": "Comment classer ce résultat ?",
+     "reponse": "Déficience"
+    },
+    {
+     "id": "25_oh_vitamine_d-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "« Ne pas mesurer la vitamine D 25(OH) par habitude pour les personnes ne présentant pas de facteurs de risques pour une carence en vitamine D. », selon Smarter Medicine (2021).",
+      "pourquoiFaux": "Le dosage n'est remboursé que dans des indications précises, selon les HUG (2026)."
+     },
+     "sources": [
+      "Smarter Medicine, Top 5 de la Société suisse de médecine interne générale, ambulatoire (2021)",
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un homme de 35 ans en bonne santé demande un dosage de vitamine D « pour voir ».",
+     "piege": "Doser par habitude sans facteur de risque.",
+     "bonneConduite": "Ne pas doser la vitamine D sans facteur de risque de carence."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -647,6 +1254,45 @@
    "ref": "ctx",
    "nom": "CTX (télopeptide C)",
    "defis": [
+    {
+     "id": "ctx-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "L'arrêt du dénosumab provoque un rebond du remodelage pendant deux ans, avec fractures vertébrales multiples, selon la Revue médicale suisse (2019).",
+      "pourquoiFaux": "Ce rebond n'est pas une réponse au traitement, qui abaisserait le CTX."
+     },
+     "sources": [
+      "Revue médicale suisse, effet rebond à l'arrêt du dénosumab (2019)",
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "contexte": "Une femme de 66 ans, à Sion, traitée par dénosumab, a arrêté ses injections il y a 9 mois.",
+     "valeurAvecUnite": "CTX très au-dessus de 782 ng/l",
+     "question": "Que craindre ?",
+     "reponse": "Rebond et fractures vertébrales"
+    },
+    {
+     "id": "ctx-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Le rythme circadien et le repas modifient le CTX, selon le CHUV (2026) ; les HUG (2026) exigent les mêmes conditions qu'au départ.",
+      "pourquoiFaux": "Deux CTX prélevés dans des conditions différentes ne se comparent pas."
+     },
+     "sources": [
+      "CHUV, catalogue des analyses de laboratoire (2026)",
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un CTX de contrôle est prélevé à 15 h, après le repas.",
+     "piege": "Comparer ce CTX au dosage initial fait à jeun le matin.",
+     "bonneConduite": "Prélever à jeun le matin, entre 8 et 10 heures, comme au premier dosage."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -687,6 +1333,43 @@
    "nom": "P1NP",
    "defis": [
     {
+     "id": "p1np-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La baisse du P1NP sous traitement reflète une part importante de la baisse du risque de fracture et aide l'adhésion, selon l'ESCEO, l'IOF et l'IFCC (2025).",
+      "pourquoiFaux": "Les variations du P1NP sous traitement servent aussi à suivre l'adhésion, selon l'ESCEO, l'IOF et l'IFCC (2025)."
+     },
+     "sources": [
+      "ESCEO, IOF et IFCC, Bhattoa et al., consensus sur les marqueurs du remodelage osseux, Osteoporos Int (2025)"
+     ],
+     "contexte": "Une femme de 68 ans, à Genève, commence un traitement anti-ostéoporotique.",
+     "valeurAvecUnite": "P1NP en nette baisse à 6 mois",
+     "question": "Que montre cette baisse ?",
+     "reponse": "Un effet du traitement"
+    },
+    {
+     "id": "p1np-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "Le P1NP total peut monter par rétention rénale, selon l'ESCEO, l'IOF et l'IFCC (2025).",
+      "pourquoiFaux": "Conclure au remodelage oublie la rétention rénale."
+     },
+     "sources": [
+      "ESCEO, IOF et IFCC, Bhattoa et al., consensus sur les marqueurs du remodelage osseux, Osteoporos Int (2025)"
+     ],
+     "situation": "Un patient en insuffisance rénale chronique a un P1NP total élevé.",
+     "piege": "Conclure à un haut remodelage osseux.",
+     "bonneConduite": "Interpréter le P1NP total avec prudence, ou choisir la phosphatase alcaline osseuse."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -725,6 +1408,43 @@
    "ref": "phosphatase_alcaline_osseuse",
    "nom": "Phosphatase alcaline osseuse",
    "defis": [
+    {
+     "id": "phosphatase_alcaline_osseuse-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "De 11 à 15 ans, l'intervalle va de 20 à 208 µg/l, selon les HUG (2026).",
+      "pourquoiFaux": "L'intervalle adulte (5,7 à 32,9 µg/l chez l'homme) ne s'applique pas à l'enfant."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "contexte": "Un garçon de 13 ans, à Neuchâtel, en pleine croissance, a un bilan.",
+     "valeurAvecUnite": "PAL osseuse 150 µg/l",
+     "question": "Que conclure ?",
+     "reponse": "Valeur normale pour l'âge"
+    },
+    {
+     "id": "phosphatase_alcaline_osseuse-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "La PAL osseuse est parmi les marqueurs les plus prometteurs pour distinguer haut et bas remodelage dans la maladie rénale chronique avancée, selon l'ESCEO, l'IOF et l'IFCC (2025).",
+      "pourquoiFaux": "Le CTX peut monter par rétention rénale, selon l'ESCEO, l'IOF et l'IFCC (2025)."
+     },
+     "sources": [
+      "ESCEO, IOF et IFCC, Bhattoa et al., consensus sur les marqueurs du remodelage osseux, Osteoporos Int (2025)"
+     ],
+     "situation": "Un néphrologue veut suivre le remodelage osseux d'un patient en insuffisance rénale avancée.",
+     "piege": "Choisir le CTX, qui s'accumule dans l'insuffisance rénale.",
+     "bonneConduite": "Choisir la phosphatase alcaline osseuse."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -765,6 +1485,43 @@
    "nom": "HGPO 75 g (hyperglycémie provoquée orale)",
    "defis": [
     {
+     "id": "hgpo_75_g-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Une seule valeur atteinte suffit ; 10,0 mmol/l à 1 h est dépassé, selon l'ADA (2026).",
+      "pourquoiFaux": "Les deux autres valeurs normales n'annulent pas le diagnostic, selon l'ADA (2026)."
+     },
+     "sources": [
+      "ADA, Standards of Care in Diabetes 2026, section 2 (diagnostic)"
+     ],
+     "contexte": "Une femme de 29 ans, à Berne, enceinte de 26 semaines, fait une HGPO de 75 g.",
+     "valeurAvecUnite": "Glycémie : 4,8 à jeun, 10,4 à 1 h, 7,9 à 2 h",
+     "question": "Quel diagnostic retenir ?",
+     "reponse": "Diabète gestationnel"
+    },
+    {
+     "id": "hgpo_75_g-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) exigent un tube par temps, l'heure et le temps T sur chaque étiquette, et la mention d'un prélèvement manqué.",
+      "pourquoiFaux": "Sans ces mentions, les résultats ne peuvent pas être attribués aux bons temps."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Pendant une HGPO, le prélèvement à 1 h est oublié ; les tubes ne portent pas l'heure.",
+     "piege": "Envoyer les tubes sans noter l'oubli ni les heures.",
+     "bonneConduite": "Noter le temps manqué et l'heure de chaque tube sur l'étiquette."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -800,5 +1557,49 @@
    ]
   }
  ],
- "glossaire": {}
+ "glossaire": {
+  "ADA": "American Diabetes Association, société américaine du diabète.",
+  "Anti-Tg": "Anticorps anti-thyroglobuline.",
+  "Anti-TPO": "Anticorps anti-thyroperoxydase.",
+  "ATA": "American Thyroid Association, société américaine de la thyroïde.",
+  "BALP": "Phosphatase alcaline osseuse (bone alkaline phosphatase).",
+  "CHUV": "Centre hospitalier universitaire vaudois (Lausanne).",
+  "CTX": "Télopeptide C-terminal du collagène de type I, marqueur de résorption osseuse.",
+  "D2": "Vitamine D2 (ergocalciférol), dans 25-OH-D2.",
+  "D3": "Vitamine D3 (cholécalciférol), dans 25-OH-D3.",
+  "EDTA": "Anticoagulant des tubes violets ou mauves.",
+  "ETA": "European Thyroid Association, société européenne de la thyroïde.",
+  "FT3": "T3 libre (free T3).",
+  "FT4": "T4 libre (free T4).",
+  "HbA1c": "Hémoglobine glyquée, reflet de la glycémie des semaines passées.",
+  "HGPO": "Hyperglycémie provoquée par voie orale (75 g de glucose).",
+  "HUG": "Hôpitaux universitaires de Genève.",
+  "IFCC": "Fédération internationale de chimie clinique et de médecine de laboratoire.",
+  "IOF": "International Osteoporosis Foundation, fondation internationale de l'ostéoporose.",
+  "IOF-IFCC": "Groupe commun de l'IOF et de l'IFCC sur les marqueurs osseux.",
+  "IPP": "Inhibiteurs de la pompe à protons, médicaments anti-acides.",
+  "LCR": "Liquide céphalorachidien.",
+  "LT4": "Lévothyroxine (L-thyroxine de synthèse).",
+  "NGSP": "Programme américain de standardisation de l'HbA1c, qui l'exprime en %.",
+  "OGTT": "Oral glucose tolerance test, nom anglais de l'HGPO.",
+  "OH": "Groupe hydroxyle ; 25-OH désigne la forme 25-hydroxylée de la vitamine D.",
+  "OH-D": "25-hydroxyvitamine D (calcidiol).",
+  "OH-vitamine": "25-hydroxyvitamine D (calcidiol).",
+  "P1NP": "Propeptide N-terminal du procollagène de type I, marqueur de formation osseuse.",
+  "PAL": "Phosphatase alcaline.",
+  "PINP": "Autre écriture du P1NP.",
+  "PTH": "Parathormone, hormone des parathyroïdes.",
+  "SGLT2": "Cotransporteur sodium-glucose de type 2 ; ses inhibiteurs sont des antidiabétiques.",
+  "TAK": "Abréviation allemande des anticorps anti-thyroglobuline.",
+  "TG": "Thyroglobuline.",
+  "THS": "Traitement hormonal de substitution de la ménopause.",
+  "TPO": "Thyroperoxydase, enzyme de la thyroïde.",
+  "TRAb": "Anticorps anti-récepteur de la TSH.",
+  "TRACP5b": "Phosphatase acide résistante au tartrate 5b, marqueur de résorption osseuse.",
+  "TRAK": "Abréviation allemande des anticorps anti-récepteur de la TSH.",
+  "TSH": "Thyréostimuline, hormone hypophysaire qui commande la thyroïde.",
+  "UI": "Unité internationale.",
+  "USZ": "Hôpital universitaire de Zurich.",
+  "ESCEO": "European Society for Clinical and Economic Aspects of Osteoporosis, Osteoarthritis and Musculoskeletal Diseases (Société européenne des aspects cliniques et économiques de l'ostéoporose et des maladies musculo-squelettiques)."
+ }
 }

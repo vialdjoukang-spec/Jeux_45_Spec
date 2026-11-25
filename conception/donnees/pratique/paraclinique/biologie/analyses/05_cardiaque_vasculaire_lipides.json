@@ -8,7 +8,7 @@
    "Aventure par type d'examen",
    "Lecture d'image et de tracé"
   ],
-  "statut": "À REMPLIR",
+  "statut": "PRODUIT — à auditer",
   "regles": [
    "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
    "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
@@ -16,6 +16,9 @@
    "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
    "mode : un des modes du projet (voir _meta.modes).",
    "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+  ],
+  "aVerifier": [
+   "toutes › cas : contextes suisses inventés pour le jeu ; seules les valeurs et règles citées viennent des sources"
   ]
  },
  "entites": [
@@ -23,6 +26,45 @@
    "ref": "troponine_t_hypersensible",
    "nom": "Troponine T hypersensible",
    "defis": [
+    {
+     "id": "troponine_t_hypersensible-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Avec le dosage Elecsys, une TnT hs < 12 ng/l avec une variation à 1 h < 3 ng/l exclut l'infarctus, selon Mueller (2016) et l'ESC (2023).",
+      "pourquoiFaux": "L'inclusion exigerait ≥ 52 ng/l ou une hausse à 1 h ≥ 5 ng/l."
+     },
+     "sources": [
+      "Mueller et al., algorithme 0 h/1 h, Ann Emerg Med (2016)",
+      "Universimed, algorithme 0 h/1 h de la troponine hypersensible (2023)",
+      "ESC, recommandations sur les syndromes coronariens aigus (2023), données supplémentaires"
+     ],
+     "contexte": "Un homme de 58 ans, à Bâle, consulte aux urgences pour une douleur thoracique de 3 h.",
+     "valeurAvecUnite": "TnT hs 8 ng/l à 0 h, 9 ng/l à 1 h",
+     "question": "Que conclure ?",
+     "reponse": "Infarctus exclu par l'algorithme"
+    },
+    {
+     "id": "troponine_t_hypersensible-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "Le CHUV (2026) dose la troponine I en cas de myosite ou d'interférence.",
+      "pourquoiFaux": "Lancer une coronarographie sur cette TnT ignore la cause musculaire."
+     },
+     "sources": [
+      "CHUV, catalogue des analyses (2026)"
+     ],
+     "situation": "Une patiente atteinte de myosite a une TnT hs élevée sans douleur thoracique.",
+     "piege": "Retenir une atteinte cardiaque sur la seule TnT.",
+     "bonneConduite": "Demander une troponine I, choisie quand la TnT n'est pas interprétable."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -63,6 +105,46 @@
    "nom": "Troponine I hypersensible",
    "defis": [
     {
+     "id": "troponine_i_hypersensible-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Une hausse ou une baisse avec une valeur au-dessus du 99e percentile signe une lésion aiguë, selon la définition universelle (2018).",
+      "pourquoiFaux": "Une valeur stable sans variation orienterait vers une lésion chronique."
+     },
+     "sources": [
+      "Quatrième définition universelle de l'infarctus (2018), synthèse Cardiol J (2021)",
+      "CHUV, catalogue des analyses (2026)"
+     ],
+     "contexte": "Un homme de 64 ans, à Lausanne, est suivi pour une myosite ; il a une douleur thoracique.",
+     "valeurAvecUnite": "TnI hs élevée, en hausse à 1 h",
+     "question": "Comment lire cette troponine I ?",
+     "reponse": "Lésion myocardique aiguë"
+    },
+    {
+     "id": "troponine_i_hypersensible-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "Les seuils diffèrent entre troponine T et I, selon le CHUV (2026), et sont propres à chaque dosage, selon Universimed (2023) et l'ESC (2023).",
+      "pourquoiFaux": "Appliquer les seuils de la TnT expose à des erreurs d'exclusion."
+     },
+     "sources": [
+      "CHUV, catalogue des analyses (2026)",
+      "Universimed, algorithme 0 h/1 h de la troponine hypersensible (2023)",
+      "ESC, recommandations sur les syndromes coronariens aigus (2023), données supplémentaires"
+     ],
+     "situation": "Un interne applique à une TnI hs les seuils de 12 et 52 ng/l de la TnT hs.",
+     "piege": "Croire que les seuils sont communs aux deux troponines.",
+     "bonneConduite": "Utiliser les seuils propres au dosage de troponine I du laboratoire."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -101,6 +183,43 @@
    "ref": "ck",
    "nom": "CK",
    "defis": [
+    {
+     "id": "ck-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "La CK pose le diagnostic de rhabdomyolyse, avec des seuils de 1000 à 5000 U/l, selon la RMS (2020).",
+      "pourquoiFaux": "L'urine couleur thé, due à la myoglobine, va dans le même sens, selon la RMS (2020)."
+     },
+     "sources": [
+      "Revue médicale suisse, rhabdomyolyse (2020)"
+     ],
+     "contexte": "Un homme de 24 ans, à Zurich, a des urines couleur thé après un entraînement intense.",
+     "valeurAvecUnite": "CK 38 000 U/l",
+     "question": "Quel diagnostic retenir ?",
+     "reponse": "Une rhabdomyolyse"
+    },
+    {
+     "id": "ck-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "L'hémolyse élève la CK, selon l'USZ (2026).",
+      "pourquoiFaux": "Prendre ce résultat au pied de la lettre confond un artefact avec une atteinte musculaire."
+     },
+     "sources": [
+      "Hôpital universitaire de Zurich, préanalytique et valeurs d'alarme (2026)"
+     ],
+     "situation": "Un tube de CK arrive hémolysé au laboratoire.",
+     "piege": "Interpréter la CK telle quelle.",
+     "bonneConduite": "Refaire le prélèvement sans hémolyse."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -141,6 +260,46 @@
    "nom": "CK-MB",
    "defis": [
     {
+     "id": "ck_mb-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La CK-MB, surtout présente dans le myocarde, aide à situer l'origine d'une CK élevée, selon Medics (2026) ; une part < 6 % de la CK totale est la norme du CHUV (2024).",
+      "pourquoiFaux": "Conclure à un infarctus sur la CK totale ignore ce rapport."
+     },
+     "sources": [
+      "CHUV, intervalles de référence de chimie clinique (2024)",
+      "Medics, répertoire des analyses (2026)"
+     ],
+     "contexte": "Un homme de 70 ans, à Genève, a une CK totale élevée après une chute.",
+     "valeurAvecUnite": "CK-MB < 6 % de la CK totale",
+     "question": "D'où vient la CK ?",
+     "reponse": "Du muscle squelettique"
+    },
+    {
+     "id": "ck_mb-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Le CHUV (2026) fait de la TnT hs l'examen de choix du syndrome coronarien aigu ; les HUG (2026) réservent la CK-MB aux soins intensifs et à la cardiologie.",
+      "pourquoiFaux": "La CK-MB n'apparaît que 3 à 8 h après le début, selon Medics (2026)."
+     },
+     "sources": [
+      "CHUV, catalogue des analyses (2026)",
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "Medics, répertoire des analyses (2026)"
+     ],
+     "situation": "Un médecin de cabinet demande une CK-MB pour une douleur thoracique.",
+     "piege": "Croire que la CK-MB remplace la troponine.",
+     "bonneConduite": "Demander une troponine hypersensible, examen de choix du syndrome coronarien aigu."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -179,6 +338,45 @@
    "ref": "myoglobine",
    "nom": "Myoglobine",
    "defis": [
+    {
+     "id": "myoglobine-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La myoglobine monte tôt, en moins de 3 h, et a une demi-vie de 2 à 4 h, selon Medics (2026) et la RMS (2020).",
+      "pourquoiFaux": "Elle n'est pas propre au cœur : le muscle squelettique la libère aussi."
+     },
+     "sources": [
+      "Medics, répertoire des analyses (2026)",
+      "Revue médicale suisse, rhabdomyolyse (2020)"
+     ],
+     "contexte": "Un homme de 30 ans, à Berne, a été écrasé sous une charge 6 h plus tôt.",
+     "valeurAvecUnite": "Myoglobine 2400 µg/l",
+     "question": "Comment lire ce résultat ?",
+     "reponse": "Lésion musculaire récente"
+    },
+    {
+     "id": "myoglobine-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La myoglobine se normalise en environ 24 h, selon Medics (2026) ; la CK culmine à 48 h, selon la RMS (2020).",
+      "pourquoiFaux": "Une myoglobine normale si tard ne dit rien de l'épisode."
+     },
+     "sources": [
+      "Medics, répertoire des analyses (2026)",
+      "Revue médicale suisse, rhabdomyolyse (2020)"
+     ],
+     "situation": "Un patient arrive 3 jours après une rhabdomyolyse ; myoglobine normale, CK encore élevée.",
+     "piege": "Exclure la rhabdomyolyse sur la myoglobine.",
+     "bonneConduite": "Se fier à la CK, qui reste élevée plus longtemps."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -219,6 +417,44 @@
    "nom": "NT-proBNP",
    "defis": [
     {
+     "id": "nt_probnp-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Après 75 ans, le seuil est de 1800 ng/l en aigu, selon les HUG (2026).",
+      "pourquoiFaux": "Le seuil de 300 ng/l sert à exclure ; il est largement dépassé."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "Revue médicale suisse, insuffisance cardiaque (2021)"
+     ],
+     "contexte": "Une femme de 80 ans, à Sion, a une dyspnée aiguë.",
+     "valeurAvecUnite": "NT-proBNP 2400 ng/l",
+     "question": "Comment lire ce résultat ?",
+     "reponse": "Insuffisance cardiaque probable"
+    },
+    {
+     "id": "nt_probnp-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Sous sacubitril/valsartan, on suit le NT-proBNP et non le BNP, selon la RMS (2021).",
+      "pourquoiFaux": "Suivre le BNP sous ce traitement va contre la recommandation."
+     },
+     "sources": [
+      "Revue médicale suisse, insuffisance cardiaque (2021)"
+     ],
+     "situation": "Un patient traité par sacubitril/valsartan est suivi par BNP.",
+     "piege": "Suivre le BNP sous ce traitement.",
+     "bonneConduite": "Suivre le NT-proBNP."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -257,6 +493,43 @@
    "ref": "bnp",
    "nom": "BNP",
    "defis": [
+    {
+     "id": "bnp-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Hors contexte aigu, un BNP < 35 pg/ml exclut une insuffisance cardiaque, selon la RMS (2021).",
+      "pourquoiFaux": "En aigu, le seuil d'exclusion est de 100 pg/ml."
+     },
+     "sources": [
+      "Revue médicale suisse, insuffisance cardiaque (2021)"
+     ],
+     "contexte": "Un homme de 66 ans, à Lausanne, consulte pour une dyspnée chronique à l'effort.",
+     "valeurAvecUnite": "BNP 28 pg/ml",
+     "question": "Que conclure ?",
+     "reponse": "Insuffisance cardiaque peu probable"
+    },
+    {
+     "id": "bnp-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "La biotine peut donner des résultats faussement bas, selon Viollier (2026).",
+      "pourquoiFaux": "Se fier au résultat peut manquer une insuffisance cardiaque."
+     },
+     "sources": [
+      "Viollier, répertoire des analyses (2026)"
+     ],
+     "situation": "Un patient prend de fortes doses de biotine ; son BNP est bas malgré des œdèmes.",
+     "piege": "Exclure l'insuffisance cardiaque.",
+     "bonneConduite": "Signaler la biotine au laboratoire et refaire le dosage après son arrêt."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -297,6 +570,45 @@
    "nom": "Cholestérol total",
    "defis": [
     {
+     "id": "cholesterol_total-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "L'hypothyroïdie, la cholestase et le syndrome néphrotique élèvent le cholestérol ; on dose la TSH, selon medix (2025).",
+      "pourquoiFaux": "Débuter une statine sans bilan peut manquer une hypothyroïdie."
+     },
+     "sources": [
+      "medix, guide hyperlipidémie (2025)",
+      "HUG, aide à l'interprétation du bilan lipidique (2021)"
+     ],
+     "contexte": "Un homme de 50 ans, à Fribourg, fait un bilan ; TSH non dosée.",
+     "valeurAvecUnite": "Cholestérol total 7,2 mmol/l",
+     "question": "Quelle étape précède le traitement ?",
+     "reponse": "Exclure une cause secondaire"
+    },
+    {
+     "id": "cholesterol_total-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Le jeûne n'est pas nécessaire pour la plupart des bilans, selon les HUG (2021).",
+      "pourquoiFaux": "Exiger le jeûne retarde le bilan sans gain."
+     },
+     "sources": [
+      "HUG, aide à l'interprétation du bilan lipidique (2021)",
+      "medix, guide hyperlipidémie (2025)"
+     ],
+     "situation": "Un patient vient à jeun depuis 14 h pour un simple bilan lipidique.",
+     "piege": "Croire que le jeûne est obligatoire.",
+     "bonneConduite": "Accepter un prélèvement non à jeun pour la plupart des bilans."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -335,6 +647,45 @@
    "ref": "ldl_cholesterol",
    "nom": "LDL-cholestérol",
    "defis": [
+    {
+     "id": "ldl_cholesterol-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "En risque très élevé, la cible du LDL est < 1,4 mmol/l avec une baisse ≥ 50 %, selon le GSLA (2023).",
+      "pourquoiFaux": "Une cible de 2,6 mmol/l ne vaut que pour le risque modéré."
+     },
+     "sources": [
+      "GSLA, objectifs thérapeutiques (2023), fiche Risch",
+      "HUG, aide à l'interprétation du bilan lipidique (2021)"
+     ],
+     "contexte": "Un homme de 61 ans, à Neuchâtel, a fait un infarctus ; il prend une statine.",
+     "valeurAvecUnite": "LDL 2,1 mmol/l",
+     "question": "La cible est-elle atteinte ?",
+     "reponse": "Non, cible < 1,4 mmol/l"
+    },
+    {
+     "id": "ldl_cholesterol-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Au-delà de 4,5 mmol/l de triglycérides, la formule de Friedewald est fausse, selon medix (2025).",
+      "pourquoiFaux": "Adapter le traitement sur ce calcul est une erreur."
+     },
+     "sources": [
+      "medix, guide hyperlipidémie (2025)",
+      "CHUV, intervalles de référence de chimie clinique (2024)"
+     ],
+     "situation": "Un patient a des triglycérides à 5,8 mmol/l et un LDL calculé.",
+     "piege": "Se fier au LDL calculé.",
+     "bonneConduite": "Mesurer le LDL directement ou contrôler à jeun."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -375,6 +726,43 @@
    "nom": "HDL-cholestérol",
    "defis": [
     {
+     "id": "hdl_cholesterol-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Un HDL ≤ 1 mmol/l indique un risque plus élevé et fait chercher d'autres facteurs de risque, selon les HUG (2021).",
+      "pourquoiFaux": "Le HDL n'a pas de cible thérapeutique en soi."
+     },
+     "sources": [
+      "HUG, aide à l'interprétation du bilan lipidique (2021)"
+     ],
+     "contexte": "Une femme de 55 ans, à Genève, a un bilan lipidique.",
+     "valeurAvecUnite": "HDL 0,9 mmol/l",
+     "question": "Que faire de ce HDL ?",
+     "reponse": "Chercher d'autres facteurs de risque"
+    },
+    {
+     "id": "hdl_cholesterol-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La lipémie perturbe les dosages et le HDL ne se mesure pas après ultracentrifugation, selon l'USZ (2026).",
+      "pourquoiFaux": "Rendre le résultat tel quel expose à une erreur."
+     },
+     "sources": [
+      "Hôpital universitaire de Zurich, préanalytique et valeurs d'alarme (2026)"
+     ],
+     "situation": "Un échantillon très lipémique arrive pour un HDL.",
+     "piege": "Croire que la lipémie n'a pas d'effet.",
+     "bonneConduite": "Prévenir le laboratoire et refaire le prélèvement si besoin."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -413,6 +801,44 @@
    "ref": "triglycerides",
    "nom": "Triglycérides",
    "defis": [
+    {
+     "id": "triglycerides-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Une hypertriglycéridémie excessive expose à la pancréatite, et l'alcool en est une cause, selon medix (2025).",
+      "pourquoiFaux": "Le risque cardiovasculaire n'est pas ici le danger immédiat."
+     },
+     "sources": [
+      "medix, guide hyperlipidémie (2025)"
+     ],
+     "contexte": "Un homme de 46 ans, à Lugano, boit beaucoup et a un diabète mal équilibré.",
+     "valeurAvecUnite": "Triglycérides 12 mmol/l",
+     "question": "Quel risque surveiller ?",
+     "reponse": "La pancréatite aiguë"
+    },
+    {
+     "id": "triglycerides-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Le jeûne modifie les triglycérides d'environ 0,3 mmol/l en moyenne, selon les HUG (2021) ; on contrôle à jeun au-delà de 4,5 mmol/l, selon medix (2025).",
+      "pourquoiFaux": "Exiger le jeûne pour tous les bilans n'est pas nécessaire."
+     },
+     "sources": [
+      "HUG, aide à l'interprétation du bilan lipidique (2021)",
+      "medix, guide hyperlipidémie (2025)"
+     ],
+     "situation": "Un patient a mangé un repas gras 1 h avant le prélèvement.",
+     "piege": "Croire que le repas ne joue pas sur les triglycérides.",
+     "bonneConduite": "Interpréter avec prudence, ou contrôler à jeun si la valeur est élevée."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -453,6 +879,44 @@
    "nom": "Lp(a)",
    "defis": [
     {
+     "id": "lp-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Une Lp(a) > 50 mg/dl (500 mg/l) est un facteur de risque, selon medix (2025) ; les HUG (2026) la jugent élevée au-delà de 300 mg/l.",
+      "pourquoiFaux": "Un LDL normal n'annule pas ce risque."
+     },
+     "sources": [
+      "medix, guide hyperlipidémie (2025)",
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "contexte": "Une femme de 42 ans, à Berne, a un père infarci à 50 ans ; LDL normal.",
+     "valeurAvecUnite": "Lp(a) 620 mg/l",
+     "question": "Comment lire ce résultat ?",
+     "reponse": "Facteur de risque cardiovasculaire"
+    },
+    {
+     "id": "lp-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La méthode de dosage modifie le résultat, selon les HUG (2026).",
+      "pourquoiFaux": "Conclure à une variation réelle peut être faux."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un médecin compare une Lp(a) faite dans deux laboratoires différents.",
+     "piege": "Comparer directement les deux valeurs.",
+     "bonneConduite": "Suivre la Lp(a) dans le même laboratoire."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -491,6 +955,43 @@
    "ref": "apolipoproteine_b",
    "nom": "Apolipoprotéine B",
    "defis": [
+    {
+     "id": "apolipoproteine_b-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "En risque élevé, la cible d'apoB est < 0,8 g/l, selon le GSLA (2023).",
+      "pourquoiFaux": "Une cible de 1 g/l ne vaut que pour le risque modéré."
+     },
+     "sources": [
+      "GSLA, objectifs thérapeutiques (2023), fiche Risch"
+     ],
+     "contexte": "Un homme de 59 ans, diabétique, à Zurich, a des triglycérides élevés.",
+     "valeurAvecUnite": "ApoB 0,95 g/l, risque élevé",
+     "question": "La cible est-elle atteinte ?",
+     "reponse": "Non, cible < 0,8 g/l"
+    },
+    {
+     "id": "apolipoproteine_b-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "L'apoB est un marqueur alternatif, surtout en cas de triglycérides élevés ou de LDL très bas, selon Medics (2026).",
+      "pourquoiFaux": "Le LDL seul peut sous-estimer le risque dans ce cas."
+     },
+     "sources": [
+      "Medics, répertoire des analyses (2026)"
+     ],
+     "situation": "Un patient a un LDL très bas mais des triglycérides élevés.",
+     "piege": "Se fier au seul LDL.",
+     "bonneConduite": "Doser l'apoB comme marqueur de risque complémentaire."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -531,6 +1032,45 @@
    "nom": "Homocystéine",
    "defis": [
     {
+     "id": "homocysteine-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Une carence en B6, B12 ou folates élève l'homocystéine, selon Medics (2026).",
+      "pourquoiFaux": "Les causes génétiques existent, mais le régime végétalien oriente vers une carence."
+     },
+     "sources": [
+      "Medics, répertoire des analyses (2026)",
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "contexte": "Une femme de 68 ans, végétalienne, à Genève, a des fourmillements.",
+     "valeurAvecUnite": "Homocystéine 38 µmol/l",
+     "question": "Quelle cause rechercher ?",
+     "reponse": "Une carence en B12 ou folates"
+    },
+    {
+     "id": "homocysteine-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Le CHUV (2026) exige la glace pilée et une centrifugation à 4 °C sans délai ; sans séparation dans les 30 min, l'homocystéine monte d'environ 10 % par heure, selon Medics (2026).",
+      "pourquoiFaux": "Un tube laissé à l'air ambiant ne respecte pas ces conditions."
+     },
+     "sources": [
+      "CHUV, catalogue des analyses (2026)",
+      "Medics, répertoire des analyses (2026)"
+     ],
+     "situation": "Un tube d'homocystéine reste 2 h à température ambiante avant d'être centrifugé.",
+     "piege": "Croire que le délai n'a pas d'effet.",
+     "bonneConduite": "Mettre le tube sur glace pilée et le centrifuger à 4 °C sans délai."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -566,5 +1106,48 @@
    ]
   }
  ],
- "glossaire": {}
+ "glossaire": {
+  "ALAT": "Alanine aminotransférase, enzyme surtout hépatique.",
+  "ApoB": "Apolipoprotéine B, protéine des lipoprotéines athérogènes.",
+  "ApoB-100": "Forme principale de l'apolipoprotéine B, seule apolipoprotéine des LDL.",
+  "ASAT": "Aspartate aminotransférase, enzyme du foie, du cœur et du muscle.",
+  "AVC": "Accident vasculaire cérébral.",
+  "B12": "Vitamine B12 (cobalamine).",
+  "B6": "Vitamine B6 (pyridoxine).",
+  "BNP": "Peptide natriurétique de type B.",
+  "CBS": "Cystathionine bêta-synthase, enzyme du métabolisme de l'homocystéine.",
+  "CHUV": "Centre hospitalier universitaire vaudois, Lausanne.",
+  "CK": "Créatine kinase, enzyme du muscle.",
+  "CK-MB": "Isoenzyme MB de la créatine kinase, surtout présente dans le myocarde.",
+  "CKMB": "Isoenzyme MB de la créatine kinase.",
+  "CPK": "Créatine phosphokinase, autre nom de la CK.",
+  "CPK-MB": "Isoenzyme MB de la créatine kinase.",
+  "CT": "Cholestérol total.",
+  "ECG": "Électrocardiogramme.",
+  "EDTA": "Anticoagulant des tubes violets ou mauves.",
+  "GSLA": "Groupe de travail suisse lipides et athérosclérose (AGLA).",
+  "HDL": "Lipoprotéines de haute densité.",
+  "HDL-C": "Cholestérol des HDL.",
+  "HUG": "Hôpitaux universitaires de Genève.",
+  "IC": "Insuffisance cardiaque.",
+  "LDH": "Lactate déshydrogénase.",
+  "LDL": "Lipoprotéines de basse densité ; leur cholestérol est la cible du traitement.",
+  "LDL-C": "Cholestérol des LDL.",
+  "MB": "Isoenzyme muscle-cerveau de la créatine kinase.",
+  "MS": "Méthionine synthase.",
+  "MTHFR": "Méthylènetétrahydrofolate réductase.",
+  "Non-HDL": "Cholestérol non-HDL : cholestérol total moins HDL.",
+  "NT-pro-BNP": "Fragment N-terminal du précurseur du BNP.",
+  "NT-proBNP": "Fragment N-terminal du précurseur du BNP.",
+  "PCSK9": "Proprotéine convertase subtilisine/kexine de type 9, cible de médicaments hypolipémiants.",
+  "Pro-BNP": "Précurseur du peptide natriurétique de type B.",
+  "RMS": "Revue médicale suisse.",
+  "TG": "Triglycérides.",
+  "TGL": "Triglycérides.",
+  "TnI": "Troponine I cardiaque.",
+  "TnT": "Troponine T cardiaque.",
+  "TSH": "Thyréostimuline, dosée pour exclure une hypothyroïdie.",
+  "USZ": "Hôpital universitaire de Zurich.",
+  "ESC": "Société européenne de cardiologie."
+ }
 }

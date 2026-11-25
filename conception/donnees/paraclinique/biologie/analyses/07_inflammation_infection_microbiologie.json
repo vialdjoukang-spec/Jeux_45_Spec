@@ -1,11 +1,31 @@
 {
  "_meta": {
   "famille": "07_Inflammation_Infection_Microbiologie",
-  "statut": "LISTE COMPLÈTE — une analyse = une fiche ; valeurs SI suisses à remplir",
+  "statut": "PRODUIT — à auditer",
   "regles": [
    "Source unique des valeurs de référence biologiques.",
    "Unités SI suisses ; valeurs par âge, sexe et grossesse quand elles diffèrent.",
    "Causes de hausse et de baisse : des plus fréquentes aux plus graves."
+  ],
+  "aVerifier": [
+   "crp › valeursReference : deux laboratoires universitaires suisses donnent des bornes différentes (HUG < 10,0 mg/l ; Inselspital < 5 mg/l, notice Roche CRP4) ; les deux sont citées",
+   "lymphocytes_t_cd4 › valeursReference : aucun intervalle de référence chiffré dans les fiches HUG/CHUV ouvertes ; le champ cite les seuils cliniques EACS (200 et 100 cellules/µl)",
+   "charge_virale_vih, serologie_toxoplasmose, serologie_rubeole, serologie_varicelle_zona, galactomannane_aspergillaire › organes : champ « organes » vide sur le squelette d'origine et non modifiable ; signalé seulement",
+   "hemocultures › delaiResultat : durée d'incubation standard (5 jours) non relue dans la fiche CHUV ouverte ; le champ donne les horaires de prise en charge",
+   "serologie_parvovirus_b19 › delaiResultat : aucun délai chiffré publié par le CHUV ; pas de fiche HUG ouverte",
+   "test_de_liberation_d_interferon_gamma › valeursReference : seuil quantitatif (UI/ml) du QuantiFERON non publié dans la fiche CHUV ; résultat donné qualitatif",
+   "precipitines › tube : aucune fiche suisse « précipitines » trouvée (HUG 7128/7129/8116/9178 inaccessibles) ; tube de la fiche CHUV « Aspergillus fumigatus FEIA », externalisée, à confirmer",
+   "precipitines › valeursReference : aucun seuil chiffré : résultat selon le laboratoire externe",
+   "serologies_du_voyageur › tube : fiche HUG de la schistosomiase (sérologie) non trouvée ; seule la microscopie urinaire CHUV est citée",
+   "galactomannane_aspergillaire, d_glucane › seuilsCritiques : seuils EORTC (galactomannane ≥ 1,0, BDG ≥ 80 ng/l) présents dans le contenu d'organe validé mais non rouverts : non repris",
+   "toutes les sérologies › valeursReference : les fiches HUG donnent « NEG/POS » ou une unité sans seuil chiffré ; les seuils de positivité dépendent de la trousse",
+   "d_glucane › seuil : < 7,00 pg/ml diffère de Fungitell (60-80) et de Wako (11) ; propre au kit HUG ? (audit Claude 2026-11-25)",
+   "test_rapide_du_streptocoque_a › delaiResultat : donne le délai de la culture (1 à 14 jours) au lieu de celui du test rapide (minutes) (audit Claude 2026-11-25)",
+   "recherche_de_microfilaires › horaires : 22-24 h (HUG) et 22-2 h (CHUV) incohérents d'un champ à l'autre (audit Claude 2026-11-25)",
+   "serologie_de_la_borreliose › bulle : citations smarter medicine (pédiatrie 2024, infectiologie 2020) non vérifiées (audit Claude 2026-11-25)",
+   "hemocultures › diminution : le prélèvement sur cathéter augmente la contamination ; mal rangé (audit Claude 2026-11-25)",
+   "syphilis_tppa_et_vdrl_rpr › defi pratique : baisse de 2 fois à 6 mois jugée insuffisante alors que le CDC 2021 laisse 6 à 12 mois (audit Claude 2026-11-25)",
+   "EACS › version 12.0 citée ; version en vigueur à vérifier (audit Claude 2026-11-25)"
   ]
  },
  "analyses": [
@@ -13,21 +33,29 @@
    "id": "crp",
    "nom": "CRP",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard vert de 2 ml (microtube vert de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube vert à l'héparinate de lithium de 2,6 ml, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "mg/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "< 10,0 mg/l, selon le répertoire des analyses des HUG (2026) ; < 5 mg/l, selon le Zentrum für Labormedizin de l'Inselspital (2026, valeurs de référence).",
+    "adulteFemme": "< 10,0 mg/l, selon le répertoire des analyses des HUG (2026) ; < 5 mg/l, selon le Zentrum für Labormedizin de l'Inselspital (2026, valeurs de référence).",
+    "enfant": "< 10,0 mg/l pour tout âge, selon le répertoire des analyses des HUG (2026) ; < 5 mg/l à tout âge, selon le Zentrum für Labormedizin de l'Inselspital (2026, valeurs de référence).",
+    "grossesse": "< 10,0 mg/l pour tout âge, selon le répertoire des analyses des HUG (2026), sans valeur propre à la grossesse.",
+    "sujetAge": "< 10,0 mg/l pour tout âge, selon le répertoire des analyses des HUG (2026) ; l'âge fait partie des facteurs de variabilité, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "En pneumonie communautaire, une baisse de moins de 50 % au quatrième jour de traitement fait craindre complication ou échec, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026).",
+   "variationsPhysiologiques": "La CRP ne dépend ni de l'heure ni des repas ; elle varie selon l'âge, le sexe, le cycle menstruel, l'IMC, le tabac et des médicaments comme la contraception orale, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026).",
+   "augmentation": [
+    "Infection bactérienne : la CRP peut être multipliée par 100 en 24 heures, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026).",
+    "État inflammatoire chronique, avec élévation persistante, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026).",
+    "Traumatisme et certains cancers, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026).",
+    "Obésité, diabète, syndrome métabolique et maladie cardiovasculaire, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026)."
+   ],
+   "diminution": [
+    "Infection virale ou parasitaire : la CRP n'augmente pas ou peu, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026).",
+    "Guérison : retour à la normale 3 à 4 jours après la résolution de la cause, la demi-vie étant d'environ 20 heures, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026)."
+   ],
+   "interferences": "Les contraceptifs oraux et les immunosuppresseurs font partie des médicaments qui modifient la CRP, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026).",
+   "delaiResultat": "Une heure dans 95 % des cas, huit heures au plus, selon le répertoire des analyses des HUG (2026).",
    "organes": [
     "Appendice",
     "Articulations et synoviale",
@@ -39,94 +67,244 @@
     "Vaisseaux du cou et de la tête",
     "Œil et orbite"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Protéine C réactive",
+    "PCR (protéine C-réactive)"
+   ],
+   "parametres": [
+    {
+     "nom": "CRP",
+     "unite": "mg/l",
+     "valeurs": "< 10,0 mg/l, selon le répertoire des analyses des HUG (2026) ; < 5 mg/l, selon le Zentrum für Labormedizin de l'Inselspital (2026, valeurs de référence)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "CRP très élevée en 24 h",
+     "signification": "Elle oriente vers une infection bactérienne, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026)."
+    },
+    {
+     "anomalie": "CRP normale avec fièvre",
+     "signification": "Elle va avec une infection virale, où la CRP reste normale ou peu élevée, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026)."
+    },
+    {
+     "anomalie": "CRP qui baisse < 50 % au 4e jour",
+     "signification": "En pneumonie, elle fait craindre une complication ou un échec, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Syndrome inflammatoire biologique",
+     "anomaliesQuiLeComposent": [
+      "CRP élevée",
+      "Fibrinogène élevé",
+      "Polynucléose neutrophile"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Pneumonie communautaire bactérienne",
+     "anomalieTypique": "CRP élevée, baisse ≥ 50 % au 4e jour"
+    },
+    {
+     "pathologie": "Polyarthrite rhumatoïde",
+     "anomalieTypique": "CRP élevée, préférée à la VS"
+    }
+   ],
+   "bulle": {
+    "def": "La CRP est une protéine de la phase aiguë, fabriquée par le foie sous l'effet de l'interleukine 6, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026).",
+    "pourquoi": "Elle signale une inflammation aiguë et aide à distinguer infection bactérienne et virale, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026).",
+    "confusion": "« Ne pas prescrire d’antibiotique lors de la découverte isolée d’une Protéine C-réactive (CRP) ou d’une Procalcitonine (PCT) élevée. », selon Smarter Medicine (2023, médecine interne générale hospitalière).",
+    "retenir": "CRP usuelle < 10,0 mg/l aux HUG et < 5 mg/l à l'Inselspital ; elle monte en 24 h et se normalise en 3 à 4 jours, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026)."
+   }
   },
   {
    "id": "procalcitonine",
    "nom": "Procalcitonine",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard jaune de 3,5 ml (microtube jaune de 0,6 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube vert à l'héparinate de lithium de 2,6 ml, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "µg/l",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Valeur usuelle < 0,5 µg/l, selon le répertoire des analyses des HUG (2026) ; sous 0,5 µg/l, une infection systémique est peu probable, selon le catalogue des analyses du CHUV (2026).",
+    "adulteFemme": "Valeur usuelle < 0,5 µg/l, selon le répertoire des analyses des HUG (2026) ; sous 0,5 µg/l, une infection systémique est peu probable, selon le catalogue des analyses du CHUV (2026).",
+    "enfant": "Chez le nouveau-né, la PCT monte d'abord puis redescend sous 0,5 µg/l après 72 heures ; les seuils dépendent de l'heure de vie, selon le catalogue des analyses du CHUV (2026).",
+    "grossesse": "Sous 0,5 µg/l, une infection systémique est peu probable ; pas de seuil propre à la grossesse, selon le catalogue des analyses du CHUV (2026).",
+    "sujetAge": "Sous 0,5 µg/l, une infection systémique est peu probable ; pas de seuil propre au sujet âgé, selon le catalogue des analyses du CHUV (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Au-delà de 2 µg/l, un état septique est fortement suggéré, selon le répertoire des analyses des HUG (2026) ; à 10 µg/l ou plus, sepsis sévère ou choc septique sont très probables, selon le catalogue des analyses du CHUV (2026).",
+   "variationsPhysiologiques": "La PCT est détectable 2 à 4 heures après le début d'une infection ; sa demi-vie est d'environ 24 heures, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026). Elle est physiologiquement haute chez le nouveau-né, de la naissance à 2 jours de vie, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026).",
+   "augmentation": [
+    "Infection bactérienne systémique et sepsis, avec une concentration liée à la sévérité, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026).",
+    "Infection respiratoire basse : à partir de 0,5 µg/l, l'infection bactérienne est suggérée et l'antibiotique fortement recommandé, selon le catalogue des analyses du CHUV (2026).",
+    "Traumatisme majeur, chirurgie lourde, brûlures, choc cardiogénique prolongé, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026).",
+    "Paludisme, infection fongique systémique, cancer médullaire de la thyroïde, cancer pulmonaire à petites cellules, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026)."
+   ],
+   "diminution": [
+    "Infection virale : la PCT reste basse, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026).",
+    "Infection bactérienne locale : une PCT < 0,5 µg/l ne l'exclut pas, selon le répertoire des analyses des HUG (2026).",
+    "Prélèvement trop précoce, moins de 6 heures après l'agression bactérienne : la valeur peut rester basse, selon le catalogue des analyses du CHUV (2026)."
+   ],
+   "interferences": "Des médicaments qui stimulent la libération des cytokines élèvent la PCT, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026). Une PCT mesurée moins de 6 heures après le début de l'infection se refait 6 à 24 heures plus tard, selon le catalogue des analyses du CHUV (2026).",
+   "delaiResultat": "Une heure dans 95 % des cas, huit heures au plus, selon le répertoire des analyses des HUG (2026).",
    "organes": [
     "Infection et immunité",
     "Poumons et voies aériennes"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "PCT"
+   ],
+   "parametres": [
+    {
+     "nom": "Procalcitonine",
+     "unite": "µg/l",
+     "valeurs": "< 0,5 µg/l : infection systémique peu probable, selon le catalogue des analyses du CHUV (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "PCT < 0,1 µg/l (voies respiratoires)",
+     "signification": "Elle indique l'absence d'infection bactérienne ; l'antibiotique est fortement déconseillé, selon le catalogue des analyses du CHUV (2026)."
+    },
+    {
+     "anomalie": "PCT de 0,5 à 2 µg/l",
+     "signification": "Un sepsis est possible ; on surveille et on recontrôle dans les 6 à 24 heures, selon le catalogue des analyses du CHUV (2026)."
+    },
+    {
+     "anomalie": "PCT > 2 µg/l",
+     "signification": "Elle est fortement suggestive d'un état septique, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Sepsis bactérien",
+     "anomaliesQuiLeComposent": [
+      "PCT ≥ 2 µg/l",
+      "CRP élevée",
+      "Hémocultures positives"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Sepsis, choc septique",
+     "anomalieTypique": "PCT ≥ 10 µg/l"
+    },
+    {
+     "pathologie": "Infection respiratoire basse virale",
+     "anomalieTypique": "PCT < 0,1 µg/l"
+    }
+   ],
+   "bulle": {
+    "def": "La PCT est le précurseur de la calcitonine ; sa synthèse est déclenchée par les toxines bactériennes et les cytokines, selon la recommandation luxembourgeoise sur les marqueurs de l'inflammation (2026).",
+    "pourquoi": "Elle aide à décider d'un antibiotique dans l'infection respiratoire basse et à juger un sepsis, selon le catalogue des analyses du CHUV (2026).",
+    "confusion": "« Ne pas prescrire d’antibiotique lors de la découverte isolée d’une Protéine C-réactive (CRP) ou d’une Procalcitonine (PCT) élevée. », selon Smarter Medicine (2023, médecine interne générale hospitalière).",
+    "retenir": "< 0,5 µg/l : sepsis peu probable ; > 2 µg/l : sepsis probable, selon le catalogue des analyses du CHUV (2026)."
+   }
   },
   {
    "id": "hemocultures",
    "nom": "Hémocultures",
    "prelevement": "hemocultures",
-   "tube": null,
-   "unite": null,
+   "tube": "Paire de flacons : aérobie à bouchon bleu et anaérobie à bouchon violet, 8 à 10 ml de sang par flacon ; flacon pédiatrique gris pour 1 à 3 ml, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "Qualitatif (culture positive ou négative)",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Négatives (stériles), selon le catalogue des analyses du CHUV (2026).",
+    "adulteFemme": "Négatives (stériles), selon le catalogue des analyses du CHUV (2026).",
+    "enfant": "Négatives ; selon l'âge et le poids, un seul flacon ou la paire, le flacon gris recevant 1 à 3 ml, selon le catalogue des analyses du CHUV (2026).",
+    "grossesse": "Négatives, sans particularité propre à la grossesse, selon le catalogue des analyses du CHUV (2026).",
+    "sujetAge": "Négatives, sans particularité propre au sujet âgé, selon le catalogue des analyses du CHUV (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Le taux de contamination doit rester sous 3 %, avec une cible de 1 %, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "variationsPhysiologiques": "Chez l'adulte, on prélève 20 à 30 ml de sang par série, répartis entre au moins deux flacons, et 2 à 4 séries, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "augmentation": [
+    "Bactériémie ou fongémie : culture de bactéries ou de levures, selon le catalogue des analyses du CHUV (2026).",
+    "Endocardite ou germe à croissance lente : l'incubation peut être prolongée sur demande, selon le catalogue des analyses du CHUV (2026).",
+    "Contamination par la flore cutanée : staphylocoques à coagulase négative, diphtéroïdes, Bacillus, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "diminution": [
+    "Volume de sang insuffisant, principal facteur qui limite la détection des bactéries et levures, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "Hémocultures prélevées par cathéter plutôt que par ponction veineuse périphérique, plus souvent contaminées, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "interferences": "Plus de 10 ml par flacon augmente le risque de faux positifs ; les flacons restent à température ambiante, jamais au frigo, et partent au laboratoire dans les 24 heures, selon le catalogue des analyses du CHUV (2026).",
+   "delaiResultat": "Flacons incubés dès leur arrivée, de 7 h à 22 h ; les flacons positifs sont pris en charge de 7 h à 19 h, 7 jours sur 7, selon le catalogue des analyses du CHUV (2026).",
    "organes": [
     "Cœur et péricarde",
     "Hanche et bassin",
     "Infection et immunité",
     "Rachis osseux"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Culture de sang",
+    "Hémoculture aérobie et anaérobie"
+   ],
+   "parametres": [
+    {
+     "nom": "Hémoculture (paire)",
+     "unite": "Qualitatif",
+     "valeurs": "Négative, selon le catalogue des analyses du CHUV (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Staphylocoque à coagulase négative",
+     "signification": "Souvent un contaminant de la peau, à interpréter avec prudence, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    },
+    {
+     "anomalie": "Hémoculture positive",
+     "signification": "Elle signale des bactéries ou des levures dans le sang, à distinguer d'un contaminant cutané, selon le catalogue des analyses du CHUV (2026) et selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Sepsis bactérien",
+     "anomaliesQuiLeComposent": [
+      "Hémocultures positives",
+      "PCT élevée",
+      "CRP élevée"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Endocardite infectieuse",
+     "anomalieTypique": "Hémocultures positives, incubation prolongée"
+    },
+    {
+     "pathologie": "Sepsis",
+     "anomalieTypique": "Bactériémie"
+    }
+   ],
+   "bulle": {
+    "def": "Les hémocultures recherchent des bactéries et des levures dans le sang par culture, selon le catalogue des analyses du CHUV (2026).",
+    "pourquoi": "Elles recherchent bactéries et levures dans le sang ; si une endocardite est suspectée, l'incubation peut être prolongée, selon le catalogue des analyses du CHUV (2026).",
+    "confusion": "Un staphylocoque à coagulase négatif dans une seule paire est souvent un contaminant, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "retenir": "Le volume de sang compte le plus : 8 à 10 ml par flacon, sans dépasser 10 ml, selon le catalogue des analyses du CHUV (2026)."
+   }
   },
   {
    "id": "test_vih_combine",
    "nom": "Test VIH combiné (antigène p24 et anticorps)",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard jaune de 5 ml (3,5 ml chez l'enfant et le bébé), selon le répertoire des analyses des HUG (2026) ; tube EDTA violet de 7,5 ml, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "Qualitatif (négatif ou positif)",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Négatif, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "Négatif, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Négatif ; même interprétation à tout âge, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "Négatif ; même interprétation à tout âge, selon le répertoire des analyses des HUG (2026).",
+    "sujetAge": "Négatif ; même interprétation à tout âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Un test positif entraîne des analyses complémentaires, PCR ou immunodot, selon le catalogue des analyses du CHUV (2026).",
+   "variationsPhysiologiques": "Un test de 4e génération négatif documenté est demandé une semaine avant de débuter une prophylaxie pré-exposition ; si une infection aiguë est suspectée, on ajoute un test ARN, selon les recommandations EACS (2023).",
+   "augmentation": [
+    "Infection par le VIH-1 ou le VIH-2 : le test détecte dans le même essai les anticorps anti-VIH-1 et anti-VIH-2 et l'antigène p24, selon le répertoire des analyses des HUG (2026)."
+   ],
+   "diminution": [
+    "Infection aiguë très récente : on recherche aussi l'ARN plasmatique en cas de suspicion, selon les recommandations EACS (2023)."
+   ],
+   "interferences": "Un délai minimal de 48 heures est imposé entre deux prescriptions, selon le répertoire des analyses des HUG (2026).",
+   "delaiResultat": "Jusqu'à 24 heures, selon le répertoire des analyses des HUG (2026) ; moins d'une semaine, selon le catalogue des analyses du CHUV (2026).",
    "organes": [
     "Encéphale",
     "Ganglions cervicaux",
@@ -135,88 +313,228 @@
     "Psyché",
     "Pénis et urètre masculin"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Dépistage VIH",
+    "HIV Combo",
+    "Test de 4e génération"
+   ],
+   "parametres": [
+    {
+     "nom": "Ac anti-VIH-1/2 et Ag p24",
+     "unite": "Qualitatif",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Test combiné positif",
+     "signification": "Il impose des analyses complémentaires de confirmation, selon le catalogue des analyses du CHUV (2026)."
+    },
+    {
+     "anomalie": "Test négatif, suspicion aiguë",
+     "signification": "Il fait ajouter un test ARN du VIH, selon les recommandations EACS (2023)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Infection VIH",
+     "anomaliesQuiLeComposent": [
+      "Test combiné positif",
+      "Charge virale détectable",
+      "CD4 abaissés"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Suspicion d'infection VIH aiguë",
+     "anomalieTypique": "Test combiné et ARN plasmatique"
+    },
+    {
+     "pathologie": "Infection VIH chronique",
+     "anomalieTypique": "Anticorps anti-VIH positifs"
+    }
+   ],
+   "bulle": {
+    "def": "Le test combiné recherche à la fois les anticorps anti-VIH-1/2 et l'antigène p24 du virus, selon le répertoire des analyses des HUG (2026).",
+    "pourquoi": "C'est le test standard de dépistage du VIH, selon le répertoire des analyses des HUG (2026).",
+    "confusion": "Un dépistage positif n'est pas un diagnostic : il est suivi de tests de confirmation, selon le catalogue des analyses du CHUV (2026).",
+    "retenir": "Test combiné = anticorps + antigène p24 ; positif → confirmation, selon le répertoire des analyses des HUG (2026) et selon le catalogue des analyses du CHUV (2026)."
+   }
   },
   {
    "id": "charge_virale_vih",
    "nom": "Charge virale VIH",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard mauve (EDTA) de 6 ml (3 ml chez l'enfant et le bébé), selon le répertoire des analyses des HUG (2026) ; tube EDTA violet de 7,5 ml, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "copies/ml",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Non détecté, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "Non détecté, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Non détecté ; même interprétation à tout âge, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "Non détecté ; même interprétation à tout âge, selon le répertoire des analyses des HUG (2026).",
+    "sujetAge": "Non détecté ; même interprétation à tout âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Une charge virale < 50 copies/ml pendant au moins 6 mois définit la suppression virale dans les essais de changement de traitement, selon les recommandations EACS (2023).",
+   "variationsPhysiologiques": "Sous traitement efficace, la charge virale devient indétectable, ce qui accompagne la reconstitution immunitaire, selon les recommandations EACS (2023).",
+   "augmentation": [
+    "Infection par le VIH-1 non traitée ou échec virologique, selon les recommandations EACS (2023).",
+    "Infection aiguë suspectée, où l'ARN est recherché en plus du test de 4e génération, selon les recommandations EACS (2023)."
+   ],
+   "diminution": [
+    "Traitement antirétroviral efficace : charge virale < 50 copies/ml, selon les recommandations EACS (2023)."
+   ],
+   "interferences": "Un délai minimal de 48 heures est imposé entre deux prescriptions, selon le répertoire des analyses des HUG (2026).",
+   "delaiResultat": "Jusqu'à 72 heures, selon le répertoire des analyses des HUG (2026).",
    "organes": [],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "ARN VIH-1",
+    "Virémie VIH",
+    "Charge virale plasmatique"
+   ],
+   "parametres": [
+    {
+     "nom": "ARN du VIH-1",
+     "unite": "copies/ml",
+     "valeurs": "Non détecté, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Charge virale < 50 copies/ml",
+     "signification": "Elle définit la suppression virale sous traitement, selon les recommandations EACS (2023)."
+    },
+    {
+     "anomalie": "Charge virale détectable sous traitement",
+     "signification": "Elle fait rechercher un échec virologique, selon les recommandations EACS (2023)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Infection VIH non contrôlée",
+     "anomaliesQuiLeComposent": [
+      "Charge virale détectable",
+      "CD4 abaissés"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Infection VIH sous traitement",
+     "anomalieTypique": "Charge virale < 50 copies/ml"
+    }
+   ],
+   "bulle": {
+    "def": "La charge virale mesure la quantité d'ARN du VIH dans le plasma, selon le répertoire des analyses des HUG (2026).",
+    "pourquoi": "Elle suit l'efficacité du traitement antirétroviral, selon les recommandations EACS (2023).",
+    "confusion": "Elle ne remplace pas le test combiné pour le dépistage ; elle complète un dépistage positif ou une suspicion aiguë, selon les recommandations EACS (2023).",
+    "retenir": "Suppression virale : < 50 copies/ml, selon les recommandations EACS (2023)."
+   }
   },
   {
    "id": "lymphocytes_t_cd4",
    "nom": "Lymphocytes T CD4",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard mauve (EDTA) de 3 ml, selon le répertoire des analyses des HUG (2026) ; tube EDTA violet de 2,6 ml, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "cellules/µl",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Intervalle donné par le laboratoire ; un taux ≥ 200 cellules/µl ou ≥ 15 % marque la reconstitution immunitaire chez la personne vivant avec le VIH, selon les recommandations EACS (2023).",
+    "adulteFemme": "Intervalle donné par le laboratoire ; un taux ≥ 200 cellules/µl ou ≥ 15 % marque la reconstitution immunitaire chez la personne vivant avec le VIH, selon les recommandations EACS (2023).",
+    "enfant": "L'intervalle de référence dépend de l'âge et du laboratoire, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "Intervalle donné par le laboratoire, sans seuil propre à la grossesse, selon le répertoire des analyses des HUG (2026).",
+    "sujetAge": "Intervalle donné par le laboratoire, sans seuil propre au sujet âgé, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Sous 200 cellules/µl (< 15 %), les vaccins vivants sont contre-indiqués ; sous 100 cellules/µl, on dépiste l'antigène cryptococcique, selon les recommandations EACS (2023).",
+   "variationsPhysiologiques": "Le rapport CD4/CD8 prédit mieux les complications graves que le seul compte des CD4, selon les recommandations EACS (2023).",
+   "augmentation": [
+    "Reconstitution immunitaire sous traitement : CD4 ≥ 200 cellules/µl et charge virale indétectable, selon les recommandations EACS (2023)."
+   ],
+   "diminution": [
+    "Infection par le VIH : sous 200 cellules/µl, contre-indication aux vaccins vivants, selon les recommandations EACS (2023).",
+    "Infection par le VIH avancée : sous 100 cellules/µl, dépistage de l'antigène cryptococcique, selon les recommandations EACS (2023)."
+   ],
+   "interferences": "Le sang EDTA est stable 24 heures à température ambiante et doit arriver du lundi au jeudi dans les 20 heures suivant le prélèvement, selon le catalogue des analyses du CHUV (2026). Le test n'est réalisé aux HUG que chez les malades avec une infection rétrovirale probable ou prouvée, selon le répertoire des analyses des HUG (2026).",
+   "delaiResultat": "Jusqu'à 24 heures, sauf le week-end, selon le répertoire des analyses des HUG (2026).",
    "organes": [
     "Infection et immunité"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "CD4",
+    "Sous-populations lymphocytaires T",
+    "Typage lymphocytaire CD3/CD4/CD8"
+   ],
+   "parametres": [
+    {
+     "nom": "CD4",
+     "unite": "cellules/µl",
+     "valeurs": "≥ 200 cellules/µl : reconstitution immunitaire, selon les recommandations EACS (2023)."
+    },
+    {
+     "nom": "CD4/CD8",
+     "unite": "rapport",
+     "valeurs": "Le rapport prédit mieux les complications graves, selon les recommandations EACS (2023)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "CD4 < 200/µl",
+     "signification": "Les vaccins vivants sont contre-indiqués, selon les recommandations EACS (2023)."
+    },
+    {
+     "anomalie": "CD4 < 100/µl",
+     "signification": "On dépiste l'antigène cryptococcique dans le sérum, selon les recommandations EACS (2023)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Immunodépression du VIH",
+     "anomaliesQuiLeComposent": [
+      "CD4 abaissés",
+      "Charge virale détectable"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Infection VIH avancée",
+     "anomalieTypique": "CD4 < 200/µl"
+    },
+    {
+     "pathologie": "Cryptococcose",
+     "anomalieTypique": "Risque si CD4 < 100/µl"
+    }
+   ],
+   "bulle": {
+    "def": "Les lymphocytes T CD4 sont les cellules de l'immunité visées par le VIH ; on les compte par cytométrie, selon le répertoire des analyses des HUG (2026).",
+    "pourquoi": "Leur compte décide des vaccins possibles et des dépistages d'infections opportunistes, selon les recommandations EACS (2023).",
+    "confusion": "Sous traitement stable avec CD4 > 350/µl, un contrôle annuel suffit, au lieu de tous les 3 à 6 mois, selon les recommandations EACS (2023).",
+    "retenir": "CD4 < 200/µl : pas de vaccin vivant ; < 100/µl : antigène cryptococcique, selon les recommandations EACS (2023)."
+   }
   },
   {
    "id": "syphilis_tppa_et_vdrl_rpr",
    "nom": "Syphilis : TPPA et VDRL/RPR",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard jaune de 3,5 ml (microtube jaune de 0,6 ml chez l'enfant et le bébé), selon le répertoire des analyses des HUG (2026) ; tube de 7,5 ml sérum avec gel, bouchon brun (4,9 ml chez l'enfant), selon le catalogue des analyses du CHUV (2026).",
+   "unite": "Index (dépistage) ; titre (RPR)",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Dépistage négatif (index < 1) ; RPR négatif (titre < 1), selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "Dépistage négatif (index < 1) ; RPR négatif (titre < 1), selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Dépistage négatif ; le dépistage HUG est proposé dès l'âge d'un an, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "Dépistage négatif (index < 1) ; RPR négatif (titre < 1), sans valeur propre à la grossesse, selon le répertoire des analyses des HUG (2026).",
+    "sujetAge": "Dépistage négatif (index < 1) ; RPR négatif (titre < 1), selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Après traitement, une absence de baisse de 4 fois du titre non tréponémique (par exemple de 1:16 à 1:4) est une réponse sérologique insuffisante, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "variationsPhysiologiques": "Un test tréponémique peut rester positif chez une personne déjà traitée ; le dépistage tréponémique identifie aussi les infections anciennes, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "augmentation": [
+    "Syphilis : si le dépistage est positif, le laboratoire fait le RPR et le TPHA quantitatifs, selon le répertoire des analyses des HUG (2026).",
+    "Faux positifs du test non tréponémique : autres infections, dont le VIH, et maladies auto-immunes, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "diminution": [
+    "Traitement efficace : le titre RPR baisse ; on suit les titres par un test non tréponémique, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "interferences": "Le suivi des titres se fait avec le même test, dans le même laboratoire, selon le guide IDSA/ASM du diagnostic microbiologique (2024). La borréliose donne des réactions croisées avec la syphilis, selon le répertoire des analyses des HUG (2026).",
+   "delaiResultat": "De 8 à 72 heures pour le dépistage et de 3 à 7 jours pour le RPR, selon le répertoire des analyses des HUG (2026).",
    "organes": [
     "Encéphale",
     "Grossesse, fœtus et placenta",
@@ -227,509 +545,1451 @@
     "Pénis et urètre masculin",
     "Œil et orbite"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Sérologie syphilis",
+    "TPHA",
+    "Lues"
+   ],
+   "parametres": [
+    {
+     "nom": "Dépistage tréponémique",
+     "unite": "Index",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    },
+    {
+     "nom": "RPR",
+     "unite": "Titre",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    },
+    {
+     "nom": "TPPA/TPHA",
+     "unite": "Titre",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Dépistage + et RPR +",
+     "signification": "Il évoque une syphilis active, confirmée par les deux types de tests, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    },
+    {
+     "anomalie": "RPR + et TPPA −",
+     "signification": "Il fait suspecter un faux positif non tréponémique, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    },
+    {
+     "anomalie": "Titre RPR baissé de 4 fois",
+     "signification": "Il témoigne d'une réponse adéquate au traitement, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Syphilis active",
+     "anomaliesQuiLeComposent": [
+      "Test tréponémique positif",
+      "RPR positif"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Syphilis",
+     "anomalieTypique": "Tests tréponémique et RPR positifs"
+    },
+    {
+     "pathologie": "Neurosyphilis",
+     "anomalieTypique": "VDRL positif dans le LCR"
+    }
+   ],
+   "bulle": {
+    "def": "La sérologie de la syphilis associe un test tréponémique (TPPA, TPHA, EIA) et un test non tréponémique (RPR, VDRL), selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "pourquoi": "Le test tréponémique dépiste ; le RPR quantitatif mesure l'activité et suit le traitement, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "confusion": "Un test tréponémique reste souvent positif après guérison ; c'est le RPR qui suit l'activité, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "retenir": "Positif → RPR et TPHA quantitatifs ; maladie à déclaration obligatoire, selon le répertoire des analyses des HUG (2026)."
+   }
   },
   {
    "id": "serologie_cmv",
    "nom": "Sérologie CMV",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard jaune de 5 ml (3,5 ml chez l'enfant et le bébé), selon le répertoire des analyses des HUG (2026) ; tube de 7,5 ml sérum avec gel, bouchon brun (4,9 ml chez l'enfant), selon le catalogue des analyses du CHUV (2026).",
+   "unite": "U/ml (IgG) ; index (IgM)",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "IgG et IgM négatives chez le sujet non exposé, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "IgG et IgM négatives chez le sujet non exposé, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Environ 36 % des enfants de 6 à 11 ans ont des IgG, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "grossesse": "Le CMV congénital se diagnostique chez le nouveau-né par le virus ou son ADN (urine, salive, sang, LCR) dans les 3 premières semaines, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "sujetAge": "Plus de 90 % des adultes de 80 ans et plus ont des IgG, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Chez le greffé, on suit la charge virale CMV par une PCR quantitative plutôt que la sérologie, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "variationsPhysiologiques": "La séroprévalence augmente avec l'âge, d'environ 36 % à 6–11 ans à plus de 90 % après 80 ans, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "augmentation": [
+    "IgG positives : exposition passée au CMV, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "IgM positives : appoint au diagnostic d'infection récente, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "IgM faussement positives en cas d'infection à EBV ou de maladie immunitaire, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "diminution": [
+    "Absence d'exposition : IgG négatives, avec risque de primo-infection, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "interferences": "Délai minimal de 48 heures entre deux prescriptions, selon le répertoire des analyses des HUG (2026). Le sérum se conserve 24 h à température ambiante ; envoyé au-delà de 12 h, il est congelé, selon le catalogue des analyses du CHUV (2026).",
+   "delaiResultat": "Jusqu'à 24 heures, selon le répertoire des analyses des HUG (2026).",
    "organes": [
     "Ganglions cervicaux",
     "Infection et immunité",
     "Rate"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Cytomégalovirus",
+    "Sérologie HHV-5"
+   ],
+   "parametres": [
+    {
+     "nom": "IgG anti-CMV",
+     "unite": "U/ml",
+     "valeurs": "Négatif sans exposition antérieure, selon le répertoire des analyses des HUG (2026)."
+    },
+    {
+     "nom": "IgM anti-CMV",
+     "unite": "Index",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "IgG positives isolées",
+     "signification": "Elles indiquent une exposition passée au CMV, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    },
+    {
+     "anomalie": "IgM positives",
+     "signification": "Elles orientent vers une infection récente, avec risque de faux positif sous EBV, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Syndrome mononucléosique",
+     "anomaliesQuiLeComposent": [
+      "IgM anti-CMV",
+      "Lymphocytes atypiques"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Infection à CMV congénitale",
+     "anomalieTypique": "ADN CMV dans les 3 premières semaines"
+    },
+    {
+     "pathologie": "Infection à CMV du greffé",
+     "anomalieTypique": "Charge virale CMV en hausse"
+    }
+   ],
+   "bulle": {
+    "def": "La sérologie CMV recherche les IgG et IgM dirigées contre le cytomégalovirus, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "pourquoi": "Elle sert surtout au bilan avant greffe du donneur et du receveur, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "confusion": "Des IgM positives ne prouvent pas une infection récente : l'EBV donne des faux positifs, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "retenir": "IgG = exposition passée ; IgM = appoint, à prudence, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   }
   },
   {
    "id": "serologie_ebv",
    "nom": "Sérologie EBV",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard jaune de 5 ml (3,5 ml chez l'enfant et le bébé), selon le répertoire des analyses des HUG (2026) ; tube de 7,5 ml sérum avec gel, bouchon brun (4,9 ml chez l'enfant), selon le catalogue des analyses du CHUV (2026).",
+   "unite": "Index ; UI/ml",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "IgM VCA, IgG VCA et IgG EBNA négatives chez le sujet non exposé, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "IgM VCA, IgG VCA et IgG EBNA négatives chez le sujet non exposé, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Mêmes marqueurs à tout âge, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "Mêmes marqueurs à tout âge, selon le répertoire des analyses des HUG (2026).",
+    "sujetAge": "Mêmes marqueurs à tout âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Des IgM VCA sans IgG EBNA évoquent une primo-infection récente, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "variationsPhysiologiques": "Les anticorps hétérophiles apparaissent 6 à 10 jours après les symptômes, montent jusqu'à la 2e–3e semaine puis baissent sur un an ou plus, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "augmentation": [
+    "Primo-infection : IgM VCA, avec ou sans IgG VCA, sans IgG EBNA, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "Infection ancienne : IgG EBNA présentes, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "diminution": [
+    "Test hétérophile faussement négatif chez environ 10 % des patients, ce qui fait demander la sérologie spécifique, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "interferences": "Le test hétérophile peut être faussement positif en cas de maladie auto-immune, leucémie, cancer du pancréas, hépatite virale ou infection à CMV, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "delaiResultat": "Jusqu'à 24 heures, selon le répertoire des analyses des HUG (2026).",
    "organes": [
     "Ganglions cervicaux",
     "Infection et immunité",
     "Larynx et pharynx",
     "Rate"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Epstein-Barr",
+    "HHV-4",
+    "Sérologie mononucléose"
+   ],
+   "parametres": [
+    {
+     "nom": "IgM VCA",
+     "unite": "Index",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    },
+    {
+     "nom": "IgG VCA",
+     "unite": "Index",
+     "valeurs": "Négatif sans exposition, selon le répertoire des analyses des HUG (2026)."
+    },
+    {
+     "nom": "IgG EBNA",
+     "unite": "Index",
+     "valeurs": "Négatif sans exposition, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "IgM VCA +, IgG EBNA −",
+     "signification": "Elles évoquent une primo-infection récente à EBV, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    },
+    {
+     "anomalie": "IgG EBNA +",
+     "signification": "Elles indiquent une infection ancienne, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Syndrome mononucléosique",
+     "anomaliesQuiLeComposent": [
+      "IgM VCA positives",
+      "IgG EBNA négatives",
+      "Lymphocytes atypiques"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Mononucléose infectieuse",
+     "anomalieTypique": "IgM VCA +, IgG EBNA −"
+    }
+   ],
+   "bulle": {
+    "def": "La sérologie EBV dose les anticorps contre l'antigène de capside (VCA) et l'antigène nucléaire (EBNA), selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "pourquoi": "Elle date l'infection quand le test hétérophile est négatif ou douteux, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "confusion": "Un syndrome mononucléosique peut venir du CMV, du VIH ou de la toxoplasmose : la sérologie EBV fait la différence, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "retenir": "Primo-infection : VCA IgM + sans EBNA IgG, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   }
   },
   {
    "id": "serologie_toxoplasmose",
    "nom": "Sérologie toxoplasmose",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard jaune de 5 ml (3,5 ml chez l'enfant et le bébé), selon le répertoire des analyses des HUG (2026) ; tube de 7,5 ml sérum avec gel, bouchon brun (4,9 ml chez l'enfant), selon le catalogue des analyses du CHUV (2026).",
+   "unite": "UI/ml (IgG) ; index (IgM)",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "IgG et IgM négatives chez le sujet non immun, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "IgG et IgM négatives chez le sujet non immun, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Avant 1 mois, l'IgG est dosée par une méthode manuelle EIA, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "Chez la femme enceinte avec IgM et IgG positives, on demande un test d'avidité des IgG, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "sujetAge": "IgG et IgM négatives chez le sujet non immun, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Chez la femme enceinte, IgM et IgG positives font demander un test d'avidité, qui distingue infection récente et ancienne, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "variationsPhysiologiques": "Le remboursement est limité à une suspicion clinique de toxoplasmose, une fois par échantillon, selon le répertoire des analyses des HUG (2026).",
+   "augmentation": [
+    "IgM et IgG positives : infection récente possible, à dater par l'avidité, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "IgG positives isolées : exposition ancienne, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "diminution": [
+    "Immunodépression : l'absence d'IgG n'exclut pas l'infection ; 22 % des patients sida avec encéphalite toxoplasmique n'ont pas d'IgG, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "interferences": "Le dépistage ECLIA est complété au besoin par un test de chemiluminescence pour garantir sensibilité et spécificité, selon le répertoire des analyses des HUG (2026).",
+   "delaiResultat": "Jusqu'à 24 heures, selon le répertoire des analyses des HUG (2026).",
    "organes": [],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Toxoplasma gondii",
+    "Sérologie toxo"
+   ],
+   "parametres": [
+    {
+     "nom": "IgG anti-Toxoplasma",
+     "unite": "UI/ml",
+     "valeurs": "Négatif chez le non-immun, selon le répertoire des analyses des HUG (2026)."
+    },
+    {
+     "nom": "IgM anti-Toxoplasma",
+     "unite": "Index",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "IgM + et IgG + en grossesse",
+     "signification": "Elles font demander un test d'avidité, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    },
+    {
+     "anomalie": "IgG − chez l'immunodéprimé",
+     "signification": "Elles n'excluent pas une toxoplasmose, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Toxoplasmose récente",
+     "anomaliesQuiLeComposent": [
+      "IgM positives",
+      "IgG positives",
+      "Avidité basse"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Toxoplasmose gravidique",
+     "anomalieTypique": "IgM et IgG positives"
+    },
+    {
+     "pathologie": "Toxoplasmose cérébrale du sida",
+     "anomalieTypique": "Sérologie parfois négative"
+    }
+   ],
+   "bulle": {
+    "def": "La sérologie toxoplasmique recherche les IgG et IgM contre Toxoplasma gondii, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "pourquoi": "En grossesse, elle situe la date de l'infection, avec l'avidité, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "confusion": "Des IgM positives ne datent pas l'infection à elles seules : on demande l'avidité des IgG, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "retenir": "IgM + IgG + en grossesse → avidité, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   }
   },
   {
    "id": "serologie_rubeole",
    "nom": "Sérologie rubéole",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard jaune de 5 ml (3,5 ml chez l'enfant et le bébé), selon le répertoire des analyses des HUG (2026) ; tube de 7,5 ml sérum avec gel, bouchon brun (4,9 ml chez l'enfant), selon le catalogue des analyses du CHUV (2026).",
+   "unite": "UI/ml (IgG) ; index (IgM)",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "IgG positives : immunité durable chez un sujet sans symptôme, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "adulteFemme": "IgG positives : immunité durable chez un sujet sans symptôme, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "enfant": "Chez le nouveau-né, des IgM avec des signes compatibles diagnostiquent la rubéole congénitale, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "grossesse": "IgG positives : immunité à vie, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "sujetAge": "IgG positives : immunité à vie, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "La rubéole est soumise à la déclaration obligatoire, selon le répertoire des analyses des HUG (2026).",
+   "variationsPhysiologiques": "La présence d'IgG chez un sujet sans symptôme signe une immunité à vie, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "augmentation": [
+    "Rubéole aiguë : séroconversion des IgM et/ou IgG ou hausse de 4 fois des IgG, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "Rubéole congénitale : IgM chez le nouveau-né avec des signes compatibles, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "diminution": [
+    "Absence d'immunité : IgG négatives, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "interferences": "Hors exposition et tableau évocateur, des IgM positives sont à interpréter avec prudence, car elles peuvent être faussement positives, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "delaiResultat": "Jusqu'à 24 heures, selon le répertoire des analyses des HUG (2026).",
    "organes": [],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Rubella",
+    "Sérologie rubéole IgG/IgM"
+   ],
+   "parametres": [
+    {
+     "nom": "IgG anti-rubéole",
+     "unite": "UI/ml",
+     "valeurs": "Positives : immunité, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    },
+    {
+     "nom": "IgM anti-rubéole",
+     "unite": "Index",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "IgG positives sans symptôme",
+     "signification": "Elles signent une immunité à vie, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    },
+    {
+     "anomalie": "IgM positives sans exposition",
+     "signification": "Elles peuvent être faussement positives, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Rubéole aiguë",
+     "anomaliesQuiLeComposent": [
+      "Séroconversion IgG",
+      "IgM positives"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Rubéole congénitale",
+     "anomalieTypique": "IgM chez le nouveau-né"
+    },
+    {
+     "pathologie": "Rubéole aiguë",
+     "anomalieTypique": "Hausse de 4 fois des IgG"
+    }
+   ],
+   "bulle": {
+    "def": "La sérologie rubéole recherche les IgG et IgM contre le virus de la rubéole, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "pourquoi": "Elle établit l'immunité ou prouve une infection, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "confusion": "Des IgM positives sans exposition ni tableau évocateur sont souvent faussement positives, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "retenir": "IgG + = immunité ; IgM à lire avec la clinique, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   }
   },
   {
    "id": "serologie_varicelle_zona",
    "nom": "Sérologie varicelle-zona",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard jaune de 5 ml (3,5 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube de 7,5 ml sérum avec gel, bouchon brun (4,9 ml chez l'enfant), selon le catalogue des analyses du CHUV (2026).",
+   "unite": "U/ml",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "IgG positives : exposition passée ou vaccination, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "adulteFemme": "IgG positives : exposition passée ou vaccination, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "enfant": "IgG et IgM négatives : pas d'exposition antérieure ni d'immunité, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "grossesse": "IgG positives : exposition passée ou vaccination, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "sujetAge": "IgG positives : exposition passée ou vaccination, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Le dépistage des IgM n'est pertinent que dans une petite fenêtre, en cas de suspicion clinique avec PCR négative, selon le catalogue des analyses du CHUV (2026).",
+   "variationsPhysiologiques": "Les IgM montent aussi après une vaccination récente ou une réactivation (zona), selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "augmentation": [
+    "IgM positives : exposition récente au VZV, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "Réactivation (zona) ou vaccination récente, qui peuvent aussi élever les IgM, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "diminution": [
+    "IgG et IgM négatives : pas d'exposition ni d'immunité, sans exclure une infection très récente, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "interferences": "La sérologie n'est en général pas recommandée pour diagnostiquer une infection aiguë ; les IgM ne sont utiles que si la PCR est négative, selon le guide IDSA/ASM du diagnostic microbiologique (2024) et selon le catalogue des analyses du CHUV (2026).",
+   "delaiResultat": "Jusqu'à 72 heures, selon le répertoire des analyses des HUG (2026).",
    "organes": [],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "VZV",
+    "Virus varicelle-zona"
+   ],
+   "parametres": [
+    {
+     "nom": "IgG anti-VZV",
+     "unite": "U/ml",
+     "valeurs": "Positives : immunité, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    },
+    {
+     "nom": "IgM anti-VZV",
+     "unite": "U/ml",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "IgG + et IgM −",
+     "signification": "Elles indiquent une exposition passée ou une vaccination, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    },
+    {
+     "anomalie": "IgG − et IgM −",
+     "signification": "Absence d'immunité, sans exclure une infection récente, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Infection récente à VZV",
+     "anomaliesQuiLeComposent": [
+      "IgM positives",
+      "PCR VZV négative"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Varicelle",
+     "anomalieTypique": "IgM positives"
+    },
+    {
+     "pathologie": "Zona",
+     "anomalieTypique": "IgM possibles à la réactivation"
+    }
+   ],
+   "bulle": {
+    "def": "La sérologie VZV recherche les IgG et IgM contre le virus de la varicelle et du zona, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "pourquoi": "Les IgG vérifient l'immunité ; les IgM aident dans une fenêtre étroite, selon le catalogue des analyses du CHUV (2026).",
+    "confusion": "Le diagnostic d'une varicelle ou d'un zona aigu repose sur la PCR, pas sur la sérologie, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "retenir": "IgG + = immunité ; IgM seulement si PCR négative, selon le catalogue des analyses du CHUV (2026)."
+   }
   },
   {
    "id": "serologie_de_la_borreliose",
    "nom": "Sérologie de la borréliose (avec immunoblot)",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard jaune de 5 ml (3,5 ml chez le bébé), selon le répertoire des analyses des HUG (2026) ; tube de 7,5 ml sérum avec gel, bouchon brun (4,9 ml chez l'enfant), selon le catalogue des analyses du CHUV (2026).",
+   "unite": "Qualitatif (négatif ou positif)",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Négative, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "Négative, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Négative, selon le répertoire des analyses des HUG (2026) ; « Ne pas effectuer de sérologie Borrelia sans suspicion clinique de maladie de Lyme », selon Smarter Medicine (2024, pédiatrie).",
+    "grossesse": "Négative, selon le répertoire des analyses des HUG (2026).",
+    "sujetAge": "Négative, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Neuroborréliose certaine : symptômes neurologiques, pléiocytose du LCR et anticorps produits dans le LCR (intrathécaux), selon l'EFNS (2010, neuroborréliose).",
+   "variationsPhysiologiques": "L'érythème migrant, présent chez 70 à 80 % des patients, suffit au diagnostic clinique de la forme précoce localisée, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "augmentation": [
+    "Borréliose disséminée ou tardive : sérologie en deux temps, dépistage puis immunoblot, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "Réaction croisée avec la syphilis, la leptospirose et d'autres borrélioses, selon le répertoire des analyses des HUG (2026)."
+   ],
+   "diminution": [
+    "Forme précoce : les anticorps peuvent manquer avant 6 semaines de symptômes, où la PCR du LCR peut aider, selon l'EFNS (2010, neuroborréliose)."
+   ],
+   "interferences": "En cas de dépistage positif, la spécificité est confirmée par immunoblot ; on demande les résultats VDRL/TPHA à cause des réactions croisées, selon le répertoire des analyses des HUG (2026).",
+   "delaiResultat": "Jusqu'à 72 heures, sauf le week-end, pour le dépistage ; jusqu'à une semaine pour l'immunoblot, selon le répertoire des analyses des HUG (2026).",
    "organes": [
     "Articulations et synoviale",
     "Nerfs crâniens",
     "Racines et plexus"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Sérologie Lyme",
+    "Borrelia burgdorferi",
+    "Immunoblot Borrelia"
+   ],
+   "parametres": [
+    {
+     "nom": "Dépistage IgG/IgM",
+     "unite": "Qualitatif",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    },
+    {
+     "nom": "Immunoblot IgG",
+     "unite": "Qualitatif",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Dépistage positif",
+     "signification": "Il impose un immunoblot de confirmation, selon le répertoire des analyses des HUG (2026)."
+    },
+    {
+     "anomalie": "Anticorps intrathécaux",
+     "signification": "Avec pléiocytose et signes neurologiques : neuroborréliose, selon l'EFNS (2010, neuroborréliose)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Neuroborréliose",
+     "anomaliesQuiLeComposent": [
+      "Pléiocytose du LCR",
+      "Anticorps intrathécaux",
+      "Signes neurologiques"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Neuroborréliose",
+     "anomalieTypique": "Index anticorps LCR/sérum positif"
+    },
+    {
+     "pathologie": "Érythème migrant",
+     "anomalieTypique": "Diagnostic clinique, sérologie inutile"
+    }
+   ],
+   "bulle": {
+    "def": "La sérologie de la borréliose recherche les anticorps contre Borrelia burgdorferi, en deux temps : dépistage puis immunoblot, selon le répertoire des analyses des HUG (2026).",
+    "pourquoi": "Elle sert aux formes disséminées et tardives de la maladie de Lyme, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "confusion": "« Réalisation d’une sérologie Borrelia sans symptômes spécifiques » est à éviter, selon Smarter Medicine (2020, infectiologie).",
+    "retenir": "Dépistage positif → immunoblot ; pas de sérologie sans signe évocateur, selon le répertoire des analyses des HUG (2026)."
+   }
   },
   {
    "id": "test_de_liberation_d_interferon_gamma",
    "nom": "Test de libération d'interféron gamma (IGRA)",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube à l'héparinate de lithium de 7,5 ml (4,9 ml chez l'enfant), selon le catalogue des analyses du CHUV (2026).",
+   "unite": "Qualitatif (négatif ou positif)",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Négatif, selon le catalogue des analyses du CHUV (2026).",
+    "adulteFemme": "Négatif, selon le catalogue des analyses du CHUV (2026).",
+    "enfant": "Négatif ; tube de 4,9 ml à l'héparinate de lithium, selon le catalogue des analyses du CHUV (2026).",
+    "grossesse": "Négatif, selon le catalogue des analyses du CHUV (2026).",
+    "sujetAge": "Négatif, selon le catalogue des analyses du CHUV (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Le test est demandé devant une suspicion d'infection tuberculeuse, selon le catalogue des analyses du CHUV (2026).",
+   "variationsPhysiologiques": "Chez la personne vivant avec le VIH, le dépistage de la tuberculose latente par IGRA dépend de l'origine, de l'exposition, des CD4 et du traitement, selon les recommandations EACS (2023).",
+   "augmentation": [
+    "Infection tuberculeuse : test positif, selon le catalogue des analyses du CHUV (2026)."
+   ],
+   "diminution": [
+    "Prélèvement mal acheminé : il doit arriver dans les 14 heures, les jours ouvrables avant 16 h, selon le catalogue des analyses du CHUV (2026)."
+   ],
+   "interferences": "Une intradermoréaction à la tuberculine (PPD) peut rendre l'IGRA faussement positif : on fait l'IGRA avant si les deux sont prévus, selon les recommandations EACS (2023). Le tube ne passe pas par la poste pneumatique, selon le catalogue des analyses du CHUV (2026).",
+   "delaiResultat": "Une semaine, selon le catalogue des analyses du CHUV (2026).",
    "organes": [
     "Ganglions cervicaux",
     "Infection et immunité",
     "Poumons et voies aériennes"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "IGRA",
+    "QuantiFERON-TB",
+    "Test interféron gamma"
+   ],
+   "parametres": [
+    {
+     "nom": "Interféron gamma (IGRA)",
+     "unite": "Qualitatif",
+     "valeurs": "Négatif, selon le catalogue des analyses du CHUV (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "IGRA positif",
+     "signification": "Il soutient une infection tuberculeuse suspectée, selon le catalogue des analyses du CHUV (2026)."
+    },
+    {
+     "anomalie": "IGRA fait après une IDR",
+     "signification": "Il peut être faussement positif, selon les recommandations EACS (2023)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Infection tuberculeuse latente",
+     "anomaliesQuiLeComposent": [
+      "IGRA positif",
+      "Radiographie normale"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Tuberculose",
+     "anomalieTypique": "IGRA positif"
+    }
+   ],
+   "bulle": {
+    "def": "L'IGRA (interferon-gamma release assay) mesure la libération d'interféron gamma en réponse à des antigènes de la tuberculose.",
+    "pourquoi": "Il recherche une infection tuberculeuse, notamment avant une immunosuppression, selon les recommandations EACS (2023).",
+    "confusion": "Un IGRA fait après une intradermoréaction peut être faussement positif, selon les recommandations EACS (2023).",
+    "retenir": "IGRA avant l'IDR ; arrivée au laboratoire en 14 heures, selon les recommandations EACS (2023) et selon le catalogue des analyses du CHUV (2026)."
+   }
   },
   {
    "id": "galactomannane_aspergillaire",
    "nom": "Galactomannane aspergillaire",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard jaune de 3,5 ml, selon le répertoire des analyses des HUG (2026) ; tube de 7,5 ml sérum avec gel, bouchon brun, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "Index",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Négatif (index ≤ 0,49), selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "Négatif (index ≤ 0,49), selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Négatif (index ≤ 0,49), selon le répertoire des analyses des HUG (2026) ; tube de 4,9 ml chez l'enfant, selon le catalogue des analyses du CHUV (2026).",
+    "grossesse": "Négatif (index ≤ 0,49), selon le répertoire des analyses des HUG (2026).",
+    "sujetAge": "Négatif (index ≤ 0,49), selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Un index ≥ 0,5 est positif ; tout résultat positif en ELISA est confirmé le jour même par une technique LFA, selon le répertoire des analyses des HUG (2026).",
+   "variationsPhysiologiques": "Le test est remboursé chez le patient hospitalisé immunosupprimé, selon le répertoire des analyses des HUG (2026).",
+   "augmentation": [
+    "Aspergillose invasive, chez le patient immunodéprimé surtout, selon le catalogue des analyses du CHUV (2026).",
+    "Pneumonie fongique suspectée sur l'imagerie ou la clinique, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "diminution": [
+    "Absence d'aspergillose invasive : index ≤ 0,49, selon le répertoire des analyses des HUG (2026)."
+   ],
+   "interferences": "Le test est souvent trop demandé chez les patients non immunodéprimés, selon le guide IDSA/ASM du diagnostic microbiologique (2024). Le sérum se conserve 24 h à température ambiante ; envoyé au-delà de 12 h, il est congelé, selon le catalogue des analyses du CHUV (2026).",
+   "delaiResultat": "De 1 à 4 jours, selon le répertoire des analyses des HUG (2026).",
    "organes": [],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Antigène aspergillaire",
+    "Galactomannane sérique",
+    "Ag Aspergillus"
+   ],
+   "parametres": [
+    {
+     "nom": "Galactomannane",
+     "unite": "Index",
+     "valeurs": "< 0,5 : négatif, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Galactomannane ≥ 0,5",
+     "signification": "Positif ; il est confirmé par LFA le jour même, selon le répertoire des analyses des HUG (2026)."
+    },
+    {
+     "anomalie": "Galactomannane < 0,5",
+     "signification": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Aspergillose invasive",
+     "anomaliesQuiLeComposent": [
+      "Galactomannane positif",
+      "Bêta-D-glucane positif"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Aspergillose pulmonaire invasive",
+     "anomalieTypique": "Galactomannane ≥ 0,5"
+    }
+   ],
+   "bulle": {
+    "def": "Le galactomannane est un antigène de la paroi d'Aspergillus, recherché dans le sérum, selon le catalogue des analyses du CHUV (2026).",
+    "pourquoi": "Il aide au diagnostic d'aspergillose invasive chez l'immunodéprimé, selon le catalogue des analyses du CHUV (2026).",
+    "confusion": "Il est trop souvent demandé chez le patient non immunodéprimé, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "retenir": "Index ≥ 0,5 : positif, confirmé par LFA, selon le répertoire des analyses des HUG (2026)."
+   }
   },
   {
    "id": "d_glucane",
    "nom": "β-D-glucane",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard jaune de 3,5 ml, selon le répertoire des analyses des HUG (2026) ; tube de 7,5 ml sérum avec gel, bouchon brun, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "pg/ml",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Négatif (< 7,00 pg/ml), selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "Négatif (< 7,00 pg/ml), selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Négatif (< 7,00 pg/ml), selon le répertoire des analyses des HUG (2026) ; tube de 2,6 ml sans gel en néonatologie, selon le catalogue des analyses du CHUV (2026).",
+    "grossesse": "Négatif (< 7,00 pg/ml), selon le répertoire des analyses des HUG (2026).",
+    "sujetAge": "Négatif (< 7,00 pg/ml), selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Une valeur ≥ 7,00 pg/ml est positive, selon le répertoire des analyses des HUG (2026).",
+   "variationsPhysiologiques": "Le test est réservé aux services de transplantation, de soins intensifs, de néonatologie et des maladies infectieuses, selon le répertoire des analyses des HUG (2026).",
+   "augmentation": [
+    "Infection fongique invasive, selon le catalogue des analyses du CHUV (2026).",
+    "Pneumonie à Pneumocystis, selon le catalogue des analyses du CHUV (2026)."
+   ],
+   "diminution": [
+    "Absence d'infection fongique invasive : valeur < 7,00 pg/ml, selon le répertoire des analyses des HUG (2026)."
+   ],
+   "interferences": "L'analyse est hors liste OFSP : elle n'est pas forcément remboursée, ce dont le patient doit être informé, selon le répertoire des analyses des HUG (2026). Le sérum se conserve 24 h à température ambiante ; envoyé au-delà de 12 h, il est congelé, selon le catalogue des analyses du CHUV (2026).",
+   "delaiResultat": "De 1 à 4 jours, selon le répertoire des analyses des HUG (2026).",
    "organes": [
     "Infection et immunité"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Bêta-D-glucane",
+    "1,3-bêta-D-glucane",
+    "BDG"
+   ],
+   "parametres": [
+    {
+     "nom": "1,3-β-D-glucane",
+     "unite": "pg/ml",
+     "valeurs": "< 7,00 pg/ml : négatif, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "BDG ≥ 7,00 pg/ml",
+     "signification": "Positif : il évoque une infection fongique invasive ou une pneumocystose, selon le répertoire des analyses des HUG (2026) et selon le catalogue des analyses du CHUV (2026)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Infection fongique invasive",
+     "anomaliesQuiLeComposent": [
+      "Bêta-D-glucane positif",
+      "Galactomannane positif"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Pneumocystose",
+     "anomalieTypique": "Bêta-D-glucane élevé"
+    },
+    {
+     "pathologie": "Candidose invasive",
+     "anomalieTypique": "Bêta-D-glucane élevé"
+    }
+   ],
+   "bulle": {
+    "def": "Le 1,3-β-D-glucane est un composant de la paroi de nombreux champignons, recherché dans le sérum, selon le catalogue des analyses du CHUV (2026).",
+    "pourquoi": "Il aide au diagnostic d'une infection fongique invasive ou d'une pneumocystose, selon le catalogue des analyses du CHUV (2026).",
+    "confusion": "Il n'est pas propre à Aspergillus, à la différence du galactomannane, selon le catalogue des analyses du CHUV (2026).",
+    "retenir": "BDG ≥ 7,00 pg/ml : positif, selon le répertoire des analyses des HUG (2026)."
+   }
   },
   {
    "id": "antigenes_urinaires_pneumocoque_et_legio",
    "nom": "Antigènes urinaires pneumocoque et légionelle",
    "prelevement": "urine",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard beige de 4 ml d'urine, 2 à 3 ml au minimum, selon le répertoire des analyses des HUG (2026) ; tube à urine de 8,5 ml bouchon jaune, sans UriSponge, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "Qualitatif (négatif ou positif)",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Négatif pour les deux antigènes, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "Négatif pour les deux antigènes, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Chez l'enfant, l'antigène urinaire du pneumocoque n'est pas recommandé, car les faux positifs sont fréquents, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "grossesse": "Négatif pour les deux antigènes, selon le répertoire des analyses des HUG (2026).",
+    "sujetAge": "Négatif pour les deux antigènes, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "On les demande dans la pneumonie communautaire sévère, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "variationsPhysiologiques": "Le pneumocoque n'est facturé qu'après 18 ans, selon le répertoire des analyses des HUG (2026). La légionellose est à déclaration obligatoire, selon le répertoire des analyses des HUG (2026).",
+   "augmentation": [
+    "Légionellose à L. pneumophila du sérogroupe 1, le seul détecté par le test, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "Pneumonie à pneumocoque, selon le catalogue des analyses du CHUV (2026)."
+   ],
+   "diminution": [
+    "Légionellose d'un autre sérogroupe que le 1 : le test reste négatif, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "Urine envoyée trop tard : au-delà de 48 heures, la sensibilité baisse, selon le catalogue des analyses du CHUV (2026)."
+   ],
+   "interferences": "L'urine est acheminée à température ambiante dans les 24 heures, acceptée jusqu'à 48 heures, selon le catalogue des analyses du CHUV (2026).",
+   "delaiResultat": "Jusqu'à 24 heures, selon le répertoire des analyses des HUG (2026) ; moins de 24 heures, selon le catalogue des analyses du CHUV (2026).",
    "organes": [
     "Poumons et voies aériennes"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Antigénurie légionelle",
+    "Antigénurie pneumocoque"
+   ],
+   "parametres": [
+    {
+     "nom": "Ag urinaire pneumocoque",
+     "unite": "Qualitatif",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    },
+    {
+     "nom": "Ag urinaire Legionella",
+     "unite": "Qualitatif",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Antigène Legionella positif",
+     "signification": "Il signe une légionellose à L. pneumophila sérogroupe 1, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    },
+    {
+     "anomalie": "Antigène Legionella négatif",
+     "signification": "Il n'exclut pas les autres sérogroupes, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Pneumonie communautaire sévère",
+     "anomaliesQuiLeComposent": [
+      "Antigènes urinaires",
+      "Hémocultures",
+      "Culture d'expectoration"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Légionellose",
+     "anomalieTypique": "Antigène urinaire positif"
+    },
+    {
+     "pathologie": "Pneumonie à pneumocoque",
+     "anomalieTypique": "Antigène urinaire positif"
+    }
+   ],
+   "bulle": {
+    "def": "Ces tests rapides recherchent dans l'urine des antigènes de Streptococcus pneumoniae et de Legionella pneumophila, selon le catalogue des analyses du CHUV (2026).",
+    "pourquoi": "Ils orientent l'antibiotique dans la pneumonie communautaire sévère, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "confusion": "Le test Legionella ne détecte que le sérogroupe 1 : un résultat négatif n'exclut pas la maladie, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "retenir": "Pneumonie sévère : antigènes urinaires ; pas de pneumocoque urinaire chez l'enfant, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   }
   },
   {
    "id": "recherche_de_paludisme",
    "nom": "Recherche de paludisme (frottis, goutte épaisse, test rapide)",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard mauve (EDTA) de 2 ml (microtube mauve de 0,5 ml chez l'enfant), transport immédiat, selon le répertoire des analyses des HUG (2026).",
+   "unite": "Qualitatif (négatif ou positif)",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Négatif, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "Négatif, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Négatif ; même interprétation à tout âge, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "Négatif ; même interprétation à tout âge, selon le répertoire des analyses des HUG (2026).",
+    "sujetAge": "Négatif ; même interprétation à tout âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Un test rapide positif est confirmé par frottis et goutte épaisse, idéalement dans les 12 à 24 heures ; le frottis précise l'espèce et la parasitémie, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "variationsPhysiologiques": "La goutte épaisse est la méthode la plus sensible, avec moins de 0,001 % de globules rouges infectés détectables, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "augmentation": [
+    "Paludisme à P. falciparum, P. vivax, P. ovale ou P. malariae, que le test antigénique distingue en partie, selon le répertoire des analyses des HUG (2026).",
+    "Maladie à déclaration obligatoire, selon le répertoire des analyses des HUG (2026)."
+   ],
+   "diminution": [
+    "Faible parasitémie, souches de P. falciparum sans HRP-2 ou espèces autres que P. falciparum : le test rapide peut rester négatif, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "interferences": "Le test antigénique ne se fait qu'avec un frottis et une goutte épaisse, si possible pendant un pic de fièvre, selon le répertoire des analyses des HUG (2026). Indiquer le pays et les dates du voyage, selon le répertoire des analyses des HUG (2026).",
+   "delaiResultat": "De 1 à 2 heures, jour et nuit, selon le répertoire des analyses des HUG (2026).",
    "organes": [
     "Infection et immunité",
     "Rate"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Goutte épaisse",
+    "Frottis sanguin",
+    "Test rapide malaria"
+   ],
+   "parametres": [
+    {
+     "nom": "Frottis et goutte épaisse",
+     "unite": "Qualitatif",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    },
+    {
+     "nom": "Antigène Plasmodium",
+     "unite": "Qualitatif",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Antigène P. falciparum positif",
+     "signification": "Il impose frottis et goutte épaisse pour l'espèce et la parasitémie, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    },
+    {
+     "anomalie": "Test rapide négatif",
+     "signification": "Il n'exclut pas une faible parasitémie ni les espèces non falciparum, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Paludisme",
+     "anomaliesQuiLeComposent": [
+      "Plasmodium au frottis",
+      "Antigène positif",
+      "Parasitémie chiffrée"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Paludisme à P. falciparum",
+     "anomalieTypique": "Antigène HRP-2 et frottis positifs"
+    }
+   ],
+   "bulle": {
+    "def": "La recherche de paludisme associe frottis, goutte épaisse et test antigénique rapide, selon le répertoire des analyses des HUG (2026).",
+    "pourquoi": "Elle confirme un paludisme chez le voyageur fébrile et mesure la parasitémie, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "confusion": "Un test rapide négatif ne suffit pas : le frottis et la goutte épaisse restent la référence, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "retenir": "Fièvre au retour de voyage : frottis + goutte épaisse en urgence, selon le répertoire des analyses des HUG (2026)."
+   }
   },
   {
    "id": "pcr_respiratoire_multiplex",
    "nom": "PCR respiratoire multiplex",
    "prelevement": "ecouvillons_nasopharynges_et_de_gorge",
-   "tube": null,
-   "unite": null,
+   "tube": "Écouvillon nasopharyngé dans un tube COPAN de 3 ml à milieu rose, selon le répertoire des analyses des HUG (2026).",
+   "unite": "Qualitatif (non détecté ou positif)",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Non détecté, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "Non détecté, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Non détecté ; même interprétation à tout âge, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "Non détecté ; même interprétation à tout âge, selon le répertoire des analyses des HUG (2026).",
+    "sujetAge": "Non détecté ; même interprétation à tout âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Le panel complet est réservé aux patients immunosupprimés, selon le répertoire des analyses des HUG (2026).",
+   "variationsPhysiologiques": "La détection de virus commensaux latents (CMV, EBV, HHV-6) par PCR exige une corrélation clinique soigneuse, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "augmentation": [
+    "Infection respiratoire virale : influenza A/B, VRS, SARS-CoV-2, rhinovirus, adénovirus, métapneumovirus, parainfluenza 1 à 4 et coronavirus saisonniers, selon le répertoire des analyses des HUG (2026).",
+    "Influenza et SARS-CoV-2 positifs sont à déclaration obligatoire, selon le répertoire des analyses des HUG (2026)."
+   ],
+   "diminution": [
+    "Coqueluche : les panels syndromiques détectent moins bien B. pertussis qu'une PCR ciblée, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "interferences": "Le prélèvement ne se centrifuge pas ; délai minimal de 48 heures entre deux prescriptions, selon le répertoire des analyses des HUG (2026).",
+   "delaiResultat": "Jusqu'à 48 heures, selon le répertoire des analyses des HUG (2026).",
    "organes": [
     "Infection et immunité",
     "Nez, sinus et cavum"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Panel respiratoire",
+    "PCR virus respiratoires",
+    "PCR multiplex"
+   ],
+   "parametres": [
+    {
+     "nom": "Virus respiratoires (PCR)",
+     "unite": "Qualitatif",
+     "valeurs": "Non détecté, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Influenza A positif",
+     "signification": "Infection grippale, à déclaration obligatoire, selon le répertoire des analyses des HUG (2026)."
+    },
+    {
+     "anomalie": "Panel négatif, toux quinteuse",
+     "signification": "Une PCR ciblée B. pertussis reste nécessaire, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Infection respiratoire virale",
+     "anomaliesQuiLeComposent": [
+      "PCR virale positive",
+      "PCT basse"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Grippe",
+     "anomalieTypique": "Influenza A ou B positif"
+    },
+    {
+     "pathologie": "Infection à VRS",
+     "anomalieTypique": "VRS positif"
+    }
+   ],
+   "bulle": {
+    "def": "La PCR multiplex recherche en un seul test plusieurs virus respiratoires dans un frottis nasopharyngé, selon le répertoire des analyses des HUG (2026).",
+    "pourquoi": "Elle identifie le virus chez le patient immunosupprimé, selon le répertoire des analyses des HUG (2026).",
+    "confusion": "Pour la coqueluche, une PCR ciblée est meilleure que le panel, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "retenir": "Panel complet : immunosupprimés, frottis non centrifugé, selon le répertoire des analyses des HUG (2026)."
+   }
   },
   {
    "id": "test_rapide_du_streptocoque_a",
    "nom": "Test rapide du streptocoque A",
    "prelevement": "ecouvillons_nasopharynges_et_de_gorge",
-   "tube": null,
-   "unite": null,
+   "tube": "Frottis de gorge sur eSwab (1 ml), selon le répertoire des analyses des HUG (2026) ; ESwab à bouchon rose, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "Qualitatif (négatif ou positif)",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Négatif, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "Négatif, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Négatif ; en Suisse, un test rapide négatif chez l'enfant n'est plus contrôlé systématiquement par culture, selon Pédiatrie Suisse (Paediatrica, 2023), alors que le guide IDSA/ASM (2024) demande une culture ou une PCR.",
+    "grossesse": "Négatif, selon le répertoire des analyses des HUG (2026).",
+    "sujetAge": "Négatif ; chez l'adulte, le risque de complications est plus faible, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Le test se fait si le score de Centor est ≥ 3 ; négatif chez l'enfant, il n'est plus contrôlé systématiquement par culture, selon Pédiatrie Suisse (Paediatrica, 2023) ; le guide IDSA/ASM (2024) demande, lui, une culture ou une PCR.",
+   "variationsPhysiologiques": "La précision dépend d'une bonne technique de prélèvement, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "augmentation": [
+    "Angine à streptocoque β-hémolytique du groupe A, selon le répertoire des analyses des HUG (2026).",
+    "Streptocoques β-hémolytiques des groupes C et G, recherchés par la culture, selon le catalogue des analyses du CHUV (2026)."
+   ],
+   "diminution": [
+    "Prélèvement de mauvaise qualité, qui donne un faux négatif, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "interferences": "Le frottis se conserve à 2–8 °C ; au-delà de 48 heures, la sensibilité baisse, selon le catalogue des analyses du CHUV (2026).",
+   "delaiResultat": "De 1 à 14 jours pour la culture de gorge, selon le répertoire des analyses des HUG (2026).",
    "organes": [
     "Larynx et pharynx"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Strep A",
+    "Streptocoque du groupe A",
+    "Streptococcus pyogenes"
+   ],
+   "parametres": [
+    {
+     "nom": "Antigène streptococcique A",
+     "unite": "Qualitatif",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Test rapide positif",
+     "signification": "Il confirme une angine à streptocoque A, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    },
+    {
+     "anomalie": "Test rapide négatif (enfant)",
+     "signification": "En Suisse, pas de culture systématique : la décision repose sur la clinique, selon Pédiatrie Suisse (Paediatrica, 2023) ; l'IDSA/ASM (2024) demande une culture ou une PCR."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Angine streptococcique",
+     "anomaliesQuiLeComposent": [
+      "Test rapide positif",
+      "Culture positive"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Angine à streptocoque A",
+     "anomalieTypique": "Test rapide ou culture positifs"
+    }
+   ],
+   "bulle": {
+    "def": "Le test rapide détecte dans un frottis de gorge un antigène du streptocoque β-hémolytique du groupe A, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "pourquoi": "Il décide d'un antibiotique dans l'angine, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "confusion": "La culture de contrôle après un test négatif chez l'enfant, exigée par l'IDSA/ASM (2024), n'est plus recommandée en Suisse, selon Pédiatrie Suisse (Paediatrica, 2023).",
+    "retenir": "Centor ≥ 3 → test rapide ; négatif → pas de culture systématique en Suisse, selon Pédiatrie Suisse (Paediatrica, 2023)."
+   }
   },
   {
    "id": "serologie_parvovirus_b19",
    "nom": "Sérologie parvovirus B19",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "tube de 7,5 ml sérum avec gel, bouchon brun (4,9 ml chez l'enfant), selon le catalogue des analyses du CHUV (2026).",
+   "unite": "Qualitatif (IgG et IgM)",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "IgG positives isolées : exposition passée, avec immunité durable, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "adulteFemme": "IgG positives isolées : exposition passée, avec immunité durable, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "enfant": "Environ 90 % des enfants atteints d'érythème infectieux ont des IgM, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "grossesse": "IgM et IgG positives : infection dans les 3 derniers mois, avec risque pour le fœtus, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "sujetAge": "IgG positives isolées : exposition passée, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "En grossesse, IgM et IgG positives font craindre un risque d'infection fœtale, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "variationsPhysiologiques": "Les IgM apparaissent 10 à 12 jours après l'infection et les IgG à 2 semaines ; les IgM peuvent persister des mois, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "augmentation": [
+    "Érythème infectieux : IgM présentes chez environ 90 % des patients, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "Infection récente : IgM et IgG positives, dans les 3 derniers mois, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "diminution": [
+    "Absence d'immunité : IgG négatives, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "interferences": "Le sérum se conserve 24 h à température ambiante ; envoyé au-delà de 12 h, il est congelé, selon le catalogue des analyses du CHUV (2026). L'analyse peut être ajoutée dans les 6 jours suivant le prélèvement, selon le catalogue des analyses du CHUV (2026).",
+   "delaiResultat": "Analyse réalisée aux heures ouvrables, selon le catalogue des analyses du CHUV (2026).",
    "organes": [
     "Articulations et synoviale"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Parvovirus B19",
+    "Sérologie érythème infectieux"
+   ],
+   "parametres": [
+    {
+     "nom": "IgM anti-B19",
+     "unite": "Qualitatif",
+     "valeurs": "Négatif, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    },
+    {
+     "nom": "IgG anti-B19",
+     "unite": "Qualitatif",
+     "valeurs": "Positif : immunité, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "IgM + et IgG + en grossesse",
+     "signification": "Infection dans les 3 derniers mois, risque fœtal, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    },
+    {
+     "anomalie": "IgG + isolées",
+     "signification": "Exposition passée, immunité durable, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Infection récente à parvovirus",
+     "anomaliesQuiLeComposent": [
+      "IgM positives",
+      "IgG positives"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Érythème infectieux",
+     "anomalieTypique": "IgM positives (≈ 90 %)"
+    },
+    {
+     "pathologie": "Infection fœtale",
+     "anomalieTypique": "IgM et IgG maternelles positives"
+    }
+   ],
+   "bulle": {
+    "def": "La sérologie parvovirus B19 recherche les IgM et IgG contre ce virus, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "pourquoi": "C'est la méthode recommandée pour la femme enceinte exposée, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "confusion": "Les IgM peuvent persister des mois : elles ne datent pas l'infection au jour près, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "retenir": "IgM + IgG + en grossesse = infection < 3 mois, risque fœtal, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   }
   },
   {
    "id": "recherche_de_microfilaires",
    "nom": "Recherche de microfilaires",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard mauve (EDTA) de 2 ml (microtube de 0,5 ml chez l'enfant), transport immédiat, selon le répertoire des analyses des HUG (2026) ; tube EDTA de 2,6 ml, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "Qualitatif (absent ou présent)",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Absent, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "Absent, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Absent ; même interprétation à tout âge, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "Absent ; même interprétation à tout âge, selon le répertoire des analyses des HUG (2026).",
+    "sujetAge": "Absent ; même interprétation à tout âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Le prélèvement doit arriver au laboratoire au plus tard à 16 h 30, selon le répertoire des analyses des HUG (2026).",
+   "variationsPhysiologiques": "Les microfilaires diurnes se prélèvent entre 10 h et 14 h ; les nocturnes entre 22 h et 24 h, sur un sujet au repos depuis 2 ou 3 heures, selon le répertoire des analyses des HUG (2026).",
+   "augmentation": [
+    "Loïase (Loa loa), à rechercher de jour, entre 10 h et 14 h, selon le catalogue des analyses du CHUV (2026).",
+    "Filariose lymphatique (Wuchereria bancrofti, Brugia malayi), à rechercher de nuit, entre 22 h et 2 h, selon le catalogue des analyses du CHUV (2026)."
+   ],
+   "diminution": [
+    "Prélèvement à la mauvaise heure : les microfilaires peuvent manquer, selon le répertoire des analyses des HUG (2026)."
+   ],
+   "interferences": "La sérologie croise largement entre helminthes, dont les filaires, selon le guide IDSA/ASM du diagnostic microbiologique (2024). Indiquer le pays et les dates du voyage, selon le répertoire des analyses des HUG (2026).",
+   "delaiResultat": "De 1 à 5 jours, selon le répertoire des analyses des HUG (2026).",
    "organes": [
     "Système lymphatique"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Filariose",
+    "Leucoconcentration",
+    "Recherche de filaires"
+   ],
+   "parametres": [
+    {
+     "nom": "Microfilaires (sang)",
+     "unite": "Qualitatif",
+     "valeurs": "Absent, selon le répertoire des analyses des HUG (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "Microfilaires de jour",
+     "signification": "Elles évoquent Loa loa, selon le catalogue des analyses du CHUV (2026)."
+    },
+    {
+     "anomalie": "Microfilaires de nuit",
+     "signification": "Elles évoquent W. bancrofti ou Brugia, selon le catalogue des analyses du CHUV (2026)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Filariose",
+     "anomaliesQuiLeComposent": [
+      "Microfilaires présentes",
+      "Éosinophilie"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Loïase",
+     "anomalieTypique": "Microfilaires diurnes"
+    },
+    {
+     "pathologie": "Filariose lymphatique",
+     "anomalieTypique": "Microfilaires nocturnes"
+    }
+   ],
+   "bulle": {
+    "def": "La recherche de microfilaires cherche au microscope les larves de filaires dans le sang, selon le catalogue des analyses du CHUV (2026).",
+    "pourquoi": "Elle confirme une filariose chez un voyageur ou un migrant, selon le répertoire des analyses des HUG (2026).",
+    "confusion": "L'heure compte : Loa loa de jour, W. bancrofti de nuit, selon le catalogue des analyses du CHUV (2026).",
+    "retenir": "Jour 10–14 h, nuit 22–24 h, au repos, selon le répertoire des analyses des HUG (2026)."
+   }
   },
   {
    "id": "serologies_du_voyageur",
    "nom": "Sérologies du voyageur (dengue, chikungunya, schistosomiase)",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube Hémogard jaune de 3,5 ml (dengue) ou de 5 ml (chikungunya), selon le répertoire des analyses des HUG (2026) ; urine dans un flacon de 250 ml, 50 ml au moins, pour Schistosoma haematobium, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "Qualitatif ; UR/ml (IgG chikungunya)",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Dengue : test rapide négatif ; chikungunya : IgG et IgM négatives, selon le répertoire des analyses des HUG (2026).",
+    "adulteFemme": "Dengue : test rapide négatif ; chikungunya : IgG et IgM négatives, selon le répertoire des analyses des HUG (2026).",
+    "enfant": "Mêmes marqueurs à tout âge, selon le répertoire des analyses des HUG (2026).",
+    "grossesse": "Mêmes marqueurs à tout âge, selon le répertoire des analyses des HUG (2026).",
+    "sujetAge": "Mêmes marqueurs à tout âge, selon le répertoire des analyses des HUG (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Dans la dengue, l'antigène NS1 est détectable dès le 1er jour et jusqu'au 10e ; la PCR est préférée dans les 7 premiers jours, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "variationsPhysiologiques": "Dans une primo-infection de dengue, les IgM apparaissent 3 à 5 jours après les symptômes et restent 2 à 3 mois, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+   "augmentation": [
+    "Dengue aiguë : antigène NS1 (phase virémique précoce), puis IgM et IgG (séroconversion), selon le catalogue des analyses du CHUV (2026).",
+    "Chikungunya : IgM puis IgG ; maladie à déclaration obligatoire, selon le répertoire des analyses des HUG (2026).",
+    "Bilharziose urinaire : œufs de Schistosoma haematobium dans l'urine, selon le catalogue des analyses du CHUV (2026)."
+   ],
+   "diminution": [
+    "Dengue : si les IgG du test rapide sont négatives, le laboratoire fait une EIA IgG, selon le répertoire des analyses des HUG (2026).",
+    "Urine envoyée trop tard : au-delà de 24 heures, la sensibilité baisse, selon le catalogue des analyses du CHUV (2026)."
+   ],
+   "interferences": "Dengue : nouvelle prise de sang obligatoire, sans ajout sur un échantillon existant, selon le catalogue des analyses du CHUV (2026). Schistosoma : urine recueillie entre 10 h et 14 h après un effort, environ 10 marches d'escalier, selon le catalogue des analyses du CHUV (2026).",
+   "delaiResultat": "Dengue : jusqu'à 24 heures ; chikungunya : jusqu'à 72 heures, sauf le week-end, selon le répertoire des analyses des HUG (2026).",
    "organes": [
     "Infection et immunité"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "Bilan du voyageur",
+    "Sérologie dengue",
+    "Sérologie chikungunya"
+   ],
+   "parametres": [
+    {
+     "nom": "Dengue NS1/IgM/IgG",
+     "unite": "Qualitatif",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    },
+    {
+     "nom": "Chikungunya IgG",
+     "unite": "UR/ml",
+     "valeurs": "Négatif, selon le répertoire des analyses des HUG (2026)."
+    },
+    {
+     "nom": "Schistosoma (urine)",
+     "unite": "Qualitatif",
+     "valeurs": "Absence d'œufs, selon le catalogue des analyses du CHUV (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "NS1 positif",
+     "signification": "Il signe une dengue en phase virémique précoce, selon le catalogue des analyses du CHUV (2026)."
+    },
+    {
+     "anomalie": "IgM dengue positives",
+     "signification": "Infection récente, détectable 3 jours à 3 mois, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Fièvre au retour de voyage",
+     "anomaliesQuiLeComposent": [
+      "Recherche de paludisme",
+      "Dengue NS1/IgM",
+      "Chikungunya IgM"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Dengue",
+     "anomalieTypique": "NS1 ou IgM positifs"
+    },
+    {
+     "pathologie": "Bilharziose urinaire",
+     "anomalieTypique": "Œufs de S. haematobium"
+    }
+   ],
+   "bulle": {
+    "def": "Les sérologies du voyageur regroupent la dengue, le chikungunya et la recherche de bilharziose, selon le répertoire des analyses des HUG (2026) et selon le catalogue des analyses du CHUV (2026).",
+    "pourquoi": "Elles explorent une fièvre au retour de voyage ou une suspicion de bilharziose, selon le répertoire des analyses des HUG (2026) et selon le catalogue des analyses du CHUV (2026).",
+    "confusion": "Au tout début d'une dengue, les anticorps manquent : c'est le NS1 ou la PCR qui détecte, selon le guide IDSA/ASM du diagnostic microbiologique (2024).",
+    "retenir": "Dengue < 7 jours : NS1 ou PCR ; Schistosoma : urine de midi après effort, selon le guide IDSA/ASM du diagnostic microbiologique (2024) et selon le catalogue des analyses du CHUV (2026)."
+   }
   },
   {
    "id": "precipitines",
    "nom": "Précipitines (pneumopathie d'hypersensibilité)",
    "prelevement": "sang_veineux",
-   "tube": null,
-   "unite": null,
+   "tube": "Tube de 7,5 ml sérum sans gel, 3 ml de sérum au moins (2,6 ml chez l'enfant), pour l'analyse Aspergillus fumigatus (FEIA), externalisée, selon le catalogue des analyses du CHUV (2026).",
+   "unite": "Qualitatif ou titre selon le laboratoire",
    "valeursReference": {
-    "adulteHomme": null,
-    "adulteFemme": null,
-    "enfant": null,
-    "grossesse": null,
-    "sujetAge": null
+    "adulteHomme": "Négatives ; l'interprétation dépend du laboratoire, selon le catalogue des analyses du CHUV (2026).",
+    "adulteFemme": "Négatives ; l'interprétation dépend du laboratoire, selon le catalogue des analyses du CHUV (2026).",
+    "enfant": "Négatives ; tube de 2,6 ml sans gel chez l'enfant, selon le catalogue des analyses du CHUV (2026).",
+    "grossesse": "Négatives ; pas de seuil propre à la grossesse, selon le catalogue des analyses du CHUV (2026).",
+    "sujetAge": "Négatives ; pas de seuil propre au sujet âgé, selon le catalogue des analyses du CHUV (2026)."
    },
-   "seuilsCritiques": null,
-   "variationsPhysiologiques": null,
-   "augmentation": [],
-   "diminution": [],
-   "interferences": null,
-   "delaiResultat": null,
+   "seuilsCritiques": "Des IgG sériques contre les antigènes suspects sont proposées pour identifier l'exposition en cause dans une pneumopathie d'hypersensibilité, selon l'ATS/JRS/ALAT (2020, pneumopathie d'hypersensibilité).",
+   "variationsPhysiologiques": "Leur valeur s'ajoute à un interrogatoire soigneux, idéalement par questionnaire validé, sur les expositions, selon l'ATS/JRS/ALAT (2020, pneumopathie d'hypersensibilité).",
+   "augmentation": [
+    "Pneumopathie d'hypersensibilité, en identifiant l'antigène d'exposition, selon l'ATS/JRS/ALAT (2020, pneumopathie d'hypersensibilité).",
+    "Aspergillose broncho-pulmonaire allergique : IgE et IgG anti-Aspergillus, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+   ],
+   "diminution": [
+    "Résultat négatif : il se lit avec un interrogatoire soigneux des expositions, idéalement par questionnaire validé, selon l'ATS/JRS/ALAT (2020, pneumopathie d'hypersensibilité)."
+   ],
+   "interferences": "Les envois externalisés ne partent que du lundi au vendredi, de 8 h à 17 h, selon le catalogue des analyses du CHUV (2026).",
+   "delaiResultat": "Analyse réalisée une à deux fois par semaine, selon le catalogue des analyses du CHUV (2026).",
    "organes": [
     "Poumons et voies aériennes"
    ],
-   "synonymes": [],
-   "parametres": [],
-   "anomaliesElementaires": [],
-   "syndromesParacliniques": [],
-   "pathologiesAssociees": [],
-   "bulle": null
+   "synonymes": [
+    "IgG spécifiques",
+    "Sérologie d'hypersensibilité",
+    "Précipitines aviaires"
+   ],
+   "parametres": [
+    {
+     "nom": "IgG spécifiques d'antigènes",
+     "unite": "Selon le laboratoire",
+     "valeurs": "Négatives, selon le catalogue des analyses du CHUV (2026)."
+    }
+   ],
+   "anomaliesElementaires": [
+    {
+     "anomalie": "IgG spécifiques positives",
+     "signification": "Elles identifient une exposition, sans prouver la maladie, selon l'ATS/JRS/ALAT (2020, pneumopathie d'hypersensibilité)."
+    },
+    {
+     "anomalie": "IgE et IgG anti-Aspergillus",
+     "signification": "Elles orientent vers une aspergillose broncho-pulmonaire allergique, selon le guide IDSA/ASM du diagnostic microbiologique (2024)."
+    }
+   ],
+   "syndromesParacliniques": [
+    {
+     "syndrome": "Pneumopathie d'hypersensibilité",
+     "anomaliesQuiLeComposent": [
+      "IgG spécifiques positives",
+      "Analyse lymphocytaire du LBA"
+     ]
+    }
+   ],
+   "pathologiesAssociees": [
+    {
+     "pathologie": "Pneumopathie d'hypersensibilité",
+     "anomalieTypique": "IgG contre l'antigène d'exposition"
+    },
+    {
+     "pathologie": "Aspergillose broncho-pulmonaire allergique",
+     "anomalieTypique": "IgE et IgG anti-Aspergillus"
+    }
+   ],
+   "bulle": {
+    "def": "Les précipitines sont des IgG sériques dirigées contre des antigènes inhalés (oiseaux, moisissures…), selon l'ATS/JRS/ALAT (2020, pneumopathie d'hypersensibilité).",
+    "pourquoi": "Elles aident à trouver l'exposition en cause d'une pneumopathie d'hypersensibilité, selon l'ATS/JRS/ALAT (2020, pneumopathie d'hypersensibilité).",
+    "confusion": "Des précipitines positives prouvent une exposition, pas la maladie, selon l'ATS/JRS/ALAT (2020, pneumopathie d'hypersensibilité).",
+    "retenir": "IgG spécifiques + interrogatoire des expositions, selon l'ATS/JRS/ALAT (2020, pneumopathie d'hypersensibilité)."
+   }
   }
  ],
- "glossaire": {}
+ "glossaire": {
+  "ADN": "Acide désoxyribonucléique.",
+  "AIDS": "Sigle anglais du sida.",
+  "ALAT": "Association latino-américaine du thorax (dans ATS/JRS/ALAT).",
+  "ARN": "Acide ribonucléique ; ici, matériel génétique du VIH.",
+  "ASM": "American Society for Microbiology.",
+  "ATS": "American Thoracic Society.",
+  "B19": "Parvovirus B19, cause de l'érythème infectieux.",
+  "BDG": "1,3-bêta-D-glucane, composant de la paroi des champignons.",
+  "CD3": "Marqueur de tous les lymphocytes T.",
+  "CD4": "Marqueur des lymphocytes T auxiliaires, cibles du VIH.",
+  "CD8": "Marqueur des lymphocytes T cytotoxiques.",
+  "CHUV": "Centre hospitalier universitaire vaudois (Lausanne).",
+  "CMV": "Cytomégalovirus.",
+  "COPAN": "Fabricant des milieux de transport des frottis.",
+  "CRP": "Protéine C réactive, marqueur de l'inflammation.",
+  "EACS": "European AIDS Clinical Society, société européenne du VIH.",
+  "EBNA": "Antigène nucléaire de l'EBV.",
+  "EBV": "Virus d'Epstein-Barr.",
+  "ECLIA": "Dosage par électrochimiluminescence.",
+  "EDTA": "Anticoagulant des tubes violets ou mauves.",
+  "EFNS": "Fédération européenne des sociétés de neurologie.",
+  "EIA": "Dosage immuno-enzymatique.",
+  "ELISA": "Dosage immuno-enzymatique sur support solide.",
+  "Epstein-Barr": "Virus d'Epstein-Barr, cause de la mononucléose.",
+  "ESwab": "Écouvillon avec milieu de transport liquide.",
+  "FEIA": "Dosage immuno-enzymatique par fluorescence.",
+  "HHV-4": "Herpèsvirus humain 4, autre nom de l'EBV.",
+  "HHV-5": "Herpèsvirus humain 5, autre nom du CMV.",
+  "HHV-6": "Herpèsvirus humain 6.",
+  "HIV": "Sigle anglais du VIH.",
+  "HRP-2": "Protéine riche en histidine 2 de P. falciparum, cible des tests rapides.",
+  "HUG": "Hôpitaux universitaires de Genève.",
+  "IDR": "Intradermoréaction à la tuberculine.",
+  "IDSA": "Infectious Diseases Society of America.",
+  "IgE": "Immunoglobulines E, anticorps de l'allergie.",
+  "IgG": "Immunoglobulines G, anticorps tardifs et durables.",
+  "IgM": "Immunoglobulines M, anticorps précoces.",
+  "IGRA": "Test de libération d'interféron gamma.",
+  "IMC": "Indice de masse corporelle.",
+  "JRS": "Société japonaise de pneumologie.",
+  "LBA": "Lavage bronchoalvéolaire.",
+  "LCR": "Liquide céphalorachidien.",
+  "LFA": "Test immunochromatographique à flux latéral.",
+  "NS1": "Protéine non structurale 1 du virus de la dengue.",
+  "OFSP": "Office fédéral de la santé publique.",
+  "PCR": "Amplification en chaîne par polymérase, qui détecte le matériel génétique d'un microbe.",
+  "PCT": "Procalcitonine, marqueur de l'infection bactérienne.",
+  "PPD": "Tuberculine purifiée utilisée pour l'IDR.",
+  "PrEP": "Prophylaxie pré-exposition au VIH.",
+  "QuantiFERON-TB": "Nom commercial d'un IGRA.",
+  "RPR": "Rapid plasma reagin, test non tréponémique de la syphilis.",
+  "SARS-CoV-2": "Coronavirus responsable de la COVID-19.",
+  "TPHA": "Hémagglutination à T. pallidum, test tréponémique.",
+  "TPPA": "Agglutination de particules à T. pallidum, test tréponémique.",
+  "UI": "Unité internationale.",
+  "UR": "Unité relative du dosage des anticorps.",
+  "UriSponge": "Tube de recueil urinaire à éponge, exclu pour les antigènes urinaires.",
+  "VCA": "Antigène de capside virale de l'EBV.",
+  "VDRL": "Venereal Disease Research Laboratory, test non tréponémique de la syphilis.",
+  "VIH": "Virus de l'immunodéficience humaine.",
+  "VIH-1": "Virus de l'immunodéficience humaine de type 1.",
+  "VIH-2": "Virus de l'immunodéficience humaine de type 2.",
+  "VRS": "Virus respiratoire syncytial.",
+  "VS": "Vitesse de sédimentation.",
+  "VZV": "Virus varicelle-zona."
+ }
 }
