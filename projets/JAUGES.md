@@ -1,6 +1,6 @@
 # Jauges « jouable » des 4 jeux
 
-Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **25.11.2026 05:56**.
+Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **25.11.2026 06:06**.
 
 ## Tétrade Fondation — 94 %
 
@@ -42,8 +42,8 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 
 | Critère | Fait | Cible | Poids |
 |---|---:|---:|---:|
-| pathologies traitées (groupes A à D) | 689 | 2525 | 70 |
-| QCM jouables dans l'arène (20 par pathologie) | 13765 | 50500 | 30 |
+| pathologies traitées (groupes A à D) | 692 | 2525 | 70 |
+| QCM jouables dans l'arène (20 par pathologie) | 13825 | 50500 | 30 |
 
 ## Historique
 
