@@ -34,3 +34,7 @@ Actifs par catégorie : G 53, S 349, F 518, O 93.
 Relance : `python3 projets/ssp_plus/numeroter.py` puis `python3 projets/ssp_plus/controle.py`.
 
 Signature : AAI (Anthropic AI)
+
+
+## ANNULÉ (Vial, 25.11.2026)
+Le projet SSP+ est annulé : seul le catalogue officiel compte. Ces fichiers restent en archive ; aucun QCM n’avait été produit sur un SSP+.

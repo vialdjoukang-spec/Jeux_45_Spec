@@ -362,7 +362,6 @@ Signature : AAI (Anthropic AI)
 - `aips.py "Protamin"` renvoie un vaccin FSME : vérifie le nom du produit dans la sortie avant de citer un Brevier.
 - Trois canoniques voisins (D68.3_1 ecchymoses, D68.3_2 AVK, D68.3_3 AOD et héparines) se répartissent ainsi : gravité et co-médications ; INR et vitamine K ; tests spécifiques, antidotes et TIH. Les vignettes `d` 4–5 décrivent « comprimés dosés selon l'INR », « gélule deux fois par jour », « injections sous-cutanées quotidiennes » sans nommer la classe.
 
-## Règle SSP+ (Vial, 25.11.2026)
-- Un SSP+ est un point de départ hors catalogue, jamais un SSP officiel ni son synonyme ; il porte « (+) » à droite de son code : G17(+) et suivants après G16 ; pour S, F et O, le numéro suit le dernier officiel du groupe parent (S1.24(+) après S1.23).
-- La source unique est `projets/ssp_plus/ssp_plus_v2.json` (codes attribués par `numeroter.py`, contrôlés par `controle.py`) ; `data/ssp_etendus/` reste l'archive des anciens codes (`ancienCode`).
-- On n'ajoute un SSP+ que s'il est appuyé par une source lue ; on ne force jamais.
+## SSP+ annulés (Vial, 25.11.2026)
+- Le projet SSP+ est annulé : on ne produit que sur les 248 SSP du catalogue officiel. `projets/ssp_plus/` et `data/ssp_etendus/` restent en archive, sans usage en production.
+- Les JSON pour Gemini (`data/gemini_qcm/`, construits par `projets/ssp_plus/construire_gemini.py`) marquent `dejaProduit` les diagnostics déjà couverts par nos QCM : Gemini ne produit que les autres.

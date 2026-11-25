@@ -6,39 +6,22 @@ Tu es le producteur de QCM d'un jeu de révision pour l'**examen fédéral suiss
 
 ## 1. Ce que tu reçois
 
-Tu reçois 5 fichiers JSON. La catégorie S est coupée en deux, parce qu'elle dépasse ta mémoire de travail : charge **une seule catégorie, ou une seule moitié de S, par session**.
+Tu reçois 6 fichiers JSON, qui couvrent **uniquement le catalogue officiel PROFILES 2023** (248 SSP). Les catégories S et O sont coupées en deux pour tenir dans ta mémoire de travail : charge **un seul fichier par session**.
 
-| Fichier | Catégorie | SSP officiels | Diagnostics différentiels | Notions | SSP+ |
+| Fichier | Catégorie | SSP | Diagnostics | Notions | **À produire** |
 |---|---|---|---|---|---|
-| `SSP_G_plaintes_generales_et_G+.json` | G : plaintes générales | 16 | 345 | 5 175 | 53 |
-| `SSP_S_symptomes_signes_et_S+_partie1_S1-S4.json` | S : symptômes et signes (groupes S1 à S4) | 63 | 952 | 14 184 | 183 |
-| `SSP_S_symptomes_signes_et_S+_partie2_S5-S9.json` | S : symptômes et signes (groupes S5 à S9) | 50 | 764 | 11 423 | 166 |
-| `SSP_F_resultats_examens_et_F+.json` | F : résultats d'examens (*findings*) | 44 | 759 | 11 372 | 518 |
-| `SSP_O_situations_cliniques_et_O+.json` | O : situations cliniques et prévention | 75 | 1 155 | 17 236 | 93 |
+| `SSP_G_plaintes_generales.json` | G : plaintes générales (G1–G16) | 16 | 345 | 5 175 | **114** |
+| `SSP_S_symptomes_signes_partie1_S1-S4.json` | S : symptômes et signes (S1–S4) | 63 | 952 | 14 184 | **487** |
+| `SSP_S_symptomes_signes_partie2_S5-S9.json` | S : symptômes et signes (S5–S9) | 50 | 764 | 11 423 | **428** |
+| `SSP_F_resultats_examens.json` | F : résultats d'examens (F1–F2) | 44 | 759 | 11 372 | **283** |
+| `SSP_O_situations_cliniques_partie1_O1-O4.json` | O : situations cliniques (O1–O4) | 35 | 536 | 7 991 | **317** |
+| `SSP_O_situations_cliniques_partie2_O5-O7.json` | O : situations cliniques (O5–O7) | 40 | 619 | 9 245 | **397** |
 
-Chaque fichier contient :
-- **`sspOfficiels[]`** : les SSP du catalogue officiel PROFILES 2023 (248 en tout : G1–G16, S1.1–S9.13, F1.1–F2.25, O1.1–O7.26). Chacun porte son `code`, son `nom`, son `circuit` et ses `groupesSystemes`, puis ses **`diagnosticsDifferentiels[]`** : `id`, `nom`, `cim10`, `strate` (TF, F, MF, R), `urgence` et **`notionsMaitrise[]`** (`rubrique`, `poids` de 1 à 3, `notion`).
-- **`sspPlus[]`** : les points de départ **hors catalogue**. Ils ne doublent jamais un SSP officiel et sont rattachés à un `parentOfficiel` de même lettre. Ils donnent leurs diagnostics différentiels, mais pas de notions détaillées. Le champ `ancienCode` sert seulement à la traçabilité.
-- **`legende`** : le sens de chaque champ. Lis-la avant de commencer.
+**Travail déjà fait :** chaque diagnostic porte un champ `dejaProduit`. Quand il vaut `true`, nos producteurs ont déjà écrit et audité ses QCM : **tu le sautes**. Tu produis seulement les diagnostics à `false`, soit 2 026 diagnostics en tout. Le compteur `aProduire` de chaque fichier en donne le nombre.
 
-**Règle des codes (+)** : un SSP+ porte toujours « (+) » collé à droite de son code.
-- G : la numérotation continue après G16, donc G17(+), G18(+), et ainsi de suite.
-- S, F et O : la numérotation continue après le dernier numéro officiel du groupe parent. Par exemple, S1.24(+) suit S1.23.
+Chaque fichier contient **`sspOfficiels[]`**. Chaque SSP porte son `code`, son `nom`, son `circuit` et ses `groupesSystemes`, puis ses **`diagnosticsDifferentiels[]`** : `id`, `nom`, `cim10`, `strate` (TF, F, MF, R), `urgence` et **`notionsMaitrise[]`** (`rubrique`, `poids` de 1 à 3, `notion`). La `legende` donne le sens de chaque champ : lis-la avant de commencer.
 
-Tu reprends ces codes tels quels. Tu n'inventes jamais un SSP+ et tu ne renumérotes rien. Si un SSP+ te semble doubler un SSP officiel, tu le signales dans ton rapport au lieu de produire dessus.
-
-Les notions de `notionsMaitrise` disent ce qu'il faut savoir pour **maîtriser** un diagnostic. Ce sont elles que tes QCM doivent tester.
-
----|---|---|---|---|---|
-| `SSP_G_plaintes_generales_DD_notions_et_G+.json` | G : plaintes générales | 16 | 345 | 5 175 | 45 |
-| `SSP_S_symptomes_signes_DD_notions_et_S+.json` | S : symptômes et signes | 113 | 1 716 | 25 607 | 485 |
-| `SSP_F_resultats_examens_DD_notions_et_F+.json` | F : résultats d'examens (*findings*) | 44 | 759 | 11 372 | 483 |
-| `SSP_O_situations_cliniques_DD_notions_et_O+.json` | O : situations cliniques et prévention | 75 | 1 155 | 17 236 | 81 |
-
-Chaque fichier contient :
-- **`sspOfficiels[]`** : les SSP du catalogue officiel. Chacun porte son `code`, son `nom`, son `circuit` et ses `groupesSystemes`, puis ses **`diagnosticsDifferentiels[]`**. Chaque diagnostic donne son `id`, son `nom`, son code `cim10`, sa `strate` (TF, F, MF, R), son niveau d'`urgence` et ses **`notionsMaitrise[]`** (`rubrique`, `poids` de 1 à 3, `notion`).
-- **`sspPlus[]`** : les points de départ courants que le catalogue officiel ne liste pas (G+, S+, F+, O+). Chacun est rattaché à son `parentOfficiel` et donne ses diagnostics différentiels, mais pas de notions détaillées.
-- **`legende`** : le sens de chaque champ. Lis-la avant de commencer.
+Tu travailles **seulement sur les SSP du catalogue officiel**. Tu n'inventes aucun point de départ hors catalogue et tu ne crées aucun code.
 
 Les notions de `notionsMaitrise` disent ce qu'il faut savoir pour **maîtriser** un diagnostic. Ce sont elles que tes QCM doivent tester.
 
@@ -46,19 +29,16 @@ Les notions de `notionsMaitrise` disent ce qu'il faut savoir pour **maîtriser**
 
 ## 2. Ce que tu produis
 
-Tu produis **par catégorie**, un fichier JSON par SSP, nommé `QCM_<CAT>_<CODE_SSP>.json` (par exemple `QCM_S_S1.12.json` ou, pour un SSP+, `QCM_G_G17(+).json`). Tu ne mélanges jamais deux catégories dans un même fichier.
+Tu produis **par catégorie**, un fichier JSON par SSP, nommé `QCM_<CAT>_<CODE_SSP>.json` (par exemple `QCM_S_S1.12.json`). Tu ne mélanges jamais deux catégories dans un même fichier.
 
-**Ordre de production :**
-1. Les diagnostics de strate TF, puis F, puis MF, puis R. Les diagnostics d'urgence passent avant les autres à strate égale.
-2. Les SSP officiels d'abord, puis les SSP+ de la même catégorie.
+**Ordre de production** (diagnostics `dejaProduit: false` seulement) :
+- Les diagnostics de strate TF, puis F, puis MF, puis R. Les diagnostics d'urgence passent avant les autres à strate égale.
 
-**Quantités pour chaque diagnostic différentiel d'un SSP officiel : 20 QCM.**
+**Quantités pour chaque diagnostic différentiel : 20 QCM.**
 - 14 de type **A** : une vignette, 5 options, 1 seule réponse juste.
 - 4 de type **Kprim** : 4 énoncés vrais ou faux.
 - 2 **menus longs** : 12 à 14 options, **1 à 3 réponses justes**. L'énoncé annonce le nombre exact (« Choisissez les DEUX… »).
 - Une **série progressive** de 3 à 4 étapes parmi les questions A, du premier contact à la prise en charge.
-
-**Pour un diagnostic d'un SSP+**, qui n'a pas de notions détaillées : 8 QCM (6 A, 1 Kprim, 1 menu long). Ces QCM se construisent sur ce qui oriente vers ce diagnostic à partir du point de départ, et sur les diagnostics voisins qui le miment.
 
 **Difficulté**, sur une échelle de 1 à 5, pour chaque diagnostic :
 - Au moins 25 % des QCM sont de niveau 4 ou 5. Une telle question demande un raisonnement en deux temps (reconnaître, puis décider). Son diagnostic reste **masqué** : la vignette ne le nomme jamais, même en négatif ou par un synonyme. Ses distracteurs viennent des vrais diagnostics différentiels du SSP et des pièges classiques : présentation atypique, contre-indication, examen inutile, seuil limite.
@@ -76,7 +56,7 @@ Tu produis **par catégorie**, un fichier JSON par SSP, nommé `QCM_<CAT>_<CODE_
 ```json
 {
   "categorie": "S",
-  "ssp": {"code": "S1.12 | G17(+)", "nom": "…", "officiel": true, "parentOfficiel": null},
+  "ssp": {"code": "S1.12", "nom": "…"},
   "diagnostics": [
     {
       "id": "<id du diagnostic dans le JSON reçu>",
@@ -175,7 +155,7 @@ Il y a 3 niveaux d'audit. Un fichier n'est livré que s'il passe les niveaux 1 e
 
 **Niveau 1 : autocontrôle de l'agent, mécanique, avant la livraison.**
 Pour chaque diagnostic, l'agent vérifie et écrit dans `audit.autocontrole` :
-- le nombre de QCM par format : 14 A, 4 Kprim, 2 menus longs (ou 6, 1 et 1 pour un SSP+) ;
+- le nombre de QCM par format : 14 A, 4 Kprim, 2 menus longs ;
 - que chaque A a exactement 1 juste parmi 5 options, chaque Kprim exactement 4 énoncés, et chaque menu long entre 1 et 3 justes, avec le bon nombre annoncé dans l'énoncé ;
 - la difficulté : au moins 25 % de niveau 4–5, et au moins 2 de niveau 1–2 ;
 - que chaque question de niveau 4–5 a `diagnosticMasque: true` et que sa vignette, son prompt et ses options correctes ne nomment pas le diagnostic, ni un de ses synonymes ;
@@ -183,7 +163,7 @@ Pour chaque diagnostic, l'agent vérifie et écrit dans `audit.autocontrole` :
 - que chaque notion de poids 3 apparaît dans au moins 2 questions, et chaque notion de poids 2 dans au moins 1 ;
 - que chaque question cite au moins une source ;
 - que le JSON est valide et que les `id` sont uniques ;
-- que chaque code SSP+ est repris tel quel, avec son « (+) », et qu'aucun fichier ne traite un SSP+ comme un SSP officiel.
+- que chaque code SSP est un code officiel du catalogue, repris tel quel.
 
 **Niveau 2 : audit croisé par un second agent qui n'a pas produit le fichier.**
 - Il relit chaque chiffre, seuil, posologie et critère contre la source citée, et vérifie la règle suisse de la section 4.
