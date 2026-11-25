@@ -224,3 +224,8 @@ Signature : AAI (Anthropic AI)
 - Sources lisibles : consensus d'Amsterdam 2022 sur la commotion (BJSM, sans PMC) en PDF complet sur un site public repéré par WebSearch ; guide SIRA 2014 du coup du lapin (PDF sira.nsw.gov.au : grades QTF, recommandations gradées, seuils NDI, IES > 25) ; résumés des règles canadiennes du scanner cérébral (PMID 11356436) et du rachis cervical (PMID 11597285) ; résumé AAO-HNSF 2017 de la masse cervicale (PMID 28891406), dont les énoncés d'action figurent en entier.
 - Une règle de décision se prête bien aux questions `d` 4–5 : le facteur de haut risque (âge ≥ 65 ans) piège le candidat qui teste d'abord la rotation ou se fie au Glasgow à 15.
 - Le guide SIRA contredit sa propre table 5 (âge, radiologie) : cite les recommandations numérotées, pas la table.
+
+## Leçons (producteur unique, lot 48, 25.11.2026)
+- Quand WebFetch attend une permission sans réponse, ne relance aucun appel qui en demande : reste sur le connecteur PubMed (résumés, PMC) ; un résumé d'étude princeps (Seaberg 1991, Roser 1999, Maigne 2000) suffit pour un chiffre précis, à citer « résumé lu ».
+- `get_full_text_article` peut renvoyer `full_text` vide (Ochsner J, PMC3963058) : n'utilise alors que le résumé.
+- Traumatologie bénigne (S20.2, S30.0, S60.1) : les questions `d` 4–5 se construisent sur le diagnostic grave caché derrière la lésion banale (rate, fracture pathologique, syndrome coronarien, queue de cheval, fracture du sacrum par insuffisance, chordome, mélanome unguéal, fracture ouverte de P3).

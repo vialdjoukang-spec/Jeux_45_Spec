@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**363 / 500 pathologies du périmètre produites.**
+**366 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -310,9 +310,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 301 | `R95__G14-E08` | Syndrome de mort subite du nourrisson (MSN / MIN) | PED | produite |
 | 302 | `S06.0_1__O4_1-E09` | Commotion cérébrale liée au sport | NCH | produite |
 | 303 | `S13.4__S1_16-E04` | Entorse cervicale bénigne (coup du lapin / whiplash) sans fracture | ORT | produite |
-| 304 | `S20.2__S8_11-E01` | Contusion thoracique pariétale (sans fracture costale déplacée) | CTH | — |
-| 305 | `S30.0__S8_10-E03` | Contusion pelvienne / coccygienne (coccygodynie post-traumatique) | CHI | — |
-| 306 | `S60.1__S6_8-E05` | Hématome sous-unguéal traumatique | ORT | — |
+| 304 | `S20.2__S8_11-E01` | Contusion thoracique pariétale (sans fracture costale déplacée) | CTH | produite |
+| 305 | `S30.0__S8_10-E03` | Contusion pelvienne / coccygienne (coccygodynie post-traumatique) | CHI | produite |
+| 306 | `S60.1__S6_8-E05` | Hématome sous-unguéal traumatique | ORT | produite |
 | 307 | `S93.4__O4_1-E02` | Entorse aiguë de la cheville (ligament collatéral latéral) | ORT | — |
 | 308 | `T16__S1_8-E09` | Corps étranger du conduit auditif externe (CAE) | ORL | — |
 | 309 | `T30.2__S8_2-E02` | Brûlure thermique du 2e degré profond | CPL | — |
