@@ -294,3 +294,9 @@ Signature : AAI (Anthropic AI)
 - Le Brevier du Compendium fournit des pièges suisses utiles : l'occlusion maligne n'est pas une indication de Sandostatin, et la notice de Buscopan contre-indique l'iléus obstructif, alors que la MASCC en discute l'usage palliatif.
 - `get_article_metadata` sur une recommandation WSES renvoie des dizaines d'auteurs : préfère `convert_article_ids` pour obtenir le PMC, et cite le titre sans premier auteur si tu ne l'as pas lu.
 - Trois canoniques voisins d'occlusion (K56.6_3, K56.6, K56.2 volvulus) se répartissent ainsi : brides et cancer colique sténosant ; occlusion maligne palliative (NON_MONOGRAPHIQUE) ; volvulus.
+
+## Leçons (producteur unique, lot 58, 25.11.2026)
+- Les chapitres HTML des recommandations EAU se lisent par `curl` sur `uroweb.org/guidelines/<guide>/chapter/<chapitre>` (ex. `paediatric-urology/chapter/acute-scrotum`, `.../phimosis-and-other-abnormalities-of-the-penile-skin`) : texte complet avec « Summary of evidence » et « Recommendations ». La page `/chapter/the-guideline` ne contient que le sommaire.
+- DermNet (`dermnetnz.org/topics/<sujet>`) et les articles AFP anciens (`aafp.org/pubs/afp/issues/AAAA/MMJJ/pXXXX.html`) se lisent aussi par `curl` ; nettoie le HTML par script et repère le corps par une phrase du texte (« What is … ») plutôt que par un titre.
+- Le Brevier d'EMLA précise l'usage sur la muqueuse génitale sans pansement occlusif : notion suisse utile pour l'anesthésie topique de l'enfant.
+- Pathologie de geste urgent (paraphimosis, torsion) : les vignettes `d` 4–5 masquées décrivent « bourrelet », « anneau serré », « testicule haut et horizontal » sans le nom ; le piège classique est l'absence de douleur, le flux Doppler conservé ou la bandelette positive.

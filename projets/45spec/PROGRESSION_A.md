@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**393 / 500 pathologies du périmètre produites.**
+**396 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -362,9 +362,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 353 | `K56.6__G16-E20` | Occlusion intestinale aiguë sur carcinose péritonéale | CHI | produite |
 | 354 | `K62.3__O3_7-E14` | Prolapsus rectal complet étranglé | GAS | produite |
 | 355 | `K65.0__F2_18-E18` | Péritonite secondaire sur perforation d'organe creux | CHI | produite |
-| 356 | `L53.9__G8-E10` | Érythrodermie (> 90 % de la surface corporelle rouge et squameuse) | DER | — |
-| 357 | `N44.0__F1_2-E11` | Torsion du cordon spermatique | URO | — |
-| 358 | `N47.2__F1_2-E12` | Paraphimosis étranglé | URO | — |
+| 356 | `L53.9__G8-E10` | Érythrodermie (> 90 % de la surface corporelle rouge et squameuse) | DER | produite |
+| 357 | `N44.0__F1_2-E11` | Torsion du cordon spermatique | URO | produite |
+| 358 | `N47.2__F1_2-E12` | Paraphimosis étranglé | URO | produite |
 | 359 | `N49.3__F1_2-E13` | Gangrène de Fournier (fasciite nécrosante périnéale) | CPL | — |
 | 360 | `N49.8__F1_14-E13` | Gangrène de Fournier (fasciite nécrosante périnéale) | CPL | — |
 | 361 | `O03.1__O1_7-E12` | Fausse couche spontanée hémorragique (avortement incomplet) | GYN | — |
