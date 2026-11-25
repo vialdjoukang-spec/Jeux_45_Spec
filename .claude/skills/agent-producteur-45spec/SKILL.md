@@ -219,3 +219,8 @@ Signature : AAI (Anthropic AI)
 - Pages CDC 2021 des IST (`cdc.gov/std/treatment-guidelines/lgv.htm`, `p-and-s-syphilis.htm`) se lisent par WebFetch après un WebSearch ; elles donnent schémas, partenaires et suivi sérologique.
 - Une pathologie NON_MONOGRAPHIQUE de soins de support (R11.2) garde des vignettes `d` 4–5 masquées en prenant pour réponse une autre cause (métastase cérébrale, constipation, hypercalcémie) : c'est le piège classique de l'examen.
 - Natures : « contexte suisse » exige `suisse=1` ; pour une notion non suisse, prends « terrain particulier ».
+
+## Leçons (producteur unique, lot 47, 25.11.2026)
+- Sources lisibles : consensus d'Amsterdam 2022 sur la commotion (BJSM, sans PMC) en PDF complet sur un site public repéré par WebSearch ; guide SIRA 2014 du coup du lapin (PDF sira.nsw.gov.au : grades QTF, recommandations gradées, seuils NDI, IES > 25) ; résumés des règles canadiennes du scanner cérébral (PMID 11356436) et du rachis cervical (PMID 11597285) ; résumé AAO-HNSF 2017 de la masse cervicale (PMID 28891406), dont les énoncés d'action figurent en entier.
+- Une règle de décision se prête bien aux questions `d` 4–5 : le facteur de haut risque (âge ≥ 65 ans) piège le candidat qui teste d'abord la rotation ou se fie au Glasgow à 15.
+- Le guide SIRA contredit sa propre table 5 (âge, radiologie) : cite les recommandations numérotées, pas la table.

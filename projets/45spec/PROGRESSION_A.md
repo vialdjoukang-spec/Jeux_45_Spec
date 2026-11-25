@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**360 / 500 pathologies du périmètre produites.**
+**363 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -306,10 +306,10 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 297 | `R00.0__F1_7-E01` | Tachycardie sinusale réactionnelle (fièvre, anémie, douleur, hypovolémie) | MIG | produite |
 | 298 | `R11.2__O5_4-E07` | Nausées et vomissements chimio-induits réfractaires | MIG | produite |
 | 299 | `R59.0_1__F1_5-E01` | Adénopathies inguinales réactionnelles (infections membre inférieur / IST) | MIG | produite |
-| 300 | `R59.0__G2-E01` | Adénopathie réactionnelle bénigne (infection ORL/virale) | MIG | — |
+| 300 | `R59.0__G2-E01` | Adénopathie réactionnelle bénigne (infection ORL/virale) | MIG | produite |
 | 301 | `R95__G14-E08` | Syndrome de mort subite du nourrisson (MSN / MIN) | PED | produite |
-| 302 | `S06.0_1__O4_1-E09` | Commotion cérébrale liée au sport | NCH | — |
-| 303 | `S13.4__S1_16-E04` | Entorse cervicale bénigne (coup du lapin / whiplash) sans fracture | ORT | — |
+| 302 | `S06.0_1__O4_1-E09` | Commotion cérébrale liée au sport | NCH | produite |
+| 303 | `S13.4__S1_16-E04` | Entorse cervicale bénigne (coup du lapin / whiplash) sans fracture | ORT | produite |
 | 304 | `S20.2__S8_11-E01` | Contusion thoracique pariétale (sans fracture costale déplacée) | CTH | — |
 | 305 | `S30.0__S8_10-E03` | Contusion pelvienne / coccygienne (coccygodynie post-traumatique) | CHI | — |
 | 306 | `S60.1__S6_8-E05` | Hématome sous-unguéal traumatique | ORT | — |
