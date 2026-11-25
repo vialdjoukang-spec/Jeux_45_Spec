@@ -193,3 +193,8 @@ Signature : AAI (Anthropic AI)
 - Contrôle du masquage en 0 token : un petit script qui charge la forme compacte et cherche les mots interdits dans `st` et `p` des questions sans `m` (et compte les `d` 4–5 masqués) évite une relecture manuelle.
 - Les decks de l'arène (`conception/prototypes/arene45/decks/<SPEC>.json`, `decks/<SPEC>/<id>.json`, `specs.json`) sont suivis par git : ajoute `conception` au commit, sinon `git pull --rebase` refuse de tourner.
 - Deux canoniques voisins de la même entité (N40.0 HBP au toucher rectal, N40 HBP décompensée) se répartissent par porte : symptômes, toucher rectal et traitement médical pour le premier ; rétention aiguë, hématurie, indications et choix chirurgicaux pour le second.
+
+## Leçons (producteur unique, reprise du lot 43, 25.11.2026)
+- Un lot laissé non suivi peut différer de la consigne de reprise (annoncé M81.0, trouvé N84.0, N94.3, N94.4) : fie-toi à `git status` et à `git log`, pas au message.
+- RCOG Green-top 48 (SPM, PMID 27900828, sans résumé ni PMC) se lit en PDF complet par WebFetch (copie repérée par WebSearch) : recommandations et grades lisibles, algorithme compris (ISRS à faible dose, estradiol 100 µg + progestatif, GnRH en 3e ligne).
+- Vue de relecture en 0 token : un script qui imprime `st`, `p`, `d`, `m` et les options vraies de chaque question (filtrer « — Faux. ») suffit pour auditer un lot hérité.

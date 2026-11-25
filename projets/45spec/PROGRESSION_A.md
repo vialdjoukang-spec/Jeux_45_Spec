@@ -1,7 +1,7 @@
 # Progression 45 Spec — groupe A (agent A)
 
 Production sans API, branche `agent/45spec-A`, ordre du champ « rang » de `content/pathologies/RANG_RENDEMENT.json`.
-**348 / 500 pathologies du périmètre produites.**
+**351 / 500 pathologies du périmètre produites.**
 
 Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A2).
 
@@ -294,9 +294,9 @@ Hors périmètre : première spécialité dans [] (autres agents) ou [] (agent A
 | 285 | `N40.0__F1_5-E07` | Hypertrophie bénigne de la prostate (HBP) au toucher rectal | URO | produite |
 | 286 | `N40__F2_15-E06` | Hypertrophie bénigne de la prostate (HBP) décompensée | URO | produite |
 | 287 | `N43.3__F1_2-E09` | Hydrocèle vaginale bénigne | URO | produite |
-| 288 | `N84.0__S4_17-E03` | Polype endométrial ou cervical | GYN | — |
-| 289 | `N94.3__S4_5-E02` | Trouble dysphorique prémenstruel (TDPM) | GYN | — |
-| 290 | `N94.4__S4_5-E01` | Dysménorrhée primaire | GYN | — |
+| 288 | `N84.0__S4_17-E03` | Polype endométrial ou cervical | GYN | produite |
+| 289 | `N94.3__S4_5-E02` | Trouble dysphorique prémenstruel (TDPM) | GYN | produite |
+| 290 | `N94.4__S4_5-E01` | Dysménorrhée primaire | GYN | produite |
 | 291 | `N95.1_1__O4_5-E08` | Ménopause et syndrome climatérique (évaluation du traitement hormonal substitutif) | GYN | — |
 | 292 | `N95.1__G1-E02` | Bouffées vasomotrices de la ménopause (climatère) | GYN | — |
 | 293 | `O04.9__O1_8-E01` | Interruption volontaire de grossesse (IVG) médicamenteuse précoce (<= 7–9 SA) | GYN | — |
