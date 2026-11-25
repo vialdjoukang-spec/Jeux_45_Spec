@@ -330,3 +330,9 @@ Signature : AAI (Anthropic AI)
 - Discordances à écrire avec chaque source : lopéramide au plus 16 mg/j (CDC) contre 12 mg/j (healthytravel.ch) ; incidence 30–70 % en 2 semaines (CDC) contre 10–40 % (healthytravel.ch).
 - Z20.6 après T74.2 : la même source CFIST 2025 sert aux deux ; Z20.6 prend l'angle des expositions consenties (préservatif rompu, source indétectable, PrEP mal prise avec seuils de 4 et 6 prises sur 7 jours, aiguille trouvée, coût LAMal, passage à la PrEP).
 - Pathologie NON_MONOGRAPHIQUE « comportement » (T86.9_1) : les vignettes `d` 4–5 décrivent « oublie parfois ses comprimés », « remède naturel acheté en droguerie », « taux résiduel bas » sans « rejet », « millepertuis » ni « adhésion ».
+
+## Leçons (producteur unique, correction PEP VIH, 25.11.2026)
+- PEP VIH : 48 heures au plus (CFIST 07.11.2025, documents professionnel en français et non professionnel en allemand, relus) ; la PEP VHB garde 24 heures, au plus 72 heures : ne remplace jamais « 72 heures » à l'aveugle (contraception d'urgence, VHB, jeûne de 72 heures, Holter restent justes).
+- Durée de la PEP VIH : 30 jours dans le document non professionnel, 4 semaines dans le document professionnel ; cite la durée du document qui correspond à l'exposition.
+- Le délai périmé se cache aussi dans le catalogue `data/ssp/SSP_*.json` (amorces, notes, libellés d'entité « < 48–72 h ») et dans `data/references/game_payload_v1.json` : ces amorces nourrissent la production, corrige-les avec la cible. Vérifie ensuite que `P.canoniques(None)` garde les mêmes id.
+- Tétrade : un sigle nouveau (« CFIST ») dans `pathologies.txt` fait échouer `auditer_conception.py` (glossaire) ; écris le nom en toutes lettres. Après la reconstruction, restaure `smarter_medicine.json`, `ganglions_cervicaux.json`, `trans_s_s4_01.json` et les PDF, que les générateurs réécrivent sans rapport avec la correction.
