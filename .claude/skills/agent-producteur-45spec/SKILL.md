@@ -198,3 +198,10 @@ Signature : AAI (Anthropic AI)
 - Un lot laissé non suivi peut différer de la consigne de reprise (annoncé M81.0, trouvé N84.0, N94.3, N94.4) : fie-toi à `git status` et à `git log`, pas au message.
 - RCOG Green-top 48 (SPM, PMID 27900828, sans résumé ni PMC) se lit en PDF complet par WebFetch (copie repérée par WebSearch) : recommandations et grades lisibles, algorithme compris (ISRS à faible dose, estradiol 100 µg + progestatif, GnRH en 3e ligne).
 - Vue de relecture en 0 token : un script qui imprime `st`, `p`, `d`, `m` et les options vraies de chaque question (filtrer « — Faux. ») suffit pour auditer un lot hérité.
+
+## Leçons (producteur unique, lot 44, 25.11.2026)
+- Sources lisibles : NICE NG23 (ménopause) sur `/chapter/recommendations` en minuscules (la majuscule renvoie une erreur) ; brochure HUG « traitement hormonal de la ménopause » 2019 (PDF hug.ch) ; avis d'experts SSGO n° 78 « IG médicamenteuse » 2022 (PDF vd.ch, posologies et suivi) ; page HUG « Lois et délais légaux des IVG » (12 SA, moins de 16 ans).
+- La bibliothèque NCBI (Bookshelf) et l'IRIS de l'OMS renvoient un captcha ou une page HTML : passe par une source suisse équivalente plutôt que par une recommandation OMS non lue.
+- WebFetch refuse une URL jamais vue (provenance) : fais d'abord un WebSearch qui la renvoie.
+- Discordance à signaler dans la notion : NAMS 2023 ne recommande ni plantes ni soja, NICE NG23 admet que les isoflavones peuvent aider avec une sécurité incertaine.
+- Sujet d'une demande (IVG) : les vignettes `d` 4–5 masquées disent « grossesse non prévue » et « comprimés prescrits », jamais le geste ni les molécules.
