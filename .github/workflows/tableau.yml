@@ -16,13 +16,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {ref: main, fetch-depth: 0}
+      # Cache haché : on saute si aucune branche n'a bougé ; tranche de 30 min incluse pour rafraîchir l'état des workflows (API).
+      - name: Empreinte des entrées
+        id: emp
+        run: |
+          git fetch -q origin '+refs/heads/*:refs/remotes/origin/*'
+          h=$( (git for-each-ref --format='%(refname) %(objectname)' refs/remotes/origin | grep -v ' HEAD'; git ls-tree -r HEAD | grep -v -e tableau/donnees/ -e projets/JAUGES.md -e projets/jauges.json; echo $(( $(date +%s) / 1800 ))) | sha256sum | cut -c1-20)
+          echo "h=$h" >> "$GITHUB_OUTPUT"; mkdir -p .marque && echo "$h" > .marque/h
+      - id: cache
+        uses: actions/cache/restore@v4
+        with: {path: .marque, key: "tableau-${{ steps.emp.outputs.h }}", lookup-only: true}
       - name: Mesurer (main, branches agent/*, file API de veille/audit-medical, API GitHub)
+        if: steps.cache.outputs.cache-hit != 'true'
         env: {GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
         run: |
           git fetch -q origin '+refs/heads/*:refs/remotes/origin/*'
           python3 projets/outils/mesurer_tableau.py
           rm -rf /tmp/donnees && cp -r tableau/donnees /tmp/donnees
       - name: Publier si une donnée a bougé
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           git config user.name "tableau-bot"; git config user.email "tableau-bot@users.noreply.github.com"
           for i in 1 2 3 4; do
@@ -35,3 +47,7 @@ jobs:
             git commit -qm "Tableau : $(python3 -c "import json;print(json.load(open('tableau/donnees/etat.json'))['verdict'])") [skip ci]"
             git push -q origin main && exit 0; sleep 7
           done
+      - name: Mémoriser l'empreinte
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with: {path: .marque, key: "tableau-${{ steps.emp.outputs.h }}"}

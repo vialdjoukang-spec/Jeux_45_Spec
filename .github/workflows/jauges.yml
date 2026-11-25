@@ -13,7 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {ref: main, fetch-depth: 0}
+      # Cache haché (skill optimisation-par-cache-hache-autorun) : on saute toute la mesure si ni main (hors sorties) ni la branche d'audit n'ont changé.
+      - name: Empreinte des entrées
+        id: emp
+        run: |
+          h=$( (git ls-tree -r HEAD | grep -v -e projets/JAUGES.md -e projets/jauges.json -e conception/prototypes/moteur/arenes/ -e tableau/donnees/; git rev-parse -q origin/veille/audit-medical) | sha256sum | cut -c1-20)
+          echo "h=$h" >> "$GITHUB_OUTPUT"; mkdir -p .marque && echo "$h" > .marque/h
+      - id: cache
+        uses: actions/cache/restore@v4
+        with: {path: .marque, key: "jauges-${{ steps.emp.outputs.h }}", lookup-only: true}
       - name: Mesurer main + branche d'audit (travail de l'agent compris)
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           git config user.name "jauges-bot"; git config user.email "jauges-bot@users.noreply.github.com"
           git checkout -q -b mesure
@@ -22,6 +32,7 @@ jobs:
           python3 projets/outils/jauges.py
           cp projets/JAUGES.md projets/jauges.json /tmp/ && rm -rf /tmp/arenes && cp -r conception/prototypes/moteur/arenes /tmp/arenes
       - name: Publier si une jauge a bougé
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           git checkout -q -f main
           for i in 1 2 3 4; do
@@ -32,3 +43,7 @@ jobs:
             git commit -qm "Jauges : $(python3 -c "import json;print(' · '.join(f\"{j['nom']} {j['pct']} %\" for j in json.load(open('projets/jauges.json'))['jeux']))") [skip ci]"
             git push -q origin main && exit 0; sleep 7
           done
+      - name: Mémoriser l'empreinte
+        if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with: {path: .marque, key: "jauges-${{ steps.emp.outputs.h }}"}
