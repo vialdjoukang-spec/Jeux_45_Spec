@@ -1,14 +1,14 @@
-# Ouvrier automatique — 2026-11-25 22:37 UTC
+# Ouvrier automatique — 2026-11-25 22:41 UTC
 
 Dernier passage : **T0_ping_api** → en_cours (0.00 USD).
 
-API Error: 400 You have reached your specified API usage limits. You will regain access on 2026-12-01 at 00:00 UTC.
+API OK
 
 **Crédit** : 0.00 USD dépensés, 190.00 USD disponibles avant le 31.01.2027 ; aujourd'hui 0.00 / 190.00 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
-| T0_ping_api | en_cours | 0 | 0.0 |
+| T0_ping_api | en_cours | 1 | 0.002 |
 | complement_3 | fait | 1 | 0.03 |
 | complement_1 | fait | 1 | 0.133 |
 | complement_2 | fait | 1 | 0.035 |
