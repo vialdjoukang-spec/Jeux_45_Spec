@@ -2,7 +2,7 @@
 
 Ce dossier ne contient que les données qui ont passé l'audit de fond de Claude : un examen y entre si son cœur clinique est rempli (visees, signeRecherche, seuil, indication, discriminant, avantageSelectif, plutotQue, limite, precautions, irradiation_mSv, delai) et si aucun doute ne reste ouvert sur lui. La liste aCompleter de chaque fichier nomme les examens fiables auxquels il manque encore les champs de présentation (synonymes, aspectNormal, anomaliesElementaires, syndromesParacliniques, pathologiesAssociees) : ils partent en lot de complément. Le jeu peut les charger telles quelles. Les sources de travail restent dans `conception/donnees/` ; ce dossier est régénéré par `python projets/outils/audit_fond.py`.
 
-Mise à jour : 2026-11-24 · 815 examens fiables sur 820 · 38 à compléter en présentation · 502 justifications acceptées · 6 doutes encore ouverts.
+Mise à jour : 2026-11-25 · 816 examens fiables sur 820 · 27 à compléter en présentation · 507 justifications acceptées · 6 doutes encore ouverts.
 
 | Organe | Examens | Fiables | Doutes ouverts |
 |---|---|---|---|
@@ -26,10 +26,10 @@ Mise à jour : 2026-11-24 · 815 examens fiables sur 820 · 38 à compléter en 
 | Queue de cheval et cône terminal | 3 | 3 | 0 |
 | Rachis osseux | 13 | 13 | 0 |
 | Racines et plexus | 9 | 9 | 0 |
-| Aorte thoracique et artères pulmonaires | 10 | 9 | 1 |
+| Aorte thoracique et artères pulmonaires | 10 | 10 | 0 |
 | Cœur et péricarde | 29 | 29 | 0 |
 | Diaphragme et muscles respiratoires | 6 | 6 | 0 |
-| Médiastin | 11 | 10 | 1 |
+| Médiastin | 11 | 10 | 2 |
 | Œsophage | 8 | 8 | 0 |
 | Paroi thoracique et côtes | 6 | 6 | 0 |
 | Plèvre | 7 | 7 | 0 |

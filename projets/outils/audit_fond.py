@@ -34,6 +34,7 @@ CORRECTIONS = [
      "La dose d'une radiographie de la main pour l'âge osseux est d'environ 0,0002 mSv, selon Hart, Wall, Hillier et Shrimpton (rapport HPA-CRCE-012, 2010). La maturation osseuse s’objective à partir de 3 ans (PEDLAUS, retard de croissance)."),
 ]
 RESOLUTIONS = {  # justification de Claude ajoutée dans _meta.resolutionsClaude
+    "aorte_thoracique_et_arteres_pulmonaires__catheterisme_cardiaque_droit": "irradiation_mSv : 1,1 mSv = PDS médian 7 Gy·cm² (OFSP, directive NRD de radiologie interventionnelle, tableau 3) × 0,16 mSv/Gy·cm² (Wall et al., HPA-CRCE-028, 2011), comme dans coeur_et_pericarde.",
     "encephale__angio_ct_des_vaisseaux_intracraniens": "irradiation_mSv : 1,9 mSv mesurés par dosimètres LiF-TLD pour l'angio-CT intracrânien (Cohnen et al., AJNR 2006).",
     "encephale__ct_de_perfusion": "irradiation_mSv : 4,5 mSv = protocole standard (4,47 ± 0,85 mSv, 391 patients, cohorte d'AVC 2021) ; 2,2 mSv en basse dose.",
     "encephale__spectroscopie_irm": "seuil : chiffre retiré faute de seuil universel ; formulation qualitative.",
@@ -61,8 +62,9 @@ OUVERTS = {  # après l'audit du 2026-11-22 : un seul doute reste ouvert (aucune
     ("meninges_et_lcr__cisternographie", "irradiation_mSv"),
     ("hanche_et_bassin__radiographie_du_bassin_de_l_enfant", "irradiation_mSv"),
     # audit du 2026-11-23 (F2_examens_vides) : doses laissées à null faute de valeur sourcée
-    ("aorte_thoracique_et_arteres_pulmonaires__catheterisme_cardiaque_droit", "irradiation_mSv"),
-    ("mediastin__biopsie_de_masse_mediastinale", "irradiation_mSv"),
+    ("mediastin__biopsie_de_masse_mediastinale", "irradiation_mSv"),  # 5,4 mSv repris de la ponction sous CT : estimation
+    # audit médical du 2026-11-25 (lots thorax de Grok)
+    ("mediastin__biopsie_de_masse_mediastinale", "delai"),
     ("ureteres__scintigraphie_mag3", "irradiation_mSv"),
 }
 VIDES = (None, "", [], {})

@@ -12,7 +12,7 @@
    "interpretation",
    "source"
   ],
-  "statut": "À REMPLIR",
+  "statut": "PRODUIT — à auditer",
   "regles": [
    "Chaque texte destiné à l'apprenant s'écrit en phrases verbales.",
    "Chaque signe, symptôme et syndrome porte une « bulle » à 4 rubriques : def, pourquoi, confusion, retenir.",
@@ -25,13 +25,221 @@
  },
  "elements": [
   {
-   "id": null,
-   "nom": null,
-   "formule": null,
-   "variables": null,
-   "interpretation": null,
-   "source": null
+   "id": "calc_trou_anionique",
+   "nom": "Trou anionique plasmatique",
+   "formule": "TA = Na⁺ − (Cl⁻ + HCO₃⁻)",
+   "variables": "Na⁺, Cl⁻ et HCO₃⁻ plasmatiques, en mmol/l ; le résultat s'exprime en mmol/l.",
+   "interpretation": "Selon Kraut et Madias (2007), un trou anionique élevé traduit le plus souvent une acidose métabolique, mais il peut aussi venir d'une erreur de laboratoire, d'une alcalose métabolique, d'une hyperphosphatémie ou d'une paraprotéinémie. Un trou bas traduit le plus souvent une erreur de laboratoire ou une hypoalbuminémie. La valeur normale varie beaucoup selon les méthodes de mesure et d'une personne à l'autre : on la lit avec les normes du laboratoire.",
+   "source": "Kraut, Madias. Serum anion gap: its uses and limitations in clinical medicine. Clin J Am Soc Nephrol 2007 ; PubMed 17699401."
+  },
+  {
+   "id": "calc_trou_anionique_corrige",
+   "nom": "Trou anionique corrigé pour l'albumine",
+   "formule": "TA corrigé = TA observé + 0,25 × (albumine normale − albumine mesurée)",
+   "variables": "TA en mmol/l ; albumine en g/l (le facteur devient 2,5 si l'albumine est en g/dl) ; albumine normale : valeur de référence du laboratoire.",
+   "interpretation": "Selon Figge et al. (1998), chaque g/l d'albumine en moins fait sous-estimer de 0,25 mmol/l les anions du trou. Sans correction, une hypoalbuminémie marquée, fréquente en soins intensifs, peut masquer une acidose à trou anionique élevé.",
+   "source": "Figge, Jabor, Kazda, Fencl. Anion gap and hypoalbuminemia. Crit Care Med 1998 ; PubMed 9824071."
+  },
+  {
+   "id": "calc_trou_anionique_urinaire",
+   "nom": "Trou anionique urinaire",
+   "formule": "TAU = Na⁺ urinaire + K⁺ urinaire − Cl⁻ urinaire",
+   "variables": "Na⁺, K⁺ et Cl⁻ sur un échantillon d'urine, en mmol/l.",
+   "interpretation": "Selon Batlle et al. (1988), le trou anionique urinaire reflète grossièrement l'ammonium urinaire dans une acidose métabolique hyperchlorémique. Un trou négatif oriente vers une perte digestive de bicarbonate, par exemple une diarrhée ; un trou positif oriente vers un trouble de l'acidification urinaire distale, comme une acidose tubulaire rénale.",
+   "source": "Batlle, Hizon, Cohen, Gutterman, Gupta. The use of the urinary anion gap in the diagnosis of hyperchloremic metabolic acidosis. N Engl J Med 1988 ; PubMed 3344005."
+  },
+  {
+   "id": "calc_calcium_corrige",
+   "nom": "Calcémie corrigée pour l'albumine",
+   "formule": "Ca corrigé = Ca mesuré − albumine + 4,0 (Ca en mg/100 ml, albumine en g/100 ml) ; en unités SI : Ca corrigé = Ca mesuré + 0,025 × (40 − albumine)",
+   "variables": "Calcium total en mmol/l et albumine en g/l pour la forme SI ; mg/100 ml et g/100 ml pour la forme d'origine.",
+   "interpretation": "Selon Payne et al. (1973), le calcium total suit étroitement l'albumine (r = 0,867). Après correction, les limites à 95 % des valeurs observées devenaient identiques à celles de l'intervalle normal du laboratoire, et la correction sur l'albumine donnait des valeurs normales en cas d'hypergammaglobulinémie, contrairement aux corrections fondées sur les protéines totales. La forme SI découle de la formule d'origine par simple conversion d'unités.",
+   "source": "Payne, Little, Williams, Milner. Interpretation of serum calcium in patients with abnormal serum proteins. Br Med J 1973 ; PubMed 4758544."
+  },
+  {
+   "id": "calc_sodium_corrige_glycemie",
+   "nom": "Natrémie corrigée en hyperglycémie",
+   "formule": "Na corrigé = Na mesuré + 2,4 × (glucose − 5,6) / 5,6",
+   "variables": "Na en mmol/l ; glucose plasmatique en mmol/l (5,6 mmol/l correspondent à 100 mg/dl).",
+   "interpretation": "Selon Hillier et al. (1999), la natrémie baisse en moyenne de 2,4 mmol/l pour chaque hausse de 100 mg/dl (environ 5,6 mmol/l) du glucose, davantage que le facteur classique de 1,6. La relation n'est pas linéaire : au-delà de 400 mg/dl (environ 22 mmol/l) de glucose, un facteur de 4,0 convient mieux.",
+   "source": "Hillier, Abbott, Barrett. Hyponatremia: evaluating the correction factor for hyperglycemia. Am J Med 1999 ; PubMed 10225241."
+  },
+  {
+   "id": "calc_fib4",
+   "nom": "Score FIB-4 de fibrose hépatique",
+   "formule": "FIB-4 = (âge × ASAT) / (plaquettes × √ALAT)",
+   "variables": "Âge en années ; ASAT et ALAT en U/l ; plaquettes en 10⁹/l.",
+   "interpretation": "Selon Sterling et al. (2006), un FIB-4 supérieur à 3,25 a une valeur prédictive positive de 65 % et une spécificité de 97 % pour une fibrose avancée (Ishak 4 à 6). Sous 1,45, la valeur prédictive négative pour exclure une fibrose avancée était de 90 %, avec une sensibilité de 70 %. En dehors de l'intervalle 1,45 à 3,25, 87 % des patients sont bien classés, ce qui aurait évité la biopsie chez 71 % des patients de validation. Le score a été construit chez des patients co-infectés par le VIH et le VHC.",
+   "source": "Sterling, Lissen, Clumeck, et al. Development of a simple noninvasive index to predict significant fibrosis in patients with HIV/HCV coinfection. Hepatology 2006 ; PubMed 16729309."
+  },
+  {
+   "id": "calc_meld",
+   "nom": "Score MELD",
+   "formule": "MELD = 11,2 × ln(INR) + 9,57 × ln(créatinine) + 3,78 × ln(bilirubine) + 6,43",
+   "variables": "INR sans unité ; créatinine et bilirubine en mg/dl ; une valeur inférieure à 1,0 est remplacée par 1,0 ; la créatinine est plafonnée à 4,0 mg/dl et fixée à 4,0 après au moins deux dialyses dans la semaine précédente.",
+   "interpretation": "Selon Kamath et al. (2001), le MELD prédit le décès à 3 mois chez les patients atteints de maladie hépatique terminale, avec une statistique c de 0,78 à 0,87 selon les groupes, et il sert d'index de gravité pour prioriser la greffe hépatique. La formule et ses bornes sont celles décrites par Kim et al. (2021).",
+   "source": "Kamath, Wiesner, Malinchoc, et al. A model to predict survival in patients with end-stage liver disease. Hepatology 2001 ; PubMed 11172350. Kim, Mannalithara, Heimbach, et al. MELD 3.0: the Model for End-Stage Liver Disease updated for the modern era. Gastroenterology 2021 ; PubMed 34481845."
+  },
+  {
+   "id": "calc_meld_na",
+   "nom": "Score MELD-Na",
+   "formule": "MELD-Na = MELD − Na − [0,025 × MELD × (140 − Na)] + 140",
+   "variables": "MELD calculé comme ci-dessus ; Na sérique en mmol/l, borné entre 125 et 140 mmol/l.",
+   "interpretation": "Selon Kim et al. (2008), le score MELD et la natrémie sont tous deux associés de façon significative à la mortalité sur liste d'attente de greffe hépatique ; ajouter le sodium au MELD aurait permis de greffer et d'éviter des décès. L'effet du sodium semble moins important quand le MELD est très élevé.",
+   "source": "Kim, Biggins, Kremers, et al. Hyponatremia and mortality among patients on the liver-transplant waiting list. N Engl J Med 2008 ; PubMed 18768945."
+  },
+  {
+   "id": "calc_meld_3",
+   "nom": "Score MELD 3.0",
+   "formule": "MELD 3.0 = 1,33 (si femme) + 4,56 × ln(bilirubine) + 0,82 × (137 − Na) − 0,24 × (137 − Na) × ln(bilirubine) + 9,09 × ln(INR) + 11,14 × ln(créatinine) + 1,85 × (3,5 − albumine) − 1,83 × (3,5 − albumine) × ln(créatinine) + 6, arrondi à l'entier",
+   "variables": "Bilirubine et créatinine en mg/dl (créatinine plafonnée à 3,0 mg/dl) ; Na en mmol/l, borné entre 125 et 137 mmol/l ; albumine en g/dl, bornée entre 1,5 et 3,5 g/dl ; INR sans unité.",
+   "interpretation": "Selon Kim et al. (2021), le MELD 3.0 ajoute le sexe féminin et l'albumine au MELD-Na. Il discrimine un peu mieux la mortalité à 90 jours (statistique c de 0,869 contre 0,862) et reclasse 8,8 % des patients décédés vers un palier plus élevé, en particulier les femmes.",
+   "source": "Kim, Mannalithara, Heimbach, et al. MELD 3.0: the Model for End-Stage Liver Disease updated for the modern era. Gastroenterology 2021 ; PubMed 34481845."
+  },
+  {
+   "id": "calc_rapport_pao2_fio2",
+   "nom": "Rapport PaO2/FiO2",
+   "formule": "Rapport = PaO2 / FiO2",
+   "variables": "PaO2 artérielle en mmHg (ou en kPa) ; FiO2 en fraction décimale (0,21 en air ambiant).",
+   "interpretation": "Selon la définition de Berlin (2012), le rapport classe la gravité d'un SDRA : léger au-dessus de 200 et jusqu'à 300 mmHg (26,7 à 40 kPa), modéré au-dessus de 100 et jusqu'à 200 mmHg (13,3 à 26,7 kPa) et sévère à 100 mmHg (13,3 kPa) ou moins. La mortalité associée était de 27 %, 32 % et 45 %.",
+   "source": "ARDS Definition Task Force. Acute respiratory distress syndrome: the Berlin Definition. JAMA 2012 ; PubMed 22797452."
+  },
+  {
+   "id": "calc_score_z_spirometrie",
+   "nom": "Score z et limite inférieure de la normale",
+   "formule": "z = (valeur mesurée − valeur prédite) / écart-type de la population de référence ; LIN = 5e centile, soit z = −1,64",
+   "variables": "VEMS, CVF ou rapport VEMS/CVF mesurés ; valeur prédite et dispersion tirées des équations de référence selon l'âge, la taille, le sexe et l'origine.",
+   "interpretation": "Selon Quanjer et al. (2012), le score z indique de combien d'écarts-types une mesure s'écarte de sa valeur prédite. L'ATS et l'ERS recommandent le 5e centile, soit un z de −1,64, comme limite inférieure de la normale. Une limite fixée à 80 % de la valeur prédite ou un rapport VEMS/CVF fixe introduit des biais liés à l'âge, à la taille, au sexe et à l'origine, et ne devrait pas être utilisé.",
+   "source": "Quanjer, Stanojevic, Cole, et al. Multi-ethnic reference values for spirometry for the 3-95-yr age range: the global lung function 2012 equations. Eur Respir J 2012 ; PubMed 22743675."
+  },
+  {
+   "id": "calc_fena",
+   "nom": "Fraction d'excrétion du sodium",
+   "formule": "FENa (%) = (Na urinaire × créatinine plasmatique) / (Na plasmatique × créatinine urinaire) × 100",
+   "variables": "Na en mmol/l et créatinine en µmol/l, dans l'urine et le plasma prélevés au même moment ; les unités s'annulent.",
+   "interpretation": "Selon Espinel (1976), à la phase oligurique d'une insuffisance rénale aiguë, une FENa inférieure à 1 % oriente vers une azotémie prérénale et une FENa supérieure à 3 % vers une nécrose tubulaire aiguë. Selon Carvounis et al. (2002), les diurétiques augmentent la FENa et la rendent trompeuse chez le patient prérénal.",
+   "source": "Espinel. The FENa test: use in the differential diagnosis of acute renal failure. JAMA 1976 ; PubMed 947239. Carvounis, Nisar, Guro-Razuman. Significance of the fractional excretion of urea in the differential diagnosis of acute renal failure. Kidney Int 2002 ; PubMed 12427149."
+  },
+  {
+   "id": "calc_feun",
+   "nom": "Fraction d'excrétion de l'urée",
+   "formule": "FEUN (%) = (urée urinaire × créatinine plasmatique) / (urée plasmatique × créatinine urinaire) × 100",
+   "variables": "Urée en mmol/l et créatinine en µmol/l, dans l'urine et le plasma prélevés au même moment.",
+   "interpretation": "Selon Carvounis et al. (2002), une FEUN de 35 % ou moins distingue mieux que la FENa une insuffisance rénale aiguë prérénale d'une nécrose tubulaire aiguë, surtout sous diurétiques : 89 % des patients prérénaux traités par diurétiques avaient une FEUN inférieure à 35 %, contre 48 % avec une FENa basse.",
+   "source": "Carvounis, Nisar, Guro-Razuman. Significance of the fractional excretion of urea in the differential diagnosis of acute renal failure. Kidney Int 2002 ; PubMed 12427149."
+  },
+  {
+   "id": "calc_gradient_albumine_ascite",
+   "nom": "Gradient d'albumine sérum-ascite",
+   "formule": "Gradient = albumine sérique − albumine du liquide d'ascite",
+   "variables": "Albumine sérique et albumine d'ascite dosées le même jour, en g/l.",
+   "interpretation": "Selon Runyon et al. (1992), un gradient d'au moins 11 g/l (1,1 g/dl) signe une hypertension portale ; le gradient sépare ainsi les ascites dues à une hypertension portale des autres causes dans 96,7 % des cas, alors que le concept exsudat-transsudat fondé sur les protéines de l'ascite ne classe juste que 55,6 % des cas. Les protéines de l'ascite restent un appoint utile au diagnostic.",
+   "source": "Runyon, Montano, Akriviadis, et al. The serum-ascites albumin gradient is superior to the exudate-transudate concept in the differential diagnosis of ascites. Ann Intern Med 1992 ; PubMed 1616215."
+  },
+  {
+   "id": "calc_schwartz",
+   "nom": "DFG estimé de l'enfant (Schwartz au lit)",
+   "formule": "DFG (ml/min/1,73 m²) = 0,413 × taille (cm) / créatinine (mg/dl)",
+   "variables": "Taille en cm ; créatinine sérique en mg/dl (1 mg/dl correspond à 88,4 µmol/l).",
+   "interpretation": "Selon Schwartz et al. (2009), cette formule simplifiée approche bien l'équation complète chez l'enfant de 1 à 16 ans atteint de maladie rénale chronique. L'ancienne formule de Schwartz surestime le DFG avec les méthodes actuelles de dosage de la créatinine. Les auteurs demandent une validation chez les enfants dont le DFG est plus élevé.",
+   "source": "Schwartz, Muñoz, Schneider, et al. New equations to estimate GFR in children with CKD. J Am Soc Nephrol 2009 ; PubMed 19158356."
+  },
+  {
+   "id": "calc_index_masse_musculaire",
+   "nom": "Masse musculaire appendiculaire indexée",
+   "formule": "Index = ASM / taille²",
+   "variables": "ASM (masse musculaire squelettique appendiculaire) en kg ; taille en m ; résultat en kg/m².",
+   "interpretation": "Selon l'EWGSOP2 (2019), une quantité musculaire basse confirme une sarcopénie quand l'index est inférieur à 7,0 kg/m² chez l'homme et à 5,5 kg/m² chez la femme, ou quand l'ASM est inférieure à 20 kg chez l'homme et à 15 kg chez la femme.",
+   "source": "Cruz-Jentoft, Bahat, Bauer, et al. Sarcopenia: revised European consensus on definition and diagnosis. Age Ageing 2019 ; PubMed 30312372."
+  },
+  {
+   "id": "calc_cockcroft_gault",
+   "nom": "Clairance de la créatinine (Cockcroft-Gault)",
+   "formule": "ClCr = [(140 − âge) × poids] / (72 × créatinine sérique), multipliée par 0,85 chez la femme",
+   "variables": "Âge en années, poids en kg, créatinine sérique en mg/dl (1 mg/dl = 88,4 µmol/l) ; le résultat s'exprime en ml/min et n'est pas rapporté à la surface corporelle.",
+   "interpretation": "Selon Durden et al. (2026), la formule publiée par Cockcroft et Gault en 1976 a été établie chez des hommes de type caucasien seulement, avant la standardisation des dosages modernes de la créatinine et sans tenir compte de l'obésité actuelle : elle peut surestimer la fonction rénale. Selon ces auteurs, les recommandations KDIGO 2024 et leur commentaire américain (KDOQI) jugent les équations validées du DFG estimé appropriées pour adapter les doses dans la plupart des situations, et aucune ne recommande d'utiliser la clairance de la créatinine dans ce but. La même formule figure chez Di Gioia et al. (2025).",
+   "source": "Cockcroft, Gault. Prediction of creatinine clearance from serum creatinine. Nephron 1976 ; PubMed 1244564. Formule reprise dans le tableau 1 de Durden, Anees, Topf. Renal function equations and medication dosing: the daily clinical dilemma. J Community Hosp Intern Med Perspect 2026 ; PubMed 42631272, et dans Di Gioia, Ferrera, Serdoz, et al. J Clin Med 2025 ; PubMed 40363987."
+  },
+  {
+   "id": "calc_ckd_epi_2021",
+   "nom": "DFG estimé CKD-EPI 2021 (créatinine)",
+   "formule": "DFGe = 142 × min(Scr/κ ; 1)^α × max(Scr/κ ; 1)^−1,200 × 0,9938^âge, multiplié par 1,012 chez la femme",
+   "variables": "Scr : créatinine sérique standardisée en mg/dl (1 mg/dl = 88,4 µmol/l) ; âge en années ; κ = 0,7 chez la femme et 0,9 chez l'homme ; α = −0,241 chez la femme et −0,302 chez l'homme ; le résultat s'exprime en ml/min/1,73 m².",
+   "interpretation": "Selon Durden et al. (2026), l'équation CKD-EPI 2021 estime le DFG sans recourir à l'origine ethnique ; sa précision diminue chez les patients obèses, dénutris ou paraplégiques. Quand la créatinine est inférieure ou égale à κ, seul l'exposant α s'applique ; au-dessus, seul l'exposant −1,200 s'applique, comme le détaillent les tableaux de Martey et al. (2025) et de Sedoud et al. (2026).",
+   "source": "Inker, Eneanya, Coresh, et al. New creatinine- and cystatin C-based equations to estimate GFR without race. N Engl J Med 2021 ; PubMed 34554658. Coefficients repris dans Durden, Anees, Topf. J Community Hosp Intern Med Perspect 2026 ; PubMed 42631272 ; Martey, Seidu, Kyei, Omosule. EJIFCC 2025 ; PubMed 41459173 ; Sedoud, Baghdali, Hind, et al. J ASEAN Fed Endocr Soc 2026 ; PubMed 42802791."
+  },
+  {
+   "id": "calc_friedewald",
+   "nom": "LDL-cholestérol calculé (Friedewald)",
+   "formule": "LDL-C = cholestérol total − HDL-C − triglycérides / 2,2 (en mmol/l) ; en mg/dl, le diviseur des triglycérides est 5",
+   "variables": "Cholestérol total, HDL-cholestérol et triglycérides dosés sur le même prélèvement, en mmol/l (diviseur 2,2) ou en mg/dl (diviseur 5).",
+   "interpretation": "Selon le consensus espagnol d'Arrobas Velilla et al. (2023), la formule suppose l'absence de chylomicrons et un rapport fixe entre cholestérol et triglycérides dans les VLDL. Quand les triglycérides augmentent, elle surestime le cholestérol des VLDL et sous-estime donc le LDL-C. Elle reste assez exacte quand les triglycérides sont inférieurs à 200 mg/dl (environ 2,3 mmol/l) et ne doit pas être utilisée au-dessus de 400 mg/dl (environ 4,5 mmol/l). Au-delà de 150 mg/dl (environ 1,7 mmol/l), ce consensus recommande la formule de Martin-Hopkins ou le cholestérol non-HDL.",
+   "source": "Friedewald, Levy, Fredrickson. Estimation of the concentration of low-density lipoprotein cholesterol in plasma, without use of the preparative ultracentrifuge. Clin Chem 1972 ; PubMed 4337382. Formule et limites reprises dans Arrobas Velilla, Guijarro, Ruiz, et al. Consensus document for lipid profile testing and reporting in Spanish clinical laboratories. Adv Lab Med 2023 ; PubMed 38075943."
+  },
+  {
+   "id": "calc_homa_ir",
+   "nom": "Indice HOMA-IR de résistance à l'insuline",
+   "formule": "HOMA-IR = glycémie à jeun (mmol/l) × insulinémie à jeun (µU/ml) / 22,5 ; avec la glycémie en mg/dl, le diviseur est 405",
+   "variables": "Glycémie et insulinémie mesurées sur le même prélèvement à jeun ; glycémie en mmol/l (ou mg/dl), insuline en µU/ml ; l'indice n'a pas d'unité.",
+   "interpretation": "Selon Moriyama (2025), le HOMA-IR estime la résistance à l'insuline à partir d'un seul prélèvement à jeun ; plus la valeur est haute, plus la résistance est marquée. Il corrèle bien avec la sensibilité à l'insuline mesurée par le clamp hyperinsulinémique euglycémique, surtout en l'absence de trouble métabolique sévère ; selon Snouda (2026), ce clamp reste la méthode de référence. Aucun seuil n'est universel : les valeurs varient avec la puberté, le sexe et l'origine, et deux dosages d'insuline peuvent différer de 20 à 40 % sur le même échantillon.",
+   "source": "Matthews, Hosker, Rudenski, et al. Homeostasis model assessment: insulin resistance and beta-cell function from fasting plasma glucose and insulin concentrations in man. Diabetologia 1985 ; PubMed 3899825. Formule reprise dans Moriyama. Mini-review on insulin resistance assessment. World J Clin Cases 2025 ; PubMed 40933937, et Snouda. The case for broader use of HOMA-IR in pediatric metabolic assessment. Front Pediatr 2026 ; PubMed 42729805."
+  },
+  {
+   "id": "calc_apri",
+   "nom": "Index APRI (ASAT sur plaquettes)",
+   "formule": "APRI = [(ASAT / limite supérieure normale de l'ASAT) × 100] / plaquettes",
+   "variables": "ASAT en UI/l et limite supérieure normale de l'ASAT du laboratoire ; plaquettes en 10⁹/l.",
+   "interpretation": "Selon Mpisa et al. (2026), l'APRI rapporte l'ASAT aux plaquettes et sert au diagnostic non invasif de la cirrhose, avec des seuils qui varient selon les études. Les recommandations de l'OMS de 2015 retenaient un APRI supérieur à 2 pour diagnostiquer une cirrhose. Selon Saravanan et al. (2026), les recommandations de l'OMS de 2024 abaissent le seuil de l'APRI, qui reste le test non invasif préféré pour rechercher une fibrose significative ou une cirrhose là où les ressources sont limitées.",
+   "source": "Wai, Greenson, Fontana, et al. A simple noninvasive index can predict both significant fibrosis and cirrhosis in patients with chronic hepatitis C. Hepatology 2003 ; PubMed 12883497. Formule reprise dans Mpisa, Kahere, Syabbalo, et al. Medicine (Baltimore) 2026 ; PubMed 41931333. Recommandations de 2024 commentées par Saravanan, Vignesh, Shankar, et al. Hepatol Forum 2026 ; PubMed 42601980."
   }
  ],
- "glossaire": {}
+ "glossaire": {
+  "ALAT": "Alanine aminotransférase, enzyme surtout hépatique.",
+  "APRI": "AST to Platelet Ratio Index : rapport de l'ASAT (AST en anglais) aux plaquettes.",
+  "ARDS": "Acute respiratory distress syndrome, nom anglais du SDRA.",
+  "ASAT": "Aspartate aminotransférase, enzyme hépatique et musculaire.",
+  "ASEAN": "Association des nations de l'Asie du Sud-Est.",
+  "ASM": "Appendicular skeletal muscle mass : masse musculaire squelettique des quatre membres.",
+  "AST": "Aspartate aminotransferase, nom anglais de l'ASAT.",
+  "ATS": "American Thoracic Society, société savante américaine de pneumologie.",
+  "CKD": "Chronic kidney disease : maladie rénale chronique.",
+  "CKD-EPI": "Chronic Kidney Disease Epidemiology Collaboration : groupe qui a établi les équations d'estimation du DFG.",
+  "CVF": "Capacité vitale forcée.",
+  "ClCr": "Clairance de la créatinine, en ml/min.",
+  "DFG": "Débit de filtration glomérulaire.",
+  "DFGe": "Débit de filtration glomérulaire estimé par une équation.",
+  "EJIFCC": "Revue électronique de la Fédération internationale de chimie clinique et de médecine de laboratoire.",
+  "ERS": "European Respiratory Society, société européenne de pneumologie.",
+  "EWGSOP2": "European Working Group on Sarcopenia in Older People, consensus révisé de 2019.",
+  "FENa": "Fraction d'excrétion du sodium filtré.",
+  "FEUN": "Fractional excretion of urea nitrogen : fraction d'excrétion de l'urée.",
+  "FIB-4": "Fibrosis-4 : score de fibrose hépatique fondé sur l'âge, les transaminases et les plaquettes.",
+  "FiO2": "Fraction inspirée d'oxygène, de 0,21 en air ambiant à 1,0 en oxygène pur.",
+  "GFR": "Glomerular filtration rate, nom anglais du DFG.",
+  "HCO₃⁻": "Ion bicarbonate.",
+  "HCV": "Hepatitis C virus, nom anglais du VHC.",
+  "HDL": "High-density lipoprotein : lipoprotéine de haute densité.",
+  "HDL-C": "Cholestérol des lipoprotéines de haute densité (HDL).",
+  "HIV": "Human immunodeficiency virus, nom anglais du VIH.",
+  "HOMA-IR": "Homeostasis Model Assessment of Insulin Resistance : indice de résistance à l'insuline calculé à jeun.",
+  "INR": "International normalized ratio : expression normalisée du temps de prothrombine.",
+  "JAMA": "Journal of the American Medical Association, revue médicale américaine.",
+  "KDIGO": "Kidney Disease: Improving Global Outcomes, organisation internationale de recommandations en néphrologie.",
+  "KDOQI": "Kidney Disease Outcomes Quality Initiative, programme de recommandations de la National Kidney Foundation américaine.",
+  "LDL": "Low-density lipoprotein : lipoprotéine de basse densité.",
+  "LDL-C": "Cholestérol des lipoprotéines de basse densité (LDL).",
+  "LIN": "Limite inférieure de la normale, fixée au 5e centile de la population de référence.",
+  "MELD": "Model for End-Stage Liver Disease : score de gravité de la cirrhose.",
+  "OMS": "Organisation mondiale de la santé.",
+  "PaO2": "Pression partielle artérielle en oxygène, mesurée par la gazométrie.",
+  "SDRA": "Syndrome de détresse respiratoire aiguë : œdème pulmonaire lésionnel avec hypoxémie sévère.",
+  "SI": "Système international d'unités, utilisé en Suisse pour les résultats de laboratoire.",
+  "TA": "Trou anionique : différence entre le sodium et la somme du chlore et du bicarbonate plasmatiques.",
+  "TAU": "Trou anionique urinaire : sodium plus potassium moins chlore urinaires.",
+  "UI": "Unité internationale d'activité enzymatique.",
+  "VEMS": "Volume expiratoire maximal en une seconde.",
+  "VHC": "Virus de l'hépatite C.",
+  "VIH": "Virus de l'immunodéficience humaine.",
+  "VLDL": "Very low-density lipoprotein : lipoprotéine de très basse densité, riche en triglycérides."
+ }
 }

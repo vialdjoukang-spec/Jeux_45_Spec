@@ -8,7 +8,7 @@
    "Aventure par type d'examen",
    "Lecture d'image et de tracé"
   ],
-  "statut": "À REMPLIR",
+  "statut": "PRODUIT — à auditer",
   "regles": [
    "Un défi se joue en moins de 90 secondes et se corrige en deux phrases : pourquoi la bonne réponse est juste, pourquoi chaque distracteur est faux.",
    "Le défi s'appuie sur le fichier théorique jumeau rempli : il n'invente rien qui le contredise.",
@@ -16,6 +16,10 @@
    "niveau : 1 = reconnaître, 2 = décider, 3 = piège d'expert ; points : 10, 20 ou 30 selon le niveau ; tempsSec : 30 à 90.",
    "mode : un des modes du projet (voir _meta.modes).",
    "Les options d'un QCM sont plausibles, de longueur comparable, et une seule est juste."
+  ],
+  "aVerifier": [
+   "toutes › contexte / situation : cas cliniques et villes suisses fictifs ; seules les valeurs et règles citées viennent des sources",
+   "immunofluorescence_indirecte_cutanee › sources : Meijer et al. (2019) repris de la fiche d'organe, non rouvert"
   ]
  },
  "entites": [
@@ -23,6 +27,45 @@
    "ref": "anticorps_antinucleaires",
    "nom": "Anticorps antinucléaires (ANA)",
    "defis": [
+    {
+     "id": "anticorps_antinucleaires-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Un titre supérieur à 1:160 se confirme par les anti-ADN double brin et les anti-ENA, selon l'Hôpital cantonal de Lucerne (2026) ; aux HUG (2026), un titre d'au moins 320 déclenche ces recherches.",
+      "pourquoiFaux": "Conclure au lupus sur le seul titre oublie que l'ANA est un test d'entrée, pas un diagnostic, selon Aringer et al. (2019)."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)",
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "Aringer et al., critères EULAR/ACR du lupus (2019)"
+     ],
+     "contexte": "Une femme de 34 ans, à Lausanne, a des arthralgies et un érythème du visage.",
+     "valeurAvecUnite": "ANA 1/640, aspect homogène",
+     "question": "Quelle suite au laboratoire ?",
+     "reponse": "Anti-ADN double brin et anti-ENA"
+    },
+    {
+     "id": "anticorps_antinucleaires-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "L'Hôpital cantonal de Lucerne (2026) réserve les ANA de l'enfant à une indication stricte, car des ANA sans portée clinique y sont plus fréquents.",
+      "pourquoiFaux": "Un test à faible probabilité avant le test produit des faux positifs, selon la même source."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "situation": "Un pédiatre demande des ANA chez un enfant de 7 ans fatigué, sans signe articulaire ni cutané.",
+     "piege": "Prescrire le test sans suspicion de maladie systémique.",
+     "bonneConduite": "Réserver les ANA aux enfants qui ont des signes de lupus ou de connectivite."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -63,6 +106,44 @@
    "nom": "Anticorps anti-ADN natif",
    "defis": [
     {
+     "id": "anticorps_anti_adn_natif-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La valeur dépasse 35,0 UI/ml, seuil de positivité des HUG (2026), et plus elle s'éloigne du seuil, plus un lupus est probable, selon l'Hôpital cantonal de Lucerne (2026).",
+      "pourquoiFaux": "Le classer douteux confond avec la zone de 27,0 à 35,0 UI/ml des HUG (2026)."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "contexte": "Une femme de 28 ans, à Genève, a des ANA positifs et une protéinurie.",
+     "valeurAvecUnite": "Anti-ADN double brin 120 UI/ml",
+     "question": "Comment lire ce résultat ?",
+     "reponse": "Positif, typique du lupus"
+    },
+    {
+     "id": "anticorps_anti_adn_natif-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "L'Hôpital cantonal de Lucerne (2026) écarte les échantillons lipémiques, hémolysés ou contaminés et demande d'éviter la congélation répétée.",
+      "pourquoiFaux": "Un résultat sur ce tube risque d'être faux."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "situation": "Un tube destiné aux anti-ADN arrive lipémique et a déjà été congelé deux fois.",
+     "piege": "Analyser l'échantillon tel quel.",
+     "bonneConduite": "Refaire un prélèvement sans congélation répétée."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -101,6 +182,44 @@
    "ref": "anticorps_anti_ena",
    "nom": "Anticorps anti-ENA",
    "defis": [
+    {
+     "id": "anticorps_anti_ena-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "L'Hôpital cantonal de Lucerne (2026) associe l'anti-Jo-1 au syndrome des antisynthétases, et Lazarou (RMS, 2021) y lie un pronostic plus mauvais.",
+      "pourquoiFaux": "Penser au lupus confond avec les anti-ADN double brin."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)",
+      "Revue médicale suisse, myopathies inflammatoires (2021)"
+     ],
+     "contexte": "Un homme de 52 ans, à Berne, a une faiblesse proximale et une pneumopathie interstitielle.",
+     "valeurAvecUnite": "Anti-Jo-1 positif",
+     "question": "Quel syndrome évoquer ?",
+     "reponse": "Syndrome des antisynthétases"
+    },
+    {
+     "id": "anticorps_anti_ena-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Smarter Medicine (SSR, 2020) écarte les ENA sans ANA positif préalable et sans suspicion clinique de maladie à médiation immunitaire.",
+      "pourquoiFaux": "Un panel sans orientation produit des résultats difficiles à interpréter."
+     },
+     "sources": [
+      "Smarter Medicine, Société suisse de rhumatologie, liste Top 5 (2020)"
+     ],
+     "situation": "Un médecin coche d'emblée un panel anti-ENA chez une patiente fatiguée, sans ANA ni signe clinique.",
+     "piege": "Demander les ENA sans dépistage préalable.",
+     "bonneConduite": "Commencer par les ANA et ne doser les ENA qu'avec une suspicion clinique."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -141,6 +260,44 @@
    "nom": "ANCA (anti-PR3, anti-MPO)",
    "defis": [
     {
+     "id": "anca-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La valeur dépasse le seuil de 5,0 UI/ml des HUG (2026), et des anti-PR3 positifs soutiennent une granulomatose avec polyangéite, selon Bossuyt et al. (2017).",
+      "pourquoiFaux": "La polyangéite microscopique se lie plutôt aux anti-MPO, selon la même source."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "Bossuyt et al., consensus international sur les ANCA (2017)"
+     ],
+     "contexte": "Un homme de 58 ans, à Zurich, a une rhinite croûteuse, des nodules pulmonaires et une hématurie.",
+     "valeurAvecUnite": "Anti-PR3 45 UI/ml",
+     "question": "Quel diagnostic soutenir ?",
+     "reponse": "Granulomatose avec polyangéite"
+    },
+    {
+     "id": "anca-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "L'Hôpital cantonal de Lucerne (2026) range les échantillons inactivés par la chaleur parmi les facteurs perturbants.",
+      "pourquoiFaux": "Un tube altéré peut donner un faux résultat."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "situation": "Un tube pour ANCA a été laissé au soleil sur un rebord de fenêtre tout l'après-midi.",
+     "piege": "Croire que la chaleur ne change rien au résultat.",
+     "bonneConduite": "Refaire le prélèvement."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -179,6 +336,44 @@
    "ref": "anticorps_anti_mbg",
    "nom": "Anticorps anti-MBG",
    "defis": [
+    {
+     "id": "anticorps_anti_mbg-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "La valeur dépasse 10 EliA U/ml, seuil de positivité des HUG (2026), devant une baisse rapide de la fonction rénale, où KDIGO (2021) s'appuie sur les ANCA et les anti-MBG.",
+      "pourquoiFaux": "Attendre la biopsie pour traiter retarde un traitement urgent, selon KDIGO (2021)."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "KDIGO, recommandations sur les maladies glomérulaires (2021)"
+     ],
+     "contexte": "Un homme de 24 ans, à Fribourg, a une hémoptysie et une créatinine qui double en une semaine.",
+     "valeurAvecUnite": "Anti-MBG 85 EliA U/ml",
+     "question": "Quel diagnostic évoquer ?",
+     "reponse": "Maladie anti-MBG"
+    },
+    {
+     "id": "anticorps_anti_mbg-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) décrivent la chimiluminescence comme sensible mais parfois peu spécifique, d'où la confirmation par FEIA.",
+      "pourquoiFaux": "Un faux positif mènerait à un traitement lourd inutile."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Le dépistage anti-MBG par chimiluminescence revient à 25 CU chez une patiente sans hématurie.",
+     "piege": "Retenir une maladie anti-MBG sur ce seul résultat.",
+     "bonneConduite": "Attendre la confirmation par immunofluorométrie."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -219,6 +414,44 @@
    "nom": "Anticorps anti-PLA2R",
    "defis": [
     {
+     "id": "anticorps_anti_pla2r-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La valeur dépasse 20 U/ml, seuil de positivité des HUG (2026), et KDIGO (2021) admet un diagnostic présomptif sur un anti-PLA2R positif dans ce contexte.",
+      "pourquoiFaux": "La maladie à lésions minimes n'est pas associée aux anti-PLA2R."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "KDIGO, recommandations sur les maladies glomérulaires (2021)"
+     ],
+     "contexte": "Un homme de 55 ans, à Sion, a un syndrome néphrotique sans hématurie.",
+     "valeurAvecUnite": "Anti-PLA2R 160 U/ml",
+     "question": "Quel diagnostic retenir ?",
+     "reponse": "Glomérulopathie membraneuse"
+    },
+    {
+     "id": "anticorps_anti_pla2r-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) annoncent 10 jours ouvrables, jusqu'à 15 jours.",
+      "pourquoiFaux": "Le confondre avec le délai des ANCA mène à une attente déçue."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un néphrologue attend un résultat d'anti-PLA2R le lendemain pour décider du traitement.",
+     "piege": "Compter sur un résultat en 24 h.",
+     "bonneConduite": "Prévoir un délai de 10 jours ouvrables."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -257,6 +490,45 @@
    "ref": "facteur_rhumatoide",
    "nom": "Facteur rhumatoïde",
    "defis": [
+    {
+     "id": "facteur_rhumatoide-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Le résultat dépasse 6,0 U, seuil des HUG (2026), mais chez le sujet âgé un facteur rhumatoïde positif survient souvent sans maladie, selon l'Hôpital cantonal de Lucerne (2026).",
+      "pourquoiFaux": "Conclure à une polyarthrite sans synovite est contraire aux critères de 2010, selon Aletaha et al. (2010)."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)",
+      "Aletaha et al., critères ACR/EULAR de la polyarthrite rhumatoïde (2010)"
+     ],
+     "contexte": "Une femme de 83 ans, à Neuchâtel, sans arthrite, a un bilan de fatigue.",
+     "valeurAvecUnite": "FR IgM 18 U",
+     "question": "Que conclure ?",
+     "reponse": "Résultat peu informatif à cet âge"
+    },
+    {
+     "id": "facteur_rhumatoide-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Une gammapathie à IgM peut rendre le facteur rhumatoïde peu fiable, selon l'Hôpital cantonal de Lucerne (2026).",
+      "pourquoiFaux": "Le pic d'IgM fausse la mesure."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "situation": "Un patient avec une maladie de Waldenström a un facteur rhumatoïde demandé pour des arthralgies.",
+     "piege": "Lire le résultat comme fiable.",
+     "bonneConduite": "Interpréter le facteur rhumatoïde avec prudence et s'appuyer sur les anti-CCP."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -297,6 +569,45 @@
    "nom": "Anticorps anti-CCP",
    "defis": [
     {
+     "id": "anticorps_anti_ccp-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La valeur dépasse 10 U/ml, seuil de positivité des HUG (2026), et apporte des points au domaine sérologique, selon Aletaha et al. (2010).",
+      "pourquoiFaux": "Écarter la polyarthrite parce que le facteur rhumatoïde est négatif ignore la spécificité des anti-CCP, selon l'Hôpital cantonal de Lucerne (2026)."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "Aletaha et al., critères ACR/EULAR de la polyarthrite rhumatoïde (2010)",
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "contexte": "Une femme de 45 ans, à Bâle, a une synovite des mains depuis huit semaines.",
+     "valeurAvecUnite": "Anti-CCP 85 U/ml",
+     "question": "Que montre ce résultat ?",
+     "reponse": "Sérologie positive de polyarthrite"
+    },
+    {
+     "id": "anticorps_anti_ccp-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Selon l'Hôpital cantonal de Lucerne (2026), un résultat normal n'exclut pas une polyarthrite débutante sans anti-CCP.",
+      "pourquoiFaux": "Un test négatif n'est pas un test d'exclusion."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "situation": "Une synovite récente a des anti-CCP à 4 U/ml.",
+     "piege": "Exclure la polyarthrite rhumatoïde.",
+     "bonneConduite": "Garder le diagnostic ouvert et suivre la clinique."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -335,6 +646,45 @@
    "ref": "complement_c3",
    "nom": "Complément C3",
    "defis": [
+    {
+     "id": "complement_c3-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La valeur est sous 0,811 g/l, limite basse des HUG (2026), et un C3 bas compte parmi les critères immunologiques du lupus, selon Aringer et al. (2019).",
+      "pourquoiFaux": "Y voir une valeur normale ignore l'intervalle de référence."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "Aringer et al., critères EULAR/ACR du lupus (2019)"
+     ],
+     "contexte": "Une femme de 30 ans, à Genève, suivie pour un lupus, a une nouvelle protéinurie.",
+     "valeurAvecUnite": "C3 0,45 g/l",
+     "question": "Que signifie ce résultat ?",
+     "reponse": "Consommation du complément"
+    },
+    {
+     "id": "complement_c3-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Jusqu'à 3 mois, l'intervalle est de 0,58 à 1,98 g/l, selon l'Hôpital cantonal de Lucerne (2026) ; 0,65 g/l y est normal.",
+      "pourquoiFaux": "La norme adulte des HUG (2026) ne vaut pas pour le nourrisson."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)",
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un nourrisson de 2 mois a un C3 à 0,65 g/l comparé aux normes de l'adulte.",
+     "piege": "Conclure à un C3 bas avec la norme adulte.",
+     "bonneConduite": "Comparer avec l'intervalle de l'âge."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -375,6 +725,44 @@
    "nom": "Complément C4",
    "defis": [
     {
+     "id": "complement_c4-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La valeur est sous 0,129 g/l, limite basse des HUG (2026), et Jindal et al. (2021) associent C4 et C1-INH au diagnostic d'angio-œdème héréditaire.",
+      "pourquoiFaux": "Traiter comme une allergie confond avec l'angio-œdème histaminique, qui s'accompagne d'urticaire."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "Jindal et al., déficits immunitaires (2021)"
+     ],
+     "contexte": "Un homme de 26 ans, à Lugano, a des œdèmes récidivants sans urticaire.",
+     "valeurAvecUnite": "C4 0,06 g/l",
+     "question": "Quel dosage ajouter ?",
+     "reponse": "C1-INH et sa fonction"
+    },
+    {
+     "id": "complement_c4-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Un défaut de stockage ou de transport fausse la mesure de la fonction du C1-INH, selon Jindal et al. (2021).",
+      "pourquoiFaux": "Un faux déficit mènerait à un diagnostic erroné."
+     },
+     "sources": [
+      "Jindal et al., déficits immunitaires (2021)"
+     ],
+     "situation": "Un dosage de C1-INH fonctionnel a voyagé deux jours à température ambiante.",
+     "piege": "Faire confiance au résultat.",
+     "bonneConduite": "Refaire le prélèvement selon les consignes du laboratoire."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -413,6 +801,44 @@
    "ref": "ch50",
    "nom": "CH50",
    "defis": [
+    {
+     "id": "ch50-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "Un CH50 sous 10 % avec une voie alterne normale oriente vers un déficit en C1q ou C2, selon les critères de l'ESID (2019) ; la norme des HUG (2026) est de 70 à 130 %.",
+      "pourquoiFaux": "Un déficit de la voie alterne effondrerait plutôt celle-ci."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "ESID, critères de diagnostic clinique des déficits immunitaires (2019)"
+     ],
+     "contexte": "Un garçon de 9 ans, à Coire, a fait deux méningites bactériennes.",
+     "valeurAvecUnite": "CH50 5 %, voie alterne normale",
+     "question": "Quel déficit évoquer ?",
+     "reponse": "Composant précoce de la voie classique"
+    },
+    {
+     "id": "ch50-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "L'Hôpital cantonal de Lucerne (2026) demande un tube séparé apporté au laboratoire tout de suite après le prélèvement.",
+      "pourquoiFaux": "Un envoi différé ne respecte pas la consigne du laboratoire."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "situation": "Un tube pour l'activité du complément attend trois heures au cabinet avant le coursier.",
+     "piege": "Envoyer le tube sans précaution.",
+     "bonneConduite": "Apporter l'échantillon immédiatement au laboratoire."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -453,6 +879,44 @@
    "nom": "Immunoglobulines IgG, IgA, IgM",
    "defis": [
     {
+     "id": "immunoglobulines_igg_iga_igm-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Les deux valeurs sont sous les limites adultes des HUG (2026) ; l'ESID (2019) exige des IgG et des IgA basses pour l'âge mesurées deux fois après 4 ans.",
+      "pourquoiFaux": "Conclure sur un seul dosage oublie la double mesure exigée par l'ESID (2019)."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "ESID, critères de diagnostic clinique des déficits immunitaires (2019)"
+     ],
+     "contexte": "Un homme de 38 ans, à Lausanne, a fait trois pneumonies en deux ans.",
+     "valeurAvecUnite": "IgG 3,2 g/l ; IgA 0,2 g/l",
+     "question": "Quel déficit évoquer ?",
+     "reponse": "Déficit immunitaire commun variable"
+    },
+    {
+     "id": "immunoglobulines_igg_iga_igm-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "L'Hôpital cantonal de Lucerne (2026) signale une valeur jusqu'à 10 % plus haute debout et limite le garrot à 3 minutes.",
+      "pourquoiFaux": "Le résultat serait surestimé."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "situation": "Une patiente est prélevée debout, garrot serré 5 minutes, pour un dosage d'IgG.",
+     "piege": "Ignorer la posture et le garrot.",
+     "bonneConduite": "Prélever couché ou assis après 15 minutes de repos, garrot de 3 minutes au plus."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -491,6 +955,44 @@
    "ref": "ige_totales",
    "nom": "IgE totales",
    "defis": [
+    {
+     "id": "ige_totales-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La valeur dépasse le seuil de 500 UI/ml des critères de l'ISHAM (2024), qui exigent aussi des IgE spécifiques d'Aspergillus d'au moins 0,35 kUA/l.",
+      "pourquoiFaux": "Conclure à une simple atopie ignore le seuil de l'ISHAM (2024)."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "ISHAM, Agarwal et al., aspergillose bronchopulmonaire allergique (2024)"
+     ],
+     "contexte": "Un homme de 41 ans, à Genève, asthmatique mal contrôlé, a des infiltrats pulmonaires.",
+     "valeurAvecUnite": "IgE totales 1200 UI/ml",
+     "question": "Quelle maladie rechercher ?",
+     "reponse": "Aspergillose bronchopulmonaire allergique"
+    },
+    {
+     "id": "ige_totales-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) donnent chez la fille de 1 à 2 ans un seuil inférieur à 77 kU/l : 70 kU/l reste sous ce seuil.",
+      "pourquoiFaux": "Le seuil adulte ne s'applique qu'à partir de 6 ans, selon la même source."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Une fillette de 18 mois a des IgE totales à 70 kU/l, jugées normales au seuil adulte.",
+     "piege": "Appliquer le seuil adulte de 100 kU/l.",
+     "bonneConduite": "Comparer au seuil de l'âge et du sexe, ici moins de 77 kU/l."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -531,6 +1033,45 @@
    "nom": "IgE spécifiques",
    "defis": [
     {
+     "id": "ige_specifiques-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La valeur dépasse 0,35 kUA/l, seuil des HUG (2026), mais une IgE positive sans symptôme traduit une sensibilisation, selon la WAO (2020) et la SSAI (2021).",
+      "pourquoiFaux": "Interdire l'arachide confond sensibilisation et allergie."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "WAO, Ansotegui et al., tests d'allergie IgE (2020)",
+      "Société suisse d'allergologie et d'immunologie (2021)"
+     ],
+     "contexte": "Un étudiant de 22 ans, à Lausanne, mange des cacahuètes sans symptôme.",
+     "valeurAvecUnite": "IgE anti-arachide 2,1 kUA/l",
+     "question": "Que conclure ?",
+     "reponse": "Sensibilisation sans allergie clinique"
+    },
+    {
+     "id": "ige_specifiques-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) demandent de préciser les allergènes recherchés.",
+      "pourquoiFaux": "Sans orientation, le dosage ne répond à aucune question clinique."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un médecin envoie un tube pour « IgE spécifiques » sans nommer d'allergène.",
+     "piege": "Laisser le laboratoire choisir.",
+     "bonneConduite": "Préciser les allergènes recherchés sur la demande."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -569,6 +1110,45 @@
    "ref": "tryptase_serique",
    "nom": "Tryptase sérique",
    "defis": [
+    {
+     "id": "tryptase_serique-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "La formule 1,2 × 10 + 2 donne 14 µg/l, et 22 µg/l la dépasse, selon Valent et al. (2012).",
+      "pourquoiFaux": "Comparer au seul seuil de 11 µg/l oublie la valeur de base, selon la même source."
+     },
+     "sources": [
+      "Valent et al., consensus sur l'activation mastocytaire (2012)",
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "contexte": "Une femme de 50 ans, à Sion, fait un choc après une piqûre de guêpe ; sa tryptase de base vaut 10 µg/l.",
+     "valeurAvecUnite": "Tryptase aiguë 22 µg/l",
+     "question": "L'activation mastocytaire est-elle prouvée ?",
+     "reponse": "Oui, au-delà de 14 µg/l"
+    },
+    {
+     "id": "tryptase_serique-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) demandent un prélèvement dans les 2 heures qui suivent l'épisode et un second à 24 heures.",
+      "pourquoiFaux": "Le lendemain, la valeur est revenue dans la norme, selon l'Hôpital cantonal de Lucerne (2026)."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "situation": "Aux urgences, un patient en anaphylaxie est stabilisé ; on pense à la tryptase le lendemain.",
+     "piege": "Prélever seulement le lendemain.",
+     "bonneConduite": "Prélever dans les 2 heures après l'épisode, puis à 24 heures."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -609,6 +1189,43 @@
    "nom": "Électrophorèse des protéines sériques",
    "defis": [
     {
+     "id": "electrophorese_des_proteines_seriques-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Un pic inférieur à 30 g/l, sans atteinte d'organe et avec moins de 10 % de plasmocytes clonaux, définit cette gammapathie, selon l'IMWG (2014).",
+      "pourquoiFaux": "Parler de myélome sans atteinte d'organe ni seuil de 30 g/l est contraire à l'IMWG (2014)."
+     },
+     "sources": [
+      "IMWG, critères diagnostiques du myélome (2014)"
+     ],
+     "contexte": "Un homme de 68 ans, à Bienne, sans anémie ni hypercalcémie, a un pic à l'électrophorèse.",
+     "valeurAvecUnite": "Pic monoclonal 12 g/l",
+     "question": "Quel cadre retenir d'abord ?",
+     "reponse": "Gammapathie de signification indéterminée"
+    },
+    {
+     "id": "electrophorese_des_proteines_seriques-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) demandent aux prescripteurs externes d'envoyer le prélèvement centrifugé et décanté.",
+      "pourquoiFaux": "Un tube non préparé ne suit pas la consigne du laboratoire."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un cabinet externe envoie du sang total non centrifugé pour électrophorèse.",
+     "piege": "Envoyer le tube tel quel.",
+     "bonneConduite": "Centrifuger et décanter avant l'envoi."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -647,6 +1264,43 @@
    "ref": "immunofixation_serique_et_urinaire",
    "nom": "Immunofixation sérique et urinaire",
    "defis": [
+    {
+     "id": "immunofixation_serique_et_urinaire-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "L'immunofixation type la chaîne lourde et la chaîne légère d'une bande monoclonale, selon l'Hôpital cantonal de Lucerne (2026).",
+      "pourquoiFaux": "Elle ne mesure pas la quantité : c'est le rôle de l'électrophorèse."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "contexte": "Un homme de 72 ans, à Genève, a un pic à l'électrophorèse et des douleurs osseuses.",
+     "valeurAvecUnite": "Immunofixation : IgG kappa monoclonale",
+     "question": "Que montre l'examen ?",
+     "reponse": "Le type du composant monoclonal"
+    },
+    {
+     "id": "immunofixation_serique_et_urinaire-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) ne calculent les débits urinaires de chaînes légères que sur les urines de 24 h.",
+      "pourquoiFaux": "Une miction isolée ne permet pas ce calcul."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un service envoie une miction isolée pour calculer un débit de chaînes légères urinaires.",
+     "piege": "Croire qu'une miction suffit au calcul du débit.",
+     "bonneConduite": "Recueillir les urines de 24 h et indiquer le volume."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -687,6 +1341,44 @@
    "nom": "Chaînes légères libres sériques (kappa, lambda)",
    "defis": [
     {
+     "id": "chaines_legeres_libres_seriques-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "Le rapport vaut 150 et la chaîne impliquée dépasse 100 mg/l, ce qui définit un myélome, selon l'IMWG (2014).",
+      "pourquoiFaux": "Se rassurer sur l'électrophorèse normale oublie les formes à chaînes légères, selon la même source."
+     },
+     "sources": [
+      "IMWG, critères diagnostiques du myélome (2014)",
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "contexte": "Une femme de 64 ans, à Fribourg, a une insuffisance rénale inexpliquée et une électrophorèse normale.",
+     "valeurAvecUnite": "Kappa 1500 mg/l ; lambda 10 mg/l",
+     "question": "Que retenir ?",
+     "reponse": "Myélome à chaînes légères"
+    },
+    {
+     "id": "chaines_legeres_libres_seriques-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "L'Hôpital cantonal de Lucerne (2026) range l'hémolyse parmi les facteurs perturbants et demande de l'éviter.",
+      "pourquoiFaux": "Le résultat risquerait d'être faux."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "situation": "Le tube pour chaînes légères libres arrive nettement hémolysé.",
+     "piege": "Analyser malgré l'hémolyse.",
+     "bonneConduite": "Refaire un prélèvement sans hémolyse."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -725,6 +1417,44 @@
    "ref": "cryoglobulines",
    "nom": "Cryoglobulines",
    "defis": [
+    {
+     "id": "cryoglobulines-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "L'Hôpital cantonal de Lucerne (2026) associe le type II au syndrome de Sjögren, à la polyarthrite et à la forme essentielle.",
+      "pourquoiFaux": "Le type I est monoclonal et lié aux hémopathies B, selon la même source."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "contexte": "Une femme de 57 ans, à Lugano, a un purpura des jambes au froid et un syndrome de Sjögren.",
+     "valeurAvecUnite": "Cryoglobuline mixte positive",
+     "question": "Quel type est probable ?",
+     "reponse": "Type II, mixte"
+    },
+    {
+     "id": "cryoglobulines-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) refusent un sang non maintenu à 37 °C et demandent un transport immédiat dans la main.",
+      "pourquoiFaux": "Le froid fait précipiter les cryoglobulines dans le caillot, selon l'Hôpital cantonal de Lucerne (2026)."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "situation": "Un tube pour cryoglobulines part du cabinet dans la glacière du coursier.",
+     "piege": "Refroidir le tube comme une chimie ordinaire.",
+     "bonneConduite": "Prélever sans gel et garder le tube à 37 °C jusqu'au laboratoire, en moins d'une heure."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -765,6 +1495,43 @@
    "nom": "Anticorps des myosites (anti-Jo-1, anti-HMGCR, anti-SRP, anti-Mi-2)",
    "defis": [
     {
+     "id": "anticorps_des_myosites-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Un anti-HMGCR positif sous statine, avec une nécrose musculaire, oriente vers une myopathie nécrosante auto-immune, selon Lazarou (RMS, 2021).",
+      "pourquoiFaux": "Parler d'une simple myalgie à la statine ignore l'auto-anticorps."
+     },
+     "sources": [
+      "Revue médicale suisse, myopathies inflammatoires (2021)"
+     ],
+     "contexte": "Un homme de 66 ans, à Berne, sous statine, a une faiblesse proximale et des enzymes musculaires très élevées.",
+     "valeurAvecUnite": "Anti-HMGCR positif",
+     "question": "Quelle forme évoquer ?",
+     "reponse": "Myopathie nécrosante auto-immune"
+    },
+    {
+     "id": "anticorps_des_myosites-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) ne réalisent le profil qu'après consultation des immunologues ou accord du responsable du laboratoire.",
+      "pourquoiFaux": "La demande seule ne déclenche pas l'analyse."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un interne commande le profil myosite des HUG sans contacter le laboratoire.",
+     "piege": "Croire que le profil se lance sur simple demande.",
+     "bonneConduite": "Contacter les immunologues avant la demande."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -803,6 +1570,44 @@
    "ref": "anticorps_anti_recepteur_de_l_acetylchol",
    "nom": "Anticorps anti-récepteur de l'acétylcholine",
    "defis": [
+    {
+     "id": "anticorps_anti_recepteur_de_l_acetylchol-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La valeur dépasse 0,45 nmol/l, seuil des HUG (2026), et Wiendl et al. (2023) imposent de chercher un thymome chez tout myasthénique.",
+      "pourquoiFaux": "S'arrêter au diagnostic oublie la recherche du thymome."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "Wiendl et al., recommandations sur la myasthénie (2023)"
+     ],
+     "contexte": "Une femme de 33 ans, à Neuchâtel, a un ptosis qui s'aggrave le soir.",
+     "valeurAvecUnite": "Anti-récepteur de l'acétylcholine 8,2 nmol/l",
+     "question": "Quel examen ajouter ?",
+     "reponse": "Imagerie du thymus"
+    },
+    {
+     "id": "anticorps_anti_recepteur_de_l_acetylchol-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) annoncent 10 jours ouvrables, jusqu'à 15 jours.",
+      "pourquoiFaux": "Le résultat n'arrivera pas le lendemain."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un neurologue attend le résultat d'anti-récepteur de l'acétylcholine pour le lendemain matin.",
+     "piege": "Compter sur un résultat en 24 h.",
+     "bonneConduite": "Prévoir 10 jours ouvrables et traiter selon la clinique."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -843,6 +1648,43 @@
    "nom": "Anticorps anti-MuSK",
    "defis": [
     {
+     "id": "anticorps_anti_musk-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La valeur dépasse 0,4 U/ml, seuil de l'Hôpital cantonal de Lucerne (2026), qui situe ces anticorps dans les myasthénies sans anti-récepteur.",
+      "pourquoiFaux": "Exclure la myasthénie sur des anti-récepteur négatifs oublie 20 à 30 % des cas, selon la même source."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "contexte": "Un homme de 40 ans, à Lucerne, a une faiblesse bulbaire fatigable ; ses anti-récepteur de l'acétylcholine sont négatifs.",
+     "valeurAvecUnite": "Anti-MuSK 6 U/ml",
+     "question": "Quel diagnostic retenir ?",
+     "reponse": "Myasthénie à anti-MuSK"
+    },
+    {
+     "id": "anticorps_anti_musk-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "L'Hôpital cantonal de Lucerne (2026) range les congélations et décongélations répétées parmi les facteurs perturbants.",
+      "pourquoiFaux": "Le résultat risquerait d'être faux."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "situation": "Un sérum pour anti-MuSK a été congelé puis décongelé trois fois.",
+     "piege": "Analyser ce sérum.",
+     "bonneConduite": "Utiliser un sérum non soumis à des congélations répétées."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -881,6 +1723,44 @@
    "ref": "anticorps_anti_aqp4",
    "nom": "Anticorps anti-AQP4",
    "defis": [
+    {
+     "id": "anticorps_anti_aqp4-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Un anti-AQP4 positif en CBA, de spécificité supérieure à 99 %, fait retenir une NMOSD devant un tableau compatible, selon la HAS (2025).",
+      "pourquoiFaux": "Conclure à une sclérose en plaques ignore cet anticorps."
+     },
+     "sources": [
+      "HAS, PNDS neuromyélite optique (2025)"
+     ],
+     "contexte": "Une femme de 39 ans, à Genève, a une myélite étendue sur plusieurs segments.",
+     "valeurAvecUnite": "Anti-AQP4 positif en CBA",
+     "question": "Quel diagnostic retenir ?",
+     "reponse": "Neuromyélite optique"
+    },
+    {
+     "id": "anticorps_anti_aqp4-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "Les faux positifs viennent surtout de faibles titres en ELISA, selon Levy et al. (2024), et la HAS (2025) recommande un CBA.",
+      "pourquoiFaux": "Un faux positif conduirait à un traitement inadapté."
+     },
+     "sources": [
+      "Levy et al., neuromyélite optique (2024)",
+      "HAS, PNDS neuromyélite optique (2025)"
+     ],
+     "situation": "Un anti-AQP4 faiblement positif en ELISA est rendu chez un patient au tableau atypique.",
+     "piege": "Retenir la neuromyélite sur ce seul résultat.",
+     "bonneConduite": "Contrôler par un CBA."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -921,6 +1801,44 @@
    "nom": "Anticorps anti-MOG",
    "defis": [
     {
+     "id": "anticorps_anti_mog-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Le titre dépasse le seuil de 1:10 de l'Hôpital cantonal de Lucerne (2026), et un anti-MOG positif oriente vers une MOGAD selon le titre, selon Levy et al. (2024).",
+      "pourquoiFaux": "Conclure à une neuromyélite à AQP4 contredit l'anti-AQP4 négatif."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)",
+      "Levy et al., neuromyélite optique (2024)"
+     ],
+     "contexte": "Un garçon de 10 ans, à Zurich, a une névrite optique ; ses anti-AQP4 sont négatifs.",
+     "valeurAvecUnite": "Anti-MOG titre 1:320",
+     "question": "Quel diagnostic évoquer ?",
+     "reponse": "MOGAD"
+    },
+    {
+     "id": "anticorps_anti_mog-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La HAS (2025) recommande un CBA et, pour la MOG, la protéine complète.",
+      "pourquoiFaux": "Une autre technique expose aux erreurs."
+     },
+     "sources": [
+      "HAS, PNDS neuromyélite optique (2025)"
+     ],
+     "situation": "Un laboratoire propose un test anti-MOG sur protéine tronquée.",
+     "piege": "Accepter n'importe quelle technique.",
+     "bonneConduite": "Demander un CBA sur protéine MOG complète."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -959,6 +1877,43 @@
    "ref": "anticorps_anti_neuronaux",
    "nom": "Anticorps anti-neuronaux (encéphalites auto-immunes)",
    "defis": [
+    {
+     "id": "anticorps_anti_neuronaux-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "L'Hôpital cantonal de Lucerne (2026) lie l'anti-Yo, chez la femme, à un cancer de l'ovaire ou du sein, et juge une tumeur très probable dès 1:500.",
+      "pourquoiFaux": "L'anti-Hu oriente plutôt vers un cancer bronchique à petites cellules, selon la même source."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "contexte": "Une femme de 61 ans, à Lucerne, a une ataxie cérébelleuse subaiguë.",
+     "valeurAvecUnite": "Anti-Yo positif, titre 1:1000",
+     "question": "Quelle tumeur rechercher ?",
+     "reponse": "Cancer de l'ovaire ou du sein"
+    },
+    {
+     "id": "anticorps_anti_neuronaux-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Graus et al. (2016) recommandent de ne pas retarder le traitement en attendant les anticorps.",
+      "pourquoiFaux": "Un panel peut d'ailleurs revenir négatif malgré la maladie, selon la même source."
+     },
+     "sources": [
+      "Graus et al., encéphalites auto-immunes, Lancet Neurol (2016)"
+     ],
+     "situation": "Un patient a une encéphalite subaiguë ; le neurologue attend le panel avant tout traitement.",
+     "piege": "Retarder le traitement jusqu'au résultat.",
+     "bonneConduite": "Envoyer sérum et LCR et ne pas retarder le traitement."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -999,6 +1954,45 @@
    "nom": "Anticorps anti-gangliosides",
    "defis": [
     {
+     "id": "anticorps_anti_gangliosides-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La valeur dépasse 50 %, seuil de positivité des HUG (2026), et les anti-GQ1b ont une spécificité de 100 % pour ce syndrome, selon l'EAN et la PNS (2023).",
+      "pourquoiFaux": "Une myasthénie oculaire ne donne ni ataxie ni anti-GQ1b."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "EAN et PNS, van Doorn et al., syndrome de Guillain-Barré (2023)"
+     ],
+     "contexte": "Un homme de 45 ans, à Bâle, a une ophtalmoplégie, une ataxie et une aréflexie après une diarrhée.",
+     "valeurAvecUnite": "Anti-GQ1b 85 %",
+     "question": "Quel diagnostic retenir ?",
+     "reponse": "Syndrome de Miller Fisher"
+    },
+    {
+     "id": "anticorps_anti_gangliosides-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Le résultat arrive souvent après la fenêtre thérapeutique, selon l'EAN et la PNS (2023) ; les HUG (2026) annoncent 10 jours ouvrables.",
+      "pourquoiFaux": "Attendre ferait perdre la fenêtre de traitement."
+     },
+     "sources": [
+      "EAN et PNS, van Doorn et al., syndrome de Guillain-Barré (2023)",
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un Guillain-Barré se dégrade ; l'équipe attend le profil anti-gangliosides avant de traiter.",
+     "piege": "Attendre le résultat pour traiter.",
+     "bonneConduite": "Traiter selon la clinique sans attendre le profil."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -1037,6 +2031,45 @@
    "ref": "anticorps_anti_mag",
    "nom": "Anticorps anti-MAG",
    "defis": [
+    {
+     "id": "anticorps_anti_mag-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "Au-delà de 7000 BTU, l'EAN et la PNS (2021) orientent vers un autre diagnostic que la PIDC ; le seuil des HUG (2026) est de 1000 BTU.",
+      "pourquoiFaux": "Retenir une PIDC ignore ce titre élevé."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "EAN et PNS, Van den Bergh et al., PIDC (2021)"
+     ],
+     "contexte": "Un homme de 70 ans, à Genève, a une neuropathie sensitive distale et une IgM monoclonale.",
+     "valeurAvecUnite": "Anti-MAG 25 000 BTU",
+     "question": "Quel diagnostic privilégier ?",
+     "reponse": "Neuropathie à IgM anti-MAG"
+    },
+    {
+     "id": "anticorps_anti_mag-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) annoncent 10 jours ouvrables, jusqu'à 20 jours, et l'EAN et la PNS (2021) décrivent un dosage spécialisé.",
+      "pourquoiFaux": "Le dosage ne se fait pas en routine rapide."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "EAN et PNS, Van den Bergh et al., PIDC (2021)"
+     ],
+     "situation": "Un neurologue s'étonne que les anti-MAG ne soient pas rendus en 48 heures.",
+     "piege": "Attendre un délai de routine.",
+     "bonneConduite": "Prévoir 10 jours ouvrables."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -1077,6 +2110,45 @@
    "nom": "Anticorps anti-facteur intrinsèque",
    "defis": [
     {
+     "id": "anticorps_anti_facteur_intrinseque-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La valeur dépasse 10 U/ml, seuil de positivité des HUG (2026), et un test positif chez un patient en déficit oriente vers une gastrite auto-immune, selon le NICE (2024).",
+      "pourquoiFaux": "Accuser un apport insuffisant ignore l'anticorps."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "NICE, NG239, carence en vitamine B12 (2024)"
+     ],
+     "contexte": "Une femme de 62 ans, à Sion, a une vitamine B12 basse et une macrocytose.",
+     "valeurAvecUnite": "Anti-facteur intrinsèque 24 U/ml",
+     "question": "Quelle cause retenir ?",
+     "reponse": "Gastrite auto-immune"
+    },
+    {
+     "id": "anticorps_anti_facteur_intrinseque-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Le NICE (2024) précise qu'un test négatif n'écarte pas une gastrite auto-immune.",
+      "pourquoiFaux": "Le type 1 n'est présent que chez 70 % des malades, selon l'Hôpital cantonal de Lucerne (2026)."
+     },
+     "sources": [
+      "NICE, NG239, carence en vitamine B12 (2024)",
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "situation": "Une patiente carencée en vitamine B12 a des anti-facteur intrinsèque négatifs ; le médecin clôt l'enquête.",
+     "piege": "Conclure qu'il n'y a pas de gastrite auto-immune.",
+     "bonneConduite": "Garder le doute et discuter anti-cellules pariétales, gastrine et biopsies du fundus."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -1115,6 +2187,44 @@
    "ref": "anticorps_anti_cellules_parietales",
    "nom": "Anticorps anti-cellules pariétales",
    "defis": [
+    {
+     "id": "anticorps_anti_cellules_parietales-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La valeur dépasse 10 U/ml, seuil de positivité des HUG (2026), et le NICE (2024) discute ces anticorps quand les anti-FI sont négatifs.",
+      "pourquoiFaux": "Le résultat seul ne suffit pas toujours au diagnostic, selon le NICE (2024)."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "NICE, NG239, carence en vitamine B12 (2024)"
+     ],
+     "contexte": "Un homme de 55 ans, à Lausanne, a une vitamine B12 basse et des anti-facteur intrinsèque négatifs.",
+     "valeurAvecUnite": "Anti-ATPase H+/K+ 35 U/ml",
+     "question": "Comment lire ce résultat ?",
+     "reponse": "Positif, argument de gastrite auto-immune"
+    },
+    {
+     "id": "anticorps_anti_cellules_parietales-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "L'Hôpital cantonal de Lucerne (2026) range hémolyse et lipémie parmi les facteurs perturbants.",
+      "pourquoiFaux": "Le résultat risquerait d'être faux."
+     },
+     "sources": [
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "situation": "Le tube pour anti-cellules pariétales arrive lipémique après un repas riche.",
+     "piege": "Analyser le tube tel quel.",
+     "bonneConduite": "Refaire le prélèvement à jeun, sans lipémie."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -1155,6 +2265,44 @@
    "nom": "Auto-anticorps hépatiques (anti-muscle lisse, anti-LKM1, AMA)",
    "defis": [
     {
+     "id": "auto_anticorps_hepatiques-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Des AMA au-delà de 1:40 avec une phosphatase alcaline élevée permettent ce diagnostic chez l'adulte, selon l'EASL (2017).",
+      "pourquoiFaux": "L'hépatite auto-immune repose sur ANA, anti-muscle lisse ou anti-LKM1, selon l'EASL (2025)."
+     },
+     "sources": [
+      "EASL, recommandations sur la cholangite biliaire primitive (2017)",
+      "EASL, recommandations sur l'hépatite auto-immune (2025)"
+     ],
+     "contexte": "Une femme de 56 ans, à Fribourg, a une phosphatase alcaline à 2 fois la normale et un prurit.",
+     "valeurAvecUnite": "AMA titre 1:320",
+     "question": "Quel diagnostic retenir ?",
+     "reponse": "Cholangite biliaire primitive"
+    },
+    {
+     "id": "auto_anticorps_hepatiques-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 3,
+     "points": 30,
+     "tempsSec": 90,
+     "correction": {
+      "pourquoiJuste": "L'EASL (2025) fixe ses seuils pour l'immunofluorescence et demande des seuils validés localement en ELISA.",
+      "pourquoiFaux": "Le titre n'a pas le même sens avec une autre méthode."
+     },
+     "sources": [
+      "EASL, recommandations sur l'hépatite auto-immune (2025)"
+     ],
+     "situation": "Un résultat d'anti-muscle lisse au titre 1:80 vient d'un laboratoire qui utilise une méthode immunoenzymatique.",
+     "piege": "Appliquer tel quel le score de l'EASL.",
+     "bonneConduite": "Interpréter le résultat selon la technique du laboratoire."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -1193,6 +2341,44 @@
    "ref": "hla_b27",
    "nom": "HLA-B27",
    "defis": [
+    {
+     "id": "hla_b27-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Avec des rachialgies chroniques débutées avant 45 ans, l'HLA-B27 et au moins deux signes de spondyloarthrite remplissent le bras clinique, selon l'ASAS (2009).",
+      "pourquoiFaux": "Le bras imagerie exige une sacro-iliite à l'imagerie, selon la même source."
+     },
+     "sources": [
+      "ASAS, Rudwaleit et al., spondyloarthrite axiale (2009)"
+     ],
+     "contexte": "Un homme de 27 ans, à Zurich, a des lombalgies inflammatoires depuis 6 mois, une uvéite et une enthésite.",
+     "valeurAvecUnite": "HLA-B27 présent",
+     "question": "Quel cadre est rempli ?",
+     "reponse": "Bras clinique des critères ASAS"
+    },
+    {
+     "id": "hla_b27-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) soumettent l'analyse à la loi sur l'analyse génétique humaine, et l'Hôpital cantonal de Lucerne (2026) exige un consentement signé.",
+      "pourquoiFaux": "L'analyse n'est pas licite sans consentement."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "Hôpital cantonal de Lucerne, répertoire des analyses (2026)"
+     ],
+     "situation": "Un tube pour HLA-B27 est prélevé sans que le patient ait été informé de l'analyse génétique.",
+     "piege": "Envoyer le tube sans consentement.",
+     "bonneConduite": "Informer le patient et recueillir son consentement écrit."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -1233,6 +2419,44 @@
    "nom": "Anticorps anti-SSA et anti-SSB",
    "defis": [
     {
+     "id": "anticorps_anti_ssa_et_anti_ssb-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La valeur dépasse 20 CU, seuil des HUG (2026), et un anti-SSA positif vaut 3 points des critères ACR/EULAR, selon Shiboski et al. (2016).",
+      "pourquoiFaux": "L'anti-SSB isolé ne compte pas, selon la même source."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "Shiboski et al., critères ACR/EULAR du syndrome de Sjögren (2016)"
+     ],
+     "contexte": "Une femme de 48 ans, à Neuchâtel, a une sécheresse des yeux et de la bouche.",
+     "valeurAvecUnite": "Anti-SSA Ro60 140 CU",
+     "question": "Combien de points apporte-t-il ?",
+     "reponse": "3 points"
+    },
+    {
+     "id": "anticorps_anti_ssa_et_anti_ssb-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Smarter Medicine (SSR, 2020) signale l'anti-SSA comme exception, possible avec des ANA négatifs dans le Sjögren et le lupus.",
+      "pourquoiFaux": "Renoncer ferait manquer un critère majeur."
+     },
+     "sources": [
+      "Smarter Medicine, Société suisse de rhumatologie, liste Top 5 (2020)"
+     ],
+     "situation": "Une patiente au syndrome sec a des ANA négatifs ; le médecin renonce aux anti-SSA.",
+     "piege": "Croire qu'un ANA négatif exclut l'anti-SSA.",
+     "bonneConduite": "Doser l'anti-SSA malgré les ANA négatifs si la suspicion est forte."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -1271,6 +2495,44 @@
    "ref": "enzyme_de_conversion_de_l_angiotensine",
    "nom": "Enzyme de conversion de l'angiotensine (ECA)",
    "defis": [
+    {
+     "id": "enzyme_de_conversion_de_l_angiotensine-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "La valeur dépasse 70 U/l, limite des HUG (2026) ; l'ATS (2020) en fait un élément d'appoint, le diagnostic exigeant des granulomes.",
+      "pourquoiFaux": "Conclure à la sarcoïdose sans histologie dépasse ce que vaut le test, selon l'ATS (2020)."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)",
+      "ATS, Crouser et al., diagnostic de la sarcoïdose (2020)"
+     ],
+     "contexte": "Une femme de 35 ans, à Bienne, a des adénopathies hilaires bilatérales.",
+     "valeurAvecUnite": "ECA 140 U/l",
+     "question": "Que permet ce résultat ?",
+     "reponse": "Un argument d'appoint pour la sarcoïdose"
+    },
+    {
+     "id": "enzyme_de_conversion_de_l_angiotensine-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Les HUG (2026) signalent que les inhibiteurs de l'enzyme de conversion influencent fortement les valeurs.",
+      "pourquoiFaux": "Le résultat reflète le médicament et non une maladie."
+     },
+     "sources": [
+      "HUG, répertoire des analyses de laboratoire (2026)"
+     ],
+     "situation": "Un patient hypertendu sous énalapril a une ECA à 5 U/l.",
+     "piege": "Croire à une ECA basse pathologique.",
+     "bonneConduite": "Noter le traitement, qui influence fortement le résultat."
+    },
     {
      "id": null,
      "type": "interpreter",
@@ -1311,6 +2573,44 @@
    "nom": "Électrophorèse des protéines urinaires",
    "defis": [
     {
+     "id": "electrophorese_des_proteines_urinaires-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Une protéinurie disproportionnée par rapport à l'albuminurie fait chercher une protéine de surcharge, et KDIGO (2024) demande électrophorèse et immunofixation du sérum et de l'urine.",
+      "pourquoiFaux": "Parler d'une néphropathie glomérulaire ignore le profil dominé par une bande monoclonale."
+     },
+     "sources": [
+      "KDIGO, recommandations sur la maladie rénale chronique (2024)",
+      "CHUV, catalogue des analyses (2026)"
+     ],
+     "contexte": "Un homme de 70 ans, à Lausanne, a une insuffisance rénale ; sa protéinurie dépasse nettement l'albuminurie.",
+     "valeurAvecUnite": "Bande monoclonale urinaire",
+     "question": "Que rechercher ?",
+     "reponse": "Une gammapathie monoclonale"
+    },
+    {
+     "id": "electrophorese_des_proteines_urinaires-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 1,
+     "points": 10,
+     "tempsSec": 45,
+     "correction": {
+      "pourquoiJuste": "Le CHUV (2026) demande de mélanger à chaque miction, de garder au frigo entre les mictions et d'envoyer l'urine congelée.",
+      "pourquoiFaux": "Le recueil ne suit pas les consignes du laboratoire."
+     },
+     "sources": [
+      "CHUV, catalogue des analyses (2026)"
+     ],
+     "situation": "Un recueil de 24 h pour électrophorèse urinaire reste toute la journée sur un rebord de fenêtre.",
+     "piege": "Laisser le bocal à température ambiante.",
+     "bonneConduite": "Mélanger à chaque miction, garder au frigo, puis envoyer congelé."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -1350,6 +2650,45 @@
    "nom": "Immunofluorescence indirecte cutanée (dermatoses bulleuses)",
    "defis": [
     {
+     "id": "immunofluorescence_indirecte_cutanee-1",
+     "type": "interpreter",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Une fixation sur le versant épidermique de la peau clivée au sel oriente vers une pemphigoïde bulleuse, selon l'EADV (2022).",
+      "pourquoiFaux": "Le pemphigus donne un marquage intercellulaire en résille, selon Joly et al. (2020)."
+     },
+     "sources": [
+      "EADV, Borradori et al., pemphigoïde bulleuse (2022)",
+      "Joly et al., recommandations sur le pemphigus (2020)"
+     ],
+     "contexte": "Un homme de 82 ans, à Genève, a des bulles tendues et un prurit.",
+     "valeurAvecUnite": "IgG sur le toit de la peau clivée",
+     "question": "Quel diagnostic évoquer ?",
+     "reponse": "Pemphigoïde bulleuse"
+    },
+    {
+     "id": "immunofluorescence_indirecte_cutanee-2",
+     "type": "preanalytique",
+     "mode": "Aventure par type d'examen",
+     "niveau": 2,
+     "points": 20,
+     "tempsSec": 60,
+     "correction": {
+      "pourquoiJuste": "Sa sensibilité n'atteint que 77 %, selon Meijer et al. (2019), et l'EADV (2022) demande de compléter par les ELISA.",
+      "pourquoiFaux": "Un test négatif n'est pas un test d'exclusion."
+     },
+     "sources": [
+      "EADV, Borradori et al., pemphigoïde bulleuse (2022)",
+      "Meijer et al., immunofluorescence dans la pemphigoïde (2019)"
+     ],
+     "situation": "Une immunofluorescence indirecte revient négative chez une patiente âgée au prurit avec lésions urticariennes.",
+     "piege": "Exclure une pemphigoïde.",
+     "bonneConduite": "Compléter par l'ELISA anti-BP180 puis anti-BP230."
+    },
+    {
      "id": null,
      "type": "interpreter",
      "mode": null,
@@ -1385,5 +2724,115 @@
    ]
   }
  ],
- "glossaire": {}
+ "glossaire": {
+  "A2": "Phospholipase A2, dans le nom du récepteur PLA2R.",
+  "ABPA": "Aspergillose bronchopulmonaire allergique.",
+  "ACPA": "Anticorps anti-protéines citrullinées.",
+  "ACR": "American College of Rheumatology.",
+  "ADN": "Acide désoxyribonucléique ; ici, ADN double brin visé par les anticorps anti-ADN natif.",
+  "AMA": "Anticorps antimitochondries.",
+  "ANA": "Anticorps antinucléaires.",
+  "ANCA": "Anticorps anticytoplasme des polynucléaires neutrophiles.",
+  "ANNA-1": "Anticorps antinucléaire neuronal de type 1, ou anti-Hu.",
+  "AQP4": "Aquaporine 4.",
+  "ASAS": "Assessment of SpondyloArthritis international Society.",
+  "ATS": "American Thoracic Society.",
+  "B12": "Vitamine B12.",
+  "BP180": "Antigène de la pemphigoïde de 180 kDa.",
+  "BP230": "Antigène de la pemphigoïde de 230 kDa.",
+  "BTU": "Bühlmann Titer Unit, unité de titre des anticorps anti-MAG (trousse Bühlmann).",
+  "C1-INH": "Inhibiteur de la C1 estérase.",
+  "C2": "Fraction 2 du complément.",
+  "C3": "Fraction 3 du complément.",
+  "C4": "Fraction 4 du complément.",
+  "CBA": "Test sur cellules transfectées (cell-based assay).",
+  "CCP": "Peptides cycliques citrullinés.",
+  "CH50": "Activité hémolytique totale du complément par la voie classique.",
+  "CHUV": "Centre hospitalier universitaire vaudois, Lausanne.",
+  "CLIA": "Dosage immunologique par chimiluminescence.",
+  "CU": "Unité chimiluminescente (chemiluminescent unit).",
+  "CV2": "Antigène CV2, ou CRMP5.",
+  "DS": "Déviation standard (écart type), dans « 2 DS pour l'âge » ; ds désigne aussi le double brin dans « ADN ds ».",
+  "EADV": "European Academy of Dermatology and Venereology.",
+  "EAN": "European Academy of Neurology.",
+  "EASL": "European Association for the Study of the Liver.",
+  "ECA": "Enzyme de conversion de l'angiotensine.",
+  "EHA": "European Hematology Association.",
+  "EJ": "Glycyl-ARNt synthétase.",
+  "ELISA": "Dosage immuno-enzymatique sur support solide.",
+  "ENA": "Antigènes nucléaires extractibles.",
+  "ESID": "European Society for Immunodeficiencies.",
+  "ESMO": "European Society for Medical Oncology.",
+  "EULAR": "European Alliance of Associations for Rheumatology.",
+  "FAN": "Facteurs antinucléaires, autre nom des anticorps antinucléaires.",
+  "FEIA": "Dosage immunologique par fluorescence enzymatique.",
+  "FI": "Facteur intrinsèque.",
+  "FR": "Facteur rhumatoïde.",
+  "GBM": "Membrane basale glomérulaire (abréviation anglaise).",
+  "GM1": "Ganglioside GM1.",
+  "HAS": "Haute Autorité de santé (France).",
+  "HEp-2": "Lignée cellulaire humaine utilisée pour l'immunofluorescence des anticorps antinucléaires.",
+  "HLA": "Antigènes leucocytaires humains.",
+  "HLA-B": "Locus B des antigènes leucocytaires humains.",
+  "HLA-B27": "Allèle B27 du système HLA.",
+  "HMGCR": "Hydroxyméthylglutaryl-coenzyme A réductase.",
+  "HUG": "Hôpitaux universitaires de Genève.",
+  "IFE": "Immunofixation électrophorétique.",
+  "IgA": "Immunoglobulines A.",
+  "IgE": "Immunoglobulines E, anticorps de l'allergie.",
+  "IgG": "Immunoglobulines G.",
+  "IgM": "Immunoglobulines M.",
+  "IMWG": "International Myeloma Working Group.",
+  "ISHAM": "International Society for Human and Animal Mycology.",
+  "Jo-1": "Histidyl-ARNt synthétase.",
+  "KDIGO": "Kidney Disease: Improving Global Outcomes.",
+  "LC1": "Antigène cytosolique hépatique de type 1.",
+  "LCR": "Liquide céphalorachidien.",
+  "LKM": "Microsomes de foie et de rein.",
+  "LKM1": "Microsomes de foie et de rein de type 1.",
+  "M2": "Antigène mitochondrial M2.",
+  "MAG": "Glycoprotéine associée à la myéline.",
+  "MBG": "Membrane basale glomérulaire.",
+  "MDA-5": "Protéine 5 associée à la différenciation du mélanome.",
+  "Mi2": "Antigène Mi-2, cible d'anticorps de la dermatomyosite.",
+  "MOG": "Glycoprotéine oligodendrocytaire de la myéline.",
+  "MOGAD": "Maladie associée aux anticorps anti-MOG.",
+  "MPO": "Myéloperoxydase, cible des ANCA périnucléaires.",
+  "NG239": "Recommandation NICE n° 239 sur la carence en vitamine B12.",
+  "NICE": "National Institute for Health and Care Excellence.",
+  "NMDA": "Récepteur N-méthyl-D-aspartate.",
+  "NMO": "Neuromyélite optique.",
+  "NMOSD": "Maladies du spectre de la neuromyélite optique.",
+  "NXP2": "Protéine nucléaire de matrice 2.",
+  "OJ": "Isoleucyl-ARNt synthétase.",
+  "PIDC": "Polyradiculonévrite inflammatoire démyélinisante chronique.",
+  "PL12": "Alanyl-ARNt synthétase.",
+  "PL7": "Thréonyl-ARNt synthétase.",
+  "PLA2-R": "Récepteur de la phospholipase A2.",
+  "PLA2R": "Récepteur de la phospholipase A2 de type M.",
+  "PNDS": "Protocole national de diagnostic et de soins (France).",
+  "PNMA2": "Antigène paranéoplasique Ma2.",
+  "PNS": "Peripheral Nerve Society, coautrice avec l'EAN des recommandations sur le Guillain-Barré et la PIDC.",
+  "PR3": "Protéinase 3, cible des ANCA cytoplasmiques.",
+  "RAST": "Ancien nom du dosage des IgE spécifiques.",
+  "RMS": "Revue médicale suisse.",
+  "RNP": "Ribonucléoprotéine U1.",
+  "SAE1": "Enzyme activatrice SUMO, sous-unité 1.",
+  "SAE2": "Enzyme activatrice SUMO, sous-unité 2.",
+  "Scl-70": "Topo-isomérase I, cible des anticorps de la sclérodermie.",
+  "SLA": "Antigène hépatique soluble.",
+  "Sm": "Antigène Smith.",
+  "SOX1": "Protéine SOX1, cible d'anticorps paranéoplasiques.",
+  "SRP": "Particule de reconnaissance du signal.",
+  "SS-A": "Antigène Ro (Sjögren A).",
+  "SS-B": "Antigène La (Sjögren B).",
+  "SSA": "Antigène nucléaire Ro (Sjögren A).",
+  "SSAI": "Société suisse d'allergologie et d'immunologie.",
+  "SSB": "Antigène nucléaire La (Sjögren B).",
+  "SSR": "Société suisse de rhumatologie.",
+  "SUN": "Standardization of Uveitis Nomenclature.",
+  "TIF1": "Facteur intermédiaire de transcription 1.",
+  "UI": "Unité internationale.",
+  "WAO": "World Allergy Organization."
+ }
 }
