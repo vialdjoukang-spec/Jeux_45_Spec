@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-26 01:38 UTC
+# Ouvrier automatique — 2026-11-26 01:43 UTC
 
-Dernier passage : **P3_paraclinique_cliches** → en_cours (0.29 USD).
+Dernier passage : **P3_paraclinique_cliches** → fait (0.41 USD).
 
-Septième passage : quatre clichés réels sous licence libre ont été ajoutés (radiographie de dissection aortique CC BY-SA, angio-scanner abdominal CC BY, deux épreuves d'effort domaine public et CC0), tous en statut candidat à valider par l'audit médical. Les 66 analyses chiffrées et la plupart des explorations restantes (EBUS, PET-CT ORL, IRM prostate multiparamétrique, artériographie des membres, scintigraphie splénique) n'ont aucune source libre fiable : Wikimedia limite aussi fortement les requêtes (erreurs 429), et les schémas dessinés (Pad abi, arbre artériel) ont été écartés. Non-perte OK contre HEAD, audits conception 34/34 et couverture réussis ; il reste environ 25 entités d'imagerie ou d'exploration à rechercher plus tard, avec des requêtes plus lentes.
+Sur les 97 entités sans cliché, 14 ont reçu des candidats Commons libres (PET-TDM, échographie d'ascite, IRM prostatique, olfactométrie, spondylodiscite, épanchement de hanche, frottis de Tzanck, etc.) ; 58 analyses chiffrées ou sérologies ont été déclarées « sans objet » avec une note. Les 25 entités restantes (EBUS, DLCO, navigation bronchique, rhinomanométrie, ENMG, bilans composites, etc.) n'ont trouvé aucune image fiable sous licence libre et restent sans image ; Open-i était hors service pendant ce passage. Les régénérations et audits sont passés (conception 34/34, couverture réussie, non-perte sans perte après retour des normalisations de ganglions_cervicaux), et plus aucune entité utile ne peut recevoir d'image avec les sources actuelles.
 
-**Crédit** : 2.88 USD dépensés, 147.12 USD disponibles avant le 31.01.2027 ; aujourd'hui 2.53 / 149.65 USD.
+**Crédit** : 3.30 USD dépensés, 146.70 USD disponibles avant le 31.01.2027 ; aujourd'hui 2.95 / 149.65 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -40,7 +40,7 @@ Septième passage : quatre clichés réels sous licence libre ont été ajoutés
 | END_C_lot | fait | 1 | 0.0 |
 | END_C_recup | fait | 1 | 0.0 |
 | T3_pec_fiches_existantes | fait | 8 | 0.133 |
-| P3_paraclinique_cliches | en_cours | 7 | 0.29 |
+| P3_paraclinique_cliches | fait | 8 | 0.413 |
 | P3_tetrade_3d | a_faire | 0 |  |
 | T4_reprise_rejets | en_cours | 0 | 0.0 |
 | T5_items_valides | sans_objet | 0 |  |
