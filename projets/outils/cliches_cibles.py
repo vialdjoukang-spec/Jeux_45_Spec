@@ -80,6 +80,7 @@ exec(open(os.path.join(RAC, 'projets/outils/cibles_p3b.py'), encoding='utf-8').r
 exec(open(os.path.join(RAC, 'projets/outils/cibles_p3c.py'), encoding='utf-8').read()); CIBLES += CIBLES3   # 3e passage
 exec(open(os.path.join(RAC, 'projets/outils/cibles_p3d.py'), encoding='utf-8').read()); CIBLES += CIBLES4   # 4e passage
 exec(open(os.path.join(RAC, "projets/outils/cibles_p3e.py"), encoding="utf-8").read()); CIBLES += CIBLES5   # 5e passage
+exec(open(os.path.join(RAC, "projets/outils/cibles_p3f.py"), encoding="utf-8").read()); CIBLES += CIBLES6   # 6e passage
 a = int(sys.argv[1]) if len(sys.argv) > 2 else 0
 b = int(sys.argv[2]) if len(sys.argv) > 2 else len(CIBLES)
 GENITAL = re.compile(r"penis|penile|vulva|scrot|genital|testic", re.I)

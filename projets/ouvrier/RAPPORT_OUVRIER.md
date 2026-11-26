@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-26 01:23 UTC
+# Ouvrier automatique — 2026-11-26 01:30 UTC
 
-Dernier passage : **P3_paraclinique_cliches** → en_cours (0.30 USD).
+Dernier passage : **P3_paraclinique_cliches** → en_cours (0.37 USD).
 
-Cinquième passage : 48 cibles à image (endoscopie, imagerie, explorations, histologie) ont été cherchées sur Wikimedia Commons et Open-i, et les candidats sans rapport (béton, portraits, schémas, dessins Smart-Servier, images astronomiques, animaux, formats .tif) ont été retirés avec une note ; 35 entités ont gagné (1 411 sur 1 607 avec cliché) un candidat réel avec URL, auteur et licence (spirométrie, polysomnographie, Kleihauer, bursite olécrânienne, dermatomyosite, abcès du sein, IRM d'appendicite, écho-Doppler rénal, écho du nerf médian, test respiratoire à l'urée, ANCA). Audits de conception, de couverture et de fond passés ; non_perte échoue contre HEAD seulement à cause des retraits volontaires de candidats hors sujet. Il reste environ 180 entités, surtout des dosages chiffrés à classer « sans objet » après décision médicale, et des examens sans image libre fiable (PET-CT, angiographie, cryobiopsie, vidéonystagmographie).
+Sixième passage : les cibles encore vides ont été relancées avec des motifs de titre stricts, 29 candidats hors sujet ou dessinés (Servier, schémas, quokkas, olfactomètre à moustiques) ont été retirés, et de nouveaux clichés réels ont été trouvés (immunofluorescence ANCA, laryngoscopie, scintigraphie V/Q, EBUS, cryobiopsie, schistocytes). 87 analyses chiffrées et scores sans image possible ont été classés « sans objet » avec une note ; les entités restantes d'imagerie ou d'exploration (VNG, olfactométrie, PET-CT ORL, épreuve d'effort, DLCO, IRM prostate…) restent sans image faute de source libre fiable. Non-perte OK contre HEAD ; l'échec contre origin/main (35 fichiers) vient des retraits volontaires de schémas dessinés par les passages précédents ; tous les candidats restent « à valider » par l'audit médical.
 
-**Crédit** : 2.22 USD dépensés, 147.78 USD disponibles avant le 31.01.2027 ; aujourd'hui 1.87 / 149.65 USD.
+**Crédit** : 2.59 USD dépensés, 147.41 USD disponibles avant le 31.01.2027 ; aujourd'hui 2.24 / 149.65 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -40,7 +40,7 @@ Cinquième passage : 48 cibles à image (endoscopie, imagerie, explorations, his
 | END_C_lot | fait | 1 | 0.0 |
 | END_C_recup | fait | 1 | 0.0 |
 | T3_pec_fiches_existantes | fait | 8 | 0.133 |
-| P3_paraclinique_cliches | en_cours | 5 | 0.302 |
+| P3_paraclinique_cliches | en_cours | 6 | 0.375 |
 | P3_tetrade_3d | a_faire | 0 |  |
 | T4_reprise_rejets | en_cours | 0 | 0.0 |
 | T5_items_valides | sans_objet | 0 |  |
