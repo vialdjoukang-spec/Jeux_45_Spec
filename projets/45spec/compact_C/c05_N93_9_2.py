@@ -125,7 +125,7 @@ C = {"theme":"Saignement iatrogène sous contraception hormonale ou anticoagulan
  "pec":[
   pec("iatrogene","Saignement sous contraception ou anticoagulant",["On exclut une cause organique.","On garde la contraception et l'anticoagulant efficaces."],
       ["On écoute la gêne, qui pousse à abandonner un traitement.","On vérifie la méthode, l'observance et les doses sautées."],
-      [("Acide méfénamique (Ponstan)","500 mg deux à trois fois par jour aux repas pendant 5 jours, au plus 2 g par jour ; à vérifier dans l'AIPS (Swissmedic)","Il raccourcit un épisode de saignement.",PON+" ; "+FSB)],
+      [("Acide méfénamique (Ponstan)","500 mg deux à trois fois par jour aux repas pendant 5 jours, au plus 2 g par jour ; posologies à vérifier dans l'AIPS (Swissmedic)","Il raccourcit un épisode de saignement.",PON+" ; "+FSB)],
       [("éducation thérapeutique","On explique le profil de saignement attendu avec chaque méthode.","On évite un abandon prématuré."),("éducation thérapeutique","On explique qu'il ne faut jamais sauter l'anticoagulant pendant les règles.","On prévient une récidive de thrombose.")],
       [("O Pharmacologie Toxicologie Sécurité","On tient compte des interactions entre AINS, acide tranexamique et anticoagulants."),("C Communication clinique","On parle de sexualité et de dépistage des IST sans jugement.")],
       None,

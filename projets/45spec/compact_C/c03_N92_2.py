@@ -126,9 +126,9 @@ C = {"theme":"Règles abondantes fonctionnelles aux deux extrémités de la vie 
  "pec":[
   pec("saignement","Règles abondantes fonctionnelles",["On stoppe le saignement aigu et l'on corrige l'anémie.","On améliore durablement la qualité de vie."],
       ["On mesure pouls et tension en orthostatisme.","On écoute la gêne quotidienne et l'on explique les options."],
-      [("Acide tranexamique (Cyklokapron)","1 g 4 fois le 1er jour, puis 1 g 3 fois les 2e et 3e jours ; à vérifier dans l'AIPS (Swissmedic)","Il freine la fibrinolyse et réduit la perte de sang.",CYK),
-       ("Lévonorgestrel intra-utérin (Mirena)","Pose dans les 7 jours qui suivent le début des règles, pour 5 à 8 ans ; à vérifier dans l'AIPS (Swissmedic)","Il amincit l'endomètre et réduit fortement les règles.",MIR),
-       ("Pilule combinée monophasique à 30–50 µg d'éthinylestradiol","Toutes les 6 à 8 heures jusqu'à l'arrêt du saignement aigu ; à vérifier dans l'AIPS (Swissmedic)","Les œstrogènes favorisent l'hémostase de l'endomètre.",AC)],
+      [("Acide tranexamique (Cyklokapron)","1 g 4 fois le 1er jour, puis 1 g 3 fois les 2e et 3e jours ; posologies à vérifier dans l'AIPS (Swissmedic)","Il freine la fibrinolyse et réduit la perte de sang.",CYK),
+       ("Lévonorgestrel intra-utérin (Mirena)","Pose dans les 7 jours qui suivent le début des règles, pour 5 à 8 ans ; posologies à vérifier dans l'AIPS (Swissmedic)","Il amincit l'endomètre et réduit fortement les règles.",MIR),
+       ("Pilule combinée monophasique à 30–50 µg d'éthinylestradiol","Toutes les 6 à 8 heures jusqu'à l'arrêt du saignement aigu ; posologies à vérifier dans l'AIPS (Swissmedic)","Les œstrogènes favorisent l'hémostase de l'endomètre.",AC)],
       [("éducation thérapeutique","On apprend à noter les protections avec un score pictural.","On objective le saignement et l'effet du traitement."),("nutrition","On conseille des aliments riches en fer avec le traitement martial.","On aide à reconstituer les réserves.")],
       [("Q Radioprotection Smarter Medicine","On évite TSH, hormones et échographie de routine."),("C Communication clinique","On parle des règles avec l'adolescente et ses parents.")],
       (["On hospitalise l'adolescente instable.","On remplit par cristalloïdes.","On débute hormones et fer."],[("d'abord","médecin des urgences","Il mesure l'hémodynamique et pose une voie veineuse."),("en même temps","gynécologue","Il débute le traitement hormonal et l'antifibrinolytique si possible."),("puis","hématologue","Il complète le bilan d'hémostase.")]),

@@ -126,7 +126,7 @@ C = {"theme":"Rectocèle révélée par une défécation obstructive (SSP S3.4) 
  "pec":[
   pec("orienter","Défécation obstructive sur rectocèle",["On soulage l'évacuation par étapes.","On réserve la chirurgie aux échecs choisis en équipe."],
       ["On écoute la gêne sans jugement et l'on demande les violences subies.","On cherche les signes d'alarme et les médicaments constipants."],
-      [("Macrogol (Movicol)","1 à 2 sachets par jour dans 125 mL d'eau, 1 sachet après 65 ans ; à vérifier dans l'AIPS (Swissmedic)","Il ramollit les selles et diminue l'effort de poussée.",MOV)],
+      [("Macrogol (Movicol)","1 à 2 sachets par jour dans 125 mL d'eau, 1 sachet après 65 ans ; posologies à vérifier dans l'AIPS (Swissmedic)","Il ramollit les selles et diminue l'effort de poussée.",MOV)],
       [("nutrition","On augmente les fibres et l'eau.","On rend les selles plus faciles à évacuer."),("rééducation","On propose un biofeedback en cas de dyssynergie.","On rétablit la coordination de la poussée."),("geste ou chirurgie","On discute une réparation après échec et réunion pluridisciplinaire.","On corrige l'anomalie anatomique quand elle explique les symptômes.")],
       [("C Communication clinique","On aborde l'abus sexuel et la détresse avec tact."),("A Assurances sociales","On explique la limitation LS du laxatif.")],
       None,

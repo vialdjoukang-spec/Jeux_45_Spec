@@ -130,9 +130,9 @@ C = {"theme":"Ménométrorragies fonctionnelles de la périménopause (SSP S4.12
  "pec":[
   pec("transition","Saignements de la transition ménopausique",["On contrôle les saignements et l'on exclut une lésion de l'endomètre.","On accompagne la transition jusqu'à la ménopause."],
       ["On écoute la gêne et l'on explique la transition.","On cherche les signes qui imposent une exploration."],
-      [("Lévonorgestrel intra-utérin (Mirena)","Pose après examen, pour 5 à 8 ans selon l'indication ; à vérifier dans l'AIPS (Swissmedic)","Il réduit les saignements, assure la contraception et protège l'endomètre.",MIR),
-       ("Progestérone micronisée (Utrogestan)","300 mg par jour en deux prises du 17e au 26e jour ; à vérifier dans l'AIPS (Swissmedic)","Elle compense l'absence de phase lutéale.",UTR),
-       ("Acide tranexamique (Cyklokapron)","1 g 4 fois le 1er jour, puis 3 fois les 2e et 3e jours ; à vérifier dans l'AIPS (Swissmedic)","Il réduit la perte de sang pendant l'épisode.",CYK)],
+      [("Lévonorgestrel intra-utérin (Mirena)","Pose après examen, pour 5 à 8 ans selon l'indication ; posologies à vérifier dans l'AIPS (Swissmedic)","Il réduit les saignements, assure la contraception et protège l'endomètre.",MIR),
+       ("Progestérone micronisée (Utrogestan)","300 mg par jour en deux prises du 17e au 26e jour ; posologies à vérifier dans l'AIPS (Swissmedic)","Elle compense l'absence de phase lutéale.",UTR),
+       ("Acide tranexamique (Cyklokapron)","1 g 4 fois le 1er jour, puis 3 fois les 2e et 3e jours ; posologies à vérifier dans l'AIPS (Swissmedic)","Il réduit la perte de sang pendant l'épisode.",CYK)],
       [("éducation thérapeutique","On explique les étapes de la transition et la durée de la contraception.","On évite un arrêt trop précoce de la contraception."),("nutrition","On conseille des aliments riches en fer si la formule sanguine le demande.","On corrige l'anémie.")],
       [("Q Radioprotection Smarter Medicine","On évite FSH, AMH et œstradiol inutiles après 45 ans."),("N Médecine sociale Prévention OFSP","On rappelle les dépistages adaptés à l'âge.")],
       None,

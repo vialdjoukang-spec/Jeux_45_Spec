@@ -127,7 +127,7 @@ C = {"theme":"Vaginite atrophique de la ménopause ou de l'allaitement révélé
  "pec":[
   pec("trophicite","Vaginite atrophique",["On soulage la sécheresse, les brûlures et la dyspareunie.","On exclut une infection et une lésion de l'endomètre."],
       ["On aborde la sexualité et l'inconfort sans gêne.","On demande l'allaitement, les antécédents de cancer et de thrombose."],
-      [("Estriol vaginal (Ovestin)","1 ovule ou 1 dose de crème le soir pendant 2 à 3 semaines, puis 2 fois par semaine ; à vérifier dans l'AIPS (Swissmedic)","Il restaure l'épithélium vaginal et le pH acide.",OVE)],
+      [("Estriol vaginal (Ovestin)","1 ovule ou 1 dose de crème le soir pendant 2 à 3 semaines, puis 2 fois par semaine ; posologies à vérifier dans l'AIPS (Swissmedic)","Il restaure l'épithélium vaginal et le pH acide.",OVE)],
       [("autre","On propose un hydratant vaginal régulier et un lubrifiant lors des rapports.","On soulage sans hormone."),("éducation thérapeutique","On explique que les symptômes reviennent souvent à l'arrêt.","On favorise un traitement durable.")],
       [("C Communication clinique","On parle de sexualité et de douleur aux rapports."),("O Pharmacologie Toxicologie Sécurité","On vérifie les contre-indications suisses de l'estriol.")],
       None,

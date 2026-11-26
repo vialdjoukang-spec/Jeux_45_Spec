@@ -25,7 +25,7 @@ _N = [
 ("semen","workupAlternatives","seuil",1,0,NG,"Le spermogramme se compare aux valeurs de référence de l'OMS (par exemple concentration d'au moins 16 millions par mL, mobilité totale d'au moins 42 %, formes normales d'au moins 4 %) ; un résultat anormal se contrôle idéalement 3 mois plus tard."),
 ("viral","workupAlternatives","examen",1,0,NG,"Avant une FIV, on propose les tests du VIH, de l'hépatite B et de l'hépatite C."),
 ("chli","acuteManagement","décision",3,0,NG,"Avant toute instrumentation utérine (hystérosalpingographie, par exemple), on dépiste Chlamydia trachomatis par une technique sensible ; un test positif fait traiter la patiente et ses partenaires ; sans dépistage, on envisage une antibioprophylaxie."),
-("doxy","acuteManagement","posologie",1,0,CHL,"La doxycycline 100 mg deux fois par jour pendant 7 jours traite l'infection urogénitale à Chlamydia (à vérifier dans l'AIPS (Swissmedic))."),
+("doxy","acuteManagement","posologie",1,0,CHL,"La doxycycline 100 mg deux fois par jour pendant 7 jours traite l'infection urogénitale à Chlamydia (posologies à vérifier dans l'AIPS (Swissmedic))."),
 ("part","acuteManagement","décision",1,0,CHL+" ; "+NG,"On traite les partenaires sexuels et l'on recherche les contacts, car la réinfection par un partenaire non traité est fréquente."),
 ("tubs","chronicManagement","décision",2,0,NG,"On envisage une chirurgie tubaire pour une atteinte légère dans un centre expert, et un cathétérisme tubaire pour une obstruction proximale après avoir discuté la FIV."),
 ("hydro","hospitalizationComplications","décision",3,0,NG,"Avant une FIV, on traite un hydrosalpinx par salpingectomie ou occlusion tubaire cœlioscopique ; on envisage une aspiration au moment de la ponction si la chirurgie est trop risquée."),
@@ -43,7 +43,7 @@ AM = ["Antécédent d'infection haute : cœlioscopie avec épreuve au bleu.","Sa
 A = lambda *o: list(o)
 Q = [
 {"f":"A","s":("S1",1,3),"st":"Une femme de 31 ans essaie de concevoir depuis 14 mois. À 22 ans, elle a été hospitalisée pour des douleurs pelviennes fébriles traitées par antibiotiques intraveineux. Ses cycles sont réguliers et le spermogramme de son conjoint est normal.",
- "p":"Quel examen des trompes proposez-vous ?","o":A((1,"Une cœlioscopie avec épreuve au bleu, qui évalue aussi le pelvis","NICE NG257."),(0,"Une hystérosalpingographie, comme chez toute femme","Piège : réservée aux femmes sans comorbidité."),(0,"Une hystéroscopie diagnostique","Faux."),(0,"Une AMH","Faux."),(0,"Aucun examen avant 2 ans d'essais","Faux.")),
+ "p":"Quel examen proposez-vous à ce stade ?","o":A((1,"Une cœlioscopie avec épreuve au bleu, qui évalue aussi le pelvis","NICE NG257."),(0,"Une hystérosalpingographie, comme chez toute femme","Piège : réservée aux femmes sans comorbidité."),(0,"Une hystéroscopie diagnostique","Faux."),(0,"Une AMH","Faux."),(0,"Aucun examen avant 2 ans d'essais","Faux.")),
  "n":n("lap","pidm","oneyr"),"a":"piège","d":5,"l":("Infertilité, ancienne infection pelvienne.","Atteinte tubaire.","Comorbidité.","Cœlioscopie au bleu.","Explorer.","HSG pour toutes.","Antécédent = cœlioscopie.")},
 {"f":"A","s":("S1",2,3),"st":"La cœlioscopie montre une trompe droite dilatée et remplie de liquide, et une trompe gauche obstruée. Le couple s'oriente vers une fécondation in vitro.",
  "p":"Que proposez-vous avant la FIV ?","o":A((1,"Une salpingectomie ou une occlusion tubaire de la trompe dilatée","NICE NG257."),(0,"Aucun geste, la FIV contourne les trompes","Piège."),(0,"Une antibiothérapie de 6 mois","Faux."),(0,"Une hystérectomie","Faux."),(0,"Une stimulation sans FIV","Faux.")),
@@ -60,7 +60,7 @@ Q = [
 {"f":"A","m":0,"st":"Une femme de 23 ans, sans symptôme, apprend que son partenaire a une urétrite. Le test de Chlamydia est positif chez elle.",
  "p":"Pourquoi la traitez-vous même sans symptôme ?","o":A((1,"Parce qu'une infection silencieuse peut atteindre les trompes et compromettre la fertilité","CDC 2021."),(0,"Parce qu'elle provoque toujours de la fièvre","Faux."),(0,"Ce n'est pas nécessaire sans symptôme","Piège."),(0,"Parce qu'elle donne un cancer du col","Faux."),(0,"Parce qu'elle rend le partenaire stérile seulement","Faux.")),
  "n":n("seq","asym","part"),"a":"application","d":3,"l":("Infection silencieuse.","Atteinte haute.","Partenaire symptomatique.","Traiter les deux.","Traiter.","Pas de symptôme.","Silence ≠ bénignité.")},
-{"f":"A","st":"Après une atteinte des trompes, une femme de 33 ans est enceinte de 6 semaines ; elle a une douleur iliaque droite et une sensibilité annexielle.",
+{"f":"A","st":"Hospitalisée à 20 ans pour des douleurs pelviennes fébriles, une femme de 33 ans est enceinte de 6 semaines après deux ans d'essais ; elle a une douleur iliaque droite et une sensibilité annexielle.",
  "p":"Que faites-vous ?","o":A((1,"L'adresser immédiatement pour une échographie endovaginale afin d'exclure une grossesse extra-utérine","NICE NG126."),(0,"Rassurer : c'est une douleur ligamentaire","Piège."),(0,"Doser seulement la progestérone","Faux."),(0,"Revoir dans 4 semaines","Faux."),(0,"Prescrire un antispasmodique","Faux.")),
  "n":n("ectr","seq"),"a":"piège","d":5,"l":("Grossesse après lésion tubaire, douleur.","Implantation tubaire.","Sensibilité annexielle.","Échographie immédiate.","Exclure.","Rassurer.","Trompe abîmée = GEU à exclure.")},
 {"f":"A","m":0,"st":"Trois mois après le traitement d'une infection à Chlamydia, une femme de 24 ans demande si un contrôle est utile ; son partenaire dit avoir été traité.",
@@ -127,7 +127,7 @@ C = {"theme":"Infertilité tubaire après infection à Chlamydia (SSP S4.4) : s�
  "pec":[
   pec("tubaire","Infertilité tubaire",["On établit la cause de l'infertilité du couple.","On choisit entre chirurgie tubaire et FIV."],
       ["On reçoit le couple ensemble.","On laisse la place aux sujets sensibles, comme une violence sexuelle."],
-      [("Doxycycline","100 mg deux fois par jour pendant 7 jours ; à vérifier dans l'AIPS (Swissmedic)","Elle traite une infection à Chlamydia avant toute instrumentation.",CHL)],
+      [("Doxycycline","100 mg deux fois par jour pendant 7 jours ; posologies à vérifier dans l'AIPS (Swissmedic)","Elle traite une infection à Chlamydia avant toute instrumentation.",CHL)],
       [("geste ou chirurgie","On réalise une cœlioscopie, une chirurgie tubaire ou une salpingectomie.","On évalue et l'on prépare la grossesse ou la FIV."),("hygiène de vie","On conseille l'arrêt du tabac et la perte de poids si l'IMC dépasse 30.","On améliore les chances de grossesse.")],
       [("A Assurances sociales","On explique ce que l'assurance de base couvre et ce qu'elle exclut."),("C Communication clinique","On accompagne le couple dans un parcours éprouvant.")],
       None,
