@@ -1,43 +1,224 @@
 {
- "_meta": {"role": "Niveau d'indication de chaque pathologie sous chaque examen d'imagerie des poumons (prototype validable par Vial, 26.11.2026)", "niveaux": ["Première intention", "Examen de référence", "Deuxième intention", "Dépistage", "Stadification", "Orientation : à confirmer", "Diagnostic différentiel"], "regle": "Le niveau vient d'une recommandation citée ; à défaut, il porte « à vérifier ». Signature : AAI (Anthropic AI)"},
+ "_meta": {
+  "role": "Niveau d'indication de chaque pathologie sous chaque examen d'imagerie des poumons (prototype validable par Vial, 26.11.2026)",
+  "niveaux": [
+   "Première intention",
+   "Examen de référence",
+   "Deuxième intention",
+   "Dépistage",
+   "Stadification",
+   "Orientation : à confirmer",
+   "Diagnostic différentiel"
+  ],
+  "regle": "Le niveau vient d'une recommandation citée ; à défaut, il porte « à vérifier ». Signature : AAI (Anthropic AI)"
+ },
  "Radiographie thoracique": {
-  "Pneumonie communautaire": ["Première intention", "La radiographie confirme l'opacité nouvelle chez un patient fébrile qui tousse.", "BTS, Lim et al., Thorax 2009 (recommandation suisse : à vérifier)"],
-  "Pneumothorax": ["Première intention", "La radiographie debout montre la ligne pleurale et mesure le décollement.", "BTS pleural disease guideline 2023, Thorax 2023"],
-  "Épanchement pleural": ["Première intention", "La radiographie montre l'émoussement du cul-de-sac ; l'échographie guide ensuite la ponction.", "BTS pleural disease guideline 2023, Thorax 2023"],
-  "Insuffisance cardiaque gauche": ["Orientation : à confirmer", "La radiographie oriente ; l'échocardiographie et le NT-proBNP confirment.", "ESC Heart Failure Guidelines 2021, Eur Heart J 2021"],
-  "Cancer bronchique": ["Orientation : à confirmer", "Un nodule ou une masse appelle un scanner thoracique injecté.", "à vérifier (recommandation européenne sur le bilan du nodule)"]
+  "Pneumonie communautaire": [
+   "Première intention",
+   "La radiographie confirme l'opacité nouvelle chez un patient fébrile qui tousse.",
+   "BTS, Lim et al., Thorax 2009 (recommandation suisse : à vérifier)"
+  ],
+  "Pneumothorax": [
+   "Première intention",
+   "La radiographie debout montre la ligne pleurale et mesure le décollement.",
+   "BTS pleural disease guideline 2023, Thorax 2023"
+  ],
+  "Épanchement pleural": [
+   "Première intention",
+   "La radiographie montre l'émoussement du cul-de-sac ; l'échographie guide ensuite la ponction.",
+   "BTS pleural disease guideline 2023, Thorax 2023"
+  ],
+  "Insuffisance cardiaque gauche": [
+   "Orientation : à confirmer",
+   "La radiographie oriente ; l'échocardiographie et le NT-proBNP confirment.",
+   "ESC Heart Failure Guidelines 2021, Eur Heart J 2021",
+   {
+    "premiereIntention": "Échocardiographie transthoracique et NT-proBNP",
+    "goldStandard": "Échocardiographie transthoracique",
+    "source": "ESC Heart Failure Guidelines 2021"
+   }
+  ],
+  "Cancer bronchique": [
+   "Orientation : à confirmer",
+   "Un nodule ou une masse appelle un scanner thoracique injecté.",
+   "à vérifier (recommandation européenne sur le bilan du nodule)",
+   {
+    "premiereIntention": "CT thoracique injecté",
+    "goldStandard": "Histologie (biopsie bronchique, EBUS ou transthoracique)",
+    "source": "ESMO, recommandations sur le cancer bronchique (année à vérifier)"
+   }
+  ]
  },
  "Échographie pulmonaire": {
-  "Épanchement pleural": ["Première intention", "Au lit, l'échographie détecte et guide la ponction mieux que la radiographie.", "BTS pleural disease guideline 2023, Thorax 2023"],
-  "Pneumothorax": ["Orientation : à confirmer", "Le point poumon oriente au lit ; la radiographie ou le scanner confirment.", "à vérifier"],
-  "Œdème pulmonaire cardiogénique": ["Orientation : à confirmer", "Les lignes B diffuses orientent ; l'échocardiographie précise la cause.", "à vérifier"],
-  "Pneumonie": ["Orientation : à confirmer", "La condensation oriente au lit, surtout chez l'enfant ou la femme enceinte.", "à vérifier"]
+  "Épanchement pleural": [
+   "Première intention",
+   "Au lit, l'échographie détecte et guide la ponction mieux que la radiographie.",
+   "BTS pleural disease guideline 2023, Thorax 2023"
+  ],
+  "Pneumothorax": [
+   "Orientation : à confirmer",
+   "Le point poumon oriente au lit ; la radiographie ou le scanner confirment.",
+   "à vérifier",
+   {
+    "premiereIntention": "Radiographie thoracique debout",
+    "goldStandard": "CT thoracique",
+    "source": "BTS pleural disease guideline 2023"
+   }
+  ],
+  "Œdème pulmonaire cardiogénique": [
+   "Orientation : à confirmer",
+   "Les lignes B diffuses orientent ; l'échocardiographie précise la cause.",
+   "à vérifier",
+   {
+    "premiereIntention": "Échocardiographie transthoracique et NT-proBNP",
+    "goldStandard": "Échocardiographie transthoracique",
+    "source": "ESC Heart Failure Guidelines 2021"
+   }
+  ],
+  "Pneumonie": [
+   "Orientation : à confirmer",
+   "La condensation oriente au lit, surtout chez l'enfant ou la femme enceinte.",
+   "à vérifier",
+   {
+    "premiereIntention": "Radiographie thoracique",
+    "goldStandard": "CT thoracique en cas de doute",
+    "source": "BTS, Lim et al., Thorax 2009 (CT : à vérifier)"
+   }
+  ]
  },
  "CT thoracique natif": {
-  "BPCO avec emphysème": ["Examen de référence", "Le scanner montre et quantifie l'emphysème ; la spirométrie pose le diagnostic de BPCO.", "Fiche du dépôt (referencePour : emphysème) ; GOLD 2024"],
-  "Bronchectasies": ["Examen de référence", "Le scanner pose le diagnostic : la bronche est plus large que l'artère qui l'accompagne.", "Fiche du dépôt (referencePour) ; ERS bronchiectasis guideline 2017"],
-  "Cancer bronchique": ["Orientation : à confirmer", "Le scanner caractérise la masse ; la biopsie pose le diagnostic.", "à vérifier"],
-  "Tuberculose pulmonaire": ["Orientation : à confirmer", "Les nodules et la cavité orientent ; la microbiologie confirme.", "à vérifier"]
+  "BPCO avec emphysème": [
+   "Examen de référence",
+   "Le scanner montre et quantifie l'emphysème ; la spirométrie pose le diagnostic de BPCO.",
+   "Fiche du dépôt (referencePour : emphysème) ; GOLD 2024"
+  ],
+  "Bronchectasies": [
+   "Examen de référence",
+   "Le scanner pose le diagnostic : la bronche est plus large que l'artère qui l'accompagne.",
+   "Fiche du dépôt (referencePour) ; ERS bronchiectasis guideline 2017"
+  ],
+  "Cancer bronchique": [
+   "Orientation : à confirmer",
+   "Le scanner caractérise la masse ; la biopsie pose le diagnostic.",
+   "à vérifier",
+   {
+    "premiereIntention": "CT thoracique injecté",
+    "goldStandard": "Histologie (biopsie)",
+    "source": "ESMO, recommandations sur le cancer bronchique (année à vérifier)"
+   }
+  ],
+  "Tuberculose pulmonaire": [
+   "Orientation : à confirmer",
+   "Les nodules et la cavité orientent ; la microbiologie confirme.",
+   "à vérifier",
+   {
+    "premiereIntention": "Radiographie thoracique et expectorations (BAAR, PCR, culture)",
+    "goldStandard": "Culture des mycobactéries",
+    "source": "OMS, lignes directrices consolidées sur la tuberculose, module 3 : diagnostic (année à vérifier)"
+   }
+  ]
  },
  "CT thoracique haute résolution": {
-  "Fibrose pulmonaire idiopathique": ["Examen de référence", "Un aspect de PIC typique suffit au diagnostic dans le bon contexte clinique.", "ATS/ERS/JRS/ALAT IPF guideline 2022, Am J Respir Crit Care Med 2022"],
-  "PINS d'une connectivite": ["Orientation : à confirmer", "Le verre dépoli basal oriente ; le bilan immunologique et la discussion multidisciplinaire concluent.", "à vérifier"],
-  "Pneumopathie d'hypersensibilité": ["Orientation : à confirmer", "La mosaïque avec piégeage oriente ; l'exposition et le lavage bronchoalvéolaire concluent.", "à vérifier"],
-  "Sarcoïdose": ["Orientation : à confirmer", "Les micronodules périlymphatiques orientent ; l'histologie montre le granulome.", "à vérifier"]
+  "Fibrose pulmonaire idiopathique": [
+   "Examen de référence",
+   "Un aspect de PIC typique suffit au diagnostic dans le bon contexte clinique.",
+   "ATS/ERS/JRS/ALAT IPF guideline 2022, Am J Respir Crit Care Med 2022"
+  ],
+  "PINS d'une connectivite": [
+   "Orientation : à confirmer",
+   "Le verre dépoli basal oriente ; le bilan immunologique et la discussion multidisciplinaire concluent.",
+   "à vérifier",
+   {
+    "premiereIntention": "CT haute résolution et bilan immunologique (ANA, ENA)",
+    "goldStandard": "Discussion multidisciplinaire, avec biopsie pulmonaire si doute",
+    "source": "ATS/ERS, classification des pneumopathies interstitielles idiopathiques, Travis et al. 2013"
+   }
+  ],
+  "Pneumopathie d'hypersensibilité": [
+   "Orientation : à confirmer",
+   "La mosaïque avec piégeage oriente ; l'exposition et le lavage bronchoalvéolaire concluent.",
+   "à vérifier",
+   {
+    "premiereIntention": "CT haute résolution et recherche de l'exposition",
+    "goldStandard": "Discussion multidisciplinaire avec lavage bronchoalvéolaire, voire histologie",
+    "source": "ATS/JRS/ALAT Hypersensitivity Pneumonitis Guideline 2020"
+   }
+  ],
+  "Sarcoïdose": [
+   "Orientation : à confirmer",
+   "Les micronodules périlymphatiques orientent ; l'histologie montre le granulome.",
+   "à vérifier",
+   {
+    "premiereIntention": "Radiographie thoracique (stades de Scadding)",
+    "goldStandard": "Histologie : granulome non caséeux, souvent prélevé par EBUS, avec exclusion des autres causes",
+    "source": "ATS Sarcoidosis Diagnosis Guideline 2020"
+   }
+  ]
  },
  "CT thoracique basse dose": {
-  "Nodule inflammatoire": ["Dépistage", "Le contrôle montre la régression du nodule.", "Fiche du dépôt (referencePour : dépistage du cancer du poumon)"],
-  "Adénocarcinome peu invasif": ["Dépistage", "Un verre dépoli persistant se surveille ou s'explore.", "Fiche du dépôt (referencePour : dépistage du cancer du poumon)"],
-  "Cancer bronchique précoce": ["Dépistage", "Un nodule solide qui grossit appelle un bilan complet.", "Fiche du dépôt (referencePour : dépistage du cancer du poumon)"]
+  "Nodule inflammatoire": [
+   "Dépistage",
+   "Le contrôle montre la régression du nodule.",
+   "Fiche du dépôt (referencePour : dépistage du cancer du poumon)"
+  ],
+  "Adénocarcinome peu invasif": [
+   "Dépistage",
+   "Un verre dépoli persistant se surveille ou s'explore.",
+   "Fiche du dépôt (referencePour : dépistage du cancer du poumon)"
+  ],
+  "Cancer bronchique précoce": [
+   "Dépistage",
+   "Un nodule solide qui grossit appelle un bilan complet.",
+   "Fiche du dépôt (referencePour : dépistage du cancer du poumon)"
+  ]
  },
  "Scintigraphie de ventilation-perfusion": {
-  "Embolie pulmonaire": ["Deuxième intention", "Elle remplace l'angio-CT quand l'iode est contre-indiqué ou pendant la grossesse.", "ESC Pulmonary Embolism Guidelines 2019, Eur Heart J 2020"],
-  "HTP-TEC": ["Examen de référence", "Une scintigraphie normale écarte l'hypertension pulmonaire thromboembolique chronique.", "ESC/ERS Pulmonary Hypertension Guidelines 2022, Eur Heart J 2022"],
-  "BPCO ou pneumonie": ["Diagnostic différentiel", "Des défauts concordants orientent vers une atteinte du parenchyme, pas vers une embolie.", "à vérifier"]
+  "Embolie pulmonaire": [
+   "Deuxième intention",
+   "Elle remplace l'angio-CT quand l'iode est contre-indiqué ou pendant la grossesse.",
+   "ESC Pulmonary Embolism Guidelines 2019, Eur Heart J 2020"
+  ],
+  "HTP-TEC": [
+   "Examen de référence",
+   "Une scintigraphie normale écarte l'hypertension pulmonaire thromboembolique chronique.",
+   "ESC/ERS Pulmonary Hypertension Guidelines 2022, Eur Heart J 2022"
+  ],
+  "BPCO ou pneumonie": [
+   "Diagnostic différentiel",
+   "Des défauts concordants orientent vers une atteinte du parenchyme, pas vers une embolie.",
+   "à vérifier",
+   {
+    "premiereIntention": "BPCO : spirométrie ; pneumonie : radiographie thoracique",
+    "goldStandard": "BPCO : spirométrie après bronchodilatateur (VEMS/CVF < 0,70)",
+    "source": "GOLD 2024 ; BTS 2009"
+   }
+  ]
  },
  "PET-CT": {
-  "Cancer bronchique non à petites cellules": ["Stadification", "Le PET-CT recherche les ganglions et les métastases avant le traitement.", "Fiche du dépôt (referencePour : stadification du cancer bronchique)"],
-  "Sarcoïdose": ["Diagnostic différentiel", "Une fixation ganglionnaire symétrique peut imiter un cancer.", "à vérifier"],
-  "Tuberculose": ["Diagnostic différentiel", "Une fixation inflammatoire peut imiter un cancer.", "à vérifier"]
+  "Cancer bronchique non à petites cellules": [
+   "Stadification",
+   "Le PET-CT recherche les ganglions et les métastases avant le traitement.",
+   "Fiche du dépôt (referencePour : stadification du cancer bronchique)"
+  ],
+  "Sarcoïdose": [
+   "Diagnostic différentiel",
+   "Une fixation ganglionnaire symétrique peut imiter un cancer.",
+   "à vérifier",
+   {
+    "premiereIntention": "Radiographie thoracique (stades de Scadding)",
+    "goldStandard": "Histologie : granulome non caséeux",
+    "source": "ATS Sarcoidosis Diagnosis Guideline 2020"
+   }
+  ],
+  "Tuberculose": [
+   "Diagnostic différentiel",
+   "Une fixation inflammatoire peut imiter un cancer.",
+   "à vérifier",
+   {
+    "premiereIntention": "Radiographie thoracique et expectorations (BAAR, PCR, culture)",
+    "goldStandard": "Culture des mycobactéries",
+    "source": "OMS, lignes directrices consolidées sur la tuberculose (année à vérifier)"
+   }
+  ]
  }
 }

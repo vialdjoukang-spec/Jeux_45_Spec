@@ -135,9 +135,19 @@ def visees(e):
 
 
 def noeud(id_, nature, texte, de, couleur, bulle, rub, **kw):
-    n = {"id": id_, "nature": nature, "type": kw.pop("type", nature), "texte": court(texte), "de": de, "couleur": couleur, "rubriques": rub, "bulle": bulle}
+    n = {"id": id_, "nature": nature, "type": kw.pop("type", nature), "texte": court(texte, kw.pop("maxc", 46)), "de": de, "couleur": couleur, "rubriques": rub, "bulle": bulle}
     n.update({k: v for k, v in kw.items() if v is not None})
     return n
+
+
+def developpe(nom):
+    """Remplace un sigle du libellé par son nom complet (glossaire) ; renvoie (libellé, définition du sigle)."""
+    for tok in re.findall(r"\b[A-Z][A-Z0-9-]{2,}\b", nom):
+        g = GLO.get(tok)
+        if g:
+            plein = re.split(r"[:,(]", g)[0].strip()
+            return nom.replace(tok, plein[0].lower() + plein[1:] if not nom.startswith(tok) else plein, 1), f"{tok} = {g}"
+    return nom, None
 
 
 def accroche_pathos(N, pid, e, coul, lim=7):
@@ -159,7 +169,7 @@ for n in lire(os.path.join(RAC, "conception", "prototypes", "moteur", "tetrade.j
     b = n.get("bulle") or {}
     if b.get("traitement"):
         TRT.setdefault(cle_diag(n["texte"]), {"traitement": b["traitement"], "source": b.get("source")})
-RUB["diag"] = [["def", "Ce que c'est"], ["pourquoi", "Pourquoi ici"], ["confusion", "Confusion possible"], ["retenir", "À retenir"]]
+RUB["diag"] = [["def", "Ce que c'est"], ["pourquoi", "Pourquoi ici"], ["confusion", "Confusion possible"], ["retenir", "À retenir"], ["premiere", "1re intention de cette pathologie"], ["gold", "Gold standard de cette pathologie"], ["source", "Source"]]
 RUB["trt"] = [["def", "Ce que c'est"], ["posologie", "Posologie"], ["retenir", "À retenir"], ["source", "Source"]]
 
 
@@ -235,7 +245,10 @@ MODALITES = [("TEP-CT", r"\bTEP\b|\bPET\b|PET-|TEP-"), ("Scintigraphie", r"scint
              ("IRM", r"\bIRM\b|IRM |-IRM|neurographie"), ("Scanner (CT)", r"\bCT\b|-CT\b|scanner|TDM|tomodensito|cone beam|cisternograph"),
              ("Échographie et Doppler", r"[ée]cho|doppler|POCUS|eFAST|[ée]lastograph|CEUS"),
              ("Radiographie", r"radiograph|clich|transit|orthopantomo|d[ée]f[ée]cograph|cystograph|ur[ée]trograph|hyst[ée]ros|[âa]ge osseux|bilan radiologique|radioscopie|EOS")]
-ORDRE_PLAN = ["Radiographie", "Échographie et Doppler", "Scanner (CT)", "IRM", "Scintigraphie", "TEP-CT", "Angiographie", "Mammographie", "Ostéodensitométrie"]
+# Ordre physique demandé par Vial (26.11) : rayons X, puis rayonnements nucléaires (gamma, positons), puis ultrasons, puis résonance magnétique.
+ORDRE_PLAN = ["Radiographie", "Mammographie", "Ostéodensitométrie", "Scanner (CT)", "Angiographie", "Scintigraphie", "TEP-CT", "Échographie et Doppler", "IRM"]
+ONDE = {"Radiographie": "rayons X", "Mammographie": "rayons X", "Ostéodensitométrie": "rayons X", "Scanner (CT)": "rayons X", "Angiographie": "rayons X",
+        "Scintigraphie": "rayons gamma", "TEP-CT": "positons", "Échographie et Doppler": "ultrasons", "IRM": "résonance magnétique"}
 HORS_PLAN = []
 MODCOUL = {"Radiographie": "#475569", "Échographie et Doppler": "#0f766e", "Scanner (CT)": "#1d4ed8", "IRM": "#7c3aed", "TEP-CT": "#b45309",
            "Scintigraphie": "#a16207", "Angiographie": "#b91c1c", "Mammographie": "#be185d", "Ostéodensitométrie": "#5f7f3a"}
@@ -291,7 +304,7 @@ for r, (rnom, mesh, cote, coul) in REG.items():
             N.append(noeud(mid, "Modalité", m, [oid], MODCOUL[m],
                            {"def": f"La modalité « {m} » offre {len(L_)} examen{'s' if len(L_) > 1 else ''} pour cet organe.",
                             "pourquoi": MODBUL[m], "confusion": "Aucune confusion fréquente.",
-                            "retenir": "Examens : " + ", ".join(court(e["nom"], 40) for e in L_) + "."}, "examen", type="Modalité"))
+                            "retenir": "Examens : " + ", ".join(court(e["nom"], 40) for e in L_) + "."}, "examen", type="Modalité · " + ONDE[m]))
             for e in L_:
                 eid = f"{mid}__{cle(court(e['nom'], 80))[:36]}"; b = bulle_examen(e)
                 if o["stem"] == "poumons_et_voies_aeriennes" and cle(court(e["nom"], 80)) == "radiographie_thoracique":
@@ -321,7 +334,12 @@ for r, (rnom, mesh, cote, coul) in REG.items():
                     gold = any(x and x in sans_accent(p["pathologie"]) for x in ref)
                     if niv:
                         bd = dict(bd, retenir=niv[1], source=niv[2])
-                    pn = noeud(pid, "Pathologie", p["pathologie"], [parent], "#d64545", bd, "diag", type="Pathologie" if niv else ("Pathologie · examen de référence" if gold else "Pathologie"), exRef=e["id"], signe=p.get("anomalieTypique"))
+                        if len(niv) > 3:  # angle mort : l'examen oriente seulement ; la survol donne l'examen qui pose le diagnostic
+                            bd = dict(bd, premiere=niv[3]["premiereIntention"] + ".", gold=niv[3]["goldStandard"] + ".", source=niv[2] if niv[3]["source"] in niv[2] else niv[2] + " ; " + niv[3]["source"])
+                    lib, sig = developpe(p["pathologie"])
+                    if sig:
+                        bd = dict(bd, **{"def": sig + " " + (bd.get("def") or "")})
+                    pn = noeud(pid, "Pathologie", lib, [parent], "#d64545", bd, "diag", maxc=72, type="Pathologie" if niv else ("Pathologie · examen de référence" if gold else "Pathologie"), exRef=e["id"], signe=p.get("anomalieTypique"))
                     if o["stem"] == "poumons_et_voies_aeriennes" and cle(court(e["nom"], 80)) == "radiographie_thoracique" and "pneumonie" in cle(p["pathologie"]):
                         pn["cliches"] = cliches_pneumonie(); pn["bulle"] = dict(bd, **PIL["p1"])  # infobulle validée du pilote
                     else:
@@ -693,6 +711,7 @@ for nom, R in (("imagerie", IMG), ("biologie", BIO), ("explorations", FX)):
 ecrire("reseau_imagerie.json", {"onglet": "imagerie", "rubriques": RUB, "noeuds": IMG})
 ecrire("reseau_biologie.json", {"onglet": "biologie", "rubriques": RUB, "noeuds": BIO, "outils": {k: (CALC.get(k) or CRIT.get(k)) for v in OUTILS.values() for k in v if (CALC.get(k) or CRIT.get(k))}})
 ecrire("reseau_explorations.json", {"onglet": "explorations", "rubriques": RUB, "noeuds": FX})
+GLO["PIC"] = "Sigle à deux sens : pression intracrânienne en neurologie ; pneumopathie interstitielle commune (en anglais UIP) en pneumologie, aspect typique de la fibrose pulmonaire idiopathique."
 ecrire("glossaire.json", GLO)
 
 # ---------------------------------------------------------------- mode Organe : un fichier par organe (fiche complète de chaque examen)
