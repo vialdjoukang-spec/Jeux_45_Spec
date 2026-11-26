@@ -1,4 +1,4 @@
-# Ouvrier automatique — 2026-11-26 02:16 UTC
+# Ouvrier automatique — 2026-11-26 02:17 UTC
 
 Dernier passage : **V2_C_recup** → en_cours (0.00 USD).
 
@@ -55,6 +55,6 @@ arène 45 : 45 spécialités, 15908 questions, 2692 pathologies canoniques
 | V2_Q_lot | fait | 1 | 0.0 |
 | V2_Q_recup | fait | 16 | 0.0 |
 | V2_C_lot | fait | 1 | 0.0 |
-| V2_C_recup | en_cours | 3 | 0.0 |
+| V2_C_recup | en_cours | 4 | 0.0 |
 
 Signature : AAI (Anthropic AI)
