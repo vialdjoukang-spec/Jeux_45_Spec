@@ -331,6 +331,23 @@ Contrôles lot 18 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du l
 
 Contrôles lot 19 : 0 menu fautif, 0 erreur `valider()` sur les 9 pathologies 🟩/🟧 ; Z52.9 (🟥) reste hors de main ; arène et test sans écran sur la branche de portage.
 
+## Lot 20 — rangs 704 à 713
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| Z53.8__O7_11-E03 | 🟧 | Corrigé : dépistage colorectal remboursé de 50 à 74 ans depuis le 1.7.2025 (OPAS) dans le tableau, l'ancre de Q16 et les chaînes à contexte colorectal (`ccr74`, 7 chaînes), et exemption de franchise limitée aux programmes cantonaux ; Q20 (menu long d4 qui nomme le refus d'examen invasif) passée en d3. Aucune autre erreur retenue (CC art. 16, 370–379, CP 321, antibiothérapie empirique sans attendre la ponction en cas de refus). |
+| Z53.9__O7_10-E01 | 🟩 | Aucune erreur retenue (CC art. 16, 19c, 28, 377–379 ; Cst. art. 10 ; Convention d'Oviedo art. 5 ; charge de la preuve de l'information au médecin). |
+| Z56.6__O6_4-E03 | 🟥 | Rejet : correction tronquée par l'API (`notions` stocké en chaîne JSON de 2'872 caractères qui s'interrompt au premier bloc, `ssp` vide, `priseEnCharge` vide) ; ne passe pas le schéma et ne se répare pas sans régénération. Reste hors de main. |
+| Z59.0__O7_24-E02 | 🟩 | Aucune erreur retenue (ETHOS, LAMal obligatoire même sans domicile ni permis, Cst. art. 12, ivermectine 200 µg/kg ×2 à 7 jours, AAD 8–12 semaines > 95 %). |
+| Z60.5_1__O6_5-E01 | 🟩 | Aucune erreur retenue (modèle de Meyer 2003, HEEADSSS, psychothérapie psychologique LAMal depuis le 1.7.2022 par 15 séances, CP art. 261bis depuis le 1.7.2020, CC art. 314c). |
+| Z63.4_1__O6_7-E01 | 🟩 | Aucune erreur retenue (trouble du deuil prolongé ≥ 6 mois CIM-11, ≥ 12 mois DSM-5-TR ; risque d'infarctus ×21 dans les 24 h ; pas d'antidépresseur d'emblée). |
+| Z63.5__O6_6-E02 | 🟧 | Corrigé : Q08, Q16 et Q18 (d4 dont l'énoncé nomme le divorce) passées en d3. Aucune erreur médicale retenue (autorité parentale conjointe depuis le 1.7.2014, audition de l'enfant dès environ 6 ans, CC art. 314c al. 2, énurésie secondaire après 6 mois de continence, 147). |
+| Z63.6_1__O5_1-E01 | 🟩 | Aucune erreur retenue (Zarit 22 items 0–88 avec seuils 21/40/60, Mini-Zarit 12 items, CO art. 329h : 3 jours par événement et 10 par an, congé de 14 semaines dans un délai-cadre de 18 mois, mortalité +63 % à 4 ans). |
+| Z63.6_2__O5_5-E03 | 🟧 | Corrigé : lieu de vignette « La Chaux-de-Fonds » remplacé (Fribourg) ; Q07 (d4 dont la vignette nomme l'épuisement de l'épouse) passée en d3. Aucune erreur médicale retenue (Zarit 0–88, Caregiver Strain Index ≥ 7, allocation pour impotent après un an, CO art. 329h). À vérifier : degré d'impotence pour les bonifications AVS. |
+| Z63.7__O6_7-E02 | 🟧 | Forme : Q04 (d4, vignette sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue (perte ambiguë, trouble du deuil prolongé seulement après le décès, CO art. 329h, CP art. 114–115). |
+
+Contrôles lot 20 : 0 menu fautif, 0 erreur `valider()` sur les 9 pathologies 🟩/🟧 ; Z56.6 (🟥) reste hors de main ; alerte mécanique de Z63.5 Q09 (« aliénation parentale ») : notion discutée, pas le nom de l'entité, laissée.
+
 ## Bilan au 26.11.2026 (arrêt de la session AAI)
 
 - Pathologies auditées : 160 (rangs 505 à 664), dont 156 🟩/🟧 portées sur main et 4 🟥 restées hors de main (R23.1__F1_17-E03, R49.0_1__S7_4-E03, R62.8_1__O2_1-E03, T74.1_5__O2_3-E01 : fichiers tronqués ou mal formés, à régénérer).
