@@ -290,3 +290,8 @@ Format obligatoire, une ligne par point : `- [qui peut débloquer] ce qu'il faut
 - Producteur unique : agent/45spec-A, file continue (groupe A entier dans l'ordre du rang, puis B) ; il fusionne lui-même sur main après chaque lot de 3, avec contrôles (valider, menus longs, classer_rendement, arène 45). À relancer dès qu'il s'arrête.
 - Agents A2, B, NEU arrêtés ; un auditeur audite leurs branches (et PSY, reprise des 5 corrections vague 1) puis fusionne lui-même sur main (AUDIT_AGENTS_2.md).
 - API : groupe A en pause jusqu'au crédit de jeudi.
+
+## Site public des jeux et des modèles 3D (pause du 26.11.2026, 11:01)
+- Le workflow `.github/workflows/site.yml` remplace `pages.yml` : il reconstruit `corps.glb` et les organes .glb sous cache haché (clé `modeles3d-v<V3D>-<empreinte des scripts>`), publie le tableau à la racine et les jeux sous `/jeux/`, puis committe `projets/organes_servis.json`.
+- Le site sert déjà 110 .glb (109 organes + corps) : https://vialdjoukang-spec.github.io/Jeux_45_Spec/jeux/ ; `jauges.py` ne compte plus que les organes de ce manifeste.
+- Point de reprise : la voie TotalSegmentator « breasts » échouait (torchvision PyPI incompatible avec torch CPU), si bien que seins, ovaires, trompes et placenta manquaient. Le correctif (torchvision CPU, V3D = 2) est poussé ; le run 45793659882 le portait au moment de la pause. Il faut vérifier que le manifeste atteint 113 organes ; sinon, relancer `gh workflow run site.yml`.
