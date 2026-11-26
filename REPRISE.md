@@ -295,3 +295,9 @@ Format obligatoire, une ligne par point : `- [qui peut débloquer] ce qu'il faut
 - Le workflow `.github/workflows/site.yml` remplace `pages.yml` : il reconstruit `corps.glb` et les organes .glb sous cache haché (clé `modeles3d-v<V3D>-<empreinte des scripts>`), publie le tableau à la racine et les jeux sous `/jeux/`, puis committe `projets/organes_servis.json`.
 - Le site sert déjà 110 .glb (109 organes + corps) : https://vialdjoukang-spec.github.io/Jeux_45_Spec/jeux/ ; `jauges.py` ne compte plus que les organes de ce manifeste.
 - Point de reprise : la voie TotalSegmentator « breasts » échouait (torchvision PyPI incompatible avec torch CPU), si bien que seins, ovaires, trompes et placenta manquaient. Le correctif (torchvision CPU, V3D = 2) est poussé ; le run 45793659882 le portait au moment de la pause. Il faut vérifier que le manifeste atteint 113 organes ; sinon, relancer `gh workflow run site.yml`.
+
+## Habillage esthétique — 2026-11-26 (jeu Transversal seul, en attente de validation de Vial)
+- Le jeu Transversal n'a pas de page propre : il joue dans `moteur/arene.html#paquet=transversal_X`. La couche `moteur/habillage_transversal.css` ne s'applique donc que si le paquet choisi commence par « transversal » (sélecteur `:root:has(#paquet option[value^="transversal"]:checked)`) ; Tétrade, Paraclinique et 45 Spec restent identiques au pixel près (vérifié par capture).
+- Open Props 1.7.23 (MIT) est copié dans `commun/vendor/` (voir `VERSIONS.md`). La couche ne surcharge ni `--bg` ni `--trait`, pour que le choix de fond (data-fond) garde la main ; elle ne touche ni au JavaScript ni aux données.
+- Le tableau de bord, l'arène 45, le moteur 3D et les styles communs n'ont pas été touchés, sur demande. Pico classless et Tabler restent à brancher après la validation de Vial.
+- Reste à corriger hors périmètre : le bouton flottant « Ma préparation » (commun/suivi.js) recouvre une option à 380 px.

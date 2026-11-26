@@ -1,0 +1,69 @@
+/* Habillage du jeu Transversal (arene.html#paquet=transversal_X).
+   Portée : toutes les règles ne s'appliquent que si le paquet choisi commence par « transversal » ;
+   les autres jeux qui partagent arene.html ne changent donc pas d'un pixel.
+   Variables : Open Props 1.7.23 (MIT), copié dans ../commun/vendor/ pour le hors-ligne.
+   Ce fichier ne touche ni au JavaScript ni aux données ; il ne surcharge pas --bg ni --trait,
+   pour que le choix de fond de Vial (data-fond) garde la main. AAI (Anthropic AI) */
+
+:root:has(#paquet option[value^="transversal"]:checked) {
+  /* Un seul bloc de variables : pétrole institutionnel (contraste 7,6:1 sur blanc, AA et AAA). */
+  --acc: #0e5a73;
+  --ink: #16202b;
+  --sous: #4d5868;
+  --tr-pale: #e6f1f4;
+  --tr-ombre: var(--shadow-2);
+  --tr-rayon: var(--radius-2, 5px);
+  --tr-ease: var(--ease-3, ease);
+  --tr-col: 74ch;
+
+  /* Sommaire latéral : panneau légèrement voilé, question courante marquée par un filet pétrole. */
+  & nav { background: rgb(255 255 255 / .55); backdrop-filter: blur(2px); }
+  & nav h2 { font: 700 16px Georgia, serif; color: var(--acc); letter-spacing: .01em; }
+  & nav li { border-left: 3px solid transparent; transition: background-color .2s var(--tr-ease); }
+  & nav li.cur { background: var(--carte); border-left-color: var(--acc); }
+  & nav li.cur b { color: var(--acc); }
+
+  /* Colonne de lecture contenue : la consigne et les options ne dépassent pas ~74 caractères. */
+  & #titre, & #ss, & .barre, & .stem, & #prompt, & #opts, & .act, & #res, & .src { max-width: var(--tr-col); }
+  & h1 { font: 700 23px/1.25 Georgia, serif; color: var(--ink); text-wrap: balance; }
+  & .sous { color: var(--sous); }
+
+  /* Vignette clinique : filet pétrole à gauche, comme un dossier qu'on ouvre. */
+  & .stem { border: 1px solid var(--trait); border-left: 4px solid var(--acc); border-radius: var(--tr-rayon);
+            padding: 16px 18px; line-height: 1.6; box-shadow: var(--tr-ombre); }
+
+  /* Options : réponse visible au survol, sans animation superflue. */
+  & .opt { border-radius: var(--tr-rayon); transition: border-color .2s var(--tr-ease), box-shadow .2s var(--tr-ease); }
+  & .opt:hover { border-color: var(--acc); }
+  & .opt.sel { border-color: var(--acc); box-shadow: 0 0 0 1px var(--acc), var(--tr-ombre); }
+  & .opt:not(.bon):not(.faux) .k { color: var(--acc); }
+
+  /* Boutons et liens dans la couleur du jeu. */
+  & .act button:not(.sec) { background: var(--acc); }
+  & .act button.sec { background: var(--carte); }
+  & .bloc, & .echelle { border-radius: var(--tr-rayon); }
+  & .bloc h3, & .fenetre h3 { color: var(--acc); }
+  & .theme { color: var(--acc); }
+
+  /* Fenêtre de détail : apparition brève (180 ms) pour montrer ce qui s'ouvre. */
+  & .fenetre.ouverte > div { animation: tr-ouvre .18s var(--tr-ease); border-top: 4px solid var(--acc); }
+  & .fenetre th { background: var(--tr-pale); }
+
+  /* Focus clavier visible partout. */
+  & :focus-visible { outline: 3px solid var(--acc); outline-offset: 2px; }
+}
+
+@keyframes tr-ouvre { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* Mobile : le sommaire repasse au-dessus, sans voile ; la liste des 60 questions défile dans une
+   hauteur bornée (30 % de l'écran) pour que la question reste visible sans long défilement. */
+@media (max-width: 760px) {
+  :root:has(#paquet option[value^="transversal"]:checked) nav { background: transparent; backdrop-filter: none; }
+  :root:has(#paquet option[value^="transversal"]:checked) nav ol { max-height: 30vh; overflow: auto;
+    border: 1px solid var(--trait); border-radius: var(--radius-2, 5px); background: rgb(255 255 255 / .55); }
+}
+
+/* Mouvement réduit : aucune animation ni transition. */
+@media (prefers-reduced-motion: reduce) {
+  :root:has(#paquet option[value^="transversal"]:checked) * { animation: none !important; transition: none !important; }
+}
