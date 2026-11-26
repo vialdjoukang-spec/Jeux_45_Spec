@@ -1,0 +1,1207 @@
+{
+ "id": "B37.7__O7_9-E16",
+ "portes": [
+  {
+   "ssp": "O7.9",
+   "nomSSP": "Infection nosocomiale",
+   "entite": "Candidémie nosocomiale en réanimation",
+   "entiteId": "O7.9-E16"
+  }
+ ],
+ "entite": "Candidémie nosocomiale en réanimation",
+ "cim10": "B37.7",
+ "ssp": {
+  "code": "O7.9",
+  "nom": "Infection nosocomiale",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Fièvre ou sepsis chez un patient hospitalisé depuis plus de 48 h",
+    "i": "Le délai de 48 h après l'admission définit l'infection nosocomiale, hors incubation à l'entrée.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Foyer nosocomial évident (poumon, urines, site opératoire, selles diarrhéiques)",
+    "i": "Un foyer clinique évident oriente vers l'entité correspondante du même SSP, qui prime sur Candida.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Entité rivale du SSP O7.9",
+    "i": "On traite selon la pneumonie nosocomiale, l'infection urinaire sur sonde, l'ISO ou C. difficile ; en cas de choc, on renvoie à l'entité choc septique nosocomial.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "Pas de foyer évident, avec CVC, nutrition parentérale, antibiothérapie large ou chirurgie abdominale",
+    "i": "Ces facteurs de risque majeurs orientent vers une bactériémie ou une candidémie liée au cathéter.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Hémocultures avant antifongique, dont une sur le CVC",
+    "i": "Elles sont l'examen de référence et identifient l'espèce.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Choc septique sans autre cause",
+    "i": "L'urgence vitale prime, donc on ne attend pas le résultat pour débuter l'échinocandine.",
+    "pec": "urgence_candidemie",
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n5",
+    "t": "Patient stable : Candida score ≥ 3",
+    "i": "Le score évalue le risque pour discuter un empirique ; un bêta-D-glucane négatif aide à l'éviter.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n8",
+    "parent": "n5",
+    "t": "Hémoculture positive à Candida",
+    "i": "Candida n'est jamais un contaminant, donc le traitement est indiqué dès une seule positive.",
+    "pec": "urgence_candidemie",
+    "notion": "c6"
+   },
+   {
+    "id": "n9",
+    "parent": "n5",
+    "t": "Hémoculture positive à bactérie sur CVC",
+    "i": "Il s'agit de la bactériémie liée au cathéter, autre entité de ce SSP.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n10",
+    "parent": "n1",
+    "t": "Candida isolé seulement des urines ou des sécrétions respiratoires",
+    "i": "Cela reflète le plus souvent une colonisation, sans traitement faute d'autre élément.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n11",
+    "parent": "n8",
+    "t": "Évolution après 5–7 jours : stable, hémocultures négatives, souche sensible",
+    "i": "Ces critères autorisent le relais oral par fluconazole et la durée de 14 jours.",
+    "pec": "relais_non_complique",
+    "notion": "c8"
+   },
+   {
+    "id": "n12",
+    "parent": "n8",
+    "t": "Hémocultures persistantes, atteinte oculaire, souffle ou fièvre persistante",
+    "i": "Une localisation secondaire change la durée, les examens et la voie d'administration.",
+    "pec": "forme_compliquee",
+    "notion": "c8"
+   }
+  ]
+ },
+ "specialites": [
+  "INT"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Candidémie nosocomiale en réanimation",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définir la candidémie nosocomiale et connaître les espèces",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Raisonne en deux temps : une seule hémoculture à Candida suffit à parler de candidémie, puis l'espèce dicte le choix de l'antifongique.",
+   "tableau": {
+    "colonnes": [
+     "Espèce",
+     "Particularité",
+     "Fluconazole",
+     "Conséquence pratique"
+    ],
+    "lignes": [
+     [
+      "C. albicans",
+      "La plus fréquente, mais en recul relatif",
+      [
+       {
+        "t": "Sensible",
+        "i": "Elle reste habituellement sensible, donc un relais oral est licite si le patient est stable et les hémocultures sont négatives."
+       }
+      ],
+      "Échinocandine d'emblée en réanimation, relais fluconazole possible"
+     ],
+     [
+      "C. glabrata",
+      "Non-albicans en progression, fréquente sous azolés",
+      [
+       {
+        "t": "Dose-dépendante ou résistante",
+        "i": "Les pompes à efflux et les mutations réduisent la sensibilité ; le fluconazole à forte dose n'est licite que si l'antifongigramme confirme la sensibilité."
+       }
+      ],
+      "Échinocandine de première ligne ; relais seulement si souche testée sensible"
+     ],
+     [
+      "C. parapsilosis",
+      "Portage manuporté, cathéters, nutrition parentérale",
+      [
+       {
+        "t": "Sensible",
+        "i": "Elle l'est le plus souvent, et ses CMI plus élevées aux échinocandines rendent le fluconazole acceptable après stabilisation."
+       }
+      ],
+      "Retrait du cathéter et hygiène des mains prioritaires"
+     ],
+     [
+      "C. tropicalis",
+      "Fréquente chez le patient neutropénique ou d'hématologie",
+      [
+       {
+        "t": "Généralement sensible",
+        "i": "La sensibilité est la règle, mais on la vérifie car des résistances acquises existent."
+       }
+      ],
+      "Dissémination cutanée et hépatosplénique plus fréquente"
+     ],
+     [
+      "C. krusei",
+      "Non-albicans rare",
+      [
+       {
+        "t": "Résistante intrinsèque",
+        "i": "Elle est naturellement résistante au fluconazole, donc le relais par cet azolé est exclu quelle que soit la dose."
+       }
+      ],
+      "Échinocandine ; azolé inutile"
+     ],
+     [
+      "C. auris",
+      "Multirésistante et très transmissible en milieu hospitalier",
+      [
+       {
+        "t": "Souvent résistante",
+        "i": "Les résistances multiples aux azolés et parfois aux polyènes ou échinocandines imposent identification précise et antifongigramme."
+       }
+      ],
+      "Échinocandine, isolement de contact, alerte hygiène hospitalière"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Une candidémie se définit par au moins une hémoculture positive à Candida chez un patient hospitalisé ; Candida n'est jamais un contaminant.",
+    "L'infection est nosocomiale quand elle apparaît plus de 48 h après l'admission, hors incubation à l'entrée.",
+    "Candida occupe environ le 4e rang des bactériémies ou fongémies en réanimation, avec 30–40 % de mortalité brute.",
+    "FUNGINOS surveille les fongémies en Suisse et Swissnoso coordonne la prévention des infections nosocomiales.",
+    "La candidose invasive inclut la candidémie et les formes profondes, souvent à hémocultures négatives."
+   ],
+   "sources": [
+    "IDSA 2016",
+    "ESCMID 2012",
+    "FUNGINOS",
+    "Swissnoso"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Physiopathologie, biofilm et cibles des antifongiques",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Relie chaque mécanisme d'entrée (muqueuse digestive, cathéter) à une mesure : retirer le dispositif et choisir un antifongique fongicide sur la levure.",
+   "tableau": {
+    "colonnes": [
+     "Classe",
+     "Cible",
+     "Effet sur Candida",
+     "Limite à retenir"
+    ],
+    "lignes": [
+     [
+      "Échinocandines (caspofungine, anidulafungine, micafungine)",
+      "Bêta-1,3-D-glucane synthase de la paroi",
+      [
+       {
+        "t": "Fongicide",
+        "i": "La paroi s'effondre et la levure se lyse, ce qui explique leur supériorité en candidémie du patient grave."
+       }
+      ],
+      [
+       {
+        "t": "Faible pénétration urinaire et cérébrale",
+        "i": "Leur diffusion dans l'urine, le liquide céphalorachidien et le vitré est faible, donc elles conviennent mal aux foyers urinaires, méningés ou oculaires."
+       }
+      ]
+     ],
+     [
+      "Azolés (fluconazole)",
+      "Synthèse de l'ergostérol (14-alpha-déméthylase)",
+      [
+       {
+        "t": "Fongistatique",
+        "i": "L'azolé bloque la croissance sans tuer la levure, ce qui le rend moins adapté au choc ou à la souche inconnue."
+       }
+      ],
+      [
+       {
+        "t": "Résistance de C. krusei et de C. glabrata",
+        "i": "Une résistance intrinsèque ou acquise rend l'azolé inefficace, donc l'antifongigramme conditionne le relais."
+       }
+      ]
+     ],
+     [
+      "Polyènes (amphotéricine B liposomale)",
+      "Ergostérol membranaire, formation de pores",
+      [
+       {
+        "t": "Fongicide",
+        "i": "Il perce la membrane de la levure et couvre la plupart des espèces, y compris certaines souches résistantes aux autres classes."
+       }
+      ],
+      "Néphrotoxicité et réactions perfusionnelles, réservé aux alternatives"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Sous antibiothérapie large, la flore digestive disparaît, Candida prolifère puis franchit la muqueuse lésée par translocation.",
+    "Candida forme un biofilm sur le cathéter qui protège la levure des antifongiques et de l'immunité, donc le retrait du dispositif est impératif.",
+    "Les échinocandines inhibent la synthèse du glucane de paroi, les azolés celle de l'ergostérol.",
+    "Un biofilm explique l'échec d'un traitement médical seul et l'entretien d'une fongémie persistante."
+   ],
+   "sources": [
+    "IDSA 2016",
+    "ESCMID 2012",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Suspecter la candidémie : anamnèse, examen et Candida score",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Pense à Candida devant un sepsis de réanimation sans cause malgré une antibiothérapie large, puis quantifie le risque avec le Candida score.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Patient de réanimation fébrile ou septique malgré antibiothérapie large",
+     "i": "La fièvre persistante sans autre cause fait évoquer une candidémie, car le tableau ressemble à un sepsis bactérien.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Calculer le Candida score",
+     "i": "Il additionne nutrition parentérale 1, chirurgie 1, colonisation multifocale 1 et sepsis sévère 2.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Score ≥ 3",
+     "i": "Ce seuil indique un risque suffisant pour discuter un traitement antifongique empirique après hémocultures.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Score < 3",
+     "i": "Le risque reste faible, donc on attend les hémocultures sans traiter la simple colonisation.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n3",
+     "t": "Choc septique associé, sans autre cause",
+     "i": "Le retard de traitement augmente la mortalité, donc on ne attend pas la positivité des hémocultures.",
+     "pec": "urgence_candidemie",
+     "notion": "c4"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Patient conscient : myodésopsies, baisse d'acuité, douleur oculaire",
+     "i": "Ces symptômes évoquent une endophtalmie à Candida et déclenchent un avis ophtalmologique urgent.",
+     "pec": null,
+     "notion": "c4"
+    }
+   ],
+   "points": [
+    "Les signes de sepsis (fièvre, tachycardie, hypotension) ne distinguent pas la candidémie d'une bactériémie.",
+    "Des lésions cutanées nodulaires ou papulo-pustuleuses signent une dissémination et se biopsient pour culture.",
+    "Le fond d'œil dilaté montre des lésions choriorétiniennes blanchâtres « en boule de coton », parfois avec extension vitréenne.",
+    "Les facteurs de risque sont CVC, nutrition parentérale, antibiothérapie large, chirurgie abdominale, hémodialyse et séjour long en réanimation."
+   ],
+   "sources": [
+    "Léon et al., Crit Care Med 2006",
+    "IDSA 2016",
+    "ESCMID 2012"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Reconnaître les signaux d'alarme",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Chaque signal d'alarme impose une action précise : traiter sans attendre, appeler l'ophtalmologue, chercher un foyer endovasculaire ou isoler.",
+   "tableau": {
+    "colonnes": [
+     "Signal d'alarme",
+     "Ce qu'il suggère",
+     "Action immédiate"
+    ],
+    "lignes": [
+     [
+      "Choc septique chez patient à risque",
+      [
+       {
+        "t": "Candidémie probable",
+        "i": "Aucune autre cause n'explique l'état de choc, et le retard thérapeutique augmente la mortalité."
+       }
+      ],
+      "Échinocandine sans attendre les hémocultures"
+     ],
+     [
+      "Baisse d'acuité visuelle ou douleur oculaire",
+      [
+       {
+        "t": "Endophtalmie fongique",
+        "i": "La rétine et le vitré s'infectent par voie hématogène, avec risque de cécité en l'absence de traitement précoce."
+       }
+      ],
+      "Urgence ophtalmologique le jour même"
+     ],
+     [
+      "Souffle nouveau, embolies, hémocultures persistantes",
+      [
+       {
+        "t": "Endocardite à Candida",
+        "i": "Les végétations entretiennent la fongémie et embolisent, surtout sur valve prothétique ou chez l'usager de drogues IV."
+       }
+      ],
+      "Échocardiographie transœsophagienne"
+     ],
+     [
+      "Hémocultures positives plus de 72 h sous traitement adéquat",
+      [
+       {
+        "t": "Foyer non contrôlé",
+        "i": "Un cathéter non retiré, un thrombus infecté ou un foyer profond non drainé entretient la fongémie."
+       }
+      ],
+      "Retirer le cathéter, chercher un foyer endovasculaire ou profond"
+     ],
+     [
+      "Neutropénie ou immunosuppression profonde",
+      [
+       {
+        "t": "Dissémination",
+        "i": "Sans polynucléaires, la levure essaime vers la peau, le foie et la rate."
+       }
+      ],
+      "Recherche active de localisations secondaires"
+     ],
+     [
+      "Isolat de C. auris",
+      [
+       {
+        "t": "Multirésistance et transmission",
+        "i": "L'espèce persiste sur l'environnement et se transmet entre patients, d'où mesures de contrôle."
+       }
+      ],
+      "Échinocandine, isolement de contact, alerte hygiène hospitalière"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Un choc septique de réanimation sans autre cause impose l'échinocandine empirique.",
+    "Une atteinte oculaire est une urgence fonctionnelle.",
+    "Une fongémie de plus de 72 h sous traitement adéquat cherche un foyer ou un cathéter oublié.",
+    "C. auris impose identification précise, isolement et information de l'équipe de prévention et contrôle de l'infection."
+   ],
+   "sources": [
+    "IDSA 2016",
+    "ESCMID 2012",
+    "Swissnoso"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan : hémocultures, bêta-D-glucane, fond d'œil et imagerie",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Prélève les hémocultures avant l'antifongique, complète par le bêta-D-glucane, puis cherche systématiquement les localisations oculaire, cardiaque et hépatosplénique.",
+   "tableau": {
+    "colonnes": [
+     "Examen",
+     "Rôle et performance",
+     "Quand",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Hémocultures (au moins 2, dont une sur le CVC)",
+      [
+       {
+        "t": "Référence, sensibilité 50–70 %",
+        "i": "Elles identifient l'espèce et permettent l'antifongigramme, mais manquent environ un tiers des candidoses invasives."
+       }
+      ],
+      "Avant le premier antifongique, puis toutes les 24–48 h jusqu'à négativation",
+      "Une négative n'exclut pas une candidose profonde"
+     ],
+     [
+      "Identification MALDI-TOF et antifongigramme EUCAST ou CLSI",
+      [
+       {
+        "t": "Espèce et sensibilité",
+        "i": "L'espèce prédit la résistance (C. krusei, C. glabrata, C. auris) et guide le relais oral."
+       }
+      ],
+      "Sur chaque isolat",
+      "Un relais sans antifongigramme risque l'échec"
+     ],
+     [
+      "Bêta-D-glucane sérique",
+      [
+       {
+        "t": "Sensibilité environ 75 %, spécificité environ 80 %",
+        "i": "Il complète sans remplacer la culture et sa bonne valeur prédictive négative aide à arrêter un empirique."
+       }
+      ],
+      "Si hémocultures négatives et suspicion élevée",
+      "Faux positifs : immunoglobulines IV, albumine, dialyse sur cellulose, compresses, certains antibiotiques"
+     ],
+     [
+      "Fond d'œil dilaté par ophtalmologue",
+      [
+       {
+        "t": "Systématique",
+        "i": "Une endophtalmie peut être asymptomatique chez le patient intubé ou sédaté et change la durée et la voie du traitement."
+       }
+      ],
+      "Dans la première semaine ; différé ou répété après sortie de neutropénie",
+      "Un examen précoce chez un neutropénique peut être normal"
+     ],
+     [
+      "Échocardiographie (transœsophagienne si prothèse, valvulopathie ou fongémie persistante)",
+      [
+       {
+        "t": "Recherche de végétations",
+        "i": "La sensibilité de la voie transœsophagienne est supérieure pour les petites végétations et les valves prothétiques."
+       }
+      ],
+      "Si hémocultures persistantes ou terrain à risque",
+      "Une échographie transthoracique normale ne suffit pas sur prothèse"
+     ],
+     [
+      "Imagerie abdominale, PCR ou T2Candida, culture de pointe de cathéter",
+      [
+       {
+        "t": "Compléments",
+        "i": "L'imagerie cherche des abcès hépatospléniques, la culture de pointe documente l'origine cathéter, la PCR accélère le diagnostic."
+       }
+      ],
+      "Fièvre persistante après neutropénie, retrait du cathéter, signes neurologiques (imagerie cérébrale, ponction lombaire)",
+      "PCR et T2Candida peu disponibles et ne remplacent pas la culture"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le bêta-D-glucane est considéré positif à partir de 80 pg/mL avec le test Fungitell.",
+    "Le fond d'œil se pratique chez tout patient candidémique, même asymptomatique.",
+    "Les hémocultures de contrôle se répètent jusqu'à négativation documentée.",
+    "Un délai différentiel de positivité supérieur à 2 h ou la même espèce sur la pointe indique une infection liée au cathéter."
+   ],
+   "sources": [
+    "IDSA 2016",
+    "ESCMID 2012",
+    "FUNGINOS"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Poser le diagnostic : candidémie, colonisation ou candidose profonde",
+   "rubriques": [
+    "positiveDiagnosis"
+   ],
+   "comment": "Une hémoculture positive à Candida se traite toujours, tandis qu'un Candida isolé d'un site non stérile reflète le plus souvent une colonisation.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Candida isolé chez un patient hospitalisé",
+     "i": "Le site de prélèvement décide du diagnostic.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Hémoculture positive à Candida (même une seule)",
+     "i": "Candida n'est jamais un contaminant, donc le diagnostic de candidémie est posé.",
+     "pec": "urgence_candidemie",
+     "notion": "c1"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Sécrétions respiratoires ou urines uniquement",
+     "i": "Il s'agit le plus souvent d'une colonisation, qui ne justifie pas de traitement sans autre élément.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Hémocultures négatives avec forte suspicion clinique",
+     "i": "Environ la moitié des candidoses invasives ont des hémocultures négatives.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Candida score ≥ 3 et bêta-D-glucane positif",
+     "i": "La combinaison contexte, score et biomarqueur rend la candidose invasive probable et autorise un traitement empirique.",
+     "pec": "urgence_candidemie",
+     "notion": "c5"
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "Bêta-D-glucane négatif et pas de choc",
+     "i": "La bonne valeur prédictive négative permet de ne pas débuter ou d'arrêter l'empirique.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n7",
+     "parent": "n2",
+     "t": "Origine cathéter : même espèce sur la pointe ou délai différentiel > 2 h",
+     "i": "Ces critères retiennent une candidémie liée au cathéter et confirment l'indication de retrait.",
+     "pec": null,
+     "notion": "c5"
+    }
+   ],
+   "points": [
+    "Une seule hémoculture positive à Candida suffit à traiter.",
+    "Environ la moitié des candidoses invasives ont des hémocultures négatives.",
+    "Candida dans l'urine ou les sécrétions respiratoires ne se traite pas sans autre élément."
+   ],
+   "sources": [
+    "IDSA 2016",
+    "ESCMID 2012"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Traitement initial : échinocandine et retrait du cathéter",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Débute l'échinocandine sans délai, retire le CVC dans les 24 h et réserve azolés et amphotéricine B aux situations précises.",
+   "tableau": {
+    "colonnes": [
+     "Molécule",
+     "Posologie IV",
+     "Place",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Caspofungine (échinocandine)",
+      "70 mg de charge, puis 50 mg/j ; 70 mg/j si > 80 kg",
+      [
+       {
+        "t": "Première ligne",
+        "i": "Fongicide, sans adaptation rénale, supérieure en réanimation et efficace sur la plupart des espèces."
+       }
+      ],
+      "Réduire à 35 mg/j en insuffisance hépatique modérée (Child-Pugh B), après la charge"
+     ],
+     [
+      "Anidulafungine (échinocandine)",
+      "200 mg de charge, puis 100 mg/j",
+      [
+       {
+        "t": "Première ligne",
+        "i": "Même efficacité attendue, et pas d'adaptation rénale ni hépatique."
+       }
+      ],
+      "Peu de pénétration urinaire et cérébrale"
+     ],
+     [
+      "Micafungine (échinocandine)",
+      "100 mg/j",
+      [
+       {
+        "t": "Première ligne",
+        "i": "Alternative de classe avec efficacité comparable dans les essais de candidémie."
+       }
+      ],
+      "Même limite de diffusion"
+     ],
+     [
+      "Amphotéricine B liposomale",
+      "3 mg/kg/j",
+      [
+       {
+        "t": "Alternative",
+        "i": "On l'emploie en cas d'intolérance, d'indisponibilité ou de résistance aux échinocandines."
+       }
+      ],
+      "Néphrotoxicité et réactions perfusionnelles"
+     ],
+     [
+      "Fluconazole (azolé)",
+      "800 mg de charge, puis 400 mg/j, adapté à la fonction rénale",
+      [
+       {
+        "t": "Patient stable seulement",
+        "i": "Il suppose une souche probablement sensible et l'absence d'exposition récente aux azolés ; il est fongistatique."
+       }
+      ],
+      "Exclu pour C. krusei, risqué pour C. glabrata"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le CVC se retire idéalement dans les 24 h et se remplace sur un autre site, pas par échange sur guide.",
+    "Le traitement empirique se discute chez le patient septique de réanimation à haut risque, pas pour une simple colonisation.",
+    "Les échinocandines ne demandent pas d'adaptation rénale, contrairement au fluconazole.",
+    "Les hémocultures se prélèvent avant la première dose d'antifongique."
+   ],
+   "sources": [
+    "IDSA 2016",
+    "ESCMID 2012",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Relais, durée, complications et suivi",
+   "rubriques": [
+    "chronicManagement",
+    "hospitalizationComplications",
+    "surveillance"
+   ],
+   "comment": "Fixe la durée selon l'absence ou la présence d'une localisation secondaire, puis surveille les hémocultures jusqu'à négativation.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Hémocultures de contrôle toutes les 24–48 h jusqu'à négativation",
+     "i": "La date de la première hémoculture négative est le point de départ de la durée de traitement.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Hémocultures toujours positives après 72 h",
+     "i": "On cherche un cathéter oublié, une thrombophlébite suppurée, une endocardite ou un foyer profond non drainé.",
+     "pec": "forme_compliquee",
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Hémocultures négatives, patient stable, souche sensible, après 5–7 jours",
+     "i": "Ces conditions autorisent le relais oral par fluconazole.",
+     "pec": "relais_non_complique",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Sans localisation secondaire",
+     "i": "Le traitement dure 14 jours après la première hémoculture négative et la résolution des symptômes.",
+     "pec": "relais_non_complique",
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n3",
+     "t": "Endophtalmie",
+     "i": "Le traitement systémique dure 4–6 semaines selon l'ophtalmologue, avec injection intravitréenne ou vitrectomie si atteinte sévère.",
+     "pec": "forme_compliquee",
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n3",
+     "t": "Endocardite",
+     "i": "Chirurgie valvulaire puis au moins 6 semaines de traitement après l'intervention.",
+     "pec": "forme_compliquee",
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n3",
+     "t": "Abcès hépatospléniques",
+     "i": "Le traitement se poursuit plusieurs mois jusqu'à résolution ou calcification.",
+     "pec": "forme_compliquee",
+     "notion": null
+    }
+   ],
+   "points": [
+    "Pour C. glabrata, le relais par fluconazole n'est licite que si la souche est sensible ; pour C. krusei, il est exclu.",
+    "Une thrombophlébite suppurée peut exiger l'exérèse chirurgicale de la veine.",
+    "La dissémination atteint aussi le système nerveux central, l'os et les articulations : recherche devant tout symptôme focal.",
+    "Le retrait précoce du cathéter et l'échinocandine précoce réduisent la mortalité, et l'avis infectiologique améliore la survie.",
+    "Choc, immunosuppression, âge, traitement retardé et C. auris aggravent le pronostic."
+   ],
+   "sources": [
+    "IDSA 2016",
+    "ESCMID 2012",
+    "AIPS Swissmedic"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence_candidemie",
+   "titre": "Candidémie confirmée ou choc septique suspect en réanimation",
+   "but": [
+    "Débuter l'antifongique fongicide en moins de 24 h, voire sans attendre en cas de choc.",
+    "Supprimer la source en retirant le cathéter veineux central.",
+    "Stabiliser l'hémodynamique et identifier l'espèce avec son antifongigramme."
+   ],
+   "moyens": {
+    "accueil": [
+     "Évaluer ABCDE et constantes, et monitorer en réanimation.",
+     "Prélever au moins 2 hémocultures dont une sur le CVC avant la première dose d'antifongique.",
+     "Rechercher allergies, fonction rénale et hépatique, grossesse et exposition récente aux azolés.",
+     "Isoler en contact si C. auris est suspecté."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Caspofungine (échinocandine)",
+      "posologie": "70 mg IV en charge, puis 50 mg/j IV ; 70 mg/j si poids > 80 kg ; 35 mg/j en Child-Pugh B après la charge ; pas d'adaptation rénale.",
+      "pourquoi": "Fongicide de première ligne sur la majorité des espèces et sûr en insuffisance rénale du patient de réanimation.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Anidulafungine (échinocandine)",
+      "posologie": "200 mg IV en charge, puis 100 mg/j IV ; micafungine 100 mg/j IV comme autre échinocandine équivalente.",
+      "pourquoi": "Alternative de classe équivalente, sans adaptation rénale ni hépatique, utile en insuffisance hépatique.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Amphotéricine B liposomale (polyène)",
+      "posologie": "3 mg/kg/j IV.",
+      "pourquoi": "Elle couvre les souches résistantes ou les cas d'intolérance ou d'indisponibilité des échinocandines.",
+      "source": "IDSA 2016"
+     },
+     {
+      "molecule": "Fluconazole (azolé)",
+      "posologie": "800 mg IV en charge, puis 400 mg/j ; réduire de moitié si clairance < 50 mL/min.",
+      "pourquoi": "Alternative seulement chez le patient stable, sans azolé récent et sans soupçon de C. glabrata ou C. krusei.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Noradrénaline (vasopresseur)",
+      "posologie": "0,05–0,5 µg/kg/min IV titrée pour PAM ≥ 65 mmHg, après remplissage adapté.",
+      "pourquoi": "Elle corrige l'hypotension du choc septique, vasopresseur de première intention.",
+      "source": "Surviving Sepsis Campaign 2021"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Retirer le CVC dans les 24 h et poser un nouveau cathéter sur un autre site.",
+      "pourquoi": "Le biofilm protège la levure, et l'échange sur guide conserve le foyer."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Arrêter la nutrition parentérale et les dispositifs inutiles, et limiter les antibiotiques à large spectre.",
+      "pourquoi": "Ces facteurs entretiennent la colonisation et la translocation."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Demander un fond d'œil dilaté dans la première semaine.",
+      "pourquoi": "L'endophtalmie peut rester silencieuse chez le patient sédaté."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Informe le patient ou ses proches de l'infection et signale les cas groupés à la médecine cantonale selon la loi sur les épidémies."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Clarifie les objectifs de soins du patient en choc réfractaire avec comorbidités sévères."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Traiter avant le résultat si choc septique sans autre cause chez un patient à risque.",
+      "Appeler l'infectiologue dès la suspicion.",
+      "Réévaluer le diagnostic à 48–72 h avec les cultures."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue ABCDE, reconnaît le choc et ordonne hémocultures puis antifongique sans délai."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Prélève les hémocultures, pose une voie veineuse hors du cathéter suspect et prépare la perfusion."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Administre l'échinocandine en charge, puis le remplissage et la noradrénaline si choc."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Retire le CVC dans les 24 h, envoie la pointe en culture et repose sur un autre site."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "L'infectiologue valide la molécule, l'ophtalmologue examine le fond d'œil dans la semaine."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La mortalité brute atteint 30–40 % ; le retrait précoce du cathéter et l'échinocandine précoce la réduisent, tandis que choc, immunosuppression, âge avancé, retard et C. auris l'aggravent.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Hémocultures",
+      "quand": "Toutes les 24–48 h",
+      "cible": "Négativation documentée"
+     },
+     {
+      "quoi": "Hémodynamique et lactates",
+      "quand": "Continue puis à 24–72 h",
+      "cible": "PAM ≥ 65 mmHg et lactates en baisse"
+     },
+     {
+      "quoi": "NFS, CRP, créatinine, électrolytes, tests hépatiques",
+      "quand": "24–72 h",
+      "cible": "Réponse et tolérance"
+     },
+     {
+      "quoi": "Fond d'œil dilaté",
+      "quand": "Première semaine ; répété après récupération de la neutropénie",
+      "cible": "Absence de lésion choriorétinienne"
+     }
+    ],
+    "sortie": "Sortie de réanimation après stabilité hémodynamique, hémocultures négatives, cathéter retiré et espèce identifiée avec antifongigramme ; la sortie de l'hôpital attend la fin du traitement ou un relais oral sûr."
+   },
+   "prevention": {
+    "primaire": "Appliquer les mesures de pose et de soin des cathéters selon Swissnoso, retirer les dispositifs inutiles et limiter l'antibiothérapie large.",
+    "secondaire": "Retirer rapidement le cathéter infecté et dépister les localisations secondaires par fond d'œil et échocardiographie.",
+    "tertiaire": "Prévenir la cécité par traitement précoce de l'endophtalmie et coordonner le suivi spécialisé."
+   }
+  },
+  {
+   "cle": "relais_non_complique",
+   "titre": "Candidémie non compliquée : relais oral et durée",
+   "but": [
+    "Passer à un traitement oral sûr après stabilisation.",
+    "Traiter 14 jours après la première hémoculture négative.",
+    "Éviter la récidive et l'échec par résistance."
+   ],
+   "moyens": {
+    "accueil": [
+     "Vérifier la négativation des hémocultures et la stabilité hémodynamique.",
+     "Contrôler l'antifongigramme avant le relais.",
+     "Contrôler la fonction rénale et les interactions médicamenteuses des azolés."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Fluconazole (azolé)",
+      "posologie": "400 mg/j per os ou IV (6 mg/kg/j), adapté à la clairance rénale ; relais après 5–7 jours.",
+      "pourquoi": "Relais oral licite si la souche est sensible, le patient stable et les hémocultures négatives.",
+      "source": "IDSA 2016"
+     },
+     {
+      "molecule": "Échinocandine (caspofungine ou anidulafungine)",
+      "posologie": "50 mg/j ou 100 mg/j IV, poursuivie si C. glabrata ou C. krusei, ou souche non testée.",
+      "pourquoi": "Elle reste le traitement complet quand le relais par azolé est exclu ou risqué.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveiller le nouveau site de cathéter et le retirer dès qu'il devient inutile.",
+      "pourquoi": "Une récidive sur dispositif réinfecte le patient."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer au patient les signes oculaires et la fièvre à signaler.",
+      "pourquoi": "Ils révèlent précocement une complication ou une rechute."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Organise la prise en charge de l'hospitalisation prolongée et d'une éventuelle réadaptation."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Contrôler les hémocultures jusqu'à négativation avant tout relais.",
+      "Exclure le relais oral pour C. krusei et pour C. glabrata non testé sensible.",
+      "Noter la date de la première hémoculture négative pour fixer la durée."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Vérifie hémocultures négatives, stabilité et antifongigramme après 5–7 jours d'échinocandine."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "infectiologue",
+       "fait": "Valide le relais par fluconazole et fixe la durée à 14 jours après la première négative."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Surveille le site du cathéter, la température et l'adhésion au traitement oral."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Planifie les contrôles cliniques et biologiques jusqu'à la fin du traitement."
+      }
+     ]
+    }
+   },
+   "pronostic": "Sans localisation secondaire et avec retrait précoce du cathéter, la guérison est attendue ; la mortalité globale reste de 30–40 % dans les séries de réanimation.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Hémocultures de contrôle",
+      "quand": "Toutes les 24–48 h jusqu'à négativation",
+      "cible": "Négatives"
+     },
+     {
+      "quoi": "Fièvre et signes cliniques",
+      "quand": "Quotidien",
+      "cible": "Apyrexie et résolution des symptômes"
+     },
+     {
+      "quoi": "Créatinine et tests hépatiques",
+      "quand": "À 24–72 h puis hebdomadaire sous azolé",
+      "cible": "Stables, absence de toxicité"
+     }
+    ],
+    "sortie": "Sortie possible si apyrétique, hémocultures négatives, souche sensible avec relais oral toléré, fond d'œil normal et durée de traitement planifiée."
+   },
+   "prevention": {
+    "primaire": "Appliquer les bundles Swissnoso de pose et d'entretien des cathéters et réduire l'antibiothérapie à large spectre.",
+    "secondaire": "Retirer tout cathéter inutile et reconsidérer les facteurs de risque à chaque jour de réanimation.",
+    "tertiaire": "Éviter les rechutes par suivi de fin de traitement et information du médecin traitant."
+   }
+  },
+  {
+   "cle": "forme_compliquee",
+   "titre": "Candidémie compliquée : endophtalmie, endocardite, abcès, fongémie persistante",
+   "but": [
+    "Contrôler le foyer métastatique ou endovasculaire par traitement prolongé et geste adapté.",
+    "Protéger la vision et la valve cardiaque.",
+    "Obtenir la guérison sans rechute."
+   ],
+   "moyens": {
+    "accueil": [
+     "Rechercher les localisations secondaires devant toute fièvre ou fongémie persistante.",
+     "Rechercher un cathéter oublié ou une thrombophlébite suppurée.",
+     "Demander l'avis infectiologique et spécialisé immédiatement."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Amphotéricine B liposomale (polyène)",
+      "posologie": "3 mg/kg/j IV ; 5 mg/kg/j IV pour une atteinte du système nerveux central selon IDSA.",
+      "pourquoi": "Elle est préférée là où les échinocandines diffusent mal, comme le système nerveux central ou le vitré.",
+      "source": "IDSA 2016"
+     },
+     {
+      "molecule": "Échinocandine (caspofungine ou anidulafungine)",
+      "posologie": "Caspofungine 50 mg/j ou anidulafungine 100 mg/j IV après la charge.",
+      "pourquoi": "Elle sert de base dans l'endocardite et les abcès, puis un relais azolé sensible est possible après contrôle.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Voriconazole intravitréen (azolé)",
+      "posologie": "Injection intravitréenne par l'ophtalmologue selon la sévérité ; en plus du traitement systémique.",
+      "pourquoi": "Il atteint le vitré, où les échinocandines pénètrent mal, quand le vitré est atteint.",
+      "source": "IDSA 2016"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Opérer la valve en cas d'endocardite et réséquer la veine en cas de thrombophlébite suppurée.",
+      "pourquoi": "Le traitement médical seul échoue sur les végétations et les thrombus infectés."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Pratiquer une vitrectomie si l'endophtalmie est sévère.",
+      "pourquoi": "Elle retire le matériel infecté et préserve la vision."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Drainer les collections profondes accessibles.",
+      "pourquoi": "Les antifongiques pénètrent mal les foyers non drainés."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Organise l'incapacité de travail et la réadaptation visuelle ou cardiaque."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Accompagne le patient dont l'endocardite fongique est inopérable."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Maintenir le traitement jusqu'à résolution documentée et non selon un délai standard.",
+      "Coordonner intensiviste, infectiologue, ophtalmologue, cardiologue et chirurgien.",
+      "Réévaluer l'imagerie en cas de fièvre persistante."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Identifie la complication par fond d'œil, échocardiographie transœsophagienne et imagerie abdominale."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "spécialiste",
+       "fait": "L'ophtalmologue traite l'endophtalmie ; le chirurgien évalue valve, veine ou drainage."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "infectiologue",
+       "fait": "Fixe la molécule et la durée : 4–6 semaines pour l'œil, au moins 6 semaines après chirurgie valvulaire."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Surveille hémocultures et imagerie, puis organise un suivi long pour abcès hépatospléniques jusqu'à calcification."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'endocardite à Candida garde une mortalité très élevée, et l'endophtalmie menace la vision ; les abcès hépatospléniques guérissent après plusieurs mois jusqu'à résolution ou calcification.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Hémocultures",
+      "quand": "Toutes les 24–48 h jusqu'à négativation",
+      "cible": "Négatives, sinon recherche de foyer"
+     },
+     {
+      "quoi": "Fond d'œil",
+      "quand": "Hebdomadaire ou selon l'ophtalmologue",
+      "cible": "Régression des lésions"
+     },
+     {
+      "quoi": "Échocardiographie et imagerie abdominale",
+      "quand": "Selon évolution et fin de traitement",
+      "cible": "Absence de végétation, résolution ou calcification des abcès"
+     },
+     {
+      "quoi": "Phosphatases alcalines et tests hépatiques",
+      "quand": "Hebdomadaire",
+      "cible": "Normalisation"
+     }
+    ],
+    "sortie": "Sortie si hémocultures négatives, foyer contrôlé ou drainé, relais oral sûr ou antifongique prolongé organisé, et suivi spécialisé planifié."
+   },
+   "prevention": {
+    "primaire": "Appliquer les bundles Swissnoso de cathéters et limiter l'antibiothérapie large en réanimation.",
+    "secondaire": "Dépister fond d'œil et échocardiographie chez tout candidémique à risque pour traiter précocement les localisations.",
+    "tertiaire": "Assurer un suivi ophtalmologique, cardiologique et infectiologique prolongé pour limiter séquelles et rechutes."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7101,
+  "output_tokens": 20743,
+  "output_tokens_details": {
+   "thinking_tokens": 5319
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:58:01",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": {
+   "verdict": "🟧",
+   "date": "2026-11-26",
+   "aVerifier": [],
+   "audit": "AUDIT_V3_B"
+  }
+ }
+}
