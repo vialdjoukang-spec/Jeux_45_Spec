@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**98 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**101 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -703,9 +703,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 693 | 1693 | `N81.6__S3_4-E06` | GYN | Rectocèle ou trouble de la statique pelvienne postérieure | produite |
 | 694 | 1694 | `N81.8__S4_16-E05` | GYN | Insuffisance périnéale post-obstétricale (avulsion du muscle élévateur de l'anus) | produite |
 | 695 | 1695 | `N92.2__S4_5-E03` | GYN | Ménorragies fonctionnelles / dysfonction ovulatoire périménarchiale ou périménopausique | produite |
-| 696 | 1696 | `N92.4__S4_12-E03` | GYN | Périménopause avec ménométrorragies fonctionnelles (cycles anovulatoires) | — |
-| 697 | 1697 | `N93.9_2__S4_17-E06` | TOX | Saignement iatrogène sous contraception hormonale ou anticoagulants | — |
-| 698 | 1698 | `N95.2_1__S4_18-E06` | GYN | Vaginite atrophique post-ménopausique ou de lactation | — |
+| 696 | 1696 | `N92.4__S4_12-E03` | GYN | Périménopause avec ménométrorragies fonctionnelles (cycles anovulatoires) | produite |
+| 697 | 1697 | `N93.9_2__S4_17-E06` | TOX | Saignement iatrogène sous contraception hormonale ou anticoagulants | produite |
+| 698 | 1698 | `N95.2_1__S4_18-E06` | GYN | Vaginite atrophique post-ménopausique ou de lactation | produite |
 | 699 | 1699 | `N97.1__S4_4-E03` | GYN | Infertilité tubaire (séquelles de salpingite à Chlamydia) | — |
 | 700 | 1700 | `N97.9_1__O4_5-E04` | GYN | Infertilité du couple (bilan de base masculin et féminin après 12 mois) | — |
 | 701 | 1701 | `O02.1__O1_8-E05` | GYN | Grossesse arrêtée asymptomatique (missed abortion) découverte à l'échographie | — |
