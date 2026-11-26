@@ -253,7 +253,7 @@ def fiche_flash(nom, e, p, niv):
                 gs = gs or bl["examen"]
     b["diag"] = (f"Cet examen : {niv[1]} " if niv else "") + f"1re intention : {pi or AP} ; gold standard : {gs or AP}."
     tr = f.get("traitements") or []
-    but = x.get("butTraitement")
+    but = (x.get("butTraitement") or "").strip().rstrip(".") or None
     moy = x.get("moyensGeneraux")
     if x.get("moyens"):  # gabarit de Vial : but, puis moyen général (moyens spécifiques), chacun survolable
         mo = x["moyens"]
@@ -407,7 +407,7 @@ for r, (rnom, mesh, cote, coul) in REG.items():
                             bd = dict(bd, premiere=niv[3]["premiereIntention"] + ".", gold=niv[3]["goldStandard"] + ".", source=niv[2] if niv[3]["source"] in niv[2] else niv[2] + " ; " + niv[3]["source"])
                     lib, sig = developpe(p["pathologie"])
                     bd = fiche_flash(p["pathologie"], e, p, niv)
-                    if sig:
+                    if sig and sig.split(" = ")[0] not in bd["def"]:
                         bd["def"] = sig + " " + bd["def"]
                     pn = noeud(pid, "Pathologie", lib, [parent], "#d64545", bd, "patho_img", maxc=72, flash=True, type="Pathologie" if niv else ("Pathologie · examen de référence" if gold else "Pathologie"), exRef=e["id"], signe=p.get("anomalieTypique"))
                     if o["stem"] == "poumons_et_voies_aeriennes" and cle(court(e["nom"], 80)) == "radiographie_thoracique" and "pneumonie" in cle(p["pathologie"]):
