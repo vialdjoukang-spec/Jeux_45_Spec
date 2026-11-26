@@ -1,4 +1,4 @@
-# Ouvrier automatique — 2026-11-26 02:07 UTC
+# Ouvrier automatique — 2026-11-26 02:08 UTC
 
 Dernier passage : **V2_Q_recup** → en_cours (0.00 USD).
 
@@ -49,7 +49,7 @@ Dernier passage : **V2_Q_recup** → en_cours (0.00 USD).
 | V2_N_lot | fait | 1 | 0.0 |
 | V2_N_recup | fait | 13 | 0.0 |
 | V2_Q_lot | fait | 1 | 0.0 |
-| V2_Q_recup | en_cours | 5 | 0.0 |
+| V2_Q_recup | en_cours | 6 | 0.0 |
 | V2_C_lot | a_faire | 0 |  |
 | V2_C_recup | a_faire | 0 |  |
 
