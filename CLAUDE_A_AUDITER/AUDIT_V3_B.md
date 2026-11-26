@@ -740,7 +740,7 @@ Contrôles lot 37 : `controle_menus_longs.py` END, HEM, INT, MIG, NEP, TOX → 0
 Contrôles lot 38 : `controle_menus_longs.py` HEM, MIG, NEP, PSY, TOX → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot.
 
 ## Fin du groupe B (26.11.2026, AAI)
-- Lots 31 à 38 audités (rangs 904 à 1000, 97 pathologies) : 47 🟩, 50 🟧, 0 🟥, toutes portées sur main après 0 menu fautif, 0 erreur `valider()` et 0 erreur au test sans écran de l'arène.
+- Lots 31 à 38 audités (rangs 904 à 1000, 97 pathologies) : 49 🟩, 48 🟧, 0 🟥, toutes portées sur main après 0 menu fautif, 0 erreur `valider()` et 0 erreur au test sans écran de l'arène.
 - T74.2_2 (rang 919) et A60.0 (rang 932) auditées en entier ; les cinq pathologies signalées pour la PEP « 72 h » sont désormais conformes à la CFIST (≤ 48 h).
 - Corrections réglementaires et médicales notables : délais de déclaration du botulisme (2 h par téléphone) et de la listériose (24 h) selon l'OFSP ; calendrier ROR suisse (9 et 12 mois) ; voriconazole-tacrolimus (dose ramenée au tiers) ; vitamine D 400 UI/j pendant les trois premières années.
 - Le groupe B est entièrement audité ; aucun rang de reprise ne reste dans ce groupe.
