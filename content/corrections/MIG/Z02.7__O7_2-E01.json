@@ -1,0 +1,1324 @@
+{
+ "id": "Z02.7__O7_2-E01",
+ "portes": [
+  {
+   "ssp": "O7.2",
+   "nomSSP": "Détermination de l’incapacité de travail ou de fréquentation des cours",
+   "entite": "Incapacité de travail temporaire pour pathologie aiguë bénigne (infection, gastro-entérite)",
+   "entiteId": "O7.2-E01"
+  }
+ ],
+ "entite": "Incapacité de travail temporaire pour pathologie aiguë bénigne (infection, gastro-entérite)",
+ "cim10": "Z02.7",
+ "ssp": {
+  "code": "O7.2",
+  "nom": "Détermination de l'incapacité de travail ou de fréquentation des cours",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Demande de certificat d'incapacité de travail ou scolaire",
+    "i": "Porte d'entrée du SSP : le médecin évalue une capacité fonctionnelle, pas un diagnostic.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Signes de gravité (qSOFA ≥ 2, déshydratation sévère, méningite, pneumonie hypoxémiante) ?",
+    "i": "Ils excluent un arrêt simple et imposent une évaluation immédiate.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : évaluation urgente, hospitalisation possible",
+    "i": "Pas d'arrêt ambulatoire banal ; la priorité est la stabilisation.",
+    "pec": "red_flags",
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : quelle est l'origine de l'incapacité ?",
+    "i": "L'origine détermine le régime d'assurance et le SSP à suivre.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Accident ou post-opératoire",
+    "i": "Le régime LAA s'applique : renvoi vers l'entité « Incapacité post-opératoire ou post-traumatique (LAA) » du même SSP.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Lombalgie, trouble psychique, grossesse, longue durée",
+    "i": "Ces situations sortent du cadre bénin : renvoi vers les entités correspondantes du SSP O7.2 (lombalgie, burnout, OProMa, AI).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n7",
+    "parent": "n4",
+    "t": "Pathologie aiguë bénigne (infection, gastro-entérite)",
+    "i": "Entité de cet exposé : arrêt court, spontanément résolutif.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Poste alimentaire, soins ou petite enfance ?",
+    "i": "Ces postes exposent des personnes fragiles ou des consommateurs.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Oui : incapacité 100 % et éviction jusqu'à environ 48 h après la fin des symptômes",
+    "i": "Le norovirus reste contagieux environ 48 h après la guérison clinique.",
+    "pec": "certificat_simple",
+    "notion": "c2"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Non : les symptômes empêchent-ils les tâches du poste ?",
+    "i": "La capacité s'évalue sur les tâches réelles du patient.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Oui : incapacité à taux adapté (50 à 100 %) et durée prévisible",
+    "i": "Le taux partiel reflète les tâches encore réalisables.",
+    "pec": "certificat_simple",
+    "notion": "c1"
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Non : pas d'incapacité, conseils et hygiène",
+    "i": "Un certificat sans incapacité fonctionnelle serait de complaisance.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n13",
+    "parent": "n4",
+    "t": "Demande sans signe objectif, rétroactive ou sous pression",
+    "i": "Elle expose au risque de faux certificat (art. 318 CP).",
+    "pec": "pression_certificat",
+    "notion": "c7"
+   },
+   {
+    "id": "n14",
+    "parent": "n4",
+    "t": "Symptômes > 3 à 5 jours ou incapacité ≥ 30 jours",
+    "i": "Il faut un nouvel examen, pas une reconduction.",
+    "pec": "prolongation",
+    "notion": "c9"
+   }
+  ]
+ },
+ "specialites": [
+  "MIG"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Incapacité de travail temporaire pour pathologie aiguë bénigne (infection, gastro-entérite)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition, cadre légal et régimes d'indemnisation",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Raisonne d'abord sur la capacité fonctionnelle dans le poste précis du patient, puis choisis le régime (maladie, accident, chômage, AI) qui règle le paiement et les délais.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Qui indemnise",
+     "Règle clé",
+     "Piège à l'examen"
+    ],
+    "lignes": [
+     [
+      "Accident (LAA)",
+      [
+       {
+        "t": "Assureur-accidents LAA",
+        "i": "Une atteinte accidentelle sort du régime maladie ; le certificat doit donc préciser maladie ou accident pour orienter la déclaration."
+       }
+      ],
+      [
+       {
+        "t": "Indemnité journalière dès le 3e jour après l'accident, 80 % du gain assuré",
+        "i": "Le délai d'attente de 2 jours et le taux de 80 % sont fixés par la LAA, contrairement à la maladie."
+       }
+      ],
+      [
+       {
+        "t": "Confondre accident et maladie",
+        "i": "Les deux régimes ont des déclarations et des indemnités différentes ; une erreur retarde ou prive le patient de prestations."
+       }
+      ]
+     ],
+     [
+      "Maladie (salarié)",
+      [
+       {
+        "t": "Employeur, souvent relayé par une assurance perte de gain facultative",
+        "i": "Le Code des obligations impose le salaire, mais la perte de gain n'est pas obligatoire : elle dépend du contrat."
+       }
+      ],
+      [
+       {
+        "t": "Salaire dû pour une durée limitée selon l'ancienneté, au minimum 3 semaines la 1re année",
+        "i": "Art. 324a CO : la durée augmente avec les années de service."
+       }
+      ],
+      [
+       {
+        "t": "Croire à un délai légal fédéral pour le certificat",
+        "i": "Aucune loi fédérale ne fixe le jour d'exigence : le contrat ou le règlement interne décide, souvent dès le 3e jour."
+       }
+      ]
+     ],
+     [
+      "Chômeur",
+      [
+       {
+        "t": "Caisse de chômage",
+        "i": "Le certificat lui est transmis, car elle verse l'indemnité à la place du salaire."
+       }
+      ],
+      [
+       {
+        "t": "44 indemnités journalières au plus par délai-cadre en cas de maladie",
+        "i": "Art. 28 LACI : au-delà, la personne doit relever d'un autre régime (AI, perte de gain)."
+       }
+      ],
+      [
+       {
+        "t": "Oublier la caisse de chômage",
+        "i": "Sans certificat transmis, l'indemnité n'est pas versée pendant l'incapacité."
+       }
+      ]
+     ],
+     [
+      "Incapacité ≥ 30 jours ou absences répétées",
+      [
+       {
+        "t": "AI (détection précoce)",
+        "i": "L'AI intervient pour maintenir l'emploi avant que l'invalidité s'installe."
+       }
+      ],
+      [
+       {
+        "t": "Annonce possible dès 30 jours d'incapacité ininterrompue (art. 3b LAI)",
+        "i": "Ce seuil sort du cadre d'un arrêt bénin."
+       }
+      ],
+      [
+       {
+        "t": "Annoncer sans informer le patient",
+        "i": "Le patient doit être informé de l'annonce ; elle reste un acte distinct du certificat bénin."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Art. 6 LPGA : incapacité = perte totale ou partielle de l'aptitude à accomplir le travail raisonnablement exigible dans sa profession, à cause d'une atteinte à la santé.",
+    "On évalue la capacité par rapport au poste, pas le diagnostic : gastro-entérite = 100 % pour un cuisinier, 0 % en télétravail.",
+    "Le taux peut être partiel (par exemple 50 %) si une partie des tâches reste réalisable.",
+    "Les infections respiratoires aiguës et gastro-entérites dominent les arrêts courts, avec un pic hivernal pour les infections respiratoires."
+   ],
+   "sources": [
+    "LPGA art. 6",
+    "LAA art. 16",
+    "CO art. 324a",
+    "LACI art. 28"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Anamnèse : le poste, le début et le terrain",
+   "rubriques": [
+    "anamnesis",
+    "basicSciences"
+   ],
+   "comment": "Interroge le poste et l'exposition avant les symptômes, car ils fixent le taux d'incapacité, la contagiosité et la durée d'éviction.",
+   "tableau": {
+    "colonnes": [
+     "Poste",
+     "Incapacité typique",
+     "Pourquoi",
+     "Éviction après gastro-entérite"
+    ],
+    "lignes": [
+     [
+      "Alimentaire (cuisine, restauration)",
+      [
+       {
+        "t": "100 % pendant les symptômes",
+        "i": "La manipulation d'aliments expose les consommateurs à la transmission."
+       }
+      ],
+      [
+       {
+        "t": "Risque de transmission",
+        "i": "Le norovirus est très contagieux et reste excrété après la guérison clinique."
+       }
+      ],
+      [
+       {
+        "t": "Jusqu'à environ 48 h après la fin des symptômes",
+        "i": "Le norovirus reste contagieux environ 48 h après la disparition des symptômes."
+       }
+      ]
+     ],
+     [
+      "Soins, petite enfance",
+      [
+       {
+        "t": "100 % pendant les symptômes",
+        "i": "Le contact avec des personnes fragiles aggrave les conséquences d'une transmission."
+       }
+      ],
+      [
+       {
+        "t": "Public vulnérable",
+        "i": "Nourrissons, âgés et immunodéprimés risquent une forme sévère."
+       }
+      ],
+      [
+       {
+        "t": "Jusqu'à environ 48 h après la fin des symptômes",
+        "i": "Même règle d'éviction prolongée que pour le secteur alimentaire."
+       }
+      ]
+     ],
+     [
+      "Travail physique ou port de charges",
+      [
+       {
+        "t": "100 % tant que persistent asthénie, fièvre ou déshydratation",
+        "i": "La capacité fonctionnelle est limitée par les symptômes, indépendamment de la contagiosité."
+       }
+      ],
+      [
+       {
+        "t": "Limitation par les symptômes",
+        "i": "Fièvre et fatigue empêchent l'effort ; le seuil dépend de la charge réelle du poste."
+       }
+      ],
+      [
+       {
+        "t": "Reprise dès l'amélioration clinique",
+        "i": "Aucun risque pour des tiers n'impose d'attendre au-delà de la guérison."
+       }
+      ]
+     ],
+     [
+      "Bureau ou télétravail",
+      [
+       {
+        "t": "0 à 50 % selon la tolérance des symptômes",
+        "i": "Les tâches réalisables à domicile ne justifient pas une incapacité totale."
+       }
+      ],
+      [
+       {
+        "t": "Capacité partiellement préservée",
+        "i": "Le certificat exprime le taux réel plutôt que 100 % par défaut."
+       }
+      ],
+      [
+       {
+        "t": "Pas d'éviction spécifique ; hygiène des mains",
+        "i": "Sans contact avec des personnes fragiles, le risque professionnel est faible."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Note la date et l'heure de début des symptômes : elles fixent le début plausible de l'incapacité et la durée prévisible.",
+    "Recherche l'exposition : voyage, repas collectif, cas similaires, crèche ou école.",
+    "Demande si l'atteinte résulte d'un accident : le régime LAA diffère du régime maladie.",
+    "Recherche comorbidités, immunosuppression, grossesse et traitements : ces terrains abaissent le seuil d'examens et d'hospitalisation.",
+    "La fièvre, l'asthénie et la contagiosité temporaire expliquent l'incapacité."
+   ],
+   "sources": [
+    "Office fédéral de la santé publique (OFSP), recommandations norovirus",
+    "LPGA art. 6"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Examen clinique : objectiver avant de certifier",
+   "rubriques": [
+    "clinicalExam"
+   ],
+   "comment": "Mesure d'abord les constantes et l'hydratation, écarte l'instabilité, puis cible l'examen sur le syndrome et ne certifie que ce que tu constates ou juges plausible.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Demande d'arrêt pour pathologie aiguë",
+     "i": "Point de départ : le certificat suit l'examen, jamais l'inverse.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Constantes : température, FC, FR, TA, SpO2, hydratation",
+     "i": "Ces mesures objectivent la maladie et dépistent l'instabilité avant toute décision d'incapacité.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Instable : qSOFA ≥ 2, hypoxémie, déshydratation sévère",
+     "i": "qSOFA ≥ 2 = FR ≥ 22/min, TAS ≤ 100 mmHg ou confusion ; un arrêt simple n'est alors plus approprié.",
+     "pec": "red_flags",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Stable",
+     "i": "Aucun critère de gravité : l'examen peut se limiter au syndrome présenté.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Examen ciblé : ORL et poumons, ou abdomen et hydratation",
+     "i": "Infection respiratoire = ORL et auscultation ; gastro-entérite = abdomen et signes de déshydratation.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Signe objectif ou plausibilité clinique",
+     "i": "Le médecin certifie ce qu'il constate ou juge plausible.",
+     "pec": "certificat_simple",
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n5",
+     "t": "Aucun signe objectif",
+     "i": "Le médecin consigne que l'incapacité repose sur les dires du patient ; jamais de certificat de complaisance.",
+     "pec": "pression_certificat",
+     "notion": null
+    }
+   ],
+   "points": [
+    "Constantes complètes (T°, FC, FR, TA, SpO2) et état d'hydratation avant toute décision.",
+    "Sans signe objectif, note « sur dires du patient » dans le dossier.",
+    "Une demande répétée sans signe objectif, avec tristesse, fatigue ou conflit, impose de chercher un trouble anxio-dépressif et une idéation suicidaire."
+   ],
+   "sources": [
+    "CP art. 318",
+    "FMH, directives sur le certificat d'incapacité de travail"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Signaux d'alarme : quand l'arrêt simple est exclu",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Cherche systématiquement les cinq diagnostics redoutés derrière une demande banale, car chacun transforme le certificat en urgence ou en bilan.",
+   "tableau": {
+    "colonnes": [
+     "Diagnostic redouté",
+     "Signes d'alarme",
+     "Seuil ou score",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Sepsis",
+      [
+       {
+        "t": "Confusion, tachypnée, hypotension",
+        "i": "Ce sont les trois critères du qSOFA, simples à mesurer au cabinet."
+       }
+      ],
+      [
+       {
+        "t": "qSOFA ≥ 2 (FR ≥ 22/min, TAS ≤ 100 mmHg, confusion)",
+        "i": "Un score ≥ 2 signale un risque élevé de mortalité hospitalière."
+       }
+      ],
+      [
+       {
+        "t": "Transfert urgent",
+        "i": "Un arrêt de travail simple n'est plus approprié."
+       }
+      ]
+     ],
+     [
+      "Déshydratation sévère",
+      [
+       {
+        "t": "Tachycardie, hypotension, oligurie, muqueuses sèches, somnolence",
+        "i": "Ils traduisent l'hypovolémie, surtout après vomissements ou diarrhée."
+       }
+      ],
+      [
+       {
+        "t": "Signes cliniques d'hypovolémie",
+        "i": "Aucun score unique ; le jugement clinique prime."
+       }
+      ],
+      [
+       {
+        "t": "Réhydratation, parfois IV et hospitalière",
+        "i": "La voie orale échoue en cas de vomissements incoercibles ou de somnolence."
+       }
+      ]
+     ],
+     [
+      "Pneumonie",
+      [
+       {
+        "t": "Dyspnée, tachypnée, hypoxémie, crépitants focaux",
+        "i": "Ils distinguent une pneumonie d'une infection virale des voies aériennes supérieures."
+       }
+      ],
+      [
+       {
+        "t": "CRB-65",
+        "i": "Ce score (confusion, FR, TA, âge ≥ 65 ans) aide à choisir entre ambulatoire et hospitalisation."
+       }
+      ],
+      [
+       {
+        "t": "Radiographie, antibiotique, hospitalisation selon score",
+        "i": "La décision dépend de la gravité et du terrain."
+       }
+      ]
+     ],
+     [
+      "Méningite",
+      [
+       {
+        "t": "Fièvre, céphalées, raideur de nuque, purpura, trouble de conscience",
+        "i": "Cette association exige l'exclusion immédiate d'une infection du système nerveux central."
+       }
+      ],
+      [
+       {
+        "t": "Aucun seuil : un seul signe suffit à agir",
+        "i": "Le retard thérapeutique augmente la mortalité."
+       }
+      ],
+      [
+       {
+        "t": "Urgence hospitalière immédiate",
+        "i": "Tout arrêt ambulatoire banal est exclu."
+       }
+      ]
+     ],
+     [
+      "Gastro-entérite compliquée",
+      [
+       {
+        "t": "Sang dans les selles, fièvre élevée persistante, douleurs intenses, diarrhée prolongée, retour de voyage",
+        "i": "Ces éléments sortent du tableau viral banal vers une cause bactérienne ou parasitaire."
+       }
+      ],
+      [
+       {
+        "t": "Un seul de ces éléments",
+        "i": "Il suffit à justifier un bilan."
+       }
+      ],
+      [
+       {
+        "t": "Bilan (selles) et réévaluation",
+        "i": "La gastro-entérite non compliquée ne nécessite aucun examen."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Retiens : sepsis, déshydratation sévère, pneumonie hypoxémiante, méningite, gastro-entérite compliquée.",
+    "Demandes répétées sans signe objectif : suspecter un trouble anxio-dépressif ou un burnout et chercher une idéation suicidaire (autre SSP)."
+   ],
+   "sources": [
+    "Sepsis-3 (qSOFA), 2016",
+    "CRB-65, Société suisse de pneumologie / Société suisse d'infectiologie"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan et diagnostic positif",
+   "rubriques": [
+    "workupGoldStandard",
+    "positiveDiagnosis"
+   ],
+   "comment": "Le bilan se limite à l'évaluation clinique avec anamnèse du poste ; tu ne prescris un examen que si un signe d'alarme ou un score le justifie.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Syndrome viral banal ou gastro-entérite non compliquée : aucun examen complémentaire indiqué.",
+    "Angine : le score de Centor/McIsaac guide le test rapide du streptocoque A, ce qui évite antibiotiques et arrêts injustifiés.",
+    "L'incapacité est retenue si les symptômes objectivés empêchent les tâches du poste ou si la contagiosité expose autrui (alimentaire, soins, petite enfance).",
+    "Simulation (production consciente de symptômes pour un bénéfice secondaire) et trouble factice (recherche du rôle de malade) contredisent une pathologie aiguë bénigne objectivée."
+   ],
+   "sources": [
+    "Société suisse d'infectiologie, recommandations angine",
+    "LPGA art. 6"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Secret médical : qui reçoit quoi",
+   "rubriques": [
+    "workupAlternatives"
+   ],
+   "comment": "Le certificat remis à l'employeur reste neutre, et toute information médicale supplémentaire dépend de l'accord du patient.",
+   "tableau": {
+    "colonnes": [
+     "Destinataire",
+     "Information autorisée",
+     "Condition",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Employeur",
+      [
+       {
+        "t": "Date de début, durée, taux d'incapacité",
+        "i": "Ces trois données suffisent à gérer l'absence et le salaire."
+       }
+      ],
+      [
+       {
+        "t": "Aucune",
+        "i": "Le certificat neutre est le document standard."
+       }
+      ],
+      [
+       {
+        "t": "Ni diagnostic ni symptômes (art. 321 CP)",
+        "i": "Le secret professionnel protège le patient, sauf accord explicite."
+       }
+      ]
+     ],
+     [
+      "Médecin-conseil mandaté par l'employeur",
+      [
+       {
+        "t": "Informations médicales nécessaires à l'évaluation",
+        "i": "Il intervient en cas de doute de l'employeur sur l'incapacité."
+       }
+      ],
+      [
+       {
+        "t": "Accord du patient",
+        "i": "Sans accord, le médecin traitant ne peut rien transmettre."
+       }
+      ],
+      [
+       {
+        "t": "L'employeur n'accède pas au dossier",
+        "i": "Le médecin-conseil ne transmet à l'employeur que sa conclusion sur la capacité."
+       }
+      ]
+     ],
+     [
+      "Médecin-conseil de l'assurance perte de gain",
+      [
+       {
+        "t": "Informations médicales, dont le diagnostic",
+        "i": "L'assureur doit évaluer le droit aux prestations."
+       }
+      ],
+      [
+       {
+        "t": "Autorisation du patient",
+        "i": "Le patient décide de la levée du secret vis-à-vis de l'assureur."
+       }
+      ],
+      [
+       {
+        "t": "Information strictement séparée de l'employeur",
+        "i": "L'employeur ne doit pas recevoir de diagnostic via l'assureur."
+       }
+      ]
+     ],
+     [
+      "École ou établissement de formation",
+      [
+       {
+        "t": "Certificat conforme aux exigences de l'établissement",
+        "i": "Chaque école fixe son modèle ; le médecin respecte le secret comme pour l'employeur."
+       }
+      ],
+      [
+       {
+        "t": "Établi le jour de l'examen ou de l'épreuve",
+        "i": "Une rétroactivité pour un examen manqué n'est pas admise."
+       }
+      ],
+      [
+       {
+        "t": "Pas de diagnostic",
+        "i": "Le même secret professionnel s'applique."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Art. 321 CP : le certificat ne mentionne ni diagnostic ni symptômes, sauf accord explicite du patient.",
+    "Le médecin-conseil de l'assureur reçoit le diagnostic seulement avec l'autorisation du patient."
+   ],
+   "sources": [
+    "CP art. 321",
+    "FMH, code de déontologie"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Certificat : contenu, datation, rétroactivité et faux",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Le certificat est daté du jour de l'examen, chiffre le taux et la durée prévisible, distingue maladie et accident, et se refuse ferme face à toute pression.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Patient demande un certificat",
+     "i": "Point de départ : examen préalable obligatoire.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Examiné aujourd'hui, incapacité objectivée ou plausible",
+     "i": "Le certificat repose sur un constat du jour.",
+     "pec": "certificat_simple",
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Demande rétroactive",
+     "i": "L'antidatage est exclu ; une rétroactivité reste exceptionnelle et brève.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Éléments crédibles et brève période",
+     "i": "Le certificat mentionne expressément la rétroactivité, de façon transparente.",
+     "pec": "certificat_simple",
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n3",
+     "t": "Aucune preuve ou longue période",
+     "i": "Le faux certificat intentionnel est punissable (art. 318 CP).",
+     "pec": "pression_certificat",
+     "notion": null
+    }
+   ],
+   "points": [
+    "Le certificat indique taux en % et durée prévisible, sans diagnostic, et distingue maladie et accident.",
+    "Antidater est exclu ; une rétroactivité exceptionnelle doit être brève et mentionnée comme telle.",
+    "Art. 318 CP : le faux certificat établi intentionnellement est punissable, même sous pression.",
+    "Éviction de 48 h après la fin des symptômes pour alimentaire, soins et petite enfance en cas de gastro-entérite."
+   ],
+   "sources": [
+    "CP art. 318",
+    "FMH, directives certificat",
+    "LAA art. 16"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Traitement symptomatique, complications et protection du poste",
+   "rubriques": [
+    "chronicManagement",
+    "hospitalizationComplications"
+   ],
+   "comment": "Traite symptomatiquement, surveille les complications qui modifient l'incapacité, et connais la protection contre le licenciement en temps inopportun.",
+   "tableau": {
+    "colonnes": [
+     "Ancienneté",
+     "Protection contre le licenciement (maladie)",
+     "Pourquoi",
+     "Lien avec le certificat"
+    ],
+    "lignes": [
+     [
+      "1re année de service",
+      [
+       {
+        "t": "30 jours",
+        "i": "Art. 336c CO : délai de protection le plus court."
+       }
+      ],
+      [
+       {
+        "t": "Période de protection limitée",
+        "i": "Le délai augmente avec l'ancienneté."
+       }
+      ],
+      [
+       {
+        "t": "Le certificat atteste l'incapacité pendant la période",
+        "i": "Sans certificat, la protection est difficile à prouver."
+       }
+      ]
+     ],
+     [
+      "2e à 5e année",
+      [
+       {
+        "t": "90 jours",
+        "i": "Délai intermédiaire de l'art. 336c CO."
+       }
+      ],
+      [
+       {
+        "t": "Protection intermédiaire",
+        "i": "Le licenciement donné pendant ce délai est nul."
+       }
+      ],
+      [
+       {
+        "t": "Certificat à conserver",
+        "i": "Il sert de preuve de l'incapacité."
+       }
+      ]
+     ],
+     [
+      "Dès la 6e année",
+      [
+       {
+        "t": "180 jours",
+        "i": "Délai maximal de l'art. 336c CO."
+       }
+      ],
+      [
+       {
+        "t": "Protection la plus longue",
+        "i": "La période est rarement atteinte pour une pathologie bénigne."
+       }
+      ],
+      [
+       {
+        "t": "Une pathologie bénigne dépasse rarement ces limites",
+        "i": "Un arrêt de quelques jours reste largement protégé."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le traitement est symptomatique : repos, hydratation, antipyrétique ; antibiotiques non indiqués dans un syndrome viral ou une gastro-entérite non compliquée.",
+    "Complications (déshydratation avec insuffisance rénale aiguë, pneumonie, surinfection) : nouvel examen, prolongation, parfois hospitalisation.",
+    "La reprise est complète et spontanée en quelques jours."
+   ],
+   "sources": [
+    "CO art. 336c",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Surveillance, pronostic et réseau",
+   "rubriques": [
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Chaque prolongation exige un nouvel examen ; le médecin de famille coordonne le suivi en respectant le secret.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Reconsulter si fièvre ou symptômes persistent au-delà de 3 à 5 jours ou s'aggravent.",
+    "Toute prolongation repose sur un nouvel examen qui réévalue la capacité et le diagnostic, jamais sur une reconduction automatique.",
+    "Le pronostic est favorable : guérison complète en quelques jours, parfois reprise progressive.",
+    "Incapacité ininterrompue ≥ 30 jours ou absences répétées : annonce possible à l'AI (détection précoce), après information du patient.",
+    "Le médecin de famille suit ; l'employeur ou l'école reçoit le certificat neutre ; l'assureur ou le médecin-conseil n'obtient des données qu'avec l'accord du patient."
+   ],
+   "sources": [
+    "LAI art. 3b",
+    "FMH, directives certificat"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "certificat_simple",
+   "titre": "Certificat d'incapacité de courte durée pour pathologie aiguë bénigne",
+   "but": [
+    "Évaluer la capacité fonctionnelle dans le poste précis du patient.",
+    "Délivrer un certificat neutre, daté du jour, avec taux et durée prévisible.",
+    "Prévenir la transmission en secteur à risque et soulager les symptômes."
+   ],
+   "moyens": {
+    "accueil": [
+     "Recueille poste, date et heure de début, exposition et accident éventuel.",
+     "Mesure température, FC, FR, TA, SpO2 et évalue l'hydratation.",
+     "Explique au patient que le certificat ne mentionne pas le diagnostic."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Paracétamol (antipyrétique, antalgique)",
+      "posologie": "Adulte > 50 kg : 500–1000 mg par voie orale par prise, intervalle ≥ 6 h, maximum 4 g/24 h ; réduire en cas d'insuffisance hépatique.",
+      "pourquoi": "Soulage fièvre et douleurs sans toxicité rénale ni digestive des AINS, utile en cas de déshydratation.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Solution de réhydratation orale (glucose-électrolytes)",
+      "posologie": "Par petites quantités fréquentes, volume adapté aux pertes ; préparation selon notice du produit.",
+      "pourquoi": "Compense les pertes hydro-électrolytiques de la gastro-entérite et évite l'hospitalisation lorsque la voie orale est possible.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Prescrire repos et hydratation orale régulière.",
+      "pourquoi": "Le traitement est symptomatique et la maladie guérit spontanément."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Enseigner lavage des mains et éviction des contacts fragiles.",
+      "pourquoi": "Réduit la transmission du norovirus et des virus respiratoires."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Remettre le certificat neutre et indiquer maladie ou accident.",
+      "pourquoi": "Oriente vers le régime d'indemnisation correct."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise le régime applicable (maladie, accident, chômage) et l'obligation de salaire."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantit le secret (art. 321 CP) et interdit le certificat de complaisance (art. 318 CP)."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Certifie uniquement ce qui est constaté ou jugé plausible.",
+      "Date le certificat du jour de l'examen.",
+      "Ne mentionne ni diagnostic ni symptômes."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Recueille l'anamnèse du poste et mesure les constantes pour écarter l'instabilité."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Examine ORL, poumons ou abdomen selon le syndrome et détermine le taux d'incapacité."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Explique hydratation et lavage des mains ; documente les constantes."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Établit le certificat avec taux, durée prévisible et mention maladie ou accident."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Remet le certificat à l'employeur et reconsulte si les symptômes persistent après 3 à 5 jours."
+      }
+     ]
+    }
+   },
+   "pronostic": "La guérison est complète en quelques jours ; la reprise est à 100 %, parfois progressive après une gastro-entérite en secteur à risque.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Température, symptômes, hydratation",
+      "quand": "À 3–5 jours si persistance",
+      "cible": "Apyrexie et amélioration clinique"
+     },
+     {
+      "quoi": "Capacité de travail",
+      "quand": "À chaque reconsultation",
+      "cible": "Reprise à 100 % en quelques jours"
+     },
+     {
+      "quoi": "Éviction du professionnel à risque",
+      "quand": "Jusqu'à environ 48 h après la fin des symptômes",
+      "cible": "Absence de symptômes depuis 48 h avant la reprise"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée, car constantes normales, hydratation orale possible, absence de signe d'alarme et patient capable de reconsulter."
+   },
+   "prevention": {
+    "primaire": "Recommande lavage des mains et vaccination antigrippale selon les recommandations de l'OFSP pour les groupes à risque.",
+    "secondaire": "Dépiste précocement les signes de gravité lors de chaque consultation pour arrêt.",
+    "tertiaire": "Évite les complications et les absences répétées en réévaluant toute prolongation."
+   }
+  },
+  {
+   "cle": "red_flags",
+   "titre": "Demande d'arrêt révélant un signe de gravité (sepsis, déshydratation, pneumonie, méningite)",
+   "but": [
+    "Reconnaître immédiatement l'instabilité derrière une demande banale.",
+    "Stabiliser le patient et le transférer sans retard.",
+    "Reporter le certificat après la prise en charge urgente."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installe le patient et prends les constantes en priorité.",
+     "Appelle l'équipe médicale sans attendre la fin de l'anamnèse."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Cristalloïdes IV (NaCl 0,9 % ou Ringer lactate)",
+      "posologie": "Bolus de 500 mL IV, à répéter selon réponse clinique et hémodynamique.",
+      "pourquoi": "Corrige l'hypovolémie du sepsis ou de la déshydratation sévère, la voie orale étant insuffisante ou dangereuse.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Ceftriaxone (céphalosporine de 3e génération)",
+      "posologie": "2 g IV, après hémocultures sans retarder ; 2 g toutes les 12 h si méningite.",
+      "pourquoi": "Couvre les bactéries les plus fréquentes du sepsis d'origine inconnue et de la méningite ; l'antibiothérapie précoce réduit la mortalité.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Poser une voie veineuse et prélever hémocultures et lactate.",
+      "pourquoi": "Confirme le sepsis et guide la réanimation."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveiller continuellement constantes et conscience.",
+      "pourquoi": "Détecte une aggravation avant le transfert."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Impose l'assistance à personne en danger et la documentation de la décision de transfert."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Applique l'approche ABCDE.",
+      "Place le patient en surveillance continue."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Reconnaît le signe de gravité et déclenche l'appel du service d'urgence."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose une voie veineuse, prélève hémocultures et lactate."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Débute la réanimation liquidienne et l'antibiothérapie précoce."
+      },
+      {
+       "temps": "puis",
+       "qui": "second médecin",
+       "fait": "Organise le transfert vers l'hôpital avec transmission écrite."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le pronostic dépend de la précocité : un sepsis ou une méningite non traités rapidement exposent à une mortalité élevée.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "FR, TA, conscience, SpO2",
+      "quand": "En continu jusqu'au transfert",
+      "cible": "Stabilité hémodynamique et respiratoire"
+     },
+     {
+      "quoi": "Diurèse et lactate",
+      "quand": "Selon protocole hospitalier",
+      "cible": "Normalisation du lactate et diurèse conservée"
+     }
+    ],
+    "sortie": "Pas de sortie ambulatoire : hospitalisation, puis certificat adapté à la pathologie diagnostiquée."
+   },
+   "prevention": {
+    "primaire": "Vaccine selon le plan suisse contre pneumocoque, méningocoque et grippe.",
+    "secondaire": "Reconnaît tôt les signes d'alarme avant d'accorder un arrêt simple.",
+    "tertiaire": "Organise la réadaptation et l'adaptation du poste après la maladie grave."
+   }
+  },
+  {
+   "cle": "pression_certificat",
+   "titre": "Demande de certificat injustifié, rétroactif ou sous pression",
+   "but": [
+    "Refuser tout certificat de complaisance ou antidaté.",
+    "Rester dans le cadre du secret et de la loi tout en maintenant la relation.",
+    "Chercher la cause de la demande, notamment psychique."
+   ],
+   "moyens": {
+    "accueil": [
+     "Écoute la demande sans jugement.",
+     "Explique les limites légales du certificat."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Refuser clairement et expliquer obligations légales et déontologiques.",
+      "pourquoi": "Le faux certificat est punissable (art. 318 CP) et rompt la confiance."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Documenter la demande, les constats et le refus dans le dossier.",
+      "pourquoi": "Protège le médecin en cas de litige."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Rechercher tristesse, conflit au travail et idéation suicidaire.",
+      "pourquoi": "Une demande répétée sans signe objectif évoque un trouble anxio-dépressif ou un burnout."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Rappelle l'art. 318 CP et le cadre de la rétroactivité exceptionnelle."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Explique l'absence de prestations sans certificat valable."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Ne cède pas à la menace ni à l'insistance.",
+      "Reste factuel et courtois."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Examine le patient et vérifie l'existence d'un signe objectif."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Refuse le certificat injustifié et explique ses obligations légales."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Cherche une souffrance psychique et évalue le risque suicidaire."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Documente le refus et propose un nouveau rendez-vous si besoin."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le refus motivé préserve la relation thérapeutique dans la majorité des cas et révèle parfois un trouble psychique sous-jacent à traiter.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Souffrance psychique, idéation suicidaire",
+      "quand": "À chaque consultation répétée",
+      "cible": "Absence de risque suicidaire"
+     },
+     {
+      "quoi": "Documentation du refus",
+      "quand": "Le jour même",
+      "cible": "Dossier complet et daté"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée, sauf risque suicidaire aigu qui impose une orientation psychiatrique urgente."
+   },
+   "prevention": {
+    "primaire": "Informe d'emblée que le certificat repose sur un examen et n'est jamais antidaté.",
+    "secondaire": "Repère précocement les demandes répétées sans signe objectif.",
+    "tertiaire": "Oriente vers un suivi psychiatrique ou social si une souffrance sous-jacente existe."
+   }
+  },
+  {
+   "cle": "prolongation",
+   "titre": "Persistance des symptômes et incapacité prolongée",
+   "but": [
+    "Réévaluer la capacité et le diagnostic avant toute prolongation.",
+    "Détecter une complication ou une autre pathologie.",
+    "Déclencher la détection précoce AI si l'incapacité dépasse 30 jours."
+   ],
+   "moyens": {
+    "accueil": [
+     "Reçois le patient en consultation de réévaluation.",
+     "Rappelle que la prolongation n'est jamais automatique."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Réexaminer constantes, hydratation et syndrome, avec bilan selon les signes d'alarme.",
+      "pourquoi": "Une persistance au-delà de 3 à 5 jours impose de reconsidérer le diagnostic."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Proposer une reprise partielle progressive si la capacité s'améliore.",
+      "pourquoi": "Évite la désinsertion professionnelle."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Annoncer le cas à l'AI après information du patient si ≥ 30 jours ininterrompus.",
+      "pourquoi": "La détection précoce (art. 3b LAI) maintient l'emploi."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Articule perte de gain, AI et protection contre le licenciement (art. 336c CO)."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Ne reconduis pas l'arrêt sans examen.",
+      "Informe le patient de chaque démarche auprès de l'assureur ou de l'AI."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Réexamine le patient et cherche complication ou signe d'alarme."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Adapte diagnostic, taux d'incapacité et durée prévisible."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "assistant·e social·e",
+       "fait": "Informe sur les prestations et la protection de l'emploi."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Annonce à l'AI si incapacité ininterrompue ≥ 30 jours, après information du patient."
+      }
+     ]
+    }
+   },
+   "pronostic": "Une incapacité qui se prolonge au-delà de quelques jours impose de chercher une autre cause ; le risque de désinsertion augmente avec la durée de l'absence.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Symptômes, fièvre, capacité de travail",
+      "quand": "À chaque prolongation",
+      "cible": "Amélioration documentée ou diagnostic reconsidéré"
+     },
+     {
+      "quoi": "Durée cumulée de l'incapacité",
+      "quand": "À 30 jours",
+      "cible": "Décision d'annonce à l'AI documentée"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si constantes normales ; hospitalisation si complication (déshydratation sévère, pneumonie, sepsis)."
+   },
+   "prevention": {
+    "primaire": "Informe d'emblée de la nécessité de reconsulter en cas de persistance.",
+    "secondaire": "Réévalue systématiquement le diagnostic à chaque prolongation.",
+    "tertiaire": "Favorise la reprise partielle et le maintien du poste."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6130,
+  "output_tokens": 20805,
+  "output_tokens_details": {
+   "thinking_tokens": 5957
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:58",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

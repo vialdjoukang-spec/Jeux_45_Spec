@@ -1,0 +1,1232 @@
+{
+ "id": "Z31.5_1__O7_25-E03",
+ "portes": [
+  {
+   "ssp": "O7.25",
+   "nomSSP": "Demande de conseil génétique",
+   "entite": "Conseil génétique préconceptionnel (consanguinité, porteur sain)",
+   "entiteId": "O7.25-E03"
+  }
+ ],
+ "entite": "Conseil génétique préconceptionnel (consanguinité, porteur sain)",
+ "cim10": "Z31.5",
+ "ssp": {
+  "code": "O7.25",
+  "nom": "Demande de conseil génétique",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Demande de conseil génétique (O7.25)",
+    "i": "Porte d'entrée commune à toutes les demandes de conseil génétique : l'anamnèse choisit ensuite l'entité.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Grossesse déjà en cours ?",
+    "i": "La grossesse change les options (pas de DPI) et impose des délais, notamment la biopsie de villosités dès 11 semaines.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : renvoi vers l'entité Conseil génétique prénatal (O7.25)",
+    "i": "Le prénatal dépend du terme et suit une démarche distincte ; si une anomalie fœtale sévère est suspectée, utiliser l'entité diagnostic prénatal urgent.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : projet de conception, anamnèse sur 3 générations pour les deux conjoints",
+    "i": "L'arbre généalogique et les liens de parenté déterminent le mode de transmission et le risque.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Motif : cancer familial, cardiopathie, maladie neurologique ou hypercholestérolémie familiale",
+    "i": "Ces maladies suivent surtout une transmission dominante, avec des démarches dédiées.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Renvoi vers l'entité correspondante du SSP O7.25 (oncogénétique, cardiopathie héréditaire, neurologique, hypercholestérolémie familiale)",
+    "i": "L'entité préconceptionnelle porte sur les maladies récessives et liées à l'X ; les autres relèvent d'entités spécifiques du même SSP.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n7",
+    "parent": "n4",
+    "t": "Motif : consanguinité, maladie récessive ou liée à l'X dans la famille, origine à risque",
+    "i": "C'est le cœur du conseil préconceptionnel : risque d'enfant atteint par homozygotie ou par hémizygotie.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Enfant précédent décédé inexpliqué ou maladie métabolique ?",
+    "i": "Sans diagnostic étiologique, le risque de récurrence reste inconnu et aucun test de porteur ne peut être choisi.",
+    "pec": "alerte_etiologique",
+    "notion": "c4"
+   },
+   {
+    "id": "n9",
+    "parent": "n7",
+    "t": "Au moins deux fausses couches ou enfant malformé ?",
+    "i": "On soupçonne une translocation équilibrée parentale, donc caryotype des deux partenaires.",
+    "pec": "alerte_etiologique",
+    "notion": "c4"
+   },
+   {
+    "id": "n10",
+    "parent": "n7",
+    "t": "Aucun signal d'alarme : test de porteur après consentement LAGH",
+    "i": "Le test est ciblé si une variante familiale est connue, orienté par l'origine ou étendu en cas de consanguinité.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Les deux partenaires porteurs d'un même gène récessif, ou femme porteuse d'une variante liée à l'X",
+    "i": "Le risque atteint 25 % par grossesse (récessif) ou 50 % des fils (lié à l'X) : toutes les options reproductives sont présentées.",
+    "pec": "deux_porteurs_options",
+    "notion": "c8"
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Un seul porteur, test négatif ou consanguinité sans variante : risque résiduel",
+    "i": "Aucun panel ne détecte toutes les variantes, donc le risque diminue sans disparaître ; le conseil reste non stigmatisant.",
+    "pec": "porteur_consang",
+    "notion": "c5"
+   },
+   {
+    "id": "n13",
+    "parent": "n10",
+    "t": "Variante de signification incertaine ou découverte fortuite",
+    "i": "Le résultat n'est pas interprétable pour le risque : renvoi vers l'entité VUS ou découverte fortuite du SSP O7.25.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n14",
+    "parent": "n4",
+    "t": "Dans tous les cas : bilan préconceptionnel général",
+    "i": "Acide folique, rubéole, varicelle, médicaments tératogènes, tabac, alcool et diabète se traitent chez tout couple.",
+    "pec": "mesures_generales",
+    "notion": "c7"
+   }
+  ]
+ },
+ "specialites": [
+  "GEN"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Conseil génétique préconceptionnel (consanguinité, porteur sain)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition et périmètre : préconceptionnel ou prénatal",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Commence toujours par demander si la femme est déjà enceinte, car la réponse change les options, les délais et l'entité du SSP.",
+   "tableau": {
+    "colonnes": [
+     "Demande",
+     "Moment",
+     "Ce que le conseil permet"
+    ],
+    "lignes": [
+     [
+      "Conseil préconceptionnel",
+      [
+       {
+        "t": "Avant toute grossesse",
+        "i": "Toutes les options restent ouvertes, y compris le DPI, le don de sperme et le choix de ne pas concevoir."
+       }
+      ],
+      [
+       {
+        "t": "Estimer le risque de transmission avant la conception",
+        "i": "C'est la définition de la consultation : le risque est chiffré avant que la grossesse n'impose des délais."
+       }
+      ]
+     ],
+     [
+      "Conseil prénatal",
+      [
+       {
+        "t": "Grossesse en cours",
+        "i": "Le DPI n'est plus possible et le diagnostic prénatal dépend du terme, car la biopsie de villosités se fait dès 11 semaines."
+       }
+      ],
+      [
+       {
+        "t": "Test ciblé rapide et diagnostic prénatal",
+        "i": "Le temps presse : le délai légal de 12 semaines pour l'interruption sur demande de la femme court déjà."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le conseil préconceptionnel s'adresse à un couple non encore enceint et estime le risque de maladie héréditaire chez l'enfant.",
+    "Une grossesse déjà en cours bascule dans le conseil prénatal, avec d'autres options et d'autres délais.",
+    "Le conseil porte sur les deux partenaires, pas sur la seule personne qui consulte."
+   ],
+   "sources": [
+    "LAGH (RS 810.12)",
+    "SSGM : recommandations de conseil génétique"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie : risque de base, consanguinité et risque résiduel",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Compare toujours le risque du couple au risque de base de 2 à 3 % pour parler en excès absolu et non en multiplication effrayante.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Risque d'enfant atteint ou malformé",
+     "Calcul ou commentaire"
+    ],
+    "lignes": [
+     [
+      "Population générale",
+      [
+       {
+        "t": "2 à 3 %",
+        "i": "C'est le risque de fond de malformation majeure ou de maladie génétique à la naissance, présent chez tout couple."
+       }
+      ],
+      "Valeur de référence pour tout conseil."
+     ],
+     [
+      "Cousins germains",
+      [
+       {
+        "t": "4 à 6 %",
+        "i": "L'excès absolu n'est que de 2 à 3 points, car le risque de fond s'y ajoute : cela explique que 95 % des enfants soient sains."
+       }
+      ],
+      "Union non contre-indiquée, conseil non stigmatisant."
+     ],
+     [
+      "Mucoviscidose, couple européen non apparenté",
+      [
+       {
+        "t": "1/25 × 1/25 × 1/4 = 1/2500",
+        "i": "Un Européen sur 25 porte une variante ; il faut que les deux parents soient porteurs et transmettent chacun l'allèle."
+       }
+      ],
+      "Base de calcul pour tout risque conditionnel."
+     ],
+     [
+      "Mucoviscidose, frère sain d'un patient avec partenaire non apparenté",
+      [
+       {
+        "t": "2/3 × 1/25 × 1/4 = 1/150",
+        "i": "Son statut non atteint exclut un génotype sur quatre : il est porteur dans 2 cas sur 3, et non 1 sur 2."
+       }
+      ],
+      "Piège classique : utiliser 1/2 au lieu de 2/3."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le risque de base de 2 à 3 % ne disparaît jamais, même après un test de porteur négatif.",
+    "Le frère sain d'un malade récessif est porteur dans 2 cas sur 3.",
+    "Le dépistage étendu sans indication familiale ou ethnique reste facultatif et rarement remboursé par l'assurance de base."
+   ],
+   "sources": [
+    "SSGM : recommandations de conseil génétique",
+    "LAMal : liste des analyses (LA)"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Bases génétiques : récessif autosomique, consanguinité, lié à l'X",
+   "rubriques": [
+    "basicSciences",
+    "positiveDiagnosis"
+   ],
+   "comment": "Déduis le risque de récurrence du mode de transmission, puis vérifie chaque fois quel parent est porteur et quel sexe de l'enfant est concerné.",
+   "tableau": {
+    "colonnes": [
+     "Mode ou situation",
+     "Transmission",
+     "Risque pour la grossesse"
+    ],
+    "lignes": [
+     [
+      "Autosomique récessif, deux parents porteurs",
+      [
+       {
+        "t": "Chaque parent transmet l'allèle une fois sur deux",
+        "i": "Le produit des probabilités donne 25 % d'enfant atteint ; la maladie exige deux copies, donc un porteur seul ne suffit pas."
+       }
+      ],
+      [
+       {
+        "t": "25 % atteint, 50 % porteur sain, 25 % non-porteur",
+        "i": "Les risques se répètent à chaque grossesse, car chaque conception est indépendante."
+       }
+      ]
+     ],
+     [
+      "Consanguinité (cousins germains)",
+      [
+       {
+        "t": "Partage d'environ 1/8 des gènes, coefficient de consanguinité de l'enfant 1/16",
+        "i": "L'enfant reçoit plus souvent deux copies d'un même allèle ancestral délétère : c'est l'homozygotie par descendance commune."
+       }
+      ],
+      [
+       {
+        "t": "4 à 6 % de maladie ou malformation",
+        "i": "Le risque augmente parce que des variantes récessives rares sont partagées, non parce que l'union serait elle-même pathogène."
+       }
+      ]
+     ],
+     [
+      "Lié à l'X récessif, mère porteuse",
+      [
+       {
+        "t": "50 % des fils atteints, 50 % des filles porteuses",
+        "i": "Le fils n'a qu'un X, hérité de sa mère ; la fille a un second X, souvent compensateur."
+       }
+      ],
+      "Risque par grossesse pour chaque garçon : 50 %."
+     ],
+     [
+      "Lié à l'X récessif, père atteint",
+      [
+       {
+        "t": "Toutes les filles porteuses, aucun fils atteint",
+        "i": "Le père transmet son X à toutes ses filles et son Y à tous ses fils, donc sans transmission père-fils."
+       }
+      ],
+      "Pas de transmission père-fils."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La consanguinité augmente la probabilité d'homozygotie pour un allèle récessif commun à l'ancêtre partagé.",
+    "Le risque de 25 % s'applique à chaque grossesse, indépendamment des précédentes.",
+    "Un père atteint d'une maladie liée à l'X ne transmet jamais la variante à ses fils."
+   ],
+   "sources": [
+    "SSGM : recommandations de conseil génétique",
+    "ESHG : recommandations de conseil génétique"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Anamnèse, examen et signaux d'alarme",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam",
+    "presumptionRedFlags"
+   ],
+   "comment": "Dessine un arbre généalogique sur trois générations pour chaque conjoint, puis laisse l'origine géographique et les antécédents obstétricaux choisir les analyses.",
+   "tableau": {
+    "colonnes": [
+     "Élément recueilli",
+     "Ce qu'il évoque",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Origine méditerranéenne ou asiatique",
+      [
+       {
+        "t": "Thalassémie",
+        "i": "La fréquence des variantes de globine est élevée dans ces régions, où l'avantage face au paludisme a sélectionné les porteurs."
+       }
+      ],
+      "FSC et électrophorèse de l'hémoglobine chez les deux partenaires."
+     ],
+     [
+      "Origine subsaharienne",
+      [
+       {
+        "t": "Drépanocytose",
+        "i": "Le trait HbS est fréquent là où le paludisme sévit ; les deux parents doivent être testés pour chiffrer le risque."
+       }
+      ],
+      "Chromatographie ou électrophorèse de l'hémoglobine."
+     ],
+     [
+      "Ascendance juive ashkénaze",
+      [
+       {
+        "t": "Maladie de Tay-Sachs",
+        "i": "Un effet fondateur concentre quelques variantes dans cette population, ce qui rend le dépistage ciblé rentable."
+       }
+      ],
+      "Test de porteur ciblé après consentement."
+     ],
+     [
+      "Enfant décédé précocement ou maladie métabolique",
+      [
+       {
+        "t": "Maladie héréditaire non identifiée",
+        "i": "Sans diagnostic étiologique, aucun test de porteur ne peut être choisi ; le risque de récurrence reste inconnu."
+       }
+      ],
+      "Rechercher l'étiologie avant toute nouvelle conception."
+     ],
+     [
+      "Au moins deux fausses couches ou un enfant malformé",
+      [
+       {
+        "t": "Translocation équilibrée parentale",
+        "i": "Un parent porteur d'une translocation équilibrée produit des gamètes déséquilibrés ; seul le caryotype le détecte."
+       }
+      ],
+      "Caryotype des deux partenaires."
+     ],
+     [
+      "Retard mental masculin du côté maternel",
+      [
+       {
+        "t": "Syndrome de l'X fragile (FMR1)",
+        "i": "La transmission par la mère, avec garçons atteints, évoque une maladie liée à l'X, dont la prémutation FMR1 est la plus fréquente."
+       }
+      ],
+      "Analyse FMR1 ciblée."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'examen physique cherche dysmorphie, pâleur, hépatosplénomégalie ou déficit neurologique chez un parent au phénotype évocateur.",
+    "Les fausses couches répétées, l'infertilité, le retard mental familial et l'âge maternel orientent vers d'autres analyses.",
+    "Préciser le lien de parenté exact entre les deux conjoints."
+   ],
+   "sources": [
+    "SSGM : recommandations de conseil génétique",
+    "LAGH (RS 810.12)"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Démarche de test de porteur et exigences de la LAGH",
+   "rubriques": [
+    "workupGoldStandard",
+    "positiveDiagnosis"
+   ],
+   "comment": "Teste d'abord le cas index pour trouver la variante familiale, puis les partenaires, et annonce toujours un risque résiduel après un résultat négatif.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Couple à risque : conseil pré-test non directif et consentement écrit",
+     "i": "La LAGH exige un consentement libre et éclairé, écrit, et garantit le droit de ne pas savoir avant tout test génétique médical.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Variante familiale déjà identifiée chez le cas index ?",
+     "i": "La variante connue permet un test ciblé, bien plus sensible et plus facile à interpréter qu'un panel.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : test ciblé des deux partenaires",
+     "i": "On cherche uniquement la variante familiale, ce qui limite les résultats incertains.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Maladie connue mais variante non identifiée : tester d'abord le cas index",
+     "i": "Sans variante identifiée, un résultat négatif chez le partenaire resterait ininterprétable.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n5",
+     "parent": "n2",
+     "t": "Aucune maladie connue : consanguinité ou origine à risque seules",
+     "i": "Il n'existe pas de variante cible, donc le dépistage est orienté par l'origine ou par un panel étendu.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Origine à risque : dépistage orienté (hémoglobine, Tay-Sachs, mucoviscidose)",
+     "i": "La fréquence élevée de variantes dans le groupe justifie un test ciblé sur ces gènes.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n7",
+     "parent": "n5",
+     "t": "Consanguinité seule : panel étendu facultatif",
+     "i": "Le panel est facultatif et en général non remboursé par l'assurance de base sans indication familiale ou ethnique.",
+     "pec": null,
+     "notion": "c2"
+    },
+    {
+     "id": "n8",
+     "parent": "n3",
+     "t": "Les deux partenaires sont porteurs du même gène récessif",
+     "i": "Le risque est de 25 % d'enfant atteint par grossesse : le couple choisit parmi toutes les options reproductives.",
+     "pec": "deux_porteurs_options",
+     "notion": "c8"
+    },
+    {
+     "id": "n9",
+     "parent": "n3",
+     "t": "Un seul porteur, ou aucun",
+     "i": "Le risque d'enfant atteint chute, mais aucun panel ne détecte toutes les variantes : il subsiste un risque résiduel.",
+     "pec": "porteur_consang",
+     "notion": "c5"
+    }
+   ],
+   "points": [
+    "La LAGH impose un conseil avant et après le test et le consentement écrit.",
+    "Un test négatif réduit le risque sans l'annuler : on parle de risque résiduel.",
+    "Le cas index est testé d'abord quand une maladie familiale est connue."
+   ],
+   "sources": [
+    "LAGH (RS 810.12)",
+    "SSGM : recommandations de conseil génétique"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Bilan hémoglobinopathies et alternatives biologiques",
+   "rubriques": [
+    "workupAlternatives"
+   ],
+   "comment": "Interprète le VGM avec la ferritine et l'HbA2 avant de conclure à une thalassémie, car la carence en fer imite le trait.",
+   "tableau": {
+    "colonnes": [
+     "Résultat",
+     "Interprétation",
+     "Suite"
+    ],
+    "lignes": [
+     [
+      "VGM bas, ferritine normale, HbA2 > 3,5 %",
+      [
+       {
+        "t": "Trait β-thalassémique",
+        "i": "Le déficit de chaîne β augmente l'HbA2 ; la ferritine normale écarte une carence en fer."
+       }
+      ],
+      "Tester le partenaire : deux traits donnent 25 % de β-thalassémie majeure."
+     ],
+     [
+      "VGM bas, ferritine normale, HbA2 normale",
+      [
+       {
+        "t": "Suspicion d'α-thalassémie",
+        "i": "L'HbA2 reste normale car les chaînes β ne sont pas touchées ; l'électrophorèse ne la détecte pas."
+       }
+      ],
+      "Analyse moléculaire des gènes α-globine."
+     ],
+     [
+      "VGM bas, ferritine basse",
+      [
+       {
+        "t": "Carence en fer",
+        "i": "La carence en fer baisse le VGM et peut masquer ou simuler un trait ; il faut la corriger avant de conclure."
+       }
+      ],
+      "Corriger le fer puis répéter l'électrophorèse."
+     ],
+     [
+      "HbS détectée à la chromatographie",
+      [
+       {
+        "t": "Trait drépanocytaire",
+        "i": "Un trait HbS est asymptomatique, mais le risque de drépanocytose apparaît si le partenaire a HbS, HbC ou β-thalassémie."
+       }
+      ],
+      "Tester le partenaire pour tous les variants de globine."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Demander FSC et chromatographie ou électrophorèse de l'hémoglobine chez les deux partenaires en cas d'origine à risque.",
+    "Un dépistage étendu sans indication reste facultatif.",
+    "Les sérologies rubéole et varicelle font partie du même bilan préconceptionnel."
+   ],
+   "sources": [
+    "SSGM : recommandations de conseil génétique",
+    "SSGO : recommandations préconceptionnelles"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Mesures préconceptionnelles générales : folates, vaccins, toxiques",
+   "rubriques": [
+    "workupAlternatives",
+    "chronicManagement"
+   ],
+   "comment": "Profite de la consultation pour réduire les risques évitables, car beaucoup de malformations se préviennent par des gestes simples avant la conception.",
+   "tableau": {
+    "colonnes": [
+     "Mesure",
+     "Modalité",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Acide folique",
+      [
+       {
+        "t": "0,4 mg/j dès 4 semaines avant la conception jusqu'à la fin de la 12e semaine",
+        "i": "La fermeture du tube neural se fait avant que la grossesse ne soit connue ; la supplémentation doit donc la précéder."
+       }
+      ],
+      "Réduit les défauts du tube neural ; une dose plus élevée se discute en cas d'antécédent de défaut du tube neural."
+     ],
+     [
+      "Rubéole et varicelle",
+      [
+       {
+        "t": "Sérologies puis vaccin vivant si non immune, conception différée d'un mois",
+        "i": "Les vaccins vivants sont contre-indiqués pendant la grossesse, d'où le délai d'un mois."
+       }
+      ],
+      "Évite la rubéole et la varicelle congénitales."
+     ],
+     [
+      "Médicaments tératogènes, tabac, alcool",
+      [
+       {
+        "t": "Revue des traitements et des consommations",
+        "i": "Certains médicaments (valproate, isotrétinoïne, anticoagulants oraux) causent des malformations ; l'arrêt ou le remplacement doit précéder la conception."
+       }
+      ],
+      "Adaptation avec le prescripteur avant la conception."
+     ],
+     [
+      "Diabète",
+      [
+       {
+        "t": "Équilibre glycémique avant la conception",
+        "i": "L'hyperglycémie périconceptionnelle augmente le risque de malformations ; l'optimisation précoce le réduit."
+       }
+      ],
+      "HbA1c à optimiser avant d'arrêter la contraception."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Ces mesures concernent tous les couples, pas seulement les couples à risque génétique.",
+    "Le vaccin vivant exige un délai d'un mois avant la conception.",
+    "La revue des médicaments tératogènes se fait avec le prescripteur."
+   ],
+   "sources": [
+    "OFSP ; SSGO : folates",
+    "Plan de vaccination suisse OFSP/CFV"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Options reproductives et cadre légal suisse",
+   "rubriques": [
+    "acuteManagement",
+    "surveillance"
+   ],
+   "comment": "Présente chaque option avec son statut légal et son remboursement en Suisse, sans en recommander aucune, car la décision appartient au couple.",
+   "tableau": {
+    "colonnes": [
+     "Option",
+     "Statut en Suisse",
+     "Limite à retenir"
+    ],
+    "lignes": [
+     [
+      "Conception naturelle sans diagnostic prénatal",
+      [
+       {
+        "t": "Libre",
+        "i": "Le couple peut accepter le risque de 25 % ou d'un enfant atteint et refuser tout test ; le droit de ne pas savoir le protège."
+       }
+      ],
+      "Le choix doit être éclairé et documenté."
+     ],
+     [
+      "Conception naturelle avec diagnostic prénatal",
+      [
+       {
+        "t": "Biopsie de villosités dès 11 semaines, amniocentèse plus tard",
+        "i": "Le DPNI standard ne détecte que les aneuploïdies fréquentes ; seul un prélèvement fœtal donne le génotype."
+       }
+      ],
+      "Consulter dès le début de grossesse."
+     ],
+     [
+      "Diagnostic préimplantatoire (DPI)",
+      [
+       {
+        "t": "Autorisé depuis 2017 par la LPMA pour les couples porteurs d'une maladie héréditaire grave",
+        "i": "La loi réserve le DPI aux maladies graves ; il suppose une FIV, donc une charge physique et financière."
+       }
+      ],
+      "Non remboursé par l'assurance de base."
+     ],
+     [
+      "Don de sperme",
+      [
+       {
+        "t": "Autorisé pour les couples mariés",
+        "i": "La LPMA limite le don de sperme aux couples mariés, ce qui s'applique aussi aux couples de femmes mariées depuis 2022."
+       }
+      ],
+      "Option si l'homme est porteur d'un risque inacceptable."
+     ],
+     [
+      "Don d'ovocytes",
+      [
+       {
+        "t": "Interdit selon la LPMA actuelle",
+        "i": "Contrairement au don de sperme, le don d'ovocytes reste prohibé : une femme porteuse ne peut pas y recourir en Suisse."
+       }
+      ],
+      "Peut conduire à un recours à l'étranger."
+     ],
+     [
+      "Interruption de grossesse",
+      [
+       {
+        "t": "Non punissable sur demande de la femme dans les 12 semaines, puis sur avis médical de danger grave",
+        "i": "Le délai se compte depuis le début des dernières règles ; au-delà, l'avis médical atteste d'un danger grave pour la femme."
+       }
+      ],
+      "Planifier le diagnostic prénatal pour respecter ce délai."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le DPNI standard ne détecte pas une maladie monogénique récessive.",
+    "Le DPI est autorisé mais non remboursé ; le don d'ovocytes reste interdit.",
+    "Les options incluent aussi l'adoption et le renoncement à la grossesse."
+   ],
+   "sources": [
+    "LPMA (RS 810.11)",
+    "Code pénal suisse art. 119",
+    "LAGH (RS 810.12)"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Aspects psychosociaux, secret professionnel, pronostic et suivi",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "followUpNetwork",
+    "chronicManagement"
+   ],
+   "comment": "Garde une posture non directive, vois les deux partenaires, anticipe la culpabilité et oriente vers un centre universitaire de génétique médicale.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le résultat peut provoquer culpabilité, tension conjugale ou conflit familial ; proposer un soutien psychologique si nécessaire.",
+    "Si le patient refuse d'informer ses proches à risque, la levée du secret exige l'autorisation de l'autorité cantonale compétente.",
+    "Environ 95 % des couples consanguins ont des enfants en bonne santé.",
+    "Le couple à risque consulte dès le début de la grossesse pour planifier un éventuel diagnostic prénatal.",
+    "Adresser à une consultation de génétique médicale universitaire, en lien avec le gynécologue et le médecin de famille."
+   ],
+   "sources": [
+    "LAGH (RS 810.12)",
+    "Code pénal suisse art. 321",
+    "SSGM : recommandations de conseil génétique"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "porteur_consang",
+   "titre": "Conseil préconceptionnel d'un couple consanguin ou porteur sain, risque faible ou résiduel",
+   "but": [
+    "Chiffrer le risque d'enfant atteint par rapport au risque de base de 2 à 3 %.",
+    "Permettre au couple de décider de façon éclairée, sans directivité ni stigmatisation.",
+    "Annoncer le risque résiduel après un résultat négatif."
+   ],
+   "moyens": {
+    "accueil": [
+     "Recevoir les deux partenaires ensemble et expliquer le cadre non directif de la consultation.",
+     "Exposer le droit de ne pas savoir et obtenir le consentement écrit exigé par la LAGH.",
+     "Respecter le contexte culturel et ne pas stigmatiser l'union consanguine.",
+     "Faire appel à un interprète professionnel si la langue est une barrière."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer le risque absolu (4 à 6 % pour des cousins germains, contre 2 à 3 %) à l'aide d'un arbre généalogique.",
+      "pourquoi": "Un chiffre absolu évite la panique liée à un risque relatif et soutient une décision éclairée."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Organiser un test de porteur ciblé, orienté ou étendu selon l'indication, avec consultation post-test.",
+      "pourquoi": "Le choix du test dépend de la variante familiale, de l'origine et de la consanguinité ; le panel étendu reste facultatif."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Proposer un soutien psychologique si culpabilité ou tension conjugale apparaissent.",
+      "pourquoi": "Le résultat peut provoquer culpabilité ou conflit, et un soutien précoce limite la souffrance du couple."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Appliquer la LAGH : consentement écrit, conseil non directif et secret professionnel, avec autorisation cantonale pour toute levée."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Vérifier la prise en charge LAMal du test et informer sur les limites de remboursement des panels étendus."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Voir les deux partenaires et reconstituer un arbre sur trois générations.",
+      "Rester non directif et ne jamais imposer de test ni d'option reproductive.",
+      "Annoncer un résultat négatif comme une réduction du risque, non comme une exclusion."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Établit l'arbre généalogique, les liens de parenté et l'origine, puis recherche les signaux d'alarme."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Explique les options de test et recueille le consentement écrit selon la LAGH."
+      },
+      {
+       "temps": "puis",
+       "qui": "généticien",
+       "fait": "Choisit le test ciblé, orienté ou étendu et en interprète le résultat avec le risque résiduel."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "gynécologue",
+       "fait": "Applique les mesures préconceptionnelles générales : folates, vaccins, revue des médicaments."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Décide avec son partenaire de l'option reproductive après la consultation post-test."
+      }
+     ]
+    }
+   },
+   "pronostic": "Environ 95 % des couples consanguins ont des enfants en bonne santé ; le conseil préconceptionnel maximise les options reproductives avant la conception.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Consultation post-test",
+      "quand": "À la remise du résultat",
+      "cible": "Risque chiffré et risque résiduel compris par les deux partenaires"
+     },
+     {
+      "quoi": "Vécu psychologique du couple",
+      "quand": "À la consultation post-test et à la demande",
+      "cible": "Absence de culpabilité ou de conflit majeur"
+     },
+     {
+      "quoi": "Début de grossesse",
+      "quand": "Dès le test de grossesse positif",
+      "cible": "Consultation précoce si un diagnostic prénatal reste souhaité"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : le couple quitte la consultation avec un risque chiffré et un suivi gynécologique planifié."
+   },
+   "prevention": {
+    "primaire": "Proposer la consultation préconceptionnelle aux couples consanguins ou d'origine à risque avant la conception.",
+    "secondaire": "Tester le statut de porteur et dépister les hémoglobinopathies chez les deux partenaires avant la grossesse.",
+    "tertiaire": "Orienter vers un diagnostic prénatal précoce et un suivi spécialisé si une maladie est détectée chez l'enfant."
+   }
+  },
+  {
+   "cle": "deux_porteurs_options",
+   "titre": "Couple porteur de la même maladie récessive ou femme porteuse d'une maladie liée à l'X : options reproductives",
+   "but": [
+    "Présenter toutes les options reproductives avec leur statut légal suisse.",
+    "Planifier le diagnostic prénatal avant la grossesse pour respecter les délais.",
+    "Soutenir la décision du couple sans la diriger."
+   ],
+   "moyens": {
+    "accueil": [
+     "Annoncer le risque de 25 % (récessif) ou de 50 % des fils (lié à l'X) avec des mots simples et des chiffres absolus.",
+     "Laisser du temps, vérifier la compréhension et proposer un second rendez-vous.",
+     "Rassurer sur l'absence de faute : personne n'est responsable d'être porteur.",
+     "Rester non directif et respecter le contexte culturel et religieux."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Présenter conception naturelle avec ou sans diagnostic prénatal, DPI, don de sperme, adoption et renoncement.",
+      "pourquoi": "Un conseil complet respecte l'autonomie ; le don d'ovocytes est interdit actuellement en Suisse."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Planifier la biopsie de villosités dès 11 semaines ou l'amniocentèse si le couple choisit le diagnostic prénatal.",
+      "pourquoi": "Le DPNI standard ne détecte pas une maladie monogénique : seul un prélèvement fœtal donne le génotype."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Informer que le DPI est autorisé depuis 2017 pour les maladies graves, mais non remboursé par l'assurance de base.",
+      "pourquoi": "Le coût du DPI et de la FIV influence directement le choix du couple."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Proposer un accompagnement psychologique avant et après la décision.",
+      "pourquoi": "La culpabilité et le conflit conjugal sont fréquents après l'annonce d'un statut de porteur."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Expliquer la LPMA, la LAGH, le délai de 12 semaines et le secret professionnel concernant les proches à risque."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Clarifier ce que l'assurance de base rembourse pour le diagnostic prénatal et non pour le DPI."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Voir les deux partenaires et documenter le conseil non directif.",
+      "Diffuser aux proches à risque un courrier que le patient peut transmettre ; ne pas lever le secret sans autorisation cantonale.",
+      "Adresser rapidement à un centre universitaire de génétique médicale."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "généticien",
+       "fait": "Confirme le statut de porteur des deux partenaires et calcule le risque par grossesse."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Présente toutes les options reproductives et leur statut légal en Suisse."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "gynécologue",
+       "fait": "Prépare la grossesse avec folates et vaccins, et planifie la biopsie de villosités dès 11 semaines."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Évalue la FIV avec DPI auprès d'un centre de procréation médicalement assistée si le couple le choisit."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Choisit l'option reproductive ; la grossesse débute avec un plan de diagnostic déjà fixé."
+      }
+     ]
+    }
+   },
+   "pronostic": "Chaque grossesse expose à 25 % d'enfant atteint, mais 75 % des enfants ne sont pas atteints ; le DPI ou le diagnostic prénatal permet de connaître le génotype.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Décision reproductive du couple",
+      "quand": "Consultation de suivi dans les semaines suivant l'annonce",
+      "cible": "Choix éclairé et documenté"
+     },
+     {
+      "quoi": "Début de grossesse",
+      "quand": "Dès le test positif",
+      "cible": "Biopsie de villosités à 11 semaines ou amniocentèse planifiée"
+     },
+     {
+      "quoi": "Détresse psychologique",
+      "quand": "À chaque consultation",
+      "cible": "Absence de culpabilité ou de conflit majeur"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : le couple repart avec ses options, un rendez-vous de génétique médicale et un suivi gynécologique."
+   },
+   "prevention": {
+    "primaire": "Informer les proches à risque pour qu'ils bénéficient d'un test de porteur avant leur propre projet de grossesse.",
+    "secondaire": "Proposer le diagnostic prénatal ou le DPI avant ou au début de la grossesse.",
+    "tertiaire": "Orienter vers une prise en charge spécialisée dès la naissance si l'enfant est atteint."
+   }
+  },
+  {
+   "cle": "alerte_etiologique",
+   "titre": "Signal d'alarme préconceptionnel : enfant décédé inexpliqué, maladie métabolique ou fausses couches répétées",
+   "but": [
+    "Identifier la cause avant toute nouvelle conception.",
+    "Écarter une translocation équilibrée ou une maladie métabolique héréditaire.",
+    "Éviter un test de porteur inadapté faute de diagnostic."
+   ],
+   "moyens": {
+    "accueil": [
+     "Accueillir le couple en reconnaissant le deuil lié à l'enfant décédé ou aux fausses couches.",
+     "Expliquer pourquoi une cause doit être recherchée avant la prochaine grossesse.",
+     "Éviter toute formulation qui culpabilise les parents."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Retrouver le dossier médical, les prélèvements conservés et le dépistage néonatal de l'enfant décédé.",
+      "pourquoi": "Un diagnostic étiologique permet un test de porteur ciblé au lieu d'un panel aveugle."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Demander le caryotype des deux partenaires après au moins deux fausses couches ou un enfant malformé.",
+      "pourquoi": "Le caryotype détecte une translocation équilibrée parentale, cause de gamètes déséquilibrés."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Demander l'analyse FMR1 si un retard mental masculin existe du côté maternel.",
+      "pourquoi": "Le syndrome de l'X fragile est la cause liée à l'X la plus fréquente de retard mental héréditaire."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Proposer un soutien psychologique pour le deuil périnatal.",
+      "pourquoi": "Le deuil non résolu complique la décision reproductive et la relation du couple."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantir le consentement LAGH écrit avant les analyses et clarifier l'utilisation des prélèvements d'un enfant décédé."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Reporter la conception tant que l'étiologie n'est pas éclaircie quand le risque de récurrence est élevé.",
+      "Rester non directif et respecter le rythme du couple."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Recueille l'anamnèse détaillée et rassemble les dossiers de l'enfant décédé ou des grossesses perdues."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "généticien",
+       "fait": "Sélectionne caryotype, FMR1 ou analyse métabolique et moléculaire selon la clinique."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Confirme le diagnostic et en déduit un risque de récurrence précis."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Retourne au conseil préconceptionnel avec options reproductives et diagnostic prénatal."
+      }
+     ]
+    }
+   },
+   "pronostic": "Un diagnostic étiologique précis est obtenu dans une partie seulement des cas ; quand il est posé, il permet un conseil de récurrence ciblé et des options adaptées.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Résultats caryotype et analyses ciblées",
+      "quand": "À l'obtention des résultats",
+      "cible": "Diagnostic ou exclusion d'une cause génétique"
+     },
+     {
+      "quoi": "Soutien psychologique",
+      "quand": "À chaque consultation",
+      "cible": "Deuil accompagné"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : aucune hospitalisation n'est nécessaire dans ce contexte."
+   },
+   "prevention": {
+    "primaire": "Rechercher systématiquement les antécédents obstétricaux et néonataux lors de toute consultation préconceptionnelle.",
+    "secondaire": "Réaliser le caryotype et les analyses ciblées avant la grossesse suivante.",
+    "tertiaire": "Organiser un diagnostic prénatal dès la grossesse suivante si un risque est identifié."
+   }
+  },
+  {
+   "cle": "mesures_generales",
+   "titre": "Mesures préconceptionnelles générales : folates, vaccins, tératogènes",
+   "but": [
+    "Réduire les malformations évitables avant la conception.",
+    "Protéger la grossesse contre rubéole et varicelle.",
+    "Optimiser traitements et maladies chroniques de la femme."
+   ],
+   "moyens": {
+    "accueil": [
+     "Aborder les mesures générales à chaque consultation préconceptionnelle, même sans risque génétique.",
+     "Expliquer que la supplémentation doit commencer avant la grossesse, car le tube neural se ferme tôt."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Acide folique (vitamine B9)",
+      "posologie": "0,4 mg/j per os, dès au moins 4 semaines avant la conception jusqu'à la fin de la 12e semaine de grossesse ; dose plus élevée selon l'avis spécialisé si antécédent de défaut du tube neural.",
+      "pourquoi": "Réduit le risque de défaut du tube neural ; la fermeture a lieu avant que la grossesse soit connue.",
+      "source": "OFSP ; SSGO"
+     },
+     {
+      "molecule": "Vaccin rougeole-oreillons-rubéole, vivant atténué (vaccin)",
+      "posologie": "Femme non immune pour la rubéole : 1 à 2 doses selon statut vaccinal (2 doses espacées d'au moins 4 semaines) ; attendre 1 mois avant de concevoir ; contre-indiqué pendant la grossesse.",
+      "pourquoi": "Prévient la rubéole congénitale ; le vaccin vivant est contre-indiqué pendant la grossesse, d'où le délai d'un mois.",
+      "source": "Plan de vaccination suisse OFSP/CFV ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Vaccin varicelle, vivant atténué (vaccin)",
+      "posologie": "Femme séronégative : 2 doses espacées selon le produit (au moins 4 semaines, AIPS) ; attendre 1 mois après la dernière dose avant de concevoir.",
+      "pourquoi": "Évite la varicelle maternelle et le syndrome de varicelle congénitale ; le vaccin vivant est contre-indiqué pendant la grossesse.",
+      "source": "Plan de vaccination suisse OFSP/CFV ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Arrêter tabac et alcool avant la conception.",
+      "pourquoi": "Ces substances augmentent le risque de complications fœtales et de malformations."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Revoir avec les prescripteurs les médicaments tératogènes (valproate, isotrétinoïne, anticoagulants oraux) avant d'arrêter la contraception.",
+      "pourquoi": "Certains traitements exigent une substitution avant la conception pour éviter les malformations."
+     },
+     {
+      "categorie": "nutrition",
+      "mesure": "Optimiser le diabète et le poids, et vérifier les sérologies rubéole et varicelle.",
+      "pourquoi": "L'hyperglycémie périconceptionnelle augmente les malformations ; la sérologie guide la vaccination."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documenter le conseil donné et le consentement aux traitements et aux tests."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Intégrer ces mesures à la consultation génétique plutôt que de les renvoyer à plus tard.",
+      "Revoir la contraception tant que la vaccination et les ajustements ne sont pas faits."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Vérifie sérologies rubéole et varicelle, HbA1c, médicaments et consommations."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Prescrit l'acide folique et vaccine les femmes non immunes avec un vaccin vivant."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "gynécologue",
+       "fait": "Adapte les traitements tératogènes avec le prescripteur avant d'arrêter la contraception."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Débute l'acide folique et attend un mois après le vaccin vivant avant de concevoir."
+      }
+     ]
+    }
+   },
+   "pronostic": "Ces mesures réduisent les malformations évitables et les infections congénitales, sans modifier le risque génétique propre au couple.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Prise d'acide folique",
+      "quand": "Dès 4 semaines avant la conception, puis à la 1re visite de grossesse",
+      "cible": "0,4 mg/j jusqu'à la fin de la 12e semaine"
+     },
+     {
+      "quoi": "Statut vaccinal",
+      "quand": "Avant la conception",
+      "cible": "Rubéole et varicelle immunisées, délai d'un mois respecté"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : ces mesures se font au cabinet, sans critère d'hospitalisation."
+   },
+   "prevention": {
+    "primaire": "Prescrire l'acide folique et vacciner les femmes non immunes avant la grossesse.",
+    "secondaire": "Dépister diabète et médicaments tératogènes avant la conception.",
+    "tertiaire": "Assurer un suivi de grossesse précoce si une exposition a eu lieu."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 5133,
+  "output_tokens": 24003,
+  "output_tokens_details": {
+   "thinking_tokens": 8043
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:53",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

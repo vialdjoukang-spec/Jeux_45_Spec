@@ -1,0 +1,1433 @@
+{
+ "id": "S01.8__S8_9-E02",
+ "portes": [
+  {
+   "ssp": "S8.9",
+   "nomSSP": "Lacération, plaie fermée ou ouverte, perte de sang",
+   "entite": "Lacération contuse et plaie délabrante des tissus mous",
+   "entiteId": "S8.9-E02"
+  }
+ ],
+ "entite": "Lacération contuse et plaie délabrante des tissus mous",
+ "cim10": "S01.8",
+ "ssp": {
+  "code": "S8.9",
+  "nom": "Lacération, plaie fermée ou ouverte, perte de sang",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Plaie ou saignement après traumatisme contondant",
+    "i": "Point de départ du SSP : ABCDE et constantes avant d'examiner la plaie.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Choc ou hémorragie active non contrôlée ?",
+    "i": "Tachycardie, hypotension, pâleur ou saignement pulsatile signent une perte significative.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : compression, garrot si échec, réanimation ; renvoi SSP état de choc",
+    "i": "L'hémostase prime sur la suture ; le choc hémorragique est une entité distincte du même SSP.",
+    "pec": "pec_hemostase",
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : traumatisme crânien ou anticoagulation ?",
+    "i": "Perte de connaissance, Glasgow <15, vomissements, amnésie ou anticoagulant imposent une imagerie.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Oui : CT cérébral ; renvoi SSP traumatisme crânien",
+    "i": "Hors du cadre de la plaie : l'hémorragie intracrânienne détermine le pronostic.",
+    "pec": "pec_hemostase",
+    "notion": "c5"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Non : morsure, venin, corps étranger pénétrant, plaie articulaire, tendineuse ou nerveuse ?",
+    "i": "Ces mécanismes ou structures changent la conduite et relèvent d'autres entités du SSP.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Oui : renvoi à l'entité correspondante (morsure, main, articulation, nerf) et avis spécialisé",
+    "i": "Une simple suture aux urgences ne convient pas à une structure noble atteinte.",
+    "pec": "pec_complexe",
+    "notion": "c4"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Non : plaie à berges écrasées, ecchymotiques ou décollées ?",
+    "i": "Mécanisme contondant avec berges irrégulières définit la lacération contuse, contrairement à la coupure franche.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Non : plaie franche ou hématome fermé ; autre entité du SSP",
+    "i": "Sans écrasement des berges, l'entité est une coupure simple ou un hématome sans plaie.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Oui : lacération contuse ; évaluer souillure, délai, viabilité",
+    "i": "Ces trois éléments décident du type de fermeture.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Propre, délai court, berges viables : parage, fermeture primaire",
+    "i": "<6–8 h aux membres, jusqu'à 24 h au visage ; fermer sans tension.",
+    "pec": "pec_parage",
+    "notion": "c6"
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Souillée, tardive, lambeau douteux ou perte de substance : parage au bloc, fermeture retardée, avis plastie",
+    "i": "Fermer sur tissu contaminé ou non viable provoque infection et nécrose.",
+    "pec": "pec_complexe",
+    "notion": "c6"
+   },
+   {
+    "id": "n13",
+    "parent": "n10",
+    "t": "Douleur disproportionnée, crépitation ou sepsis : urgence chirurgicale ; renvoi entités fasciite ou gangrène gazeuse",
+    "i": "Ces signes annoncent une infection nécrosante profonde qui exige une exploration chirurgicale immédiate.",
+    "pec": "pec_complexe",
+    "notion": "c8"
+   },
+   {
+    "id": "n14",
+    "parent": "n10",
+    "t": "Lésion inexpliquée par le récit : documenter, signaler",
+    "i": "Maltraitance ou violence possibles, surtout chez l'enfant et la personne vulnérable.",
+    "pec": null,
+    "notion": "c9"
+   }
+  ]
+ },
+ "specialites": [
+  "CMF"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Lacération contuse et plaie délabrante des tissus mous",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Lacération contuse et plaie délabrante : définitions et diagnostic différentiel",
+   "rubriques": [
+    "definition",
+    "positiveDiagnosis"
+   ],
+   "comment": "Pour reconnaître une plaie contuse, regarde le mécanisme contondant et l'état des berges (écrasées, ecchymotiques), puis compare aux rivales dont la conduite diffère.",
+   "tableau": {
+    "colonnes": [
+     "Entité",
+     "Mécanisme",
+     "Aspect",
+     "Discriminant",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Lacération contuse",
+      "Choc contondant (arête, chute) sur plan osseux",
+      "Berges irrégulières, écrasées, ecchymotiques",
+      [
+       {
+        "t": "Bande marginale dévitalisée",
+        "i": "L'écrasement thrombose les petits vaisseaux du bord ; la coupure franche n'a pas cette bande et ne nécrose pas."
+       }
+      ],
+      "Parage économe puis suture si propre"
+     ],
+     [
+      "Plaie délabrante",
+      "Écrasement, cisaillement ou arrachement",
+      "Perte de substance, décollement, lambeau",
+      [
+       {
+        "t": "Lambeau mal vascularisé ou perte de substance",
+        "i": "Le lambeau peut nécroser : le parage précède toute fermeture et un avis plastique ou CMF s'impose si l'étendue est grande."
+       }
+      ],
+      "Parage au bloc, fermeture retardée possible"
+     ],
+     [
+      "Plaie franche (coupure)",
+      "Objet tranchant",
+      "Berges nettes, sans ecchymose",
+      [
+       {
+        "t": "Berges nettes, tissu viable",
+        "i": "Sans tissu dévitalisé, l'inoculum infectant est plus élevé : fermeture primaire simple, sans excision."
+       }
+      ],
+      "Suture, colle ou bandelettes"
+     ],
+     [
+      "Morsure",
+      "Dents (chien, chat, humain)",
+      "Écrasement avec inoculation profonde",
+      [
+       {
+        "t": "Empreinte dentaire, inoculum polymicrobien",
+        "i": "La contamination massive change la conduite (antibiotique, fermeture prudente) ; la simple contusion ne l'exige pas."
+       }
+      ],
+      "Autre entité du SSP S8.9"
+     ],
+     [
+      "Hématome fermé",
+      "Contusion sans ouverture",
+      "Peau intacte",
+      [
+       {
+        "t": "Aucune solution de continuité cutanée",
+        "i": "Sans plaie, ni suture ni prophylaxie tétanique ; on surveille la collection, surtout sous anticoagulant."
+       }
+      ],
+      "Compression, surveillance"
+     ],
+     [
+      "Morel-Lavallée",
+      "Cisaillement tangentiel (hanche, cuisse)",
+      "Peau fermée, collection fluctuante",
+      [
+       {
+        "t": "Décollement fermé hypoderme-aponévrose",
+        "i": "La peau reste intacte alors que le plan de glissement est rompu ; l'échographie confirme la collection."
+       }
+      ],
+      "Échographie, drainage selon taille"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La lacération contuse est un diagnostic clinique : mécanisme contondant, berges écrasées, vitalité marginale douteuse ; la profondeur se précise à l'exploration.",
+    "La plaie délabrante ajoute perte de substance ou décollement et impose un parage avant toute fermeture.",
+    "L'entité est tétanogène : la prophylaxie antitétanique se pose selon la règle des plaies non propres."
+   ],
+   "sources": [
+    "Recommandations OFSP/CFV – prophylaxie du tétanos",
+    "ATLS 10e éd."
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie et physiopathologie selon le siège",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences"
+   ],
+   "comment": "Cherche les endroits où la peau repose directement sur l'os, car l'écrasement contre le plan osseux explique la lésion et ses pièges.",
+   "tableau": {
+    "colonnes": [
+     "Siège ou population",
+     "Pourquoi contuse",
+     "Piège principal",
+     "Geste clé"
+    ],
+    "lignes": [
+     [
+      "Cuir chevelu",
+      "Peau écrasée contre le crâne, vascularisation riche",
+      [
+       {
+        "t": "Spoliation sanguine insidieuse",
+        "i": "Les artères ancrées dans un tissu dense se rétractent mal ; l'enfant et l'âgé tolèrent mal une perte pourtant modeste."
+       }
+      ],
+      "Compression, puis suture de la galéa séparément"
+     ],
+     [
+      "Cuir chevelu (galéa lésée)",
+      "Aponévrose déchirée",
+      [
+       {
+        "t": "Plaie bâillante et hématome sous-galéal occulte",
+        "i": "La galéa tient les berges ; lésée, elle laisse bâiller la plaie et un hématome étendu se développe sous elle."
+       }
+      ],
+      "Explorer le fond, suturer la galéa"
+     ],
+     [
+      "Arcade sourcilière, menton",
+      "Peau fine sur arête osseuse",
+      [
+       {
+        "t": "Fracture, nerf ou canalicule associés",
+        "i": "L'impact appuyé lèse l'os et les structures nobles voisines ; la suture seule les masque."
+       }
+      ],
+      "Bloc sus-orbitaire ou mentonnier, exploration, ne pas raser le sourcil"
+     ],
+     [
+      "Crête tibiale du sujet âgé",
+      "Peau atrophique, corticoïdes, anticoagulants",
+      [
+       {
+        "t": "Lambeau prétibial à nécrose",
+        "i": "La vascularisation du lambeau est précaire et la tension aggrave l'ischémie."
+       }
+      ],
+      "Replacer le lambeau viable avec bandelettes, compression douce"
+     ],
+     [
+      "Enfant",
+      "Chutes de face et de tête",
+      [
+       {
+        "t": "Mécanisme incohérent avec la lésion",
+        "i": "Une lésion inexpliquée par le récit évoque maltraitance ; elle impose documentation et signalement."
+       }
+      ],
+      "Anesthésie topique, colle, protoxyde d'azote"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le tissu dévitalisé, l'hématome et les corps étrangers abaissent l'inoculum nécessaire à l'infection : la plaie contuse s'infecte plus que la franche.",
+    "Une plaie perpendiculaire aux lignes de tension bâille et cicatrise plus mal.",
+    "En cas d'agression ou de violence domestique, la description précise sert de preuve et ouvre l'accès à l'aide aux victimes (LAVI)."
+   ],
+   "sources": [
+    "ATLS 10e éd.",
+    "Loi fédérale sur l'aide aux victimes d'infractions (LAVI)"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse : ce qui change la conduite",
+   "rubriques": [
+    "anamnesis"
+   ],
+   "comment": "Interroge d'abord la cause de la chute, puis tout ce qui modifie le saignement, l'infection et la cicatrisation.",
+   "tableau": {
+    "colonnes": [
+     "Question",
+     "Ce qu'elle change",
+     "Conséquence"
+    ],
+    "lignes": [
+     [
+      "Mécanisme, heure, souillure (terre, eau stagnante, ferme)",
+      [
+       {
+        "t": "Délai et contamination",
+        "i": "Ils décident entre fermeture immédiate et retardée, car l'inoculum bactérien croît avec le temps."
+       }
+      ],
+      "Fermeture primaire ou retardée, antibiotique"
+     ],
+     [
+      "Syncope, malaise, perte de connaissance, amnésie, vomissements",
+      [
+       {
+        "t": "Cause de la chute et traumatisme crânien",
+        "i": "Une syncope déplace la prise en charge vers sa cause ; PC, amnésie ou vomissements imposent d'évaluer le crâne."
+       }
+      ],
+      "Examen neurologique, imagerie cérébrale"
+     ],
+     [
+      "Anticoagulants (y compris AOD), antiagrégants, coagulopathie, hépatopathie, alcool",
+      [
+       {
+        "t": "Risque hémorragique",
+        "i": "Ils aggravent saignement, hématome et risque d'hémorragie intracrânienne tardive."
+       }
+      ],
+      "INR, anti-Xa, Hb ; imagerie élargie"
+     ],
+     [
+      "Statut antitétanique",
+      [
+       {
+        "t": "Doses reçues et date du dernier rappel",
+        "i": "La plaie contuse est tétanogène ; le nombre de doses et le délai décident vaccin seul ou avec immunoglobuline."
+       }
+      ],
+      "dTpa ± immunoglobuline 250 UI"
+     ],
+     [
+      "Allergies (lidocaïne, antibiotiques, latex)",
+      [
+       {
+        "t": "Sécurité des produits",
+        "i": "Elles orientent le choix de l'anesthésique, de l'antibiotique et des gants."
+       }
+      ],
+      "Adapter anesthésie et antibiothérapie"
+     ],
+     [
+      "Diabète, tabac, corticoïdes, immunosuppression, artériopathie",
+      [
+       {
+        "t": "Cicatrisation retardée",
+        "i": "Ces facteurs altèrent l'irrigation et l'immunité locale et augmentent infection et nécrose."
+       }
+      ],
+      "Antibiotique plus facile, suivi rapproché"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le médecin cherche d'abord une syncope à l'origine de la chute, car elle change le diagnostic principal.",
+    "Un patient anticoagulé n'est jamais « banal » : le risque d'hématome intracrânien tardif persiste."
+   ],
+   "sources": [
+    "Recommandations OFSP/CFV – prophylaxie du tétanos",
+    "Canadian CT Head Rule"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Examen clinique et drapeaux rouges : ordre de priorité",
+   "rubriques": [
+    "clinicalExam",
+    "presumptionRedFlags"
+   ],
+   "comment": "Commence par l'ABCDE avant la plaie, puis suis cet arbre : chaque case dit ce qui passe avant la suture.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Plaie contuse à l'accueil : ABCDE et constantes",
+     "i": "Le pronostic vital passe avant la plaie visible ; on teste aussi sensibilité, motricité, tendons et pouls avant l'anesthésie locale.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Choc ou saignement actif persistant ou pulsatile ?",
+     "i": "Tachycardie, hypotension, pâleur ou saignement pulsatile signent une perte significative.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : compression 10 min, élévation, garrot si échec, réanimation",
+     "i": "L'hémostase et la réanimation précèdent toute suture ; le garrot de membre reste le dernier recours.",
+     "pec": "pec_hemostase",
+     "notion": "c4"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non : signes de traumatisme crânien ou anticoagulation ?",
+     "i": "Perte de connaissance, Glasgow <15, vomissements, amnésie, fracture de la base ou anticoagulant imposent une imagerie.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Oui : CT cérébral (± rachis cervical) avant ou en parallèle de la plaie",
+     "i": "Chez l'enfant, la décision s'appuie sur les règles PECARN ; le CT se fait sans injection.",
+     "pec": "pec_hemostase",
+     "notion": "c5"
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "Non : structure noble atteinte (os, articulation, tendon, nerf, vaisseau, canal de Sténon) ?",
+     "i": "L'exploration sous anesthésie et bon éclairage recherche corps étranger, galéa ou périoste atteints, marche d'escalier osseuse.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Oui : avis spécialisé, pas de simple suture aux urgences",
+     "i": "Os exposé, communication articulaire ou déficit tendineux, nerveux ou vasculaire dépassent le geste des urgences.",
+     "pec": "pec_complexe",
+     "notion": "c4"
+    },
+    {
+     "id": "n8",
+     "parent": "n6",
+     "t": "Non : lambeau pâle ou cyanosé, décollement ou perte de substance étendue ?",
+     "i": "Ces signes annoncent une nécrose et justifient un avis de chirurgie plastique ou maxillo-faciale.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n9",
+     "parent": "n8",
+     "t": "Oui : parage au bloc, avis plastie ou CMF",
+     "i": "Le lambeau non viable doit être excisé avant fermeture ou couverture.",
+     "pec": "pec_complexe",
+     "notion": "c6"
+    },
+    {
+     "id": "n10",
+     "parent": "n8",
+     "t": "Non : irrigation, exploration, parage économe, fermeture",
+     "i": "Plaie contuse simple traitée aux urgences par le médecin.",
+     "pec": "pec_parage",
+     "notion": "c6"
+    },
+    {
+     "id": "n11",
+     "parent": "n1",
+     "t": "Lésion inexpliquée par le mécanisme (enfant, personne vulnérable) ?",
+     "i": "Une discordance évoque maltraitance ou violence : on documente précisément, on signale, on oriente vers l'aide aux victimes.",
+     "pec": null,
+     "notion": "c9"
+    }
+   ],
+   "points": [
+    "Sur le visage, le médecin recherche nerf facial, canal de Sténon, canalicule lacrymal, bord libre palpébral, périchondre auriculaire et bord vermillon.",
+    "L'examen du fond de plaie se fait après anesthésie, car la douleur empêche une exploration fiable."
+   ],
+   "sources": [
+    "ATLS 10e éd.",
+    "PECARN (Kuppermann, Lancet 2009)",
+    "Canadian CT Head Rule"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan : exploration, anesthésie et imagerie",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "L'examen décisif est l'exploration sous anesthésie ; l'imagerie et la biologie ne se prescrivent que sur indication.",
+   "tableau": {
+    "colonnes": [
+     "Examen",
+     "Quand",
+     "Pourquoi (ou piège)"
+    ],
+    "lignes": [
+     [
+      "Exploration chirurgicale sous anesthésie locale",
+      "Toute plaie contuse (examen de référence)",
+      [
+       {
+        "t": "Vision directe du fond, hémostase, vitalité des berges",
+        "i": "Elle seule juge la viabilité marginale et l'intégrité des structures profondes ; l'imagerie ne remplace pas la vision directe."
+       }
+      ]
+     ],
+     [
+      "Irrigation sous pression à la seringue",
+      "Avant exploration et parage",
+      [
+       {
+        "t": "Volume et pression plus importants que le liquide",
+        "i": "Eau potable du robinet et NaCl 0,9 % donnent un taux d'infection comparable."
+       }
+      ]
+     ],
+     [
+      "Lidocaïne 1 % locale ou bloc régional",
+      "Avant exploration",
+      [
+       {
+        "t": "Maximum 4,5 mg/kg sans adrénaline, 7 mg/kg avec",
+        "i": "Au-delà, risque de toxicité cardiaque et neurologique ; injection lente par les berges, tamponnée au bicarbonate et réchauffée pour moins de douleur."
+       }
+      ]
+     ],
+     [
+      "Radiographie standard",
+      "Suspicion de fracture ou corps étranger radio-opaque",
+      [
+       {
+        "t": "Crâne, massif facial, crête tibiale, verre, gravier",
+        "i": "Elle détecte les fractures et corps étrangers radio-opaques ; le bois ou l'épine restent invisibles."
+       }
+      ]
+     ],
+     [
+      "CT cérébral sans injection",
+      "Traumatisme crânien avec critère de risque ou anticoagulation",
+      [
+       {
+        "t": "Règles de décision (PECARN chez l'enfant)",
+        "i": "Les règles limitent l'irradiation en repérant les patients à risque d'hémorragie intracrânienne."
+       }
+      ]
+     ],
+     [
+      "Échographie",
+      "Corps étranger radiotransparent ou collection",
+      [
+       {
+        "t": "Bois, épine, hématome",
+        "i": "Elle voit ce que la radiographie manque ; l'IRM reste exceptionnelle ici."
+       }
+      ]
+     ],
+     [
+      "Hémoglobine, INR/TP ou anti-Xa, groupe sanguin, créatinine, glycémie",
+      "Saignement important, anticoagulation, diabète",
+      [
+       {
+        "t": "Bilan ciblé, non systématique",
+        "i": "Il quantifie la spoliation et l'effet anticoagulant ; la glycémie ne se mesure que chez le diabétique."
+       }
+      ]
+     ],
+     [
+      "Prélèvement bactériologique",
+      "Plaie cliniquement infectée seulement",
+      [
+       {
+        "t": "Une plaie fraîche est colonisée sans être infectée",
+        "i": "Un prélèvement sur plaie propre donne des faux positifs et mène à un traitement inutile."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le bloc sus-orbitaire ou mentonnier limite le volume injecté et la déformation des berges.",
+    "Le geste d'anesthésie se prépare avec aiguille fine, chez l'enfant avec topique et protoxyde d'azote."
+   ],
+   "sources": [
+    "AIPS Swissmedic – lidocaïne",
+    "PECARN (Kuppermann, Lancet 2009)",
+    "ATLS 10e éd."
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Parage, fermeture et antalgie : choisir le moment et la technique",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Après hémostase, excise ce qui est mort, puis choisis fermeture immédiate ou retardée selon la propreté, le délai et la viabilité.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Plaie hémostasiée, anesthésiée, irriguée, explorée",
+     "i": "Ces étapes précèdent toute décision de fermeture.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Parage économe : excision des berges non viables, ablation des corps étrangers",
+     "i": "On préserve au maximum les tissus, surtout au visage, car la bande dévitalisée nécrose sinon.",
+     "pec": "pec_parage",
+     "notion": "c6"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Propre, <6–8 h aux membres ou ≤24 h au visage, berges viables ?",
+     "i": "Ces délais limitent la prolifération bactérienne avant la fermeture.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Oui : fermeture primaire sans tension",
+     "i": "Une tension excessive provoque nécrose et désunion.",
+     "pec": "pec_parage",
+     "notion": "c6"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Technique selon siège : visage 5-0/6-0 non résorbable, cuir chevelu galéa séparée ± agrafes, faible tension colle ou bandelettes",
+     "i": "Un fil fin au visage limite la cicatrice ; la galéa suturée évite hématome sous-galéal ; peu de points profonds résorbables réduisent le corps étranger.",
+     "pec": "pec_parage",
+     "notion": "c6"
+    },
+    {
+     "id": "n6",
+     "parent": "n3",
+     "t": "Non : très souillée, tardive ou viabilité douteuse",
+     "i": "Fermer sur tissu contaminé enferme l'infection.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Fermeture retardée (environ J3–5) ou cicatrisation dirigée, ± antibiotique",
+     "i": "La plaie est laissée ouverte, pansée, puis fermée une fois le risque infectieux passé et la viabilité clarifiée.",
+     "pec": "pec_complexe",
+     "notion": "c7"
+    },
+    {
+     "id": "n8",
+     "parent": "n1",
+     "t": "Lambeau prétibial viable chez le sujet âgé",
+     "i": "On replace le lambeau sans tension avec des bandelettes puis une compression douce ; les points tendus le nécrosent.",
+     "pec": "pec_complexe",
+     "notion": "c9"
+    }
+   ],
+   "points": [
+    "Antalgie : paracétamol 1 g jusqu'à 4 g/j ; morphine IV titrée 2–3 mg toutes les 5 min si douleur sévère ; AINS évité sous anticoagulant ou saignement.",
+    "Les molécules de migraine (sumatriptan) et d'ostéoporose (acide zolédronique) n'ont aucune place dans cette entité.",
+    "Sous anticoagulant, on évite d'arrêter le traitement par principe : compression, hémostatiques locaux et point en U suffisent le plus souvent."
+   ],
+   "sources": [
+    "ATLS 10e éd.",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prophylaxie du tétanos et antibiotiques",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "Classe la plaie contuse comme non propre, applique la règle vaccinale, et réserve l'antibiotique aux situations à risque.",
+   "tableau": {
+    "colonnes": [
+     "Statut vaccinal",
+     "Plaie contuse (non propre)",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "≥3 doses, dernier rappel <10 ans",
+      "Aucune mesure vaccinale",
+      [
+       {
+        "t": "Protection encore présente",
+        "i": "L'immunité garde un titre suffisant ; un rappel inutile n'apporte rien."
+       }
+      ]
+     ],
+     [
+      "≥3 doses, dernier rappel >10 ans",
+      "Un rappel dTpa seul",
+      [
+       {
+        "t": "Rappel sans immunoglobuline",
+        "i": "La mémoire immunitaire répond vite ; l'immunoglobuline serait superflue."
+       }
+      ]
+     ],
+     [
+      "<3 doses ou statut inconnu",
+      "Vaccin dTpa plus immunoglobuline antitétanique 250 UI",
+      [
+       {
+        "t": "Immunité absente ou incertaine",
+        "i": "L'immunoglobuline donne une protection passive immédiate ; le vaccin lance l'immunité active ; on injecte à des sites différents et on complète la série."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'antibiotique n'est pas systématique : il se justifie pour souillure massive, exposition osseuse ou articulaire, immunosuppression ou délai long, souvent par amoxicilline-acide clavulanique.",
+    "Une plaie prétibiale ou une plaie chez un diabétique ou artéritique abaisse le seuil d'antibiothérapie.",
+    "Le pansement non adhérent se change vers 48 h ; la protection solaire de la cicatrice dure 6 à 12 mois."
+   ],
+   "sources": [
+    "Recommandations OFSP/CFV – prophylaxie du tétanos",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications, surveillance, pronostic et réseau",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Anticipe la complication selon le délai et le signe, et surveille la plaie à 48 heures puisque la plaie contuse est à risque.",
+   "tableau": {
+    "colonnes": [
+     "Complication",
+     "Signe et délai",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Infection locale",
+      [
+       {
+        "t": "Douleur croissante, rougeur, pus, lymphangite, fièvre à 48–72 h",
+        "i": "La souillure et le tissu dévitalisé favorisent l'inoculum ; le délai typique guide la date du contrôle."
+       }
+      ],
+      "Ouvrir, laver, prélever, antibiotique"
+     ],
+     [
+      "Nécrose des berges ou désunion",
+      [
+       {
+        "t": "Berge noire, lambeau cyanosé, tension excessive, plaie prétibiale",
+        "i": "L'ischémie marginale ou la tension coupent l'irrigation ; le tissu mort ne cicatrise pas."
+       }
+      ],
+      "Excision de la nécrose, soins locaux, plastie"
+     ],
+     [
+      "Hématome ou collection",
+      [
+       {
+        "t": "Tuméfaction tendue, surtout sous anticoagulant ou cuir chevelu",
+        "i": "Le saignement continue sous la suture ; au cuir chevelu l'hématome sous-galéal peut être étendu et occulte."
+       }
+      ],
+      "Évacuation, hémostase"
+     ],
+     [
+      "Fasciite nécrosante ou gangrène gazeuse",
+      [
+       {
+        "t": "Douleur disproportionnée, crépitation, état septique",
+        "i": "La douleur dépasse l'aspect cutané parce que la nécrose profonde précède les signes cutanés."
+       }
+      ],
+      "Urgence chirurgicale, antibiotiques IV"
+     ],
+     [
+      "Hématome intracrânien tardif",
+      [
+       {
+        "t": "Céphalée, vomissements, somnolence après traumatisme crânien",
+        "i": "Sous anticoagulant, il peut se révéler après plusieurs heures."
+       }
+      ],
+      "CT en urgence, consignes écrites 24 h"
+     ],
+     [
+      "Syndrome de loges",
+      [
+       {
+        "t": "Douleur qui augmente malgré antalgiques sous pansement",
+        "i": "Une escalade antalgique masquerait une infection, un hématome ou un syndrome de loges."
+       }
+      ],
+      "Réévaluer, décomprimer si loges"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Les fils s'ôtent vers 5 jours au visage, 7 à 10 jours au cuir chevelu, 10 à 14 jours aux membres, plus tard sur les articulations.",
+    "La cicatrisation est plus lente (environ 10–21 jours) ; la maturation dure 12 à 18 mois et toute révision attend au moins 6 à 12 mois.",
+    "Le médecin de premier recours assure contrôle, ablation des fils et rappel vaccinal ; le Spitex fait les pansements des patients fragiles.",
+    "L'hospitalisation se justifie en cas de choc, saignement important sous anticoagulant, imagerie cérébrale anormale, parage au bloc ou situation sociale à risque."
+   ],
+   "sources": [
+    "ATLS 10e éd.",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Situations particulières : anticoagulé, enfant, sujet âgé, violence, assurances",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement",
+    "followUpNetwork",
+    "epidemiology"
+   ],
+   "comment": "Adapte la conduite au terrain : anticoagulation, âge, contexte de violence et couverture d'assurance suisse.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Conduite",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Anticoagulé",
+      "Compression, hémostatique local, point en U ; antidote seulement si menace vitale",
+      [
+       {
+        "t": "Ne pas arrêter l'anticoagulant par principe",
+        "i": "Le risque thrombotique de l'arrêt dépasse souvent celui d'un saignement local contrôlable ; l'AINS est évité."
+       }
+      ]
+     ],
+     [
+      "Enfant",
+      "Topique anesthésique, protoxyde d'azote, colle pour plaie peu tendue",
+      [
+       {
+        "t": "Réduire douleur et peur",
+        "i": "La colle évite souvent l'ablation de fils ; la sédation douce évite une anesthésie générale."
+       }
+      ]
+     ],
+     [
+      "Sujet âgé, plaie prétibiale",
+      "Replacer le lambeau viable avec bandelettes, compression douce",
+      [
+       {
+        "t": "Peau fragile, vascularisation précaire",
+        "i": "La suture tendue nécrose le lambeau ; les bandelettes sans tension préservent l'irrigation."
+       }
+      ]
+     ],
+     [
+      "Agression, maltraitance suspectée",
+      "Décrire et photographier les lésions, signaler, orienter vers la LAVI",
+      [
+       {
+        "t": "Lésion inexpliquée par le mécanisme",
+        "i": "La documentation précise sert de preuve ; la protection de la victime prime sur le secret en cas de danger."
+       }
+      ]
+     ],
+     [
+      "Couverture d'assurance",
+      "Déclarer l'accident ; LAA si salarié ≥8 h/semaine, sinon LAMal",
+      [
+       {
+        "t": "Déclaration d'accident obligatoire",
+        "i": "La couverture dépend du statut de travail ; l'oubli retarde le remboursement."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le médecin renvoie vers le spécialiste pour toute structure noble atteinte : CMF, ophtalmologie ou ORL pour le visage, chirurgie de la main, orthopédie pour fracture ouverte, plastie pour perte de substance."
+   ],
+   "sources": [
+    "Loi fédérale sur l'assurance-accidents (LAA)",
+    "Loi fédérale sur l'aide aux victimes d'infractions (LAVI)",
+    "ATLS 10e éd."
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "pec_hemostase",
+   "titre": "Hémorragie active, choc ou anticoagulation : hémostase avant suture",
+   "but": [
+    "Arrêter le saignement et rétablir la stabilité hémodynamique avant tout geste sur la plaie.",
+    "Exclure un traumatisme crânien ou cervical associé.",
+    "Corriger l'hémostase sans interrompre l'anticoagulation par principe."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installer le patient couché, monitorer FC, TA, SpO2 et poser deux voies veineuses.",
+     "Appliquer une compression directe continue d'environ dix minutes avec élévation.",
+     "Évaluer ABCDE et score de Glasgow avant d'examiner la plaie.",
+     "Prélever Hb, INR/TP ou anti-Xa, groupe sanguin et créatinine."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Acide tranexamique (antifibrinolytique)",
+      "posologie": "1 g IV en 10 min puis 1 g en 8 h, à débuter dans les 3 h d'une hémorragie traumatique significative ; adapter à la fonction rénale.",
+      "pourquoi": "Il réduit la mortalité par hémorragie traumatique lorsqu'il est donné tôt ; il n'est pas indiqué pour un saignement local mineur.",
+      "source": "[CRASH-2, Lancet 2010]"
+     },
+     {
+      "molecule": "Phytoménadione (vitamine K) pour antagoniste de la vitamine K (phenprocoumon)",
+      "posologie": "5–10 mg IV lente si hémorragie menaçante sous phenprocoumon, associée à du PPSB dosé selon INR et poids (AIPS).",
+      "pourquoi": "La vitamine K restaure la synthèse des facteurs ; le PPSB corrige immédiatement ; on ne l'emploie que si le pronostic vital est menacé.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Idarucizumab (antidote du dabigatran)",
+      "posologie": "5 g IV (2 perfusions de 2,5 g) seulement si hémorragie menaçant le pronostic vital sous dabigatran.",
+      "pourquoi": "Il neutralise spécifiquement le dabigatran ; il n'est pas justifié pour un saignement de plaie contrôlable par compression.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réaliser une compression directe, un pansement compressif, un point en U ou une ligature du vaisseau.",
+      "pourquoi": "La compression locale suffit le plus souvent, même sous anticoagulant."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Poser un garrot de membre seulement en cas d'échec de la compression.",
+      "pourquoi": "Le garrot comporte un risque ischémique et ne s'emploie qu'en dernier recours."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Appliquer le protocole de transfusion en cas de choc hémorragique.",
+      "pourquoi": "Le volume sanguin perdu doit être remplacé par des produits sanguins selon le protocole."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente la décision de ne pas interrompre l'anticoagulation et le consentement du patient."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Oriente la déclaration d'accident vers la LAA ou la LAMal."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Garder la plaie couverte et comprimée pendant tout le bilan.",
+      "Surveiller les constantes toutes les 15 minutes jusqu'à stabilité."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue ABCDE, comprime la plaie et annonce la priorité hémodynamique avant la suture."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose deux voies, monitore, prélève Hb, INR, anti-Xa, groupe sanguin."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Examine Glasgow et rachis cervical, demande le CT si critère de risque."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Obtient l'hémostase locale (point en U, hémostatique) sans arrêt systématique de l'anticoagulant."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Administre un antidote seulement si le pronostic vital est menacé et programme la suture."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le pronostic est bon lorsque la compression et l'hémostase locale suffisent, ce qui est le cas le plus fréquent ; l'hémorragie intracrânienne tardive sous anticoagulant reste la menace majeure.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "FC, TA, SpO2, coloration",
+      "quand": "Toutes les 15 min jusqu'à stabilité",
+      "cible": "Constantes stables, saignement arrêté"
+     },
+     {
+      "quoi": "Hémoglobine",
+      "quand": "Après stabilisation et si saignement persistant",
+      "cible": "Stable, sans chute progressive"
+     },
+     {
+      "quoi": "Statut neurologique (Glasgow)",
+      "quand": "Répété à l'observation ; consignes écrites 24 h au retour",
+      "cible": "Glasgow 15, sans nouveau signe"
+     }
+    ],
+    "sortie": "Sortie possible si hémostase obtenue, constantes normales, imagerie cérébrale normale si indiquée, proche pour surveiller 24 h ; sinon observation ou hospitalisation."
+   },
+   "prevention": {
+    "primaire": "Prévenir les chutes chez la personne âgée en revoyant l'environnement, les médicaments sédatifs et l'équilibre.",
+    "secondaire": "Revoir l'indication et la dose de l'anticoagulant avec le médecin de premier recours après l'épisode.",
+    "tertiaire": "Donner des consignes écrites de surveillance neurologique et de reconsultation en cas de saignement récidivant."
+   }
+  },
+  {
+   "cle": "pec_parage",
+   "titre": "Plaie contuse non compliquée : parage et fermeture primaire",
+   "but": [
+    "Obtenir une plaie propre, hémostasiée et fermée sans tension.",
+    "Prévenir infection et tétanos.",
+    "Limiter douleur et cicatrice élargie."
+   ],
+   "moyens": {
+    "accueil": [
+     "Vérifier allergies (lidocaïne, latex, antibiotiques) et statut vaccinal.",
+     "Installer le patient avec bon éclairage et champ stérile.",
+     "Évaluer et noter sensibilité, motricité, tendons et pouls avant l'anesthésie."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Lidocaïne 1 % (anesthésique local), avec ou sans adrénaline",
+      "posologie": "Infiltration lente par les berges ou bloc régional ; maximum 4,5 mg/kg sans adrénaline (0,45 mL/kg) et 7 mg/kg avec adrénaline.",
+      "pourquoi": "Le plafond de dose évite la toxicité systémique ; le tamponnage au bicarbonate et le réchauffement diminuent la douleur d'injection.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Paracétamol (antalgique palier 1)",
+      "posologie": "1 g PO ou IV toutes les 6 h, maximum 4 g/j chez l'adulte ≥50 kg ; chez l'enfant 15 mg/kg par prise.",
+      "pourquoi": "Il constitue la première marche antalgique et ne majore pas le saignement.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Ibuprofène (AINS)",
+      "posologie": "400 mg PO 3×/j pendant 5 jours au plus, avec protecteur gastrique si risque ; éviter en cas d'anticoagulant, saignement, insuffisance rénale ou grossesse.",
+      "pourquoi": "Il complète le paracétamol pour la douleur inflammatoire mais aggrave saignement et risque rénal ou digestif.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Vaccin dTpa (diphtérie-tétanos-coqueluche acellulaire)",
+      "posologie": "0,5 mL IM, si dernier rappel >10 ans, <3 doses ou statut inconnu.",
+      "pourquoi": "La plaie contuse est tétanogène ; le rappel stimule l'immunité active selon le plan de vaccination suisse.",
+      "source": "[OFSP/CFV, plan de vaccination suisse]"
+     },
+     {
+      "molecule": "Immunoglobuline antitétanique humaine",
+      "posologie": "250 UI IM, site différent du vaccin, si moins de 3 doses ou statut inconnu.",
+      "pourquoi": "Elle apporte une protection passive immédiate tant que la vaccination n'agit pas encore.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Irriguer sous pression à la seringue avec eau du robinet ou NaCl 0,9 % puis explorer le fond.",
+      "pourquoi": "Le volume et la pression abaissent l'inoculum ; l'exploration repère corps étranger et atteinte profonde."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Exciser les berges non viables, puis suturer sans tension, galéa séparée au cuir chevelu, fil 5-0/6-0 au visage.",
+      "pourquoi": "Le parage économe retire la bande dévitalisée et la suture sans tension préserve l'irrigation."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Appliquer un pansement non adhérent adapté à l'exsudat, à changer vers 48 h.",
+      "pourquoi": "Il maintient un milieu humide et permet de surveiller la vitalité des berges."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Remettre des consignes écrites de signes d'infection et, après traumatisme crânien, de surveillance neurologique.",
+      "pourquoi": "Le patient détecte tôt une complication ; la surveillance neurologique dure 24 h par un proche."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Protéger la cicatrice du soleil 6 à 12 mois, masser, utiliser du silicone.",
+      "pourquoi": "Ces mesures limitent pigmentation et cicatrice hypertrophique."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Déclare l'accident à la LAA (salarié ≥8 h/semaine) ou à la LAMal."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente précisément les lésions en cas d'agression et oriente vers la LAVI."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Contrôler d'abord l'hémodynamique et le crâne, puis traiter la plaie.",
+      "Poser les indications d'imagerie avant la fermeture."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Teste sensibilité, motricité, tendons et pouls, puis anesthésie par infiltration ou bloc."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Prépare le champ stérile, vérifie les allergies et le statut vaccinal."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Irrigue sous pression, explore le fond, excise les berges non viables, assure l'hémostase."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Ferme sans tension si propre et dans le délai ; sinon cicatrisation dirigée."
+      },
+      {
+       "temps": "puis",
+       "qui": "infirmier·ère",
+       "fait": "Applique le pansement, administre dTpa ± immunoglobuline et remet les consignes écrites."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Organiser un contrôle à 48 h pour toute plaie contuse ou souillée.",
+      "Réévaluer la douleur et éviter l'AINS prolongé."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin de premier recours",
+       "fait": "Contrôle la plaie à 48 h : vitalité des berges, collection, infection."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "infirmier·ère à domicile (Spitex)",
+       "fait": "Réalise les pansements chez le patient fragile."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin de premier recours",
+       "fait": "Retire les fils (visage 5 j, cuir chevelu 7–10 j, membres 10–14 j) et complète la vaccination."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le pronostic est bon avec un parage et une fermeture adaptés ; la cicatrisation prend 10 à 21 jours et la maturation 12 à 18 mois, avec cicatrice parfois élargie.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Vitalité des berges, collection, signes d'infection",
+      "quand": "Contrôle à 48 h",
+      "cible": "Berges roses, sans pus ni collection"
+     },
+     {
+      "quoi": "Douleur (EVA)",
+      "quand": "À H1, puis J7",
+      "cible": "Douleur décroissante sous antalgiques simples"
+     },
+     {
+      "quoi": "Ablation des fils",
+      "quand": "Visage 5 j, cuir chevelu 7–10 j, membres 10–14 j",
+      "cible": "Cicatrice sans désunion"
+     },
+     {
+      "quoi": "Cicatrice",
+      "quand": "6 à 12 mois avant révision éventuelle",
+      "cible": "Maturation sans hypertrophie"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si hémodynamique stable, imagerie rassurante si indiquée, plaie fermée, vaccination faite, proche disponible et contrôle à 48 h organisé."
+   },
+   "prevention": {
+    "primaire": "Prévenir les chutes (éclairage, tapis, chaussures, adaptation des médicaments) et protéger la tête chez l'enfant.",
+    "secondaire": "Vérifier le statut vaccinal antitétanique de chaque patient et le mettre à jour.",
+    "tertiaire": "Prévenir la cicatrice hypertrophique par protection solaire, massage et silicone."
+   }
+  },
+  {
+   "cle": "pec_complexe",
+   "titre": "Plaie délabrante, souillée ou tardive : parage au bloc et fermeture différée",
+   "but": [
+    "Obtenir un lit de plaie viable avant couverture.",
+    "Prévenir infection, nécrose et séquelle fonctionnelle.",
+    "Orienter vers le spécialiste pour toute structure noble."
+   ],
+   "moyens": {
+    "accueil": [
+     "Évaluer l'ABCDE, la souillure, le délai et les facteurs de mauvaise cicatrisation.",
+     "Couvrir la plaie d'un pansement humide stérile en attendant le bloc.",
+     "Garder le patient à jeun si anesthésie générale probable."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Amoxicilline-acide clavulanique (aminopénicilline + inhibiteur de bêta-lactamase)",
+      "posologie": "Adulte 1 g PO 2–3×/j (875/125 mg) 3 à 5 jours, ou 2,2 g IV 3×/j si IV nécessaire ; adapter à la fonction rénale ; alternative selon allergie.",
+      "pourquoi": "Il couvre les germes cutanés et de souillure ; indiqué pour souillure massive, exposition osseuse ou articulaire, immunosuppression ou délai long.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Morphine (opioïde)",
+      "posologie": "Titration IV 2–3 mg toutes les 5 min jusqu'à soulagement, surveillance de la sédation et de la respiration.",
+      "pourquoi": "Elle traite la douleur sévère d'une plaie délabrante en complément du paracétamol 1 g jusqu'à 4 g/j.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Parer au bloc, exciser le tissu non viable, retirer les corps étrangers, couvrir ou laisser ouvert.",
+      "pourquoi": "Le tissu mort entretient infection et nécrose et doit être excisé avant couverture."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Pratiquer une fermeture retardée vers J3–5 ou une cicatrisation dirigée.",
+      "pourquoi": "La plaie souillée refermée trop tôt abcède ; la fermeture retardée est plus sûre."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Replacer le lambeau prétibial viable avec bandelettes sans tension.",
+      "pourquoi": "La suture tendue ischémie le lambeau chez le sujet âgé."
+     },
+     {
+      "categorie": "rééducation",
+      "mesure": "Mobiliser précocement avec physiothérapie ciblée après cicatrisation initiale.",
+      "pourquoi": "Elle prévient raideur et rétraction autour des articulations."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Organiser les soins à domicile et la déclaration LAA.",
+      "pourquoi": "Les pansements répétés exigent un relais infirmier et une couverture assurantielle claire."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Gère la déclaration d'accident, l'incapacité de travail et la prise en charge LAA ou LAMal."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente consentement, informations au patient et lésions en cas de violence."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Chercher fasciite nécrosante ou gangrène gazeuse devant une douleur disproportionnée ou un sepsis.",
+      "Garder le patient stable avant le bloc."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue ABCDE, exclut choc, crâne et atteinte vasculaire, nerveuse, tendineuse ou articulaire."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Couvre la plaie, administre antalgie et prophylaxie antitétanique, prélève le bilan."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste (CMF, plastie, main ou orthopédie)",
+       "fait": "Évalue la structure noble et décide du parage au bloc."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Excise le tissu non viable et choisit fermeture retardée, lambeau ou greffe."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Prescrit l'antibiotique si indication et organise l'observation ou l'hospitalisation."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Planifier la fermeture retardée ou la couverture dans les jours suivants.",
+      "Attendre au moins 6 à 12 mois avant toute révision de cicatrice."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "infirmier·ère à domicile (Spitex)",
+       "fait": "Réalise les pansements quotidiens et signale écoulement, odeur ou nécrose."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Contrôle la viabilité à 48 h puis ferme ou couvre la plaie."
+      },
+      {
+       "temps": "puis",
+       "qui": "physiothérapeute",
+       "fait": "Mobilise l'articulation et prévient la raideur."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin de premier recours",
+       "fait": "Retire les fils, vérifie la vaccination et suit la maturation cicatricielle."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le pronostic dépend du parage et de la viabilité du lambeau ; la cicatrisation est plus lente avec cicatrice élargie, aggravée par diabète, tabac, âge, corticoïdes, tension et souillure.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Vitalité du lambeau et des berges",
+      "quand": "À 48 h puis à chaque pansement",
+      "cible": "Coloration rose, recoloration normale"
+     },
+     {
+      "quoi": "Signes d'infection (douleur, rougeur, pus, fièvre)",
+      "quand": "Quotidien jusqu'à J3 puis au contrôle",
+      "cible": "Absence de signe infectieux"
+     },
+     {
+      "quoi": "Douleur croissante sous pansement",
+      "quand": "À chaque contrôle",
+      "cible": "Douleur stable ou décroissante ; sinon chercher infection, hématome ou loges"
+     },
+     {
+      "quoi": "Mobilité articulaire",
+      "quand": "Dès la cicatrisation initiale",
+      "cible": "Amplitude conservée"
+     }
+    ],
+    "sortie": "Sortie après parage au bloc si hémodynamique stable, douleur contrôlée par traitement oral, plaie pansée, relais Spitex organisé, contrôle à 48 h fixé et situation sociale sûre."
+   },
+   "prevention": {
+    "primaire": "Prévenir les traumatismes contondants (chutes, outils, sport) et protéger les zones exposées.",
+    "secondaire": "Optimiser diabète, tabac et corticoïdes pour favoriser la cicatrisation et prévenir infection.",
+    "tertiaire": "Prévenir cicatrice hypertrophique par protection solaire, massage, silicone et révision après 6 à 12 mois."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 8310,
+  "output_tokens": 28564,
+  "output_tokens_details": {
+   "thinking_tokens": 9838
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:58:00",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

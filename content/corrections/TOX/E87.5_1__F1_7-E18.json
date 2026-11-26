@@ -1,0 +1,1381 @@
+{
+ "id": "E87.5_1__F1_7-E18",
+ "portes": [
+  {
+   "ssp": "F1.7",
+   "nomSSP": "Bradycardie, tachycardie, pouls irrégulier",
+   "entite": "Bradycardie sévère sur hyperkaliémie menaçante ou intoxication médicamenteuse",
+   "entiteId": "F1.7-E18"
+  }
+ ],
+ "entite": "Bradycardie sévère sur hyperkaliémie menaçante ou intoxication médicamenteuse",
+ "cim10": "E87.5",
+ "ssp": {
+  "code": "F1.7",
+  "nom": "Bradycardie, tachycardie, pouls irrégulier",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient avec bradycardie, tachycardie ou pouls irrégulier",
+    "i": "Porte d'entrée : ABCDE, scope, ECG 12 dérivations d'emblée.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Fréquence et régularité au scope/ECG ?",
+    "i": "Largeur du QRS, régularité et fréquence classent le trouble du rythme.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "FC < 50–60/min : bradycardie",
+    "i": "Branche de cette entité : trouver une cause réversible (K+, toxique).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Tachycardie régulière QRS fins ou irrégulière",
+    "i": "Sort du cadre : renvoi vers les entités tachycardie sinusale, Bouveret, flutter, FA du même SSP F1.7.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n5",
+    "parent": "n2",
+    "t": "Tachycardie à QRS larges, TV, FV, torsades",
+    "i": "Sort du cadre : renvoi vers les entités TV, FV/arrêt, torsades et WPW du SSP F1.7.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n6",
+    "parent": "n3",
+    "t": "Instabilité : hypotension, choc, syncope, trouble de conscience ?",
+    "i": "Ces signes imposent un traitement immédiat parallèle à la recherche de cause.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Oui : K+ élevé, T amples, PR long, QRS larges ou contexte rénal/IEC/ARM",
+    "i": "Hyperkaliémie menaçante probable : calcium sans attendre le laboratoire.",
+    "pec": "hyperk_menacante",
+    "notion": "c6"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Oui : bêtabloquant, vérapamil/diltiazem ou digoxine, ingestion",
+    "i": "Intoxication bradycardisante : Tox Info Suisse 145, antidote ciblé.",
+    "pec": "intox_bradycardisante",
+    "notion": "c7"
+   },
+   {
+    "id": "n9",
+    "parent": "n6",
+    "t": "Oui : K+ normal, aucune intoxication",
+    "i": "Recherche BAV complet, dysfonction sinusale, infarctus inférieur, hypothermie, hypothyroïdie ; atropine puis stimulation ; renvoi vers l'entité BAV du SSP F1.7.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n10",
+    "parent": "n6",
+    "t": "Non : bradycardie stable symptomatique ou non",
+    "i": "Le temps permet ECG complet et gazométrie avant traitement.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "K+ ≥ 6,5 mmol/L ou anomalie ECG d'hyperkaliémie",
+    "i": "Même une bradycardie stable devient menaçante sur l'ECG.",
+    "pec": "hyperk_menacante",
+    "notion": "c1"
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Médicament bradycardisant avec K+ normal",
+    "i": "Ajuste ou suspend l'agent (BB, IC, digoxine) ; avis Tox Info Suisse si surdosage.",
+    "pec": "intox_bradycardisante",
+    "notion": "c7"
+   },
+   {
+    "id": "n13",
+    "parent": "n10",
+    "t": "Bradycardie sinusale asymptomatique sans cause",
+    "i": "Physiologique (sportif, sommeil) : aucun traitement, renvoi à l'entité bradycardie sinusale du SSP F1.7.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n14",
+    "parent": "n7",
+    "t": "Après stabilisation : prévention de la récidive",
+    "i": "Révision médicamenteuse, alimentation, rythme de dialyse, suivi néphrologique.",
+    "pec": "suivi_prevention",
+    "notion": "c9"
+   }
+  ]
+ },
+ "specialites": [
+  "TOX"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Bradycardie sévère sur hyperkaliémie menaçante ou intoxication médicamenteuse (bêtabloquants, inhibiteurs calciques, digoxine)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définitions : hyperkaliémie menaçante, intoxications bradycardisantes, BRASH",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Tu juges la gravité sur l'ECG, la vitesse d'installation et l'hémodynamique, puis seulement sur la valeur de kaliémie.",
+   "tableau": {
+    "colonnes": [
+     "Catégorie",
+     "Seuil / définition",
+     "Attitude"
+    ],
+    "lignes": [
+     [
+      "Hyperkaliémie légère",
+      [
+       {
+        "t": "5,5–5,9 mmol/L",
+        "i": "On pose le diagnostic au-dessus de 5,5 mmol/L ; le risque reste faible si l'ECG est normal et si la cause se corrige."
+       }
+      ],
+      [
+       {
+        "t": "Chercher et corriger la cause, recontrôler",
+        "i": "Aucun traitement d'urgence n'est requis sans anomalie ECG ni cinétique rapide."
+       }
+      ]
+     ],
+     [
+      "Hyperkaliémie modérée",
+      [
+       {
+        "t": "6,0–6,4 mmol/L",
+        "i": "Zone intermédiaire : l'ECG décide entre surveillance monitorée et traitement immédiat."
+       }
+      ],
+      [
+       {
+        "t": "ECG, scope, traitement selon cause et ECG",
+        "i": "L'ECG corrèle mal à la kaliémie : un ECG normal n'exclut pas le danger."
+       }
+      ]
+     ],
+     [
+      "Hyperkaliémie sévère",
+      [
+       {
+        "t": "≥ 6,5 mmol/L",
+        "i": "Seuil retenu par la plupart des recommandations pour un traitement urgent, même avec un ECG encore normal."
+       }
+      ],
+      [
+       {
+        "t": "Traitement urgent en milieu monitoré",
+        "i": "Le risque d'arythmie létale devient réel, surtout si l'installation est rapide."
+       }
+      ]
+     ],
+     [
+      "Hyperkaliémie menaçante",
+      [
+       {
+        "t": "Toute kaliémie avec anomalie ECG ou bradycardie",
+        "i": "Les signes ECG priment sur la valeur : on traite sans attendre le laboratoire central."
+       }
+      ],
+      [
+       {
+        "t": "Calcium IV immédiat",
+        "i": "Le calcium protège la membrane en 1–3 min ; aucune autre mesure n'agit aussi vite."
+       }
+      ]
+     ],
+     [
+      "Syndrome BRASH",
+      [
+       {
+        "t": "Bradycardie + insuffisance Rénale + bloc AV + choc (Shock) + Hyperkaliémie",
+        "i": "Les cinq éléments s'entretiennent en spirale : la bradycardie réduit la perfusion rénale, qui aggrave la kaliémie."
+       }
+      ],
+      [
+       {
+        "t": "Calcium + traitement K+ + soutien hémodynamique",
+        "i": "L'atropine seule échoue souvent ; il faut traiter K+ et l'agent nodal ensemble."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Les trois grands toxiques bradycardisants sont les bêtabloquants, le vérapamil/diltiazem et la digoxine.",
+    "L'insuffisance rénale est le facteur de risque principal, car l'excrétion rénale du K+ chute.",
+    "L'association IEC/ARA2 + spironolactone + AINS chez un patient âgé, déshydraté ou diabétique multiplie le risque.",
+    "La digoxine s'accumule chez le sujet âgé insuffisant rénal : surdosage thérapeutique fréquent."
+   ],
+   "sources": [
+    "UK Kidney Association 2020, Clinical Practice Guidelines Hyperkalaemia",
+    "ERC 2021, Cardiac arrest in special circumstances",
+    "Tox Info Suisse"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Physiopathologie : K+, calcium et toxiques cardiaques",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Tu relies chaque agent à sa cible cellulaire pour déduire signes, piège et antidote.",
+   "tableau": {
+    "colonnes": [
+     "Agent",
+     "Mécanisme",
+     "Discriminant clinique",
+     "Antidote / traitement"
+    ],
+    "lignes": [
+     [
+      "Hyperkaliémie",
+      [
+       {
+        "t": "Dépolarisation partielle, inactivation des canaux Na+",
+        "i": "Environ 98 % du K+ est intracellulaire : une faible variation de kaliémie modifie fortement le potentiel de repos."
+       }
+      ],
+      [
+       {
+        "t": "Faiblesse ascendante, ECG évolutif",
+        "i": "Les T amples précèdent PR long, P disparues et QRS larges ; l'ordre reflète la sévérité de la dépolarisation."
+       }
+      ],
+      [
+       {
+        "t": "Calcium, puis transfert et élimination du K+",
+        "i": "Le calcium rétablit le seuil d'excitabilité mais ne baisse pas la kaliémie ; il faut donc enchaîner."
+       }
+      ]
+     ],
+     [
+      "Bêtabloquants",
+      [
+       {
+        "t": "Blocage β1, baisse de l'AMPc",
+        "i": "Moins de chronotropie, d'inotropie et de conduction AV ; le propranolol bloque aussi les canaux Na+."
+       }
+      ],
+      [
+       {
+        "t": "Hypoglycémie possible, convulsions avec propranolol",
+        "i": "Le propranolol lipophile franchit la barrière hémato-encéphalique ; l'hypoglycémie oriente vers BB plutôt que vers un inhibiteur calcique."
+       }
+      ],
+      [
+       {
+        "t": "Glucagon",
+        "i": "Il stimule l'AMPc en contournant le récepteur β bloqué."
+       }
+      ]
+     ],
+     [
+      "Inhibiteurs calciques (vérapamil, diltiazem)",
+      [
+       {
+        "t": "Blocage des canaux Ca2+ de type L",
+        "i": "Il atteint nœud sinusal, nœud AV et muscle lisse vasculaire : bradycardie, bloc AV et vasoplégie."
+       }
+      ],
+      [
+       {
+        "t": "Hyperglycémie avec hypotension",
+        "i": "Le blocage des canaux calciques des cellules β pancréatiques réduit la sécrétion d'insuline."
+       }
+      ],
+      [
+       {
+        "t": "Calcium, insuline haute dose, catécholamines",
+        "i": "L'insuline améliore l'utilisation du glucose par le myocarde en choc (effet inotrope métabolique)."
+       }
+      ]
+     ],
+     [
+      "Digoxine",
+      [
+       {
+        "t": "Inhibition de la Na+/K+-ATPase, tonus vagal accru",
+        "i": "Le Ca2+ intracellulaire augmente (arythmies) ; la sortie de K+ cellulaire crée une hyperkaliémie en intoxication aiguë."
+       }
+      ],
+      [
+       {
+        "t": "Nausées, troubles visuels, ST en cupule, tachycardie atriale avec bloc, TV bidirectionnelle",
+        "i": "Ces signes distinguent la digoxine : un bloc avec tachycardie atriale est quasi spécifique."
+       }
+      ],
+      [
+       {
+        "t": "Fragments Fab anti-digoxine",
+        "i": "Ils fixent la digoxine libre et rétablissent la Na+/K+-ATPase ; l'atropine est peu fiable."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le calcium antagonise l'effet membranaire du K+ en 1–3 min, pour 30–60 min seulement.",
+    "La digoxine donne une hyperkaliémie en intoxication aiguë, ce qui aggrave le pronostic.",
+    "Le tableau BB/IC combine bradycardie, bloc AV et vasoplégie : le choc est mixte, pas purement cardiogénique."
+   ],
+   "sources": [
+    "Tox Info Suisse",
+    "UK Kidney Association 2020",
+    "ESC 2021, Guidelines on cardiac pacing"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Facteurs favorisants, anamnèse et examen clinique",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam",
+    "epidemiology"
+   ],
+   "comment": "Tu cherches d'abord l'insuffisance rénale et chaque médicament qui retient le potassium ou ralentit le nœud AV.",
+   "tableau": {
+    "colonnes": [
+     "Classe médicamenteuse",
+     "Exemples",
+     "Mécanisme hyperkaliémiant"
+    ],
+    "lignes": [
+     [
+      "IEC / ARA2",
+      "IEC, ARA2, sacubitril-valsartan",
+      [
+       {
+        "t": "Baisse de l'aldostérone",
+        "i": "Moins d'aldostérone signifie moins de sécrétion tubulaire de K+ ; le risque monte avec l'insuffisance rénale ou le diabète."
+       }
+      ]
+     ],
+     [
+      "Antagonistes de l'aldostérone",
+      "Spironolactone, éplérénone",
+      [
+       {
+        "t": "Blocage du récepteur minéralocorticoïde",
+        "i": "Ils suppriment l'excrétion distale de K+ ; l'association à IEC/ARA2 est la plus à risque."
+       }
+      ]
+     ],
+     [
+      "Diurétiques épargneurs de K+",
+      "Amiloride, triamtérène, triméthoprime-sulfaméthoxazole",
+      [
+       {
+        "t": "Blocage du canal ENaC",
+        "i": "Le triméthoprime agit comme l'amiloride ; on l'oublie souvent chez le patient âgé sous IEC."
+       }
+      ]
+     ],
+     [
+      "AINS",
+      "Ibuprofène, diclofénac",
+      [
+       {
+        "t": "Baisse de rénine et de perfusion rénale",
+        "i": "Ils inhibent les prostaglandines rénales : hypoaldostéronisme et insuffisance rénale fonctionnelle."
+       }
+      ]
+     ],
+     [
+      "Immunosuppresseurs / héparine",
+      "Ciclosporine, tacrolimus, héparine",
+      [
+       {
+        "t": "Hypoaldostéronisme ou résistance tubulaire",
+        "i": "L'héparine inhibe la synthèse d'aldostérone ; les anticalcineurines altèrent la sécrétion tubulaire de K+."
+       }
+      ]
+     ],
+     [
+      "Bêtabloquants",
+      "Propranolol, métoprolol",
+      [
+       {
+        "t": "Moindre entrée de K+ dans la cellule",
+        "i": "Le blocage β2 limite la captation cellulaire de K+ ; effet additif surtout avec les bêtabloquants non sélectifs."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'anamnèse recherche insuffisance rénale, oligo-anurie, dialyse manquée, déshydratation, infection ou vomissements récents.",
+    "Elle recherche aussi substituts du sel (KCl), compléments potassiques et changements récents de dose.",
+    "En cas d'intoxication, tu précises substance, dose, heure, forme retard, co-ingestions, avec hétéro-anamnèse et emballages.",
+    "L'examen objective bradycardie, hypotension, marbrures, troubles de conscience ; une paralysie flasque avec aréflexie évoque une hyperkaliémie sévère.",
+    "La glycémie capillaire fait partie de l'examen initial : elle oriente le toxique et conditionne l'insuline."
+   ],
+   "sources": [
+    "UK Kidney Association 2020",
+    "Tox Info Suisse",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "ECG : séquence de l'hyperkaliémie et signes d'alarme",
+   "rubriques": [
+    "presumptionRedFlags",
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu reconnais la séquence ECG et tu traites dès QRS larges ou P disparues, sans attendre le laboratoire.",
+   "tableau": {
+    "colonnes": [
+     "Stade",
+     "Anomalie ECG",
+     "Conséquence"
+    ],
+    "lignes": [
+     [
+      "1",
+      [
+       {
+        "t": "Ondes T amples, pointues, symétriques",
+        "i": "L'accélération de la repolarisation est le signe le plus précoce, mais inconstant : un ECG normal n'exclut pas le danger."
+       }
+      ],
+      "Surveillance monitorée, recherche de la cause."
+     ],
+     [
+      "2",
+      [
+       {
+        "t": "PR long, onde P aplatie",
+        "i": "La conduction auriculo-ventriculaire ralentit parce que les canaux Na+ s'inactivent."
+       }
+      ],
+      "Calcium si instabilité ou K+ élevé."
+     ],
+     [
+      "3",
+      [
+       {
+        "t": "Disparition des P, QRS > 120 ms",
+        "i": "La conduction est gravement atteinte (rythme sinoventriculaire) ; l'ECG impose le calcium sans attendre le laboratoire."
+       }
+      ],
+      "Calcium IV immédiat."
+     ],
+     [
+      "4",
+      [
+       {
+        "t": "Rythme sinusoïdal",
+        "i": "QRS et T fusionnent : l'arrêt cardiaque est imminent."
+       }
+      ],
+      "Calcium répété, préparation de l'ACLS, dialyse."
+     ],
+     [
+      "5",
+      [
+       {
+        "t": "FV ou asystolie",
+        "i": "La dépolarisation maximale bloque la conduction et l'excitabilité."
+       }
+      ],
+      "ACLS avec traitement spécifique de l'hyperkaliémie."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Une bradycardie avec hypotension, syncope, choc ou trouble de conscience définit l'instabilité : scope, voie veineuse et traitement immédiats.",
+    "L'hyperkaliémie simule Brugada, un sus-décalage ST ou un bloc de branche : tu y penses chez tout insuffisant rénal avec ECG surprenant.",
+    "Les anomalies ECG corrèlent mal à la kaliémie : l'ECG et la cinétique pèsent plus que la valeur isolée."
+   ],
+   "sources": [
+    "UK Kidney Association 2020",
+    "ERC 2021, Cardiac arrest in special circumstances"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan et diagnostic positif : démarche en urgence",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu obtiens ECG et gazométrie en minutes, tu traites sur l'ECG et tu cherches ensuite cause et diagnostics différentiels.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Bradycardie sévère ou suspicion d'hyperkaliémie/intoxication",
+     "i": "Un contexte rénal ou médicamenteux suffit à déclencher la démarche monitorée.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Scope, 2 VVP, ECG 12 dérivations immédiat, glycémie capillaire",
+     "i": "L'ECG et la glycémie guident le traitement sans délai ; le scope détecte l'arrêt imminent.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Gazométrie avec ionogramme (K+, pH, lactate)",
+     "i": "La kaliémie sur gaz est disponible en quelques minutes, plus vite que le laboratoire central.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "ECG anormal (T amples, PR long, QRS larges) ou instabilité",
+     "i": "Le calcium est donné sans attendre : le risque de FV/asystolie dépasse le risque du calcium.",
+     "pec": "hyperk_menacante",
+     "notion": "c4"
+    },
+    {
+     "id": "n5",
+     "parent": "n3",
+     "t": "K+ ≥ 6,5 mmol/L ou K+ élevé avec ECG anormal",
+     "i": "Hyperkaliémie menaçante confirmée : transfert intracellulaire et élimination s'ajoutent au calcium.",
+     "pec": "hyperk_menacante",
+     "notion": "c1"
+    },
+    {
+     "id": "n6",
+     "parent": "n3",
+     "t": "K+ élevé isolé, ECG et clinique normaux",
+     "i": "Suspecte une pseudo-hyperkaliémie (hémolyse, thrombocytose) : contrôle sur gaz ou nouveau prélèvement, sans retarder le traitement si l'ECG est anormal.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n3",
+     "t": "K+ normal, bradycardie avec BB, IC ou digoxine",
+     "i": "L'intoxication devient le diagnostic ; dose la digoxinémie au moins 6 h après la prise.",
+     "pec": "intox_bradycardisante",
+     "notion": "c2"
+    },
+    {
+     "id": "n8",
+     "parent": "n7",
+     "t": "Glycémie : hyperglycémie + hypotension ou hypoglycémie",
+     "i": "L'hyperglycémie oriente vers un inhibiteur calcique ; l'hypoglycémie plutôt vers un bêtabloquant, surtout chez l'enfant.",
+     "pec": null,
+     "notion": "c2"
+    },
+    {
+     "id": "n9",
+     "parent": "n2",
+     "t": "Bilan complémentaire : créatinine, urée, HCO3-, CK, troponine, TSH si besoin",
+     "i": "Il recherche rhabdomyolyse, ischémie, insuffisance rénale ou hypothyroïdie, causes et facteurs aggravants.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n10",
+     "parent": "n2",
+     "t": "Diagnostics différentiels : BAV complet, dysfonction sinusale, infarctus inférieur, hypothermie, hypothyroïdie, hypertonie vagale",
+     "i": "Ils expliquent une bradycardie sans K+ élevé ; l'échographie au lit évalue la fonction VG et le volume en cas de choc.",
+     "pec": null,
+     "notion": null
+    }
+   ],
+   "points": [
+    "Le toxicologique urinaire ou sanguin sert peu en urgence : il cherche les co-ingestions, tandis que Tox Info Suisse (145) guide la conduite.",
+    "La digoxinémie n'est interprétable qu'au moins 6 h après la dernière prise.",
+    "L'ECG et la kaliémie confirment le diagnostic : hyperkaliémie avec anomalies ECG ou contexte d'intoxication."
+   ],
+   "sources": [
+    "UK Kidney Association 2020",
+    "ERC 2021",
+    "Tox Info Suisse"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Hyperkaliémie menaçante : escalade thérapeutique",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Tu protèges d'abord le myocarde, puis tu transfères le K+ dans les cellules, puis tu l'élimines.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Hyperkaliémie menaçante (ECG anormal ou K+ ≥ 6,5)",
+     "i": "Définition de l'urgence vitale : traitement sous scope en salle de déchocage.",
+     "pec": "hyperk_menacante",
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "1. Gluconate de calcium 10 % 10 mL IV en 2–5 min",
+     "i": "Il agit en 1–3 min pour 30–60 min ; il antagonise la membrane sans baisser K+ ; répéter jusqu'à 30 mL si l'ECG reste anormal.",
+     "pec": "hyperk_menacante",
+     "notion": "c2"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "2. Insuline rapide 10 UI + glucose 25 g IV",
+     "i": "Effet en 15–30 min pendant 4–6 h ; risque d'hypoglycémie jusqu'à 6 h, surtout en insuffisance rénale.",
+     "pec": "hyperk_menacante",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "2 bis. Salbutamol nébulisé 10–20 mg",
+     "i": "Il baisse K+ en environ 30 min, effet additif à l'insuline ; atténué sous bêtabloquant non sélectif.",
+     "pec": "hyperk_menacante",
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Bicarbonate si acidose métabolique sévère",
+     "i": "Son effet isolé sur K+ reste faible ; il ne se réserve qu'à l'acidose sévère.",
+     "pec": "hyperk_menacante",
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "3. Élimination du K+",
+     "i": "Aucune mesure précédente n'élimine le K+ du corps : sans élimination, un rebond survient.",
+     "pec": "hyperk_menacante",
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Diurèse conservée : furosémide ; chélateur (SZC, patiromer)",
+     "i": "Le furosémide exige une diurèse et une volémie suffisantes ; les chélateurs fixent le K+ digestif, avec un effet lent pour le patiromer.",
+     "pec": "hyperk_menacante",
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n6",
+     "t": "Anurie, hyperkaliémie réfractaire ou instabilité : hémodialyse urgente",
+     "i": "C'est le seul traitement efficace et rapide sans rein fonctionnel ; avis du néphrologue immédiat.",
+     "pec": "hyperk_menacante",
+     "notion": null
+    },
+    {
+     "id": "n9",
+     "parent": "n1",
+     "t": "Arrêt cardiaque : ACLS + calcium + traitement K+",
+     "i": "L'hyperkaliémie est une cause réversible (4H/4T) du protocole ACLS.",
+     "pec": "hyperk_menacante",
+     "notion": null
+    }
+   ],
+   "points": [
+    "L'atropine est souvent inefficace dans l'hyperkaliémie, et la stimulation transcutanée peut échouer à capturer.",
+    "Le calcium ne se mélange pas au bicarbonate sur la même voie (précipitation)."
+   ],
+   "sources": [
+    "UK Kidney Association 2020",
+    "ERC 2021",
+    "AIPS Swissmedic, Lokelma"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Intoxications bradycardisantes : antidotes et escalade",
+   "rubriques": [
+    "acuteManagement",
+    "hospitalizationComplications"
+   ],
+   "comment": "Tu appelles Tox Info Suisse (145) tôt et tu adaptes l'antidote au toxique.",
+   "tableau": {
+    "colonnes": [
+     "Toxique",
+     "Traitement spécifique",
+     "Si réfractaire",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Bêtabloquants",
+      [
+       {
+        "t": "Glucagon 5–10 mg IV puis perfusion",
+        "i": "Il stimule l'AMPc en contournant le récepteur β bloqué."
+       }
+      ],
+      [
+       {
+        "t": "Calcium, insuline haute dose, noradrénaline, émulsion lipidique, ECMO",
+        "i": "Ces mesures escaladent de l'inotropie à l'assistance circulatoire."
+       }
+      ],
+      [
+       {
+        "t": "Vomissements, hypokaliémie, convulsions avec propranolol",
+        "i": "Les vomissements imposent de protéger les voies aériennes ; le propranolol lipophile élargit les QRS et convulse."
+       }
+      ]
+     ],
+     [
+      "Inhibiteurs calciques",
+      [
+       {
+        "t": "Calcium IV + insuline 1 UI/kg puis 0,5–1 UI/kg/h avec glucose",
+        "i": "L'insuline haute dose améliore l'inotropie métabolique."
+       }
+      ],
+      [
+       {
+        "t": "Noradrénaline, émulsion lipidique, ECMO",
+        "i": "Le choc est mixte (vasoplégie et bradycardie) : la vasopression s'ajoute au chronotrope."
+       }
+      ],
+      [
+       {
+        "t": "Contrôle strict glycémie et kaliémie",
+        "i": "L'insuline haute dose expose à l'hypoglycémie et à l'hypokaliémie."
+       }
+      ]
+     ],
+     [
+      "Digoxine",
+      [
+       {
+        "t": "Fragments Fab anti-digoxine, après avis de Tox Info",
+        "i": "Indiqués pour arythmie ventriculaire, bradycardie réfractaire ou hyperkaliémie importante."
+       }
+      ],
+      [
+       {
+        "t": "Correction de K+, atropine, stimulation",
+        "i": "L'atropine peut échouer en cas de bloc nodal sévère."
+       }
+      ],
+      [
+       {
+        "t": "Digoxinémie totale non interprétable après Fab",
+        "i": "La digoxine liée au Fab reste mesurée : la surveillance devient clinique et ECG."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'atropine est souvent inefficace dans les intoxications aux bêtabloquants ou aux inhibiteurs calciques.",
+    "Un choc réfractaire justifie l'émulsion lipidique ou l'ECMO, avec avis de Tox Info Suisse.",
+    "En cas d'intoxication volontaire, l'évaluation psychiatrique du risque suicidaire précède toute sortie."
+   ],
+   "sources": [
+    "Tox Info Suisse",
+    "ERC 2021, Cardiac arrest in special circumstances"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications, surveillance et pièges du traitement",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance"
+   ],
+   "comment": "Tu surveilles rebond de K+ et hypoglycémie, car chaque traitement a une durée plus courte que la cause.",
+   "tableau": {
+    "colonnes": [
+     "Complication",
+     "Moment",
+     "Prévention / réponse"
+    ],
+    "lignes": [
+     [
+      "Asystolie, FV",
+      [
+       {
+        "t": "Avant ou pendant la prise en charge",
+        "i": "L'hyperkaliémie sévère non traitée évolue vers l'arrêt ; l'ACLS inclut le traitement spécifique."
+       }
+      ],
+      "Calcium immédiat, ACLS, dialyse précoce."
+     ],
+     [
+      "Hyperkaliémie de rebond",
+      [
+       {
+        "t": "Quand l'effet de l'insuline et du salbutamol disparaît",
+        "i": "Le K+ réintègre le sang si le corps ne l'élimine pas ; risque max en anurie non dialysée."
+       }
+      ],
+      "Éliminer : chélateurs, diurétique, dialyse ; K+ recontrôlé dans l'heure."
+     ],
+     [
+      "Hypoglycémie",
+      [
+       {
+        "t": "Jusqu'à 6 h après insuline",
+        "i": "L'insuline s'élimine mal en insuffisance rénale ; la perfusion de glucose prévient l'hypoglycémie."
+       }
+      ],
+      "Glycémie horaire pendant 6 h."
+     ],
+     [
+      "Échec atropine et pacing",
+      [
+       {
+        "t": "Bradycardie réfractaire",
+        "i": "La cause métabolique ou toxique n'est pas vagale : l'atropine échoue et le myocarde ne capture pas."
+       }
+      ],
+      "Traiter la cause (calcium, antidote), catécholamines, ECMO."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le patient reste sous scope continu, avec ECG répétés jusqu'à normalisation et stabilité hémodynamique.",
+    "La kaliémie est recontrôlée dans l'heure, puis régulièrement pendant au moins 6 h jusqu'à stabilisation.",
+    "Après Fab, la digoxinémie totale ne reflète plus l'activité de la digoxine."
+   ],
+   "sources": [
+    "UK Kidney Association 2020",
+    "ERC 2021"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Suivi, prévention de la récidive et réseau",
+   "rubriques": [
+    "chronicManagement",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Tu préviens la récidive en révisant les médicaments, en adaptant l'alimentation et en impliquant médecin de famille et néphrologue.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "L'hyperkaliémie menaçante est rapidement réversible si calcium et correction débutent avant l'arrêt cardiaque.",
+    "L'intoxication sévère par BB ou IC garde une mortalité élevée en cas de choc réfractaire et exige les soins intensifs.",
+    "Tu réévalues IEC, ARA2, antagonistes de l'aldostérone, AINS, triméthoprime et adaptes la digoxine à la fonction rénale.",
+    "Lokelma (SZC) et Veltassa (patiromer), autorisés en Suisse, permettent de poursuivre le blocage du SRAA.",
+    "Le réseau comprend Tox Info Suisse (145), ambulance (144), néphrologue, médecin de famille et psychiatrie de liaison."
+   ],
+   "sources": [
+    "AIPS Swissmedic, Lokelma, Veltassa",
+    "KDIGO 2020, Controversies Conference on potassium",
+    "Tox Info Suisse"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "hyperk_menacante",
+   "titre": "Hyperkaliémie menaçante avec bradycardie sévère (urgence)",
+   "but": [
+    "Protéger le myocarde en moins de 5 minutes par le calcium IV.",
+    "Abaisser la kaliémie par transfert intracellulaire puis par élimination.",
+    "Identifier et traiter la cause (insuffisance rénale, médicaments)."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installer le patient en salle de déchocage sous scope, SpO2 et tensiomètre.",
+     "Poser deux voies veineuses et placer défibrillateur et électrodes à portée.",
+     "Réaliser un ECG 12 dérivations immédiat et une gazométrie avec ionogramme.",
+     "Suspendre IEC, ARA2, antagonistes de l'aldostérone, AINS, apports de K+."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Gluconate de calcium 10 % (antagoniste membranaire)",
+      "posologie": "10 mL IV en 2–5 min sous scope ; répéter après 5–10 min si l'ECG reste anormal, jusqu'à 30 mL ; effet 1–3 min, durée 30–60 min.",
+      "pourquoi": "Il antagonise la dépolarisation du K+ en quelques minutes, mais ne baisse pas la kaliémie ; ne pas mélanger au bicarbonate.",
+      "source": "[UK Kidney Association, 2020 ; ERC, 2021]"
+     },
+     {
+      "molecule": "Insuline rapide + glucose 50 % (transfert intracellulaire)",
+      "posologie": "10 UI IV avec glucose 50 % 25 g (50 mL) ; effet 15–30 min pendant 4–6 h ; perfusion de glucose si glycémie basse.",
+      "pourquoi": "L'insuline fait entrer le K+ dans les cellules ; le risque d'hypoglycémie dure jusqu'à 6 h, surtout en insuffisance rénale.",
+      "source": "[UK Kidney Association, 2020]"
+     },
+     {
+      "molecule": "Salbutamol (β2-agoniste)",
+      "posologie": "10–20 mg nébulisé ; baisse de la kaliémie en environ 30 min.",
+      "pourquoi": "Effet additif à l'insuline ; atténué sous bêtabloquant non sélectif, avec tachycardie possible.",
+      "source": "[UK Kidney Association, 2020]"
+     },
+     {
+      "molecule": "Bicarbonate de sodium 8,4 % (alcalinisant)",
+      "posologie": "50 mmol IV en perfusion rapide, uniquement si acidose métabolique sévère.",
+      "pourquoi": "Son effet isolé sur la kaliémie est faible : il se réserve à l'acidose sévère, sans mélange avec le calcium.",
+      "source": "[ERC, 2021]"
+     },
+     {
+      "molecule": "Furosémide (diurétique de l'anse)",
+      "posologie": "40–80 mg IV si diurèse conservée et volémie suffisante.",
+      "pourquoi": "Il élimine le K+ par voie urinaire ; inutile en anurie et délétère en hypovolémie.",
+      "source": "[UK Kidney Association, 2020]"
+     },
+     {
+      "molecule": "Cyclosilicate de sodium-zirconium (Lokelma, chélateur)",
+      "posologie": "10 g per os 3×/j jusqu'à 48 h, puis dose d'entretien adaptée à la kaliémie.",
+      "pourquoi": "Il fixe le K+ digestif sans attendre la dialyse, avec un début d'action en environ 1 h ; patiromer trop lent en urgence.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Organiser une hémodialyse urgente en cas d'anurie, d'hyperkaliémie réfractaire ou d'instabilité.",
+      "pourquoi": "C'est le seul traitement qui élimine rapidement le K+ sans rein fonctionnel."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Appliquer l'ACLS en cas d'arrêt, avec calcium et traitement de l'hyperkaliémie, ou stimulation transcutanée si bradycardie réfractaire.",
+      "pourquoi": "L'hyperkaliémie est une cause réversible d'arrêt ; la stimulation peut échouer à capturer."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveiller diurèse horaire, glycémie horaire et pose d'une sonde vésicale si nécessaire.",
+      "pourquoi": "La diurèse oriente le furosémide ; la glycémie prévient l'hypoglycémie post-insuline."
+     },
+     {
+      "categorie": "nutrition",
+      "mesure": "Suspendre tout apport de potassium (perfusions, suppléments, substituts du sel).",
+      "pourquoi": "Il évite d'ajouter du K+ à un patient incapable de l'excréter."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "Néphrologie et médecine intensive",
+      "apport": "Décide de l'hémodialyse urgente et conduit la surveillance en soins intensifs."
+     },
+     {
+      "discipline": "Pharmacologie clinique",
+      "apport": "Repère les interactions et les médicaments hyperkaliémiants responsables de l'épisode."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Traiter sans attendre le laboratoire central dès que l'ECG est anormal.",
+      "Rechercher en parallèle la cause et les facteurs aggravants.",
+      "Appeler l'ambulance 144 si le patient se présente hors hôpital."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Reconnaît l'instabilité, demande scope, ECG 12 dérivations et gazométrie, puis prescrit le calcium."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose deux voies veineuses, branche le scope, prélève gazométrie et mesure la glycémie capillaire."
+      },
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Injecte le gluconate de calcium sous scope dès ECG anormal, sans attendre le laboratoire."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Prescrit insuline + glucose et salbutamol, ajoute le bicarbonate si acidose sévère."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Interroge cause et médicaments, contacte le néphrologue pour l'hémodialyse urgente."
+      },
+      {
+       "temps": "puis",
+       "qui": "infirmier·ère",
+       "fait": "Recontrôle la kaliémie à 1 h et surveille la glycémie chaque heure pendant 6 h."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Répète le calcium si l'ECG reste anormal et lance l'ACLS en cas d'arrêt."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Réversible rapidement si calcium et correction débutent avant l'arrêt cardiaque ; sans traitement, l'évolution vers asystolie ou FV est possible.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Rythme et ECG",
+      "quand": "Continu jusqu'à stabilité, ECG répétés",
+      "cible": "Normalisation des T, PR et QRS (< 120 ms)"
+     },
+     {
+      "quoi": "Kaliémie",
+      "quand": "1 h après traitement, puis régulièrement ≥ 6 h",
+      "cible": "< 5,5 mmol/L, stable sans rebond"
+     },
+     {
+      "quoi": "Glycémie",
+      "quand": "Chaque heure pendant 6 h après insuline",
+      "cible": "Pas d'hypoglycémie"
+     },
+     {
+      "quoi": "Diurèse et créatinine",
+      "quand": "Horaire puis quotidien",
+      "cible": "Diurèse conservée, fonction rénale stable"
+     }
+    ],
+    "sortie": "Sortie après normalisation de l'ECG, kaliémie stable < 5,5 mmol/L sans traitement aigu, cause traitée, hémodynamique stable et suivi néphrologique organisé."
+   },
+   "prevention": {
+    "primaire": "Surveille K+ et créatinine sous IEC/ARA2/antagonistes de l'aldostérone et évite l'association avec AINS chez le patient âgé.",
+    "secondaire": "Contrôle la kaliémie dans les 1–2 semaines après toute modification du traitement bloquant le SRAA.",
+    "tertiaire": "Maintient le rythme de dialyse et adapte médicaments et alimentation pour éviter la récidive."
+   }
+  },
+  {
+   "cle": "intox_bradycardisante",
+   "titre": "Intoxication par bêtabloquant, inhibiteur calcique ou digoxine",
+   "but": [
+    "Restaurer fréquence et perfusion par l'antidote adapté.",
+    "Limiter l'absorption et prévenir le choc réfractaire.",
+    "Sécuriser le patient après une intoxication volontaire."
+   ],
+   "moyens": {
+    "accueil": [
+     "Appeler Tox Info Suisse (145) dès l'arrivée du patient.",
+     "Brancher scope, voie veineuse, glycémie capillaire et ECG 12 dérivations.",
+     "Préciser substance, dose, heure, forme retard et co-ingestions avec hétéro-anamnèse et emballages.",
+     "Protéger les voies aériennes avant tout charbon actif, si l'ingestion est récente et sur avis Tox Info."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Glucagon (hormone, antidote des bêtabloquants)",
+      "posologie": "5–10 mg IV en bolus, puis perfusion continue ; antiémétique associé.",
+      "pourquoi": "Il stimule l'AMPc en contournant les récepteurs β bloqués ; il provoque vomissements et hypokaliémie.",
+      "source": "[Tox Info Suisse]"
+     },
+     {
+      "molecule": "Calcium IV (gluconate ou chlorure, intoxication aux inhibiteurs calciques)",
+      "posologie": "Gluconate 10 % 30 mL IV, à répéter selon la PAM et la fréquence, sous scope.",
+      "pourquoi": "Il augmente le calcium disponible pour les canaux de type L et soutient l'inotropie.",
+      "source": "[Tox Info Suisse]"
+     },
+     {
+      "molecule": "Insuline à haute dose + glucose (inotrope métabolique)",
+      "posologie": "1 UI/kg IV, puis 0,5–1 UI/kg/h avec glucose et K+ surveillés.",
+      "pourquoi": "Elle améliore l'inotropie myocardique dans le choc par inhibiteur calcique ; la glycémie et la kaliémie restent à contrôler.",
+      "source": "[Tox Info Suisse]"
+     },
+     {
+      "molecule": "Fragments Fab anti-digoxine (immunothérapie)",
+      "posologie": "Dose calculée selon quantité ingérée ou digoxinémie, avec Tox Info Suisse.",
+      "pourquoi": "Ils fixent la digoxine libre en cas d'arythmie ventriculaire, de bradycardie réfractaire ou d'hyperkaliémie importante.",
+      "source": "[Tox Info Suisse]"
+     },
+     {
+      "molecule": "Atropine (anticholinergique)",
+      "posologie": "0,5 mg IV, répétable jusqu'à 3 mg au total.",
+      "pourquoi": "Il est tenté en première intention, mais souvent inefficace dans les intoxications BB/IC et dans l'hyperkaliémie.",
+      "source": "[ERC, 2021]"
+     },
+     {
+      "molecule": "Noradrénaline (vasopresseur)",
+      "posologie": "Perfusion IV titrée sur une PAM ≥ 65 mmHg.",
+      "pourquoi": "Elle corrige la vasoplégie des inhibiteurs calciques quand la bradycardie ne cède pas aux antidotes.",
+      "source": "[ERC, 2021]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Prévoir stimulation transcutanée, émulsion lipidique ou ECMO en cas de choc réfractaire.",
+      "pourquoi": "Ces mesures de dernier recours soutiennent la circulation quand les antidotes échouent."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveiller glycémie, kaliémie, état de conscience et vomissements pendant l'antidote.",
+      "pourquoi": "Glucagon et insuline à haute dose perturbent glycémie et kaliémie."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Faire évaluer le risque suicidaire par la psychiatrie après stabilisation d'une intoxication volontaire.",
+      "pourquoi": "La sortie sans évaluation expose à la récidive."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Limiter l'accès aux médicaments à risque à domicile.",
+      "pourquoi": "La prévention secondaire réduit le risque de récidive."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Encadre le secret médical, la capacité de discernement et le placement à des fins d'assistance si danger vital."
+     },
+     {
+      "discipline": "Toxicologie clinique (Tox Info Suisse 145)",
+      "apport": "Donne 24 h/24 la dose d'antidote et la durée de surveillance selon la substance."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Appeler Tox Info Suisse (145) tôt et documenter heure et dose.",
+      "Rechercher l'hyperkaliémie associée dans l'intoxication à la digoxine.",
+      "Transférer en soins intensifs tout choc ou bradycardie réfractaire."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue l'instabilité, demande scope, ECG, glycémie, gazométrie et appelle Tox Info Suisse."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose deux voies veineuses, branche le scope et recueille emballages et heure de prise."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Donne l'antidote : glucagon pour BB, calcium et insuline pour IC, Fab pour digoxine."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Cherche une co-ingestion et traite l'hyperkaliémie associée, surtout avec la digoxine."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Ajoute noradrénaline, émulsion lipidique ou ECMO si le choc persiste, avec avis des soins intensifs."
+      },
+      {
+       "temps": "puis",
+       "qui": "psychiatre",
+       "fait": "Évalue le risque suicidaire avant toute sortie après intoxication volontaire."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La mortalité reste élevée en cas de choc réfractaire aux inhibiteurs calciques ou aux bêtabloquants ; l'évolution est favorable sous antidote précoce et soins intensifs.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Rythme, ECG, pression artérielle",
+      "quand": "Scope continu, ECG répétés",
+      "cible": "FC et PAM stables, QRS non élargi"
+     },
+     {
+      "quoi": "Glycémie et kaliémie",
+      "quand": "Chaque heure sous insuline ou glucagon",
+      "cible": "Pas d'hypoglycémie ni de dyskaliémie"
+     },
+     {
+      "quoi": "État de conscience, convulsions",
+      "quand": "Continu en soins intensifs",
+      "cible": "Conscience stable, pas de convulsions"
+     },
+     {
+      "quoi": "Suivi après Fab",
+      "quand": "Clinique et ECG répétés",
+      "cible": "Digoxinémie totale non interprétable ; suivre clinique et ECG"
+     }
+    ],
+    "sortie": "Sortie après disparition de la bradycardie et du bloc, stabilité hémodynamique sans antidote, durée de surveillance fixée avec Tox Info, et évaluation psychiatrique si intoxication volontaire."
+   },
+   "prevention": {
+    "primaire": "Adapte la digoxine à la fonction rénale et sécurise le stockage des médicaments à domicile.",
+    "secondaire": "Évalue le risque suicidaire et limite l'accès aux médicaments à risque après intoxication volontaire.",
+    "tertiaire": "Suit médecin de famille et psychiatre pour éviter la récidive."
+   }
+  },
+  {
+   "cle": "suivi_prevention",
+   "titre": "Prévention de la récidive et suivi au long cours",
+   "but": [
+    "Éviter la récidive de l'hyperkaliémie sans renoncer au blocage du SRAA utile.",
+    "Réviser les médicaments et adapter la digoxine à la fonction rénale."
+   ],
+   "moyens": {
+    "accueil": [
+     "Revoir la liste complète des médicaments, y compris AINS en vente libre et substituts du sel.",
+     "Fixer un contrôle de kaliémie et de créatinine avec le médecin de famille et le néphrologue."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Cyclosilicate de sodium-zirconium (Lokelma, chélateur)",
+      "posologie": "Entretien 5–10 g/j per os selon la kaliémie, après phase initiale ; adaptation selon AIPS.",
+      "pourquoi": "Il permet de poursuivre IEC/ARA2/ARM en hyperkaliémie chronique ; attention à l'œdème (teneur en sodium).",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Patiromer (Veltassa, chélateur)",
+      "posologie": "Début 8,4 g 1×/j per os, titrer selon la kaliémie ; espacer de 3 h des autres médicaments oraux.",
+      "pourquoi": "Il maintient le traitement bloqueur du SRAA, mais son effet lent exclut l'urgence.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer l'arrêt des AINS et des substituts du sel, et le rythme des dialyses.",
+      "pourquoi": "Ces causes évitables reviennent souvent comme facteur déclenchant."
+     },
+     {
+      "categorie": "nutrition",
+      "mesure": "Prescrire un régime pauvre en potassium avec diététicien·ne chez l'insuffisant rénal chronique.",
+      "pourquoi": "L'apport alimentaire s'ajoute à l'excrétion réduite."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Respecter strictement le rythme de dialyse chez le patient dialysé.",
+      "pourquoi": "Une dialyse manquée est une cause fréquente d'hyperkaliémie menaçante."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Organise l'aide à domicile et les démarches de prise en charge pour dialyse et médicaments."
+     },
+     {
+      "discipline": "Médecine de famille et néphrologie",
+      "apport": "Coordonne le contrôle de K+ et la réévaluation du traitement."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Réévaluer chaque médicament hyperkaliémiant à chaque consultation.",
+      "Contrôler K+ et créatinine 1–2 semaines après toute modification du traitement.",
+      "Adapter la digoxine à la fonction rénale."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin de famille",
+       "fait": "Révise IEC, ARA2, antagonistes de l'aldostérone, AINS et triméthoprime selon indication et fonction rénale."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "néphrologue",
+       "fait": "Ajuste la prise en charge de l'insuffisance rénale et le rythme de dialyse."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "diététicien·ne",
+       "fait": "Instaure un régime pauvre en potassium et retire les substituts du sel."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Respecte dialyses et traitements, évite les AINS et consulte en cas de faiblesse ou d'oligurie."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin de famille",
+       "fait": "Recontrôle la kaliémie et décide d'un chélateur pour poursuivre le blocage du SRAA."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le risque de récidive reste élevé chez l'insuffisant rénal tant que les facteurs déclenchants persistent ; il diminue avec révision médicamenteuse et suivi néphrologique.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Kaliémie et créatinine",
+      "quand": "1–2 semaines après changement thérapeutique, puis périodiquement",
+      "cible": "Kaliémie < 5,5 mmol/L"
+     },
+     {
+      "quoi": "Adhésion aux dialyses et au régime",
+      "quand": "À chaque consultation",
+      "cible": "Aucune dialyse manquée"
+     },
+     {
+      "quoi": "Digoxinémie si traitement",
+      "quand": "Après tout changement de dose ou de fonction rénale",
+      "cible": "Dans la zone thérapeutique"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée possible si ECG normal, kaliémie < 5,5 mmol/L stable et suivi organisé."
+   },
+   "prevention": {
+    "primaire": "Évite l'association IEC/ARA2 + antagoniste de l'aldostérone + AINS chez le patient âgé, diabétique ou insuffisant rénal.",
+    "secondaire": "Dose K+ et créatinine après chaque modification du traitement SRAA et en cas de déshydratation.",
+    "tertiaire": "Maintient chélateur, régime et dialyses pour éviter une nouvelle hyperkaliémie menaçante."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 8299,
+  "output_tokens": 27566,
+  "output_tokens_details": {
+   "thinking_tokens": 8963
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:58:05",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

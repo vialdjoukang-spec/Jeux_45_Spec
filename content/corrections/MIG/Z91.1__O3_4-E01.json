@@ -1,0 +1,1122 @@
+{
+ "id": "Z91.1__O3_4-E01",
+ "portes": [
+  {
+   "ssp": "O3.4",
+   "nomSSP": "Patient polymorbide et polymédiqué",
+   "entite": "Polymédication inappropriée et cascade prescriptrice",
+   "entiteId": "O3.4-E01"
+  }
+ ],
+ "entite": "Polymédication inappropriée et cascade prescriptrice",
+ "cim10": "Z91.1",
+ "ssp": {
+  "code": "O3.4",
+  "nom": "Patient polymorbide et polymédiqué",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient polymorbide ≥ 5 médicaments par jour",
+    "i": "La polymédication se définit par la prise chronique simultanée d'au moins 5 médicaments.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Effet indésirable aigu grave ?",
+    "i": "Insuffisance rénale aiguë, hyperkaliémie, hémorragie, syndrome sérotoninergique, intoxication digoxine ou acidose lactique imposent d'agir d'abord.",
+    "pec": null,
+    "notion": "c8"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : arrêter les médicaments en cause et stabiliser",
+    "i": "Arrêt immédiat de l'IEC, du diurétique et de l'AINS ; puis renvoi vers le SSP de la présentation (insuffisance rénale aiguë, hémorragie, intoxication).",
+    "pec": "pec_urgence",
+    "notion": "c8"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : revue structurée (anamnèse chronologique, brown bag, bilan de base)",
+    "i": "Le bilan comprend créatinine selon Cockcroft-Gault, Na, K, glycémie, hémogramme, tests hépatiques, ECG si QT.",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Drapeau rouge présent ?",
+    "i": "Triple whammy, ≥ 2 sédatifs, ACB ≥ 3, marge étroite avec DFG bas ou QT allongé imposent une correction prioritaire.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Oui : corriger en priorité l'association à risque",
+    "i": "On arrête ou adapte l'association dangereuse et on contrôle créatinine, K et taux plasmatique.",
+    "pec": "pec_deprescription",
+    "notion": "c6"
+   },
+   {
+    "id": "n7",
+    "parent": "n5",
+    "t": "Non : symptôme apparu après l'ajout d'un médicament ?",
+    "i": "La chronologie est l'indice principal d'une cascade prescriptrice.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Oui : cascade prescriptrice probable",
+    "i": "On arrête ou remplace le premier médicament (dechallenge) puis on retire le second.",
+    "pec": "pec_cascade",
+    "notion": "c4"
+   },
+   {
+    "id": "n9",
+    "parent": "n7",
+    "t": "Non : oublis, arrêts ou doublons entre pharmacies ?",
+    "i": "La non-adhésion change la conduite : on simplifie le schéma au lieu d'ajouter un traitement.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "Oui : simplifier, semainier, eMediplan, Polymedikationscheck",
+    "i": "Le semainier préparé en pharmacie et le plan partagé réduisent erreurs et non-adhésion.",
+    "pec": "pec_deprescription",
+    "notion": "c8"
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "Non : revue STOPP/START v3",
+    "i": "Elle identifie médicaments inappropriés (STOPP) et omissions (START).",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Médicament inapproprié ou sans indication",
+    "i": "Déprescription progressive et partagée, 1 à 2 molécules à la fois.",
+    "pec": "pec_deprescription",
+    "notion": "c8"
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "Polymédication appropriée",
+    "i": "Chaque médicament a une indication actuelle, un bénéfice démontré et une bonne tolérance : on maintient, on corrige les omissions START et on réévalue au moins une fois par an.",
+    "pec": null,
+    "notion": "c1"
+   }
+  ]
+ },
+ "specialites": [
+  "MIG"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Polymédication inappropriée et cascade prescriptrice",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définitions : polymédication, cascade, caractère approprié",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Compte d'abord les médicaments, puis demande pour chacun s'il a une indication actuelle, un bénéfice démontré et une bonne tolérance.",
+   "tableau": {
+    "colonnes": [
+     "Notion",
+     "Critère",
+     "Discriminant",
+     "Conséquence pratique"
+    ],
+    "lignes": [
+     [
+      "Polymédication",
+      "≥ 5 médicaments pris de façon chronique et simultanée",
+      [
+       {
+        "t": "Seuil quantitatif seul",
+        "i": "Le chiffre définit l'exposition au risque, pas la faute : on peut prescrire 5 médicaments tous justifiés."
+       }
+      ],
+      "Déclenche la revue de médication."
+     ],
+     [
+      "Hyperpolymédication",
+      "≥ 10 médicaments",
+      [
+       {
+        "t": "Risque d'interaction qui augmente avec le nombre",
+        "i": "Le risque d'effet indésirable croît de façon non linéaire avec le nombre de molécules, d'où priorité à la revue."
+       }
+      ],
+      "Revue plus fréquente, souvent interprofessionnelle."
+     ],
+     [
+      "Polymédication appropriée",
+      "Chaque médicament a une indication actuelle, un bénéfice démontré et une bonne tolérance",
+      [
+       {
+        "t": "Aucune déprescription systématique",
+        "i": "Arrêter un traitement utile expose à des omissions (critères START) ; le but est la pertinence, pas la réduction du nombre."
+       }
+      ],
+      "On maintient et on réévalue à échéance."
+     ],
+     [
+      "Polymédication inappropriée",
+      "Médicament à risque ou sans indication (STOPP) ou omission d'un traitement indiqué (START)",
+      [
+       {
+        "t": "Cascade prescriptrice",
+        "i": "Un médicament est ajouté pour traiter l'effet indésirable d'un autre, pris à tort pour une maladie nouvelle ; la solution est d'arrêter le premier."
+       }
+      ],
+      "Déprescription progressive et partagée avec le patient."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Polymédication ≥ 5 ; hyperpolymédication ≥ 10 médicaments.",
+    "Cascade prescriptrice : le symptôme nouveau est un effet indésirable pris pour une maladie.",
+    "STOPP = trop ou mal prescrit ; START = omission d'un traitement indiqué.",
+    "Polymédication appropriée possible : ne pas déprescrire par principe."
+   ],
+   "sources": [
+    "STOPP/START v3 (O'Mahony, 2023)",
+    "OFSP"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie et facteurs de risque",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Cherche la polymédication chez tout patient âgé, surtout s'il a plusieurs prescripteurs ou vient de changer de lieu de soins.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "En Suisse, plus de 40 % des patients de plus de 75 ans prennent au moins 5 médicaments par jour.",
+    "Facteurs de risque : grand âge, nombre de prescripteurs, transitions de soins, troubles cognitifs.",
+    "Chaque transition (admission, sortie, EMS) est un moment de rupture où se créent doublons et omissions."
+   ],
+   "sources": [
+    "OFSP",
+    "Littérature suisse sur la polymédication"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Pharmacologie du sujet âgé : pourquoi le risque augmente",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Relie chaque changement physiologique à la molécule qui s'accumule ou agit plus fort, puis adapte la dose au profil rénal et cérébral du patient.",
+   "tableau": {
+    "colonnes": [
+     "Modification",
+     "Mécanisme",
+     "Molécules typiques",
+     "Conséquence"
+    ],
+    "lignes": [
+     [
+      "Baisse du DFG",
+      [
+       {
+        "t": "Élimination rénale réduite",
+        "i": "Les médicaments éliminés sous forme active par le rein s'accumulent ; le dosage doit suivre la clairance, pas l'âge."
+       }
+      ],
+      "Digoxine, lithium, metformine, AOD, gabapentinoïdes",
+      "Toxicité : bradycardie, acidose lactique, hémorragie, sédation."
+     ],
+     [
+      "Baisse de l'albumine",
+      [
+       {
+        "t": "Fraction libre augmentée",
+        "i": "Seule la fraction libre est active : un médicament fortement lié à l'albumine devient plus puissant à dose égale."
+       }
+      ],
+      "Warfarine, phénytoïne",
+      "Effet accru malgré une dose stable."
+     ],
+     [
+      "Masse grasse ↑, eau corporelle ↓",
+      [
+       {
+        "t": "Volume de distribution des lipophiles ↑",
+        "i": "Une molécule lipophile se stocke dans la graisse : sa demi-vie s'allonge et elle s'accumule en prise répétée."
+       }
+      ],
+      "Diazépam",
+      "Sédation prolongée, chutes."
+     ],
+     [
+      "Sensibilité du SNC ↑ et baroréflexe émoussé",
+      [
+       {
+        "t": "Pharmacodynamie modifiée",
+        "i": "Le cerveau âgé réagit plus aux sédatifs et anticholinergiques, et le baroréflexe émoussé empêche de compenser la vasodilatation."
+       }
+      ],
+      "Benzodiazépines, opioïdes, anticholinergiques, vasodilatateurs",
+      "Confusion, chutes, hypotension orthostatique."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Baisse du DFG : accumulation des médicaments à élimination rénale.",
+    "Baisse de l'albumine : fraction libre accrue (warfarine, phénytoïne).",
+    "Lipophiles : volume de distribution plus grand, demi-vie plus longue (diazépam).",
+    "SNC plus sensible et baroréflexe émoussé : sédation, confusion, hypotension orthostatique."
+   ],
+   "sources": [
+    "AIPS Swissmedic",
+    "STOPP/START v3 (2023)"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Cascades prescriptrices classiques",
+   "rubriques": [
+    "anamnesis",
+    "positiveDiagnosis"
+   ],
+   "comment": "Date chaque symptôme par rapport à l'introduction d'un médicament, puis cherche l'effet indésirable avant d'ajouter un traitement.",
+   "tableau": {
+    "colonnes": [
+     "Médicament initial",
+     "Effet indésirable",
+     "Prescription en cascade",
+     "Solution"
+    ],
+    "lignes": [
+     [
+      "Amlodipine",
+      [
+       {
+        "t": "Œdèmes des membres inférieurs",
+        "i": "L'œdème est dû à une vasodilatation précapillaire et ne répond pas à un diurétique : le diurétique ajouté est donc inutile et nocif."
+       }
+      ],
+      "Diurétique de l'anse",
+      "Réévaluer ou remplacer l'inhibiteur calcique."
+     ],
+     [
+      "IEC",
+      [
+       {
+        "t": "Toux sèche",
+        "i": "La toux vient de l'accumulation de bradykinine, effet de classe des IEC absent des ARA2."
+       }
+      ],
+      "Antitussif ou antibiotique",
+      "Remplacer l'IEC par un ARA2."
+     ],
+     [
+      "Métoclopramide ou neuroleptique",
+      [
+       {
+        "t": "Syndrome parkinsonien",
+        "i": "Le blocage dopaminergique provoque un parkinsonisme secondaire ; un antiparkinsonien n'est qu'un pansement."
+       }
+      ],
+      "Antiparkinsonien",
+      "Arrêter l'agent responsable."
+     ],
+     [
+      "Inhibiteur de la cholinestérase",
+      [
+       {
+        "t": "Incontinence urinaire",
+        "i": "La stimulation cholinergique augmente la contraction vésicale ; l'anticholinergique urinaire annule l'effet pharmacologique du premier."
+       }
+      ],
+      "Anticholinergique urinaire",
+      "Réévaluer le bénéfice de l'inhibiteur de la cholinestérase."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Chronologie compatible, absence d'autre cause, amélioration à l'arrêt (dechallenge) : diagnostic de cascade.",
+    "Amlodipine, œdèmes, furosémide : exemple classique.",
+    "IEC, toux, antitussif : passer à l'ARA2.",
+    "Deux médicaments qui s'annulent (donépézil et oxybutynine) signalent une cascade."
+   ],
+   "sources": [
+    "STOPP/START v3 (2023)",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Anamnèse et examen clinique orientés médicaments",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Demande tout ce que le patient avale, puis examine ce qu'il apporte et ce que ses médicaments ont provoqué.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Ce qu'on cherche",
+     "Seuil ou signe",
+     "Intérêt"
+    ],
+    "lignes": [
+     [
+      "Anamnèse",
+      [
+       {
+        "t": "Automédication, produits sans ordonnance, phytothérapie",
+        "i": "Le patient ne cite pas spontanément AINS, IPP en vente libre ou millepertuis, alors qu'ils créent interactions et néphrotoxicité."
+       }
+      ],
+      "Millepertuis : inducteur du CYP3A4 et de la P-gp",
+      "Explique la baisse d'effet de nombreux médicaments."
+     ],
+     [
+      "Anamnèse",
+      [
+       {
+        "t": "Non-adhésion ou doublons entre pharmacies",
+        "i": "La conduite diffère : on simplifie le schéma au lieu d'ajouter un traitement."
+       }
+      ],
+      "Oublis, arrêts, deux pharmacies",
+      "Distingue non-adhésion et polymédication prescrite."
+     ],
+     [
+      "Examen",
+      [
+       {
+        "t": "Brown bag review",
+        "i": "Voir les boîtes réelles révèle doublons, périmés et traitements sans indication que la liste écrite ne montre pas."
+       }
+      ],
+      "Tous médicaments, ordonnances et produits sans ordonnance apportés",
+      "Base de la conciliation."
+     ],
+     [
+      "Examen",
+      [
+       {
+        "t": "Hypotension orthostatique",
+        "i": "La baisse de pression au lever expose à la chute ; elle est souvent médicamenteuse chez le sujet âgé."
+       }
+      ],
+      "Baisse de PAS ≥ 20 mmHg ou de PAD ≥ 10 mmHg dans les 3 min debout",
+      "Cible antihypertenseurs, diurétiques, psychotropes."
+     ],
+     [
+      "Examen",
+      [
+       {
+        "t": "Syndrome anticholinergique",
+        "i": "La combinaison sécheresse, constipation, rétention, tachycardie, mydriase et confusion pointe vers un cumul d'anticholinergiques."
+       }
+      ],
+      "Sécheresse buccale, constipation, rétention urinaire, tachycardie, mydriase, confusion",
+      "Calculer l'ACB."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Dater chaque symptôme par rapport à un ajout ou changement de médicament.",
+    "Demander automédication, phytothérapie (millepertuis) et nombre de pharmacies.",
+    "Brown bag review : tous les produits, y compris sans ordonnance.",
+    "Hypotension orthostatique : ≥ 20 mmHg de PAS ou ≥ 10 mmHg de PAD en 3 min.",
+    "Somnolence, instabilité, confusion récente : suspecter une surcharge médicamenteuse."
+   ],
+   "sources": [
+    "STOPP/START v3 (2023)",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Drapeaux rouges médicamenteux",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Repère les associations dangereuses dès la lecture de la liste, puis traite-les en priorité avant toute autre déprescription.",
+   "tableau": {
+    "colonnes": [
+     "Drapeau rouge",
+     "Risque",
+     "Discriminant",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Triple whammy",
+      [
+       {
+        "t": "IEC ou ARA2 + diurétique + AINS",
+        "i": "L'AINS réduit la perfusion rénale par la vasoconstriction de l'artériole afférente, tandis que l'IEC/ARA2 dilate l'efférente et que le diurétique déplète le volume."
+       }
+      ],
+      "Insuffisance rénale aiguë et hyperkaliémie, surtout en cas de déshydratation",
+      "Arrêter l'AINS ; suspendre temporairement les autres si déshydratation."
+     ],
+     [
+      "Psychotropes sédatifs",
+      [
+       {
+        "t": "≥ 2 sédatifs (benzodiazépines, Z-drugs, opioïdes, antipsychotiques)",
+        "i": "Les effets sédatifs s'additionnent sur un SNC déjà plus sensible chez le sujet âgé."
+       }
+      ],
+      "Chute, fracture, confusion",
+      "Sevrage progressif, un seul à la fois."
+     ],
+     [
+      "Charge anticholinergique",
+      [
+       {
+        "t": "ACB total ≥ 3",
+        "i": "Ce seuil est associé à un déclin cognitif et à une mortalité accrus."
+       }
+      ],
+      "Confusion, constipation, rétention",
+      "Remplacer les anticholinergiques."
+     ],
+     [
+      "Marge thérapeutique étroite",
+      [
+       {
+        "t": "Digoxine, lithium, AVK + DFG bas ou nouvel interagissant",
+        "i": "Une petite variation de concentration passe du seuil thérapeutique au seuil toxique."
+       }
+      ],
+      "Intoxication",
+      "Dosage plasmatique/INR et créatinine rapides."
+     ],
+     [
+      "Allongement du QT",
+      [
+       {
+        "t": "Plusieurs médicaments allongeant le QT + hypokaliémie",
+        "i": "L'hypokaliémie ajoute un risque de repolarisation anormale."
+       }
+      ],
+      "Torsades de pointes",
+      "ECG, kaliémie, arrêt d'un agent."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Triple whammy : IEC/ARA2 + diurétique + AINS, risque d'insuffisance rénale aiguë et d'hyperkaliémie.",
+    "≥ 2 sédatifs : chutes, fractures, confusion.",
+    "ACB ≥ 3 : déclin cognitif et mortalité accrus.",
+    "Digoxine, lithium, AVK avec DFG bas : doser rapidement.",
+    "Plusieurs médicaments allongeant le QT avec hypokaliémie : ECG."
+   ],
+   "sources": [
+    "STOPP/START v3 (2023)",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Bilan : outils et pièges de la fonction rénale",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Fais la revue structurée STOPP/START avec un bilan de base, puis corrige le calcul de la fonction rénale avant de doser un médicament.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Patient ≥ 65 ans polymédiqué",
+     "i": "La revue de médication cible d'abord les patients de 65 ans et plus.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Revue STOPP/START v3 (référence)",
+     "i": "Outil de référence pour repérer médicaments inappropriés et omissions ; Beers et PRISCUS sont des alternatives non élaborées pour le marché suisse.",
+     "pec": null,
+     "notion": "c7"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Bilan de base",
+     "i": "Créatinine et DFG, Na, K, glycémie, hémogramme, tests hépatiques permettent de relier les symptômes aux médicaments.",
+     "pec": null,
+     "notion": "c7"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Dosage selon Cockcroft-Gault",
+     "i": "Les AIPS Swissmedic adaptent les posologies (dont les AOD) à la clairance de la créatinine selon Cockcroft-Gault, pas au DFG CKD-EPI.",
+     "pec": null,
+     "notion": "c7"
+    },
+    {
+     "id": "n5",
+     "parent": "n3",
+     "t": "Patient sarcopénique ou dénutri",
+     "i": "La créatininémie normale surestime la fonction rénale ; on s'aide de la cystatine C ou d'un calcul prudent.",
+     "pec": null,
+     "notion": "c7"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Conciliation médicamenteuse et Polymedikationscheck",
+     "i": "Compare la liste habituelle aux prescriptions à l'admission et à la sortie ; le contrôle en pharmacie est remboursé par l'assurance de base pour ≥ 4 médicaments prescrits durablement.",
+     "pec": null,
+     "notion": "c7"
+    },
+    {
+     "id": "n7",
+     "parent": "n1",
+     "t": "Dosage plasmatique et ECG",
+     "i": "Digoxine, lithium, antiépileptiques et ECG confirment un effet indésirable d'un médicament à marge étroite.",
+     "pec": null,
+     "notion": "c6"
+    }
+   ],
+   "points": [
+    "STOPP/START v3 : outil de référence.",
+    "Cockcroft-Gault pour les posologies suisses, pas CKD-EPI.",
+    "Créatinine normale = fonction rénale surestimée si sarcopénie.",
+    "Polymedikationscheck remboursé par l'assurance de base pour ≥ 4 médicaments prescrits durablement."
+   ],
+   "sources": [
+    "STOPP/START v3 (2023)",
+    "AIPS Swissmedic",
+    "Beers AGS 2023"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Arrêter : urgence versus déprescription",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "Arrête vite le médicament en cause si l'effet est grave, mais ralentis et espace les arrêts quand le sevrage ou le rebond est possible.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Médicament",
+     "Conduite",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Effet indésirable aigu grave",
+      "IEC, diurétique, AINS",
+      [
+       {
+        "t": "Arrêt immédiat",
+        "i": "L'insuffisance rénale aiguë, l'hyperkaliémie, l'hémorragie ou le syndrome sérotoninergique l'emportent sur tout bénéfice du traitement."
+       }
+      ],
+      "La cause doit disparaître avant toute autre mesure."
+     ],
+     [
+      "Arrêt à éviter brutalement",
+      "Bêtabloquants, clonidine, corticoïdes, antiépileptiques, benzodiazépines",
+      [
+       {
+        "t": "Arrêt progressif",
+        "i": "L'arrêt brutal provoque un rebond (bêtabloquant, clonidine), une insuffisance surrénalienne, des crises ou un sevrage."
+       }
+      ],
+      "Schéma de décroissance clair."
+     ],
+     [
+      "Benzodiazépine au long cours",
+      "Toutes",
+      [
+       {
+        "t": "Paliers d'environ 25 % toutes les 2 semaines",
+        "i": "Un rythme lent limite le sevrage ; on ralentit si des symptômes apparaissent."
+       }
+      ],
+      "Un sédatif à la fois."
+     ],
+     [
+      "IPP sans indication claire",
+      "Pantoprazole, ésoméprazole",
+      [
+       {
+        "t": "Réduction progressive",
+        "i": "L'arrêt brutal provoque une hypersécrétion acide de rebond ; l'indication reste œsophagite sévère, Barrett ou gastroprotection."
+       }
+      ],
+      "Conserver si indication."
+     ],
+     [
+      "Statine en prévention primaire ou fin de vie",
+      "Statines",
+      [
+       {
+        "t": "Arrêt sûr si espérance de vie < 1 an",
+        "i": "Le bénéfice préventif n'a pas le temps de s'exprimer."
+       }
+      ],
+      "Décision partagée."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Effet indésirable aigu grave : arrêt immédiat du médicament en cause.",
+    "Ne pas arrêter brutalement : bêtabloquants, clonidine, corticoïdes, antiépileptiques, benzodiazépines.",
+    "Déprescrire avec le patient, 1 à 2 médicaments à la fois, en commençant par les moins utiles et les plus à risque.",
+    "Plan partagé eMediplan et semainier préparé en pharmacie."
+   ],
+   "sources": [
+    "STOPP/START v3 (2023)",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Complications, pronostic, suivi et réseau",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "Planifie la réévaluation à chaque transition et garde la trace de chaque décision, car le bénéfice de la déprescription sur la mortalité reste incertain.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Les effets indésirables médicamenteux représentent plus de 10 % des hospitalisations de patients âgés, souvent évitables.",
+    "Triple whammy : bilan rénal et ionogramme après toute introduction d'IEC, d'ARA2 ou de diurétique.",
+    "Psychotropes, antihypertenseurs et diurétiques augmentent chutes, fractures et perte d'autonomie.",
+    "Revue au moins annuelle, plus souvent si fragile, et à chaque transition de soins ; la déprescription réduit les prescriptions inappropriées, effet incertain sur mortalité et hospitalisations.",
+    "Médecin de famille, pharmacien, gériatre, Spitex ; déclarer tout effet grave ou inattendu au centre régional de pharmacovigilance ; documenter selon la LPTh art. 26."
+   ],
+   "sources": [
+    "LPTh art. 26",
+    "Swissmedic (pharmacovigilance)",
+    "STOPP/START v3 (2023)"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "pec_urgence",
+   "titre": "Effet indésirable aigu grave (triple whammy : insuffisance rénale aiguë et hyperkaliémie)",
+   "but": [
+    "Arrêter immédiatement les médicaments responsables pour interrompre l'atteinte rénale et l'hyperkaliémie.",
+    "Rétablir le volume circulant et protéger le rythme cardiaque."
+   ],
+   "moyens": {
+    "accueil": [
+     "Prendre les constantes et monitorer l'ECG pour détecter les signes d'hyperkaliémie.",
+     "Établir la liste exacte des médicaments (brown bag, pharmacie, dossier électronique du patient).",
+     "Poser une voie veineuse et prélever créatinine, K, Na, gaz du sang, glycémie."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Gluconate de calcium 10 % (stabilisateur de membrane)",
+      "posologie": "10 mL IV lent sous monitorage ECG si modifications ECG de l'hyperkaliémie, à répéter si l'ECG reste inchangé, selon protocole de l'hôpital.",
+      "pourquoi": "Le calcium protège le myocarde sans abaisser la kaliémie ; il s'administre dès les signes ECG de l'hyperkaliémie.",
+      "source": "Protocole institutionnel"
+     },
+     {
+      "molecule": "Insuline rapide avec glucose (déplacement intracellulaire du potassium)",
+      "posologie": "10 UI IV avec 25 g de glucose, glycémie contrôlée à 1 h ; kaliémie recontrôlée.",
+      "pourquoi": "L'insuline fait entrer le potassium dans la cellule ; le glucose prévient l'hypoglycémie.",
+      "source": "Protocole institutionnel"
+     },
+     {
+      "molecule": "NaCl 0,9 % (cristalloïde)",
+      "posologie": "Bolus de 250 à 500 mL IV, réévalué selon volémie, tension et fonction cardiaque.",
+      "pourquoi": "La déshydratation aggrave le triple whammy ; la réhydratation prudente rétablit la perfusion rénale.",
+      "source": "Protocole institutionnel"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveiller diurèse, poids et constantes toutes les heures.",
+      "pourquoi": "Le débit urinaire montre la récupération rénale."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer au patient pourquoi l'AINS ne doit plus être pris sans avis.",
+      "pourquoi": "L'automédication est la porte d'entrée du triple whammy."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'indication, l'information du patient et le motif d'arrêt selon l'obligation de diligence de la LPTh art. 26."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Organise le suivi par Spitex et le contrôle de polymédication remboursé par l'assurance de base."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Stopper IEC/ARA2, diurétique et AINS dès la suspicion.",
+      "Évaluer l'état volémique et l'ECG avant tout autre geste.",
+      "Déclarer l'effet grave au centre régional de pharmacovigilance."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Arrête l'IEC, le diurétique et l'AINS et pose le diagnostic d'insuffisance rénale aiguë avec hyperkaliémie."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Branche le monitorage ECG, pose la voie veineuse et prélève le bilan."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Traite l'hyperkaliémie (calcium si ECG anormal, insuline-glucose) et réhydrate prudemment."
+      },
+      {
+       "temps": "puis",
+       "qui": "second médecin",
+       "fait": "Cherche une cause obstructive ou une atteinte cardiaque si la créatinine ne baisse pas."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Appelle le néphrologue si hyperkaliémie réfractaire ou oligo-anurie."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La fonction rénale récupère souvent à l'arrêt rapide des médicaments responsables, mais le risque de récidive persiste si l'association est reprise.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Kaliémie",
+      "quand": "Dosage répété à 1 h puis toutes les 4 à 6 h",
+      "cible": "K < 5,0 mmol/L"
+     },
+     {
+      "quoi": "Créatinine et diurèse",
+      "quand": "Quotidiennement",
+      "cible": "Retour vers la créatinine de base"
+     },
+     {
+      "quoi": "ECG",
+      "quand": "En continu jusqu'à normalisation du K",
+      "cible": "Absence de signes d'hyperkaliémie"
+     }
+    ],
+    "sortie": "Créatinine stable ou en baisse, kaliémie normale, hydratation orale suffisante et liste de médicaments corrigée (AINS retiré) avec plan écrit au médecin de famille."
+   },
+   "prevention": {
+    "primaire": "Éviter l'AINS chez le patient sous IEC/ARA2 et diurétique, et suspendre ces traitements lors d'une déshydratation intercurrente.",
+    "secondaire": "Contrôler créatinine et ionogramme après toute introduction ou modification d'IEC, d'ARA2 ou de diurétique.",
+    "tertiaire": "Inscrire l'interdiction des AINS dans le plan de médication partagé et informer le pharmacien."
+   }
+  },
+  {
+   "cle": "pec_cascade",
+   "titre": "Cascade prescriptrice identifiée (ex. amlodipine, œdèmes, diurétique)",
+   "but": [
+    "Identifier le médicament initial responsable du symptôme et l'arrêter ou le remplacer.",
+    "Retirer le médicament prescrit en cascade pour réduire le nombre de molécules."
+   ],
+   "moyens": {
+    "accueil": [
+     "Dater chaque symptôme par rapport à l'introduction de chaque médicament.",
+     "Recueillir toutes les ordonnances auprès des différents prescripteurs.",
+     "Informer le patient que le symptôme pourrait être un effet indésirable."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Losartan (ARA2) en remplacement d'un IEC responsable de toux",
+      "posologie": "50 mg par voie orale 1 fois par jour, adapter selon tension et fonction rénale selon l'AIPS.",
+      "pourquoi": "L'ARA2 n'augmente pas la bradykinine : la toux disparaît, ce qui permet de supprimer l'antitussif ou l'antibiotique.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer au patient qu'un symptôme nouveau doit être signalé avant tout nouveau médicament.",
+      "pourquoi": "Le patient aide à repérer la chronologie."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Surveiller l'amélioration à l'arrêt du premier médicament (dechallenge).",
+      "pourquoi": "L'amélioration confirme la cascade."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente le raisonnement, l'information et le motif d'arrêt de chaque médicament."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Ne pas ajouter de traitement avant d'avoir cherché une cause médicamenteuse.",
+      "Réévaluer l'indication du premier médicament avant de le remplacer.",
+      "Contrôler tension et fonction rénale après chaque modification."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Établit la chronologie et suspecte une cascade (amlodipine puis diurétique pour œdèmes)."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "pharmacien",
+       "fait": "Fournit l'historique des délivrances et signale les doublons."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Arrête ou remplace le premier médicament, par exemple l'inhibiteur calcique ou l'IEC."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Arrête le médicament de cascade quand le symptôme a disparu."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Note l'évolution du symptôme et signale toute récidive."
+      }
+     ]
+    }
+   },
+   "pronostic": "Les symptômes disparaissent généralement après le dechallenge, et le nombre de médicaments baisse sans perte de bénéfice.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Symptôme initial (œdèmes, toux)",
+      "quand": "2 à 4 semaines après l'arrêt",
+      "cible": "Disparition ou nette amélioration"
+     },
+     {
+      "quoi": "Tension artérielle et fonction rénale",
+      "quand": "1 à 2 semaines après chaque changement",
+      "cible": "Objectifs tensionnels atteints, créatinine stable"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : le patient est stable hémodynamiquement et sans signe de gravité."
+   },
+   "prevention": {
+    "primaire": "Se demander avant toute prescription si le symptôme est un effet indésirable.",
+    "secondaire": "Réaliser une revue de médication à chaque nouveau symptôme chez le patient polymédiqué.",
+    "tertiaire": "Consigner l'effet indésirable dans le dossier et la liste d'allergies/intolérances."
+   }
+  },
+  {
+   "cle": "pec_deprescription",
+   "titre": "Déprescription structurée et coordination au cabinet",
+   "but": [
+    "Réduire médicaments inappropriés et risques d'interaction en gardant les traitements utiles.",
+    "Simplifier le schéma pour améliorer l'adhésion thérapeutique.",
+    "Prévenir chutes, confusion et hospitalisations évitables."
+   ],
+   "moyens": {
+    "accueil": [
+     "Inviter le patient avec tous ses médicaments (brown bag review).",
+     "Définir avec lui les objectifs de soins, son espérance de vie et ses priorités.",
+     "Informer le pharmacien et les autres prescripteurs de la démarche."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Benzodiazépine au long cours, sevrage progressif",
+      "posologie": "Diminuer d'environ 25 % de la dose toutes les 2 semaines, plus lentement si symptômes de sevrage.",
+      "pourquoi": "Le rythme lent limite le sevrage, la rechute et la confusion chez le sujet âgé.",
+      "source": "STOPP/START v3 (2023)"
+     },
+     {
+      "molecule": "Pantoprazole (IPP) sans indication claire, réduction progressive",
+      "posologie": "Passer de 40 mg à 20 mg par jour pendant 2 à 4 semaines, puis arrêt ou prise à la demande ; conserver si œsophagite sévère, Barrett ou gastroprotection.",
+      "pourquoi": "Une réduction progressive limite l'hypersécrétion acide de rebond tout en retirant un médicament inutile.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Statine en prévention primaire chez le patient en fin de vie",
+      "posologie": "Arrêt sans décroissance si espérance de vie inférieure à un an.",
+      "pourquoi": "Le bénéfice préventif n'a pas le temps de s'exprimer et l'arrêt est sûr.",
+      "source": "STOPP/START v3 (2023)"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Décider avec le patient quels médicaments arrêter en premier, un à deux à la fois.",
+      "pourquoi": "La décision partagée améliore l'adhésion et l'acceptation de l'arrêt."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Faire préparer le semainier en pharmacie et mettre en place l'eMediplan.",
+      "pourquoi": "Ces outils réduisent erreurs et non-adhésion."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Proposer des alternatives non médicamenteuses (hygiène du sommeil, activité physique).",
+      "pourquoi": "Elles remplacent les hypnotiques et réduisent le risque de chute."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'indication, l'information et le motif de chaque arrêt ou poursuite selon la LPTh art. 26."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Mobilise le Polymedikationscheck remboursé par l'assurance de base et l'aide des soins à domicile (Spitex)."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Oriente la déprescription vers le confort chez le patient en fin de vie."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Arrêter 1 à 2 médicaments à la fois, en commençant par les moins utiles et les plus à risque.",
+      "Ne pas arrêter brutalement bêtabloquants, clonidine, corticoïdes, antiépileptiques, benzodiazépines.",
+      "Réévaluer à chaque transition de soins et au moins une fois par an."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Réalise la revue STOPP/START v3 avec créatinine selon Cockcroft-Gault et bilan de base."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "pharmacien",
+       "fait": "Effectue le Polymedikationscheck et la conciliation avec toutes les pharmacies."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Planifie avec le patient l'ordre des arrêts et le calendrier de décroissance."
+      },
+      {
+       "temps": "puis",
+       "qui": "infirmier·ère",
+       "fait": "Prépare le semainier et suit les symptômes de sevrage ou de rebond."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Donne son avis (gériatre ou cardiologue) avant d'arrêter un traitement qu'il a prescrit."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Met à jour l'eMediplan et réévalue après 4 à 8 semaines."
+      }
+     ]
+    }
+   },
+   "pronostic": "La déprescription réduit le nombre de médicaments et de prescriptions inappropriées ; son effet sur la mortalité et les hospitalisations reste incertain dans les essais.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Symptômes de sevrage ou de rebond (insomnie, anxiété, reflux, tension)",
+      "quand": "À chaque palier, toutes les 2 semaines",
+      "cible": "Absence de symptômes ou symptômes tolérés"
+     },
+     {
+      "quoi": "Chutes, confusion, orthostatisme",
+      "quand": "À chaque consultation de suivi",
+      "cible": "Moins de chutes, cognition stable ou améliorée"
+     },
+     {
+      "quoi": "Créatinine, ionogramme",
+      "quand": "Après chaque changement d'IEC, ARA2, diurétique ou dose",
+      "cible": "Créatinine stable, K normal"
+     },
+     {
+      "quoi": "Revue de médication complète",
+      "quand": "Au moins 1 fois par an, plus souvent si fragile, et à chaque sortie d'hôpital",
+      "cible": "Aucun médicament sans indication active"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : le patient est stable, sans effet indésirable aigu grave, avec un plan de médication partagé et un suivi planifié."
+   },
+   "prevention": {
+    "primaire": "Prescrire avec indication et durée prévue, éviter les AINS et les sédatifs chez le sujet âgé.",
+    "secondaire": "Faire une revue de médication régulière et à chaque transition de soins.",
+    "tertiaire": "Coordonner médecin de famille, pharmacien, gériatre et Spitex pour éviter récidive de la polymédication inappropriée."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6663,
+  "output_tokens": 18442,
+  "output_tokens_details": {
+   "thinking_tokens": 4019
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:53",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

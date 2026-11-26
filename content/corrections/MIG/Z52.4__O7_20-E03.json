@@ -1,0 +1,959 @@
+{
+ "id": "Z52.4__O7_20-E03",
+ "portes": [
+  {
+   "ssp": "O7.20",
+   "nomSSP": "Demande d’information sur le don d’organes et la transplantation",
+   "entite": "Information sur le don vivant de rein",
+   "entiteId": "O7.20-E03"
+  }
+ ],
+ "entite": "Information sur le don vivant de rein",
+ "cim10": "Z52.4",
+ "ssp": {
+  "code": "O7.20",
+  "nom": "Demande d’information sur le don d’organes et la transplantation",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Demande d'information sur le don d'organes et la transplantation",
+    "i": "Porte d'entrée : la première tâche est de préciser quel organe, quel type de don et qui pose la question.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Don après le décès (carte, consentement, DCD ou DBD)",
+    "i": "Hors du cadre du donneur vivant : renvoie au SSP/entité sur le registre, la carte de donneur et le consentement, ou sur DCD versus DBD.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "Don de cellules souches ou de tissus",
+    "i": "Hors du cadre : renvoie aux entités correspondantes (moelle osseuse, cornée, valves, peau, os).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "Receveur : liste d'attente ou suivi post-greffe",
+    "i": "Hors du cadre : renvoie aux entités d'éligibilité sur liste ou de suivi sous immunosuppresseurs.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n5",
+    "parent": "n1",
+    "t": "Don vivant de rein",
+    "i": "Cadre de cette entité : donneur sain, volontaire, à protéger avant tout.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Entretien seul à seul : pression, contrepartie, addiction, psychiatrie instable ?",
+    "i": "Le consentement libre est une condition légale et le premier filtre.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Oui : arrêt du processus",
+    "i": "Toute contrainte ou promesse de rémunération interrompt le don ; une porte de sortie médicale confidentielle est offerte.",
+    "pec": "pression_porte_sortie",
+    "notion": "c6"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Non : tri clinique (TA, IMC, antécédents)",
+    "i": "Dépistage rapide des contre-indications avant un bilan coûteux et irradiant.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Contre-indication : DT1, DFG < 60, ACR > 100 mg/g, HTA franche, néoplasie active",
+    "i": "Le risque pour le donneur est jugé inacceptable ; le refus est communiqué en préservant la confidentialité.",
+    "pec": "evaluation_don",
+    "notion": "c4"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Zone grise : DFG 60–89, ACR 30–100, IMC 30–35, calcul unique",
+    "i": "La décision est individualisée selon l'âge, le risque et le centre.",
+    "pec": "evaluation_don",
+    "notion": "c4"
+   },
+   {
+    "id": "n11",
+    "parent": "n8",
+    "t": "Aucune exclusion : bilan complet",
+    "i": "Immunologie, DFG mesuré, infectieux, oncologique, angio-CT et évaluation psychosociale indépendante.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Incompatibilité ABO ou HLA",
+    "i": "Don croisé ou désensibilisation ; l'incompatibilité n'est plus absolue.",
+    "pec": "evaluation_don",
+    "notion": "c1"
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "Apte : décision du comité du centre et consentement écrit",
+    "i": "Les trois conditions (médicale, immunologique, liberté de décision) sont réunies.",
+    "pec": "evaluation_don",
+    "notion": "c6"
+   },
+   {
+    "id": "n14",
+    "parent": "n13",
+    "t": "Après le don : suivi annuel à vie",
+    "i": "Le risque d'insuffisance rénale terminale, d'HTA et de prééclampsie est légèrement accru.",
+    "pec": "suivi_donneur",
+    "notion": "c8"
+   }
+  ]
+ },
+ "specialites": [
+  "MIG"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Information sur le don vivant de rein",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition, cadre légal et formes de don",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Raisonne d'abord en juriste et en protecteur du donneur sain : acte volontaire, gratuit, éclairé, puis choisis la forme de don selon la compatibilité.",
+   "tableau": {
+    "colonnes": [
+     "Forme de don",
+     "Principe",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "Dirigé (proche)",
+      [
+       {
+        "t": "Donneur et receveur se connaissent",
+        "i": "C'est la forme la plus fréquente ; le lien affectif ou familial impose de rechercher activement une pression morale lors de l'entretien seul à seul."
+       }
+      ],
+      [
+       {
+        "t": "Compatibilité ABO, HLA et crossmatch négatif",
+        "i": "Sans compatibilité, le don direct est impossible ; on bascule alors vers le don croisé ou la désensibilisation, pas vers un refus définitif."
+       }
+      ]
+     ],
+     [
+      "Croisé (Swiss Kidney Exchange)",
+      [
+       {
+        "t": "Deux paires incompatibles échangent leurs reins",
+        "i": "Chaque donneur donne à un receveur compatible de l'autre paire ; le programme national est coordonné par Swisstransplant."
+       }
+      ],
+      [
+       {
+        "t": "Incompatibilité au sein de chaque paire",
+        "i": "Il n'est utile que si la paire est incompatible ; si la paire est compatible, le don direct reste préférable."
+       }
+      ]
+     ],
+     [
+      "Incompatible ABO ou HLA",
+      [
+       {
+        "t": "Désensibilisation du receveur",
+        "i": "Plasmaphérèse ou immunoadsorption et immunosuppression renforcée du receveur ; l'incompatibilité n'est plus absolue, mais le risque de rejet augmente."
+       }
+      ],
+      [
+       {
+        "t": "Option si pas de don croisé possible",
+        "i": "Elle est discutée par le centre quand l'échange n'aboutit pas ; elle ne change rien au risque du donneur."
+       }
+      ]
+     ],
+     [
+      "Altruiste non dirigé",
+      [
+       {
+        "t": "Don à un receveur inconnu",
+        "i": "Rare et strictement encadré par les centres, car la liberté de décision et l'absence de contrepartie doivent être vérifiées avec une vigilance accrue."
+       }
+      ],
+      [
+       {
+        "t": "Aucune relation avec le receveur",
+        "i": "Il se distingue du commerce d'organes, qui reste interdit et punissable par la loi sur la transplantation."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le don vivant de rein est volontaire et gratuit ; la loi sur la transplantation (LTx) interdit tout commerce d'organes.",
+    "Le donneur est majeur, capable de discernement et consent librement par écrit à un acte sans risque sérieux pour sa santé.",
+    "Le remboursement des frais et de la perte de gain n'est pas une contrepartie interdite.",
+    "Le don croisé suisse est coordonné par Swisstransplant."
+   ],
+   "sources": [
+    "LTx RS 810.21",
+    "Swisstransplant",
+    "KDIGO 2017"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie et physiologie du rein restant",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences"
+   ],
+   "comment": "Comprends pourquoi le don vivant est favorisé (meilleure survie du greffon) et pourquoi le donneur garde une fonction suffisante malgré un rein en moins.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "En Suisse, le don vivant fournit environ un quart à un tiers des greffes rénales, le reste venant de donneurs décédés.",
+    "La pénurie de reins de donneurs décédés allonge la dialyse ; le rein de donneur vivant offre une meilleure survie du greffon et permet la greffe préemptive.",
+    "Après néphrectomie, le DFG chute d'environ 50 %, puis remonte par hyperfiltration à environ 60–75 % de la valeur initiale sans jamais se normaliser.",
+    "Le prélèvement se fait le plus souvent par laparoscopie sur le rein gauche, dont la veine est plus longue, en laissant le meilleur rein au donneur.",
+    "La compatibilité repose sur le groupe ABO, le typage HLA et un crossmatch négatif."
+   ],
+   "sources": [
+    "Swisstransplant",
+    "KDIGO 2017"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Entretien et examen clinique du donneur potentiel",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Vois le donneur seul, explore sa motivation avant ses organes, puis cherche systématiquement les facteurs de risque rénal à long terme.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "L'entretien se fait seul à seul pour explorer la motivation et chercher une pression familiale, morale ou financière ; le consentement doit être libre et éclairé.",
+    "L'anamnèse recherche HTA, diabète, lithiase, maladie rénale familiale, infections urinaires récidivantes, cancer, tabagisme et, chez la femme, prééclampsie ou grossesse planifiée.",
+    "Le médecin informe le donneur des risques et du droit de retirer son consentement à tout moment, sans justification.",
+    "La TA est confirmée par mesure ambulatoire de 24 heures, car l'HTA de blouse blanche est fréquente.",
+    "Un IMC supérieur à 30 kg/m² impose une évaluation individuelle et un conseil de perte de poids ; au-delà de 35, la plupart des centres refusent."
+   ],
+   "sources": [
+    "KDIGO 2017",
+    "LTx RS 810.21"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Drapeaux rouges et seuils d'acceptation",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Retiens les trois zones (acceptable, individualisée, refus) pour chaque paramètre, puis traite la contrainte morale comme un arrêt immédiat du processus.",
+   "tableau": {
+    "colonnes": [
+     "Paramètre",
+     "Acceptable",
+     "Décision individualisée",
+     "Refus"
+    ],
+    "lignes": [
+     [
+      "DFG (mesuré ou estimé puis confirmé)",
+      [
+       {
+        "t": "≥ 90 mL/min",
+        "i": "Le DFG initial élevé laisse une réserve suffisante après la chute de 50 % puis la compensation."
+       }
+      ],
+      [
+       {
+        "t": "60–89 mL/min",
+        "i": "La décision dépend de l'âge et du risque, car un DFG déjà bas chez un donneur jeune expose à une insuffisance rénale à long terme."
+       }
+      ],
+      [
+       {
+        "t": "< 60 mL/min",
+        "i": "Le rein restant serait insuffisant, avec un risque trop élevé pour le donneur sain."
+       }
+      ]
+     ],
+     [
+      "Rapport albumine/créatinine urinaire",
+      [
+       {
+        "t": "< 30 mg/g",
+        "i": "Il n'y a pas de signe d'atteinte glomérulaire."
+       }
+      ],
+      [
+       {
+        "t": "30–100 mg/g",
+        "i": "Une albuminurie modérée peut venir d'une cause bénigne ; la décision est individualisée, parfois avec biopsie."
+       }
+      ],
+      [
+       {
+        "t": "> 100 mg/g",
+        "i": "Une protéinurie franche indique une maladie parenchymateuse et contre-indique le don."
+       }
+      ]
+     ],
+     [
+      "IMC",
+      [
+       {
+        "t": "< 30 kg/m²",
+        "i": "Le risque chirurgical et rénal à long terme reste faible."
+       }
+      ],
+      [
+       {
+        "t": "30–35 kg/m²",
+        "i": "Une évaluation individuelle et un conseil de perte de poids s'imposent, car l'obésité augmente le risque d'HTA et d'atteinte rénale."
+       }
+      ],
+      [
+       {
+        "t": "> 35 kg/m²",
+        "i": "La plupart des centres refusent en raison du risque opératoire et rénal."
+       }
+      ]
+     ],
+     [
+      "Diabète",
+      [
+       {
+        "t": "Absent",
+        "i": "L'absence de diabète écarte le risque de néphropathie diabétique."
+       }
+      ],
+      [
+       {
+        "t": "Intolérance au glucose ou DT2 selon le centre",
+        "i": "La plupart des centres refusent le DT2 ; seule une décision individualisée très prudente est possible."
+       }
+      ],
+      [
+       {
+        "t": "Diabète de type 1",
+        "i": "Le risque de néphropathie est trop élevé : contre-indication."
+       }
+      ]
+     ],
+     [
+      "Lithiase",
+      [
+       {
+        "t": "Aucune",
+        "i": "Aucun risque de récidive sur rein unique."
+       }
+      ],
+      [
+       {
+        "t": "Calcul unique ancien après bilan métabolique",
+        "i": "Le bilan métabolique évalue le risque de récidive sur rein unique."
+       }
+      ],
+      [
+       {
+        "t": "Récidivante, néphrocalcinose ou bilatérale",
+        "i": "Le risque de récidive obstructive sur rein unique est jugé inacceptable."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Une contrainte morale, une promesse de rémunération, une addiction active ou une pathologie psychiatrique non stabilisée interrompent le processus de don.",
+    "Une hématurie persistante ou une maladie rénale héréditaire (polykystose) chez un donneur apparenté doit être exclue avant le don, au besoin par biopsie ou génétique.",
+    "Une néoplasie active contre-indique le prélèvement."
+   ],
+   "sources": [
+    "KDIGO 2017",
+    "LTx RS 810.21"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan d'aptitude : démarche et examens",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Enchaîne immunologie, fonction rénale mesurée, imagerie et évaluation psychosociale indépendante, en ouvrant l'alternative (angio-IRM, biopsie) seulement si le cas l'exige.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Donneur motivé sans exclusion clinique initiale",
+     "i": "Le bilan complet ne commence qu'après l'entretien seul à seul et un tri clinique (TA, IMC, antécédents).",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Bilan immunologique : ABO, HLA, crossmatch",
+     "i": "Il détermine la faisabilité du don direct avant les examens plus lourds ou irradiants.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Incompatibilité ABO ou HLA, crossmatch positif",
+     "i": "L'incompatibilité n'est plus absolue : don croisé (Swiss Kidney Exchange) ou désensibilisation du receveur.",
+     "pec": "evaluation_don",
+     "notion": "c1"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Compatible : DFG mesuré (iohexol ou isotopes) et rapport albumine/créatinine",
+     "i": "Le DFG est mesuré ou estimé puis confirmé ; l'albuminurie quantifiée détecte l'atteinte glomérulaire.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Hématurie, albuminurie limite ou doute de maladie familiale",
+     "i": "Une biopsie rénale ou un test génétique tranche entre variante bénigne et maladie parenchymateuse.",
+     "pec": "evaluation_don",
+     "notion": "c5"
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "Bilan infectieux et oncologique",
+     "i": "VIH, VHB, VHC, CMV, EBV, syphilis, tuberculose latente selon le risque ; dépistage adapté à l'âge et au sexe (côlon, sein, col, peau).",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n7",
+     "parent": "n4",
+     "t": "Angio-CT rénal",
+     "i": "Examen de référence pour décrire artères, veines, variantes, voies urinaires et choisir le rein à prélever.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n8",
+     "parent": "n7",
+     "t": "Allergie à l'iode ou donneur jeune : angio-IRM",
+     "i": "L'angio-IRM évite le produit de contraste iodé et l'irradiation.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n9",
+     "parent": "n4",
+     "t": "Évaluation psychosociale par une équipe indépendante du receveur",
+     "i": "Elle vérifie la liberté de décision, la compréhension des risques et l'absence de contrainte.",
+     "pec": "evaluation_don",
+     "notion": "c6"
+    }
+   ],
+   "points": [
+    "L'angio-CT rénal tranche l'aptitude anatomique ; le DFG est mesuré, associé à un rapport albumine/créatinine quantifié.",
+    "L'évaluation psychiatrique ou psychosociale est menée indépendamment de l'équipe du receveur.",
+    "Le registre SOL-DHR sert de référence de suivi, pas de test diagnostique d'aptitude."
+   ],
+   "sources": [
+    "KDIGO 2017",
+    "SOL-DHR",
+    "LTx RS 810.21"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Diagnostic d'aptitude, pression et secret médical",
+   "rubriques": [
+    "positiveDiagnosis",
+    "acuteManagement"
+   ],
+   "comment": "Conclus à l'aptitude seulement si trois conditions sont réunies (médicale, immunologique, liberté de décision), et protège le donneur dès qu'un doute de contrainte apparaît.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Donneur reçu seul par un médecin indépendant du receveur",
+     "i": "L'indépendance évite le conflit d'intérêts entre donneur sain et receveur malade.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Signe de pression, de contrepartie financière ou de doute",
+     "i": "Le consentement libre est une condition légale ; sans lui, aucun prélèvement n'est licite.",
+     "pec": "pression_porte_sortie",
+     "notion": "c6"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Volontaire sans contrainte, majeur, capable de discernement",
+     "i": "Ces critères légaux sont cumulatifs avec l'absence de risque sérieux pour la vie ou la santé.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Médicalement et immunologiquement apte",
+     "i": "Les seuils DFG, albuminurie, TA, IMC et le crossmatch sont satisfaits.",
+     "pec": "evaluation_don",
+     "notion": "c4"
+    },
+    {
+     "id": "n5",
+     "parent": "n3",
+     "t": "Inapte médicalement",
+     "i": "Le médecin annonce l'inaptitude ; le donneur reste un patient, ses résultats restent confidentiels.",
+     "pec": "pression_porte_sortie",
+     "notion": "c6"
+    }
+   ],
+   "points": [
+    "Le médecin indépendant offre une porte de sortie médicale confidentielle en invoquant une inaptitude, sans révéler le vrai motif.",
+    "Le secret médical interdit de transmettre les résultats du donneur au receveur ou à la famille sans son accord.",
+    "La rémunération du donneur est punissable ; le remboursement des frais et de la perte de gain ne l'est pas."
+   ],
+   "sources": [
+    "LTx RS 810.21",
+    "KDIGO 2017"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Risques du don et pronostic du donneur",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge"
+   ],
+   "comment": "Chiffre les risques pour informer honnêtement : faibles en absolu, mais supérieurs à ceux de sujets sains non donneurs.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La mortalité périopératoire est d'environ 0,03 %, soit environ un décès pour 3000 néphrectomies.",
+    "Le risque d'insuffisance rénale terminale à 12 ans est d'environ 0,3 %, contre environ 0,04 % chez des sujets sains appariés.",
+    "Le risque de prééclampsie ou d'HTA gestationnelle est d'environ 11 % contre 5 % chez des témoins ; un suivi obstétrical renforcé est nécessaire.",
+    "Un risque psychologique (anxiété, dépression, regret) existe, surtout si la greffe échoue ou si le receveur décède.",
+    "L'espérance et la qualité de vie sont semblables à celles de la population générale appariée."
+   ],
+   "sources": [
+    "Segev JAMA 2010",
+    "Muzaale JAMA 2014",
+    "Garg NEJM 2012",
+    "KDIGO 2017"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Suivi à vie, assurance et réseau",
+   "rubriques": [
+    "chronicManagement",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "Organise un suivi annuel à vie, indépendant de l'équipe du receveur, financé par l'assurance du receveur et documenté dans le registre SOL-DHR.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le suivi à vie porte sur la TA, la créatinine avec DFG et l'albuminurie, en coordination avec le médecin de famille.",
+    "Le donneur évite les AINS et autres néphrotoxiques, maintient un poids sain, ne fume pas et contrôle sa TA.",
+    "L'assurance-maladie du receveur prend en charge évaluation, intervention, suivi et perte de gain du donneur selon la LTx.",
+    "Le registre SOL-DHR assure le suivi annuel à vie des donneurs vivants suisses et documente les complications à long terme.",
+    "Un néphrologue indépendant de celui du receveur suit le donneur ; six centres suisses pratiquent la greffe rénale, Swisstransplant coordonne l'attribution et le don croisé."
+   ],
+   "sources": [
+    "LTx RS 810.21",
+    "SOL-DHR",
+    "Swisstransplant"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "evaluation_don",
+   "titre": "Évaluation du donneur vivant de rein et décision d'aptitude",
+   "but": [
+    "Vérifier que le donneur est libre, informé et médicalement apte sans risque sérieux pour sa santé.",
+    "Choisir la forme de don adaptée (direct, croisé, désensibilisation) et le rein à prélever."
+   ],
+   "moyens": {
+    "accueil": [
+     "Recevoir le donneur seul, dans un cadre confidentiel, avant tout examen.",
+     "Expliquer qu'il reste un patient à part entière et qu'il peut se retirer à tout moment sans se justifier.",
+     "Clarifier d'emblée que toute rémunération est interdite et que les frais sont remboursés."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Informer le donneur par oral et par écrit des risques chiffrés (mortalité 0,03 %, IRT 0,3 % à 12 ans, prééclampsie).",
+      "pourquoi": "Un consentement éclairé exige des chiffres compris, y compris les risques supérieurs à ceux de sujets sains."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Faire évaluer la liberté de décision par un psychiatre ou psychologue indépendant du receveur.",
+      "pourquoi": "L'indépendance protège le donneur contre la pression et le conflit d'intérêts."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Conseiller la perte de poids et l'arrêt du tabac avant le don si IMC > 30 ou tabagisme.",
+      "pourquoi": "Ces facteurs augmentent le risque rénal et opératoire à long terme."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Prévoir une néphrectomie laparoscopique, le plus souvent du rein gauche.",
+      "pourquoi": "La veine gauche est plus longue et le donneur garde le meilleur rein."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantit les conditions légales de la LTx : majorité, discernement, consentement écrit, gratuité et secret médical."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Assure la prise en charge des frais et de la perte de gain par l'assurance du receveur."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Séparer strictement l'équipe du donneur de celle du receveur.",
+      "Documenter le consentement écrit et le droit de retrait.",
+      "Protéger la confidentialité des résultats du donneur."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "Néphrologue indépendant du receveur",
+       "fait": "Reçoit le donneur seul, explore motivation et pression, antécédents rénaux, HTA, diabète, lithiase, et explique les risques."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Mesure TA et IMC, organise MAPA de 24 heures et prélèvements (créatinine, albuminurie, ABO, HLA, sérologies)."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin (psychiatre ou psychologue indépendant)",
+       "fait": "Évalue la liberté de décision et la compréhension des risques, sans lien avec le receveur."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "radiologue",
+       "fait": "Réalise l'angio-CT rénal, ou une angio-IRM si allergie à l'iode ou donneur jeune."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Mesure le DFG, complète le dépistage oncologique selon l'âge, et compare tous les résultats aux seuils."
+      },
+      {
+       "temps": "puis",
+       "qui": "chirurgien transplanteur",
+       "fait": "Choisit le côté du prélèvement ; le comité du centre statue sur l'aptitude."
+      },
+      {
+       "temps": "puis",
+       "qui": "assistant·e social·e",
+       "fait": "Organise le remboursement des frais et de la perte de gain par l'assurance du receveur."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Signe le consentement écrit libre, retirable à tout moment avant l'intervention."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le donneur apte garde une espérance et une qualité de vie proches de celles de la population générale ; la mortalité périopératoire est d'environ 0,03 %.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "TA, IMC, créatinine, DFG, albuminurie avant le don",
+      "quand": "Avant décision, avec MAPA de 24 heures",
+      "cible": "DFG ≥ 90 mL/min, ACR < 30 mg/g, TA ambulatoire normale"
+     },
+     {
+      "quoi": "Crossmatch et anticorps spécifiques du donneur",
+      "quand": "Avant toute décision et avant l'intervention",
+      "cible": "Crossmatch négatif, sinon don croisé ou désensibilisation"
+     },
+     {
+      "quoi": "Liberté de décision",
+      "quand": "À chaque étape, jusqu'à l'intervention",
+      "cible": "Aucune pression ni contrepartie"
+     }
+    ],
+    "sortie": "Le donneur quitte l'hôpital après prélèvement quand douleur contrôlée par antalgiques oraux, mobilisation, diurèse et créatinine stables, et suivi organisé."
+   },
+   "prevention": {
+    "primaire": "Informer le public que le commerce d'organes est interdit et punissable et que le don reste un choix libre.",
+    "secondaire": "Dépister HTA, diabète, albuminurie, obésité et néoplasie avant le don pour écarter un donneur à risque.",
+    "tertiaire": "Organiser un soutien psychosocial en cas d'échec de greffe ou de décès du receveur."
+   }
+  },
+  {
+   "cle": "pression_porte_sortie",
+   "titre": "Donneur sous pression ou inapte : porte de sortie médicale confidentielle",
+   "but": [
+    "Protéger la liberté de décision du donneur sans l'exposer à sa famille ni au receveur.",
+    "Interrompre le processus de don en préservant le secret médical."
+   ],
+   "moyens": {
+    "accueil": [
+     "Rester seul avec le donneur dans un cadre confidentiel et écouter sans jugement.",
+     "Rappeler que le retrait du consentement est possible à tout moment sans justification."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Invoquer une inaptitude médicale sans révéler le vrai motif aux proches ni au receveur.",
+      "pourquoi": "Cette porte de sortie permet au donneur de refuser sans conflit familial ni perte de face."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Proposer un soutien psychologique au donneur en cas de pression ou de culpabilité.",
+      "pourquoi": "Le refus peut provoquer anxiété ou culpabilité, surtout si le receveur est un proche gravement malade."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Rappelle que le secret médical interdit de transmettre les résultats sans l'accord du donneur et que toute rémunération est punissable."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Ne transmettre aucun résultat au receveur ni à la famille sans accord du donneur.",
+      "Documenter l'entretien de façon confidentielle."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable indépendant",
+       "fait": "Repère les signes de pression, de promesse financière ou d'ambivalence lors de l'entretien seul à seul."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable indépendant",
+       "fait": "Demande au donneur s'il souhaite poursuivre et lui offre la porte de sortie médicale."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable indépendant",
+       "fait": "Communique à l'équipe et au receveur une inaptitude médicale, sans en donner le motif réel."
+      },
+      {
+       "temps": "puis",
+       "qui": "second médecin (psychiatre ou psychologue indépendant)",
+       "fait": "Propose un suivi psychologique et signale toute suspicion de trafic aux autorités compétentes avec l'accord légal approprié."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le donneur protégé évite un don forcé et ses conséquences psychologiques ; le receveur est réorienté vers le don croisé, un donneur décédé ou la liste d'attente.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Bien-être psychologique du donneur",
+      "quand": "Après l'entretien, puis selon les besoins",
+      "cible": "Absence d'anxiété ou de culpabilité persistante"
+     },
+     {
+      "quoi": "Confidentialité du motif réel",
+      "quand": "Tout au long du processus",
+      "cible": "Aucune fuite vers le receveur ni la famille"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : le donneur rentre chez lui après l'entretien, sans hospitalisation."
+   },
+   "prevention": {
+    "primaire": "Systématiser l'entretien seul à seul pour tous les donneurs potentiels.",
+    "secondaire": "Repérer précocement toute pression ou contrepartie lors de l'évaluation psychosociale indépendante.",
+    "tertiaire": "Offrir un soutien psychosocial au donneur qui renonce, notamment si le receveur se dégrade."
+   }
+  },
+  {
+   "cle": "suivi_donneur",
+   "titre": "Suivi à vie du donneur vivant de rein",
+   "but": [
+    "Détecter précocement HTA, baisse du DFG et albuminurie chez le donneur.",
+    "Préserver la fonction du rein restant et la qualité de vie."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer que le suivi est annuel, à vie, et pris en charge par l'assurance du receveur.",
+     "Rappeler que le néphrologue du donneur est indépendant de celui du receveur."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Paracétamol (antalgique non néphrotoxique)",
+      "posologie": "500 à 1000 mg par voie orale, toutes les 6 à 8 heures selon la douleur, maximum 4 g par jour chez l'adulte ≥ 50 kg.",
+      "pourquoi": "Il remplace les AINS, qui sont néphrotoxiques et à éviter chez un donneur ayant un seul rein.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Maintenir un poids sain, ne pas fumer, limiter le sel et rester actif.",
+      "pourquoi": "Ces mesures réduisent le risque d'HTA et de baisse du DFG sur rein unique."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Conseiller d'éviter les AINS et autres néphrotoxiques et d'informer tout soignant de l'antécédent de néphrectomie.",
+      "pourquoi": "Un rein unique est plus vulnérable aux lésions toxiques et à l'insuffisance rénale aiguë."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Enregistrer chaque contrôle annuel dans le registre SOL-DHR.",
+      "pourquoi": "Le registre documente les complications à long terme et assure la traçabilité du suivi."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Garantit la prise en charge du suivi et de la perte de gain par l'assurance-maladie du receveur selon la LTx."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Informer le donneur du risque accru d'HTA et d'insuffisance rénale terminale, faible en absolu.",
+      "Assurer un suivi obstétrical renforcé chez les femmes ayant donné et désirant une grossesse.",
+      "Proposer un soutien psychosocial en cas d'échec de greffe ou de décès du receveur."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "néphrologue indépendant du receveur",
+       "fait": "Contrôle chaque année la TA, la créatinine avec DFG et l'albuminurie, puis enregistre les résultats dans SOL-DHR."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin de famille",
+       "fait": "Suit la TA, le poids et les facteurs de risque cardiovasculaire, et évite les néphrotoxiques dans ses prescriptions."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "néphrologue indépendant du receveur",
+       "fait": "Traite toute HTA ou albuminurie apparue selon les recommandations générales et adresse au centre si le DFG baisse nettement."
+      },
+      {
+       "temps": "puis",
+       "qui": "gynécologue-obstétricien",
+       "fait": "Surveille de près toute grossesse après don en raison du risque de prééclampsie et d'HTA gestationnelle."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'espérance de vie est proche de celle de la population générale ; le risque d'insuffisance rénale terminale à 12 ans est d'environ 0,3 %, contre 0,04 % chez des témoins.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "TA",
+      "quand": "Annuelle à vie, plus souvent si HTA",
+      "cible": "< 130/80 mmHg"
+     },
+     {
+      "quoi": "Créatinine et DFG",
+      "quand": "Annuelle à vie",
+      "cible": "DFG stabilisé vers 60–75 % de la valeur initiale, sans baisse rapide"
+     },
+     {
+      "quoi": "Rapport albumine/créatinine urinaire",
+      "quand": "Annuel",
+      "cible": "< 30 mg/g"
+     },
+     {
+      "quoi": "Poids, tabagisme, médicaments néphrotoxiques",
+      "quand": "À chaque consultation",
+      "cible": "IMC < 30 kg/m², absence d'AINS et de tabac"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : le suivi est annuel au cabinet ou au centre, sans hospitalisation sauf complication."
+   },
+   "prevention": {
+    "primaire": "Informer avant le don du risque rénal à long terme et des mesures de protection du rein restant.",
+    "secondaire": "Dépister chaque année HTA, baisse du DFG et albuminurie chez tout donneur.",
+    "tertiaire": "Traiter précocement l'HTA ou la protéinurie pour ralentir toute progression vers l'insuffisance rénale chronique."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 5436,
+  "output_tokens": 18543,
+  "output_tokens_details": {
+   "thinking_tokens": 6075
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:58",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

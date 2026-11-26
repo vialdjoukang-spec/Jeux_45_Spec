@@ -1,0 +1,907 @@
+{
+ "id": "R03.0__F1_1-E03",
+ "portes": [
+  {
+   "ssp": "F1.1",
+   "nomSSP": "Pression artérielle anormale",
+   "entite": "Hypertension artérielle blouse blanche",
+   "entiteId": "F1.1-E03"
+  }
+ ],
+ "entite": "Hypertension artérielle blouse blanche",
+ "cim10": "R03.0",
+ "ssp": {
+  "code": "F1.1",
+  "nom": "Pression artérielle anormale",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "PA anormale mesurée de façon standardisée",
+    "i": "Mesure assise après 5 minutes de repos, brassard adapté, 2 à 3 mesures, aux deux bras initialement, pour éviter une fausse anomalie.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "PA basse ou symptomatique (hypotension, choc)",
+    "i": "Hors du cadre de la PA élevée : renvoi vers les autres entités du SSP F1.1 (hypotension orthostatique, choc).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "PA élevée ≥ 140/90 mmHg",
+    "i": "Le seuil de 140/90 mmHg au cabinet définit l'HTA avant confirmation hors cabinet.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n4",
+    "parent": "n3",
+    "t": "≥ 180/110 avec symptômes ou atteinte d'organe aiguë",
+    "i": "Douleur thoracique, déficit neurologique, dyspnée ou asymétrie > 20 mmHg : urgence hypertensive ou dissection, renvoi vers le SSP correspondant.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n5",
+    "parent": "n3",
+    "t": "Asymptomatique, PA < 180/110",
+    "i": "Aucun traitement urgent : on confirme d'abord la PA par plusieurs consultations et une mesure hors cabinet.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Rechercher substances hypertensives et signes secondaires",
+    "i": "AINS, contraceptifs, décongestionnants, réglisse, alcool, café ; souffle ou pouls fémoraux faibles orientent vers une HTA secondaire.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n7",
+    "parent": "n5",
+    "t": "MAPA 24 h ou automesure 7 jours",
+    "i": "Examen décisif pour séparer HTA vraie, blouse blanche et masquée ; MAPA prise en charge par la LAMal.",
+    "pec": "confirmation",
+    "notion": "c5"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Toutes les valeurs ambulatoires normales",
+    "i": "MAPA 24 h < 130/80, jour < 135/85, nuit < 120/70 ou AMPA < 135/85 : HTA blouse blanche.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Sans atteinte d'organe, risque CV bas ou modéré",
+    "i": "Hygiène de vie et contrôle annuel hors cabinet ; pas d'antihypertenseur.",
+    "pec": "suivi",
+    "notion": "c7"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Atteinte d'organe, diabète, IRC, maladie CV ou AGLA élevé",
+    "i": "Le risque global rend le diagnostic moins rassurant ; le traitement se discute au cas par cas.",
+    "pec": "risqueEleve",
+    "notion": "c4"
+   },
+   {
+    "id": "n11",
+    "parent": "n7",
+    "t": "Au moins une valeur ambulatoire élevée (jour, 24 h ou nuit)",
+    "i": "Il s'agit d'une HTA soutenue ou nocturne : renvoi vers HTA essentielle ou secondaire de ce SSP.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n12",
+    "parent": "n1",
+    "t": "PA de cabinet < 140/90 mais PA à domicile élevée",
+    "i": "Il s'agit d'une HTA masquée : confirmer par MAPA, puis prise en charge comme une HTA vraie (renvoi HTA essentielle).",
+    "pec": null,
+    "notion": "c1"
+   }
+  ]
+ },
+ "specialites": [
+  "MIG"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Hypertension artérielle blouse blanche",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définitions et seuils : blouse blanche, masquée, soutenue",
+   "rubriques": [
+    "definition",
+    "positiveDiagnosis"
+   ],
+   "comment": "Compare toujours la PA de cabinet avec la PA hors cabinet, car seule cette comparaison classe le patient en normotendu, blouse blanche, masqué ou hypertendu soutenu.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "PA de cabinet",
+     "PA hors cabinet (MAPA / AMPA)",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Normotension vraie",
+      "< 140/90 mmHg",
+      "Normale",
+      "Risque cardiovasculaire de base."
+     ],
+     [
+      "HTA blouse blanche",
+      [
+       {
+        "t": "≥ 140/90 mmHg, confirmée",
+        "i": "Le seuil de cabinet est celui de l'HTA ; une seule consultation ne suffit pas, il faut plusieurs visites."
+       }
+      ],
+      [
+       {
+        "t": "MAPA 24 h < 130/80, jour < 135/85, nuit < 120/70 ; AMPA < 135/85",
+        "i": "Toutes les valeurs doivent être normales : une seule valeur ambulatoire élevée fait basculer en HTA soutenue ou nocturne."
+       }
+      ],
+      [
+       {
+        "t": "Patient non traité",
+        "i": "Chez un patient traité, l'écart cabinet/domicile s'appelle effet blouse blanche et ne constitue pas une HTA blouse blanche."
+       }
+      ]
+     ],
+     [
+      "HTA masquée",
+      "< 140/90 mmHg",
+      [
+       {
+        "t": "Élevée",
+        "i": "PA ambulatoire ou à domicile au-dessus des seuils malgré un cabinet normal ; c'est l'inverse de la blouse blanche."
+       }
+      ],
+      [
+       {
+        "t": "Risque proche de l'HTA soutenue",
+        "i": "La PA élevée est réelle et présente dans la vie quotidienne, donc l'atteinte d'organe survient comme dans l'HTA vraie."
+       }
+      ]
+     ],
+     [
+      "HTA soutenue",
+      "≥ 140/90 mmHg",
+      "Élevée",
+      "Traitement selon le risque global."
+     ],
+     [
+      "Effet blouse blanche",
+      "Supérieur à la PA hors cabinet",
+      "Peut exister chez le patient traité",
+      [
+       {
+        "t": "Écart, pas un diagnostic",
+        "i": "Il décrit une différence de mesure, y compris chez le normotendu ou le traité ; il ne définit pas une HTA blouse blanche."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le diagnostic exige un patient non traité et une PA de cabinet ≥ 140/90 confirmée.",
+    "Les trois seuils MAPA (24 h, jour, nuit) doivent tous être normaux.",
+    "L'AMPA normale correspond à une moyenne < 135/85 mmHg.",
+    "Une PA nocturne ≥ 120/70 exclut la blouse blanche (HTA nocturne)."
+   ],
+   "sources": [
+    "ESH 2023",
+    "ESC 2024 (hypertension)",
+    "Société Suisse d'Hypertension"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie et physiopathologie",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences"
+   ],
+   "comment": "Pense à une réaction d'alerte conditionnée par la consultation qui active le sympathique, plus marquée face au médecin que face à un infirmier ou à un appareil seul.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Elle touche environ 15 à 30 % des patients dont la PA de cabinet est élevée.",
+    "Elle est plus fréquente chez la femme, la personne âgée, le non-fumeur et en cas d'HTA de grade 1 récente.",
+    "La consultation active transitoirement le système sympathique, donc la PA et la fréquence cardiaque augmentent.",
+    "L'élévation est plus forte lors de la mesure par le médecin que par l'infirmier ou en l'absence de soignant.",
+    "Son risque cardiovasculaire se situe entre le normotendu et l'HTA soutenue."
+   ],
+   "sources": [
+    "ESH 2023",
+    "ESC 2024 (hypertension)"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen clinique",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Cherche des valeurs normales à domicile, élimine les substances hypertensives, puis réalise une mesure standardisée et un examen normal hors PA.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le patient rapporte des valeurs normales à domicile ou en pharmacie, alors que les mesures médicales sont élevées.",
+    "Le patient est asymptomatique, anxieux lors des mesures, sans symptôme d'atteinte d'organe cible.",
+    "Le médecin recherche AINS, contraceptifs oraux, décongestionnants, réglisse, alcool et excès de café avant de conclure.",
+    "La mesure se fait assis, après 5 minutes de repos, avec un brassard adapté, 2 à 3 mesures espacées de 1 à 2 minutes, aux deux bras initialement.",
+    "L'examen est normal : pas de souffle, pouls fémoraux perçus, aucun signe d'atteinte d'organe."
+   ],
+   "sources": [
+    "ESH 2023",
+    "ESC 2024 (hypertension)"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Signaux d'alarme qui remettent en cause la blouse blanche",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Doute de la blouse blanche dès qu'une atteinte d'organe, un risque cardiovasculaire élevé ou une PA très haute apparaît, car le diagnostic perd alors son caractère rassurant.",
+   "tableau": {
+    "colonnes": [
+     "Signal",
+     "Ce qu'il suggère",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "HVG à l'ECG ou albuminurie",
+      [
+       {
+        "t": "HTA vraie ou masquée",
+        "i": "Ces atteintes d'organe résultent d'une PA élevée chronique, ce qui est incompatible avec une PA ambulatoire réellement normale."
+       }
+      ],
+      "Répéter la MAPA, chercher une HTA masquée ou nocturne."
+     ],
+     [
+      "PA de cabinet de grade 2 ou 3, surtout ≥ 180/110",
+      [
+       {
+        "t": "Blouse blanche peu probable",
+        "i": "Plus la PA de cabinet est haute, plus la probabilité d'une HTA vraie augmente ; l'effet blouse blanche explique rarement un tel écart."
+       }
+      ],
+      "Rester prudent, confirmer en MAPA, exclure une urgence hypertensive."
+     ],
+     [
+      "Diabète, insuffisance rénale chronique, maladie cardiovasculaire établie",
+      [
+       {
+        "t": "Diagnostic moins rassurant",
+        "i": "Le risque global est déjà élevé, donc même une PA élevée partielle justifie une discussion thérapeutique."
+       }
+      ],
+      "Discuter le traitement avec le patient."
+     ],
+     [
+      "PA nocturne ≥ 120/70 mmHg",
+      [
+       {
+        "t": "HTA nocturne",
+        "i": "La PA nocturne élevée porte un risque cardiovasculaire propre, indépendant de la PA diurne normale."
+       }
+      ],
+      "Exclure la blouse blanche, chercher un SAOS ou une cause secondaire."
+     ],
+     [
+      "Souffle, pouls fémoraux faibles, hypokaliémie",
+      [
+       {
+        "t": "HTA secondaire",
+        "i": "Coarctation, sténose rénovasculaire ou hyperaldostéronisme ne sont pas expliqués par un effet de consultation."
+       }
+      ],
+      "Orienter vers le bilan d'HTA secondaire."
+     ]
+    ]
+   },
+   "points": [
+    "Une PA ≥ 180/110 avec symptômes impose de rechercher une urgence hypertensive.",
+    "Le bilan d'atteinte d'organe est obligatoire même si la MAPA est normale."
+   ],
+   "sources": [
+    "ESH 2023",
+    "ESC 2024 (hypertension)"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan : MAPA, automesure, AOBP et atteinte d'organe",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Choisis la MAPA comme référence, accepte l'automesure validée, puis complète toujours par un bilan minimal d'atteinte d'organe cible.",
+   "tableau": {
+    "colonnes": [
+     "Méthode",
+     "Protocole",
+     "Seuil normal",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "MAPA 24 h (référence)",
+      [
+       {
+        "t": "Mesures toutes les 15 à 30 min, ≥ 70 % valides",
+        "i": "Sous ce seuil de validité, les moyennes sont peu fiables et l'examen doit être répété."
+       }
+      ],
+      "24 h < 130/80, jour < 135/85, nuit < 120/70",
+      [
+       {
+        "t": "Seule à mesurer la PA nocturne",
+        "i": "Elle identifie l'HTA nocturne, que l'automesure ne détecte pas ; c'est pourquoi elle reste la référence."
+       }
+      ]
+     ],
+     [
+      "Automesure (AMPA)",
+      [
+       {
+        "t": "2 mesures matin et soir pendant 7 jours, jour 1 exclu",
+        "i": "Le premier jour sert à l'adaptation du patient et ses valeurs, souvent plus hautes, sont écartées avant la moyenne."
+       }
+      ],
+      "Moyenne < 135/85",
+      "Tensiomètre de bras validé (liste de la Société Suisse d'Hypertension)."
+     ],
+     [
+      "AOBP au cabinet",
+      [
+       {
+        "t": "Mesure automatique sans présence soignante",
+        "i": "L'absence de soignant supprime la réaction d'alerte, donc l'effet blouse blanche diminue."
+       }
+      ],
+      "Valeurs proches de la PA diurne ambulatoire",
+      "Alternative, ne remplace pas MAPA/AMPA pour confirmer."
+     ],
+     [
+      "Bilan minimal",
+      "ECG, créatininémie avec DFGe, rapport albumine/créatinine urinaire, glycémie, bilan lipidique, kaliémie",
+      "Sans atteinte d'organe",
+      "Recherche HVG, néphropathie, diabète, dyslipidémie, hypokaliémie."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le choix MAPA ou automesure dépend de la disponibilité, du coût et de la préférence du patient.",
+    "En Suisse, la MAPA prescrite pour une indication médicale est prise en charge par la LAMal."
+   ],
+   "sources": [
+    "ESH 2023",
+    "Société Suisse d'Hypertension",
+    "LAMal"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Démarche diagnostique positive",
+   "rubriques": [
+    "positiveDiagnosis",
+    "workupGoldStandard"
+   ],
+   "comment": "Confirme la PA de cabinet, mesure hors cabinet, classe selon toutes les valeurs ambulatoires, puis évalue le risque global avant de décider.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "PA de cabinet ≥ 140/90 confirmée, patient non traité",
+     "i": "Le seuil de 140/90 mmHg définit l'HTA au cabinet ; plusieurs consultations évitent de classer sur une mesure isolée.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "MAPA 24 h ou AMPA 7 jours",
+     "i": "Seule la mesure hors cabinet sépare l'HTA vraie de l'effet de consultation.",
+     "pec": "confirmation",
+     "notion": "c5"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Toutes les valeurs normales (MAPA 24 h < 130/80, jour < 135/85, nuit < 120/70 ; AMPA < 135/85)",
+     "i": "Les trois seuils MAPA doivent être respectés simultanément pour conclure à une blouse blanche.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "HTA blouse blanche",
+     "i": "Cabinet élevé avec PA ambulatoire normale sans traitement : le diagnostic est posé, mais il n'est pas anodin.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Pas d'atteinte d'organe, risque CV bas ou modéré",
+     "i": "Le risque reste intermédiaire ; hygiène de vie et surveillance suffisent sans antihypertenseur.",
+     "pec": "suivi",
+     "notion": "c7"
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "HVG, albuminurie, diabète, IRC, maladie CV ou score AGLA élevé",
+     "i": "Le risque global justifie une discussion thérapeutique malgré la PA ambulatoire normale.",
+     "pec": "risqueEleve",
+     "notion": "c4"
+    },
+    {
+     "id": "n7",
+     "parent": "n2",
+     "t": "Au moins une valeur ambulatoire élevée",
+     "i": "Une seule valeur élevée sur 24 h, jour ou AMPA suffit pour exclure la blouse blanche.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n8",
+     "parent": "n7",
+     "t": "Jour ou 24 h élevé : HTA soutenue",
+     "i": "La PA est réellement élevée ; le patient est pris en charge comme hypertendu (voir SSP F1.1, HTA essentielle ou secondaire).",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n9",
+     "parent": "n7",
+     "t": "Seule la nuit ≥ 120/70 : HTA nocturne",
+     "i": "La nuit élevée exclut la blouse blanche même si le jour est normal ; chercher SAOS ou cause secondaire.",
+     "pec": null,
+     "notion": "c4"
+    }
+   ],
+   "points": [
+    "Le diagnostic n'est jamais posé sur une seule mesure de cabinet.",
+    "L'HTA masquée est l'inverse : cabinet < 140/90 avec PA ambulatoire élevée."
+   ],
+   "sources": [
+    "ESH 2023",
+    "ESC 2024 (hypertension)"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge : aucune urgence, mesures de vie, traitement ciblé",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "Rassure sans banaliser, ne prescris aucun antihypertenseur en urgence, traite les autres facteurs de risque selon le score AGLA et réserve l'antihypertenseur aux risques élevés.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Aucune intervention aiguë n'est requise ; aucun antihypertenseur n'est introduit en urgence sur la seule PA de cabinet.",
+    "Les mesures hygiéno-diététiques sont recommandées : sel < 5 g/j, activité physique, perte de poids, alcool modéré, arrêt du tabac.",
+    "L'antihypertenseur se discute seulement en cas d'atteinte d'organe ou de risque cardiovasculaire élevé ou très élevé.",
+    "Le score AGLA calcule le risque global suisse et guide notamment le traitement des lipides.",
+    "Le médecin explique que la situation n'est pas anodine et justifie un suivi, plutôt que de la qualifier de normale."
+   ],
+   "sources": [
+    "ESH 2023",
+    "ESC 2024 (hypertension)",
+    "AGLA"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Évolution, complications et pronostic",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge"
+   ],
+   "comment": "Retiens deux risques opposés : la conversion vers une HTA soutenue et le surtraitement iatrogène, avec un pronostic favorable sous suivi.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "L'évolution vers une HTA soutenue concerne environ 30 à 40 % des cas à 5–10 ans, plus que chez le normotendu.",
+    "Traiter sur la seule PA de cabinet expose à hypotension, chutes et effets indésirables, surtout chez la personne âgée.",
+    "Diabète, dyslipidémie et atteinte d'organe asymptomatique sont plus fréquents que chez les normotendus vrais.",
+    "Le risque cardiovasculaire est intermédiaire, avec un excès marqué chez la personne âgée.",
+    "Le pronostic est favorable sous suivi régulier et dépend du risque global et d'une éventuelle HTA soutenue."
+   ],
+   "sources": [
+    "ESH 2023",
+    "ESC 2024 (hypertension)"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Surveillance et réseau de soins",
+   "rubriques": [
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "Organise un contrôle hors cabinet annuel coordonné par le médecin de famille, avec le pharmacien comme relais d'automesure.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Un contrôle annuel de la PA hors cabinet, par MAPA ou automesure, dépiste la conversion vers l'HTA permanente.",
+    "Le suivi comprend la réévaluation du risque global et le dépistage d'atteinte d'organe (ECG, albuminurie, glycémie, lipides).",
+    "Le médecin de famille (médecine interne générale) coordonne, prescrit MAPA et automesure et décide du traitement.",
+    "Le pharmacien d'officine mesure la PA, forme à l'automesure sur appareil validé et signale les valeurs anormales au médecin traitant."
+   ],
+   "sources": [
+    "ESH 2023",
+    "Société Suisse d'Hypertension"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "confirmation",
+   "titre": "Confirmation diagnostique hors cabinet",
+   "but": [
+    "Confirmer ou infirmer l'HTA par une mesure hors cabinet fiable avant toute décision.",
+    "Éviter un traitement antihypertenseur inutile et dépister l'atteinte d'organe."
+   ],
+   "moyens": {
+    "accueil": [
+     "Rassurer le patient en expliquant l'effet de la consultation sur la PA.",
+     "Mesurer la PA assis, après 5 minutes de repos, avec un brassard adapté, aux deux bras.",
+     "Chercher les substances qui élèvent la PA et les symptômes d'atteinte d'organe."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Prescrire une MAPA de 24 h avec mesures toutes les 15 à 30 minutes.",
+      "pourquoi": "C'est l'examen de référence, seul à mesurer la PA nocturne ; il doit avoir au moins 70 % de mesures valides."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Former le patient à l'automesure : 2 mesures matin et soir pendant 7 jours sur un tensiomètre de bras validé.",
+      "pourquoi": "Le jour 1 est exclu du calcul de la moyenne, qui doit rester inférieure à 135/85."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Réaliser ECG, créatininémie avec DFGe, albumine/créatinine urinaire, glycémie, lipides et kaliémie.",
+      "pourquoi": "Ce bilan minimal recherche une atteinte d'organe qui remettrait en cause la blouse blanche."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Rappelle que la MAPA prescrite pour une indication médicale est remboursée par l'assurance obligatoire des soins (LAMal)."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Ne pas introduire d'antihypertenseur sur la seule PA de cabinet.",
+      "Reconvoquer le patient avec les résultats de la MAPA ou de l'automesure."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Confirme la PA élevée sur plusieurs consultations et exclut une urgence hypertensive."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Mesure la PA standardisée et apprend au patient à utiliser un tensiomètre validé."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Prescrit la MAPA ou l'automesure et le bilan minimal d'atteinte d'organe."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Classe le patient selon toutes les valeurs ambulatoires, nuit comprise, et oriente la suite."
+      }
+     ]
+    }
+   },
+   "pronostic": "La confirmation hors cabinet est fiable si la MAPA compte au moins 70 % de mesures valides ; le classement guide ensuite le suivi ou le traitement.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "MAPA 24 h : validité et moyennes jour, nuit, 24 h",
+      "quand": "Lecture à la fin de l'examen",
+      "cible": "≥ 70 % de mesures valides ; 24 h < 130/80, jour < 135/85, nuit < 120/70"
+     },
+     {
+      "quoi": "Moyenne de l'automesure (jour 1 exclu)",
+      "quand": "Après 7 jours",
+      "cible": "< 135/85 mmHg"
+     },
+     {
+      "quoi": "Bilan d'atteinte d'organe (ECG, DFGe, albuminurie, glycémie, lipides)",
+      "quand": "Lors du bilan initial",
+      "cible": "Sans HVG, albuminurie ni diabète"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : patient asymptomatique, PA < 180/110 mmHg et absence d'atteinte d'organe aiguë."
+   },
+   "prevention": {
+    "primaire": "Conseille sel < 5 g/j, activité physique, poids normal, alcool modéré et arrêt du tabac à tout patient.",
+    "secondaire": "Dépiste l'HTA vraie ou masquée par une mesure hors cabinet avant d'étiqueter le patient.",
+    "tertiaire": "Évite le surtraitement en ne traitant pas sur la seule PA de cabinet."
+   }
+  },
+  {
+   "cle": "suivi",
+   "titre": "HTA blouse blanche sans atteinte d'organe : suivi au long cours",
+   "but": [
+    "Réduire le risque cardiovasculaire global par l'hygiène de vie sans antihypertenseur.",
+    "Dépister la conversion vers une HTA soutenue par un contrôle annuel hors cabinet."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer que la situation n'est pas anodine et justifie un suivi régulier.",
+     "Rassurer sur l'absence de traitement médicamenteux nécessaire pour l'instant."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Limiter le sel à moins de 5 g/j, pratiquer une activité physique régulière et perdre du poids si besoin.",
+      "pourquoi": "Ces mesures abaissent la PA et le risque cardiovasculaire sans exposer au surtraitement."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Modérer l'alcool, arrêter le tabac et limiter le café, la réglisse et les AINS.",
+      "pourquoi": "Ces substances élèvent la PA ou le risque cardiovasculaire et favorisent la conversion vers l'HTA vraie."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Organiser une automesure annuelle sur appareil validé avec le pharmacien d'officine.",
+      "pourquoi": "Le pharmacien forme le patient et signale les valeurs anormales au médecin traitant."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Calculer le score AGLA et traiter dyslipidémie, tabagisme et glycémie selon le risque global.",
+      "pourquoi": "Le risque global ne dépend pas de la normalité de la PA ambulatoire."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise la prise en charge LAMal des contrôles par MAPA lorsqu'une indication médicale existe."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Ne prescrire aucun antihypertenseur en l'absence d'atteinte d'organe ou de risque élevé.",
+      "Ne pas qualifier la situation de normale."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Explique le diagnostic, calcule le risque global (AGLA) et fixe les objectifs d'hygiène de vie."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "pharmacien d'officine",
+       "fait": "Mesure la PA, vérifie la technique d'automesure et alerte le médecin en cas de valeurs élevées."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "patient·e",
+       "fait": "Pratique l'automesure sur 7 jours et applique les mesures de vie."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Contrôle chaque année PA hors cabinet, risque global et atteinte d'organe."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le pronostic est favorable sous suivi ; environ 30 à 40 % des patients évoluent vers une HTA soutenue à 5–10 ans, d'où le contrôle annuel.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "PA hors cabinet (MAPA ou automesure)",
+      "quand": "Une fois par an",
+      "cible": "MAPA 24 h < 130/80, jour < 135/85, nuit < 120/70 ; AMPA < 135/85"
+     },
+     {
+      "quoi": "Risque cardiovasculaire global (AGLA)",
+      "quand": "Réévaluation périodique",
+      "cible": "Risque stable, sans passage en risque élevé"
+     },
+     {
+      "quoi": "ECG, albuminurie, glycémie, lipides",
+      "quand": "Périodiquement selon le risque",
+      "cible": "Pas d'HVG, pas d'albuminurie, glycémie et lipides normaux"
+     },
+     {
+      "quoi": "Poids, tabac, alcool, activité physique",
+      "quand": "À chaque consultation",
+      "cible": "Mesures de vie appliquées"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : patient asymptomatique, sans atteinte d'organe, PA ambulatoire normale."
+   },
+   "prevention": {
+    "primaire": "Maintient un poids normal, une activité physique régulière et un apport en sel inférieur à 5 g/j.",
+    "secondaire": "Contrôle chaque année la PA hors cabinet pour dépister la conversion vers l'HTA permanente.",
+    "tertiaire": "Traite les autres facteurs de risque selon l'AGLA pour prévenir les événements cardiovasculaires."
+   }
+  },
+  {
+   "cle": "risqueEleve",
+   "titre": "HTA blouse blanche avec atteinte d'organe ou risque cardiovasculaire élevé",
+   "but": [
+    "Décider avec le patient si un traitement se justifie malgré une PA ambulatoire normale.",
+    "Contrôler les facteurs de risque associés et éviter le surtraitement."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer pourquoi le risque global rend la situation moins rassurante.",
+     "Vérifier à nouveau que la MAPA est complète, nuit comprise, pour exclure une HTA masquée ou nocturne."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Atorvastatine (statine)",
+      "posologie": "10 à 80 mg par voie orale, 1 fois par jour ; dose selon l'objectif de LDL-cholestérol fixé par le risque AGLA.",
+      "pourquoi": "Le risque global élevé selon AGLA justifie un traitement des lipides indépendamment de la PA ambulatoire normale.",
+      "source": "AIPS Swissmedic ; AGLA"
+     },
+     {
+      "molecule": "Ramipril (IEC) — seulement si indication retenue après discussion",
+      "posologie": "2,5 mg par voie orale, 1 fois par jour, à augmenter jusqu'à 5–10 mg ; adapter en insuffisance rénale.",
+      "pourquoi": "Un antihypertenseur ne se discute qu'en cas d'atteinte d'organe ou de risque très élevé, jamais systématiquement.",
+      "source": "AIPS Swissmedic ; ESH 2023"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Appliquer strictement sel < 5 g/j, activité physique, perte de poids, alcool modéré et arrêt du tabac.",
+      "pourquoi": "Ces mesures réduisent le risque global et complètent tout traitement médicamenteux éventuel."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Surveiller la PA par automesure et signaler tout vertige ou chute après traitement.",
+      "pourquoi": "Le surtraitement provoque hypotension et chutes, surtout chez la personne âgée."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise la prise en charge LAMal de la MAPA répétée et des examens de suivi en cas d'indication médicale."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Ne jamais fonder la décision sur la seule PA de cabinet.",
+      "Traiter les autres facteurs de risque selon le risque global."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Repère l'atteinte d'organe, le diabète, l'IRC ou la maladie cardiovasculaire et calcule le score AGLA."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Répète la MAPA pour exclure une HTA masquée ou nocturne qui changerait le diagnostic."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Discute avec le patient l'intérêt d'un antihypertenseur et traite lipides et glycémie."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Oriente vers cardiologue ou néphrologue en cas d'atteinte d'organe complexe."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le risque cardiovasculaire dépend surtout du risque global et de l'atteinte d'organe ; il reste plus élevé que chez le normotendu, surtout chez la personne âgée.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "PA hors cabinet (MAPA ou automesure)",
+      "quand": "Au moins une fois par an, plus tôt si traitement",
+      "cible": "Absence de conversion vers une HTA soutenue ; pas d'hypotension"
+     },
+     {
+      "quoi": "LDL-cholestérol et tolérance de la statine",
+      "quand": "Selon le suivi lipidique",
+      "cible": "Objectif fixé selon le risque AGLA"
+     },
+     {
+      "quoi": "Créatininémie, kaliémie et albuminurie si IEC",
+      "quand": "Après introduction puis périodiquement",
+      "cible": "Absence d'aggravation rénale ou d'hyperkaliémie"
+     },
+     {
+      "quoi": "ECG et albuminurie",
+      "quand": "Périodiquement",
+      "cible": "Absence de progression de l'atteinte d'organe"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : patient asymptomatique, PA < 180/110 mmHg, sans atteinte d'organe aiguë."
+   },
+   "prevention": {
+    "primaire": "Applique les mesures d'hygiène de vie dès le diagnostic.",
+    "secondaire": "Dépiste et traite précocement diabète, dyslipidémie et atteinte d'organe asymptomatique.",
+    "tertiaire": "Prévient les événements cardiovasculaires par le contrôle du risque global et évite le surtraitement."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": [
+   "SCHEMA: 'arbre' is a required property"
+  ]
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 5387,
+  "output_tokens": 16805,
+  "output_tokens_details": {
+   "thinking_tokens": 4513
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:59",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

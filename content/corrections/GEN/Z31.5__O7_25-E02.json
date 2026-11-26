@@ -1,0 +1,1146 @@
+{
+ "id": "Z31.5__O7_25-E02",
+ "portes": [
+  {
+   "ssp": "O7.25",
+   "nomSSP": "Demande de conseil génétique",
+   "entite": "Conseil génétique prénatal (âge maternel, DPNI, antécédents familiaux)",
+   "entiteId": "O7.25-E02"
+  }
+ ],
+ "entite": "Conseil génétique prénatal (âge maternel, DPNI, antécédents familiaux)",
+ "cim10": "Z31.5",
+ "ssp": {
+  "code": "O7.25",
+  "nom": "Demande de conseil génétique",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Demande de conseil génétique",
+    "i": "Porte d'entrée : un patient ou un couple demande des informations sur un risque génétique.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Grossesse en cours ?",
+    "i": "Le conseil prénatal ne s'applique qu'à une grossesse déjà débutée.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Non : projet de grossesse sans conception",
+    "i": "Relève du conseil préconceptionnel ; renvoi vers le SSP Conseil génétique préconceptionnel (DPI possible selon la LPMA).",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Oui : anomalie fœtale sévère déjà visible (CN ≥ 3,5 mm, hygroma, hydrops, malformation majeure) ?",
+    "i": "Ces signes dispensent du DPNI et imposent un diagnostic invasif ; la filière urgente relève du SSP Diagnostic prénatal urgent.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Oui : PVC ou amniocentèse d'emblée et médecine fœto-maternelle",
+    "i": "Seul un test diagnostique tranche, avec puce chromosomique.",
+    "pec": "diagnostic_invasif",
+    "notion": "c5"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Anomalie grave confirmée",
+    "i": "Déclenche l'annonce multidisciplinaire et la présentation neutre des options.",
+    "pec": "annonce_anomalie",
+    "notion": "c7"
+   },
+   {
+    "id": "n7",
+    "parent": "n4",
+    "t": "Non : variant pathogène familial ou enfant précédent atteint d'une maladie monogénique ?",
+    "i": "Le DPNI standard ne détecte pas un variant ponctuel ; il faut un test ciblé.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Oui : test invasif ciblé sur le variant familial",
+    "i": "Le variant doit être identifié avant ou très tôt dans la grossesse ; un VUS ou une découverte fortuite renvoie au SSP d'interprétation de VUS.",
+    "pec": "diagnostic_invasif",
+    "notion": "c4"
+   },
+   {
+    "id": "n9",
+    "parent": "n7",
+    "t": "Non : remaniement parental suspecté (translocation, fausses couches répétées) ?",
+    "i": "Un caryotype parental révèle un remaniement équilibré chez 2–5 % des couples avec fausses couches répétées.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "Oui : caryotype des deux parents puis test invasif selon résultat",
+    "i": "Le risque de T21 atteint 10–15 % si la mère porte une translocation robertsonienne.",
+    "pec": "diagnostic_invasif",
+    "notion": "c4"
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "Non : conseil standard et dépistage proposé à toute femme enceinte",
+    "i": "L'âge de 35 ans n'est plus une indication isolée au test invasif.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Refus de tout dépistage",
+    "i": "Le droit de ne pas savoir est respecté ; l'échographie morphologique reste proposée.",
+    "pec": "depistage_t1",
+    "notion": "c1"
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "Acceptation : test combiné T1 (11+0–13+6 sem)",
+    "i": "CN, PAPP-A et β-hCG libre estiment un risque ; la fenêtre impose d'agir vite.",
+    "pec": "depistage_t1",
+    "notion": "c1"
+   },
+   {
+    "id": "n14",
+    "parent": "n13",
+    "t": "Risque < 1/1000",
+    "i": "Seuil de remboursement du DPNI non atteint : risque jugé faible.",
+    "pec": "depistage_t1",
+    "notion": "c6"
+   },
+   {
+    "id": "n15",
+    "parent": "n13",
+    "t": "Risque ≥ 1/1000 : DPNI (remboursé) ou test invasif selon choix",
+    "i": "Le DPNI est facultatif et reste un dépistage.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n16",
+    "parent": "n15",
+    "t": "DPNI négatif",
+    "i": "Le risque est très réduit mais non nul ; échographie morphologique de 20–23 semaines.",
+    "pec": "depistage_t1",
+    "notion": "c3"
+   },
+   {
+    "id": "n17",
+    "parent": "n15",
+    "t": "DPNI positif ou sans résultat",
+    "i": "Confirmation invasive obligatoire avant toute décision ; un échec du test n'est pas rassurant.",
+    "pec": "diagnostic_invasif",
+    "notion": "c3"
+   }
+  ]
+ },
+ "specialites": [
+  "GEN"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Conseil génétique prénatal : âge maternel, DPNI, antécédents familiaux",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Dépistage ou diagnostic : deux logiques à ne pas confondre",
+   "rubriques": [
+    "definition",
+    "positiveDiagnosis"
+   ],
+   "comment": "Commence par te demander si le test estime un risque (dépistage) ou établit le caryotype fœtal (diagnostic), car de cette réponse dépend la conduite après un résultat positif.",
+   "tableau": {
+    "colonnes": [
+     "Test",
+     "Nature",
+     "Performance",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Test combiné du 1er trimestre",
+      "Dépistage",
+      [
+       {
+        "t": "≈ 90 % des T21 pour 5 % de faux positifs",
+        "i": "Il combine clarté nucale, PAPP-A et β-hCG libre pour estimer un risque ; il est moins performant que le DPNI, d'où davantage de faux positifs."
+       }
+      ],
+      [
+       {
+        "t": "11+0 à 13+6 semaines",
+        "i": "La clarté nucale ne se mesure que pour une longueur crânio-caudale de 45 à 84 mm ; passé ce délai, la fenêtre est perdue."
+       }
+      ]
+     ],
+     [
+      "DPNI",
+      "Dépistage",
+      [
+       {
+        "t": "> 99 % des T21, < 0,1 % de faux positifs",
+        "i": "Il séquence l'ADN libre d'origine placentaire : excellente performance, mais la valeur prédictive positive reste < 100 % car elle dépend de la prévalence."
+       }
+      ],
+      [
+       {
+        "t": "Dès 10 SA ; remboursé si risque ≥ 1/1000",
+        "i": "Le remboursement par l'assurance de base est lié au résultat du test combiné ; le DPNI ne remplace jamais un test invasif."
+       }
+      ]
+     ],
+     [
+      "PVC (biopsie de trophoblaste)",
+      "Diagnostic",
+      [
+       {
+        "t": "QF-PCR puis caryotype ou puce",
+        "i": "Elle analyse directement le tissu placentaire et donne un génotype, ce que ne fait aucun dépistage."
+       }
+      ],
+      [
+       {
+        "t": "Dès 11 semaines ; perte 0,1–0,3 %",
+        "i": "Elle est plus précoce que l'amniocentèse, mais un mosaïcisme placentaire confiné peut rendre le résultat ambigu."
+       }
+      ]
+     ],
+     [
+      "Amniocentèse",
+      "Diagnostic",
+      [
+       {
+        "t": "QF-PCR rapide puis caryotype ou puce",
+        "i": "Les cellules amniotiques reflètent mieux le fœtus ; la QF-PCR donne en quelques jours les trisomies 13, 18 et 21."
+       }
+      ],
+      [
+       {
+        "t": "Dès 15 semaines ; perte 0,1–0,3 %",
+        "i": "Elle est plus tardive que la PVC mais évite en général l'ambiguïté du mosaïcisme placentaire."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le conseil prénatal est un entretien non directif avant et après l'analyse.",
+    "Un dépistage estime un risque ; seul un test invasif établit le caryotype ou le génotype fœtal.",
+    "Le couple décide seul et peut refuser tout dépistage (droit de ne pas savoir).",
+    "Un DPNI positif ne justifie jamais une décision d'interruption sans confirmation invasive."
+   ],
+   "sources": [
+    "LAGH (RS 810.12)",
+    "OPAS annexe 1 (DPNI)",
+    "SSGO, recommandations de dépistage prénatal"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie : risques de base et contexte suisse",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Replace chaque risque dans son contexte : l'âge augmente le risque, mais en Suisse l'offre de dépistage s'adresse à toute femme enceinte.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le risque de trisomie 21 à la naissance atteint environ 1/350 à 35 ans et environ 1/100 à 40 ans.",
+    "La trisomie 21 touche environ 1 naissance sur 700, et les anomalies congénitales majeures 2 à 3 % des naissances.",
+    "Le dépistage du 1er trimestre est proposé à toute femme enceinte ; 35 ans n'est plus une indication isolée au test invasif.",
+    "Le test combiné suivi, si risque ≥ 1/1000, d'un DPNI remboursé constitue la voie standard en Suisse.",
+    "L'assurance de base rembourse deux échographies de routine : 11 à 14 semaines et 20 à 23 semaines."
+   ],
+   "sources": [
+    "SSGO, recommandations de dépistage prénatal",
+    "OPAS annexe 1"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Biologie du DPNI : performances, faux positifs et échecs",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Raisonne en te rappelant que l'ADN analysé est d'origine placentaire : cela explique à la fois la haute sensibilité et les discordances avec le fœtus.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Conséquence pratique"
+    ],
+    "lignes": [
+     [
+      "Origine de l'ADN libre",
+      [
+       {
+        "t": "Trophoblaste, pas fœtus",
+        "i": "Le placenta peut différer du fœtus (mosaïcisme placentaire confiné) : le DPNI reste donc un dépistage, jamais un diagnostic."
+       }
+      ]
+     ],
+     [
+      "Valeur prédictive positive",
+      [
+       {
+        "t": "< 100 %, plus basse pour T13 et T18",
+        "i": "La VPP dépend de la prévalence : une anomalie rare génère proportionnellement plus de faux positifs que la T21."
+       }
+      ]
+     ],
+     [
+      "Causes de faux positif",
+      [
+       {
+        "t": "Mosaïcisme placentaire, jumeau évanescent, anomalie ou tumeur maternelle",
+        "i": "Ces sources d'ADN non fœtal ou non représentatif du fœtus mimant une aneuploïdie ; une tumeur maternelle occulte est une cause rare mais à connaître."
+       }
+      ]
+     ],
+     [
+      "Échec du test",
+      [
+       {
+        "t": "Fraction fœtale < ≈ 4 %",
+        "i": "Un surpoids maternel ou un terme précoce diluent l'ADN fœtal ; un échec n'est pas rassurant car le risque d'anomalie est augmenté."
+       }
+      ]
+     ],
+     [
+      "Limites de détection",
+      [
+       {
+        "t": "Ni triploïdie ni malformation structurelle",
+        "i": "Le DPNI cible T21, T18, T13 : il ne remplace ni l'échographie ni la puce chromosomique, qui détecte les déséquilibres plus fins."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le DPNI détecte plus de 99 % des T21 avec moins de 0,1 % de faux positifs.",
+    "Ses performances sont un peu moindres pour T18 et T13.",
+    "Un DPNI sans résultat impose une nouvelle prise de sang ou un test invasif."
+   ],
+   "sources": [
+    "OPAS annexe 1",
+    "SSGO, recommandations de dépistage prénatal"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Anamnèse : antécédents qui changent la stratégie",
+   "rubriques": [
+    "anamnesis"
+   ],
+   "comment": "Cherche d'abord un risque spécifique (récidive, remaniement parental, monogénique) qui sort du dépistage standard et oriente vers un test ciblé.",
+   "tableau": {
+    "colonnes": [
+     "Antécédent",
+     "Risque",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Enfant précédent avec T21 libre",
+      [
+       {
+        "t": "≈ 1 % ou risque lié à l'âge si plus élevé",
+        "i": "La non-disjonction est un événement surtout sporadique ; le risque de récidive reste faible mais supérieur au risque de base."
+       }
+      ],
+      "Dépistage ou test selon souhait du couple, sans indication invasive automatique."
+     ],
+     [
+      "Translocation robertsonienne parentale",
+      [
+       {
+        "t": "T21 : 10–15 % si mère, 1–2 % si père",
+        "i": "Le risque dépend du sexe du parent porteur, la ségrégation étant moins défavorable via le père."
+       }
+      ],
+      "Caryotype des deux parents et test invasif."
+     ],
+     [
+      "Fausses couches à répétition",
+      [
+       {
+        "t": "Remaniement équilibré chez 2–5 % des couples",
+        "i": "Un remaniement parental équilibré produit des gamètes déséquilibrés : il se recherche par un caryotype des deux parents."
+       }
+      ],
+      "Caryotype des deux parents."
+     ],
+     [
+      "Consanguinité (cousins germains)",
+      [
+       {
+        "t": "Risque environ doublé",
+        "i": "Les cousins partagent davantage d'allèles : le risque d'affection récessive et d'anomalie congénitale double environ."
+       }
+      ],
+      "Conseil ciblé selon l'origine."
+     ],
+     [
+      "Maladie monogénique familiale",
+      [
+       {
+        "t": "Variant familial à identifier",
+        "i": "Le DPNI standard ne détecte pas un variant ponctuel : il faut connaître le variant avant la grossesse ou très tôt."
+       }
+      ],
+      "Arbre généalogique sur 3 générations, test invasif ciblé."
+     ],
+     [
+      "Porteur de mucoviscidose",
+      [
+       {
+        "t": "1/25–30 en Europe ; 25 % si deux parents porteurs",
+        "i": "Hérédité autosomique récessive : chaque grossesse de deux porteurs a 1 risque sur 4 d'enfant atteint."
+       }
+      ],
+      "Dépistage ciblé, pas systématique en Suisse."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Explore ce que les parents feraient d'un résultat anormal et s'ils veulent être informés.",
+    "Dresse un arbre généalogique sur trois générations face à une maladie familiale.",
+    "Le dépistage de porteur reste ciblé (origine, antécédents) : hémogramme puis électrophorèse pour les hémoglobinopathies.",
+    "Le diagnostic préimplantatoire (LPMA) est une option avant la grossesse pour une maladie héréditaire grave."
+   ],
+   "sources": [
+    "LPMA (RS 810.11)",
+    "SSGM, recommandations de génétique médicale",
+    "LAGH (RS 810.12)"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Échographie du 1er trimestre et signaux d'alarme",
+   "rubriques": [
+    "clinicalExam",
+    "presumptionRedFlags"
+   ],
+   "comment": "Repère les signes qui font passer directement au diagnostic invasif en sautant le DPNI, car le DPNI ne détecte ni malformation ni variant ponctuel.",
+   "tableau": {
+    "colonnes": [
+     "Signe",
+     "Seuil ou valeur",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Clarté nucale",
+      [
+       {
+        "t": "≥ 3,5 mm",
+        "i": "Le risque d'aneuploïdie, de cardiopathie et de syndrome génétique est tel que le test doit être diagnostique, pas un dépistage."
+       }
+      ],
+      "PVC ou amniocentèse d'emblée, puce chromosomique."
+     ],
+     [
+      "Hygroma kystique, hydrops, malformation majeure",
+      [
+       {
+        "t": "Présence",
+        "i": "Une atteinte structurelle n'est pas détectée par le DPNI et peut relever d'un syndrome plus fin que le caryotype."
+       }
+      ],
+      "Diagnostic invasif direct et orientation en médecine fœto-maternelle."
+     ],
+     [
+      "Marqueurs mineurs T1",
+      [
+       {
+        "t": "Os nasal absent, onde a inversée du ductus venosus, régurgitation tricuspidienne",
+        "i": "Ils augmentent le risque d'aneuploïdie sans le prouver : ils affinent l'estimation du risque."
+       }
+      ],
+      "Intégrer au calcul de risque."
+     ],
+     [
+      "Variant familial ou enfant atteint d'une maladie monogénique",
+      [
+       {
+        "t": "Variant connu",
+        "i": "Le DPNI standard cible T21, T18 et T13 : il passe à côté d'un variant familial."
+       }
+      ],
+      "Test invasif ciblé."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'échographie T1 se réalise entre 11+0 et 13+6 semaines (LCC 45 à 84 mm) et date la grossesse.",
+    "Une clarté nucale normale ne remplace pas l'échographie morphologique de 20 à 23 semaines.",
+    "Une clarté nucale élevée avec caryotype normal impose échographie détaillée et échocardiographie fœtale."
+   ],
+   "sources": [
+    "SSGO, recommandations d'échographie",
+    "OPAS annexe 1"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Démarche de dépistage et de diagnostic en trois temps",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Suis l'escalade du moins invasif au plus invasif, en sautant les étapes dès qu'un signe d'alarme est présent.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Grossesse, femme informée et consentante",
+     "i": "Le consentement écrit libre et éclairé précède toute analyse prénatale (LAGH).",
+     "pec": "depistage_t1",
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Signe d'alarme ou variant familial ?",
+     "i": "CN ≥ 3,5 mm, malformation, hydrops ou variant familial dispensent du dépistage.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : PVC (dès 11 sem) ou amniocentèse (dès 15 sem)",
+     "i": "Seul le test invasif donne un diagnostic ; QF-PCR rapide puis caryotype ou puce.",
+     "pec": "diagnostic_invasif",
+     "notion": "c1"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non : test combiné T1 (CN, PAPP-A, β-hCG libre)",
+     "i": "Détecte ≈ 90 % des T21 pour 5 % de faux positifs, à 11+0–13+6 semaines.",
+     "pec": "depistage_t1",
+     "notion": "c1"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Risque < 1/1000",
+     "i": "Seuil sous lequel le DPNI n'est pas remboursé ; le risque est jugé faible.",
+     "pec": "depistage_t1",
+     "notion": "c1"
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "Risque ≥ 1/1000 : DPNI",
+     "i": "Remboursé par l'assurance de base pour T21, T18, T13 ; sensibilité > 99 % pour T21.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "DPNI négatif",
+     "i": "Le risque est très réduit mais non nul : l'échographie morphologique reste nécessaire.",
+     "pec": "depistage_t1",
+     "notion": "c3"
+    },
+    {
+     "id": "n8",
+     "parent": "n6",
+     "t": "DPNI positif ou sans résultat",
+     "i": "Un DPNI positif est un dépistage ; un échec ne rassure pas car le risque d'anomalie est augmenté.",
+     "pec": "diagnostic_invasif",
+     "notion": "c3"
+    },
+    {
+     "id": "n9",
+     "parent": "n1",
+     "t": "Dépistage de porteur si origine ou antécédent le justifie",
+     "i": "Non systématique en Suisse ; il se cible (hémoglobinopathies, mucoviscidose).",
+     "pec": "diagnostic_invasif",
+     "notion": "c4"
+    }
+   ],
+   "points": [
+    "La démarche suit trois temps : test combiné, DPNI si risque ≥ 1/1000, test invasif si haut risque.",
+    "Le DPNI est facultatif et ne se prescrit pas d'emblée en cas de signe d'alarme.",
+    "Le gain de la puce chromosomique sur le caryotype est ≈ 1–2 % si échographie normale et ≈ 6 % si anomalie structurelle."
+   ],
+   "sources": [
+    "SSGO, recommandations de dépistage prénatal",
+    "OPAS annexe 1"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Annonce, options et cadre légal suisse",
+   "rubriques": [
+    "acuteManagement",
+    "positiveDiagnosis"
+   ],
+   "comment": "Présente toutes les options sans orienter la décision, en rappelant les règles légales qui protègent la femme.",
+   "tableau": {
+    "colonnes": [
+     "Règle",
+     "Contenu"
+    ],
+    "lignes": [
+     [
+      "Information et consentement (LAGH)",
+      [
+       {
+        "t": "But, limites, résultats incertains ou fortuits, consentement écrit",
+        "i": "Le consentement doit être libre et éclairé : il garantit aussi le droit de refuser tout dépistage."
+       }
+      ]
+     ],
+     [
+      "Caractères sans incidence sur la santé",
+      [
+       {
+        "t": "Analyse interdite",
+        "i": "La LAGH proscrit la sélection sur des caractères non médicaux."
+       }
+      ]
+     ],
+     [
+      "Sexe fœtal",
+      [
+       {
+        "t": "Communiqué après 12 semaines de grossesse",
+        "i": "Cela évite qu'une interruption soit motivée par le sexe."
+       }
+      ]
+     ],
+     [
+      "Interruption de grossesse",
+      [
+       {
+        "t": "> 12 semaines depuis les dernières règles : avis conforme d'un médecin",
+        "i": "L'article 119 CP exige un danger grave pour la santé physique ou une détresse psychique ; la femme décide seule, sans veto du père."
+       }
+      ]
+     ],
+     [
+      "Assurances",
+      [
+       {
+        "t": "Test prédictif interdit, sauf vie > 400 000 CHF ou prévoyance surobligatoire > 40 000 CHF de rente/an",
+        "i": "La LAGH protège contre la discrimination ; seules ces limites financières autorisent l'exigence."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'annonce se fait en personne, avec les deux parents si possible, par une équipe multidisciplinaire.",
+    "Les options (poursuite avec soins périnataux spécialisés ou interruption médicale) sont présentées de façon neutre.",
+    "Une anomalie sévère déjà visible relève de la filière urgente de diagnostic prénatal."
+   ],
+   "sources": [
+    "LAGH (RS 810.12)",
+    "Code pénal art. 119 CP"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications, surveillance et pronostic",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Anticipe la complication du geste invasif, le résultat ambigu et la détresse décisionnelle, puis organise le suivi en réseau.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Geste invasif (PVC, amniocentèse)",
+      [
+       {
+        "t": "Perte fœtale 0,1–0,3 %",
+        "i": "Ce risque faible reste à annoncer avant le geste ; il justifie de ne pas proposer de test invasif sans indication."
+       }
+      ]
+     ],
+     [
+      "Femme RhD négative non immunisée",
+      [
+       {
+        "t": "Immunoglobulines anti-D après le geste",
+        "i": "Le geste peut passer du sang fœtal RhD positif à la mère : l'anti-D prévient l'allo-immunisation."
+       }
+      ]
+     ],
+     [
+      "Mosaïcisme placentaire confiné après PVC",
+      [
+       {
+        "t": "Amniocentèse de confirmation",
+        "i": "Le trophoblaste peut différer du fœtus ; seule l'amniocentèse tranche."
+       }
+      ]
+     ],
+     [
+      "Caryotype normal avec clarté nucale élevée",
+      [
+       {
+        "t": "Échographie détaillée et échocardiographie fœtale",
+        "i": "Le risque de cardiopathie ou de syndrome génétique persiste malgré un caryotype normal."
+       }
+      ]
+     ],
+     [
+      "Dépistage négatif",
+      [
+       {
+        "t": "Échographie morphologique à 20–23 semaines",
+        "i": "Un dépistage négatif n'exclut pas toute anomalie, notamment structurelle."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le pronostic dépend du diagnostic : T21 avec déficience intellectuelle variable ; moins de 10–15 % de survie à un an pour T13 et T18.",
+    "Le suivi mobilise gynécologue-obstétricien, généticien médical, pédiatre et psychologue, en centre universitaire si cas complexe.",
+    "Le médecin de premier recours assure l'information de base puis adresse pour le conseil spécialisé.",
+    "Propose un soutien psychologique tout au long de la grossesse."
+   ],
+   "sources": [
+    "SSGO, recommandations de dépistage prénatal",
+    "Swissmedic AIPS (immunoglobulines anti-D)"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "depistage_t1",
+   "titre": "Conseil non directif et dépistage du 1er trimestre",
+   "but": [
+    "Informer le couple de façon non directive pour un choix libre et éclairé, y compris le refus de tout dépistage.",
+    "Estimer le risque d'aneuploïdie dans la fenêtre 11+0–13+6 semaines.",
+    "Prévenir les anomalies du tube neural par l'acide folique."
+   ],
+   "moyens": {
+    "accueil": [
+     "Accueille le couple au calme, avec interprète si nécessaire, et laisse la femme décider qui assiste à l'entretien.",
+     "Explore ce que les parents feraient d'un résultat anormal et s'ils veulent être informés.",
+     "Informe que tout dépistage est facultatif et que le droit de ne pas savoir est garanti.",
+     "Recueille un consentement écrit libre et éclairé avant toute analyse."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Acide folique (vitamine B9)",
+      "posologie": "0,4 mg/j per os dès 1 mois avant la conception jusqu'à 12 semaines ; 4 à 5 mg/j si antécédent d'anomalie du tube neural.",
+      "pourquoi": "Elle réduit le risque d'anomalie du tube neural ; la dose augmente après un antécédent car le risque de récidive est plus élevé.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Remets une information écrite sur le but, les limites et les résultats possibles des tests.",
+      "pourquoi": "Elle permet un choix éclairé et prépare à un résultat incertain ou fortuit."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Organise l'échographie T1 par un opérateur formé, avec mesure de la clarté nucale.",
+      "pourquoi": "La qualité de la mesure conditionne la fiabilité du risque calculé."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Explique la prise en charge : test combiné, DPNI si risque ≥ 1/1000, deux échographies de routine.",
+      "pourquoi": "Le couple connaît le coût réel avant de choisir."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantit le consentement écrit, le droit de ne pas savoir et l'interdiction des analyses de caractères non médicaux."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise le remboursement et la protection LAGH contre l'exigence d'un test prédictif par l'assureur."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Planifie le rendez-vous avant 11 semaines pour ne pas perdre la fenêtre du test combiné.",
+      "Maintiens une posture neutre et non directive tout au long de l'entretien."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Informe sur but, limites et conséquences des tests et recueille le consentement écrit."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Prélève PAPP-A et β-hCG libre et planifie l'échographie T1 à 11+0–13+6 semaines."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Annonce le risque calculé et propose DPNI si risque ≥ 1/1000, selon le choix de la femme."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Programme l'échographie morphologique de 20–23 semaines, même si le dépistage est négatif."
+      }
+     ]
+    }
+   },
+   "pronostic": "Un dépistage négatif réduit fortement le risque mais ne l'exclut pas ; le DPNI détecte plus de 99 % des T21 avec moins de 0,1 % de faux positifs.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Résultat du test combiné et de l'éventuel DPNI",
+      "quand": "Dans les jours suivant le prélèvement",
+      "cible": "Risque communiqué et décision du couple documentée"
+     },
+     {
+      "quoi": "Échographie morphologique",
+      "quand": "20 à 23 semaines",
+      "cible": "Absence de malformation structurelle"
+     },
+     {
+      "quoi": "État psychologique du couple",
+      "quand": "À chaque consultation",
+      "cible": "Absence de détresse décisionnelle"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : aucun signe d'alarme et choix du couple documenté."
+   },
+   "prevention": {
+    "primaire": "Prescris l'acide folique avant la conception et propose le conseil préconceptionnel aux couples à risque.",
+    "secondaire": "Propose un dépistage à toute femme enceinte, quel que soit son âge, dans la fenêtre du 1er trimestre.",
+    "tertiaire": "Oriente tôt vers un accompagnement spécialisé en cas d'anomalie confirmée."
+   }
+  },
+  {
+   "cle": "diagnostic_invasif",
+   "titre": "Diagnostic prénatal invasif (haut risque, signe d'alarme ou variant familial)",
+   "but": [
+    "Établir le caryotype ou le génotype fœtal avant toute décision.",
+    "Limiter le risque de fausse couche et l'allo-immunisation.",
+    "Soutenir le couple pendant l'attente du résultat."
+   ],
+   "moyens": {
+    "accueil": [
+     "Explique que le geste est diagnostique, que le risque de fausse couche est de 0,1 à 0,3 % et que le DPNI ne le remplace pas.",
+     "Recueille le consentement écrit pour le geste et pour l'analyse.",
+     "Vérifie le groupe sanguin et le statut RhD de la femme avant le geste.",
+     "Informe que la puce peut révéler des variants incertains ou fortuits."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Immunoglobulines anti-D (immunoglobuline humaine)",
+      "posologie": "300 µg (1500 UI) i.m., dans les 72 h après le geste, si femme RhD négative non immunisée.",
+      "pourquoi": "Un geste invasif peut faire passer du sang fœtal RhD positif chez la mère et provoquer une allo-immunisation.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réalise la PVC dès 11 semaines ou l'amniocentèse dès 15 semaines, avec QF-PCR rapide puis caryotype ou puce.",
+      "pourquoi": "La QF-PCR donne un premier résultat en quelques jours, la puce affine le diagnostic."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Organise l'échographie détaillée et l'échocardiographie fœtale si la clarté nucale est élevée.",
+      "pourquoi": "Le risque de cardiopathie persiste malgré un caryotype normal."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Propose un soutien psychologique pendant l'attente du résultat.",
+      "pourquoi": "L'attente génère une détresse décisionnelle importante."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Encadre le consentement et la gestion des résultats incertains ou fortuits selon la LAGH."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise la prise en charge du test invasif et la protection contre l'exigence de tests prédictifs."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Organise le geste dans la semaine pour tenir les délais de décision.",
+      "Oriente immédiatement vers la médecine fœto-maternelle en cas de malformation majeure ou d'hydrops."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Identifie le signe d'alarme (CN ≥ 3,5 mm, malformation) et contacte la médecine fœto-maternelle."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Détermine le groupe RhD et prépare le consentement et le rendez-vous."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "second médecin",
+       "fait": "Réalise la PVC ou l'amniocentèse sous échographie, avec QF-PCR rapide."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Administre l'anti-D si indiqué et annonce le résultat en personne."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Identifie le variant familial avant ou très tôt dans la grossesse.",
+      "Coordonne obstétrique et génétique pour choisir le test ciblé."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Dresse l'arbre généalogique sur trois générations et obtient le rapport du variant familial."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Généticien médical définit le test ciblé et caryotype les parents si translocation suspectée."
+      },
+      {
+       "temps": "puis",
+       "qui": "second médecin",
+       "fait": "Réalise la PVC ou l'amniocentèse et adresse l'échantillon au laboratoire de génétique."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le risque de perte fœtale liée au geste est de 0,1 à 0,3 % ; un mosaïcisme placentaire confiné après PVC peut imposer une amniocentèse de confirmation.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Saignement, douleurs, perte de liquide après le geste",
+      "quand": "Dans les jours suivants",
+      "cible": "Aucun signe de fausse couche"
+     },
+     {
+      "quoi": "Résultat QF-PCR puis caryotype ou puce",
+      "quand": "Quelques jours puis 1 à 2 semaines",
+      "cible": "Résultat communiqué en personne"
+     },
+     {
+      "quoi": "Immunisation anti-D",
+      "quand": "Après le geste",
+      "cible": "Anti-D administré si RhD négative non immunisée"
+     }
+    ],
+    "sortie": "Sortie le jour même du geste sans signe de complication et résultat planifié."
+   },
+   "prevention": {
+    "primaire": "Évite les tests invasifs sans indication par un dépistage préalable adapté.",
+    "secondaire": "Limite les confirmations tardives en organisant le geste dès le signe d'alarme.",
+    "tertiaire": "Assure un suivi spécialisé de la grossesse et un soutien psychologique après un résultat anormal."
+   }
+  },
+  {
+   "cle": "annonce_anomalie",
+   "titre": "Annonce d'une anomalie grave et options",
+   "but": [
+    "Annoncer le diagnostic avec empathie, sans retard et en personne.",
+    "Présenter de façon neutre toutes les options pour que la femme décide seule.",
+    "Soutenir le couple pendant et après la grossesse."
+   ],
+   "moyens": {
+    "accueil": [
+     "Convoque les deux parents si possible dans un lieu calme et réserve un temps suffisant.",
+     "Annonce le résultat en personne, avec les mots simples, sans minimiser.",
+     "Rappelle que la femme décide seule et que le père n'a pas de droit de veto légal."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Propose un soutien psychologique tout au long de la grossesse et après une interruption.",
+      "pourquoi": "Il prévient la culpabilité parentale et la détresse décisionnelle."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Organise l'interruption médicale de grossesse si la femme la choisit, après avis conforme au-delà de 12 semaines.",
+      "pourquoi": "La loi exige l'avis d'un médecin attestant un danger grave ou une détresse psychique."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Prépare la poursuite de la grossesse avec soins périnataux spécialisés si la femme la choisit.",
+      "pourquoi": "L'accueil spécialisé de l'enfant se prépare avant la naissance."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Précise l'article 119 CP, l'avis conforme après 12 semaines et le droit de décision de la femme."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Prépare des soins palliatifs périnataux si l'enfant a une trisomie 13 ou 18, de survie limitée."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Informe sur les droits (congé maternité, prestations) après une interruption ou une naissance."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Annonce sans retard car les délais légaux et médicaux sont courts.",
+      "Présente toutes les options avec la même neutralité."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Prépare l'annonce avec généticien, obstétricien, pédiatre et psychologue."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Annonce le diagnostic en personne aux deux parents et explique les conséquences."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "spécialiste",
+       "fait": "Généticien ou pédiatre explique le pronostic selon le diagnostic confirmé."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Présente poursuite avec soins spécialisés et interruption médicale, puis laisse le temps de réfléchir."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Maintiens une position neutre, sans orienter la décision.",
+      "Revois le couple à court terme pour répondre aux questions."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Revoit le couple dans les jours suivants et recueille sa décision."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "psychologue",
+       "fait": "Assure un soutien régulier pendant la grossesse et après une éventuelle interruption."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Coordonne obstétrique, génétique et pédiatrie dans un centre universitaire pour les cas complexes."
+      }
+     ]
+    }
+   },
+   "pronostic": "Il dépend du diagnostic : la trisomie 21 entraîne une déficience intellectuelle variable, alors que moins de 10 à 15 % des enfants avec trisomie 13 ou 18 survivent un an.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Décision du couple et sa compréhension",
+      "quand": "Consultation de suivi dans les jours qui suivent",
+      "cible": "Décision libre et informée, documentée"
+     },
+     {
+      "quoi": "Détresse psychologique et culpabilité",
+      "quand": "À chaque consultation, puis après l'accouchement ou l'interruption",
+      "cible": "Soutien en place, pas de décompensation"
+     },
+     {
+      "quoi": "Échographies détaillées si poursuite",
+      "quand": "Selon la médecine fœto-maternelle",
+      "cible": "Plan périnatal défini"
+     }
+    ],
+    "sortie": "Retour à domicile après l'annonce si un suivi psychologique et un rendez-vous de revue sont organisés."
+   },
+   "prevention": {
+    "primaire": "Propose le dépistage du 1er trimestre à toute femme enceinte pour permettre un diagnostic précoce.",
+    "secondaire": "Évite le retard d'annonce en organisant rapidement l'équipe multidisciplinaire.",
+    "tertiaire": "Offre un soutien psychologique prolongé et un conseil génétique pour une grossesse future."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6544,
+  "output_tokens": 19844,
+  "output_tokens_details": {
+   "thinking_tokens": 5867
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:56",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

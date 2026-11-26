@@ -1,0 +1,1020 @@
+{
+ "id": "T30.1__S8_2-E01",
+ "portes": [
+  {
+   "ssp": "S8.2",
+   "nomSSP": "Brûlures, lésions dues au froid",
+   "entite": "Brûlure thermique superficielle (1er degré)",
+   "entiteId": "S8.2-E01"
+  }
+ ],
+ "entite": "Brûlure thermique superficielle (1er degré)",
+ "cim10": "T30.1",
+ "ssp": {
+  "code": "S8.2",
+  "nom": "Brûlures, lésions dues au froid",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient avec brûlure ou lésion due au froid",
+    "i": "Porte d'entrée du SSP S8.2 : le mécanisme oriente d'emblée l'entité.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Lésion par le froid (gelure, pied de tranchée, hypothermie)",
+    "i": "Hors du cadre de la brûlure thermique : renvoie aux entités gelure, pied de tranchée et hypothermie du même SSP S8.2.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "Brûlure chimique, électrique ou inhalation de fumées",
+    "i": "Lésions profondes sous aspect discret : renvoie aux entités chimique, électrique et voies aériennes du SSP S8.2.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "Brûlure thermique ou par UV",
+    "i": "Mécanisme du présent cas : on évalue l'état général puis la profondeur.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Signe systémique ? (T° > 40 °C avec troubles neurologiques, vomissements, syncope, nourrisson étendu)",
+    "i": "Une atteinte systémique prime sur l'aspect cutané et définit l'urgence.",
+    "pec": "urgence_systemique",
+    "notion": "c6"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Aucun signe systémique : évaluer profondeur et surface",
+    "i": "Évaluation clinique seule, avec paume, règle des 9 ou Lund-Browder.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Phlyctènes avec fond rose humide",
+    "i": "Atteinte du derme superficiel : renvoie à l'entité 2e degré superficiel du SSP S8.2.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Fond rouge ou blanc, blanchit peu, hypoesthésie",
+    "i": "Derme profond : renvoie à l'entité 2e degré profond du SSP S8.2, avis spécialisé.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n9",
+    "parent": "n6",
+    "t": "Peau cartonnée, insensible, non blanchissante",
+    "i": "Pleine épaisseur : renvoie à l'entité 3e degré du SSP S8.2, centre des brûlés.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n10",
+    "parent": "n6",
+    "t": "Érythème sec, blanchissant, sans phlyctène",
+    "i": "Tableau du 1er degré, pas de phlyctène ni de fond humide.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Récit discordant ou lésion en gants/chaussettes chez l'enfant",
+    "i": "Évoque une maltraitance : avis du groupe de protection de l'enfant hospitalier.",
+    "pec": "urgence_systemique",
+    "notion": "c6"
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Visage, mains, pieds, périnée ou articulation",
+    "i": "Profondeur facilement sous-estimée : réévaluation à 24–48 h, avis spécialisé au moindre doute.",
+    "pec": "ambulatoire_1er_degre",
+    "notion": "c6"
+   },
+   {
+    "id": "n13",
+    "parent": "n10",
+    "t": "Lésion limitée chez patient stable",
+    "i": "Prise en charge ambulatoire d'emblée : refroidissement, antalgie, émollient, consignes.",
+    "pec": "ambulatoire_1er_degre",
+    "notion": "c7"
+   },
+   {
+    "id": "n14",
+    "parent": "n13",
+    "t": "Après guérison : prévention solaire",
+    "i": "Photoprotection pour limiter les récidives et le risque de mélanome.",
+    "pec": "photoprotection_long_cours",
+    "notion": "c9"
+   }
+  ]
+ },
+ "specialites": [
+  "CPL"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Brûlure thermique superficielle (1er degré) – coup de soleil et brûlure épidermique",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition et classification des brûlures par profondeur",
+   "rubriques": [
+    "definition",
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu classes toujours la brûlure par sa profondeur, puis tu cherches la phlyctène, l'humidité du fond, le blanchiment et la sensibilité pour la situer.",
+   "tableau": {
+    "colonnes": [
+     "Degré",
+     "Couche atteinte",
+     "Aspect",
+     "Douleur et sensibilité",
+     "Guérison"
+    ],
+    "lignes": [
+     [
+      "1er degré",
+      "Épiderme seul",
+      [
+       {
+        "t": "Érythème sec, blanchissant, sans phlyctène",
+        "i": "L'épiderme seul est lésé : le derme reste perfusé, donc la peau blanchit à la vitropression et ne suinte pas."
+       }
+      ],
+      "Douloureux, sensibilité conservée",
+      "3 à 7 jours, sans cicatrice"
+     ],
+     [
+      "2e degré superficiel (2a)",
+      "Derme papillaire",
+      [
+       {
+        "t": "Phlyctènes, fond rose et humide",
+        "i": "Le décollement dermo-épidermique remplit la cloque ; le fond reste rose car la microcirculation est intacte, ce qui le distingue du 2b."
+       }
+      ],
+      "Très douloureux (terminaisons nerveuses exposées)",
+      "2 à 3 semaines, cicatrice minime"
+     ],
+     [
+      "2e degré profond (2b)",
+      "Derme réticulaire",
+      [
+       {
+        "t": "Fond rouge ou blanc, moins humide, blanchit lentement",
+        "i": "La perfusion est partielle : le blanchiment est lent ou absent, signe qui sépare le 2b du 2a."
+       }
+      ],
+      "Douleur diminuée, hypoesthésie",
+      "Plus de 3 semaines, greffe souvent nécessaire"
+     ],
+     [
+      "3e degré",
+      "Pleine épaisseur",
+      [
+       {
+        "t": "Blanc, brun ou cartonné, non blanchissant",
+        "i": "Les vaisseaux dermiques sont coagulés : aucun blanchiment n'est possible, ce qui exclut un 1er degré."
+       }
+      ],
+      [
+       {
+        "t": "Insensible",
+        "i": "Les terminaisons nerveuses sont détruites ; une lésion insensible ne peut donc pas être un 1er degré."
+       }
+      ],
+      "Greffe, cicatrice"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le 1er degré atteint uniquement l'épiderme et ne laisse aucune cicatrice.",
+    "Le code CIM-10 T30.1 désigne une brûlure du 1er degré de siège non précisé.",
+    "Le coup de soleil est une brûlure UV cliniquement assimilée au 1er degré.",
+    "La profondeur évolue pendant 24 à 48 h : tu réévalues avant de conclure."
+   ],
+   "sources": [
+    "PROFILES, SSP S8.2",
+    "ABA/ISBI, classification des brûlures"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie et physiopathologie (modèle de Jackson, UV)",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences"
+   ],
+   "comment": "Tu relies l'âge au mécanisme, puis la durée et la température de contact à la profondeur, et tu retiens que le 1er degré correspond à la seule zone d'hyperémie.",
+   "tableau": {
+    "colonnes": [
+     "Zone de Jackson",
+     "Localisation",
+     "Lésion",
+     "Devenir"
+    ],
+    "lignes": [
+     [
+      "Coagulation",
+      "Centre",
+      [
+       {
+        "t": "Nécrose irréversible",
+        "i": "Les protéines sont dénaturées par la chaleur : la zone est absente du 1er degré, qui ne présente aucune nécrose."
+       }
+      ],
+      "Escarre, excision"
+     ],
+     [
+      "Stase",
+      "Autour du centre",
+      [
+       {
+        "t": "Ischémie potentiellement récupérable",
+        "i": "La microcirculation est ralentie : une hydratation et une prise en charge correctes évitent l'extension, d'où l'intérêt du refroidissement."
+       }
+      ],
+      "Peut évoluer vers la nécrose en 24 à 48 h"
+     ],
+     [
+      "Hyperémie",
+      "Périphérie",
+      [
+       {
+        "t": "Vasodilatation réactionnelle sans nécrose",
+        "i": "Les prostaglandines dilatent les vaisseaux dermiques : c'est la seule zone du 1er degré, d'où l'érythème qui blanchit."
+       }
+      ],
+      "Guérison complète"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Les UVB lèsent l'ADN des kératinocytes (« sunburn cells ») et libèrent des prostaglandines, médiateurs de la vasodilatation.",
+    "L'érythème solaire apparaît en quelques heures, culmine à 12–24 h et régresse en quelques jours.",
+    "Chez l'enfant, l'ébouillantement domine ; chez l'adulte, c'est la flamme ; le coup de soleil touche surtout les phototypes I et II.",
+    "La gravité dépend de la température et de la durée de contact : un contact tiède bref n'atteint que l'épiderme.",
+    "Les AINS inhibent la COX et réduisent douleur et érythème s'ils sont donnés tôt."
+   ],
+   "sources": [
+    "PROFILES, SSP S8.2",
+    "Modèle de Jackson (1953)"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen clinique",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Tu pars du mécanisme et du délai, tu cherches les médicaments photosensibilisants, puis tu examines la peau et tu mesures l'état général.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Tu précises le mécanisme (UV, liquide, contact), la durée, le délai et les mesures déjà prises.",
+    "La douleur est cuisante, parfois prurigineuse pendant la cicatrisation, sans cloque.",
+    "Tu recherches doxycycline, amiodarone, hydrochlorothiazide et kétoprofène topique, qui majorent la réaction aux UV.",
+    "L'érythème est vif, sec, chaud, blanchissant ; l'œdème est minime, la sensibilité et le remplissage capillaire sont normaux.",
+    "Tu notes la localisation, estimes la surface, et contrôles température, fréquence cardiaque et hydratation, surtout chez l'enfant."
+   ],
+   "sources": [
+    "PROFILES, SSP S8.2"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Diagnostic positif et diagnostics différentiels",
+   "rubriques": [
+    "positiveDiagnosis",
+    "workupAlternatives"
+   ],
+   "comment": "Tu poses le diagnostic sur un érythème douloureux, sec, blanchissant et sans phlyctène, puis tu écartes ce qui cache une atteinte plus profonde.",
+   "tableau": {
+    "colonnes": [
+     "Diagnostic différentiel",
+     "Indice discriminant",
+     "Conséquence"
+    ],
+    "lignes": [
+     [
+      "Brûlure 2e degré superficiel",
+      [
+       {
+        "t": "Phlyctène, fond rose humide, très douloureux",
+        "i": "Le derme est atteint ; une phlyctène apparue secondairement signe un 1er degré sous-estimé."
+       }
+      ],
+      "Soin de plaie, réévaluation, surface comptée"
+     ],
+     [
+      "Brûlure 3e degré",
+      [
+       {
+        "t": "Peau blanche, brune ou cartonnée, insensible",
+        "i": "La destruction pleine épaisseur abolit blanchiment et sensibilité, contrairement au 1er degré."
+       }
+      ],
+      "Centre des brûlés"
+     ],
+     [
+      "Réaction phototoxique médicamenteuse",
+      [
+       {
+        "t": "Médicament photosensibilisant, réaction disproportionnée",
+        "i": "Le médicament amplifie la lésion UV ; une dose d'UV banale ne suffit pas à expliquer l'intensité."
+       }
+      ],
+      "Arrêt ou substitution du médicament, photoprotection"
+     ],
+     [
+      "Coup de chaleur",
+      [
+       {
+        "t": "T° centrale > 40 °C avec troubles neurologiques",
+        "i": "Il s'agit d'une atteinte systémique et non cutanée ; la peau seule ne reflète pas la gravité."
+       }
+      ],
+      "Urgence vitale, refroidissement actif"
+     ],
+     [
+      "Brûlure chimique, électrique, inhalation",
+      [
+       {
+        "t": "Mécanisme évocateur malgré aspect discret",
+        "i": "Ces mécanismes lèsent en profondeur sous une peau peu altérée et imposent une prise en charge spécifique."
+       }
+      ],
+      "Autre entité du SSP S8.2"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Aucun bilan biologique ni imagerie n'est nécessaire pour un 1er degré limité chez un patient sain.",
+    "Électrolytes, créatinine, CK et glycémie se justifient seulement en cas de déshydratation, de coup de chaleur ou d'atteinte systémique.",
+    "Le Doppler laser, réservé aux centres des brûlés, n'a aucune place dans le 1er degré."
+   ],
+   "sources": [
+    "PROFILES, SSP S8.2"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Estimation de la surface corporelle brûlée (SCB)",
+   "rubriques": [
+    "workupGoldStandard"
+   ],
+   "comment": "Tu estimes la surface avec la paume pour les petites lésions, la règle des 9 chez l'adulte et Lund-Browder chez l'enfant, sans compter le 1er degré.",
+   "tableau": {
+    "colonnes": [
+     "Méthode",
+     "Population",
+     "Principe",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Paume du patient",
+      [
+       {
+        "t": "Adulte et enfant, brûlure peu étendue",
+        "i": "Paume avec doigts ≈ 1 % de la surface du patient lui-même, donc valable à tout âge."
+       }
+      ],
+      "Comparer la lésion à la paume avec doigts",
+      "Peu fiable pour de grandes surfaces"
+     ],
+     [
+      "Règle des 9 de Wallace",
+      [
+       {
+        "t": "Adulte seulement",
+        "i": "Les proportions adultes (tête 9 %) ne conviennent pas à l'enfant."
+       }
+      ],
+      "Tête 9, chaque bras 9, thorax 18, dos 18, chaque jambe 18, périnée 1 %",
+      "Inadaptée au nourrisson et à l'enfant"
+     ],
+     [
+      "Table de Lund-Browder",
+      [
+       {
+        "t": "Enfant",
+        "i": "La tête est proportionnellement plus grande et les jambes plus petites ; la table corrige selon l'âge."
+       }
+      ],
+      "Pourcentage par segment selon l'âge",
+      "Plus longue à utiliser"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Tu ne comptes pas le 1er degré dans la SCB utilisée pour la réanimation liquidienne et l'orientation vers un centre des brûlés.",
+    "Une surface de 1er degré très étendue chez le nourrisson reste un drapeau rouge, car elle expose à la déshydratation et à l'hypothermie."
+   ],
+   "sources": [
+    "ABA/ISBI",
+    "PROFILES, SSP S8.2"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Drapeaux rouges : quand ce n'est plus un simple 1er degré",
+   "rubriques": [
+    "presumptionRedFlags",
+    "hospitalizationComplications"
+   ],
+   "comment": "Tu cherches d'abord l'atteinte systémique, puis la profondeur sous-estimée, la zone à risque, le terrain fragile et la maltraitance, avant de renvoyer à domicile.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Brûlure du 1er degré suspectée",
+     "i": "Point de départ : tu cherches ce qui contredit le caractère bénin avant de conclure.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "T° centrale > 40 °C avec troubles neurologiques ?",
+     "i": "Définit le coup de chaleur, urgence vitale indépendante de l'aspect de la peau.",
+     "pec": "urgence_systemique",
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Fièvre, nausées, vomissements, céphalées ou syncope après coup de soleil étendu ?",
+     "i": "Signe une « intoxication solaire » avec atteinte systémique et risque de déshydratation.",
+     "pec": "urgence_systemique",
+     "notion": "c6"
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Nourrisson avec surface étendue ?",
+     "i": "Le rapport surface/poids élevé expose à la déshydratation et à l'hypothermie.",
+     "pec": "urgence_systemique",
+     "notion": "c5"
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Phlyctènes, fond humide ou peau insensible ?",
+     "i": "Indique une atteinte dermique ou plus profonde : la brûlure n'est pas un 1er degré et change la prise en charge.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Visage, mains, pieds, périnée ou articulation ?",
+     "i": "La profondeur y est facilement sous-estimée et le pronostic fonctionnel est en jeu : réévaluation attentive.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n7",
+     "parent": "n1",
+     "t": "Récit discordant, consultation tardive, lésion en gants ou chaussettes ?",
+     "i": "Évoque une maltraitance : avis du groupe de protection de l'enfant hospitalier.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n8",
+     "parent": "n1",
+     "t": "Mécanisme chimique, électrique ou inhalation de fumées ?",
+     "i": "Ces brûlures cachent des lésions profondes malgré un aspect discret : autres entités du SSP S8.2.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n9",
+     "parent": "n1",
+     "t": "Aucun signe d'alerte",
+     "i": "Un 1er degré limité chez un patient sain est géré en ambulatoire.",
+     "pec": "ambulatoire_1er_degre",
+     "notion": "c1"
+    }
+   ],
+   "points": [
+    "L'hospitalisation se discute pour nourrisson, atteinte étendue avec déshydratation, coup de chaleur, douleur non contrôlée ou suspicion de maltraitance.",
+    "Les complications locales sont phlyctènes secondaires, surinfection rare, prurit, desquamation et hyperpigmentation transitoire.",
+    "Les complications systémiques sont la déshydratation et le coup de chaleur."
+   ],
+   "sources": [
+    "PROFILES, SSP S8.2"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge aiguë ambulatoire",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Tu refroidis tout de suite avec de l'eau tempérée, tu retires les bijoux, tu soulages et tu hydrates, sans glace ni remède de grand-mère.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Brûlure du 1er degré limitée, patient stable",
+     "i": "Point de départ de la prise en charge ambulatoire.",
+     "pec": "ambulatoire_1er_degre",
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Retirer bijoux et vêtements non adhérents",
+     "i": "À faire avant l'œdème, qui rendrait le retrait difficile et compressif.",
+     "pec": null,
+     "notion": "c7"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Eau courante tempérée 15–20 °C pendant 15–20 min",
+     "i": "Soulage la douleur et limite l'extension de la lésion.",
+     "pec": null,
+     "notion": "c7"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Glace ou eau glacée ?",
+     "i": "Contre-indiquée : provoque vasoconstriction et lésion tissulaire ; l'eau froide sur grande surface expose à l'hypothermie, surtout chez l'enfant.",
+     "pec": null,
+     "notion": "c7"
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Antalgie : paracétamol ou ibuprofène",
+     "i": "Les AINS inhibent la COX et réduisent douleur et érythème s'ils sont précoces ; dose adaptée au poids chez l'enfant.",
+     "pec": null,
+     "notion": "c2"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Émollient, hydratant ou gel d'aloe vera",
+     "i": "Apaise la peau ; les corticoïdes topiques ont peu de preuves d'efficacité.",
+     "pec": null,
+     "notion": "c7"
+    },
+    {
+     "id": "n7",
+     "parent": "n1",
+     "t": "Déconseiller beurre, huile, dentifrice",
+     "i": "Ces remèdes retiennent la chaleur et favorisent l'infection.",
+     "pec": null,
+     "notion": "c7"
+    },
+    {
+     "id": "n8",
+     "parent": "n1",
+     "t": "Vérifier le statut vaccinal dT(pa)",
+     "i": "Rappels suisses à 25, 45 et 65 ans, puis tous les 10 ans ; une peau intacte ne modifie pas le schéma.",
+     "pec": null,
+     "notion": "c7"
+    }
+   ],
+   "points": [
+    "Le patient boit abondamment, reste à l'ombre et évite toute nouvelle exposition de la zone atteinte.",
+    "Tu remets des consignes écrites de reconsultation."
+   ],
+   "sources": [
+    "PROFILES, SSP S8.2",
+    "OFSP/CFV, plan de vaccination suisse",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Surveillance, pronostic et réseau de soins",
+   "rubriques": [
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Tu fais surveiller les phlyctènes pendant 24 à 48 h, tu annonces une guérison sans cicatrice et tu précises qui suit et qui paie.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Phlyctènes dans les 24 à 48 h signent un 2e degré sous-estimé ; fièvre, érythème extensif, pus ou douleur croissante imposent une reconsultation.",
+    "La guérison est spontanée ad integrum en 3 à 7 jours, avec desquamation fine ; une modification pigmentaire peut persister quelques semaines.",
+    "Le médecin de premier recours ou le pédiatre suit le patient et oriente vers un centre des brûlés si la profondeur ou la surface dépasse le 1er degré limité.",
+    "Le pharmacien, souvent premier contact, conseille émollient, antalgique et photoprotection, et adresse au médecin en cas de signe d'alerte.",
+    "Pour un salarié, la brûlure accidentelle est annoncée à l'employeur et prise en charge par l'assurance-accidents (LAA), non par l'assurance-maladie."
+   ],
+   "sources": [
+    "PROFILES, SSP S8.2",
+    "LAA"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Photoprotection et prévention à long cours",
+   "rubriques": [
+    "chronicManagement"
+   ],
+   "comment": "Tu insistes sur la photoprotection pendant la desquamation, car les coups de soleil répétés augmentent le risque de mélanome.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La photoprotection associe vêtements couvrants, ombre, évitement du soleil de midi et crème solaire d'indice 30 ou plus.",
+    "Les coups de soleil répétés, surtout dans l'enfance, augmentent le risque de mélanome.",
+    "Tu réévalues les médicaments photosensibilisants chez le patient concerné."
+   ],
+   "sources": [
+    "PROFILES, SSP S8.2"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "ambulatoire_1er_degre",
+   "titre": "Brûlure du 1er degré limitée, patient stable (ambulatoire)",
+   "but": [
+    "Soulager la douleur et limiter l'extension de la lésion par un refroidissement immédiat.",
+    "Dépister une profondeur sous-estimée et une atteinte systémique débutante.",
+    "Obtenir une guérison sans cicatrice et éviter la récidive."
+   ],
+   "moyens": {
+    "accueil": [
+     "Tu installes le patient et évalues la douleur ainsi que les constantes, surtout chez l'enfant.",
+     "Tu retires bijoux et vêtements non adhérents avant l'œdème.",
+     "Tu vérifies le statut vaccinal dT(pa) et les médicaments photosensibilisants."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Paracétamol (antalgique non opioïde)",
+      "posologie": "Adulte : 500–1000 mg per os toutes les 6 h, maximum 4 g/jour. Enfant : 10–15 mg/kg toutes les 6 h, maximum 60 mg/kg/jour.",
+      "pourquoi": "Antalgique de première ligne, sans risque rénal ni gastrique, utilisable chez l'enfant et en cas de déshydratation légère.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Ibuprofène (AINS)",
+      "posologie": "Adulte : 400 mg per os toutes les 6–8 h, maximum 1200 mg/jour en automédication. Enfant : 7–10 mg/kg par prise, maximum 30 mg/kg/jour, dès 3 mois.",
+      "pourquoi": "Inhibe la COX et réduit douleur et érythème s'il est donné tôt ; à éviter si déshydratation.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Dexpanthénol (émollient topique)",
+      "posologie": "Crème ou onguent 5 %, 1 à 3 applications par jour sur peau intacte, jusqu'à fin de la desquamation.",
+      "pourquoi": "Apaise et hydrate la peau ; les corticoïdes topiques n'ont que peu de preuves d'efficacité dans cette indication.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Refroidir à l'eau courante tempérée (15–20 °C) pendant 15 à 20 minutes.",
+      "pourquoi": "Soulage la douleur et limite l'extension ; la glace aggrave la lésion par vasoconstriction."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Déconseiller beurre, huile et dentifrice, et expliquer les signes de reconsultation par écrit.",
+      "pourquoi": "Ces remèdes retiennent la chaleur et favorisent l'infection ; les consignes écrites sécurisent le retour à domicile."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Boire abondamment, rester à l'ombre et éviter toute exposition solaire de la zone atteinte.",
+      "pourquoi": "Prévient la déshydratation et une aggravation de la lésion UV."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Annonce la brûlure accidentelle à l'employeur ; la LAA, et non l'assurance-maladie, prend en charge le salarié."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre le devoir de documenter et le droit d'aviser l'autorité de protection de l'enfant en cas de soupçon de maltraitance."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Tu traites en ambulatoire d'emblée si la lésion est limitée et que le patient est stable.",
+      "Tu réévalues la profondeur à 24–48 h avant de conclure à un 1er degré.",
+      "Tu adaptes les doses au poids chez l'enfant."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Élimine un signe d'alerte, évalue la surface et confirme l'absence de phlyctène."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Refroidit à l'eau tempérée 15–20 min et retire bijoux et vêtements non adhérents."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Prescrit paracétamol ou ibuprofène et recommande un émollient ou gel d'aloe vera."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Remet des consignes écrites de reconsultation et vérifie le statut vaccinal."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Surveille cloques, fièvre et soif intense pendant 24 à 48 heures."
+      }
+     ]
+    }
+   },
+   "pronostic": "La guérison est spontanée ad integrum en 3 à 7 jours, avec desquamation fine et sans cicatrice ; une modification pigmentaire peut persister quelques semaines.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Apparition de phlyctènes",
+      "quand": "Dans les 24 à 48 premières heures",
+      "cible": "Aucune phlyctène ; sinon reclasser en 2e degré"
+     },
+     {
+      "quoi": "Douleur et état d'hydratation",
+      "quand": "Pendant les 48 premières heures",
+      "cible": "Douleur contrôlée par antalgie simple, diurèse conservée"
+     },
+     {
+      "quoi": "Signes de surinfection (fièvre, pus, douleur croissante)",
+      "quand": "Après plusieurs jours",
+      "cible": "Absence ; sinon reconsultation immédiate"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si la lésion est limitée, sans phlyctène, sans signe systémique, chez un patient non nourrisson avec douleur contrôlée et consignes comprises."
+   },
+   "prevention": {
+    "primaire": "Tu conseilles photoprotection, ombre et crème solaire d'indice 30 ou plus, et tu limites la température de l'eau chaude et l'accès des enfants aux liquides chauds.",
+    "secondaire": "Tu repères les médicaments photosensibilisants et tu proposes un contrôle cutané en cas de coups de soleil répétés.",
+    "tertiaire": "Tu fais appliquer la photoprotection pendant la desquamation pour éviter l'hyperpigmentation et la récidive."
+   }
+  },
+  {
+   "cle": "urgence_systemique",
+   "titre": "Atteinte systémique ou terrain à risque (coup de chaleur, intoxication solaire, nourrisson, suspicion de maltraitance)",
+   "but": [
+    "Stabiliser la température centrale et l'hémodynamique.",
+    "Corriger la déshydratation et contrôler la douleur sans aggraver l'état rénal.",
+    "Exclure une brûlure plus profonde ou une maltraitance."
+   ],
+   "moyens": {
+    "accueil": [
+     "Tu surveilles constantes, température centrale, conscience et diurèse dès l'arrivée.",
+     "Tu installes une voie veineuse et préviens le médecin de garde, voire le 144 en cas de coup de chaleur.",
+     "Tu retires bijoux et vêtements, et gardes le patient au chaud ou frais selon sa température."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Ringer-lactate (cristalloïde)",
+      "posologie": "Enfant : 10–20 mL/kg en bolus, à réévaluer. Adulte : 500–1000 mL en bolus, puis selon clinique et diurèse.",
+      "pourquoi": "Corrige la déshydratation du coup de chaleur ou de l'intoxication solaire, surtout chez le nourrisson à surface relative élevée.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Paracétamol (antalgique non opioïde)",
+      "posologie": "Adulte : 1 g IV ou per os toutes les 6 h, maximum 4 g/jour. Enfant : 15 mg/kg toutes les 6 h, maximum 60 mg/kg/jour.",
+      "pourquoi": "Antalgique sûr en cas de déshydratation ; il ne traite pas l'hyperthermie du coup de chaleur, qui requiert un refroidissement actif.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Refroidir activement en cas de coup de chaleur (aspersion, ventilation, immersion) jusqu'à environ 39 °C.",
+      "pourquoi": "Le traitement du coup de chaleur est le refroidissement rapide, sans antipyrétique."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Éviter l'eau froide étendue chez le nourrisson et couvrir les zones refroidies.",
+      "pourquoi": "Le risque d'hypothermie est élevé chez le nourrisson ; la glace est contre-indiquée."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Solliciter le groupe de protection de l'enfant si le récit est discordant ou la lésion en gants ou chaussettes.",
+      "pourquoi": "Une maltraitance se méconnaît facilement sous une brûlure d'apparence bénigne."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Encadre le signalement et le droit d'aviser l'autorité de protection de l'enfant en cas de soupçon."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Clarifie la prise en charge LAA et l'hospitalisation éventuelle."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Tu traites l'atteinte systémique avant la lésion cutanée.",
+      "Tu appelles le 144 pour tout coup de chaleur.",
+      "Tu hospitalises le nourrisson ou le patient déshydraté."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue ABCDE, température centrale et conscience, et décide du transfert."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose une voie veineuse, monitore et débute le refroidissement actif si T° > 40 °C."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Prescrit le remplissage et un bilan (électrolytes, créatinine, CK, glycémie)."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Réévalue la profondeur et la surface, et recherche mécanisme chimique, électrique ou inhalation."
+      },
+      {
+       "temps": "puis",
+       "qui": "second médecin",
+       "fait": "Contacte le groupe de protection de l'enfant si suspicion de maltraitance."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le pronostic est favorable si la prise en charge est précoce ; un coup de chaleur non traité vite engage le pronostic vital.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Température centrale",
+      "quand": "Continue pendant le refroidissement",
+      "cible": "Environ 39 °C puis normothermie"
+     },
+     {
+      "quoi": "Diurèse, hydratation, créatinine",
+      "quand": "Toutes les heures puis biologie répétée",
+      "cible": "Diurèse conservée, créatinine normale"
+     },
+     {
+      "quoi": "Conscience",
+      "quand": "Continue",
+      "cible": "Normalisation de l'état neurologique"
+     }
+    ],
+    "sortie": "Retour à domicile si température normale, diurèse conservée, boissons tolérées, douleur contrôlée et absence de suspicion de maltraitance ; sinon hospitalisation."
+   },
+   "prevention": {
+    "primaire": "Tu conseilles hydratation, évitement de la chaleur extrême et photoprotection, surtout chez les nourrissons.",
+    "secondaire": "Tu repères tôt les signes d'intoxication solaire (fièvre, vomissements, céphalées).",
+    "tertiaire": "Tu organises le suivi pédiatrique et social en cas de maltraitance confirmée."
+   }
+  },
+  {
+   "cle": "photoprotection_long_cours",
+   "titre": "Photoprotection et prévention à long cours",
+   "but": [
+    "Éviter les récidives de coups de soleil.",
+    "Réduire le risque de mélanome à long terme."
+   ],
+   "moyens": {
+    "accueil": [
+     "Tu expliques que la desquamation est normale et que la peau reste fragile.",
+     "Tu identifies les médicaments photosensibilisants à adapter."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Enseigner vêtements couvrants, ombre, évitement du soleil de midi et crème solaire d'indice 30 ou plus.",
+      "pourquoi": "Les UV causent la brûlure ; les coups de soleil répétés, surtout dans l'enfance, augmentent le risque de mélanome."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Appliquer la photoprotection de façon stricte pendant la phase de desquamation.",
+      "pourquoi": "La peau régénérée est plus sensible aux UV et pigmente plus facilement."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise que la LAA couvre les brûlures accidentelles du salarié."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Tu associes le pharmacien et le médecin de premier recours au conseil.",
+      "Tu cibles les phototypes I et II et les enfants."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Explique le lien entre coups de soleil répétés et mélanome."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "pharmacien·ne",
+       "fait": "Conseille crème solaire d'indice 30 ou plus et émollient pendant la desquamation."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Applique vêtements, ombre et évitement du soleil de midi lors de chaque exposition."
+      }
+     ]
+    }
+   },
+   "pronostic": "La prévention solaire réduit les récidives et le risque cutané à long terme ; la brûlure elle-même ne laisse pas de séquelle cicatricielle.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Récidive de coups de soleil",
+      "quand": "À chaque saison estivale",
+      "cible": "Aucune récidive"
+     },
+     {
+      "quoi": "Lésions pigmentées atypiques",
+      "quand": "Au moindre changement, ou contrôle selon les risques",
+      "cible": "Aucune lésion suspecte"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : aucune hospitalisation n'est requise pour la prévention."
+   },
+   "prevention": {
+    "primaire": "Tu enseignes la photoprotection dès l'enfance et l'évitement du soleil de midi.",
+    "secondaire": "Tu proposes un examen cutané en cas de nombreux coups de soleil antérieurs ou de naevi multiples.",
+    "tertiaire": "Tu fais suivre dermatologiquement les patients ayant déjà eu un mélanome ou une lésion cutanée suspecte."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6432,
+  "output_tokens": 18418,
+  "output_tokens_details": {
+   "thinking_tokens": 5030
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:51",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

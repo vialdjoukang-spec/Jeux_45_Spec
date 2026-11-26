@@ -1,0 +1,1349 @@
+{
+ "id": "Z02.7_2__O7_17-E01",
+ "portes": [
+  {
+   "ssp": "O7.17",
+   "nomSSP": "Demande de certificat, d’attestation ou d’expertise par un patient ou un assureur",
+   "entite": "Certificat d'incapacité de travail (maladie LAMal vs accident LAA)",
+   "entiteId": "O7.17-E01"
+  }
+ ],
+ "entite": "Certificat d'incapacité de travail (maladie LAMal vs accident LAA)",
+ "cim10": "Z02.7",
+ "ssp": {
+  "code": "O7.17",
+  "nom": "Demande de certificat, d'attestation ou d'expertise par un patient ou un assureur",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Demande de certificat, d'attestation ou d'expertise",
+    "i": "Un patient ou un assureur demande un document médical ; le médecin identifie d'abord sa nature et son destinataire.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Quel document est demandé ?",
+    "i": "Chaque document a un rôle, une portée et une responsabilité différents, donc la nature oriente tout le reste.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Incapacité de travail",
+    "i": "Attestation actuelle et temporaire d'une inaptitude au travail pour raison de santé : c'est la porte d'entrée de cette entité.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Aptitude sportive, scolaire ou voyage",
+    "i": "Ces certificats prospectifs relèvent d'autres entités du SSP O7.17 (aptitude sportive ou scolaire, voyage aérien).",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n5",
+    "parent": "n2",
+    "t": "Rapport AI, expertise, impotence, discernement",
+    "i": "Ces documents longs ou indépendants relèvent d'autres entités du SSP O7.17 : rapport AI, expertise, Spitex, capacité de discernement.",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n6",
+    "parent": "n2",
+    "t": "Constat de lésions, violences, décès, danger immédiat",
+    "i": "Ces situations relèvent d'entités médico-légales du SSP O7.17 : constat de lésions, violences, décès, art. 15d LCR, APEA.",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n7",
+    "parent": "n3",
+    "t": "Examen personnel : atteinte à la santé objectivée ?",
+    "i": "Le médecin n'établit jamais de certificat sur simple demande ou par téléphone sans évaluation.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n8",
+    "parent": "n3",
+    "t": "Demande rétroactive, sans consultation ou sous pression",
+    "i": "C'est un signal médico-légal, car un certificat contraire à la vérité expose à l'art. 318 CP.",
+    "pec": "refus",
+    "notion": "c6"
+   },
+   {
+    "id": "n9",
+    "parent": "n7",
+    "t": "Non : refus motivé",
+    "i": "Sans atteinte objectivée, le médecin refuse et explique sa décision, sans céder à la pression.",
+    "pec": "refus",
+    "notion": "c8"
+   },
+   {
+    "id": "n10",
+    "parent": "n7",
+    "t": "Oui : limitation fonctionnelle empêchant le travail exigible ?",
+    "i": "L'incapacité se mesure par rapport au poste exercé, avec taux et durée.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Non : pas d'arrêt, travail adapté",
+    "i": "Sans limitation incompatible avec le poste, le médecin traite et propose un aménagement, sans arrêt.",
+    "pec": "refus",
+    "notion": "c8"
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Oui : classer accident ou maladie",
+    "i": "Le classement désigne l'assureur compétent et le délai de prestation.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n13",
+    "parent": "n12",
+    "t": "Accident ou lésion assimilée (LAA)",
+    "i": "Événement soudain, extérieur, involontaire, ou lésion de l'art. 6 al. 2 LAA : indemnité de 80 % dès le 3e jour.",
+    "pec": "accident_laa",
+    "notion": "c3"
+   },
+   {
+    "id": "n14",
+    "parent": "n12",
+    "t": "Maladie",
+    "i": "Le salaire relève de l'employeur (art. 324a CO) ou d'une assurance d'indemnités journalières, non de la LAMal.",
+    "pec": "arret_maladie",
+    "notion": "c3"
+   },
+   {
+    "id": "n15",
+    "parent": "n13",
+    "t": "Arrêt ≥ 30 jours ou absences répétées",
+    "i": "Le seuil de détection précoce de l'art. 3b LAI s'applique aussi après un accident.",
+    "pec": "long_cours",
+    "notion": "c6"
+   },
+   {
+    "id": "n16",
+    "parent": "n14",
+    "t": "Arrêt ≥ 30 jours ou absences répétées",
+    "i": "Le seuil de détection précoce de l'art. 3b LAI justifie information du patient et communication à l'office AI.",
+    "pec": "long_cours",
+    "notion": "c6"
+   }
+  ]
+ },
+ "specialites": [
+  "MIG"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Certificat d'incapacité de travail (maladie LAMal vs accident LAA)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définir l'incapacité de travail et la distinguer de l'incapacité de gain et de l'invalidité",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Pour définir l'incapacité de travail, pars de l'atteinte à la santé objectivée, puis demande-toi si la perte est temporaire et liée au poste, ou durable et liée au gain.",
+   "tableau": {
+    "colonnes": [
+     "Notion",
+     "Base légale",
+     "Nature",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Incapacité de travail",
+      "art. 6 LPGA",
+      [
+       {
+        "t": "Médicale et temporaire",
+        "i": "Elle mesure la perte de faculté d'accomplir le travail exigible à cause d'une atteinte physique, mentale ou psychique, et disparaît avec la guérison."
+       }
+      ],
+      [
+       {
+        "t": "Atteinte à la santé indispensable",
+        "i": "Un conflit de travail ou un licenciement seul ne justifie pas de certificat, car aucune atteinte médicale n'est constatée."
+       }
+      ]
+     ],
+     [
+      "Incapacité de gain",
+      "art. 7 LPGA",
+      [
+       {
+        "t": "Économique, présumée permanente ou de longue durée",
+        "i": "Elle mesure la perte de gain sur le marché du travail équilibré, pas seulement dans le poste occupé."
+       }
+      ],
+      [
+       {
+        "t": "Tranchée par l'assureur",
+        "i": "Le médecin documente les limitations fonctionnelles, mais l'office AI ou l'assureur décide, car la décision est juridique et non médicale."
+       }
+      ]
+     ],
+     [
+      "Invalidité",
+      "art. 8 LPGA",
+      [
+       {
+        "t": "Incapacité de gain présumée permanente ou de longue durée",
+        "i": "Elle suppose un traitement épuisé et une atteinte stabilisée, donc elle dépasse le simple arrêt de travail."
+       }
+      ],
+      [
+       {
+        "t": "Rente AI après un an d'incapacité moyenne d'au moins 40 %",
+        "i": "Ce délai d'attente (art. 28 LAI) explique pourquoi la détection précoce intervient bien avant, dès 30 jours."
+       }
+      ]
+     ],
+     [
+      "Aptitude (sportive, scolaire)",
+      "Certificat prospectif",
+      [
+       {
+        "t": "Capacité future attestée",
+        "i": "Elle se projette dans l'avenir, alors que le certificat d'incapacité constate une inaptitude actuelle et temporaire."
+       }
+      ],
+      [
+       {
+        "t": "Autre SSP rival",
+        "i": "Le candidat ne doit pas confondre les deux documents, car leur contenu, leur destinataire et leur responsabilité diffèrent."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'incapacité de travail se mesure par rapport à l'activité exercée, avec un taux en % et une durée.",
+    "Elle est totale ou partielle, et peut porter sur le temps de présence ou sur le rendement.",
+    "Le certificat est bref et actuel, alors que le rapport AI est long et porte sur l'évolution et le pronostic.",
+    "Le médecin traitant atteste l'incapacité, mais il ne juge ni l'invalidité ni l'exigibilité juridique."
+   ],
+   "sources": [
+    "LPGA art. 6, 7, 8",
+    "LAI art. 28",
+    "FMH, directives sur les certificats médicaux"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie : fréquence, causes et coûts",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Pour juger la gravité d'un arrêt, rappelle que les absences brèves sont fréquentes, mais que les arrêts prolongés concentrent les coûts et le risque de désinsertion.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Des millions de certificats sont émis chaque année en Suisse, donc l'acte est quotidien et l'enjeu économique est majeur.",
+    "Les troubles psychiques et musculosquelettiques dominent les incapacités prolongées.",
+    "Les maladies psychiques représentent la première cause de nouvelles rentes de l'assurance-invalidité.",
+    "Les arrêts prolongés pèsent le plus sur la perte de gain et sur la désinsertion professionnelle."
+   ],
+   "sources": [
+    "OFAS, statistique de l'AI",
+    "OFS, enquête suisse sur la santé"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Maladie ou accident : qui paie la perte de gain ?",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Pour orienter le certificat, classe d'abord l'événement en accident ou en maladie, car l'assureur, le montant et le délai en dépendent.",
+   "tableau": {
+    "colonnes": [
+     "Critère",
+     "Maladie (CO, LAMal, LCA)",
+     "Accident (LAA)"
+    ],
+    "lignes": [
+     [
+      "Définition",
+      [
+       {
+        "t": "Atteinte sans facteur extérieur extraordinaire",
+        "i": "Elle relève de la maladie par exclusion, donc le médecin cherche d'abord un événement précis daté."
+       }
+      ],
+      [
+       {
+        "t": "Atteinte soudaine, involontaire, par facteur extérieur extraordinaire",
+        "i": "Ces trois critères de l'art. 4 LPGA distinguent l'accident, par exemple une chute, d'une usure progressive."
+       }
+      ]
+     ],
+     [
+      "Lésions assimilées",
+      [
+       {
+        "t": "Lésion due surtout à l'usure",
+        "i": "Même une déchirure tendineuse reste une maladie si l'usure prédomine, car la loi exclut ce cas de l'assimilation."
+       }
+      ],
+      [
+       {
+        "t": "Fracture, déboîtement, déchirure du ménisque, de muscle ou de tendon, lésion ligamentaire, lésion du tympan",
+        "i": "L'art. 6 al. 2 LAA les assimile à un accident sans facteur extraordinaire, sauf si elles sont surtout dues à l'usure."
+       }
+      ]
+     ],
+     [
+      "Perte de gain",
+      [
+       {
+        "t": "Employeur (art. 324a CO) ou assurance d'indemnités journalières",
+        "i": "La LAMal rembourse les soins mais ne couvre pas obligatoirement la perte de gain, donc l'employeur ou une assurance facultative paie."
+       }
+      ],
+      [
+       {
+        "t": "Indemnité journalière de 80 % du gain assuré dès le 3e jour",
+        "i": "L'assurance LAA est obligatoire pour les salariés, donc le droit naît automatiquement après l'accident, sans contrat spécifique."
+       }
+      ]
+     ],
+     [
+      "Personnes assurées",
+      [
+       {
+        "t": "Aucune assurance perte de gain obligatoire",
+        "i": "Le médecin demande donc s'il existe une assurance collective, car le droit en dépend."
+       }
+      ],
+      [
+       {
+        "t": "Salarié occupé au moins 8 heures par semaine chez le même employeur",
+        "i": "Dès ce seuil, la LAA couvre aussi les accidents non professionnels, donc un loisir blessant reste couvert."
+       }
+      ]
+     ],
+     [
+      "Démarche du médecin",
+      [
+       {
+        "t": "Certificat à l'employeur et à l'assurance perte de gain",
+        "i": "Le diagnostic ne va pas à l'employeur sans consentement, car le secret professionnel s'applique."
+       }
+      ],
+      [
+       {
+        "t": "Rapport médical initial à l'assureur LAA",
+        "i": "L'assureur LAA instruit le cas et doit connaître les lésions et le traitement, ce que le simple certificat ne décrit pas."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La mention « accident » se fonde sur la date, le mécanisme et la cause extérieure, reconstitués à l'anamnèse.",
+    "L'employeur déclare l'accident à l'assureur LAA, mais le médecin remplit le rapport médical initial.",
+    "En cas de doute entre maladie et accident, le médecin décrit les faits sans trancher la couverture, car l'assureur décide."
+   ],
+   "sources": [
+    "LPGA art. 4",
+    "LAA art. 6 al. 2, art. 16",
+    "OLAA art. 13",
+    "CO art. 324a"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Conséquences en droit du travail : salaire, licenciement, désinsertion",
+   "rubriques": [
+    "basicSciences",
+    "hospitalizationComplications"
+   ],
+   "comment": "Pour conseiller le patient, rappelle que l'incapacité suspend le droit de licencier pour une durée limitée, puis que la protection s'éteint, ce qui menace l'emploi.",
+   "tableau": {
+    "colonnes": [
+     "Année de service",
+     "Protection contre le licenciement (art. 336c CO)",
+     "Salaire en cas de maladie (art. 324a CO)"
+    ],
+    "lignes": [
+     [
+      "1re année",
+      [
+       {
+        "t": "30 jours",
+        "i": "Le congé donné pendant l'incapacité est nul durant 30 jours, après le temps d'essai, même si l'incapacité est partielle."
+       }
+      ],
+      [
+       {
+        "t": "3 semaines",
+        "i": "La loi fixe ce minimum, sauf assurance perte de gain au moins équivalente, car celle-ci remplace l'obligation de l'employeur."
+       }
+      ]
+     ],
+     [
+      "2e à 5e année",
+      [
+       {
+        "t": "90 jours",
+        "i": "La protection augmente avec l'ancienneté, donc le médecin sait quand l'arrêt expose au licenciement."
+       }
+      ],
+      [
+       {
+        "t": "Période plus longue équitable",
+        "i": "Les échelles bernoise, zurichoise ou bâloise précisent cette durée, car la loi ne la chiffre pas."
+       }
+      ]
+     ],
+     [
+      "Dès la 6e année",
+      [
+       {
+        "t": "180 jours",
+        "i": "C'est la protection maximale ; après son terme, l'employeur peut licencier même si l'incapacité continue."
+       }
+      ],
+      [
+       {
+        "t": "Période plus longue équitable",
+        "i": "La durée dépend de l'ancienneté et de l'échelle, ou d'une assurance d'indemnités journalières."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Après la fin de la protection, un arrêt prolongé expose à la perte d'emploi et à la désinsertion professionnelle.",
+    "La chronicisation (burn-out, lombalgie) augmente avec la durée de l'arrêt.",
+    "Un litige peut réduire ou refuser les prestations si l'assuré ne respecte pas son obligation de réduire le dommage (art. 21 LPGA)."
+   ],
+   "sources": [
+    "CO art. 324a, 336c",
+    "LPGA art. 21"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Anamnèse et examen clinique : documenter l'atteinte et les capacités résiduelles",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Pour justifier un arrêt, interroge le poste précis puis examine toi-même le patient, car l'incapacité se mesure par rapport à l'activité exercée.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "L'anamnèse décrit le poste, les tâches, les contraintes physiques et psychiques, et les limitations fonctionnelles.",
+    "Le médecin reconstitue date, mécanisme et cause extérieure de l'événement pour classer accident ou maladie.",
+    "Il note le taux d'activité, l'employeur, les assurances (perte de gain, LAA) et les arrêts antérieurs.",
+    "L'examen est personnel, jamais par simple demande ou par téléphone sans évaluation.",
+    "Le dossier sépare constatations objectives et plaintes subjectives ; une incohérence est un signal d'alerte, pas une preuve de simulation."
+   ],
+   "sources": [
+    "FMH, directives sur les certificats médicaux",
+    "CP art. 318"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Signaux d'alerte : chronicisation, médico-légal et détection précoce",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Pour anticiper les complications, repère tôt les drapeaux jaunes et la durée, car plus l'arrêt se prolonge, moins le retour au poste d'origine est probable.",
+   "tableau": {
+    "colonnes": [
+     "Signal",
+     "Seuil ou critère",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Durée",
+      [
+       {
+        "t": "Incapacité ininterrompue de 30 jours",
+        "i": "L'art. 3b LAI fixe ce seuil, car le risque de désinsertion augmente avec la durée."
+       }
+      ],
+      [
+       {
+        "t": "Communication possible à l'office AI cantonal",
+        "i": "Le médecin informe d'abord le patient ; la loi lève le secret pour cette communication."
+       }
+      ]
+     ],
+     [
+      "Absences répétées",
+      [
+       {
+        "t": "Absences brèves répétées sur un an",
+        "i": "Elles autorisent aussi la détection précoce, car elles signalent un problème de santé ou de poste non résolu."
+       }
+      ],
+      [
+       {
+        "t": "Rechercher une cause sous-jacente",
+        "i": "Un motif récurrent, par exemple psychique ou lié au poste, justifie un bilan et un entretien sur le travail."
+       }
+      ]
+     ],
+     [
+      "Drapeaux jaunes",
+      [
+       {
+        "t": "Peur-mouvement, catastrophisme, détresse, faible attente de reprise",
+        "i": "Ces facteurs prédisent la chronicisation, par exemple de la lombalgie, plus que la gravité lésionnelle."
+       }
+      ],
+      [
+       {
+        "t": "Intervention précoce sur les obstacles à la reprise",
+        "i": "Éducation, reprise partielle et lien avec l'employeur contrent ces facteurs avant l'installation du handicap."
+       }
+      ]
+     ],
+     [
+      "Conflit professionnel",
+      [
+       {
+        "t": "Conflit ou licenciement sans atteinte objectivée",
+        "i": "Un facteur social n'est pas une maladie et n'autorise pas un certificat."
+       }
+      ],
+      [
+       {
+        "t": "Refus motivé ou arrêt si atteinte réelle",
+        "i": "Le médecin distingue la souffrance au travail avec atteinte de santé du simple différend contractuel."
+       }
+      ]
+     ],
+     [
+      "Pression médico-légale",
+      [
+       {
+        "t": "Certificat rétroactif ou prolongation sans consultation",
+        "i": "Il expose à l'art. 318 CP, car le médecin atteste un fait qu'il n'a pas constaté."
+       }
+      ],
+      [
+       {
+        "t": "Refuser et expliquer, documenter au dossier",
+        "i": "La rétroactivité reste limitée à quelques jours et motivée par un constat personnel."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La probabilité de reprise de l'emploi d'origine diminue avec la durée de l'arrêt.",
+    "Une incohérence clinique oblige à réévaluer le patient plutôt qu'à conclure à la simulation."
+   ],
+   "sources": [
+    "LAI art. 3b, 3c",
+    "CP art. 318",
+    "FMH, SIM"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Contenu du certificat et documents voisins",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Pour rédiger le bon document, vérifie le destinataire et le secret médical, car un certificat simple, un rapport LAA et un rapport AI ne se remplacent pas.",
+   "tableau": {
+    "colonnes": [
+     "Document",
+     "Destinataire",
+     "Contenu",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Certificat d'incapacité simple",
+      "Employeur, assurance perte de gain",
+      [
+       {
+        "t": "Date d'établissement, début, taux en %, durée prévisible, identité, signature",
+        "i": "Ces éléments rendent le certificat opposable, et le taux précise s'il porte sur la présence ou le rendement."
+       }
+      ],
+      [
+       {
+        "t": "Sans diagnostic sans consentement",
+        "i": "Le secret professionnel s'applique, et le diagnostic va au médecin-conseil de l'assureur, pas à l'employeur."
+       }
+      ]
+     ],
+     [
+      "Certificat détaillé (modèle SIM/FMH)",
+      "Employeur, assureur",
+      [
+       {
+        "t": "Capacités résiduelles et restrictions",
+        "i": "Il est préférable si l'arrêt dure ou si une reprise partielle est possible, car il fonde le travail adapté."
+       }
+      ],
+      [
+       {
+        "t": "Facilite la reprise partielle",
+        "i": "Il décrit ce que le patient peut faire, donc l'employeur peut adapter le poste."
+       }
+      ]
+     ],
+     [
+      "Rapport médical initial LAA",
+      "Assureur LAA",
+      [
+       {
+        "t": "Lésions, mécanisme, traitement",
+        "i": "L'assureur instruit le cas d'accident à partir de ce rapport, qui reste distinct du simple arrêt."
+       }
+      ],
+      [
+       {
+        "t": "Document spécifique accident",
+        "i": "Un certificat d'arrêt seul ne suffit pas pour l'assureur LAA."
+       }
+      ]
+     ],
+     [
+      "Réponse au questionnaire de l'assureur ou du médecin-conseil",
+      "Assureur perte de gain",
+      [
+       {
+        "t": "Informations médicales ciblées",
+        "i": "Le médecin traitant répond dans les limites du consentement du patient et de la levée du secret."
+       }
+      ],
+      [
+       {
+        "t": "Consentement du patient",
+        "i": "Sans consentement ni base légale, le secret professionnel interdit la transmission."
+       }
+      ]
+     ],
+     [
+      "Rapport AI",
+      "Office AI",
+      [
+       {
+        "t": "Évolution et pronostic détaillés",
+        "i": "Il documente la capacité de gain à long terme, ce que le certificat bref ne fait pas."
+       }
+      ],
+      [
+       {
+        "t": "Long et détaillé",
+        "i": "Il porte sur la durée, alors que le certificat porte sur l'actualité."
+       }
+      ]
+     ],
+     [
+      "Expertise indépendante",
+      "Assureur, tribunal",
+      [
+       {
+        "t": "Évaluation par un médecin sans lien thérapeutique",
+        "i": "Le médecin traitant n'est pas expert, car son rôle de confiance compromet l'indépendance."
+       }
+      ],
+      [
+       {
+        "t": "Rôle différent du médecin traitant",
+        "i": "Le traitant fournit les faits ; l'expert évalue l'exigibilité."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le médecin date le certificat du jour de l'examen et limite toute rétroactivité à quelques jours, avec constat personnel.",
+    "Un certificat contraire à la vérité expose à une peine privative de liberté de trois ans au plus ou à une peine pécuniaire (art. 318 CP)."
+   ],
+   "sources": [
+    "CP art. 318, 321",
+    "FMH, SIM, modèle de certificat détaillé",
+    "LAA art. 45"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Décision : retenir, adapter ou refuser l'incapacité",
+   "rubriques": [
+    "positiveDiagnosis",
+    "acuteManagement"
+   ],
+   "comment": "Pour décider, enchaîne l'examen personnel, l'atteinte objectivée, la limitation fonctionnelle, puis privilégie toujours l'arrêt partiel ou le travail adapté.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Demande de certificat d'incapacité de travail",
+     "i": "Un patient ou un assureur demande une attestation, et le médecin doit d'abord l'examiner lui-même.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Atteinte à la santé objectivée à l'examen ?",
+     "i": "Sans atteinte constatée, un certificat serait de complaisance et exposerait à l'art. 318 CP.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Non : refus motivé",
+     "i": "Le médecin explique la décision, sans céder à la pression, et propose une autre démarche (conseil, médiation).",
+     "pec": "refus",
+     "notion": "c6"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Oui : limitation fonctionnelle empêchant le travail exigible ?",
+     "i": "L'incapacité suppose une limitation fonctionnelle qui empêche l'activité exercée, pas la seule atteinte.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Non : pas d'arrêt, travail adapté",
+     "i": "Sans limitation fonctionnelle incompatible avec le poste, un arrêt n'est pas justifié ; le médecin traite et conseille.",
+     "pec": "refus",
+     "notion": "c8"
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "Oui : arrêt total ou partiel ?",
+     "i": "L'arrêt partiel ou le travail adapté favorise la guérison et le lien avec l'emploi, donc il passe en premier.",
+     "pec": null,
+     "notion": "c8"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Classer accident ou maladie",
+     "i": "Cette classification désigne l'assureur compétent : LAA ou employeur et assurance perte de gain.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n8",
+     "parent": "n7",
+     "t": "Accident LAA : rapport initial",
+     "i": "Événement soudain, extérieur, involontaire, ou lésion assimilée : l'assureur LAA indemnise à 80 % dès le 3e jour.",
+     "pec": "accident_laa",
+     "notion": "c3"
+    },
+    {
+     "id": "n9",
+     "parent": "n7",
+     "t": "Maladie : certificat à l'employeur",
+     "i": "Le certificat sans diagnostic va à l'employeur ; l'assurance perte de gain reçoit le diagnostic avec consentement.",
+     "pec": "arret_maladie",
+     "notion": "c3"
+    },
+    {
+     "id": "n10",
+     "parent": "n6",
+     "t": "Arrêt ≥ 30 jours ou absences répétées",
+     "i": "Ce seuil autorise la détection précoce à l'office AI après information du patient.",
+     "pec": "long_cours",
+     "notion": "c6"
+    }
+   ],
+   "points": [
+    "Le médecin fixe taux, durée et date de réévaluation lors de l'établissement.",
+    "Il discute l'aménagement du poste avec le patient, et ne contacte l'employeur qu'avec son consentement.",
+    "Il anticipe qu'après une période d'adaptation, l'assureur peut exiger une autre activité exigible."
+   ],
+   "sources": [
+    "LPGA art. 6, 21",
+    "CP art. 318",
+    "FMH, SIM"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Arrêt prolongé : détection précoce, réseau, surveillance et pronostic",
+   "rubriques": [
+    "chronicManagement",
+    "surveillance",
+    "followUpNetwork",
+    "prognosisDischarge"
+   ],
+   "comment": "Pour un arrêt prolongé, réévalue toutes les 2 à 4 semaines et coordonne le réseau autour d'un objectif de reprise partagé avec le patient.",
+   "tableau": {
+    "colonnes": [
+     "Intervenant",
+     "Rôle",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Office AI cantonal",
+      [
+       {
+        "t": "Intervention précoce",
+        "i": "Après communication, il peut ordonner conseil, adaptation du poste ou formation afin de maintenir l'emploi."
+       }
+      ],
+      [
+       {
+        "t": "Patient informé avant la communication",
+        "i": "La loi lève le secret pour cette communication, mais le médecin informe quand même le patient."
+       }
+      ]
+     ],
+     [
+      "Médecin du travail et employeur",
+      [
+       {
+        "t": "Aménagement du poste",
+        "i": "Ils connaissent les tâches réelles et rendent possible la reprise partielle."
+       }
+      ],
+      [
+       {
+        "t": "Contact avec consentement du patient",
+        "i": "Sans consentement, le secret professionnel interdit de contacter l'employeur."
+       }
+      ]
+     ],
+     [
+      "Médecin-conseil et case manager de l'assureur",
+      [
+       {
+        "t": "Évaluation pour l'assureur",
+        "i": "Ils examinent la couverture et la reprise, d'où l'importance de coordonner les informations."
+       }
+      ],
+      [
+       {
+        "t": "Réponse dans la limite du consentement",
+        "i": "Le médecin traitant transmet l'information nécessaire seulement."
+       }
+      ]
+     ],
+     [
+      "Chômeur en incapacité",
+      [
+       {
+        "t": "ORP et caisse de chômage",
+        "i": "Le certificat leur est transmis pour les indemnités."
+       }
+      ],
+      [
+       {
+        "t": "Maximum 44 indemnités journalières dans le délai-cadre",
+        "i": "Ce plafond de la LACI explique l'importance de la durée de l'incapacité pour le chômeur."
+       }
+      ]
+     ],
+     [
+      "Maladie d'un enfant ou d'un proche",
+      [
+       {
+        "t": "Congé attesté par certificat",
+        "i": "Le médecin atteste la maladie, pas une incapacité du patient."
+       }
+      ],
+      [
+       {
+        "t": "3 jours par événement, 10 jours par an pour les proches",
+        "i": "Ces limites légales (art. 36 LTr, art. 329h CO) cadrent la durée à certifier."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le médecin réévalue et renouvelle le certificat toutes les 2 à 4 semaines, avec nouvel examen à chaque prolongation.",
+    "Sans amélioration, il revoit diagnostic et traitement, et envisage un bilan multidisciplinaire ou une évaluation des capacités.",
+    "Le maintien du lien avec le travail, même à temps partiel, améliore le pronostic de guérison et de retour à l'emploi."
+   ],
+   "sources": [
+    "LAI art. 3b, 3c, 7d",
+    "LACI art. 28",
+    "LTr art. 36",
+    "CO art. 329h"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "arret_maladie",
+   "titre": "Certificat d'incapacité de travail pour maladie (arrêt court, non compliqué)",
+   "but": [
+    "Établir un certificat exact, daté et proportionné à l'atteinte constatée.",
+    "Favoriser la reprise précoce, partielle si possible, plutôt que l'arrêt total."
+   ],
+   "moyens": {
+    "accueil": [
+     "Accueillir le patient et lui demander son poste, son employeur et ses assurances.",
+     "Expliquer d'emblée qu'un certificat repose sur un examen et des constatations objectives."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Rédiger le certificat avec date, début, taux en %, durée prévisible, identité et signature.",
+      "pourquoi": "Ces éléments rendent le certificat opposable et évitent les malentendus entre employeur et assureur."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Préférer un arrêt partiel ou un travail adapté, et préciser si le taux porte sur présence ou rendement.",
+      "pourquoi": "La reprise progressive favorise la guérison et limite le risque de désinsertion."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer le diagnostic, le pronostic et l'objectif de reprise, et corriger les craintes de mouvement.",
+      "pourquoi": "Réduire les drapeaux jaunes diminue le risque de chronicisation."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Ne pas mentionner le diagnostic à l'employeur sans consentement du patient.",
+      "pourquoi": "Le secret professionnel s'applique ; le diagnostic va au médecin-conseil de l'assureur."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise l'assureur compétent, le salaire maintenu (art. 324a CO) et la protection contre le licenciement."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Rappelle le secret professionnel, l'interdiction du faux certificat (art. 318 CP) et la limite de la rétroactivité."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Examiner le patient personnellement avant tout certificat.",
+      "Séparer au dossier les constatations objectives et les plaintes subjectives.",
+      "Dater le certificat du jour de l'examen, avec rétroactivité limitée et motivée."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Recueille l'anamnèse du poste, des tâches et des limitations, puis examine le patient."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Évalue les capacités résiduelles et choisit entre arrêt total, partiel ou travail adapté."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Établit le certificat avec taux, durée et date de réévaluation, sans diagnostic pour l'employeur."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "patient·e",
+       "fait": "Remet le certificat à l'employeur dans le délai prévu et informe son assurance perte de gain."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Convoque une réévaluation dans 2 à 4 semaines selon la situation clinique."
+      }
+     ]
+    }
+   },
+   "pronostic": "Une atteinte non compliquée guérit généralement avec reprise rapide ; le maintien du lien avec le travail, même partiel, améliore le retour à l'emploi.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Capacités fonctionnelles résiduelles et symptômes",
+      "quand": "Toutes les 2 à 4 semaines",
+      "cible": "Amélioration permettant d'augmenter le taux d'activité"
+     },
+     {
+      "quoi": "Drapeaux jaunes et obstacles à la reprise",
+      "quand": "À chaque consultation",
+      "cible": "Absence de facteurs de chronicisation ou prise en charge précoce"
+     },
+     {
+      "quoi": "Durée cumulée de l'incapacité",
+      "quand": "À chaque renouvellement",
+      "cible": "Moins de 30 jours, sinon passage au plan long cours"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : l'arrêt non compliqué est géré au cabinet ; hospitalisation seulement selon la pathologie causale."
+   },
+   "prevention": {
+    "primaire": "Promouvoir l'ergonomie, la santé au travail et le dialogue précoce avec l'employeur.",
+    "secondaire": "Repérer tôt les drapeaux jaunes et les absences répétées pour intervenir avant la chronicisation.",
+    "tertiaire": "Organiser la reprise progressive pour éviter la désinsertion et les rechutes."
+   }
+  },
+  {
+   "cle": "accident_laa",
+   "titre": "Incapacité de travail après accident (LAA)",
+   "but": [
+    "Documenter l'événement et les lésions pour l'assureur LAA.",
+    "Assurer l'indemnisation et la reprise adaptée."
+   ],
+   "moyens": {
+    "accueil": [
+     "Demander date, mécanisme et cause extérieure de l'événement, et s'il a été déclaré à l'employeur.",
+     "Vérifier le taux d'activité de l'employeur, car il détermine la couverture des accidents non professionnels."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Remplir le rapport médical initial à l'assureur LAA avec lésions et traitement.",
+      "pourquoi": "L'assureur instruit l'accident avec ce rapport, distinct du simple certificat d'arrêt."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Certifier le taux d'incapacité avec date de réévaluation et capacités résiduelles.",
+      "pourquoi": "L'indemnité journalière de 80 % dépend du taux, et l'assureur peut exiger une activité exigible."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Rappeler au patient que l'employeur annonce l'accident à l'assureur LAA.",
+      "pourquoi": "Sans déclaration, l'ouverture du droit aux prestations peut être retardée."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Explique l'indemnité LAA de 80 % dès le 3e jour et la couverture des accidents non professionnels dès 8 heures par semaine."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre la transmission d'informations à l'assureur selon le consentement et la loi."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Soigner la lésion selon sa nature avant de certifier.",
+      "Décrire les faits sans trancher à la place de l'assureur sur la qualification d'accident."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Reconstitue l'événement et examine les lésions pour retenir ou non le caractère accidentel."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Établit le certificat d'incapacité avec taux et durée, et traite la lésion."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "patient·e",
+       "fait": "Annonce l'accident à son employeur pour la déclaration à l'assureur LAA."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Transmet le rapport médical initial à l'assureur LAA dans les limites légales."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Réévalue régulièrement et adapte le taux jusqu'à la reprise complète."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le pronostic dépend de la lésion ; une reprise partielle précoce améliore le retour à l'emploi.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Évolution de la lésion et capacités résiduelles",
+      "quand": "Toutes les 2 à 4 semaines",
+      "cible": "Augmentation progressive du taux d'activité"
+     },
+     {
+      "quoi": "Réception de la déclaration LAA et du rapport initial",
+      "quand": "Dans les premiers jours",
+      "cible": "Dossier ouvert chez l'assureur LAA"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée pour une lésion non compliquée ; hospitalisation selon la gravité lésionnelle."
+   },
+   "prevention": {
+    "primaire": "Prévenir les accidents professionnels et de loisirs par l'information et l'ergonomie.",
+    "secondaire": "Déclarer tôt l'accident pour sécuriser les prestations.",
+    "tertiaire": "Organiser la reprise adaptée pour éviter la chronicisation après traumatisme."
+   }
+  },
+  {
+   "cle": "long_cours",
+   "titre": "Incapacité prolongée : détection précoce AI et coordination",
+   "but": [
+    "Prévenir la désinsertion professionnelle et la chronicisation.",
+    "Coordonner le réseau autour d'un objectif de reprise partagé avec le patient."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer au patient pourquoi un arrêt long menace l'emploi et les revenus.",
+     "Informer le patient avant toute communication à l'office AI."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "social et assurances",
+      "mesure": "Communiquer à l'office AI cantonal dès 30 jours d'incapacité ininterrompue ou en cas d'absences répétées, après information du patient.",
+      "pourquoi": "L'art. 3b LAI permet cette détection précoce et lève le secret pour cette communication."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Remplacer le simple arrêt par un certificat détaillé décrivant capacités résiduelles et restrictions.",
+      "pourquoi": "Il fonde la reprise partielle et l'aménagement du poste, ce que le simple arrêt ne permet pas."
+     },
+     {
+      "categorie": "rééducation",
+      "mesure": "Prévoir un bilan multidisciplinaire ou une évaluation des capacités en l'absence d'amélioration.",
+      "pourquoi": "Un arrêt sans progrès impose de revoir diagnostic, traitement et obstacles à la reprise."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Rappeler la protection contre le licenciement (30, 90 ou 180 jours) et le plafond de 44 indemnités de chômage.",
+      "pourquoi": "Le patient doit anticiper la fin de la protection et les droits en cas de perte d'emploi."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise les mesures d'intervention précoce de l'AI, le délai d'un an pour la rente et les obligations de l'assuré."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre le secret, le consentement et la différence entre médecin traitant et expert."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Partager l'objectif de reprise avec le patient avant de contacter un tiers.",
+      "Contacter l'employeur uniquement avec le consentement du patient.",
+      "Garder le rôle de médecin traitant, sans devenir expert."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Réévalue le diagnostic, le traitement et les drapeaux jaunes dès les premières semaines d'arrêt."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Informe le patient et communique à l'office AI à partir de 30 jours."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "spécialiste",
+       "fait": "Réalise le bilan multidisciplinaire ou l'évaluation des capacités si l'évolution stagne."
+      },
+      {
+       "temps": "puis",
+       "qui": "assistant·e social·e",
+       "fait": "Coordonne employeur, médecin du travail, case manager et office AI autour de la reprise."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Adapte le taux à chaque réévaluation et prépare la reprise du poste ou la réorientation."
+      }
+     ]
+    }
+   },
+   "pronostic": "Plus l'arrêt dure, moins le retour au poste d'origine est probable ; la reprise partielle précoce et l'intervention de l'AI améliorent le maintien en emploi.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Taux d'incapacité et capacités résiduelles",
+      "quand": "Toutes les 2 à 4 semaines",
+      "cible": "Augmentation progressive du taux de travail"
+     },
+     {
+      "quoi": "Statut de la communication à l'office AI et des mesures d'intervention précoce",
+      "quand": "Après communication, puis à chaque consultation",
+      "cible": "Mesures actives et coordonnées"
+     },
+     {
+      "quoi": "Fin de la protection contre le licenciement",
+      "quand": "Selon l'ancienneté (30, 90, 180 jours)",
+      "cible": "Reprise ou solution d'emploi avant l'échéance"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée ; un séjour hospitalier ne se justifie que par la pathologie causale ou une évaluation spécialisée."
+   },
+   "prevention": {
+    "primaire": "Intégrer la santé psychique et ergonomique dans la gestion de l'entreprise.",
+    "secondaire": "Détecter tôt, dès 30 jours, pour éviter la désinsertion.",
+    "tertiaire": "Réadapter professionnellement avec l'AI quand l'atteinte devient durable."
+   }
+  },
+  {
+   "cle": "refus",
+   "titre": "Refus de certificat ou demande sous pression",
+   "but": [
+    "Éviter un certificat de complaisance et protéger le médecin et le patient.",
+    "Maintenir la relation thérapeutique et orienter vers une solution adaptée."
+   ],
+   "moyens": {
+    "accueil": [
+     "Écouter la demande et le contexte professionnel du patient sans jugement.",
+     "Rappeler qu'un certificat exige une atteinte objectivée."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Expliquer le refus, documenter l'examen et les motifs au dossier.",
+      "pourquoi": "La documentation protège le médecin et justifie la décision en cas de litige."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Proposer un travail adapté, un traitement ou un entretien sur le conflit, sans arrêt de complaisance.",
+      "pourquoi": "Un conflit de travail sans atteinte à la santé ne justifie pas de certificat."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Limiter toute rétroactivité à quelques jours, motivée par un constat personnel.",
+      "pourquoi": "Une rétroactivité abusive atteste un fait non constaté et expose à l'art. 318 CP."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Rappelle que le faux certificat est punissable (jusqu'à trois ans ou peine pécuniaire) et soutient le refus."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Indique au patient les voies pour un conflit de travail, distinctes d'une incapacité médicale."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Garder une attitude calme, claire et non accusatrice.",
+      "Ne jamais établir un certificat contraire à la vérité sous pression."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Examine le patient et cherche une atteinte réelle ou une incohérence clinique."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Explique le refus et les critères de l'incapacité au patient."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Note au dossier la demande, l'examen et la décision."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Propose un suivi ou une réorientation si une souffrance au travail est présente."
+      }
+     ]
+    }
+   },
+   "pronostic": "Un refus expliqué et documenté préserve la relation de confiance dans la plupart des cas.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Apparition d'une atteinte à la santé réelle",
+      "quand": "Lors d'une nouvelle consultation",
+      "cible": "Réévaluation et certificat si les critères sont remplis"
+     },
+     {
+      "quoi": "Souffrance liée au conflit professionnel",
+      "quand": "Selon la situation",
+      "cible": "Orientation vers l'aide adaptée"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : aucune hospitalisation n'est liée au refus."
+   },
+   "prevention": {
+    "primaire": "Communiquer tôt les critères du certificat aux patients.",
+    "secondaire": "Repérer les conflits de travail avant qu'ils ne deviennent des plaintes de santé.",
+    "tertiaire": "Réévaluer après un refus pour ne pas manquer une atteinte réelle."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6206,
+  "output_tokens": 24218,
+  "output_tokens_details": {
+   "thinking_tokens": 8385
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:51",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

@@ -1,0 +1,1082 @@
+{
+ "id": "T79.3__S6_4-E05",
+ "portes": [
+  {
+   "ssp": "S6.4",
+   "nomSSP": "Plaie infectée, retard de cicatrisation, ulcères cutanés",
+   "entite": "Infection de plaie post-opératoire ou traumatique simple (suppuration superficielle)",
+   "entiteId": "S6.4-E05"
+  }
+ ],
+ "entite": "Infection de plaie post-opératoire ou traumatique simple (suppuration superficielle)",
+ "cim10": "T79.3",
+ "ssp": {
+  "code": "S6.4",
+  "nom": "Plaie infectée, retard de cicatrisation, ulcères cutanés",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Plaie infectée, retard de cicatrisation ou ulcère cutané",
+    "i": "Porte d'entrée S6.4 : le premier tri sépare urgence vitale, plaie aiguë récente et plaie chronique.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Signe de gravité : douleur disproportionnée, crépitation, bulles, nécrose, choc ?",
+    "i": "Ces signes suggèrent une infection nécrosante ou un sepsis, qui priment sur toute autre démarche.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : fasciite nécrosante ou sepsis suspecté",
+    "i": "Urgence chirurgicale et réanimatoire, sans attendre le LRINEC ni l'imagerie.",
+    "pec": "urgence_necrosante",
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : plaie aiguë récente (< 30 jours) ?",
+    "i": "Le seuil de 30 jours correspond à la définition de l'infection superficielle du site opératoire.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Oui : rougeur, chaleur, écoulement purulent",
+    "i": "Le diagnostic d'infection superficielle de plaie est clinique.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Exposition d'os, matériel ou tendon, ou morsure de main avec douleur à l'extension passive ?",
+    "i": "Ces situations traduisent une infection profonde ou une ténosynovite des fléchisseurs.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Oui : infection profonde",
+    "i": "Un avis chirurgical urgent s'impose, car le biofilm sur matériel résiste aux antibiotiques.",
+    "pec": "urgence_necrosante",
+    "notion": "c4"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Non : érythème > 5 cm, T > 38,5 °C, FC > 110/min, GB > 12 G/l ou terrain à risque ?",
+    "i": "Ces seuils décident d'ajouter un antibiotique au drainage.",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Oui : drainage + antibiotique oral",
+    "i": "L'infection dépasse la plaie ou le terrain est fragile, donc le drainage seul ne suffit pas.",
+    "pec": "antibio_terrain",
+    "notion": "c7"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Non : drainage, parage, tétanos, pansement",
+    "i": "Le drainage est le traitement principal ; les antibiotiques ne s'ajoutent qu'en présence de critères.",
+    "pec": "drainage_simple",
+    "notion": "c6"
+   },
+   {
+    "id": "n11",
+    "parent": "n4",
+    "t": "Non : plaie chronique ou ulcère",
+    "i": "Une plaie qui ne cicatrise pas relève d'une cause sous-jacente, pas d'une simple suppuration.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Ulcère de jambe : veineux (insuffisance veineuse) ou artériel (AOMI)",
+    "i": "L'IPS et l'examen vasculaire distinguent les deux ; renvoi vers l'entité correspondante du SSP S6.4.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "Mal perforant ou pied diabétique",
+    "i": "Neuropathie et artériopathie dominent ; renvoi vers l'entité pied diabétique du SSP S6.4.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n14",
+    "parent": "n11",
+    "t": "Escarre, carence nutritionnelle, tabac ou médicament",
+    "i": "Pression, dénutrition et médicaments freinent la cicatrisation ; renvoi vers l'entité escarre ou retard de cicatrisation du SSP S6.4.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n15",
+    "parent": "n11",
+    "t": "Ulcère atypique, bords violacés ou non cicatrisant",
+    "i": "Pyoderma gangrenosum, Martorell, mycobactérie ou carcinome ulcéré imposent une biopsie ; renvoi vers l'entité correspondante du SSP S6.4.",
+    "pec": null,
+    "notion": null
+   }
+  ]
+ },
+ "specialites": [
+  "CHI"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Infection de plaie post-opératoire ou traumatique simple (suppuration superficielle), CIM-10 T79.3",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition, niveaux d'infection et germes selon le contexte",
+   "rubriques": [
+    "definition",
+    "basicSciences"
+   ],
+   "comment": "Raisonne d'abord sur la profondeur atteinte (superficielle, profonde, d'organe), puis déduis le germe probable du mécanisme de la plaie.",
+   "tableau": {
+    "colonnes": [
+     "Contexte de la plaie",
+     "Germe probable",
+     "Antibiotique oral de choix",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Plaie chirurgicale ou traumatique propre",
+      "S. aureus (MSSA, parfois MRSA), puis S. pyogenes",
+      [
+       {
+        "t": "Flucloxacilline",
+        "i": "Cible le MSSA et les streptocoques avec un spectre étroit, recommandée en première ligne en Suisse."
+       }
+      ],
+      [
+       {
+        "t": "Antibiotique inutile après drainage sans cellulite étendue",
+        "i": "Le pus évacué abaisse l'inoculum sous 10^5 bactéries/g, donc les antibiotiques n'ajoutent rien en l'absence de signes régionaux ou systémiques."
+       }
+      ]
+     ],
+     [
+      "Morsure animale ou humaine, plaie souillée",
+      "Flore polymicrobienne (Pasteurella, anaérobies, streptocoques, S. aureus)",
+      [
+       {
+        "t": "Amoxicilline-acide clavulanique",
+        "i": "Couvre aérobies et anaérobies, ce que la flucloxacilline ne fait pas."
+       }
+      ],
+      [
+       {
+        "t": "Risque de ténosynovite à la main",
+        "i": "Les structures profondes de la main sont proches de la peau, donc une morsure peut atteindre la gaine des fléchisseurs en quelques heures."
+       }
+      ]
+     ],
+     [
+      "Chirurgie abdominale ou périnéale",
+      "Entérobactéries et anaérobies",
+      [
+       {
+        "t": "Amoxicilline-acide clavulanique",
+        "i": "Il couvre la flore digestive mixte, alors qu'une flucloxacilline seule laisse entérobactéries et anaérobies sans couverture."
+       }
+      ],
+      "Le germe suit le site opéré, pas seulement la peau."
+     ],
+     [
+      "Eau douce ou eau de mer",
+      "Aeromonas (eau douce), Vibrio (mer)",
+      [
+       {
+        "t": "Avis infectiologique",
+        "i": "Ces germes sont naturellement non couverts par les schémas habituels anti-staphylococciques."
+       }
+      ],
+      "L'anamnèse d'exposition à l'eau guide le germe."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'infection superficielle du site opératoire survient dans les 30 jours et reste limitée à la peau et au tissu sous-cutané.",
+    "On distingue infection superficielle, profonde (fascia, muscle) et d'organe ou de cavité, car la prise en charge change.",
+    "Le code T79.3 regroupe les infections post-traumatiques de plaie non classées ailleurs.",
+    "L'inoculum infectant dépasse environ 10^5 bactéries/g ; corps étranger, fil, hématome et tissu dévitalisé abaissent ce seuil.",
+    "Un biofilm sur matériel ou nécrose résiste aux antibiotiques et impose ablation du matériel ou parage."
+   ],
+   "sources": [
+    "Swissnoso 2023",
+    "SSI/SGInf recommandations IPTM",
+    "CDC/NHSN SSI"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie suisse et facteurs de risque",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences"
+   ],
+   "comment": "Sépare les facteurs liés au patient, à l'intervention et à la prévention pour chaque question de risque.",
+   "tableau": {
+    "colonnes": [
+     "Catégorie",
+     "Facteurs",
+     "Mesure préventive"
+    ],
+    "lignes": [
+     [
+      "Patient",
+      "Diabète, obésité, tabac, dénutrition, immunosuppression, âge avancé",
+      [
+       {
+        "t": "Équilibrer glycémie, arrêt du tabac, nutrition",
+        "i": "L'hyperglycémie et le tabac altèrent la phagocytose et la perfusion tissulaire, donc ils retardent la cicatrisation."
+       }
+      ]
+     ],
+     [
+      "Intervention",
+      "Durée longue, classe de contamination élevée, hypothermie périopératoire",
+      [
+       {
+        "t": "Normothermie, asepsie rigoureuse",
+        "i": "L'hypothermie provoque une vasoconstriction qui réduit l'oxygénation tissulaire et les défenses locales."
+       }
+      ]
+     ],
+     [
+      "Préparation cutanée",
+      "Rasage, antisepsie insuffisante",
+      [
+       {
+        "t": "Tonte et chlorhexidine alcoolique",
+        "i": "Le rasage crée des micro-lésions colonisées, et la chlorhexidine alcoolique réduit davantage les infections que la polyvidone iodée."
+       }
+      ]
+     ],
+     [
+      "Antibioprophylaxie",
+      "Indiquée selon l'intervention, pas pour les petites plaies propres",
+      [
+       {
+        "t": "Dose unique dans les 60 min avant l'incision",
+        "i": "Une concentration tissulaire efficace doit exister au moment de l'incision ; prolonger la dose n'apporte rien et favorise les résistances."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Les infections du site opératoire comptent parmi les infections nosocomiales les plus fréquentes en Suisse.",
+    "Swissnoso les surveille 30 jours après l'intervention, et 1 an si un implant a été posé.",
+    "La complication est fréquente en petite traumatologie et en chirurgie, avec une fréquence qui dépend de l'âge et des comorbidités."
+   ],
+   "sources": [
+    "Swissnoso",
+    "SSI/SGInf prophylaxie périopératoire",
+    "OMS 2018 prévention SSI"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen clinique",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Cherche le délai d'apparition, le mécanisme de la plaie et les comorbidités, puis délimite l'inflammation et explore la profondeur.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le patient rapporte une douleur qui réapparaît ou s'aggrave avec écoulement purulent environ 3 à 7 jours après la plaie ou l'opération.",
+    "Une fièvre et une douleur intense avant 48 h orientent vers un streptocoque A ou un Clostridium, donc une infection nécrosante, plutôt que vers S. aureus.",
+    "L'anamnèse précise souillure, morsure, corps étranger, eau, délai de prise en charge, diabète, immunosuppresseurs, anticoagulation, MRSA connu, allergie aux bêta-lactamines.",
+    "L'examen objective rougeur, chaleur, tuméfaction, douleur ; le médecin exprime le pus, palpe la fluctuation et délimite l'érythème au feutre.",
+    "Le médecin explore à la sonde stérile (fascia, tendon, os, corps étranger), relève les signes vitaux, la lymphangite, les adénopathies, et vérifie le carnet de vaccination ; pour la main, il teste tendons et neurovasculaire."
+   ],
+   "sources": [
+    "IDSA SSTI 2014",
+    "SSI/SGInf IPTM",
+    "OFSP plan de vaccination"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Signes d'alarme : quand ce n'est plus une suppuration simple",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Devant tout signe d'alarme, tu élimines d'abord l'infection nécrosante, le sepsis ou l'infection profonde avant de parler de simple drainage.",
+   "tableau": {
+    "colonnes": [
+     "Signe d'alarme",
+     "Diagnostic à suspecter",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      [
+       {
+        "t": "Douleur disproportionnée, crépitation, bulles hémorragiques, nécrose cutanée, choc",
+        "i": "La douleur excède les signes cutanés parce que l'infection progresse sous le fascia, avant que la peau ne réagisse."
+       }
+      ],
+      "Fasciite nécrosante",
+      [
+       {
+        "t": "Exploration chirurgicale urgente",
+        "i": "Le LRINEC ≥ 6 oriente, mais un score bas ne l'exclut pas et ne doit jamais retarder la chirurgie."
+       }
+      ]
+     ],
+     [
+      [
+       {
+        "t": "Fièvre élevée, tachycardie, hypotension, confusion",
+        "i": "Ces signes traduisent une réponse systémique à une bactériémie possible."
+       }
+      ],
+      "Sepsis",
+      "Hémocultures, hospitalisation, antibiotiques i.v. urgents"
+     ],
+     [
+      [
+       {
+        "t": "Exposition de prothèse, matériel, tendon ou os",
+        "i": "Le matériel est colonisé par biofilm, donc l'antibiothérapie seule échoue."
+       }
+      ],
+      "Infection profonde",
+      "Avis chirurgical spécialisé rapide"
+     ],
+     [
+      [
+       {
+        "t": "Lymphangite, extension rapide de l'érythème",
+        "i": "La diffusion lymphatique est typique d'un streptocoque A."
+       }
+      ],
+      "Infection streptococcique",
+      "Antibiotique systémique, surveillance rapprochée"
+     ],
+     [
+      [
+       {
+        "t": "Morsure de main avec douleur à l'extension passive du doigt, doigt en flexion",
+        "i": "C'est le signe de Kanavel : la gaine des fléchisseurs est infectée et menace la fonction du doigt."
+       }
+      ],
+      "Ténosynovite des fléchisseurs",
+      "Urgence chirurgicale"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Une douleur disproportionnée prime sur l'aspect cutané : elle impose l'exploration chirurgicale.",
+    "Un LRINEC bas n'exclut pas une infection nécrosante."
+   ],
+   "sources": [
+    "IDSA SSTI 2014",
+    "SSI/SGInf IPTM",
+    "Wong CH, Crit Care Med 2004 (LRINEC)"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan et diagnostic positif",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Pose le diagnostic sur la clinique, prélève en profondeur avant tout antibiotique, et réserve imagerie et biologie aux cas douteux ou graves.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Plaie avec signes locaux d'infection",
+     "i": "Rougeur, chaleur, tuméfaction, douleur et écoulement purulent suffisent au diagnostic clinique.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Pus ou fluctuation franche",
+     "i": "Une collection se drainera ; le pus ou le tissu profond est prélevé avant antibiotique.",
+     "pec": "drainage_simple",
+     "notion": "c5"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Fluctuation douteuse",
+     "i": "L'échographie distingue une collection hypoéchogène d'une cellulite à aspect pavé.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Fièvre, signes systémiques, terrain immunodéprimé",
+     "i": "Les hémocultures se prélèvent avant antibiotiques ; CRP et leucocytes évaluent la gravité sans poser le diagnostic.",
+     "pec": "antibio_terrain",
+     "notion": "c5"
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Suspicion de corps étranger, gaz ou ostéite",
+     "i": "La radiographie cherche corps étranger, gaz ou atteinte osseuse ; l'IRM est demandée si ostéite ou infection profonde est suspectée.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Diabète suspecté",
+     "i": "Glycémie ou HbA1c, car l'hyperglycémie favorise l'infection et retarde la cicatrisation.",
+     "pec": null,
+     "notion": "c5"
+    }
+   ],
+   "points": [
+    "Le prélèvement profond de pus ou de tissu avec antibiogramme se fait avant antibiotique ; l'écouvillon superficiel reflète la colonisation et n'est pas fiable.",
+    "Le laboratoire recherche la résistance à la méthicilline (MRSA).",
+    "La culture confirme le germe mais n'est pas indispensable au diagnostic.",
+    "Le diagnostic différentiel comprend hématome, séreux, réaction aux fils, dermite de contact, thrombophlébite, infection profonde ou nécrosante.",
+    "Le diagnostic est aussi retenu quand le chirurgien rouvre l'incision ou pose lui-même le diagnostic."
+   ],
+   "sources": [
+    "SSI/SGInf IPTM",
+    "IDSA SSTI 2014",
+    "CDC/NHSN SSI"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Prise en charge initiale : drainage, parage et tétanos",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Traite d'abord la source par drainage et parage, puis contrôle le statut tétanique selon le risque de la plaie.",
+   "tableau": {
+    "colonnes": [
+     "Statut vaccinal",
+     "Plaie propre et mineure",
+     "Autre plaie (à risque)"
+    ],
+    "lignes": [
+     [
+      "≥ 3 doses, dernière dose récente",
+      "Aucune action",
+      "Aucune action"
+     ],
+     [
+      "≥ 3 doses, dernière dose > 10 ans",
+      [
+       {
+        "t": "Rappel dT(pa)",
+        "i": "Après 10 ans, la protection n'est plus assurée pour une plaie même propre."
+       }
+      ],
+      "Rappel dT(pa)"
+     ],
+     [
+      "≥ 3 doses, dernière dose entre 5 et 10 ans",
+      "Aucune action",
+      [
+       {
+        "t": "Rappel dT(pa)",
+        "i": "Une plaie souillée ou à risque abaisse le délai de rappel à 5 ans."
+       }
+      ]
+     ],
+     [
+      "< 3 doses, non vacciné ou statut inconnu",
+      [
+       {
+        "t": "Vaccin sans immunoglobulines",
+        "i": "Le risque faible de la plaie propre ne justifie pas la protection passive."
+       }
+      ],
+      [
+       {
+        "t": "Vaccin + immunoglobulines antitétaniques",
+        "i": "Une plaie à risque sans immunité certaine exige une protection passive immédiate."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le drainage est le traitement principal : retirer quelques points, ouvrir la plaie, évacuer pus et hématome infecté.",
+    "Le lavage abondant au sérum physiologique ou à l'eau potable nettoie ; polyhexanide ou octénidine sont préférés à l'eau oxygénée.",
+    "Le parage excise tissus dévitalisés et corps étrangers, sans quoi l'infection persiste malgré les antibiotiques.",
+    "La plaie ouverte cicatrise par seconde intention sous pansement humide non adhérent, avec antalgie par paracétamol ou AINS."
+   ],
+   "sources": [
+    "OFSP/CFV recommandations de vaccination antitétanique",
+    "SSI/SGInf IPTM",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Quand et comment prescrire un antibiotique",
+   "rubriques": [
+    "chronicManagement"
+   ],
+   "comment": "Traite par drainage seul tant qu'il n'y a ni extension régionale ni signe systémique, puis choisis le spectre le plus étroit selon le germe et les allergies.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Choix oral",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Aucun critère de gravité après drainage",
+      "Pas d'antibiotique",
+      [
+       {
+        "t": "Bon usage des antibiotiques",
+        "i": "Le drainage suffit et les antibiotiques n'ajoutent que des effets indésirables et des résistances."
+       }
+      ]
+     ],
+     [
+      "Érythème > 5 cm, T > 38,5 °C, FC > 110/min, leucocytes > 12 G/l, ou terrain à risque",
+      "Flucloxacilline",
+      [
+       {
+        "t": "Cible MSSA et streptocoques",
+        "i": "Son spectre étroit couvre les deux germes les plus fréquents de la peau."
+       }
+      ]
+     ],
+     [
+      "Morsure, plaie souillée, infection périnéale ou abdominale",
+      "Amoxicilline-acide clavulanique",
+      [
+       {
+        "t": "Couverture des anaérobies et de la flore mixte",
+        "i": "La flucloxacilline ne couvre ni anaérobies ni Pasteurella."
+       }
+      ]
+     ],
+     [
+      "Allergie non grave aux pénicillines",
+      "Céfuroxime",
+      [
+       {
+        "t": "Céphalosporine de 2e génération",
+        "i": "Le risque de réaction croisée est faible en l'absence d'allergie sévère de type immédiat."
+       }
+      ]
+     ],
+     [
+      "Allergie sévère de type immédiat",
+      "Clindamycine",
+      [
+       {
+        "t": "Sans lien avec les bêta-lactamines",
+        "i": "Elle évite toute réaction croisée et couvre staphylocoques et streptocoques."
+       }
+      ]
+     ],
+     [
+      "MRSA suspecté ou prouvé",
+      "Cotrimoxazole ou doxycycline",
+      [
+       {
+        "t": "Après avis infectiologique",
+        "i": "Les bêta-lactamines sont inactives sur le MRSA, et ces deux options restent actives per os."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La durée orale est courte, environ 5 à 7 jours, à réévaluer selon l'évolution.",
+    "Dès l'antibiogramme, on désescalade vers le spectre le plus étroit."
+   ],
+   "sources": [
+    "SSI/SGInf IPTM",
+    "IDSA SSTI 2014",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications, surveillance et critères d'échec",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance"
+   ],
+   "comment": "Contrôle à 24-48 h ; sans amélioration à 48-72 h, cherche une cause d'échec avant de prolonger le même traitement.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Un drainage insuffisant mène à une abcédation profonde ou à une infection d'organe qui nécessite une reprise chirurgicale.",
+    "Une infection non contrôlée évolue en cellulite extensive, bactériémie, sepsis ou choc septique, donc hospitalisation.",
+    "L'infection peut atteindre prothèse ou ostéosynthèse, ou provoquer une ostéite ; les séquelles comprennent déhiscence, retard de cicatrisation, cicatrice hypertrophique, éventration après laparotomie.",
+    "À 24-48 h, le médecin vérifie la régression de la rougeur, l'efficacité du drainage et l'absence de signe systémique.",
+    "Sans amélioration à 48-72 h, il cherche drainage insuffisant, collection profonde, corps étranger ou germe résistant ; le patient reçoit des consignes écrites de reconsulter en cas de fièvre, extension de l'érythème, douleur croissante."
+   ],
+   "sources": [
+    "SSI/SGInf IPTM",
+    "Swissnoso",
+    "IDSA SSTI 2014"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Pronostic, réseau de soins et aspects médico-légaux",
+   "rubriques": [
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Le pronostic est bon après drainage adéquat, et le suivi s'organise entre médecin de famille, chirurgien et soins à domicile.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Après drainage adéquat, la plaie cicatrise par seconde intention en quelques semaines chez le patient sans comorbidité.",
+    "Diabète, tabac et dénutrition aggravent le pronostic ; l'infection du site opératoire prolonge l'hospitalisation et augmente les coûts.",
+    "Le médecin de famille suit le patient avec le chirurgien ; les soins de plaie à domicile (Spitex) se délèguent sur ordonnance et sont remboursés par la LAMal.",
+    "Une plaie d'origine accidentelle se déclare à l'assurance-accidents (LAA), et le médecin documente précisément la plaie et son évolution."
+   ],
+   "sources": [
+    "LAMal/OPAS",
+    "LAA",
+    "Swissnoso"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence_necrosante",
+   "titre": "Urgence : infection nécrosante, infection profonde ou sepsis sur plaie",
+   "but": [
+    "Contrôler la source par débridement chirurgical précoce.",
+    "Stabiliser l'hémodynamique et débuter l'antibiothérapie i.v. à large spectre dans l'heure."
+   ],
+   "moyens": {
+    "accueil": [
+     "Évaluer ABCDE et signes vitaux en salle de déchocage.",
+     "Installer deux voies veineuses et monitorer le patient.",
+     "Garder le patient à jeun en vue d'un bloc opératoire."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Pipéracilline-tazobactam (pénicilline à large spectre + inhibiteur de bêta-lactamase)",
+      "posologie": "4,5 g i.v. toutes les 8 h, adapté à la fonction rénale",
+      "pourquoi": "Il couvre bactéries à Gram positif, Gram négatif et anaérobies en attendant les cultures peropératoires.",
+      "source": "SSI/SGInf IPTM ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Clindamycine (lincosamide)",
+      "posologie": "600 mg i.v. toutes les 8 h",
+      "pourquoi": "Elle inhibe la production de toxines streptococciques et staphylococciques, ce que les bêta-lactamines seules ne font pas.",
+      "source": "IDSA SSTI 2014"
+     },
+     {
+      "molecule": "Vancomycine (glycopeptide), si MRSA suspecté",
+      "posologie": "i.v., dose de charge puis adaptation aux taux résiduels et à la fonction rénale",
+      "pourquoi": "Elle couvre le MRSA, que les bêta-lactamines n'atteignent pas.",
+      "source": "SSI/SGInf IPTM ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Pratiquer un débridement chirurgical urgent et répéter l'exploration si nécessaire.",
+      "pourquoi": "La source nécrotique ne se traite pas par antibiotiques seuls, car elle est avasculaire."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Prélever des hémocultures et du tissu profond avant antibiotiques, sans retarder le traitement.",
+      "pourquoi": "Le germe et l'antibiogramme permettent ensuite la désescalade."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente le consentement ou l'urgence et l'information donnée, y compris le risque de mutilation."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Déclare l'événement à la LAA s'il est accidentel."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Appeler d'emblée chirurgien et anesthésiste.",
+      "Réanimer par remplissage et vasopresseurs selon la pression artérielle.",
+      "Ne pas attendre le LRINEC ni l'imagerie si le tableau est évocateur."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Reconnaît le signe d'alarme et demande l'avis chirurgical immédiat."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose les voies, prélève les hémocultures et le lactate, et lance le remplissage."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Administre les antibiotiques i.v. dans l'heure après les prélèvements."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Débride en urgence au bloc et prélève du tissu profond."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Hospitalise en soins intensifs si choc et réévalue les antibiotiques selon les cultures."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La mortalité de la fasciite nécrosante reste élevée et dépend surtout du délai avant débridement.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Signes vitaux, lactate, diurèse",
+      "quand": "En continu les premières heures",
+      "cible": "Stabilité hémodynamique, lactate en baisse"
+     },
+     {
+      "quoi": "Aspect de la plaie après débridement",
+      "quand": "Chaque jour, avec second look programmé",
+      "cible": "Absence de nécrose résiduelle"
+     },
+     {
+      "quoi": "CRP et leucocytes",
+      "quand": "Quotidien",
+      "cible": "Tendance décroissante"
+     }
+    ],
+    "sortie": "Sortie après contrôle chirurgical de la source, antibiothérapie adaptée aux cultures, stabilité hémodynamique et plan de soins de plaie organisé."
+   },
+   "prevention": {
+    "primaire": "Appliquer la prophylaxie Swissnoso : tonte, chlorhexidine alcoolique, antibioprophylaxie dans les 60 min avant l'incision si indiquée.",
+    "secondaire": "Reconnaître tôt un signe d'alarme et consulter rapidement en cas de douleur disproportionnée.",
+    "tertiaire": "Organiser la réhabilitation et le soin des séquelles de plaie."
+   }
+  },
+  {
+   "cle": "drainage_simple",
+   "titre": "Suppuration superficielle non compliquée : drainage et soins de plaie",
+   "but": [
+    "Évacuer le pus et supprimer la source locale.",
+    "Obtenir une cicatrisation par seconde intention sans antibiotique inutile."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer au patient le geste et l'évolution attendue.",
+     "Vérifier le carnet de vaccination et les allergies."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Vaccin dT(pa) (rappel antitétanique)",
+      "posologie": "0,5 ml i.m., si dernière dose > 10 ans (plaie propre mineure) ou > 5 ans (autre plaie)",
+      "pourquoi": "Il maintient une immunité antitétanique selon le risque de la plaie, indépendamment de l'infection.",
+      "source": "OFSP/CFV"
+     },
+     {
+      "molecule": "Immunoglobulines antitétaniques",
+      "posologie": "250 UI i.m. en site séparé du vaccin, si plaie à risque et patient non vacciné, incomplètement vacciné (< 3 doses) ou statut inconnu",
+      "pourquoi": "Elles apportent une protection passive immédiate quand l'immunité est absente ou incertaine.",
+      "source": "OFSP/CFV ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Paracétamol (antalgique)",
+      "posologie": "1 g p.o. jusqu'à 4 fois par jour, maximum 4 g/j chez l'adulte de plus de 50 kg",
+      "pourquoi": "Il soulage la douleur de la plaie sans effet anti-inflammatoire sur la cicatrisation.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Retirer quelques points, ouvrir la plaie, évacuer pus et hématome, parer les tissus dévitalisés et retirer les corps étrangers.",
+      "pourquoi": "Sans parage, le corps étranger entretient l'infection malgré tout antibiotique."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Laver au sérum physiologique ou à l'eau potable, puis appliquer polyhexanide ou octénidine et un pansement humide non adhérent.",
+      "pourquoi": "Ces antiseptiques sont préférés à l'eau oxygénée, qui est cytotoxique pour les tissus de granulation."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Remettre des consignes écrites de reconsultation et surélever le membre.",
+      "pourquoi": "L'œdème et le retard de reconsultation aggravent l'évolution."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Déclare la plaie accidentelle à la LAA et organise les soins à domicile remboursés par la LAMal."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente précisément la plaie et son évolution à des fins médico-légales."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Mesurer et délimiter l'érythème au feutre avant tout traitement.",
+      "Prélever le pus en profondeur pour culture avant antibiotique si prescrit."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Exclut les signes d'alarme, explore la plaie à la sonde et vérifie le statut tétanique."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Draine, lave, pare et prélève le pus profond pour culture."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose un pansement humide non adhérent et explique les consignes écrites."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Contrôle la plaie à 24-48 h et décide d'un antibiotique selon les critères."
+      },
+      {
+       "temps": "puis",
+       "qui": "assistant·e social·e",
+       "fait": "Organise le passage Spitex et la déclaration LAA si nécessaire."
+      }
+     ]
+    }
+   },
+   "pronostic": "Après drainage adéquat, la plaie cicatrise par seconde intention en quelques semaines, avec un très bon pronostic sans comorbidité.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Régression de la rougeur délimitée au feutre",
+      "quand": "À 24-48 h",
+      "cible": "Érythème en retrait, pas de fièvre"
+     },
+     {
+      "quoi": "Écoulement et état du lit de plaie",
+      "quand": "À chaque pansement",
+      "cible": "Tissu de granulation propre, écoulement tari"
+     },
+     {
+      "quoi": "Absence d'amélioration",
+      "quand": "À 48-72 h",
+      "cible": "Chercher collection profonde, corps étranger ou germe résistant"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : aucun signe d'alarme, érythème < 5 cm, apyrexie, patient fiable avec consignes écrites."
+   },
+   "prevention": {
+    "primaire": "Parer et nettoyer soigneusement toute plaie traumatique et tenir la vaccination antitétanique à jour.",
+    "secondaire": "Reconsulter dès que fièvre, extension de la rougeur ou douleur croissante apparaissent.",
+    "tertiaire": "Optimiser diabète, tabac et nutrition pour éviter retard de cicatrisation et récidive."
+   }
+  },
+  {
+   "cle": "antibio_terrain",
+   "titre": "Infection avec cellulite étendue, signes systémiques ou terrain à risque : drainage + antibiotique",
+   "but": [
+    "Contrôler l'extension régionale par un antibiotique ciblé en plus du drainage.",
+    "Limiter la durée et le spectre selon la culture."
+   ],
+   "moyens": {
+    "accueil": [
+     "Mesurer température, fréquence cardiaque, tension et délimiter l'érythème.",
+     "Rechercher allergies, MRSA connu, diabète et immunosuppression."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Flucloxacilline (pénicilline antistaphylococcique)",
+      "posologie": "1 g p.o. 3 fois par jour, 5 à 7 jours, à jeun",
+      "pourquoi": "Elle cible MSSA et streptocoques avec un spectre étroit, en première ligne en Suisse.",
+      "source": "SSI/SGInf IPTM ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Amoxicilline-acide clavulanique (pénicilline + inhibiteur de bêta-lactamase)",
+      "posologie": "875/125 mg p.o. 2 à 3 fois par jour, 5 à 7 jours, adapté à la fonction rénale",
+      "pourquoi": "Elle couvre aérobies et anaérobies, indispensable pour morsure, plaie souillée ou flore digestive.",
+      "source": "SSI/SGInf IPTM ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Céfuroxime (céphalosporine de 2e génération)",
+      "posologie": "500 mg p.o. 2 fois par jour, 5 à 7 jours",
+      "pourquoi": "Elle convient en cas d'allergie non grave aux pénicillines, avec un risque croisé faible.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Clindamycine (lincosamide)",
+      "posologie": "300 à 450 mg p.o. 3 fois par jour, 5 à 7 jours",
+      "pourquoi": "Elle est choisie en cas d'allergie sévère de type immédiat aux bêta-lactamines.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Cotrimoxazole ou doxycycline, si MRSA, après avis infectiologique",
+      "posologie": "Cotrimoxazole 800/160 mg p.o. 2 fois par jour ou doxycycline 100 mg p.o. 2 fois par jour",
+      "pourquoi": "Ce sont des options orales actives sur le MRSA, contre lequel les bêta-lactamines échouent.",
+      "source": "SSI/SGInf IPTM ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Drainer toute collection et parer la plaie avant ou avec le premier antibiotique.",
+      "pourquoi": "L'antibiotique pénètre mal une collection non drainée."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer l'observance de la durée courte et les signes d'échec.",
+      "pourquoi": "Un échec à 48-72 h impose une nouvelle recherche de cause plutôt que la prolongation du même traitement."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Organise soins à domicile et arrêt de travail via LAMal ou LAA."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Prélever pus profond ou tissu avant la première dose, avec recherche de MRSA.",
+      "Réévaluer le traitement dès l'antibiogramme et désescalader."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Draine la collection, prélève en profondeur et choisit l'antibiotique selon allergie et contexte."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Réalise les pansements et remet les consignes écrites."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Contrôle à 24-48 h : érythème, fièvre, efficacité du drainage."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Adapte à l'antibiogramme et arrête après 5 à 7 jours si l'évolution est favorable."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Donne un avis infectiologique si MRSA ou échec à 48-72 h."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'évolution est favorable en quelques jours sous drainage et antibiotique adapté ; le diabète, le tabac et la dénutrition retardent la guérison.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Température, fréquence cardiaque, érythème délimité",
+      "quand": "À 24-48 h",
+      "cible": "Apyrexie, érythème en recul"
+     },
+     {
+      "quoi": "CRP et leucocytes si signes généraux",
+      "quand": "À 48-72 h",
+      "cible": "Valeurs en baisse"
+     },
+     {
+      "quoi": "Culture et antibiogramme",
+      "quand": "Dès le résultat",
+      "cible": "Désescalade vers le spectre le plus étroit"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire possible si apyrexie, absence de signes systémiques, voie orale possible et suivi à 48 h assuré ; hospitaliser en cas de sepsis ou d'intolérance orale."
+   },
+   "prevention": {
+    "primaire": "Contrôler glycémie, tabac et nutrition, et respecter l'asepsie périopératoire.",
+    "secondaire": "Consulter vite en cas d'érythème qui s'étend ou de fièvre.",
+    "tertiaire": "Suivre la cicatrisation avec le médecin de famille et le chirurgien pour éviter récidive et séquelles."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7365,
+  "output_tokens": 18153,
+  "output_tokens_details": {
+   "thinking_tokens": 3894
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:58",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

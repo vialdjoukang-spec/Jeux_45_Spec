@@ -1,0 +1,1576 @@
+{
+ "id": "Z79.0__O7_16-E03",
+ "portes": [
+  {
+   "ssp": "O7.16",
+   "nomSSP": "Évaluation préinterventionnelle et préopératoire",
+   "entite": "Gestion périopératoire des anticoagulants et antiagrégants",
+   "entiteId": "O7.16-E03"
+  }
+ ],
+ "entite": "Gestion périopératoire des anticoagulants et antiagrégants",
+ "cim10": "Z79.0",
+ "ssp": {
+  "code": "O7.16",
+  "nom": "Évaluation préinterventionnelle et préopératoire",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient sous antithrombotique avant un geste",
+    "i": "Porte d'entrée : on cherche à planifier arrêt, relais ou maintien en croisant risque du geste et risque thrombotique.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Geste urgent, à réaliser en moins de 24 h ?",
+    "i": "L'urgence interdit d'attendre l'élimination complète du médicament et change totalement la démarche.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui, avec saignement actif ou urgence vitale",
+    "i": "Le risque vital prime : antidote ou CCP selon la molécule, sans attendre.",
+    "pec": "urgence_anticoagule",
+    "notion": "c8"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Oui, sans urgence vitale immédiate",
+    "i": "Retarder d'au moins 12 à 24 h si possible, doser anti-Xa ou temps de thrombine, opérer si anti-Xa < 30 ng/mL pour un geste à risque.",
+    "pec": "urgence_anticoagule",
+    "notion": "c6"
+   },
+   {
+    "id": "n5",
+    "parent": "n2",
+    "t": "Non, geste programmé : classer le risque hémorragique",
+    "i": "Le risque du geste détermine la nécessité d'interrompre l'anticoagulant.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Faible risque (cataracte, soins dentaires simples, pacemaker)",
+    "i": "L'hémostase locale suffit : poursuivre l'anticoagulant oral ou omettre au plus la dose du jour.",
+    "pec": "elective_aod_avk",
+    "notion": "c1"
+   },
+   {
+    "id": "n7",
+    "parent": "n5",
+    "t": "Risque élevé, neurochirurgie ou anesthésie neuraxiale : quel antithrombotique ?",
+    "i": "Les délais d'arrêt diffèrent selon la classe médicamenteuse.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "AOD",
+    "i": "Le délai dépend du DFG et du risque du geste ; pas de bridging.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Cockcroft-Gault puis schéma PAUSE sans bridging",
+    "i": "Omission 1 jour (faible risque) ou 2 jours (haut risque) ; dabigatran avec DFG < 50 : 2 ou 4 jours ; contre-indiqué si < 30 mL/min.",
+    "pec": "elective_aod_avk",
+    "notion": "c2"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Anesthésie neuraxiale ou bloc profond",
+    "i": "Intervalle d'au moins 72 h après rivaroxaban ou apixaban, pour éviter un hématome péridural.",
+    "pec": "elective_aod_avk",
+    "notion": "c5"
+   },
+   {
+    "id": "n11",
+    "parent": "n7",
+    "t": "Antivitamine K",
+    "i": "Il faut d'abord stratifier le risque thrombotique.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Très haut risque (valve mécanique mitrale ou ancienne, AVC récent, MTEV < 3 mois, thrombophilie sévère)",
+    "i": "Risque thrombotique supérieur au surcroît de saignement : bridging par HBPM ou HNF.",
+    "pec": "bridging_avk",
+    "notion": "c7"
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "Risque faible à modéré (FA non valvulaire, MTEV > 3 mois)",
+    "i": "Arrêt 5 jours (warfarine) ou 7–10 jours (phenprocoumon) sans bridging, INR ≤ 1,5 le jour du geste.",
+    "pec": "elective_aod_avk",
+    "notion": "c2"
+   },
+   {
+    "id": "n14",
+    "parent": "n7",
+    "t": "Antiplaquettaire (aspirine, P2Y12)",
+    "i": "Il faut identifier la prévention et la présence d'un stent récent.",
+    "pec": null,
+    "notion": "c8"
+   },
+   {
+    "id": "n15",
+    "parent": "n14",
+    "t": "Aspirine en prévention secondaire",
+    "i": "Maintenue, sauf neurochirurgie ou chirurgie à très haut risque hémorragique.",
+    "pec": "antiplaquettaires_stent",
+    "notion": "c8"
+   },
+   {
+    "id": "n16",
+    "parent": "n14",
+    "t": "Aspirine en prévention primaire",
+    "i": "Arrêt environ 7 jours avant le geste pour renouveler les plaquettes.",
+    "pec": "antiplaquettaires_stent",
+    "notion": "c3"
+   },
+   {
+    "id": "n17",
+    "parent": "n14",
+    "t": "Stent récent : chirurgie élective reportée (6 mois si programmé, 12 mois si SCA)",
+    "i": "L'arrêt des antiplaquettaires avant ce délai expose à la thrombose de stent.",
+    "pec": "antiplaquettaires_stent",
+    "notion": "c5"
+   },
+   {
+    "id": "n18",
+    "parent": "n17",
+    "t": "Geste inévitable avant ce délai : avis du cardiologue, aspirine maintenue, P2Y12 arrêté (ticagrelor 3–5 j, clopidogrel 5 j, prasugrel 7 j)",
+    "i": "La décision est partagée entre cardiologue, anesthésiste et chirurgien, délai minimal d'environ 1 mois en urgence relative.",
+    "pec": "antiplaquettaires_stent",
+    "notion": "c8"
+   },
+   {
+    "id": "n19",
+    "parent": "n18",
+    "t": "Très haut risque de thrombose de stent : cangrelor IV en centre spécialisé",
+    "i": "Le relais IV réversible protège le stent pendant l'interruption du P2Y12.",
+    "pec": "antiplaquettaires_stent",
+    "notion": "c8"
+   },
+   {
+    "id": "n20",
+    "parent": "n5",
+    "t": "Anémie, thrombopénie ou DFG < 30 mL/min découverts au bilan",
+    "i": "Cela sort du cadre des antithrombotiques : renvoie à l'entité Patient Blood Management ou à l'évaluation de la fonction rénale du même SSP O7.16.",
+    "pec": null,
+    "notion": "c6"
+   }
+  ]
+ },
+ "specialites": [
+  "MIG"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Gestion périopératoire des anticoagulants et antiagrégants",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Principe : croiser le risque du geste et le risque du patient",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Raisonne toujours en deux temps : classe d'abord le geste (faible, élevé, neuraxial), puis le patient (indication et date de l'événement), avant de choisir arrêt, bridging ou maintien.",
+   "tableau": {
+    "colonnes": [
+     "Catégorie de geste",
+     "Exemples",
+     "Conduite sur l'anticoagulant oral"
+    ],
+    "lignes": [
+     [
+      "Faible risque hémorragique",
+      "Cataracte, soins dentaires simples, dermatologie mineure, pose de pacemaker",
+      [
+       {
+        "t": "Poursuite en général, sans interruption",
+        "i": "Le saignement reste accessible à l'hémostase locale, alors qu'un arrêt exposerait le patient au risque thrombotique sans bénéfice."
+       }
+      ]
+     ],
+     [
+      "Risque hémorragique élevé",
+      "Chirurgie majeure abdominale, orthopédique, vasculaire ou thoracique, biopsie d'organe profond",
+      [
+       {
+        "t": "Interruption selon les délais pharmacocinétiques",
+        "i": "Un saignement non compressible ou un hématome profond est grave, donc on laisse l'effet anticoagulant s'éteindre avant le geste."
+       }
+      ]
+     ],
+     [
+      "Risque neurologique ou neuraxial",
+      "Neurochirurgie, chirurgie du rachis, anesthésie neuraxiale",
+      [
+       {
+        "t": "Interruption complète, intervalle plus long",
+        "i": "Un saignement même modeste comprime moelle ou cerveau et laisse un déficit fonctionnel majeur ; la marge de sécurité doit être maximale."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le plan croise le risque hémorragique du geste et le risque thrombotique du patient, puis tranche entre arrêt, relais héparinique ou maintien.",
+    "Les gestes à faible risque hémorragique se font en général sans interrompre l'anticoagulant oral.",
+    "Neurochirurgie, rachis et anesthésie neuraxiale exigent une interruption complète.",
+    "Le plan final est écrit, personnalisé, avec date d'arrêt, bridging oui ou non, et date de reprise."
+   ],
+   "sources": [
+    "CHEST 2022 (gestion périopératoire des antithrombotiques)",
+    "ESC 2022 (chirurgie non cardiaque)"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Données probantes, chiffres et contexte suisse",
+   "rubriques": [
+    "epidemiology",
+    "prognosisDischarge"
+   ],
+   "comment": "Retiens que deux essais ont fait basculer la pratique : le bridging n'apporte rien de plus en FA non valvulaire et augmente les saignements, et l'arrêt standardisé des AOD est sûr.",
+   "tableau": {
+    "colonnes": [
+     "Source",
+     "Population",
+     "Résultat",
+     "Conséquence pratique"
+    ],
+    "lignes": [
+     [
+      "BRIDGE (NEJM 2015)",
+      "FA sous warfarine, bridging par daltéparine versus placebo",
+      [
+       {
+        "t": "Événements artériels 0,4 % sans bridging contre 0,3 % avec ; saignements majeurs 1,3 % contre 3,2 %",
+        "i": "Le bridging n'apporte aucun bénéfice thrombotique et multiplie par environ 2,5 les saignements majeurs ; l'essai excluait valves mécaniques et AVC récents."
+       }
+      ],
+      [
+       {
+        "t": "Pas de bridging en FA non valvulaire sous AVK",
+        "i": "La non-infériorité sur les événements artériels et la réduction des saignements rendent le relais systématique injustifié, hors très haut risque."
+       }
+      ]
+     ],
+     [
+      "PAUSE (JAMA Intern Med 2019)",
+      "Cohorte prospective d'environ 3000 patients en FA sous AOD, sans bras contrôle",
+      [
+       {
+        "t": "Moins de 1 % d'événements thromboemboliques artériels à 30 jours, saignements majeurs faibles",
+        "i": "Une stratégie fixe d'omission selon le risque du geste et le DFG suffit ; aucun dosage ni bridging n'a été nécessaire."
+       }
+      ],
+      [
+       {
+        "t": "Schéma standardisé sans bridging pour les AOD",
+        "i": "Faible risque : omission 1 jour, reprise à 24 h ; haut risque : omission 2 jours, reprise à 48–72 h."
+       }
+      ]
+     ],
+     [
+      "Pratique suisse",
+      "Patients anticoagulés par antivitamine K",
+      [
+       {
+        "t": "Le phenprocoumon (Marcoumar) reste l'AVK la plus prescrite",
+        "i": "Sa demi-vie d'environ 6,5 jours impose un arrêt de 7 à 10 jours, bien plus long qu'avec la warfarine (5 jours)."
+       }
+      ],
+      [
+       {
+        "t": "Ne pas appliquer le délai de la warfarine",
+        "i": "Un arrêt de 5 jours laisserait un INR encore élevé le jour du geste."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La gestion des antithrombotiques est une situation quotidienne en médecine périopératoire suisse.",
+    "BRIDGE : pas de bridging en FA sous warfarine, avec 1,3 % contre 3,2 % de saignements majeurs.",
+    "PAUSE : moins de 1 % d'événements artériels à 30 jours avec un schéma d'omission standardisé des AOD.",
+    "Un protocole standardisé fondé sur le risque du geste et du patient réduit à la fois saignements et thromboses."
+   ],
+   "sources": [
+    "BRIDGE, Douketis, NEJM 2015",
+    "PAUSE, Douketis, JAMA Intern Med 2019"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Pharmacologie et délais d'arrêt",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Déduis le délai d'arrêt de la demi-vie, de la part d'élimination rénale et du caractère réversible ou non de l'inhibition, puis ajuste au DFG.",
+   "tableau": {
+    "colonnes": [
+     "Classe",
+     "Molécule",
+     "Élimination et demi-vie",
+     "Arrêt avant geste à risque",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "AOD anti-IIa",
+      "Dabigatran (Pradaxa)",
+      "Environ 80 % rénale ; demi-vie 12–17 h, allongée si DFG bas",
+      [
+       {
+        "t": "Omission 2 jours si DFG ≥ 50 ; 4 jours si DFG < 50 (haut risque)",
+        "i": "La clairance rénale dominante allonge la demi-vie quand le DFG baisse, donc le délai dépend de la créatinine."
+       }
+      ],
+      [
+       {
+        "t": "Contre-indiqué si clairance < 30 mL/min",
+        "i": "Il s'accumulerait, avec risque hémorragique majeur ; son antidote spécifique est l'idarucizumab."
+       }
+      ]
+     ],
+     [
+      "AOD anti-Xa",
+      "Rivaroxaban (Xarelto)",
+      "Environ un tiers rénal inchangé ; demi-vie environ 5–13 h",
+      [
+       {
+        "t": "Omission 2 jours (haut risque), 1 jour (faible risque)",
+        "i": "La demi-vie courte permet une interruption brève, validée par PAUSE sans bridging."
+       }
+      ],
+      "Neuraxial : au moins 72 h"
+     ],
+     [
+      "AOD anti-Xa",
+      "Apixaban (Eliquis)",
+      "Environ 27 % rénal ; demi-vie environ 12 h",
+      [
+       {
+        "t": "Omission 2 jours (haut risque), 1 jour (faible risque)",
+        "i": "La faible part rénale rend l'effet moins dépendant du DFG que le dabigatran."
+       }
+      ],
+      "Neuraxial : au moins 72 h"
+     ],
+     [
+      "AOD anti-Xa",
+      "Edoxaban (Lixiana)",
+      "Environ 50 % rénal ; demi-vie environ 10–14 h",
+      [
+       {
+        "t": "Schéma des anti-Xa, par extrapolation",
+        "i": "L'edoxaban n'a pas été étudié dans PAUSE ; la pharmacocinétique proche justifie le même schéma, avec vigilance si DFG bas."
+       }
+      ],
+      "Élimination rénale plus marquée que celle de l'apixaban"
+     ],
+     [
+      "Antivitamine K",
+      "Warfarine",
+      "Hépatique ; effet persistant plusieurs jours",
+      [
+       {
+        "t": "Arrêt 5 jours avant, INR contrôlé",
+        "i": "Les facteurs vitamine K-dépendants mettent environ 5 jours à se régénérer."
+       }
+      ],
+      "Peu utilisée en Suisse"
+     ],
+     [
+      "Antivitamine K",
+      "Phenprocoumon (Marcoumar)",
+      "Demi-vie d'environ 6,5 jours",
+      [
+       {
+        "t": "Arrêt 7 à 10 jours avant, INR contrôlé",
+        "i": "Sa demi-vie très longue impose un arrêt plus précoce que la warfarine."
+       }
+      ],
+      "AVK la plus prescrite en Suisse"
+     ],
+     [
+      "Antivitamine K",
+      "Acénocoumarol",
+      "Demi-vie plus courte que le phenprocoumon",
+      [
+       {
+        "t": "Arrêt environ 3 jours avant",
+        "i": "L'effet s'éteint plus vite, donc le délai d'arrêt est plus court."
+       }
+      ],
+      "INR la veille du geste"
+     ],
+     [
+      "Antiplaquettaire",
+      "Aspirine",
+      "Inhibition irréversible de la COX-1 plaquettaire",
+      [
+       {
+        "t": "Arrêt 7 jours avant si prévention primaire ; maintenue en prévention secondaire",
+        "i": "Il faut renouveler les plaquettes (environ 10 % par jour) ; en prévention secondaire le risque thrombotique dépasse le surcroît de saignement."
+       }
+      ],
+      "Neurochirurgie : interruption"
+     ],
+     [
+      "Antiplaquettaire",
+      "Clopidogrel, prasugrel, ticagrelor",
+      "Clopidogrel et prasugrel irréversibles ; ticagrelor réversible",
+      [
+       {
+        "t": "Clopidogrel 5 jours, prasugrel 7 jours, ticagrelor 3 à 5 jours",
+        "i": "La réversibilité du ticagrelor permet un arrêt plus court que celui des thiénopyridines irréversibles."
+       }
+      ],
+      "Avis du cardiologue si stent récent"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Dabigatran : environ 80 % rénal, demi-vie 12–17 h, donc délai fonction du DFG.",
+    "Inhibiteurs du facteur Xa : demi-vie environ 5–14 h ; élimination rénale apixaban 27 %, edoxaban 50 %, rivaroxaban un tiers.",
+    "Warfarine 5 jours, phenprocoumon 7–10 jours (demi-vie 6,5 jours), acénocoumarol environ 3 jours.",
+    "Aspirine irréversible : 7 jours ; ticagrelor réversible : arrêt plus court."
+   ],
+   "sources": [
+    "AIPS Swissmedic (informations professionnelles des molécules)",
+    "PAUSE 2019",
+    "ESC 2022"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Anamnèse, examen et stratification du risque thrombotique",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam",
+    "presumptionRedFlags"
+   ],
+   "comment": "Pars de l'indication et de sa date, puis classe le risque thrombotique : c'est lui, et non le seul nom du médicament, qui décide du bridging.",
+   "tableau": {
+    "colonnes": [
+     "Risque thrombotique",
+     "Situations",
+     "Bridging sous AVK"
+    ],
+    "lignes": [
+     [
+      "Très haut risque",
+      "Valve mécanique mitrale, valve aortique ancienne (bille ou disque), valve avec AVC récent",
+      [
+       {
+        "t": "Bridging indiqué",
+        "i": "Le débit lent et la thrombogénicité de ces valves exposent à une thrombose valvulaire ou à une embolie cérébrale pendant l'INR sous-thérapeutique."
+       }
+      ]
+     ],
+     [
+      "Très haut risque",
+      "MTEV de moins de 3 mois, AVC ou AIT de moins de 3 mois, thrombophilie sévère, syndrome des antiphospholipides",
+      [
+       {
+        "t": "Bridging discuté, avis spécialisé",
+        "i": "Le risque de récidive est maximal dans les trois premiers mois ; la chirurgie élective se reporte si possible."
+       }
+      ]
+     ],
+     [
+      "Faible à modéré",
+      "FA non valvulaire, MTEV de plus de 3 mois, valve aortique mécanique à double ailette sans facteur de risque",
+      [
+       {
+        "t": "Pas de bridging",
+        "i": "BRIDGE montre un risque artériel bas (0,4 %) sans relais, contre un excès de saignements avec relais."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Relever l'indication, la date de l'événement index, la molécule, la dose et l'heure de la dernière prise.",
+    "Chercher AINS, aspirine en automédication et compléments (ginkgo, ail, vitamine E) souvent oubliés.",
+    "Un questionnaire hémorragique standardisé remplace les tests de coagulation de routine chez un patient sans antécédent ni anticoagulant.",
+    "À l'examen, hématomes, ecchymoses ou saignement muqueux ou digestif actif font reporter un geste non urgent.",
+    "Une cicatrice de sternotomie et un clic métallique orientent vers une valve mécanique à confirmer dans le dossier."
+   ],
+   "sources": [
+    "CHEST 2022",
+    "ESC 2022",
+    "BRIDGE 2015"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Drapeaux rouges : stent, MTEV récente, urgence, rein, neuraxial",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Cherche systématiquement ces situations : chacune modifie la date du geste, la durée d'arrêt ou impose un avis spécialisé.",
+   "tableau": {
+    "colonnes": [
+     "Drapeau rouge",
+     "Seuil ou délai",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Stent coronarien récent",
+      "Moins de 6 mois après stent programmé, moins de 12 mois après SCA",
+      [
+       {
+        "t": "Reporter la chirurgie élective ; si urgence relative, délai minimal d'environ 1 mois",
+        "i": "Avant ce délai l'endothélialisation est incomplète, et l'arrêt des antiplaquettaires expose à la thrombose de stent, souvent étendue."
+       }
+      ]
+     ],
+     [
+      "MTEV récente",
+      "Moins de 3 mois",
+      [
+       {
+        "t": "Reporter la chirurgie élective ; bridging discuté si interruption inévitable",
+        "i": "Le risque de récidive est maximal dans ce délai ; l'AOD ou l'AVK ne doit pas être interrompu à la légère."
+       }
+      ]
+     ],
+     [
+      "AVC ou AIT récent, thrombophilie sévère, SAPL",
+      "AVC ou AIT de moins de 3 mois",
+      [
+       {
+        "t": "Avis spécialisé (cardiologue, hématologue, neurologue)",
+        "i": "Le risque thrombotique est élevé et les schémas standardisés ne s'appliquent pas sans adaptation individuelle."
+       }
+      ]
+     ],
+     [
+      "Chirurgie urgente sous AOD",
+      "Dernière prise de moins de 24 h",
+      [
+       {
+        "t": "Retarder si possible de 12 à 24 h, mesurer le taux, réserver l'antidote",
+        "i": "Le temps réduit l'effet résiduel ; l'antidote a un coût thrombotique et ne s'emploie que pour un saignement ou une urgence vitale."
+       }
+      ]
+     ],
+     [
+      "Insuffisance rénale",
+      "Clairance de la créatinine < 30 mL/min",
+      [
+       {
+        "t": "Dabigatran contre-indiqué ; allonger le délai d'arrêt des AOD",
+        "i": "La clairance rénale prolonge la demi-vie et majore le saignement."
+       }
+      ]
+     ],
+     [
+      "Anesthésie neuraxiale ou bloc profond",
+      "Au moins 72 h après rivaroxaban ou apixaban ; 5 à 7 jours après clopidogrel",
+      [
+       {
+        "t": "Respecter l'intervalle ou doser l'anti-Xa",
+        "i": "Un hématome péridural est une complication irréversible rapide ; la marge de sécurité est donc plus large."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Stent : report de l'élective à 6 mois (programmé) ou 12 mois (SCA).",
+    "MTEV < 3 mois et AVC/AIT < 3 mois : risque thrombotique très élevé.",
+    "Chirurgie urgente sous AOD : retarder 12–24 h, doser, antidote réservé.",
+    "Dabigatran contre-indiqué si clairance < 30 mL/min."
+   ],
+   "sources": [
+    "ESC 2022",
+    "CHEST 2022",
+    "ESAIC 2022 (anesthésie neuraxiale)"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Bilan : examens indispensables et tests spécifiques",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Demande peu d'examens, mais les bons : la créatinine pour un AOD, l'INR pour un AVK, et des dosages spécifiques seulement en urgence.",
+   "tableau": {
+    "colonnes": [
+     "Examen",
+     "Quand",
+     "Seuil ou lecture",
+     "Limite"
+    ],
+    "lignes": [
+     [
+      "Créatinine et clairance (Cockcroft-Gault)",
+      "Avant tout geste planifié sous AOD",
+      [
+       {
+        "t": "Clairance < 50 puis < 30 mL/min",
+        "i": "Le seuil de 50 modifie le délai du dabigatran et celui de 30 le contre-indique ; Cockcroft-Gault est la formule des études."
+       }
+      ],
+      "Les formules DFG standardisées donnent des délais discordants"
+     ],
+     [
+      "INR",
+      "Sous AVK, la veille ou le jour du geste",
+      [
+       {
+        "t": "INR ≤ 1,5 pour une chirurgie à risque hémorragique",
+        "i": "Au-delà, le déficit en facteurs vitamine K-dépendants expose au saignement chirurgical."
+       }
+      ],
+      "Inutile pour exclure un effet d'AOD"
+     ],
+     [
+      "Hémogramme et plaquettes",
+      "Avant le geste",
+      [
+       {
+        "t": "Anémie ou thrombopénie à corriger ou expliquer",
+        "i": "Elles majorent le risque hémorragique et orientent vers le Patient Blood Management."
+       }
+      ],
+      "Ne remplace pas l'anamnèse hémorragique"
+     ],
+     [
+      "Anti-Xa calibré pour la molécule",
+      "Urgence, chirurgie à risque ou neuraxial",
+      [
+       {
+        "t": "< 30 ng/mL autorise le geste",
+        "i": "Il quantifie l'effet résiduel réel du rivaroxaban ou de l'apixaban, que les tests standard mesurent mal."
+       }
+      ],
+      "Calibrage spécifique indispensable ; disponibilité variable"
+     ],
+     [
+      "Temps de thrombine et temps de thrombine dilué",
+      "Sous dabigatran, en urgence",
+      [
+       {
+        "t": "TT normal exclut un effet significatif ; dTT calibré le quantifie",
+        "i": "Le TT est très sensible au dabigatran, donc une valeur normale rassure."
+       }
+      ],
+      "TT très sensible : une valeur anormale ne chiffre pas le taux"
+     ],
+     [
+      "TP/INR et TCA",
+      "Sous AOD",
+      [
+       {
+        "t": "Normaux, ils n'excluent pas un effet cliniquement significatif",
+        "i": "Ils sont peu sensibles et dépendent du réactif ; ne jamais s'en servir pour écarter un AOD."
+       }
+      ],
+      "Peu sensibles et variables"
+     ],
+     [
+      "Tests de coagulation de routine",
+      "Patient sans anticoagulant ni antécédent hémorragique",
+      [
+       {
+        "t": "Non indiqués",
+        "i": "Le questionnaire hémorragique standardisé est plus performant et évite des examens faussement anormaux."
+       }
+      ],
+      "Risque de retarder inutilement le geste"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Créatinine avec clairance de Cockcroft-Gault : indispensable sous AOD pour fixer le délai.",
+    "INR ≤ 1,5 sous AVK avant chirurgie à risque ; hémogramme et plaquettes pour tous.",
+    "Anti-Xa < 30 ng/mL ou TT normal (dabigatran) guident l'urgence.",
+    "Un TP ou un TCA normal n'exclut jamais un AOD."
+   ],
+   "sources": [
+    "ESAIC 2022",
+    "ESC 2022",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Plan écrit : arrêt, bridging et reprise des anticoagulants oraux",
+   "rubriques": [
+    "positiveDiagnosis",
+    "acuteManagement"
+   ],
+   "comment": "Écris le plan avec risque du geste, risque thrombotique, date d'arrêt, bridging oui ou non et date de reprise, en suivant cet arbre.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Anticoagulant oral avant un geste programmé",
+     "i": "Point de départ : on traite ici les AOD et AVK ; les antiplaquettaires sont dans la notion suivante.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Geste à faible risque hémorragique ?",
+     "i": "Cataracte, dentaire simple, dermatologie mineure, pacemaker : l'hémostase locale suffit.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : poursuivre l'anticoagulant ou omettre la dose du jour",
+     "i": "Interrompre n'apporte rien et expose au risque thrombotique ; l'omission PAUSE d'un jour reste possible.",
+     "pec": "elective_aod_avk",
+     "notion": "c1"
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Non : risque hémorragique élevé ou neuraxial",
+     "i": "Un délai d'arrêt est nécessaire ; en neuraxial l'intervalle est allongé (≥ 72 h pour rivaroxaban et apixaban).",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "AOD",
+     "i": "Le délai dépend de la clairance de la créatinine et du risque du geste.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Omettre J-1 (faible risque) ou J-2 et J-1 (haut risque), reprendre à 24 h ou 48–72 h, sans bridging",
+     "i": "Schéma PAUSE : moins de 1 % d'événements artériels à 30 jours ; dabigatran avec DFG < 50 : omission 2 ou 4 jours.",
+     "pec": "elective_aod_avk",
+     "notion": "c2"
+    },
+    {
+     "id": "n7",
+     "parent": "n4",
+     "t": "Antivitamine K",
+     "i": "Il faut évaluer le risque thrombotique avant de décider du relais.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n8",
+     "parent": "n7",
+     "t": "Risque thrombotique très haut ?",
+     "i": "Valve mécanique mitrale ou ancienne, valve avec AVC récent, MTEV < 3 mois, thrombophilie sévère.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n9",
+     "parent": "n8",
+     "t": "Non : arrêt 5 jours (warfarine) ou 7–10 jours (phenprocoumon), INR ≤ 1,5, sans bridging",
+     "i": "BRIDGE : pas de bénéfice du relais en FA non valvulaire et saignements majeurs presque triplés.",
+     "pec": "elective_aod_avk",
+     "notion": "c2"
+    },
+    {
+     "id": "n10",
+     "parent": "n8",
+     "t": "Oui : HBPM thérapeutique dès INR sous la zone thérapeutique, dernière injection environ 24 h avant à demi-dose",
+     "i": "L'HBPM protège pendant l'INR sous-thérapeutique ; la demi-dose limite l'anticoagulation résiduelle le jour du geste ; HNF IV arrêtée 4 à 6 h avant.",
+     "pec": "bridging_avk",
+     "notion": "c7"
+    },
+    {
+     "id": "n11",
+     "parent": "n10",
+     "t": "Reprise : AVK le soir ou le lendemain sans dose de charge ; HBPM à 24 h (faible risque) ou 48–72 h (haut risque)",
+     "i": "La reprise précoce à dose pleine augmente les saignements ; l'hémostase doit être acquise.",
+     "pec": "bridging_avk",
+     "notion": "c9"
+    }
+   ],
+   "points": [
+    "Plan écrit : risque du geste, risque thrombotique, date d'arrêt, bridging, date de reprise.",
+    "AOD : jamais de bridging ; omission 1 jour (faible risque) ou 2 jours (haut risque).",
+    "Sous AVK, le bridging est réservé aux valves mécaniques mitrales ou anciennes, aux valves avec AVC récent, à la MTEV < 3 mois et aux thrombophilies sévères.",
+    "HBPM thérapeutique : dernière injection environ 24 h avant le geste ; HNF IV arrêtée 4 à 6 h avant."
+   ],
+   "sources": [
+    "PAUSE 2019",
+    "BRIDGE 2015",
+    "CHEST 2022",
+    "ESC 2022"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Antiplaquettaires, stents et chirurgie urgente",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Distingue prévention secondaire (maintenir l'aspirine) et primaire (arrêter), gère les P2Y12 avec le cardiologue, et réserve les antidotes aux urgences.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Conduite",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Aspirine en prévention secondaire",
+      [
+       {
+        "t": "Maintenir pendant la chirurgie",
+        "i": "Le bénéfice sur les événements coronariens et cérébraux dépasse le surcroît de saignement dans la plupart des gestes."
+       }
+      ],
+      "Sauf neurochirurgie ou chirurgie à très haut risque hémorragique"
+     ],
+     [
+      "Aspirine en prévention primaire",
+      [
+       {
+        "t": "Arrêter environ 7 jours avant",
+        "i": "Le bénéfice est faible ; il justifie peu un risque de saignement supplémentaire."
+       }
+      ],
+      "Renouvellement plaquettaire nécessaire"
+     ],
+     [
+      "Inhibiteurs P2Y12",
+      [
+       {
+        "t": "Ticagrelor 3–5 jours, clopidogrel 5 jours, prasugrel 7 jours",
+        "i": "Les délais correspondent à la réversibilité et à la durée de vie plaquettaire ; l'aspirine reste maintenue entre-temps."
+       }
+      ],
+      "Avis du cardiologue si stent récent ; reprise dans les 48 h postopératoires"
+     ],
+     [
+      "Stent à très haut risque, P2Y12 suspendu",
+      [
+       {
+        "t": "Relais IV par cangrelor envisageable en centre spécialisé",
+        "i": "Son effet réversible en quelques heures protège du risque de thrombose de stent sans bloquer l'hémostase chirurgicale."
+       }
+      ],
+      "Centre spécialisé"
+     ],
+     [
+      "Urgence ou saignement sous dabigatran",
+      [
+       {
+        "t": "Idarucizumab (Praxbind) 5 g IV, en deux flacons de 2,5 g",
+        "i": "Antidote spécifique neutralisant le dabigatran en quelques minutes ; réservé au saignement ou à la chirurgie urgente impossible à différer."
+       }
+      ],
+      "Prothrombotique : ne pas l'utiliser en routine"
+     ],
+     [
+      "Urgence ou saignement sous anti-Xa",
+      [
+       {
+        "t": "Retarder 12–24 h, doser l'anti-Xa, concentré de complexe prothrombinique en cas de saignement vital",
+        "i": "Il n'existe pas d'antidote universel ; le CCP à 25–50 UI/kg est empirique et hors AMM."
+       }
+      ],
+      "Anti-Xa < 30 ng/mL pour neuraxial ou chirurgie à risque"
+     ],
+     [
+      "Urgence sous antivitamine K",
+      [
+       {
+        "t": "Concentré de complexe prothrombinique et vitamine K IV (5 à 10 mg)",
+        "i": "Le CCP corrige l'INR en minutes, la vitamine K maintient l'effet ; dose du CCP selon INR et poids."
+       }
+      ],
+      "Contrôle de l'INR après correction"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Aspirine : maintenue en prévention secondaire, arrêtée 7 jours avant en primaire.",
+    "P2Y12 : ticagrelor 3–5 jours, clopidogrel 5 jours, prasugrel 7 jours, avis du cardiologue.",
+    "Cangrelor : envisageable en centre spécialisé si stent à très haut risque.",
+    "Idarucizumab 5 g IV pour le dabigatran ; CCP et vitamine K IV pour les AVK."
+   ],
+   "sources": [
+    "ESC 2022",
+    "AIPS Swissmedic (Praxbind, Beriplex)",
+    "CHEST 2022"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Reprise, complications, surveillance et réseau",
+   "rubriques": [
+    "chronicManagement",
+    "hospitalizationComplications",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "Reprends l'antithrombotique dès l'hémostase acquise et la créatinine contrôlée, remets un calendrier daté, et reconnais les quatre complications qui menacent le patient.",
+   "tableau": {
+    "colonnes": [
+     "Complication",
+     "Déclencheur",
+     "Présentation",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Hémorragie postopératoire majeure",
+      "Bridging inutile ou reprise trop précoce à dose pleine",
+      [
+       {
+        "t": "Chute d'hémoglobine, saignement de plaie ou de drain",
+        "i": "C'est la complication la plus fréquente d'un bridging inutile."
+       }
+      ],
+      "Suspendre l'anticoagulant, contrôler l'hémostase, corriger selon la molécule"
+     ],
+     [
+      "Thrombose de stent",
+      "Arrêt prématuré du double traitement antiplaquettaire",
+      [
+       {
+        "t": "Infarctus souvent étendu",
+        "i": "Le stent non endothélialisé se thrombose brutalement dès que l'inhibition plaquettaire disparaît."
+       }
+      ],
+      "Angioplastie urgente"
+     ],
+     [
+      "Hématome péridural ou spinal",
+      "Anticoagulant résiduel lors d'une ponction ou d'un cathéter neuraxial",
+      [
+       {
+        "t": "Douleur dorsale et déficit neurologique",
+        "i": "La compression médullaire est irréversible en quelques heures."
+       }
+      ],
+      "IRM et décompression chirurgicale urgentes"
+     ],
+     [
+      "AVC embolique",
+      "Interruption prolongée ou reprise tardive en FA ou sur valve mécanique",
+      [
+       {
+        "t": "Déficit neurologique focal",
+        "i": "La stase auriculaire ou valvulaire sans anticoagulation favorise l'embolie."
+       }
+      ],
+      "Filière AVC, imagerie cérébrale en urgence"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Reprendre l'AVK le soir de l'intervention ou le lendemain à la dose habituelle, sans dose de charge, avec INR.",
+    "Reprendre le P2Y12 dans les 48 h postopératoires, aspirine maintenue entre-temps.",
+    "Avant reprise : absence de saignement actif, hémoglobine, drainage et plaie stables, créatinine contrôlée pour un AOD.",
+    "Calendrier écrit et daté remis au patient, à l'anesthésiste et au chirurgien ; la lettre de sortie indique la date exacte de reprise.",
+    "Médecin de famille, anesthésiste, chirurgien et cardiologue se coordonnent."
+   ],
+   "sources": [
+    "PAUSE 2019",
+    "ESC 2022",
+    "CHEST 2022"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "elective_aod_avk",
+   "titre": "Geste programmé sous AOD ou AVK sans très haut risque thrombotique (sans bridging)",
+   "but": [
+    "Interrompre l'anticoagulant assez longtemps pour opérer sans excès de saignement.",
+    "Reprendre dès l'hémostase acquise afin de limiter le risque thrombotique."
+   ],
+   "moyens": {
+    "accueil": [
+     "Relever la molécule, la dose, l'heure de la dernière prise, l'indication et la date de l'événement.",
+     "Rechercher AINS, aspirine en automédication et compléments (ginkgo, ail, vitamine E).",
+     "Calculer la clairance de la créatinine selon Cockcroft-Gault avant de fixer les dates."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Rivaroxaban, apixaban, edoxaban (inhibiteurs du facteur Xa)",
+      "posologie": "Faible risque : omettre J-1 (dernière prise J-2), reprise à 24 h. Haut risque : omettre J-2 et J-1, reprise à 48–72 h. Aucun bridging. Neuraxial : au moins 72 h.",
+      "pourquoi": "Ce schéma standardisé donne moins de 1 % d'événements artériels à 30 jours sans bridging.",
+      "source": "PAUSE, JAMA Intern Med 2019"
+     },
+     {
+      "molecule": "Dabigatran (inhibiteur direct de la thrombine)",
+      "posologie": "DFG ≥ 50 : comme les anti-Xa. DFG 30–49 : omission 2 jours (faible risque) ou 4 jours (haut risque). Contre-indiqué si clairance < 30 mL/min.",
+      "pourquoi": "Son élimination rénale d'environ 80 % allonge la demi-vie quand le DFG baisse.",
+      "source": "PAUSE 2019 ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Phenprocoumon (Marcoumar, antivitamine K)",
+      "posologie": "Arrêt 7 à 10 jours avant, INR la veille, cible ≤ 1,5 ; reprise le soir ou le lendemain à la dose habituelle, sans dose de charge, avec INR.",
+      "pourquoi": "Sa demi-vie d'environ 6,5 jours impose un arrêt plus précoce que la warfarine.",
+      "source": "CHEST 2022 ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Warfarine ou acénocoumarol (antivitamine K)",
+      "posologie": "Warfarine arrêtée 5 jours avant, acénocoumarol environ 3 jours avant ; INR ≤ 1,5 ; reprise à la dose habituelle dès hémostase acquise.",
+      "pourquoi": "Les facteurs vitamine K-dépendants mettent environ 5 jours à se régénérer après la warfarine.",
+      "source": "CHEST 2022"
+     },
+     {
+      "molecule": "Énoxaparine (HBPM, thromboprophylaxie)",
+      "posologie": "40 mg SC 1×/j (20 mg si clairance < 30 mL/min) pendant le retard de reprise de l'AOD si le risque de MTEV postopératoire le justifie.",
+      "pourquoi": "Elle couvre le risque de MTEV postopératoire tant que la dose pleine de l'anticoagulant n'est pas reprise.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Paracétamol (antalgique)",
+      "posologie": "1 g PO ou IV toutes les 6 h, maximum 4 g/j (réduire si poids < 50 kg ou insuffisance hépatique) ; éviter les AINS.",
+      "pourquoi": "Les AINS altèrent l'hémostase et la fonction rénale, ce qui majore saignement et accumulation des AOD.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Remettre au patient un calendrier écrit et daté d'arrêt et de reprise et lui faire reformuler les consignes.",
+      "pourquoi": "Les erreurs de communication sont la cause principale d'arrêt trop long ou de prise oubliée avant le geste."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Demander d'éviter AINS, aspirine en automédication et compléments (ginkgo, ail, vitamine E) pendant la période périopératoire.",
+      "pourquoi": "Ces produits altèrent l'hémostase et sont souvent oubliés à l'anamnèse."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Transmettre le plan écrit à l'anesthésiste, au chirurgien et au médecin de famille.",
+      "pourquoi": "Un plan partagé évite les décisions contradictoires le jour du geste."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'information du patient sur les risques de l'arrêt et du maintien et consigne son consentement."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Classer le risque hémorragique du geste avec le chirurgien avant toute décision.",
+      "Reporter un geste non urgent si un saignement actif est présent, jusqu'à explication.",
+      "Écrire un plan daté d'arrêt et de reprise sans bridging."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Classe le geste et le risque thrombotique, puis fixe dates d'arrêt et de reprise selon le DFG."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Prélève créatinine, hémogramme, plaquettes, et INR sous AVK la veille du geste."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "patient·e",
+       "fait": "Note la dernière prise et arrête l'anticoagulant aux dates indiquées sur le calendrier."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "second médecin (anesthésiste)",
+       "fait": "Valide le plan et vérifie l'intervalle requis avant une anesthésie neuraxiale."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Reprend l'anticoagulant dès hémostase acquise et créatinine contrôlée, à 24 h ou 48–72 h."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin de famille",
+       "fait": "Retrouve les dates dans la lettre de sortie et contrôle l'INR après reprise d'un AVK."
+      }
+     ]
+    }
+   },
+   "pronostic": "Sans bridging, les événements thromboemboliques artériels restent sous 1 % à 30 jours (PAUSE) et à 0,4 % sous warfarine (BRIDGE), avec moins de saignements majeurs.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Hémostase (plaie, drainage, hémoglobine)",
+      "quand": "Avant chaque reprise, puis à 24–72 h",
+      "cible": "Absence de saignement actif, hémoglobine stable"
+     },
+     {
+      "quoi": "Créatinine",
+      "quand": "Avant reprise d'un AOD",
+      "cible": "Fonction rénale stable, sans insuffisance rénale aiguë"
+     },
+     {
+      "quoi": "INR sous AVK",
+      "quand": "Quelques jours après la reprise",
+      "cible": "Retour à la zone thérapeutique de l'indication"
+     },
+     {
+      "quoi": "Signes thrombotiques (déficit neurologique, douleur thoracique, jambe)",
+      "quand": "Quotidien pendant l'hospitalisation",
+      "cible": "Aucun événement"
+     }
+    ],
+    "sortie": "Hémostase acquise, hémoglobine stable, créatinine contrôlée, anticoagulant repris ou date de reprise exacte indiquée dans la lettre de sortie."
+   },
+   "prevention": {
+    "primaire": "Planifier tout geste élective avec un plan antithrombotique écrit avant l'intervention.",
+    "secondaire": "Reprendre l'anticoagulant à la date prévue pour éviter une thrombose liée à une interruption prolongée.",
+    "tertiaire": "Consulter sans délai en cas de saignement ou de déficit neurologique après la sortie."
+   }
+  },
+  {
+   "cle": "bridging_avk",
+   "titre": "Antivitamine K à très haut risque thrombotique : bridging par HBPM ou HNF",
+   "but": [
+    "Protéger le patient contre la thrombose pendant que l'INR est sous la zone thérapeutique.",
+    "Limiter l'anticoagulation résiduelle au moment du geste et à la reprise."
+   ],
+   "moyens": {
+    "accueil": [
+     "Confirmer le type et la position de la valve ou la date de la MTEV ou de l'AVC dans le dossier.",
+     "Évaluer la clairance de la créatinine pour adapter la dose d'HBPM.",
+     "Vérifier l'absence de saignement actif et prévoir l'hospitalisation si HNF IV."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Énoxaparine (HBPM, dose thérapeutique)",
+      "posologie": "1 mg/kg SC 2×/j ou 1,5 mg/kg 1×/j dès INR sous la zone thérapeutique (environ J-3) ; dernière injection environ 24 h avant à demi-dose totale ; si clairance < 30 mL/min : 1 mg/kg 1×/j.",
+      "pourquoi": "L'HBPM couvre la période sous-thérapeutique ; la demi-dose finale limite l'anticoagulation résiduelle le jour du geste.",
+      "source": "AIPS Swissmedic ; CHEST 2022"
+     },
+     {
+      "molecule": "Héparine non fractionnée (HNF IV)",
+      "posologie": "Perfusion IV ajustée au TCA ou à l'anti-Xa selon protocole hospitalier ; arrêt 4 à 6 h avant le geste.",
+      "pourquoi": "Sa demi-vie courte permet un arrêt tardif ; utile si clairance très basse ou geste très proche.",
+      "source": "CHEST 2022"
+     },
+     {
+      "molecule": "Phenprocoumon (Marcoumar, antivitamine K)",
+      "posologie": "Arrêt 7 à 10 jours avant ; reprise le soir ou le lendemain à la dose habituelle sans dose de charge, avec INR et HBPM jusqu'à INR thérapeutique.",
+      "pourquoi": "L'HBPM de relais couvre le retard de remontée de l'INR après reprise.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Apprendre au patient ou à ses proches l'injection sous-cutanée d'HBPM et le calendrier de relais.",
+      "pourquoi": "Le relais ambulatoire exige une technique correcte et des dates exactes."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Reporter la chirurgie élective si la MTEV a moins de 3 mois.",
+      "pourquoi": "Le risque de récidive est maximal durant ce délai ; l'élective peut attendre."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'information sur le risque thrombotique et le risque hémorragique du relais et recueille le consentement."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Réserver le bridging aux valves mécaniques mitrales ou anciennes, aux valves avec AVC récent, à la MTEV < 3 mois et aux thrombophilies sévères.",
+      "Demander l'avis du cardiologue ou de l'hématologue pour les situations limites.",
+      "Ne reprendre l'HBPM à dose pleine qu'après hémostase acquise."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Confirme l'indication au bridging avec le cardiologue et fixe les dates d'arrêt AVK et d'HBPM."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Arrête l'AVK au jour prévu et débute les injections d'HBPM dès l'INR sous la zone thérapeutique."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Contrôle l'INR la veille et administre ou supervise la dernière injection environ 24 h avant."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "second médecin (anesthésiste)",
+       "fait": "Vérifie l'heure de la dernière dose pour la technique d'anesthésie, surtout neuraxiale."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Reprend l'AVK le soir ou le lendemain, puis l'HBPM à 24 h (faible risque) ou 48–72 h (haut risque)."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin de famille",
+       "fait": "Arrête l'HBPM quand l'INR est thérapeutique et note les dates dans le dossier."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le bridging inutile augmente les saignements majeurs (3,2 % contre 1,3 %, BRIDGE) ; chez les patients à très haut risque, une interruption sans protection expose à l'AVC embolique.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "INR",
+      "quand": "La veille du geste, puis tous les 2–3 jours après reprise",
+      "cible": "≤ 1,5 avant le geste ; zone thérapeutique après reprise"
+     },
+     {
+      "quoi": "Hémoglobine, plaie, drainage",
+      "quand": "Quotidien jusqu'à reprise de l'HBPM à dose pleine",
+      "cible": "Pas de saignement, hémoglobine stable"
+     },
+     {
+      "quoi": "Plaquettes sous héparine",
+      "quand": "Selon protocole, au moins deux fois par semaine si traitement prolongé",
+      "cible": "Absence de chute significative (thrombopénie induite par l'héparine)"
+     },
+     {
+      "quoi": "Créatinine",
+      "quand": "Avant le geste et en postopératoire",
+      "cible": "Clairance stable, dose d'HBPM adaptée"
+     }
+    ],
+    "sortie": "Hémostase acquise, INR en remontée sous AVK repris, calendrier d'arrêt de l'HBPM remis et injections maîtrisées par le patient ou un soignant."
+   },
+   "prevention": {
+    "primaire": "Évaluer d'emblée si le bridging est indiqué, car le relais inutile expose aux saignements.",
+    "secondaire": "Arrêter l'HBPM dès que l'INR est thérapeutique pour limiter le saignement.",
+    "tertiaire": "Consulter sans délai en cas de saignement, de signe thrombotique ou de déficit neurologique."
+   }
+  },
+  {
+   "cle": "antiplaquettaires_stent",
+   "titre": "Aspirine, inhibiteurs P2Y12 et stent coronarien avant un geste",
+   "but": [
+    "Maintenir la protection contre la thrombose de stent tout en limitant le saignement chirurgical.",
+    "Reprendre le P2Y12 interrompu dès l'hémostase acquise."
+   ],
+   "moyens": {
+    "accueil": [
+     "Préciser la date et le type d'implantation du stent (programmé ou SCA) et le traitement antiplaquettaire actuel.",
+     "Distinguer l'aspirine en prévention secondaire ou primaire.",
+     "Contacter le cardiologue avant d'arrêter un P2Y12 si le stent est récent."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Acide acétylsalicylique (aspirine, antiplaquettaire)",
+      "posologie": "100 mg PO 1×/j maintenu en prévention secondaire ; en prévention primaire arrêt environ 7 jours avant ; interruption en neurochirurgie.",
+      "pourquoi": "Le bénéfice thrombotique dépasse le surcroît de saignement en prévention secondaire, ce qui n'est pas le cas en primaire.",
+      "source": "ESC 2022 ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Clopidogrel (inhibiteur P2Y12)",
+      "posologie": "75 mg PO 1×/j ; arrêt 5 jours avant le geste ; reprise dans les 48 h postopératoires dès hémostase acquise, aspirine maintenue.",
+      "pourquoi": "L'inhibition irréversible des plaquettes impose cinq jours de renouvellement avant un geste à risque.",
+      "source": "ESC 2022"
+     },
+     {
+      "molecule": "Ticagrelor (inhibiteur P2Y12 réversible)",
+      "posologie": "90 mg PO 2×/j ; arrêt 3 à 5 jours avant ; reprise dans les 48 h dès hémostase acquise ; avis du cardiologue si stent récent.",
+      "pourquoi": "Sa réversibilité raccourcit l'arrêt par rapport aux thiénopyridines.",
+      "source": "ESC 2022 ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Prasugrel (inhibiteur P2Y12)",
+      "posologie": "Arrêt 7 jours avant le geste ; reprise dans les 48 h dès hémostase acquise ; dose de reprise selon le cardiologue.",
+      "pourquoi": "C'est le plus puissant des P2Y12 et son effet irréversible exige le délai le plus long.",
+      "source": "ESC 2022"
+     },
+     {
+      "molecule": "Cangrelor (antiplaquettaire IV réversible)",
+      "posologie": "Relais IV en centre spécialisé selon protocole du cardiologue interventionnel, interrompu avant le geste.",
+      "pourquoi": "Sa demi-vie très courte protège le stent à très haut risque sans empêcher l'hémostase chirurgicale.",
+      "source": "ESC 2022"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Reporter la chirurgie élective à au moins 6 mois après un stent programmé et 12 mois après un SCA.",
+      "pourquoi": "L'endothélialisation du stent doit être complète pour tolérer l'arrêt du P2Y12."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer au patient de ne jamais arrêter seul l'aspirine ou le P2Y12 avant un geste.",
+      "pourquoi": "Un arrêt non coordonné expose à la thrombose de stent, souvent par un infarctus étendu."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente la décision partagée entre cardiologue, anesthésiste et chirurgien et l'information du patient."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Maintenir l'aspirine tant que le saignement chirurgical le permet.",
+      "Prendre la décision d'arrêt du P2Y12 avec le cardiologue si stent récent.",
+      "Reprendre le P2Y12 dans les 48 h postopératoires, dès hémostase acquise."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Identifie la date du stent, l'indication de l'aspirine et le risque hémorragique du geste."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste (cardiologue)",
+       "fait": "Décide d'arrêter le P2Y12 ou de reporter le geste, et du relais par cangrelor si nécessaire."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "patient·e",
+       "fait": "Arrête le P2Y12 au jour indiqué et continue l'aspirine selon le calendrier remis."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "second médecin (anesthésiste)",
+       "fait": "Adapte la technique anesthésique à l'intervalle écoulé, notamment pour une anesthésie neuraxiale."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Reprend le P2Y12 dans les 48 h dès hémostase acquise et surveille la thrombose de stent."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le respect des délais minimaux après stent et le maintien de l'aspirine limitent la thrombose de stent, dont la complication est un infarctus souvent étendu nécessitant une angioplastie urgente.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Douleur thoracique, ECG, troponine",
+      "quand": "Postopératoire immédiat et à la moindre douleur",
+      "cible": "Absence d'ischémie"
+     },
+     {
+      "quoi": "Hémostase et hémoglobine",
+      "quand": "Avant la reprise du P2Y12, puis à 24–72 h",
+      "cible": "Pas de saignement actif, hémoglobine stable"
+     },
+     {
+      "quoi": "Date de reprise du P2Y12",
+      "quand": "Au plus tard à 48 h postopératoires",
+      "cible": "P2Y12 repris, aspirine maintenue"
+     }
+    ],
+    "sortie": "Hémostase acquise, aspirine maintenue, P2Y12 repris ou date de reprise inscrite dans la lettre de sortie, absence de signe ischémique."
+   },
+   "prevention": {
+    "primaire": "Éviter de planifier une chirurgie élective avant 6 mois après un stent programmé ou 12 mois après un SCA.",
+    "secondaire": "Maintenir l'aspirine en prévention secondaire et reprendre vite le P2Y12 interrompu.",
+    "tertiaire": "Orienter vers une angioplastie urgente toute douleur thoracique postopératoire chez un porteur de stent."
+   }
+  },
+  {
+   "cle": "urgence_anticoagule",
+   "titre": "Chirurgie urgente ou saignement sous anticoagulant",
+   "but": [
+    "Sécuriser les constantes vitales et arrêter ou neutraliser le saignement avec un antidote adapté à la molécule.",
+    "Opérer au plus tôt compatible avec la sécurité, en limitant le risque thrombotique de la neutralisation."
+   ],
+   "moyens": {
+    "accueil": [
+     "Évaluer ABC, le saignement actif et le risque vital.",
+     "Déterminer la molécule, la dose et l'heure de la dernière prise.",
+     "Prélever hémogramme, plaquettes, créatinine, INR, anti-Xa ou TT, groupe sanguin."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Idarucizumab (Praxbind, anticorps antidote du dabigatran)",
+      "posologie": "5 g IV, en deux flacons de 2,5 g, perfusés consécutivement, pour saignement vital ou chirurgie urgente impossible à différer.",
+      "pourquoi": "Cet antidote spécifique neutralise le dabigatran en quelques minutes mais ne s'emploie pas en routine.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Complexe prothrombinique (CCP : Beriplex, Octaplex) avec vitamine K",
+      "posologie": "AVK : CCP selon INR et poids (environ 25–50 UI/kg) et phytoménadione 5–10 mg IV lente. Anti-Xa avec saignement vital : CCP 25–50 UI/kg, hors AMM.",
+      "pourquoi": "Le CCP corrige rapidement l'INR ; la vitamine K prolonge l'effet ; l'emploi sous anti-Xa est empirique.",
+      "source": "AIPS Swissmedic ; ESC 2022"
+     },
+     {
+      "molecule": "Paracétamol (antalgique)",
+      "posologie": "1 g PO ou IV toutes les 6 h, maximum 4 g/j ; éviter les AINS.",
+      "pourquoi": "Les AINS aggravent le saignement et la fonction rénale alors que l'anticoagulant est encore actif.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réaliser une hémostase locale ou chirurgicale soigneuse et retarder le geste de 12 à 24 h si l'état le permet.",
+      "pourquoi": "Le temps réduit l'effet résiduel de l'AOD sans exposer au risque de l'antidote."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Poser deux voies veineuses et surveiller constantes, diurèse et saignement en continu.",
+      "pourquoi": "Un saignement sous anticoagulant peut décompenser rapidement."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente la situation d'urgence, l'indication de l'antidote et l'information du patient ou de ses proches."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Stabiliser les constantes vitales avant tout geste.",
+      "Mesurer la clairance de la créatinine et le taux du médicament plutôt que se fier au TP ou au TCA.",
+      "Réserver l'antidote aux saignements ou aux urgences vitales."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue la gravité, l'heure de la dernière prise et décide si le geste peut attendre 12 à 24 h."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose deux voies et prélève hémogramme, créatinine, INR, anti-Xa ou TT, groupe sanguin."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin (anesthésiste)",
+       "fait": "Sécurise la voie aérienne et l'hémodynamique et prépare la technique la moins à risque."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Administre idarucizumab (dabigatran) ou CCP et vitamine K (AVK, saignement vital), sinon attend."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste (chirurgien)",
+       "fait": "Opère si anti-Xa < 30 ng/mL pour un geste à risque ou une anesthésie neuraxiale, ou si l'urgence vitale l'impose."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Planifie la reprise sécurisée de l'antithrombotique dès hémostase acquise et créatinine contrôlée."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La neutralisation par antidote traite le saignement mais est prothrombotique ; le pronostic dépend de la rapidité de l'hémostase et de la reprise sécurisée de l'anticoagulant.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Hémoglobine, constantes, drainage",
+      "quand": "Toutes les heures puis toutes les 6 h",
+      "cible": "Hémodynamique stable, hémoglobine stable"
+     },
+     {
+      "quoi": "INR après CCP et vitamine K",
+      "quand": "Dans les 30 minutes à 6 h",
+      "cible": "≤ 1,5 pour chirurgie à risque"
+     },
+     {
+      "quoi": "Signes thrombotiques après antidote",
+      "quand": "Quotidien pendant l'hospitalisation",
+      "cible": "Aucun événement"
+     },
+     {
+      "quoi": "Créatinine",
+      "quand": "À 24–72 h",
+      "cible": "Stable avant reprise d'un AOD"
+     }
+    ],
+    "sortie": "Hémostase acquise, hémoglobine stable, créatinine contrôlée et plan écrit de reprise remis à la sortie."
+   },
+   "prevention": {
+    "primaire": "Demander à tout patient anticoagulé de porter une carte avec molécule, dose et dernière prise.",
+    "secondaire": "Reprendre l'anticoagulant de façon sécurisée dès l'hémostase pour éviter l'AVC embolique.",
+    "tertiaire": "Réévaluer l'indication de l'anticoagulant et du traitement antiplaquettaire associé après l'épisode."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6762,
+  "output_tokens": 39734,
+  "output_tokens_details": {
+   "thinking_tokens": 17117
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:58:02",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

@@ -1,0 +1,1139 @@
+{
+ "id": "Z23_2__O2_4-E03",
+ "portes": [
+  {
+   "ssp": "O2.4",
+   "nomSSP": "Vaccination de l’enfant",
+   "entite": "Rappels vaccinaux de l'enfant et de l'adolescent (dTpa-IPV, HPV, HBV, ROR/Varicelle)",
+   "entiteId": "O2.4-E03"
+  }
+ ],
+ "entite": "Rappels vaccinaux de l'enfant et de l'adolescent (dTpa-IPV, HPV, HBV, ROR/Varicelle)",
+ "cim10": "Z23",
+ "ssp": {
+  "code": "O2.4",
+  "nom": "Vaccination de l'enfant",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Enfant ou adolescent consulte pour un rappel vaccinal",
+    "i": "Motif programmé le plus fréquent du SSP : le carnet et l'âge déterminent les vaccins à administrer.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Carnet de vaccination écrit disponible ?",
+    "i": "Seule une vaccination documentée par écrit est valable ; le carnet est l'examen de référence.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Non : considérer non vacciné pour les vaccins non documentés",
+    "i": "Rechercher dossier ou carnet électronique ; sinon débuter la série sans sérologie préalable.",
+    "pec": "pec_rattrapage",
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Oui : contre-indication ou motif de report ?",
+    "i": "Vérifier réaction grave antérieure, grossesse, immunodépression, fièvre aiguë.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Anaphylaxie antérieure, ou grossesse/immunodéficience pour un vaccin vivant",
+    "i": "Vraies contre-indications : ne pas administrer le vaccin concerné et demander un avis allergologique ou infectiologique.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Maladie aiguë modérée à sévère avec fièvre",
+    "i": "Reporter la vaccination ; un état fébrile mineur ou une infection ORL bénigne ne la retarde pas.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n7",
+    "parent": "n4",
+    "t": "Aucune contre-indication vraie",
+    "i": "Infection mineure, allaitement, prématurité, allergie à l'œuf et contact avec une femme enceinte ne contre-indiquent pas.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "4–7 ans : DTPa-IPV",
+    "i": "Quatrième dose de polio et rappel diphtérie-tétanos-coqueluche.",
+    "pec": "pec_rappels",
+    "notion": "c1"
+   },
+   {
+    "id": "n9",
+    "parent": "n7",
+    "t": "11–14 ans : HPV 2 doses, dTpa, MenACWY, rattrapage HBV/varicelle/ROR",
+    "i": "Fenêtre optimale : réponse HPV plus forte avant 15 ans ; filles et garçons ; coadministration sur sites différents.",
+    "pec": "pec_rappels",
+    "notion": "c2"
+   },
+   {
+    "id": "n10",
+    "parent": "n7",
+    "t": "15–26 ans : HPV 3 doses en rattrapage",
+    "i": "Dès le 15e anniversaire, la réponse est plus faible ; schéma 0, 1–2, 6 mois.",
+    "pec": "pec_rattrapage",
+    "notion": "c2"
+   },
+   {
+    "id": "n11",
+    "parent": "n7",
+    "t": "Antécédent de malaise ou peur des aiguilles",
+    "i": "Vacciner en position allongée pour prévenir le traumatisme de chute.",
+    "pec": "pec_rappels",
+    "notion": "c6"
+   },
+   {
+    "id": "n12",
+    "parent": "n1",
+    "t": "Urticaire, dyspnée, hypotension dans les minutes après l'injection",
+    "i": "Suspecter une anaphylaxie post-vaccinale : urgence vitale, renvoi vers le SSP « Anaphylaxie post-vaccinale immédiate ».",
+    "pec": "pec_urgence_post_vaccinale",
+    "notion": "c6"
+   },
+   {
+    "id": "n13",
+    "parent": "n1",
+    "t": "Refus ou doute des parents ou de l'adolescent",
+    "i": "Hors cadre du rappel simple : renvoi vers le SSP « Hésitation vaccinale parentale et entretien motivationnel ».",
+    "pec": null,
+    "notion": "c8"
+   },
+   {
+    "id": "n14",
+    "parent": "n1",
+    "t": "Immunodépression, voyage ou exposition à risque",
+    "i": "Hors cadre : renvoi vers les SSP « Vaccination en situation particulière », « Vaccination du voyageur pédiatrique » ou « Prophylaxie post-exposition ».",
+    "pec": null,
+    "notion": "c3"
+   }
+  ]
+ },
+ "specialites": [
+  "PEA",
+  "PSP"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Rappels vaccinaux de l'enfant et de l'adolescent selon le plan suisse OFSP/CFV (DTPa-IPV, dTpa, HPV, HBV, ROR, varicelle, MenACWY)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Plan de vaccination suisse : catégories et calendrier des rappels",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Raisonne d'abord par âge (4–7 ans, 11–15 ans, 25 ans, 45 et 65 ans), puis par catégorie : base, complémentaire ou à risque.",
+   "tableau": {
+    "colonnes": [
+     "Âge",
+     "Vaccin",
+     "Schéma",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "4–7 ans",
+      "DTPa-IPV",
+      "1 dose de rappel",
+      [
+       {
+        "t": "Quatrième dose de polio",
+        "i": "La série IPV compte 2, 4, 12 mois puis 4–7 ans ; sans ce rappel, la série polio reste incomplète à trois doses."
+       }
+      ]
+     ],
+     [
+      "11–15 ans",
+      "dTpa",
+      "1 dose unique",
+      [
+       {
+        "t": "Composante pertussis à dose réduite",
+        "i": "Les adolescents et adultes forment le réservoir de transmission ; les rappeler protège les nourrissons trop jeunes pour être vaccinés contre la coqueluche."
+       }
+      ]
+     ],
+     [
+      "11–14 ans",
+      "HPV 9-valent",
+      "2 doses (0 et 4–6 mois)",
+      [
+       {
+        "t": "Filles ET garçons",
+        "i": "Le virus cause aussi des cancers anaux, pénis, oropharynx et des condylomes chez l'homme ; la protection indirecte seule ne suffit pas."
+       }
+      ]
+     ],
+     [
+      "11–15 ans",
+      "MenACWY",
+      "1 dose",
+      [
+       {
+        "t": "Protège les sérogroupes A, C, W, Y",
+        "i": "Le pic de portage pharyngé de méningocoques se situe à l'adolescence ; le vaccin MenB du nourrisson ne couvre pas ces sérogroupes."
+       }
+      ]
+     ],
+     [
+      "11–15 ans",
+      "Rattrapage HBV, varicelle, ROR",
+      "Selon statut documenté",
+      [
+       {
+        "t": "Uniquement si statut incomplet",
+        "i": "Une vaccination ou une maladie certaine documentée dispense de rattrapage ; sinon l'enfant reste considéré comme non protégé."
+       }
+      ]
+     ],
+     [
+      "25 ans, 45 ans, 65 ans",
+      "dTpa à 25 ans, dT à 45 et 65 ans",
+      "1 dose à chaque âge",
+      [
+       {
+        "t": "Rappels adultes",
+        "i": "Ils remplacent un rappel tous les 10 ans ; dTpa à 25 ans protège aussi les futurs nourrissons du couple."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Trois catégories OFSP/CFV : base (tous), complémentaires (protection individuelle optimale), à risque (groupes ou situations particulières).",
+    "Élimination de la rougeole : couverture d'au moins 95 % avec 2 doses de ROR, non atteinte dans toutes les cohortes suisses.",
+    "Polio : 4 doses, à 2, 4, 12 mois puis 4–7 ans.",
+    "Les rappels adolescents combinent plusieurs vaccins le même jour, sur des sites différents."
+   ],
+   "sources": [
+    "OFSP/CFV, plan de vaccination suisse",
+    "OFSP, Bulletin et recommandations de vaccination"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Vaccin HPV : schéma selon l'âge, mécanisme et limites",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences",
+    "acuteManagement"
+   ],
+   "comment": "Choisis le nombre de doses d'après l'âge au moment de la première dose, car la réponse immunitaire est plus forte avant 15 ans.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Schéma",
+     "Intervalle",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "11–14 ans (avant le 15e anniversaire)",
+      "2 doses",
+      "0 et 4–6 mois",
+      [
+       {
+        "t": "Deux doses suffisent",
+        "i": "La réponse immunitaire est plus forte entre 9 et 14 ans qu'après 15 ans ; moins de doses donnent la même protection."
+       }
+      ]
+     ],
+     [
+      "Dès 15 ans, jusqu'à 26 ans (rattrapage)",
+      "3 doses",
+      "0, 1–2 et 6 mois",
+      [
+       {
+        "t": "Trois doses dès le 15e anniversaire",
+        "i": "La réponse après 15 ans est moins vigoureuse ; la troisième dose compense. Le rattrapage reste remboursé jusqu'à 26 ans via les programmes cantonaux."
+       }
+      ]
+     ],
+     [
+      "Immunodéprimé, quel que soit l'âge",
+      "3 doses",
+      "0, 1–2 et 6 mois",
+      [
+       {
+        "t": "Schéma à 3 doses",
+        "i": "La réponse vaccinale est altérée par l'immunodépression ; le schéma court n'est pas validé."
+       }
+      ]
+     ],
+     [
+      "Grossesse",
+      "Différer",
+      "Après l'accouchement",
+      [
+       {
+        "t": "Non recommandé pendant la grossesse",
+        "i": "Les données sont insuffisantes ; le vaccin est inactivé mais le report est la règle prudente."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le vaccin 9-valent couvre les génotypes 6, 11, 16, 18, 31, 33, 45, 52, 58 et prévient environ 90 % des cancers du col.",
+    "Il contient des pseudo-particules L1 recombinantes, sans ADN viral : il ne peut pas provoquer d'infection.",
+    "Il agit en prévention seulement et ne traite pas une infection HPV déjà établie.",
+    "Il ne remplace pas le frottis du col, qui commence à 21 ans.",
+    "Il est idéal avant le début de la vie sexuelle."
+   ],
+   "sources": [
+    "OFSP/CFV, recommandation de vaccination contre les HPV",
+    "AIPS Swissmedic, Gardasil 9"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Vaccins vivants atténués ou inactivés : contre-indications et fausses contre-indications",
+   "rubriques": [
+    "basicSciences",
+    "presumptionRedFlags"
+   ],
+   "comment": "Distingue le type de vaccin avant de poser une contre-indication : seuls les vivants craignent grossesse et immunodépression sévère.",
+   "tableau": {
+    "colonnes": [
+     "Type",
+     "Vaccins",
+     "Vraie contre-indication",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Vivants atténués",
+      "ROR, varicelle",
+      [
+       {
+        "t": "Grossesse, immunodéficience sévère, anaphylaxie antérieure",
+        "i": "Le virus vaccinal se réplique et peut devenir disséminé chez un hôte immunodéprimé ou nuire au fœtus."
+       }
+      ],
+      [
+       {
+        "t": "Éviter une grossesse pendant 1 mois après ROR",
+        "i": "Le risque tératogène est théorique mais la prudence impose ce délai ; le ROR n'est pas une indication d'interruption de grossesse."
+       }
+      ]
+     ],
+     [
+      "Inactivés",
+      "dTpa, IPV, HPV, HBV, MenACWY",
+      [
+       {
+        "t": "Anaphylaxie à une dose précédente ou à un composant",
+        "i": "Une réaction allergique grave se reproduira ; aucune autre contre-indication vraie n'existe pour ces vaccins."
+       }
+      ],
+      [
+       {
+        "t": "HPV non recommandé pendant la grossesse",
+        "i": "Absence de données suffisantes ; ce n'est pas une contre-indication par réplication."
+       }
+      ]
+     ],
+     [
+      "Fausses contre-indications",
+      "Tous",
+      [
+       {
+        "t": "Infection mineure, allaitement, prématurité, allergie à l'œuf, contact avec une femme enceinte",
+        "i": "Aucune ne modifie le rapport bénéfice-risque ; les écarter évite des occasions manquées de vacciner."
+       }
+      ],
+      [
+       {
+        "t": "Antibiotiques en cours",
+        "i": "Un traitement antibiotique n'interfère pas avec la réponse vaccinale ; le report n'est justifié que pour une maladie aiguë fébrile modérée à sévère."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le ROR et la varicelle chez un enfant avec contact enceinte restent autorisés : le virus vaccinal ROR n'est pas transmis.",
+    "Report justifié : maladie aiguë modérée à sévère avec fièvre.",
+    "Pas de report pour infection ORL bénigne sans fièvre importante."
+   ],
+   "sources": [
+    "OFSP/CFV, plan de vaccination suisse, contre-indications",
+    "AIPS Swissmedic, Priorix, M-M-RVAXPRO, Varilrix"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Anamnèse, carnet de vaccination et décision de rattrapage",
+   "rubriques": [
+    "anamnesis",
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Commence par le carnet : sans preuve écrite, l'enfant est non vacciné ; avec preuve, reprends la série sans la recommencer.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Carnet de vaccination papier ou électronique disponible ?",
+     "i": "Seule une vaccination documentée par écrit est valable ; le carnet est l'examen de référence.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Non : vaccin non documenté",
+     "i": "Sans preuve écrite, l'enfant est considéré comme non vacciné pour ce vaccin.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Rechercher dossier, mesvaccins.ch, puis débuter le schéma",
+     "i": "Une dose supplémentaire chez une personne déjà immune ne présente aucun danger ; la sérologie préalable est inutile pour le ROR.",
+     "pec": "pec_rattrapage",
+     "notion": "c5"
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Oui : série interrompue ou incomplète ?",
+     "i": "Une série interrompue se poursuit sans être recommencée, quel que soit l'intervalle.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Poursuivre là où la série s'est arrêtée",
+     "i": "Les doses déjà données restent valables ; recommencer exposerait à des injections inutiles.",
+     "pec": "pec_rattrapage",
+     "notion": "c5"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Varicelle : antécédent clinique certain ou 2 doses documentées ?",
+     "i": "Une varicelle cliniquement certaine ou une vaccination documentée dispense de rattrapage.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Oui : pas de vaccin varicelle",
+     "i": "L'immunité est acquise ; vacciner serait superflu.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n8",
+     "parent": "n6",
+     "t": "Non ou incertain : 2 doses entre 11 et 15 ans",
+     "i": "Sans anamnèse fiable, l'adolescent est traité comme non immun ; deux doses espacées d'au moins quatre semaines.",
+     "pec": "pec_rattrapage",
+     "notion": "c5"
+    },
+    {
+     "id": "n9",
+     "parent": "n1",
+     "t": "Hépatite B : anti-HBs nécessaire ?",
+     "i": "Un taux d'anti-HBs d'au moins 10 UI/l signe la protection ; le contrôle sérologique après vaccination se limite aux personnes à risque.",
+     "pec": null,
+     "notion": "c4"
+    }
+   ],
+   "points": [
+    "Anamnèse ciblée : réaction allergique grave antérieure, grossesse possible, immunodépression ou traitement immunosuppresseur, malaise lors d'injections, fièvre aiguë.",
+    "Examen : température et état général, pas de bilan paraclinique.",
+    "Antécédent de malaise ou peur des aiguilles : vacciner en position allongée.",
+    "Seul le doute sérologique spécifique justifie un dosage (anti-HBs, ROR)."
+   ],
+   "sources": [
+    "OFSP/CFV, plan de vaccination suisse, principes généraux",
+    "OFSP, recommandations de vaccination contre l'hépatite B"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Rattrapage HBV, varicelle, ROR, MenACWY et coadministration",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Compte le nombre total de doses requises, respecte l'intervalle minimal de quatre semaines et groupe les vaccins le même jour.",
+   "tableau": {
+    "colonnes": [
+     "Vaccin",
+     "Indication de rattrapage",
+     "Schéma",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "HBV",
+      "Adolescent de 11–15 ans non vacciné",
+      "2 doses à 0 et 4–6 mois",
+      [
+       {
+        "t": "Au-delà de 15 ans : 3 doses",
+        "i": "Le schéma à 2 doses n'est validé que pour la tranche d'âge pédiatrique avec une préparation adaptée."
+       }
+      ]
+     ],
+     [
+      "Varicelle",
+      "Adolescent sans antécédent certain",
+      "2 doses, intervalle ≥ 4 semaines",
+      [
+       {
+        "t": "Vaccin vivant",
+        "i": "Exclure grossesse et immunodéficience avant l'injection."
+       }
+      ]
+     ],
+     [
+      "ROR",
+      "Personne née après 1963 sans 2 doses documentées",
+      "2 doses au total, intervalle ≥ 4 semaines",
+      [
+       {
+        "t": "Aucune sérologie préalable",
+        "i": "Une dose chez un sujet déjà immun est sans danger ; la sérologie retarde et coûte plus qu'elle n'apporte."
+       }
+      ]
+     ],
+     [
+      "MenACWY",
+      "Adolescent selon le plan suisse",
+      "1 dose",
+      [
+       {
+        "t": "Sérogroupes A, C, W, Y",
+        "i": "Elle complète la protection du nourrisson, qui ne couvrait pas ces sérogroupes."
+       }
+      ]
+     ],
+     [
+      "Coadministration",
+      "Plusieurs vaccins le même jour",
+      "Sites d'injection différents",
+      [
+       {
+        "t": "Deux vaccins vivants : même jour ou ≥ 4 semaines",
+        "i": "Un vaccin vivant peut inhiber la réponse au second s'ils sont donnés à moins de 4 semaines d'intervalle sans être simultanés."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Les vaccins inactivés peuvent être donnés à n'importe quel intervalle par rapport à d'autres vaccins.",
+    "Une série interrompue ne se recommence jamais.",
+    "Les vaccins du programme sont remboursés par l'AOS lorsqu'ils sont recommandés par l'OFSP."
+   ],
+   "sources": [
+    "OFSP/CFV, plan de vaccination suisse, rattrapage",
+    "AIPS Swissmedic, monographies des vaccins"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Sécurité à l'injection : syncope, anaphylaxie et observation",
+   "rubriques": [
+    "presumptionRedFlags",
+    "hospitalizationComplications",
+    "surveillance"
+   ],
+   "comment": "Prévois la syncope vagale chez tout adolescent et distingue-la de l'anaphylaxie par la peau, la respiration et le pouls.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Malaise dans les 15 minutes après l'injection",
+     "i": "Les malaises post-vaccinaux surviennent surtout dans l'heure suivant l'injection ; l'observation de 15 minutes les détecte.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Pâleur, sueurs, bradycardie, pouls présent, pas d'urticaire ni de dyspnée",
+     "i": "Tableau de syncope vasovagale, très fréquente chez l'adolescent.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Allonger, surélever les jambes, surveiller",
+     "i": "Le retour veineux rétablit la perfusion cérébrale ; la complication principale est le traumatisme de chute.",
+     "pec": "pec_urgence_post_vaccinale",
+     "notion": "c6"
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Urticaire, œdème, bronchospasme, hypotension",
+     "i": "Association cutanéo-muqueuse et respiratoire ou circulatoire : anaphylaxie, rare, dans les minutes qui suivent l'injection.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Adrénaline IM 0,01 mg/kg, cuisse antérolatérale, appel du 144",
+     "i": "L'adrénaline est le seul traitement de première ligne ; retarder son injection augmente la mortalité.",
+     "pec": "pec_urgence_post_vaccinale",
+     "notion": "c6"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Réaction locale ou fièvre modérée dans les jours suivants",
+     "i": "Réactions fréquentes et bénignes d'un vaccin inactivé ; elles régressent en quelques jours.",
+     "pec": null,
+     "notion": "c7"
+    }
+   ],
+   "points": [
+    "Vacciner assis ou allongé, jamais debout ; observer 15 minutes.",
+    "Équiper le cabinet : adrénaline 1 mg/ml, seringues, matériel d'oxygène.",
+    "Déclarer tout effet indésirable grave ou inattendu à Swissmedic via ElViS.",
+    "L'anaphylaxie antérieure contre-indique toute nouvelle dose du vaccin ou du composant."
+   ],
+   "sources": [
+    "OFSP/CFV, plan de vaccination suisse",
+    "Swissmedic, ElViS"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Effets attendus après vaccination et pharmacovigilance",
+   "rubriques": [
+    "surveillance",
+    "hospitalizationComplications"
+   ],
+   "comment": "Informe l'adolescent et ses parents du délai typique de chaque réaction pour éviter les consultations inutiles.",
+   "tableau": {
+    "colonnes": [
+     "Réaction",
+     "Délai",
+     "Conduite",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Douleur, érythème local, fièvre modérée (vaccins inactivés)",
+      "Quelques heures à 3 jours",
+      "Antalgique si besoin, aucune restriction",
+      [
+       {
+        "t": "Fréquent et bénin",
+        "i": "Ces signes traduisent la réponse immunitaire innée ; ils ne justifient pas d'examen complémentaire."
+       }
+      ]
+     ],
+     [
+      "Fièvre ou éruption morbilliforme après ROR",
+      "5 à 12 jours après l'injection",
+      "Rassurer ; pas d'éviction",
+      [
+       {
+        "t": "Non contagieuse",
+        "i": "Il s'agit du virus vaccinal atténué ; l'enfant ne transmet pas la rougeole."
+       }
+      ]
+     ],
+     [
+      "Syncope vasovagale",
+      "Minutes",
+      "Allonger, observer",
+      [
+       {
+        "t": "Prévention par position couchée",
+        "i": "Elle évite le traumatisme de chute, principale complication."
+       }
+      ]
+     ],
+     [
+      "Anaphylaxie",
+      "Minutes",
+      "Adrénaline IM, 144",
+      [
+       {
+        "t": "Déclaration ElViS",
+        "i": "Tout effet indésirable grave ou inattendu se signale au centre régional de pharmacovigilance."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Une fièvre post-ROR n'est pas une contre-indication aux doses ultérieures.",
+    "Documenter chaque dose dans le carnet et le dossier."
+   ],
+   "sources": [
+    "OFSP/CFV, effets indésirables des vaccinations",
+    "Swissmedic, ElViS"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Cadre suisse : consentement, assurance, carnet, suivi et dépistage associé",
+   "rubriques": [
+    "chronicManagement",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Documente, informe l'adolescent selon son âge, vérifie la prise en charge par l'AOS et oriente vers le suivi.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Un adolescent capable de discernement peut consentir seul ; le médecin l'informe de façon adaptée à son âge.",
+    "L'AOS rembourse les vaccins recommandés par l'OFSP, avec exemption de franchise dans les programmes cantonaux (HPV jusqu'à 26 ans).",
+    "Mettre à jour le carnet et proposer mesvaccins.ch ; certains cantons autorisent la vaccination en pharmacie dès un âge minimal.",
+    "2 doses de ROR : immunité durable chez plus de 95 % des vaccinés, sans rappel ; HPV : protection de longue durée, frottis dès 21 ans.",
+    "FSME : vaccin dès 6 ans chez les personnes exposées aux tiques dans les zones à risque, soit presque toute la Suisse."
+   ],
+   "sources": [
+    "OFSP/CFV, plan de vaccination suisse",
+    "OFSP, mesvaccins.ch",
+    "LAMal, ordonnance sur les prestations (OPAS)"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "pec_rappels",
+   "titre": "Rappels programmés au cabinet : DTPa-IPV à 4–7 ans, dTpa, HPV, MenACWY à 11–15 ans",
+   "but": [
+    "Compléter la série vaccinale selon l'âge et le carnet, en un minimum de consultations.",
+    "Prévenir la syncope vasovagale et les occasions manquées de vacciner."
+   ],
+   "moyens": {
+    "accueil": [
+     "Vérifier le carnet papier ou électronique et l'identité du patient.",
+     "Demander réaction grave antérieure, grossesse possible, immunodépression, fièvre, peur des aiguilles.",
+     "Informer l'adolescent capable de discernement et recueillir son consentement, ainsi que celui des parents pour le jeune enfant.",
+     "Mesurer la température avant l'injection."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "DTPa-IPV (vaccin diphtérie-tétanos-coqueluche acellulaire-poliomyélite inactivé)",
+      "posologie": "0,5 ml IM au deltoïde, 1 dose entre 4 et 7 ans ; préparation selon AIPS.",
+      "pourquoi": "Rappel de la série polio à quatre doses et renforcement de la protection diphtérie, tétanos, coqueluche avant l'école.",
+      "source": "AIPS Swissmedic ; OFSP/CFV"
+     },
+     {
+      "molecule": "dTpa (vaccin diphtérie-tétanos-coqueluche à doses réduites)",
+      "posologie": "0,5 ml IM, 1 dose unique à 11–15 ans ; dTpa-IPV si la série polio est incomplète.",
+      "pourquoi": "Rappel adolescent protégeant aussi les nourrissons, car les adolescents forment le réservoir de la coqueluche.",
+      "source": "OFSP/CFV ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Vaccin HPV 9-valent (pseudo-particules virales L1)",
+      "posologie": "0,5 ml IM ; 11–14 ans : 2 doses à 0 et 4–6 mois, filles et garçons.",
+      "pourquoi": "Réponse immunitaire plus forte avant 15 ans ; prévient environ 90 % des cancers du col liés aux HPV.",
+      "source": "OFSP/CFV ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Vaccin conjugué MenACWY",
+      "posologie": "0,5 ml IM, 1 dose à l'adolescence selon le plan suisse.",
+      "pourquoi": "Protège contre les méningocoques A, C, W, Y, surtout à l'âge de portage pharyngé maximal.",
+      "source": "OFSP/CFV ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Vacciner en position assise ou allongée, sur des sites différents en cas de coadministration.",
+      "pourquoi": "Prévient le traumatisme de chute lors d'une syncope vasovagale."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer les réactions locales et fébriles attendues, leur durée et quand consulter.",
+      "pourquoi": "Évite les consultations inutiles et améliore l'adhésion aux doses suivantes."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Planifier la deuxième dose HPV à 4–6 mois et saisir la dose dans le carnet électronique mesvaccins.ch.",
+      "pourquoi": "Une dose manquante laisse la protection incomplète."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Garantit le remboursement par l'AOS des vaccins recommandés par l'OFSP, avec exemption de franchise dans les programmes cantonaux."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Encadre le consentement de l'adolescent capable de discernement et la documentation."
+     },
+     {
+      "discipline": "Santé publique et prévention",
+      "apport": "Intègre les rappels au programme cantonal et à la santé scolaire pour atteindre 95 % de couverture ROR."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Consulter le carnet avant tout autre geste.",
+      "Vacciner assis ou allongé et garder l'adolescent 15 minutes sous observation.",
+      "Documenter chaque dose, lot et site d'injection."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Contrôle le carnet, l'âge et les contre-indications, puis décide des vaccins du jour."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Prépare les vaccins, mesure la température et installe l'adolescent en position adaptée."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Injecte les vaccins coadministrés sur des sites différents et informe sur les effets attendus."
+      },
+      {
+       "temps": "puis",
+       "qui": "infirmier·ère",
+       "fait": "Surveille 15 minutes, mets à jour le carnet et fixe le rendez-vous de la dose suivante."
+      }
+     ]
+    }
+   },
+   "pronostic": "Les rappels confèrent une immunité de longue durée ; deux doses de ROR protègent plus de 95 % des vaccinés sans rappel, et le schéma HPV complet protège durablement.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Malaise ou signes d'allergie",
+      "quand": "15 minutes après l'injection",
+      "cible": "Absence de syncope ou de réaction allergique"
+     },
+     {
+      "quoi": "Réactions locales ou fièvre modérée",
+      "quand": "24 à 72 heures",
+      "cible": "Régression en quelques jours"
+     },
+     {
+      "quoi": "Deuxième dose HPV",
+      "quand": "4–6 mois après la première",
+      "cible": "Série complète documentée dans le carnet"
+     },
+     {
+      "quoi": "Dépistage du cancer du col par frottis",
+      "quand": "Dès 21 ans",
+      "cible": "Réalisé même après vaccination complète"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : sortie après 15 minutes d'observation sans malaise ni signe allergique."
+   },
+   "prevention": {
+    "primaire": "Vacciner selon le calendrier OFSP avant le début de la vie sexuelle pour prévenir les cancers HPV et les maladies évitables.",
+    "secondaire": "Vérifier le carnet à chaque consultation pour rattraper rapidement les doses manquantes.",
+    "tertiaire": "Poursuivre le dépistage du col par frottis dès 21 ans, car le vaccin ne couvre pas tous les génotypes oncogènes."
+   }
+  },
+  {
+   "cle": "pec_rattrapage",
+   "titre": "Rattrapage vaccinal de l'adolescent : HBV, varicelle, ROR, HPV dès 15 ans",
+   "but": [
+    "Compléter les séries sans les recommencer, avec un minimum de doses.",
+    "Atteindre le statut complet documenté avant l'âge adulte."
+   ],
+   "moyens": {
+    "accueil": [
+     "Rechercher toute preuve écrite : carnet, dossier, mesvaccins.ch.",
+     "Considérer non vacciné tout vaccin sans preuve écrite.",
+     "Écarter grossesse et immunodépression avant ROR ou varicelle.",
+     "Demander l'antécédent de varicelle clinique certaine."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Vaccin HBV",
+      "posologie": "11–15 ans : 2 doses à 0 et 4–6 mois ; au-delà : 3 doses ; dosage selon préparation (AIPS).",
+      "pourquoi": "Deux doses suffisent à l'âge pédiatrique ; sérologie anti-HBs réservée aux personnes à risque.",
+      "source": "OFSP/CFV ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Vaccin varicelle vivant atténué",
+      "posologie": "0,5 ml, 2 doses espacées d'au moins 4 semaines, adolescent sans antécédent certain.",
+      "pourquoi": "Évite la varicelle de l'adolescent, plus sévère ; vaccin vivant donc grossesse et immunodépression exclues.",
+      "source": "OFSP/CFV ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Vaccin ROR vivant atténué",
+      "posologie": "0,5 ml, 2 doses au total, intervalle minimal 4 semaines, si né après 1963 sans 2 doses documentées.",
+      "pourquoi": "Atteindre 95 % de couverture pour éliminer la rougeole ; aucune sérologie préalable nécessaire.",
+      "source": "OFSP/CFV ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "Vaccin HPV 9-valent",
+      "posologie": "0,5 ml IM, dès 15 ans jusqu'à 26 ans : 3 doses à 0, 1–2 et 6 mois.",
+      "pourquoi": "La réponse après 15 ans est plus faible ; la troisième dose la compense ; immunodéprimés : 3 doses aussi.",
+      "source": "OFSP/CFV ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Conseiller d'éviter une grossesse pendant un mois après le ROR ou la varicelle.",
+      "pourquoi": "Le virus vivant atténué présente un risque fœtal théorique."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Utiliser le programme cantonal HPV pour la prise en charge sans franchise jusqu'à 26 ans.",
+      "pourquoi": "Réduit l'obstacle financier au rattrapage."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise le remboursement AOS du rattrapage selon les recommandations OFSP."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Reconnaît le consentement de l'adolescent capable de discernement pour le rattrapage."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Poursuivre toute série interrompue sans la recommencer.",
+      "Donner plusieurs vaccins le même jour sur des sites différents.",
+      "Espacer deux vaccins vivants non simultanés d'au moins 4 semaines."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Établit la liste des doses manquantes d'après les preuves écrites et l'âge."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Prépare les vaccins prévus et vérifie les intervalles minimaux."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Administre les vaccins compatibles le même jour et planifie les doses suivantes."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Met à jour le carnet, remet le plan écrit et propose mesvaccins.ch."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le rattrapage complet apporte une protection comparable à la vaccination dans les délais, avec une immunité durable après 2 doses de ROR ou de varicelle.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Fièvre ou éruption morbilliforme après ROR",
+      "quand": "5 à 12 jours",
+      "cible": "Spontanément résolutive, sans contagiosité"
+     },
+     {
+      "quoi": "Intervalle entre doses",
+      "quand": "À chaque dose",
+      "cible": "≥ 4 semaines pour ROR et varicelle ; 4–6 mois pour HBV 2 doses"
+     },
+     {
+      "quoi": "Statut vaccinal complet",
+      "quand": "À la fin du rattrapage",
+      "cible": "Toutes les séries documentées"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : sortie après 15 minutes d'observation sans malaise ni signe allergique."
+   },
+   "prevention": {
+    "primaire": "Compléter le statut avant l'entrée dans la vie sexuelle et l'âge adulte.",
+    "secondaire": "Revérifier le carnet à chaque consultation, y compris pour dTpa à 25 ans.",
+    "tertiaire": "Dépister le col par frottis dès 21 ans malgré la vaccination HPV."
+   }
+  },
+  {
+   "cle": "pec_urgence_post_vaccinale",
+   "titre": "Urgence post-vaccinale : syncope vasovagale et anaphylaxie",
+   "but": [
+    "Distinguer sans délai la syncope de l'anaphylaxie.",
+    "Injecter l'adrénaline IM dès les premiers signes d'anaphylaxie."
+   ],
+   "moyens": {
+    "accueil": [
+     "Allonger le patient sur le dos, jambes surélevées, sans le laisser debout.",
+     "Contrôler pouls, tension, saturation, peau et respiration.",
+     "Appeler le médecin responsable et préparer l'adrénaline."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Adrénaline (sympathomimétique)",
+      "posologie": "0,01 mg/kg IM, face antérolatérale de la cuisse, solution 1 mg/ml, maximum 0,5 mg ; répéter après 5–15 minutes si besoin.",
+      "pourquoi": "Seul traitement de première ligne de l'anaphylaxie ; l'effet IM est rapide et plus sûr que la voie sous-cutanée.",
+      "source": "OFSP/CFV ; AIPS Swissmedic"
+     },
+     {
+      "molecule": "NaCl 0,9 % (cristalloïde)",
+      "posologie": "Bolus 10–20 ml/kg IV ou intra-osseux en cas d'hypotension persistante.",
+      "pourquoi": "Corrige l'hypovolémie relative due à la vasodilatation et à la fuite capillaire.",
+      "source": "Recommandations suisses d'allergologie (SSAI)"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Donner de l'oxygène à haut débit et monitorer en continu en cas d'anaphylaxie.",
+      "pourquoi": "Corrige l'hypoxémie liée au bronchospasme ou à l'œdème laryngé."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Garder le patient allongé 15 minutes après une syncope, puis le laisser se relever lentement.",
+      "pourquoi": "Un lever rapide récidive la syncope."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Déclarer l'événement grave via ElViS à Swissmedic et orienter vers l'allergologue.",
+      "pourquoi": "La pharmacovigilance et l'avis spécialisé décident des vaccinations futures."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Impose la déclaration des effets indésirables graves et la documentation précise de l'événement."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Facilite la prise en charge des examens allergologiques consécutifs à l'événement."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Garder le patient allongé, jamais debout.",
+      "Rester auprès du patient et surveiller pouls et respiration en continu.",
+      "Documenter le vaccin, le lot et l'heure du début des signes."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Allonge le patient et distingue syncope (pouls lent, sans urticaire) et anaphylaxie (peau, respiration, tension)."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Apporte l'adrénaline, l'oxygène et le monitoring, et contrôle les constantes."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Injecte l'adrénaline IM 0,01 mg/kg à la cuisse si signes d'anaphylaxie et appelle le 144."
+      },
+      {
+       "temps": "puis",
+       "qui": "second médecin",
+       "fait": "Assure le transfert, l'observation hospitalière et l'orientation vers l'allergologue."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La syncope vasovagale guérit en quelques minutes sans séquelle si la chute est évitée ; l'anaphylaxie répond bien à l'adrénaline précoce.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Conscience, pouls, tension, saturation",
+      "quand": "En continu puis toutes les 5 minutes",
+      "cible": "Retour à la normale en quelques minutes pour une syncope"
+     },
+     {
+      "quoi": "Récidive de signes d'anaphylaxie (réaction biphasique)",
+      "quand": "Au moins 6 heures en observation hospitalière",
+      "cible": "Absence de récidive"
+     },
+     {
+      "quoi": "Avis allergologique",
+      "quand": "Dans les semaines suivantes",
+      "cible": "Décision documentée sur la revaccination"
+     }
+    ],
+    "sortie": "Syncope : sortie après récupération complète et 15 minutes d'observation. Anaphylaxie : observation hospitalière d'au moins 6 heures, adrénaline éventuelle administrée, constantes stables et plan allergologique remis."
+   },
+   "prevention": {
+    "primaire": "Vacciner assis ou allongé et observer 15 minutes chaque adolescent.",
+    "secondaire": "Disposer d'adrénaline et de matériel de réanimation au cabinet.",
+    "tertiaire": "Contre-indiquer toute nouvelle dose du vaccin ou composant en cause tant que l'allergologue n'a pas statué."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 5774,
+  "output_tokens": 21191,
+  "output_tokens_details": {
+   "thinking_tokens": 6376
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:58:05",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

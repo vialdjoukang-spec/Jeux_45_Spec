@@ -1,0 +1,1192 @@
+{
+ "id": "Z71.8_11__O7_5-E02",
+ "portes": [
+  {
+   "ssp": "O7.5",
+   "nomSSP": "Erreurs ou fautes d’un collègue ou d’un autre professionnel de santé",
+   "entite": "Défaut de communication ou de transmission lors d'un transfert de soins",
+   "entiteId": "O7.5-E02"
+  }
+ ],
+ "entite": "Défaut de communication ou de transmission lors d'un transfert de soins",
+ "cim10": "Z71.8",
+ "ssp": {
+  "code": "O7.5",
+  "nom": "Erreurs ou fautes d'un collègue ou d'un autre professionnel de santé",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Erreur ou faute d'un professionnel suspectée",
+    "i": "Point de départ du SSP O7.5 ; il faut d'abord trier l'urgence, puis l'intention, puis le mécanisme.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Erreur grave en cours au lit du patient ?",
+    "i": "Surdosage vital, voie erronée ou geste sur le mauvais côté exigent d'agir immédiatement.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : arrêter le geste ou le médicament",
+    "i": "Sort du cadre : entité « Erreur médicale aiguë grave en cours » du même SSP, avec action au lit du patient.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : intention de cacher un résultat ?",
+    "i": "La rétention ou dissimulation est intentionnelle, ce qui change la voie d'escalade.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Oui : rétention d'un résultat critique",
+    "i": "Sort du cadre : entité « Rétention ou dissimulation d'un résultat critique », avec escalade hiérarchique et cantonale.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Non : information perdue lors d'un transfert ?",
+    "i": "L'information existait chez un soignant mais n'a pas atteint celui qui devait agir.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Non : acte ou raisonnement erroné",
+    "i": "Sort du cadre : erreur de prescription, erreur diagnostique ou complication technique, selon l'entité du même SSP.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Oui : défaut de transmission",
+    "i": "Diagnostic positif retenu ; reste à évaluer le danger actuel pour le patient.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Résultat critique non suivi ou traitement essentiel interrompu ?",
+    "i": "Pathologie maligne, hémoculture positive, arrêt d'anticoagulant ou d'antiépileptique : danger immédiat.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "Oui : rattraper sans délai",
+    "i": "Contacter le patient, obtenir le résultat, traiter ou réhospitaliser, puis informer honnêtement.",
+    "pec": "rattrapage",
+    "notion": "c7"
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "Non : réconcilier et désigner un responsable",
+    "i": "Aucun danger immédiat, mais la liste des résultats en attente et le schéma médicamenteux doivent être sécurisés.",
+    "pec": "reconciliation",
+    "notion": "c5"
+   },
+   {
+    "id": "n12",
+    "parent": "n8",
+    "t": "Dans tous les cas : déclarer et corriger le système",
+    "i": "Déclarer dans CIRRNET ou localement et standardiser (I-PASS, lettre de sortie), selon le modèle de Reason.",
+    "pec": "prevention_systeme",
+    "notion": "c8"
+   }
+  ]
+ },
+ "specialites": [
+  "LEG",
+  "MIG"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Défaut de communication ou de transmission lors d'un transfert de soins (SSP O7.5)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition, moments à risque et fréquence",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Cherche d'abord le moment du transfert où une information critique a pu se perdre, puis vérifie qui devait agir.",
+   "tableau": {
+    "colonnes": [
+     "Moment à risque",
+     "Information typiquement perdue",
+     "Barrière principale"
+    ],
+    "lignes": [
+     [
+      "Admission",
+      "Traitement habituel réel du patient",
+      [
+       {
+        "t": "Meilleur schéma médicamenteux possible",
+        "i": "Croise au moins deux sources indépendantes, car le patient seul oublie ou déforme souvent des médicaments."
+       }
+      ]
+     ],
+     [
+      "Transfert interne",
+      "Problèmes actifs et actions en cours",
+      [
+       {
+        "t": "Transmission structurée orale et écrite",
+        "i": "Une transmission purement orale se perd, alors qu'un format fixe force à citer les points critiques."
+       }
+      ]
+     ],
+     [
+      "Relève de garde (surtout week-end)",
+      "Examens en attente et seuils d'alerte",
+      [
+       {
+        "t": "I-PASS avec synthèse reformulée",
+        "i": "La reformulation par le receveur prouve que l'information est comprise, ce que le simple envoi ne garantit pas."
+       }
+      ]
+     ],
+     [
+      "Sortie d'hôpital",
+      "Résultats en attente, modifications médicamenteuses",
+      [
+       {
+        "t": "Lettre de sortie le jour même",
+        "i": "Une lettre tardive arrive après la première consultation de contrôle et ne peut plus guider les décisions."
+       }
+      ]
+     ],
+     [
+      "Retour au médecin de famille",
+      "Responsable nominatif du suivi",
+      [
+       {
+        "t": "Désigner un responsable par résultat",
+        "i": "Sans nom attribué, chacun pense qu'un autre agit, ce qui laisse le résultat anormal sans suite."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Défaut de transmission : perte ou déformation involontaire d'une information clinique critique entre services, médecins, ou hôpital et médecin de famille.",
+    "Joint Commission : défauts de communication en cause racine dans plus de 60 % des événements sentinelles.",
+    "Environ 41 % des patients sortent avec des résultats en attente que le médecin traitant ignore souvent.",
+    "Les moments à risque comprennent admission, transfert, sortie, relève de garde et retour au cabinet, surtout le week-end."
+   ],
+   "sources": [
+    "Joint Commission, Sentinel Event Data",
+    "Roy et al., Ann Intern Med 2005",
+    "Fondation Sécurité des patients Suisse"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Mécanismes : diffusion de responsabilité et modèle de Reason",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Raisonne en système : une barrière percée explique l'événement, pas la faute d'un individu isolé.",
+   "tableau": {
+    "colonnes": [
+     "Mécanisme",
+     "Traduction concrète",
+     "Conséquence pour l'analyse"
+    ],
+    "lignes": [
+     [
+      "Diffusion de responsabilité",
+      "« Je pensais que le spécialiste s'en occupait »",
+      [
+       {
+        "t": "Résultat anormal sans responsable",
+        "i": "Chaque intervenant suppose qu'un autre agit, donc personne ne rappelle le patient ni ne traite."
+       }
+      ]
+     ],
+     [
+      "Modèle de Reason (fromage suisse)",
+      "Une couche de défense (lettre, appel, dossier) est percée",
+      [
+       {
+        "t": "Analyse systémique",
+        "i": "Plusieurs failles alignées produisent l'événement, donc corriger le processus protège plus que sanctionner une personne."
+       }
+      ]
+     ],
+     [
+      "Facteurs organisationnels",
+      "Lettres tardives, surcharge, interruptions, soins fragmentés",
+      [
+       {
+        "t": "Facteurs latents évitables",
+        "i": "Ils préexistent à l'incident et se corrigent par des processus standardisés, pas par la vigilance individuelle."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le biais d'attribution de responsabilité laisse un résultat sans suivi faute de responsable désigné.",
+    "Le modèle de Reason justifie une culture non punitive et une analyse systémique.",
+    "Surcharge, interruptions et fragmentation des soins favorisent la perte d'information."
+   ],
+   "sources": [
+    "Reason J., BMJ 2000",
+    "Fondation Sécurité des patients Suisse"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen clinique orientés",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Reconstitue ce qui devait se passer après le transfert, puis cherche la maladie restée sans traitement, sachant qu'un examen normal ne rassure pas.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Ce que le médecin cherche",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Examens et suivi",
+      "Examens faits sans résultat communiqué, rendez-vous prévus, référent identifié",
+      [
+       {
+        "t": "Patient ignorant des examens en attente",
+        "i": "Le patient ne peut signaler un résultat dont il ignore l'existence, donc il faut le demander activement."
+       }
+      ]
+     ],
+     [
+      "Médicaments",
+      "Schéma avec au moins deux sources : patient, boîtes, pharmacie, plan de médication, médecin de famille",
+      [
+       {
+        "t": "Source unique",
+        "i": "Une seule source reproduit l'erreur ou l'oubli du patient et laisse passer les divergences."
+       }
+      ]
+     ],
+     [
+      "Symptômes de la maladie non traitée",
+      "Fièvre après hémoculture positive, dyspnée ou douleur de jambe après arrêt d'anticoagulant, perte de poids",
+      [
+       {
+        "t": "Absence de symptômes",
+        "i": "Une tumeur ou une bactériémie peut rester longtemps asymptomatique, donc l'examen normal n'exclut pas le défaut."
+       }
+      ]
+     ],
+     [
+      "Compréhension du patient",
+      "Lettre de sortie reçue, changements compris, signes d'alerte connus",
+      [
+       {
+        "t": "Lettre non reçue",
+        "i": "Une lettre absente signale une rupture de la chaîne et risque d'autres omissions."
+       }
+      ]
+     ],
+     [
+      "Examen clinique",
+      "Constantes (fièvre, tachycardie, hypotension), signes de thrombose, décompensation de la maladie interrompue",
+      [
+       {
+        "t": "Réévaluation ciblée",
+        "i": "Se centre sur le motif d'hospitalisation et la pathologie dont le résultat ou le traitement est resté en suspens."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Demande quels examens ont été faits, quels rendez-vous existent et qui est le référent.",
+    "Établit le schéma médicamenteux avec au moins deux sources indépendantes.",
+    "Examine le patient à la recherche de la pathologie évolutive non traitée."
+   ],
+   "sources": [
+    "Fondation Sécurité des patients Suisse, progress! Sécurité de la médication aux interfaces"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Drapeaux rouges du défaut de transmission",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Quand un drapeau rouge apparaît, agis d'abord sur le patient, sans attendre d'établir qui a failli.",
+   "tableau": {
+    "colonnes": [
+     "Drapeau rouge",
+     "Risque",
+     "Action immédiate"
+    ],
+    "lignes": [
+     [
+      "Anatomopathologie maligne ou imagerie suspecte non communiquée",
+      "Retard oncologique",
+      [
+       {
+        "t": "Obtenir le rapport définitif et convoquer le patient",
+        "i": "Un cancer non annoncé perd des semaines de traitement, donc l'information doit arriver sans délai."
+       }
+      ]
+     ],
+     [
+      "Hémoculture ou microbiologie positive rendue après la sortie",
+      "Bactériémie, endocardite",
+      [
+       {
+        "t": "Rappeler le patient sans délai",
+        "i": "Sans antibiothérapie adaptée, la bactériémie évolue vers le sepsis ou l'endocardite."
+       }
+      ]
+     ],
+     [
+      "Arrêt non justifié d'anticoagulant, d'antiagrégant après stent, d'antiépileptique, de corticoïde ou d'insuline",
+      "Thrombose, crise, insuffisance surrénalienne, décompensation",
+      [
+       {
+        "t": "Rechercher l'indication puis reprendre",
+        "i": "Une interruption non justifiée est une erreur de transmission, car l'indication persiste tant qu'aucune justification n'existe."
+       }
+      ]
+     ],
+     [
+      "Lettre de sortie absente, tardive ou incomplète",
+      "Perte de résultats en attente et du responsable de suivi",
+      [
+       {
+        "t": "Réclamer la lettre ou téléphoner",
+        "i": "Une lettre qui omet résultats en attente et changements de traitement laisse le médecin récepteur sans repères."
+       }
+      ]
+     ],
+     [
+      "Découverte fortuite non reprise (nodule pulmonaire, masse surrénalienne, anévrisme)",
+      "Perte de suivi d'une lésion potentiellement grave",
+      [
+       {
+        "t": "Désigner un responsable du suivi",
+        "i": "Ces découvertes ne relèvent d'aucun motif d'hospitalisation, donc elles se perdent faute de propriétaire."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Résultat critique non transmis : action immédiate, avant toute recherche de responsabilité.",
+    "Médicament essentiel arrêté sans justification écrite : suspecter une erreur de transmission.",
+    "Découverte fortuite absente de la lettre : probable perte de suivi."
+   ],
+   "sources": [
+    "Roy et al., Ann Intern Med 2005",
+    "Fondation Sécurité des patients Suisse"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan : réconciliation médicamenteuse et suivi des résultats",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Le standard est la réconciliation écrite plus la liste nominative des résultats en attente, complétées par l'appel direct et les sources externes.",
+   "tableau": {
+    "colonnes": [
+     "Outil",
+     "Rôle",
+     "Limite"
+    ],
+    "lignes": [
+     [
+      "Réconciliation médicamenteuse",
+      "Compare traitement avant admission, hospitalier et de sortie, avec justification écrite de chaque modification",
+      [
+       {
+        "t": "Standard de référence",
+        "i": "Elle repère les divergences non intentionnelles, ce que ni l'appel ni le dossier seul ne garantissent."
+       }
+      ]
+     ],
+     [
+      "Liste des résultats en attente",
+      "Recense chaque résultat avec un responsable nominatif",
+      [
+       {
+        "t": "Responsable de suivi nominatif",
+        "i": "Le médecin qui prescrit l'examen reste responsable de son résultat, même après le transfert."
+       }
+      ]
+     ],
+     [
+      "Appel direct (SBAR)",
+      "Situation, Background, Assessment, Recommandation",
+      [
+       {
+        "t": "Dépend de la disponibilité du collègue",
+        "i": "Rapide et ciblé, il ne remplace pas une trace écrite dans le dossier."
+       }
+      ]
+     ],
+     [
+      "Contact laboratoire, pathologie, radiologie",
+      "Obtient le rapport définitif ou le dernier résultat",
+      [
+       {
+        "t": "Rapport définitif",
+        "i": "Le compte rendu provisoire peut différer du définitif, donc l'on demande la version validée."
+       }
+      ]
+     ],
+     [
+      "eMediplan (code QR) et historique de la pharmacie",
+      "Reconstituent le traitement réellement pris",
+      [
+       {
+        "t": "Traitement délivré, pas forcément pris",
+        "i": "La délivrance ne prouve pas la prise, donc elle complète sans remplacer l'entretien avec le patient."
+       }
+      ]
+     ],
+     [
+      "Dossier électronique du patient (LDEP)",
+      "Peut contenir les documents de sortie",
+      [
+       {
+        "t": "Consentement et usage limité",
+        "i": "L'accès exige le consentement du patient et l'ambulatoire l'utilise peu, donc il ne peut être la seule source."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le prescripteur d'un examen suit son résultat, normal ou pathologique.",
+    "SBAR structure l'appel au collègue ; I-PASS structure la relève.",
+    "eMediplan et la pharmacie reconstituent le traitement réel."
+   ],
+   "sources": [
+    "Fondation Sécurité des patients Suisse, progress!",
+    "LDEP (RS 816.1)",
+    "eMediplan"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Diagnostic positif et diagnostics différentiels dans O7.5",
+   "rubriques": [
+    "positiveDiagnosis"
+   ],
+   "comment": "Pose le diagnostic quand l'information existait chez un soignant mais n'a pas atteint celui qui devait agir, sans intention de la cacher.",
+   "tableau": {
+    "colonnes": [
+     "Entité rivale",
+     "Différence avec le défaut de transmission",
+     "Conséquence pratique"
+    ],
+    "lignes": [
+     [
+      "Erreur de prescription ou d'administration",
+      [
+       {
+        "t": "L'acte est incorrect",
+        "i": "Dans le défaut de transmission, l'acte reste correct mais l'information manque."
+       }
+      ],
+      "Analyser l'acte médicamenteux lui-même"
+     ],
+     [
+      "Erreur diagnostique par biais cognitif",
+      [
+       {
+        "t": "Le raisonnement est faussé",
+        "i": "Ici aucun biais cognitif du confrère ne fausse le raisonnement, l'information n'est simplement pas arrivée."
+       }
+      ],
+      "Revoir le raisonnement, pas la communication"
+     ],
+     [
+      "Rétention ou dissimulation d'un résultat critique",
+      [
+       {
+        "t": "Intentionnelle",
+        "i": "Le défaut de transmission est involontaire et systémique, la dissimulation est délibérée."
+       }
+      ],
+      "Escalade hiérarchique et voies disciplinaires"
+     ],
+     [
+      "Erreur médicale aiguë grave en cours",
+      [
+       {
+        "t": "Danger au lit du patient maintenant",
+        "i": "Elle exige une action immédiate au lit du patient, alors que le défaut se rattrape par un suivi."
+       }
+      ],
+      "Interrompre le geste ou le médicament sans délai"
+     ],
+     [
+      "Manquement au secret médical (art. 321 CP)",
+      [
+       {
+        "t": "Échange entre soignants impliqués",
+        "i": "Le consentement présumé du patient autorise l'échange entre soignants, sauf opposition du patient."
+       }
+      ],
+      "Transmettre sans craindre de violer le secret, sauf opposition"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Critère positif : information détenue par un soignant, non parvenue à celui qui devait agir, sans intention.",
+    "L'échange d'informations entre soignants impliqués repose sur le consentement présumé du patient.",
+    "Une intention de cacher oriente vers la rétention d'un résultat critique."
+   ],
+   "sources": [
+    "CP art. 321",
+    "Fondation Sécurité des patients Suisse"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Conduite devant un défaut de transmission avéré",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Sécurise le patient, informe-le honnêtement, aborde le collègue en privé, puis escalade seulement si le danger persiste.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Défaut de transmission avéré",
+     "i": "Le diagnostic positif est posé ; la priorité reste la sécurité du patient.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Sécuriser le patient",
+     "i": "Contacter le patient, obtenir le résultat, débuter le traitement ou réhospitaliser selon la gravité, avant toute recherche de responsabilité.",
+     "pec": "rattrapage",
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Informer le patient honnêtement",
+     "i": "Expliquer le retard, ses conséquences possibles et les mesures prises, présenter ses excuses, documenter l'entretien.",
+     "pec": "rattrapage",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Aborder le collègue concerné",
+     "i": "Entretien direct, factuel et non accusateur (SBAR), car l'événement est le plus souvent systémique.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Le collègue coopère et le danger cesse",
+     "i": "Le processus est corrigé à ce niveau, sans escalade nécessaire.",
+     "pec": "prevention_systeme",
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "Le collègue minimise ou le danger persiste",
+     "i": "Le risque pour les patients subsiste, donc l'on remonte au chef de service ou à la direction.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Danger toujours présent après la direction",
+     "i": "En dernier recours, informer l'autorité sanitaire cantonale (médecin cantonal).",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n1",
+     "t": "Consigner et déclarer",
+     "i": "Noter faits, mesures et information donnée sans spéculation ; déclarer de façon anonyme et non punitive dans le système local ou CIRRNET.",
+     "pec": "prevention_systeme",
+     "notion": "c8"
+    }
+   ],
+   "points": [
+    "Ordre : sécuriser le patient, l'informer, aborder le collègue, escalader si nécessaire.",
+    "Documenter les faits sans spéculation ni reproche.",
+    "Déclarer l'événement dans CIRRNET ou le système local, de manière anonyme et non punitive."
+   ],
+   "sources": [
+    "Fondation Sécurité des patients Suisse, CIRRNET",
+    "FMH, Code de déontologie",
+    "LPMed"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Prévention : standardiser transmissions, lettres et médication",
+   "rubriques": [
+    "chronicManagement",
+    "surveillance"
+   ],
+   "comment": "Remplace la vigilance individuelle par des processus standardisés et mesure leur mise en œuvre par des indicateurs.",
+   "tableau": {
+    "colonnes": [
+     "Outil",
+     "Contenu",
+     "Preuve ou indicateur"
+    ],
+    "lignes": [
+     [
+      "I-PASS",
+      "Gravité, résumé du patient, liste d'actions, anticipation, synthèse reformulée par le receveur",
+      [
+       {
+        "t": "−23 % d'erreurs médicales, −30 % d'événements évitables",
+        "i": "Résultat de l'étude pédiatrique multicentrique de Starmer, qui valide la transmission structurée."
+       }
+      ]
+     ],
+     [
+      "Lettre de sortie le jour de la sortie",
+      "Diagnostics, changements justifiés, résultats en attente, actions, responsable du suivi",
+      [
+       {
+        "t": "Au moins provisoire",
+        "i": "Une version provisoire le jour même vaut mieux qu'une lettre complète arrivée après le premier contrôle."
+       }
+      ]
+     ],
+     [
+      "progress! Sécurité de la médication aux interfaces",
+      "Réconciliation médicamenteuse lors des transferts",
+      [
+       {
+        "t": "Programme national",
+        "i": "Il est porté par la Fondation Sécurité des patients Suisse et s'applique aux transferts de soins."
+       }
+      ]
+     ],
+     [
+      "Read-back (boucle fermée)",
+      "Le receveur reformule l'information critique",
+      [
+       {
+        "t": "Vérifie la réception et la compréhension",
+        "i": "Elle détecte un malentendu au moment du transfert, avant qu'il ne produise un dommage."
+       }
+      ]
+     ],
+     [
+      "Indicateurs de suivi",
+      "Lettres envoyées à temps, résultats en attente suivis, divergences médicamenteuses",
+      [
+       {
+        "t": "Mesure du plan correctif",
+        "i": "Sans indicateur, l'on ignore si les corrections sont réellement appliquées."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "I-PASS réduit les erreurs médicales de 23 % et les événements évitables de 30 %.",
+    "La lettre de sortie, au moins provisoire, part le jour de la sortie.",
+    "Suivre trois indicateurs : lettres dans le délai, résultats en attente suivis, divergences médicamenteuses."
+   ],
+   "sources": [
+    "Starmer et al., NEJM 2014",
+    "Fondation Sécurité des patients Suisse, progress!"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Complications, responsabilité, pronostic et réseau",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Anticipe le préjudice clinique et juridique, puis soutient le patient et le soignant impliqué.",
+   "tableau": {
+    "colonnes": [
+     "Domaine",
+     "Conséquence",
+     "Précision"
+    ],
+    "lignes": [
+     [
+      "Clinique",
+      "Retard diagnostique oncologique ou infectieux, thrombo-embolie",
+      [
+       {
+        "t": "Endocardite sur bactériémie non traitée",
+        "i": "Une hémoculture positive ignorée permet l'infection de valve, d'où l'urgence du rappel."
+       }
+      ]
+     ],
+     [
+      "Médicamenteux",
+      "Événements indésirables après la sortie, réhospitalisations évitables",
+      [
+       {
+        "t": "Divergences non intentionnelles",
+        "i": "Une modification non justifiée ou un oubli de reprise provoque une décompensation évitable."
+       }
+      ]
+     ],
+     [
+      "Juridique",
+      "Responsabilité civile (art. 398 CO au cabinet, droit cantonal en hôpital public), pénale (art. 125 CP), disciplinaire (LPMed)",
+      [
+       {
+        "t": "Lésions par négligence",
+        "i": "L'art. 125 CP sanctionne la négligence, ce qui concerne un résultat critique laissé sans suite."
+       }
+      ]
+     ],
+     [
+      "Humain",
+      "Soignant « seconde victime »",
+      [
+       {
+        "t": "Soutien par les pairs",
+        "i": "L'institution propose un soutien, car la culpabilité de l'événement altère la pratique ultérieure."
+       }
+      ]
+     ],
+     [
+      "Réseau",
+      "Médecin de famille, équipe hospitalière, direction qualité, gestion des risques",
+      [
+       {
+        "t": "Médecin de famille pivot",
+        "i": "Il garde la vue d'ensemble après la sortie et centralise le suivi."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le pronostic du patient dépend de la rapidité de la correction.",
+    "Les processus standardisés réduisent le risque de récidive.",
+    "Responsabilités civile, pénale et disciplinaire peuvent s'appliquer en cas de préjudice."
+   ],
+   "sources": [
+    "CO art. 398",
+    "CP art. 125",
+    "LPMed",
+    "Fondation Sécurité des patients Suisse"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "rattrapage",
+   "titre": "Rattrapage urgent d'un résultat critique ou d'un traitement interrompu",
+   "but": [
+    "Sécuriser le patient en obtenant le résultat manquant et en débutant le traitement requis.",
+    "Informer honnêtement le patient et documenter l'événement."
+   ],
+   "moyens": {
+    "accueil": [
+     "Contacter le patient par téléphone sans délai et le convoquer ou l'orienter vers les urgences.",
+     "Évaluer les constantes et le risque vital avant tout entretien sur les responsabilités.",
+     "Prévoir un entretien calme avec un proche si le patient le souhaite."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Antibiothérapie IV adaptée à l'antibiogramme (hémoculture positive après la sortie)",
+      "posologie": "Choix, dose et durée selon germe, foyer et fonction rénale ; réhospitalisation si bactériémie, avis infectiologique, échocardiographie si suspicion d'endocardite.",
+      "pourquoi": "Une bactériémie non traitée évolue vers le sepsis ou l'endocardite, donc le traitement adapté ne doit pas attendre.",
+      "source": "AIPS Swissmedic ; SSI/SSInfect"
+     },
+     {
+      "molecule": "Énoxaparine (HBPM, anticoagulant)",
+      "posologie": "Traitement d'une thrombose : 1 mg/kg SC 2 fois/j ou 1,5 mg/kg SC 1 fois/j ; adapter si clairance de la créatinine < 30 ml/min ; reprise après avoir revu l'indication.",
+      "pourquoi": "Un arrêt non justifié d'anticoagulant expose à la thrombo-embolie, donc l'indication doit être revue et le traitement repris.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Obtenir le rapport définitif auprès du laboratoire, de la pathologie ou de la radiologie.",
+      "pourquoi": "Le rapport définitif valide le diagnostic avant d'agir et de l'annoncer au patient."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Annoncer le retard avec excuses, conséquences possibles et mesures prises.",
+      "pourquoi": "L'annonce honnête préserve la confiance et répond au devoir d'information."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Organiser la réhospitalisation si l'état l'exige.",
+      "pourquoi": "Une bactériémie ou une thrombose instable justifie une surveillance hospitalière."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre le devoir d'information, la documentation et les responsabilités civile, pénale et disciplinaire."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Soutient le patient et ses proches lors de l'annonce d'un diagnostic malin retardé."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Sécuriser le patient avant toute recherche de responsabilité.",
+      "Documenter les faits, sans spéculation ni reproche envers le collègue.",
+      "Déclarer l'événement de manière anonyme et non punitive."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Contacte le patient, évalue son état et obtient le résultat manquant."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Prépare l'admission et prélève les examens demandés."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Débute le traitement requis ou réhospitalise selon la gravité."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Informe honnêtement le patient, présente ses excuses et documente l'entretien."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Aborde le collègue concerné de façon factuelle, puis escalade si le danger persiste."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le pronostic dépend de la rapidité de la correction ; un rattrapage précoce limite le préjudice, un retard oncologique ou infectieux l'aggrave.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Constantes et évolution clinique",
+      "quand": "Dès le rappel puis selon la gravité",
+      "cible": "Apyrexie, stabilité hémodynamique"
+     },
+     {
+      "quoi": "Mise en œuvre du traitement requis",
+      "quand": "Dans les heures suivant le rappel",
+      "cible": "Traitement débuté et indication documentée"
+     },
+     {
+      "quoi": "Entretien d'information consigné au dossier",
+      "quand": "Le jour même",
+      "cible": "Faits, mesures et excuses documentés"
+     }
+    ],
+    "sortie": "Sortie ou maintien ambulatoire si le patient est stable, le traitement débuté, un responsable de suivi nommé et les rendez-vous fixés."
+   },
+   "prevention": {
+    "primaire": "Standardiser les transmissions et désigner un responsable pour chaque résultat en attente avant le transfert.",
+    "secondaire": "Détecter précocement les résultats rendus après la sortie par un suivi systématique des examens en attente.",
+    "tertiaire": "Limiter les séquelles du retard par un traitement rapide et une analyse systémique de l'événement."
+   }
+  },
+  {
+   "cle": "reconciliation",
+   "titre": "Défaut de transmission sans danger immédiat : réconciliation et suivi des résultats",
+   "but": [
+    "Reconstituer le traitement réel du patient et la liste des résultats en attente.",
+    "Désigner un responsable nominatif du suivi pour chaque résultat."
+   ],
+   "moyens": {
+    "accueil": [
+     "Demander au patient les examens faits, les rendez-vous prévus et son référent.",
+     "Vérifier s'il a reçu une lettre de sortie et s'il comprend les changements de traitement.",
+     "Réclamer la lettre de sortie ou téléphoner au service concerné."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Réaliser la réconciliation médicamenteuse avec au moins deux sources indépendantes.",
+      "pourquoi": "Les sources croisées repèrent les divergences non intentionnelles et exigent une justification écrite de chaque changement."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Appeler le collègue par SBAR et contacter laboratoire, pathologie ou radiologie.",
+      "pourquoi": "L'appel structuré obtient le contexte et le dernier résultat sans accuser personne."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer au patient les changements de traitement et les signes d'alerte à surveiller.",
+      "pourquoi": "Un patient informé détecte plus tôt une maladie restée sans traitement."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Utiliser eMediplan et l'historique de la pharmacie, puis le dossier électronique si le patient consent.",
+      "pourquoi": "Ces sources reconstituent le traitement délivré et complètent l'entretien."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Confirme que l'échange entre soignants repose sur le consentement présumé, sauf opposition du patient (art. 321 CP)."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Traiter l'événement comme une défaillance du système et non comme une faute individuelle.",
+      "Consigner la réconciliation et les responsables désignés au dossier."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Interroge le patient et réalise la réconciliation médicamenteuse avec deux sources."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Contacte la pharmacie pour l'historique de délivrance et le plan de médication."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Établit la liste des résultats en attente avec un responsable nominatif pour chacun."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Appelle le collègue par SBAR et relance laboratoire ou radiologie pour le rapport définitif."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Réévalue le patient pour la maladie en suspens et fixe le prochain rendez-vous."
+      }
+     ]
+    }
+   },
+   "pronostic": "Favorable si la divergence est corrigée avant toute décompensation ; le risque tient aux résultats restés sans responsable.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Résultats en attente",
+      "quand": "Jusqu'à réception de chaque résultat",
+      "cible": "Tous reçus, lus et communiqués"
+     },
+     {
+      "quoi": "Divergences médicamenteuses",
+      "quand": "À chaque transfert et au contrôle",
+      "cible": "Aucune divergence non justifiée"
+     },
+     {
+      "quoi": "Réévaluation clinique",
+      "quand": "Au contrôle fixé",
+      "cible": "Absence de pathologie évolutive non traitée"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : aucun résultat critique ni traitement essentiel interrompu, patient stable avec responsables de suivi nommés."
+   },
+   "prevention": {
+    "primaire": "Exiger une lettre de sortie complète le jour de la sortie, avec responsable du suivi et résultats en attente.",
+    "secondaire": "Réconcilier systématiquement les médicaments à chaque transfert pour dépister les divergences.",
+    "tertiaire": "Revoir l'événement en analyse systémique et déclarer dans CIRRNET pour éviter la récidive."
+   }
+  },
+  {
+   "cle": "prevention_systeme",
+   "titre": "Long cours : standardisation des transmissions et culture de sécurité",
+   "but": [
+    "Réduire la récidive par des processus standardisés de transmission.",
+    "Soutenir les soignants impliqués et mesurer la mise en œuvre."
+   ],
+   "moyens": {
+    "accueil": [
+     "Présenter l'événement en analyse systémique non punitive.",
+     "Proposer un soutien par les pairs au soignant devenu seconde victime."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Implanter I-PASS pour la relève, avec synthèse reformulée par le receveur.",
+      "pourquoi": "I-PASS a réduit de 23 % les erreurs médicales et de 30 % les événements évitables."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Exiger la lettre de sortie, au moins provisoire, le jour de la sortie.",
+      "pourquoi": "Elle contient résultats en attente, changements justifiés et responsable du suivi."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Appliquer progress! pour la réconciliation médicamenteuse aux interfaces et le read-back pour l'information critique.",
+      "pourquoi": "Ces outils vérifient la réception et la compréhension des informations."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Déclarer l'événement dans CIRRNET ou le système local, de manière anonyme.",
+      "pourquoi": "La déclaration alimente l'apprentissage du système sans punir l'individu."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Éclaire les responsabilités civile (art. 398 CO), pénale (art. 125 CP) et disciplinaire (LPMed)."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Impliquer médecin de famille, équipe hospitalière, direction qualité et gestion des risques.",
+      "Mesurer par indicateurs plutôt que par impression."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "direction qualité",
+       "fait": "Analyse l'événement selon le modèle de Reason et identifie les barrières percées."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Met en place I-PASS, lettre de sortie le jour même et responsable du suivi par résultat."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "pharmacien·ne",
+       "fait": "Applique la réconciliation médicamenteuse selon progress! à chaque transfert."
+      },
+      {
+       "temps": "puis",
+       "qui": "direction qualité",
+       "fait": "Contrôle les indicateurs : lettres dans le délai, résultats suivis, divergences médicamenteuses."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin de famille",
+       "fait": "Reçoit la lettre, assure le suivi et signale toute lacune à l'équipe hospitalière."
+      }
+     ]
+    }
+   },
+   "pronostic": "Les processus standardisés réduisent efficacement le risque de récidive ; I-PASS a diminué de 30 % les événements évitables dans l'étude pédiatrique multicentrique.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Lettres de sortie envoyées dans le délai",
+      "quand": "Mensuel",
+      "cible": "Proportion élevée envoyée le jour de la sortie"
+     },
+     {
+      "quoi": "Résultats en attente suivis avec responsable nominatif",
+      "quand": "Mensuel",
+      "cible": "Aucun résultat sans responsable"
+     },
+     {
+      "quoi": "Divergences médicamenteuses non justifiées",
+      "quand": "Par audit périodique",
+      "cible": "Diminution vs mesure initiale"
+     },
+     {
+      "quoi": "Déclarations CIRRNET et local",
+      "quand": "En continu",
+      "cible": "Analyse systémique de chaque événement"
+     }
+    ],
+    "sortie": "Sans objet à l'hôpital : plan institutionnel poursuivi tant que les indicateurs ne se stabilisent pas à la cible."
+   },
+   "prevention": {
+    "primaire": "Standardiser la relève et les transferts (I-PASS, SBAR, read-back) avant tout événement.",
+    "secondaire": "Dépister les failles de transmission par audit des lettres, des résultats en attente et des divergences.",
+    "tertiaire": "Soutenir par les pairs le soignant seconde victime et corriger les processus après chaque événement."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 5860,
+  "output_tokens": 16796,
+  "output_tokens_details": {
+   "thinking_tokens": 3280
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:54",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

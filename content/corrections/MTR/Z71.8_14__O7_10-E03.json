@@ -1,0 +1,1516 @@
+{
+ "id": "Z71.8_14__O7_10-E03",
+ "portes": [
+  {
+   "ssp": "O7.10",
+   "nomSSP": "Demande de consentement éclairé pour une intervention",
+   "entite": "Information thérapeutique et consentement médicamenteux",
+   "entiteId": "O7.10-E03"
+  }
+ ],
+ "entite": "Information thérapeutique et consentement médicamenteux",
+ "cim10": "Z71.8",
+ "ssp": {
+  "code": "O7.10",
+  "nom": "Demande de consentement éclairé pour une intervention",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "O7.10 Demande de consentement éclairé pour un traitement ou une intervention",
+    "i": "Porte d'entrée : un patient ou le médecin sollicite un accord avant un traitement médicamenteux à risque ou un geste.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Urgence vitale, patient incapable, directives inconnues ?",
+    "i": "Si on ne peut attendre, on applique l'art. 379 CC avant toute autre démarche.",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : traiter selon volonté présumée et intérêts",
+    "i": "Renvoie à l'entité « Urgence vitale avec incapacité de discernement (art. 379 CC) » du même SSP.",
+    "pec": "pec_urgence",
+    "notion": "c7"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : patient capable de discernement pour cette décision ?",
+    "i": "La capacité est présumée et relative à l'acte ; on la juge sur la compréhension, l'appréciation, le raisonnement et le choix stable.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Non : directives anticipées puis représentant (art. 378 CC)",
+    "i": "Renvoie aux entités « Évaluation de la capacité de discernement » et « Consentement représenté par proche ou curateur (art. 378 CC) » du même SSP.",
+    "pec": "pec_consentement",
+    "notion": "c7"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Oui : situation particulière ?",
+    "i": "On cherche une barrière linguistique, un mineur ou un geste hors du cadre médicamenteux.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Patient allophone",
+    "i": "Un interprète professionnel est obligatoire ; renvoie à l'entité « Consentement éclairé chez patient allophone » du même SSP.",
+    "pec": "pec_consentement",
+    "notion": "c6"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Mineur capable de discernement",
+    "i": "Il consent seul pour un droit strictement personnel (art. 19c CC) ; renvoie à l'entité « Consentement du mineur » du même SSP.",
+    "pec": "pec_consentement",
+    "notion": "c7"
+   },
+   {
+    "id": "n9",
+    "parent": "n6",
+    "t": "Chirurgie, anesthésie, geste invasif, transfusion, recherche, génétique",
+    "i": "Sort du cadre médicamenteux : renvoie aux entités correspondantes du même SSP (chirurgie élective, geste diagnostique, transfusion, LRH, LAGH).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n10",
+    "parent": "n6",
+    "t": "Traitement médicamenteux à risque : quelle molécule ?",
+    "i": "La molécule détermine l'information renforcée et le document exigé.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Valproate ou isotrétinoïne chez une femme en âge de procréer",
+    "i": "Le programme de prévention de la grossesse s'applique : contraception, test de grossesse, formulaire signé.",
+    "pec": "pec_teratogene",
+    "notion": "c5"
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Anticoagulant oral",
+    "i": "On informe sur saignements, AINS et oubli, puis on remet une carte de patient.",
+    "pec": "pec_consentement",
+    "notion": "c4"
+   },
+   {
+    "id": "n13",
+    "parent": "n10",
+    "t": "Biothérapie, chimiothérapie ou psychotrope",
+    "i": "On dépiste TB latente et hépatite B avant biothérapie ou chimiothérapie et on informe sur infections et fertilité.",
+    "pec": "pec_consentement",
+    "notion": "c4"
+   },
+   {
+    "id": "n14",
+    "parent": "n10",
+    "t": "Usage hors étiquette ou traitement coûteux",
+    "i": "On informe du hors étiquette et des coûts ; la garantie préalable de l'assureur est requise (art. 71a–d OAMal).",
+    "pec": "pec_longcours",
+    "notion": "c9"
+   },
+   {
+    "id": "n15",
+    "parent": "n10",
+    "t": "Traitement en cours : renouvellement d'ordonnance",
+    "i": "Le consentement n'est pas définitif ; on réévalue indication, adhésion et préférences.",
+    "pec": "pec_longcours",
+    "notion": "c9"
+   },
+   {
+    "id": "n16",
+    "parent": "n10",
+    "t": "Effet indésirable grave, hémorragie ou grossesse sous traitement",
+    "i": "On traite l'événement, on inverse l'anticoagulant si besoin, puis on informe et on documente.",
+    "pec": "pec_urgence",
+    "notion": "c8"
+   },
+   {
+    "id": "n17",
+    "parent": "n10",
+    "t": "Le patient refuse ou révoque son accord",
+    "i": "Le refus éclairé est respecté et documenté ; on propose des alternatives et une nouvelle discussion.",
+    "pec": "pec_consentement",
+    "notion": "c7"
+   }
+  ]
+ },
+ "specialites": [
+  "MTR",
+  "TOX"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Information thérapeutique et consentement médicamenteux (SSP O7.10)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Cadre juridique et validité du consentement médicamenteux",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Raisonne en quatre conditions cumulatives : capacité de discernement pour cet acte, information adéquate, liberté de décision et preuve conservée au dossier.",
+   "tableau": {
+    "colonnes": [
+     "Condition de validité",
+     "Exigence",
+     "Piège fréquent"
+    ],
+    "lignes": [
+     [
+      "Capacité de discernement",
+      [
+       {
+        "t": "Présumée, mais jugée pour cette décision précise",
+        "i": "Art. 16 CC : la capacité est relative à l'acte ; un patient peut choisir un anticoagulant sans pouvoir décider d'une chimiothérapie complexe."
+       }
+      ],
+      [
+       {
+        "t": "Confondre avec un diagnostic ou une mesure de protection",
+        "i": "Un diagnostic de démence ne suffit pas ; seule l'évaluation fonctionnelle (comprendre, apprécier, raisonner, exprimer un choix stable) tranche."
+       }
+      ]
+     ],
+     [
+      "Information adéquate",
+      [
+       {
+        "t": "Diagnostic, but, bénéfices, risques, alternatives, abstention, contraintes, coûts",
+        "i": "L'art. 377 al. 2 CC énumère ces éléments ; l'omission d'un seul rend le consentement contestable."
+       }
+      ],
+      [
+       {
+        "t": "Se contenter d'un formulaire signé",
+        "i": "La signature ne prouve pas la compréhension ; le médecin porte le fardeau de la preuve d'une information suffisante."
+       }
+      ]
+     ],
+     [
+      "Liberté du consentement",
+      [
+       {
+        "t": "Aucune pression des proches, de l'employeur ou de l'assureur",
+        "i": "Un accord obtenu sous pression n'est pas libre et ne couvre pas l'atteinte à l'intégrité (art. 10 Cst., art. 28 CC)."
+       }
+      ],
+      [
+       {
+        "t": "Présenter une seule option comme évidente",
+        "i": "Taire les alternatives ou l'abstention supprime le choix et fausse la décision."
+       }
+      ]
+     ],
+     [
+      "Forme et preuve",
+      [
+       {
+        "t": "Accord oral, voire tacite, suffisant en droit fédéral",
+        "i": "Le droit fédéral n'exige pas d'écrit ; certains programmes (valproate), la LRH et des droits cantonaux l'imposent toutefois."
+       }
+      ],
+      [
+       {
+        "t": "Ne rien noter au dossier",
+        "i": "Sans note datée du contenu, des questions et de la décision, le médecin ne peut pas prouver l'information donnée."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Tout traitement sans consentement valable constitue une atteinte illicite à la personnalité (art. 28 CC) et engage la responsabilité civile du médecin.",
+    "Le consentement hypothétique ne peut être invoqué que de façon limitée par le médecin qui a omis d'informer.",
+    "Un défaut d'information expose aussi à des plaintes et à des mesures disciplinaires cantonales.",
+    "Les molécules à risque (anticoagulants, tératogènes, biothérapies, chimiothérapies, psychotropes) sont souvent prescrites au long cours en ambulatoire et exigent une information renforcée."
+   ],
+   "sources": [
+    "Art. 10 Cst. ; art. 16, 28 et 377 CC",
+    "ASSM, Capacité de discernement dans la pratique médicale (2019)"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Contenu de l'information et perception du risque",
+   "rubriques": [
+    "definition",
+    "basicSciences"
+   ],
+   "comment": "Annonce chaque risque avec la catégorie de fréquence de l'AIPS traduite en nombres absolus, car le risque relatif exagère l'effet perçu.",
+   "tableau": {
+    "colonnes": [
+     "Catégorie AIPS",
+     "Seuil de fréquence",
+     "Formulation conseillée au patient"
+    ],
+    "lignes": [
+     [
+      "Très fréquent",
+      [
+       {
+        "t": "≥ 1/10",
+        "i": "Au moins un patient sur dix est concerné ; le patient doit s'y attendre et le médecin l'annonce en premier."
+       }
+      ],
+      [
+       {
+        "t": "« Plus de 10 personnes sur 100 »",
+        "i": "Les nombres naturels sont mieux compris que les pourcentages ou les réductions de risque relatif."
+       }
+      ]
+     ],
+     [
+      "Fréquent",
+      [
+       {
+        "t": "≥ 1/100 et < 1/10",
+        "i": "Effet banal en consultation ; il pèse sur l'adhésion s'il n'est pas annoncé."
+       }
+      ],
+      [
+       {
+        "t": "« 1 à 10 personnes sur 100 »",
+        "i": "Une fourchette en nombres absolus évite la fausse précision et reste comparable entre options."
+       }
+      ]
+     ],
+     [
+      "Occasionnel",
+      [
+       {
+        "t": "≥ 1/1000 et < 1/100",
+        "i": "Il reste assez probable pour figurer dans l'entretien d'un traitement chronique."
+       }
+      ],
+      [
+       {
+        "t": "« 1 à 10 personnes sur 1000 »",
+        "i": "La même base de comparaison permet de confronter risque du traitement et risque de l'abstention."
+       }
+      ]
+     ],
+     [
+      "Rare",
+      [
+       {
+        "t": "≥ 1/10 000 et < 1/1000",
+        "i": "Le médecin cite les effets rares graves (par exemple hémorragie, hépatotoxicité), car leur gravité justifie l'information malgré la faible fréquence."
+       }
+      ],
+      [
+       {
+        "t": "« 1 à 10 personnes sur 10 000 »",
+        "i": "Seule une formulation absolue évite que le patient surestime ou minimise le risque."
+       }
+      ]
+     ],
+     [
+      "Très rare",
+      [
+       {
+        "t": "< 1/10 000",
+        "i": "Le médecin les mentionne s'ils sont graves ou si une alerte existe ; il ne les énumère pas tous."
+       }
+      ],
+      [
+       {
+        "t": "« Moins de 1 personne sur 10 000 »",
+        "i": "Elle replace le risque dans un ordre de grandeur compréhensible."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'information couvre diagnostic, but, bénéfices attendus, risques, alternatives, conséquences d'une abstention et contraintes du traitement.",
+    "Le médecin privilégie les fréquences absolues et évite de présenter seulement la réduction du risque relatif.",
+    "Il adapte le vocabulaire aux valeurs, croyances et niveau de compréhension du patient."
+   ],
+   "sources": [
+    "AIPS Swissmedic, catégories de fréquence",
+    "Art. 377 al. 2 CC"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Décision partagée en trois temps et outils",
+   "rubriques": [
+    "basicSciences",
+    "workupAlternatives",
+    "prognosisDischarge"
+   ],
+   "comment": "Conduis l'entretien en team talk, option talk puis decision talk, et contrôle la compréhension par teach-back avant de conclure.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Décision partagée avant traitement à risque",
+     "i": "Le modèle de shared decision making améliore l'observance et la sécurité par rapport à une simple remise d'ordonnance.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Team talk : annoncer qu'un choix existe",
+     "i": "Le patient comprend qu'il est acteur de la décision et que l'abstention est aussi une option.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Option talk : comparer les options en nombres absolus",
+     "i": "Bénéfices, risques et contraintes de chaque option sont comparés avec des fréquences absolues, éventuellement avec un decision aid.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Decision talk : décider selon les préférences du patient",
+     "i": "Le choix reflète les valeurs, projets (grossesse) et mode de vie, pas seulement l'avis du médecin.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Teach-back : le patient reformule risques et signes d'alerte",
+     "i": "Seule la reformulation prouve la compréhension réelle ; « avez-vous compris ? » ne suffit pas.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Reformulation correcte",
+     "i": "Le consentement est considéré valable ; on documente et on remet plan de médication et carte d'alerte.",
+     "pec": "pec_consentement",
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n5",
+     "t": "Reformulation incorrecte",
+     "i": "On réexplique, on engage un interprète professionnel ou un decision aid ; un proche ne remplace pas l'interprète.",
+     "pec": null,
+     "notion": null
+    }
+   ],
+   "points": [
+    "Les decision aids et brochures validées complètent l'entretien mais ne le remplacent pas.",
+    "Le pharmacien d'officine renforce l'information à la remise ; l'eMediplan ou le dossier électronique du patient partage le plan.",
+    "Le consentement médicamenteux se renouvelle à chaque modification du traitement, contrairement au consentement chirurgical à geste unique.",
+    "Une information partagée de qualité améliore adhésion et satisfaction et réduit les événements iatrogènes."
+   ],
+   "sources": [
+    "Elwyn et al., modèle de décision partagée (team, option, decision talk)",
+    "Art. 377 CC"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Anamnèse et examen avant de prescrire",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Cherche, pour chaque classe à risque, l'élément d'anamnèse qui modifie le rapport bénéfice-risque, puis vérifie contre-indications et discernement.",
+   "tableau": {
+    "colonnes": [
+     "Classe à risque",
+     "À rechercher",
+     "Pourquoi cela change la décision"
+    ],
+    "lignes": [
+     [
+      "Anticoagulants",
+      [
+       {
+        "t": "AINS, phytothérapie, autres médicaments, antécédents hémorragiques",
+        "i": "Ces facteurs majorent le risque de saignement et peuvent contre-indiquer ou faire changer la molécule."
+       }
+      ],
+      [
+       {
+        "t": "Le patient connaît-il les signes de saignement et la conduite en cas d'oubli ?",
+        "i": "Une méconnaissance rend le saignement évitable et se corrige par teach-back."
+       }
+      ]
+     ],
+     [
+      "Tératogènes (valproate, isotrétinoïne)",
+      [
+       {
+        "t": "Grossesse en cours, projet de grossesse, contraception utilisée",
+        "i": "Chez toute femme en âge de procréer, ces trois éléments conditionnent l'accès au traitement."
+       }
+      ],
+      [
+       {
+        "t": "Test de grossesse avant prescription",
+        "i": "Il exclut une exposition fœtale déjà présente avant d'initier la molécule."
+       }
+      ]
+     ],
+     [
+      "Biothérapies et chimiothérapies",
+      [
+       {
+        "t": "Dépistage de tuberculose latente et d'hépatite B, infections, désir d'enfant",
+        "i": "L'immunosuppression réactive une tuberculose ou une hépatite B ; la fertilité peut être altérée."
+       }
+      ],
+      [
+       {
+        "t": "Information sur infections et fertilité",
+        "i": "Son absence constitue une lacune d'information, y compris proposition de préservation de la fertilité."
+       }
+      ]
+     ],
+     [
+      "Tous traitements",
+      [
+       {
+        "t": "Attentes, peurs d'effets secondaires, valeurs, mode de vie, croyances",
+        "i": "Ces éléments guident l'adaptation de l'information et la préférence finale du patient."
+       }
+      ],
+      [
+       {
+        "t": "Capacité de discernement pour cette décision et langue maîtrisée",
+        "i": "La capacité est présumée mais relative à l'acte ; une barrière linguistique impose un interprète professionnel."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'examen clinique vérifie les contre-indications et la capacité de discernement : comprendre, apprécier, raisonner, exprimer un choix stable.",
+    "Le teach-back contrôle la compréhension réelle des risques et des signes d'alerte."
+   ],
+   "sources": [
+    "ASSM, Capacité de discernement dans la pratique médicale (2019)",
+    "AIPS Swissmedic, informations professionnelles"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Drapeaux rouges d'un consentement non éclairé",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Repère les situations où le risque est évitable par l'information : tératogène sans programme, anticoagulant mal compris, patient non informé, dépistage omis.",
+   "tableau": {
+    "colonnes": [
+     "Drapeau rouge",
+     "Conséquence",
+     "Conduite attendue"
+    ],
+    "lignes": [
+     [
+      "Valproate ou isotrétinoïne sans programme de prévention",
+      [
+       {
+        "t": "Exposition fœtale évitable",
+        "i": "Valproate in utero : environ 10 % de malformations congénitales et 30–40 % de troubles neurodéveloppementaux."
+       }
+      ],
+      [
+       {
+        "t": "Appliquer le programme avant toute prescription",
+        "i": "Contraception efficace, test de grossesse et formulaire annuel signé réduisent l'exposition."
+       }
+      ]
+     ],
+     [
+      "Anticoagulant sans information sur saignement, AINS, oubli",
+      [
+       {
+        "t": "Saignement évitable",
+        "i": "Un AINS ou une dose doublée après oubli augmente le risque hémorragique sans que le patient le sache."
+       }
+      ],
+      [
+       {
+        "t": "Carte de patient et teach-back",
+        "i": "La carte précise molécule, indication et dose, et guide la conduite en cas de saignement ou de geste invasif."
+       }
+      ]
+     ],
+     [
+      "Patient allophone, confus ou qui ne reformule pas",
+      [
+       {
+        "t": "Information non reçue",
+        "i": "Un patient qui ne reformule pas n'est pas considéré comme informé, même avec un formulaire signé."
+       }
+      ],
+      [
+       {
+        "t": "Interprète professionnel, évaluation du discernement",
+        "i": "Un proche ne remplace pas l'interprète ; il n'est utilisé qu'en dernier recours."
+       }
+      ]
+     ],
+     [
+      "Biothérapie ou chimiothérapie sans dépistage TB latente et hépatite B",
+      [
+       {
+        "t": "Réactivation infectieuse",
+        "i": "L'immunosuppression peut réactiver une tuberculose latente ou une hépatite B."
+       }
+      ],
+      [
+       {
+        "t": "Dépister avant de débuter et informer",
+        "i": "Le dépistage et l'information sur infections et fertilité précèdent la première dose."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le défaut d'information entraîne non-observance, toxicité évitable, grossesse exposée et saignement évitable.",
+    "Chaque drapeau rouge correspond à une information manquante, donc évitable."
+   ],
+   "sources": [
+    "AIPS Swissmedic, informations professionnelles (valproate, isotrétinoïne)",
+    "Swissmedic, programme de prévention de la grossesse"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Standard de documentation, programmes et outils",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Associe entretien de décision partagée, plan de médication écrit et document propre à la molécule, puis note le tout au dossier.",
+   "tableau": {
+    "colonnes": [
+     "Traitement",
+     "Document ou examen exigé",
+     "Rythme"
+    ],
+    "lignes": [
+     [
+      "Valproate chez la femme en âge de procréer",
+      [
+       {
+        "t": "Contraception efficace, test de grossesse, formulaire d'accord signé",
+        "i": "Le programme exige que la patiente atteste connaître le risque malformatif et neurodéveloppemental."
+       }
+      ],
+      [
+       {
+        "t": "Formulaire renouvelé chaque année",
+        "i": "Le consentement n'est pas définitif et la situation reproductive évolue."
+       }
+      ]
+     ],
+     [
+      "Isotrétinoïne chez la femme en âge de procréer",
+      [
+       {
+        "t": "Contraception efficace, tests de grossesse, formulaire d'accord",
+        "i": "La tératogénicité est majeure ; aucun traitement sans grossesse exclue."
+       }
+      ],
+      [
+       {
+        "t": "Test de grossesse mensuel sous traitement",
+        "i": "Une grossesse peut survenir à tout moment malgré la contraception."
+       }
+      ]
+     ],
+     [
+      "Anticoagulants oraux",
+      [
+       {
+        "t": "Carte de patient : molécule, indication, dose",
+        "i": "Elle informe tout soignant en cas de saignement, d'urgence ou de geste invasif."
+       }
+      ],
+      [
+       {
+        "t": "Remise à l'initiation, mise à jour à chaque changement",
+        "i": "Une carte périmée est dangereuse, par exemple pour l'antidote ou la reprise."
+       }
+      ]
+     ],
+     [
+      "Tout traitement à risque",
+      [
+       {
+        "t": "Plan de médication (eMediplan ou dossier électronique) et note au dossier",
+        "i": "La note du contenu, des questions, de la décision et de la date constitue la preuve de l'information."
+       }
+      ],
+      [
+       {
+        "t": "À chaque modification du traitement",
+        "i": "Le consentement médicamenteux est répété et évolutif."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le standard est un entretien de décision partagée suivi d'un plan de médication écrit et d'une fiche ou carte d'alerte.",
+    "Un interprète communautaire professionnel est engagé pour le patient allophone.",
+    "Les decision aids, brochures et le pharmacien complètent l'entretien sans le remplacer."
+   ],
+   "sources": [
+    "Swissmedic, programme de prévention de la grossesse (valproate, isotrétinoïne)",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Qui consent ? Capacité, représentation, urgence",
+   "rubriques": [
+    "positiveDiagnosis",
+    "acuteManagement"
+   ],
+   "comment": "Décide d'abord de la capacité de discernement pour cet acte, puis du mineur, des directives anticipées, du représentant de l'art. 378 CC ou de l'urgence de l'art. 379 CC.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Qui peut consentir à ce traitement ?",
+     "i": "Le consentement valable dépend d'abord de la capacité de discernement pour cette décision.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Patient capable de discernement ?",
+     "i": "La capacité est présumée et relative à l'acte ; elle suppose comprendre, apprécier, raisonner et exprimer un choix stable.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : le patient consent seul, même mineur",
+     "i": "Le mineur capable consent seul pour un droit strictement personnel (art. 19c CC) ; il peut aussi refuser, renoncer ou révoquer.",
+     "pec": "pec_consentement",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non : incapable de discernement",
+     "i": "L'incapacité relève de la représentation, pas du consentement personnel.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Urgence et directives anticipées inconnues ?",
+     "i": "Si on ne peut attendre, la volonté présumée et les intérêts du patient guident le traitement (art. 379 CC).",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Oui : traiter selon volonté présumée et intérêts",
+     "i": "Le médecin agit sans représentant, documente et informe le patient ou le représentant dès que possible.",
+     "pec": "pec_urgence",
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n5",
+     "t": "Non : consulter directives anticipées ou mandat pour cause d'inaptitude",
+     "i": "Le médecin respecte la volonté exprimée (art. 370 ss CC) sauf doute sérieux sur sa validité ou son caractère libre.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n7",
+     "t": "Aucune directive : représentant selon l'art. 378 CC",
+     "i": "Ordre : personne désignée, curateur de représentation, conjoint ou partenaire, personne du ménage, descendants, parents, fratrie ; le médecin établit le plan de traitement avec lui (art. 377 CC).",
+     "pec": "pec_consentement",
+     "notion": null
+    },
+    {
+     "id": "n9",
+     "parent": "n8",
+     "t": "Aucun représentant ou conflit : saisir l'autorité de protection (APEA)",
+     "i": "L'APEA nomme un curateur de représentation (art. 381 CC) lorsqu'aucun représentant n'est disponible ou en cas de désaccord.",
+     "pec": null,
+     "notion": null
+    }
+   ],
+   "points": [
+    "Le consentement est valable lorsque le patient capable donne, après information, un accord libre, oral ou même tacite.",
+    "Le patient peut refuser, renoncer à l'information ou révoquer son consentement à tout moment ; le médecin documente ce refus éclairé."
+   ],
+   "sources": [
+    "Art. 19c, 370–373, 377–381 CC",
+    "ASSM, Directives anticipées"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Prise en charge aiguë : effet indésirable grave, hémorragie, grossesse",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Dans l'urgence, traite d'abord l'événement avec l'antidote adapté à la molécule, puis informe, documente et déclare.",
+   "tableau": {
+    "colonnes": [
+     "Situation aiguë",
+     "Geste",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Effet indésirable grave déjà expliqué",
+      [
+       {
+        "t": "Suspendre ou réévaluer le traitement, prendre en charge l'événement, documenter",
+        "i": "L'information préalable n'exempte pas de réagir ; la réévaluation tient compte de l'indication et du risque d'arrêt."
+       }
+      ],
+      [
+       {
+        "t": "Déclarer à Swissmedic via ElViS ou le centre régional",
+        "i": "Les effets graves ou inattendus doivent être déclarés par les professionnels de santé."
+       }
+      ]
+     ],
+     [
+      "Hémorragie grave sous dabigatran",
+      [
+       {
+        "t": "Idarucizumab 5 g i.v.",
+        "i": "C'est l'antidote spécifique du dabigatran, il le lie et l'inactive directement."
+       }
+      ],
+      [
+       {
+        "t": "Pas de vitamine K",
+        "i": "La vitamine K n'agit pas sur un inhibiteur direct de la thrombine."
+       }
+      ]
+     ],
+     [
+      "Hémorragie grave sous phenprocoumon",
+      [
+       {
+        "t": "Vitamine K i.v. et complexe prothrombinique",
+        "i": "La vitamine K corrige lentement (heures) ; le complexe prothrombinique restitue immédiatement les facteurs vitamine K-dépendants."
+       }
+      ],
+      [
+       {
+        "t": "Contrôle de l'INR",
+        "i": "L'INR vérifie l'efficacité de l'inversion."
+       }
+      ]
+     ],
+     [
+      "Grossesse découverte sous tératogène",
+      [
+       {
+        "t": "Réévaluation urgente, arrêt ou substitution avec avis spécialisé",
+        "i": "Un arrêt brutal peut être dangereux (valproate et crises d'épilepsie) ; la décision se prend vite avec le spécialiste."
+       }
+      ],
+      [
+       {
+        "t": "Information complète sur le risque fœtal",
+        "i": "La patiente décide en connaissance de cause avec gynécologue-obstétricien et service d'information sur les tératogènes."
+       }
+      ]
+     ],
+     [
+      "Urgence, incapacité de discernement, pas de directives",
+      [
+       {
+        "t": "Traiter selon volonté présumée et intérêts (art. 379 CC)",
+        "i": "On n'attend pas un représentant lorsque le retard menace la vie ou la santé."
+       }
+      ],
+      [
+       {
+        "t": "Documenter et informer ensuite",
+        "i": "Le dossier justifie la décision et le représentant est informé dès que possible."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'urgence autorise le traitement sans consentement explicite seulement en cas d'incapacité de discernement et de nécessité d'agir sans délai.",
+    "Dabigatran : idarucizumab ; phenprocoumon : vitamine K et complexe prothrombinique."
+   ],
+   "sources": [
+    "AIPS Swissmedic (Praxbind, Konakion, complexe prothrombinique)",
+    "Art. 379 CC"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Long cours : réévaluation, hors étiquette, coûts, suivi et réseau",
+   "rubriques": [
+    "chronicManagement",
+    "hospitalizationComplications",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "Réévalue le consentement à chaque renouvellement, informe sur hors étiquette et coûts, programme le suivi selon la molécule et coordonne le réseau.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Règle",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Renouvellement d'ordonnance",
+      [
+       {
+        "t": "Réévaluer indication, adhésion et préférences",
+        "i": "Le consentement n'est pas définitif ; les valeurs, projets de grossesse et comorbidités changent."
+       }
+      ],
+      [
+       {
+        "t": "Renouveler l'information à chaque changement de traitement",
+        "i": "Une nouvelle molécule ou dose crée de nouveaux risques à expliquer."
+       }
+      ]
+     ],
+     [
+      "Usage hors étiquette",
+      [
+       {
+        "t": "Informer le patient du caractère hors étiquette",
+        "i": "Les preuves et le cadre de sécurité diffèrent de ceux de l'AIPS."
+       }
+      ],
+      [
+       {
+        "t": "Obtenir la garantie préalable de l'assureur après avis du médecin-conseil",
+        "i": "Les art. 71a–d OAMal conditionnent le remboursement LAMal à cette garantie."
+       }
+      ]
+     ],
+     [
+      "Coûts et couverture",
+      [
+       {
+        "t": "Expliciter l'information économique avant un traitement coûteux ou non remboursé",
+        "i": "Le patient décide aussi selon ses moyens ; l'information porte sur les coûts et la couverture."
+       }
+      ],
+      [
+       {
+        "t": "Documenter",
+        "i": "La note protège le médecin et évite un litige ultérieur."
+       }
+      ]
+     ],
+     [
+      "Suivi programmé",
+      [
+       {
+        "t": "INR sous phenprocoumon, cible habituelle 2–3",
+        "i": "Cet intervalle équilibre risque thrombotique et hémorragique."
+       }
+      ],
+      [
+       {
+        "t": "Tests de grossesse mensuels sous isotrétinoïne",
+        "i": "Ils détectent précocement une grossesse sous tératogène."
+       }
+      ]
+     ],
+     [
+      "Responsabilité et réseau",
+      [
+       {
+        "t": "Médecin de famille coordonnateur, pharmacien et spécialiste partagent plan et alertes",
+        "i": "Le partage évite doublons, interactions et informations contradictoires."
+       }
+      ],
+      [
+       {
+        "t": "Une omission d'information engage la responsabilité civile et disciplinaire",
+        "i": "Elle s'ajoute aux complications cliniques évitables."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Les complications d'un défaut d'information sont la non-observance, la toxicité évitable, la grossesse exposée et le saignement évitable.",
+    "Les effets indésirables graves ou inattendus se déclarent à Swissmedic via ElViS et les centres régionaux de pharmacovigilance."
+   ],
+   "sources": [
+    "Art. 71a–d OAMal",
+    "Swissmedic, ElViS et pharmacovigilance",
+    "AIPS Swissmedic"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "pec_consentement",
+   "titre": "Consentement médicamenteux éclairé en ambulatoire (anticoagulant, biothérapie, chimiothérapie, psychotrope)",
+   "but": [
+    "Obtenir un accord libre, éclairé et documenté du patient capable de discernement avant un traitement à risque.",
+    "Vérifier par teach-back que le patient comprend bénéfices, risques et signes d'alerte."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installer le patient au calme, avec un interprète professionnel si nécessaire.",
+     "Prévoir assez de temps et inviter un proche si le patient le souhaite.",
+     "Vérifier d'emblée la capacité de discernement pour cette décision."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Phenprocoumon (anticoagulant antivitamine K), exemple de molécule à risque",
+      "posologie": "Per os ; dose initiale puis d'entretien adaptées à l'INR (cible habituelle 2–3), sans dose fixe ; contrôles rapprochés à l'initiation, puis espacés.",
+      "pourquoi": "Un anticoagulant illustre le risque hémorragique évitable : il impose information renforcée, carte de patient, attention aux AINS et suivi programmé de l'INR.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Mène un entretien en team talk, option talk et decision talk avec des fréquences absolues.",
+      "pourquoi": "La décision partagée améliore l'adhésion et évite la surestimation du risque relatif."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Fait reformuler au patient les risques et les signes d'alerte (teach-back).",
+      "pourquoi": "Seule la reformulation prouve la compréhension réelle de l'information."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Remet un plan de médication (eMediplan) et une carte ou fiche d'alerte.",
+      "pourquoi": "Le support écrit renforce la mémorisation et partage l'information avec les autres soignants."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Note au dossier le contenu de l'information, les questions, la décision et la date.",
+      "pourquoi": "Le médecin porte le fardeau de la preuve et l'écrit n'est pas exigé par le droit fédéral."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre le consentement (art. 10 Cst., 28 et 377 CC), la preuve de l'information et la responsabilité du prescripteur."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Éclaire l'information sur les coûts et la couverture LAMal du traitement envisagé."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Présumer la capacité de discernement mais la vérifier pour cette décision précise.",
+      "Utiliser un interprète professionnel plutôt qu'un proche chez le patient allophone.",
+      "Respecter le droit de refuser, de renoncer à l'information et de révoquer."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue la capacité de discernement, la langue et les attentes, peurs, projets et médicaments du patient."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Prépare plan de médication, carte d'alerte et documents d'aide à la décision."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Présente options, risques en nombres absolus et alternatives, y compris l'abstention."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Reformule risques et signes d'alerte, puis choisit selon ses valeurs."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Documente l'information, la décision et la date, puis remet les documents."
+      },
+      {
+       "temps": "puis",
+       "qui": "pharmacien d'officine",
+       "fait": "Renforce l'information à la remise et contrôle les interactions."
+      }
+     ]
+    }
+   },
+   "pronostic": "Une information partagée de qualité améliore l'adhésion thérapeutique et la satisfaction et réduit les événements iatrogènes évitables.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Compréhension et adhésion",
+      "quand": "À chaque consultation et renouvellement",
+      "cible": "Teach-back correct, conduite en cas d'oubli connue"
+     },
+     {
+      "quoi": "INR sous phenprocoumon",
+      "quand": "Rapproché à l'initiation, puis espacé selon stabilité",
+      "cible": "Cible habituelle 2–3"
+     },
+     {
+      "quoi": "Signes de saignement ou effets indésirables",
+      "quand": "À chaque contact",
+      "cible": "Aucun événement non signalé ; déclaration ElViS si grave ou inattendu"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : patient capable de discernement, teach-back correct, plan de médication et carte remis, consentement documenté."
+   },
+   "prevention": {
+    "primaire": "Informe avant toute prescription à risque et identifie les facteurs modifiant le rapport bénéfice-risque.",
+    "secondaire": "Détecte précocement non-observance et effets indésirables par des contrôles programmés.",
+    "tertiaire": "Réévalue régulièrement l'indication pour limiter les séquelles d'un traitement devenu inadapté."
+   }
+  },
+  {
+   "cle": "pec_teratogene",
+   "titre": "Programme de prévention de la grossesse (valproate, isotrétinoïne)",
+   "but": [
+    "Éviter toute exposition fœtale en s'assurant que la patiente comprend le risque tératogène.",
+    "Prescrire seulement si le programme est appliqué et l'accord annuel signé."
+   ],
+   "moyens": {
+    "accueil": [
+     "Aborder sans jugement le projet de grossesse, la sexualité et la contraception.",
+     "Recevoir la patiente seule pour garantir sa liberté de décision.",
+     "Expliquer d'emblée que le traitement dépend du programme de prévention."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Contraception hautement efficace (DIU au cuivre ou au lévonorgestrel, implant à l'étonogestrel)",
+      "posologie": "Posée avant le début du traitement ; à défaut, deux méthodes complémentaires dont une barrière ; durée selon le dispositif.",
+      "pourquoi": "Le programme exige une contraception efficace pendant tout le traitement, car l'échec de méthodes dépendantes de la prise expose le fœtus.",
+      "source": "Swissmedic, programme de prévention de la grossesse"
+     },
+     {
+      "molecule": "Isotrétinoïne (rétinoïde)",
+      "posologie": "Per os, 0,5 mg/kg/j initialement, adaptée jusqu'à 1 mg/kg/j selon réponse et tolérance ; contraception et tests de grossesse imposés.",
+      "pourquoi": "Tératogène majeur : sa prescription chez une femme en âge de procréer n'est acceptable que dans le cadre strict du programme.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Valproate (antiépileptique, thymorégulateur)",
+      "posologie": "Dose minimale efficace individualisée ; formulaire d'accord signé et réévaluation de l'indication au moins une fois par an.",
+      "pourquoi": "Environ 10 % de malformations et 30–40 % de troubles neurodéveloppementaux après exposition in utero justifient d'évaluer d'abord les alternatives.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Fait réaliser un test de grossesse négatif avant la prescription puis mensuellement sous isotrétinoïne.",
+      "pourquoi": "Il exclut une grossesse initiale et détecte précocement un échec contraceptif."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Remet la brochure du programme et fait reformuler le risque par la patiente.",
+      "pourquoi": "La compréhension réelle précède la signature du formulaire."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Fait signer le formulaire annuel d'accord sur la connaissance des risques et le consigne au dossier.",
+      "pourquoi": "Le programme l'exige et il prouve l'information donnée."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Précise l'obligation d'information renforcée et la responsabilité en cas d'exposition fœtale évitable."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Chercher grossesse, projet de grossesse et contraception chez toute femme en âge de procréer.",
+      "Envisager des alternatives non tératogènes avant de prescrire.",
+      "Ne jamais initier le traitement sans programme appliqué."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Recherche projet de grossesse et contraception et propose les alternatives thérapeutiques."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Réalise le test de grossesse et prépare brochure et formulaire."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Explique le risque fœtal chiffré, les alternatives et la nécessité d'une contraception efficace."
+      },
+      {
+       "temps": "puis",
+       "qui": "gynécologue",
+       "fait": "Pose ou organise la contraception efficace avant le début du traitement."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Reformule le risque puis signe le formulaire annuel d'accord."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Planifie tests de grossesse mensuels (isotrétinoïne) et renouvellement annuel du formulaire (valproate)."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le respect du programme prévient l'exposition fœtale ; sans programme, le valproate expose à environ 10 % de malformations et à 30–40 % de troubles neurodéveloppementaux.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Test de grossesse",
+      "quand": "Mensuel sous isotrétinoïne",
+      "cible": "Négatif à chaque contrôle"
+     },
+     {
+      "quoi": "Contraception et adhésion",
+      "quand": "À chaque consultation",
+      "cible": "Méthode efficace en place, aucun oubli"
+     },
+     {
+      "quoi": "Formulaire d'accord sur les risques",
+      "quand": "Chaque année sous valproate",
+      "cible": "Signé et daté"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : test de grossesse négatif, contraception efficace en place, formulaire signé, risque reformulé par la patiente."
+   },
+   "prevention": {
+    "primaire": "Privilégie les alternatives non tératogènes et informe toute femme en âge de procréer avant la première prescription.",
+    "secondaire": "Dépiste précocement une grossesse par tests réguliers et contrôle de la contraception.",
+    "tertiaire": "Organise le suivi spécialisé de la grossesse et du développement de l'enfant exposé."
+   }
+  },
+  {
+   "cle": "pec_urgence",
+   "titre": "Urgence : effet indésirable grave, hémorragie, grossesse sous tératogène, patient incapable",
+   "but": [
+    "Stabiliser le patient et traiter l'événement sans délai.",
+    "Respecter volonté présumée et directives anticipées lorsque le patient ne peut pas consentir."
+   ],
+   "moyens": {
+    "accueil": [
+     "Évaluer ABCDE et identifier la molécule en cause.",
+     "Rechercher carte de patient, plan de médication, directives anticipées et personne de confiance.",
+     "Mobiliser un interprète professionnel si la langue empêche l'évaluation."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Idarucizumab (antidote du dabigatran)",
+      "posologie": "5 g i.v. en deux flacons de 2,5 g, perfusions successives ou bolus, dose unique.",
+      "pourquoi": "C'est l'antidote spécifique du dabigatran lors d'une hémorragie grave ou d'une intervention urgente.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Phytoménadione (vitamine K)",
+      "posologie": "5–10 mg i.v. lente lors d'une hémorragie grave sous phenprocoumon ; contrôle de l'INR.",
+      "pourquoi": "Elle rétablit la synthèse hépatique des facteurs vitamine K-dépendants, mais son effet complet demande plusieurs heures.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Complexe prothrombinique humain",
+      "posologie": "Dose selon l'INR et le poids corporel, conformément à l'AIPS.",
+      "pourquoi": "Il restitue immédiatement les facteurs II, VII, IX et X lors d'une hémorragie grave sous antivitamine K.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réalise l'hémostase locale et recherche la source du saignement.",
+      "pourquoi": "Un antidote ne remplace pas le contrôle de la source hémorragique."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Suspend le traitement en cause et surveille les paramètres vitaux.",
+      "pourquoi": "L'arrêt stoppe l'exposition au produit responsable ; la surveillance détecte une aggravation."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Documente l'événement et déclare les effets graves ou inattendus via ElViS.",
+      "pourquoi": "La déclaration alimente la pharmacovigilance suisse."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre le traitement sans consentement explicite (art. 379 CC) et la documentation de la volonté présumée."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Agir sans attendre un représentant lorsque le retard menace la vie ou la santé.",
+      "Respecter les directives anticipées connues.",
+      "Informer patient ou représentant dès que possible."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue ABCDE, identifie la molécule en cause et la capacité de discernement."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose une voie veineuse et prélève hémoglobine, INR, groupe sanguin et test de grossesse."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Administre l'antidote adapté : idarucizumab sous dabigatran, vitamine K et complexe prothrombinique sous phenprocoumon."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Recherche directives anticipées et représentant ; sinon applique la volonté présumée (art. 379 CC)."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Évalue une grossesse sous tératogène et décide de l'arrêt ou de la substitution, sans arrêt brutal inapproprié."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Informe patient ou représentant, documente et déclare l'effet grave via ElViS."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le pronostic dépend de la rapidité de l'inversion ou de l'arrêt du traitement ; un événement évitable révèle souvent un défaut d'information préalable.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Hémodynamique et hémoglobine",
+      "quand": "Répété pendant l'hémorragie, puis à 6 et 24 heures selon la gravité",
+      "cible": "Stable, sans nouvelle chute"
+     },
+     {
+      "quoi": "INR après vitamine K et complexe prothrombinique",
+      "quand": "Après l'inversion",
+      "cible": "Correction vérifiée"
+     },
+     {
+      "quoi": "Décision de reprise du traitement",
+      "quand": "Après hémostase, avec le spécialiste",
+      "cible": "Indication réévaluée, information renouvelée, consentement documenté"
+     }
+    ],
+    "sortie": "Sortie après hémostase stable, hémodynamique normale, cause identifiée, décision de reprise ou d'arrêt prise, patient informé et événement documenté et déclaré."
+   },
+   "prevention": {
+    "primaire": "Informe avant toute prescription sur signes de saignement, AINS, oubli et risque fœtal.",
+    "secondaire": "Détecte précocement saignement ou grossesse grâce à la carte de patient et aux contrôles programmés.",
+    "tertiaire": "Réévalue l'indication et le suivi après l'événement pour éviter une récidive."
+   }
+  },
+  {
+   "cle": "pec_longcours",
+   "titre": "Long cours : renouvellement, hors étiquette, coûts et pharmacovigilance",
+   "but": [
+    "Maintenir un consentement valide et actualisé tout au long du traitement.",
+    "Adapter le traitement aux préférences et à l'évolution du patient.",
+    "Garantir transparence sur hors étiquette, coûts et sécurité."
+   ],
+   "moyens": {
+    "accueil": [
+     "Revoir le patient avant chaque renouvellement d'ordonnance.",
+     "Demander ce qui a changé : symptômes, projets, médicaments, préférences."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Réévalue indication, adhésion et préférences au renouvellement et refait un teach-back.",
+      "pourquoi": "Le consentement n'est pas définitif et la compréhension s'érode avec le temps."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Informe du caractère hors étiquette et demande la garantie préalable de l'assureur.",
+      "pourquoi": "Les art. 71a–d OAMal exigent cette garantie après avis du médecin-conseil."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Explicite coûts et couverture avant un traitement coûteux ou non remboursé.",
+      "pourquoi": "Le patient décide aussi selon sa situation financière."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Déclare les effets indésirables graves ou inattendus via ElViS et partage le plan de médication.",
+      "pourquoi": "La pharmacovigilance et la coordination réduisent les événements évitables."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise la garantie préalable, l'avis du médecin-conseil et la prise en charge LAMal."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Rappelle que le consentement se renouvelle à chaque modification et que la documentation protège le médecin."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Considérer le consentement comme un processus répété.",
+      "Coordonner médecin de famille, spécialiste et pharmacien autour d'un plan de médication unique."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Réévalue indication, adhésion, préférences et tolérance au renouvellement."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Informe de tout changement de molécule ou de dose et renouvelle l'accord."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Demande la garantie de l'assureur avant un usage hors étiquette et explique les coûts."
+      },
+      {
+       "temps": "puis",
+       "qui": "pharmacien d'officine",
+       "fait": "Contrôle interactions et automédication et renforce l'information à la remise."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Déclare à Swissmedic via ElViS les effets graves ou inattendus."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin de famille",
+       "fait": "Partage le plan à jour (eMediplan ou dossier électronique) avec le spécialiste."
+      }
+     ]
+    }
+   },
+   "pronostic": "Une réévaluation régulière et une information partagée maintiennent l'adhésion et réduisent les événements iatrogènes évitables.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Indication, adhésion et préférences",
+      "quand": "À chaque renouvellement d'ordonnance",
+      "cible": "Indication confirmée, préférences documentées"
+     },
+     {
+      "quoi": "Paramètres propres à la molécule (INR, tests de grossesse)",
+      "quand": "Selon le programme de la molécule",
+      "cible": "INR habituellement 2–3 sous phenprocoumon ; tests de grossesse négatifs"
+     },
+     {
+      "quoi": "Effets indésirables et interactions",
+      "quand": "À chaque contact, avec le pharmacien",
+      "cible": "Aucun effet grave non pris en charge ni déclaré"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : aucun critère d'hospitalisation ; suivi programmé et plan de médication partagé avec le réseau."
+   },
+   "prevention": {
+    "primaire": "Informe sur hors étiquette, coûts et risques avant chaque nouvelle molécule.",
+    "secondaire": "Détecte précocement non-observance, interactions et effets indésirables lors des contrôles programmés.",
+    "tertiaire": "Arrête ou remplace un traitement devenu inadapté pour limiter les séquelles iatrogènes."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 5567,
+  "output_tokens": 34027,
+  "output_tokens_details": {
+   "thinking_tokens": 15671
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:58:06",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

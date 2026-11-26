@@ -1,0 +1,1379 @@
+{
+ "id": "T51.1__F2_1-E10",
+ "portes": [
+  {
+   "ssp": "S9.13",
+   "nomSSP": "Usage non médical de substances, addictions : tabac, alcool, substances illégales, médicaments contrôlés, jeux d’argent et jeux vidéo",
+   "entite": "Intoxication aiguë par alcool frelaté (méthanol / éthylène glycol)",
+   "entiteId": "S9.13-E15"
+  },
+  {
+   "ssp": "F2.1",
+   "nomSSP": "Gaz du sang anormaux",
+   "entite": "Intoxication aux alcools toxiques (méthanol, éthylène glycol)",
+   "entiteId": "F2.1-E10"
+  }
+ ],
+ "entite": "Intoxication aux alcools toxiques (méthanol, éthylène glycol)",
+ "cim10": "T51.1",
+ "ssp": {
+  "code": "F2.1",
+  "nom": "Gaz du sang anormaux",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Gaz du sang anormaux",
+    "i": "On lit dans l'ordre le pH, la pCO2, les bicarbonates puis la pO2.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "pH < 7,35 : acidémie",
+    "i": "Le pH inférieur à 7,35 définit l'acidémie ; le sens de la pCO2 donne ensuite son origine.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "pH > 7,45 : alcalémie",
+    "i": "Hors cadre : on renvoie aux entités alcalose respiratoire (hyperventilation) ou métabolique (vomissements, diurétiques) du SSP.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "Hypoxémie sans trouble du pH",
+    "i": "Hors cadre : on renvoie au SSP de la dyspnée et de l'hypoxémie (pneumonie, SDRA, embolie pulmonaire, CO, méthémoglobinémie).",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n5",
+    "parent": "n2",
+    "t": "pCO2 haute : acidose respiratoire",
+    "i": "Hors cadre : BPCO compensée ou épuisement respiratoire, renvoi aux entités respiratoires du SSP.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n6",
+    "parent": "n2",
+    "t": "HCO3 bas, pCO2 basse : acidose métabolique",
+    "i": "La polypnée de Kussmaul compense l'acidose métabolique ; la formule de Winter vérifie la compensation.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Trou anionique normal",
+    "i": "Acidose hyperchlorémique : pertes digestives ou rénales de bicarbonates.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Trou anionique > 12 mmol/L",
+    "i": "Il indique la présence d'anions non mesurés : lactate, cétones, formiate, glycolate.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Lactate, cétones, créatinine ou salicylémie anormaux",
+    "i": "Une cause habituelle est trouvée : acidose lactique, acidocétose, urémique ou salicylés ; on traite la cause.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Aucune cause trouvée : calcul du trou osmolaire",
+    "i": "Trou osmolaire = osmolalité mesurée − calculée ; seuil de 10 mOsm/kg.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Trou osmolaire ≤ 10, suspicion faible",
+    "i": "L'alcool toxique est peu probable ; on poursuit la recherche d'une autre cause d'acidose.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Trou osmolaire > 10 ou forte suspicion tardive : alcool toxique",
+    "i": "Le tableau d'acidose à trou anionique et trou osmolaire élevés constitue une urgence immédiate.",
+    "pec": "urgence_antidote",
+    "notion": "c4"
+   },
+   {
+    "id": "n13",
+    "parent": "n12",
+    "t": "Fomépizole IV dès la suspicion, appel à Tox Info Suisse (145)",
+    "i": "On ne retarde jamais l'antidote pour attendre le dosage du toxique.",
+    "pec": "urgence_antidote",
+    "notion": "c7"
+   },
+   {
+    "id": "n14",
+    "parent": "n12",
+    "t": "Troubles visuels, coma, IRA ou pH ≤ 7,15 / 7,25 : hémodialyse",
+    "i": "Ces critères de gravité imposent l'épuration immédiate.",
+    "pec": "hemodialyse",
+    "notion": "c8"
+   },
+   {
+    "id": "n15",
+    "parent": "n12",
+    "t": "Patient stabilisé : suivi ophtalmologique, rénal et psychiatrique",
+    "i": "Les séquelles peuvent apparaître tardivement et l'ingestion peut être volontaire.",
+    "pec": "suivi_long_cours",
+    "notion": "c9"
+   }
+  ]
+ },
+ "specialites": [
+  "TOX"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Intoxication aux alcools toxiques (méthanol, éthylène glycol) : acidose à trou anionique et trou osmolaire élevés",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Alcools toxiques : toxicité par les métabolites",
+   "rubriques": [
+    "definition",
+    "basicSciences"
+   ],
+   "comment": "Raisonne en deux temps : le composé parent est peu toxique et responsable du trou osmolaire, tandis que ses métabolites acides sont responsables du trou anionique et des lésions d'organe.",
+   "tableau": {
+    "colonnes": [
+     "Toxique",
+     "Métabolite toxique",
+     "Organe cible",
+     "Dose dangereuse",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Méthanol",
+      [
+       {
+        "t": "Acide formique (formiate)",
+        "i": "L'alcool déshydrogénase oxyde le méthanol en formaldéhyde puis en formiate, qui inhibe la cytochrome oxydase et élève aussi le lactate."
+       }
+      ],
+      [
+       {
+        "t": "Rétine, nerf optique, putamens",
+        "i": "Le formiate est particulièrement toxique pour le nerf optique et les noyaux gris centraux, d'où cécité et syndrome parkinsonien."
+       }
+      ],
+      [
+       {
+        "t": "10 mL : cécité ; 30 mL : létal",
+        "i": "Ces doses de méthanol pur chez l'adulte expliquent qu'une petite gorgée d'alcool frelaté puisse suffire."
+       }
+      ],
+      [
+       {
+        "t": "Acide folinique accélère l'élimination",
+        "i": "L'élimination humaine du formiate dépend des folates ; l'acide folinique accélère sa conversion en CO2 et en eau."
+       }
+      ]
+     ],
+     [
+      "Éthylène glycol",
+      [
+       {
+        "t": "Glycolate puis oxalate",
+        "i": "Le glycolate cause l'essentiel de l'acidose ; l'oxalate précipite avec le calcium en cristaux d'oxalate de calcium."
+       }
+      ],
+      [
+       {
+        "t": "Rein, cerveau, cœur",
+        "i": "Les cristaux obstruent et nécrosent les tubules, d'où l'insuffisance rénale ; l'hypocalcémie touche le myocarde (QT long)."
+       }
+      ],
+      [
+       {
+        "t": "1–1,5 mL/kg (environ 100 mL)",
+        "i": "C'est la dose létale d'éthylène glycol pur chez l'adulte ; l'antigel en contient presque pur."
+       }
+      ],
+      [
+       {
+        "t": "Thiamine + pyridoxine",
+        "i": "Ces cofacteurs dévient le glyoxylate vers des métabolites moins toxiques que l'oxalate."
+       }
+      ]
+     ],
+     [
+      "Isopropanol",
+      [
+       {
+        "t": "Acétone",
+        "i": "L'isopropanol est transformé en acétone, composé peu acide."
+       }
+      ],
+      [
+       {
+        "t": "SNC, muqueuse gastrique",
+        "i": "Il provoque sédation et gastrite, mais ni atteinte rétinienne ni atteinte rénale."
+       }
+      ],
+      [
+       {
+        "t": "Pas de seuil clé à retenir",
+        "i": "La prise en charge repose sur le soutien ; aucun antidote n'est nécessaire."
+       }
+      ],
+      [
+       {
+        "t": "Trou osmolaire et cétose sans acidose marquée",
+        "i": "L'absence d'acide fort explique le trou anionique normal ; on ne le confond pas avec le méthanol."
+       }
+      ]
+     ],
+     [
+      "Éthanol (co-ingestion)",
+      [
+       {
+        "t": "Aucun métabolite toxique en cause",
+        "i": "L'éthanol est lui-même un substrat de l'alcool déshydrogénase, avec une affinité supérieure."
+       }
+      ],
+      [
+       {
+        "t": "SNC",
+        "i": "Il donne l'ivresse initiale, qui masque ou retarde la symptomatologie."
+       }
+      ],
+      [
+       {
+        "t": "Éthanolémie à soustraire du trou osmolaire",
+        "i": "L'éthanol contribue lui-même au trou osmolaire ; il faut le doser pour interpréter l'écart."
+       }
+      ],
+      [
+       {
+        "t": "Intervalle libre jusqu'à plus de 24 h",
+        "i": "En entrant en compétition avec l'alcool déshydrogénase, l'éthanol retarde la formation des métabolites toxiques."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le méthanol et l'éthylène glycol sont peu toxiques eux-mêmes : leurs métabolites acides causent l'acidose et les lésions.",
+    "Le méthanol atteint rétine et putamens ; l'éthylène glycol atteint le rein, le cerveau et le cœur.",
+    "L'isopropanol donne un trou osmolaire et une cétose, sans acidose ni atteinte rétinienne ou rénale.",
+    "L'éthanol, par compétition sur l'alcool déshydrogénase, retarde l'apparition des symptômes."
+   ],
+   "sources": [
+    "Tox Info Suisse",
+    "Manuel de toxicologie clinique"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Contexte, anamnèse et chronologie",
+   "rubriques": [
+    "epidemiology",
+    "anamnesis"
+   ],
+   "comment": "Cherche l'ingestion (produit, quantité, heure, éthanol associé, intention), mais rappelle-toi que l'anamnèse est souvent trompeuse et que l'intervalle libre masque la gravité.",
+   "tableau": {
+    "colonnes": [
+     "Phase",
+     "Méthanol",
+     "Éthylène glycol"
+    ],
+    "lignes": [
+     [
+      "0–12 h",
+      [
+       {
+        "t": "Ivresse modérée puis intervalle libre de 6–24 h",
+        "i": "La toxicité vient des métabolites et non du méthanol parent ; l'éthanol associé peut allonger l'intervalle au-delà de 24 h."
+       }
+      ],
+      [
+       {
+        "t": "Ivresse sans odeur d'éthanol, ataxie, nystagmus, convulsions",
+        "i": "Le composé parent agit sur le SNC comme l'éthanol, sans haleine éthylique."
+       }
+      ]
+     ],
+     [
+      "12–24 h",
+      [
+       {
+        "t": "Vision floue, « tempête de neige », photophobie, céphalées, douleurs abdominales",
+        "i": "Le formiate s'accumule et lèse le nerf optique ; les symptômes digestifs accompagnent l'acidose."
+       }
+      ],
+      [
+       {
+        "t": "Phase cardiopulmonaire : tachycardie, hypertension, œdème pulmonaire",
+        "i": "L'acidose et les dépôts d'oxalate atteignent le myocarde et le poumon."
+       }
+      ]
+     ],
+     [
+      "24–72 h",
+      [
+       {
+        "t": "Cécité, coma, atteinte des putamens",
+        "i": "Sans traitement, l'acidose et les lésions neurologiques progressent."
+       }
+      ],
+      [
+       {
+        "t": "Douleurs lombaires, oligurie",
+        "i": "Les cristaux d'oxalate de calcium nécrosent les tubules rénaux avec un retard de 24 à 72 h."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Les causes sont l'ingestion accidentelle (antigel, lave-glace, solvant, alcool frelaté), la substitution chez le patient alcoolodépendant ou la tentative de suicide.",
+    "Ces intoxications sont rares en Suisse ; Tox Info Suisse (145, 24 h/24) conseille les médecins.",
+    "L'interrogatoire recherche le produit, la quantité, l'heure, l'éthanol associé, l'intention suicidaire et l'emballage.",
+    "L'anamnèse est peu fiable : une acidose à trou anionique élevé inexpliquée impose de rechercher un alcool toxique."
+   ],
+   "sources": [
+    "Tox Info Suisse",
+    "Manuel de toxicologie clinique"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Examen clinique selon le toxique",
+   "rubriques": [
+    "clinicalExam"
+   ],
+   "comment": "Examine la respiration, la vision, le neurologique, le cœur et les loges lombaires, car chaque toxique a sa signature.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La polypnée de Kussmaul (ample, rapide) traduit la compensation respiratoire d'une acidose métabolique sévère.",
+    "Le méthanol donne une baisse d'acuité visuelle, une mydriase peu réactive et une hyperémie ou un œdème papillaire au fond d'œil.",
+    "L'éthylène glycol donne d'abord ataxie, nystagmus et dysarthrie, puis convulsions ou coma ; ensuite tachycardie, hypertension et œdème pulmonaire.",
+    "La phase rénale de l'éthylène glycol montre une sensibilité lombaire, une hématurie et une oligo-anurie.",
+    "L'hypocalcémie peut provoquer tétanie, signe de Chvostek et allongement du QT."
+   ],
+   "sources": [
+    "Tox Info Suisse",
+    "Manuel de toxicologie clinique"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Raisonnement : de l'acidose au trou osmolaire",
+   "rubriques": [
+    "presumptionRedFlags",
+    "positiveDiagnosis"
+   ],
+   "comment": "Suis la séquence acidose métabolique, trou anionique, exclusion des causes habituelles puis trou osmolaire, et traite sans attendre le dosage si la suspicion est forte.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Acidose métabolique (pH < 7,35, HCO3 bas)",
+     "i": "Une pCO2 abaissée avec bicarbonates bas confirme une acidose métabolique ; la formule de Winter (1,5 × HCO3 + 8 ± 2) vérifie la compensation.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Trou anionique (Na − Cl − HCO3) > 12 mmol/L ?",
+     "i": "Un trou anionique élevé indique des anions non mesurés (formiate, glycolate, lactate, cétones).",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Non : acidose hyperchlorémique",
+     "i": "Un trou anionique normal oriente vers des pertes digestives ou rénales de bicarbonates, pas vers un alcool toxique.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Oui : causes habituelles exclues ? (lactate, cétones, créatinine, salicylémie)",
+     "i": "Ces dosages écartent acidocétose, acidose lactique, urémique et intoxication aux salicylés.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Cause trouvée : traiter la cause",
+     "i": "Les autres acidoses élèvent le trou anionique mais ne majorent que modestement le trou osmolaire.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "Aucune cause : mesurer le trou osmolaire",
+     "i": "Trou osmolaire = osmolalité mesurée (cryoscopie) − (2 × Na + glycémie + urée) ; l'éthanolémie s'y soustrait.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Trou osmolaire > 10 mOsm/kg : alcool toxique probable",
+     "i": "L'alcool parent non métabolisé est une particule osmotique active ; l'association à un trou anionique élevé est évocatrice.",
+     "pec": "urgence_antidote",
+     "notion": "c7"
+    },
+    {
+     "id": "n8",
+     "parent": "n6",
+     "t": "Trou osmolaire ≤ 10 mais forte suspicion ou présentation tardive",
+     "i": "Tardivement, l'alcool parent est métabolisé et le trou osmolaire peut redevenir normal ; un trou anionique élevé inexpliqué justifie un traitement empirique.",
+     "pec": "urgence_antidote",
+     "notion": "c7"
+    }
+   ],
+   "points": [
+    "Un trou osmolaire précoce élevé avec trou anionique normal évolue vers un trou anionique élevé avec trou osmolaire en baisse.",
+    "Les signes de gravité sont les troubles visuels, le coma et un pH inférieur à 7,20.",
+    "Un patient ivre sans haleine éthylique ou avec éthanolémie basse doit faire suspecter un autre alcool.",
+    "Acidose, hypocalcémie, insuffisance rénale oligurique et cristaux urinaires orientent vers l'éthylène glycol.",
+    "Un trou osmolaire normal n'exclut pas l'intoxication tardive."
+   ],
+   "sources": [
+    "Tox Info Suisse",
+    "EXTRIP 2015-2016"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan et pièges de laboratoire",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Prélève d'emblée gazométrie, ionogramme, osmolalité par cryoscopie et éthanolémie, mais n'attends jamais le dosage spécifique avant de traiter.",
+   "tableau": {
+    "colonnes": [
+     "Examen",
+     "Résultat attendu",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Dosage méthanol / éthylène glycol (chromatographie gazeuse)",
+      [
+       {
+        "t": "Confirme le diagnostic",
+        "i": "C'est l'examen de référence, spécifique du toxique."
+       }
+      ],
+      [
+       {
+        "t": "Délai long : ne retarde jamais l'antidote",
+        "i": "Le résultat arrive trop tard par rapport à la cinétique de toxicité."
+       }
+      ]
+     ],
+     [
+      "Osmolalité mesurée",
+      [
+       {
+        "t": "Trou osmolaire > 10 mOsm/kg",
+        "i": "Il reflète la quantité d'alcool parent circulant."
+       }
+      ],
+      [
+       {
+        "t": "Cryoscopie obligatoire",
+        "i": "L'osmométrie par pression de vapeur manque les alcools volatils comme le méthanol."
+       }
+      ]
+     ],
+     [
+      "Gazométrie artérielle",
+      [
+       {
+        "t": "pH et HCO3 bas, pCO2 basse",
+        "i": "Elle quantifie la gravité et guide la dialyse (pH ≤ 7,15 méthanol, ≤ 7,25 éthylène glycol)."
+       }
+      ],
+      [
+       {
+        "t": "Vérifier la compensation par Winter",
+        "i": "Un écart de pCO2 révèle un trouble acido-basique mixte, par exemple avec les salicylés."
+       }
+      ]
+     ],
+     [
+      "Lactate",
+      [
+       {
+        "t": "Élevé (formiate inhibant la respiration mitochondriale)",
+        "i": "Le formiate bloque la cytochrome oxydase et fait monter le lactate."
+       }
+      ],
+      [
+       {
+        "t": "Fausse élévation avec l'éthylène glycol",
+        "i": "Le glycolate interfère avec certains analyseurs de gaz du sang et simule une acidose lactique."
+       }
+      ]
+     ],
+     [
+      "Calcium, créatinine, glycémie, éthanolémie",
+      [
+       {
+        "t": "Hypocalcémie et insuffisance rénale (éthylène glycol)",
+        "i": "L'oxalate chélate le calcium et les cristaux lèsent les tubules."
+       }
+      ],
+      [
+       {
+        "t": "Éthanol contribue au trou osmolaire",
+        "i": "Sans éthanolémie, on surestime le trou osmolaire attribuable à un autre alcool."
+       }
+      ]
+     ],
+     [
+      "Sédiment urinaire",
+      [
+       {
+        "t": "Cristaux d'oxalate de calcium (aiguilles, enveloppes)",
+        "i": "Ils orientent vers l'éthylène glycol."
+       }
+      ],
+      [
+       {
+        "t": "Leur absence n'exclut pas l'intoxication",
+        "i": "Les cristaux sont inconstants et apparaissent tardivement."
+       }
+      ]
+     ],
+     [
+      "Imagerie cérébrale",
+      [
+       {
+        "t": "Nécrose bilatérale des putamens, hémorragies",
+        "i": "Le méthanol sévère lèse les noyaux gris centraux."
+       }
+      ],
+      [
+       {
+        "t": "Examen secondaire, non diagnostique",
+        "i": "Il n'est utile que pour les complications neurologiques."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le trou osmolaire se calcule avec 2 × Na + glycémie + urée, et un écart supérieur à 10 mOsm/kg est anormal.",
+    "Le dosage spécifique confirme, mais le traitement commence dès la forte suspicion.",
+    "Cétones, glycémie, salicylémie et créatinine écartent les diagnostics différentiels."
+   ],
+   "sources": [
+    "Tox Info Suisse",
+    "EXTRIP 2015-2016"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Diagnostic différentiel des acidoses à trou anionique élevé",
+   "rubriques": [
+    "positiveDiagnosis"
+   ],
+   "comment": "Compare le trou osmolaire et les marqueurs propres à chaque acidose : seul l'alcool toxique associe un trou anionique élevé à un trou osmolaire franchement élevé.",
+   "tableau": {
+    "colonnes": [
+     "Entité",
+     "Trou anionique",
+     "Trou osmolaire",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "Alcools toxiques",
+      [
+       {
+        "t": "Élevé (tardif)",
+        "i": "Le trou anionique grandit à mesure que l'alcool parent est transformé en acides."
+       }
+      ],
+      [
+       {
+        "t": "Élevé (précoce)",
+        "i": "L'alcool parent non métabolisé est osmotiquement actif."
+       }
+      ],
+      [
+       {
+        "t": "Dosage du toxique, troubles visuels ou atteinte rénale",
+        "i": "Le contexte et le dosage spécifique distinguent les alcools toxiques des autres acidoses."
+       }
+      ]
+     ],
+     [
+      "Acidocétose diabétique",
+      [
+       {
+        "t": "Élevé",
+        "i": "Les cétones sont des anions non mesurés."
+       }
+      ],
+      [
+       {
+        "t": "Modérément élevé",
+        "i": "Hyperglycémie et déshydratation majorent légèrement le trou osmolaire."
+       }
+      ],
+      [
+       {
+        "t": "Glycémie élevée et cétonémie",
+        "i": "Ces deux marqueurs établissent le diagnostic."
+       }
+      ]
+     ],
+     [
+      "Acidose lactique (types A et B)",
+      [
+       {
+        "t": "Élevé",
+        "i": "Le lactate est un anion non mesuré."
+       }
+      ],
+      [
+       {
+        "t": "Normal ou modérément élevé",
+        "i": "Le choc peut majorer légèrement le trou osmolaire."
+       }
+      ],
+      [
+       {
+        "t": "Lactate élevé avec hypoperfusion, sepsis ou metformine",
+        "i": "Le contexte clinique est évocateur ; en cas d'éthylène glycol, le lactate peut être faussement élevé."
+       }
+      ]
+     ],
+     [
+      "Acidose urémique",
+      [
+       {
+        "t": "Modérément élevé",
+        "i": "Phosphates et sulfates s'accumulent dans l'insuffisance rénale."
+       }
+      ],
+      [
+       {
+        "t": "Normal ou modérément élevé",
+        "i": "L'urée est incluse dans le calcul du trou osmolaire."
+       }
+      ],
+      [
+       {
+        "t": "Créatinine élevée chronique ou subaiguë",
+        "i": "L'insuffisance rénale précède l'acidose, alors qu'elle la suit dans l'éthylène glycol."
+       }
+      ]
+     ],
+     [
+      "Intoxication aux salicylés",
+      [
+       {
+        "t": "Élevé",
+        "i": "L'acidose lactique et cétosique élève le trou anionique."
+       }
+      ],
+      [
+       {
+        "t": "Normal",
+        "i": "L'acide acétylsalicylique n'est pas une particule osmotique active."
+       }
+      ],
+      [
+       {
+        "t": "Alcalose respiratoire associée, salicylémie",
+        "i": "Le trouble mixte et le dosage orientent le diagnostic."
+       }
+      ]
+     ],
+     [
+      "Isopropanol",
+      [
+       {
+        "t": "Normal",
+        "i": "L'acétone n'est pas un acide fort."
+       }
+      ],
+      [
+       {
+        "t": "Élevé",
+        "i": "L'isopropanol et l'acétone sont osmotiquement actifs."
+       }
+      ],
+      [
+       {
+        "t": "Cétose sans acidose franche",
+        "i": "L'absence d'acide fort explique l'absence de lésion rétinienne ou rénale."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Seul l'alcool toxique associe trou anionique élevé et trou osmolaire franchement élevé.",
+    "L'acidose hyperchlorémique à trou anionique normal ne correspond pas à un alcool toxique.",
+    "La méthémoglobinémie, l'intoxication au CO et l'embolie pulmonaire sont distinguées par leurs propres anomalies gazométriques."
+   ],
+   "sources": [
+    "Manuel de toxicologie clinique",
+    "Tox Info Suisse"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Traitement antidotique et adjuvants",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Bloque l'alcool déshydrogénase dès la forte suspicion, ajoute les cofacteurs adaptés au toxique et corrige l'acidose, sans décontamination digestive.",
+   "tableau": {
+    "colonnes": [
+     "Traitement",
+     "Toxique ciblé",
+     "Posologie",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Fomépizole IV (inhibiteur de l'ADH)",
+      [
+       {
+        "t": "Méthanol et éthylène glycol",
+        "i": "Il bloque la formation des métabolites toxiques ; c'est l'antidote de choix."
+       }
+      ],
+      [
+       {
+        "t": "15 mg/kg en charge, puis 10 mg/kg toutes les 12 h",
+        "i": "Posologie de référence ; elle se poursuit jusqu'à un taux de toxique inférieur à 200 mg/L."
+       }
+      ],
+      [
+       {
+        "t": "Dialysé : à redonner toutes les 4 h pendant la dialyse",
+        "i": "L'hémodialyse élimine aussi l'antidote."
+       }
+      ]
+     ],
+     [
+      "Éthanol IV",
+      [
+       {
+        "t": "Méthanol et éthylène glycol si fomépizole indisponible",
+        "i": "L'éthanol est un substrat préférentiel de l'ADH et bloque la production de métabolites."
+       }
+      ],
+      [
+       {
+        "t": "Éthanolémie cible d'environ 1 g/L",
+        "i": "Cette concentration sature l'enzyme."
+       }
+      ],
+      [
+       {
+        "t": "Sédation et hypoglycémie à surveiller",
+        "i": "L'éthanol IV est plus lourd à manier que le fomépizole."
+       }
+      ]
+     ],
+     [
+      "Acide folinique IV",
+      [
+       {
+        "t": "Méthanol",
+        "i": "Il accélère la conversion du formiate en CO2 et en eau."
+       }
+      ],
+      [
+       {
+        "t": "Selon protocole Tox Info Suisse",
+        "i": "Dose à confirmer au 145."
+       }
+      ],
+      [
+       {
+        "t": "Inutile pour l'éthylène glycol",
+        "i": "Le glycolate et l'oxalate ne dépendent pas des folates."
+       }
+      ]
+     ],
+     [
+      "Thiamine + pyridoxine IV",
+      [
+       {
+        "t": "Éthylène glycol",
+        "i": "Ces cofacteurs dévient le glyoxylate vers des métabolites moins toxiques."
+       }
+      ],
+      [
+       {
+        "t": "Thiamine 100 mg et pyridoxine 50 mg IV toutes les 6 h",
+        "i": "Posologie usuelle des protocoles de toxicologie."
+       }
+      ],
+      [
+       {
+        "t": "Thiamine avant tout sérum glucosé chez l'alcoolique",
+        "i": "Elle prévient l'encéphalopathie de Gayet-Wernicke."
+       }
+      ]
+     ],
+     [
+      "Bicarbonate de sodium IV",
+      [
+       {
+        "t": "Acidose sévère",
+        "i": "Il réduit la forme non ionisée de l'acide formique, qui pénètre moins dans les tissus."
+       }
+      ],
+      [
+       {
+        "t": "1–2 mmol/kg IV, puis selon le pH",
+        "i": "Il s'adapte au pH, à la kaliémie et à la natrémie."
+       }
+      ],
+      [
+       {
+        "t": "Ne remplace ni l'antidote ni la dialyse",
+        "i": "Il traite le symptôme, pas la production d'acides."
+       }
+      ]
+     ],
+     [
+      "Charbon actif, lavage gastrique",
+      [
+       {
+        "t": "Aucun",
+        "i": "Les alcools sont absorbés en moins d'une heure."
+       }
+      ],
+      [
+       {
+        "t": "Sans objet",
+        "i": "Le charbon actif adsorbe mal les alcools."
+       }
+      ],
+      [
+       {
+        "t": "Décontamination digestive inutile",
+        "i": "Elle retarde les gestes utiles."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le fomépizole est débuté dès la forte suspicion, sans attendre le dosage.",
+    "L'acide folinique cible le méthanol ; thiamine et pyridoxine ciblent l'éthylène glycol.",
+    "Le calcium IV se réserve à l'hypocalcémie symptomatique (tétanie, QT long), car il favorise les dépôts d'oxalate.",
+    "Appelle Tox Info Suisse (145) pour confirmer antidote, disponibilité du fomépizole et transfert."
+   ],
+   "sources": [
+    "Tox Info Suisse",
+    "EXTRIP 2015-2016",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Hémodialyse : indications et surveillance",
+   "rubriques": [
+    "acuteManagement",
+    "surveillance"
+   ],
+   "comment": "Dialyse en urgence dès qu'un critère de gravité est présent, car elle élimine à la fois le toxique et ses acides, puis surveille le rebond.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Intoxication suspectée ou confirmée, antidote débuté",
+     "i": "L'antidote bloque la production de nouveaux métabolites mais n'élimine pas ceux déjà formés.",
+     "pec": "urgence_antidote",
+     "notion": "c7"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Troubles visuels, coma ou convulsions ?",
+     "i": "Ces signes traduisent une atteinte d'organe déjà installée.",
+     "pec": "hemodialyse",
+     "notion": "c8"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Insuffisance rénale aiguë ?",
+     "i": "L'atteinte rénale impose la dialyse, en particulier avec l'éthylène glycol.",
+     "pec": "hemodialyse",
+     "notion": "c8"
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Acidose sévère persistante : pH ≤ 7,15 (méthanol) ou ≤ 7,25 (éthylène glycol)",
+     "i": "Ces seuils indiquent une accumulation d'acides que le traitement médical ne corrige pas.",
+     "pec": "hemodialyse",
+     "notion": "c8"
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Aucun critère : antidote seul avec gazométrie toutes les 2–4 h",
+     "i": "En l'absence de critère, la surveillance étroite permet de détecter une dégradation secondaire.",
+     "pec": "urgence_antidote",
+     "notion": "c8"
+    }
+   ],
+   "points": [
+    "La gazométrie, le trou anionique et le lactate sont contrôlés toutes les 2 à 4 h jusqu'à normalisation du pH.",
+    "Le trou osmolaire et le taux de toxique sont suivis en série, avec contrôle après dialyse en raison du rebond possible.",
+    "La créatinine, la diurèse, le calcium, le potassium, la glycémie ainsi que l'état visuel et neurologique sont surveillés."
+   ],
+   "sources": [
+    "EXTRIP 2015-2016",
+    "Tox Info Suisse"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Complications, pronostic et suivi",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "chronicManagement",
+    "followUpNetwork"
+   ],
+   "comment": "Anticipe les séquelles visuelles ou rénales et n'oublie pas l'évaluation psychiatrique après une ingestion volontaire.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le méthanol peut laisser une cécité définitive et un syndrome parkinsonien par nécrose des putamens.",
+    "L'éthylène glycol provoque une insuffisance rénale oligo-anurique pouvant nécessiter plusieurs semaines de dialyse.",
+    "Œdème cérébral, convulsions, arythmies par hypocalcémie, œdème pulmonaire et décès font partie des complications graves.",
+    "Le pronostic est excellent si antidote et dialyse précèdent les lésions d'organe ; un pH initial < 7,0 et un retard prédisent mortalité et séquelles visuelles.",
+    "Le patient est suivi par ophtalmologue, néphrologue et psychiatre, avec prise en charge addictologique si nécessaire."
+   ],
+   "sources": [
+    "Tox Info Suisse",
+    "EXTRIP 2015-2016"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence_antidote",
+   "titre": "Urgence : bloquer l'alcool déshydrogénase et corriger l'acidose",
+   "but": [
+    "Empêcher la formation de formiate, de glycolate et d'oxalate dès la suspicion.",
+    "Corriger l'acidose et prévenir la cécité, l'insuffisance rénale et la mort."
+   ],
+   "moyens": {
+    "accueil": [
+     "Appeler Tox Info Suisse (145) dès l'arrivée.",
+     "Placer le patient en monitoring continu avec voie veineuse.",
+     "Recueillir l'emballage, la nature du produit, la quantité et l'heure d'ingestion."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Fomépizole (inhibiteur de l'alcool déshydrogénase)",
+      "posologie": "15 mg/kg IV en charge, puis 10 mg/kg toutes les 12 h, jusqu'à toxique < 200 mg/L ; toutes les 4 h pendant la dialyse.",
+      "pourquoi": "Il bloque l'enzyme avant que les métabolites acides ne s'accumulent, sans sédation ni titration d'éthanolémie.",
+      "source": "Tox Info Suisse"
+     },
+     {
+      "molecule": "Éthanol IV (substrat compétitif de l'ADH)",
+      "posologie": "Si fomépizole indisponible : éthanolémie cible d'environ 1 g/L, selon protocole Tox Info Suisse ; majorer la perfusion pendant la dialyse.",
+      "pourquoi": "L'éthanol sature l'alcool déshydrogénase avec une affinité supérieure et bloque la production de métabolites toxiques.",
+      "source": "Tox Info Suisse"
+     },
+     {
+      "molecule": "Acide folinique (cofacteur folate)",
+      "posologie": "IV dans le méthanol ; dose et rythme selon protocole Tox Info Suisse.",
+      "pourquoi": "Les folates accélèrent la conversion du formiate en CO2 et en eau.",
+      "source": "Tox Info Suisse"
+     },
+     {
+      "molecule": "Thiamine et pyridoxine (cofacteurs)",
+      "posologie": "Thiamine 100 mg et pyridoxine 50 mg IV toutes les 6 h dans l'éthylène glycol.",
+      "pourquoi": "Ces cofacteurs dévient le glyoxylate vers des métabolites moins toxiques que l'oxalate.",
+      "source": "Tox Info Suisse"
+     },
+     {
+      "molecule": "Bicarbonate de sodium (alcalinisant)",
+      "posologie": "1–2 mmol/kg IV, puis adapté au pH, à la kaliémie et à la natrémie.",
+      "pourquoi": "Il réduit la forme non ionisée de l'acide formique, qui pénètre moins dans les tissus.",
+      "source": "Tox Info Suisse"
+     },
+     {
+      "molecule": "Gluconate de calcium (sel de calcium)",
+      "posologie": "Uniquement si hypocalcémie symptomatique (tétanie, QT long), IV lent sous monitoring.",
+      "pourquoi": "Il traite l'hypocalcémie liée à la chélation par l'oxalate, mais favorise les dépôts de cristaux si on l'utilise systématiquement.",
+      "source": "Tox Info Suisse"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Placer le patient en soins intensifs avec accès à l'hémodialyse.",
+      "pourquoi": "La dégradation clinique est rapide et l'épuration doit pouvoir être lancée sans délai."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Ne pratiquer ni lavage gastrique ni charbon actif.",
+      "pourquoi": "Les alcools sont absorbés en moins d'une heure et le charbon actif les adsorbe mal."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Faire examiner l'acuité visuelle et le fond d'œil dès que l'état le permet.",
+      "pourquoi": "Les signes visuels sont un critère d'hémodialyse."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre le secret médical, l'incapacité de discernement et le placement à des fins d'assistance en cas de tentative de suicide."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise la couverture accident ou maladie et l'incapacité de travail, notamment en cas de séquelles visuelles."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Sécuriser les voies aériennes, la respiration et la circulation d'emblée.",
+      "Obtenir avis de Tox Info Suisse (145) en parallèle des soins.",
+      "Ne pas attendre le dosage du toxique pour traiter."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue les voies aériennes et la circulation, appelle Tox Info Suisse (145)."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose deux voies veineuses, prélève gazométrie, ionogramme, créatinine, calcium, osmolalité, éthanolémie, lactate, glycémie."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Prescrit le fomépizole dès la suspicion, sans attendre le dosage."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Administre acide folinique (méthanol) ou thiamine et pyridoxine (éthylène glycol), puis le bicarbonate."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Calcule trou anionique et trou osmolaire et recherche critères de dialyse."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Le néphrologue prépare l'hémodialyse si un critère de gravité est présent."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le pronostic est excellent si l'antidote et la dialyse précèdent les lésions d'organe ; un pH initial < 7,0 et un retard de traitement augmentent mortalité et séquelles visuelles.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "pH, bicarbonates, trou anionique, lactate",
+      "quand": "Toutes les 2 à 4 h",
+      "cible": "Normalisation du pH"
+     },
+     {
+      "quoi": "Trou osmolaire et taux de toxique",
+      "quand": "En série, avec contrôle après dialyse",
+      "cible": "Toxique < 200 mg/L, sans rebond"
+     },
+     {
+      "quoi": "Créatinine, diurèse, calcium, potassium, glycémie",
+      "quand": "Plusieurs fois par jour",
+      "cible": "Fonction rénale stable, calcium et potassium normaux"
+     },
+     {
+      "quoi": "État visuel et neurologique",
+      "quand": "À chaque évaluation clinique",
+      "cible": "Aucune détérioration"
+     }
+    ],
+    "sortie": "Sortie de soins intensifs après normalisation du pH, toxique < 200 mg/L, fomépizole arrêté, fonction rénale et état visuel stables, évaluation psychiatrique réalisée."
+   },
+   "prevention": {
+    "primaire": "Conserver antigel, lave-glace et solvants dans leur emballage d'origine, hors de portée.",
+    "secondaire": "Rechercher un alcool toxique devant toute acidose à trou anionique élevé inexpliquée.",
+    "tertiaire": "Organiser la réadaptation visuelle et la prise en charge rénale des séquelles."
+   }
+  },
+  {
+   "cle": "hemodialyse",
+   "titre": "Épuration extrarénale en urgence",
+   "but": [
+    "Éliminer le toxique et ses acides déjà formés.",
+    "Corriger l'acidose et les troubles électrolytiques."
+   ],
+   "moyens": {
+    "accueil": [
+     "Prévenir le néphrologue et les soins intensifs sans délai.",
+     "Vérifier que l'antidote est déjà en cours."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Fomépizole (inhibiteur de l'alcool déshydrogénase)",
+      "posologie": "Toutes les 4 h pendant l'hémodialyse.",
+      "pourquoi": "L'hémodialyse élimine l'antidote et expose à une reprise de la production de métabolites.",
+      "source": "Tox Info Suisse"
+     },
+     {
+      "molecule": "Éthanol IV (si utilisé comme antidote)",
+      "posologie": "Augmenter le débit de perfusion pendant la dialyse pour maintenir environ 1 g/L.",
+      "pourquoi": "La dialyse épure l'éthanol et fait chuter l'éthanolémie sous le seuil de blocage de l'enzyme.",
+      "source": "Tox Info Suisse"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réaliser une hémodialyse en urgence, puis la poursuivre jusqu'à correction du pH et toxique < 200 mg/L.",
+      "pourquoi": "Elle épure le toxique parent, les métabolites acides et corrige acidose et électrolytes."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Documente l'atteinte de santé pour les prestations en cas d'insuffisance rénale ou de cécité."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Débuter la dialyse dès qu'un critère est rempli, sans attendre une aggravation.",
+      "Adapter l'antidote à la dialyse."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Vérifie les critères : troubles visuels, coma, convulsions, IRA, pH ≤ 7,15 (méthanol) ou ≤ 7,25 (éthylène glycol)."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Le néphrologue pose l'accès et lance l'hémodialyse."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Redonne le fomépizole toutes les 4 h et surveille la glycémie."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Contrôle pH, trou osmolaire et toxique après dialyse pour détecter un rebond."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Une dialyse précoce prévient la cécité et l'insuffisance rénale définitives ; un rebond impose de la reprendre.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "pH et trou osmolaire",
+      "quand": "Après dialyse, puis toutes les 2 à 4 h",
+      "cible": "Absence de rebond"
+     },
+     {
+      "quoi": "Taux de méthanol ou d'éthylène glycol",
+      "quand": "Après chaque séance",
+      "cible": "< 200 mg/L"
+     }
+    ],
+    "sortie": "Arrêt de la dialyse lorsque le pH est normal et le toxique < 200 mg/L, avec contrôle sans rebond."
+   },
+   "prevention": {
+    "primaire": "",
+    "secondaire": "Dialyser sans délai dès qu'un critère de gravité apparaît.",
+    "tertiaire": "Suivre la fonction rénale après une insuffisance rénale aiguë."
+   }
+  },
+  {
+   "cle": "suivi_long_cours",
+   "titre": "Après la phase aiguë : séquelles et prévention de la récidive",
+   "but": [
+    "Détecter et traiter les séquelles visuelles, neurologiques et rénales.",
+    "Évaluer le risque suicidaire et traiter un trouble de l'usage d'alcool."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer au patient l'origine de l'intoxication et ses séquelles possibles.",
+     "Évaluer le risque suicidaire avant la sortie."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Organiser un suivi ophtalmologique (acuité, champ visuel, nerf optique).",
+      "pourquoi": "Les séquelles visuelles peuvent apparaître ou persister après l'épisode aigu."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Organiser un suivi néphrologique après l'éthylène glycol.",
+      "pourquoi": "La récupération rénale peut exiger plusieurs semaines de dialyse."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Faire évaluer le risque suicidaire par un psychiatre en cas d'ingestion volontaire.",
+      "pourquoi": "Cette évaluation est obligatoire et conditionne la sortie."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Proposer une prise en charge addictologique si un trouble de l'usage d'alcool existe.",
+      "pourquoi": "La substitution par des alcools toxiques traduit une dépendance non traitée."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Règle le consentement, l'incapacité de discernement et l'hospitalisation non volontaire si le risque suicidaire persiste."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Évalue l'incapacité de travail et les prestations en cas de cécité ou d'insuffisance rénale."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Planifier les consultations spécialisées avant la sortie.",
+      "Associer le médecin de famille au suivi."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Vérifie l'absence de rebond et la stabilité clinique avant la sortie."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Le psychiatre évalue le risque suicidaire et décide du cadre de prise en charge."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "L'ophtalmologue et le néphrologue contrôlent la vision et la fonction rénale."
+      },
+      {
+       "temps": "puis",
+       "qui": "assistant·e social·e",
+       "fait": "Organise les aides sociales et la réinsertion."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'évolution est favorable sans séquelles si le traitement a été précoce ; une cécité ou un syndrome parkinsonien peut persister après une intoxication sévère au méthanol.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Acuité visuelle et champ visuel",
+      "quand": "Dès la sortie, puis selon l'ophtalmologue",
+      "cible": "Stabilité ou récupération"
+     },
+     {
+      "quoi": "Créatinine et diurèse",
+      "quand": "En contrôles réguliers",
+      "cible": "Retour à la valeur de base"
+     }
+    ],
+    "sortie": "Sortie possible après évaluation psychiatrique, stabilité clinique et biologique et rendez-vous spécialisés organisés."
+   },
+   "prevention": {
+    "primaire": "Conserver antigel et lave-glace dans leur emballage d'origine ; informer sur les risques des alcools frelatés.",
+    "secondaire": "Traiter le trouble de l'usage d'alcool et le risque suicidaire pour éviter une récidive.",
+    "tertiaire": "Assurer la réadaptation visuelle et le suivi rénal à long terme."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7671,
+  "output_tokens": 23631,
+  "output_tokens_details": {
+   "thinking_tokens": 7394
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:51",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

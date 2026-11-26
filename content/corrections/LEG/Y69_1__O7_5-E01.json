@@ -1,0 +1,1225 @@
+{
+ "id": "Y69_1__O7_5-E01",
+ "portes": [
+  {
+   "ssp": "O7.5",
+   "nomSSP": "Erreurs ou fautes d’un collègue ou d’un autre professionnel de santé",
+   "entite": "Erreur de prescription ou d'administration médicamenteuse sans dommage grave (near-miss / incident)",
+   "entiteId": "O7.5-E01"
+  }
+ ],
+ "entite": "Erreur de prescription ou d'administration médicamenteuse sans dommage grave (near-miss / incident)",
+ "cim10": "Y69",
+ "ssp": {
+  "code": "O7.5",
+  "nom": "Erreurs ou fautes d'un collègue ou d'un autre professionnel de santé",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Erreur ou faute médicamenteuse d'un collègue (ou de soi-même) constatée",
+    "i": "Point d'entrée du SSP : on constate un écart de prescription, de dispensation ou d'administration.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Est-ce une erreur évitable ou un effet indésirable à dose correcte ?",
+    "i": "Un effet indésirable à dose correcte n'est pas une erreur : il relève de la pharmacovigilance.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Effet indésirable à dose correcte",
+    "i": "Hors du SSP : annonce à Swissmedic si grave ou inconnu (art. 59 LPTh).",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Erreur évitable : le patient présente-t-il des symptômes ou une instabilité ?",
+    "i": "Des symptômes présents imposent l'urgence thérapeutique avant toute déclaration.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Oui : erreur médicale aiguë grave (surdosage vital, voie erronée)",
+    "i": "Autre entité du SSP O7.5 : sécuriser d'abord, appeler Tox Info (145), antidote.",
+    "pec": "securisation_information",
+    "notion": "c6"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Non : l'erreur a-t-elle atteint le patient ?",
+    "i": "La distinction near-miss et incident détermine le devoir d'information.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Non : near-miss (NCC MERP B)",
+    "i": "Interceptée par une barrière : pas d'information au patient, mais déclaration CIRS et analyse de la barrière.",
+    "pec": "systeme_cirs",
+    "notion": "c1"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Oui : médicament à haut risque ou patient fragile ?",
+    "i": "Insuline, anticoagulants, KCl, opioïdes, chimiothérapie ; enfant, insuffisant rénal, patient âgé polymédiqué.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Oui : surveillance prolongée, bilan ciblé, avis senior ou Tox Info",
+    "i": "Une toxicité retardée est possible ; la surveillance suit la demi-vie et la forme galénique.",
+    "pec": "securisation_information",
+    "notion": "c3"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Non : incident sans dommage (NCC MERP C-D)",
+    "i": "Contrôle clinique de base, information transparente du patient, déclaration CIRS.",
+    "pec": "securisation_information",
+    "notion": "c7"
+   },
+   {
+    "id": "n11",
+    "parent": "n1",
+    "t": "Le collègue a-t-il déjà commis plusieurs erreurs ?",
+    "i": "Des erreurs répétées évoquent un problème individuel et non plus seulement systémique.",
+    "pec": null,
+    "notion": "c9"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Non : erreur isolée, approche système",
+    "i": "Dialogue privé, non accusateur, puis analyse des causes racines.",
+    "pec": "systeme_cirs",
+    "notion": "c8"
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "Oui : suspicion d'épuisement, d'addiction ou de trouble de discernement",
+    "i": "Renvoi vers les entités « Conduite altérée par épuisement » ou « Collègue sous influence » du SSP O7.5 ; escalade au supérieur.",
+    "pec": "collegue_escalade",
+    "notion": "c9"
+   },
+   {
+    "id": "n14",
+    "parent": "n1",
+    "t": "Le dossier a-t-il été modifié ou l'erreur cachée ?",
+    "i": "La dissimulation et la falsification sortent du cadre : renvoi vers l'entité « Falsification de dossier » du SSP O7.5.",
+    "pec": null,
+    "notion": "c7"
+   }
+  ]
+ },
+ "specialites": [
+  "LEG",
+  "MIG",
+  "TOX",
+  "URO"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Erreur de prescription ou d'administration médicamenteuse sans dommage grave (near-miss, incident) : sécuriser le patient, informer avec transparence, déclarer au CIRS et corriger le système",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définir l'erreur médicamenteuse, le near-miss et l'index NCC MERP",
+   "rubriques": [
+    "definition",
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu raisonnes d'abord en demandant si l'erreur a atteint le patient, puis s'il existe un dommage, car la catégorie NCC MERP fixe la conduite.",
+   "tableau": {
+    "colonnes": [
+     "Catégorie NCC MERP",
+     "Définition",
+     "Qualification",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "A",
+      [
+       {
+        "t": "Circonstance capable de provoquer une erreur",
+        "i": "Aucune erreur n'a eu lieu ; le risque est latent (emballages LASA côte à côte), donc on corrige le système avant tout incident."
+       }
+      ],
+      "Circonstance à risque",
+      "Signaler au CIRS, corriger l'organisation"
+     ],
+     [
+      "B",
+      [
+       {
+        "t": "Erreur survenue mais interceptée avant le patient",
+        "i": "C'est le near-miss : une barrière (double contrôle, pharmacien) a fonctionné, donc aucun dommage et aucune information au patient n'est nécessaire."
+       }
+      ],
+      "Near-miss",
+      "Déclarer au CIRS, analyser la barrière qui a tenu"
+     ],
+     [
+      "C",
+      [
+       {
+        "t": "Erreur ayant atteint le patient, sans dommage",
+        "i": "Le patient a reçu le médicament erroné sans conséquence ; il reste un incident, et le devoir d'information s'applique car l'erreur l'a touché."
+       }
+      ],
+      "Incident sans dommage",
+      "Informer le patient, déclarer au CIRS"
+     ],
+     [
+      "D",
+      [
+       {
+        "t": "Erreur ayant atteint le patient, surveillance requise pour exclure un dommage",
+        "i": "La toxicité n'est pas encore exclue : on surveille cliniquement et biologiquement ; si un dommage apparaît, la catégorie monte à E ou plus."
+       }
+      ],
+      "Incident sans dommage après surveillance",
+      "Surveiller, bilan ciblé, informer, déclarer"
+     ],
+     [
+      "E à F",
+      [
+       {
+        "t": "Dommage temporaire avec intervention (E) ou hospitalisation (F)",
+        "i": "Il n'y a plus d'incident sans dommage : traitement actif, annonce à l'assurance RC et revue formelle de l'événement."
+       }
+      ],
+      "Dommage temporaire",
+      "Sort du cadre de l'incident sans dommage"
+     ],
+     [
+      "G à I",
+      [
+       {
+        "t": "Dommage permanent (G), mesures de maintien de vie (H), décès (I)",
+        "i": "Ces catégories relèvent de l'erreur médicale grave : urgence thérapeutique, avis juridique, médecin cantonal possible."
+       }
+      ],
+      "Erreur grave",
+      "Réorienter vers l'erreur médicale aiguë grave"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Une erreur médicamenteuse est un écart non intentionnel, évitable, qu'elle cause ou non un dommage.",
+    "Un effet indésirable à dose correcte n'est pas une erreur : il relève de la pharmacovigilance.",
+    "Le diagnostic positif exige l'erreur documentée, l'exclusion de toute toxicité et l'absence de dommage durable.",
+    "Les catégories A à D de l'index NCC MERP correspondent aux erreurs sans dommage."
+   ],
+   "sources": [
+    "NCC MERP Index for Categorizing Medication Errors",
+    "Sécurité des patients Suisse",
+    "OMS Medication Without Harm"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Fréquence et modèle du fromage suisse de Reason",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences"
+   ],
+   "comment": "Tu cherches d'abord la faille du système avant la faute du soignant, car le dommage naît de l'alignement de plusieurs barrières défaillantes.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Les erreurs médicamenteuses comptent parmi les incidents les plus déclarés dans les CIRS, hospitaliers et ambulatoires, la grande majorité sans dommage.",
+    "Reason : le dommage survient quand les trous de barrières successives s'alignent ; les erreurs latentes précèdent l'erreur active du soignant.",
+    "Facteurs latents : médicaments LASA, interruptions, surcharge, fatigue, transmissions incomplètes.",
+    "Les transitions de soins (admission, transfert, sortie) concentrent les erreurs : programme pilote « progress ! » de Sécurité des patients Suisse.",
+    "Les cinq règles (patient, médicament, dose, voie, moment) sont nécessaires mais insuffisantes face aux défauts d'organisation ; l'OMS vise −50 % de dommages graves évitables en 5 ans."
+   ],
+   "sources": [
+    "Reason, BMJ 2000",
+    "Sécurité des patients Suisse, programme progress !",
+    "OMS 2017, Medication Without Harm"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse de l'erreur et examen orienté par la toxicité",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Tu reconstitues les faits sans chercher de coupable, puis tu cherches la toxicité propre au médicament en cause.",
+   "tableau": {
+    "colonnes": [
+     "Médicament en cause",
+     "Signe de toxicité",
+     "Examen ou test immédiat",
+     "Durée de surveillance"
+    ],
+    "lignes": [
+     [
+      "Opioïdes",
+      [
+       {
+        "t": "Sédation, bradypnée, myosis",
+        "i": "L'agonisme μ déprime le centre respiratoire ; la fréquence respiratoire et la conscience sont les signes les plus précoces."
+       }
+      ],
+      "FR, SpO₂, GCS, pupilles",
+      [
+       {
+        "t": "Plus longue pour les formes retard ou le fentanyl transdermique",
+        "i": "La libération prolongée dépasse la demi-vie de la naloxone, donc une resédation est possible."
+       }
+      ]
+     ],
+     [
+      "Insuline",
+      [
+       {
+        "t": "Hypoglycémie, sueurs, confusion",
+        "i": "L'excès d'insuline abaisse la glycémie ; les β-bloquants peuvent masquer les signes adrénergiques."
+       }
+      ],
+      "Glycémie capillaire immédiate puis répétée",
+      [
+       {
+        "t": "Prolongée pour les insulines retard",
+        "i": "Le pic et la durée d'action s'étendent sur 12 à 24 h ou plus, donc l'hypoglycémie peut récidiver."
+       }
+      ]
+     ],
+     [
+      "Anticoagulants",
+      [
+       {
+        "t": "Saignement, hématome",
+        "i": "L'excès d'effet anticoagulant altère l'hémostase ; il faut chercher un saignement occulte (digestif, cérébral)."
+       }
+      ],
+      "Hémodynamique, INR, anti-Xa, créatinine",
+      [
+       {
+        "t": "Adaptée à la demi-vie et à la fonction rénale",
+        "i": "L'insuffisance rénale allonge la demi-vie des HBPM, du dabigatran et des anti-Xa."
+       }
+      ]
+     ],
+     [
+      "KCl IV concentré",
+      [
+       {
+        "t": "Arythmie, ondes T amples puis arrêt",
+        "i": "L'hyperkaliémie dépolarise le myocarde ; la gravité dépend du débit et de la concentration."
+       }
+      ],
+      "ECG, kaliémie, créatinine",
+      [
+       {
+        "t": "Monitorage continu pendant la correction",
+        "i": "Le risque d'arythmie persiste tant que la kaliémie n'est pas normalisée."
+       }
+      ]
+     ],
+     [
+      "Méthotrexate, chimiothérapie",
+      [
+       {
+        "t": "Toxicité différée : mucite, aplasie",
+        "i": "L'effet cytotoxique apparaît après plusieurs jours, donc une absence de signes initiale ne rassure pas."
+       }
+      ],
+      "Hémogramme, créatinine, concentration plasmatique",
+      [
+       {
+        "t": "Plusieurs jours, avec avis oncologique",
+        "i": "La toxicité médullaire est retardée et exige un suivi spécialisé."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'anamnèse reconstitue médicament, dose réellement administrée, voie, heure, personne concernée et étape défaillante.",
+    "Tu recherches allergies, poids, fonctions rénale et hépatique, comédications et interactions, car ils déterminent la toxicité réelle.",
+    "Tu vérifies si l'erreur s'est répétée chez ce patient ou touche d'autres patients (même lot, service, prescription type).",
+    "Tu décris les facteurs contributifs (interruption, protocole absent, homonymie) sans désigner de coupable, pour obtenir des informations fiables.",
+    "L'examen contrôle sans délai paramètres vitaux, conscience, glycémie capillaire et ECG si le médicament est arythmogène."
+   ],
+   "sources": [
+    "Sécurité des patients Suisse",
+    "AIPS Swissmedic",
+    "Tox Info Suisse"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Signaux d'alarme : quand l'incident cesse d'être sans gravité",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Tu cherches d'abord le médicament à haut risque, le patient fragile et les symptômes, car un seul de ces éléments reclasse l'événement en urgence.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Erreur médicamenteuse identifiée",
+     "i": "Point de départ : on classe l'événement avant toute démarche administrative.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Symptômes déjà présents, dose très supérieure à l'ordre ou voie erronée ?",
+     "i": "Ces éléments signent une toxicité probable ; la voie erronée (vincristine intrathécale) est potentiellement mortelle.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : erreur médicale aiguë grave",
+     "i": "L'urgence thérapeutique passe avant la déclaration et l'information détaillée.",
+     "pec": "securisation_information",
+     "notion": "c6"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non : médicament à haut risque ou patient fragile ?",
+     "i": "Insuline, anticoagulants, KCl concentré, opioïdes, chimiothérapie, méthotrexate ; enfant, insuffisant rénal, personne âgée polymédiquée.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Oui : surveillance prolongée et bilan ciblé",
+     "i": "Une erreur apparemment mineure peut devenir grave, donc on surveille jusqu'à exclusion de la toxicité.",
+     "pec": "securisation_information",
+     "notion": "c3"
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "Non : incident sans dommage probable",
+     "i": "On informe le patient et on déclare au CIRS après contrôle clinique de base.",
+     "pec": "systeme_cirs",
+     "notion": "c1"
+    }
+   ],
+   "points": [
+    "Les médicaments à marge étroite imposent une vigilance maximale même pour une erreur mineure.",
+    "Les erreurs de décimale, les abréviations ambiguës (« U »), les confusions mg/µg et les zéros terminaux causent des surdosages décuplés.",
+    "Enfant (dose par kg), insuffisant rénal et personne âgée polymédiquée subissent un dommage plus facilement.",
+    "Le Tall Man lettering et la séparation du stockage réduisent les confusions LASA."
+   ],
+   "sources": [
+    "Sécurité des patients Suisse",
+    "ISMP High-Alert Medications"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan et canaux de déclaration : CIRS, CIRRNET, Tox Info, Swissmedic",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Tu choisis le canal selon l'objectif : apprendre (CIRS), conseiller (Tox Info), notifier (Swissmedic) ou couvrir le risque juridique (assurance RC).",
+   "tableau": {
+    "colonnes": [
+     "Canal",
+     "Objectif",
+     "Caractère",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "CIRS local",
+      [
+       {
+        "t": "Analyse systémique et apprentissage",
+        "i": "La déclaration cherche les défauts d'organisation, pas un responsable ; elle n'a donc pas de valeur disciplinaire."
+       }
+      ],
+      "Volontaire, anonyme, confidentiel, non punitif",
+      "Retour d'information aux déclarants"
+     ],
+     [
+      "CIRRNET",
+      [
+       {
+        "t": "Réseau national des incidents critiques",
+        "i": "Il agrège les déclarations de nombreuses institutions et permet des recommandations nationales."
+       }
+      ],
+      "Volontaire",
+      "Géré par Sécurité des patients Suisse"
+     ],
+     [
+      "Tox Info Suisse (145)",
+      [
+       {
+        "t": "Conseil sur toxicité, surveillance, antidote",
+        "i": "Il évite un surtraitement ou une surveillance trop courte ; il ne remplace pas l'avis senior."
+       }
+      ],
+      "Joignable 24 h/24",
+      "À appeler dès qu'un surdosage est possible"
+     ],
+     [
+      "Pharmacovigilance Swissmedic",
+      [
+       {
+        "t": "Effet indésirable grave ou inconnu lié à l'erreur",
+        "i": "L'art. 59 LPTh impose l'annonce d'un effet grave ou inconnu ; un near-miss seul n'est pas soumis."
+       }
+      ],
+      "Obligatoire pour les effets graves ou inconnus",
+      "Via le centre régional de pharmacovigilance"
+     ],
+     [
+      "Assurance RC",
+      [
+       {
+        "t": "Protection en cas de prétention",
+        "i": "Le contrat prévoit un délai d'annonce ; omettre l'annonce peut compromettre la couverture."
+       }
+      ],
+      "Selon contrat",
+      "Annoncer dès qu'une prétention est possible, sans nier les faits"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le bilan biologique est ciblé : glycémie, INR ou anti-Xa, kaliémie, créatininémie, concentration plasmatique si un dosage existe.",
+    "Tu abordes le collègue en privé, vite, factuellement et sans accusation, jamais devant le patient ou l'équipe.",
+    "Le CIRS reste volontaire et non punitif ; il ne remplace ni l'information au patient ni l'annonce obligatoire à Swissmedic."
+   ],
+   "sources": [
+    "Sécurité des patients Suisse, CIRRNET",
+    "LPTh art. 59",
+    "Tox Info Suisse"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Prise en charge immédiate : sécuriser, antidote, surveiller",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Tu sécurises le patient d'abord, puis tu informes, car aucune démarche administrative ne passe avant la prévention du dommage.",
+   "tableau": {
+    "colonnes": [
+     "Médicament en excès",
+     "Antidote ou mesure",
+     "Pourquoi cet antidote",
+     "Précaution"
+    ],
+    "lignes": [
+     [
+      "Opioïdes",
+      [
+       {
+        "t": "Naloxone",
+        "i": "C'est un antagoniste μ compétitif qui lève la dépression respiratoire."
+       }
+      ],
+      "Antagoniste spécifique des récepteurs μ",
+      [
+       {
+        "t": "Resédation possible",
+        "i": "Sa durée d'action est plus courte que celle de nombreux opioïdes, donc on prolonge la surveillance."
+       }
+      ]
+     ],
+     [
+      "Insuline",
+      [
+       {
+        "t": "Glucose i.v. puis perfusion",
+        "i": "Le traitement corrige l'hypoglycémie ; il n'existe pas d'antidote spécifique de l'insuline."
+       }
+      ],
+      "Rétablit la glycémie",
+      [
+       {
+        "t": "Contrôles répétés, kaliémie",
+        "i": "L'insuline retard prolonge l'action, et l'insuline fait entrer le potassium dans les cellules."
+       }
+      ]
+     ],
+     [
+      "Héparine non fractionnée",
+      [
+       {
+        "t": "Protamine",
+        "i": "Elle se lie à l'héparine chargée négativement et la neutralise."
+       }
+      ],
+      "Neutralise l'héparine",
+      [
+       {
+        "t": "Efficacité partielle sur les HBPM",
+        "i": "Elle neutralise mal l'activité anti-Xa des HBPM ; elle peut provoquer une réaction anaphylactoïde."
+       }
+      ]
+     ],
+     [
+      "AVK",
+      [
+       {
+        "t": "Vitamine K et PCC",
+        "i": "Le PCC rétablit rapidement les facteurs dépendants de la vitamine K ; la vitamine K assure l'effet durable."
+       }
+      ],
+      "Corrige l'INR",
+      [
+       {
+        "t": "PCC si saignement grave",
+        "i": "La vitamine K seule agit en plusieurs heures, trop lentement en cas d'hémorragie."
+       }
+      ]
+     ],
+     [
+      "Dabigatran",
+      [
+       {
+        "t": "Idarucizumab",
+        "i": "Cet anticorps lie spécifiquement le dabigatran et l'inactive immédiatement."
+       }
+      ],
+      "Antidote spécifique",
+      [
+       {
+        "t": "Réservé au saignement ou à l'urgence chirurgicale",
+        "i": "Sans saignement, l'arrêt et la surveillance suffisent."
+       }
+      ]
+     ],
+     [
+      "KCl concentré i.v.",
+      [
+       {
+        "t": "Arrêt immédiat, ECG, traitement de l'hyperkaliémie",
+        "i": "Il n'existe pas d'antidote spécifique ; le calcium i.v. protège le myocarde si l'ECG est modifié."
+       }
+      ],
+      "Stabilise la membrane et abaisse la kaliémie",
+      [
+       {
+        "t": "Monitorage continu",
+        "i": "Le risque d'arrêt cardiaque persiste jusqu'à la normalisation de la kaliémie."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Première priorité : arrêter la perfusion en cause, évaluer l'état clinique, demander un avis senior ou Tox Info (145), instaurer surveillance ou antidote.",
+    "Le médecin informe sans délai le supérieur ou médecin responsable et, si nécessaire, le médecin traitant.",
+    "Le dossier consigne factuellement erreur, heure, mesures et information au patient ; toute modification rétroactive est une falsification.",
+    "Une erreur qui atteint le patient avec symptômes sort du cadre sans dommage et passe en urgence."
+   ],
+   "sources": [
+    "AIPS Swissmedic",
+    "Tox Info Suisse",
+    "Sécurité des patients Suisse"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Information du patient, devoirs juridiques et seconde victime",
+   "rubriques": [
+    "acuteManagement",
+    "hospitalizationComplications"
+   ],
+   "comment": "Tu informes avec transparence et empathie parce que le devoir de diligence l'exige et que la dissimulation coûte plus que l'erreur.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le patient est informé rapidement de ce qui s'est passé, des conséquences et des mesures prises ; ce devoir découle du mandat (art. 398 CO) et de l'art. 40 LPMéd.",
+    "Tu n'imputes pas la faute à un collègue devant le patient et tu ne spécules pas : tu exposes les faits connus et le plan de surveillance.",
+    "La dissimulation détruit la confiance et expose à une plainte civile, pénale ou disciplinaire devant l'autorité cantonale de surveillance.",
+    "Le professionnel impliqué peut souffrir du syndrome de seconde victime (culpabilité, anxiété) : soutien par les pairs et l'institution.",
+    "L'annonce à l'assurance RC se fait selon le contrat, sans nier les faits."
+   ],
+   "sources": [
+    "CO art. 398",
+    "LPMéd art. 40",
+    "Sécurité des patients Suisse, Quand surviennent des erreurs"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Corriger le système : analyse des causes racines et barrières",
+   "rubriques": [
+    "chronicManagement",
+    "followUpNetwork"
+   ],
+   "comment": "Tu cherches des barrières qui rendent l'erreur impossible ou visible, plutôt qu'un rappel de vigilance individuelle.",
+   "tableau": {
+    "colonnes": [
+     "Niveau",
+     "Barrière",
+     "Effet attendu",
+     "Exemple"
+    ],
+    "lignes": [
+     [
+      "Prescription",
+      [
+       {
+        "t": "Prescription informatisée avec aide à la décision",
+        "i": "Elle bloque doses aberrantes, allergies et interactions avant toute dispensation."
+       }
+      ],
+      "Supprime l'illisibilité et alerte sur les doses",
+      "Alerte de dose maximale"
+     ],
+     [
+      "Stockage",
+      [
+       {
+        "t": "Retrait du KCl concentré des unités de soins, séparation LASA, Tall Man",
+        "i": "Ce qui n'est pas accessible ne peut être administré par erreur."
+       }
+      ],
+      "Élimine l'erreur à la source",
+      "KCl dilué prêt à l'emploi"
+     ],
+     [
+      "Préparation et administration",
+      [
+       {
+        "t": "Double contrôle indépendant des médicaments à haut risque",
+        "i": "Un second contrôle indépendant intercepte l'erreur active avant le patient."
+       }
+      ],
+      "Intercepte le near-miss",
+      "Insuline, héparine i.v., opioïdes"
+     ],
+     [
+      "Transitions de soins",
+      [
+       {
+        "t": "Bilan comparatif des médicaments avec pharmacien clinique",
+        "i": "Il comble les trous de transmission à l'admission, au transfert et à la sortie, où les erreurs se concentrent."
+       }
+      ],
+      "Réduit les divergences non intentionnelles",
+      "Liste complète à l'entrée"
+     ],
+     [
+      "Cabinet",
+      [
+       {
+        "t": "Liste médicamenteuse à jour partagée avec le pharmacien, DEP",
+        "i": "Elle évite les doublons et les omissions entre prescripteurs."
+       }
+      ],
+      "Coordonne les soins ambulatoires",
+      "Plan de médication partagé"
+     ],
+     [
+      "Culture d'équipe",
+      [
+       {
+        "t": "Simulation, check-lists, « speak up »",
+        "i": "Elle autorise chacun à signaler un doute avant l'administration."
+       }
+      ],
+      "Détecte l'erreur avant l'acte",
+      "Pause de sécurité"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La revue de morbi-mortalité ou RCA cherche les défauts systémiques et formule des actions correctives sans rechercher de coupable.",
+    "Un retour d'information aux déclarants et à l'équipe sur les mesures décidées entretient la confiance dans le système de déclaration.",
+    "Le suivi mobilise équipe soignante, pharmacie hospitalière, responsable qualité ou CIRS et, si la gravité est réévaluée, l'assurance RC et le médecin cantonal."
+   ],
+   "sources": [
+    "Sécurité des patients Suisse, progress !",
+    "OMS Medication Without Harm"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Culture juste, erreurs répétées et pronostic",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "surveillance"
+   ],
+   "comment": "Tu classes le comportement (erreur humaine, comportement à risque, imprudence) avant de décider entre soutien, coaching ou sanction.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Comportement du collègue impliqué",
+     "i": "La culture juste classe le comportement, pas seulement le résultat pour le patient.",
+     "pec": null,
+     "notion": "c9"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Erreur humaine isolée",
+     "i": "Elle est inévitable dans un système défaillant : on console, on corrige le système.",
+     "pec": "systeme_cirs",
+     "notion": "c8"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Comportement à risque (contournement de règle jugé acceptable)",
+     "i": "Le collègue minimise le risque : on le conseille (coaching) et on retire l'incitation au contournement.",
+     "pec": "collegue_escalade",
+     "notion": "c9"
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Comportement imprudent (mépris délibéré du risque)",
+     "i": "Seul ce comportement est passible de sanction disciplinaire.",
+     "pec": "collegue_escalade",
+     "notion": "c9"
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Erreurs répétées du même collègue",
+     "i": "Elles évoquent épuisement, addiction ou trouble de discernement : on escalade vers le supérieur, sans diagnostic posé par soi-même.",
+     "pec": "collegue_escalade",
+     "notion": "c9"
+    }
+   ],
+   "points": [
+    "Un near-miss ou un incident sans dommage grave ne laisse aucune séquelle et améliore la sécurité collective s'il est déclaré et analysé.",
+    "Sans correction du défaut systémique, l'erreur se reproduit : la sanction individuelle seule laisse intactes les causes latentes.",
+    "La durée de surveillance s'adapte à la demi-vie et à la forme galénique (insulines retard, libération prolongée)."
+   ],
+   "sources": [
+    "Sécurité des patients Suisse",
+    "Marx, Just Culture"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "securisation_information",
+   "titre": "Erreur ayant atteint le patient : sécuriser, surveiller, informer",
+   "but": [
+    "Prévenir ou détecter tout dommage lié au médicament erroné.",
+    "Informer le patient avec transparence et empathie, selon le devoir de diligence.",
+    "Documenter les faits et alerter la hiérarchie."
+   ],
+   "moyens": {
+    "accueil": [
+     "Dire au patient que l'on vérifie un événement lié à son traitement et que l'on reste auprès de lui.",
+     "Installer le patient en surveillance, avec monitorage si le médicament est à haut risque.",
+     "Arrêter immédiatement la perfusion ou le traitement en cause et conserver flacon et ordonnance."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Naloxone (antagoniste des opioïdes)",
+      "posologie": "0,1 à 0,4 mg i.v. par titration toutes les 2 à 3 min jusqu'à une fréquence respiratoire suffisante ; perfusion si l'opioïde dépasse sa durée d'action.",
+      "pourquoi": "Elle inverse la dépression respiratoire, mais sa durée d'action est plus courte que celle de nombreux opioïdes : resédation possible.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Glucose 30 % (antihypoglycémiant)",
+      "posologie": "50 ml (15 g) i.v. en bolus si hypoglycémie symptomatique, à répéter selon la glycémie, puis perfusion de glucose si insuline retard.",
+      "pourquoi": "Il corrige l'hypoglycémie liée à un excès d'insuline, qui peut récidiver tant que l'insuline agit.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Protamine (antidote de l'héparine non fractionnée)",
+      "posologie": "1 mg neutralise environ 100 UI d'héparine reçues dans les 2 h précédentes, injection i.v. lente, maximum 50 mg.",
+      "pourquoi": "Elle neutralise l'héparine par liaison ionique ; une injection trop rapide risque hypotension et réaction anaphylactoïde.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Idarucizumab (antidote du dabigatran)",
+      "posologie": "5 g i.v. (2 perfusions successives de 2,5 g), réservé au saignement grave ou à l'urgence chirurgicale.",
+      "pourquoi": "Cet anticorps neutralise spécifiquement le dabigatran, ce qui évite un traitement non spécifique en cas de saignement.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Prendre les paramètres vitaux, la glycémie capillaire et la conscience à fréquence adaptée au médicament.",
+      "pourquoi": "Ils détectent précocement la toxicité avant la gravité."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Appeler Tox Info Suisse au 145 pour la toxicité, la durée de surveillance et l'antidote.",
+      "pourquoi": "Le centre fournit une conduite experte 24 h/24."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Rédiger au dossier faits, heures, mesures et information donnée, sans modifier rétroactivement.",
+      "pourquoi": "La modification rétroactive constitue une falsification."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Précise le devoir d'information (art. 398 CO) et la conduite à tenir face à une éventuelle plainte."
+     },
+     {
+      "discipline": "Qualité et sécurité des patients",
+      "apport": "Organise la déclaration CIRS et l'analyse des causes racines."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Arrêter le médicament en cause et rester auprès du patient.",
+      "Appeler du renfort et un avis senior sans attendre l'analyse de l'erreur.",
+      "Garder les emballages, ordonnances et pompes pour l'analyse ultérieure."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Arrête la perfusion, évalue ABCDE et glycémie, et décide si le patient est symptomatique."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Met le monitorage en place, pose une voie veineuse et prépare l'antidote prescrit."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Appelle Tox Info (145) et consulte l'AIPS pour la demi-vie et l'antidote."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Administre l'antidote ou le traitement symptomatique et fixe la durée de surveillance."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Informe le supérieur, puis le patient, et consigne les faits au dossier."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Contrôler les paramètres vitaux et la glycémie même si le patient se sent bien.",
+      "Informer le patient dans les meilleurs délais, en privé, avec empathie.",
+      "Ne pas accuser un collègue devant le patient."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Vérifie paramètres vitaux, allergies, fonction rénale et dose réellement administrée."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Surveille le patient à fréquence adaptée à la pharmacocinétique du médicament."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Informe le patient des faits, des risques et des mesures prises, puis répond à ses questions."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Prévient son supérieur, déclare l'événement au CIRS et consigne le tout au dossier."
+      }
+     ]
+    }
+   },
+   "pronostic": "Dans les catégories NCC MERP C-D, le pronostic est excellent sans séquelle après exclusion de la toxicité ; une transparence précoce limite le risque de plainte.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Paramètres vitaux, conscience, glycémie",
+      "quand": "Fréquence adaptée à la demi-vie du médicament",
+      "cible": "Stabilité sans signe de toxicité"
+     },
+     {
+      "quoi": "Bilan ciblé (INR ou anti-Xa, kaliémie, créatinine, concentration plasmatique)",
+      "quand": "Initialement, puis selon le médicament",
+      "cible": "Valeurs dans la marge thérapeutique"
+     },
+     {
+      "quoi": "Recherche d'un dommage tardif (méthotrexate, insuline retard)",
+      "quand": "Plusieurs jours si forme retard ou cytotoxique",
+      "cible": "Absence de toxicité retardée"
+     }
+    ],
+    "sortie": "Sortie ou poursuite ambulatoire quand toute toxicité est exclue sur la durée de la demi-vie, que le patient est informé et que le médecin traitant est averti."
+   },
+   "prevention": {
+    "primaire": "Appliquer les cinq règles et un double contrôle indépendant pour les médicaments à haut risque.",
+    "secondaire": "Détecter l'erreur précocement par le speak up, le monitorage et le contrôle des doses.",
+    "tertiaire": "Limiter les conséquences par antidote, surveillance et information du patient."
+   }
+  },
+  {
+   "cle": "systeme_cirs",
+   "titre": "Near-miss ou incident sans dommage : déclaration CIRS et correction du système",
+   "but": [
+    "Apprendre de l'événement sans désigner de coupable.",
+    "Corriger les erreurs latentes pour éviter la récidive.",
+    "Maintenir la confiance dans le système de déclaration."
+   ],
+   "moyens": {
+    "accueil": [
+     "Remercier le déclarant et rappeler le caractère non punitif du CIRS.",
+     "Parler au collègue impliqué en privé, vite, de façon factuelle et non accusatrice.",
+     "Proposer un soutien pair-à-pair à la seconde victime."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Déclarer l'événement au CIRS local et, si l'institution y participe, à CIRRNET.",
+      "pourquoi": "La déclaration alimente l'analyse systémique locale et nationale."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Organiser une revue de morbi-mortalité ou une analyse des causes racines avec toutes les professions.",
+      "pourquoi": "Elle identifie les barrières défaillantes sans chercher de coupable."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Mettre en place prescription informatisée, double contrôle, retrait du KCl concentré et bilan comparatif avec le pharmacien clinique.",
+      "pourquoi": "Ces barrières systémiques réduisent le risque de récidive."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Former l'équipe par simulation et check-lists et encourager le speak up.",
+      "pourquoi": "L'équipe apprend à signaler un doute avant l'administration."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "Qualité et sécurité des patients",
+      "apport": "Coordonne le CIRS, l'analyse des causes racines et le retour d'information à l'équipe."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Distingue l'erreur humaine, le comportement à risque et l'imprudence selon la culture juste."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Séparer l'analyse systémique de toute procédure disciplinaire.",
+      "Informer le patient si l'erreur l'a atteint, même sans dommage.",
+      "Informer le supérieur et le responsable qualité."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Documente factuellement l'événement et vérifie qu'aucun patient n'est resté exposé."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Déclare au CIRS et discute avec le collègue de façon non accusatrice."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "responsable qualité",
+       "fait": "Analyse les causes racines avec l'équipe et la pharmacie et propose des barrières."
+      },
+      {
+       "temps": "puis",
+       "qui": "responsable qualité",
+       "fait": "Retourne l'information aux déclarants et suit l'efficacité des mesures."
+      }
+     ]
+    }
+   },
+   "pronostic": "Un near-miss déclaré et analysé ne laisse aucune séquelle pour le patient et améliore la sécurité collective ; sans correction systémique, l'erreur se reproduit.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Nombre et nature des déclarations CIRS similaires",
+      "quand": "Revue périodique par l'équipe qualité",
+      "cible": "Baisse des événements de même type"
+     },
+     {
+      "quoi": "Application des barrières décidées (double contrôle, retrait KCl)",
+      "quand": "Audit après la mise en place",
+      "cible": "Conformité complète des unités"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : l'erreur n'a causé aucun dommage, toute toxicité est exclue et les actions correctives sont décidées."
+   },
+   "prevention": {
+    "primaire": "Installer des barrières systémiques (prescription informatisée, Tall Man, double contrôle, bilan comparatif).",
+    "secondaire": "Encourager la déclaration précoce et le speak up pour intercepter les near-misses.",
+    "tertiaire": "Retourner l'information après analyse et suivre l'efficacité des actions correctives."
+   }
+  },
+  {
+   "cle": "collegue_escalade",
+   "titre": "Erreurs répétées ou comportement à risque d'un collègue : escalade",
+   "but": [
+    "Protéger les patients exposés à un professionnel potentiellement altéré.",
+    "Distinguer erreur humaine, comportement à risque et imprudence.",
+    "Soutenir le collègue tout en assurant la sécurité."
+   ],
+   "moyens": {
+    "accueil": [
+     "Parler au collègue en privé, avec bienveillance et des faits précis.",
+     "Ne pas poser de diagnostic sur l'état du collègue.",
+     "Prévenir sans tarder le supérieur si la sécurité des patients est menacée."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Documenter les événements répétés et les déclarer au CIRS pour objectiver la répétition.",
+      "pourquoi": "La répétition distingue un problème individuel d'un défaut du système."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Orienter vers un soutien (médecin du personnel, service d'aide aux médecins).",
+      "pourquoi": "Épuisement, addiction ou trouble de discernement exigent une prise en charge spécifique."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Adapter la charge de travail ou superviser temporairement le collègue.",
+      "pourquoi": "Cette mesure protège les patients pendant l'évaluation."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Précise le devoir de signalement, la protection du patient et les procédures disciplinaires cantonales."
+     },
+     {
+      "discipline": "Santé au travail",
+      "apport": "Évalue l'épuisement ou la dépendance et organise le retour au travail."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Agir sans attendre un nouvel incident.",
+      "Séparer soutien au collègue et protection des patients.",
+      "Informer le supérieur et, si besoin, l'autorité cantonale de surveillance."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Rassemble les faits objectifs et les déclarations CIRS liés au collègue."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Rencontre le collègue en privé pour exposer les faits et proposer de l'aide."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "supérieur hiérarchique",
+       "fait": "Évalue la capacité d'exercer et met en place supervision ou allègement."
+      },
+      {
+       "temps": "puis",
+       "qui": "supérieur hiérarchique",
+       "fait": "Escalade à l'autorité de surveillance si le danger persiste malgré le soutien."
+      }
+     ]
+    }
+   },
+   "pronostic": "Avec une aide précoce et une supervision, la majorité des collègues retrouvent une pratique sûre ; sans intervention, les erreurs se reproduisent et les patients sont exposés.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Fréquence des erreurs et déclarations liées au collègue",
+      "quand": "Revue mensuelle pendant la supervision",
+      "cible": "Aucune nouvelle erreur"
+     },
+     {
+      "quoi": "Suivi du soutien (santé au travail, addictologie)",
+      "quand": "Selon plan établi avec le collègue",
+      "cible": "Capacité d'exercer évaluée positivement"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : aucun patient n'est en danger immédiat et la supervision est en place."
+   },
+   "prevention": {
+    "primaire": "Prévenir l'épuisement par une charge de travail adaptée et une culture du speak up.",
+    "secondaire": "Repérer tôt les signaux d'alerte (erreurs répétées, absences, changement de comportement).",
+    "tertiaire": "Assurer la reprise supervisée et le soutien après un événement grave."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6244,
+  "output_tokens": 19642,
+  "output_tokens_details": {
+   "thinking_tokens": 4295
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:53",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

@@ -1,0 +1,927 @@
+{
+ "id": "A98.4__O7_1-E15",
+ "portes": [
+  {
+   "ssp": "O7.1",
+   "nomSSP": "Consultation avant ou après un voyage à l’étranger, notamment en pays tropical",
+   "entite": "Fièvre hémorragique virale ou infection émergente à haut confinement (Ebola, Lassa, MERS)",
+   "entiteId": "O7.1-E15"
+  }
+ ],
+ "entite": "Fièvre hémorragique virale ou infection émergente à haut confinement (Ebola, Lassa, MERS)",
+ "cim10": "A98.4",
+ "ssp": {
+  "code": "O7.1",
+  "nom": "Consultation avant ou après un voyage à l’étranger, notamment en pays tropical",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Fièvre au retour d'un voyage tropical",
+    "i": "Le motif de consultation de ce SSP est la fièvre du voyageur ; le paludisme reste la cause grave la plus fréquente.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Séjour en zone d'épidémie active de FHV ou de MERS et fièvre < 21 j (14 j pour MERS) ?",
+    "i": "Cette fenêtre couvre l'incubation maximale ; la question se pose avant toute autre démarche.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Non : fièvre du voyageur banale",
+    "i": "Dengue, paludisme, typhoïde, hépatite et autres entités se traitent via les entités rivales de ce SSP.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Oui : masque, chambre fermée, un seul soignant en EPI",
+    "i": "Le but est de limiter les contacts avant toute décision et de protéger les soignants.",
+    "pec": "triage_alerte",
+    "notion": "c4"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Appel à l'infectiologue de garde et au médecin cantonal",
+    "i": "Ils décident ensemble du statut de cas suspect selon l'OFSP ; aucun transport ni prélèvement avant leur avis.",
+    "pec": "triage_alerte",
+    "notion": "c6"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Cas suspect retenu : transfert sécurisé (HUG) et PCR au Laboratoire de Spiez",
+    "i": "Le transport est spécialisé ; la RT-PCR est le seul diagnostic de confirmation.",
+    "pec": "soins_reference",
+    "notion": "c6"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Choc, saignement, SDRA ou oligurie",
+    "i": "Ces signes marquent un stade avancé et imposent des soins intensifs en isolement.",
+    "pec": "soins_reference",
+    "notion": "c7"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "PCR positive : traitement spécifique, traçage des contacts, suivi des survivants",
+    "i": "L'agent confirmé dicte l'antiviral ; le médecin cantonal organise le traçage.",
+    "pec": "contacts_survivants",
+    "notion": "c9"
+   },
+   {
+    "id": "n9",
+    "parent": "n5",
+    "t": "Cas non retenu : exposition faible ou diagnostic alternatif",
+    "i": "Une autre cause est prise en charge selon le SSP fièvre au retour, avec paludisme exclu en priorité.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n10",
+    "parent": "n5",
+    "t": "Paludisme recherché en parallèle",
+    "i": "Il est exclu sous précautions maximales sans retarder l'alerte ; une co-infection reste possible.",
+    "pec": "soins_reference",
+    "notion": "c6"
+   }
+  ]
+ },
+ "specialites": [
+  "TRO"
+ ],
+ "circuit": "MIXTE",
+ "theme": "Fièvre hémorragique virale ou infection émergente à haut confinement (Ebola, Lassa, MERS)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Agents en cause et mode de transmission",
+   "rubriques": [
+    "definition",
+    "basicSciences"
+   ],
+   "comment": "Identifie d'abord le virus probable d'après la zone visitée, car il dicte la transmission, l'incubation et le traitement spécifique.",
+   "tableau": {
+    "colonnes": [
+     "Virus",
+     "Famille",
+     "Réservoir et transmission",
+     "Incubation",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Ebola / Marburg",
+      "Filoviridae",
+      [
+       {
+        "t": "Contact direct avec sang, vomissements, selles, sperme ou cadavre",
+        "i": "Le patient n'est pas contagieux pendant l'incubation asymptomatique ; la contagiosité croît avec la charge virale, donc maximale au stade tardif et lors des funérailles."
+       }
+      ],
+      "2 à 21 jours",
+      [
+       {
+        "t": "Ciblage de monocytes, macrophages puis endothélium et hépatocytes",
+        "i": "La tempête cytokinique provoque fuite capillaire, CIVD et défaillance multiviscérale ; les saignements restent tardifs et inconstants."
+       }
+      ]
+     ],
+     [
+      "Lassa",
+      "Arenaviridae",
+      [
+       {
+        "t": "Excréta du rongeur Mastomys natalensis ou liquides d'un malade",
+        "i": "Le rongeur est le réservoir en Afrique de l'Ouest ; la transmission interhumaine est surtout nosocomiale ou par liquides biologiques."
+       }
+      ],
+      "3 à 21 jours",
+      [
+       {
+        "t": "Surdité neurosensorielle chez environ un tiers des patients",
+        "i": "Elle survient même dans les formes légères, d'où le contrôle audiométrique systématique chez les survivants."
+       }
+      ]
+     ],
+     [
+      "Crimée-Congo",
+      "Bunyavirales",
+      [
+       {
+        "t": "Piqûre de tique ou contact avec liquides d'un malade ou du bétail",
+        "i": "C'est le seul virus transmis par tique de ce groupe ; l'exposition vétérinaire ou rurale est la clé anamnestique."
+       }
+      ],
+      "Variable selon la voie",
+      [
+       {
+        "t": "Syndrome hémorragique plus précoce que pour Ebola",
+        "i": "Il justifie la même alerte et les mêmes précautions de contact."
+       }
+      ]
+     ],
+     [
+      "MERS-CoV",
+      "Coronaviridae (bétacoronavirus)",
+      [
+       {
+        "t": "Dromadaires, lait cru ou contact étroit avec un malade",
+        "i": "La péninsule arabique est le foyer ; les flambées sont surtout nosocomiales."
+       }
+      ],
+      "2 à 14 jours",
+      [
+       {
+        "t": "Pneumonie sévère avec atteinte rénale, sans syndrome hémorragique",
+        "i": "Il n'est pas une FHV au sens strict mais exige gouttelettes, contact et précautions aéroportées lors des gestes à aérosols."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Les agents sont Filoviridae (Ebola, Marburg), Arenaviridae (Lassa), Bunyavirales (Crimée-Congo) et le bétacoronavirus MERS-CoV.",
+    "Le patient n'est pas contagieux durant l'incubation ; il le devient avec les symptômes.",
+    "La physiopathologie associe atteinte endothéliale, CIVD et défaillance multiviscérale."
+   ],
+   "sources": [
+    "OFSP, concept FHV",
+    "OMS, Ebola",
+    "Swiss Medical Forum"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie : rare mais catastrophique si non reconnue",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Retiens que le cas suspect est presque toujours négatif en Suisse, mais que l'erreur de triage coûte très cher aux soignants.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "L'épidémie d'Ebola d'Afrique de l'Ouest (2014-2016) a causé environ 28 600 cas et 11 300 décès ; elle a motivé les concepts suisses.",
+    "En Suisse, les cas suspects sont très rares et presque toujours négatifs ; le paludisme reste la cause de fièvre grave la plus fréquente au retour d'Afrique.",
+    "Lassa est endémique en Afrique de l'Ouest ; le MERS-CoV circule dans la péninsule arabique via les dromadaires, avec une létalité d'environ un tiers des cas confirmés."
+   ],
+   "sources": [
+    "OFSP",
+    "OMS",
+    "ECDC"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse à distance : fenêtre de 21 jours et expositions",
+   "rubriques": [
+    "anamnesis"
+   ],
+   "comment": "Interroge par téléphone avant l'arrivée : toute fièvre dans les 21 jours après une zone d'épidémie active fait suspecter la maladie avant toute autre démarche.",
+   "tableau": {
+    "colonnes": [
+     "Exposition recherchée",
+     "Virus évoqué",
+     "Pourquoi la rechercher"
+    ],
+    "lignes": [
+     [
+      "Malade, cadavre, funérailles, soins sans protection, activité de soignant ou d'humanitaire",
+      [
+       {
+        "t": "Ebola, Marburg, Lassa",
+        "i": "Les liquides corporels et les cadavres sont très riches en virus ; les funérailles sont un amplificateur classique d'épidémie."
+       }
+      ],
+      "Elle définit le risque de contact et le classement de l'exposition par le médecin cantonal."
+     ],
+     [
+      "Chauves-souris, grottes, viande de brousse",
+      [
+       {
+        "t": "Marburg, Ebola",
+        "i": "Les chauves-souris frugivores sont le réservoir probable des filovirus."
+       }
+      ],
+      "Elle oriente vers un foyer d'origine animale."
+     ],
+     [
+      "Rongeurs, denrées souillées",
+      [
+       {
+        "t": "Lassa",
+        "i": "Mastomys natalensis excrète le virus dans l'urine et les selles."
+       }
+      ],
+      "Elle impose de demander région, district et type d'habitat."
+     ],
+     [
+      "Dromadaires, lait cru, séjour dans la péninsule arabique",
+      [
+       {
+        "t": "MERS-CoV",
+        "i": "La fenêtre est de 14 jours, plus courte qu'Ebola."
+       }
+      ],
+      "Elle justifie de rechercher toux et dyspnée."
+     ],
+     [
+      "Piqûre de tique, contact avec du bétail",
+      [
+       {
+        "t": "Crimée-Congo",
+        "i": "Seul agent de ce groupe transmis par tique."
+       }
+      ],
+      "Elle élargit la recherche aux zones rurales hors épidémie déclarée."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Précise pays, district, dates de séjour et motif du voyage (soignant, visite à des proches).",
+    "Le début est non spécifique : fièvre, asthénie, myalgies, céphalées, pharyngite ; vomissements, diarrhée et douleurs abdominales apparaissent vers J3-J5.",
+    "Incubation : Ebola 2-21 j, Lassa 3-21 j, MERS 2-14 j."
+   ],
+   "sources": [
+    "OFSP",
+    "OMS"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Triage, examen clinique et équipement de protection",
+   "rubriques": [
+    "clinicalExam"
+   ],
+   "comment": "Protège-toi et limite les contacts avant d'examiner : un seul soignant entraîné, équipé, examine le patient seul en pièce fermée.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Dès le triage, le patient reçoit un masque chirurgical et est placé seul dans une pièce fermée ; le nombre de soignants est réduit au minimum.",
+    "L'EPI comprend combinaison, double paire de gants, masque FFP3, visière et surbottes, avec habillage et déshabillage supervisés.",
+    "Les constantes (T°, TA, FC, FR, SpO2, conscience) et la recherche de pétéchies ou de saignements aux points de ponction sont réalisées par un seul soignant.",
+    "Ebola peut donner conjonctivite et éruption maculopapuleuse ; Lassa une pharyngite exsudative, un œdème facial et un épanchement pleural.",
+    "Les gestes invasifs, piqûres inutiles et objets tranchants sont évités : la piqûre accidentelle est une voie de contamination à haut risque."
+   ],
+   "sources": [
+    "OFSP, concept FHV",
+    "Swissnoso"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Cas suspect et signes d'alarme",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Pose le statut de cas suspect sur fièvre plus exposition, sans attendre de saignement, qui est tardif.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Une fièvre avec exposition à risque dans les 21 jours définit un cas suspect, sans saignement nécessaire.",
+    "Les hémorragies (gencives, méléna, hématémèse, pétéchies, points de ponction) sont tardives et signent un stade avancé.",
+    "Choc, oligurie, confusion ou coma et hoquet signent une forme grave d'Ebola.",
+    "Vomissements et diarrhée profus entraînent une déshydratation et une hypokaliémie qui aggravent le pronostic.",
+    "Évoque le MERS devant fièvre, toux ou dyspnée dans les 14 jours d'un séjour en péninsule arabique, et Lassa devant fièvre, pharyngite, douleur rétrosternale ou œdème facial en Afrique de l'Ouest."
+   ],
+   "sources": [
+    "OFSP",
+    "OMS"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Démarche diagnostique : alerte avant examens",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Appelle l'infectiologue et le médecin cantonal avant tout transport ou prélèvement, puis exclus le paludisme en parallèle sans retarder l'alerte.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Fièvre < 21 j après zone d'épidémie active",
+     "i": "La fenêtre couvre l'incubation maximale d'Ebola et de Lassa (21 j) ; le MERS se limite à 14 j.",
+     "pec": "triage_alerte",
+     "notion": "c3"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Isoler le patient et téléphoner à l'infectiologue de garde et au médecin cantonal",
+     "i": "Aucun transport ni envoi au laboratoire habituel : ils décident ensemble du statut de cas suspect selon les critères OFSP.",
+     "pec": "triage_alerte",
+     "notion": "c6"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Cas suspect retenu : transfert sécurisé vers le centre de référence (HUG)",
+     "i": "Un transport spécialisé est requis ; une ambulance usuelle ou un transport public sont exclus.",
+     "pec": "soins_reference",
+     "notion": "c6"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Prélèvements en triple emballage vers le Laboratoire de Spiez : RT-PCR spécifique",
+     "i": "La RT-PCR est le seul diagnostic de confirmation ; ni la clinique ni l'épidémiologie ne suffisent.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "PCR Ebola négative < 72 h après le début des symptômes : la répéter",
+     "i": "La charge virale peut être encore indétectable au début ; un résultat négatif précoce n'exclut pas la maladie.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n6",
+     "parent": "n2",
+     "t": "Parallèlement : frottis et test rapide du paludisme sous précautions maximales",
+     "i": "Le paludisme est la fièvre grave la plus fréquente au retour d'Afrique ; un test positif n'exclut pas une co-infection.",
+     "pec": "soins_reference",
+     "notion": "c6"
+    },
+    {
+     "id": "n7",
+     "parent": "n2",
+     "t": "Cas non retenu : exposition faible ou diagnostic alternatif",
+     "i": "Dengue, typhoïde, hépatite, leptospirose, rickettsiose, méningococcie ou fièvre jaune se prennent en charge via le SSP fièvre au retour de voyage.",
+     "pec": null,
+     "notion": "c6"
+    }
+   ],
+   "points": [
+    "Biologie typique : thrombopénie, leucopénie puis lymphopénie, ASAT > ALAT, créatinine élevée, coagulopathie, dyskaliémie.",
+    "Hémocultures et lactate guident le traitement d'une co-infection ; la radiographie thoracique au lit évalue la pneumonie (MERS).",
+    "Le MERS se confirme par RT-PCR, plus sensible sur voies respiratoires basses ; pour Lassa, RT-PCR de référence et ELISA en complément.",
+    "Le laboratoire local est averti avant tout prélèvement ; seuls les examens indispensables sont faits, sans automate standard."
+   ],
+   "sources": [
+    "OFSP",
+    "Laboratoire de Spiez",
+    "OMS"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Traitement : soutien intensif en isolement et antiviral selon l'agent",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Soutiens d'abord (volume, électrolytes, isolement), puis ajoute l'antiviral ou l'anticorps spécifique seulement quand l'agent est connu.",
+   "tableau": {
+    "colonnes": [
+     "Agent",
+     "Traitement spécifique",
+     "Limite"
+    ],
+    "lignes": [
+     [
+      "Ebola espèce Zaïre",
+      [
+       {
+        "t": "Anticorps monoclonaux (Inmazeb, ansuvimab)",
+        "i": "Ils réduisent la mortalité en ciblant la glycoprotéine du virus Zaïre."
+       }
+      ],
+      [
+       {
+        "t": "Inactifs sur les autres espèces d'ebolavirus",
+        "i": "L'espèce doit donc être confirmée avant de compter sur eux."
+       }
+      ]
+     ],
+     [
+      "Lassa",
+      [
+       {
+        "t": "Ribavirine IV, début le plus précoce possible",
+        "i": "Le bénéfice dépend d'un début précoce."
+       }
+      ],
+      [
+       {
+        "t": "Preuves limitées",
+        "i": "Les données sont observationnelles ; le soutien reste la base."
+       }
+      ]
+     ],
+     [
+      "MERS-CoV",
+      [
+       {
+        "t": "Aucun antiviral validé",
+        "i": "Le traitement repose sur le soutien, la ventilation protectrice et l'ECMO si hypoxémie réfractaire."
+       }
+      ],
+      [
+       {
+        "t": "Précautions aéroportées pour les gestes à aérosols",
+        "i": "Intubation et aspiration génèrent des aérosols."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Chambre individuelle à pression négative avec sas, personnel dédié et protégé, dans un centre de référence.",
+    "Réhydratation orale ou IV, correction du potassium et de la glycémie, prise en charge du choc.",
+    "Évite les injections IM, l'aspirine et les AINS ; paracétamol puis morphine titrée.",
+    "Un antipaludique et la ceftriaxone peuvent être débutés en attendant les résultats pour couvrir une co-infection.",
+    "Surfaces, déchets et linge sont décontaminés (hypochlorite ou virucide) ; le corps d'un décédé n'est jamais manipulé hors protocole."
+   ],
+   "sources": [
+    "OMS, prise en charge FHV",
+    "OFSP",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications, pronostic et levée de l'isolement",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "surveillance"
+   ],
+   "comment": "Anticipe le choc et l'insuffisance rénale, surveille avec dosages au lit, et ne lève l'isolement que sur deux PCR négatives.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le choc hypovolémique et septique avec défaillance multiviscérale est la première cause de décès ; insuffisance rénale, atteinte hépatique, dyskaliémie et arythmies sont fréquentes.",
+    "La contamination des soignants (erreur de déshabillage, piqûre) est la complication institutionnelle majeure ; toute rupture de protection est déclarée immédiatement.",
+    "Lassa : surdité neurosensorielle chez environ un tiers ; MERS : SDRA et atteinte rénale ; femme enceinte : mortalité maternelle et pertes fœtales élevées.",
+    "Létalité d'Ebola Zaïre d'environ 50 % (25 à 90 % selon les épidémies) ; Lassa bénigne ou asymptomatique dans environ 80 % des cas, létalité globale d'environ 1 %, bien plus haute à l'hôpital.",
+    "L'isolement est levé après amélioration clinique et deux PCR sanguines négatives à 48 h d'intervalle, sur décision de l'infectiologue et du médecin cantonal."
+   ],
+   "sources": [
+    "OMS",
+    "OFSP"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Contacts, déclaration, survivants et prévention",
+   "rubriques": [
+    "chronicManagement",
+    "followUpNetwork"
+   ],
+   "comment": "Déclare immédiatement, laisse le médecin cantonal tracer les contacts et suis les survivants sur le long terme.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Tout cas suspect est annoncé immédiatement par téléphone au médecin cantonal (loi sur les épidémies), qui informe l'OFSP et peut ordonner isolement ou quarantaine.",
+    "Le traçage classe le risque d'exposition et suit la température 2 fois par jour pendant 21 jours (14 jours pour le MERS).",
+    "Le vaccin rVSV-ZEBOV (Ervebo) ne protège que contre l'espèce Zaïre et s'utilise pour soignants et contacts.",
+    "Le virus Ebola persiste dans le sperme plus de 12 mois : préservatif jusqu'à deux tests négatifs successifs.",
+    "Conseil pré-voyage : éviter malades, funérailles, grottes, viande de brousse et dromadaires, et consulter dès une fièvre au retour."
+   ],
+   "sources": [
+    "OFSP",
+    "Loi sur les épidémies (LEp)",
+    "OMS"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "triage_alerte",
+   "titre": "Triage, isolement initial et alerte",
+   "but": [
+    "Limiter l'exposition des soignants et des autres patients dès le premier contact.",
+    "Obtenir une décision commune de l'infectiologue et du médecin cantonal avant tout transport ou prélèvement."
+   ],
+   "moyens": {
+    "accueil": [
+     "Mets un masque chirurgical au patient dès l'arrivée ou à distance par téléphone.",
+     "Place le patient seul dans une pièce fermée et limite l'accès au strict minimum.",
+     "Interroge à distance sur pays, district, dates de séjour, contacts et motif du voyage."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Désigne un seul soignant entraîné, en EPI complet, pour l'examen et les constantes.",
+      "pourquoi": "Moins de contacts réduit le risque de contamination, notamment lors de l'habillage et du déshabillage."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Évite les gestes invasifs, les piqûres inutiles et les objets tranchants.",
+      "pourquoi": "La piqûre accidentelle est une voie de contamination à haut risque."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Prépare un conditionnement en triple emballage sans l'envoyer au laboratoire habituel.",
+      "pourquoi": "Le laboratoire local est averti et les échantillons suivent la filière dédiée de haute sécurité."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "Santé publique et épidémiologie",
+      "apport": "Le médecin cantonal applique la loi sur les épidémies, classe le cas et informe l'OFSP."
+     },
+     {
+      "discipline": "Droit médical suisse",
+      "apport": "Le médecin respecte l'obligation de déclaration immédiate par téléphone et la possibilité d'isolement ordonné par le médecin cantonal."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Applique l'isolement immédiat avant tout transport.",
+      "Ne transporte pas le patient et n'envoie aucun échantillon au laboratoire habituel.",
+      "Ne multiplie pas les contacts."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Place un masque au patient, l'isole seul et interdit l'entrée sans EPI."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Prépare l'EPI complet et liste les personnes déjà en contact avec le patient."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Téléphone à l'infectiologue de garde et au médecin cantonal pour décider du statut de cas suspect."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Organise le transport spécialisé sécurisé vers le centre de référence (HUG)."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le pronostic dépend de l'agent et de la précocité des soins intensifs ; la reconnaissance dès le triage protège les soignants.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Température et état hémodynamique, mesurés par un seul soignant en EPI",
+      "quand": "Jusqu'au transfert",
+      "cible": "Absence de choc ; alerte immédiate si dégradation"
+     },
+     {
+      "quoi": "Liste des personnes en contact et des ruptures d'EPI",
+      "quand": "Dès le triage",
+      "cible": "Liste transmise au médecin cantonal"
+     }
+    ],
+    "sortie": "Pas de sortie : le patient reste isolé jusqu'au transfert décidé par l'infectiologue et le médecin cantonal."
+   },
+   "prevention": {
+    "primaire": "Conseille d'éviter malades, funérailles, grottes, viande de brousse et dromadaires en zone d'épidémie, et de consulter dès une fièvre au retour.",
+    "secondaire": "Triage systématique des voyageurs fébriles avec question sur la zone d'épidémie dans les 21 jours.",
+    "tertiaire": "Entraîne régulièrement les équipes à l'habillage et au déshabillage supervisés."
+   }
+  },
+  {
+   "cle": "soins_reference",
+   "titre": "Isolement et soins intensifs en centre de référence",
+   "but": [
+    "Stabiliser le patient par un soutien intensif précoce et un traitement spécifique selon l'agent.",
+    "Confirmer le diagnostic par RT-PCR sans exposer le personnel.",
+    "Lever l'isolement seulement sur critères stricts."
+   ],
+   "moyens": {
+    "accueil": [
+     "Admets le patient en chambre individuelle à pression négative avec sas.",
+     "Dédie un personnel protégé et entraîné.",
+     "Annonce chaque rupture d'EPI à la médecine du travail."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Ringer-lactate (cristalloïde)",
+      "posologie": "500 mL IV si PAS < 90 mmHg, à répéter selon la réponse hémodynamique et la diurèse ; potassium et glycémie corrigés selon ionogramme.",
+      "pourquoi": "Le choc hypovolémique par fuite capillaire et pertes digestives est la première cause de décès.",
+      "source": "OMS 2023"
+     },
+     {
+      "molecule": "Paracétamol (antalgique non opioïde)",
+      "posologie": "1 g IV, à renouveler au maximum 4 g/j chez l'adulte ; réduire en cas d'atteinte hépatique.",
+      "pourquoi": "Il traite la douleur et la fièvre sans effet antiagrégant, contrairement à l'aspirine et aux AINS.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Morphine (opioïde)",
+      "posologie": "2 à 3 mg IV toutes les 5 minutes titrés si EVA ≥ 7 ; éviter la voie IM.",
+      "pourquoi": "La douleur sévère exige une titration IV, car les injections IM exposent à des hématomes dans un contexte de coagulopathie.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Anticorps monoclonaux (Inmazeb ou ansuvimab, Ebola espèce Zaïre)",
+      "posologie": "Ansuvimab : dose unique 50 mg/kg IV ; Inmazeb : dose unique IV selon la notice, via le centre de référence.",
+      "pourquoi": "Ils réduisent la mortalité pour l'espèce Zaïre mais n'agissent pas sur les autres espèces d'ebolavirus.",
+      "source": "OMS 2022"
+     },
+     {
+      "molecule": "Ribavirine (antiviral, Lassa)",
+      "posologie": "Schéma IV : dose de charge 30 mg/kg (max 2 g), puis 16 mg/kg toutes les 6 h pendant 4 jours, puis 8 mg/kg toutes les 8 h pendant 6 jours.",
+      "pourquoi": "Le bénéfice dépend d'un début le plus précoce possible et les preuves restent limitées.",
+      "source": "CDC / OMS"
+     },
+     {
+      "molecule": "Ceftriaxone (céphalosporine de 3e génération)",
+      "posologie": "2 g IV 1 fois par jour en attendant les hémocultures ; un antipaludique IV est débuté si le paludisme n'est pas exclu.",
+      "pourquoi": "Elle couvre une co-infection bactérienne ou paludique fréquente qui peut aggraver l'évolution.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveille constantes, diurèse et bilan hydrique avec des dosages au lit.",
+      "pourquoi": "Les dosages au lit limitent les prélèvements et l'exposition du personnel."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Pour le MERS, assure une ventilation protectrice et une ECMO si hypoxémie réfractaire.",
+      "pourquoi": "Aucun antiviral validé n'existe ; la ventilation est le traitement du SDRA."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Décontamine surfaces, déchets et linge par filière dédiée (hypochlorite ou virucide).",
+      "pourquoi": "Ces matériaux sont infectieux et exposent le personnel de nettoyage."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "Médecine intensive",
+      "apport": "Assure ventilation, vasopresseurs et suppléance rénale en isolement."
+     },
+     {
+      "discipline": "Médecine palliative",
+      "apport": "Soulage les symptômes et accompagne le patient et ses proches quand la maladie progresse."
+     },
+     {
+      "discipline": "Santé publique et épidémiologie",
+      "apport": "Le médecin cantonal et l'OFSP coordonnent le laboratoire de Spiez et le traçage."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Maintiens l'isolement strict en pression négative.",
+      "Évite l'aspirine, les AINS et les injections IM.",
+      "Corrige volume, potassium et glycémie dès l'admission."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Pose une voie veineuse périphérique fiable et débute les cristalloïdes si PAS < 90 mmHg."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Prélève avec dosages au lit uniquement et envoie les tubes en triple emballage au Laboratoire de Spiez."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Débute le traitement spécifique selon l'agent : monoclonaux (Ebola Zaïre) ou ribavirine (Lassa)."
+      },
+      {
+       "temps": "puis",
+       "qui": "second médecin",
+       "fait": "Évalue la ventilation et l'oxygène titré (SpO2 92-96 %) ; ECMO si hypoxémie réfractaire."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La létalité d'Ebola Zaïre est d'environ 50 % (25 à 90 % selon les épidémies), nettement réduite par un traitement précoce ; celle de Lassa est d'environ 1 % mais plus élevée à l'hôpital.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Constantes, diurèse, bilan hydrique",
+      "quand": "En continu",
+      "cible": "Stabilité hémodynamique, diurèse conservée"
+     },
+     {
+      "quoi": "Ionogramme, créatinine, lactate, coagulation",
+      "quand": "Plusieurs fois par jour au début",
+      "cible": "Absence d'hypokaliémie sévère, d'insuffisance rénale et de CIVD"
+     },
+     {
+      "quoi": "RT-PCR sanguine",
+      "quand": "Contrôles à 48 h d'intervalle",
+      "cible": "Deux résultats négatifs avant levée de l'isolement"
+     }
+    ],
+    "sortie": "Amélioration clinique et deux PCR sanguines négatives à 48 h d'intervalle, avec décision de l'infectiologue et du médecin cantonal."
+   },
+   "prevention": {
+    "primaire": "Protège le personnel par EPI, formation et protocoles stricts de déshabillage.",
+    "secondaire": "Diagnostique vite par PCR et traite précocement pour réduire la létalité.",
+    "tertiaire": "Suit les séquelles chez les survivants (arthralgies, uvéite, asthénie, troubles neurologiques, audition pour Lassa)."
+   }
+  },
+  {
+   "cle": "contacts_survivants",
+   "titre": "Traçage des contacts, vaccination et suivi des survivants",
+   "but": [
+    "Détecter précocement tout contact devenant symptomatique.",
+    "Prévenir la transmission secondaire, notamment sexuelle, et traiter les séquelles."
+   ],
+   "moyens": {
+    "accueil": [
+     "Explique au patient et aux contacts le rôle du médecin cantonal et la possibilité d'isolement ou de quarantaine.",
+     "Remets des consignes écrites : mesurer la température 2 fois par jour et appeler dès une fièvre."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Vaccin rVSV-ZEBOV (Ervebo, vaccin vivant atténué)",
+      "posologie": "Dose unique IM, pour soignants et contacts à haut risque selon décision du médecin cantonal et de l'infectiologue, selon disponibilité.",
+      "pourquoi": "Il protège uniquement contre Ebola espèce Zaïre ; il est inactif contre Lassa, Marburg ou le MERS.",
+      "source": "OMS 2019"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Prescris le préservatif jusqu'à deux tests négatifs successifs du sperme chez le survivant d'Ebola.",
+      "pourquoi": "Le virus persiste dans le sperme plus de 12 mois."
+     },
+     {
+      "categorie": "rééducation",
+      "mesure": "Organise le suivi des arthralgies, uvéite, asthénie et troubles neurologiques, et un contrôle audiométrique après Lassa.",
+      "pourquoi": "La surdité neurosensorielle touche environ un tiers des patients, même après une forme légère."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Soutiens la reprise du travail et l'accompagnement psychosocial du survivant et de ses proches.",
+      "pourquoi": "La stigmatisation et l'asthénie prolongée retardent la réinsertion."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "Santé publique et épidémiologie",
+      "apport": "Le médecin cantonal classe le risque des contacts et suit leur température pendant 21 jours (14 pour le MERS)."
+     },
+     {
+      "discipline": "Droit médical suisse",
+      "apport": "La loi sur les épidémies encadre déclaration, isolement ou quarantaine ordonnés."
+     },
+     {
+      "discipline": "Médecine du travail",
+      "apport": "Suit les soignants exposés et traite toute piqûre ou rupture de protection."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Déclare toute rupture de protection immédiatement.",
+      "Informe les contacts des symptômes qui imposent un appel au médecin cantonal."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Annonce le cas au médecin cantonal, qui informe l'OFSP."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Le médecin cantonal classe le risque d'exposition de chaque contact."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Les contacts mesurent leur température 2 fois par jour pendant 21 jours (14 pour le MERS)."
+      },
+      {
+       "temps": "puis",
+       "qui": "infirmier·ère",
+       "fait": "Suit les survivants pour séquelles et organise les contrôles du sperme (Ebola)."
+      }
+     ]
+    }
+   },
+   "pronostic": "Les contacts bien suivis sont repérés tôt ; les survivants gardent souvent des séquelles (arthralgies, uvéite, asthénie, surdité pour Lassa) qui nécessitent un suivi prolongé.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Température des contacts",
+      "quand": "2 fois par jour pendant 21 jours (14 jours MERS)",
+      "cible": "Absence de fièvre ; sinon isolement immédiat et alerte"
+     },
+     {
+      "quoi": "Sperme des survivants d'Ebola (RT-PCR)",
+      "quand": "Selon le protocole du centre de référence",
+      "cible": "Deux tests négatifs successifs"
+     },
+     {
+      "quoi": "Séquelles et audition (Lassa)",
+      "quand": "Après la guérison, puis selon les symptômes",
+      "cible": "Dépistage précoce de la surdité et réhabilitation"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire de suivi après levée de l'isolement par l'infectiologue et le médecin cantonal."
+   },
+   "prevention": {
+    "primaire": "Vaccination rVSV-ZEBOV des soignants et des contacts à risque d'Ebola Zaïre selon décision des autorités.",
+    "secondaire": "Traçage actif des contacts et isolement dès le premier symptôme.",
+    "tertiaire": "Réhabilitation des séquelles et soutien psychosocial des survivants."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7802,
+  "output_tokens": 15310,
+  "output_tokens_details": {
+   "thinking_tokens": 2390
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:55",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

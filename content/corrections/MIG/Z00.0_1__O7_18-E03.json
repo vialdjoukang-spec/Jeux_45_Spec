@@ -1,0 +1,1105 @@
+{
+ "id": "Z00.0_1__O7_18-E03",
+ "portes": [
+  {
+   "ssp": "O7.18",
+   "nomSSP": "Demande d’examens et de traitements non justifiés",
+   "entite": "Demande de bilan sanguin complet « de routine » sans indication chez sujet sain",
+   "entiteId": "O7.18-E03"
+  }
+ ],
+ "entite": "Demande de bilan sanguin complet « de routine » sans indication chez sujet sain",
+ "cim10": "Z00.0",
+ "ssp": {
+  "code": "O7.18",
+  "nom": "Demande d’examens et de traitements non justifiés",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient demande un examen ou un traitement sans indication apparente",
+    "i": "Porte d'entrée O7.18 : l'indication se vérifie avant toute prescription.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Instabilité ou urgence vitale ?",
+    "i": "On applique ABCDE en premier ; une demande banale peut masquer une urgence.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : traiter l'urgence d'abord",
+    "i": "On renvoie vers le SSP du symptôme présenté (par exemple anaphylaxie ou queue de cheval).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : explorer le motif réel et rechercher des drapeaux rouges",
+    "i": "Le motif caché est souvent angoisse, deuil, fatigue, pression de l'entourage ou souhait de prévention.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Symptôme d'alarme présent ?",
+    "i": "Perte de poids, rectorragies, fièvre prolongée, dysphagie, toux persistante : le patient n'est plus asymptomatique.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Oui : bilan orienté par l'hypothèse",
+    "i": "On abandonne la logique de check-up ; par exemple colonoscopie si rectorragies après 50 ans.",
+    "pec": "alarme_bilan_cible",
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n5",
+    "t": "Non : dépistage validé dû selon âge ou risque ?",
+    "i": "CCR et sein à 50-69 ans, col dès 21 ans, score cardiovasculaire, glycémie si risque.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Oui : proposer le dépistage validé",
+    "i": "Le dépistage ciblé remplace le panel ; il est remboursé et fondé sur les preuves.",
+    "pec": "checkup_conseil",
+    "notion": "c6"
+   },
+   {
+    "id": "n9",
+    "parent": "n7",
+    "t": "Non : anxiété de santé ou détresse psychique ?",
+    "i": "Anxiété, dépression et alcool se cachent fréquemment derrière un check-up ; un examen normal ne rassure pas ces patients.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "Oui : prise en charge de l'anxiété liée à la santé",
+    "i": "Approche psychologique ; renvoi vers le SSP anxiété ou trouble à symptomatologie somatique si le tableau domine.",
+    "pec": "anxiete_sante",
+    "notion": "c5"
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "Non : demande sans indication chez sujet sain",
+    "i": "Les explications sur VPP, faux positifs et surdiagnostic précèdent la décision partagée.",
+    "pec": "checkup_conseil",
+    "notion": "c3"
+   },
+   {
+    "id": "n12",
+    "parent": "n1",
+    "t": "Résultat hors norme isolé d'un bilan déjà réalisé",
+    "i": "Situation fréquente : on répète le test avant toute escalade diagnostique.",
+    "pec": "cascade_resultat_isole",
+    "notion": "c8"
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "Le patient insiste malgré l'information",
+    "i": "On rappelle LAMal 32 et 56 : sans indication, la prestation reste à charge du patient ; on documente la décision.",
+    "pec": "checkup_conseil",
+    "notion": "c7"
+   }
+  ]
+ },
+ "specialites": [
+  "MIG"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Demande de bilan sanguin complet « de routine » sans indication chez le sujet sain (SSP O7.18)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition et preuves : le check-up sanguin non ciblé ne sauve pas de vies",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Tu définis d'abord la demande comme un dépistage non ciblé, puis tu cites les preuves : aucun bénéfice sur la mortalité, davantage de diagnostics.",
+   "tableau": {
+    "colonnes": [
+     "Source ou résultat",
+     "Ce qu'elle montre",
+     "Ce que le candidat en conclut"
+    ],
+    "lignes": [
+     [
+      "Cochrane 2012 (Krogsbøll)",
+      [
+       {
+        "t": "Aucune baisse de la mortalité totale, cardiovasculaire ou par cancer",
+        "i": "Les essais randomisés de bilans généraux ne montrent aucun gain de survie, car les tests non ciblés détectent surtout des anomalies sans conséquence."
+       }
+      ],
+      "Le bilan général n'a pas de valeur pronostique démontrée."
+     ],
+     [
+      "Effet sur les diagnostics",
+      [
+       {
+        "t": "Davantage de nouveaux diagnostics et d'examens complémentaires",
+        "i": "Plus on teste, plus on trouve d'anomalies, sans que la morbidité globale diminue : c'est le moteur du surdiagnostic."
+       }
+      ],
+      "Le bilan crée de la morbidité apparente, pas de la santé."
+     ],
+     [
+      "Smarter Medicine (SSMIG)",
+      [
+       {
+        "t": "Campagne suisse contre les examens sans bénéfice",
+        "i": "Elle cible les bilans systématiques chez l'asymptomatique, car ils exposent à des préjudices et à des coûts sans gain pour le patient."
+       }
+      ],
+      "Tu t'abstiens de prescrire sans indication."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le bilan « de routine » est un dépistage non ciblé : sans symptôme, sans facteur de risque, sans indication.",
+    "La Cochrane 2012 ne montre aucun effet sur la mortalité totale, cardiovasculaire ou par cancer.",
+    "Les bilans de santé augmentent les diagnostics et les examens, sans bénéfice sur la morbidité.",
+    "Smarter Medicine (SSMIG) vise à réduire ces examens sans bénéfice."
+   ],
+   "sources": [
+    "Krogsbøll LT et al., Cochrane 2012",
+    "Smarter Medicine / SSMIG"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Mathématique des faux positifs : 5 % par test, 64 % pour 20 tests",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Tu retiens que l'intervalle de référence couvre 95 % des sujets sains, donc chaque test ajouté augmente la probabilité d'une valeur hors norme par hasard.",
+   "tableau": {
+    "colonnes": [
+     "Nombre de tests (indépendants)",
+     "Calcul",
+     "Probabilité d'au moins un résultat hors norme",
+     "Conséquence"
+    ],
+    "lignes": [
+     [
+      "1 test",
+      "1 − 0,95",
+      "5 %",
+      [
+       {
+        "t": "5 % des sujets sains sont « anormaux » par définition",
+        "i": "L'intervalle de référence est défini pour englober 95 % des sujets sains : les 5 % restants sont hors norme sans être malades."
+       }
+      ]
+     ],
+     [
+      "10 tests",
+      "1 − 0,95^10",
+      "environ 40 %",
+      [
+       {
+        "t": "Deux sujets sains sur cinq ont une anomalie",
+        "i": "La probabilité s'accumule de façon multiplicative à chaque test ajouté."
+       }
+      ]
+     ],
+     [
+      "20 tests",
+      "1 − 0,95^20",
+      "environ 64 %",
+      [
+       {
+        "t": "Chiffre type d'examen : près de deux sujets sains sur trois",
+        "i": "Un bilan standard de 20 dosages produit presque toujours une valeur hors norme chez un sujet parfaitement sain."
+       }
+      ]
+     ],
+     [
+      "100 tests",
+      "1 − 0,95^100",
+      "plus de 99 %",
+      [
+       {
+        "t": "Presque tous les sujets sains ont une anomalie",
+        "i": "Avec un panel très large, le résultat « tout normal » devient l'exception."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'intervalle de référence englobe 95 % des sujets sains : 5 % sont hors norme par test.",
+    "20 tests donnent environ 64 % de risque d'au moins un résultat hors norme chez le sujet sain.",
+    "Avec 100 tests, ce risque dépasse 99 % (hypothèse d'indépendance, simplification).",
+    "Un résultat légèrement anormal se normalise souvent à la répétition (régression vers la moyenne) : tu contrôles avant toute cascade."
+   ],
+   "sources": [
+    "Principes de biostatistique (intervalle de référence)",
+    "Smarter Medicine / SSMIG"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Valeur prédictive positive et surdiagnostic",
+   "rubriques": [
+    "workupAlternatives"
+   ],
+   "comment": "Tu expliques au patient que la valeur d'un test positif dépend de la prévalence, donc que chez le sujet à faible risque la plupart des positifs sont faux.",
+   "tableau": {
+    "colonnes": [
+     "Concept",
+     "Définition",
+     "Pourquoi cela compte dans le check-up"
+    ],
+    "lignes": [
+     [
+      "Valeur prédictive positive (VPP)",
+      [
+       {
+        "t": "Probabilité d'être malade si le test est positif",
+        "i": "La VPP dépend de la prévalence : une même sensibilité et spécificité donnent une VPP faible quand la maladie est rare."
+       }
+      ],
+      [
+       {
+        "t": "Exemple : prévalence 1 %, sensibilité 90 %, spécificité 95 % → VPP d'environ 15 %",
+        "i": "Calcul : 0,009 vrais positifs pour 0,0495 faux positifs ; environ 85 % des positifs sont donc des faux positifs."
+       }
+      ]
+     ],
+     [
+      "Surdiagnostic",
+      [
+       {
+        "t": "Diagnostic d'une anomalie qui n'aurait jamais causé ni symptôme ni décès",
+        "i": "Ce n'est pas une erreur du test, mais une vraie lésion sans conséquence clinique : le patient subit pourtant traitement et étiquetage."
+       }
+      ],
+      [
+       {
+        "t": "Traitement et anxiété sans bénéfice",
+        "i": "Le patient ne peut pas tirer de gain d'un traitement d'une maladie qui n'aurait jamais évolué."
+       }
+      ]
+     ],
+     [
+      "Faux positif",
+      [
+       {
+        "t": "Test positif chez un sujet non malade",
+        "i": "Il est fréquent à faible prévalence et déclenche des examens complémentaires potentiellement invasifs."
+       }
+      ],
+      "Cascade diagnostique et iatrogénie."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La VPP chute quand la prévalence baisse : chez le sujet à faible risque, la majorité des positifs sont faux.",
+    "Le surdiagnostic détecte une anomalie qui n'aurait jamais causé de symptôme ni de décès.",
+    "Tu utilises ces deux concepts pour expliquer au patient pourquoi tu ne prescris pas le panel."
+   ],
+   "sources": [
+    "Principes de biostatistique",
+    "Smarter Medicine / SSMIG"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Anamnèse et examen : explorer le vrai motif et exclure les drapeaux rouges",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam",
+    "presumptionRedFlags"
+   ],
+   "comment": "Tu demandes pourquoi le patient vient maintenant, tu estimes son risque réel, tu examines et tu cherches un symptôme d'alarme masqué.",
+   "tableau": {
+    "colonnes": [
+     "Drapeau rouge caché",
+     "Hypothèses",
+     "Conduite à la place du panel"
+    ],
+    "lignes": [
+     [
+      "Perte de poids involontaire",
+      [
+       {
+        "t": "Cancer, hyperthyroïdie, diabète, dépression",
+        "i": "Un amaigrissement involontaire exclut le statut d'asymptomatique et impose une démarche étiologique orientée."
+       }
+      ],
+      "Bilan orienté par l'hypothèse clinique, non un panel."
+     ],
+     [
+      "Rectorragies (adulte de plus de 50 ans)",
+      [
+       {
+        "t": "Cancer colorectal, hémorroïdes, maladie inflammatoire",
+        "i": "Le FIT est réservé au dépistage de la personne asymptomatique ; un saignement est un symptôme qui indique l'endoscopie."
+       }
+      ],
+      "Colonoscopie, pas de FIT."
+     ],
+     [
+      "Sueurs nocturnes, fièvre prolongée",
+      [
+       {
+        "t": "Lymphome, tuberculose, endocardite, infection chronique",
+        "i": "Ces signes systémiques demandent un raisonnement diagnostique ciblé et non une batterie de dosages."
+       }
+      ],
+      "Examen clinique complet, examens orientés."
+     ],
+     [
+      "Dysphagie, toux persistante",
+      [
+       {
+        "t": "Cancer œsophagien ou pulmonaire, reflux, pathologie respiratoire",
+        "i": "Ce sont des symptômes d'organe qui appellent endoscopie ou imagerie thoracique ciblées."
+       }
+      ],
+      "Gastroscopie ou radiographie thoracique selon l'organe."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Tu explores le motif : angoisse de maladie, décès d'un proche, fatigue, pression de l'entourage, souhait de prévention.",
+    "Tu recherches antécédents familiaux (cancer colorectal, maladie cardiovasculaire précoce), tabac, alcool, activité physique, alimentation.",
+    "Tu dépistes anxiété, dépression et consommation d'alcool, souvent cachées derrière la demande.",
+    "L'examen comprend TA, poids, taille, IMC et un examen ciblé ; un examen normal rassure en soi.",
+    "Devant un drapeau rouge, tu abandonnes la logique de check-up."
+   ],
+   "sources": [
+    "Smarter Medicine / SSMIG",
+    "EviPrev Suisse"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Quatre situations derrière la demande de check-up",
+   "rubriques": [
+    "positiveDiagnosis",
+    "presumptionRedFlags"
+   ],
+   "comment": "Tu poses le diagnostic de demande non justifiée seulement après avoir exclu symptôme masqué, risque justifiant un dépistage validé et anxiété de santé.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Demande de bilan sanguin « complet »",
+     "i": "Point de départ : la demande exprime un besoin, mais l'indication doit encore être établie.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Symptôme d'alarme ?",
+     "i": "Perte de poids, rectorragies, fièvre, dysphagie ou toux persistante excluent le statut d'asymptomatique.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : symptôme masqué",
+     "i": "On raisonne par hypothèse diagnostique et on réalise un bilan orienté, non un panel.",
+     "pec": "alarme_bilan_cible",
+     "notion": "c4"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non : dépistage validé dû selon âge ou risque ?",
+     "i": "Âge 50-69 ans pour CCR et sein, risque cardiovasculaire ou diabète : le dépistage ciblé est indiqué.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Oui : patient à risque",
+     "i": "Le médecin propose le dépistage validé précis, remboursé, à la place du panel.",
+     "pec": "checkup_conseil",
+     "notion": "c6"
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "Non : inquiétude disproportionnée persistante ?",
+     "i": "Une inquiétude qui persiste malgré des examens normaux évoque une anxiété liée à la santé ou un trouble à symptomatologie somatique.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Oui : anxiété de santé",
+     "i": "La prise en charge est psychologique ; multiplier les examens entretient l'anxiété.",
+     "pec": "anxiete_sante",
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n6",
+     "t": "Non : demande sans indication",
+     "i": "Anamnèse et examen excluent symptôme et facteur de risque, et aucun dépistage n'est dû à cet âge : on explique et on redirige.",
+     "pec": "checkup_conseil",
+     "notion": "c7"
+    }
+   ],
+   "points": [
+    "La demande est non justifiée quand anamnèse et examen excluent symptôme et facteur de risque, et qu'aucun dépistage n'est dû.",
+    "Tu distingues sans indication, symptôme masqué, patient à risque et anxiété de santé.",
+    "Une inquiétude persistante malgré des examens normaux évoque une anxiété de santé."
+   ],
+   "sources": [
+    "Smarter Medicine / SSMIG",
+    "EviPrev Suisse"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Prévention fondée sur les preuves en Suisse (EviPrev)",
+   "rubriques": [
+    "workupGoldStandard"
+   ],
+   "comment": "Tu remplaces le panel par la prévention individualisée selon l'âge, le sexe et les risques, et tu sais ce qui n'est pas recommandé.",
+   "tableau": {
+    "colonnes": [
+     "Domaine",
+     "Population ciblée",
+     "Modalité",
+     "Pourquoi ciblé et pas systématique"
+    ],
+    "lignes": [
+     [
+      "Cancer colorectal",
+      "50 à 69 ans",
+      [
+       {
+        "t": "FIT tous les 2 ans ou colonoscopie tous les 10 ans",
+        "i": "Cette tranche d'âge concentre le bénéfice démontré ; les deux modalités sont remboursées, sans franchise."
+       }
+      ],
+      "Le bénéfice dépend de l'âge et de la prévalence."
+     ],
+     [
+      "Cancer du sein",
+      "Femmes de 50 à 69 ans",
+      [
+       {
+        "t": "Mammographie tous les 2 ans, programmes cantonaux",
+        "i": "Les programmes organisés assurent la qualité et sont exemptés de franchise."
+       }
+      ],
+      "Le bénéfice se limite à cette tranche d'âge."
+     ],
+     [
+      "Cancer du col utérin",
+      "Dès 21 ans",
+      [
+       {
+        "t": "Cytologie tous les 3 ans après deux frottis annuels normaux",
+        "i": "Le rythme espacé suffit en cas de résultats normaux, vu la lente évolution des lésions."
+       }
+      ],
+      "Le dépistage vise un cancer évitable."
+     ],
+     [
+      "Risque cardiovasculaire",
+      "Adultes selon âge et facteurs de risque",
+      [
+       {
+        "t": "Score AGLA ou SCORE2 (ESC) puis lipides ciblés",
+        "i": "Le score estime le risque absolu et guide le dosage des lipides : le traitement dépend du risque, non d'une valeur isolée."
+       }
+      ],
+      "Pas de dosage lipidique systématique chez tous."
+     ],
+     [
+      "Diabète",
+      "Adultes avec facteurs de risque",
+      [
+       {
+        "t": "Glycémie ou HbA1c si surpoids, hypertension, antécédent familial",
+        "i": "La prévalence est plus élevée chez les sujets à risque, ce qui améliore la VPP."
+       }
+      ],
+      "Pas de dépistage chez tous."
+     ],
+     [
+      "Dosages non recommandés",
+      "Asymptomatique",
+      [
+       {
+        "t": "TSH, vitamine D, ferritine, marqueurs tumoraux",
+        "i": "Ces dosages ont une faible prévalence de maladie chez l'asymptomatique : ils produisent surtout des faux positifs."
+       }
+      ],
+      "Jamais en dépistage."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La démarche de référence est une prévention individualisée (EviPrev), pas un panel.",
+    "CCR : 50-69 ans, FIT tous les 2 ans ou colonoscopie tous les 10 ans ; sein : mammographie tous les 2 ans entre 50 et 69 ans.",
+    "Col utérin : cytologie dès 21 ans, tous les 3 ans après deux frottis annuels normaux.",
+    "Risque cardiovasculaire par AGLA ou SCORE2 ; diabète seulement si facteurs de risque.",
+    "TSH, vitamine D, ferritine et marqueurs tumoraux ne se dosent pas en dépistage."
+   ],
+   "sources": [
+    "EviPrev Suisse",
+    "Swiss Cancer Screening",
+    "AGLA / ESC SCORE2"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Conduite de la consultation, vaccinations et cadre LAMal",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "Tu écoutes, tu expliques bénéfices et limites, tu décides avec le patient sans refus brutal, puis tu rediriges vers les mesures efficaces et tu rappelles le cadre LAMal.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Patient asymptomatique demandant un bilan complet",
+     "i": "La relation de confiance prime : un refus brutal expose à la perte du lien et au recours à un autre prestataire.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Écouter les attentes et expliquer bénéfices et limites",
+     "i": "Le patient informé renonce généralement au bilan ; l'explication utilise faux positifs, VPP et surdiagnostic.",
+     "pec": "checkup_conseil",
+     "notion": "c3"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Le patient accepte la décision partagée",
+     "i": "Prévention efficace : arrêt du tabac, activité physique, alimentation, alcool limité, vaccinations, dépistages validés.",
+     "pec": "checkup_conseil",
+     "notion": "c6"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Le patient insiste",
+     "i": "On informe du cadre LAMal : l'article 32 exige efficacité, adéquation et économicité ; l'article 56 limite les prestations à l'intérêt du patient.",
+     "pec": "checkup_conseil",
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Bilan sans indication : à charge du patient",
+     "i": "L'assurance obligatoire ne rembourse en principe pas ; on documente l'information et le choix du patient.",
+     "pec": "checkup_conseil",
+     "notion": null
+    }
+   ],
+   "points": [
+    "Tu écoutes, expliques bénéfices et limites et décides avec le patient, sans refus brutal.",
+    "Tu rediriges vers tabac, activité physique, alimentation, alcool, vaccinations et dépistages validés.",
+    "Plan de vaccination suisse : rappel dT(pa) à 25, 45 et 65 ans, puis tous les 10 ans après 65 ans.",
+    "Art. 32 LAMal : prestations efficaces, appropriées, économiques (EAE) ; art. 56 : se limiter à la mesure exigée par l'intérêt de l'assuré.",
+    "Un bilan sans indication n'est en principe pas remboursé : tu en informes le patient."
+   ],
+   "sources": [
+    "LAMal art. 32 et 56",
+    "Plan de vaccination suisse OFSP/CFV",
+    "Smarter Medicine / SSMIG"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Cascade diagnostique, préjudices et suivi",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Tu bloques la cascade en répétant le test isolé avant toute imagerie, puis tu planifies un suivi préventif personnalisé coordonné par le médecin de famille.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Résultat hors norme isolé chez un sujet sain",
+     "i": "Probable valeur hors norme par hasard : 5 % par test, 64 % pour 20 tests.",
+     "pec": null,
+     "notion": "c2"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Répéter le test et vérifier la pertinence clinique",
+     "i": "Un résultat légèrement anormal se normalise souvent par régression vers la moyenne ; on évite ainsi l'escalade.",
+     "pec": "cascade_resultat_isole",
+     "notion": "c2"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Normalisation : arrêt de la démarche",
+     "i": "On rassure le patient et on évite imagerie, biopsie et étiquetage.",
+     "pec": "cascade_resultat_isole",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Anomalie persistante ou cliniquement pertinente",
+     "i": "On raisonne par hypothèse avec examens ciblés, en pesant risque iatrogène et incidentalome.",
+     "pec": "cascade_resultat_isole",
+     "notion": null
+    }
+   ],
+   "points": [
+    "Un résultat isolé déclenche contrôles, imageries et biopsies : risque iatrogène, incidentalomes, coûts, sans bénéfice.",
+    "Les préjudices comprennent anxiété, étiquetage de malade, irradiation inutile et complications des gestes invasifs.",
+    "Le suivi est périodique et personnalisé selon le profil EviPrev, non un bilan annuel.",
+    "Tu réévalues le risque lors d'un changement d'âge, de poids, d'antécédents ou de symptômes.",
+    "Le médecin de famille coordonne EviPrev, programmes cantonaux et soutien psychologique."
+   ],
+   "sources": [
+    "EviPrev Suisse",
+    "Smarter Medicine / SSMIG"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "checkup_conseil",
+   "titre": "Demande de check-up sans indication : écoute, explication et prévention ciblée",
+   "but": [
+    "Écouter le patient et expliquer bénéfices et limites du bilan pour qu'il décide en connaissance de cause.",
+    "Remplacer le panel par une prévention individualisée fondée sur EviPrev.",
+    "Éviter les faux positifs, les cascades et le remboursement abusif."
+   ],
+   "moyens": {
+    "accueil": [
+     "Accueille le patient sans jugement et reformule sa demande.",
+     "Demande pourquoi il consulte maintenant (décès, maladie d'un proche, fatigue, anxiété).",
+     "Vérifie l'absence de symptôme d'alarme avant de conclure à l'absence d'indication."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Vaccin dTpa / dT (vaccin diphtérie-tétanos-coqueluche)",
+      "posologie": "0,5 mL i.m. (deltoïde) ; rappel à 25 ans (dTpa), 45 et 65 ans (dT), puis tous les 10 ans dès 65 ans, selon l'état vaccinal.",
+      "pourquoi": "La vaccination est une mesure préventive efficace, à proposer à la place du panel sanguin lors de la consultation.",
+      "source": "Plan de vaccination suisse OFSP/CFV ; AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Explique faux positifs, VPP et surdiagnostic avec un exemple chiffré.",
+      "pourquoi": "Un patient informé renonce généralement au bilan sans perdre confiance."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Conseille arrêt du tabac, activité physique, alimentation équilibrée et alcool limité.",
+      "pourquoi": "Ces mesures réduisent la morbidité, contrairement au bilan non ciblé."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Propose les dépistages validés selon l'âge et le risque (CCR, sein, col, score cardiovasculaire, glycémie si risque).",
+      "pourquoi": "Ils ont un bénéfice démontré dans les populations ciblées."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Explique les critères EAE de la LAMal (art. 32) et que le bilan sans indication reste à charge du patient."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Rappelle l'obligation de limiter les prestations à l'intérêt du patient (art. 56 LAMal) et de documenter l'information donnée."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Écoute les attentes du patient avant d'expliquer.",
+      "Ne refuse pas brutalement pour préserver la relation de confiance.",
+      "Documente l'information et la décision partagée."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Explore le motif réel et recherche symptômes d'alarme et facteurs de risque."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Examine : TA, poids, taille, IMC, examen ciblé selon l'âge."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Explique faux positifs et VPP, puis décide avec le patient."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Vérifie l'état vaccinal et prépare le rappel dT(pa) si dû."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Planifie les dépistages validés et informe que le bilan sans indication est à charge du patient."
+      }
+     ]
+    }
+   },
+   "pronostic": "Un patient informé et rassuré renonce généralement au bilan, ce qui réduit l'anxiété, évite les cascades et optimise l'usage des ressources.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Profil de risque (âge, poids, antécédents, symptômes)",
+      "quand": "À chaque changement et aux échéances des dépistages",
+      "cible": "Dépistages validés à jour, sans bilan annuel systématique"
+     },
+     {
+      "quoi": "Anxiété de santé",
+      "quand": "À la consultation de suivi",
+      "cible": "Pas de demande répétée d'examens ; inquiétude apaisée"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : patient asymptomatique, sans drapeau rouge, informé et ayant adhéré à la décision."
+   },
+   "prevention": {
+    "primaire": "Promeut arrêt du tabac, activité physique, alimentation, alcool limité et vaccinations.",
+    "secondaire": "Réalise les dépistages validés selon EviPrev (CCR et sein à 50-69 ans, col dès 21 ans).",
+    "tertiaire": "Évite la cascade diagnostique et l'étiquetage de malade après un résultat isolé."
+   }
+  },
+  {
+   "cle": "alarme_bilan_cible",
+   "titre": "Symptôme d'alarme caché derrière la demande : bilan orienté",
+   "but": [
+    "Reconnaître le symptôme masqué et abandonner la logique de check-up.",
+    "Prescrire un bilan orienté par l'hypothèse diagnostique."
+   ],
+   "moyens": {
+    "accueil": [
+     "Reprends l'anamnèse symptôme par symptôme sans minimiser la demande.",
+     "Examine le patient complètement, y compris poids et palpation selon l'orientation."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Indique une colonoscopie en cas de rectorragies chez l'adulte de plus de 50 ans.",
+      "pourquoi": "Le FIT est réservé aux asymptomatiques ; un saignement impose l'endoscopie."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Choisis des examens selon l'hypothèse (par exemple radiographie thoracique pour toux persistante, endoscopie pour dysphagie).",
+      "pourquoi": "Un test ciblé a une VPP plus élevée qu'un panel."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantit l'information du patient et la documentation de la démarche diagnostique."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Considère le patient comme symptomatique dès qu'un drapeau rouge existe.",
+      "Planifie un suivi rapproché jusqu'au diagnostic."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Identifie le drapeau rouge lors de l'anamnèse et de l'examen."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Formule des hypothèses et prescrit les examens ciblés."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Réalise l'endoscopie ou l'avis requis selon l'hypothèse."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Communique les résultats et organise le suivi."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le pronostic dépend de la cause identifiée ; un diagnostic précoce améliore la prise en charge d'une pathologie réellement présente.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Évolution du symptôme d'alarme",
+      "quand": "Au rendez-vous de résultats",
+      "cible": "Cause identifiée ou symptôme disparu"
+     },
+     {
+      "quoi": "Résultats des examens ciblés",
+      "quand": "Selon le délai de l'examen",
+      "cible": "Diagnostic posé ou exclu"
+     }
+    ],
+    "sortie": "Hospitalisation non nécessaire sauf instabilité ; bilan organisé en ambulatoire avec rendez-vous de résultats."
+   },
+   "prevention": {
+    "primaire": "Sensibilise le patient aux symptômes d'alarme à signaler sans délai.",
+    "secondaire": "Maintient les dépistages validés une fois la cause investiguée.",
+    "tertiaire": "Assure le suivi de la maladie identifiée."
+   }
+  },
+  {
+   "cle": "anxiete_sante",
+   "titre": "Anxiété liée à la santé derrière la demande",
+   "but": [
+    "Réduire l'anxiété sans multiplier les examens.",
+    "Orienter vers une approche psychologique si l'inquiétude persiste."
+   ],
+   "moyens": {
+    "accueil": [
+     "Valide la souffrance du patient sans la minimiser.",
+     "Dépiste anxiété, dépression et consommation d'alcool."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Oriente vers une thérapie cognitivo-comportementale si l'inquiétude persiste malgré des examens normaux.",
+      "pourquoi": "Les examens répétés entretiennent l'anxiété, alors que l'approche psychologique traite son mécanisme."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Planifie des consultations brèves et régulières avec le même médecin.",
+      "pourquoi": "Un suivi programmé réduit les demandes d'examens en urgence."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Réalise un examen clinique soigneux et le commente.",
+      "pourquoi": "Un examen normal rassure et constitue en soi une intervention efficace."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre l'information et le consentement lors du refus ou de l'insistance du patient."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Évite la prescription réflexe d'examens pour rassurer.",
+      "Fixe un cadre de suivi régulier."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Exclut un symptôme masqué et évalue anxiété, dépression et alcool."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Explique le lien entre anxiété et demande d'examens."
+      },
+      {
+       "temps": "puis",
+       "qui": "psychothérapeute",
+       "fait": "Prend en charge l'anxiété liée à la santé par TCC."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Assure le suivi programmé et réévalue les symptômes."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'anxiété de santé est chronique et fluctuante ; une prise en charge psychologique réduit la recherche répétée d'examens.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Intensité de l'anxiété et demandes d'examens",
+      "quand": "À chaque consultation programmée",
+      "cible": "Diminution des demandes et de la détresse"
+     },
+     {
+      "quoi": "Humeur et alcool",
+      "quand": "Lors du suivi",
+      "cible": "Absence de dépression ou d'abus d'alcool"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : aucune hospitalisation sauf risque suicidaire ou décompensation psychique."
+   },
+   "prevention": {
+    "primaire": "Informe de façon mesurée sur les examens et leurs limites.",
+    "secondaire": "Repère précocement l'anxiété et la dépression.",
+    "tertiaire": "Prévient la chronicisation et la cascade d'examens par un suivi programmé."
+   }
+  },
+  {
+   "cle": "cascade_resultat_isole",
+   "titre": "Résultat hors norme isolé chez le sujet sain : bloquer la cascade",
+   "but": [
+    "Éviter imageries, biopsies et iatrogénie pour une anomalie probablement sans conséquence.",
+    "Distinguer l'artefact statistique d'une anomalie pertinente."
+   ],
+   "moyens": {
+    "accueil": [
+     "Rassure le patient en expliquant que 5 % des sujets sains sont hors norme par test.",
+     "Reprends symptômes et facteurs de risque pour juger la pertinence clinique."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Répète le test avant toute autre exploration.",
+      "pourquoi": "Une valeur légèrement anormale se normalise souvent par régression vers la moyenne."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Explique risque de surdiagnostic et d'incidentalome.",
+      "pourquoi": "Le patient comprend pourquoi l'escalade est un risque et non une précaution."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Rappelle les critères EAE qui conditionnent le remboursement des examens complémentaires."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Évalue la pertinence clinique avant de prescrire un contrôle.",
+      "Évite l'étiquetage de malade."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue l'amplitude de l'anomalie et la clinique du patient."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Répète le dosage après un intervalle adapté."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Arrête la démarche si le résultat se normalise et rassure le patient."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Intervient seulement si l'anomalie persiste et reste cliniquement pertinente."
+      }
+     ]
+    }
+   },
+   "pronostic": "Une anomalie isolée chez un sujet sain est le plus souvent sans conséquence ; la cascade, elle, comporte des risques iatrogènes réels.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Valeur contrôlée",
+      "quand": "À la répétition du test",
+      "cible": "Retour dans l'intervalle de référence"
+     },
+     {
+      "quoi": "Symptômes cliniques",
+      "quand": "Au contrôle",
+      "cible": "Absence de symptôme apparu"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : sujet asymptomatique avec anomalie isolée, sans signe de gravité."
+   },
+   "prevention": {
+    "primaire": "Évite de prescrire des dosages sans indication.",
+    "secondaire": "Cible les dépistages validés selon le profil de risque.",
+    "tertiaire": "Limite les préjudices : anxiété, irradiation inutile, complications de gestes invasifs."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 5290,
+  "output_tokens": 18211,
+  "output_tokens_details": {
+   "thinking_tokens": 4620
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:52",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

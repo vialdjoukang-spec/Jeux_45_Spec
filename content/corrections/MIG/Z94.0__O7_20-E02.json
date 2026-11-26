@@ -1,0 +1,1185 @@
+{
+ "id": "Z94.0__O7_20-E02",
+ "portes": [
+  {
+   "ssp": "O7.20",
+   "nomSSP": "Demande d’information sur le don d’organes et la transplantation",
+   "entite": "Éligibilité et inscription sur liste d'attente de transplantation rénale",
+   "entiteId": "O7.20-E02"
+  }
+ ],
+ "entite": "Éligibilité et inscription sur liste d'attente de transplantation rénale",
+ "cim10": "Z94.0",
+ "ssp": {
+  "code": "O7.20",
+  "nom": "Demande d'information sur le don d'organes et la transplantation",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Demande d'information sur le don d'organes et la transplantation",
+    "i": "Porte d'entrée : on précise d'abord si la personne demande en tant que donneur ou que receveur potentiel.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Demande en tant que donneur (carte, registre, don vivant)",
+    "i": "Hors cadre de cette entité : il s'agit d'un autre sujet du même SSP.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Renvoi vers « Information sur le registre/carte de donneur » ou « Information sur le don vivant de rein »",
+    "i": "Ces entités traitent consentement, registre et bilan du donneur vivant.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "Demande en tant que receveur potentiel d'un rein (IRC avancée ou dialysé)",
+    "i": "Le candidat relève de cette entité : éligibilité et inscription.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Déjà greffé avec dysfonction du greffon",
+    "i": "Sort du cadre : il ne s'agit plus d'une inscription mais d'un rejet ou d'une toxicité.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Renvoi vers « Rejet aigu d'organe transplanté » ou « Toxicité aiguë aux inhibiteurs de la calcineurine »",
+    "i": "Ces entités couvrent biopsie, traitement du rejet et ajustement de l'immunosuppression.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n7",
+    "parent": "n4",
+    "t": "Adresser au centre de transplantation 6 à 12 mois avant la dialyse, ou dès stabilisation si dialysé",
+    "i": "Délai recommandé par KDIGO pour permettre le bilan et chercher un donneur vivant.",
+    "pec": "bilan_eligibilite",
+    "notion": "c2"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Contre-indication durable (cancer actif, maladie cardiovasculaire non corrigeable, espérance de vie très limitée)",
+    "i": "Le bénéfice ne dépasse pas le risque : pas d'inscription.",
+    "pec": "non_eligible",
+    "notion": "c4"
+   },
+   {
+    "id": "n9",
+    "parent": "n7",
+    "t": "Contre-indication temporaire (infection active, addiction, trouble psychiatrique, non-adhésion)",
+    "i": "On corrige la cause, puis on réévalue ; l'inscription est différée ou le statut inactif.",
+    "pec": "non_eligible",
+    "notion": "c4"
+   },
+   {
+    "id": "n10",
+    "parent": "n7",
+    "t": "Aucune contre-indication et bénéfice attendu net",
+    "i": "Le candidat est éligible ; l'équipe peut l'inscrire.",
+    "pec": "liste_attente",
+    "notion": "c8"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Donneur vivant compatible dans l'entourage",
+    "i": "Il autorise la greffe préemptive et de meilleurs résultats.",
+    "pec": "liste_attente",
+    "notion": "c6"
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Donneur vivant incompatible (ABO ou HLA)",
+    "i": "Le programme suisse de don croisé élargit les possibilités de compatibilité.",
+    "pec": "liste_attente",
+    "notion": "c6"
+   },
+   {
+    "id": "n13",
+    "parent": "n10",
+    "t": "Pas de donneur vivant",
+    "i": "Inscription sur liste d'attente pour donneur décédé (2 à 4 ans), avec réévaluation annuelle.",
+    "pec": "liste_attente",
+    "notion": "c8"
+   }
+  ]
+ },
+ "specialites": [
+  "MIG"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Éligibilité et inscription sur liste d'attente de transplantation rénale",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Cadre suisse : indication, chiffres et attribution du rein",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Retiens que la greffe rénale est le traitement de choix de l'insuffisance rénale terminale chez le patient éligible, décidée par un centre et attribuée par Swisstransplant.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Fait suisse",
+     "Pourquoi le retenir"
+    ],
+    "lignes": [
+     [
+      "Qui décide",
+      "Équipe interdisciplinaire d'un centre de transplantation, sur adressage du néphrologue",
+      [
+       {
+        "t": "Inscription dans le SOAS (Swisstransplant)",
+        "i": "Le système national d'attribution ne reçoit que les candidats validés par un centre ; le médecin de famille ou le néphrologue n'inscrit pas seul."
+       }
+      ]
+     ],
+     [
+      "Volume",
+      "Environ 350 à 400 greffes rénales par an, dont près de 30 % de donneurs vivants",
+      [
+       {
+        "t": "Rein = organe le plus greffé et le plus demandé",
+        "i": "Le rein domine la liste d'attente suisse, ce qui explique une attente de 2 à 4 ans pour un donneur décédé."
+       }
+      ]
+     ],
+     [
+      "Critères d'attribution",
+      "Urgence médicale, efficacité médicale, temps d'attente (loi sur la transplantation), sans discrimination ; commerce d'organes interdit",
+      [
+       {
+        "t": "Temps d'attente compté dès le début de la dialyse",
+        "i": "Une inscription précoce ne fait donc pas perdre de points ; retarder l'adressage ne rattrape pas le temps perdu en préparation."
+       }
+      ]
+     ],
+     [
+      "Degré d'urgence",
+      "Semi-urgent",
+      [
+       {
+        "t": "Pas de super-urgence nationale pour le rein",
+        "i": "La dialyse supplée le rein, contrairement au foie (hépatite fulminante) ou au cœur (choc réfractaire) qui n'ont pas de suppléance durable."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La greffe rénale offre une survie et une qualité de vie supérieures à la dialyse chez le patient éligible.",
+    "L'équipe du centre décide de l'inscription, puis le SOAS de Swisstransplant gère l'attribution.",
+    "La loi suisse interdit le commerce d'organes et impose une attribution sans discrimination.",
+    "L'inscription rénale reste semi-urgente car la dialyse permet d'attendre."
+   ],
+   "sources": [
+    "Loi fédérale sur la transplantation (LTx), Swisstransplant",
+    "KDIGO 2020 candidats à la transplantation rénale"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Greffe préemptive, moment de l'adressage et bénéfice-risque",
+   "rubriques": [
+    "basicSciences",
+    "hospitalizationComplications"
+   ],
+   "comment": "Adresse tôt, car chaque année de dialyse avant la greffe détériore la survie du greffon et du patient, alors que le bénéfice de survie n'apparaît qu'à distance de l'intervention.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Patient avec insuffisance rénale chronique avancée",
+     "i": "Point de départ : on anticipe la suppléance au lieu d'attendre la dialyse en urgence.",
+     "pec": null,
+     "notion": "c2"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "DFGe < 30 ml/min/1,73 m² et évolutif, dialyse pas encore débutée",
+     "i": "Seuil d'adressage KDIGO : le bilan prend des mois, donc il doit précéder la dialyse.",
+     "pec": null,
+     "notion": "c2"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Adresser au centre 6 à 12 mois avant la dialyse prévisible",
+     "i": "Ce délai laisse le temps du bilan, des vaccins et de la recherche d'un donneur vivant.",
+     "pec": "bilan_eligibilite",
+     "notion": "c2"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Donneur vivant compatible disponible",
+     "i": "Permet la greffe préemptive, qui donne les meilleurs résultats à long terme.",
+     "pec": "liste_attente",
+     "notion": "c2"
+    },
+    {
+     "id": "n5",
+     "parent": "n3",
+     "t": "Pas de donneur vivant",
+     "i": "Inscription sur liste pour donneur décédé ; l'attente de 2 à 4 ans est comptée dès le début de la dialyse.",
+     "pec": "liste_attente",
+     "notion": "c2"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Déjà dialysé",
+     "i": "Le retard est déjà pris : on adresse sans attendre.",
+     "pec": null,
+     "notion": "c2"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Adresser dès la stabilisation clinique",
+     "i": "Recommandation KDIGO ; la durée de dialyse prégreffe longue aggrave le pronostic.",
+     "pec": "bilan_eligibilite",
+     "notion": "c2"
+    }
+   ],
+   "points": [
+    "La greffe préemptive procure les meilleurs résultats à long terme.",
+    "Une dialyse prégreffe plus longue détériore la survie du greffon et du patient.",
+    "Le risque de décès est plus élevé juste après la greffe que sous dialyse, puis le bénéfice devient net.",
+    "La mortalité cardiovasculaire en dialyse reste élevée pendant l'attente."
+   ],
+   "sources": [
+    "KDIGO 2020 candidats à la transplantation rénale",
+    "Swisstransplant"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen clinique du candidat",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Cherche à l'interrogatoire et à l'examen tout ce qui récidive, sensibilise, infecte ou complique l'anastomose, car ces éléments décident de l'inscription.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Ce qu'on cherche",
+     "Conséquence pour l'inscription"
+    ],
+    "lignes": [
+     [
+      "Étiologie de la néphropathie",
+      "Hyalinose segmentaire et focale, néphropathie à IgA, SHU atypique",
+      [
+       {
+        "t": "Risque de récidive sur le greffon",
+        "i": "Ces maladies peuvent récidiver ; le SHU atypique impose un avis spécialisé, mais aucune ne contre-indique d'emblée la greffe."
+       }
+      ]
+     ],
+     [
+      "Adhésion thérapeutique",
+      "Dialyse, rendez-vous, médicaments",
+      [
+       {
+        "t": "L'adhésion passée prédit l'adhésion future",
+        "i": "L'immunosuppression à vie exige une adhésion fiable ; une non-adhésion persistante peut retarder ou contre-indiquer l'inscription."
+       }
+      ]
+     ],
+     [
+      "Cancer traité",
+      "Type, stade, date de guérison",
+      [
+       {
+        "t": "Délai libre de maladie selon type et stade",
+        "i": "Il n'existe pas de délai unique : l'équipe décide avec l'oncologue, car l'immunosuppression favorise la récidive."
+       }
+      ]
+     ],
+     [
+      "Événements sensibilisants",
+      "Grossesses, transfusions, greffe antérieure",
+      [
+       {
+        "t": "Sensibilisation anti-HLA",
+        "i": "Elle réduit le nombre de donneurs compatibles et allonge l'attente ; on évite donc les transfusions inutiles."
+       }
+      ]
+     ],
+     [
+      "Infections",
+      "Tuberculose, hépatites, VIH, séjours en zone endémique",
+      [
+       {
+        "t": "Orientent le bilan infectieux",
+        "i": "Elles guident sérologies et IGRA, car l'immunosuppression réactive les infections latentes."
+       }
+      ]
+     ],
+     [
+      "Toxiques",
+      "Tabac, alcool problématique, drogues",
+      [
+       {
+        "t": "Arrêt exigé",
+        "i": "Le tabac augmente le risque cardiovasculaire et néoplasique après greffe ; une addiction active contre-indique l'inscription."
+       }
+      ]
+     ],
+     [
+      "Examen clinique",
+      "Pouls ilio-fémoraux et souffles, IMC, foyers dentaires, ORL, cutanés, lésions cutanées suspectes",
+      [
+       {
+        "t": "Artériopathie iliaque, obésité, foyers à traiter",
+        "i": "Une artère iliaque calcifiée complique l'anastomose et impose une imagerie ; l'obésité seule n'exclut pas ; les foyers se traitent avant l'immunosuppression."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La palpation des pouls ilio-fémoraux et la recherche de souffles anticipent les difficultés vasculaires.",
+    "KDIGO conseille d'encourager l'amaigrissement sans exclure le candidat sur la seule obésité.",
+    "On traite les foyers infectieux dentaires, ORL et cutanés avant l'immunosuppression."
+   ],
+   "sources": [
+    "KDIGO 2020 candidats à la transplantation rénale"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Contre-indications et situations à ne plus considérer comme telles",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Distingue la contre-indication durable, la contre-indication temporaire à lever et les situations autrefois interdites aujourd'hui acceptées.",
+   "tableau": {
+    "colonnes": [
+     "Catégorie",
+     "Situation",
+     "Conduite",
+     "Raison"
+    ],
+    "lignes": [
+     [
+      "Contre-indication durable",
+      "Cancer actif non guéri",
+      "Pas d'inscription ; traiter, puis délai libre avec l'oncologue",
+      [
+       {
+        "t": "Immunosuppression = progression tumorale",
+        "i": "Les traitements antirejet réduisent l'immunosurveillance tumorale ; le cancer actif aggraverait le pronostic vital."
+       }
+      ]
+     ],
+     [
+      "Contre-indication durable",
+      "Maladie cardiovasculaire sévère non corrigeable (coronaropathie non revascularisable, insuffisance cardiaque sévère)",
+      "Pas d'inscription",
+      [
+       {
+        "t": "Risque périopératoire",
+        "i": "Le stress chirurgical et l'immunosuppression dépassent le bénéfice attendu ; une lésion revascularisable, elle, n'exclut pas."
+       }
+      ]
+     ],
+     [
+      "Contre-indication durable",
+      "Espérance de vie très limitée",
+      "Pas d'inscription",
+      [
+       {
+        "t": "Bénéfice nul",
+        "i": "La greffe n'apporte un gain de survie qu'à distance de l'intervention."
+       }
+      ]
+     ],
+     [
+      "Contre-indication à lever",
+      "Infection active non contrôlée (sepsis, endocardite, tuberculose active, ostéomyélite)",
+      "Traiter, puis inscrire ou rendre le statut inactif",
+      [
+       {
+        "t": "Contre-indication temporaire",
+        "i": "Elle disparaît avec la guérison ; l'immunosuppression aggraverait l'infection."
+       }
+      ]
+     ],
+     [
+      "Contre-indication à lever",
+      "Addiction active, trouble psychiatrique non contrôlé, non-adhésion persistante",
+      "Prise en charge spécialisée, puis réévaluation",
+      [
+       {
+        "t": "Évaluation psychosociale",
+        "i": "Ces situations compromettent l'adhésion ; elles se corrigent parfois, d'où la réévaluation."
+       }
+      ]
+     ],
+     [
+      "Plus une contre-indication absolue",
+      "VIH contrôlé (charge virale indétectable, CD4 > 200/µl)",
+      "Inscription possible",
+      [
+       {
+        "t": "Traitement antirétroviral efficace",
+        "i": "Le contrôle virologique et immunologique rend le risque acceptable, avec avis d'infectiologie."
+       }
+      ]
+     ],
+     [
+      "Plus une contre-indication absolue",
+      "Hépatite C",
+      "Traitement par antiviraux directs, inscription possible",
+      [
+       {
+        "t": "Maladie curable",
+        "i": "Les antiviraux directs guérissent le VHC ; il ne justifie plus l'exclusion."
+       }
+      ]
+     ],
+     [
+      "Jamais seul",
+      "Âge, obésité",
+      "Évaluer fragilité et comorbidités",
+      [
+       {
+        "t": "Critère isolé non exclusif",
+        "i": "L'âge seul ne contre-indique pas ; l'équipe juge fragilité, comorbidités et espérance de vie."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Un cancer actif, une maladie cardiovasculaire sévère non corrigeable et une espérance de vie très limitée bloquent l'inscription.",
+    "Une infection active contre-indique l'inscription temporairement jusqu'à guérison.",
+    "Le VIH contrôlé et l'hépatite C ne sont plus des contre-indications absolues."
+   ],
+   "sources": [
+    "KDIGO 2020 candidats à la transplantation rénale",
+    "Swisstransplant"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan d'éligibilité : examens par domaine",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Couvre systématiquement quatre domaines (immunologie, cœur, infections, cancers) puis ajoute vasculaire, urologie et psychosocial selon le profil.",
+   "tableau": {
+    "colonnes": [
+     "Domaine",
+     "Examens",
+     "Pourquoi / règle"
+    ],
+    "lignes": [
+     [
+      "Cardiovasculaire",
+      "ECG, échocardiographie, test d'ischémie non invasif si risque",
+      [
+       {
+        "t": "Pas de coronarographie systématique si asymptomatique",
+        "i": "On réserve l'examen invasif aux patients à risque dont le test d'ischémie est anormal ; il comporte un risque et une charge de contraste."
+       }
+      ]
+     ],
+     [
+      "Infectieux",
+      "Sérologies VIH, VHB (HBsAg, anti-HBc, anti-HBs), VHC, CMV, EBV, VZV, syphilis ; IGRA",
+      [
+       {
+        "t": "Dépister les infections latentes",
+        "i": "L'immunosuppression les réactive ; le statut CMV/EBV/VZV guide aussi prophylaxie et vaccins."
+       }
+      ]
+     ],
+     [
+      "Oncologique",
+      "Dépistages adaptés à l'âge (col utérin, sein, côlon, prostate), examen cutané complet",
+      [
+       {
+        "t": "Selon recommandations nationales",
+        "i": "On exclut un cancer occulte ; on ne surdépiste pas au-delà des programmes standard."
+       }
+      ]
+     ],
+     [
+      "Vasculaire / urologique",
+      "Imagerie iliaque sans injection ; évaluation de la vessie",
+      [
+       {
+        "t": "Si calcifications, uropathie ou dysfonction vésicale",
+        "i": "Elles compliquent l'anastomose artérielle ou urinaire ; l'injection de produit de contraste est évitée chez l'insuffisant rénal."
+       }
+      ]
+     ],
+     [
+      "Psychosocial",
+      "Évaluation par psychologue et assistant social",
+      [
+       {
+        "t": "Fait partie du bilan d'inscription",
+        "i": "Elle juge la compréhension, le soutien social et l'adhésion, déterminants à long terme."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le bilan infectieux inclut un dépistage de tuberculose latente par IGRA.",
+    "Le bilan cardiovasculaire cible les patients à risque par un test d'ischémie non invasif.",
+    "L'évaluation psychosociale fait partie intégrante du bilan d'inscription."
+   ],
+   "sources": [
+    "KDIGO 2020 candidats à la transplantation rénale",
+    "Swisstransplant"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Immunologie : ABO, HLA, cPRA, crossmatch et donneur vivant",
+   "rubriques": [
+    "workupGoldStandard",
+    "acuteManagement"
+   ],
+   "comment": "Comprends que la compatibilité immunologique conditionne l'attribution, la durée d'attente et le recours au donneur vivant ou au don croisé.",
+   "tableau": {
+    "colonnes": [
+     "Test ou option",
+     "Rôle",
+     "Conséquence"
+    ],
+    "lignes": [
+     [
+      "Groupe ABO et typage HLA du receveur",
+      "Base de l'attribution selon la compatibilité",
+      [
+       {
+        "t": "Indispensables à l'inscription",
+        "i": "Sans eux, le SOAS ne peut pas proposer de greffon compatible."
+       }
+      ]
+     ],
+     [
+      "Anticorps anti-HLA (billes, single antigen)",
+      "Quantifient le cPRA et identifient les spécificités à exclure",
+      [
+       {
+        "t": "cPRA élevé = attente plus longue",
+        "i": "Plus de donneurs sont incompatibles ; la technique sur billes est la plus sensible pour définir les antigènes interdits."
+       }
+      ]
+     ],
+     [
+      "Sérums sur liste",
+      "Envoi régulier au laboratoire HLA, actualisation après transfusion ou événement sensibilisant",
+      [
+       {
+        "t": "Profil immunologique à jour",
+        "i": "Un événement sensibilisant modifie les anticorps ; sans sérum récent, on risque un crossmatch positif."
+       }
+      ]
+     ],
+     [
+      "Crossmatch lymphocytaire",
+      "Tranche la compatibilité avant la greffe",
+      [
+       {
+        "t": "Positif = greffe contre-indiquée avec ce donneur",
+        "i": "Il signale des anticorps dirigés contre le donneur, avec risque de rejet hyperaigu."
+       }
+      ]
+     ],
+     [
+      "Donneur vivant et Swiss Kidney Paired Donation",
+      "Option proposée d'emblée ; don croisé si incompatibilité ABO ou HLA",
+      [
+       {
+        "t": "Meilleure survie du greffon",
+        "i": "Le donneur vivant donne de meilleurs résultats que le donneur décédé et permet la greffe préemptive."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le donneur vivant est proposé d'emblée, y compris par don croisé suisse en cas d'incompatibilité.",
+    "Le diabète de type 1 peut justifier une greffe simultanée pancréas-rein.",
+    "L'hyperoxalurie primaire peut justifier une greffe combinée foie-rein."
+   ],
+   "sources": [
+    "Swisstransplant",
+    "KDIGO 2020 candidats à la transplantation rénale"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Préparation avant immunosuppression : vaccins et attente",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "Vaccine avant la greffe, car la réponse vaccinale chute sous immunosuppression et les vaccins vivants deviennent interdits.",
+   "tableau": {
+    "colonnes": [
+     "Vaccin",
+     "Type",
+     "Moment",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "VHB",
+      "Inactivé",
+      "Avant greffe, avec contrôle du titre anti-HBs",
+      [
+       {
+        "t": "Schéma adapté à l'insuffisance rénale",
+        "i": "La réponse est moins bonne en insuffisance rénale ; le titre contrôlé confirme la protection et décide d'un rappel."
+       }
+      ]
+     ],
+     [
+      "Pneumocoque, grippe, COVID-19",
+      "Inactivés",
+      "Avant greffe, selon plan suisse",
+      [
+       {
+        "t": "Prévention des infections respiratoires",
+        "i": "Ces infections sont plus graves sous immunosuppression ; les inactivés restent possibles après greffe, mais répondent moins bien."
+       }
+      ]
+     ],
+     [
+      "Zona recombinant",
+      "Inactivé",
+      "Avant greffe",
+      [
+       {
+        "t": "Sans risque de réplication",
+        "i": "Le vaccin recombinant remplace le vivant atténué, contre-indiqué sous immunosuppression."
+       }
+      ]
+     ],
+     [
+      "ROR, varicelle",
+      "Vivants atténués",
+      "Au moins 4 semaines avant la greffe, chez le séronégatif",
+      [
+       {
+        "t": "Contre-indiqués après immunosuppression",
+        "i": "Un virus vivant peut provoquer une infection disséminée chez l'immunodéprimé ; le délai laisse l'immunité s'installer."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "En attente, on optimise la dialyse, préserve l'accès vasculaire et contrôle tension et diabète.",
+    "On évite les transfusions inutiles pour ne pas sensibiliser.",
+    "On soutient l'arrêt du tabac, exigé avant l'inscription active.",
+    "On traite les foyers infectieux et une tuberculose latente avant la greffe."
+   ],
+   "sources": [
+    "Plan de vaccination suisse OFSP/CFV",
+    "KDIGO 2020 candidats à la transplantation rénale"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Décision d'éligibilité, suivi sur liste, pronostic et réseau",
+   "rubriques": [
+    "positiveDiagnosis",
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Retiens que l'éligibilité se pose quand le bénéfice dépasse les risques, puis que la liste se réévalue chaque année avec un réseau coordonné.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Bilan complet terminé",
+     "i": "La décision se prend sur l'ensemble du bilan, en réunion interdisciplinaire du centre.",
+     "pec": null,
+     "notion": "c8"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Contre-indication durable présente",
+     "i": "Cancer actif, maladie cardiovasculaire non corrigeable ou espérance de vie très limitée : le bénéfice ne dépasse pas le risque.",
+     "pec": "non_eligible",
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Contre-indication temporaire",
+     "i": "Infection active, addiction ou trouble psychiatrique non contrôlé : on corrige, puis on réévalue.",
+     "pec": "non_eligible",
+     "notion": "c4"
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Aucune contre-indication et bénéfice attendu net",
+     "i": "Le gain en survie et en qualité de vie dépasse les risques opératoires et immunosuppresseurs.",
+     "pec": "liste_attente",
+     "notion": "c8"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Inscription active sur la liste Swisstransplant",
+     "i": "L'équipe enregistre le candidat dans le SOAS ; l'attente compte dès le début de la dialyse.",
+     "pec": "liste_attente",
+     "notion": "c1"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Réévaluation annuelle ; statut inactif si infection ou événement intercurrent",
+     "i": "On répète clinique, cardiovasculaire et dépistage de cancer ; le statut inactif évite de proposer un greffon à un patient non greffable.",
+     "pec": "liste_attente",
+     "notion": "c8"
+    }
+   ],
+   "points": [
+    "La survie du greffon à 5 ans dépasse 85 à 90 %, et elle est meilleure avec un donneur vivant.",
+    "Le néphrologue adresse, le centre inscrit chez Swisstransplant, et le médecin de famille coordonne vaccins et dépistages.",
+    "La LAMal couvre le bilan et la greffe, et l'assurance du receveur prend en charge les frais du donneur vivant."
+   ],
+   "sources": [
+    "Swisstransplant",
+    "KDIGO 2020 candidats à la transplantation rénale",
+    "Loi fédérale sur la transplantation (LTx)"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "bilan_eligibilite",
+   "titre": "Bilan d'éligibilité et décision d'inscription",
+   "but": [
+    "Évaluer si le bénéfice de la greffe dépasse les risques opératoires et immunosuppresseurs.",
+    "Identifier les contre-indications et les corriger avant l'inscription."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer au patient les options : greffe, dialyse, traitement conservateur.",
+     "Proposer d'emblée d'envisager un donneur vivant dans l'entourage.",
+     "Recueillir étiologie, grossesses, transfusions, antécédents oncologiques et infectieux."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Isoniazide (antituberculeux) avec pyridoxine (vitamine B6)",
+      "posologie": "Si IGRA positif et tuberculose active exclue : 5 mg/kg/j p.o., maximum 300 mg, pendant 9 mois, avec B6 ; ajuster selon la fonction hépatique ; schéma selon la Ligue pulmonaire suisse.",
+      "pourquoi": "Traiter la tuberculose latente avant l'immunosuppression réduit le risque de réactivation après greffe.",
+      "source": "AIPS Swissmedic ; Ligue pulmonaire suisse"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Traiter les foyers infectieux dentaires, ORL et cutanés avant l'inscription active.",
+      "pourquoi": "L'immunosuppression aggraverait un foyer non traité."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Exiger l'arrêt du tabac et de toute consommation problématique d'alcool ou de drogues.",
+      "pourquoi": "Ces toxiques augmentent les risques cardiovasculaire et néoplasique après greffe."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Faire évaluer le patient par psychologue et assistant social.",
+      "pourquoi": "Le soutien social et l'adhésion prédisent le succès à long terme."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Confirmer la couverture LAMal du bilan et de la greffe, et des frais du donneur vivant par l'assurance du receveur."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantir une attribution sans discrimination, le consentement éclairé et l'interdiction du commerce d'organes."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Planifier le bilan complet en centre, sans urgence vitale.",
+      "Coordonner néphrologue, médecin de famille et centre de transplantation.",
+      "Documenter chaque critère d'éligibilité pour la réunion interdisciplinaire."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "néphrologue",
+       "fait": "Adresse le patient au centre 6 à 12 mois avant la dialyse prévisible, ou dès stabilisation."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin du centre de transplantation",
+       "fait": "Prescrit typage HLA, anticorps anti-HLA, ABO, bilans cardiovasculaire, infectieux et oncologique."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "psychologue et assistant social",
+       "fait": "Évaluent compréhension, soutien social et adhésion."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin de famille",
+       "fait": "Met à jour les dépistages de cancer et traite les foyers dentaires et ORL."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "équipe interdisciplinaire",
+       "fait": "Décide l'éligibilité en pesant bénéfice attendu et contre-indications."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "centre de transplantation",
+       "fait": "Inscrit le candidat éligible dans le SOAS de Swisstransplant."
+      }
+     ]
+    }
+   },
+   "pronostic": "Chez le candidat éligible, la survie du greffon à 5 ans dépasse 85 à 90 %, avec un bénéfice de survie net à long terme sur la dialyse.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Résultats du bilan complet",
+      "quand": "Avant la réunion d'inscription",
+      "cible": "Aucune contre-indication majeure active"
+     },
+     {
+      "quoi": "Titre anti-HBs et statut vaccinal",
+      "quand": "Pendant le bilan",
+      "cible": "Vaccins à jour avant l'immunosuppression"
+     },
+     {
+      "quoi": "Sérums anti-HLA",
+      "quand": "Dès le bilan, puis périodiquement",
+      "cible": "cPRA et spécificités interdites documentés"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : le patient stable en consultation au centre ne nécessite pas d'hospitalisation pour le bilan."
+   },
+   "prevention": {
+    "primaire": "Ralentir la progression de l'insuffisance rénale chronique par le contrôle tensionnel et glycémique, afin de retarder la dialyse.",
+    "secondaire": "Adresser tôt pour proposer la greffe préemptive avant la dialyse.",
+    "tertiaire": "Réévaluer chaque année le candidat sur liste pour traiter les contre-indications apparues."
+   }
+  },
+  {
+   "cle": "liste_attente",
+   "titre": "Préparation et suivi du candidat sur liste d'attente",
+   "but": [
+    "Maintenir le candidat greffable et immunologiquement à jour jusqu'à la greffe.",
+    "Réduire la morbidité cardiovasculaire et infectieuse pendant l'attente."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer que l'attente pour un donneur décédé dure environ 2 à 4 ans.",
+     "Rappeler d'annoncer toute infection, transfusion ou hospitalisation au centre.",
+     "Proposer de nouveau le donneur vivant ou le don croisé."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Vaccin hépatite B (inactivé)",
+      "posologie": "Schéma renforcé adapté à l'insuffisance rénale selon l'AIPS, i.m. ; contrôle du titre anti-HBs 1 à 2 mois après la dernière dose.",
+      "pourquoi": "La réponse est réduite en insuffisance rénale et plus encore sous immunosuppression ; on vaccine avant la greffe.",
+      "source": "Plan de vaccination suisse OFSP/CFV"
+     },
+     {
+      "molecule": "Vaccin pneumococcique conjugué (inactivé)",
+      "posologie": "1 dose i.m. selon le plan suisse pour patients à risque d'infection invasive.",
+      "pourquoi": "L'immunosuppression augmente le risque de pneumococcie invasive ; la vaccination précoce donne une meilleure réponse.",
+      "source": "Plan de vaccination suisse OFSP/CFV"
+     },
+     {
+      "molecule": "Vaccin influenza inactivé",
+      "posologie": "1 dose i.m. chaque automne.",
+      "pourquoi": "La grippe est plus grave chez le dialysé et l'immunodéprimé ; le vaccin inactivé reste sûr.",
+      "source": "Plan de vaccination suisse OFSP/CFV"
+     },
+     {
+      "molecule": "Vaccin zona recombinant (inactivé)",
+      "posologie": "2 doses i.m. à 2 mois d'intervalle, avant la greffe.",
+      "pourquoi": "Le zona est fréquent sous immunosuppression ; le vaccin vivant est contre-indiqué, le recombinant convient.",
+      "source": "Plan de vaccination suisse OFSP/CFV"
+     },
+     {
+      "molecule": "Vaccins ROR et varicelle (vivants atténués)",
+      "posologie": "2 doses s.c. ou i.m. selon l'AIPS, la dernière au moins 4 semaines avant la greffe, chez le séronégatif seulement.",
+      "pourquoi": "Ces vaccins vivants deviennent contre-indiqués après immunosuppression ; le délai de 4 semaines laisse l'immunité se former.",
+      "source": "Plan de vaccination suisse OFSP/CFV"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Préserver l'accès vasculaire et éviter les transfusions inutiles.",
+      "pourquoi": "Les transfusions sensibilisent contre les antigènes HLA et allongent l'attente."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Soutenir l'arrêt du tabac et contrôler tension et diabète.",
+      "pourquoi": "Ces mesures réduisent le risque cardiovasculaire, première cause de mortalité en dialyse."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Envoyer régulièrement des sérums au laboratoire HLA, et après tout événement sensibilisant.",
+      "pourquoi": "Un profil d'anticorps actuel évite un crossmatch positif et une greffe refusée."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Assurer la couverture LAMal et expliquer la prise en charge des frais du donneur vivant par l'assurance du receveur."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Rappeler les règles d'attribution et le consentement du donneur vivant selon la loi sur la transplantation."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Maintenir le candidat en bon état général pendant l'attente.",
+      "Garder une dialyse optimisée et un accès vasculaire préservé.",
+      "Informer le centre de tout événement qui change l'aptitude à la greffe."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "centre de transplantation",
+       "fait": "Inscrit le candidat actif dans le SOAS et planifie la réévaluation annuelle."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin de famille",
+       "fait": "Met à jour les vaccins inactivés et les dépistages de cancer."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "néphrologue",
+       "fait": "Optimise la dialyse, contrôle tension et diabète, et évite les transfusions."
+      },
+      {
+       "temps": "puis",
+       "qui": "laboratoire HLA",
+       "fait": "Reçoit les sérums périodiques et actualise le profil d'anticorps du candidat."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "centre de transplantation",
+       "fait": "Rend le statut inactif en cas d'infection ou d'événement intercurrent."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "centre de transplantation",
+       "fait": "Réévalue chaque année la clinique, le cœur et le dépistage de cancer."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le risque cardiovasculaire reste élevé en dialyse pendant l'attente de 2 à 4 ans, et chaque année de dialyse supplémentaire détériore le pronostic après greffe.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Sérums anti-HLA",
+      "quand": "Périodique, et après toute transfusion ou événement sensibilisant",
+      "cible": "Profil et cPRA à jour"
+     },
+     {
+      "quoi": "Réévaluation clinique, cardiovasculaire et dépistage de cancer",
+      "quand": "Annuelle",
+      "cible": "Maintien de l'éligibilité"
+     },
+     {
+      "quoi": "Titre anti-HBs",
+      "quand": "1 à 2 mois après vaccination, puis selon contrôle",
+      "cible": "Protection documentée"
+     },
+     {
+      "quoi": "Statut actif ou inactif sur la liste",
+      "quand": "À chaque infection ou événement intercurrent",
+      "cible": "Statut inactif si greffe impossible"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : le patient stable reste en dialyse ou en suivi néphrologique, sans hospitalisation pour l'attente."
+   },
+   "prevention": {
+    "primaire": "Vacciner avant l'immunosuppression selon le plan suisse.",
+    "secondaire": "Dépister cancers et infections latentes chaque année sur liste.",
+    "tertiaire": "Contrôler tension, diabète et tabac pour limiter les événements cardiovasculaires pendant l'attente."
+   }
+  },
+  {
+   "cle": "non_eligible",
+   "titre": "Candidat non éligible ou temporairement inactif",
+   "but": [
+    "Corriger les contre-indications réversibles pour permettre une inscription ultérieure.",
+    "Offrir un traitement de suppléance et un accompagnement adaptés en cas de contre-indication durable."
+   ],
+   "moyens": {
+    "accueil": [
+     "Annoncer la décision avec ses motifs et dire si elle est réversible.",
+     "Rassurer sur la poursuite de la dialyse ou du traitement conservateur.",
+     "Fixer une date de réévaluation lorsque la contre-indication est temporaire."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Traiter l'infection active, jusqu'à guérison, avant de réévaluer l'inscription.",
+      "pourquoi": "L'infection contre-indique temporairement la greffe ; sa guérison lève l'obstacle."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Orienter vers une prise en charge de l'addiction ou du trouble psychiatrique.",
+      "pourquoi": "Le contrôle de ces troubles rétablit l'adhésion nécessaire à l'immunosuppression."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Convenir avec l'oncologue du délai libre de maladie après un cancer traité.",
+      "pourquoi": "Le délai dépend du type et du stade tumoral et conditionne l'inscription."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Accompagner le patient dont l'espérance de vie est très limitée ou dont la contre-indication est définitive."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantir une décision motivée, non discriminatoire et conforme à la loi sur la transplantation."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Documenter le motif et le caractère durable ou temporaire de la contre-indication.",
+      "Poursuivre le traitement de suppléance rénale sans interruption."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin du centre de transplantation",
+       "fait": "Explique la décision de l'équipe et précise ce qui peut la modifier."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "spécialiste concerné",
+       "fait": "Traite l'infection, le cancer ou l'addiction à l'origine de la contre-indication."
+      },
+      {
+       "temps": "puis",
+       "qui": "néphrologue",
+       "fait": "Poursuit dialyse ou traitement conservateur et surveille le patient."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "centre de transplantation",
+       "fait": "Réévalue le patient quand la contre-indication temporaire est levée et rétablit le statut actif."
+      }
+     ]
+    }
+   },
+   "pronostic": "La contre-indication temporaire se lève avec la guérison et permet l'inscription ; la contre-indication durable laisse le patient en dialyse ou en traitement conservateur.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Évolution de la cause de la contre-indication",
+      "quand": "Selon la date de réévaluation fixée",
+      "cible": "Cause guérie ou contrôlée"
+     },
+     {
+      "quoi": "Tolérance et qualité de la dialyse",
+      "quand": "Selon le rythme néphrologique habituel",
+      "cible": "Suppléance efficace et stable"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : aucune hospitalisation n'est requise, sauf pour traiter une infection grave."
+   },
+   "prevention": {
+    "primaire": "Prévenir les infections et le tabagisme avant l'adressage pour éviter l'obstacle à l'inscription.",
+    "secondaire": "Dépister cancers et maladies cardiovasculaires pour intervenir avant la décision d'éligibilité.",
+    "tertiaire": "Maintenir un suivi néphrologique et palliatif lorsque la contre-indication reste définitive."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 5786,
+  "output_tokens": 20662,
+  "output_tokens_details": {
+   "thinking_tokens": 5948
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:58:06",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}
