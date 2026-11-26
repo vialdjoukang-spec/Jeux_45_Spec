@@ -54,3 +54,20 @@ Contrôles lot 2 : `controle_menus_longs.py` DER et CPL → 0 menu fautif, 0 err
 | M41.5__S5_1-E02 | 🟩 | Aucune erreur retenue (Cobb ≥ 10° avec rotation pour la scoliose vraie, test d'Adams, cales, justification radioprotection). |
 
 Contrôles lot 3 : `controle_menus_longs.py` ORT et RHU → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
+
+## Lot 4 — rangs 535 à 544
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| M47.8_1__S5_2-E03 | 🟧 | Corrigé : Q20 (d4 qui nomme l'entité) passée en d3. Aucune erreur médicale retenue (branches médianes de deux niveaux, critères de Revel, Smarter Medicine 6 semaines). |
+| M47.8__S1_16-E02 | 🟧 | Forme : Q03 portait 7 notions (maximum 6) ; N18, couverte par deux autres questions, retirée de Q03. Aucune erreur médicale retenue (Spurling spécifique, IRM si myélopathie ou échec à 6 semaines, mise en garde des infiltrations transforaminales). |
+| M53.8__S5_1-E10 | 🟩 | Aucune erreur retenue (Scheuermann ≥ 5° sur 3 vertèbres, OLT 3, 150 min/sem.). |
+| M54.1_1__S7_9-E03 | 🟩 | Aucune erreur retenue. Chiffres concordants avec les sources citées : incidence 83/100 000 et pic 50–54 ans (Radhakrishnan 1994), Lasègue 91 %/26 % et croisé 29 %/88 % (Devillé 2000), Brinjikji 2015, détection précoce AI dès 30 jours. |
+| M54.2__S1_16-E01 | 🟩 | Aucune erreur retenue (Canadian C-spine rule, PPR > 45 min, paracétamol ≤ 4 g/j, ibuprofène 400 mg ×3). |
+| M54.5_2__O7_2-E02 | 🟧 | Corrigé : Q10 (d4 dont la vignette nomme l'incapacité pour lombalgie, refus de `valider()`) passée en d3 non masquée. Vérifié dans le droit cité : LAI art. 28 (incapacité moyenne ≥ 40 % pendant un an), détection précoce dès 30 jours, CO art. 336c (30/90/180 jours). |
+| M54.5_3__O7_21-E02 | 🟧 | Corrigé : Q10 (d4 qui nomme l'acupuncture) passée en d3. Aucune erreur médicale retenue (seuil de pertinence −30 %, IMMPACT 2008). |
+| M62.8_3__O3_3-E02 | 🟩 | Aucune erreur retenue : seuils EWGSOP2 2019 exacts (SARC-F ≥ 4, préhension < 27/16 kg, ASM < 20/15 kg, ASM/taille² < 7,0/6,0 kg/m²) ; protéines 1,0–1,5 g/kg/j (ESPEN), vitamine D 800 UI dès 60 ans (OFSP). |
+| M79.1__S5_4-E02 | 🟩 | Forme : clé vide « mesuresGénérales » hors schéma retirée. Aucune erreur médicale retenue (début à 12–24 h, pic 24–72 h). |
+| M85.8__F2_20-E02 | 🟧 | Corrigé (forme) : correction mal formée (« ssp » en chaîne avalant priseEnCharge, « ">» » à la place de « ": ») reconstruite sans changer le texte. Corrigé : Q11 marquée masquée, Q14 (d4 qui nomme l'ostéopénie) passée en d3. Seuils OMS, Z-score ≤ −2,0, alendronate 70 mg/sem., zolédronate 5 mg/an, dénosumab 60 mg/6 mois, vitamine D 800 UI conformes. |
+
+Contrôles lot 4 : `controle_menus_longs.py RHU` → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
