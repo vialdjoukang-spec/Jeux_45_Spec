@@ -75,6 +75,6 @@ for oid, o in CONF["organes"].items():
     if o.get("note"): e["note"] = o["note"]
     index["organes"][oid] = e; fait += 1
     print(f"{oid} : {len(morceaux)} pièces, {nf0}→{len(m.faces)} faces, {mo:.1f} Mo, {[round(x) for x in m.extents]} mm", flush=True)
-meta = index["_meta"]; meta["sources_supplementaires"] = [CONF["_meta"]["source_za"]]; meta["exclus"] = meta.get("exclus", "") 
+meta = index["_meta"]; sup = meta.get("sources_supplementaires", []); meta["sources_supplementaires"] = sup + [x for x in [CONF["_meta"]["source_za"]] if x not in sup]; meta["exclus"] = meta.get("exclus", "") 
 json.dump(index, open(IDX, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 print(f"organes 3D : {sum(1 for x in index['organes'].values() if x['statut'] == 'produit')} produits ; {fait} nouveaux")

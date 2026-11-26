@@ -331,3 +331,14 @@ Sources balayées sans résultat : péricarde, tissu de conduction cardiaque, on
 3 organes ajoutés par `construire_organes_za.py` (Z-Anatomy, CC BY-SA 4.0) : ongles (4 lames unguéales de `Regions of human body100`), muqueuses (muqueuse des cavités nasales de `VisceralSystem100` ; modèle partiel, la muqueuse gastrique est vide dans la source), tissu adipeux (2 corps adipeux infrapatellaires de `Joints100` ; modèle partiel). Chaque `.glb` pèse moins de 0,3 Mo. Le script encode désormais les espaces dans l'URL des FBX. Audits : conception 34/34, couverture réussie.
 
 Vérification des restants dans BodyParts3D (FMA.csv croisé avec les STL présents) : aucun péricarde, utérus, ovaire, trompe, vagin, sein, placenta ni peau fine ; seuls testicules, épididymes et gland, exclus par règle. Les 27 organes restants n'ont aucune source réelle libre : péricarde, tissu de conduction, microcirculation, derme et hypoderme, glandes sudorales et sébacées, jonction neuromusculaire, gonades (testicules exclus ; ovaires absents), sang (globules rouges, blancs, plaquettes), immunité (barrières, innée, adaptative, complément), oreille interne (licence NC), 6 organes gynécologiques et placenta, 5 processus pédiatriques. Seule piste non tentée : TotalSegmentator (péricarde), dont le jeu public est lourd et ne contient pas de classe péricarde vérifiée.
+
+## 17. Organes 3D réels : 97 → 99 / 124 (tempête, 2026-11-26)
+
+Nouveau constructeur `conception/outils/anatomie3d/construire_organes_ext.py` (configuration `organes_ext.json`, cache par empreinte configuration + script) pour les sources hors Z-Anatomy / BodyParts3D : il lit seulement les fichiers utiles dans les archives Zenodo (lecture partielle HTTP, `remotezip`), maille les étiquettes NIfTI (marching cubes, rééchantillonnage isotrope, flou en mm, lissage Taubin) et convertit au repère BodyParts3D (RAS → LPS). Chaque `.glb` pèse 1,2 Mo.
+
+- **Oreille interne** (`or_oreille_interne`) : OpenEar, rocher « ETA » (Sieber et al., Sci Data 2019, Zenodo 1473724, **CC BY 4.0**) ; rampes tympanique et vestibulaire (cochlée, vestibule, canaux semi-circulaires) et nerf cochléo-vestibulaire. Rendu vérifié : la spirale cochléaire et les trois canaux sont nets.
+- **Utérus et col** (`org_gyneco_uterus_et_col`) : AMOS 2022, scanner `amos_0358` (femme de 41 ans, étiquette 15 tracée à la main ; Zenodo 7262581, **CC BY 4.0**) ; 126 mL, 68 × 86 × 67 mm, antéversion visible de profil.
+
+Source écartée : UT-EndoMRI (Zenodo 15750762, utérus et **ovaires** segmentés à la main) porte la mention CC BY 4.0 sur Zenodo, mais son README réserve l'usage à la recherche non commerciale : licence contradictoire, donc ovaires non produits sans l'accord de Vial.
+
+Le script Z-Anatomy fusionne désormais `sources_supplementaires` au lieu de l'écraser. Contrôles : conception 34/34, couverture réussie, non-perte 0.
