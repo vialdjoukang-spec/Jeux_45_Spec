@@ -1,0 +1,1239 @@
+{
+ "id": "Z91.1_5__O7_15-E01",
+ "portes": [
+  {
+   "ssp": "O7.15",
+   "nomSSP": "Mauvaise adhésion au traitement",
+   "entite": "Inobservance dans l'hypertension artérielle ou dyslipidémie",
+   "entiteId": "O7.15-E01"
+  }
+ ],
+ "entite": "Inobservance dans l'hypertension artérielle ou dyslipidémie",
+ "cim10": "Z91.1",
+ "ssp": {
+  "code": "O7.15",
+  "nom": "Mauvaise adhésion au traitement",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient hypertendu ou dyslipidémique avec PA ou LDL hors cible, ou renouvellements irréguliers",
+    "i": "Situation de départ : le traitement est prescrit mais les résultats ne suivent pas, ce qui fait suspecter une mauvaise adhésion.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "PA ≥ 180/110 avec douleur thoracique, dyspnée, déficit neurologique ou confusion ?",
+    "i": "Ces symptômes signent une atteinte d'organe cible et décident d'emblée de l'hospitalisation.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : urgence hypertensive",
+    "i": "Atteinte d'organe : antihypertenseur intraveineux sous monitorage, baisse de la PA ≤ 25 % la première heure.",
+    "pec": "urgence_organe",
+    "notion": "c7"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : PA ≥ 180/110 asymptomatique ?",
+    "i": "Sans symptôme ni atteinte d'organe, il s'agit d'une poussée asymptomatique, non d'une urgence.",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Oui : reprendre le traitement habituel, contrôle sous quelques jours",
+    "i": "Une baisse rapide est inutile et risque l'hypoperfusion ; la nifédipine sublinguale est déconseillée.",
+    "pec": "poussee_asympto",
+    "notion": "c7"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Non : confirmer la PA par automesure ou MAPA et contrôler le LDL",
+    "i": "Le cabinet seul peut être trompeur : l'effet blouse blanche est à exclure avant tout changement thérapeutique.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "PA ambulatoire normale : effet blouse blanche",
+    "i": "PA de cabinet ≥ 140/90 avec PA ambulatoire normale : pas d'intensification, suivi simple.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "PA ambulatoire ou LDL hors cible : objectiver l'adhésion",
+    "i": "Je combine entretien non jugeant, relevé des délivrances (couverture < 80 %) et recherche de substances interférentes.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Adhésion correcte : HTA résistante ou hypercholestérolémie familiale",
+    "i": "Une adhésion prouvée oriente vers une cause secondaire (aldostérone/rénine, apnée, sténose rénale) ou génétique ; je renvoie vers le SSP HTA et le spécialiste.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Non-adhésion confirmée : identifier le type",
+    "i": "L'intention du patient décide de la réponse : négocier, simplifier ou supporter la prise.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Intentionnelle : peur, croyances, effets indésirables, coût",
+    "i": "Entretien motivationnel, changement de molécule, générique ; le patient capable de discernement peut refuser et je documente.",
+    "pec": "long_cours",
+    "notion": "c3"
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Non intentionnelle : oubli, complexité du schéma",
+    "i": "Association fixe 1x/j, pilulier, rappels et Polymedication Check dès quatre médicaments durables.",
+    "pec": "long_cours",
+    "notion": "c8"
+   },
+   {
+    "id": "n13",
+    "parent": "n12",
+    "t": "Sujet âgé polymédiqué ou troubles cognitifs : renvoi à l'entité « Oublis liés à la polymédication ou aux troubles cognitifs du sujet âgé »",
+    "i": "La préparation externe (blister, Spitex) remplace l'autonomie du patient ; cette entité du même SSP la détaille.",
+    "pec": null,
+    "notion": "c8"
+   },
+   {
+    "id": "n14",
+    "parent": "n10",
+    "t": "Dépression ou autre trouble psychiatrique associé : renvoi vers le SSP correspondant",
+    "i": "La dépression diminue l'adhésion ; la traiter améliore la prise du traitement cardiovasculaire.",
+    "pec": null,
+    "notion": "c2"
+   }
+  ]
+ },
+ "specialites": [
+  "MIG"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Inobservance dans l'hypertension artérielle ou la dyslipidémie",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définir la non-adhésion et ses types",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Je décompose la non-adhésion en phases et en types, car l'intention du patient oriente toute la réponse du médecin.",
+   "tableau": {
+    "colonnes": [
+     "Type",
+     "Définition",
+     "Exemple",
+     "Réponse du médecin"
+    ],
+    "lignes": [
+     [
+      "Non-adhésion intentionnelle",
+      "Le patient choisit de ne pas prendre ou d'arrêter son traitement.",
+      "Il arrête l'IEC par peur de la dépendance ou à cause d'une toux.",
+      [
+       {
+        "t": "Explorer croyances et effets indésirables",
+        "i": "Le motif est un choix : rappels et piluliers ne suffisent pas, il faut négocier et changer de molécule si besoin."
+       }
+      ]
+     ],
+     [
+      "Non-adhésion non intentionnelle",
+      "L'oubli ou l'incompréhension du schéma empêche la prise correcte.",
+      "Le patient oublie la deuxième prise quotidienne ou confond deux comprimés.",
+      [
+       {
+        "t": "Simplifier : association fixe 1x/j, pilulier, rappels",
+        "i": "La cause est pratique : réduire le nombre de prises supprime l'occasion d'oublier, sans exiger de motivation supplémentaire."
+       }
+      ]
+     ],
+     [
+      "HTA pseudo-résistante",
+      "La PA reste élevée sous trois antihypertenseurs, mais l'inobservance en est la vraie cause.",
+      "La PA se normalise sous prise supervisée à l'hôpital.",
+      [
+       {
+        "t": "Vérifier l'adhésion avant d'intensifier",
+        "i": "Intensifier à tort expose à l'hypotension dès que le patient prend réellement toutes les doses."
+       }
+      ]
+     ],
+     [
+      "HTA résistante vraie",
+      "La PA reste élevée sous trois antihypertenseurs dont un diurétique à dose optimale, après exclusion de l'inobservance, de l'effet blouse blanche et des substances interférentes.",
+      "Elle est confirmée par MAPA ou automesure malgré une adhésion prouvée.",
+      [
+       {
+        "t": "Chercher une HTA secondaire, adresser au spécialiste",
+        "i": "Seule une adhésion prouvée et une PA ambulatoire élevée autorisent ce diagnostic."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La non-adhésion comprend trois phases : initiation, mise en œuvre de la posologie et persistance jusqu'à l'arrêt.",
+    "L'inobservance intentionnelle résulte d'un choix, l'inobservance non intentionnelle d'un oubli ou d'une incompréhension.",
+    "L'HTA et la dyslipidémie sont asymptomatiques, donc l'arrêt reste invisible pour le patient.",
+    "Une HTA n'est dite résistante qu'après exclusion de l'inobservance, de l'effet blouse blanche et des médicaments interférents."
+   ],
+   "sources": [
+    "Société Suisse d'Hypertension",
+    "ESC/ESH 2018",
+    "OMS 2003"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie et déterminants de l'adhésion",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences"
+   ],
+   "comment": "Je retiens que le patient asymptomatique perçoit les contraintes mais pas le bénéfice, et je cherche les déterminants dans les cinq dimensions de l'OMS.",
+   "tableau": {
+    "colonnes": [
+     "Dimension OMS",
+     "Déterminant fréquent",
+     "Levier en Suisse"
+    ],
+    "lignes": [
+     [
+      "Socio-économique",
+      "Le coût et la quote-part freinent la prise du traitement.",
+      [
+       {
+        "t": "Prescrire un générique",
+        "i": "La quote-part est de 10 % après franchise, mais de 40 % si le patient choisit l'original alors qu'un générique moins cher existe."
+       }
+      ]
+     ],
+     [
+      "Système de santé",
+      "Une mauvaise relation médecin-patient ou un suivi fragmenté diminue l'adhésion.",
+      [
+       {
+        "t": "Entretien motivationnel, décision partagée",
+        "i": "Le patient adhère mieux à un objectif qu'il a choisi qu'à une consigne reçue sans explication."
+       }
+      ]
+     ],
+     [
+      "Maladie",
+      "L'HTA et la dyslipidémie ne donnent aucun symptôme au quotidien.",
+      [
+       {
+        "t": "Expliquer le risque invisible",
+        "i": "Sans symptôme, seule la compréhension du risque cardiovasculaire justifie la contrainte de prise."
+       }
+      ]
+     ],
+     [
+      "Traitement",
+      "La complexité du schéma, la polymédication et les effets indésirables perçus diminuent l'adhésion.",
+      [
+       {
+        "t": "Associations fixes et Polymedication Check",
+        "i": "Moins de prises et une revue pharmaceutique remboursée par l'assurance de base dès quatre médicaments durables améliorent l'adhésion."
+       }
+      ]
+     ],
+     [
+      "Patient",
+      "La dépression, les troubles cognitifs et les croyances négatives favorisent l'arrêt.",
+      [
+       {
+        "t": "Dépister dépression et troubles cognitifs",
+        "i": "Ces facteurs entraînent une inobservance non intentionnelle ou intentionnelle que la seule éducation ne corrige pas."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'OMS estime l'adhésion moyenne aux traitements chroniques à environ 50 % dans les pays développés.",
+    "40 à 50 % des patients arrêtent leur antihypertenseur ou leur statine durant la première année.",
+    "Les arrêts de statine sont plus fréquents en prévention primaire qu'après un événement cardiovasculaire.",
+    "Dans l'essai SAMSON, environ 90 % des symptômes musculaires attribués à la statine survenaient aussi sous placebo, ce qui évoque un effet nocebo."
+   ],
+   "sources": [
+    "OMS 2003",
+    "SAMSON (Wood, NEJM 2020)",
+    "LAMal/OPAS"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse : questions sans jugement et effets tus",
+   "rubriques": [
+    "anamnesis"
+   ],
+   "comment": "Je pose des questions ouvertes qui normalisent l'oubli, puis je cherche activement les effets indésirables que le patient n'ose pas dire.",
+   "tableau": {
+    "colonnes": [
+     "Classe",
+     "Effet tu fréquent",
+     "Alternative plutôt qu'arrêt"
+    ],
+    "lignes": [
+     [
+      "IEC",
+      "La toux sèche pousse le patient à arrêter.",
+      [
+       {
+        "t": "Passer à un sartan",
+        "i": "Le sartan n'augmente pas la bradykinine et ne provoque donc pas la toux, tout en gardant le blocage du système rénine-angiotensine."
+       }
+      ]
+     ],
+     [
+      "Inhibiteur calcique (amlodipine)",
+      "Les œdèmes des chevilles sont mal supportés.",
+      [
+       {
+        "t": "Changer de classe ou associer un IEC ou un sartan",
+        "i": "L'association à un IEC ou un sartan réduit les œdèmes vasodilatateurs, ce qui évite d'arrêter le traitement."
+       }
+      ]
+     ],
+     [
+      "Diurétique thiazidique",
+      "La nycturie et la dysfonction érectile sont rarement évoquées spontanément.",
+      [
+       {
+        "t": "Adapter l'heure de prise ou changer de classe",
+        "i": "Une prise matinale limite la nycturie ; la dysfonction érectile se discute ouvertement pour éviter l'arrêt silencieux."
+       }
+      ]
+     ],
+     [
+      "Bêtabloquant",
+      "La fatigue et la dysfonction érectile motivent un arrêt, avec risque de rebond à l'arrêt brutal.",
+      [
+       {
+        "t": "Réduire progressivement ou changer, jamais arrêter brutalement",
+        "i": "L'arrêt brutal provoque une tachycardie, un angor et un rebond hypertensif."
+       }
+      ]
+     ],
+     [
+      "Statine",
+      "Les myalgies attribuées à la statine sont souvent nocebo.",
+      [
+       {
+        "t": "Réessayer une autre statine ou une dose plus faible",
+        "i": "Beaucoup de symptômes surviennent aussi sous placebo ; l'ézétimibe ou un inhibiteur de PCSK9 viennent ensuite, selon limitations de la LS."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Je demande par exemple « combien de jours par semaine oubliez-vous un comprimé ? » pour normaliser l'oubli.",
+    "J'explore les croyances (peur de la dépendance ou du « tout-chimique »), la compréhension de la maladie, le coût et les préférences.",
+    "Les questionnaires de Morisky et de Girerd manquent de sensibilité et surestiment l'adhésion déclarée.",
+    "Face à une barrière linguistique, j'engage un interprète communautaire plutôt qu'un proche.",
+    "Je recherche les substances hypertensives : AINS, corticoïdes, contraceptifs oraux, décongestionnants, réglisse, alcool et excès de sel."
+   ],
+   "sources": [
+    "Société Suisse d'Hypertension",
+    "ESC/ESH 2018",
+    "ESC/EAS 2019"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Examen clinique et drapeaux rouges",
+   "rubriques": [
+    "clinicalExam",
+    "presumptionRedFlags"
+   ],
+   "comment": "Je mesure correctement la PA, puis je cherche d'abord les signes de gravité qui imposent l'hôpital avant de discuter d'adhésion.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "PA ≥ 180/110 mmHg chez un patient traité de façon irrégulière",
+     "i": "Ce seuil définit la poussée hypertensive ; la suite dépend des symptômes et de l'atteinte d'organe.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Céphalées, douleur thoracique, dyspnée, confusion ou déficit neurologique ?",
+     "i": "Ces signes traduisent une atteinte d'organe cible : cerveau, cœur, poumon ou rein.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : urgence hypertensive, hospitaliser",
+     "i": "L'atteinte d'organe impose un antihypertenseur intraveineux sous monitorage, jamais un traitement oral ambulatoire.",
+     "pec": "urgence_organe",
+     "notion": "c7"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non : poussée asymptomatique sans atteinte d'organe",
+     "i": "Le risque immédiat est faible ; une baisse rapide expose à l'hypoperfusion et n'apporte aucun bénéfice.",
+     "pec": "poussee_asympto",
+     "notion": "c7"
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Rechercher un rebond après arrêt de la clonidine ou d'un bêtabloquant",
+     "i": "L'arrêt brutal provoque tachycardie, angor et rebond hypertensif, d'où un drapeau rouge.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Chercher l'atteinte d'organe : fond d'œil, souffles carotidiens, insuffisance cardiaque, pouls, HVG",
+     "i": "Une atteinte d'organe chronique indique une HTA ancienne mal contrôlée et pèse sur la cible tensionnelle.",
+     "pec": null,
+     "notion": "c4"
+    }
+   ],
+   "points": [
+    "La PA se mesure au repos assis depuis cinq minutes avec un brassard adapté, en répétant les mesures et en comparant les deux bras à la première visite.",
+    "Une hypotension orthostatique (baisse de la PAS ≥ 20 ou de la PAD ≥ 10 mmHg à trois minutes) peut expliquer l'arrêt du traitement.",
+    "Une fréquence cardiaque non ralentie sous bêtabloquant est un indice faible de non-prise.",
+    "Des renouvellements tardifs ou des rendez-vous manqués évoquent l'inobservance ; une prise juste avant la consultation masque l'inobservance habituelle.",
+    "Un LDL qui ne baisse pas nettement sous statine évoque d'abord l'inobservance, avant la résistance."
+   ],
+   "sources": [
+    "ESC/ESH 2018",
+    "Société Suisse d'Hypertension"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Objectiver l'adhésion : méthodes directes et indirectes",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Je combine plusieurs méthodes, car aucune méthode indirecte ne prouve la prise et les méthodes directes restent réservées aux centres spécialisés.",
+   "tableau": {
+    "colonnes": [
+     "Méthode",
+     "Type",
+     "Atout",
+     "Limite"
+    ],
+    "lignes": [
+     [
+      "Entretien et questionnaire (Morisky, Girerd)",
+      "Indirecte",
+      [
+       {
+        "t": "Simple, sans coût",
+        "i": "Il ouvre la discussion avec le patient et révèle les raisons de l'arrêt."
+       }
+      ],
+      [
+       {
+        "t": "Peu sensible",
+        "i": "Le patient surestime ce qu'il déclare par crainte du jugement."
+       }
+      ]
+     ],
+     [
+      "Relevé des délivrances en pharmacie",
+      "Indirecte",
+      [
+       {
+        "t": "Objectif, couverture < 80 % = mauvaise adhésion",
+        "i": "Il ne dépend pas de la mémoire du patient et se demande directement au pharmacien."
+       }
+      ],
+      [
+       {
+        "t": "Délivrer ne prouve pas la prise",
+        "i": "Le patient peut retirer le médicament sans l'avaler."
+       }
+      ]
+     ],
+     [
+      "Comptage des comprimés, pilulier électronique",
+      "Indirecte",
+      [
+       {
+        "t": "Montre le rythme des ouvertures",
+        "i": "Il documente des oublis répétés ou des prises irrégulières."
+       }
+      ],
+      [
+       {
+        "t": "Manipulable",
+        "i": "Le patient peut vider ou ouvrir le pilulier sans prendre le médicament."
+       }
+      ]
+     ],
+     [
+      "Prise supervisée à l'hôpital",
+      "Directe en pratique",
+      [
+       {
+        "t": "PA normalisée = pseudo-résistance",
+        "i": "Si la PA baisse sous prise observée, l'échec venait de l'inobservance et non de la résistance."
+       }
+      ],
+      [
+       {
+        "t": "Hospitalisation nécessaire",
+        "i": "Elle se réserve aux HTA réfractaires suspectes."
+       }
+      ]
+     ],
+     [
+      "Dosage plasmatique ou urinaire par spectrométrie de masse",
+      "Directe",
+      [
+       {
+        "t": "Méthode la plus objective",
+        "i": "Elle détecte la présence du médicament ou de ses métabolites dans l'échantillon."
+       }
+      ],
+      [
+       {
+        "t": "Centres spécialisés, HTA réfractaire",
+        "i": "Elle reste coûteuse, peu accessible et ne montre que la prise récente."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Avant de parler d'HTA résistante, je confirme la PA élevée par MAPA ou automesure, qui sont deux examens distincts.",
+    "L'automesure utilise un appareil huméral validé, deux mesures matin et soir pendant trois à sept jours, puis je calcule la moyenne.",
+    "Le bilan lipidique de contrôle se fait 8 semaines (± 4) après le début ou la modification d'une statine.",
+    "Le diagnostic de non-adhésion exige un écart objectivé entre prescription et prise par au moins une méthode, avec PA ou LDL hors cible."
+   ],
+   "sources": [
+    "ESC/ESH 2018",
+    "Société Suisse d'Hypertension",
+    "ESC/EAS 2019"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Démarche avant de parler d'HTA résistante",
+   "rubriques": [
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Je confirme la PA hors cabinet, j'objective l'adhésion, puis seulement je cherche une cause secondaire ou une hypercholestérolémie familiale.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "PA de cabinet ≥ 140/90 mmHg malgré le traitement",
+     "i": "Ce seuil de cabinet déclenche la vérification, mais il ne suffit pas à parler d'HTA résistante.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Confirmer par automesure ou MAPA",
+     "i": "Seuils d'HTA : 135/85 en automesure, 135/85 en MAPA diurne, 120/70 en MAPA nocturne et 130/80 en MAPA des 24 heures.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "PA ambulatoire normale : effet blouse blanche",
+     "i": "Le cabinet élève la PA mais l'ambulatoire est normal ; aucune intensification n'est nécessaire.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "PA ambulatoire élevée : objectiver l'adhésion et chercher des substances interférentes",
+     "i": "Je vérifie délivrances, entretien et AINS, corticoïdes, réglisse, alcool, sel avant tout changement thérapeutique.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Non-adhésion confirmée : corriger l'adhésion, sans intensifier",
+     "i": "La reprise réelle de toutes les doses peut suffire à normaliser la PA ; intensifier expose à l'hypotension.",
+     "pec": "long_cours",
+     "notion": "c8"
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "Adhésion confirmée sous trois traitements dont un diurétique : HTA résistante vraie",
+     "i": "Définition de la résistance après exclusion de l'inobservance, de l'effet blouse blanche et des médicaments interférents.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Chercher une HTA secondaire",
+     "i": "Hyperaldostéronisme primaire (rapport aldostérone/rénine), apnée du sommeil, sténose rénale, insuffisance rénale ; adresser au spécialiste.",
+     "pec": null,
+     "notion": "c9"
+    },
+    {
+     "id": "n8",
+     "parent": "n1",
+     "t": "LDL très élevé malgré adhésion confirmée : évoquer une hypercholestérolémie familiale",
+     "i": "Une réponse insuffisante à une statine bien prise évoque une cause génétique, pas une inobservance.",
+     "pec": null,
+     "notion": "c6"
+    }
+   ],
+   "points": [
+    "L'effet blouse blanche correspond à une PA ≥ 140/90 au cabinet avec PA ambulatoire normale.",
+    "Je n'intensifie jamais le traitement avant d'avoir vérifié l'adhésion.",
+    "Le diagnostic positif repose sur l'écart objectivé entre prescription et prise réelle expliquant l'échec thérapeutique."
+   ],
+   "sources": [
+    "ESC/ESH 2018",
+    "Société Suisse d'Hypertension",
+    "ESC/EAS 2019"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge aiguë : poussée et urgence hypertensive",
+   "rubriques": [
+    "acuteManagement",
+    "hospitalizationComplications"
+   ],
+   "comment": "Je distingue la poussée asymptomatique, traitée à domicile par reprise du traitement habituel, de l'urgence avec atteinte d'organe traitée par voie intraveineuse.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Conduite",
+     "À éviter"
+    ],
+    "lignes": [
+     [
+      "PA ≥ 180/110 asymptomatique sans atteinte d'organe",
+      [
+       {
+        "t": "Reprendre le traitement oral habituel en ambulatoire, contrôle sous quelques jours",
+        "i": "L'élévation vient souvent de l'arrêt ; reprendre les doses prescrites suffit à normaliser la PA progressivement."
+       }
+      ],
+      [
+       {
+        "t": "Baisse rapide de la PA",
+        "i": "Une baisse brutale peut provoquer une hypoperfusion cérébrale ou coronaire sans bénéfice démontré chez le patient asymptomatique."
+       }
+      ]
+     ],
+     [
+      "PA ≥ 180/110 avec atteinte d'organe",
+      [
+       {
+        "t": "Hospitaliser, antihypertenseur intraveineux, baisse ≤ 25 % la première heure",
+        "i": "Une baisse contrôlée protège l'organe cible sans provoquer d'ischémie par chute excessive."
+       }
+      ],
+      [
+       {
+        "t": "Traitement oral ambulatoire",
+        "i": "L'atteinte d'organe exige un monitorage et un titrage intraveineux immédiats."
+       }
+      ]
+     ],
+     [
+      "Dissection aortique",
+      [
+       {
+        "t": "Baisse rapide et profonde de la PAS",
+        "i": "C'est l'exception à la règle des 25 % : la pression pulsatile doit chuter vite pour limiter la propagation."
+       }
+      ],
+      [
+       {
+        "t": "Limiter la baisse à 25 %",
+        "i": "Une baisse trop lente maintient la contrainte sur la paroi aortique."
+       }
+      ]
+     ],
+     [
+      "Toute poussée hypertensive",
+      [
+       {
+        "t": "Rechercher la cause de l'arrêt et la corriger",
+        "i": "Sans traitement de la cause, la poussée récidive."
+       }
+      ],
+      [
+       {
+        "t": "Nifédipine sublinguale",
+        "i": "Elle provoque une chute tensionnelle imprévisible et potentiellement ischémiante."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'inobservance expose aux AVC, à l'infarctus et à l'insuffisance cardiaque.",
+    "L'arrêt brutal de clonidine ou de bêtabloquant provoque un rebond ; je reprends le traitement sous surveillance."
+   ],
+   "sources": [
+    "ESC/ESH 2018",
+    "Société Suisse d'Hypertension"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Prise en charge au long cours : leviers d'adhésion",
+   "rubriques": [
+    "chronicManagement"
+   ],
+   "comment": "Je combine plusieurs leviers (éducation, simplification, rappels, suivi), car l'intervention multimodale surpasse chaque mesure isolée.",
+   "tableau": {
+    "colonnes": [
+     "Levier",
+     "Mesure concrète",
+     "Contexte suisse"
+    ],
+    "lignes": [
+     [
+      "Simplifier le schéma",
+      [
+       {
+        "t": "Associations fixes en un comprimé par jour, y compris en traitement initial",
+        "i": "Moins de prises réduit les oublis ; la recommandation s'applique dès l'initiation et pas seulement en cas d'échec."
+       }
+      ],
+      "Les génériques limitent la quote-part."
+     ],
+     [
+      "Heure de prise",
+      [
+       {
+        "t": "Choisir l'heure qui favorise la régularité",
+        "i": "L'essai TIME ne montre aucune différence d'événements cardiovasculaires entre prise matinale et vespérale."
+       }
+      ],
+      "Le patient fixe le moment lié à une habitude quotidienne."
+     ],
+     [
+      "Relation médecin-patient",
+      [
+       {
+        "t": "Entretien motivationnel, attitude non jugeante, décision partagée",
+        "i": "Le patient adhère mieux à des objectifs qu'il a choisis, ce qui agit sur l'inobservance intentionnelle."
+       }
+      ],
+      "Je documente l'information et le refus d'un patient capable de discernement."
+     ],
+     [
+      "Pharmacien et soins à domicile",
+      [
+       {
+        "t": "Pilulier ou blister préparé, supervision par Spitex",
+        "i": "Chez la personne âgée polymédiquée, la préparation externe supprime les erreurs de prise et les oublis."
+       }
+      ],
+      "Le Polymedication Check est remboursé dès quatre médicaments durables (LAMal)."
+     ],
+     [
+      "Effets indésirables",
+      [
+       {
+        "t": "Changer de molécule ou de classe plutôt qu'arrêter",
+        "i": "Un sartan remplace l'IEC qui provoque une toux ; l'arrêt sans substitut laisse la PA non contrôlée."
+       }
+      ],
+      "Statine mal tolérée : autre statine, dose plus faible, puis ézétimibe ou inhibiteur de PCSK9 sous limitation LS."
+     ],
+     [
+      "Cibles",
+      [
+       {
+        "t": "Viser < 140/90 mmHg au cabinet, puis 130/80 si bien toléré",
+        "i": "Cette progression limite l'hypotension et les effets indésirables qui font arrêter le traitement."
+       }
+      ],
+      "Le DEP partage le plan de médication ; son ouverture reste volontaire."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Je n'intensifie pas avant d'avoir vérifié l'adhésion.",
+    "La quote-part est de 10 % après franchise, et de 40 % si le patient choisit l'original malgré un générique moins cher.",
+    "Le patient capable de discernement peut refuser le traitement après information ; je documente l'information et le refus."
+   ],
+   "sources": [
+    "TIME (Mackenzie, Lancet 2022)",
+    "ESC/ESH 2018",
+    "LAMal/OPAS",
+    "ESC/EAS 2019"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Complications, surveillance, pronostic et réseau",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Je réévalue l'adhésion à chaque consultation, je surveille PA, LDL et ionogramme, et je coordonne le médecin de famille, le pharmacien et l'infirmier.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "L'inobservance expose aux AVC, à l'infarctus, à l'insuffisance cardiaque et à une surmortalité cardiovasculaire évitable ; l'HTA non contrôlée entraîne néphroangiosclérose, insuffisance rénale chronique et rétinopathie hypertensive.",
+    "Je réévalue l'adhésion à chaque consultation, sans jugement, d'après la PA, le LDL et les délivrances.",
+    "Après toute modification du traitement antihypertenseur, je recontrôle la PA dans environ deux mois ; sous IEC, sartan ou diurétique, je surveille créatinine et kaliémie.",
+    "Une adhésion durable et un schéma simplifié améliorent le contrôle de la PA et du LDL et réduisent le risque cardiovasculaire.",
+    "Le médecin de famille coordonne le suivi avec le pharmacien et l'infirmier, et adresse au spécialiste en cas d'HTA résistante confirmée."
+   ],
+   "sources": [
+    "ESC/ESH 2018",
+    "Société Suisse d'Hypertension",
+    "LAMal/OPAS"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence_organe",
+   "titre": "Urgence hypertensive avec atteinte d'organe sur arrêt de traitement",
+   "but": [
+    "Baisser la PA de façon contrôlée pour protéger l'organe cible sans provoquer d'ischémie.",
+    "Identifier et traiter l'atteinte d'organe (cerveau, cœur, poumon, rein, aorte).",
+    "Comprendre la raison de l'arrêt pour éviter la récidive."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installer le patient en salle de soins monitorée et mesurer la PA aux deux bras.",
+     "Poser une voie veineuse et réaliser un ECG immédiatement.",
+     "Demander quels médicaments ont été arrêtés et depuis quand, en particulier clonidine et bêtabloquant."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Urapidil (antagoniste alpha-1)",
+      "posologie": "Bolus intraveineux lent sous contrôle tensionnel, puis perfusion d'entretien titrée sur la PA, selon l'AIPS ; baisse ≤ 25 % la première heure.",
+      "pourquoi": "Il baisse la PA de façon titrable sans tachycardie réflexe marquée, ce qui convient à l'atteinte d'organe.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Nitroglycérine (dérivé nitré)",
+      "posologie": "Perfusion intraveineuse titrée, 5–200 µg/min, en cas d'œdème pulmonaire aigu ou d'ischémie coronarienne.",
+      "pourquoi": "Elle réduit précharge et postcharge, donc elle convient quand l'urgence hypertensive s'accompagne d'une atteinte cardiaque.",
+      "source": "ESC/ESH 2018"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Monitorer la PA, le rythme cardiaque et l'état neurologique pendant le traitement intraveineux.",
+      "pourquoi": "Le titrage exige une surveillance continue pour éviter une baisse excessive."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer au patient stabilisé le lien entre l'arrêt et l'urgence vécue.",
+      "pourquoi": "L'urgence vécue est un moment favorable pour renforcer la motivation à poursuivre."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'information donnée au patient capable de discernement et l'éventuel refus de traitement."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Hospitaliser le patient en unité monitorée.",
+      "Éviter toute nifédipine sublinguale.",
+      "Exclure une dissection aortique devant une douleur thoracique ou dorsale, car l'objectif tensionnel diffère."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Mesure la PA aux deux bras, réalise l'ECG et cherche une atteinte d'organe cible."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose la voie veineuse, installe le monitorage et prélève créatinine, ionogramme et troponine."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Prescrit l'antihypertenseur intraveineux et limite la baisse à 25 % la première heure."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "spécialiste",
+       "fait": "Réalise l'imagerie ou l'avis spécialisé selon l'organe atteint (neuro, cardio, néphro)."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Relaie par le traitement oral dès la stabilisation et interroge le patient sur la cause de l'arrêt."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La baisse contrôlée de la PA limite les séquelles ; le risque d'AVC, d'infarctus et d'insuffisance rénale reste élevé si l'inobservance persiste après l'épisode.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "PA et état neurologique",
+      "quand": "En continu pendant le traitement intraveineux",
+      "cible": "Baisse ≤ 25 % la première heure, puis cible progressive sans hypotension"
+     },
+     {
+      "quoi": "Créatinine, kaliémie, troponine",
+      "quand": "À l'admission puis selon l'évolution",
+      "cible": "Absence de dégradation rénale ou d'ischémie myocardique"
+     },
+     {
+      "quoi": "Reprise du traitement oral",
+      "quand": "Avant la sortie",
+      "cible": "PA stable sous traitement oral"
+     }
+    ],
+    "sortie": "PA stable sous traitement oral, atteinte d'organe prise en charge, causes de l'arrêt identifiées, plan de suivi à 1 à 2 semaines et schéma simplifié expliqué au patient."
+   },
+   "prevention": {
+    "primaire": "Expliquer dès l'initiation le risque de l'arrêt brutal, surtout pour la clonidine et les bêtabloquants.",
+    "secondaire": "Dépister l'inobservance à chaque consultation avant qu'une poussée ne survienne.",
+    "tertiaire": "Prévenir AVC, infarctus et insuffisance rénale par un contrôle durable de la PA."
+   }
+  },
+  {
+   "cle": "poussee_asympto",
+   "titre": "Poussée hypertensive asymptomatique sur inobservance",
+   "but": [
+    "Reprendre le traitement habituel sans baisse tensionnelle brutale.",
+    "Confirmer l'absence d'atteinte d'organe avant le retour à domicile.",
+    "Identifier la cause de l'arrêt ou des oublis."
+   ],
+   "moyens": {
+    "accueil": [
+     "Mesurer la PA au repos assis depuis cinq minutes, aux deux bras, avec un brassard adapté.",
+     "Rechercher symptômes et signes d'atteinte d'organe cible.",
+     "Poser des questions ouvertes sans jugement sur les prises manquées."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Traitement antihypertenseur habituel du patient (IEC ou sartan, amlodipine, thiazidique)",
+      "posologie": "Doses prescrites habituelles, voie orale, 1x/j, sans dose de charge ni double dose ; contrôle de la PA sous quelques jours.",
+      "pourquoi": "La reprise des doses prescrites normalise la PA progressivement ; une dose supplémentaire expose à l'hypotension et à l'hypoperfusion.",
+      "source": "ESC/ESH 2018"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer pourquoi la PA s'est élevée après l'arrêt et pourquoi la baisse doit rester progressive.",
+      "pourquoi": "Le patient comprend le lien entre arrêt et poussée, ce qui renforce sa persistance."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Organiser un contrôle de la PA par automesure ou au cabinet sous quelques jours.",
+      "pourquoi": "Le contrôle rapproché vérifie la reprise du traitement et la normalisation de la PA."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantit l'information du patient capable de discernement et la documentation d'un éventuel refus."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Ne pas baisser la PA rapidement chez le patient asymptomatique.",
+      "Éviter la nifédipine sublinguale."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Exclut l'atteinte d'organe par l'anamnèse, l'examen et l'ECG si le doute persiste."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Fait reprendre le traitement oral habituel, sans dose de charge."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "patient·e",
+       "fait": "Mesure sa PA à domicile matin et soir avec un appareil huméral validé."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Revoit le patient sous quelques jours et lance la démarche d'adhésion."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La PA se normalise en général avec la reprise du traitement, mais le risque cardiovasculaire reste élevé si l'inobservance se répète.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "PA au cabinet et en automesure",
+      "quand": "Sous quelques jours après la reprise",
+      "cible": "Retour progressif vers < 140/90 mmHg, puis 130/80 si bien toléré"
+     },
+     {
+      "quoi": "Symptômes d'alarme",
+      "quand": "Pendant les premiers jours",
+      "cible": "Aucune céphalée, douleur thoracique, dyspnée ou déficit neurologique"
+     }
+    ],
+    "sortie": "Prise ambulatoire d'emblée autorisée : PA ≥ 180/110 sans symptôme ni atteinte d'organe, patient capable de reprendre son traitement et contrôle sous quelques jours assuré."
+   },
+   "prevention": {
+    "primaire": "Expliquer dès la prescription pourquoi un arrêt sans avis médical est dangereux.",
+    "secondaire": "Dépister l'inobservance à chaque consultation pour éviter la poussée.",
+    "tertiaire": "Empêcher les événements cardiovasculaires par un contrôle durable de la PA."
+   }
+  },
+  {
+   "cle": "long_cours",
+   "titre": "Prise en charge au long cours de l'inobservance dans l'HTA ou la dyslipidémie",
+   "but": [
+    "Rétablir une adhésion durable pour atteindre les cibles de PA et de LDL.",
+    "Traiter la cause de l'inobservance (intentionnelle ou non intentionnelle) plutôt que d'intensifier.",
+    "Réduire le risque cardiovasculaire à long terme."
+   ],
+   "moyens": {
+    "accueil": [
+     "Adopter une attitude non jugeante et normaliser l'oubli.",
+     "Recueillir les croyances, les effets tus, le coût et les préférences du patient.",
+     "Recourir à un interprète communautaire en cas de barrière linguistique."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Association fixe IEC ou sartan + amlodipine, ± thiazidique (antihypertenseurs)",
+      "posologie": "Un comprimé 1x/j, dose selon la spécialité à l'AIPS ; adapter à la fonction rénale et à l'âge.",
+      "pourquoi": "Un seul comprimé quotidien réduit les prises et améliore l'adhésion, y compris en traitement initial.",
+      "source": "ESC/ESH 2018"
+     },
+     {
+      "molecule": "Valsartan (sartan)",
+      "posologie": "80–320 mg par voie orale 1x/j selon l'AIPS ; surveiller créatinine et kaliémie.",
+      "pourquoi": "Il remplace l'IEC responsable d'une toux, sans bradykinine, ce qui évite l'arrêt du blocage du système rénine-angiotensine.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Atorvastatine (statine)",
+      "posologie": "10–80 mg par voie orale 1x/j ; contrôle du LDL à 8 semaines (± 4) ; autre statine ou dose plus faible si intolérance.",
+      "pourquoi": "Elle réduit le LDL et les événements cardiovasculaires ; une intolérance supposée se gère par changement avant tout abandon.",
+      "source": "ESC/EAS 2019"
+     },
+     {
+      "molecule": "Ézétimibe (inhibiteur de l'absorption du cholestérol)",
+      "posologie": "10 mg par voie orale 1x/j, en association à la statine ou en cas d'intolérance.",
+      "pourquoi": "Il complète la statine quand la cible n'est pas atteinte ou que la dose est limitée par les effets indésirables.",
+      "source": "ESC/EAS 2019"
+     },
+     {
+      "molecule": "Évolocumab (inhibiteur de PCSK9)",
+      "posologie": "140 mg par voie sous-cutanée toutes les 2 semaines ou 420 mg par mois, selon l'AIPS et les limitations de la LS.",
+      "pourquoi": "Il réduit fortement le LDL en cas d'échec ou d'intolérance aux statines, mais sa prise en charge est limitée.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Pratiquer l'entretien motivationnel et décider avec le patient des objectifs et du schéma.",
+      "pourquoi": "La décision partagée agit sur l'inobservance intentionnelle."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Faire préparer un pilulier ou un blister par la pharmacie et superviser la prise par Spitex chez la personne âgée.",
+      "pourquoi": "La préparation externe supprime les erreurs de prise chez le patient polymédiqué."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Proposer rappels (application, alarme) et automesure à domicile.",
+      "pourquoi": "Les rappels agissent sur l'oubli, l'automesure rend le bénéfice visible."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Prescrire des génériques et expliquer la quote-part.",
+      "pourquoi": "La quote-part passe à 40 % pour l'original quand un générique moins cher existe."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Explique la franchise, la quote-part de 10 % ou 40 %, le Polymedication Check remboursé et les limitations de la LS."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'information donnée et le refus éventuel d'un patient capable de discernement."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Ne pas intensifier le traitement avant d'avoir vérifié l'adhésion.",
+      "Viser d'abord < 140/90 mmHg au cabinet, puis 130/80 si le traitement est bien toléré.",
+      "Réévaluer l'adhésion à chaque consultation, sans jugement."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Confirme la PA par automesure ou MAPA et exclut l'effet blouse blanche."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "pharmacien",
+       "fait": "Fournit le relevé des délivrances et réalise le Polymedication Check si au moins quatre médicaments durables."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Mène l'entretien motivationnel, recherche effets tus et croyances, puis décide avec le patient."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Simplifie en association fixe 1x/j ou change de molécule plutôt qu'arrêter."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Organise pilulier, blister ou Spitex et rappels selon l'autonomie du patient."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Contrôle la PA à environ deux mois et le LDL à 8 semaines (± 4) puis réévalue l'adhésion."
+      }
+     ]
+    }
+   },
+   "pronostic": "Une adhésion durable avec schéma simplifié améliore le contrôle de la PA et du LDL et réduit le risque cardiovasculaire ; sans suivi, 40 à 50 % des patients rechutent à un an.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "PA au cabinet et en automesure",
+      "quand": "Environ deux mois après toute modification",
+      "cible": "< 140/90 mmHg, puis 130/80 si bien toléré"
+     },
+     {
+      "quoi": "LDL-cholestérol",
+      "quand": "8 semaines (± 4) après début ou changement de statine",
+      "cible": "Selon le risque cardiovasculaire global, LDL en baisse nette"
+     },
+     {
+      "quoi": "Créatinine et kaliémie",
+      "quand": "Lors du suivi sous IEC, sartan ou diurétique",
+      "cible": "Fonction rénale et kaliémie stables"
+     },
+     {
+      "quoi": "Adhésion (délivrances, entretien)",
+      "quand": "À chaque consultation",
+      "cible": "Couverture ≥ 80 % et aucune prise manquée régulière"
+     }
+    ],
+    "sortie": "Prise ambulatoire d'emblée : aucun signe de gravité, PA contrôlable à domicile, schéma simplifié compris par le patient et suivi coordonné avec le pharmacien prévu."
+   },
+   "prevention": {
+    "primaire": "Informer dès l'initiation du caractère asymptomatique de la maladie et prescrire un schéma simple, en associations fixes.",
+    "secondaire": "Dépister l'inobservance à chaque consultation par l'entretien, la PA, le LDL et les délivrances.",
+    "tertiaire": "Prévenir AVC, infarctus, insuffisance cardiaque et néphroangiosclérose par un contrôle durable de la PA et du LDL."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6890,
+  "output_tokens": 24450,
+  "output_tokens_details": {
+   "thinking_tokens": 7877
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:58:03",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": {
+   "verdict": "🟧",
+   "date": "2026-11-26",
+   "aVerifier": [
+    "taux d'arrêt à un an (40–50 %)"
+   ],
+   "audit": "AUDIT_V3_B"
+  }
+ }
+}
