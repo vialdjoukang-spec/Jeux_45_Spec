@@ -348,6 +348,23 @@ Contrôles lot 19 : 0 menu fautif, 0 erreur `valider()` sur les 9 pathologies �
 
 Contrôles lot 20 : 0 menu fautif, 0 erreur `valider()` sur les 9 pathologies 🟩/🟧 ; Z56.6 (🟥) reste hors de main ; alerte mécanique de Z63.5 Q09 (« aliénation parentale ») : notion discutée, pas le nom de l'entité, laissée.
 
+## Lot 21 — rangs 714 à 723
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| Z63.8_1__O6_6-E03 | 🟩 | Aucune erreur retenue (ferritine < 30 µg/L, CC art. 314c, avances de pensions alimentaires, psychothérapie psychologique LAMal sur prescription, 143/147/117). |
+| Z71.1_1__O6_2-E01 | 🟩 | Aucune erreur retenue (HEADSSS, SCOFF à 5 questions dont 6 kg en 3 mois, bilan ionique et ECG devant un TCA, TCC + ISRS dans le trouble dysmorphique corporel, mise en garde AIPS de l'isotrétinoïne). |
+| Z71.1__F1_2-E01 | 🟩 | Forme : cellules de tableau mal enveloppées corrigées. Aucune erreur médicale retenue (papules perlées = angiofibromes sans lien avec le HPV, acide acétique non recommandé, vaccination HPV 11–14 ans avec rattrapage jusqu'à 26 ans, labiaplastie non remboursée sans indication fonctionnelle). |
+| Z71.3__O7_3-E01 | 🟩 | Forme : rubrique « terrain particulier » hors énumération remplacée (N24, N30). Aucune erreur médicale retenue (OSAV : acides gras trans ≤ 2 g/100 g de graisse ; SSN : 5 portions, 20–30 g d'huile, viande rouge 2–3 portions/semaine, poisson 1–2 fois ; PREDIMED −30 % ; CFAL 1/2 verres). |
+| Z71.8_10__O7_1-E01 | 🟩 | Forme : bloc c7 ramené à 5 points. Aucune erreur médicale retenue (AIPS : atovaquone-proguanil 250/100 mg 1–2 j avant et 7 j après, doxycycline 100 mg 4 semaines après, méfloquine 250 mg/semaine 2–3 semaines avant et 4 après ; fièvre jaune à vie depuis 2016, valable à J10 ; rage J0–J7 ; OAMal art. 36 : double du tarif suisse). Alerte mécanique de Q20 (« chimioprophylaxie » dans le prompt) : objet de la question, laissée. |
+| Z71.8_11__O7_5-E02 | 🟩 | Aucune erreur retenue (41 % de résultats en attente à la sortie, Roy 2005 ; I-PASS −23 % d'erreurs et −30 % d'événements évitables, Starmer 2014 ; CIRRNET ; CP art. 321 et 125 ; CO art. 398). |
+| Z71.8_14__O7_10-E03 | 🟩 | Aucune erreur retenue (Cst. art. 10, CC art. 19c, 28, 378–379 ; valproate in utero ≈ 10 % de malformations et 30–40 % de troubles neurodéveloppementaux ; OAMal art. 71a–d ; INR cible 2–3 ; ElViS). |
+| Z71.8_16__O7_19-E03 | 🟩 | Forme : bloc c2 ramené à 4 sources (LAGH et LPTh réunies). Aucune erreur médicale retenue (Cst. art. 119 al. 2 let. a, DPI autorisé depuis 2017, LAGH 400 000 CHF, territorialité de la LAMal, OAMal art. 71a–d). |
+| Z71.8_19__O7_21-E01 | 🟧 | Forme : clé « false » retirée (Q18). Corrigé : Q03 et Q06 (d4 dont la vignette nomme le millepertuis) passées en d3. Aucune erreur médicale retenue (hyperforine → PXR → CYP3A4, CYP2C9, CYP2C19 et P-gp ; induction en 1–2 semaines et réversibilité en 1–2 semaines ; contre-indication avec ciclosporine, tacrolimus, antiprotéases ; GEM 2008 ; Cst. art. 118a, 2009). |
+| Z71.8_20__O7_21-E03 | 🟥 | Rejet : correction tronquée par l'API (un seul bloc de notions avec cellules « {placeholder} », `ssp` vide, `priseEnCharge` vide) ; ne passe pas le schéma. Forme : clé « false » retirée (Q18). Reste hors de main. |
+
+Contrôles lot 21 : 0 menu fautif, 0 erreur `valider()` sur les 9 pathologies 🟩/🟧 ; Z71.8_20 (🟥) reste hors de main.
+
 ## Bilan au 26.11.2026 (arrêt de la session AAI)
 
 - Pathologies auditées : 160 (rangs 505 à 664), dont 156 🟩/🟧 portées sur main et 4 🟥 restées hors de main (R23.1__F1_17-E03, R49.0_1__S7_4-E03, R62.8_1__O2_1-E03, T74.1_5__O2_3-E01 : fichiers tronqués ou mal formés, à régénérer).
