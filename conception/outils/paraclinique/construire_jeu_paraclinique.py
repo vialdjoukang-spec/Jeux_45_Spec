@@ -381,8 +381,10 @@ OUTILS_EX = [("sang_veineux", r"ionogramme|natr[ée]mie|sodium", ["calc_trou_ani
              ("liquide_pleural", r"light|pleural", ["crit_light_exsudat_pleural"]),
              ("liquide_d_ascite", r"gradient", ["calc_gradient_albumine_ascite", "crit_gradient_albumine_ascite_seuil"])]
 # Critères du plan § 10 encore absents de criteres.json : case grisée « à produire », sans aucun seuil rédigé ici.
-A_PRODUIRE = [("urine", r"culture d.urine|uricult", "Critères de Kass"), ("liquide_d_ascite", r"gradient", "Infection du liquide d'ascite"),
-              ("liquide_cephalorachidien", r"aspect|cellules", "Profils du LCR"), ("liquide_synovial", r"cellules|cristaux", "Liquide synovial : profils")]
+A_PRODUIRE = [("liquide_cephalorachidien", r"aspect|cellules", "Profils du LCR")]
+OUTILS_EX += [("urine", r"culture d.urine|uricult|bandelette|s[ée]diment", ["crit_kass_bacteriurie"]),
+              ("liquide_d_ascite", r"gradient|polynucl|cellul|ascite", ["crit_infection_spontanee_ascite"]),
+              ("liquide_synovial", r"cellules|cristaux|liquide synovial|ponction", ["crit_liquide_synovial_septique"])]
 N = []
 parP = {}
 for o in ORGANES:
@@ -454,7 +456,7 @@ for did_, dnom, mesh, cote, dcoul, membres in DEPARTS:
                 # interprétation : signe recherché et seuil de la fiche de l'examen, puis les diagnostics qu'elle oriente
                 iid = eid + "__int"
                 syn = (e.get("syndromesParacliniques") or [None])[0]
-                N.append(noeud(iid, "Interprétation", "Interprétation et seuil", [eid], coul if ok else "#9aa2b4",
+                N.append(noeud(iid, "Interprétation", court(re.sub(r"^(Selon|D.apr[eè]s) [^,]{2,90}, *", "", e.get("seuil")).capitalize()[:1] + re.sub(r"^(Selon|D.apr[eè]s) [^,]{2,90}, *", "", e.get("seuil"))[1:], 70) if e.get("seuil") else "Seuil à produire", [eid], coul if ok else "#9aa2b4",
                                {"def": e.get("signeRecherche") or "La fiche ne précise pas encore le signe recherché.",
                                 "pourquoi": e.get("seuil") or "La fiche ne précise pas encore le seuil.",
                                 "confusion": e.get("limite") or (e.get("bulle") or {}).get("confusion") or "Aucune confusion fréquente.",

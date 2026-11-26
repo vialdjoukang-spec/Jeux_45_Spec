@@ -17,6 +17,8 @@ SCENES = [  # (nom, hash, script exécuté après le chargement) — chaînes du
     ("1_imagerie_thorax_pneumonie", "onglet=imagerie", "const c='im_r4__radiographie_thoracique';J.ouvrirChemin(['im_r4',c,c+'__systeme_respiratoire',c+'__systeme_respiratoire__poumons_et_voies_aeriennes',c+'__systeme_respiratoire__poumons_et_voies_aeriennes__pneumonie_communautaire']);"),
     ("2_imagerie_abdomen", "onglet=imagerie", "const e='im_r5__echographie_abdominale',s=e+'__systeme_digestif';J.ouvrirChemin(['im_r5',e,s,s+'__foie']);"),
     ("3_biologie_ascite", "onglet=biologie", "const e='bi_liquide_d_ascite__liquide_d_ascite_gradient_albumine_serum';J.ouvrirChemin(['bi_liquide_d_ascite',e,e+'__int',e+'__int__cirrhose']);"),
+    ("3b_biologie_urine", "onglet=biologie", "const x=J.etat.N.find(n=>n.de[0]==='bi_urine'&&/Bandelette/.test(n.texte));const i=x.id+'__int';const d=J.etat.N.find(n=>n.de[0]===i);J.ouvrirChemin(['bi_urine',x.id,i,d.id]);"),
+    ("3c_biologie_synovial", "onglet=biologie", "const x=J.etat.N.find(n=>n.de[0]==='bi_liquide_synovial'&&n.enf&&n.enf.length>1);J.ouvrirChemin(['bi_liquide_synovial',x.id]);"),
     ("4_biologie_calcul", "onglet=biologie", "const e='bi_liquide_d_ascite__liquide_d_ascite_gradient_albumine_serum';J.ouvrirChemin(['bi_liquide_d_ascite',e]);J.action(J.etat.byId[e+'__calc_gradient_albumine_ascite'],'outil');"),
     ("5_explorations_sommeil", "onglet=explorations", "const x=J.etat.N.find(n=>n.de[0]==='fx_fs'&&n.enf.length>2);const i=x.id+'__int';J.ouvrirChemin(['fx_fs',x.id,i,i+'__d0']);"),
     ("6_explorations_trace", "onglet=explorations", "const s=J.etat.N.find(n=>n.texte.startsWith('Spirométrie avec'));J.action(s,'trace');"),
