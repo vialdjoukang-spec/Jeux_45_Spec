@@ -27,3 +27,8 @@ partie pratique aussi
 ## Ajouts ultérieurs de Vial (22.11.2026)
 - Progression toposystémique de la tête aux pieds, région par région, système par système, organe par organe, pour ne rien oublier.
 - Mode Organe et mode Examen dans la barre de recherche ; Théorie et Pratique sont deux onglets distincts.
+
+## Ajout de Vial du 26.11.2026 (17:20) — prime sur la chaîne Imagerie ci-dessus
+Problème signalé : clic avec explosion non voulue ; arborescence non progressive ; pas de groupe issu d'une ligne aboutissant sur une perpendiculaire, capable de grouper les entités de même nature.
+Imagerie : par région, puis organes ; pour un organe, ses explorations par imagerie, groupées par type (radiographie, scanner/TDM, IRM, TEP, échographie, scintigraphie, etc.) : l'organe fait émerger uniquement les imageries utilisées ; pour chaque examen, les pathologies de l'organe que l'on diagnostique avec cette imagerie (1re intention, etc.).
+Chaîne appliquée : Région → Organe → Modalité → Examen → Pathologie → fenêtre à deux clichés.

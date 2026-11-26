@@ -15,7 +15,7 @@ const sansAccent = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
 const charger = (() => { const c = {}; return u => c[u] ??= fetch(u).then(r => { if (!r.ok) throw new Error(u + ' : ' + r.status); return r.json(); }); })();
 
 const ONGLETS = {
-  imagerie: { titre: 'Examens paracliniques — imagerie topographique', chaine: 'Région → examens faisables → système d\'organe → organe → pathologie → fenêtre à deux clichés (patient annoté / radio-anatomie normale)' },
+  imagerie: { titre: 'Examens paracliniques — imagerie topographique', chaine: 'Région → organe → modalité (radiographie, échographie, scanner, IRM, TEP, scintigraphie…) → examen → pathologie → fenêtre à deux clichés' },
   biologie: { titre: 'Examens paracliniques — biologie par prélèvement', chaine: 'Prélèvement → examens → interprétation, calculs et critères → diagnostic → traitement avec posologie' },
   explorations: { titre: 'Examens paracliniques — explorations des fonctions', chaine: 'Fonction → exploration → tracé ou résultat → interprétation (seuils) → diagnostic → traitement' }
 };

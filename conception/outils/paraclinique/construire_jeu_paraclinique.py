@@ -191,7 +191,7 @@ def bulle_diag(nom, signe=None, syndrome=None, signif=None, examen=None):
     return b
 
 
-# ---------------------------------------------------------------- 1. IMAGERIE : région → examens faisables → système d'organe → organe → pathologie → fenêtre à deux clichés
+# ---------------------------------------------------------------- 1. IMAGERIE : région → organe → modalité → examen → pathologie → fenêtre à deux clichés
 # Chaîne exacte du prompt de Vial (projets/2_Jeux_Paraclinique/PROMPT_VIAL.md) et du plan § 10 ; aucun niveau « technique ».
 SYS = {"Système nerveux": ("#7c3aed", "encephale meninges_et_lcr nerfs_craniens moelle_epiniere queue_de_cheval_et_cone_terminal racines_et_plexus nerfs_peripheriques"),
        "Système ORL et ophtalmologique": ("#0e7490", "oeil_et_orbite oreille_et_equilibre nez_sinus_et_cavum larynx_et_pharynx cavite_buccale_et_glandes_salivaires masses_cervicales_et_kystes"),
@@ -226,53 +226,75 @@ def cliches_pneumonie():
     return c
 
 
+# Chaîne fixée par Vial le 26.11.2026 (PROMPT_VIAL.md, § Ajout du 26.11) : région → organes de la région → modalités d'imagerie de l'organe
+# (groupe par nature, barre perpendiculaire) → examens de la modalité → pathologies de l'organe diagnostiquées par cet examen → fenêtre à deux clichés.
+MODALITES = [("TEP", r"\bTEP\b|\bPET\b|PET-|TEP-"), ("Scintigraphie", r"scintigraph|SPECT|DaTSCAN|MIBG|DMSA|MAG3|HIDA|sestamibi|DOTATATE"),
+             ("IRM", r"\bIRM\b|IRM |-IRM|neurographie"), ("Scanner (TDM)", r"\bCT\b|-CT\b|scanner|TDM|tomodensito|cone beam|cisternograph"),
+             ("Échographie et Doppler", r"[ée]cho|doppler|POCUS|eFAST|[ée]lastograph|CEUS"),
+             ("Angiographie et opacifications", r"art[ée]riograph|angiograph|coronarograph|DSA|cavograph|phl[ée]bograph|lymphograph|py[ée]lograph|cath[ée]t[ée]risme"),
+             ("Ostéodensitométrie", r"DXA|ost[ée]odensito"), ("Radiographie", r"radiograph|clich|transit|orthopantomo|mammograph|tomosynth|d[ée]f[ée]cograph|cystograph|ur[ée]trograph|hyst[ée]ros|[âa]ge osseux|bilan radiologique|radioscopie|EOS"),
+             ("Autres imageries", r".")]
+MODCOUL = {"Radiographie": "#475569", "Échographie et Doppler": "#0f766e", "Scanner (TDM)": "#1d4ed8", "IRM": "#7c3aed", "TEP": "#b45309",
+           "Scintigraphie": "#a16207", "Angiographie et opacifications": "#b91c1c", "Ostéodensitométrie": "#5f7f3a", "Autres imageries": "#6b7280"}
+MODBUL = {"Radiographie": "Elle superpose les plans mais répond vite, à faible dose, au lit du malade.",
+          "Échographie et Doppler": "Elle n'irradie pas et voit les interfaces liquide-solide et les flux, mais dépend de l'opérateur.",
+          "Scanner (TDM)": "Il voit l'os, le sang frais et les organes pleins en coupes fines, au prix d'une irradiation.",
+          "IRM": "Elle caractérise les tissus mous sans rayons, mais reste longue et peu disponible en urgence.",
+          "TEP": "Elle montre l'activité métabolique d'une lésion, surtout pour stadifier un cancer ou chercher un foyer.",
+          "Scintigraphie": "Elle mesure la fonction d'un tissu plutôt que sa forme.",
+          "Angiographie et opacifications": "Elle opacifie une lumière (vaisseau, voie urinaire, voie biliaire) et permet souvent un geste dans le même temps.",
+          "Ostéodensitométrie": "Elle mesure la densité minérale osseuse pour poser le diagnostic d'ostéoporose.", "Autres imageries": "Elle complète les modalités principales."}
+
+
+def modalite_de(nom):
+    for m, rx in MODALITES:
+        if re.search(rx, nom, flags=re.I):
+            return m
+
+
 N = []
 for r, (rnom, mesh, cote, coul) in REG.items():
-    orgs = [o for o in ORGANES if o["region"] == r]
-    exs = [(o, e) for o in orgs for e in o["examens"] if e["modalite"] == "Imagerie"]
-    if not exs:
+    orgs = [o for o in ORGANES if o["region"] == r and any(e["modalite"] == "Imagerie" for e in o["examens"])]
+    if not orgs:
         continue
     rid = f"im_r{r}"
-    par_ex = {}
-    for o, e in exs:
-        par_ex.setdefault(cle(court(e["nom"], 80)), []).append((o, e))
-    br = BULLE_REG.get(r) or {"def": f"La région « {rnom} » s'explore par {len(par_ex)} examens d'imagerie.",
-                              "pourquoi": "Tu pars de la région parce que l'imagerie se demande pour une zone du corps.",
+    br = BULLE_REG.get(r) or {"def": f"La région « {rnom} » contient {len(orgs)} organes explorés par l'imagerie.",
+                              "pourquoi": "Tu pars de la région, puis tu choisis l'organe : l'imagerie se demande pour un organe ciblé.",
                               "confusion": "Aucune confusion fréquente.",
-                              "retenir": "Tu cliques un examen, puis le système d'organe, l'organe et la pathologie : la fenêtre à deux clichés s'ouvre sur la pathologie."}
+                              "retenir": "Tu cliques l'organe, puis la modalité, l'examen et la pathologie : la fenêtre à deux clichés s'ouvre sur la pathologie."}
     N.append(noeud(rid, "Région", rnom, [], coul, br, "region", organe=mesh, cote=cote, type="Région"))
-    for k, paires in par_ex.items():
-        o0, e0 = paires[0]; eid = f"{rid}__{k[:40]}"
-        b = bulle_examen(e0)
-        if r == "4" and k == "radiographie_thoracique":
-            b = dict(b, **PIL["e1"])  # infobulle validée du pilote (radiographie thoracique PA)
-        N.append(noeud(eid, "Examen", e0["nom"], [rid], "#2a9d8f" if b.get("pourquoi") else "#9aa2b4", b, "examen",
-                       type="Examen" if b.get("pourquoi") else "Examen · à produire", exRef=e0["id"], fiche=o0["stem"], aRediger=None if b.get("pourquoi") else True))
-        par_sys = {}
-        for o, e in paires:
-            par_sys.setdefault(SYS_DE[o["stem"]], []).append((o, e))
-        for snom in [s for s in SYS if s in par_sys]:
-            sid = f"{eid}__{cle(snom)[:20]}"; scoul = SYS[snom][0]; L_ = par_sys[snom]
-            N.append(noeud(sid, "Système", snom, [eid], scoul,
-                           {"def": f"Le {snom.lower()} regroupe ici {len(L_)} organe{'s' if len(L_) > 1 else ''} que cet examen explore dans la région.",
-                            "pourquoi": "Tu passes par le système d'organe pour ranger les organes de la région selon leur fonction, de la tête aux pieds.",
-                            "confusion": "Aucune confusion fréquente.",
-                            "retenir": "Organes explorés : " + ", ".join(o["nom"] for o, _ in L_) + "."}, "region", type="Système d'organe"))
-            for o, e in L_:
-                oid = f"{sid}__{o['stem'][:28]}"; b = e.get("bulle") or {}
-                N.append(noeud(oid, "Organe", o["nom"], [sid], scoul,
-                               {"def": f"L'examen « {court(e['nom'], 60)} » explore ici l'organe « {o['nom']} ».",
-                                "pourquoi": e.get("indication") or b.get("pourquoi") or "La fiche ne précise pas encore l'indication.",
-                                "confusion": b.get("confusion") or e.get("limite") or "Aucune confusion fréquente.",
-                                "retenir": " ".join(x for x in [e.get("signeRecherche") and "Signe recherché : " + e["signeRecherche"].rstrip(".") + ".", e.get("seuil") and "Seuil : " + e["seuil"].rstrip(".") + "."] if x) or "La fiche ne précise pas encore le signe recherché."},
-                               "region", type="Organe", exRef=e["id"], fiche=o["stem"]))
+    for o in orgs:
+        oid = f"{rid}__{o['stem'][:30]}"; ocoul = SYS[SYS_DE[o["stem"]]][0]
+        ex = [e for e in o["examens"] if e["modalite"] == "Imagerie"]
+        par_m = {}
+        for e in ex:
+            par_m.setdefault(modalite_de(e["nom"]), []).append(e)
+        N.append(noeud(oid, "Organe", o["nom"], [rid], ocoul,
+                       {"def": f"L'organe « {o['nom']} » s'explore par {len(ex)} examens d'imagerie, rangés en {len(par_m)} modalités.",
+                        "pourquoi": "L'organe est la cible de l'investigation : tu choisis ensuite la modalité qui répond à ta question.",
+                        "confusion": "Aucune confusion fréquente.", "retenir": "Modalités : " + ", ".join(m for m, _ in MODALITES if m in par_m) + "."},
+                       "region", type="Organe", fiche=o["stem"]))
+        for m in [m for m, _ in MODALITES if m in par_m]:
+            mid = f"{oid}__m{cle(m)[:16]}"; L_ = par_m[m]
+            N.append(noeud(mid, "Modalité", m, [oid], MODCOUL[m],
+                           {"def": f"La modalité « {m} » offre {len(L_)} examen{'s' if len(L_) > 1 else ''} pour cet organe.",
+                            "pourquoi": MODBUL[m], "confusion": "Aucune confusion fréquente.",
+                            "retenir": "Examens : " + ", ".join(court(e["nom"], 40) for e in L_) + "."}, "examen", type="Modalité"))
+            for e in L_:
+                eid = f"{mid}__{cle(court(e['nom'], 80))[:36]}"; b = bulle_examen(e)
+                if o["stem"] == "poumons_et_voies_aeriennes" and cle(court(e["nom"], 80)) == "radiographie_thoracique":
+                    b = dict(b, **PIL["e1"])  # infobulle validée du pilote (radiographie thoracique PA)
+                N.append(noeud(eid, "Examen", e["nom"], [mid], "#2a9d8f" if b.get("pourquoi") else "#9aa2b4", b, "examen",
+                               type="Examen" if b.get("pourquoi") else "Examen · à produire", exRef=e["id"], fiche=o["stem"], aRediger=None if b.get("pourquoi") else True))
+                ref = [sans_accent(x)[:18] for x in e.get("referencePour") or []]
                 for p in (e.get("pathologiesAssociees") or [])[:7]:
-                    pid = f"{oid}__{cle(p['pathologie'])[:30]}"
+                    pid = f"{eid}__{cle(p['pathologie'])[:30]}"
                     if any(x["id"] == pid for x in N):
                         continue
                     bp = bulle_patho(p, e)
                     bd = bulle_diag(p["pathologie"], bp.get("signe"), bp.get("syndrome"), bp.get("retenir"), e["nom"])
-                    pn = noeud(pid, "Pathologie", p["pathologie"], [oid], "#d64545", bd, "diag", type="Pathologie", exRef=e["id"])
+                    gold = any(x and x in sans_accent(p["pathologie"]) for x in ref)
+                    pn = noeud(pid, "Pathologie", p["pathologie"], [eid], "#d64545", bd, "diag", type="Pathologie · examen de référence" if gold else "Pathologie", exRef=e["id"])
                     if o["stem"] == "poumons_et_voies_aeriennes" and cle(court(e["nom"], 80)) == "radiographie_thoracique" and "pneumonie" in cle(p["pathologie"]):
                         pn["cliches"] = cliches_pneumonie(); pn["bulle"] = dict(bd, **PIL["p1"])  # infobulle validée du pilote
                     else:

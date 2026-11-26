@@ -14,8 +14,10 @@ err, bilan = [], {}
 
 SCENES = [  # (nom, hash, script exécuté après le chargement) — chaînes du prompt de Vial (PROMPT_VIAL.md)
     ("0_accueil_imagerie", "onglet=imagerie", ""),
-    ("1_imagerie_thorax_pneumonie", "onglet=imagerie", "const c='im_r4__radiographie_thoracique';J.ouvrirChemin(['im_r4',c,c+'__systeme_respiratoire',c+'__systeme_respiratoire__poumons_et_voies_aeriennes',c+'__systeme_respiratoire__poumons_et_voies_aeriennes__pneumonie_communautaire']);"),
-    ("2_imagerie_abdomen", "onglet=imagerie", "const e='im_r5__echographie_abdominale',s=e+'__systeme_digestif';J.ouvrirChemin(['im_r5',e,s,s+'__foie']);"),
+    ("1_imagerie_thorax_pneumonie", "onglet=imagerie", "const o='im_r4__poumons_et_voies_aeriennes';const m=J.etat.N.find(n=>n.de[0]===o&&n.texte==='Radiographie');const e=J.etat.N.find(n=>n.de[0]===m.id&&/thoracique/.test(n.texte));const p=J.etat.N.find(n=>n.de[0]===e.id&&/neumonie/.test(n.texte));J.ouvrirChemin(['im_r4',o,m.id,e.id,p.id]);"),
+    ("2_imagerie_abdomen", "onglet=imagerie", "const o='im_r5__foie';const m=J.etat.N.find(n=>n.de[0]===o&&/chograph/.test(n.texte));const e=J.etat.N.find(n=>n.de[0]===m.id);J.ouvrirChemin(['im_r5',o,m.id,e.id]);"),
+    ("2b_imagerie_pelvis", "onglet=imagerie", "J.ouvrirChemin(['im_r6']);"),
+    ("2c_imagerie_pelvis_organe", "onglet=imagerie", "const o=J.etat.N.find(n=>n.de[0]==='im_r6'&&/ut[ée]rus/i.test(n.texte));J.ouvrirChemin(['im_r6',o.id]);"),
     ("3_biologie_ascite", "onglet=biologie", "const e='bi_liquide_d_ascite__liquide_d_ascite_gradient_albumine_serum';J.ouvrirChemin(['bi_liquide_d_ascite',e,e+'__int',e+'__int__cirrhose']);"),
     ("3b_biologie_urine", "onglet=biologie", "const x=J.etat.N.find(n=>n.de[0]==='bi_urine'&&/Bandelette/.test(n.texte));const i=x.id+'__int';const d=J.etat.N.find(n=>n.de[0]===i);J.ouvrirChemin(['bi_urine',x.id,i,d.id]);"),
     ("3c_biologie_synovial", "onglet=biologie", "const x=J.etat.N.find(n=>n.de[0]==='bi_liquide_synovial'&&n.enf&&n.enf.length>1);J.ouvrirChemin(['bi_liquide_synovial',x.id]);"),
@@ -27,7 +29,7 @@ SCENES = [  # (nom, hash, script exécuté après le chargement) — chaînes du
     ("9_pratique_imagerie", "onglet=imagerie&mode=pratique", "document.querySelector('#pratique [data-j=arene]').click();"),
     ("10_pratique_biologie", "onglet=biologie&mode=pratique", "document.querySelector('#pratique [data-j=arene]').click();document.querySelector('#pratique .opts button')?.click();"),
     ("11_pratique_explorations", "onglet=explorations&mode=pratique", "document.querySelector('#pratique [data-j=lecture]').click();document.querySelector('#pratique [data-voir]')?.click();"),
-    ("12_bulle_examen", "onglet=imagerie", "J.ouvrirChemin(['im_r4']);J.montrer(J.etat.byId['im_r4__radiographie_thoracique']);"),
+    ("12_bulle_examen", "onglet=imagerie", "J.ouvrirChemin(['im_r4']);J.montrer(J.etat.byId['im_r4__poumons_et_voies_aeriennes']);"),
 ]
 with sync_playwright() as p:
     b = p.chromium.launch(executable_path=os.environ.get("CHROME") or None, args=["--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"])
