@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-26 03:59 UTC
+# Ouvrier automatique — 2026-11-26 04:05 UTC
 
-Dernier passage : **AUDIT_V2_A** → en_cours (2.73 USD).
+Dernier passage : **AUDIT_V2_A** → en_cours (3.28 USD).
 
-Passage 6 : 10 pathologies OPH et ORL (H57.0_1 à J00_1) auditées, toutes 🟧 avec corrections sur place et points à vérifier notés dans audit.claude.aVerifier. Aucune source primaire relue en ligne ; controle_menus_longs.py OPH et ORL donne 0 menu fautif. Il reste 19 pathologies sur 80 (E66.1 à K52.1) pour le prochain passage.
+Passage 7 terminé : 71 pathologies sur 80 sont auditées (E66.1 à G44.4, TOX et PEA), toutes 🟧 avec corrections sur place et points à vérifier dans audit.claude. Les contrôles des menus longs affichent 0 menu fautif ; il reste 3 erreurs de schéma sur des pathologies non auditées (G72.0, G89.3_1, K52.1). Il reste 9 pathologies à auditer au prochain passage : G72.0, G89.3_1, J01.0, J02.9, J03.0, J03.9, J03.9_1, J38.1, K52.1.
 
-**Crédit** : 17.12 USD dépensés, 132.88 USD disponibles avant le 31.01.2027 ; aujourd'hui 16.77 / 149.65 USD.
+**Crédit** : 20.40 USD dépensés, 129.60 USD disponibles avant le 31.01.2027 ; aujourd'hui 20.05 / 149.65 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -52,7 +52,7 @@ Passage 6 : 10 pathologies OPH et ORL (H57.0_1 à J00_1) auditées, toutes 🟧 
 | V2_Q_recup | fait | 16 | 0.0 |
 | V2_C_lot | fait | 1 | 0.0 |
 | V2_C_recup | fait | 10 | 0.0 |
-| AUDIT_V2_A | en_cours | 6 | 2.734 |
+| AUDIT_V2_A | en_cours | 7 | 3.284 |
 | V3B_N_lot | a_faire | 0 |  |
 | V3B_N_recup | a_faire | 0 |  |
 | V3B_Q_lot | a_faire | 0 |  |

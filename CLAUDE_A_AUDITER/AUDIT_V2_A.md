@@ -126,3 +126,24 @@ Méthode : trois sous-agents avec la même grille ; JSON revalidés par moi avec
 Contrôles du passage : aucun CNP, CPCM ni PEP VIH ; niveaux 4–5 masqués ; menus longs à 1–3 justes. `controle_menus_longs.py OPH` → 0 menu fautif, 0 erreur de schéma ; `ORL` → 0 menu fautif ; 2 erreurs de schéma restantes sur des pathologies non encore auditées (J02.9 `statements` manquant, J03.9_1 clé `false`).
 
 Reste à auditer : 19 pathologies (E66.1, F06.7, F10.0_1, F32.1_3, F80.8, F82, F90.0_1, F90.0_2, F93.1, G44.4, G72.0, G89.3_1, J01.0, J02.9, J03.0, J03.9, J03.9_1, J38.1, K52.1).
+
+## Passage 7 — pathologies 62 à 71 sur 80 (10 pathologies, TOX et PEA)
+
+Méthode : cinq sous-agents avec la même grille ; JSON revalidés par moi avec `controle_menus_longs.py`. Sources primaires lues seulement par recherche web et extraits (NICE, Fedlex, AIPS et ADA/APA souvent inaccessibles) : les doutes sont dans `audit.claude.aVerifier` des fichiers corrections.
+
+| # | Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|---|
+| 62 | E66.1 Obésité induite par médicament (antipsychotique) | 🟧 | Corrigé : suivi des lipides (inclusion, 12 semaines, puis tous les 5 ans si normaux, consensus ADA/APA) dans N23, Q02, Q18 et la correction. À vérifier : intervalle de 5 ans à la source, CATIE, posologies AIPS, art. 50a OAMal. |
+| 63 | F06.7 Trouble neurocognitif léger iatrogène | 🟧 | Corrigé : posologie du mirabégron (50 mg/j ; 25 mg en insuffisance rénale sévère ou hépatique modérée). Confirmé : NaCl 3 % (ESE 2014). À vérifier : mirabégron à l'AIPS, ACB ≥ 3, MoCA < 26, B12, suivi de natrémie. |
+| 64 | F10.0_1 Intoxication alcoolique aiguë | 🟧 | Corrigé : sources NICE CG100 de N48 et N56, Q19 en `diagnosticMasque`, grammaire Q17, art. 429 CC. Vérifié : thiamine 200 mg i.v. 3×/j, Selincro. À vérifier : doses oxazépam et lorazépam, durée de décroissance (5–7 j contre NICE 7–10 j), art. 15d LCR et 426/429 CC. |
+| 65 | F32.1_3 Épisode dépressif moyen | 🟧 | Corrigé : fluoxétine de l'adolescent (information suisse non recommandée avant 18 ans), why du PHQ-9, art. 433-434 CC, nuance Q04, coquille N04. À vérifier : lorazépam 1–2,5 mg, halopéridol, olanzapine, quétiapine à l'AIPS ; articles CC/CP non relus. |
+| 66 | F80.8 Bégaiement | 🟧 | Corrigé : `priseEnCharge` restaurée (erreur de schéma levée), Q03 masquée, why de Q05/Q06/Q12/Q14, F80.81 et F98.5 ajoutés. Critères DSM-5 vérifiés. À vérifier : OPAS art. 11, épidémiologie, seuil de 3 %. |
+| 67 | F82 Retard moteur simple / TDC | 🟧 | Corrigé : fenêtre OMS de la marche (8,2–17,6 mois), âge corrigé de Q11, why de Q20-L (M-ABC-2 dès 3 ans). Confirmé : EACD 2019. À vérifier : CPK > 10 fois la norme, dépistage néonatal, OPAS, psychomotricité. |
+| 68 | F90.0_1 TDAH de l'adulte | 🟧 | Corrigé : why de Q06-B. Confirmé : contre-indications des stimulants. À vérifier : première ligne NICE contre cadre LAMal suisse, doses lisdexamfétamine et atomoxétine, critères DSM-5-TR. |
+| 69 | F90.0_2 TDAH de l'enfant | 🟧 | Corrigé : « l'AI cesse à 18 ans » reformulé (N57, Q17, correction), OIC 404 « diagnostiqué et traité avant 9 ans » (circulaire OFAS). À vérifier : Ritalin 5 mg puis +5 à 10 mg/sem, maximum 60 mg (AIPS non lue), DSM-5, prévalence. |
+| 70 | F93.1 Refus scolaire anxieux | 🟧 | Rien de faux relevé. À vérifier : code F93.1 contre F93.0/F93.2 des notions, prévalence 1–5 %, sertraline et fluoxétine chez l'enfant en Suisse, LAI 3abis, CC 314c. |
+| 71 | G44.4 Céphalée médicamenteuse (abus) | 🟧 | Corrigé : topiramate « 400 mg » ramené à 200 mg (Q14), why du paracétamol Q23. À vérifier : limitation suisse des anti-CGRP, posologies AIPS, durée du rebond de sevrage, taux de rechute. |
+
+Contrôles du passage : aucun CNP, CPCM ni PEP VIH ; niveaux 4–5 masqués ; menus longs à 1–3 justes. `controle_menus_longs.py PEA` → 0 menu fautif, 0 erreur de schéma ; `TOX` → 0 menu fautif ; 3 erreurs de schéma restantes sur des pathologies non encore auditées (G72.0, G89.3_1, K52.1).
+
+Reste à auditer : 9 pathologies (G72.0, G89.3_1, J01.0, J02.9, J03.0, J03.9, J03.9_1, J38.1, K52.1).
