@@ -29,7 +29,9 @@ o3d = sum(1 for v in i3d.values() if v.get("statut") == "produit")
 IDX = J("conception/prototypes/moteur/arenes/index.json") if os.path.exists("conception/prototypes/moteur/arenes/index.json") else []
 moteur = os.path.exists("conception/prototypes/moteur/arene.html")
 paquet = lambda pre: sum(x["n"] for x in IDX if x["paquet"].startswith(pre)) if moteur else 0   # questions jouables dans l'arène commune
-T = jeu("Tétrade Fondation", [("systèmes rédigés", red, 14, 45), ("interprétations de courbes", n_int, 119, 10), ("organes en 3D réelle", o3d, 124, 15), ("questions et puzzles jouables dans l'arène", paquet("tetrade"), 100, 30)])
+# Les 9 processus (immunité innée, adaptative, complément, barrières, 5 processus pédiatriques) ne sont pas des objets : décision de Vial du
+# 26.11.2026, on ne leur invente pas d'objet 3D, donc ils sortent de la cible « 3D réelle » (124 organes - 9 processus = 115 objets).
+T = jeu("Tétrade Fondation", [("systèmes rédigés", red, 14, 45), ("interprétations de courbes", n_int, 119, 10), ("organes en 3D réelle (hors 9 processus)", o3d, 115, 15), ("questions et puzzles jouables dans l'arène", paquet("tetrade"), 100, 30)])
 
 # 2. Paraclinique
 ex = [e for _, d in lire_tout("conception/donnees/paraclinique/topographie/*/*.json") for e in d.get("examens", [])]
