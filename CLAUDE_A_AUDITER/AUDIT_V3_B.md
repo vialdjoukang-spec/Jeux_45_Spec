@@ -258,3 +258,22 @@ Contrôles lot 14 : 0 menu fautif ; 0 erreur `valider()` sur les 9 pathologies �
 | X70.0__G13-E01 | 🟩 | Aucune erreur retenue (survivant : 24 h de surveillance, angio-scanner cervical, avis psychiatrique). |
 
 Contrôles lot 15 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
+
+## Lot 16 — rangs 655 à 664
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| X78__S9_12-E01 | 🟩 | Aucune erreur retenue (DSM-5 ≥ 5 jours sur un an, CP 321, CC 314c et 426, psychothérapie psychologique LAMal depuis juillet 2022). |
+| Y69_1__O7_5-E01 | 🟩 | Aucune erreur retenue (OMS « Medication Without Harm » −50 %, annonce à Swissmedic, information transparente). Alerte mécanique de Q09 (« erreur ») : thème de la question, laissée. |
+| Z00.0_1__O7_18-E03 | 🟧 | Forme : Q11 et Q19 (vignettes qui nomment l'entité) marquées non masquées. Corrigé : âge du dépistage colorectal remboursé porté de 50–69 à 50–74 ans (OPAS, en vigueur le 1.7.2025, communiqué de la Ligue suisse contre le cancer lu en ligne) et exemption de franchise limitée aux programmes cantonaux (10 passages) ; calendrier du col obsolète remplacé par l'avis SSGO n° 50 (4 passages). |
+| Z00.0__O4_4-E01 | 🟧 | Corrigé : âge du dépistage colorectal remboursé porté de 50–69 à 50–74 ans (OPAS au 1.7.2025), 4 passages. Aucune autre erreur retenue (AUDIT-C ≥ 4/≥ 3, SCORE2 bas risque, lipides dès 40/50 ans). |
+| Z00.1__O2_12-E01 | 🟧 | Corrigé : Q19 (d4, vignette sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue (perte ≤ 7–10 %, poids ×2 à 4–5 mois et ×3 à 12 mois, couverture ROR ≥ 95 %, Grenzsteine de Largo). |
+| Z01.8_1__O7_10-E02 | 🟧 | Vérifié : remboursement du dépistage colorectal jusqu'à 74 ans depuis le 1.7.2025 (Ligue suisse contre le cancer). Corrigé : exemption de franchise limitée aux programmes cantonaux. Aucune autre erreur retenue (consentement éclairé, directives anticipées). |
+| Z01.8_2__O7_16-E01 | 🟧 | Corrigé : Q08 (d4, vignette sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue (< 4 MET, risque chirurgical < 1 / 1–5 / > 5 %, jeûne 6/8/2 h, ESC 2022). |
+| Z01.8_3__O7_16-E02 | 🟩 | Aucune erreur retenue (1 MET = 3,5 mL/kg/min, < 4 MET, report ≥ 60 jours après infarctus, RCRI de Lee 0,4/0,9/6,6/11 %). |
+| Z02.7_2__O7_17-E01 | 🟩 | Aucune erreur retenue (définitions LPGA de l'incapacité et de l'accident, LAA 80 % dès le 3e jour). Alerte mécanique de Q10 (« certificat ») : thème de la question, laissée. |
+| Z02.7_3__O7_17-E03 | 🟩 | Aucune erreur retenue (rente AI après un an d'incapacité moyenne ≥ 40 %, limitations fonctionnelles, facteurs psychosociaux exclus). |
+
+Correctif rétroactif (lots 1, 6 et 9) : L29.0__S3_5-E03, N81.6_1__S4_16-E03, R14__S3_2-E01 et R15.9__S3_4-E02 donnaient le dépistage colorectal remboursé « de 50 à 69 ans » ; l'OPAS l'étend à 74 ans depuis le 1.7.2025 (programmes cantonaux). Âge et mention de franchise corrigés et reportés sur main avec ce lot. Le même chiffre obsolète subsiste dans Z12.1__O4_6-E01, Z53.8__O7_11-E03, Z80.9__O4_7-E03 et K57.3__G6-E05 (non encore audités).
+
+Contrôles lot 16 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
