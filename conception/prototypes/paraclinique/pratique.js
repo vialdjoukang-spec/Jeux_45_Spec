@@ -51,7 +51,7 @@ export class Pratique {
       ['aventure', 'Aventure par type d\'examen', 'Tu traverses un groupe du réseau ; chaque réussite colore sa case ; un défi d\'expert clôt le voyage.'],
       ['lecture', 'Lecture d\'image et de tracé', 'Tu lis un cliché réel ou un tracé décrit, tu appliques le seuil, puis tu conclus.']];
     if (this.cas.length) jeux.push(['cas', 'Cas cliniques : le bon bilan', `Tu coches seulement les examens nécessaires (${this.cas.length} cas du thorax, corrigés sur sept échelons).`]);
-    jeux.push(['blanc', 'Examen blanc', '12 questions de type A en bloc chronométré ; les corrections n\'apparaissent qu\'à la fin.']);
+    jeux.push(['blanc', 'Examen blanc', '12 questions à choix unique en bloc chronométré ; les corrections n\'apparaissent qu\'à la fin.']);
     this.el.innerHTML = `<h2>Pratique : ${esc(titre)}</h2><p class=mini>La théorie remplit l'arbre ; la pratique remplit le jeu, qui s'appuie sur elle (${nb} défis dans cet onglet).</p>
       <div class=tableau><div><b>${this.p.points}</b><small>points</small></div><div><b>${this.serie}</b><small>série</small></div><div><b>${this.p.reussites}</b><small>réussites</small></div><div><b>${dus}</b><small>révisions dues</small></div></div>
       <div class=jeux>${jeux.map(([k, t, s], i) => `<button data-j=${k}><span class=num>${i + 1}</span><span><b>${t}</b><small>${s}</small></span></button>`).join('')}</div>
