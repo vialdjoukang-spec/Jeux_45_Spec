@@ -224,3 +224,20 @@ Contrôles lot 12 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du l
 | T14.1__S8_6-E03 | 🟧 | Corrigé : délais de rappel antitétanique précisés selon l'âge (tableau 10 du Plan de vaccination suisse 2026). Forme : bloc c8 ramené à 5 points. Aucune autre erreur retenue (bois radiotransparent, contrôle à 48–72 h). |
 
 Contrôles lot 13 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
+
+## Lot 14 — rangs 635 à 644
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| T15.0__S8_6-E01 | 🟩 | Forme : trois clés vides « mesuresGénérales » hors schéma normalisées. Aucune erreur médicale retenue (anneau de rouille, contrôle à 24–48 h, cicatrisation 24–72 h). Alerte mécanique de Q19 (« cornéen ») : la vignette décrit une plaie perforante, laissée. |
+| T30.1__S8_2-E01 | 🟩 | Aucune erreur retenue (refroidissement 15–20 °C pendant 15–20 min, paume ≈ 1 %, règle des 9, réévaluation à 24–48 h). |
+| T45.5_1__O7_22-E03 | 🟧 | Corrigé : Q14 (d4, vignette sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue (ISTH, CYP2C9, INR > 5 / > 9, cible 2–3, dabigatran 80 % rénal). |
+| T50.9_3__S9_9-E03 | 🟧 | Corrigé : Q09 (d4 dont la vignette nomme les agents ingérés) passée en d3. Aucune erreur médicale retenue (corticoïdes > 40 mg/j, lithium 0,6–0,8 mmol/L, halopéridol 0,5–1 mg hors Parkinson et démence à corps de Lewy). |
+| T50.9__S7_5-E06 | 🟩 | Forme : clé vide « molécule » en double retirée (plan 1). Aucune erreur médicale retenue (carbamazépine 4–12 mg/L, phénytoïne 10–20 mg/L, lithium 0,6–0,8 mmol/L, Tox Info 145). |
+| T51.0__G7-E03 | 🟩 | Aucune erreur retenue (ALDH2*2 chez 30–40 % des Asiatiques de l'Est, adrénaline IM 0,3–0,5 mg). |
+| T74.0_1__O3_1-E01 | 🟧 | Forme : clé « false » retirée (Q15). Corrigé : Q09 (d4 qui nomme la négligence) passée en d3 ; Q13 marquée masquée. Aucune erreur médicale retenue (congé de proche aidant 3 jours par événement, 10 par an). |
+| T74.0__O2_3-E02 | 🟧 | Corrigé : Q04 (d4, vignette sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue. |
+| T74.1_5__O2_3-E01 | 🟥 | Rejet : questions tronquées par l'API (8 questions au lieu de 20, une question A sans réponse juste) ; ne passe pas le schéma. Reste hors de main. |
+| T74.3_2__O6_3-E02 | 🟩 | Aucune erreur retenue (≈ 27 % de violences par un partenaire, PHQ-9 / GAD-7 ≥ 10). |
+
+Contrôles lot 14 : 0 menu fautif ; 0 erreur `valider()` sur les 9 pathologies 🟩/🟧 ; T74.1_5 (🟥) reste hors de main.

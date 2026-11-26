@@ -1,0 +1,1036 @@
+{
+ "id": "T45.5_1__O7_22-E03",
+ "portes": [
+  {
+   "ssp": "O7.22",
+   "nomSSP": "Suspicion d’intolérance ou d’interaction médicamenteuse, y compris phytothérapie et compléments alimentaires",
+   "entite": "Interaction anticoagulants (AVK/AOD) avec AINS, antibiotiques ou plantes",
+   "entiteId": "O7.22-E03"
+  }
+ ],
+ "entite": "Interaction anticoagulants (AVK/AOD) avec AINS, antibiotiques ou plantes",
+ "cim10": "T45.5",
+ "ssp": {
+  "code": "O7.22",
+  "nom": "Suspicion d'intolérance ou d'interaction médicamenteuse, y compris phytothérapie et compléments alimentaires",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient sous anticoagulant avec suspicion d'interaction ou d'intolérance",
+    "i": "Porte d'entrée : nouveau médicament, plante ou complément chez un patient sous AVK ou AOD, avec saignement, INR déséquilibré ou thrombose.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Instabilité hémodynamique, trouble de conscience ou saignement actif ?",
+    "i": "Un saignement majeur sous anticoagulant se traite avant tout bilan complet.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : hémorragie majeure, réanimation et neutralisation",
+    "i": "Critères ISTH : site critique, chute d'Hb ≥ 20 g/L, ≥ 2 culots ou décès.",
+    "pec": "hemorragie_majeure",
+    "notion": "c7"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : traumatisme crânien, céphalée ou déficit neurologique ?",
+    "i": "Une hémorragie intracrânienne peut survenir après un traumatisme minime et reste muette cliniquement au début.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Oui : scanner cérébral urgent",
+    "i": "Le scanner est réalisé sans attendre l'INR ; une hémorragie visible se traite comme un saignement majeur.",
+    "pec": "hemorragie_majeure",
+    "notion": "c4"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Non : demander INR, hémogramme, créatinine et liste complète des médicaments",
+    "i": "Ce bilan identifie la gravité, l'anticoagulant concerné et l'agent interagissant ; l'INR n'est interprétable que sous AVK.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Quel est le sens de l'interaction ?",
+    "i": "La conduite diffère selon que l'effet anticoagulant est potentialisé (risque hémorragique) ou diminué (risque thrombotique).",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Effet potentialisé : AINS, azolé, amiodarone, métronidazole, cotrimoxazole, macrolide, antibiotique",
+    "i": "Mécanismes pharmacodynamique, inhibition CYP2C9 ou CYP3A4/P-gp, ou réduction de la flore produisant la vitamine K.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "AVK avec INR > 5 sans saignement : sauter la dose et vitamine K orale",
+    "i": "Entre 5 et 9, on saute 1 à 2 doses ; la vitamine K orale 1 à 2,5 mg est donnée si le risque hémorragique est élevé.",
+    "pec": "inr_eleve_sans_saignement",
+    "notion": "c7"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "INR modérément élevé ou AOD accumulé : arrêter l'agent et ajuster",
+    "i": "Sans saignement, on supprime l'agent, on adapte ou on change d'AOD selon la clairance, et on recontrôle l'INR à 48–72 h.",
+    "pec": "inr_eleve_sans_saignement",
+    "notion": "c8"
+   },
+   {
+    "id": "n11",
+    "parent": "n7",
+    "t": "Effet diminué : rifampicine, millepertuis, carbamazépine, phénytoïne",
+    "i": "L'induction enzymatique et de la P-gp abaisse l'effet des AVK et les concentrations d'AOD.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "INR sous la cible ou concentration insuffisante, sans événement",
+    "i": "On arrête l'inducteur, on adapte l'AVK sur l'INR ou on change d'anticoagulant ; l'arrêt ultérieur fait remonter l'INR.",
+    "pec": "sous_dosage_inducteur",
+    "notion": "c7"
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "Déficit neurologique ou thrombose aiguë",
+    "i": "L'événement embolique évoque un sous-dosage : renvoyer vers le SSP déficit neurologique focal ou le SSP thrombose, et rechercher l'inducteur.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n14",
+    "parent": "n1",
+    "t": "Aucun anticoagulant : autre intolérance ou interaction médicamenteuse",
+    "i": "Renvoyer vers l'entité adaptée du SSP O7.22 : « triple whammy » rénal, QTc, syndrome sérotoninergique, rhabdomyolyse ou DRESS.",
+    "pec": null,
+    "notion": null
+   }
+  ]
+ },
+ "specialites": [
+  "TOX"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Interaction anticoagulants (AVK/AOD) avec AINS, antibiotiques ou plantes",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Deux sens d'interaction, définition de la gravité et épidémiologie",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Tu raisonnes d'abord dans quel sens l'interaction déplace l'anticoagulation (saignement ou thrombose), puis tu qualifies la gravité du saignement selon l'ISTH.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Une interaction potentialise l'effet et expose à l'hémorragie, ou le diminue et expose à la thrombose (AVC embolique, thrombose de valve, MTEV).",
+    "Une interaction pharmacodynamique (AINS, antiagrégants, ISRS) additionne les effets sur l'hémostase, alors qu'une interaction pharmacocinétique modifie la concentration de l'anticoagulant (CYP, P-gp).",
+    "Selon l'ISTH, une hémorragie est majeure si elle touche un site critique, fait chuter l'Hb d'au moins 20 g/L, nécessite au moins 2 culots ou est fatale.",
+    "Les anticoagulants figurent parmi les classes les plus impliquées dans les hospitalisations pour effet indésirable, surtout chez le sujet âgé polymédiqué ; un AINS ajouté double environ le risque de saignement.",
+    "Les AOD réduisent d'environ moitié l'hémorragie intracrânienne par rapport à la warfarine ; âge > 75 ans, polymédication, insuffisance rénale et saignement antérieur aggravent le risque."
+   ],
+   "sources": [
+    "ISTH 2005 (définition hémorragie majeure)",
+    "EHRA Practical Guide AOD 2021",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Mécanismes des interactions selon la molécule",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Tu identifies la voie touchée (hémostase, CYP2C9, CYP3A4/P-gp, induction, flore) pour prédire le sens et l'anticoagulant concerné.",
+   "tableau": {
+    "colonnes": [
+     "Mécanisme",
+     "Agents typiques",
+     "Effet sur les AVK",
+     "Effet sur les AOD",
+     "Conséquence clinique"
+    ],
+    "lignes": [
+     [
+      "Pharmacodynamique (hémostase)",
+      "AINS, aspirine, clopidogrel, ISRS",
+      [
+       {
+        "t": "Saignement ↑, INR inchangé",
+        "i": "L'AINS agit sur les plaquettes (COX-1, thromboxane A2) et la muqueuse, pas sur les facteurs vitamine K-dépendants : l'INR ne le détecte pas."
+       }
+      ],
+      [
+       {
+        "t": "Saignement ↑, concentration inchangée",
+        "i": "L'effet est additif sur l'hémostase primaire ; un AINS peut en plus provoquer une insuffisance rénale aiguë qui fait s'accumuler le dabigatran."
+       }
+      ],
+      "Hémorragie digestive, risque ×2"
+     ],
+     [
+      "Pharmacocinétique : inhibition du CYP2C9",
+      "Fluconazole, amiodarone, métronidazole, cotrimoxazole",
+      [
+       {
+        "t": "INR ↑",
+        "i": "Les AVK (surtout le S-énantiomère de la warfarine) sont métabolisés par le CYP2C9 : son inhibition prolonge la demi-vie."
+       }
+      ],
+      [
+       {
+        "t": "Peu concerné",
+        "i": "Les AOD ne dépendent pas du CYP2C9 ; la voie pertinente est CYP3A4/P-gp."
+       }
+      ],
+      "Surdosage AVK, délai de 2 à 5 jours"
+     ],
+     [
+      "Pharmacocinétique : inhibition CYP3A4 et P-gp",
+      "Kétoconazole, itraconazole, voriconazole, posaconazole, ritonavir ; clarithromycine, dronédarone, vérapamil",
+      [
+       {
+        "t": "Effet modeste",
+        "i": "L'inhibition du CYP3A4 modifie peu les AVK, dont le métabolisme principal passe par le CYP2C9."
+       }
+      ],
+      [
+       {
+        "t": "Rivaroxaban/apixaban ↑ ; dabigatran ↑",
+        "i": "Rivaroxaban et apixaban sont substrats du CYP3A4 et de la P-gp ; le dabigatran seulement de la P-gp (dose réduite avec vérapamil selon l'AIPS)."
+       }
+      ],
+      "Azolés systémiques et ritonavir déconseillés"
+     ],
+     [
+      "Pharmacocinétique : induction",
+      "Rifampicine, millepertuis, carbamazépine, phénytoïne",
+      [
+       {
+        "t": "INR ↓ (effet AVK ↓)",
+        "i": "L'induction enzymatique accélère l'élimination des AVK ; l'arrêt de l'inducteur fait remonter l'INR en 1 à 2 semaines."
+       }
+      ],
+      [
+       {
+        "t": "Concentration ↓",
+        "i": "L'induction de la P-gp et du CYP3A4 abaisse l'exposition aux AOD ; la rifampicine est à éviter avec les AOD."
+       }
+      ],
+      "Sous-dosage, thrombose, AVC embolique"
+     ],
+     [
+      "Flore intestinale / vitamine K",
+      "Antibiotiques à large spectre",
+      [
+       {
+        "t": "INR ↑",
+        "i": "La flore intestinale produit de la vitamine K ; sa réduction potentialise les AVK, surtout si l'apport alimentaire est faible ou la fièvre présente."
+       }
+      ],
+      [
+       {
+        "t": "Aucun effet direct",
+        "i": "Les AOD n'agissent pas sur la voie vitamine K : l'interaction ne les concerne pas."
+       }
+      ],
+      "Surdosage AVK en 3 à 7 jours"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Les AINS potentialisent le saignement par inhibition de la COX-1 plaquettaire et lésion muqueuse gastroduodénale, indépendamment de la coagulation, donc sans élévation de l'INR.",
+    "Le dabigatran est éliminé à environ 80 % par le rein et est contre-indiqué sous 30 ml/min de clairance ; un AINS peut déclencher l'accumulation par insuffisance rénale aiguë.",
+    "La phenprocoumone (Marcoumar) a une demi-vie d'environ une semaine : l'effet de l'interaction persiste plusieurs jours après l'arrêt de l'agent."
+   ],
+   "sources": [
+    "AIPS Swissmedic (Marcoumar, Pradaxa, Eliquis, Xarelto)",
+    "EHRA Practical Guide AOD 2021"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen clinique chez le patient anticoagulé",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Tu cherches activement ce que le patient oublie de dire (vente libre, plantes) et tu cherches un saignement caché par l'examen.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le médecin interroge sur l'automédication (ibuprofène, diclofénac, aspirine), les plantes (millepertuis, ginkgo) et les compléments (huile de poisson, curcuma), que le patient omet de déclarer.",
+    "Le médecin recherche tout nouveau traitement des 1 à 2 dernières semaines : antibiotique, antifongique, amiodarone, antiépileptique, antirétroviral ; il note l'heure de la dernière prise d'AOD.",
+    "Fièvre, diarrhée, alcool, changement de régime riche en vitamine K, hyperthyroïdie, insuffisance hépatique ou cardiaque déséquilibrent l'INR sans médicament interagissant.",
+    "L'examen recherche tachycardie, hypotension, pâleur, ecchymoses étendues, hématomes de paroi ou de cuisse, gingivorragies, épistaxis ; une douleur de flanc évoque un hématome rétropéritonéal.",
+    "Le toucher rectal objective méléna ou rectorragie ; l'examen neurologique avec Glasgow s'impose après chute, traumatisme crânien ou céphalée."
+   ],
+   "sources": [
+    "EHRA Practical Guide AOD 2021",
+    "Tox Info Suisse"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Signaux d'alarme et tri de gravité",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Tu tries d'emblée selon l'état hémodynamique et neurologique avant tout résultat de laboratoire.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Patient anticoagulé avec suspicion d'interaction",
+     "i": "Point de départ : tout nouveau médicament, plante ou saignement chez un patient sous AVK ou AOD.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Instabilité hémodynamique ou trouble de conscience ?",
+     "i": "Une instabilité ou un trouble de conscience signe un saignement majeur et impose une réanimation immédiate.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : traiter comme hémorragie majeure",
+     "i": "On ne retarde pas la neutralisation de l'anticoagulant pour attendre les résultats.",
+     "pec": "hemorragie_majeure",
+     "notion": "c7"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non : traumatisme crânien, céphalée ou déficit neurologique ?",
+     "i": "Même un traumatisme minime ou une céphalée récente peut cacher une hémorragie intracrânienne sous anticoagulant.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Oui : scanner cérébral urgent",
+     "i": "Le scanner précède l'attente de l'INR ; la mortalité de l'hémorragie intracrânienne atteint environ la moitié à 30 jours.",
+     "pec": "hemorragie_majeure",
+     "notion": "c9"
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "Non : méléna, hématurie, douleur de flanc ou INR > 5 ?",
+     "i": "Méléna, hématémèse, hématurie macroscopique, hématome rétropéritonéal ou INR > 5 (surtout > 9) exposent à un saignement grave.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Oui : bilan biologique immédiat et recherche d'interaction",
+     "i": "INR, hémogramme, créatinine et liste complète des médicaments précisent la gravité et l'agent en cause.",
+     "pec": "inr_eleve_sans_saignement",
+     "notion": "c5"
+    }
+   ],
+   "points": [
+    "Un traumatisme crânien, même minime, ou une céphalée récente sous anticoagulant impose un scanner cérébral urgent.",
+    "Méléna, hématémèse ou rectorragie chez un patient sous AINS et anticoagulant signent une hémorragie digestive grave jusqu'à preuve du contraire.",
+    "Une douleur de flanc ou abdominale avec chute de l'hémoglobine évoque un hématome rétropéritonéal ou du psoas, souvent méconnu.",
+    "Un INR supérieur à 5, et surtout supérieur à 9, expose à un risque hémorragique élevé même sans saignement.",
+    "Un nouveau déficit neurologique ou une thrombose après introduction de rifampicine ou de millepertuis évoque un sous-dosage anticoagulant."
+   ],
+   "sources": [
+    "ESC 2020/2021",
+    "EHRA Practical Guide AOD 2021"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan biologique : tests fiables selon l'anticoagulant",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Tu choisis le test qui reflète réellement l'anticoagulant en cause, car l'INR ne vaut que pour les AVK.",
+   "tableau": {
+    "colonnes": [
+     "Anticoagulant",
+     "Test fiable",
+     "Test peu fiable",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "AVK (phenprocoumone, acénocoumarol, warfarine)",
+      [
+       {
+        "t": "INR en urgence (cible 2 à 3 dans la plupart des indications)",
+        "i": "L'INR reflète les facteurs II, VII, IX, X ; il guide vitamine K et PPSB."
+       }
+      ],
+      "Anti-Xa inutile",
+      [
+       {
+        "t": "INR allongé aussi par insuffisance hépatique ou dénutrition",
+        "i": "Un bilan hépatique et l'albumine évitent d'attribuer à tort l'INR élevé à l'interaction."
+       }
+      ]
+     ],
+     [
+      "Dabigatran",
+      [
+       {
+        "t": "Temps de thrombine (TT) ; TT dilué (Hemoclot) quantitatif",
+        "i": "Un TT normal exclut une concentration significative ; le TT dilué la mesure, car le dabigatran inhibe directement la thrombine."
+       }
+      ],
+      [
+       {
+        "t": "INR, TP",
+        "i": "Insensibles au dabigatran à des concentrations pourtant cliniquement pertinentes."
+       }
+      ],
+      [
+       {
+        "t": "Créatinine/clairance (Cockcroft-Gault)",
+        "i": "Élimination rénale à 80 % : la clairance détermine l'accumulation et la contre-indication sous 30 ml/min."
+       }
+      ]
+     ],
+     [
+      "Apixaban, rivaroxaban, edoxaban",
+      [
+       {
+        "t": "Anti-Xa calibré spécifique à la molécule",
+        "i": "Seul un test calibré sur l'inhibiteur concerné quantifie la concentration ; un anti-Xa héparine non calibré est trompeur."
+       }
+      ],
+      [
+       {
+        "t": "INR, TP",
+        "i": "Un INR normal n'exclut pas une concentration significative, surtout sous apixaban."
+       }
+      ],
+      [
+       {
+        "t": "Heure de la dernière prise et dose",
+        "i": "Ces données conditionnent l'interprétation des tests et la décision d'antidote ou de charbon actif."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'hémogramme est demandé d'emblée et répété, car l'hémoglobine peut rester normale au début d'une hémorragie aiguë.",
+    "Groupe sanguin et tests de compatibilité sont prélevés en cas de saignement actif pour anticiper la transfusion.",
+    "Le médecin vérifie la liste complète des médicaments dans une base d'interactions (Compendium, AIPS), sans se limiter à l'ordonnance.",
+    "Bilan hépatique et albumine complètent l'examen, car insuffisance hépatique et dénutrition allongent l'INR indépendamment de l'interaction."
+   ],
+   "sources": [
+    "EHRA Practical Guide AOD 2021",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Diagnostic positif, imputabilité et annonce",
+   "rubriques": [
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu établis le diagnostic sur la chronologie et la plausibilité pharmacologique, puis tu excluent les autres causes de déséquilibre.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le diagnostic repose sur la chronologie : introduction ou arrêt d'un agent interagissant suivi d'un INR déséquilibré, d'un saignement ou d'une thrombose.",
+    "L'imputabilité s'évalue par un score de causalité (Naranjo, OMS-UMC) fondé sur chronologie, plausibilité pharmacologique et exclusion d'autres causes.",
+    "Le diagnostic différentiel inclut mauvaise observance, insuffisance hépatique, hyperthyroïdie, insuffisance rénale aiguë sous AOD, CIVD et coagulopathie de consommation.",
+    "Un effet indésirable grave ou inattendu s'annonce à Swissmedic via le centre régional de pharmacovigilance (système ElViS)."
+   ],
+   "sources": [
+    "Swissmedic (ElViS)",
+    "OMS-UMC / Naranjo"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge aiguë : arrêter l'agent, graduer, neutraliser",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Tu arrêtes d'abord l'agent interagissant, puis tu gradues la réponse selon la gravité du saignement et l'anticoagulant en cause.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Arrêter ou remplacer l'agent interagissant (AINS en tête)",
+     "i": "Premier geste commun à toutes les situations : supprimer la cause de l'interaction.",
+     "pec": null,
+     "notion": "c2"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Saignement majeur (ISTH) ?",
+     "i": "Site critique, chute d'Hb ≥ 20 g/L, ≥ 2 culots ou décès : l'antidote devient indiqué.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Non, AVK avec INR élevé : sauter 1 à 2 doses, vitamine K orale 1 à 2,5 mg si risque hémorragique élevé",
+     "i": "Une correction orale douce évite une résistance prolongée aux AVK ; la voie IV est réservée au saignement.",
+     "pec": "inr_eleve_sans_saignement",
+     "notion": "c7"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non, AOD sans saignement : arrêt de l'agent, adaptation, pas d'antidote",
+     "i": "Sans saignement actif, un antidote expose à un risque thrombotique inutile.",
+     "pec": "inr_eleve_sans_saignement",
+     "notion": "c7"
+    },
+    {
+     "id": "n5",
+     "parent": "n2",
+     "t": "Oui, sous AVK : vitamine K 5 à 10 mg IV lente + PPSB",
+     "i": "Le PPSB corrige l'INR en minutes, la vitamine K maintient la correction au-delà de quelques heures.",
+     "pec": "hemorragie_majeure",
+     "notion": "c7"
+    },
+    {
+     "id": "n6",
+     "parent": "n2",
+     "t": "Oui, sous dabigatran : idarucizumab 5 g IV",
+     "i": "L'idarucizumab neutralise immédiatement le dabigatran ; le PPSB n'est pas le premier choix.",
+     "pec": "hemorragie_majeure",
+     "notion": "c7"
+    },
+    {
+     "id": "n7",
+     "parent": "n2",
+     "t": "Oui, sous apixaban, rivaroxaban ou edoxaban : andexanet alfa si disponible, sinon PPSB 25–50 UI/kg",
+     "i": "L'andexanet neutralise les inhibiteurs du facteur Xa ; le PPSB est l'alternative lorsqu'il manque.",
+     "pec": "hemorragie_majeure",
+     "notion": "c7"
+    },
+    {
+     "id": "n8",
+     "parent": "n1",
+     "t": "Sous-dosage par inducteur : arrêter l'inducteur, adapter l'AVK ou changer d'anticoagulant",
+     "i": "La rifampicine est à éviter avec les AOD ; l'arrêt d'un inducteur expose ensuite à un surdosage d'AVK.",
+     "pec": "sous_dosage_inducteur",
+     "notion": "c2"
+    }
+   ],
+   "points": [
+    "Une hémorragie majeure impose compression locale, remplissage, transfusion, acide tranexamique et hospitalisation en milieu surveillé.",
+    "Le charbon actif est indiqué en cas d'ingestion récente d'AOD, dans les 2 à 4 heures environ, pour limiter l'absorption.",
+    "Le PPSB et l'andexanet exposent à des événements thromboemboliques ; la vitamine K en perfusion rapide peut provoquer une réaction anaphylactoïde rare."
+   ],
+   "sources": [
+    "ESC 2020/2021",
+    "EHRA Practical Guide AOD 2021",
+    "AIPS Swissmedic (Praxbind, Beriplex, Konakion)"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Prise en charge au long cours et surveillance",
+   "rubriques": [
+    "chronicManagement",
+    "surveillance"
+   ],
+   "comment": "Tu éduques le patient et tu contrôles l'INR 48 à 72 h après toute modification médicamenteuse, jusqu'à stabilisation.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le patient reçoit l'interdiction des AINS en vente libre ; le paracétamol est le premier choix, mais à dose régulière élevée il peut élever l'INR.",
+    "Le patient évite le millepertuis et signale ginkgo, ail à forte dose, ginseng, dong quai ou huile de poisson ; il porte une carte d'anticoagulation.",
+    "Si une association avec AINS ou antiagrégant est inévitable, un inhibiteur de la pompe à protons assure la gastroprotection.",
+    "Les azolés systémiques et le ritonavir sont déconseillés avec rivaroxaban et apixaban (inhibition combinée du CYP3A4 et de la P-gp).",
+    "L'INR est contrôlé 48 à 72 h après tout changement, puis jusqu'à stabilisation ; sous AOD, la fonction rénale est contrôlée au moins annuellement, puis tous les (clairance/10) mois si altérée."
+   ],
+   "sources": [
+    "EHRA Practical Guide AOD 2021",
+    "AIPS Swissmedic",
+    "SSC/SGAIM"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Complications, pronostic et réseau de soins en Suisse",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Tu anticipes les complications du saignement et de l'interruption, puis tu organises un suivi coordonné qui supprime les co-prescriptions à risque.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "L'hémorragie intracrânienne est la complication la plus redoutable, avec une mortalité d'environ la moitié à 30 jours ; digestive et rétropéritonéale causent choc, anémie ou atteinte du nerf crural.",
+    "Un sous-dosage ou une interruption prolongée après antidote expose à un AVC embolique, une thrombose de valve mécanique ou une MTEV.",
+    "Supprimer AINS et polymédication inutile réduit le risque hémorragique, estimé par le score HAS-BLED ; la reprise après hémorragie majeure suit la balance bénéfice-risque, une fois la cause corrigée.",
+    "Le médecin de famille coordonne avec le pharmacien et, au besoin, cardiologue, angiologue ou hématologue ; le contrôle de polymédication est remboursé par l'assurance obligatoire dès 4 médicaments.",
+    "Tox Info Suisse (145, 24 h/24) conseille les professionnels sur interactions toxiques et surdosages d'anticoagulants."
+   ],
+   "sources": [
+    "ESC 2020/2021",
+    "OFSP / LAMal (contrôle de polymédication)",
+    "Tox Info Suisse"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "hemorragie_majeure",
+   "titre": "Hémorragie majeure sous anticoagulant (interaction)",
+   "but": [
+    "Arrêter le saignement et stabiliser l'hémodynamique.",
+    "Neutraliser l'anticoagulant selon la molécule en cause.",
+    "Supprimer l'agent interagissant et décider ensuite de la reprise."
+   ],
+   "moyens": {
+    "accueil": [
+     "Le médecin place le patient en salle de déchocage avec monitorage continu, deux voies veineuses et oxygène si nécessaire.",
+     "L'infirmier·ère note l'anticoagulant, la dose et l'heure de la dernière prise ainsi que tout nouveau médicament.",
+     "Le médecin prélève INR, hémogramme, créatinine, groupe sanguin et tests de compatibilité, et alerte l'intensiviste."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Phytoménadione (vitamine K1)",
+      "posologie": "5 à 10 mg IV lente (AVK), à répéter selon l'INR ; effet complet en 6 à 12 h.",
+      "pourquoi": "Elle restaure la synthèse des facteurs vitamine K-dépendants et prolonge la correction obtenue par le PPSB.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Complexe prothrombinique (PPSB) (concentré de facteurs II, VII, IX, X)",
+      "posologie": "Selon INR et poids (AIPS), environ 25 à 50 UI/kg IV ; hors AMM sous inhibiteur du facteur Xa si andexanet indisponible.",
+      "pourquoi": "Il corrige l'INR en quelques minutes lors d'un saignement majeur sous AVK, ou sous inhibiteur Xa sans andexanet.",
+      "source": "AIPS Swissmedic ; [EHRA, 2021]"
+     },
+     {
+      "molecule": "Idarucizumab (anticorps anti-dabigatran)",
+      "posologie": "5 g IV, soit 2 × 2,5 g en perfusions ou bolus successifs.",
+      "pourquoi": "Il neutralise immédiatement le dabigatran ; le PPSB n'est donc pas le premier choix dans cette situation.",
+      "source": "AIPS Swissmedic (Praxbind)"
+     },
+     {
+      "molecule": "Andexanet alfa (antidote des inhibiteurs du facteur Xa)",
+      "posologie": "Bolus puis perfusion, dose selon l'inhibiteur, la dose et le délai de dernière prise (AIPS), si disponible.",
+      "pourquoi": "Il neutralise apixaban et rivaroxaban lors d'un saignement majeur ; sinon on utilise le PPSB.",
+      "source": "AIPS Swissmedic ; [EHRA, 2021]"
+     },
+     {
+      "molecule": "Acide tranexamique (antifibrinolytique)",
+      "posologie": "1 g IV lente en 10 minutes, répétable selon la situation ; adapter en insuffisance rénale.",
+      "pourquoi": "Il stabilise le caillot et réduit le saignement comme adjuvant des mesures locales et des antidotes.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Charbon actif (adsorbant)",
+      "posologie": "Dose adulte unique per os ou sonde si ingestion d'AOD dans les 2 à 4 heures.",
+      "pourquoi": "Il limite l'absorption de l'AOD lors d'une ingestion récente ; inutile au-delà de ce délai.",
+      "source": "[EHRA, 2021] ; Tox Info Suisse"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Le médecin organise l'hémostase locale : compression, endoscopie digestive, embolisation ou chirurgie selon le site.",
+      "pourquoi": "Le traitement du site de saignement complète l'antidote et réduit le besoin transfusionnel."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "L'infirmier·ère assure le remplissage, la transfusion de culots selon l'Hb et la surveillance hémodynamique horaire.",
+      "pourquoi": "La stabilisation hémodynamique précède et accompagne la neutralisation de l'anticoagulant."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Le médecin explique au patient l'interdiction des AINS en vente libre et des plantes à risque.",
+      "pourquoi": "La récidive d'interaction est la cause principale d'un nouvel épisode hémorragique."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Le médecin documente la chronologie et annonce l'effet indésirable grave à Swissmedic via ElViS."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "L'équipe discute objectifs de soins et directives anticipées en cas d'hémorragie intracrânienne grave chez un patient âgé."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Le médecin arrête immédiatement l'agent interagissant et l'anticoagulant.",
+      "L'équipe monitore, pose deux voies et prépare transfusion et antidote.",
+      "L'équipe hospitalise le patient en milieu surveillé (soins intensifs ou continus)."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue ABC, gravité ISTH, anticoagulant, dernière prise ; arrête l'anticoagulant et l'agent interagissant."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose deux voies, monitore, prélève INR, hémogramme, créatinine, groupe sanguin et compatibilités."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Prépare l'antidote adapté : PPSB + vitamine K, idarucizumab ou andexanet/PPSB."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Administre l'antidote et l'acide tranexamique ; remplit et transfuse selon l'Hb et l'hémodynamique."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Réalise scanner cérébral, endoscopie, embolisation ou neurochirurgie selon le site du saignement."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Annonce à ElViS et planifie la reprise de l'anticoagulation, cause corrigée, selon la balance bénéfice-risque."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "L'hémorragie intracrânienne sous anticoagulant a une mortalité d'environ la moitié à 30 jours ; la neutralisation rapide et la suppression de l'interaction améliorent la survie des saignements digestifs.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Hémodynamique, conscience (Glasgow)",
+      "quand": "Continu en phase aiguë",
+      "cible": "Stabilité, absence de nouveau déficit"
+     },
+     {
+      "quoi": "Hémoglobine",
+      "quand": "Répétée plusieurs fois dans les premières heures, puis quotidienne",
+      "cible": "Hb stable sans nouvelle chute"
+     },
+     {
+      "quoi": "INR après PPSB (AVK)",
+      "quand": "Après la perfusion, puis selon le protocole",
+      "cible": "Correction durable"
+     },
+     {
+      "quoi": "Signes thromboemboliques après antidote",
+      "quand": "Pendant l'hospitalisation",
+      "cible": "Aucun événement"
+     }
+    ],
+    "sortie": "Le patient sort quand le saignement est contrôlé, l'hémodynamique et l'Hb sont stables, la cause traitée, la liste des médicaments corrigée et la décision de reprise de l'anticoagulation documentée."
+   },
+   "prevention": {
+    "primaire": "Le médecin vérifie toute nouvelle prescription dans une base d'interactions et évite les AINS chez le patient anticoagulé.",
+    "secondaire": "Le médecin supprime l'agent en cause et fait contrôler la polymédication par le pharmacien.",
+    "tertiaire": "Le médecin décide de la reprise de l'anticoagulation selon HAS-BLED et la cause corrigée, et remet une carte d'anticoagulation."
+   }
+  },
+  {
+   "cle": "inr_eleve_sans_saignement",
+   "titre": "Interaction sans saignement majeur : INR élevé ou AOD accumulé",
+   "but": [
+    "Supprimer l'agent interagissant avant qu'un saignement ne survienne.",
+    "Ramener l'INR dans la cible ou adapter l'AOD sans exposer à la thrombose."
+   ],
+   "moyens": {
+    "accueil": [
+     "Le médecin vérifie l'absence de signe de gravité (hémodynamique, neurologie, méléna, hématurie).",
+     "Le médecin prélève INR, hémogramme, créatinine et bilan hépatique, et révise la liste complète des médicaments."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Phytoménadione (vitamine K1) orale",
+      "posologie": "1 à 2,5 mg per os si INR 5–9 et risque hémorragique élevé ; INR > 9 : 2,5 à 5 mg per os selon les recommandations CHEST.",
+      "pourquoi": "Une faible dose orale abaisse l'INR sans induire de résistance prolongée aux AVK ni de risque thrombotique important.",
+      "source": "AIPS Swissmedic ; [CHEST, 2012]"
+     },
+     {
+      "molecule": "Pantoprazole (inhibiteur de la pompe à protons)",
+      "posologie": "40 mg per os une fois par jour si l'association à un AINS ou antiagrégant est inévitable.",
+      "pourquoi": "Il réduit la lésion muqueuse gastroduodénale, source principale de saignement avec les AINS.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Paracétamol (antalgique)",
+      "posologie": "500 à 1000 mg per os jusqu'à 3 à 4 fois par jour, maximum 4 g/jour ; réduire si insuffisance hépatique ou poids faible.",
+      "pourquoi": "Il remplace les AINS comme antalgique, mais à dose régulière élevée il peut élever l'INR.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Le médecin proscrit les AINS en vente libre et le millepertuis, et demande de signaler ginkgo, ail, ginseng, dong quai, huile de poisson.",
+      "pourquoi": "Le patient omet souvent de déclarer ces produits qui modifient l'effet anticoagulant."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "L'infirmier·ère remet la carte d'anticoagulation et organise le contrôle de l'INR à 48–72 h.",
+      "pourquoi": "L'effet d'une interaction se manifeste en quelques jours, plus longtemps sous phenprocoumone."
+     },
+     {
+      "categorie": "nutrition",
+      "mesure": "Le médecin demande un apport alimentaire régulier en vitamine K, et recherche fièvre, diarrhée et alcool.",
+      "pourquoi": "Ces facteurs déséquilibrent l'INR indépendamment du médicament."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Le médecin prescrit un contrôle de polymédication pharmacien, remboursé par l'assurance obligatoire dès 4 médicaments."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Le médecin arrête ou remplace l'agent interagissant, AINS en tête.",
+      "Le médecin évite l'antidote en l'absence de saignement, sauf vitamine K orale sous AVK.",
+      "Le médecin traite en ambulatoire si l'INR est < 9 sans saignement et le patient fiable."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Exclut un saignement actif et identifie l'agent interagissant et la dernière prise d'AOD."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Saute 1 à 2 doses d'AVK et donne la vitamine K orale selon l'INR ; sous AOD, adapte la dose ou change de molécule."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "pharmacien",
+       "fait": "Révise l'ensemble des médicaments, plantes et compléments, et propose une alternative sans interaction."
+      },
+      {
+       "temps": "puis",
+       "qui": "infirmier·ère",
+       "fait": "Contrôle l'INR à 48–72 h, puis à intervalles rapprochés jusqu'à stabilisation."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin de famille",
+       "fait": "Réévalue l'indication, la fonction rénale et le rapport bénéfice-risque de l'anticoagulation."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'éviction des co-prescriptions à risque réduit d'environ moitié le risque hémorragique ; la plupart des patients reviennent à une cible stable en quelques jours.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "INR",
+      "quand": "48 à 72 h après toute modification médicamenteuse, puis jusqu'à stabilisation",
+      "cible": "2 à 3 dans la plupart des indications"
+     },
+     {
+      "quoi": "Signes de saignement (gingivorragies, hématomes, méléna, hématurie)",
+      "quand": "À chaque contact et par auto-surveillance",
+      "cible": "Aucun saignement"
+     },
+     {
+      "quoi": "Fonction rénale sous AOD",
+      "quand": "Au moins annuelle, puis tous les (clairance/10) mois si altérée",
+      "cible": "Clairance supérieure au seuil de la molécule (dabigatran > 30 ml/min)"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si l'INR est < 9, absence de saignement, patient informé et contrôle de l'INR à 48–72 h organisé."
+   },
+   "prevention": {
+    "primaire": "Le patient informe tout prescripteur et pharmacien de son anticoagulation avant tout nouveau médicament ou produit en vente libre.",
+    "secondaire": "Le médecin met à jour la liste des médicaments et évite les azolés et ritonavir avec rivaroxaban et apixaban.",
+    "tertiaire": "Le médecin réévalue le score HAS-BLED et le choix de l'anticoagulant en cas de récidive."
+   }
+  },
+  {
+   "cle": "sous_dosage_inducteur",
+   "titre": "Sous-dosage anticoagulant par inducteur (rifampicine, millepertuis, antiépileptiques)",
+   "but": [
+    "Rétablir une anticoagulation efficace sans exposer au saignement.",
+    "Anticiper le surdosage lors de l'arrêt de l'inducteur."
+   ],
+   "moyens": {
+    "accueil": [
+     "Le médecin recherche signes d'embolie, déficit neurologique et thrombose veineuse ; un événement aigu impose une prise en charge urgente.",
+     "Le médecin dose l'INR (AVK) et note l'inducteur, sa durée et la date d'arrêt prévue."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Enoxaparine (héparine de bas poids moléculaire)",
+      "posologie": "1 mg/kg SC deux fois par jour en relais si INR sous-thérapeutique et risque thrombotique élevé (valve mécanique, MTEV) ; adapter si clairance < 30 ml/min.",
+      "pourquoi": "Elle couvre la période où l'AVK est inefficace sous inducteur, sans dépendre des enzymes induites.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Phenprocoumone ou acénocoumarol (AVK)",
+      "posologie": "Dose adaptée à l'INR cible (2 à 3 dans la plupart des indications), avec contrôles rapprochés pendant et après l'inducteur.",
+      "pourquoi": "Les besoins en AVK augmentent sous inducteur et chutent quand l'inducteur est arrêté, d'où risque de surdosage secondaire.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Le médecin explique que le millepertuis est à proscrire et que tout arrêt d'inducteur impose un nouveau contrôle de l'INR.",
+      "pourquoi": "L'effet de l'inducteur disparaît en 1 à 2 semaines et l'INR remonte."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Le médecin évalue le changement d'anticoagulant, la rifampicine étant à éviter avec les AOD.",
+      "pourquoi": "Les AOD perdent leur efficacité sous induction de la P-gp et du CYP3A4."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Le médecin annonce l'effet indésirable à Swissmedic via ElViS si l'événement est grave ou inattendu."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Le médecin arrête l'inducteur évitable, comme le millepertuis, et adapte l'anticoagulation.",
+      "Le médecin choisit un changement de classe si l'inducteur est indispensable (antiépileptique, antituberculeux).",
+      "Le médecin prévoit un contrôle rapproché de l'INR à l'arrêt de l'inducteur."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Identifie l'inducteur, évalue le risque thrombotique et exclut un événement embolique en cours."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Arrête l'inducteur évitable, ou adapte l'AVK sur l'INR, ou change d'anticoagulant ; relais par HBPM si risque élevé."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "pharmacien",
+       "fait": "Révise la liste des médicaments et signale toute interaction avec l'inducteur."
+      },
+      {
+       "temps": "puis",
+       "qui": "infirmier·ère",
+       "fait": "Contrôle l'INR à 48–72 h après tout changement, puis jusqu'à stabilisation."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Réduit la dose d'AVK à l'arrêt de l'inducteur pour éviter un surdosage 1 à 2 semaines plus tard."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le sous-dosage non compliqué se corrige en quelques jours avec contrôle de l'INR ; le risque principal est un AVC embolique ou une thrombose de valve avant correction.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "INR",
+      "quand": "48 à 72 h après introduction ou arrêt de l'inducteur, puis jusqu'à stabilisation",
+      "cible": "2 à 3 dans la plupart des indications"
+     },
+     {
+      "quoi": "Signes thromboemboliques (déficit neurologique, jambe, dyspnée)",
+      "quand": "À chaque contact",
+      "cible": "Aucun événement"
+     },
+     {
+      "quoi": "Remontée de l'INR après arrêt de l'inducteur",
+      "quand": "1 à 2 semaines après l'arrêt",
+      "cible": "Absence de surdosage"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire si aucun événement embolique n'est présent, relais par HBPM organisé si nécessaire et contrôle de l'INR planifié."
+   },
+   "prevention": {
+    "primaire": "Le médecin évite d'associer un inducteur à un AOD et déconseille le millepertuis chez tout patient anticoagulé.",
+    "secondaire": "Le médecin planifie le contrôle de l'INR avant et après chaque introduction ou arrêt d'un inducteur.",
+    "tertiaire": "Le médecin adapte le choix de l'anticoagulant au long cours après tout événement thrombotique."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7925,
+  "output_tokens": 24046,
+  "output_tokens_details": {
+   "thinking_tokens": 7454
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:58:03",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": {
+   "verdict": "🟧",
+   "date": "2026-11-26",
+   "aVerifier": [],
+   "audit": "AUDIT_V3_B"
+  }
+ }
+}
