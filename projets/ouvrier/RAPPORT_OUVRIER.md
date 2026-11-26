@@ -47,7 +47,7 @@ Dernier passage : **V2_N_recup** → en_cours (0.00 USD).
 | T7_transversal_lecons | sans_objet | 0 |  |
 | T6_vague_urgences | sans_objet | 0 |  |
 | V2_N_lot | fait | 1 | 0.0 |
-| V2_N_recup | en_cours | 1 | 0.0 |
+| V2_N_recup | en_cours | 2 | 0.0 |
 | V2_Q_lot | a_faire | 0 |  |
 | V2_Q_recup | a_faire | 0 |  |
 | V2_C_lot | a_faire | 0 |  |
