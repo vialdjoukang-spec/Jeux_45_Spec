@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
 <title>Paraclinique — choisir, lire et interpréter l'examen</title>
 <!-- Jeu PARACLINIQUE livré seul, fidèle à conception/html/paraclinique.html. Moteur 3D et fenêtres de tracés réutilisés depuis ../moteur (import, sans modification).
      Skills : obsidian-like-complex-network, 3d-images-upload-super, medical-workout, user-wanna-learn-all, web-aesthetic-github-toolkit, frontend-design.
@@ -33,16 +34,13 @@
     <p id="aideQ" class="mini">Tu choisis un organe pour le mode Organe, ou un examen pour le mode Examen ; la recherche tolère les fautes et les accents.</p>
     <ul id="propositions" role="listbox" hidden></ul>
   </div>
-  <div class="outils">
-    <button id="theme" title="Changer le fond : sept fonds contrastés"><i></i><span>Bleu ciel</span></button>
-    <button id="repli" title="Clic : replier le dernier circuit ouvert · double-clic : tout replier">↺ Replier</button>
-  </div>
   <details class="legende"><summary>Légende</summary>
     <ul>
       <li><span class="ic">+</span> La case cache une suite ; un clic la révèle, un second clic la replie.</li>
       <li><span class="ic">📄</span> La fiche complète de l'examen s'ouvre en fenêtre.</li>
       <li><span class="ic">📈</span> Un tracé calculé, avec curseurs, s'ouvre en fenêtre.</li>
-      <li><span class="ic">🖼</span> La fenêtre à deux clichés montre le cliché brut, puis annoté.</li>
+      <li><span class="ic">🖼</span> La pathologie ouvre la fenêtre à deux clichés : le patient annoté à gauche, la radio-anatomie normale à droite.</li>
+      <li><span class="ic gris-ic"></span> Une case grisée marquée « à produire » attend encore sa donnée validée.</li>
       <li><span class="ic">🧮</span> Le calculateur ou la grille de critères s'exécute sur tes valeurs.</li>
       <li><span class="ic">🎯</span> En Pratique, la case porte des défis à jouer.</li>
       <li><span class="ic pastille-ok"></span> Tu as réussi les défis de la case ; <span class="ic pastille-ko"></span> tu dois les revoir.</li>
@@ -53,6 +51,8 @@
 <button id="ouvrirCote" aria-controls="cote" aria-expanded="false">☰ Sommaire</button>
 <main id="scene" aria-label="Réseau des examens posé sur le corps 3D">
   <header id="tete"><h1 id="titre"></h1><p id="chaine"></p></header>
+  <div id="barre"><button id="theme" title="Changer le fond : sept fonds contrastés"><i></i><span>Blanc</span></button><button id="repli" title="Clic : replier le dernier circuit ouvert · double-clic : tout replier">↺ Replier</button></div>
+  <p id="aide">Survol : explication · Clic sur une case : révéler la suite · ↺ clic = repli sélectif · double-clic = repli global</p>
   <div id="pastilles" hidden></div>
   <div id="monde"><canvas id="gl"></canvas><canvas id="ln"></canvas><div id="cases"></div></div>
   <div id="zoom"><button data-z="1.15" title="Agrandir">+</button><button data-z="0.87" title="Réduire">−</button><button data-z="0" title="Recentrer">⌂</button></div>

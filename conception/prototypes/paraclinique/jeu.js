@@ -15,17 +15,17 @@ const sansAccent = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
 const charger = (() => { const c = {}; return u => c[u] ??= fetch(u).then(r => { if (!r.ok) throw new Error(u + ' : ' + r.status); return r.json(); }); })();
 
 const ONGLETS = {
-  imagerie: { titre: 'Imagerie : tu pars d\'une région', chaine: 'Région → technique → examen → organe → pathologie → fenêtre à deux clichés' },
-  biologie: { titre: 'Biologie : tu pars d\'un prélèvement', chaine: 'Prélèvement → examen → pathologie ; calculateurs et critères au niveau du prélèvement' },
-  explorations: { titre: 'Explorations fonctionnelles : tu pars d\'une fonction', chaine: 'Fonction → exploration → tracé ou diagnostic ; tracé calculé en fenêtre (📈)' }
+  imagerie: { titre: 'Examens paracliniques — imagerie topographique', chaine: 'Région → examens faisables → système d\'organe → organe → pathologie → fenêtre à deux clichés (patient annoté / radio-anatomie normale)' },
+  biologie: { titre: 'Examens paracliniques — biologie par prélèvement', chaine: 'Prélèvement → examens → interprétation, calculs et critères → diagnostic → traitement avec posologie' },
+  explorations: { titre: 'Examens paracliniques — explorations des fonctions', chaine: 'Fonction → exploration → tracé ou résultat → interprétation (seuils) → diagnostic → traitement' }
 };
 const MODES = {
   theorie: 'La théorie remplit l\'arbre que tu consultes : tu survoles une case pour lire son explication, puis tu ouvres la fiche (📄).',
   pratique: 'La pratique remplit le jeu : tu joues les défis de l\'onglet dans le panneau, et les cases se colorent au fil de tes réussites.'
 };
 const CORPS = { voile: [-58, -230, 630, 58, -60, 790], opacitePeau: .2, cible: [470, -90, 1080], dist: 4500, fov: 22 };
-const TH = [['ciel', 'Bleu ciel'], ['blanc', 'Blanc'], ['champagne', 'Champagne'], ['or', 'Or pâle'], ['menthe', 'Vert pâle'], ['nuit', 'Nuit'], ['anthracite', 'Anthracite']];
-const G = 40, GF = 9, GC = 20;
+const TH = [['blanc', 'Blanc'], ['ciel', 'Bleu ciel'], ['champagne', 'Champagne'], ['or', 'Or pâle'], ['menthe', 'Vert pâle'], ['nuit', 'Nuit'], ['anthracite', 'Anthracite']];
+let G = 40; const GF = 9, GC = 20;
 
 const etat = { onglet: 'imagerie', mode: 'theorie', N: [], byId: {}, ouvert: new Set(), pile: [], vue: { tx: 0, ty: 0, s: 1 }, organe: null, glo: {}, rub: {} };
 const scene = $('#scene'), monde = $('#monde'), cases = $('#cases'), gl = $('#gl'), ln = $('#ln'), bulle = $('#bulle');
@@ -84,7 +84,7 @@ const ancre = n => {
 
 /* ======================================================================== taille de la scène et vue (déplacement, zoom) */
 function mesurer() {
-  const r = scene.getBoundingClientRect(); mobile = r.width < 700; W = Math.round(r.width); H = Math.round(r.height);
+  const r = scene.getBoundingClientRect(); mobile = r.width < 700; W = Math.round(r.width); H = Math.round(r.height); G = W < 1500 ? 30 : 40;
   R.setSize(W, H, false); gl.style.width = W + 'px'; gl.style.height = H + 'px';
 }
 function appliquerVue() { const v = etat.vue; monde.style.transform = `translate(${v.tx}px,${v.ty}px) scale(${v.s})`; }
@@ -104,19 +104,21 @@ function construire(noeuds) {
   const prof = n => n._p ?? (n._p = n.de.length ? 1 + Math.max(...n.de.map(p => prof(byId[p]))) : 0); N.forEach(prof);
   for (const n of N) { if (mobile) n.cote = 'd'; else if (!n.cote) n.cote = (function c(m) { return m.cote || c(byId[m.de[0]]); })(n); }
   for (const n of N) {
-    const el = document.createElement('div'); el.className = 'n cache ' + n.cote + (n.enf.length ? '' : ' feuille') + (n.de.length ? '' : ' racine') + (n.aRediger ? ' gris' : '');
+    const el = document.createElement('div'); el.className = 'n cache ' + n.cote + (n.enf.length || n.cliches ? '' : ' feuille') + (n.de.length ? '' : ' racine') + (n.aRediger ? ' gris' : '');
     el.style.setProperty('--c', n.couleur || '#64748b'); el.tabIndex = -1;
     const ics = [];
-    if (n.enf.length) ics.push('<span class=plus>+</span>');
+    if (n.enf.length || n.cliches) ics.push('<span class=plus>+</span>');
     if (n.fiche && n.exRef) ics.push('<span data-a=fiche title="Ouvrir la fiche complète">📄</span>');
     if (n.fenetre) ics.push('<span data-a=trace title="Ouvrir le tracé calculé">📈</span>');
     if (n.cliches) ics.push('<span data-a=cliches title="Ouvrir la fenêtre à deux clichés">🖼</span>');
+    if (n.clichesAProduire) ics.push('<span class=apx title="Les deux clichés de cette pathologie restent à produire">🖼</span>');
     if (n.outil) ics.push('<span data-a=outil title="Ouvrir le calculateur ou la grille">🧮</span>');
     if (n.a3d) ics.push('<span data-a=3d title="Tourner l\'organe en 3D">🧊</span>');
     ics.push('<span data-a=jouer class=jouer title="Jouer les défis de cette case" hidden>🎯</span>');
     el.innerHTML = (n.type ? '<b class=ty>' + esc(n.type) + '</b>' : '') + esc(n.texte) + '<span class=ics>' + ics.join('') + '</span>';
     el.style.setProperty('--ni', ics.length);
     cases.appendChild(el); n.el = el;
+    if (n.cliches) n.fenEl = fenetreCliches(n);
     el.addEventListener('click', e => { const a = e.target.closest('[data-a]'); if (a) { e.stopPropagation(); action(n, a.dataset.a); return; } basculer(n); });
     el.addEventListener('mouseenter', () => montrer(n)); el.addEventListener('mouseleave', () => cacherBulle());
     el.addEventListener('focus', () => montrer(n)); el.addEventListener('blur', () => cacherBulle());
@@ -127,7 +129,7 @@ function construire(noeuds) {
   if (pratique) pratique.marquer();
 }
 function basculer(n) {
-  if (!n.enf.length) { if (n.cliches) action(n, 'cliches'); else if (n.outil) action(n, 'outil'); else if (n.fenetre) action(n, 'trace'); return; }
+  if (!n.enf.length && !n.cliches) { if (n.outil) action(n, 'outil'); else if (n.fenetre) action(n, 'trace'); return; }
   if (etat.ouvert.has(n.id)) replier(n.id);
   else { /* un circuit à la fois (plan § 2) : ouvrir une case replie ses sœurs ouvertes */
     const soeurs = n.de.length ? etat.byId[n.de[0]].enf : etat.N.filter(m => !m.de.length && m.cote === n.cote).map(m => m.id);
@@ -144,12 +146,17 @@ function montrerSuite(n) { /* la vue glisse pour montrer la suite qu'on vient d'
   monde.style.transition = 'transform .35s'; appliquerVue(); setTimeout(() => monde.style.transition = '', 400);
 }
 function replier(id) { etat.ouvert.delete(id); for (const c of etat.byId[id].enf) replier(c); }
+/* focus : quand une case ouverte a plus de 6 sœurs, les sœurs fermées s'effacent (un circuit à la fois, plan § 2) ; un nouveau clic sur la case ouverte les fait revenir */
+const FOCUS = 2;
+/* quand la fenêtre à deux clichés est ouverte, la chaîne qui y mène reste seule (pilote) : la fenêtre garde toute la place sous elle */
+const fenOuverte = () => etat.N.some(n => n.cliches && etat.ouvert.has(n.id));
+const focusDe = P => { if (!etat.ouvert.has(P.id) || P.enf.length <= 1 || (P.enf.length <= FOCUS && !fenOuverte())) return null; const o = P.enf.filter(i => etat.ouvert.has(i)); return o.length ? P.enf.filter(i => etat.ouvert.has(i) || ['Calcul', 'Critère'].includes(etat.byId[i].nature)) : null; };
 { let t = null; const rb = $('#repli');
   rb.onclick = () => { clearTimeout(t); t = setTimeout(() => { while (etat.pile.length) { const id = etat.pile.pop(); if (etat.ouvert.has(id)) { replier(id); break; } } dessiner(); }, 240); };
   rb.ondblclick = () => { clearTimeout(t); etat.ouvert.clear(); etat.pile.length = 0; dessiner(); }; }
 
 /* ======================================================================== disposition symétrique (recalculée à chaque clic sur les cases visibles) */
-const visible = n => !n.de.length || n.de.some(p => etat.ouvert.has(p) && visible(etat.byId[p]));
+const visible = n => !n.de.length || n.de.some(p => { if (!etat.ouvert.has(p) || !visible(etat.byId[p])) return false; const f = focusDe(etat.byId[p]); return !f || f.includes(n.id); });
 let COL = 160;
 function recadrer(dR, dLft) { /* le corps glisse vers le côté opposé au développement */
   const bodyW = Rr - L, cibleC = mobile ? 132 : 168, needR = (dR + 1) * (cibleC + G), needL = (dLft + 1) * (cibleC + G), dispo = W - 24 - bodyW;
@@ -171,7 +178,7 @@ function disposer() {
   for (const n of vis) { n.w = n.el.offsetWidth; n.h = n.el.offsetHeight; const pas = (COL + G) * n._p; n.x = n.cote === 'd' ? Rr + G + pas + COL / 2 : L - G - pas - COL / 2; }
   const grp = {}; vis.filter(n => n.de.length === 1).forEach(n => (grp[n.de[0]] ??= []).push(n));
   for (const f of Object.values(grp)) { const h = Math.max(...f.map(n => n.h)); f.forEach(n => { if (n.h < h) { n.el.style.minHeight = h + 'px'; n.h = h; } }); }
-  const haut = mobile ? 112 : 74, bas = H - (mobile ? 50 : 14);
+  const haut = mobile ? 112 : 88, bas = H - (mobile ? 50 : 14);
   const fils = n => etat.ouvert.has(n.id) ? n.enf.map(i => byId[i]).filter(c => c && visible(c)) : [];
   const gap = (a, b) => (fils(a).length || fils(b).length) ? GC : GF;
   const span = n => { const ks = fils(n); if (!ks.length) return n.h; let t = 0; ks.forEach((k, i) => t += span(k) + (i ? gap(ks[i - 1], k) : 0)); return Math.max(n.h, t); };
@@ -193,7 +200,18 @@ function disposer() {
       if (best === null) best = Math.max(...pris0.map(p => p[1]), haut) + GF + h / 2;
       a[0].y = best; pris0.push([best - h / 2, best + h / 2]); }
   }
+  /* fenêtre à deux clichés posée dans la toile sous la pathologie, comme le pilote : la chaîne remonte en bloc si la fenêtre déborde */
+  for (const n of N) { if (!n.fenEl) continue; const on = etat.ouvert.has(n.id) && vis.includes(n); n.fenEl.hidden = !on; if (!on) continue;
+    const ww = mobile ? W - 16 : Math.min(480, W - 24); n.fenEl.style.width = ww + 'px'; const wh = n.fenEl.offsetHeight;
+    const racineDe = m => { while (m.de.length) m = byId[m.de[0]]; return m; }, rac = racineDe(n);
+    const wx = mobile ? 8 : n.cote === 'd' ? Math.max(Rr + 8, Math.min(W - 12 - ww, n.x + n.w / 2 - ww)) : Math.min(L - 8 - ww, Math.max(12, n.x - n.w / 2));
+    const arbre = vis.filter(m => m !== rac && racineDe(m) === rac), dessous = m => m.x + m.w / 2 > wx && m.x - m.w / 2 < wx + ww && m.y >= n.y - 1;
+    const wyDe = () => Math.max(n.y + n.h / 2 + 26, ...arbre.filter(dessous).map(m => m.y + m.h / 2 + 18));
+    const hautArbre = Math.min(...arbre.map(m => m.y - m.h / 2)), d = Math.max(haut - hautArbre, Math.min(0, bas - wyDe() - wh));
+    if (d) arbre.forEach(m => m.y += d);
+    n.fx = [wx, wyDe(), ww, wh]; n.fenEl.style.left = wx + 'px'; n.fenEl.style.top = n.fx[1] + 'px'; }
   let maxX = W, maxY = H;
+  for (const n of N) if (n.fx && !n.fenEl.hidden) { maxX = Math.max(maxX, n.fx[0] + n.fx[2] + 16); maxY = Math.max(maxY, n.fx[1] + n.fx[3] + 16); }
   for (const n of vis) { n.el.style.left = (n.x - n.w / 2) + 'px'; n.el.style.top = n.y + 'px'; maxX = Math.max(maxX, n.x + n.w / 2 + 16); maxY = Math.max(maxY, n.y + n.h / 2 + 16); }
   ln.width = maxX; ln.height = maxY; ln.style.width = maxX + 'px'; ln.style.height = maxY + 'px';
   rendre();
@@ -215,7 +233,12 @@ function dessiner() {
     const d = K[0].cote === 'd' ? 1 : -1, col = P.couleur || trait, x0 = bord(P, d > 0), xb = x0 + d * G * .32, ys = K.map(k => k.y).concat([P.y]);
     seg([[x0, P.y], [xb, P.y]], col, 2.2); if (K.length > 1 || Math.abs(K[0].y - P.y) > 1) seg([[xb, Math.min(...ys)], [xb, Math.max(...ys)]], col, 2.2); rond([xb, P.y], col);
     for (const k of K) { const e = [bord(k, d < 0), k.y]; seg([[xb, k.y], e], col, 1.9); pointe(e, d, col); }
+    const f = focusDe(P); if (f && P.enf.length > f.length) { const k = etat.byId[f.find(i => etat.ouvert.has(i))], reste = P.enf.length - f.length; /* sœurs effacées : leur nombre reste lisible sous la case ouverte */
+      x.font = '11px ' + (getComputedStyle(document.body).fontFamily || 'sans-serif'); x.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--sous').trim() || '#3b4b5c';
+      x.textAlign = d > 0 ? 'left' : 'right'; x.fillText('+ ' + reste + ' autre' + (reste > 1 ? 's' : '') + ' (re-clic)', bord(k, d < 0), k.y + k.h / 2 + 13); x.textAlign = 'left'; }
   }
+  for (const n of vis) { if (!n.fx || n.fenEl.hidden) continue; const col = n.couleur || trait, [wx, wy, ww] = n.fx, xs = Math.min(Math.max(n.x, wx + 24), wx + ww - 24);
+    seg([[xs, n.y + n.h / 2], [xs, wy]], col, 2.2); x.fillStyle = col; x.beginPath(); x.moveTo(xs, wy); x.lineTo(xs - 5, wy - 9); x.lineTo(xs + 5, wy - 9); x.fill(); }
 }
 
 /* ======================================================================== infobulle symétrique + glossaire */
@@ -228,12 +251,14 @@ const gloser = h => GRE ? String(h).split(/(<[^>]+>)/).map(p => p.startsWith('<'
 function montrer(n) {
   if (!n.bulle || n.el.classList.contains('cache')) return;
   const RUB = etat.rub[n.rubriques] || etat.rub.region || [['def', 'Ce que c\'est']], B = n.bulle;
-  const lignes = RUB.filter(([k]) => B[k]).map(([k, l]) => '<dt>' + l + '</dt><dd>' + esc(B[k]) + '</dd>').join('');
-  const pied = [n.fiche && n.exRef ? '📄 ouvre la fiche complète' : '', n.fenetre ? '📈 ouvre le tracé calculé' : '', n.cliches ? '🖼 ouvre les deux clichés' : '', n.outil ? '🧮 ouvre le calculateur' : '', n.enf.length ? 'un clic révèle la suite' : ''].filter(Boolean).join(' · ');
+  const lignes = RUB.filter(([k]) => B[k]).map(([k, l]) => '<dt>' + l + '</dt><dd>' + esc(B[k]) + '</dd>').join('')
+    + (B.traitement ? '<dt class=trt>Traitement</dt><dd>' + B.traitement.map(([m, p]) => '<b>' + esc(m) + '</b> : ' + esc(p)).join('<br>') + (B.source ? '<div class=src>Source : ' + esc(B.source) + '</div>' : '') + '</dd>' : '');
+  const pied = [n.fiche && n.exRef ? '📄 ouvre la fiche complète' : '', n.fenetre ? '📈 ouvre le tracé calculé' : '', n.cliches ? 'un clic ouvre les deux clichés' : n.clichesAProduire ? 'les deux clichés restent à produire' : '', n.outil ? '🧮 ouvre le calculateur' : '', n.enf.length ? 'un clic révèle la suite' : ''].filter(Boolean).join(' · ');
   bulle.innerHTML = gloser('<h4>' + esc(n.texte) + '</h4><dl>' + lignes + '</dl>') + (pied ? '<div class=pied>' + pied + '.</div>' : '');
   bulle.style.setProperty('--c', n.couleur || 'var(--acc)'); bulle.style.display = 'block';
   const r = n.el.getBoundingClientRect(), bw = bulle.offsetWidth, bh = bulle.offsetHeight;
-  let bx = r.right + 12; if (bx + bw > innerWidth - 8) bx = r.left - bw - 12; if (bx < 8) bx = Math.max(8, Math.min(innerWidth - bw - 8, r.left));
+  /* comme le moteur reseau3d : l'infobulle se pose du côté du corps, pour ne pas couvrir la suite du circuit */
+  let bx = n.cote === 'd' ? r.left - bw - 12 : r.right + 12; if (bx < 8) bx = r.right + 12; if (bx + bw > innerWidth - 8) bx = r.left - bw - 12; if (bx < 8) bx = Math.max(8, Math.min(innerWidth - bw - 8, r.left));
   let by = Math.min(Math.max(r.top + r.height / 2 - bh / 2, 8), innerHeight - bh - 8); if (mobile) by = r.bottom + 8 + bh > innerHeight ? Math.max(8, r.top - bh - 8) : r.bottom + 8;
   bulle.style.left = bx + 'px'; bulle.style.top = by + 'px';
 }
@@ -268,19 +293,23 @@ async function ficheExamen(stem, exId, couleur) {
   const b3 = c.querySelector('#voir3d'); if (b3) b3.onclick = () => { fen.hidden = true; ouvrirFenetre('3d', o.nom, couleur, o.a3d); };
 }
 function fenetreCliches(n) {
-  const f = n.cliches, c = ouvrirFen('Fenêtre à deux clichés : ' + n.texte, '#2a9d8f', `<p>Tu observes d'abord le cliché brut ; tu affiches ensuite les repères numérotés et tu compares avec la radio-anatomie normale lettrée.</p>
-   <div class=cli><figure><figcaption><span>Cliché du patient</span><button id=basc>Montrer les repères</button></figcaption><img id=ipat alt="Radiographie thoracique de face du patient" src="${esc(f.img)}"><canvas id=cpat></canvas></figure>
-   <figure><figcaption><span>Radio-anatomie normale</span></figcaption><img id=inor alt="Radiographie thoracique de face normale" src="${esc(f.normal.img)}"><canvas id=cnor></canvas></figure></div>
-   <h3>Lésions, numérotées</h3><ol id=les></ol><h3>Repères normaux, lettrés</h3><ul id=rep style="list-style:none;margin-left:0"></ul>
-   <h3>Diagnostic</h3><p>${esc(f.diagnostic)}</p><h3>Conduite</h3><p>${esc(f.conduite)}</p><p class=mini>Source : ${esc(f.source || '')}</p>`);
-  const des = (img, cv, rep) => { const go = () => { cv.width = img.clientWidth; cv.height = img.clientHeight; cv.style.top = img.offsetTop + 'px'; const q = cv.getContext('2d'), k = img.clientWidth / img.naturalWidth;
-    for (const a of rep) { q.strokeStyle = a.couleur || '#2a9d8f'; q.lineWidth = 2; q.setLineDash(a.pointille ? [5, 4] : []); q.beginPath(); q.ellipse(a.x * k, a.y * k, a.rx * k, a.ry * k, 0, 0, 7); q.stroke(); q.setLineDash([]);
-      const cx = a.x * k + a.rx * k * .75, cy = a.y * k - a.ry * k * .75; q.fillStyle = a.couleur || '#2a9d8f'; q.beginPath(); q.arc(cx, cy, 9, 0, 7); q.fill(); q.fillStyle = '#111'; q.font = '700 11px Atk'; q.textAlign = 'center'; q.fillText(a.n, cx, cy + 4); } };
-    img.complete && img.naturalWidth ? go() : img.onload = go; };
-  const cp = c.querySelector('#cpat'); cp.style.display = 'none'; des(c.querySelector('#ipat'), cp, f.annotations); des(c.querySelector('#inor'), c.querySelector('#cnor'), f.normal.reperes);
-  c.querySelector('#basc').onclick = e => { const v = cp.style.display === 'none'; cp.style.display = v ? 'block' : 'none'; e.target.textContent = v ? 'Masquer les repères' : 'Montrer les repères'; };
-  c.querySelector('#les').innerHTML = f.annotations.map(a => '<li>' + esc(a.texte) + '</li>').join('');
-  c.querySelector('#rep').innerHTML = f.normal.reperes.map(a => '<li><b>' + esc(a.n) + '.</b> ' + esc(a.texte) + '</li>').join('');
+  /* Fenêtre du pilote (conception/prototypes/paraclinique.png) : patient à gauche (lésions numérotées, bouton Annoté / Brut),
+     radio-anatomie normale à droite (repères lettrés), puis la description énumérative des lésions et des repères. */
+  const f = n.cliches, w = document.createElement('div'); w.className = 'fcli'; w.hidden = true; w.style.setProperty('--c', '#2a9d8f');
+  w.innerHTML = `<div class=ft>${esc(f.titre)}</div><div class=duo>
+    <figure><figcaption><span>Cliché du patient</span><button class=basc title="Afficher ou masquer les lésions numérotées">Annoté</button></figcaption><div class=cadre><img class=ipat alt="Radiographie thoracique de face du patient" src="${esc(f.img)}"><canvas class=cpat></canvas></div></figure>
+    <figure><figcaption><span>Radio-anatomie normale</span></figcaption><div class=cadre><img class=inor alt="Radiographie thoracique de face normale" src="${esc(f.normal.img)}"><canvas class=cnor></canvas></div></figure></div>
+    <div class=duo><ol class=les>${f.annotations.map(a => '<li>' + esc(a.texte) + '</li>').join('')}</ol><ul class=rep>${f.normal.reperes.map(a => '<li><b>' + esc(a.n) + '.</b> ' + esc(a.texte) + '</li>').join('')}</ul></div>
+    <details><summary>Diagnostic, conduite et source</summary><p>${esc(f.diagnostic)}</p><p>${esc(f.conduite)}</p><p class=mini>${esc(f.source || '')}</p></details>`;
+  const des = (img, cv, rep) => { const go = () => { cv.width = img.clientWidth; cv.height = img.clientHeight; const q = cv.getContext('2d'), k = img.clientWidth / img.naturalWidth;
+      for (const a of rep) { q.strokeStyle = a.couleur || '#2a9d8f'; q.lineWidth = 2; q.setLineDash(a.pointille ? [5, 4] : []); q.beginPath(); q.ellipse(a.x * k, a.y * k, a.rx * k, a.ry * k, 0, 0, 7); q.stroke(); q.setLineDash([]);
+        const cx = a.x * k + a.rx * k * .75, cy = a.y * k - a.ry * k * .75; q.fillStyle = a.couleur || '#2a9d8f'; q.beginPath(); q.arc(cx, cy, 9, 0, 7); q.fill(); q.fillStyle = '#111'; q.font = '700 11px Atk'; q.textAlign = 'center'; q.fillText(a.n, cx, cy + 4); } };
+    img.complete && img.naturalWidth ? go() : img.addEventListener('load', go); new ResizeObserver(() => img.naturalWidth && img.clientWidth && go()).observe(img); };
+  const cp = w.querySelector('.cpat'); des(w.querySelector('.ipat'), cp, f.annotations); des(w.querySelector('.inor'), w.querySelector('.cnor'), f.normal.reperes);
+  w.querySelector('.basc').onclick = e => { e.stopPropagation(); const v = cp.style.display === 'none'; cp.style.display = v ? 'block' : 'none'; e.target.textContent = v ? 'Annoté' : 'Brut'; };
+  w.querySelectorAll('img').forEach(im => im.addEventListener('load', () => etat.N.length && dessiner()));
+  w.addEventListener('pointerdown', e => e.stopPropagation()); w.querySelector('details').addEventListener('toggle', () => dessiner());
+  cases.appendChild(w); return w;
 }
 function fenetreOutil(n) {
   const x = (etat.outils || {})[n.outil]; if (!x) return; const calc = CALCS[n.outil];
@@ -303,7 +332,7 @@ function action(n, a) {
   bulle.style.display = 'none';
   if (a === 'fiche') ficheExamen(n.fiche, n.exRef, n.couleur);
   else if (a === 'trace') { fen.hidden = true; ouvrirFenetre(n.fenetre, n.texte, n.couleur, null); }
-  else if (a === 'cliches') fenetreCliches(n);
+  else if (a === 'cliches') { if (!etat.ouvert.has(n.id)) basculer(n); }
   else if (a === 'outil') fenetreOutil(n);
   else if (a === '3d') { fen.hidden = true; ouvrirFenetre('3d', n.texte, n.couleur, n.a3d); }
   else if (a === 'jouer' && pratique) pratique.jouerCase(n);
@@ -328,7 +357,7 @@ async function changerMode(m) {
 }
 $$('.modes button').forEach(b => b.onclick = () => changerMode(b.dataset.mode));
 $$('.sommaire button').forEach(b => b.onclick = () => { document.body.classList.remove('cote-ouvert'); ouvrirOnglet(b.dataset.onglet); });
-let ti = Math.max(0, TH.findIndex(t => t[0] === (Q.get('theme') || 'ciel')));
+let ti = Math.max(0, TH.findIndex(t => t[0] === (Q.get('theme') || 'blanc')));
 const setTheme = () => { document.documentElement.dataset.theme = TH[ti][0]; $('#theme span').textContent = TH[ti][1]; if (etat.N.length) dessiner(); };
 $('#theme').onclick = () => { ti = (ti + 1) % TH.length; setTheme(); };
 $('#ouvrirCote').onclick = () => { const o = document.body.classList.toggle('cote-ouvert'); $('#ouvrirCote').setAttribute('aria-expanded', o); };

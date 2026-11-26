@@ -45,11 +45,11 @@ button,input,select{font:inherit;color:inherit}
 /* ---------- scène : corps 3D + réseau ---------- */
 #scene{position:fixed;inset:0 0 0 var(--cote);overflow:hidden;background:radial-gradient(ellipse 32% 52% at var(--cx,50%) 54%,var(--ombre) 0%,var(--mi) 60%,var(--fond) 100%);touch-action:none}
 #tete{position:absolute;left:0;top:0;right:0;z-index:5;pointer-events:none;padding:10px 18px 8px;background:linear-gradient(var(--fond) 70%,transparent)}
-#titre{margin:0;font:700 19px/1.2 var(--titre)}#chaine{margin:2px 0 0;font-size:12.5px;color:var(--sous)}
+#titre{margin:0;font:700 19px/1.2 var(--titre)}#chaine{margin:2px 0 0;font-size:12.5px;color:var(--sous);max-width:calc(100% - 540px)}
 #monde{position:absolute;left:0;top:0;transform-origin:0 0}
 #gl,#ln{position:absolute;left:0;top:0}#ln{pointer-events:none}
 #cases{position:absolute;left:0;top:0}
-#zoom{position:absolute;right:14px;bottom:14px;display:flex;gap:6px;z-index:6}
+#zoom{position:absolute;left:14px;bottom:30px;display:flex;gap:6px;z-index:6}
 #zoom button{width:32px;height:32px;border-radius:50%;border:1px solid var(--bord);background:var(--carte);font-weight:700;cursor:pointer}
 #etat{position:absolute;left:18px;bottom:8px;margin:0;font-size:12px;color:var(--sous);z-index:5}
 #pastilles{position:absolute;left:18px;top:62px;z-index:6;display:flex;gap:6px;flex-wrap:wrap;max-width:70%}
@@ -59,7 +59,7 @@ button,input,select{font:inherit;color:inherit}
 .n{position:absolute;display:flex;flex-direction:column;justify-content:center;width:var(--w);padding:5px 9px 6px;border-radius:7px;font-size:12.5px;line-height:1.25;background:var(--carte);color:var(--texte);
  border:1px solid var(--bord);box-shadow:0 2px 7px #0002;cursor:pointer;transform:translateY(-50%);user-select:none;transition:opacity .2s}
 .n.d{border-left:5px solid var(--c)}.n.g{border-right:5px solid var(--c)}
-.n b.ty{display:block;font-size:10px;letter-spacing:.03em;color:var(--c);margin-bottom:1px;font-weight:700}
+.n b.ty{display:block;font-size:9.5px;letter-spacing:.035em;text-transform:uppercase;color:var(--c);margin-bottom:1px;font-weight:700}
 [data-theme=nuit] .n b.ty,[data-theme=anthracite] .n b.ty{filter:brightness(1.4)}
 .n.cache{display:none}.n.ouvert{outline:1.5px solid var(--c);outline-offset:2px}.n.feuille{cursor:default}
 .n .ics{position:absolute;right:5px;top:4px;display:flex;gap:3px;font-size:12px;line-height:1}.n.g .ics{right:auto;left:5px}
@@ -68,12 +68,13 @@ button,input,select{font:inherit;color:inherit}
 .n{overflow-wrap:break-word}
 .n .ics span{cursor:pointer}.n .plus{font-weight:700;color:var(--c)}.n.ouvert .plus{display:none}
 .n.terne{opacity:.4}.n.ok{box-shadow:0 0 0 2px var(--ok),0 2px 7px #0002}.n.ko{box-shadow:0 0 0 2px var(--ko),0 2px 7px #0002}
-.n.gris{border-color:#c8ccd4}.n.racine{font-weight:700}
+.n.gris{border-color:#c8ccd4;border-style:dashed;background:#eef0f3;color:#5b6472}.n.gris b.ty{color:#6b7280}
+.n .apx{opacity:.3;cursor:help}.gris-ic{width:14px;height:11px;min-width:14px!important;border:1.5px dashed #8a929e;background:#eef0f3;border-radius:3px;vertical-align:-1px}
 /* infobulle symétrique */
 #bulle{position:fixed;z-index:50;display:none;width:340px;max-height:calc(100vh - 40px);overflow:auto;background:var(--carte);color:var(--texte);border:1px solid var(--bord);border-top:5px solid var(--c,var(--acc));
  border-radius:9px;padding:9px 12px;box-shadow:var(--shadow-5,0 8px 28px #0004);font-size:12.5px;line-height:1.42}
 #bulle h4{margin:0 0 6px;font-size:13.5px}#bulle dl{margin:0;display:grid;grid-template-columns:112px 1fr;gap:5px 8px}
-#bulle dt{font-weight:700;color:var(--c,var(--acc));font-size:11.5px;padding-top:1px}#bulle dd{margin:0}
+#bulle dt{font-weight:700;color:var(--c,var(--acc));font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;padding-top:2px}#bulle dt.trt{color:#15803d}#bulle .src{font-size:11px;color:var(--sous);margin-top:3px}#bulle dd{margin:0}
 #bulle .pied{margin-top:7px;padding-top:6px;border-top:1px solid var(--bord);color:var(--sous);font-size:11.5px}
 .terme{border-bottom:1.5px dotted currentColor;cursor:help;position:relative}
 .terme:hover::after{content:attr(data-def);position:absolute;left:0;top:1.45em;z-index:60;width:250px;background:var(--texte);color:var(--carte);font:400 12px/1.4 var(--police);padding:7px 9px;border-radius:7px;box-shadow:0 6px 18px #0005;white-space:normal}
@@ -126,13 +127,33 @@ body[data-mode=pratique] #scene{right:360px}
 #pratique .groupes{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0}#pratique .groupes button{border:1px solid var(--bord);background:var(--carte);border-radius:999px;padding:3px 10px;font-size:12px;cursor:pointer}
 #pratique .garde{font-size:11.5px;color:var(--sous);margin-top:10px}
 #pratique .lien{background:none;border:0;color:var(--acc);text-decoration:underline;cursor:pointer;padding:0;font-size:12.5px}
+/* ---------- barre du pilote : thème et repli en haut à droite de la toile ---------- */
+#barre{position:absolute;right:16px;top:10px;z-index:7;display:flex;gap:8px}
+#barre button{border:1px solid var(--bord);background:var(--carte);border-radius:999px;padding:6px 13px;font-weight:700;font-size:12px;cursor:pointer}
+#barre button i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px;border:1px solid #0003;background:var(--fond)}
+#aide{position:absolute;right:16px;top:46px;z-index:7;margin:0;font-size:11.5px;color:var(--sous)}
+/* ---------- fenêtre à deux clichés posée dans la toile (pilote) ---------- */
+.fcli{position:absolute;z-index:4;background:var(--carte);color:var(--texte);border:1px solid var(--bord);border-top:5px solid var(--c);border-radius:14px;padding:10px;font-size:12.5px;line-height:1.42;box-shadow:0 6px 24px #0003;cursor:default}
+.fcli .ft{font-weight:700;margin-bottom:6px}.fcli .duo{display:flex;gap:10px}.fcli figure{margin:0;flex:1}.fcli .duo>ol,.fcli .duo>ul{flex:1;margin:8px 0 0;padding:0 0 0 18px}.fcli .duo>ul{list-style:none;padding:0}
+.fcli figcaption{display:flex;justify-content:space-between;align-items:center;color:var(--sous);margin-bottom:3px}.fcli .cadre{position:relative}.fcli img{width:100%;display:block;border-radius:4px}
+.fcli canvas{position:absolute;left:0;top:0;pointer-events:none}.fcli .basc{border:1px solid var(--c);background:transparent;border-radius:99px;padding:1px 8px;font-weight:700;font-size:10.5px;cursor:pointer}
+.fcli details{margin-top:6px;border-top:1px solid var(--bord);padding-top:4px}.fcli summary{cursor:pointer;font-weight:700;color:var(--sous)}.fcli p{margin:4px 0}
+/* ---------- écran moyen : le sommaire devient un tiroir pour laisser la toile entière au réseau (pilote) ---------- */
+@media (min-width:761px) and (max-width:1499px){
+ :root{--cote:0px}
+ #cote{transform:translateX(-102%);transition:transform .2s;width:290px;box-shadow:6px 0 24px #0003}
+ body.cote-ouvert #cote{transform:none}
+ #ouvrirCote{display:block;position:fixed;left:12px;top:12px;z-index:31;border:1px solid var(--bord);background:var(--carte);border-radius:999px;padding:5px 12px;font-weight:700;cursor:pointer}
+ #tete{padding-left:128px}
+}
 /* ---------- petit écran (380 px) ---------- */
 @media (max-width:760px){
  :root{--cote:0px}
  #cote{transform:translateX(-102%);transition:transform .2s;width:min(300px,88vw);box-shadow:6px 0 24px #0003}
  body.cote-ouvert #cote{transform:none}
  #ouvrirCote{display:block;position:fixed;left:10px;top:8px;z-index:31;border:1px solid var(--bord);background:var(--carte);border-radius:999px;padding:5px 12px;font-weight:700}
- #tete{padding:46px 12px 8px}#titre{font-size:16px}#chaine{font-size:11.5px}#etat{display:none}
+ #tete{padding:46px 12px 8px}#titre{font-size:16px}#chaine{font-size:11.5px;max-width:none}#etat{display:none}
+ #barre{top:6px;right:8px;gap:4px}#barre button{padding:4px 9px;font-size:11px}#aide{display:none}
  #pastilles{top:96px;left:12px}
  .n{font-size:11.5px;padding-top:4px;padding-bottom:5px}
  #pratique{left:0;right:0;width:auto;top:auto;height:58vh;border-left:0;border-top:1px solid var(--bord);box-shadow:0 -6px 20px #0002}

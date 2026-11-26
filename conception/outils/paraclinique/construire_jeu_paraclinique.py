@@ -1,9 +1,10 @@
 """Jeu PARACLINIQUE livré seul (0 token) : fabrique les données de conception/prototypes/paraclinique/ à partir des sources du dépôt.
 
 Le plan de conception (conception/html/paraclinique.html) fixe la forme :
-  - Imagerie       : région → technique → examen → organe → pathologie → fenêtre à deux clichés (§ 10, X3, X4) ;
-  - Biologie       : famille de prélèvements → prélèvement → (famille d'analyses) → examen → pathologie, plus calculateurs et critères (§ 10, X1, X2) ;
-  - Explorations   : fonction → exploration → tracé ou diagnostic, fenêtre de tracé calculé quand le moteur en possède une (§ 10, X5) ;
+  - Imagerie       : région → examens faisables → système d'organe → organe → pathologie → fenêtre à deux clichés (prompt de Vial, § 10, X3, X4) ;
+  - Biologie       : prélèvement → (famille d'analyses si > 14 examens) → examen → interprétation, calculs, critères → diagnostic → traitement (§ 10, X1, X2) ;
+  - Explorations   : fonction → exploration → tracé → interprétation (seuils) → diagnostic → traitement ; tracé calculé en fenêtre (§ 10, X5) ;
+  - Traitements    : repris tels quels de la Tétrade (posologie et source) ; sans correspondance exacte, case grisée « à produire » ;
   - Mode Organe    : un fichier par organe (examens de toutes modalités, anomalies élémentaires, syndromes, pathologies) (§ 8) ;
   - Pratique       : les défis jumeaux (conception/donnees/pratique/paraclinique) et les 20 cas du thorax (§ 9, § 18, § 19).
 Le script ne rédige rien : il range, relie et recopie les textes déjà produits et audités. Les clichés « candidats » non validés
@@ -96,13 +97,10 @@ for p in [os.path.join(D, "glossaire_sigles.json")] + glob.glob(os.path.join(P, 
         if k != "_meta" and isinstance(v, str) and 1 < len(k) <= 24 and v.strip():
             GLO.setdefault(k, v.strip())
 
-RUB = {"region": [["def", "Ce que c'est"], ["pourquoi", "Pourquoi ici"], ["confusion", "Confusion possible"], ["retenir", "À retenir"]],
-       "examen": [["def", "Ce que c'est"], ["pourquoi", "Pourquoi ici"], ["confusion", "Confusion possible"], ["retenir", "À retenir"],
-                  ["signe", "Signe recherché"], ["seuil", "Seuil"], ["discriminant", "Pourquoi lui"], ["avantage", "Avantage sélectif"],
-                  ["plutot", "Plutôt que"], ["limite", "Limite"], ["smarter", "Smarter Medicine"], ["visees", "Visées du bilan"]],
-       "patho": [["def", "Ce que c'est"], ["signe", "Anomalie typique"], ["syndrome", "Syndrome paraclinique"], ["retenir", "À retenir"]],
-       "trace": [["def", "Ce que c'est"], ["seuil", "Seuil"], ["retenir", "À retenir"]],
-       "outil": [["def", "Ce que c'est"], ["formule", "Formule"], ["retenir", "À retenir"], ["source", "Source"]]}
+QUATRE = [["def", "Ce que c'est"], ["pourquoi", "Pourquoi ici"], ["confusion", "Confusion possible"], ["retenir", "À retenir"]]
+# Toutes les infobulles gardent le même cadre de 4 rubriques (plan § 7) ; la fiche complète de l'examen s'ouvre en fenêtre (📄).
+RUB = {"region": QUATRE, "examen": QUATRE, "patho": QUATRE, "trace": QUATRE,
+       "outil": [["def", "Ce que c'est"], ["pourquoi", "Formule ou éléments"], ["confusion", "Confusion possible"], ["retenir", "À retenir"], ["source", "Source"]]}
 
 
 VIS = {"diagnostique": "diagnostique", "etiologique": "étiologique", "therapeutique": "thérapeutique", "retentissement": "retentissement",
@@ -149,50 +147,84 @@ def accroche_pathos(N, pid, e, coul, lim=7):
             N.append(noeud(nid, "Pathologie", p["pathologie"], [pid], "#c2410c", bulle_patho(p, e), "patho", exRef=e["id"]))
 
 
-# ---------------------------------------------------------------- 1. IMAGERIE : région → technique → examen → organe → pathologie
-TECH = [("Médecine nucléaire", r"scintig|\bpet\b|pet-|tep|spect|datscan|i(ode)? ?131"),
-        ("Angiographie", r"art[ée]riograph|angiograph|coronarograph|phl[ée]bograph|\bdsa\b|cavograph|lymphograph"),
-        ("IRM", r"\birm|angio-irm|cholangio-irm|ent[ée]ro-irm|sialo-irm|spectroscopie|neurograph"),
-        ("Scanner (CT)", r"\bct\b|ct |-ct|scanner|cone beam|tomodensito|colo-ct|uro-ct|myélo-ct|arthro-ct"),
-        ("Échographie et Doppler", r"[ée]cho|doppler|[ée]lastograph|pocus|efast|fibroscan"),
-        ("Radiographie", r"radiograph|radioscop|mammograph|tomosynth|orthopantomo|ost[ée]odensito|dxa|eos|transit|d[ée]f[ée]cograph|hyst[ée]ro|cystograph|ur[ée]t[ée]ro|ur[ée]trograph|[âa]ge osseux|bilan radiologique|clich"),
-        ("Autres imageries", r".")]
-TECHC = {"Radiographie": "#4b5563", "Échographie et Doppler": "#0f766e", "Scanner (CT)": "#1d4ed8", "IRM": "#7c3aed", "Médecine nucléaire": "#b45309",
-         "Angiographie": "#be123c", "Autres imageries": "#64748b"}
-TECHB = {k: v for k, v in [(r["Technique"] if False else None, None) for r in []]}
+
+# ---------------------------------------------------------------- traitements : repris tels quels des diagnostics de la Tétrade (posologie et source déjà audités)
+# Aucune posologie n'est rédigée ici : un diagnostic sans correspondance exacte dans la Tétrade reçoit une case grisée « à produire ».
+def cle_diag(s):
+    return re.sub(r"[^a-z0-9]+", " ", sans_accent(re.sub(r"\s*\(.*?\)", "", s or ""))).strip()
 
 
-def technique(nom):
-    s = sans_accent(nom)
-    for t, rx in TECH:
-        if re.search(sans_accent(rx), s):
-            return t
+TRT = {}
+for n in lire(os.path.join(RAC, "conception", "prototypes", "moteur", "tetrade.json"))["noeuds"]:
+    b = n.get("bulle") or {}
+    if b.get("traitement"):
+        TRT.setdefault(cle_diag(n["texte"]), {"traitement": b["traitement"], "source": b.get("source")})
+RUB["diag"] = [["def", "Ce que c'est"], ["pourquoi", "Pourquoi ici"], ["confusion", "Confusion possible"], ["retenir", "À retenir"]]
+RUB["trt"] = [["def", "Ce que c'est"], ["posologie", "Posologie"], ["retenir", "À retenir"], ["source", "Source"]]
 
 
-DISC = {}  # plan § 11 : facteur discriminant de chaque technique (texte repris du plan, chapitre « Choisir l'examen »)
-DISC_PLAN = {"Radiographie": ("Elle montre les contrastes os, air et tissus mous : fractures, pneumothorax, condensation, pneumopéritoine.",
-                              "Tu la préfères quand tu veux une réponse immédiate, peu irradiante, au lit du malade.",
-                              "Elle superpose les plans et voit mal les tissus mous."),
-             "Échographie et Doppler": ("Elle montre les interfaces liquide et solide, et le Doppler mesure le sens et la vitesse du flux.",
-                                        "Tu la préfères sans irradiation, au lit, chez l'enfant ou la femme enceinte, et pour chercher une thrombose ou une sténose.",
-                                        "Elle dépend de l'opérateur, et l'air ou l'os l'arrêtent."),
-             "Scanner (CT)": ("Il montre le sang frais, les calcifications, l'os et, injecté, les organes pleins et les vaisseaux.",
-                              "Tu le préfères en urgence pour une hémorragie, une lithiase, une embolie ou un bilan d'extension.",
-                              "Il irradie et, injecté, il exige un rein fonctionnel et expose au produit iodé."),
-             "IRM": ("Elle distingue finement les tissus mous selon la séquence : T1, T2, FLAIR, diffusion, gadolinium.",
-                     "Tu la préfères pour le cerveau, la moelle, les articulations, le pelvis ou pour éviter les rayons.",
-                     "Elle est longue, moins disponible, et certains implants la contre-indiquent."),
-             "Médecine nucléaire": ("Elle montre la fonction d'un tissu : fixation, perfusion, métabolisme du glucose ou cible moléculaire.",
-                                    "Tu la préfères quand la question porte sur la fonction plutôt que sur l'anatomie.",
-                                    "Sa résolution spatiale reste faible et plusieurs tissus fixent normalement le traceur."),
-             "Angiographie": ("Elle opacifie la lumière des vaisseaux et permet souvent un geste dans le même temps.",
-                              "Tu la préfères quand un traitement endovasculaire est probable.",
-                              "Elle est invasive : on la réserve après l'imagerie en coupe non invasive."),
-             "Autres imageries": ("Elle regroupe des imageries de surface ou spécialisées : OCT, dermatoscopie, photographie.",
-                                  "Tu la choisis quand l'organe se voit directement ou par une optique dédiée.",
-                                  "Elle ne renseigne que sur la structure qu'elle vise.")}
+def ajouter_traitement(N, did, nom_diag, coul="#15803d"):
+    """Débouché diagnostic → traitement : réseau au clic (une case par molécule) ; la même information s'affiche au survol du diagnostic."""
+    t = TRT.get(cle_diag(nom_diag))
+    if not t:
+        N.append(noeud(did + "__trt", "Traitement", "Traitement : à produire", [did], "#9aa2b4",
+                       {"def": f"Le traitement de « {nom_diag} » attend sa fiche validée (molécule, posologie, source suisse)."}, "trt",
+                       type="Traitement · à produire", aRediger=True))
+        return None
+    for i, (nom, poso) in enumerate(t["traitement"][:4]):
+        N.append(noeud(f"{did}__trt{i}", "Traitement", nom, [did], coul,
+                       {"def": f"Cette molécule sert le traitement de « {nom_diag} ».", "posologie": poso,
+                        "retenir": "Tu vérifies la posologie dans l'information professionnelle suisse (AIPS, Swissmedic) avant de prescrire.",
+                        "source": t.get("source")}, "trt", type="Traitement"))
+    return t
 
-CAS_CLICHE = lire(os.path.join(RAC, "conception", "prototypes", "moteur", "paraclinique.json"))["fenetres"][0]
+
+def bulle_diag(nom, signe=None, syndrome=None, signif=None, examen=None):
+    """Infobulle à 4 rubriques d'un diagnostic, puis le traitement au survol (repris de la Tétrade)."""
+    b = {"def": f"Le diagnostic « {nom} » se pose ici à partir de l'examen « {court(examen, 60)} »." if examen else f"Le diagnostic « {nom} » se pose sur cette exploration.",
+         "pourquoi": signe or "La fiche de l'examen ne précise pas encore l'anomalie typique.",
+         "confusion": syndrome or "Aucune confusion fréquente n'est documentée dans la fiche.",
+         "retenir": signif or "Un seul résultat ne suffit jamais : tu le confrontes à la clinique."}
+    t = TRT.get(cle_diag(nom))
+    if t:
+        b["traitement"] = t["traitement"][:4]; b["source"] = t.get("source")
+    return b
+
+
+# ---------------------------------------------------------------- 1. IMAGERIE : région → examens faisables → système d'organe → organe → pathologie → fenêtre à deux clichés
+# Chaîne exacte du prompt de Vial (projets/2_Jeux_Paraclinique/PROMPT_VIAL.md) et du plan § 10 ; aucun niveau « technique ».
+SYS = {"Système nerveux": ("#7c3aed", "encephale meninges_et_lcr nerfs_craniens moelle_epiniere queue_de_cheval_et_cone_terminal racines_et_plexus nerfs_peripheriques"),
+       "Système ORL et ophtalmologique": ("#0e7490", "oeil_et_orbite oreille_et_equilibre nez_sinus_et_cavum larynx_et_pharynx cavite_buccale_et_glandes_salivaires masses_cervicales_et_kystes"),
+       "Système endocrinien": ("#a16207", "hypophyse_et_hypothalamus thyroide parathyroides surrenales metabolisme_et_endocrinologie"),
+       "Système respiratoire": ("#2563eb", "poumons_et_voies_aeriennes plevre diaphragme_et_muscles_respiratoires mediastin"),
+       "Système cardiovasculaire": ("#b91c1c", "coeur_et_pericarde aorte_thoracique_et_arteres_pulmonaires vaisseaux_du_cou_et_de_la_tete aorte_abdominale_et_vaisseaux_digestifs veines_caves_et_systeme_porte arteres_des_membres veines_des_membres"),
+       "Système digestif": ("#c2410c", "oesophage estomac_et_duodenum intestin_grele colon_rectum_et_anus appendice foie vesicule_et_voies_biliaires pancreas peritoine_et_ascite paroi_abdominale_et_hernies"),
+       "Système urinaire": ("#ca8a04", "reins ureteres vessie_et_uretre retroperitoine"),
+       "Système génital et obstétrical": ("#be185d", "prostate_et_vesicules_seminales testicules_et_scrotum penis_et_uretre_masculin uterus_col_ovaires_et_annexes vulve_vagin_et_perinee grossesse_foetus_et_placenta post_partum_et_allaitement plancher_pelvien seins"),
+       "Appareil locomoteur": ("#5f7f3a", "articulation_temporo_mandibulaire_et_den os_du_crane_et_de_la_face rachis_osseux paroi_thoracique_et_cotes hanche_et_bassin epaule coude_poignet_et_main genou cheville_et_pied muscles tendons_et_ligaments os_longs_et_squelette articulations_et_synoviale"),
+       "Système hématologique et immunitaire": ("#9f1239", "rate ganglions_cervicaux moelle_osseuse_et_ganglions sang_et_hemostase systeme_lymphatique infection_et_immunite"),
+       "Peau et phanères": ("#c0623b", "peau ongles_et_cheveux plaies_ulceres_et_escarres"),
+       "Psyché": ("#6d28d9", "psyche sommeil_et_vigilance"),
+       "Approche globale": ("#6b7280", "corps_entier croissance_et_developpement_de_l_enfant evaluation_geriatrique_globale genetique toxicologie_et_medicaments urgences_et_point_of_care")}
+SYS_DE = {s: nom for nom, (c, ss) in SYS.items() for s in ss.split()}
+for o in ORGANES:
+    assert o["stem"] in SYS_DE, "organe sans système : " + o["stem"]
+
+PILOTE = lire(os.path.join(RAC, "conception", "prototypes", "moteur", "paraclinique.json"))
+CAS_CLICHE = PILOTE["fenetres"][0]
+PIL = {n["id"]: n["bulle"] for n in PILOTE["noeuds"]}
+BULLE_REG = {"1": PIL["cr"], "4": PIL["th"], "5": PIL["ab"], "6": PIL["pe"]}  # infobulles validées du pilote
+
+
+def cliches_pneumonie():
+    cas = lire(os.path.join(P, "imagerie", "cas", "pneumonie_lobaire_moyenne.json"))
+    c = {k: CAS_CLICHE[k] for k in ("titre", "annotations")}
+    c["img"] = "../moteur/" + CAS_CLICHE["img"]; c["normal"] = dict(CAS_CLICHE["normal"], img="../moteur/" + CAS_CLICHE["normal"]["img"])
+    c["diagnostic"] = cas["diagnostic"] + " : une opacité alvéolaire nouvelle efface le bord droit du cœur (signe de la silhouette)."
+    c["conduite"] = "Tu évalues la gravité par le score CURB-65 (grille des critères), puis tu traites selon les recommandations de la Société suisse d'infectiologie (SSI)."
+    c["source"] = "Cliché du patient : " + cas["clicheBrut"]["url"] + " ; cliché normal : " + CAS_CLICHE["normal"]["source"] + "."
+    return c
+
 
 N = []
 for r, (rnom, mesh, cote, coul) in REG.items():
@@ -201,49 +233,54 @@ for r, (rnom, mesh, cote, coul) in REG.items():
     if not exs:
         continue
     rid = f"im_r{r}"
-    techs = []
+    par_ex = {}
     for o, e in exs:
-        t = technique(e["nom"])
-        if t not in techs:
-            techs.append(t)
-    techs.sort(key=lambda t: [x[0] for x in TECH].index(t) if t != "Radiographie" else -1)
-    N.append(noeud(rid, "Région", rnom, [], coul, {"def": f"La région « {rnom} » s'explore par {len(exs)} examens d'imagerie, répartis en {len(techs)} techniques.",
-                                                   "pourquoi": "Tu pars de la région parce que l'imagerie se demande pour une zone du corps, puis tu choisis la technique qui répond à ta question.",
-                                                   "retenir": "Tu cliques une technique, puis l'examen, l'organe et la pathologie : la fenêtre à deux clichés s'ouvre quand le cliché réel existe."},
-                   "region", organe=mesh, cote=cote, type="Région"))
-    for t in techs:
-        tid = f"{rid}_{cle(t)}"; dv, pq, lm = DISC_PLAN[t]
-        N.append(noeud(tid, "Technique", t, [rid], TECHC[t], {"def": dv, "pourquoi": pq, "confusion": lm,
-                                                             "retenir": "Le chapitre 11 du plan donne pour chaque technique ce qu'elle voit le mieux, ce qu'elle remplace et sa limite."},
-                       "region", type="Technique"))
-        vus = {}
-        for o, e in exs:
-            if technique(e["nom"]) != t:
-                continue
-            k = cle(court(e["nom"], 80))
-            eid = f"{tid}__{k}"
-            if eid not in vus:
-                vus[eid] = True
-                N.append(noeud(eid, "Examen", e["nom"], [tid], TECHC[t], bulle_examen(e), "examen", type=visees(e),
-                               exRef=e["id"], fiche=o["stem"]))
-            oid = f"{eid}__{o['stem'][:30]}"
-            N.append(noeud(oid, "Organe", o["nom"], [eid], coul, {k2: v for k2, v in {"def": f"L'examen explore ici l'organe « {o['nom']} ».",
-                                                                                        "signe": e.get("signeRecherche"), "seuil": e.get("seuil"),
-                                                                                        "retenir": e.get("indication")}.items() if v},
-                           "examen", type="Organe", exRef=e["id"], fiche=o["stem"]))
-            accroche_pathos(N, oid, e, coul)
-            if o["stem"] == "poumons_et_voies_aeriennes" and t == "Radiographie":
-                pn = next((n for n in N if n["de"] == [oid] and "pneumonie" in n["id"]), None)
-                if pn:
-                    pn["cliches"] = {k2: CAS_CLICHE[k2] for k2 in ("titre", "img", "annotations", "normal")}
-                    pn["cliches"]["img"] = "../moteur/" + CAS_CLICHE["img"]; pn["cliches"]["normal"] = dict(CAS_CLICHE["normal"], img="../moteur/" + CAS_CLICHE["normal"]["img"])
-                    CAS_PNEU = lire(os.path.join(P, "imagerie", "cas", "pneumonie_lobaire_moyenne.json"))
-                    pn["cliches"]["diagnostic"] = CAS_PNEU["diagnostic"] + " : une opacité alvéolaire nouvelle efface le bord droit du cœur (signe de la silhouette)."
-                    pn["cliches"]["conduite"] = "Tu évalues la gravité par le score CURB-65 (grille des critères), puis tu traites selon les recommandations de la Société suisse d'infectiologie (SSI)."
-                    pn["cliches"]["source"] = "Cliché du patient : " + CAS_PNEU["clicheBrut"]["url"] + " ; cliché normal : " + CAS_CLICHE["normal"]["source"] + "."
+        par_ex.setdefault(cle(court(e["nom"], 80)), []).append((o, e))
+    br = BULLE_REG.get(r) or {"def": f"La région « {rnom} » s'explore par {len(par_ex)} examens d'imagerie.",
+                              "pourquoi": "Tu pars de la région parce que l'imagerie se demande pour une zone du corps.",
+                              "confusion": "Aucune confusion fréquente.",
+                              "retenir": "Tu cliques un examen, puis le système d'organe, l'organe et la pathologie : la fenêtre à deux clichés s'ouvre sur la pathologie."}
+    N.append(noeud(rid, "Région", rnom, [], coul, br, "region", organe=mesh, cote=cote, type="Région"))
+    for k, paires in par_ex.items():
+        o0, e0 = paires[0]; eid = f"{rid}__{k[:40]}"
+        b = bulle_examen(e0)
+        if r == "4" and k == "radiographie_thoracique":
+            b = dict(b, **PIL["e1"])  # infobulle validée du pilote (radiographie thoracique PA)
+        N.append(noeud(eid, "Examen", e0["nom"], [rid], "#2a9d8f" if b.get("pourquoi") else "#9aa2b4", b, "examen",
+                       type="Examen" if b.get("pourquoi") else "Examen · à produire", exRef=e0["id"], fiche=o0["stem"], aRediger=None if b.get("pourquoi") else True))
+        par_sys = {}
+        for o, e in paires:
+            par_sys.setdefault(SYS_DE[o["stem"]], []).append((o, e))
+        for snom in [s for s in SYS if s in par_sys]:
+            sid = f"{eid}__{cle(snom)[:20]}"; scoul = SYS[snom][0]; L_ = par_sys[snom]
+            N.append(noeud(sid, "Système", snom, [eid], scoul,
+                           {"def": f"Le {snom.lower()} regroupe ici {len(L_)} organe{'s' if len(L_) > 1 else ''} que cet examen explore dans la région.",
+                            "pourquoi": "Tu passes par le système d'organe pour ranger les organes de la région selon leur fonction, de la tête aux pieds.",
+                            "confusion": "Aucune confusion fréquente.",
+                            "retenir": "Organes explorés : " + ", ".join(o["nom"] for o, _ in L_) + "."}, "region", type="Système d'organe"))
+            for o, e in L_:
+                oid = f"{sid}__{o['stem'][:28]}"; b = e.get("bulle") or {}
+                N.append(noeud(oid, "Organe", o["nom"], [sid], scoul,
+                               {"def": f"L'examen « {court(e['nom'], 60)} » explore ici l'organe « {o['nom']} ».",
+                                "pourquoi": e.get("indication") or b.get("pourquoi") or "La fiche ne précise pas encore l'indication.",
+                                "confusion": b.get("confusion") or e.get("limite") or "Aucune confusion fréquente.",
+                                "retenir": " ".join(x for x in [e.get("signeRecherche") and "Signe recherché : " + e["signeRecherche"].rstrip(".") + ".", e.get("seuil") and "Seuil : " + e["seuil"].rstrip(".") + "."] if x) or "La fiche ne précise pas encore le signe recherché."},
+                               "region", type="Organe", exRef=e["id"], fiche=o["stem"]))
+                for p in (e.get("pathologiesAssociees") or [])[:7]:
+                    pid = f"{oid}__{cle(p['pathologie'])[:30]}"
+                    if any(x["id"] == pid for x in N):
+                        continue
+                    bp = bulle_patho(p, e)
+                    bd = bulle_diag(p["pathologie"], bp.get("signe"), bp.get("syndrome"), bp.get("retenir"), e["nom"])
+                    pn = noeud(pid, "Pathologie", p["pathologie"], [oid], "#d64545", bd, "diag", type="Pathologie", exRef=e["id"])
+                    if o["stem"] == "poumons_et_voies_aeriennes" and cle(court(e["nom"], 80)) == "radiographie_thoracique" and "pneumonie" in cle(p["pathologie"]):
+                        pn["cliches"] = cliches_pneumonie(); pn["bulle"] = dict(bd, **PIL["p1"])  # infobulle validée du pilote
+                    else:
+                        pn["clichesAProduire"] = True
+                    N.append(pn)
 IMG = N
 
-# ---------------------------------------------------------------- 2. BIOLOGIE : famille de prélèvements → prélèvement → (famille d'analyses) → examen → pathologie
+# ---------------------------------------------------------------- 2. BIOLOGIE : prélèvement → examens → interprétation, calculs, critères → diagnostics → traitement
 PREL = {p: lire(os.path.join(P, "biologie", "prelevements", p + ".json")) for p in
         [os.path.basename(x)[:-5] for x in glob.glob(os.path.join(P, "biologie", "prelevements", "*.json"))]}
 PNOM = {"sang_veineux": "Sang veineux", "sang_arteriel": "Sang artériel", "sang_capillaire": "Sang capillaire", "hemocultures": "Hémocultures",
@@ -254,15 +291,6 @@ PNOM = {"sang_veineux": "Sang veineux", "sang_arteriel": "Sang artériel", "sang
         "ecouvillons_nasopharynges_et_de_gorge": "Écouvillons nasopharyngés et de gorge", "air_expire": "Air expiré",
         "prelevements_genitaux_et_uretraux": "Prélèvements génitaux et urétraux", "sperme": "Sperme", "biopsies_tissulaires": "Biopsies tissulaires",
         "sueur": "Sueur", "salive": "Salive", "cheveux_et_ongles": "Cheveux et ongles"}
-FAM = [("bs", "Sang", "coeur", "d", "#b91c1c", ["sang_veineux", "sang_arteriel", "sang_capillaire", "hemocultures", "moelle_osseuse"]),
-       ("bl", "Liquide céphalorachidien", "cerveau", "g", "#7c3aed", ["liquide_cephalorachidien"]),
-       ("bp", "Liquides des séreuses et des articulations", "poumon_g", "d", "#0e7490", ["liquide_pleural", "liquide_pericardique", "liquide_d_ascite", "liquide_synovial", "ponction_de_kyste_d_abces_ou_de_collecti"]),
-       ("br", "Voies respiratoires et air expiré", "trachee", "g", "#2563eb", ["expectorations_et_lavage_bronchoalveolai", "ecouvillons_nasopharynges_et_de_gorge", "air_expire"]),
-       ("bt", "Tissus", "foie", "g", "#a16207", ["biopsies_tissulaires"]),
-       ("bd", "Selles", "colon", "g", "#92400e", ["selles"]),
-       ("bu", "Urine", "vessie", "d", "#ca8a04", ["urine"]),
-       ("bg", "Prélèvements génitaux et obstétricaux", "bassin", "d", "#be185d", ["prelevements_genitaux_et_uretraux", "sperme", "liquide_amniotique"]),
-       ("bc", "Peau, phanères et sécrétions", "humerus", "d", "#c0623b", ["sueur", "salive", "cheveux_et_ongles"])]
 REGLES_P = [("liquide_cephalorachidien", r"\blcr\b|c[ée]phalorachid|ponction lombaire"), ("liquide_pleural", r"pleural"), ("liquide_d_ascite", r"ascite"),
             ("liquide_synovial", r"synovial|ponction articulaire|ponction de hanche|ponction du 1er|bursal"), ("liquide_pericardique", r"p[ée]ricardique"),
             ("liquide_amniotique", r"amnio|liquide amniotique|choriocent"), ("sang_arteriel", r"gazom[ée]trie|gaz du sang"), ("hemocultures", r"h[ée]moculture"),
@@ -329,68 +357,156 @@ OUTILS = {"sang_veineux": ["calc_trou_anionique", "calc_trou_anionique_corrige",
           "sang_arteriel": ["calc_rapport_pao2_fio2", "crit_sdra_berlin_gravite"], "urine": ["calc_fena", "calc_feun", "calc_trou_anionique_urinaire"],
           "liquide_pleural": ["crit_light_exsudat_pleural"], "liquide_d_ascite": ["calc_gradient_albumine_ascite", "crit_gradient_albumine_ascite_seuil"]}
 
+# Chaîne du prompt : prélèvement → examens → interprétation, calculs et critères → diagnostics → traitement avec posologie.
+# Le sang veineux compte près de 200 examens : ils se rangent par famille d'analyses (plan § 10), seul niveau intermédiaire, réservé aux prélèvements de plus de 30 examens.
+PCOTE = {"sang_veineux": ("coeur", "d"), "sang_arteriel": ("aorte", "g"), "sang_capillaire": ("humerus", "d"), "hemocultures": ("coeur", "g"),
+         "moelle_osseuse": ("femur", "g"), "urine": ("vessie", "d"), "liquide_cephalorachidien": ("cerveau", "g"), "liquide_pleural": ("poumon_d", "g"),
+         "liquide_pericardique": ("coeur", "d"), "liquide_d_ascite": ("foie", "g"), "liquide_synovial": ("femur", "d"),
+         "ponction_de_kyste_d_abces_ou_de_collecti": ("rate", "d"), "liquide_amniotique": ("bassin", "g"), "selles": ("colon", "g"),
+         "expectorations_et_lavage_bronchoalveolai": ("poumon_g", "d"), "ecouvillons_nasopharynges_et_de_gorge": ("trachee", "d"), "air_expire": ("trachee", "g"),
+         "prelevements_genitaux_et_uretraux": ("bassin", "d"), "sperme": ("vessie", "g"), "biopsies_tissulaires": ("foie", "d"), "sueur": ("humerus", "g"),
+         "salive": ("crane", "d"), "cheveux_et_ongles": ("crane", "g")}
+PCOUL = {"sang_veineux": "#b91c1c", "sang_arteriel": "#dc2626", "sang_capillaire": "#e11d48", "hemocultures": "#9f1239", "moelle_osseuse": "#7f1d1d",
+         "urine": "#ca8a04", "liquide_cephalorachidien": "#7c3aed", "liquide_pleural": "#0e7490", "liquide_pericardique": "#0369a1", "liquide_d_ascite": "#c98a2b",
+         "liquide_synovial": "#5f7f3a", "ponction_de_kyste_d_abces_ou_de_collecti": "#92400e", "liquide_amniotique": "#be185d", "selles": "#78350f",
+         "expectorations_et_lavage_bronchoalveolai": "#2563eb", "ecouvillons_nasopharynges_et_de_gorge": "#0891b2", "air_expire": "#0284c7",
+         "prelevements_genitaux_et_uretraux": "#db2777", "sperme": "#a21caf", "biopsies_tissulaires": "#a16207", "sueur": "#c0623b", "salive": "#ea580c", "cheveux_et_ongles": "#6b7280"}
+# Calculs et critères rattachés à l'examen qui les nourrit (regex sur le nom de l'examen) ; sans examen correspondant, ils restent au niveau du prélèvement.
+OUTILS_EX = [("sang_veineux", r"ionogramme|natr[ée]mie|sodium", ["calc_trou_anionique", "calc_trou_anionique_corrige", "calc_sodium_corrige_glycemie", "crit_hyponatremie"]),
+             ("sang_veineux", r"cr[ée]atinin", ["calc_ckd_epi_2021", "calc_cockcroft_gault", "crit_kdigo_ira_definition", "crit_kdigo_ira_stades"]),
+             ("sang_veineux", r"calc[ée]mie|calcium", ["calc_calcium_corrige"]), ("sang_veineux", r"lipid|cholest", ["calc_friedewald"]),
+             ("sang_veineux", r"insulin|hba1c|glyc[ée]mie", ["calc_homa_ir"]), ("sang_veineux", r"transaminase|asat|alat|bilan h[ée]patique", ["calc_fib4", "calc_apri", "calc_meld_3"]),
+             ("sang_arteriel", r"gazom", ["calc_rapport_pao2_fio2", "crit_sdra_berlin_definition", "crit_sdra_berlin_gravite"]),
+             ("urine", r"natriur|fraction d.excr", ["calc_fena", "calc_feun"]), ("urine", r"ionogramme urinaire|trou anionique|natriur", ["calc_trou_anionique_urinaire"]),
+             ("liquide_pleural", r"light|pleural", ["crit_light_exsudat_pleural"]),
+             ("liquide_d_ascite", r"gradient", ["calc_gradient_albumine_ascite", "crit_gradient_albumine_ascite_seuil"])]
+# Critères du plan § 10 encore absents de criteres.json : case grisée « à produire », sans aucun seuil rédigé ici.
+A_PRODUIRE = [("urine", r"culture d.urine|uricult", "Critères de Kass"), ("liquide_d_ascite", r"gradient", "Infection du liquide d'ascite"),
+              ("liquide_cephalorachidien", r"aspect|cellules", "Profils du LCR"), ("liquide_synovial", r"cellules|cristaux", "Liquide synovial : profils")]
 N = []
 parP = {}
 for o in ORGANES:
     for e in o["examens"]:
         if e["modalite"] == "Biologie":
             parP.setdefault(prelevement_de(e), []).append((o, e))
-for fid, fnom, mesh, cote, coul, prels in FAM:
-    rid = f"bi_{fid}"; nb = sum(len(parP.get(p, [])) for p in prels)
-    N.append(noeud(rid, "Famille", fnom, [], coul, {"def": f"Cette famille regroupe {len(prels)} prélèvement(s) et {nb} examens biologiques reliés aux organes.",
-                                                  "pourquoi": "Tu pars du prélèvement parce que le geste, le tube et le transport décident de la fiabilité du résultat.",
-                                                  "retenir": "La chaîne va du prélèvement à l'examen, puis à l'interprétation, au syndrome biologique et au diagnostic."},
-                   "region", organe=mesh, cote=cote, type="Famille"))
-    for p in prels:
-        pid = f"{rid}_{p[:24]}"; liste = parP.get(p, []); pj = PREL.get(p, {})
-        noms_j = [x["nom"] for x in pj.get("examens", [])]
-        N.append(noeud(pid, "Prélèvement", PNOM[p], [rid], coul, {"def": f"Le prélèvement « {PNOM[p]} » sert {len(liste)} examens reliés aux organes du catalogue.",
-                                                                   "pourquoi": ("Sa fiche technique liste : " + ", ".join(noms_j[:8]) + ("…" if len(noms_j) > 8 else "") + ".") if noms_j else None,
-                                                                   "retenir": "Tu cliques le prélèvement, puis l'examen : l'infobulle donne le signe recherché, le seuil et ce qui le fait préférer."} ,
-                       "region", type="Prélèvement"))
+places = set()
+
+
+def outils_de(p, nom_ex):
+    s = sans_accent(nom_ex); r = []
+    for pp, rx, ids in OUTILS_EX:
+        if pp == p and re.search(sans_accent(rx), s):
+            r += [i for i in ids if i not in r]
+    return r
+
+
+# Départs posés sur le corps : douze natures de prélèvement (prompt : sang, urine, LCR, ascite, ponction-biopsie, liquide articulaire…) ;
+# une nature qui réunit plusieurs prélèvements (le sang) les déplie au clic. Le côté suit l'organe d'ancrage pour que le trait sorte par le bord le plus proche.
+DEPARTS = [("sang", "Sang", "coeur", "d", "#b91c1c", ["sang_veineux", "sang_arteriel", "sang_capillaire", "hemocultures"]),
+           ("urine", "Urine", "vessie", "d", "#ca8a04", ["urine"]),
+           ("lcr", "Liquide céphalorachidien", "cerveau", "g", "#7c3aed", ["liquide_cephalorachidien"]),
+           ("pleural", "Liquide pleural", "poumon_d", "g", "#0e7490", ["liquide_pleural"]),
+           ("ascite", "Liquide d'ascite", "foie", "g", "#c98a2b", ["liquide_d_ascite"]),
+           ("synovial", "Liquide articulaire (synovial)", "femur", "d", "#5f7f3a", ["liquide_synovial"]),
+           ("pericarde", "Liquide péricardique", "coeur", "d", "#0369a1", ["liquide_pericardique"]),
+           ("ponction", "Ponctions et biopsies", "rate", "d", "#92400e", ["biopsies_tissulaires", "moelle_osseuse", "ponction_de_kyste_d_abces_ou_de_collecti"]),
+           ("selles", "Selles", "colon", "g", "#78350f", ["selles"]),
+           ("resp", "Voies respiratoires et air expiré", "trachee", "d", "#2563eb", ["expectorations_et_lavage_bronchoalveolai", "ecouvillons_nasopharynges_et_de_gorge", "air_expire"]),
+           ("genital", "Génital et obstétrical", "bassin", "g", "#be185d", ["prelevements_genitaux_et_uretraux", "sperme", "liquide_amniotique"]),
+           ("secretions", "Sueur, salive, cheveux et ongles", "crane", "g", "#6b7280", ["sueur", "salive", "cheveux_et_ongles"])]
+assert sorted(p for d in DEPARTS for p in d[5]) == sorted(PNOM), "prélèvement oublié"
+for did_, dnom, mesh, cote, dcoul, membres in DEPARTS:
+    if len(membres) > 1:
+        N.append(noeud(f"bi_{did_}", "Prélèvement", dnom, [], dcoul,
+                       {"def": f"La nature « {dnom} » réunit {len(membres)} prélèvements : " + ", ".join(PNOM[m].lower() for m in membres) + ".",
+                        "pourquoi": "Tu pars du prélèvement parce que le geste, le tube et le transport décident de la fiabilité du résultat.",
+                        "confusion": "Aucune confusion fréquente.", "retenir": "Tu choisis le prélèvement exact, puis l'examen, l'interprétation, le diagnostic et le traitement."},
+                       "region", organe=mesh, cote=cote, type="Prélèvement"))
+    for p in membres:
+        coul = PCOUL[p]; pid = f"bi_{p[:24]}"; liste = parP.get(p, []); pj = PREL.get(p, {})
+        seul = len(membres) == 1
+        N.append(noeud(pid, "Prélèvement", dnom if seul else PNOM[p], [] if seul else [f"bi_{did_}"], dcoul if seul else coul,
+                       {"def": f"Le prélèvement « {PNOM[p]} » sert {len(liste) or len(pj.get('examens', []))} examens du catalogue.",
+                        "pourquoi": "Tu pars du prélèvement parce que le geste, le tube et le transport décident de la fiabilité du résultat.",
+                        "confusion": "Aucune confusion fréquente.",
+                        "retenir": "La chaîne va du prélèvement à l'examen, puis à l'interprétation, au diagnostic et au traitement."},
+                       "region", organe=mesh if seul else None, cote=cote if seul else None, type="Prélèvement"))
         groupes = {}
         for o, e in liste:
-            g = FAMN.get(famille_analyse(e["nom"]) or "", "Autres analyses") if len(liste) > 14 else None
+            g = FAMN.get(famille_analyse(e["nom"]) or "", "Autres analyses") if len(liste) > 30 else None
             groupes.setdefault(g, []).append((o, e))
+        vus = set()
         for g, items in sorted(groupes.items(), key=lambda kv: (kv[0] is None, kv[0] or "")):
             parent = pid
             if g:
-                parent = f"{pid}__{cle(g)}"
-                N.append(noeud(parent, "Famille d'analyses", g, [pid], coul, {"def": f"La famille « {g} » regroupe {len(items)} examens de ce prélèvement.",
-                                                                              "retenir": "Les familles suivent les 15 fichiers d'analyses, source unique des valeurs SI."}, "region", type="Analyses"))
-            vus = set()
+                parent = f"{pid}__{cle(g)[:24]}"
+                N.append(noeud(parent, "Famille d'analyses", g, [pid], coul,
+                               {"def": f"La famille « {g} » regroupe {len(items)} examens de ce prélèvement.",
+                                "pourquoi": "Le sang veineux sert près de deux cents examens : la famille d'analyses garde la toile lisible (plan § 10).",
+                                "confusion": "Aucune confusion fréquente.", "retenir": "Les familles suivent les quinze fichiers d'analyses, source unique des valeurs SI."},
+                               "region", type="Famille d'analyses"))
             for o, e in items:
-                eid = f"{parent}__{cle(court(e['nom'], 80))}"
+                k = cle(court(e["nom"], 80))[:40]; eid = f"{pid}__{k}"
                 if eid in vus:
                     continue
-                vus.add(eid)
-                N.append(noeud(eid, "Examen", e["nom"], [parent], coul, bulle_examen(e), "examen", type=visees(e),
-                               exRef=e["id"], fiche=o["stem"]))
-                accroche_pathos(N, eid, e, coul, 6)
-        # Examens de la fiche technique du prélèvement absents du catalogue des organes : la bulle vient de l'analyse liée, si elle est rédigée.
-        deja = {cle(court(e["nom"], 80)) for _, e in liste}
+                vus.add(eid); b = bulle_examen(e); ok = bool(e.get("seuil") or e.get("signeRecherche"))
+                N.append(noeud(eid, "Examen", e["nom"], [parent], coul, b, "examen", type="Examen", exRef=e["id"], fiche=o["stem"]))
+                # interprétation : signe recherché et seuil de la fiche de l'examen, puis les diagnostics qu'elle oriente
+                iid = eid + "__int"
+                syn = (e.get("syndromesParacliniques") or [None])[0]
+                N.append(noeud(iid, "Interprétation", "Interprétation et seuil", [eid], coul if ok else "#9aa2b4",
+                               {"def": e.get("signeRecherche") or "La fiche ne précise pas encore le signe recherché.",
+                                "pourquoi": e.get("seuil") or "La fiche ne précise pas encore le seuil.",
+                                "confusion": e.get("limite") or (e.get("bulle") or {}).get("confusion") or "Aucune confusion fréquente.",
+                                "retenir": (f"Le syndrome « {syn['syndrome']} » réunit : " + ", ".join(syn.get("anomaliesQuiLeComposent") or []).lower() + ".") if syn else ((e.get("bulle") or {}).get("retenir") or "Tu confrontes le résultat à la clinique.")},
+                               "diag", type="Seuil" if ok else "Seuil · à produire", aRediger=None if ok else True))
+                for po in (e.get("pathologiesAssociees") or [])[:6]:
+                    did = f"{iid}__{cle(po['pathologie'])[:30]}"
+                    if any(x["id"] == did for x in N):
+                        continue
+                    bp = bulle_patho(po, e)
+                    N.append(noeud(did, "Diagnostic", po["pathologie"], [iid], "#d64545", bulle_diag(po["pathologie"], bp.get("signe"), bp.get("syndrome"), bp.get("retenir"), e["nom"]),
+                                   "diag", type="Diagnostic"))
+                    ajouter_traitement(N, did, po["pathologie"])
+                for oid in outils_de(p, e["nom"]):
+                    x = CALC.get(oid) or CRIT.get(oid)
+                    if not x:
+                        continue
+                    places.add((p, oid)); calc = oid.startswith("calc_")
+                    N.append(noeud(f"{eid}__{oid}", "Calcul" if calc else "Critère", x["nom"], [eid], "#0f766e" if calc else "#6d28d9",
+                                   {"def": f"Ce calculateur exécute la formule « {x['nom']} » à partir de tes valeurs." if calc else f"Cette grille applique « {x['nom']} » élément par élément.",
+                                    "pourquoi": x.get("formule") or " ; ".join(x.get("elements") or []),
+                                    "confusion": "Aucune confusion fréquente.", "retenir": (x.get("interpretation") or x.get("regleDeDecision") or "")[:420], "source": x.get("source")},
+                                   "outil", type="Calcul utile" if calc else "Critère diagnostique", outil=oid))
+                for pp, rx, nom in A_PRODUIRE:
+                    if pp == p and re.search(sans_accent(rx), sans_accent(e["nom"])) and not any(x["id"] == f"{pid}__ap_{cle(nom)}" for x in N):
+                        N.append(noeud(f"{pid}__ap_{cle(nom)}", "Critère", nom, [eid], "#9aa2b4",
+                                       {"def": f"La grille « {nom} » figure au plan (§ 10) ; sa fiche sourcée reste à produire."}, "outil",
+                                       type="Critère · à produire", aRediger=True))
+        # examens de la fiche technique du prélèvement, absents du catalogue et non couverts par un examen déjà posé
+        deja = " | ".join(sans_accent(e["nom"]) for _, e in liste)
         for x in pj.get("examens", []):
-            if cle(court(x["nom"], 80)) in deja:
+            s = sans_accent(re.sub(r"\s*\(.*?\)", "", x["nom"])).strip()
+            if s in deja or f"{pid}__fp_{cle(s)[:36]}" in vus:
                 continue
+            vus.add(f"{pid}__fp_{cle(s)[:36]}")
             a = next((ANAB[r_] for r_ in x.get("analysesRef") or [] if r_ in ANAB), None)
-            b = dict(a["bulle"]) if a else {"def": f"L'examen « {x['nom']} » figure dans la fiche technique du prélèvement ; sa fiche d'interprétation reste à rédiger."}
-            if a and a.get("seuilsCritiques"):
-                b["seuil"] = a["seuilsCritiques"]
-            N.append(noeud(f"{pid}__fp_{cle(court(x['nom'], 80))}", "Examen", x["nom"], [pid], coul if a else "#9aa2b4", b, "examen",
-                           type="Analyse", aRediger=None if a else True))
-        for oid in OUTILS.get(p, []):
+            b = dict(a["bulle"]) if a else {"def": f"L'examen « {x['nom']} » figure dans la fiche technique du prélèvement ; son interprétation reste à produire."}
+            N.append(noeud(f"{pid}__fp_{cle(s)[:36]}", "Examen", x["nom"], [pid], coul if a else "#9aa2b4", b, "examen",
+                           type="Examen" if a else "Examen · à produire", aRediger=None if a else True))
+        for oid in OUTILS.get(p, []):  # outils sans examen correspondant : rattachés au prélèvement
             x = CALC.get(oid) or CRIT.get(oid)
-            if not x:
+            if not x or (p, oid) in places:
                 continue
             calc = oid.startswith("calc_")
-            b = {"def": (f"Ce calculateur exécute la formule « {x['nom']} » à partir de tes valeurs." if calc else f"Cette grille applique « {x['nom']} » élément par élément."),
-                 "formule": x.get("formule") or " ; ".join(x.get("elements") or []), "retenir": (x.get("interpretation") or x.get("regleDeDecision") or "")[:420],
-                 "source": x.get("source")}
-            N.append(noeud(f"{pid}__{oid}", "Calcul" if calc else "Critère", x["nom"], [pid], "#0f766e" if calc else "#6d28d9", {k: v for k, v in b.items() if v},
-                           "outil", type="Calculateur" if calc else "Critère diagnostique", outil=oid))
+            N.append(noeud(f"{pid}__{oid}", "Calcul" if calc else "Critère", x["nom"], [pid], "#0f766e" if calc else "#6d28d9",
+                           {"def": f"Ce calculateur exécute la formule « {x['nom']} » à partir de tes valeurs." if calc else f"Cette grille applique « {x['nom']} » élément par élément.",
+                            "pourquoi": x.get("formule") or " ; ".join(x.get("elements") or []), "confusion": "Aucune confusion fréquente.",
+                            "retenir": (x.get("interpretation") or x.get("regleDeDecision") or "")[:420], "source": x.get("source")},
+                           "outil", type="Calcul utile" if calc else "Critère diagnostique", outil=oid))
 BIO = N
 
-# ---------------------------------------------------------------- 3. EXPLORATIONS FONCTIONNELLES : fonction → exploration → tracé / diagnostic
+# ---------------------------------------------------------------- 3. EXPLORATIONS FONCTIONNELLES : fonction → exploration → tracé → interprétation → diagnostic → traitement
 FONC = [("fm", "Endocrinien et métabolique", "pancreas", "g", "#a16207", r"hgpo|synacth|dexam[ée]thasone|charge sod|restriction hydrique|arginine|hypoglyc[ée]mie insulin|je[ûu]ne de 72|cortisol|veines surr[ée]nal|calorim|holter glyc|mesure continue du glucose|croissance|tanner"),
         ("fs", "Sommeil et vigilance", "cerveau", "d", "#4338ca", r"sommeil|polygraph|polysomno|tile|latence d.endormissement|maintien de l.[ée]veil|actim[ée]trie|epworth"),
         ("fu", "Urinaire, pelvien et obstétrical", "vessie", "d", "#ca8a04", r"urodynam|d[ée]bitm|calendrier mictionnel|pad-test|r[ée]sidu post|cardiotoco|[ée]rection|sensibilit[ée] p[ée]rin|epds|debout et en toux"),
@@ -426,9 +542,12 @@ for o in ORGANES:
     for e in o["examens"]:
         if e["modalite"] in ("Exploration fonctionnelle", "Endoscopie"):
             fx_exs.setdefault(e["id"].split("__", 1)[1], []).append((o, e))
+# Chaîne du prompt : fonction → exploration → tracé ou résultat → interprétation (seuils) → diagnostic → traitement.
+# Le sommeil appartient à la Psyché (règle de Vial, plan § 4) : ses diagnostics portent l'étiquette « Psyché ».
+FNOM = {"fc": "Psyché, cognition et gériatrie", "fs": "Sommeil et vigilance (Psyché)"}
 N = []
 for fid, fnom, mesh, cote, coul, rx in FONC:
-    N.append(noeud(f"fx_{fid}", "Fonction", fnom, [], coul, None, "region", organe=mesh, cote=cote, type="Fonction"))
+    N.append(noeud(f"fx_{fid}", "Fonction", FNOM.get(fid, fnom), [], coul, None, "region", organe=mesh, cote=cote, type="Fonction"))
 cnt = {}
 for slug in sorted(set(fx_exs) | set(k for k in EXPL if len(EXPL[k].get("elements", [])) == 1)):
     paires = fx_exs.get(slug, []); o, e = paires[0] if paires else (None, None)
@@ -439,10 +558,12 @@ for slug in sorted(set(fx_exs) | set(k for k in EXPL if len(EXPL[k].get("element
         fid = "fx"
     fid = fid or "fc"
     el = (EXPL.get(slug) or {}).get("elements") or [{}]
-    el = el[0] if len(el) == 1 else {}
+    el = el[0] if len(el) == 1 and isinstance(el[0], dict) else {}
     b = bulle_examen(e) if e else {"def": el.get("fonction") or f"L'exploration « {nom} » attend sa fiche."}
-    if el.get("fonction") and "def" not in (e or {}).get("bulle", {}) :
+    if el.get("fonction") and not (e or {}).get("bulle", {}).get("def"):
         b["def"] = el["fonction"]
+    b.setdefault("pourquoi", "Tu choisis l'exploration quand la question porte sur ce que l'organe fait, et non sur ce à quoi il ressemble.")
+    b.setdefault("confusion", "Aucune confusion fréquente."); b.setdefault("retenir", "Tu lis le tracé, tu appliques le seuil, puis tu conclus.")
     fen = next((w for r_, w in FEN if re.search(sans_accent(r_), s)), None)
     xid = f"fx_{fid}__{slug[:40]}"; coulf = next(f[4] for f in FONC if f[0] == fid)
     cnt[fid] = cnt.get(fid, 0) + 1
@@ -452,25 +573,48 @@ for slug in sorted(set(fx_exs) | set(k for k in EXPL if len(EXPL[k].get("element
         parent = f"fx_{fid}_{cle(sg)}"
         if not any(n["id"] == parent for n in N):
             N.append(noeud(parent, "Groupe", sg, [f"fx_{fid}"], coulf, {"def": f"Ce groupe réunit les explorations « {sg.lower()} ».",
+                                                                       "pourquoi": "La fonction compte trop d'explorations pour une seule colonne : le groupe garde la toile lisible.",
+                                                                       "confusion": "Aucune confusion fréquente.",
                                                                        "retenir": "Tu ouvres le groupe, puis l'exploration dont tu veux le tracé et l'interprétation."}, "region", type="Groupe"))
-    N.append(noeud(xid, "Exploration", nom, [parent], coulf, b, "examen", type="Endoscopie" if fid == "fx" else "Exploration",
+    plein = bool(el.get("traces") or el.get("diagnostics"))
+    N.append(noeud(xid, "Exploration", nom, [parent], coulf if plein or e else "#9aa2b4", b, "examen", type="Endoscopie" if fid == "fx" else "Exploration",
                    exRef=e["id"] if e else None, fiche=o["stem"] if o else None, fenetre=fen, explo=slug if slug in EXPL else None))
-    for i, t in enumerate((el.get("traces") or [])[:6]):
-        N.append(noeud(f"{xid}__t{i}", "Tracé", t.get("aspect") or t.get("type"), [xid], "#15803d" if t.get("type") == "normal" else "#c2410c",
-                       {"def": t.get("description"), "seuil": (el.get("seuils") or [None])[0] if t.get("type") != "normal" else None,
-                        "retenir": "Tu lis le tracé, tu appliques le seuil, puis tu conclus (plan, écran X5)."}, "trace",
-                       type="Tracé normal" if t.get("type") == "normal" else "Tracé pathologique"))
+    if not plein:
+        N.append(noeud(xid + "__ap", "Tracé", "Tracé et interprétation : à produire", [xid], "#9aa2b4",
+                       {"def": "Le tracé type, ses seuils et ses diagnostics restent à produire pour cette exploration."}, "trace", type="Tracé · à produire", aRediger=True))
+        continue
+    tr = el.get("traces") or []
+    for i, t in enumerate(tr[:5]):
+        norm = t.get("type") == "normal"
+        N.append(noeud(f"{xid}__t{i}", "Tracé", t.get("aspect") or t.get("type"), [xid], "#15803d" if norm else "#c2410c",
+                       {"def": t.get("description") or "La fiche ne décrit pas encore ce tracé.",
+                        "pourquoi": "Le tracé normal sert de référence : tu compares chaque anomalie à lui." if norm else "Ce tracé pathologique s'écarte du tracé normal et oriente l'interprétation.",
+                        "confusion": "Aucune confusion fréquente.",
+                        "retenir": "Tu appliques ensuite le seuil de la case « Interprétation » pour conclure."}, "trace",
+                       type="Tracé normal" if norm else "Tracé pathologique", fenetre=fen))
+    iid = xid + "__int"
+    seuils = el.get("seuils") or []
+    N.append(noeud(iid, "Interprétation", "Interprétation et seuils", [xid], coulf,
+                   {"def": (el.get("interpretation") or "La fiche ne détaille pas encore l'interprétation.")[:600],
+                    "pourquoi": seuils[0][:600] if seuils else "La fiche ne précise pas encore le seuil.",
+                    "confusion": seuils[1][:400] if len(seuils) > 1 else "Aucune confusion fréquente.",
+                    "retenir": "Un seuil s'applique sur un tracé de bonne qualité : tu vérifies d'abord la technique."}, "trace", type="Seuils"))
     for i, dg in enumerate((el.get("diagnostics") or [])[:5]):
-        N.append(noeud(f"{xid}__d{i}", "Diagnostic", dg.get("diagnostic"), [xid], "#9f1239",
-                       {"def": f"L'exploration oriente vers « {dg.get('diagnostic')} ».", "signe": dg.get("argument") and f"L'argument décisif est : {dg['argument'][0].lower() + dg['argument'][1:]}.",
-                        "retenir": "Sommeil : la polysomnographie appartient aux explorations, mais ses diagnostics relèvent de la Psyché (décision du plan, § 4)." if fid == "fs" else None},
-                       "patho", type="Diagnostic"))
+        nomd = dg.get("diagnostic") or ""; did = f"{iid}__d{i}"; psy = fid in ("fs", "fc")
+        arg = dg.get("argument")
+        bd = bulle_diag(nomd, arg and f"L'argument décisif est : {arg[0].lower() + arg[1:]}.", None,
+                        "Le sommeil appartient à la Psyché : ce diagnostic se prend en charge avec la psychiatrie (plan § 4)." if fid == "fs" else None, nom)
+        N.append(noeud(did, "Diagnostic", nomd, [iid], "#6d28d9" if psy else "#d64545", bd, "diag", type="Diagnostic · Psyché" if psy else "Diagnostic"))
+        ajouter_traitement(N, did, nomd, "#6d28d9" if psy else "#15803d")
 for n in N:
     if n["nature"] == "Fonction":
         k = n["id"][3:]
         n["bulle"] = {"def": f"La fonction « {n['texte']} » se teste par {cnt.get(k, 0)} explorations.",
                       "pourquoi": "Tu pars d'une fonction parce qu'une exploration mesure ce que l'organe fait, et non ce à quoi il ressemble.",
+                      "confusion": "Aucune confusion fréquente.",
                       "retenir": "Chaîne du plan : fonction → exploration → tracé ou résultat → interprétation (seuil) → diagnostic → traitement."}
+        if k == "fs":
+            n["bulle"]["retenir"] = "Le sommeil renvoie à la Psyché : la polysomnographie appartient aux explorations, mais ses diagnostics relèvent de la psychiatrie (plan § 4)."
 FX = [n for n in N if n["nature"] != "Fonction" or cnt.get(n["id"][3:], 0)]
 
 # ---------------------------------------------------------------- vérifications de cohérence (audit « chaque lien pointe vers un nœud existant »)
