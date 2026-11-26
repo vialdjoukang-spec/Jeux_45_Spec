@@ -1,0 +1,1232 @@
+{
+ "id": "Z12.5__O4_6-E03",
+ "portes": [
+  {
+   "ssp": "O4.6",
+   "nomSSP": "Évaluation partagée des risques et bénéfices du dépistage et du traitement d’affections asymptomatiques",
+   "entite": "Dépistage du cancer de la prostate par PSA (décision partagée stricte)",
+   "entiteId": "O4.6-E03"
+  }
+ ],
+ "entite": "Dépistage du cancer de la prostate par PSA (décision partagée stricte)",
+ "cim10": "Z12.5",
+ "ssp": {
+  "code": "O4.6",
+  "nom": "Évaluation partagée des risques et bénéfices du dépistage et du traitement d'affections asymptomatiques",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Un homme consulte pour une question de dépistage du cancer de la prostate par PSA.",
+    "i": "Situation d'entrée du SSP O4.6 : patient en principe asymptomatique, demande ou proposition du médecin.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Le patient présente des symptômes urinaires, des douleurs osseuses ou une hématurie.",
+    "i": "Un patient symptomatique relève d'un bilan diagnostique et non d'un dépistage ; la probabilité pré-test change.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : on quitte le cadre du dépistage.",
+    "i": "Renvoi vers les SSP des symptômes urinaires, de l'hématurie ou des douleurs dorsales ; TR et PSA font partie du bilan.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : on évalue l'âge et l'espérance de vie.",
+    "i": "Le bénéfice du dépistage n'apparaît qu'après 10 ans ou plus.",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Espérance de vie < 10 ans ou âge > 70–75 ans : on ne dépiste pas.",
+    "i": "Le surtraitement l'emporte sur le bénéfice ; on documente l'explication au patient.",
+    "pec": "decision_partagee",
+    "notion": "c7"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Âge de 50 à 70 ans et espérance de vie > 10 ans : on évalue le risque.",
+    "i": "On recherche antécédent familial au 1er degré (surtout < 65 ans), origine africaine (dès 45 ans), mutation BRCA2 (dès 40 ans).",
+    "pec": "decision_partagee",
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Le médecin remet une aide à la décision et explore les valeurs du patient.",
+    "i": "Bénéfice absolu ≈ 1 décès évité/1 000 ; surdiagnostic 20–50 % ; risques de biopsie et d'incontinence ou dysfonction érectile.",
+    "pec": "decision_partagee",
+    "notion": "c2"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Le patient refuse le dépistage.",
+    "i": "Le refus n'a aucune conséquence ; on documente l'information et la décision, et on peut reproposer plus tard.",
+    "pec": "decision_partagee",
+    "notion": "c8"
+   },
+   {
+    "id": "n9",
+    "parent": "n7",
+    "t": "Le patient accepte : dosage du PSA.",
+    "i": "On évite éjaculation (24–48 h), vélo, infection ; on double la valeur sous 5-ARI.",
+    "pec": "decision_partagee",
+    "notion": "c3"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "PSA < 3 ng/mL : répéter tous les 2 à 4 ans.",
+    "i": "Intervalle plus long si la valeur initiale est basse ; arrêt à 70 ans environ ou si l'espérance de vie < 10 ans.",
+    "pec": "decision_partagee",
+    "notion": "c8"
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "PSA ≥ 3 ng/mL : contrôle à 4–6 semaines.",
+    "i": "Il élimine les élévations transitoires (infection, manipulation, éjaculation) avant imagerie ou biopsie.",
+    "pec": "psa_eleve",
+    "notion": "c6"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "PSA > 100 ng/mL ou signes de métastases : urologue rapidement.",
+    "i": "Cancer métastatique quasi certain ; on n'attend pas le contrôle à 4–6 semaines.",
+    "pec": "psa_eleve",
+    "notion": "c5"
+   },
+   {
+    "id": "n13",
+    "parent": "n12",
+    "t": "Faiblesse des jambes ou troubles sphinctériens : urgence médullaire.",
+    "i": "Une compression médullaire exige IRM immédiate et corticoïdes ; le déficit est irréversible sans traitement.",
+    "pec": "urgences",
+    "notion": "c5"
+   },
+   {
+    "id": "n14",
+    "parent": "n11",
+    "t": "PSA toujours ≥ 3 : IRM prostatique multiparamétrique.",
+    "i": "Elle précède la biopsie : elle réduit les biopsies inutiles et la détection de cancers indolents.",
+    "pec": "psa_eleve",
+    "notion": "c6"
+   },
+   {
+    "id": "n15",
+    "parent": "n14",
+    "t": "PI-RADS 1–2 : pas de biopsie d'emblée, suivi du PSA.",
+    "i": "La probabilité de cancer significatif est faible.",
+    "pec": "decision_partagee",
+    "notion": "c6"
+   },
+   {
+    "id": "n16",
+    "parent": "n14",
+    "t": "PI-RADS 3–5 : biopsie ciblée.",
+    "i": "Seule l'histologie (grade ISUP) établit le diagnostic de cancer.",
+    "pec": "psa_eleve",
+    "notion": "c7"
+   },
+   {
+    "id": "n17",
+    "parent": "n16",
+    "t": "Fièvre après la biopsie : suspecter un sepsis.",
+    "i": "Environ 1 % des biopsies se compliquent d'un sepsis, qui impose hospitalisation et antibiothérapie iv.",
+    "pec": "urgences",
+    "notion": "c8"
+   },
+   {
+    "id": "n18",
+    "parent": "n16",
+    "t": "ISUP 1, PSA < 10, cT1-2a : surveillance active.",
+    "i": "Cancer de bas risque : on évite le surtraitement ; PSA tous les 6 mois, IRM ou biopsie répétée.",
+    "pec": "surveillance_active",
+    "notion": "c7"
+   },
+   {
+    "id": "n19",
+    "parent": "n16",
+    "t": "ISUP ≥ 2 : l'urologue décide du traitement curatif.",
+    "i": "Le choix entre chirurgie et radiothérapie sort du cadre du dépistage et relève de l'oncologie urologique.",
+    "pec": null,
+    "notion": "c7"
+   }
+  ]
+ },
+ "specialites": [
+  "PSP"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Dépistage du cancer de la prostate par PSA (décision partagée stricte)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définir le dépistage par PSA et son cadre suisse",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Raisonne d'abord en décision partagée : le PSA n'est jamais un examen de routine, c'est un choix éclairé du patient après information chiffrée.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le dépistage par PSA consiste à doser le PSA chez un homme asymptomatique après une discussion structurée des bénéfices et des risques.",
+    "Le Swiss Medical Board a déconseillé en 2011 le dépistage systématique, faute de bénéfice net démontré.",
+    "Il n'existe pas de programme organisé en Suisse : le dépistage reste opportuniste et individuel.",
+    "Smarter Medicine : on ne dose pas le PSA de routine sans information préalable sur le faible bénéfice absolu et les risques."
+   ],
+   "sources": [
+    "Swiss Medical Board 2011",
+    "Smarter Medicine Suisse (SSMIG)",
+    "EAU 2024"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Chiffres clés : fréquence, bénéfice et surdiagnostic",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Compare toujours le bénéfice absolu minime (1 décès évité sur 1 000) au nombre de surdiagnostics et de traitements inutiles.",
+   "tableau": {
+    "colonnes": [
+     "Donnée",
+     "Chiffre",
+     "Lecture"
+    ],
+    "lignes": [
+     [
+      "Incidence suisse",
+      "≈ 6 000 nouveaux cas par an : cancer le plus fréquent chez l'homme.",
+      [
+       {
+        "t": "Très fréquent mais souvent indolent",
+        "i": "Beaucoup d'hommes meurent avec leur cancer et non de lui ; la fréquence seule ne justifie donc pas un dépistage de masse."
+       }
+      ]
+     ],
+     [
+      "Mortalité suisse",
+      "≈ 1 300 à 1 400 décès par an : 2e cause de mort par cancer chez l'homme.",
+      [
+       {
+        "t": "Mortalité modeste face à l'incidence",
+        "i": "Le rapport décès/cas reste faible, car la plupart des tumeurs détectées évoluent lentement."
+       }
+      ]
+     ],
+     [
+      "ERSPC à 16 ans",
+      "Baisse relative ≈ 20 % de la mortalité spécifique ; 570 hommes invités et 18 diagnostics pour éviter 1 décès.",
+      [
+       {
+        "t": "≈ 1 décès évité/1 000 hommes",
+        "i": "Le bénéfice absolu est faible, d'où l'obligation d'informer avant tout dosage ; le chiffre relatif de 20 % seul est trompeur."
+       }
+      ]
+     ],
+     [
+      "PLCO",
+      "Aucune réduction de mortalité.",
+      [
+       {
+        "t": "Essai non concluant",
+        "i": "Le groupe contrôle était très contaminé par des PSA hors protocole ; l'essai ne prouve donc pas l'inefficacité, il ne la réfute pas non plus."
+       }
+      ]
+     ],
+     [
+      "Surdiagnostic",
+      "20 à 50 % des cancers détectés par PSA.",
+      [
+       {
+        "t": "Tumeurs qui n'auraient jamais donné de symptômes",
+        "i": "Elles exposent à biopsie et traitement radical (incontinence, dysfonction érectile) sans bénéfice : c'est le principal préjudice du dépistage."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Ne cite jamais seulement la réduction relative de 20 % : donne le chiffre absolu (≈ 1 décès évité/1 000).",
+    "L'ERSPC et le PLCO divergent surtout à cause de la contamination du bras contrôle du PLCO."
+   ],
+   "sources": [
+    "ERSPC Hugosson 2019",
+    "PLCO",
+    "Office fédéral de la statistique / NICER",
+    "Swiss Medical Board 2011"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Comprendre le PSA : spécifique de la prostate, pas du cancer",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Interprète un PSA en cherchant d'abord les causes bénignes et les médicaments qui le modifient avant de conclure à un cancer.",
+   "tableau": {
+    "colonnes": [
+     "Facteur",
+     "Effet sur le PSA",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Hyperplasie bénigne, prostatite, infection urinaire, rétention",
+      [
+       {
+        "t": "Élève le PSA",
+        "i": "Le PSA est une kallikréine produite par la prostate entière ; toute inflammation ou tout volume accru en libère davantage dans le sang."
+       }
+      ],
+      "Traiter la cause et recontrôler à 4–6 semaines."
+     ],
+     [
+      "Éjaculation (24–48 h), vélo, sondage, biopsie",
+      [
+       {
+        "t": "Élève transitoirement",
+        "i": "La stimulation ou le traumatisme mécanique de la glande libère du PSA ; l'effet disparaît en quelques jours."
+       }
+      ],
+      "Éviter ces facteurs 48 h avant le dosage ; attendre après un geste."
+     ],
+     [
+      "Finastéride, dutastéride (5-ARI)",
+      [
+       {
+        "t": "Divise le PSA par 2 après 6–12 mois",
+        "i": "Ces inhibiteurs de la 5-alpha-réductase réduisent le volume prostatique et la synthèse du PSA ; un PSA mesuré sous traitement sous-estime le risque."
+       }
+      ],
+      "Doubler la valeur mesurée pour l'interpréter."
+     ],
+     [
+      "Cancer de la prostate",
+      [
+       {
+        "t": "Peut élever, VPP ≈ 25 % entre 4 et 10 ng/mL",
+        "i": "Trois PSA élevés sur quatre sont des faux positifs ; un PSA élevé n'établit donc jamais le diagnostic de cancer."
+       }
+      ],
+      "Recontrôle, IRM puis biopsie ciblée."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "PSA : spécifique de la prostate, non du cancer.",
+    "Sous 5-ARI, double la valeur mesurée après 6 à 12 mois.",
+    "VPP ≈ 25 % pour un PSA de 4 à 10 ng/mL."
+   ],
+   "sources": [
+    "EAU 2024",
+    "AIPS Swissmedic (finastéride, dutastéride)"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Anamnèse : identifier le risque, exclure les symptômes, explorer les valeurs",
+   "rubriques": [
+    "anamnesis"
+   ],
+   "comment": "Cherche d'abord des symptômes, qui sortent du dépistage, puis le risque familial ou ethnique, puis les préférences du patient.",
+   "tableau": {
+    "colonnes": [
+     "Profil",
+     "Âge de début de la discussion",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Risque moyen",
+      "50 ans.",
+      [
+       {
+        "t": "Âge de départ standard",
+        "i": "Avant 50 ans, l'incidence est trop faible pour que le bénéfice absolu compense les préjudices."
+       }
+      ]
+     ],
+     [
+      "Antécédent familial 1er degré, surtout < 65 ans",
+      "Proposer plus activement la discussion.",
+      [
+       {
+        "t": "Risque accru",
+        "i": "Le risque relatif augmente, surtout si le parent a été atteint jeune, ce qui élève la probabilité pré-test."
+       }
+      ]
+     ],
+     [
+      "Origine africaine",
+      "Dès 45 ans.",
+      [
+       {
+        "t": "Cancer plus agressif et plus précoce",
+        "i": "Le risque de forme agressive est plus élevé, d'où un début plus précoce de la discussion."
+       }
+      ]
+     ],
+     [
+      "Mutation BRCA2",
+      "Dès 40 ans.",
+      [
+       {
+        "t": "Risque de cancer agressif",
+        "i": "BRCA2 prédispose aux formes agressives, contrairement au risque moyen où le surdiagnostic domine."
+       }
+      ]
+     ],
+     [
+      "Patient symptomatique (urinaire, douleurs osseuses, hématurie)",
+      "Pas de dépistage : bilan diagnostique.",
+      [
+       {
+        "t": "Relève d'un bilan, non d'un dépistage",
+        "i": "Le dépistage vise un homme asymptomatique ; un symptôme change la probabilité pré-test et la logique de la démarche."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Explore valeurs, tolérance à l'incertitude, crainte du cancer et aversion aux effets secondaires avant de proposer le dosage.",
+    "Recherche systématiquement symptômes urinaires, douleurs osseuses, hématurie."
+   ],
+   "sources": [
+    "EAU 2024",
+    "Smarter Medicine Suisse (SSMIG)"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Examen clinique et signaux d'alarme",
+   "rubriques": [
+    "clinicalExam",
+    "presumptionRedFlags"
+   ],
+   "comment": "Le toucher rectal n'est pas un test de dépistage isolé ; réserve-le aux symptômes ou au PSA anormal et repère les urgences médullaires.",
+   "tableau": {
+    "colonnes": [
+     "Signe",
+     "Évoque",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Toucher rectal normal ou non réalisé",
+      [
+       {
+        "t": "N'exclut pas un cancer",
+        "i": "Le toucher rectal seul est peu sensible ; il ne remplace pas le PSA et ne se pratique pas comme dépistage isolé."
+       }
+      ],
+      "Pas de TR de dépistage isolé."
+     ],
+     [
+      "Nodule dur ou asymétrie au TR",
+      [
+       {
+        "t": "Cancer possible même avec PSA normal",
+        "i": "Une tumeur postérieure palpable peut exister avec un PSA bas ; l'examen garde une valeur indépendante du dosage."
+       }
+      ],
+      "Bilan urologique."
+     ],
+     [
+      "Douleurs osseuses rachidiennes, perte de poids, altération de l'état général avec PSA élevé",
+      [
+       {
+        "t": "Cancer métastatique",
+        "i": "L'os (rachis) est le site métastatique préférentiel ; l'association avec un PSA élevé est évocatrice."
+       }
+      ],
+      "Bilan urologique rapide."
+     ],
+     [
+      "PSA > 100 ng/mL",
+      [
+       {
+        "t": "Quasi pathognomonique de métastases",
+        "i": "Un tel niveau est rarement dû à une cause bénigne ; attendre un contrôle à 4–6 semaines retarderait inutilement la prise en charge."
+       }
+      ],
+      "Bilan sans attendre de contrôle."
+     ],
+     [
+      "Faiblesse des jambes, troubles sphinctériens, douleur dorsale neuropathique",
+      [
+       {
+        "t": "Compression médullaire",
+        "i": "Une métastase vertébrale comprime la moelle ; le déficit devient irréversible sans traitement rapide."
+       }
+      ],
+      "Urgence : IRM médullaire immédiate."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Un PSA > 20 à 50 ng/mL avec symptômes généraux fait évoquer un cancer métastatique.",
+    "La compression médullaire est une urgence : déficit moteur ou sphinctérien = IRM en urgence."
+   ],
+   "sources": [
+    "EAU 2024",
+    "ESMO"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Démarche devant un PSA élevé",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Recontrôle d'abord, puis IRM avant toute biopsie, et biopsie seulement si la lésion est suspecte (PI-RADS 3 à 5).",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Un premier PSA est ≥ 3 ng/mL chez un patient asymptomatique.",
+     "i": "Seuil d'alerte retenu pour la suite du bilan ; un seul dosage ne justifie jamais une biopsie.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Contrôler le PSA à 4–6 semaines.",
+     "i": "Hors infection, éjaculation (24–48 h) et manipulation, pour éliminer une élévation transitoire.",
+     "pec": "psa_eleve",
+     "notion": "c3"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Le PSA redevient < 3 ng/mL.",
+     "i": "Il s'agissait d'une élévation transitoire ou d'un faux positif ; on retourne à l'intervalle habituel.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Le PSA reste ≥ 3 ng/mL.",
+     "i": "Le risque de cancer persiste ; on affine avec densité du PSA (seuil 0,15 ng/mL/cm³), rapport libre/total ou PHI puis IRM.",
+     "pec": "psa_eleve",
+     "notion": "c6"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Réaliser une IRM prostatique multiparamétrique.",
+     "i": "Elle précède la biopsie car elle évite des biopsies inutiles et réduit la détection de cancers indolents.",
+     "pec": "psa_eleve",
+     "notion": "c6"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "PI-RADS 1–2 : pas de biopsie d'emblée.",
+     "i": "La probabilité de cancer cliniquement significatif est très faible ; on surveille le PSA.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n7",
+     "parent": "n5",
+     "t": "PI-RADS 3–5 : biopsie ciblée.",
+     "i": "La lésion suspecte justifie un prélèvement histologique, seul examen confirmant le cancer.",
+     "pec": "psa_eleve",
+     "notion": "c6"
+    },
+    {
+     "id": "n8",
+     "parent": "n7",
+     "t": "Grade ISUP 1, PSA < 10, cT1-2a : surveillance active.",
+     "i": "Le cancer de bas risque évolue rarement ; un traitement radical immédiat expose à un surtraitement.",
+     "pec": "surveillance_active",
+     "notion": "c7"
+    },
+    {
+     "id": "n9",
+     "parent": "n7",
+     "t": "ISUP ≥ 2 : avis urologique et oncologique.",
+     "i": "Le choix entre chirurgie, radiothérapie et surveillance dépasse le cadre du dépistage et se décide en équipe spécialisée.",
+     "pec": null,
+     "notion": "c7"
+    }
+   ],
+   "points": [
+    "Un PSA élevé ne suffit jamais à poser le diagnostic : seule la biopsie avec grade ISUP confirme le cancer.",
+    "IRM avant biopsie : PI-RADS 3 à 5 = biopsie ciblée ; PI-RADS 1–2 = souvent pas de biopsie."
+   ],
+   "sources": [
+    "EAU 2024",
+    "PRECISION / étude IRM avant biopsie",
+    "Smarter Medicine Suisse (SSMIG)"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Qui dépister, qui ne pas dépister, qui surveiller",
+   "rubriques": [
+    "positiveDiagnosis",
+    "workupAlternatives"
+   ],
+   "comment": "Fonde la décision sur l'âge, l'espérance de vie (> 10 ans) et les valeurs du patient, et réserve la surveillance active aux tumeurs de bas risque.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Attitude",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Homme de 50–70 ans, espérance de vie > 10 ans",
+      "Proposer le dépistage après information complète.",
+      [
+       {
+        "t": "Seule population où le bénéfice peut apparaître",
+        "i": "Le bénéfice survient après 10 ans ou plus ; une espérance de vie plus courte annule ce gain tandis que les préjudices persistent."
+       }
+      ]
+     ],
+     [
+      "Espérance de vie < 10 ans ou âge > 70–75 ans",
+      "Ne plus dépister.",
+      [
+       {
+        "t": "Le surtraitement l'emporte",
+        "i": "La tumeur détectée n'aurait pas causé de symptômes avant la mort par une autre cause, alors que le traitement garde ses effets secondaires."
+       }
+      ]
+     ],
+     [
+      "Patient qui refuse",
+      "Respecter le refus et documenter.",
+      [
+       {
+        "t": "Aucune conséquence pour le patient",
+        "i": "Le dépistage est un choix ; l'information donnée et la décision se notent dans le dossier."
+       }
+      ]
+     ],
+     [
+      "Cancer cT1-2a, ISUP 1 (Gleason 6), PSA < 10",
+      "Surveillance active.",
+      [
+       {
+        "t": "Traitement différé",
+        "i": "Le risque de progression est faible ; on évite incontinence et dysfonction érectile et on traite seulement en cas de progression."
+       }
+      ]
+     ],
+     [
+      "Cancer confirmé de risque plus élevé",
+      "Avis urologique pour traitement curatif.",
+      [
+       {
+        "t": "Biopsie ISUP ≥ 2",
+        "i": "Le risque de progression justifie un traitement dont les bénéfices dépassent les effets secondaires."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le diagnostic de cancer repose uniquement sur la biopsie (grade ISUP).",
+    "Un homme > 70–75 ans ou à espérance de vie < 10 ans ne se dépiste plus."
+   ],
+   "sources": [
+    "Smarter Medicine Suisse (SSMIG)",
+    "EAU 2024",
+    "Swiss Medical Board 2011"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Si le dépistage est choisi : rythme, préjudices et complications",
+   "rubriques": [
+    "chronicManagement",
+    "hospitalizationComplications",
+    "surveillance"
+   ],
+   "comment": "Répète le PSA à intervalle long et anticipe les préjudices : faux positifs, sepsis post-biopsie, incontinence et dysfonction érectile.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Donnée",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Rythme du dépistage",
+      [
+       {
+        "t": "PSA tous les 2 à 4 ans, entre 50 et 70 ans",
+        "i": "Un intervalle plus long est possible si la valeur initiale est basse, car le risque est faible et le surdiagnostic augmente avec la fréquence."
+       }
+      ],
+      "Allonger l'intervalle si le PSA de départ est bas."
+     ],
+     [
+      "Faux positif",
+      [
+       {
+        "t": "Anxiété, biopsies répétées, hématurie, hémospermie, douleur",
+        "i": "Les effets sont fréquents mais bénins ; l'anxiété du faux positif peut pourtant être importante."
+       }
+      ],
+      "Informer avant le dosage."
+     ],
+     [
+      "Sepsis post-biopsie",
+      [
+       {
+        "t": "≈ 1 % des biopsies, fièvre après le geste",
+        "i": "Les germes rectaux (dont les BLSE) pénètrent la prostate lors de la biopsie ; la fièvre doit être traitée comme un sepsis."
+       }
+      ],
+      "Hospitaliser, hémocultures, antibiothérapie iv large."
+     ],
+     [
+      "Surtraitement",
+      [
+       {
+        "t": "Incontinence et dysfonction érectile après prostatectomie ou radiothérapie",
+        "i": "Ce sont les principaux préjudices, qui touchent aussi les hommes dont le cancer était indolent."
+       }
+      ],
+      "IRM avant biopsie, biopsie ciblée, surveillance active."
+     ],
+     [
+      "Surveillance active",
+      [
+       {
+        "t": "PSA tous les 6 mois, IRM ou biopsie répétée",
+        "i": "La cinétique du PSA et l'imagerie détectent la progression tumorale à temps pour un traitement curatif."
+       }
+      ],
+      "Traiter si progression."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Intervalle PSA : 2 à 4 ans entre 50 et 70 ans.",
+    "Une fièvre après biopsie prostatique est un sepsis jusqu'à preuve du contraire."
+   ],
+   "sources": [
+    "EAU 2024",
+    "Smarter Medicine Suisse (SSMIG)",
+    "SSI / recommandations suisses d'antibiothérapie"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Pronostic et réseau de soins",
+   "rubriques": [
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Rassure sur le pronostic des formes localisées et organise la coordination entre médecin de famille et urologue.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "ProtecT : la survie spécifique d'un cancer localisé dépasse 95 % à 10–15 ans, quel que soit le traitement, surveillance incluse.",
+    "Le médecin de famille mène la discussion de dépistage, coordonne le suivi et adresse à l'urologue si le PSA reste élevé ou si le toucher rectal est suspect."
+   ],
+   "sources": [
+    "ProtecT (NEJM 2016, 2023)",
+    "EAU 2024"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "decision_partagee",
+   "titre": "Consultation de dépistage : information et décision partagée",
+   "but": [
+    "Obtenir une décision éclairée du patient, fondée sur des chiffres absolus et sur ses valeurs.",
+    "Éviter le dosage du PSA de routine et le surdiagnostic chez les hommes hors indication."
+   ],
+   "moyens": {
+    "accueil": [
+     "Demande au patient ce qu'il sait du PSA et pourquoi il consulte.",
+     "Exclut des symptômes urinaires, une hématurie ou des douleurs osseuses.",
+     "Estime l'espérance de vie (> 10 ans) et le risque familial ou ethnique."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Remet une aide à la décision (brochure Smarter Medicine / SSMIG) avec bénéfice absolu et risques chiffrés.",
+      "pourquoi": "Un support écrit améliore la compréhension du faible bénéfice absolu et des risques."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Explique d'éviter éjaculation 48 h, vélo et infection avant le dosage.",
+      "pourquoi": "Ces facteurs élèvent le PSA et créent des faux positifs."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Documente l'information donnée et la décision dans le dossier.",
+      "pourquoi": "La traçabilité protège le patient et le médecin."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantit le consentement éclairé et la documentation de l'information et de la décision."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Clarifie avec le patient la prise en charge du dosage par l'assurance et la franchise."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Laisse le patient décider sans pression, y compris refuser.",
+      "Présente les chiffres en valeurs absolues, jamais seulement en réduction relative.",
+      "Refuse le dosage de routine sans information préalable."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Exclut les symptômes, estime l'espérance de vie et le risque familial ou ethnique."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Présente 1 décès évité/1 000, surdiagnostic 20–50 %, risques de biopsie et de traitement."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "assistant·e médical·e",
+       "fait": "Remet l'aide à la décision et prépare les conditions du dosage."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Exprime ses valeurs et choisit de se faire dépister ou non."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Dose le PSA si le patient accepte, programme le rappel à 2–4 ans et documente la décision."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le bénéfice absolu est d'environ 1 décès évité pour 1 000 hommes dépistés (ERSPC à 16 ans), avec 18 diagnostics pour éviter 1 décès.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "PSA de dépistage",
+      "quand": "Tous les 2 à 4 ans entre 50 et 70 ans",
+      "cible": "< 3 ng/mL, intervalle plus long si valeur initiale basse"
+     },
+     {
+      "quoi": "Espérance de vie et souhait du patient",
+      "quand": "À chaque consultation de rappel",
+      "cible": "Arrêt si espérance de vie < 10 ans ou > 70–75 ans"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : décision documentée au cabinet, aucune hospitalisation."
+   },
+   "prevention": {
+    "primaire": "Informe sur les risques et ne dépiste pas de routine les hommes hors indication.",
+    "secondaire": "Propose le dépistage par PSA aux hommes de 50–70 ans qui le souhaitent après information.",
+    "tertiaire": "Limite le surtraitement par IRM avant biopsie et surveillance active des tumeurs de bas risque."
+   }
+  },
+  {
+   "cle": "psa_eleve",
+   "titre": "PSA élevé : confirmation, IRM et biopsie ciblée",
+   "but": [
+    "Confirmer l'élévation du PSA en éliminant les causes transitoires.",
+    "Réserver la biopsie aux lésions suspectes à l'IRM afin de limiter le surdiagnostic."
+   ],
+   "moyens": {
+    "accueil": [
+     "Rassure le patient : la majorité des PSA élevés (VPP ≈ 25 % entre 4 et 10) ne sont pas un cancer.",
+     "Recherche infection urinaire, rétention, sondage, éjaculation récente, vélo, 5-ARI."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réalise une IRM prostatique multiparamétrique avant toute biopsie.",
+      "pourquoi": "Elle évite des biopsies inutiles et réduit la détection de cancers indolents."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Fait pratiquer une biopsie ciblée si PI-RADS 3–5, de préférence par voie transpérinéale.",
+      "pourquoi": "L'histologie est le seul diagnostic ; la voie transpérinéale réduit le risque infectieux selon l'EAU."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Offre un soutien et des explications face à l'anxiété du faux positif.",
+      "pourquoi": "Le faux positif provoque une anxiété durable chez de nombreux patients."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Assure le consentement éclairé avant IRM et biopsie, y compris pour le risque de sepsis."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Ne pose jamais le diagnostic de cancer sur un PSA seul.",
+      "Double la valeur du PSA mesurée sous finastéride ou dutastéride.",
+      "Informe le patient du risque de sepsis (≈ 1 %) avant la biopsie."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Recherche les causes bénignes, réalise le TR et programme un nouveau PSA à 4–6 semaines."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Calcule densité du PSA (seuil 0,15), rapport libre/total ou PHI si PSA limite."
+      },
+      {
+       "temps": "puis",
+       "qui": "radiologue",
+       "fait": "Réalise l'IRM multiparamétrique et classe la lésion en PI-RADS."
+      },
+      {
+       "temps": "puis",
+       "qui": "urologue",
+       "fait": "Biopsie ciblée si PI-RADS 3–5 ; renonce à la biopsie si PI-RADS 1–2 avec PSA stable."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Annonce le résultat, discute surveillance active ou traitement avec l'urologue."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le risque de cancer reste incertain : la VPP du PSA entre 4 et 10 ng/mL est d'environ 25 %, donc la majorité des PSA élevés sont des faux positifs.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "PSA de contrôle",
+      "quand": "4 à 6 semaines après le premier",
+      "cible": "Retour < 3 ng/mL ou persistance justifiant l'IRM"
+     },
+     {
+      "quoi": "Fièvre ou frissons après biopsie",
+      "quand": "Dans les jours suivants",
+      "cible": "Absence ; sinon urgence"
+     },
+     {
+      "quoi": "Résultat histologique (grade ISUP)",
+      "quand": "À réception du résultat de biopsie",
+      "cible": "ISUP 1 pour surveillance active, sinon avis urologique"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée ; hospitalisation seulement en cas de fièvre ou complication post-biopsie."
+   },
+   "prevention": {
+    "primaire": "Évite les dosages de PSA sans information préalable.",
+    "secondaire": "Recontrôle avant imagerie et utilise l'IRM pour sélectionner les biopsies.",
+    "tertiaire": "Oriente les cancers de bas risque vers la surveillance active."
+   }
+  },
+  {
+   "cle": "surveillance_active",
+   "titre": "Cancer localisé de bas risque : surveillance active",
+   "but": [
+    "Éviter le surtraitement d'une tumeur indolente et ses séquelles (incontinence, dysfonction érectile).",
+    "Détecter à temps une progression pour proposer un traitement curatif."
+   ],
+   "moyens": {
+    "accueil": [
+     "Explique que le cancer est de bas risque et que ne pas traiter immédiatement est une stratégie active.",
+     "Accueille la crainte du cancer et discute la tolérance à l'incertitude."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Répète IRM ou biopsie selon le protocole de l'urologue.",
+      "pourquoi": "Elles détectent une progression tumorale non visible sur le PSA seul."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Explique les critères de passage à un traitement radical.",
+      "pourquoi": "Le patient comprend pourquoi un contrôle régulier remplace l'intervention."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Propose un soutien en cas d'anxiété liée à l'absence de traitement.",
+      "pourquoi": "L'anxiété est la principale raison d'abandon de la surveillance."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Intervient seulement si la maladie évolue en forme métastatique symptomatique, pour le contrôle des symptômes."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Réserve la surveillance aux cancers ISUP 1 (Gleason 6), PSA < 10 ng/mL, cT1-2a.",
+      "Garde un contact régulier avec l'urologue et le médecin de famille."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "urologue",
+       "fait": "Confirme l'éligibilité : ISUP 1, PSA < 10 ng/mL, cT1-2a, après IRM et biopsie ciblée."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Dose le PSA tous les 6 mois et suit sa cinétique."
+      },
+      {
+       "temps": "puis",
+       "qui": "urologue",
+       "fait": "Répète IRM ou biopsie pour rechercher une progression."
+      },
+      {
+       "temps": "puis",
+       "qui": "urologue",
+       "fait": "Propose prostatectomie ou radiothérapie en cas de progression tumorale."
+      }
+     ]
+    }
+   },
+   "pronostic": "Dans ProtecT, la survie spécifique d'un cancer localisé dépasse 95 % à 10–15 ans, quel que soit le traitement, surveillance active incluse.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "PSA et cinétique",
+      "quand": "Tous les 6 mois",
+      "cible": "Stable, sans élévation rapide"
+     },
+     {
+      "quoi": "IRM prostatique ou biopsie",
+      "quand": "Selon protocole urologique",
+      "cible": "Absence de progression du grade ou du volume"
+     },
+     {
+      "quoi": "Symptômes urinaires, douleurs osseuses",
+      "quand": "À chaque contrôle",
+      "cible": "Absence"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : tumeur de bas risque, patient informé et suivi organisé."
+   },
+   "prevention": {
+    "primaire": "Sans objet pour le dépistage par PSA ; encourage une hygiène de vie générale.",
+    "secondaire": "Maintient un suivi régulier pour détecter une progression tumorale.",
+    "tertiaire": "Traite en cas de progression et prévient les séquelles par rééducation périnéale et sexuelle."
+   }
+  },
+  {
+   "cle": "urgences",
+   "titre": "Urgences : sepsis post-biopsie et compression médullaire",
+   "but": [
+    "Traiter le sepsis post-biopsie dans la première heure pour réduire la mortalité.",
+    "Préserver la fonction neurologique en cas de compression médullaire métastatique."
+   ],
+   "moyens": {
+    "accueil": [
+     "Évalue d'emblée les signes vitaux et le score de gravité (qSOFA).",
+     "Interroge sur la biopsie récente, la fièvre, la faiblesse des jambes et les troubles sphinctériens."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Ceftriaxone (céphalosporine de 3e génération)",
+      "posologie": "2 g iv 1×/j, après hémocultures ; adapter à l'antibiogramme.",
+      "pourquoi": "Couvre les entérobactéries d'origine rectale dans le sepsis post-biopsie ; ajuster selon l'antibiogramme.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Méropénème (carbapénème)",
+      "posologie": "1 g iv 3×/j (adapter à la fonction rénale), en cas de risque de BLSE ou de choc.",
+      "pourquoi": "Les entérobactéries BLSE résistent aux céphalosporines ; le carbapénème s'impose si le risque est élevé.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Dexaméthasone (corticostéroïde)",
+      "posologie": "Dose de charge 8 à 16 mg iv, puis schéma décidé avec l'oncologue ou le neurochirurgien.",
+      "pourquoi": "Réduit l'œdème péri-médullaire en cas de compression métastatique suspectée, en attendant l'imagerie.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réalise une IRM médullaire en urgence si déficit moteur ou sphinctérien.",
+      "pourquoi": "Seule l'IRM localise la compression et guide la radiothérapie ou la chirurgie."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Pose deux voies veineuses, remplit par cristalloïdes si hypotension et surveille la diurèse.",
+      "pourquoi": "Le remplissage précoce stabilise le choc septique."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Draine un abcès ou une rétention urinaire après échographie ou scanner.",
+      "pourquoi": "Un foyer non drainé fait échouer l'antibiothérapie."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Contrôle la douleur et organise le projet de soins si la maladie est métastatique avancée."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantit information et consentement du patient malgré l'urgence."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Applique le bilan sepsis à la première heure : hémocultures, lactate, antibiotique.",
+      "Immobilise le patient suspect de compression médullaire jusqu'à l'imagerie.",
+      "Hospitalise tout patient fébrile après biopsie prostatique."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Reconnaît la fièvre post-biopsie ou le déficit neurologique et déclenche l'alarme."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Prélève hémocultures et lactate, pose les voies veineuses et mesure les paramètres vitaux."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Administre l'antibiotique iv dans l'heure, ajoute urine et ECBU, remplit si hypotension."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Donne la dexaméthasone et demande l'IRM médullaire si signes de compression."
+      },
+      {
+       "temps": "puis",
+       "qui": "urologue",
+       "fait": "Draine toute obstruction ou abcès prostatique."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Oncologue et radiothérapeute décident de la radiothérapie ou de la chirurgie décompressive."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Un sepsis traité précocement évolue favorablement dans la plupart des cas (≈ 1 % des biopsies) ; une compression médullaire traitée avant la perte de marche garde un meilleur pronostic fonctionnel.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Paramètres vitaux, diurèse, lactate",
+      "quand": "Toutes les heures à la phase initiale",
+      "cible": "Stabilité hémodynamique, lactate normalisé"
+     },
+     {
+      "quoi": "Force musculaire et fonction sphinctérienne",
+      "quand": "Plusieurs fois par jour",
+      "cible": "Absence d'aggravation du déficit"
+     },
+     {
+      "quoi": "Hémocultures et antibiogramme",
+      "quand": "À 48–72 h",
+      "cible": "Adaptation et relais oral possible"
+     }
+    ],
+    "sortie": "Apyrexie, stabilité hémodynamique, relais oral selon l'antibiogramme, et traitement de la compression défini avec l'oncologie."
+   },
+   "prevention": {
+    "primaire": "Informe du risque de sepsis avant biopsie et privilégie la voie transpérinéale.",
+    "secondaire": "Recherche un déficit neurologique chez tout patient ayant un cancer prostatique métastatique et des douleurs rachidiennes.",
+    "tertiaire": "Organise rééducation et soins de soutien après compression médullaire."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 5707,
+  "output_tokens": 20898,
+  "output_tokens_details": {
+   "thinking_tokens": 5658
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:53",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": {
+   "verdict": "🟩",
+   "date": "2026-11-26",
+   "aVerifier": [
+    "Décès annuels par cancer de la prostate (OFS/NICER)"
+   ],
+   "audit": "AUDIT_V3_B"
+  }
+ }
+}
