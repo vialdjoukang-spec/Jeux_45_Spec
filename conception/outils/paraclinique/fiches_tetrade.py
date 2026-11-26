@@ -52,7 +52,9 @@ def trouver(F, nom):
             if c.startswith(k2):
                 return F[c]
     for c, v in F.items():
-        if len(k) > 6 and (c.startswith(k) or k.startswith(c)):
+        # préfixe accepté seulement si les deux noms ont presque la même longueur : « tumeur ovarienne » ne doit pas
+        # hériter de la fiche « tumeur ovarienne virilisante » (correction du 27.11.2026)
+        if len(k) > 6 and (c.startswith(k) or k.startswith(c)) and min(len(k), len(c)) / max(len(k), len(c)) >= 0.85:
             return v
     return None
 
