@@ -84,3 +84,24 @@ Méthode : trois sous-agents avec la même grille (doses, seuils, PEP VIH, CNP/C
 Contrôles du passage : aucun CNP, CPCM ni PEP VIH ; niveaux 4–5 masqués ; menus longs à 1–3 justes. `controle_menus_longs.py` MTR et OPH → 0 menu fautif ; il reste des erreurs de schéma sur des pathologies OPH non encore auditées (H25.9, H49.2, H52.1, H53.0, H57.0_1…).
 
 Reste à auditer : 39 pathologies (H25.9_1 → K52.1).
+
+## Passage 5 — pathologies 42 à 51 sur 80 (10 pathologies, OPH)
+
+Méthode : trois sous-agents avec la même grille ; JSON revalidés par moi. Aucune source primaire relue en entier en ligne (recherches ponctuelles AAO seulement) : les doutes sont dans `audit.claude.aVerifier`.
+
+| # | Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|---|
+| 42 | H16.1 Kératite / lésion cornéenne | 🟧 | Rien de faux relevé. À vérifier : posologies (oxybuprocaïne, ofloxacine, cyclopentolate, ibuprofène, acétazolamide, ondansétron, ciclosporine), durée d'irrigation, N04/Q15 non sourcées. |
+| 43 | H25.9_1 Cataracte (glaucome phacomorphique) | 🟧 | Corrigé : pilocarpine déconseillée dans le glaucome phacomorphique. À vérifier : confirmation EGS/AAO, chiffre « plus de la moitié des plus de 70 ans », acuité du permis. |
+| 44 | H25.9_2 Cataracte | 🟧 | Corrigé : coquilles (Q01, Q06, Q14, N55), « intracaméral ». À vérifier : prévalences, OAC art. 27, posologies postopératoires. |
+| 45 | H25.9 Cataracte | 🟧 | Corrigé : clé `horsUrgence` hors schéma, Q05 (« hier »), consignes Kprim, « intracaméral ». À vérifier : 90 % contre 95 % d'amélioration, endophtalmie < 0,2 %, doses EVS. |
+| 46 | H43.8 Décollement postérieur du vitré | 🟧 | Corrigé : contrôle 1–2 semaines puis 4–6 semaines (AAO). À vérifier : posologie mydriatiques, fréquences de déchirure. |
+| 47 | H49.2 Paralysie microvasculaire III/VI | 🟧 | Corrigé : `priseEnCharge` restaurée dans `ssp`, « why » de Q02/Q13/Q17, Q07 masqué, « jamais » nuancé. À vérifier : EULAR 2018 contre 2023, pantoprazole, atorvastatine, LCR 15d. |
+| 48 | H50.0 Strabisme concomitant | 🟧 | Corrigé : « irréversible après 6–8 ans » nuancé, Q05/Q12 masqués, consignes. À vérifier : cyclopentolate, atropine, seuils PEDIG, remboursements. |
+| 49 | H50.9 Pseudostrabisme | 🟧 | Corrigé : sens de refixation faux (Q03-A), Q19 révélait le diagnostic, « why » Q06, Q09-E, accords, catégories. À vérifier : Hirschberg, prévalence, seuil 4 mois, OPAS 12e. |
+| 50 | H52.1 Troubles sensoriels méconnus | 🟧 | Corrigé : clé `false`, nature « drapeau rouge », limite « plasticité 7–8 ans » retirée, menus annoncés « une à trois réponses ». À vérifier : cyclopentolate, myopie, MiGeL, seuil OMS 2021. |
+| 51 | H53.0 Amblyopie | 🟧 | Corrigé : natures hors énumération, limite « 7–8 ans » retirée (Q04, Q15, N06). À vérifier : délai 24–48 h, atropine, rechute ≈ 25 %, MiGeL. |
+
+Contrôles du passage : aucun CNP, CPCM ni PEP VIH ; niveaux 4–5 masqués ; menus longs à 1–3 justes. `controle_menus_longs.py OPH` → 0 menu fautif ; 1 erreur de schéma restante sur H57.0_1 (pathologie non encore auditée).
+
+Reste à auditer : 29 pathologies (H57.0_1 → K52.1).

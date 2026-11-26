@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-26 03:39 UTC
+# Ouvrier automatique — 2026-11-26 03:48 UTC
 
-Dernier passage : **AUDIT_V2_A** → en_cours (1.72 USD).
+Dernier passage : **AUDIT_V2_A** → en_cours (2.38 USD).
 
-Passage 4 terminé : les pathologies 32 à 41 sur 80 sont auditées (toutes 🟧, corrections et points à vérifier consignés dans CLAUDE_A_AUDITER/AUDIT_V2_A.md et dans audit.claude des fichiers). Aucune source primaire n'a pu être lue en ligne ; les doutes restent marqués « à vérifier ». Il reste 39 pathologies (H25.9_1 → K52.1) ; le contrôle des menus longs donne 0 sur MTR et OPH.
+Passage 5 fait : les pathologies 42 à 51 (OPH) sont auditées et corrigées, avec le journal à jour dans CLAUDE_A_AUDITER/AUDIT_V2_A.md. Aucune source primaire n'a pu être relue en entier : les doutes sont marqués « à vérifier ». Il reste 29 pathologies (de H57.0_1 à K52.1) pour les passages suivants.
 
-**Crédit** : 12.01 USD dépensés, 137.99 USD disponibles avant le 31.01.2027 ; aujourd'hui 11.66 / 149.65 USD.
+**Crédit** : 14.39 USD dépensés, 135.61 USD disponibles avant le 31.01.2027 ; aujourd'hui 14.04 / 149.65 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -52,7 +52,7 @@ Passage 4 terminé : les pathologies 32 à 41 sur 80 sont auditées (toutes 🟧
 | V2_Q_recup | fait | 16 | 0.0 |
 | V2_C_lot | fait | 1 | 0.0 |
 | V2_C_recup | fait | 10 | 0.0 |
-| AUDIT_V2_A | en_cours | 4 | 1.717 |
+| AUDIT_V2_A | en_cours | 5 | 2.38 |
 | V3B_N_lot | a_faire | 0 |  |
 | V3B_N_recup | a_faire | 0 |  |
 | V3B_Q_lot | a_faire | 0 |  |
