@@ -1,8 +1,10 @@
 # Ouvrier automatique — 2026-11-26 04:19 UTC
 
-Dernier passage : **AUDIT_V2_A** → fait (1.91 USD).
+Dernier passage : **V3B_N_lot** → fait (0.00 USD).
 
-Les 80 pathologies sont auditées (passage 8 : pathologies 72 à 80, TOX et ORL) ; les erreurs de schéma, les niveaux 4–5 non masqués et plusieurs why incohérents sont corrigés sur place. Aucune source primaire n'a pu être lue en ligne : toutes les doses et tous les seuils incertains sont marqués « à vérifier » dans audit.claude.aVerifier et dans le journal CLAUDE_A_AUDITER/AUDIT_V2_A.md. controle_menus_longs.py renvoie 0 menu fautif et 0 erreur de schéma sur TOX et ORL.
+notions : 408 entité(s) à produire.
+lot msgbatch_01EzF3pvSUho8BXkuotRGB3n
+
 
 **Crédit** : 22.31 USD dépensés, 127.69 USD disponibles avant le 31.01.2027 ; aujourd'hui 21.96 / 149.65 USD.
 
@@ -53,7 +55,7 @@ Les 80 pathologies sont auditées (passage 8 : pathologies 72 à 80, TOX et ORL)
 | V2_C_lot | fait | 1 | 0.0 |
 | V2_C_recup | fait | 10 | 0.0 |
 | AUDIT_V2_A | fait | 8 | 1.908 |
-| V3B_N_lot | a_faire | 0 |  |
+| V3B_N_lot | fait | 1 | 0.0 |
 | V3B_N_recup | a_faire | 0 |  |
 | V3B_Q_lot | a_faire | 0 |  |
 | V3B_Q_recup | a_faire | 0 |  |
