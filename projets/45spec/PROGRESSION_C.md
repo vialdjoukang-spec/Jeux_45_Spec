@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**101 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**113 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -706,18 +706,18 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 696 | 1696 | `N92.4__S4_12-E03` | GYN | Périménopause avec ménométrorragies fonctionnelles (cycles anovulatoires) | produite |
 | 697 | 1697 | `N93.9_2__S4_17-E06` | TOX | Saignement iatrogène sous contraception hormonale ou anticoagulants | produite |
 | 698 | 1698 | `N95.2_1__S4_18-E06` | GYN | Vaginite atrophique post-ménopausique ou de lactation | produite |
-| 699 | 1699 | `N97.1__S4_4-E03` | GYN | Infertilité tubaire (séquelles de salpingite à Chlamydia) | — |
-| 700 | 1700 | `N97.9_1__O4_5-E04` | GYN | Infertilité du couple (bilan de base masculin et féminin après 12 mois) | — |
-| 701 | 1701 | `O02.1__O1_8-E05` | GYN | Grossesse arrêtée asymptomatique (missed abortion) découverte à l'échographie | — |
-| 702 | 1702 | `O04.9_1__O1_8-E03` | GYN | Interruption médicale de grossesse (IMG > 12 SA pour détresse grave ou pathologie fœtale) | — |
-| 703 | 1703 | `O10.0__O1_4-E06` | GYN | Hypertension artérielle chronique préexistante en grossesse | — |
-| 704 | 1704 | `O20.0__O1_9-E04` | GYN | Métrorragies bénignes du 1er trimestre sur grossesse évolutive (décollement trophoblastique) | — |
-| 705 | 1705 | `O26.8_2__O1_7-E06` | GYN | Lombalgies et douleurs de la ceinture pelvienne (symphyse pubienne) | — |
-| 706 | 1706 | `O32.1__O1_5-E04` | GYN | Présentation du siège à terme | — |
-| 707 | 1707 | `O36.6__O2_7-E05` | GYN | Macrosomie fœtale diagnostiquée in utero | — |
-| 708 | 1708 | `O40__O2_7-E04` | GYN | Hydramnios (polyhydramnios : excès de liquide amniotique) | — |
-| 709 | 1709 | `O41.0__O2_7-E03` | GYN | Oligoamnios (insuffisance de liquide amniotique) | — |
-| 710 | 1710 | `O81.4__O1_5-E03` | GYN | Extraction instrumentale (ventouse obstétricale ou forceps) | — |
+| 699 | 1699 | `N97.1__S4_4-E03` | GYN | Infertilité tubaire (séquelles de salpingite à Chlamydia) | produite |
+| 700 | 1700 | `N97.9_1__O4_5-E04` | GYN | Infertilité du couple (bilan de base masculin et féminin après 12 mois) | produite |
+| 701 | 1701 | `O02.1__O1_8-E05` | GYN | Grossesse arrêtée asymptomatique (missed abortion) découverte à l'échographie | produite |
+| 702 | 1702 | `O04.9_1__O1_8-E03` | GYN | Interruption médicale de grossesse (IMG > 12 SA pour détresse grave ou pathologie fœtale) | produite |
+| 703 | 1703 | `O10.0__O1_4-E06` | GYN | Hypertension artérielle chronique préexistante en grossesse | produite |
+| 704 | 1704 | `O20.0__O1_9-E04` | GYN | Métrorragies bénignes du 1er trimestre sur grossesse évolutive (décollement trophoblastique) | produite |
+| 705 | 1705 | `O26.8_2__O1_7-E06` | GYN | Lombalgies et douleurs de la ceinture pelvienne (symphyse pubienne) | produite |
+| 706 | 1706 | `O32.1__O1_5-E04` | GYN | Présentation du siège à terme | produite |
+| 707 | 1707 | `O36.6__O2_7-E05` | GYN | Macrosomie fœtale diagnostiquée in utero | produite |
+| 708 | 1708 | `O40__O2_7-E04` | GYN | Hydramnios (polyhydramnios : excès de liquide amniotique) | produite |
+| 709 | 1709 | `O41.0__O2_7-E03` | GYN | Oligoamnios (insuffisance de liquide amniotique) | produite |
+| 710 | 1710 | `O81.4__O1_5-E03` | GYN | Extraction instrumentale (ventouse obstétricale ou forceps) | produite |
 | 711 | 1711 | `O92.7_1__O1_6-E04` | GYN | Canal lactophore bouché (stase lactée localisée) | — |
 | 712 | 1712 | `O99.2__O1_7-E07` | GYN | Prise en charge d'une hypothyroïdie préexistante ou infraclinique en grossesse | — |
 | 713 | 1713 | `P08.2__O1_1-E06` | PED | Grossesse prolongée / Post-maturité (>= 42 0/7 SA) | produite |
