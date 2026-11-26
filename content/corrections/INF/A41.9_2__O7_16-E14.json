@@ -1,0 +1,1123 @@
+{
+ "id": "A41.9_2__O7_16-E14",
+ "portes": [
+  {
+   "ssp": "O7.16",
+   "nomSSP": "Évaluation préinterventionnelle et préopératoire",
+   "entite": "Infection active non contrôlée avant pose de prothèse ou implant",
+   "entiteId": "O7.16-E14"
+  }
+ ],
+ "entite": "Infection active non contrôlée avant pose de prothèse ou implant",
+ "cim10": "A41.9",
+ "ssp": {
+  "code": "O7.16",
+  "nom": "Évaluation préinterventionnelle et préopératoire",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient programmé pour prothèse ou implant : infection active ?",
+    "i": "Porte d'entrée : chaque candidat à une implantation est évalué pour un foyer infectieux actif avant l'acte.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Signes de sepsis (qSOFA ≥ 2, hypotension, lactate > 2) ?",
+    "i": "Un qSOFA ≥ 2 signale un risque élevé de sepsis ; un lactate > 2 mmol/L traduit une hypoperfusion.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : sepsis ou choc, reporter l'implant",
+    "i": "Il s'agit d'une urgence vitale : bundle d'une heure, antibiotiques IV et contrôle du foyer.",
+    "pec": "sepsis_urgence",
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : foyer clinique ou microbiologique documenté ?",
+    "i": "Cystite symptomatique, abcès dentaire, cellulite, pneumonie ou hémocultures positives constituent un foyer actif.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Oui : l'implantation est-elle urgente (fracture du col) ?",
+    "i": "Une implantation urgente non élective n'est pas reportée.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Oui : opérer, traiter l'infection en parallèle",
+    "i": "Le risque d'un retard chirurgical dépasse le risque infectieux ; l'avis pluridisciplinaire est obligatoire.",
+    "pec": "implantation_urgente",
+    "notion": null
+   },
+   {
+    "id": "n7",
+    "parent": "n5",
+    "t": "Non : reporter, traiter, contrôler le foyer",
+    "i": "Le matériel étranger exposerait à une infection sur biofilm ; on reprogramme après guérison.",
+    "pec": "foyer_report_electif",
+    "notion": "c7"
+   },
+   {
+    "id": "n8",
+    "parent": "n4",
+    "t": "Non : fièvre ou CRP élevée inexpliquée, ou hémoculture positive ?",
+    "i": "Un syndrome inflammatoire sans foyer évident impose la recherche d'un foyer avant l'acte.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Oui : chercher le foyer, reporter",
+    "i": "Une hémoculture à S. aureus est toujours vraie ; la fièvre inexpliquée interdit l'élection.",
+    "pec": "foyer_report_electif",
+    "notion": "c4"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Non : portage ou bactériurie asymptomatique seulement ?",
+    "i": "Ces situations sont des colonisations et non des infections actives.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Portage nasal S. aureus ou SARM",
+    "i": "Décolonisation sans report ; renvoie au SSP O7.16 « Préparation cutanée, décolonisation SARM et antibioprophylaxie chirurgicale ».",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Bactériurie asymptomatique",
+    "i": "Ni dépistage ni traitement : aucun bénéfice et risque de résistance ; l'intervention a lieu.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n13",
+    "parent": "n10",
+    "t": "Aucune anomalie infectieuse",
+    "i": "Poursuivre l'évaluation préopératoire standard (ASA, cardiovasculaire, anticoagulants) : autres entités du SSP O7.16.",
+    "pec": null,
+    "notion": null
+   }
+  ]
+ },
+ "specialites": [
+  "INF"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Infection active non contrôlée avant pose de prothèse ou d'implant",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Infection active ou simple colonisation : ce qui contre-indique l'implant",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Pour décider, on cherche d'abord un foyer documenté cliniquement ou microbiologiquement, puis on distingue l'infection de la colonisation, qui ne reporte rien.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Infection active ?",
+     "Attitude",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Foyer documenté (cystite symptomatique, abcès dentaire, cellulite, pneumonie, sepsis)",
+      [
+       {
+        "t": "Oui",
+        "i": "Un foyer prouvé cliniquement ou en culture peut ensemencer l'implant par bactériémie, même transitoire."
+       }
+      ],
+      [
+       {
+        "t": "Reporter l'implantation élective",
+        "i": "La contamination de l'implant expose à une infection sur matériel, bien plus grave qu'un report de quelques semaines."
+       }
+      ],
+      "Traiter jusqu'à la guérison clinique et biologique, puis reprogrammer."
+     ],
+     [
+      "Portage nasal de S. aureus ou de SARM sans signe clinique",
+      [
+       {
+        "t": "Non",
+        "i": "Le portage est une colonisation : il n'y a ni foyer ni réponse inflammatoire de l'hôte."
+       }
+      ],
+      [
+       {
+        "t": "Décoloniser, ne pas reporter",
+        "i": "Mupirocine nasale et lavage à la chlorhexidine réduisent le risque sans retarder la chirurgie."
+       }
+      ],
+      "Le portage augmente le risque d'infection du site opératoire mais ne contre-indique pas l'acte."
+     ],
+     [
+      "Bactériurie asymptomatique",
+      [
+       {
+        "t": "Non",
+        "i": "Sans symptôme urinaire, la bactériurie ne cause pas d'infection de prothèse articulaire."
+       }
+      ],
+      [
+       {
+        "t": "Ne pas dépister, ne pas traiter",
+        "i": "Traiter n'apporte aucun bénéfice et favorise les résistances ; seul un geste urologique muqueux l'impose."
+       }
+      ],
+      "Piège classique d'examen : l'ECBU systématique préopératoire est inutile."
+     ],
+     [
+      "Fièvre ou CRP élevée inexpliquée dans les jours précédant l'acte",
+      [
+       {
+        "t": "À éclaircir",
+        "i": "Un syndrome inflammatoire sans foyer peut cacher une infection débutante ou être non infectieux."
+       }
+      ],
+      [
+       {
+        "t": "Chercher un foyer et reporter",
+        "i": "Tant qu'un foyer n'est pas exclu, l'intervention élective ne doit pas avoir lieu."
+       }
+      ],
+      "Les mimeurs (microcristaux, thrombose veineuse, médicament) se distinguent par l'absence de foyer et de microbiologie positive."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Une infection active non contrôlée est un foyer documenté, non traité ou non guéri, qui contre-indique toute arthroplastie ou implantation élective.",
+    "Le taux d'infection du site opératoire après arthroplastie primaire de hanche ou de genou est d'environ 1 % selon Swissnoso.",
+    "Les staphylocoques (S. aureus, staphylocoques à coagulase négative) dominent les infections de prothèse articulaire, y compris par voie hématogène.",
+    "La première cause d'infection hématogène précoce sur matériel est un foyer à distance non traité avant l'implantation."
+   ],
+   "sources": [
+    "Swissnoso",
+    "Recommandations suisses d'infectiologie"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Biofilm et ensemencement hématogène de l'implant",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "On explique l'urgence de traiter le foyer avant l'implant par le biofilm, qui rend l'éradication par antibiotiques seuls presque impossible.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Une bactériémie, même transitoire, d'origine urinaire, dentaire ou cutanée peut ensemencer la surface d'un implant, surtout en période périopératoire précoce.",
+    "Les bactéries adhérées forment un biofilm irréversible dont la matrice les protège de l'immunité et des antibiotiques.",
+    "Un implant non vascularisé altère la défense locale : un inoculum très faible suffit à provoquer l'infection.",
+    "Conséquence pratique : la prévention (foyer traité avant l'acte) vaut mieux que la cure, qui impose souvent la dépose du matériel."
+   ],
+   "sources": [
+    "Swissnoso",
+    "Recommandations suisses d'infectiologie"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen : traquer tous les foyers",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "On interroge sur les semaines précédant l'acte, puis on examine systématiquement chaque porte d'entrée potentielle de bactériémie.",
+   "tableau": {
+    "colonnes": [
+     "Foyer",
+     "Point d'appel",
+     "Examen ciblé",
+     "Attitude"
+    ],
+    "lignes": [
+     [
+      "Urinaire",
+      "Brûlures mictionnelles, pollakiurie, douleur sus-pubienne ou de loge rénale",
+      [
+       {
+        "t": "Bandelette puis ECBU si symptomatique",
+        "i": "La bandelette sans leucocytes ni nitrites rend l'infection peu probable ; l'ECBU guide l'antibiogramme avant tout antibiotique."
+       }
+      ],
+      "Cystite : nitrofurantoïne, fosfomycine ou pivmécillinam, puis reprogrammer."
+     ],
+     [
+      "Dentaire / ORL",
+      "Douleur dentaire, tuméfaction, fièvre",
+      [
+       {
+        "t": "Examen buccodentaire, panoramique",
+        "i": "La panoramique repère caries avancées, abcès ou granulome, surtout avant valve ou matériel intracardiaque."
+       }
+      ],
+      "Extraction ou soin dentaire avant l'implant."
+     ],
+     [
+      "Cutané",
+      "Plaie suintante, ulcère, abcès, intertrigo, eczéma surinfecté",
+      [
+       {
+        "t": "Inspection de toute la peau",
+        "i": "Le site opératoire et les membres sont les plus à risque de contaminer directement l'implant."
+       }
+      ],
+      "Débridement ou drainage, antibiothérapie, report."
+     ],
+     [
+      "Pulmonaire",
+      "Toux, dyspnée, fièvre",
+      [
+       {
+        "t": "Auscultation, saturation, radiographie",
+        "i": "Une pneumonie provoque une bactériémie et expose à une complication anesthésique."
+       }
+      ],
+      "Traiter et reporter l'acte électif."
+     ],
+     [
+      "Matériel ou articulation voisine",
+      "Douleur, gonflement, antécédent d'infection de prothèse",
+      [
+       {
+        "t": "Examen articulaire du matériel en place",
+        "i": "Un matériel déjà implanté est un site d'ensemencement hématogène à haut risque."
+       }
+      ],
+      "Ponction articulaire et avis infectiologique."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'anamnèse recherche fièvre, frissons, brûlures mictionnelles, douleur dentaire, toux, plaie suintante dans les semaines précédant l'acte.",
+    "Les facteurs favorisants sont le diabète, l'immunosuppression, une antibiothérapie récente, un portage de SARM, un matériel en place et un antécédent d'infection de prothèse.",
+    "Les constantes (température, fréquence cardiaque, fréquence respiratoire, PA, saturation, conscience) repèrent un sepsis débutant."
+   ],
+   "sources": [
+    "Swissnoso",
+    "Recommandations suisses d'infectiologie",
+    "ESC 2023 endocardite"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Signes d'alarme : sepsis, choc septique, hémoculture à S. aureus",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "On repère le sepsis avec le qSOFA puis on le confirme par le SOFA, en sachant qu'une hémoculture à S. aureus est toujours vraie.",
+   "tableau": {
+    "colonnes": [
+     "Entité",
+     "Définition",
+     "Seuil",
+     "Conséquence"
+    ],
+    "lignes": [
+     [
+      "qSOFA",
+      [
+       {
+        "t": "Outil de repérage au lit",
+        "i": "Il ne pose pas le diagnostic mais signale un risque élevé de sepsis, sans examen de laboratoire."
+       }
+      ],
+      "≥ 2 critères : FR ≥ 22/min, conscience altérée, PAS ≤ 100 mmHg",
+      "Évaluation urgente et recherche d'une dysfonction d'organe."
+     ],
+     [
+      "Sepsis",
+      [
+       {
+        "t": "Dysfonction d'organe due à une réponse dérégulée à l'infection",
+        "i": "Sepsis-3 exige une dysfonction d'organe, pas seulement un syndrome inflammatoire (SIRS)."
+       }
+      ],
+      "Augmentation aiguë du score SOFA ≥ 2 points",
+      "Antibiotiques IV dans l'heure si sepsis probable."
+     ],
+     [
+      "Choc septique",
+      [
+       {
+        "t": "Vasopresseurs nécessaires malgré remplissage",
+        "i": "Il traduit une hypoperfusion tissulaire persistante, associée à une mortalité nettement plus élevée que le sepsis seul."
+       }
+      ],
+      "PAM ≥ 65 mmHg sous vasopresseurs et lactate > 2 mmol/L",
+      "Noradrénaline, soins intensifs, contrôle du foyer."
+     ],
+     [
+      "Hémoculture à S. aureus",
+      [
+       {
+        "t": "Jamais un contaminant",
+        "i": "Contrairement aux staphylocoques à coagulase négative isolés, S. aureus en hémoculture signe une vraie bactériémie."
+       }
+      ],
+      "Une seule hémoculture positive suffit",
+      "Traitement prolongé, recherche de foyer, prudence pour tout implant."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Une fièvre ou un syndrome inflammatoire inexpliqué dans les jours précédant l'implantation impose de chercher un foyer et de reporter l'acte électif.",
+    "Une bactériémie à S. aureus expose à l'endocardite et à la spondylodiscite et nécessite un traitement prolongé."
+   ],
+   "sources": [
+    "Sepsis-3, JAMA 2016",
+    "Surviving Sepsis Campaign 2021"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan : hémocultures, lactate, urine, marqueurs, foyer",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "On prélève avant l'antibiotique sans le retarder, puis on confirme un foyer clinique par la microbiologie, en évitant le dépistage inutile.",
+   "tableau": {
+    "colonnes": [
+     "Examen",
+     "Indication",
+     "Interprétation",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Hémocultures (2 paires aérobie + anaérobie)",
+      "Fièvre ou suspicion de sepsis",
+      [
+       {
+        "t": "Avant l'antibiotique",
+        "i": "Un antibiotique préalable négative les cultures, mais le prélèvement ne doit jamais retarder le traitement."
+       }
+      ],
+      "Ne pas retarder l'antibiotique pour les prélever."
+     ],
+     [
+      "Lactate",
+      "Suspicion de sepsis",
+      [
+       {
+        "t": "> 2 mmol/L",
+        "i": "Ce seuil traduit une hypoperfusion tissulaire et guide la réanimation."
+       }
+      ],
+      "Une valeur normale n'exclut pas un sepsis."
+     ],
+     [
+      "Bandelette puis ECBU avec antibiogramme",
+      "Patient symptomatique uniquement",
+      [
+       {
+        "t": "Leucocytes et nitrites négatifs",
+        "i": "Ils rendent une infection urinaire peu probable, donc inutile de poursuivre."
+       }
+      ],
+      "Ne jamais dépister une bactériurie asymptomatique avant arthroplastie."
+     ],
+     [
+      "CRP, leucocytes, procalcitonine",
+      "Syndrome inflammatoire, doute diagnostique",
+      [
+       {
+        "t": "Procalcitonine",
+        "i": "Elle aide à distinguer une cause bactérienne d'un syndrome inflammatoire non infectieux, contrairement à CRP et leucocytes non spécifiques."
+       }
+      ],
+      "Aucun marqueur ne remplace l'examen clinique."
+     ],
+     [
+      "Prélèvement du foyer et imagerie ciblée",
+      "Pus, plaie, expectoration, suspicion de collection",
+      [
+       {
+        "t": "Culture et imagerie",
+        "i": "La culture dirige l'antibiotique ; l'imagerie repère une collection à drainer."
+       }
+      ],
+      "Une collection ne guérit pas par antibiotiques seuls."
+     ],
+     [
+      "Radiographie panoramique dentaire",
+      "Avant valve ou matériel intracardiaque, sauf urgence ; suspicion de granulome",
+      [
+       {
+        "t": "Foyer dentaire à traiter",
+        "i": "Un foyer dentaire est une porte d'entrée d'endocardite sur matériel intracardiaque."
+       }
+      ],
+      "Pas d'antibioprophylaxie dentaire de routine pour une prothèse articulaire."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le diagnostic positif repose sur un foyer cliniquement identifié, confirmé si possible par culture du site ou hémocultures.",
+    "Les mimeurs (microcristaux, thrombose veineuse, médicament, maladie inflammatoire) n'ont ni foyer ni microbiologie positive.",
+    "L'antibioprophylaxie avant soins dentaires est réservée aux porteurs de valve prothétique à haut risque d'endocardite."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "ESC 2023 endocardite",
+    "Recommandations suisses d'infectiologie"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Conduite immédiate : reporter, réanimer, traiter, contrôler le foyer",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "On reporte d'abord l'acte électif, puis on stabilise le patient et on traite et draine le foyer, sauf si l'implantation est urgente.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Infection active avant implantation",
+     "i": "Point de départ : un foyer ou un sepsis est suspecté chez un patient programmé pour une prothèse.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Implantation urgente non différable ?",
+     "i": "Une fracture du col fémoral ne se reporte pas : le risque de retard dépasse le risque infectieux.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : opérer et traiter en parallèle",
+     "i": "L'infection est traitée en même temps après avis pluridisciplinaire (chirurgien, infectiologue, anesthésiste).",
+     "pec": "implantation_urgente",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non : reporter l'acte électif",
+     "i": "La contamination de l'implant exposerait à une infection sur matériel, complication lourde.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Sepsis probable ou choc ?",
+     "i": "Un qSOFA ≥ 2, une hypotension ou un lactate > 2 mmol/L imposent le bundle d'une heure.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Oui : bundle 1 h",
+     "i": "Hémocultures, lactate, 30 mL/kg de cristalloïdes, antibiotiques IV large spectre dans l'heure, noradrénaline si PAM < 65.",
+     "pec": "sepsis_urgence",
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n5",
+     "t": "Non : foyer localisé",
+     "i": "Sans dysfonction d'organe, un traitement ciblé sur le foyer suffit ; antibiotiques dans les 3 h si sepsis seulement possible.",
+     "pec": "foyer_report_electif",
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n7",
+     "t": "Collection ou foyer accessible ?",
+     "i": "L'antibiothérapie seule est insuffisante face à un abcès, une dent infectée ou une plaie nécrotique.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n9",
+     "parent": "n8",
+     "t": "Drainer, extraire ou débrider",
+     "i": "Le contrôle du foyer est réalisé dès que possible puis la durée d'antibiotique est raccourcie à 5-7 jours.",
+     "pec": "foyer_report_electif",
+     "notion": null
+    }
+   ],
+   "points": [
+    "Toute implantation élective est reportée tant que l'infection n'est pas guérie.",
+    "Sepsis probable ou choc : antibiotiques IV dans l'heure ; sepsis seulement possible sans choc : dans les 3 heures après évaluation rapide.",
+    "Remplissage par 30 mL/kg de cristalloïdes balancés dans les 3 premières heures ; noradrénaline en première intention avec PAM cible de 65 mmHg.",
+    "L'antibiothérapie empirique (pipéracilline-tazobactam, ou ceftriaxone + métronidazole) s'adapte au foyer et à l'écologie locale."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Après la phase aiguë : désescalade, durée et reprogrammation",
+   "rubriques": [
+    "chronicManagement"
+   ],
+   "comment": "On désescalade à 48-72 h, on vérifie la guérison clinique et biologique, puis on reprogramme sur décision collégiale.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La désescalade antibiotique intervient à 48-72 h selon l'antibiogramme ; la durée est raccourcie à 5-7 jours si le foyer est contrôlé.",
+    "Cystite non compliquée en Suisse : nitrofurantoïne 5 jours, fosfomycine-trométamol en dose unique ou pivmécillinam.",
+    "La reprogrammation suit la guérison clinique, la normalisation biologique et la fin du traitement, sur décision conjointe du chirurgien, de l'infectiologue et de l'anesthésiste.",
+    "Un porteur nasal de S. aureus est décolonisé (mupirocine nasale, lavage à la chlorhexidine) sans report de l'intervention."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "AIPS Swissmedic",
+    "Swissnoso"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications : infection de prothèse et dissémination",
+   "rubriques": [
+    "hospitalizationComplications"
+   ],
+   "comment": "Le choix entre conservation et dépose de l'implant dépend de la durée des symptômes, de la stabilité de l'implant et de l'âge du biofilm.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Geste sur l'implant",
+     "Antibiothérapie",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Infection précoce, symptômes < 3 semaines, implant stable",
+      [
+       {
+        "t": "Débridement avec rétention (DAIR)",
+        "i": "Le biofilm n'est pas encore mature : un lavage et le changement des pièces mobiles permettent de garder l'implant."
+       }
+      ],
+      "Avec rifampicine + second antibiotique actif si staphylocoque",
+      "Elle pénètre le biofilm."
+     ],
+     [
+      "Biofilm établi ou implant instable",
+      [
+       {
+        "t": "Dépose ou changement en un ou deux temps",
+        "i": "Un biofilm mature résiste aux antibiotiques ; seule l'ablation du matériel l'élimine."
+       }
+      ],
+      "Prolongée sur plusieurs semaines",
+      "Le débridement seul échoue ; la dépose est lourde pour le patient."
+     ],
+     [
+      "Staphylocoque sur implant stable",
+      [
+       {
+        "t": "Conservation possible",
+        "i": "Un implant stable garde une bonne interface, ce qui permet un traitement conservateur."
+       }
+      ],
+      "Rifampicine toujours associée, jamais en monothérapie",
+      "La monothérapie sélectionne rapidement des résistances."
+     ],
+     [
+      "Sepsis non contrôlé",
+      [
+       {
+        "t": "Contrôle du foyer en urgence",
+        "i": "Sans drainage du foyer, le sepsis évolue vers l'échec d'organe malgré les antibiotiques."
+       }
+      ],
+      "Large spectre puis ciblé",
+      "Il expose à la défaillance multiviscérale, à l'insuffisance rénale aiguë, à l'endocardite et à la spondylodiscite."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La rifampicine est toujours associée à un second antibiotique actif.",
+    "Les infections de prothèse nécessitent souvent une reprise lourde et une antibiothérapie prolongée."
+   ],
+   "sources": [
+    "Recommandations suisses d'infectiologie",
+    "Swissnoso",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Surveillance, pronostic et réseau de suivi",
+   "rubriques": [
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "On suit la perfusion d'organe et la guérison du foyer jusqu'à la reprogrammation, avec l'équipe pluridisciplinaire.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "On mesure à nouveau le lactate s'il dépasse 2 mmol/L, jusqu'à normalisation (clairance visée > 10-20 %).",
+    "On surveille PAM ≥ 65 mmHg, diurèse > 0,5 mL/kg/h, créatinine, température et procalcitonine.",
+    "En cas de bactériémie à S. aureus, les hémocultures sont répétées jusqu'à négativation.",
+    "Reporter une chirurgie élective est une mesure simple qui évite une infection de prothèse.",
+    "Le suivi associe chirurgien, infectiologue, anesthésiste, médecin traitant et dentiste ; Swissnoso et le registre SIRIS surveillent les infections de prothèse."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "Swissnoso",
+    "SIRIS"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "sepsis_urgence",
+   "titre": "Sepsis ou choc septique avant implantation : urgence",
+   "but": [
+    "Rétablir la perfusion d'organe en maintenant une PAM ≥ 65 mmHg.",
+    "Administrer l'antibiothérapie adaptée dans l'heure et contrôler le foyer.",
+    "Reporter l'implantation élective jusqu'à la guérison."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installer le patient en salle de déchocage avec monitoring continu.",
+     "Poser deux voies veineuses et mesurer lactate, gaz du sang et créatinine.",
+     "Informer chirurgien et anesthésiste du report de l'intervention élective."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Ringer-lactate (cristalloïde balancé)",
+      "posologie": "30 mL/kg IV dans les 3 premières heures en cas d'hypoperfusion ou de choc, à réévaluer selon la réponse.",
+      "pourquoi": "Un cristalloïde balancé restaure le volume circulant ; on suggère ce volume initial en cas d'hypoperfusion ou de choc.",
+      "source": "Surviving Sepsis Campaign 2021"
+     },
+     {
+      "molecule": "Pipéracilline/tazobactam (pénicilline + inhibiteur de β-lactamase)",
+      "posologie": "4,5 g IV toutes les 6 h dans l'heure, adapté à la fonction rénale et à l'antibiogramme.",
+      "pourquoi": "Cette association couvre un large spectre incluant Pseudomonas et anaérobies ; on y ajoute de la vancomycine si SARM suspecté.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Ceftriaxone + métronidazole (céphalosporine + nitro-imidazolé)",
+      "posologie": "Ceftriaxone 2 g IV/j + métronidazole 500 mg IV toutes les 8 h, alternative selon foyer et allergies.",
+      "pourquoi": "Cette alternative couvre les entérobactéries, streptocoques et anaérobies ; elle ne couvre pas Pseudomonas.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Noradrénaline (vasopresseur)",
+      "posologie": "0,05–1 µg/kg/min en IVSE si PAM < 65 mmHg malgré le remplissage, voie centrale de préférence.",
+      "pourquoi": "C'est le vasopresseur de première intention du choc septique, avec une PAM cible de 65 mmHg.",
+      "source": "Surviving Sepsis Campaign 2021"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Drainer l'abcès, extraire la dent ou débrider la plaie dès que possible.",
+      "pourquoi": "Les antibiotiques seuls échouent face à une collection ; le contrôle du foyer prime."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Poser une sonde vésicale pour mesurer la diurèse horaire.",
+      "pourquoi": "La diurèse > 0,5 mL/kg/h reflète la perfusion rénale et guide la réanimation."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documenter l'information du patient sur le report de l'intervention et le consentement aux traitements."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Établir l'incapacité de travail et assurer le suivi administratif de la prolongation de l'hospitalisation."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Prélever les hémocultures sans retarder l'antibiotique.",
+      "Réévaluer le patient en continu pour détecter une aggravation.",
+      "Reporter toute implantation élective."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Reconnaît le sepsis par le qSOFA et ordonne hémocultures (2 paires) et lactate."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose deux voies, branche le monitoring et administre le Ringer-lactate 30 mL/kg prescrit."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Débute l'antibiotique IV large spectre dans l'heure, sans attendre les résultats."
+      },
+      {
+       "temps": "puis",
+       "qui": "second médecin",
+       "fait": "Prescrit la noradrénaline si PAM < 65 mmHg malgré le remplissage et transfère aux soins intensifs."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Planifie avec le chirurgien le drainage ou l'extraction du foyer."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Documenter la guérison clinique et biologique avant toute reprogrammation.",
+      "Réévaluer l'antibiothérapie selon l'antibiogramme."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Désescalade antibiotique à 48-72 h selon l'antibiogramme."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "L'infectiologue fixe la durée totale de 5 à 7 jours si le foyer est contrôlé."
+      },
+      {
+       "temps": "puis",
+       "qui": "second médecin",
+       "fait": "Chirurgien, infectiologue et anesthésiste décident ensemble de la reprogrammation."
+      }
+     ]
+    }
+   },
+   "pronostic": "Un sepsis traité rapidement permet de reprogrammer ; un choc septique reste grave, et reporter l'implant évite l'infection de prothèse nécessitant dépose.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Lactate",
+      "quand": "Remesuré à H2-H4 s'il dépasse 2 mmol/L",
+      "cible": "Normalisation, clairance > 10-20 %"
+     },
+     {
+      "quoi": "PAM et diurèse",
+      "quand": "En continu en phase aiguë",
+      "cible": "PAM ≥ 65 mmHg, diurèse > 0,5 mL/kg/h"
+     },
+     {
+      "quoi": "Créatinine et procalcitonine",
+      "quand": "Quotidien",
+      "cible": "Stabilité de la créatinine, procalcitonine en baisse"
+     },
+     {
+      "quoi": "Hémocultures",
+      "quand": "Répétées si S. aureus",
+      "cible": "Négativation"
+     }
+    ],
+    "sortie": "Apyrexie, hémodynamique stable sans vasopresseur, lactate normal, foyer contrôlé et relais antibiotique défini avec l'infectiologue."
+   },
+   "prevention": {
+    "primaire": "Rechercher et traiter tout foyer infectieux avant l'implantation élective.",
+    "secondaire": "Dépister et traiter la bactériémie à S. aureus tôt, sans dépister la bactériurie asymptomatique.",
+    "tertiaire": "Surveiller les prothèses avec Swissnoso et SIRIS pour détecter précocement une infection."
+   }
+  },
+  {
+   "cle": "foyer_report_electif",
+   "titre": "Foyer infectieux localisé sans sepsis : report de l'implantation élective",
+   "but": [
+    "Guérir complètement le foyer avant d'implanter un matériel étranger.",
+    "Choisir un antibiotique ciblé et le raccourcir au minimum efficace.",
+    "Reprogrammer l'intervention de façon collégiale."
+   ],
+   "moyens": {
+    "accueil": [
+     "Interrompre la programmation de l'intervention élective.",
+     "Rechercher tous les foyers par anamnèse et examen complets.",
+     "Expliquer au patient pourquoi le report est dans son intérêt."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Nitrofurantoïne (antibiotique urinaire)",
+      "posologie": "100 mg forme retard par voie orale 2×/j pendant 5 jours pour une cystite non compliquée ; éviter en insuffisance rénale significative.",
+      "pourquoi": "C'est un traitement de première intention de la cystite non compliquée en Suisse, avec peu de résistances.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Fosfomycine-trométamol (antibiotique urinaire)",
+      "posologie": "3 g par voie orale en dose unique pour une cystite non compliquée.",
+      "pourquoi": "La dose unique favorise l'observance et limite l'impact sur la flore ; alternative à la nitrofurantoïne.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Antibiotique ciblé selon culture et antibiogramme",
+      "posologie": "Désescalade à 48-72 h selon l'antibiogramme ; durée totale 5-7 jours si le foyer est contrôlé.",
+      "pourquoi": "Un spectre étroit limite les résistances et préserve le microbiote tout en traitant le foyer identifié.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Mupirocine nasale + chlorhexidine (décolonisation)",
+      "posologie": "Mupirocine nasale 2×/j pendant 5 jours et lavage à la chlorhexidine, sans report si simple portage de S. aureus.",
+      "pourquoi": "La décolonisation réduit le risque d'infection du site opératoire chez le porteur nasal sans retarder la chirurgie.",
+      "source": "Swissnoso"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Drainer un abcès, extraire une dent infectée ou débrider une plaie.",
+      "pourquoi": "Les antibiotiques seuls ne suffisent pas à stériliser une collection ou un tissu nécrotique."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Enseigner au patient l'hygiène cutanée et dentaire et à signaler tout symptôme avant l'intervention.",
+      "pourquoi": "Un patient informé reconnaît tôt un nouveau foyer et évite une contamination du futur implant."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Soigner la plaie et contrôler la peau du site opératoire avant la reprogrammation.",
+      "pourquoi": "Une peau lésée ou eczémateuse est une porte d'entrée directe au site de l'implant."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantir une information claire du patient sur les raisons du report et ses alternatives."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Gérer l'incapacité de travail et la prolongation de l'attente de l'intervention."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Éviter la bandelette et l'ECBU chez un patient sans symptôme urinaire.",
+      "Réserver la panoramique dentaire à l'implantation de valve ou à un foyer suspecté.",
+      "Conserver le dossier partagé entre chirurgien, infectiologue et anesthésiste."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Identifie le foyer, prélève la culture et prescrit l'antibiotique ciblé."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "spécialiste",
+       "fait": "Draine ou extrait le foyer lorsqu'une collection est présente."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Désescalade à 48-72 h et vérifie la guérison clinique et biologique."
+      },
+      {
+       "temps": "puis",
+       "qui": "second médecin",
+       "fait": "Chirurgien, infectiologue et anesthésiste fixent ensemble la date de reprogrammation."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Consulte le dentiste ou son médecin traitant si le foyer l'exige."
+      }
+     ]
+    }
+   },
+   "pronostic": "Un foyer localisé bien traité guérit habituellement ; le report évite l'infection de prothèse, dont le taux de base est d'environ 1 % après arthroplastie primaire.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Symptômes et température",
+      "quand": "À chaque contrôle jusqu'à la guérison",
+      "cible": "Absence de symptômes, apyrexie"
+     },
+     {
+      "quoi": "CRP et leucocytes",
+      "quand": "Avant la reprogrammation",
+      "cible": "Normalisation"
+     },
+     {
+      "quoi": "Culture de contrôle ou examen du foyer",
+      "quand": "Après la fin de l'antibiotique",
+      "cible": "Foyer guéri sans collection résiduelle"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée, car sans sepsis ni dysfonction d'organe ; reprogrammation après guérison clinique, biologique et fin du traitement."
+   },
+   "prevention": {
+    "primaire": "Faire traiter les foyers dentaires et cutanés avant toute implantation élective.",
+    "secondaire": "Décoloniser les porteurs de S. aureus et éviter le dépistage de la bactériurie asymptomatique.",
+    "tertiaire": "Surveiller le patient implanté et traiter vite toute nouvelle infection à distance."
+   }
+  },
+  {
+   "cle": "implantation_urgente",
+   "titre": "Implantation urgente non différable avec infection associée",
+   "but": [
+    "Opérer sans délai quand le report ferait courir un risque supérieur.",
+    "Traiter l'infection en parallèle après avis pluridisciplinaire."
+   ],
+   "moyens": {
+    "accueil": [
+     "Évaluer rapidement le foyer et les signes de sepsis.",
+     "Réunir chirurgien, infectiologue et anesthésiste avant la salle d'opération."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Antibiotique ciblé sur le foyer (selon antibiogramme)",
+      "posologie": "Selon AIPS et antibiogramme ; antibioprophylaxie chirurgicale standard avant l'incision selon protocole local Swissnoso.",
+      "pourquoi": "L'antibiotique traite le foyer pendant la chirurgie et limite l'ensemencement de l'implant posé en urgence.",
+      "source": "Swissnoso"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Contrôler le foyer infectieux dès que le patient est stabilisé.",
+      "pourquoi": "Un foyer non drainé menace l'implant posé en urgence."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documenter la décision de ne pas reporter et le consentement éclairé du patient."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Ne pas reporter une intervention vitale ou fonctionnelle urgente.",
+      "Informer le patient du risque infectieux accru."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Reconnaît que l'implantation est non différable et convoque l'avis pluridisciplinaire."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "spécialiste",
+       "fait": "L'infectiologue choisit l'antibiotique selon le foyer et l'écologie locale."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "second médecin",
+       "fait": "Le chirurgien opère et l'anesthésiste assure la stabilisation périopératoire."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Draine le foyer et poursuit l'antibiothérapie ciblée après l'acte."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le risque d'infection de prothèse est accru, mais le report ferait courir un risque supérieur ; une surveillance rapprochée le limite.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Plaie opératoire et température",
+      "quand": "Quotidien après l'acte",
+      "cible": "Plaie propre, apyrexie"
+     },
+     {
+      "quoi": "CRP et hémocultures",
+      "quand": "Selon évolution du foyer",
+      "cible": "Baisse de la CRP, hémocultures négatives"
+     },
+     {
+      "quoi": "Signes de sepsis",
+      "quand": "En continu en phase aiguë",
+      "cible": "Aucun critère qSOFA"
+     }
+    ],
+    "sortie": "Hémodynamique stable, apyrexie, foyer contrôlé et relais antibiotique organisé avec suivi par infectiologue et chirurgien."
+   },
+   "prevention": {
+    "primaire": "Traiter précocement tout foyer connu chez un patient à risque de chirurgie urgente.",
+    "secondaire": "Détecter précocement l'infection de prothèse par un suivi clinique et biologique rapproché.",
+    "tertiaire": "Annoncer tout cas à Swissnoso et au registre SIRIS pour la surveillance."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6436,
+  "output_tokens": 19732,
+  "output_tokens_details": {
+   "thinking_tokens": 5172
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:58:05",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": {
+   "verdict": "🟩",
+   "date": "2026-11-26",
+   "aVerifier": [],
+   "audit": "AUDIT_V3_B"
+  }
+ }
+}
