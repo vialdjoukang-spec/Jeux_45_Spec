@@ -3,7 +3,7 @@ Lit organes_za.json, télécharge les FBX nécessaires, applique la hiérarchie 
 (mm, Z vers le haut, face vers -Y, gauche du patient vers +X), allège (≤ 60 000 faces), centre, écrit anatomie3d/<organe>.glb
 et fusionne les entrées dans index.json. Les organes déjà dans index.json avec la même empreinte sont sautés (cache).
 Signature : AAI (Anthropic AI)"""
-import hashlib, json, os, re, subprocess, sys, urllib.request
+import hashlib, json, os, re, subprocess, sys, urllib.parse, urllib.request
 
 ICI = os.path.dirname(os.path.abspath(__file__)); RAC = os.path.dirname(os.path.dirname(os.path.dirname(ICI)))
 sys.path.insert(0, ICI)
@@ -20,7 +20,7 @@ def fbx(cle):
     if cle not in _FBX:
         p = os.path.join(CACHE, CONF["fichiers"][cle] + ".fbx")
         if not os.path.exists(p):
-            os.makedirs(CACHE, exist_ok=True); urllib.request.urlretrieve(URL % CONF["fichiers"][cle], p)
+            os.makedirs(CACHE, exist_ok=True); urllib.request.urlretrieve(URL % urllib.parse.quote(CONF["fichiers"][cle]), p)
         _FBX[cle] = fbxlite.lire_monde(p)
     return _FBX[cle]
 

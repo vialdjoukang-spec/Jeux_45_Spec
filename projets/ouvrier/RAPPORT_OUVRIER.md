@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-26 01:53 UTC
+# Ouvrier automatique — 2026-11-26 01:56 UTC
 
-Dernier passage : **P3_tetrade_3d** → en_cours (0.46 USD).
+Dernier passage : **P3_tetrade_3d** → fait (0.26 USD).
 
-4 organes 3D réels ajoutés (90 → 94 sur 124) : articulations et synoviale, péritoine (modèle partiel), oreille externe (pavillons BodyParts3D) et système lymphatique, tous sous CC BY-SA, chacun sous 1,3 Mo, branchés via index.json ; audits conception 34/34, couverture et fond réussis. Aucun autre organe n'a de maillage libre dans BodyParts3D ni Z-Anatomy (péricarde, tissu de conduction, derme, ongles, muqueuses, sang, immunité, gynécologie, pédiatrie, oreille interne NC, testicules exclus). Pour finir, il reste à tester TotalSegmentator (péricarde, graisse) et à chercher un volume pelvien féminin libre ; sinon la tâche pourra passer à « fait » avec la liste des 30 organes sans source.
+Trois organes 3D réels ajoutés (ongles, muqueuses nasales, corps adipeux infrapatellaires) depuis Z-Anatomy CC BY-SA 4.0 : 97 organes sur 124, audits 34/34 et couverture réussis. Les 27 restants n'ont aucune source réelle libre vérifiée (BodyParts3D recoupé avec FMA.csv, Z-Anatomy balayé) : péricarde, tissu de conduction, microcirculation, derme, glandes cutanées, jonction neuromusculaire, gonades, sang, immunité (4), oreille interne (licence NC), 7 gynécologiques, 5 pédiatriques. Muqueuses et tissu adipeux sont des modèles partiels, signalés par une note.
 
-**Crédit** : 4.59 USD dépensés, 145.41 USD disponibles avant le 31.01.2027 ; aujourd'hui 4.24 / 149.65 USD.
+**Crédit** : 4.85 USD dépensés, 145.15 USD disponibles avant le 31.01.2027 ; aujourd'hui 4.50 / 149.65 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -41,7 +41,7 @@ Dernier passage : **P3_tetrade_3d** → en_cours (0.46 USD).
 | END_C_recup | fait | 1 | 0.0 |
 | T3_pec_fiches_existantes | fait | 8 | 0.133 |
 | P3_paraclinique_cliches | fait | 8 | 0.413 |
-| P3_tetrade_3d | en_cours | 2 | 0.461 |
+| P3_tetrade_3d | fait | 3 | 0.261 |
 | T4_reprise_rejets | en_cours | 0 | 0.0 |
 | T5_items_valides | sans_objet | 0 |  |
 | T7_transversal_lecons | sans_objet | 0 |  |
