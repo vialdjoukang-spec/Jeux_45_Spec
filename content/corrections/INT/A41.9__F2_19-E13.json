@@ -1,0 +1,1364 @@
+{
+ "id": "A41.9__F2_19-E13",
+ "portes": [
+  {
+   "ssp": "G1",
+   "nomSSP": "Transpiration anormale",
+   "entite": "Choc septique et bactériémie fulminante",
+   "entiteId": "G1-E15"
+  },
+  {
+   "ssp": "G5",
+   "nomSSP": "Sensation de maladie",
+   "entite": "Sepsis et choc septique",
+   "entiteId": "G5-E15"
+  },
+  {
+   "ssp": "G6",
+   "nomSSP": "Fièvre, frissons, hyperthermie",
+   "entite": "Choc septique et purpura fulminans",
+   "entiteId": "G6-E15"
+  },
+  {
+   "ssp": "G8",
+   "nomSSP": "Hypothermie",
+   "entite": "Sepsis grave hypothermique (choc septique à présentation froide)",
+   "entiteId": "G8-E16"
+  },
+  {
+   "ssp": "S2.2",
+   "nomSSP": "Modification du rythme respiratoire",
+   "entite": "Sepsis sévère / choc septique révélé par une tachypnée isolée",
+   "entiteId": "S2.2-E15"
+  },
+  {
+   "ssp": "F2.19",
+   "nomSSP": "Élévation des biomarqueurs de l’inflammation",
+   "entite": "Sepsis et choc septique",
+   "entiteId": "F2.19-E13"
+  },
+  {
+   "ssp": "O3.1",
+   "nomSSP": "Maltraitance et négligence envers la personne âgée",
+   "entite": "Choc septique sur escarre négligée ou infection non traitée",
+   "entiteId": "O3.1-E11"
+  }
+ ],
+ "entite": "Sepsis et choc septique",
+ "cim10": "A41.9",
+ "ssp": {
+  "code": "F2.19",
+  "nom": "Élévation des biomarqueurs de l'inflammation",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "CRP, PCT, leucocytes ou VS élevés",
+    "i": "Ces marqueurs sont sensibles mais peu spécifiques ; je les interprète avec la clinique avant de choisir une voie.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Dysfonction d'organe ou instabilité (qSOFA ≥ 2, lactate > 2 mmol/L, SOFA ≥ 2) ?",
+    "i": "Ce critère sépare l'urgence vitale du bilan ambulatoire ou hospitalier programmé.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui, avec infection suspectée",
+    "i": "Infection suspectée plus SOFA ≥ 2 définit le sepsis ; le temps compte.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n4",
+    "parent": "n3",
+    "t": "Hypotension persistante après 30 mL/kg ou vasopresseurs requis, lactate > 2",
+    "i": "Il s'agit d'un choc septique : mortalité de 30–40 %, antibiotiques dans l'heure.",
+    "pec": "choc",
+    "notion": "c7"
+   },
+   {
+    "id": "n5",
+    "parent": "n3",
+    "t": "PAM ≥ 65 mmHg sans vasopresseur",
+    "i": "Sepsis sans choc : évaluation rapide, antibiotiques dans les 3 h si l'infection reste probable.",
+    "pec": "sepsis_sans_choc",
+    "notion": "c7"
+   },
+   {
+    "id": "n6",
+    "parent": "n3",
+    "t": "Purpura extensif avec fièvre",
+    "i": "Méningococcémie probable : ceftriaxone 2 g IV immédiat, sans imagerie ni ponction lombaire.",
+    "pec": "choc",
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n3",
+    "t": "Douleur disproportionnée, crépitations, nécrose cutanée",
+    "i": "Fasciite nécrosante : débridement chirurgical urgent et antibiotiques à large spectre.",
+    "pec": "choc",
+    "notion": "c3"
+   },
+   {
+    "id": "n8",
+    "parent": "n2",
+    "t": "Oui, sans infection évidente",
+    "i": "Un choc non infectieux est possible : cardiogénique, hypovolémique, anaphylactique, embolie pulmonaire, pancréatite, insuffisance surrénalienne.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Cause non septique retenue",
+    "i": "Je renvoie vers le SSP de la présentation (choc, dyspnée, douleur) ; l'antibiothérapie reste empirique tant que le doute persiste.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n10",
+    "parent": "n2",
+    "t": "Non : patient stable",
+    "i": "Je dispose du temps pour une démarche étiologique ciblée.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Fièvre aiguë avec foyer bactérien (pneumonie, pyélonéphrite, érysipèle)",
+    "i": "Infection bactérienne communautaire : antibiothérapie ciblée selon ssi.guidelines.ch avec réévaluation à 48–72 h.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Asplénie, neutropénie ou immunosuppression avec fièvre",
+    "i": "Ces patients basculent en sepsis en quelques heures : antibiotiques IV immédiats même si stables.",
+    "pec": "sepsis_sans_choc",
+    "notion": "c4"
+   },
+   {
+    "id": "n13",
+    "parent": "n10",
+    "t": "Fièvre prolongée avec souffle ou cathéter",
+    "i": "Endocardite subaiguë possible : hémocultures répétées et échocardiographie.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n14",
+    "parent": "n10",
+    "t": "Âge > 50 ans, céphalée temporale ou trouble visuel",
+    "i": "Maladie de Horton : corticoïdes immédiats pour éviter la cécité (NOIA), avant la biopsie.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n15",
+    "parent": "n10",
+    "t": "Arthrite aiguë, rhumatisme ou digestif chronique",
+    "i": "Goutte, PPR, PR, spondyloarthrite, Still, MICI, FMF : je reste dans F2.19 et j'oriente vers la spécialité.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n16",
+    "parent": "n10",
+    "t": "Amaigrissement, cytopénies, ferritine très élevée, VS élevée avec CRP basse",
+    "i": "Néoplasie, hémopathie, HLH ou lupus : bilan hématologique et immunologique, hors sepsis.",
+    "pec": null,
+    "notion": "c6"
+   }
+  ]
+ },
+ "specialites": [
+  "INT",
+  "CPL"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Sepsis et choc septique",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définitions Sepsis-3 : sepsis, choc septique, SOFA, qSOFA",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Je pose d'abord l'infection, puis je cherche la dysfonction d'organe par le SOFA, et je réserve le mot choc au besoin de vasopresseurs avec lactate > 2 mmol/L.",
+   "tableau": {
+    "colonnes": [
+     "Entité",
+     "Critère",
+     "Chiffre clé",
+     "Piège d'examen"
+    ],
+    "lignes": [
+     [
+      "Sepsis",
+      "Infection suspectée ou prouvée + dysfonction d'organe",
+      [
+       {
+        "t": "Hausse aiguë du SOFA ≥ 2",
+        "i": "Le SOFA mesure la dysfonction d'organe, donc la gravité ; une infection sans dysfonction n'est pas un sepsis."
+       }
+      ],
+      [
+       {
+        "t": "SOFA de base supposé 0",
+        "i": "Sans atteinte d'organe préexistante connue, on compte le score absolu ; sinon on compte la variation."
+       }
+      ]
+     ],
+     [
+      "Choc septique",
+      "Sepsis avec vasoplégie persistante après remplissage adéquat",
+      [
+       {
+        "t": "Vasopresseurs pour PAM ≥ 65 mmHg + lactate > 2 mmol/L",
+        "i": "Les deux conditions sont requises : le lactate seul ou l'hypotension seule ne suffisent pas, et la mortalité atteint 30–40 %."
+       }
+      ],
+      [
+       {
+        "t": "Remplissage adéquat avant le diagnostic",
+        "i": "Une hypotension corrigée par le volume est un sepsis avec hypovolémie, pas un choc."
+       }
+      ]
+     ],
+     [
+      "qSOFA",
+      "Positif si ≥ 2 sur 3 : FR ≥ 22/min, GCS < 15, PAS ≤ 100 mmHg",
+      [
+       {
+        "t": "≥ 2 critères",
+        "i": "Il repère les patients à risque de mauvaise évolution hors soins intensifs, mais il ne pose pas le diagnostic."
+       }
+      ],
+      [
+       {
+        "t": "Ne pas l'utiliser seul comme dépistage",
+        "i": "La SSC 2021 le juge trop peu sensible et préfère NEWS, MEWS ou SIRS ; un qSOFA négatif n'exclut pas le sepsis."
+       }
+      ]
+     ],
+     [
+      "SOFA",
+      "6 systèmes : PaO2/FiO2, plaquettes, bilirubine, cardiovasculaire, Glasgow, créatinine ou diurèse",
+      [
+       {
+        "t": "Score de 0 à 4 par système",
+        "i": "Il quantifie la dysfonction ; il exige un bilan biologique et gazométrique, donc il se calcule après le début de la réanimation."
+       }
+      ],
+      "Il sert au diagnostic et au pronostic, pas au tri initial aux urgences."
+     ],
+     [
+      "SIRS / sepsis sévère",
+      "Termes abandonnés depuis Sepsis-3",
+      [
+       {
+        "t": "SIRS non critère de définition",
+        "i": "Il est sensible mais peu spécifique : un SIRS existe aussi en cas de pancréatite, brûlure ou traumatisme non infectieux."
+       }
+      ],
+      "Le terme « sepsis sévère » ne se trouve plus dans la définition."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le sepsis se définit par infection + hausse aiguë du SOFA ≥ 2.",
+    "Le choc septique demande vasopresseurs pour PAM ≥ 65 mmHg et lactate > 2 mmol/L après remplissage.",
+    "Le qSOFA identifie les patients à risque mais ne dépiste pas seul.",
+    "Le SIRS et le sepsis sévère ne définissent plus rien."
+   ],
+   "sources": [
+    "Sepsis-3, JAMA 2016",
+    "Surviving Sepsis Campaign 2021"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie et physiopathologie : de la tempête cytokinique à la défaillance d'organe",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences"
+   ],
+   "comment": "Je relie chaque mécanisme à un signe clinique ou biologique : vasoplégie → hypotension, fuite capillaire → remplissage, mitochondrie → lactate, coagulation → CIVD.",
+   "tableau": {
+    "colonnes": [
+     "Mécanisme",
+     "Conséquence",
+     "Traduction clinique ou biologique"
+    ],
+    "lignes": [
+     [
+      "Reconnaissance des motifs microbiens par les TLR",
+      [
+       {
+        "t": "Libération de TNF, IL-1, IL-6",
+        "i": "Ces cytokines activent l'endothélium ; elles expliquent fièvre, SIRS et élévation de CRP et PCT."
+       }
+      ],
+      [
+       {
+        "t": "Fièvre, CRP/PCT élevées",
+        "i": "Ce sont des marqueurs d'inflammation, utiles mais non spécifiques : ils ne décident pas du début des antibiotiques."
+       }
+      ]
+     ],
+     [
+      "Activation endothéliale et NO",
+      [
+       {
+        "t": "Vasodilatation et fuite capillaire",
+        "i": "La vasoplégie et l'hypovolémie relative définissent un choc distributif : il faut du volume puis des vasopresseurs."
+       }
+      ],
+      [
+       {
+        "t": "Hypotension, extrémités chaudes au début",
+        "i": "Les extrémités deviennent froides et marbrées en phase tardive ou en cas de dysfonction cardiaque associée."
+       }
+      ]
+     ],
+     [
+      "Dysfonction mitochondriale",
+      [
+       {
+        "t": "Hypoxie cytopathique",
+        "i": "La cellule n'utilise plus l'oxygène même si l'apport est correct, donc le lactate monte sans hypoperfusion franche."
+       }
+      ],
+      [
+       {
+        "t": "Lactate > 2 mmol/L",
+        "i": "La stimulation bêta-2 de la glycolyse aérobie augmente aussi le lactate ; il reflète donc le choc cellulaire, pas seulement le débit."
+       }
+      ]
+     ],
+     [
+      "Coagulation activée, anticoagulants naturels abaissés",
+      [
+       {
+        "t": "Microthromboses, CIVD",
+        "i": "Elles aggravent la défaillance d'organe et peuvent causer un purpura fulminans ou une ischémie acrale."
+       }
+      ],
+      [
+       {
+        "t": "Thrombopénie, TP allongé, D-dimères élevés",
+        "i": "Ce profil oriente vers la CIVD, à distinguer d'une thrombopénie isolée médicamenteuse."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La mortalité hospitalière atteint environ 15–20 % pour le sepsis et 30–40 % pour le choc septique.",
+    "Chaque heure de retard d'antibiothérapie augmente la mortalité d'environ 7–8 % dans le choc (Kumar, 2006).",
+    "Le choc septique est distributif : la vasoplégie précède souvent la défaillance cardiaque."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "Kumar, Crit Care Med 2006"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen : reconnaître l'hypoperfusion et trouver le foyer",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Je cherche d'abord les signes de dysfonction d'organe, puis le foyer et la porte d'entrée, sans oublier que l'hypothermie et la confusion isolée sont des tableaux de sepsis.",
+   "tableau": {
+    "colonnes": [
+     "Foyer suspecté",
+     "Question ou signe d'anamnèse",
+     "Signe d'examen",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Poumon",
+      "Toux, dyspnée, expectorations",
+      "Crépitants, FR ≥ 22/min",
+      [
+       {
+        "t": "Tachypnée isolée",
+        "i": "Elle peut être le seul signe précoce d'un sepsis, donc elle doit faire chercher un foyer même sans toux."
+       }
+      ]
+     ],
+     [
+      "Urinaire",
+      "Dysurie, douleurs lombaires, sonde",
+      "Douleur des loges rénales",
+      [
+       {
+        "t": "Obstacle urinaire",
+        "i": "Une lithiase obstructive avec pyélonéphrite exige un drainage urgent : l'antibiotique seul ne suffit pas."
+       }
+      ]
+     ],
+     [
+      "Digestif et biliaire",
+      "Douleurs abdominales, ictère, chirurgie récente",
+      "Défense, murphy, ictère",
+      [
+       {
+        "t": "Cholangite, péritonite",
+        "i": "Le contrôle de la source (drainage, chirurgie) conditionne la survie, idéalement dans les 6–12 h."
+       }
+      ]
+     ],
+     [
+      "Peau et parties molles",
+      "Plaie, escarre, douleur intense",
+      "Nécrose, crépitations, douleur disproportionnée",
+      [
+       {
+        "t": "Fasciite nécrosante",
+        "i": "Une douleur disproportionnée avec peau initialement peu altérée impose un débridement chirurgical urgent."
+       }
+      ]
+     ],
+     [
+      "Cathéter, prothèse, endocarde",
+      "Cathéter central, endoscopie, prothèse, toxicomanie IV",
+      "Souffle cardiaque, point d'entrée inflammatoire",
+      [
+       {
+        "t": "Retrait du cathéter",
+        "i": "Le dispositif infecté est la source à enlever ; les hémocultures sur cathéter et en périphérie aident à l'imputer."
+       }
+      ]
+     ],
+     [
+      "Méninges, peau",
+      "Céphalées, photophobie, contacts",
+      "Raideur de nuque, pétéchies, purpura extensif",
+      [
+       {
+        "t": "Méningococcémie",
+        "i": "Un purpura extensif impose la ceftriaxone avant imagerie ou ponction lombaire, car l'évolution est foudroyante."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le patient peut présenter fièvre et frissons, mais une hypothermie signe souvent un sepsis plus grave, surtout chez le sujet âgé.",
+    "Une confusion, une agitation ou une oligurie nouvelles reflètent une dysfonction d'organe et sont parfois le seul signe d'appel chez la personne âgée.",
+    "L'examen cherche marbrures des genoux, temps de recoloration > 3 s, tachycardie, tachypnée, T° > 38,3 °C ou < 36 °C.",
+    "Les terrains à risque comprennent immunosuppression, neutropénie, asplénie, diabète, alcoolisme, âges extrêmes, grossesse ou post-partum, colonisation par BLSE ou SARM."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "ssi.guidelines.ch"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Signes d'alarme : ce qui impose d'agir dans l'heure",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Je traite comme un choc tout patient qui cumule hypotension, lactate élevé, oligurie ou purpura, et je n'attends ni un bilan complet ni une imagerie pour traiter.",
+   "tableau": {
+    "colonnes": [
+     "Signe d'alarme",
+     "Seuil",
+     "Conséquence immédiate"
+    ],
+    "lignes": [
+     [
+      "Hypotension réfractaire",
+      [
+       {
+        "t": "PAM < 65 mmHg après 30 mL/kg",
+        "i": "L'hypovolémie relative est corrigée mais la vasoplégie persiste, donc le volume seul ne suffit plus."
+       }
+      ],
+      "Noradrénaline sans attendre, au besoin par voie périphérique"
+     ],
+     [
+      "Hyperlactatémie",
+      [
+       {
+        "t": "> 2 mmol/L ; ≥ 4 mmol/L",
+        "i": "Au-delà de 2 mmol/L il y a hypoperfusion ou choc cellulaire ; à ≥ 4 mmol/L la mortalité augmente nettement et le remplissage de 30 mL/kg s'impose."
+       }
+      ],
+      "Contrôle du lactate dans les 2 à 4 h"
+     ],
+     [
+      "Oligurie / IRA",
+      [
+       {
+        "t": "Diurèse < 0,5 mL/kg/h pendant 6 h",
+        "i": "Le rein est l'organe sentinelle de l'hypoperfusion ; ce seuil correspond aux critères de dysfonction rénale du SOFA."
+       }
+      ],
+      "Remplissage guidé, éviter les néphrotoxiques, suivre la créatinine"
+     ],
+     [
+      "Purpura fulminans",
+      [
+       {
+        "t": "Purpura extensif + choc",
+        "i": "La méningococcémie tue en quelques heures ; la ponction lombaire est contre-indiquée en cas d'instabilité."
+       }
+      ],
+      "Ceftriaxone 2 g IV immédiat, sans imagerie ni ponction lombaire"
+     ],
+     [
+      "Asplénie ou neutropénie fébrile",
+      [
+       {
+        "t": "Fièvre sans autre signe",
+        "i": "Ces patients évoluent en sepsis fulminant en quelques heures, parfois avec peu de signes initiaux."
+       }
+      ],
+      "Antibiothérapie IV immédiate, sans attendre les résultats"
+     ],
+     [
+      "Nouvelle dysfonction d'organe",
+      [
+       {
+        "t": "GCS < 15, hypoxémie, thrombopénie",
+        "i": "Ce sont des composantes du SOFA et elles annoncent une décompensation rapide."
+       }
+      ],
+      "Transfert aux soins intensifs"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La gravité se juge sur la perfusion d'organe (lactate, diurèse, conscience, marbrures), pas sur la température.",
+    "Le purpura fulminans, la fasciite nécrosante et l'asplénie sont des urgences où le traitement précède le bilan."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "SSI, ssi.guidelines.ch"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan initial : prélever vite, sans retarder l'antibiotique",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Je prélève les cultures avant la première dose si cela retarde l'antibiotique de moins de 45 minutes, puis je mesure le lactate et la dysfonction d'organe.",
+   "tableau": {
+    "colonnes": [
+     "Examen",
+     "Moment et modalité",
+     "Rôle"
+    ],
+    "lignes": [
+     [
+      "Hémocultures",
+      [
+       {
+        "t": "2 paires (aérobie + anaérobie) avant antibiotiques",
+        "i": "Les cultures positives guident la désescalade ; elles se négativent vite après la première dose, donc on prélève d'abord."
+       }
+      ],
+      "Délai maximal toléré avant antibiotique : 45 minutes"
+     ],
+     [
+      "Lactate (gazométrie)",
+      [
+       {
+        "t": "Immédiat, puis nouveau dosage à 2–4 h si > 2 mmol/L",
+        "i": "La baisse du lactate (clairance) mesure la réponse au traitement et guide la réanimation."
+       }
+      ],
+      "Pronostic et indication du remplissage de 30 mL/kg"
+     ],
+     [
+      "Prélèvements du foyer",
+      "Urines, expectorations, LCR, plaie, cathéter, avant antibiotique si possible",
+      "Identifier le germe et son antibiogramme"
+     ],
+     [
+      "PCT et CRP",
+      [
+       {
+        "t": "Dosage de soutien",
+        "i": "La PCT soutient le diagnostic mais ne décide pas du début des antibiotiques ; elle aide à décider de leur arrêt."
+       }
+      ],
+      "CRP et PCT sont élevées aussi dans les causes non infectieuses"
+     ],
+     [
+      "Bilan de dysfonction d'organe",
+      "Créatinine, bilirubine, plaquettes, TP/INR, fibrinogène, D-dimères, PaO2/FiO2",
+      "Calcul du SOFA et dépistage de la CIVD"
+     ],
+     [
+      "Formule sanguine",
+      "Leucocytes > 12 G/L ou < 4 G/L, déviation gauche, thrombopénie",
+      "Une leucopénie ou une thrombopénie sont de mauvais signes"
+     ],
+     [
+      "Imagerie",
+      [
+       {
+        "t": "Échographie ou scanner une fois stabilisé",
+        "i": "L'imagerie localise le foyer et prépare le contrôle de la source, mais elle ne doit pas retarder la réanimation."
+       }
+      ],
+      "Échographie au lit : fonction ventriculaire, veine cave, hydronéphrose, épanchement"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Les hémocultures et le lactate précèdent le premier antibiotique, sans retard de plus de 45 minutes.",
+    "La PCT ne retarde jamais le traitement ; elle sert à l'arrêt.",
+    "L'imagerie se fait après stabilisation, sauf si elle conditionne un geste urgent."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "SSI, ssi.guidelines.ch"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Diagnostic positif et différentiel d'un état de choc fébrile ou d'une inflammation élevée",
+   "rubriques": [
+    "positiveDiagnosis"
+   ],
+   "comment": "Je pose le diagnostic de sepsis sur infection suspectée plus SOFA ≥ 2, puis je traite en parallèle les rivaux qui miment un syndrome inflammatoire.",
+   "tableau": {
+    "colonnes": [
+     "Diagnostic différentiel",
+     "Indice discriminant",
+     "Pourquoi il se distingue du sepsis"
+    ],
+    "lignes": [
+     [
+      "Choc cardiogénique",
+      [
+       {
+        "t": "Œdème pulmonaire, veines jugulaires distendues",
+        "i": "L'échographie montre une dysfonction ventriculaire sévère ; le remplissage large aggrave l'état."
+       }
+      ],
+      "Extrémités froides d'emblée, pas de foyer infectieux"
+     ],
+     [
+      "Choc hypovolémique, anaphylactique",
+      "Saignement, perte liquidienne, exposition allergénique",
+      "Pas de fièvre ni de foyer ; urticaire ou bronchospasme dans l'anaphylaxie"
+     ],
+     [
+      "Embolie pulmonaire, pancréatite, insuffisance surrénalienne",
+      [
+       {
+        "t": "Douleur, dyspnée brutale, hyponatrémie/hyperkaliémie",
+        "i": "Ces diagnostics provoquent hypotension et SIRS sans infection, donc la PCT et la culture orientent."
+       }
+      ],
+      "Imagerie ciblée, cortisol ; l'hydrocortisone reste urgente en cas d'insuffisance surrénalienne"
+     ],
+     [
+      "Syndrome de choc toxique, HLH",
+      "Érythrodermie ; cytopénies, ferritine très élevée, hépatosplénomégalie",
+      "L'HLH mime le sepsis et le complique ; le traitement spécifique diffère"
+     ],
+     [
+      "Maladies inflammatoires non infectieuses",
+      [
+       {
+        "t": "Horton, PPR, Still, lupus, goutte, MICI, FMF, néoplasie",
+        "i": "Elles élèvent CRP et VS mais ne causent pas de dysfonction d'organe aiguë avec lactate élevé, sauf complication."
+       }
+      ],
+      "CRP faible malgré VS élevée suggère un lupus ; céphalée temporale après 50 ans impose les corticoïdes sans délai"
+     ],
+     [
+      "Endocardite, spondylodiscite, fasciite",
+      "Souffle, douleur rachidienne, douleur disproportionnée",
+      "Infections graves qui exigent hémocultures répétées, imagerie ou chirurgie"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le diagnostic de sepsis repose sur une infection suspectée ou prouvée associée à une hausse aiguë du SOFA ≥ 2.",
+    "Le choc septique exige PAM < 65 mmHg sous vasopresseurs avec lactate > 2 mmol/L après remplissage.",
+    "Le SIRS non infectieux et les autres chocs restent des diagnostics d'élimination."
+   ],
+   "sources": [
+    "Sepsis-3, JAMA 2016",
+    "Surviving Sepsis Campaign 2021"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge aiguë : bundle de la première heure et escalade",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Je décide du délai antibiotique selon la probabilité de sepsis et la présence d'un choc, puis j'escalade volume, noradrénaline, vasopressine et corticoïdes selon les seuils.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Suspicion de sepsis",
+     "i": "Je mesure qSOFA/NEWS, lactate et PAM sans attendre pour déclencher la procédure.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Choc, ou lactate ≥ 4, ou sepsis très probable ?",
+     "i": "Dans ce sous-groupe chaque heure de retard coûte environ 7–8 % de mortalité.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : antibiotiques IV large spectre dans l'heure",
+     "i": "Le choix dépend du foyer, du terrain et de la colonisation BLSE, selon ssi.guidelines.ch.",
+     "pec": "choc",
+     "notion": "c7"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Hypotension ou lactate ≥ 4 : Ringer lactate 30 mL/kg en 3 h",
+     "i": "Les cristalloïdes balancés sont préférés au NaCl 0,9 % ; les amidons sont déconseillés.",
+     "pec": "choc",
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "PAM < 65 mmHg persistante : noradrénaline",
+     "i": "Première ligne, débutée tôt, au besoin par voie périphérique, cible de PAM 65 mmHg.",
+     "pec": "choc",
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Noradrénaline à 0,25–0,5 µg/kg/min : ajouter la vasopressine",
+     "i": "Elle économise la noradrénaline ; l'adrénaline vient en dernier recours.",
+     "pec": "choc",
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Noradrénaline ≥ 0,25 µg/kg/min depuis ≥ 4 h : hydrocortisone 200 mg/j",
+     "i": "Le corticoïde raccourcit la durée du choc ; il n'est suggéré qu'en choc persistant.",
+     "pec": "choc",
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n5",
+     "t": "Hypoperfusion persistante avec dysfonction cardiaque malgré PAM correcte : dobutamine",
+     "i": "La cardiomyopathie septique justifie un inotrope seulement si le volume et la PAM sont optimisés.",
+     "pec": "choc",
+     "notion": null
+    },
+    {
+     "id": "n9",
+     "parent": "n2",
+     "t": "Non : sepsis possible sans choc",
+     "i": "Le risque de traiter à tort des causes non infectieuses justifie une évaluation rapide d'abord.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n10",
+     "parent": "n9",
+     "t": "Infection toujours probable après évaluation ?",
+     "i": "La réévaluation dure au plus quelques heures et s'appuie sur clinique, imagerie et biologie.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n11",
+     "parent": "n10",
+     "t": "Oui : antibiotiques dans les 3 h",
+     "i": "Le délai de 3 h est toléré seulement en l'absence de choc.",
+     "pec": "sepsis_sans_choc",
+     "notion": null
+    },
+    {
+     "id": "n12",
+     "parent": "n10",
+     "t": "Non : chercher une cause non infectieuse, ne pas traiter",
+     "i": "Un antibiotique inutile expose à la résistance et aux effets indésirables.",
+     "pec": null,
+     "notion": "c6"
+    },
+    {
+     "id": "n13",
+     "parent": "n1",
+     "t": "Contrôle de la source dès que possible (6–12 h)",
+     "i": "Drainage d'abcès, levée d'obstacle, retrait du cathéter ou débridement : aucun antibiotique ne remplace ce geste.",
+     "pec": "choc",
+     "notion": null
+    }
+   ],
+   "points": [
+    "Le bundle de la première heure comprend lactate, hémocultures, antibiotiques, remplissage et vasopresseurs.",
+    "La noradrénaline démarre sans attendre la fin du remplissage si la PAM reste très basse.",
+    "Le remplissage de 30 mL/kg est une suggestion à réévaluer après chaque bolus, car un excès aggrave la surcharge et le SDRA."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "SSI, ssi.guidelines.ch"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications, surveillance et pronostic",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance",
+    "prognosisDischarge"
+   ],
+   "comment": "Je surveille la perfusion avec PAM, lactate, diurèse et recoloration, et je traite chaque défaillance d'organe selon son protocole propre.",
+   "tableau": {
+    "colonnes": [
+     "Complication ou paramètre",
+     "Seuil ou critère",
+     "Prise en charge ou cible"
+    ],
+    "lignes": [
+     [
+      "SDRA",
+      "Hypoxémie sévère avec infiltrats bilatéraux",
+      [
+       {
+        "t": "Volume courant 6 mL/kg de poids idéal, pression de plateau ≤ 30 cmH2O",
+        "i": "La ventilation protectrice réduit la mortalité en limitant le barotraumatisme pulmonaire."
+       }
+      ]
+     ],
+     [
+      "Insuffisance rénale aiguë",
+      "Créatinine en hausse, diurèse < 0,5 mL/kg/h",
+      [
+       {
+        "t": "Épuration extrarénale selon les indications classiques",
+        "i": "Acidose, hyperkaliémie, surcharge, urémie : un début précoce sans indication n'améliore pas la survie."
+       }
+      ]
+     ],
+     [
+      "CIVD",
+      "Thrombopénie, TP allongé, hypofibrinogénémie, D-dimères élevés",
+      "Traiter le sepsis ; surveiller purpura fulminans et ischémie acrale"
+     ],
+     [
+      "Choc persistant",
+      "Noradrénaline ≥ 0,25 µg/kg/min depuis ≥ 4 h",
+      "Hydrocortisone 200 mg/jour"
+     ],
+     [
+      "PAM",
+      "Cathéter artériel en continu",
+      "Cible initiale 65 mmHg sous vasopresseurs"
+     ],
+     [
+      "Lactate",
+      "Dosages sériés",
+      "Baisse entre deux dosages = bonne réponse"
+     ],
+     [
+      "Diurèse et recoloration",
+      "Diurèse horaire, temps de recoloration",
+      "Diurèse ≥ 0,5 mL/kg/h ; recoloration ≤ 3 s"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La mortalité hospitalière atteint 30–40 % dans le choc septique.",
+    "Le respect du bundle de la première heure améliore la survie.",
+    "Les antibiotiques sont réévalués chaque jour pour une désescalade selon les cultures ; la PCT aide à l'arrêt.",
+    "Les survivants gardent un risque accru de réhospitalisation, de séquelles fonctionnelles et de surmortalité à un an."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "Sepsis-3, JAMA 2016"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Après la phase aiguë : séquelles, déclaration et réseau de soins",
+   "rubriques": [
+    "chronicManagement",
+    "followUpNetwork"
+   ],
+   "comment": "Je organise le suivi des séquelles avec le médecin de famille et je n'oublie pas la déclaration et la chimioprophylaxie en cas de méningocoque.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le syndrome post-soins intensifs associe faiblesse acquise, troubles cognitifs, anxiété et stress post-traumatique, et demande rééducation physique et psychologique.",
+    "La prise en charge associe urgences, soins intensifs et infectiologie, puis le médecin de famille suit les séquelles après la sortie.",
+    "Le médecin déclare toute méningococcie invasive à l'autorité cantonale dans les 24 heures, selon l'OFSP.",
+    "Les contacts proches d'un cas de méningocoque reçoivent une chimioprophylaxie, par exemple ciprofloxacine 500 mg en dose unique chez l'adulte.",
+    "L'asplénie impose une vaccination (pneumocoque, méningocoque, Haemophilus) et un plan de traitement antibiotique de secours en cas de fièvre."
+   ],
+   "sources": [
+    "OFSP, déclaration des maladies transmissibles",
+    "Surviving Sepsis Campaign 2021"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "choc",
+   "titre": "Choc septique et sepsis très probable : urgence vitale",
+   "but": [
+    "Débuter l'antibiotique efficace dans l'heure et restaurer une PAM ≥ 65 mmHg.",
+    "Normaliser le lactate et la diurèse.",
+    "Contrôler la source dans les 6 à 12 heures."
+   ],
+   "moyens": {
+    "accueil": [
+     "Installer le patient en salle de déchoc avec monitoring continu (PAM, SpO2, ECG, diurèse).",
+     "Poser deux voies veineuses de gros calibre et alerter les soins intensifs.",
+     "Donner de l'oxygène si hypoxémie.",
+     "Rechercher allergies, colonisation BLSE ou SARM, immunosuppression et asplénie."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Ceftriaxone (céphalosporine de 3e génération)",
+      "posologie": "2 g IV en dose immédiate si purpura fulminans ou foyer communautaire sans risque BLSE ; selon ssi.guidelines.ch.",
+      "pourquoi": "Elle couvre le méningocoque et le pneumocoque ; elle doit précéder toute imagerie ou ponction lombaire en cas de purpura fulminans.",
+      "source": "SSI, ssi.guidelines.ch"
+     },
+     {
+      "molecule": "Méropénème (carbapénème)",
+      "posologie": "1 g IV toutes les 8 h, première dose pleine sans adaptation rénale ; réserver aux risques BLSE, neutropénie ou sepsis nosocomial.",
+      "pourquoi": "Il couvre les entérobactéries productrices de BLSE ; le choix s'appuie sur le foyer et la colonisation connue.",
+      "source": "SSI, AIPS Swissmedic"
+     },
+     {
+      "molecule": "Ringer lactate (cristalloïde balancé)",
+      "posologie": "30 mL/kg IV en bolus dans les 3 premières heures si hypotension ou lactate ≥ 4 mmol/L ; réévaluer après chaque bolus.",
+      "pourquoi": "Les cristalloïdes balancés sont préférés au NaCl 0,9 % ; les amidons sont déconseillés à cause du risque rénal.",
+      "source": "Surviving Sepsis Campaign 2021"
+     },
+     {
+      "molecule": "Noradrénaline (vasopresseur)",
+      "posologie": "Perfusion IV continue débutée vers 0,05 µg/kg/min, titrée jusqu'à PAM ≥ 65 mmHg ; voie périphérique possible au début.",
+      "pourquoi": "C'est le vasopresseur de première ligne dans le choc distributif ; l'introduction précoce limite le volume excessif.",
+      "source": "Surviving Sepsis Campaign 2021"
+     },
+     {
+      "molecule": "Vasopressine (vasopresseur non catécholaminergique)",
+      "posologie": "0,03 UI/min IV fixe, ajoutée quand la noradrénaline atteint 0,25–0,5 µg/kg/min.",
+      "pourquoi": "Elle permet de réduire la dose de noradrénaline avant d'envisager l'adrénaline.",
+      "source": "Surviving Sepsis Campaign 2021"
+     },
+     {
+      "molecule": "Hydrocortisone (corticoïde)",
+      "posologie": "50 mg IV toutes les 6 h (200 mg/jour) si noradrénaline ≥ 0,25 µg/kg/min depuis au moins 4 h.",
+      "pourquoi": "Elle est suggérée seulement en choc persistant, car elle raccourcit la durée du choc sans bénéfice dans le sepsis simple.",
+      "source": "Surviving Sepsis Campaign 2021"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Drainer l'abcès, lever l'obstacle, retirer le cathéter ou débrider les tissus nécrosés.",
+      "pourquoi": "Le contrôle de la source conditionne la survie et se fait idéalement dans les 6 à 12 heures."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Prélever deux paires d'hémocultures et le foyer avant l'antibiotique, puis surveiller diurèse horaire et recoloration.",
+      "pourquoi": "Les cultures guident la désescalade ; la diurèse et la recoloration mesurent la perfusion."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Poser un cathéter artériel pour la PAM continue et, si nécessaire, une ventilation protectrice.",
+      "pourquoi": "La PAM invasive guide les vasopresseurs ; le volume courant de 6 mL/kg protège contre le SDRA."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Prévenir la thrombose veineuse profonde, titrer la glycémie sous insuline au-delà de 10 mmol/L et prévenir l'ulcère de stress en cas de risque.",
+      "pourquoi": "Ces mesures de soins intensifs réduisent les complications évitables du patient grave."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Je documente le consentement présumé, les directives anticipées et la déclaration obligatoire en cas de méningococcie invasive."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "J'aide à fixer les objectifs de soins avec le patient et sa famille si le choc est réfractaire ou si le terrain est terminal."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Je considère chaque heure de retard comme une perte de survie.",
+      "Je travaille en parallèle plutôt qu'en séquence.",
+      "Je ne retarde pas l'antibiotique de plus de 45 minutes pour des prélèvements."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "Médecin responsable",
+       "fait": "Reconnaît le choc, calcule qSOFA, mesure le lactate et déclenche l'alerte soins intensifs."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "Infirmier·ère",
+       "fait": "Pose deux voies, prélève deux paires d'hémocultures et le foyer, branche le monitoring."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "Médecin responsable",
+       "fait": "Prescrit l'antibiotique IV large spectre selon le foyer et l'administre dans l'heure."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "Infirmier·ère",
+       "fait": "Perfuse Ringer lactate 30 mL/kg si hypotension ou lactate ≥ 4 mmol/L, en réévaluant après chaque bolus."
+      },
+      {
+       "temps": "puis",
+       "qui": "Médecin responsable",
+       "fait": "Débute la noradrénaline si PAM < 65 mmHg persistante, ajoute vasopressine puis hydrocortisone selon les seuils."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "Spécialiste (chirurgien, radiologue interventionnel)",
+       "fait": "Localise le foyer et réalise le drainage ou le débridement dans les 6 à 12 heures."
+      },
+      {
+       "temps": "puis",
+       "qui": "Médecin de soins intensifs",
+       "fait": "Recontrôle le lactate à 2–4 h et poursuit la réanimation guidée par la perfusion."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La mortalité hospitalière atteint 30–40 % dans le choc septique ; le respect du bundle de la première heure améliore la survie, et chaque heure de retard d'antibiotique ajoute environ 7–8 % de mortalité.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "PAM (cathéter artériel)",
+      "quand": "En continu",
+      "cible": "≥ 65 mmHg sous vasopresseurs"
+     },
+     {
+      "quoi": "Lactate",
+      "quand": "Contrôle à 2–4 h puis en série",
+      "cible": "Baisse entre deux dosages, puis normalisation"
+     },
+     {
+      "quoi": "Diurèse horaire",
+      "quand": "Toutes les heures",
+      "cible": "≥ 0,5 mL/kg/h"
+     },
+     {
+      "quoi": "Temps de recoloration et marbrures",
+      "quand": "Répété à chaque réévaluation",
+      "cible": "≤ 3 s, marbrures en recul"
+     },
+     {
+      "quoi": "Antibiotiques et cultures",
+      "quand": "Quotidien, avec réévaluation à 48–72 h",
+      "cible": "Désescalade selon l'antibiogramme ; PCT pour décider de l'arrêt"
+     }
+    ],
+    "sortie": "Sortie des soins intensifs si le patient est stable sans vasopresseurs, lactate normalisé et défaillances d'organe en résolution ; sortie de l'hôpital après relais antibiotique, source contrôlée et rééducation organisée."
+   },
+   "prevention": {
+    "primaire": "Je vaccine contre pneumocoque, grippe et méningocoque chez les patients à risque (asplénie notamment), je respecte l'hygiène des mains et je retire tôt les cathéters.",
+    "secondaire": "Je reconnais précocement le sepsis (qSOFA, NEWS), je donne l'antibiotique dans l'heure et je propose une chimioprophylaxie aux contacts d'une méningococcie.",
+    "tertiaire": "Je dépiste et traite le syndrome post-soins intensifs et je planifie le suivi avec le médecin de famille."
+   }
+  },
+  {
+   "cle": "sepsis_sans_choc",
+   "titre": "Sepsis possible ou probable sans choc",
+   "but": [
+    "Confirmer ou écarter l'infection sans délai excessif.",
+    "Débuter l'antibiotique dans les 3 heures si l'infection reste probable.",
+    "Prévenir l'évolution vers le choc."
+   ],
+   "moyens": {
+    "accueil": [
+     "Mesurer immédiatement constantes, qSOFA ou NEWS et lactate.",
+     "Installer une voie veineuse et un monitoring.",
+     "Rechercher terrain à risque (asplénie, neutropénie, immunosuppression) qui impose l'antibiotique immédiat."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Pipéracilline-tazobactam (pénicilline à large spectre + inhibiteur de β-lactamase)",
+      "posologie": "4,5 g IV toutes les 6 à 8 h, première dose pleine ; adaptation rénale dès le deuxième jour ; selon ssi.guidelines.ch.",
+      "pourquoi": "Elle couvre les bacilles à Gram négatif, anaérobies et cocci en sepsis intra-abdominal, urinaire ou nosocomial sans BLSE.",
+      "source": "SSI, AIPS Swissmedic"
+     },
+     {
+      "molecule": "Ceftriaxone (céphalosporine de 3e génération)",
+      "posologie": "2 g IV toutes les 24 h pour un foyer communautaire (pneumonie, pyélonéphrite) sans risque BLSE ; selon ssi.guidelines.ch.",
+      "pourquoi": "Elle suffit pour la plupart des infections communautaires, ce qui préserve les carbapénèmes.",
+      "source": "SSI, ssi.guidelines.ch"
+     },
+     {
+      "molecule": "Ringer lactate (cristalloïde balancé)",
+      "posologie": "30 mL/kg IV dans les 3 h seulement si hypotension ou lactate ≥ 4 mmol/L ; sinon remplissage guidé.",
+      "pourquoi": "Le remplissage systématique sans hypoperfusion expose à la surcharge hydrique sans bénéfice démontré.",
+      "source": "Surviving Sepsis Campaign 2021"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Prélever deux paires d'hémocultures et le foyer avant l'antibiotique.",
+      "pourquoi": "Les cultures permettent la désescalade et se négativent après la première dose."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Planifier le contrôle de source (drainage, retrait de cathéter) dès que le foyer est localisé.",
+      "pourquoi": "Un foyer non drainé fait échouer l'antibiotique seul."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Je documente les décisions et la déclaration obligatoire éventuelle d'une maladie transmissible."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Je réévalue le patient à intervalles courts, car il peut basculer en choc.",
+      "Je traite d'emblée un patient asplénique ou neutropénique fébrile."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "Médecin responsable",
+       "fait": "Calcule qSOFA ou NEWS, mesure le lactate et estime la probabilité d'infection."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "Infirmier·ère",
+       "fait": "Prélève hémocultures, lactate et prélèvements du foyer, et installe le monitoring."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "Médecin responsable",
+       "fait": "Demande l'imagerie ou les examens ciblés qui confirment l'infection."
+      },
+      {
+       "temps": "puis",
+       "qui": "Médecin responsable",
+       "fait": "Débute l'antibiotique dans les 3 heures si l'infection reste probable et remplit si lactate ≥ 4 mmol/L."
+      },
+      {
+       "temps": "puis",
+       "qui": "Médecin responsable",
+       "fait": "Recontrôle le lactate à 2–4 h et décide de l'hospitalisation ou des soins intensifs."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La mortalité hospitalière du sepsis atteint environ 15–20 % ; le pronostic dépend de la rapidité de l'antibiotique et du contrôle de la source.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Constantes et NEWS",
+      "quand": "Toutes les 1 à 4 h au début",
+      "cible": "Absence de qSOFA ≥ 2, PAM ≥ 65 mmHg"
+     },
+     {
+      "quoi": "Lactate",
+      "quand": "Contrôle à 2–4 h si > 2 mmol/L",
+      "cible": "Baisse puis normalisation"
+     },
+     {
+      "quoi": "Créatinine et diurèse",
+      "quand": "Quotidien",
+      "cible": "Diurèse ≥ 0,5 mL/kg/h"
+     },
+     {
+      "quoi": "Cultures et antibiotiques",
+      "quand": "À 48–72 h",
+      "cible": "Désescalade ou arrêt guidé par les cultures et la PCT"
+     }
+    ],
+    "sortie": "Sortie si apyrexie, hémodynamique stable, lactate normal, source contrôlée, relais oral possible et suivi organisé."
+   },
+   "prevention": {
+    "primaire": "Je vaccine les patients à risque et j'applique l'hygiène hospitalière.",
+    "secondaire": "Je repère tôt les patients fébriles à risque et je les traite sans attendre.",
+    "tertiaire": "Je réévalue l'antibiothérapie et je prévois un suivi après l'hospitalisation."
+   }
+  },
+  {
+   "cle": "post_si",
+   "titre": "Long cours : syndrome post-soins intensifs et suivi après sepsis",
+   "but": [
+    "Dépister et traiter faiblesse acquise, troubles cognitifs, anxiété et stress post-traumatique.",
+    "Réduire le risque de réhospitalisation et de surmortalité."
+   ],
+   "moyens": {
+    "accueil": [
+     "Organiser une consultation de suivi dès la sortie avec le médecin de famille.",
+     "Expliquer au patient et à sa famille les séquelles possibles."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "rééducation",
+      "mesure": "Prescrire une rééducation physique et une réadaptation après soins intensifs.",
+      "pourquoi": "La faiblesse acquise en réanimation limite l'autonomie et se corrige par un entraînement progressif."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Dépister anxiété, dépression et stress post-traumatique et proposer un soutien psychologique.",
+      "pourquoi": "Ces troubles sont fréquents après un séjour de soins intensifs et passent souvent inaperçus."
+     },
+     {
+      "categorie": "nutrition",
+      "mesure": "Évaluer l'état nutritionnel et adapter l'apport protéique.",
+      "pourquoi": "La dénutrition retarde la récupération musculaire."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Évaluer les besoins de soins, d'aide à domicile et la reprise du travail.",
+      "pourquoi": "Les séquelles fonctionnelles allongent l'incapacité et nécessitent un soutien social."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "J'organise la couverture de l'incapacité de travail, de la réadaptation et d'une éventuelle rente."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "J'aborde les objectifs de soins et les directives anticipées chez le patient fragile."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Je réévalue les traitements chroniques après le sepsis.",
+      "J'implique la famille dans le plan de suivi."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "Médecin de famille",
+       "fait": "Réévalue les séquelles, les traitements et la nécessité d'une vaccination."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "Physiothérapeute",
+       "fait": "Conduit une rééducation progressive de la force et de l'endurance."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "Psychologue ou psychiatre",
+       "fait": "Traite anxiété, dépression et stress post-traumatique repérés au suivi."
+      },
+      {
+       "temps": "puis",
+       "qui": "Assistant·e social·e",
+       "fait": "Organise aide à domicile, incapacité de travail et assurances."
+      }
+     ]
+    }
+   },
+   "pronostic": "Les survivants gardent un risque accru de réhospitalisation, de séquelles fonctionnelles et de surmortalité dans l'année suivant le sepsis.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Force musculaire et autonomie",
+      "quand": "À la sortie puis régulièrement",
+      "cible": "Retour progressif à l'autonomie antérieure"
+     },
+     {
+      "quoi": "Humeur, anxiété, cognition",
+      "quand": "Dans les premières semaines puis à 3 mois",
+      "cible": "Dépistage négatif ou traitement en cours"
+     },
+     {
+      "quoi": "Fonction rénale et comorbidités",
+      "quand": "Au suivi médical",
+      "cible": "Stabilité ou retour à la valeur de base"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : le suivi se fait en ville avec le médecin de famille après la sortie de l'hôpital."
+   },
+   "prevention": {
+    "primaire": "Je vaccine selon le plan suisse de vaccination et je traite précocement les infections.",
+    "secondaire": "Je dépiste les séquelles dès la première consultation.",
+    "tertiaire": "Je rééduque et je soutiens psychologiquement pour limiter le handicap."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 5163
+  },
+  "cache_creation_input_tokens": 5163,
+  "cache_read_input_tokens": 0,
+  "inference_geo": "global",
+  "input_tokens": 7575,
+  "output_tokens": 25550,
+  "output_tokens_details": {
+   "thinking_tokens": 7598
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T02:21:35",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

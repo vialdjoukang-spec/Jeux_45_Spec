@@ -1,0 +1,1206 @@
+{
+ "id": "R65.2__F1_1-E16",
+ "portes": [
+  {
+   "ssp": "F1.1",
+   "nomSSP": "Pression artérielle anormale",
+   "entite": "Choc septique",
+   "entiteId": "F1.1-E16"
+  },
+  {
+   "ssp": "F2.5",
+   "nomSSP": "Numération leucocytaire anormale",
+   "entite": "Sepsis sévère et choc septique avec leucopénie ou hyperleucocytose",
+   "entiteId": "F2.5-E14"
+  },
+  {
+   "ssp": "O7.9",
+   "nomSSP": "Infection nosocomiale",
+   "entite": "Choc septique nosocomial",
+   "entiteId": "O7.9-E11"
+  }
+ ],
+ "entite": "Choc septique",
+ "cim10": "R65.2",
+ "ssp": {
+  "code": "F1.1",
+  "nom": "Pression artérielle anormale",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Pression artérielle anormale",
+    "i": "Porte d'entrée : mesurer la PA aux deux bras et calculer la PAM, puis décider si elle est trop haute ou trop basse.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "PA élevée",
+    "i": "Sort du cadre du choc : renvoie vers les autres entités du SSP F1.1 (HTA essentielle, secondaire, urgence hypertensive, dissection aortique).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "PA basse : PAM < 65 mmHg ou PAS < 90 mmHg avec signes d'hypoperfusion",
+    "i": "Marbrures, confusion, oligurie, lactate élevé distinguent le choc d'une hypotension bénigne (vagale, constitutionnelle, orthostatique) renvoyée vers ces entités du SSP F1.1.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n3",
+    "t": "Stabiliser : ABC, accès IV, monitoring, lactate, glycémie, ECG, échographie au lit du malade",
+    "i": "L'échographie oriente en minutes vers le type de choc ; ne retarde aucun traitement vital.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Saignement visible ou occulte, VCI plate, FAST positif",
+    "i": "Choc hémorragique : sort du cadre septique, renvoie vers l'entité choc hémorragique (contrôle du saignement, produits sanguins).",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Signes congestifs, BNP élevé, FEVG basse",
+    "i": "Choc cardiogénique : renvoie vers l'entité choc cardiogénique ; le remplissage massif est délétère.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n7",
+    "parent": "n4",
+    "t": "Exposition allergénique, urticaire, bronchospasme",
+    "i": "Choc anaphylactique : adrénaline intramusculaire, renvoi vers l'entité correspondante.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n8",
+    "parent": "n4",
+    "t": "Obstacle mécanique à l'écho : VD dilaté, tamponnade, pneumothorax",
+    "i": "Choc obstructif : renvoie vers embolie pulmonaire, tamponnade ou pneumothorax ; traiter l'obstacle.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n9",
+    "parent": "n4",
+    "t": "Extrémités chaudes, infection suspectée, cœur hyperdynamique",
+    "i": "Profil distributif : le sepsis est la cause la plus fréquente ; rechercher aussi anaphylaxie et insuffisance surrénalienne.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "SOFA ≥ 2 avec infection suspectée mais PAM ≥ 65 mmHg sans vasopresseur",
+    "i": "Sepsis sans choc : bilan, antibiotique rapide et remplissage si hypoperfusion ; pas de définition de choc sans vasopresseurs.",
+    "pec": "bundle_h1",
+    "notion": "c1"
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "Vasopresseurs nécessaires pour PAM ≥ 65 mmHg et lactate > 2 mmol/L après remplissage",
+    "i": "Critères Sepsis-3 du choc septique : aboutit au bundle de la première heure.",
+    "pec": "bundle_h1",
+    "notion": "c1"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Purpura nécrotique, douleur disproportionnée, éruption scarlatiniforme ou neutropénie",
+    "i": "Signal d'alarme : un antibiotique ou geste spécifique est ajouté immédiatement.",
+    "pec": "controle_source_formes_graves",
+    "notion": "c5"
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "Foyer obstructif, collecté ou dispositif infecté",
+    "i": "Le drainage ou retrait est indispensable car l'antibiotique seul échoue.",
+    "pec": "controle_source_formes_graves",
+    "notion": "c5"
+   },
+   {
+    "id": "n14",
+    "parent": "n11",
+    "t": "Choc stabilisé, sevrage des vasopresseurs",
+    "i": "Phase de désescalade antibiotique, prévention des complications et rééducation.",
+    "pec": "suivi_post_usi",
+    "notion": "c8"
+   },
+   {
+    "id": "n15",
+    "parent": "n11",
+    "t": "Choc nosocomial (SSP O7.9) ou leucopénie/hyperleucocytose (SSP F2.5)",
+    "i": "Autres portes d'entrée de la même entité : la conduite reste identique, avec couverture BLSE ou SARM selon l'écologie locale.",
+    "pec": "bundle_h1",
+    "notion": "c2"
+   }
+  ]
+ },
+ "specialites": [
+  "INT"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Choc septique",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définitions Sepsis-3 et scores de gravité",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Pour qualifier la gravité, raisonne en trois temps : infection suspectée, dysfonction d'organe (SOFA ≥ 2), puis besoin de vasopresseurs avec lactate > 2 mmol/L malgré remplissage adéquat.",
+   "tableau": {
+    "colonnes": [
+     "Outil",
+     "Composantes",
+     "Seuil",
+     "Usage",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "SIRS",
+      "Température, FC, FR, leucocytes",
+      [
+       {
+        "t": "≥ 2 critères",
+        "i": "Définit la réponse inflammatoire, très sensible mais non spécifique : elle accompagne aussi pancréatite, brûlure ou trauma."
+       }
+      ],
+      "Dépistage sensible au lit du malade",
+      [
+       {
+        "t": "Peu spécifique",
+        "i": "Un SIRS positif n'implique pas une infection ni une dysfonction d'organe, d'où l'abandon dans la définition Sepsis-3."
+       }
+      ]
+     ],
+     [
+      "qSOFA",
+      "FR ≥ 22/min, conscience altérée, PAS ≤ 100 mmHg",
+      [
+       {
+        "t": "≥ 2 critères",
+        "i": "Identifie les patients hors soins intensifs à risque de mauvaise évolution, sans prélèvement."
+       }
+      ],
+      "Alerte rapide hors USI",
+      [
+       {
+        "t": "Jamais seul",
+        "i": "La SSC 2021 déconseille de l'utiliser seul comme dépistage : sensibilité inférieure à SIRS, NEWS ou MEWS."
+       }
+      ]
+     ],
+     [
+      "SOFA",
+      "Six systèmes : PaO2/FiO2, plaquettes, bilirubine, PAM/vasopresseurs, Glasgow, créatinine/diurèse",
+      [
+       {
+        "t": "Élévation aiguë ≥ 2 points",
+        "i": "Cette variation reflète la dysfonction d'organe qui distingue sepsis et simple infection."
+       }
+      ],
+      "Définit le sepsis",
+      [
+       {
+        "t": "Exige gazométrie et bilan",
+        "i": "Il n'est pas calculable à l'arrivée sans biologie, donc pas adapté au tri initial."
+       }
+      ]
+     ],
+     [
+      "Choc septique",
+      "Sepsis + vasopresseurs + lactate",
+      [
+       {
+        "t": "PAM ≥ 65 sous vasopresseurs ET lactate > 2 mmol/L",
+        "i": "Les deux critères sont requis après remplissage adéquat ; ils identifient le sous-groupe à mortalité > 40 %."
+       }
+      ],
+      "Définit le choc",
+      [
+       {
+        "t": "Hypotension seule insuffisante",
+        "i": "Une hypotension répondant au remplissage sans lactate élevé ne remplit pas la définition Sepsis-3."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le sepsis est une dysfonction d'organe menaçant le pronostic vital, causée par une réponse dérégulée à l'infection.",
+    "Le choc septique associe vasopresseurs pour une PAM ≥ 65 mmHg et lactate > 2 mmol/L malgré un remplissage adéquat.",
+    "La PAM se calcule par (PAS + 2 × PAD)/3.",
+    "Le qSOFA ne sert pas de dépistage isolé selon la SSC 2021."
+   ],
+   "sources": [
+    "Sepsis-3, JAMA 2016",
+    "Surviving Sepsis Campaign 2021"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie et facteurs de risque",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Pense au foyer le plus probable et au terrain fragile pour anticiper le germe et la gravité.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le sepsis a touché environ 49 millions de personnes et causé 11 millions de décès en 2017, soit près de 20 % des décès mondiaux.",
+    "Le foyer est le plus souvent pulmonaire, puis abdominal, urinaire, cutané ou lié aux dispositifs invasifs.",
+    "Les âges extrêmes, l'immunodépression, le diabète, le cancer, la cirrhose et les dispositifs invasifs augmentent le risque.",
+    "L'incidence augmente avec le vieillissement et les traitements immunosuppresseurs."
+   ],
+   "sources": [
+    "Rudd, Lancet 2020",
+    "Surviving Sepsis Campaign 2021"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Physiopathologie : vasoplégie, cœur, microcirculation",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Relie chaque signe à un mécanisme : vasoplégie explique l'hypotension chaude, la fuite capillaire l'hypovolémie, la coagulopathie les défaillances d'organe.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Les PAMP et DAMP activent les récepteurs Toll-like et libèrent TNF, IL-1 et IL-6.",
+    "La vasoplégie vient de la NO synthase inductible, du déficit relatif en vasopressine et de l'hyporéactivité aux catécholamines.",
+    "La cardiomyopathie septique est une dépression myocardique réversible.",
+    "L'hyperlactatémie reflète hypoperfusion, dysfonction mitochondriale et glycolyse aérobie adrénergique.",
+    "La baisse d'antithrombine et de protéine C favorise microthromboses et CIVD."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "Sepsis-3, JAMA 2016"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Anamnèse et examen clinique du choc distributif",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Cherche d'abord le foyer et le terrain, puis évalue la perfusion au lit du malade par marbrures, recoloration, conscience et diurèse, parfois avant l'hypotension.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "L'anamnèse recherche fièvre ou hypothermie, frissons, toux, dysurie, douleur abdominale, plaie cutanée, cathéter ou geste invasif récent.",
+    "Neutropénie, corticothérapie, asplénie, VIH, diabète, cirrhose et grand âge aggravent le pronostic.",
+    "Hospitalisation ou antibiothérapie récente, colonisation BLSE ou SARM et voyage orientent l'antibiothérapie empirique.",
+    "Le choc débute avec extrémités chaudes, pouls ample et recoloration vive, puis devient froid et marbré.",
+    "Les marbrures (score 0–5 depuis les genoux), une recoloration > 3 s et une oligurie < 0,5 mL/kg/h signent l'hypoperfusion."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "Sepsis-3, JAMA 2016"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Signaux d'alarme : formes nécessitant un geste spécifique",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Devant un choc, repère en quelques secondes le signal qui change le geste : antibiotique ciblé, chirurgie ou drainage, sans attendre le bilan.",
+   "tableau": {
+    "colonnes": [
+     "Signal d'alarme",
+     "Entité évoquée",
+     "Geste immédiat",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Purpura nécrotique extensif + choc",
+      "Purpura fulminans à méningocoque",
+      [
+       {
+        "t": "Ceftriaxone IV immédiate",
+        "i": "Chaque minute compte ; la ponction lombaire retarderait le traitement et est risquée en choc."
+       }
+      ],
+      [
+       {
+        "t": "Déclaration OFSP 24 h",
+        "i": "Maladie invasive à méningocoque : prophylaxie des contacts proches et isolement gouttelettes."
+       }
+      ]
+     ],
+     [
+      "Douleur disproportionnée, bulles hémorragiques, crépitation, induration ligneuse",
+      "Fasciite nécrosante",
+      [
+       {
+        "t": "Débridement chirurgical urgent",
+        "i": "L'antibiotique ne pénètre pas le tissu nécrosé ; seule la chirurgie contrôle la source."
+       }
+      ],
+      [
+       {
+        "t": "Ajouter clindamycine",
+        "i": "Elle inhibe la production de toxines streptococciques, ce que les bêta-lactamines seules ne font pas."
+       }
+      ]
+     ],
+     [
+      "Éruption scarlatiniforme + choc",
+      "Choc toxique streptococcique ou staphylococcique",
+      [
+       {
+        "t": "Clindamycine + bêta-lactamine",
+        "i": "Mécanisme toxinique par superantigène : l'antitoxine antibiotique réduit la synthèse de toxines."
+       }
+      ],
+      [
+       {
+        "t": "Rechercher tampon, plaie, foyer",
+        "i": "Le retrait du foyer toxinogène est nécessaire."
+       }
+      ]
+     ],
+     [
+      "Fièvre + choc chez neutropénique ou asplénique",
+      "Neutropénie fébrile, sepsis post-splénectomie",
+      [
+       {
+        "t": "Anti-pseudomonas ou anti-pneumococcique immédiat",
+        "i": "Évolution foudroyante ; le germe (Pseudomonas, pneumocoque) impose un spectre précis d'emblée."
+       }
+      ],
+      [
+       {
+        "t": "Urgence extrême",
+        "i": "Aucun délai de bilan n'est toléré."
+       }
+      ]
+     ],
+     [
+      "Foyer obstructif ou collecté",
+      "Pyélonéphrite obstructive, cholangite, péritonite, abcès",
+      [
+       {
+        "t": "Drainage urgent",
+        "i": "L'antibiothérapie seule échoue sans évacuation du foyer."
+       }
+      ],
+      [
+       {
+        "t": "Imagerie dès stabilisation",
+        "i": "Elle ne doit pas retarder le contrôle de source."
+       }
+      ]
+     ],
+     [
+      "Lactate > 4 mmol/L",
+      "Hypoperfusion sévère",
+      [
+       {
+        "t": "Remplissage 30 mL/kg et vasopresseurs",
+        "i": "Cette valeur est associée à une mortalité nettement accrue et impose la réanimation immédiate."
+       }
+      ],
+      [
+       {
+        "t": "Contrôle toutes les 2–4 h",
+        "i": "La clairance du lactate guide la réanimation."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Un purpura nécrotique avec choc impose ceftriaxone IV sans attendre la ponction lombaire.",
+    "Une douleur disproportionnée évoque une fasciite nécrosante, qui exige un débridement chirurgical urgent.",
+    "Un foyer obstructif ou collecté exige un drainage urgent.",
+    "Un lactate > 4 mmol/L traduit une hypoperfusion sévère."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "OFSP"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Bilan initial et diagnostic différentiel des chocs",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Prélève sans retarder l'antibiotique, puis distingue le choc distributif des autres chocs par la chaleur des extrémités, l'échographie au lit du malade et le contexte.",
+   "tableau": {
+    "colonnes": [
+     "Type de choc",
+     "Chef de file",
+     "Extrémités / contexte",
+     "Discriminant",
+     "Traitement de base"
+    ],
+    "lignes": [
+     [
+      "Distributif septique",
+      "Choc septique",
+      "Chaudes au début, puis froides et marbrées",
+      [
+       {
+        "t": "Infection + lactate élevé + vasoplégie",
+        "i": "Le tableau infectieux avec écho montrant un cœur hyperdynamique oriente ; les autres chocs ont une cause non infectieuse."
+       }
+      ],
+      "Antibiotique, remplissage, noradrénaline, contrôle du foyer"
+     ],
+     [
+      "Cardiogénique",
+      "Infarctus, décompensation",
+      "Froides, congestion",
+      [
+       {
+        "t": "BNP élevé, FEVG basse",
+        "i": "Les signes congestifs et la dysfonction à l'écho distinguent du septique ; un remplissage massif y est délétère."
+       }
+      ],
+      "Revascularisation, inotropes"
+     ],
+     [
+      "Hypovolémique hémorragique",
+      "Trauma, saignement digestif",
+      "Froides, pâles",
+      [
+       {
+        "t": "Saignement, Hb en chute, VCI plate, FAST positif",
+        "i": "La source de perte volémique visible ou occulte distingue de la fuite capillaire septique."
+       }
+      ],
+      "Contrôle du saignement, produits sanguins"
+     ],
+     [
+      "Anaphylactique",
+      "Allergie",
+      "Urticaire, bronchospasme",
+      [
+       {
+        "t": "Exposition allergénique, tryptase élevée",
+        "i": "Le délai court après l'allergène et l'atteinte cutanée-respiratoire distinguent du septique."
+       }
+      ],
+      "Adrénaline intramusculaire"
+     ],
+     [
+      "Obstructif",
+      "Embolie pulmonaire, tamponnade, pneumothorax",
+      "Veines jugulaires distendues",
+      [
+       {
+        "t": "Écho : VD dilaté, épanchement, absence de glissement",
+        "i": "L'obstacle mécanique est visible à l'échographie et ne répond pas au remplissage ni à l'antibiotique."
+       }
+      ],
+      "Traiter l'obstacle"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Deux paires d'hémocultures sont prélevées avant les antibiotiques si cela ne retarde pas leur administration de plus de 45 minutes.",
+    "Le lactate est dosé immédiatement et répété ; la gazométrie donne PaO2/FiO2 et le trou anionique.",
+    "Créatinine, bilirubine, plaquettes et coagulation servent au SOFA et au dépistage de CIVD.",
+    "La procalcitonine et la CRP ne doivent jamais retarder le traitement ; les hémocultures sont négatives chez plus de la moitié des patients.",
+    "ECBU, prélèvements respiratoires, antigénuries et ponction lombaire sont dirigés par le point d'appel."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "Sepsis-3, JAMA 2016"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge aiguë : bundle de la première heure et escalade hémodynamique",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Agis en parallèle : antibiotique dans l'heure, remplissage balancé, noradrénaline précoce, puis escalade graduée selon la dose de noradrénaline et contrôle du foyer.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Choc septique reconnu",
+     "i": "Infection suspectée avec hypotension persistante ou hypoperfusion : l'heure zéro démarre à la reconnaissance.",
+     "pec": "bundle_h1",
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Hémocultures x2 puis antibiotique IV large spectre dans l'heure",
+     "i": "Chaque heure de retard réduit la survie d'environ 7,6 % ; le spectre dépend du foyer, de l'écologie locale et des risques BLSE ou SARM.",
+     "pec": "bundle_h1",
+     "notion": "c7"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "Cristalloïdes balancés ≥ 30 mL/kg dans les 3 premières heures si hypoperfusion",
+     "i": "Ringer lactate ou Plasma-Lyte sont préférés au NaCl 0,9 % ; la réponse est jugée sur variation de pression pulsée ou lever de jambes passif.",
+     "pec": "bundle_h1",
+     "notion": "c7"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Noradrénaline si PAM < 65 mmHg",
+     "i": "Vasopresseur de première intention, cible PAM 65 mmHg, débutable en voie périphérique sans attendre le cathéter central.",
+     "pec": "bundle_h1",
+     "notion": "c7"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "PAM encore < 65 mmHg avec noradrénaline 0,25–0,5 µg/kg/min ?",
+     "i": "Seuil de dose indiquant une vasoplégie résistante aux catécholamines.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Ajouter vasopressine",
+     "i": "Elle compense le déficit relatif en vasopressine et permet d'épargner la noradrénaline.",
+     "pec": "bundle_h1",
+     "notion": "c7"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Noradrénaline ≥ 0,25 µg/kg/min depuis ≥ 4 h ?",
+     "i": "Seuil de la SSC 2021 pour proposer un corticoïde.",
+     "pec": null,
+     "notion": "c7"
+    },
+    {
+     "id": "n8",
+     "parent": "n7",
+     "t": "Hydrocortisone 200 mg/jour IV",
+     "i": "Elle améliore la réactivité vasculaire et raccourcit la durée des vasopresseurs.",
+     "pec": "bundle_h1",
+     "notion": "c7"
+    },
+    {
+     "id": "n9",
+     "parent": "n5",
+     "t": "Dysfonction myocardique avec hypoperfusion persistante malgré PAM correcte",
+     "i": "Cardiomyopathie septique : un inotrope (dobutamine) ou l'adrénaline est ajouté.",
+     "pec": "bundle_h1",
+     "notion": "c3"
+    },
+    {
+     "id": "n10",
+     "parent": "n1",
+     "t": "Foyer drainable ou dispositif infecté ?",
+     "i": "Drainage, débridement ou retrait du dispositif sont indispensables ; l'antibiotique seul échoue.",
+     "pec": "controle_source_formes_graves",
+     "notion": "c5"
+    },
+    {
+     "id": "n11",
+     "parent": "n1",
+     "t": "Signal d'alarme spécifique (purpura, fasciite, toxine, neutropénie)",
+     "i": "Un geste ou un antibiotique ciblé s'ajoute au bundle sans attendre.",
+     "pec": "controle_source_formes_graves",
+     "notion": "c5"
+    }
+   ],
+   "points": [
+    "Les antibiotiques IV à large spectre sont administrés dans l'heure suivant la reconnaissance du choc.",
+    "La noradrénaline est de première intention avec cible PAM 65 mmHg ; la vasopressine s'ajoute vers 0,25–0,5 µg/kg/min.",
+    "L'hydrocortisone 200 mg/jour s'envisage si la noradrénaline reste ≥ 0,25 µg/kg/min depuis ≥ 4 h.",
+    "Le contrôle de source est réalisé dès que possible après le diagnostic."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Évolution, complications et surveillance en soins intensifs",
+   "rubriques": [
+    "chronicManagement",
+    "hospitalizationComplications",
+    "surveillance"
+   ],
+   "comment": "Surveille la perfusion en continu, désescalade l'antibiotique à 48–72 h et anticipe les défaillances d'organe et les complications de réanimation.",
+   "tableau": {
+    "colonnes": [
+     "Complication",
+     "Critère",
+     "Prise en charge"
+    ],
+    "lignes": [
+     [
+      "SDRA",
+      [
+       {
+        "t": "PaO2/FiO2 ≤ 300 sous PEEP ≥ 5 (Berlin)",
+        "i": "Définition de Berlin ; la fuite capillaire alvéolaire en est la cause dans le sepsis."
+       }
+      ],
+      [
+       {
+        "t": "Ventilation protectrice 6 mL/kg de poids prédit",
+        "i": "Elle limite le baro-volotraumatisme et réduit la mortalité."
+       }
+      ]
+     ],
+     [
+      "Insuffisance rénale aiguë",
+      [
+       {
+        "t": "Classification KDIGO",
+        "i": "Très fréquente dans le choc septique ; diurèse < 0,5 mL/kg/h est un signe précoce."
+       }
+      ],
+      "Optimiser la perfusion, éviter les néphrotoxiques, épuration extrarénale si indiquée"
+     ],
+     [
+      "CIVD",
+      [
+       {
+        "t": "Score ISTH : thrombopénie, TP allongé, fibrinogène bas, D-dimères élevés",
+        "i": "Elle résulte de l'activation de la coagulation et de la baisse d'antithrombine et de protéine C."
+       }
+      ],
+      "Traiter la cause ; substituer seulement en cas de saignement ou de geste"
+     ],
+     [
+      "Polyneuropathie et myopathie de réanimation",
+      "Faiblesse musculaire, sevrage ventilatoire difficile",
+      "Mobilisation précoce et rééducation"
+     ],
+     [
+      "Hépatite ischémique, ischémie mésentérique, défaillance multiviscérale",
+      "Transaminases très élevées, abdomen douloureux, lactate",
+      "Restaurer la perfusion ; discuter des limites thérapeutiques si réfractaire"
+     ],
+     [
+      "Infections nosocomiales et delirium",
+      "Pneumonie sous ventilation, infection de cathéter, confusion",
+      "Prévention par bundles Swissnoso ; limiter sédation et dispositifs"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La PAM se surveille en continu par cathéter artériel et le lactate toutes les 2 à 4 h jusqu'à normalisation.",
+    "La diurèse cible ≥ 0,5 mL/kg/h ; les mesures dynamiques guident tout remplissage supplémentaire.",
+    "L'antibiothérapie est désescaladée à 48–72 h, puis dure souvent 7 à 10 jours, guidée éventuellement par la procalcitonine.",
+    "Une prophylaxie thromboembolique par HBPM est prescrite ; une transfusion n'est indiquée que si l'hémoglobine est < 70 g/L."
+   ],
+   "sources": [
+    "Surviving Sepsis Campaign 2021",
+    "Swissnoso"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Pronostic, suivi et déclaration en Suisse",
+   "rubriques": [
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Annonce un pronostic réservé, rappelle le poids du délai antibiotique et organise le suivi post-soins intensifs ainsi que les obligations de santé publique.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La mortalité hospitalière est > 40 % dans Sepsis-3 et d'environ 30 à 40 % dans les séries récentes.",
+    "Chaque heure de retard à l'antibiotique efficace diminue la survie d'environ 7,6 % dans le choc hypotensif.",
+    "Les survivants gardent souvent un syndrome post-soins intensifs : troubles cognitifs, psychiques et fonctionnels, réhospitalisations, surmortalité tardive.",
+    "Le suivi mobilise intensiviste, infectiologue, chirurgien ou radiologue interventionnel, puis médecin de famille.",
+    "La maladie invasive à méningocoque doit être annoncée à l'OFSP dans les 24 h ; Swissnoso coordonne la surveillance des infections nosocomiales."
+   ],
+   "sources": [
+    "Sepsis-3, JAMA 2016",
+    "OFSP",
+    "Swissnoso"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "bundle_h1",
+   "titre": "Choc septique : réanimation de la première heure",
+   "but": [
+    "Administrer l'antibiotique efficace dans l'heure suivant la reconnaissance du choc.",
+    "Restaurer la perfusion tissulaire avec une PAM ≥ 65 mmHg et normaliser le lactate.",
+    "Identifier et contrôler le foyer infectieux sans délai."
+   ],
+   "moyens": {
+    "accueil": [
+     "Placer le patient en salle de réanimation avec monitorage continu, oxygène et deux accès veineux.",
+     "Calculer la PAM, évaluer marbrures, recoloration et conscience, et peser le patient pour les doses.",
+     "Rechercher les allergies et l'écologie récente (BLSE, SARM, hospitalisation, voyage)."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Pipéracilline-tazobactam (pénicilline + inhibiteur de bêta-lactamase)",
+      "posologie": "4,5 g IV toutes les 6 h (perfusion prolongée possible), à adapter à la fonction rénale ; ceftriaxone 2 g IV/24 h suffit pour un foyer communautaire pulmonaire ou urinaire sans risque.",
+      "pourquoi": "Couvre entérobactéries, anaérobies et Pseudomonas pour les foyers abdominaux ou nosocomiaux ; le choix suit le foyer et l'écologie locale.",
+      "source": "AIPS Swissmedic ; SSC 2021"
+     },
+     {
+      "molecule": "Méropénème (carbapénème)",
+      "posologie": "1 g IV toutes les 8 h, adapté à la clairance ; ajouter vancomycine (dose de charge 25 mg/kg) si risque de SARM.",
+      "pourquoi": "Indiqué en cas de colonisation à BLSE ou d'échec antérieur de bêta-lactamines ; la couverture anti-SARM s'ajoute selon les facteurs de risque.",
+      "source": "AIPS Swissmedic ; SSC 2021"
+     },
+     {
+      "molecule": "Ringer lactate ou Plasma-Lyte (cristalloïde balancé)",
+      "posologie": "Au moins 30 mL/kg IV dans les 3 premières heures si hypoperfusion, puis selon réponse dynamique.",
+      "pourquoi": "Les solutés balancés sont préférés au NaCl 0,9 % ; la réponse au volume est jugée avant tout apport supplémentaire.",
+      "source": "SSC 2021"
+     },
+     {
+      "molecule": "Noradrénaline (catécholamine vasopressive)",
+      "posologie": "Perfusion IV continue titrée sur PAM ≥ 65 mmHg ; débutable en voie périphérique, doses fréquentes jusqu'à 0,25–0,5 µg/kg/min.",
+      "pourquoi": "Vasopresseur de première intention qui corrige la vasoplégie ; ne pas attendre le cathéter central.",
+      "source": "AIPS Swissmedic ; SSC 2021"
+     },
+     {
+      "molecule": "Vasopressine (analogue de l'hormone antidiurétique)",
+      "posologie": "Dose fixe habituelle 0,03 U/min IV, ajoutée à la noradrénaline vers 0,25–0,5 µg/kg/min.",
+      "pourquoi": "Elle compense le déficit relatif en vasopressine et permet de réduire la dose de noradrénaline.",
+      "source": "SSC 2021"
+     },
+     {
+      "molecule": "Hydrocortisone (corticostéroïde)",
+      "posologie": "200 mg/jour IV (50 mg toutes les 6 h ou perfusion continue) si noradrénaline ≥ 0,25 µg/kg/min depuis ≥ 4 h.",
+      "pourquoi": "Elle restaure la sensibilité vasculaire aux catécholamines et raccourcit la durée du choc réfractaire.",
+      "source": "SSC 2021"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Poser un cathéter artériel dès que possible et une sonde vésicale pour la diurèse horaire.",
+      "pourquoi": "La PAM continue et la diurèse guident la titration des vasopresseurs."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Drainer, débrider ou retirer le dispositif infecté dès que possible après le diagnostic.",
+      "pourquoi": "Le contrôle de source conditionne l'efficacité de l'antibiothérapie."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Prélever deux paires d'hémocultures avant l'antibiotique et un lactate immédiat.",
+      "pourquoi": "Permet la désescalade ciblée sans retarder le traitement de plus de 45 minutes."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Évaluer la réponse au remplissage par variation de pression pulsée ou lever de jambes passif.",
+      "pourquoi": "Évite la surcharge liquidienne et l'aggravation de la fuite capillaire."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Encadre la déclaration obligatoire à l'OFSP et le consentement des proches en cas d'incapacité du patient."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Aide à définir les limites thérapeutiques et à respecter les directives anticipées en cas de défaillance multiviscérale réfractaire."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Reconnaître le choc et déclencher l'alerte réanimation en notant l'heure zéro.",
+      "Maintenir oxygénation, accès vasculaires et monitorage continu.",
+      "Adapter l'antibiotique au foyer et au risque BLSE ou SARM."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Reconnaît le choc, note l'heure zéro et dirige l'équipe."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose deux voies, prélève hémocultures et lactate, branche le monitorage."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Prescrit l'antibiotique IV adapté au foyer et débute le remplissage balancé."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Débute la noradrénaline si PAM < 65 mmHg malgré remplissage."
+      },
+      {
+       "temps": "puis",
+       "qui": "second médecin",
+       "fait": "Pose le cathéter artériel et réalise l'échographie pour orienter le diagnostic."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Intensiviste et infectiologue escaladent vasopresseurs et corticoïde, chirurgien contrôle la source."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La mortalité hospitalière est de 30 à 40 % dans les séries récentes ; chaque heure de retard d'antibiothérapie efficace réduit la survie d'environ 7,6 %.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "PAM par cathéter artériel",
+      "quand": "En continu",
+      "cible": "PAM ≥ 65 mmHg"
+     },
+     {
+      "quoi": "Lactate",
+      "quand": "Toutes les 2 à 4 h",
+      "cible": "Normalisation, clairance progressive"
+     },
+     {
+      "quoi": "Diurèse",
+      "quand": "Horaire",
+      "cible": "≥ 0,5 mL/kg/h"
+     },
+     {
+      "quoi": "Dose de noradrénaline",
+      "quand": "En continu",
+      "cible": "Dose décroissante, sevrage progressif"
+     },
+     {
+      "quoi": "SOFA, créatinine, plaquettes, bilirubine",
+      "quand": "Quotidien",
+      "cible": "Amélioration du score"
+     }
+    ],
+    "sortie": "Pas de sortie directe : transfert en soins intensifs ; sortie de l'unité après sevrage des vasopresseurs, lactate normal et défaillances d'organe résolutives."
+   },
+   "prevention": {
+    "primaire": "Vacciner (grippe, pneumocoque) et appliquer l'hygiène des mains et les bundles de cathéters recommandés par Swissnoso.",
+    "secondaire": "Reconnaître tôt un sepsis par NEWS ou SIRS et traiter rapidement le foyer.",
+    "tertiaire": "Mobiliser précocement et dépister le syndrome post-soins intensifs."
+   }
+  },
+  {
+   "cle": "controle_source_formes_graves",
+   "titre": "Contrôle de source et formes particulières graves",
+   "but": [
+    "Éliminer chirurgicalement ou par drainage le foyer qui entretient le choc.",
+    "Administrer sans délai l'antibiotique ciblé sur la forme grave suspectée.",
+    "Protéger l'entourage et déclarer les maladies à notification."
+   ],
+   "moyens": {
+    "accueil": [
+     "Isoler en gouttelettes tout purpura fébrile jusqu'à 24 h d'antibiotique efficace.",
+     "Prévenir le chirurgien et le radiologue interventionnel dès la suspicion d'un foyer drainable."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Ceftriaxone (céphalosporine de 3e génération)",
+      "posologie": "2 g IV immédiatement en cas de purpura fulminans, sans attendre la ponction lombaire ; 2 g toutes les 12 h si méningite.",
+      "pourquoi": "Couvre le méningocoque et le pneumocoque ; le retard thérapeutique augmente fortement la mortalité.",
+      "source": "AIPS Swissmedic ; OFSP"
+     },
+     {
+      "molecule": "Clindamycine (lincosamide)",
+      "posologie": "600 à 900 mg IV toutes les 8 h, associée à une bêta-lactamine en cas de choc toxique ou de fasciite nécrosante.",
+      "pourquoi": "Inhibe la synthèse protéique des toxines streptococciques ou staphylococciques, ce que les bêta-lactamines seules ne font pas.",
+      "source": "AIPS Swissmedic ; SSC 2021"
+     },
+     {
+      "molecule": "Céfépime (céphalosporine anti-pseudomonas)",
+      "posologie": "2 g IV toutes les 8 h, adapté à la clairance, en cas de fièvre avec choc chez un patient neutropénique.",
+      "pourquoi": "Couvre Pseudomonas aeruginosa d'emblée chez le neutropénique, où l'évolution est foudroyante.",
+      "source": "AIPS Swissmedic ; SSC 2021"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réaliser un débridement chirurgical urgent devant une fasciite nécrosante.",
+      "pourquoi": "L'antibiotique ne pénètre pas le tissu nécrosé."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Drainer une voie biliaire, une voie urinaire ou un abcès obstrué par voie percutanée, endoscopique ou chirurgicale.",
+      "pourquoi": "Sans évacuation, l'antibiothérapie seule échoue."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Retirer un cathéter ou dispositif suspect d'être la source.",
+      "pourquoi": "Le matériel étranger entretient l'infection par biofilm."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Déclarer la maladie invasive à méningocoque à l'OFSP dans les 24 h et organiser la prophylaxie des contacts.",
+      "pourquoi": "Réduit les cas secondaires dans l'entourage proche."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Précise l'obligation de déclaration à l'OFSP et le secret médical lors de la prophylaxie des contacts."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Anticipe la prise en charge des suites chirurgicales et de l'incapacité de travail."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Ne jamais retarder l'antibiotique pour une ponction lombaire ou une imagerie.",
+      "Associer l'antibiotique ciblé au bundle de la première heure.",
+      "Planifier le contrôle de source dès que le patient est hémodynamiquement stabilisé."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Identifie le signal d'alarme et prescrit l'antibiotique ciblé immédiatement."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Applique l'isolement gouttelettes et prépare le matériel de prélèvement."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Le chirurgien ou radiologue interventionnel planifie le drainage ou le débridement."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Déclare à l'OFSP dans les 24 h et informe les contacts proches pour la prophylaxie."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le contrôle tardif de la source et le retard antibiotique aggravent nettement la mortalité, déjà de 30 à 40 % dans le choc septique.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Évolution cutanée et douleur",
+      "quand": "Toutes les heures initialement",
+      "cible": "Absence d'extension des lésions"
+     },
+     {
+      "quoi": "Lactate et PAM",
+      "quand": "Toutes les 2 à 4 h",
+      "cible": "Normalisation après contrôle du foyer"
+     },
+     {
+      "quoi": "Cultures peropératoires et hémocultures",
+      "quand": "À 24 à 48 h",
+      "cible": "Identification du germe pour la désescalade"
+     }
+    ],
+    "sortie": "Sortie de soins intensifs après contrôle de source, stabilité hémodynamique et antibiothérapie ciblée ; surveillance ultérieure selon la forme."
+   },
+   "prevention": {
+    "primaire": "Vacciner contre le méningocoque et le pneumocoque selon le plan suisse de vaccination, notamment chez l'asplénique.",
+    "secondaire": "Administrer la prophylaxie antibiotique aux contacts proches d'un cas de méningocoque.",
+    "tertiaire": "Assurer la réhabilitation après chirurgie étendue."
+   }
+  },
+  {
+   "cle": "suivi_post_usi",
+   "titre": "Phase de stabilisation, désescalade et réhabilitation",
+   "but": [
+    "Réduire le spectre antibiotique et la durée du traitement.",
+    "Prévenir les complications de réanimation.",
+    "Limiter les séquelles fonctionnelles et cognitives."
+   ],
+   "moyens": {
+    "accueil": [
+     "Réévaluer chaque jour le besoin de dispositifs invasifs et de sédation.",
+     "Expliquer à l'entourage le risque de syndrome post-soins intensifs."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Énoxaparine (héparine de bas poids moléculaire)",
+      "posologie": "40 mg SC une fois par jour ; 20 mg par jour si clairance de la créatinine < 30 mL/min.",
+      "pourquoi": "Prévient la thrombose veineuse chez le patient alité en choc septique, à risque thromboembolique élevé.",
+      "source": "AIPS Swissmedic ; SSC 2021"
+     },
+     {
+      "molecule": "Insuline (hormone hypoglycémiante)",
+      "posologie": "Perfusion IV selon protocole de l'unité dès glycémie ≥ 10 mmol/L.",
+      "pourquoi": "Évite l'hyperglycémie de stress sans viser une normoglycémie stricte exposant à l'hypoglycémie.",
+      "source": "SSC 2021"
+     },
+     {
+      "molecule": "Pantoprazole (inhibiteur de la pompe à protons)",
+      "posologie": "40 mg IV une fois par jour en présence de facteurs de risque de saignement digestif (ventilation prolongée, coagulopathie).",
+      "pourquoi": "Prévient l'hémorragie de stress chez les patients à risque, pas systématiquement chez tous.",
+      "source": "AIPS Swissmedic ; SSC 2021"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "rééducation",
+      "mesure": "Mobiliser et faire rééduquer précocement par physiothérapie dès la stabilisation.",
+      "pourquoi": "Limite la faiblesse acquise en réanimation."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Désescalader l'antibiotique à 48–72 h selon la microbiologie et viser 7 à 10 jours.",
+      "pourquoi": "Réduit les résistances et la toxicité ; la procalcitonine peut aider à raccourcir."
+     },
+     {
+      "categorie": "nutrition",
+      "mesure": "Débuter une nutrition entérale précoce et fixer le seuil transfusionnel à une hémoglobine < 70 g/L.",
+      "pourquoi": "Soutient la récupération sans exposer aux risques d'une transfusion inutile."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Dépister troubles cognitifs, anxiété et stress post-traumatique à distance du séjour.",
+      "pourquoi": "Le syndrome post-soins intensifs est fréquent chez les survivants."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Organise la réadaptation, l'incapacité de travail et le financement des soins de suite."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Soutient le patient et les proches lors de séquelles lourdes ou de décisions de limitation thérapeutique."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Réévaluer quotidiennement le foyer, la durée d'antibiothérapie et les dispositifs.",
+      "Appliquer les mesures Swissnoso de prévention des infections liées aux cathéters.",
+      "Organiser le suivi post-soins intensifs avant la sortie."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Désescalade l'antibiotique selon les résultats microbiologiques à 48–72 h."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Surveille diurèse, glycémie et dispositifs invasifs, prévient les infections de cathéter."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "physiothérapeute",
+       "fait": "Mobilise précocement le patient pour limiter la myopathie de réanimation."
+      },
+      {
+       "temps": "puis",
+       "qui": "assistant·e social·e",
+       "fait": "Prépare le retour à domicile ou la réadaptation et le soutien des proches."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Transmet le suivi au médecin de famille et planifie une consultation de contrôle."
+      }
+     ]
+    }
+   },
+   "pronostic": "Les survivants gardent souvent un syndrome post-soins intensifs (troubles cognitifs, psychiques, fonctionnels), avec réhospitalisations et surmortalité tardive.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Marqueurs infectieux et microbiologie",
+      "quand": "À 48–72 h puis selon évolution",
+      "cible": "Antibiothérapie au spectre le plus étroit efficace"
+     },
+     {
+      "quoi": "Fonction rénale, hépatique et numération plaquettaire",
+      "quand": "Quotidien en soins intensifs",
+      "cible": "Retour à la valeur de base"
+     },
+     {
+      "quoi": "Force musculaire et autonomie",
+      "quand": "Dès la stabilisation puis à distance",
+      "cible": "Récupération fonctionnelle progressive"
+     },
+     {
+      "quoi": "Troubles cognitifs et psychiques",
+      "quand": "À 1 à 3 mois",
+      "cible": "Absence de séquelles ou orientation vers prise en charge spécialisée"
+     }
+    ],
+    "sortie": "Sortie des soins intensifs après sevrage des vasopresseurs et lactate normal ; sortie de l'hôpital après stabilité clinique, antibiothérapie définie, autonomie suffisante et suivi organisé."
+   },
+   "prevention": {
+    "primaire": "Appliquer l'hygiène des mains et les bundles de prévention des infections de cathéter et de pneumonie sous ventilation.",
+    "secondaire": "Dépister précocement une récidive d'infection chez les patients à risque.",
+    "tertiaire": "Suivre à distance pour détecter le syndrome post-soins intensifs et organiser la réadaptation."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7631,
+  "output_tokens": 22719,
+  "output_tokens_details": {
+   "thinking_tokens": 6038
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T02:21:36",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}

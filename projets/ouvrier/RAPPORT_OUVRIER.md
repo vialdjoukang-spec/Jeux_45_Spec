@@ -1,6 +1,6 @@
 # Ouvrier automatique — 2026-11-26 02:21 UTC
 
-Dernier passage : **V2_C_recup** → en_cours (0.00 USD).
+Dernier passage : **V2_C_recup** → fait (0.00 USD).
 
 775 notions, 56 cochées, 679 en attente d'audit, 403 questions
 TRO : 1 pathologies, 28 notions, 0 cochées, 28 en attente d'audit, 20 questions
@@ -55,6 +55,6 @@ arène 45 : 45 spécialités, 15908 questions, 2692 pathologies canoniques
 | V2_Q_lot | fait | 1 | 0.0 |
 | V2_Q_recup | fait | 16 | 0.0 |
 | V2_C_lot | fait | 1 | 0.0 |
-| V2_C_recup | en_cours | 9 | 0.0 |
+| V2_C_recup | fait | 10 | 0.0 |
 
 Signature : AAI (Anthropic AI)

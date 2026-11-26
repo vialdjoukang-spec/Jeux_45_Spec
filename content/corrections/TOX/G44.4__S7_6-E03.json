@@ -1,0 +1,1110 @@
+{
+ "id": "G44.4__S7_6-E03",
+ "portes": [
+  {
+   "ssp": "S7.6",
+   "nomSSP": "Céphalées",
+   "entite": "Céphalée par abus médicamenteux (CAM)",
+   "entiteId": "S7.6-E03"
+  }
+ ],
+ "entite": "Céphalée par abus médicamenteux (CAM)",
+ "cim10": "G44.4",
+ "ssp": {
+  "code": "S7.6",
+  "nom": "Céphalées",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Un patient consulte pour une céphalée",
+    "i": "Porte d'entrée du SSP : la démarche cherche d'abord les causes secondaires graves, puis classe la céphalée primaire.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Existe-t-il un drapeau rouge (coup de tonnerre, fièvre, déficit focal, > 50 ans, grossesse, immunodépression, traumatisme) ?",
+    "i": "Ces signes révèlent HSA, méningite, AVC, artérite, thrombose ou dissection, qui engagent le pronostic vital ou visuel.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : le médecin organise un bilan urgent",
+    "i": "Cela sort du cadre CAM et renvoie au SSP de la céphalée aiguë ou fébrile selon le signe d'alarme.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : la céphalée dure-t-elle ≥ 15 j/mois depuis > 3 mois ?",
+    "i": "Ce seuil définit une céphalée chronique quotidienne et ouvre la recherche d'un abus médicamenteux.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Non : la céphalée est épisodique",
+    "i": "Les céphalées épisodiques se classent par leurs caractères : migraine, tension, algie vasculaire ou névralgie du trijumeau.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Oui : le patient prend-il un traitement de crise ≥ 10 j/mois (triptans, opioïdes, combinés) ou ≥ 15 j/mois (paracétamol, AINS) ?",
+    "i": "L'agenda compte les jours de prise ; ces seuils ICHD-3 définissent l'abus.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Non : la céphalée chronique est primaire",
+    "i": "Il s'agit de migraine chronique ou de céphalée de tension chronique ; une HTIC idiopathique reste à exclure.",
+    "pec": "traitement_fond",
+    "notion": "c7"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Oui : le diagnostic est une céphalée par abus médicamenteux",
+    "i": "Le diagnostic est clinique si l'examen neurologique et le fond d'œil sont normaux.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Existe-t-il un œdème papillaire ou des signes d'HTIC ?",
+    "i": "Ils imposent d'exclure HTIC idiopathique, tumeur ou thrombose veineuse cérébrale avant de retenir la CAM seule.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "Oui : IRM avec séquences veineuses, puis ponction lombaire",
+    "i": "L'imagerie écarte tumeur et thrombose ; la pression d'ouverture confirme l'HTIC idiopathique.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "Non : quelle substance est abusée ?",
+    "i": "La substance décide du type de sevrage : brutal ou progressif.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Opioïde, barbiturique ou benzodiazépine : sevrage progressif, hospitalisation discutée",
+    "i": "Un risque de dépendance et de sevrage vrai impose un cadre surveillé.",
+    "pec": "sevrage_hospitalier",
+    "notion": null
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "Triptan, AINS, paracétamol ou ergoté : sevrage brutal ambulatoire",
+    "i": "L'arrêt brutal est efficace et sans danger vital ; le rebond dure 1 à 2 semaines.",
+    "pec": "sevrage_ambulatoire",
+    "notion": null
+   },
+   {
+    "id": "n14",
+    "parent": "n11",
+    "t": "Dans tous les cas, le médecin instaure un traitement de fond",
+    "i": "La prophylaxie de la céphalée primaire réduit le risque de reprise de l'abus.",
+    "pec": "traitement_fond",
+    "notion": "c7"
+   }
+  ]
+ },
+ "specialites": [
+  "TOX"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Céphalée par abus médicamenteux (CAM)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition ICHD-3 et seuils selon la substance",
+   "rubriques": [
+    "definition",
+    "positiveDiagnosis"
+   ],
+   "comment": "Compte les jours de prise par mois et non les comprimés, puis compare le total au seuil propre à la classe de médicament.",
+   "tableau": {
+    "colonnes": [
+     "Classe abusée",
+     "Seuil de prise",
+     "Risque de CAM",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Triptans, ergotés",
+      [
+       {
+        "t": "≥ 10 j/mois",
+        "i": "Ces molécules vasoactives sensibilisent vite le système trigéminovasculaire, donc le seuil est plus bas que pour les antalgiques simples."
+       }
+      ],
+      "Élevé, installation rapide",
+      "Contre-indiqués en cas de maladie cardiovasculaire ; l'abus ajoute un risque vasoconstricteur."
+     ],
+     [
+      "Opioïdes, barbituriques",
+      [
+       {
+        "t": "≥ 10 j/mois",
+        "i": "Ils exposent le plus à la CAM et à la dépendance, donc le seuil reste bas."
+       }
+      ],
+      "Très élevé",
+      [
+       {
+        "t": "Sevrage progressif, parfois hospitalier",
+        "i": "Un arrêt brutal provoque un syndrome de sevrage vrai, ce qui n'arrive pas avec les antalgiques simples."
+       }
+      ]
+     ],
+     [
+      "Antalgiques combinés (caféine, codéine)",
+      [
+       {
+        "t": "≥ 10 j/mois",
+        "i": "La caféine et la codéine potentialisent l'entretien de la céphalée, donc ils comptent comme des combinés."
+       }
+      ],
+      "Élevé",
+      "Le patient ne les déclare pas : il faut les chercher activement (vente libre)."
+     ],
+     [
+      "Plusieurs classes non individualisables",
+      [
+       {
+        "t": "≥ 10 j/mois au total",
+        "i": "Aucune classe n'atteint seule le seuil, mais leur somme le dépasse ; l'ICHD-3 les regroupe."
+       }
+      ],
+      "Élevé",
+      "Ne pas additionner paracétamol et AINS seuls : leur seuil reste 15 j."
+     ],
+     [
+      "Paracétamol, aspirine, AINS",
+      [
+       {
+        "t": "≥ 15 j/mois",
+        "i": "Ces antalgiques simples induisent la CAM moins vite et exigent donc plus de jours de prise."
+       }
+      ],
+      "Plus faible",
+      "Sevrage brutal possible ; toxicité hépatique (paracétamol), rénale et digestive (AINS)."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Critère ICHD-3 8.2 : céphalée ≥ 15 j/mois apparue ou aggravée pendant un abus régulier depuis > 3 mois, chez un patient ayant une céphalée primaire.",
+    "Un abus d'antalgiques pour une douleur non céphalalgique ne provoque en général pas de CAM.",
+    "Chez un migraineux chronique avec abus, l'ICHD-3 pose les deux diagnostics simultanément."
+   ],
+   "sources": [
+    "ICHD-3, 2018",
+    "Swiss Headache Society"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie, facteurs de risque et physiopathologie",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences"
+   ],
+   "comment": "Pense à la CAM devant toute céphalée chronique chez une femme de 30 à 50 ans, anxieuse, qui prend souvent un traitement de crise.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La CAM touche 1–2 % de la population et plus de 30 % des patients des centres de céphalées, car elle est sous-diagnostiquée en soins primaires.",
+    "Elle atteint surtout les femmes (rapport 3–4:1) entre 30 et 50 ans ; facteurs associés : anxiété, dépression, douleurs chroniques, tabac, obésité, benzodiazépines, bas statut socio-économique.",
+    "Une sensibilisation centrale trigéminovasculaire, un contrôle descendant altéré et une perturbation sérotoninergique augmentent l'excitabilité corticale.",
+    "Le terrain de céphalée primaire est indispensable ; la fréquence des jours de prise compte plus que la dose cumulée.",
+    "Opioïdes, barbituriques et combinés exposent le plus ; les triptans induisent la CAM plus vite que les antalgiques simples."
+   ],
+   "sources": [
+    "ICHD-3, 2018",
+    "Swiss Headache Society"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen clinique",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Interroge sur chaque médicament, y compris ceux de vente libre, puis constate que l'examen neurologique reste normal.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le patient décrit une céphalée quasi quotidienne, souvent dès le réveil, d'allure migraineuse ou de tension, avec un soulagement bref puis une récidive précoce qui pousse à reprendre le médicament.",
+    "Le médecin demande activement les antalgiques de vente libre, les combinés à la caféine ou à la codéine et les triptans délivrés en pharmacie.",
+    "Il recherche une migraine ou une céphalée de tension préexistante, la caféine, les troubles du sommeil, l'anxiété et la dépression.",
+    "L'examen neurologique et le fond d'œil sont normaux ; tout déficit focal ou œdème papillaire écarte la CAM.",
+    "L'examen général cherche une douleur épigastrique ou une hypertension sous AINS et des signes de dépendance aux opioïdes."
+   ],
+   "sources": [
+    "ICHD-3, 2018",
+    "Swiss Headache Society"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Drapeaux rouges : quand ne pas conclure à une CAM",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Écarte d'abord les céphalées secondaires dangereuses, car un abus médicamenteux peut coexister avec une autre cause.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Céphalée chronique chez un patient qui abuse de médicaments",
+     "i": "Point de départ : le contexte évoque la CAM, mais le diagnostic reste d'exclusion.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Début en coup de tonnerre, fièvre, déficit focal, grossesse, immunodépression ou traumatisme ?",
+     "i": "Ces signes écartent la CAM et font craindre HSA, méningite, AVC, thrombose ou hématome.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : le médecin organise un bilan urgent (imagerie, ponction lombaire selon le cas)",
+     "i": "Le risque vital prime ; ce cas sort du cadre CAM et renvoie au SSP des céphalées aiguës.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Le patient a-t-il plus de 50 ans avec douleur temporale ou claudication de la mâchoire ?",
+     "i": "Une nouvelle céphalée après 50 ans évoque une artérite à cellules géantes, qui menace la vision.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Oui : le médecin dose VS et CRP en urgence",
+     "i": "Une VS ou une CRP élevée impose un traitement par corticoïdes et une biopsie ou imagerie artérielle.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Existe-t-il un œdème papillaire ou des signes d'HTIC (céphalée matinale, vomissements, diplopie, acouphènes pulsatiles) ?",
+     "i": "Ils orientent vers HTIC idiopathique, tumeur ou thrombose veineuse cérébrale.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Oui : IRM avec séquences veineuses, puis ponction lombaire avec pression d'ouverture si l'imagerie est normale",
+     "i": "L'IRM exclut tumeur et thrombose ; la pression d'ouverture élevée confirme l'HTIC idiopathique.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n1",
+     "t": "Le caractère de la céphalée a-t-il nettement changé ?",
+     "i": "Un changement net ne doit pas être attribué d'emblée à la CAM.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n9",
+     "parent": "n8",
+     "t": "Oui : le médecin réévalue et réalise une IRM",
+     "i": "Un tableau atypique justifie l'imagerie, qui est inutile dans une CAM typique.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n10",
+     "parent": "n1",
+     "t": "Aucun drapeau rouge et examen normal : CAM probable",
+     "i": "Le diagnostic reste clinique ; l'agenda le confirme et le sevrage peut commencer.",
+     "pec": "sevrage_ambulatoire",
+     "notion": "c6"
+    }
+   ],
+   "points": [
+    "Un examen neurologique anormal impose de chercher une autre cause.",
+    "Un œdème papillaire n'est jamais attribuable à la CAM."
+   ],
+   "sources": [
+    "ICHD-3, 2018",
+    "Swiss Headache Society"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Confirmation par l'agenda et diagnostic différentiel",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Fais tenir un agenda de 1 à 3 mois qui compte les jours de prise, puis distingue la CAM de ses rivaux chroniques.",
+   "tableau": {
+    "colonnes": [
+     "Rival",
+     "Indice discriminant",
+     "Examen utile",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Migraine chronique",
+      [
+       {
+        "t": "Crises migraineuses ≥ 8 j/mois sur ≥ 3 mois",
+        "i": "Elle coexiste souvent avec la CAM ; l'ICHD-3 recommande alors de poser les deux diagnostics."
+       }
+      ],
+      "Agenda",
+      "Prophylaxie plus sevrage en même temps"
+     ],
+     [
+      "Céphalée de tension chronique",
+      [
+       {
+        "t": "Douleur bilatérale en casque, non pulsatile, sans nausée",
+        "i": "C'est l'autre céphalée primaire fréquente avec abus ; les caractères de tension sont typiques."
+       }
+      ],
+      "Agenda",
+      "Amitriptyline, mesures non médicamenteuses"
+     ],
+     [
+      "HTIC idiopathique",
+      [
+       {
+        "t": "Femme jeune obèse, œdème papillaire, acouphènes pulsatiles",
+        "i": "L'œdème papillaire et la pression d'ouverture élevée ne s'observent pas dans la CAM."
+       }
+      ],
+      "Fond d'œil, IRM veineuse, ponction lombaire",
+      "Orientation neurologique ou ophtalmologique"
+     ],
+     [
+      "Céphalée quotidienne persistante d'emblée",
+      [
+       {
+        "t": "Début abrupt mémorisable, sans céphalée primaire ni abus préalables",
+        "i": "La CAM suppose une céphalée primaire préexistante avec abus, ce qui manque ici."
+       }
+      ],
+      "Anamnèse",
+      "Prophylaxie spécialisée"
+     ],
+     [
+      "Artérite à cellules géantes",
+      [
+       {
+        "t": "Âge > 50 ans, douleur temporale, claudication",
+        "i": "Une céphalée nouvelle après 50 ans n'est jamais une CAM d'emblée."
+       }
+      ],
+      "VS, CRP",
+      "Corticoïdes en urgence"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'agenda compte les jours de prise et non le nombre de comprimés : un jour avec plusieurs prises vaut un seul jour d'abus.",
+    "Aucune biologie n'est nécessaire au diagnostic ; elle sert à chercher l'atteinte rénale, hépatique ou l'inflammation (VS, CRP après 50 ans).",
+    "L'IRM est réservée aux drapeaux rouges, à l'examen anormal ou au tableau atypique."
+   ],
+   "sources": [
+    "ICHD-3, 2018",
+    "Swiss Headache Society"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Sevrage : démarche selon la substance abusée",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "Explique d'abord, puis arrête la substance abusée en choisissant un sevrage brutal ou progressif selon le risque de sevrage vrai.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Le diagnostic de CAM est posé : le médecin explique le cercle vicieux",
+     "i": "Une éducation bienveillante conditionne l'adhésion au sevrage et rassure sur l'absence de lésion.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "La substance abusée est-elle un opioïde, un barbiturique ou une benzodiazépine ?",
+     "i": "Ces substances induisent une dépendance vraie et un sevrage dangereux ; l'arrêt brutal est donc à éviter.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : sevrage progressif, hospitalisation à discuter",
+     "i": "Un sevrage progressif et surveillé limite les symptômes ; un soutien addictologique ou psychiatrique est utile.",
+     "pec": "sevrage_hospitalier",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non (triptans, AINS, paracétamol, ergotés) : le médecin arrête brutalement",
+     "i": "L'arrêt brutal est plus efficace et sans risque vital ; le rebond dure 1 à 2 semaines.",
+     "pec": "sevrage_ambulatoire",
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Vomissements importants, échec ambulatoire ou comorbidité psychiatrique sévère ?",
+     "i": "Ces situations rendent le sevrage ambulatoire dangereux ou inefficace.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Oui : le médecin hospitalise",
+     "i": "L'hospitalisation permet hydratation, antiémétiques et soutien intensif.",
+     "pec": "sevrage_hospitalier",
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n1",
+     "t": "En même temps, le médecin débute le traitement de fond de la céphalée primaire",
+     "i": "Sans prophylaxie, le patient reprend le médicament lors du rebond ; l'instauration simultanée réduit la rechute.",
+     "pec": "traitement_fond",
+     "notion": "c7"
+    }
+   ],
+   "points": [
+    "Pendant le sevrage, les traitements de crise sont limités à 2 j/semaine, avec une molécule différente de celle abusée.",
+    "Les opioïdes et barbituriques sont à éviter pour traiter la crise ; la morphine IV n'a pas de place.",
+    "Le métoclopramide 10 mg jusqu'à 3×/j, 5 j au plus, soulage les nausées du sevrage.",
+    "Un pont court par corticoïde est possible, mais les preuves sont limitées et il n'est pas systématique."
+   ],
+   "sources": [
+    "ICHD-3, 2018",
+    "Swiss Headache Society",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Traitement de fond de la céphalée primaire",
+   "rubriques": [
+    "chronicManagement"
+   ],
+   "comment": "Choisis la prophylaxie selon la céphalée primaire sous-jacente, ses comorbidités et un éventuel désir de grossesse.",
+   "tableau": {
+    "colonnes": [
+     "Traitement",
+     "Indication préférentielle",
+     "Posologie",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Topiramate",
+      [
+       {
+        "t": "Migraine chronique avec abus",
+        "i": "Il est le mieux étudié dans la migraine chronique avec abus médicamenteux."
+       }
+      ],
+      "25 mg le soir, +25 mg/semaine jusqu'à 100 mg/j",
+      [
+       {
+        "t": "Tératogène",
+        "i": "Il exige une contraception efficace chez la femme en âge de procréer ; paresthésies, troubles cognitifs, lithiase rénale."
+       }
+      ]
+     ],
+     [
+      "Amitriptyline",
+      [
+       {
+        "t": "Céphalée de tension chronique",
+        "i": "Son effet sur la douleur de tension et le sommeil convient mieux à ce terrain."
+       }
+      ],
+      "10–25 mg le soir, jusqu'à environ 75 mg",
+      [
+       {
+        "t": "Effets anticholinergiques et sédation",
+        "i": "Ils limitent la dose chez le sujet âgé et le patient cardiaque."
+       }
+      ]
+     ],
+     [
+      "Propranolol",
+      [
+       {
+        "t": "Migraine avec ≥ 4 j/mois",
+        "i": "Bêtabloquant reconnu en prophylaxie de la migraine."
+       }
+      ],
+      "40–160 mg/j",
+      "Contre-indiqué en cas d'asthme, de bradycardie ou de bloc"
+     ],
+     [
+      "Toxine onabotulinique A",
+      [
+       {
+        "t": "Migraine chronique, y compris avec abus",
+        "i": "Elle réduit les jours de céphalée dans cette indication, mais pas dans la céphalée de tension."
+       }
+      ],
+      "155 U en 31 sites tous les 3 mois",
+      "Geste spécialisé ; efficacité jugée après plusieurs cycles"
+     ],
+     [
+      "Anticorps anti-CGRP",
+      [
+       {
+        "t": "Migraine chronique avec échec de prophylaxies",
+        "i": "Ils sont efficaces avec abus, mais leur remboursement suisse est limité à l'échec de prophylaxies antérieures."
+       }
+      ],
+      "Érénumab 70–140 mg SC/mois",
+      "Prescription spécialisée, limitation de remboursement"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'efficacité s'évalue après 2 à 3 mois à dose cible.",
+    "Les mesures non médicamenteuses (relaxation, biofeedback, TCC, activité physique, sommeil régulier, physiothérapie cervicale) complètent le traitement."
+   ],
+   "sources": [
+    "Swiss Headache Society",
+    "AIPS Swissmedic",
+    "ICHD-3, 2018"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications, pronostic, suivi et réseau",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "Prépare le patient au rebond de 1 à 2 semaines, puis suis-le longtemps pour prévenir la rechute.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le sevrage provoque 1 à 2 semaines d'aggravation avec nausées, vomissements, tachycardie, hypotension, troubles du sommeil et anxiété.",
+    "L'abus chronique expose à une gastropathie et une néphropathie (AINS), une hépatotoxicité (paracétamol) et une dépendance (opioïdes).",
+    "La céphalée s'améliore en semaines à 2 mois ; la rechute touche environ 20–40 % des patients dans l'année, surtout avec opioïdes et combinés.",
+    "Le suivi est rapproché pendant le mois du sevrage (2–4 semaines), puis à 2–3 mois, avec agenda et tolérance du traitement de fond.",
+    "Le médecin de famille suit le patient et adresse au neurologue ou au centre des céphalées en cas d'échec ou d'opioïdes ; le pharmacien repère l'abus."
+   ],
+   "sources": [
+    "ICHD-3, 2018",
+    "Swiss Headache Society"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "sevrage_ambulatoire",
+   "titre": "Sevrage ambulatoire (triptans, AINS, paracétamol, ergotés)",
+   "but": [
+    "Arrêter la substance abusée pour ramener la prise sous les seuils d'abus.",
+    "Maintenir le patient fonctionnel pendant le rebond de 1 à 2 semaines.",
+    "Obtenir l'adhésion du patient grâce à une explication claire du cercle vicieux."
+   ],
+   "moyens": {
+    "accueil": [
+     "Le médecin écoute sans jugement et reconnaît la douleur réelle du patient.",
+     "Il explique que la céphalée est entretenue par les médicaments et qu'aucune lésion n'existe.",
+     "Il annonce un rebond transitoire de 1 à 2 semaines pour éviter la reprise du médicament."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Métoclopramide (antiémétique, antagoniste dopaminergique)",
+      "posologie": "10 mg PO jusqu'à 3×/j, 5 j au plus ; prudence chez le sujet âgé et en cas d'insuffisance rénale.",
+      "pourquoi": "Il soulage les nausées et vomissements du rebond et limite la reprise du médicament abusé.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Ibuprofène (AINS)",
+      "posologie": "400 mg PO, 2 jours par semaine au maximum, à prendre avec les repas ; omeprazole 20 mg/j si risque gastrique ; hors insuffisance rénale, grossesse.",
+      "pourquoi": "Il sert de traitement de crise limité, seulement si l'AINS n'était pas la substance abusée.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Sumatriptan (triptan)",
+      "posologie": "50–100 mg PO, maximum 300 mg/j, 2 jours par semaine au maximum ; uniquement si le triptan n'est pas abusé et sans contre-indication cardiovasculaire.",
+      "pourquoi": "Il traite une crise migraineuse franche, mais il peut relancer l'abus et il est contre-indiqué en cas de cardiopathie ischémique.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Prednisone (corticoïde), pont facultatif",
+      "posologie": "Schéma court dégressif sur environ 5 jours, à définir avec le neurologue ; non systématique.",
+      "pourquoi": "Les preuves de son effet sur le rebond sont limitées, donc il n'est pas imposé de routine.",
+      "source": "Swiss Headache Society"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Le médecin remet un agenda des céphalées et des prises à tenir quotidiennement.",
+      "pourquoi": "L'agenda mesure les jours de prise et de céphalée et soutient l'éducation."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Le patient apprend la relaxation, le biofeedback ou une thérapie cognitivo-comportementale.",
+      "pourquoi": "Ces approches réduisent l'anxiété et la peur de la douleur qui entretiennent la prise."
+     },
+     {
+      "categorie": "rééducation",
+      "mesure": "Le physiothérapeute traite la région cervicale et le patient reprend une activité physique.",
+      "pourquoi": "La mobilisation précoce complète le traitement de fond."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Le patient régularise son sommeil et limite la caféine.",
+      "pourquoi": "Le sommeil et la caféine modulent la fréquence des céphalées."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Le médecin délivre un arrêt de travail court si le rebond rend le travail impossible."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Le médecin informe le patient de tout usage hors indication et consigne son consentement."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Le médecin pose le diagnostic sur l'agenda et l'examen neurologique normal.",
+      "Il fixe une date d'arrêt précise avec le patient.",
+      "Il limite les traitements de crise à 2 jours par semaine."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il écarte les drapeaux rouges, explique le cercle vicieux et recueille le consentement au sevrage."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Il arrête brutalement la substance abusée et prescrit un antiémétique pour le rebond."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Il instaure le traitement de fond de la céphalée primaire selon le plan dédié."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "patient·e",
+       "fait": "Il tient l'agenda quotidien des céphalées et des prises."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "physiothérapeute",
+       "fait": "Il traite la région cervicale et encourage l'activité physique pour réduire la douleur."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Il revoit le patient à 2–4 semaines puis à 2–3 mois pour juger le sevrage et la prophylaxie."
+      }
+     ]
+    }
+   },
+   "pronostic": "La céphalée s'améliore en général dans les semaines à 2 mois après le sevrage ; la rechute de l'abus touche environ 20–40 % des patients dans l'année.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Jours de prise du traitement de crise (agenda)",
+      "quand": "À chaque visite, première à 2–4 semaines",
+      "cible": "Retour sous les seuils d'abus : < 10 j/mois (triptans, combinés), < 15 j/mois (simples)"
+     },
+     {
+      "quoi": "Jours de céphalée par mois",
+      "quand": "Mensuel pendant 3 mois",
+      "cible": "Diminution nette ; retour à un profil épisodique"
+     },
+     {
+      "quoi": "Rebond du sevrage (nausées, vomissements, sommeil, anxiété)",
+      "quand": "Contact à 1 semaine",
+      "cible": "Résolution en 1 à 2 semaines"
+     },
+     {
+      "quoi": "Fonctions rénale et hépatique après abus chronique d'AINS ou de paracétamol",
+      "quand": "Au diagnostic",
+      "cible": "Valeurs normales"
+     },
+     {
+      "quoi": "Drapeaux rouges neurologiques",
+      "quand": "À chaque visite",
+      "cible": "Absence de signe nouveau ; sinon IRM"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : absence d'opioïde, de barbiturique ou de benzodiazépine, vomissements gérables et comorbidité psychiatrique non sévère."
+   },
+   "prevention": {
+    "primaire": "Le médecin limite les traitements de crise à moins de 10 jours par mois (triptans, combinés) et 15 jours (simples) et informe tout migraineux de ce risque.",
+    "secondaire": "Le médecin dépiste l'abus tôt par l'agenda chez tout patient dont les céphalées augmentent.",
+    "tertiaire": "Le médecin poursuit un suivi prolongé pour prévenir la rechute et poursuit la prophylaxie."
+   }
+  },
+  {
+   "cle": "sevrage_hospitalier",
+   "titre": "Sevrage hospitalier ou progressif (opioïdes, barbituriques, benzodiazépines, échec)",
+   "but": [
+    "Réduire progressivement la substance dépendante sans syndrome de sevrage dangereux.",
+    "Contrôler les vomissements et l'état d'hydratation pendant le rebond.",
+    "Traiter la dépendance et la comorbidité psychiatrique associées."
+   ],
+   "moyens": {
+    "accueil": [
+     "Le médecin explique que l'hospitalisation protège le patient et n'est pas une sanction.",
+     "Il demande la liste exhaustive des substances, y compris en vente libre.",
+     "Il informe le patient de la durée prévue et du rebond attendu."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Métoclopramide (antiémétique)",
+      "posologie": "10 mg PO ou IV jusqu'à 3×/j, 5 j au plus ; adaptation rénale.",
+      "pourquoi": "Il contrôle les vomissements importants qui justifient l'hospitalisation.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Chlorure de sodium 0,9 % (perfusion)",
+      "posologie": "Perfusion IV selon les pertes, durée courte.",
+      "pourquoi": "Elle corrige la déshydratation et l'hypotension liées aux vomissements du sevrage.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Opioïde ou benzodiazépine abusé (dégression)",
+      "posologie": "Réduction par paliers selon le produit et la durée de prise, avec avis addictologique.",
+      "pourquoi": "Une réduction progressive évite le syndrome de sevrage vrai, qui est dangereux avec ces substances.",
+      "source": "Swiss Headache Society"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "L'infirmier·ère surveille les signes vitaux, l'hydratation et les signes de sevrage.",
+      "pourquoi": "Le sevrage s'accompagne de tachycardie, d'hypotension et de vomissements."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Le psychiatre ou l'addictologue traite la dépendance, l'anxiété et la dépression.",
+      "pourquoi": "La comorbidité psychiatrique entretient l'abus et la rechute."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Le médecin reprend l'agenda et explique le cercle vicieux.",
+      "pourquoi": "Elle consolide l'adhésion après la sortie."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Il organise l'arrêt de travail et la reprise progressive."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Il encadre le consentement à l'hospitalisation et à la prescription de substances."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Le médecin hospitalise selon les critères d'échec ou de dépendance.",
+      "Il évite opioïdes et barbituriques pour traiter les crises.",
+      "Il instaure le traitement de fond dès le début du séjour."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il évalue la dépendance, écarte les drapeaux rouges et fixe le schéma de dégression."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Il surveille hydratation, signes vitaux et symptômes de sevrage et administre les antiémétiques."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "spécialiste",
+       "fait": "L'addictologue ou le psychiatre prend en charge la dépendance et la comorbidité."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Il débute le traitement de fond de la céphalée primaire."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "assistant·e social·e",
+       "fait": "Il prépare le retour à domicile et l'arrêt de travail."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Il organise le suivi avec le médecin de famille et le neurologue."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'hospitalisation réussit surtout si la dépendance est traitée ; la rechute est plus fréquente avec opioïdes et antalgiques combinés (environ 20–40 % à un an).",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Signes de sevrage et signes vitaux",
+      "quand": "Quotidien pendant le séjour",
+      "cible": "Stabilité hémodynamique, sevrage contrôlé"
+     },
+     {
+      "quoi": "Hydratation et vomissements",
+      "quand": "Quotidien",
+      "cible": "Alimentation orale reprise"
+     },
+     {
+      "quoi": "Jours de prise après la sortie (agenda)",
+      "quand": "À 2–4 semaines puis 2–3 mois",
+      "cible": "Sous les seuils d'abus"
+     },
+     {
+      "quoi": "Comorbidité psychiatrique et craving",
+      "quand": "À chaque consultation",
+      "cible": "Pas de reprise de la substance"
+     }
+    ],
+    "sortie": "Vomissements maîtrisés, alimentation orale reprise, signes vitaux stables, substance abusée réduite ou arrêtée, traitement de fond débuté et suivi organisé."
+   },
+   "prevention": {
+    "primaire": "Le médecin évite de prescrire opioïdes et barbituriques pour les céphalées primaires.",
+    "secondaire": "Le médecin repère l'abus chez les patients sous benzodiazépines ou opioïdes qui ont une céphalée fréquente.",
+    "tertiaire": "Le médecin organise un suivi prolongé neurologique et addictologique pour prévenir la rechute."
+   }
+  },
+  {
+   "cle": "traitement_fond",
+   "titre": "Traitement de fond de la céphalée primaire (long cours)",
+   "but": [
+    "Réduire les jours de céphalée pour éviter la reprise de l'abus.",
+    "Traiter la migraine ou la céphalée de tension sous-jacente.",
+    "Maintenir le patient sous les seuils d'abus à long terme."
+   ],
+   "moyens": {
+    "accueil": [
+     "Le médecin explique que la prophylaxie agit en 2 à 3 mois.",
+     "Il vérifie la contraception et le désir de grossesse avant le topiramate.",
+     "Il choisit la molécule selon le type de céphalée et les comorbidités."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Topiramate (antiépileptique)",
+      "posologie": "25 mg PO le soir, +25 mg/semaine jusqu'à 100 mg/j ; contraception efficace obligatoire.",
+      "pourquoi": "Il est efficace dans la migraine chronique avec abus mais il est tératogène.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Amitriptyline (antidépresseur tricyclique)",
+      "posologie": "10–25 mg PO le soir, augmentation selon tolérance jusqu'à environ 75 mg ; prudence chez le sujet âgé et le cardiaque.",
+      "pourquoi": "Elle convient surtout au fond de la céphalée de tension chronique ; usage hors indication à documenter.",
+      "source": "Swiss Headache Society"
+     },
+     {
+      "molecule": "Propranolol (bêtabloquant)",
+      "posologie": "40–160 mg/j PO ; contre-indiqué en cas d'asthme, de bradycardie ou de bloc.",
+      "pourquoi": "Il prévient la migraine lorsque les crises dépassent 4 jours par mois.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Toxine onabotulinique A",
+      "posologie": "155 U en 31 sites, tous les 3 mois ; geste spécialisé.",
+      "pourquoi": "Elle réduit les jours de céphalée dans la migraine chronique, y compris avec abus.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Érénumab (anticorps anti-CGRP)",
+      "posologie": "70 mg SC par mois, 140 mg si besoin ; remboursement limité après échec de prophylaxies antérieures.",
+      "pourquoi": "Il est efficace dans la migraine chronique avec abus quand les prophylaxies classiques ont échoué.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Le patient suit une thérapie cognitivo-comportementale, de la relaxation ou du biofeedback.",
+      "pourquoi": "Elles diminuent l'anxiété et la fréquence des céphalées."
+     },
+     {
+      "categorie": "rééducation",
+      "mesure": "Le physiothérapeute traite la région cervicale et encourage l'activité physique régulière.",
+      "pourquoi": "La mobilité cervicale et l'exercice complètent la prophylaxie."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Le patient régularise son sommeil, limite la caféine et arrête le tabac.",
+      "pourquoi": "Ces facteurs aggravent la chronicisation."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Le médecin informe sur l'usage hors indication et sur les conditions de remboursement des anti-CGRP."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Le médecin fait la demande de garantie de prise en charge auprès de l'assurance pour les traitements limités."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Le médecin instaure le traitement de fond en même temps que le sevrage.",
+      "Il adapte la molécule au type de céphalée et à la grossesse éventuelle.",
+      "Il évalue l'efficacité après 2 à 3 mois à dose cible."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il identifie la céphalée primaire sous-jacente (migraine ou tension) par l'agenda."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Il choisit et titre le traitement de fond (topiramate, amitriptyline ou propranolol)."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "patient·e",
+       "fait": "Il poursuit l'agenda et les mesures non médicamenteuses."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Il juge l'effet à 2–3 mois et surveille la tolérance."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste",
+       "fait": "Le neurologue propose toxine ou anti-CGRP en cas d'échec."
+      }
+     ]
+    }
+   },
+   "pronostic": "Les patients sous prophylaxie adaptée retrouvent souvent un profil épisodique ; la rechute de l'abus reste possible (environ 20–40 % à un an).",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Jours de céphalée mensuels",
+      "quand": "Tous les 1 à 3 mois",
+      "cible": "Baisse nette, profil épisodique"
+     },
+     {
+      "quoi": "Tolérance du topiramate (paresthésies, cognition, lithiase rénale)",
+      "quand": "À chaque visite",
+      "cible": "Absence d'effet gênant"
+     },
+     {
+      "quoi": "Jours de prise du traitement de crise",
+      "quand": "À chaque visite",
+      "cible": "Sous les seuils d'abus"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : le traitement de fond se poursuit à domicile avec suivi par le médecin de famille et le neurologue."
+   },
+   "prevention": {
+    "primaire": "Le médecin traite tôt la migraine fréquente par une prophylaxie avant l'escalade des traitements de crise.",
+    "secondaire": "Le médecin utilise l'agenda pour détecter la reprise précoce de l'abus.",
+    "tertiaire": "Le médecin adresse au centre des céphalées en cas de rechute ou d'échec de plusieurs prophylaxies."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7358,
+  "output_tokens": 19848,
+  "output_tokens_details": {
+   "thinking_tokens": 4837
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T02:21:38",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": null
+ }
+}
