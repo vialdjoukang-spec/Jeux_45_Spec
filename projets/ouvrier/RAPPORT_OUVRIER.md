@@ -1,12 +1,9 @@
-# Ouvrier automatique — 2026-11-26 04:41 UTC
+# Ouvrier automatique — 2026-11-26 04:42 UTC
 
-Dernier passage : **V3B_C_recup** → bloque (0.00 USD).
+Dernier passage : **V3C_N_lot** → fait (0.00 USD).
 
-Traceback (most recent call last):
-  File "/home/runner/work/Jeux_45_Spec/Jeux_45_Spec/scripts/couverture_notions.py", line 15, in <module>
-    for n in q.get("notions", []):
-             ^^^^^
-AttributeError: 'str' object has no attribute 'get'
+notions : 600 entité(s) à produire.
+lot msgbatch_012am2CnHeMRSbQT8m2FgCHm
 
 
 **Crédit** : 22.31 USD dépensés, 127.69 USD disponibles avant le 31.01.2027 ; aujourd'hui 21.96 / 149.65 USD.
@@ -64,7 +61,7 @@ AttributeError: 'str' object has no attribute 'get'
 | V3B_Q_recup | fait | 20 | 0.0 |
 | V3B_C_lot | fait | 1 | 0.0 |
 | V3B_C_recup | bloque | 3 | 0.0 |
-| V3C_N_lot | a_faire | 0 |  |
+| V3C_N_lot | fait | 1 | 0.0 |
 | V3C_N_recup | a_faire | 0 |  |
 | V3C_Q_lot | a_faire | 0 |  |
 | V3C_Q_recup | a_faire | 0 |  |
