@@ -348,7 +348,7 @@ def cliches_atlas(stem, patho, modalite):
 # Chaîne fixée par Vial le 26.11.2026 (PROMPT_VIAL.md, § Ajout du 26.11) : région → organes de la région → modalités d'imagerie de l'organe
 # (groupe par nature, barre perpendiculaire) → examens de la modalité → pathologies de l'organe diagnostiquées par cet examen → fenêtre à deux clichés.
 # Les neuf types d'imagerie du plan (§ 10, « Imagerie : examens »), dans son ordre ; aucun groupe hors plan.
-MODALITES = [("TEP-CT", r"\bTEP\b|\bPET\b|PET-|TEP-"), ("Scintigraphie", r"scintigraph|SPECT|DaTSCAN|MIBG|DMSA|MAG3|HIDA|sestamibi|DOTATATE"),
+MODALITES = [("TEP-CT", r"\bTEP\b|\bPET\b|PET-|TEP-"), ("Scintigraphie", r"scintigraph|\bSPECT\b|DaTSCAN|MIBG|DMSA|MAG3|HIDA|sestamibi|DOTATATE"),
              ("Mammographie", r"mammograph|tomosynth"), ("Ostéodensitométrie", r"DXA|ost[ée]odensito"),
              ("Angiographie", r"art[ée]riograph|angiograph|coronarograph|DSA|cavograph|phl[ée]bograph|lymphograph|py[ée]lograph"),
              ("IRM", r"\bIRM\b|IRM |-IRM|neurographie"), ("Scanner (CT)", r"\bCT\b|-CT\b|scanner|TDM|tomodensito|cone beam|cisternograph"),
@@ -376,6 +376,16 @@ NIV_COUL = {"Première intention": "#15803d", "Examen de référence": "#1d4ed8"
             "Stadification": "#7c3aed", "Orientation : à confirmer": "#c2410c", "Diagnostic différentiel": "#6b7280"}
 
 
+def modalites_de(nom):
+    """Un examen double (« CT et IRM orbitaires ») va dans ses deux modalités ; une angiographie à la fluorescéine n'est pas de l'imagerie à rayonnement."""
+    if re.search(r"fluoresc|indocyanine", nom, flags=re.I):
+        return []
+    if re.search(r"\bCT\b.*\bet\b.*\bIRM\b|\bIRM\b.*\bet\b.*\bCT\b", nom):
+        return ["Scanner (CT)", "IRM"]
+    m = modalite_de(nom)
+    return [m] if m else []
+
+
 def modalite_de(nom):
     for m, rx in MODALITES:
         if re.search(rx, nom, flags=re.I):
@@ -398,11 +408,12 @@ for r, (rnom, mesh, cote, coul) in REG.items():
         ex = [e for e in o["examens"] if e["modalite"] == "Imagerie"]
         par_m = {}
         for e in ex:
-            m_ = modalite_de(e["nom"])
-            if m_ is None:
+            ms_ = modalites_de(e["nom"])
+            if not ms_:
                 HORS_PLAN.append(f"{o['nom']} : {e['nom']}"); continue
-            par_m.setdefault(m_, []).append(e)
-        ex = [e for L in par_m.values() for e in L]
+            for m_ in ms_:
+                par_m.setdefault(m_, []).append(e)
+        ex = list({id(e): e for L in par_m.values() for e in L}.values())
         N.append(noeud(oid, "Organe", o["nom"], [rid], ocoul,
                        {"def": f"L'organe « {o['nom']} » s'explore par {len(ex)} examens d'imagerie, rangés en {len(par_m)} modalités.",
                         "pourquoi": "L'organe est la cible de l'investigation : tu choisis ensuite la modalité qui répond à ta question.",
