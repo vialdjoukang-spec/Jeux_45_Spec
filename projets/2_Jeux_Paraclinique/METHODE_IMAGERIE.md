@@ -1,0 +1,11 @@
+# Méthode de production — Imagerie de Paraclinique, organe par organe (validée par Vial sur les poumons, 27.11.2026)
+
+Lire d'abord `PROMPT_VIAL.md` (ligne directrice épinglée) et le skill `radiologist-explain-images`. Modèle validé : les poumons.
+
+Pour un organe `<o>` (nom de fichier de `conception/donnees/paraclinique/topographie/<région>/<o>.json`), écrire TROIS fichiers de données, et rien d'autre :
+
+1. `conception/donnees/paraclinique/niveaux/<o>.json` — même format que `niveaux/poumons_et_voies_aeriennes.json` : pour chaque examen d'imagerie de l'organe (clé = début exact du nom de l'examen), chaque pathologie de ses `pathologiesAssociees` (nom exact) → `[niveau, phrase verbale courte, source]` ; niveaux autorisés : Première intention, Examen de référence, Deuxième intention, Dépistage, Stadification, Orientation : à confirmer, Diagnostic différentiel. Pour « Orientation » et « Diagnostic différentiel », un 4e élément `{premiereIntention, goldStandard, source}` est OBLIGATOIRE (angle mort).
+2. `conception/donnees/paraclinique/fiches_flash/<o>.json` — format de `fiches_flash/_GABARIT.md` (def, epi, meca, syndromesCliniques, butTraitement, moyens, source), clé = nom exact de pathologie. Réutiliser d'abord les fiches Tétrade (`conception/outils/<système>/pathologies.txt`).
+3. `conception/donnees/paraclinique/atlas_liens/<o>.json` — pathologie → `IMG-xxx` de l'atlas (`conception/donnees/paraclinique/atlas/manifest/`), seulement si la modalité du dossier (`cliche`) est celle de l'examen. Si le dossier n'a pas de cliché normal, une valeur `{"atlas": "IMG-xxx", "normal": {"img": URL, "source", "licence", "auteur"}}` peut fournir un normal APPARIÉ (même technique, même plan, même région), choisi parmi `conception/donnees/images/paraclinique/topographie/<région>/<o>.json` après l'avoir REGARDÉ (licence libre seulement).
+
+Règles bloquantes : rien de mémoire (source lue, sinon « à vérifier ») ; source suisse d'abord ; phrases verbales ; aucun texte de QCM ; ne jamais committer les fichiers générés (`conception/prototypes/paraclinique/donnees/`) : le site les reconstruit. Avant chaque push : lancer `python3 conception/outils/paraclinique/construire_jeu_paraclinique.py` (0 erreur), puis `git checkout conception/prototypes/paraclinique/donnees`. Marquer l'organe « fait » dans `FILE_IMAGERIE.json`. Pull --rebase, jamais de push forcé.

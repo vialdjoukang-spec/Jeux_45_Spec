@@ -309,17 +309,16 @@ def cliches_pneumonie():
 # Une paire de l'atlas ne s'affiche que si sa modalité est celle de l'examen (pas de radiographie sous un scanner).
 from PIL import Image as _Img
 ATL_D = os.path.join(P, "atlas", "manifest"); ATL_I = os.path.join(RAC, "conception", "prototypes", "paraclinique", "atlas")
-ATLAS_LIEN = {"poumons_et_voies_aeriennes": {"Épanchement pleural": "IMG-132", "Pneumothorax": "IMG-134", "Insuffisance cardiaque gauche": "IMG-122",
-    "Œdème pulmonaire cardiogénique": "IMG-122", "Cancer bronchique": "IMG-111", "BPCO avec emphysème": "IMG-114", "Bronchectasies": "IMG-117",
-    "Tuberculose pulmonaire": "IMG-106", "Tuberculose": "IMG-106", "Fibrose pulmonaire idiopathique": "IMG-115", "PINS d'une connectivite": "IMG-119",
-    "Pneumopathie d'hypersensibilité": "IMG-120", "Sarcoïdose": "IMG-118", "Nodule inflammatoire": "IMG-110", "Cancer bronchique précoce": "IMG-112",
-    "Embolie pulmonaire": "IMG-125", "HTP-TEC": "IMG-126", "Cancer bronchique non à petites cellules": "IMG-111", "Pneumonie": "IMG-105"}}
+ATLAS_LIEN = {f[:-5]: {k_: v_ for k_, v_ in lire(os.path.join(P, "atlas_liens", f)).items() if not k_.startswith("_")}
+              for f in os.listdir(os.path.join(P, "atlas_liens"))} if os.path.isdir(os.path.join(P, "atlas_liens")) else {}
 MOD_ATL = {"Radiographie": "RX", "Mammographie": "RX", "Scanner (CT)": "TDM", "Échographie et Doppler": "US", "Scintigraphie": "MN", "TEP-CT": "MN", "IRM": "IRM", "Angiographie": "INT"}
 ROLE_C = {"principale": "#e0a400", "associée": "#0891b2", "associee": "#0891b2", "complication": "#db2777"}
 
 
 def cliches_atlas(stem, patho, modalite):
-    i = (ATLAS_LIEN.get(stem) or {}).get(patho)
+    lien = (ATLAS_LIEN.get(stem) or {}).get(patho)
+    i = lien.get("atlas") if isinstance(lien, dict) else lien
+    nor_aj = lien.get("normal") if isinstance(lien, dict) else None
     f = os.path.join(ATL_D, f"{i}.json") if i else None
     if not f or not os.path.exists(f):
         return None
@@ -341,6 +340,9 @@ def cliches_atlas(stem, patho, modalite):
          "source": f"Cliché du patient : {pa.get('author', '?')}, {pa.get('license', '?')}, {pa.get('source_url', '')}"
                    + (f" ; cliché normal : {no.get('author', '?')}, {no.get('license', '?')}, {no.get('source_url', '')}" if no.get("file") else "") + f" ; atlas {i}."}
     c["normal"] = {"img": "atlas/" + no["file"].replace("images/", ""), "source": no.get("source_url"), "reperes": []} if no.get("file") else None
+    if not c["normal"] and nor_aj:  # cliché normal apparié choisi et vérifié par un agent (même technique, même plan)
+        c["normal"] = {"img": nor_aj["img"], "source": nor_aj.get("source"), "reperes": []}
+        c["source"] += f" ; cliché normal : {nor_aj.get('auteur', '?')}, {nor_aj.get('licence', '?')}, {nor_aj.get('source', '')}"
     return c
 
 # Chaîne fixée par Vial le 26.11.2026 (PROMPT_VIAL.md, § Ajout du 26.11) : région → organes de la région → modalités d'imagerie de l'organe

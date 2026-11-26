@@ -93,6 +93,8 @@ jobs:
       # 2. Assemblage du site : tableau à la racine, jeux sous /jeux/ (même arborescence relative que conception/prototypes/).
       - uses: actions/setup-node@v4
         with: {node-version: "22"}
+      - name: Reconstruire les données de Paraclinique (0 token ; les agents ne committent que leurs fichiers de données)
+        run: pip install -q pillow && python conception/outils/paraclinique/construire_jeu_paraclinique.py
       - name: Assembler le site
         run: |
           set -e; S=_site; rm -rf $S; mkdir -p $S/jeux
