@@ -1,4 +1,4 @@
-# Ouvrier automatique — 2026-11-26 04:40 UTC
+# Ouvrier automatique — 2026-11-26 04:41 UTC
 
 Dernier passage : **V3B_C_recup** → en_cours (0.00 USD).
 
@@ -63,7 +63,7 @@ AttributeError: 'str' object has no attribute 'get'
 | V3B_Q_lot | fait | 1 | 0.0 |
 | V3B_Q_recup | fait | 20 | 0.0 |
 | V3B_C_lot | fait | 1 | 0.0 |
-| V3B_C_recup | en_cours | 1 | 0.0 |
+| V3B_C_recup | en_cours | 2 | 0.0 |
 | V3C_N_lot | a_faire | 0 |  |
 | V3C_N_recup | a_faire | 0 |  |
 | V3C_Q_lot | a_faire | 0 |  |
