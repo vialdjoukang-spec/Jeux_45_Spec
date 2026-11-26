@@ -1,0 +1,1229 @@
+{
+ "id": "V89.2__G13-E03",
+ "portes": [
+  {
+   "ssp": "G13",
+   "nomSSP": "Décès non naturel",
+   "entite": "Accident de la voie publique (AVP) mortel",
+   "entiteId": "G13-E03"
+  }
+ ],
+ "entite": "Accident de la voie publique (AVP) mortel",
+ "cim10": "V89.2",
+ "ssp": {
+  "code": "G13",
+  "nom": "Décès non naturel",
+  "officiel": false,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Décès suspecté ou constaté, cause externe possible",
+    "i": "Le SSP G13 regroupe les morts dont la cause initiale n'est pas une maladie naturelle.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Signes de vie ou doute ?",
+    "i": "La vie prime sur la préservation des preuves ; on réanime au moindre doute.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : réanimation puis documentation",
+    "i": "On réanime selon ATLS et on conserve le premier prélèvement sanguin et les dispositifs en place.",
+    "pec": "reanimation_signes_vie",
+    "notion": "c8"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : signes certains de mort ?",
+    "i": "Lividités, rigidité ou lésions incompatibles avec la vie permettent le constat.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Non : retour à la réanimation",
+    "i": "Un doute persiste : le diagnostic de mort n'est pas posé.",
+    "pec": "reanimation_signes_vie",
+    "notion": null
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Oui : constat, corps non déplacé, police avisée",
+    "i": "L'art. 253 CPP impose l'avis à la police en cas d'indices de mort non naturelle.",
+    "pec": "constat_sur_place",
+    "notion": "c5"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Mécanisme : collision routière ?",
+    "i": "Le contexte (véhicule, route, piéton) fait retenir l'AVP ; sinon, on bascule vers l'entité correspondante.",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Non : autre entité G13",
+    "i": "Pendaison, chute, intoxication, noyade, arme, CO, électrocution, etc. se traitent comme entités distinctes du même SSP.",
+    "pec": "investigation_medicolegale",
+    "notion": null
+   },
+   {
+    "id": "n9",
+    "parent": "n7",
+    "t": "Oui : préciser le rôle de la victime",
+    "i": "Conducteur, passager, piéton ou cycliste se déduit de la place, des lésions et de la scène.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "Tester les hypothèses de manière",
+    "i": "Accident, malaise fatal, suicide, homicide ou mise en scène se distinguent par lésions, scène et anamnèse indirecte.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n11",
+    "parent": "n10",
+    "t": "Certificat : non naturelle ou indéterminée",
+    "i": "Cette mention bloque inhumation et crémation jusqu'à la décision du Ministère public.",
+    "pec": "investigation_medicolegale",
+    "notion": "c6"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Autopsie et toxicologie sur mandat",
+    "i": "Le Ministère public ordonne l'autopsie sans consentement des proches ; elle tranche cause et manière.",
+    "pec": "investigation_medicolegale",
+    "notion": "c6"
+   },
+   {
+    "id": "n13",
+    "parent": "n12",
+    "t": "Rapport, responsabilité, assurances, proches",
+    "i": "Le rapport du légiste alimente l'instruction pénale, les assureurs et le soutien aux familles.",
+    "pec": "proches_assurances_prevention",
+    "notion": "c9"
+   }
+  ]
+ },
+ "specialites": [
+  "LEG"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Accident de la voie publique (AVP) mortel : constat, médecine légale, responsabilité",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition, comptage et épidémiologie routière suisse",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Raisonne d'abord sur qui compte comme victime (30 jours) puis sur qui meurt (jeunes hommes, usagers vulnérables), car le comptage statistique diffère du cadre médico-légal.",
+   "tableau": {
+    "colonnes": [
+     "Cadre",
+     "Règle",
+     "Conséquence pratique"
+    ],
+    "lignes": [
+     [
+      "Statistique routière",
+      [
+       {
+        "t": "Tué = décès dans les 30 jours",
+        "i": "Le délai de 30 jours capte les décès hospitaliers tardifs ; un décès à 45 jours n'entre donc plus dans la statistique, bien qu'il reste non naturel."
+       }
+      ],
+      "Les chiffres suisses (~250 tués/an) incluent les décès survenus à l'hôpital."
+     ],
+     [
+      "Médecine légale",
+      [
+       {
+        "t": "Cause initiale traumatique = mort non naturelle, même tardive",
+        "i": "La cause initiale prime sur la cause terminale (sepsis, embolie) ; il n'existe aucun délai limite pour l'annonce à la police."
+       }
+      ],
+      "L'annonce à la police et au Ministère public reste obligatoire."
+     ],
+     [
+      "CIM-10",
+      [
+       {
+        "t": "V89.2 = accident de la circulation, véhicule à moteur non précisé",
+        "i": "Ce code est un code de cause externe ; il ne précise ni le rôle de la victime ni la manière du décès."
+       }
+      ],
+      "On affine le code selon le rôle (conducteur, passager, piéton, cycliste)."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Environ 250 tués par an en Suisse, contre plus de 1 700 au pic des années 1970.",
+    "L'AVP est une cause majeure de mort non naturelle chez les 15–44 ans ; les hommes dominent.",
+    "Motocyclistes, cyclistes (vélos électriques inclus) et piétons forment une part importante des tués.",
+    "Le décès tardif d'un traumatisé reste un décès non naturel."
+   ],
+   "sources": [
+    "OFS / OFROU statistique routière",
+    "CPP art. 253"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Biomécanique lésionnelle selon le rôle de la victime",
+   "rubriques": [
+    "basicSciences",
+    "clinicalExam"
+   ],
+   "comment": "Déduis le rôle de la victime et le mécanisme à partir du siège et de la hauteur des lésions, puis cherche les lésions internes de décélération.",
+   "tableau": {
+    "colonnes": [
+     "Rôle ou mécanisme",
+     "Agent vulnérant",
+     "Lésions typiques",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "Piéton adulte heurté",
+      "Pare-chocs, capot, sol ou pare-brise",
+      "Fracture tibia/fémur au niveau du pare-chocs, tronc, tête",
+      [
+       {
+        "t": "Distance au talon de la lésion",
+        "i": "Elle donne la hauteur du point d'impact et la position du piéton ; une chute de sa hauteur donne plutôt fractures des talons et de la base du crâne."
+       }
+      ]
+     ],
+     [
+      "Conducteur",
+      "Volant, pédales, ceinture",
+      "Thorax, pieds, ecchymose de ceinture à gauche",
+      [
+       {
+        "t": "Ceinture gauche ou empreinte de pédale",
+        "i": "Ces marques sont latéralisées selon la place ; elles orientent vers le conducteur, alors que des lésions du côté droit orientent vers le passager."
+       }
+      ]
+     ],
+     [
+      "Passager avant",
+      "Tableau de bord",
+      "Genoux, fémurs, ceinture à droite",
+      [
+       {
+        "t": "Lésions du côté droit et des genoux",
+        "i": "Le tableau de bord frappe les genoux du passager avant ; un conducteur présente rarement ce schéma."
+       }
+      ]
+     ],
+     [
+      "Ceinture trois points",
+      "Décélération contre la sangle",
+      "Ecchymose diagonale épaule-hanche, fractures sternocostales, lésion mésentérique, fracture de Chance",
+      [
+       {
+        "t": "Fracture de Chance lombaire",
+        "i": "Flexion-distraction autour de la sangle abdominale ; elle prouve le port de la ceinture et n'apparaît pas sans ceinture ventrale."
+       }
+      ]
+     ],
+     [
+      "Décélération brutale",
+      "Isthme aortique fixé au ligamentum arteriosum",
+      "Rupture de l'isthme aortique",
+      [
+       {
+        "t": "Rupture isthmique",
+        "i": "L'isthme sépare l'aorte mobile de l'aorte fixée ; le cisaillement s'y concentre, d'où la rupture classique des AVP à haute énergie."
+       }
+      ]
+     ],
+     [
+      "Rotation et cisaillement crânien",
+      "Accélération angulaire",
+      "Lésion axonale diffuse",
+      [
+       {
+        "t": "Scanner discret, histologie nécessaire",
+        "i": "Les lésions axonales sont microscopiques et peu visibles au scanner ; seule l'histologie cérébrale les confirme."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le rôle de la victime se déduit de la latéralité et de la hauteur des lésions.",
+    "Une ceinture mal portée provoque des lésions mésentériques et la fracture de Chance.",
+    "Une lésion axonale diffuse peut tuer avec un scanner presque normal."
+   ],
+   "sources": [
+    "Manuel de médecine légale (SSML)",
+    "ATLS 10e éd."
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse indirecte et hypothèses sur la manière du décès",
+   "rubriques": [
+    "anamnesis",
+    "presumptionRedFlags"
+   ],
+   "comment": "Interroge police, témoins, proches et médecin traitant, puis teste quatre hypothèses (accident, malaise, suicide, homicide) contre les indices de la scène.",
+   "tableau": {
+    "colonnes": [
+     "Hypothèse",
+     "Indices",
+     "Examen qui tranche"
+    ],
+    "lignes": [
+     [
+      "Malaise fatal préalable",
+      [
+       {
+        "t": "Lésions trop faibles pour la mort, sans freinage",
+        "i": "Si les lésions n'expliquent pas la mort, une cause naturelle (infarctus, dissection, hémorragie cérébrale, arythmie, épilepsie) a pu provoquer l'accident."
+       }
+      ],
+      "Histologie cardiaque et cérébrale, coronaires, autopsie complète"
+     ],
+     [
+      "Suicide",
+      [
+       {
+        "t": "Sortie de route solitaire contre obstacle fixe, sans freinage, en ligne droite, bonnes conditions",
+        "i": "L'absence de manœuvre d'évitement dans un contexte favorable évoque un geste volontaire, surtout avec antécédents psychiatriques, lettre ou arrangement des affaires."
+       }
+      ],
+      "Anamnèse psychiatrique, enquête, reconstitution, enregistreur de données"
+     ],
+     [
+      "Homicide ou mise en scène",
+      [
+       {
+        "t": "Lésions sans réaction vitale, lividités contraires à la position, plaies d'arme",
+        "i": "Ces signes montrent que la victime était déjà morte ou blessée par autre chose qu'un choc routier."
+       }
+      ],
+      "Autopsie médico-légale, examen de la scène"
+     ],
+     [
+      "Délit de fuite",
+      [
+       {
+        "t": "Piéton ou cycliste sans véhicule",
+        "i": "L'absence de véhicule impose de chercher des traces de contact transférées : vernis, débris de phare, traces de pneus."
+       }
+      ],
+      "Examen des vêtements et du corps, police scientifique"
+     ],
+     [
+      "Altération de la vigilance",
+      [
+       {
+        "t": "Alcool, médicaments sédatifs, drogues, apnées du sommeil, diabète traité",
+        "i": "Ces facteurs expliquent un accident sans cause externe et engagent la responsabilité pénale du conducteur."
+       }
+      ],
+      "Toxicologie complète, dossier du médecin traitant"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'anamnèse est indirecte : police, témoins, proches, médecin traitant.",
+    "Rechercher cardiopathie, épilepsie, diabète traité, apnées du sommeil, psychotropes, alcool.",
+    "Rechercher un contexte suicidaire : propos, lettre, crise récente.",
+    "Port de la ceinture ou du casque, vitesse et heure sont à documenter."
+   ],
+   "sources": [
+    "Manuel de médecine légale (SSML)",
+    "CPP art. 253"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Examen externe : lésions vitales, post-mortem et artefacts",
+   "rubriques": [
+    "clinicalExam"
+   ],
+   "comment": "Décris chaque lésion sur un schéma, vêtue puis dévêtue, et classe-la comme vitale, post-mortem ou artefact de réanimation avant toute interprétation.",
+   "tableau": {
+    "colonnes": [
+     "Type de lésion",
+     "Aspect",
+     "Signification"
+    ],
+    "lignes": [
+     [
+      "Lésion vitale",
+      [
+       {
+        "t": "Hémorragie infiltrante, réaction tissulaire",
+        "i": "La circulation active infiltre les tissus ; cela prouve que la lésion s'est produite avant le décès."
+       }
+      ],
+      "Le traumatisme est antérieur à la mort et peut être la cause du décès."
+     ],
+     [
+      "Lésion post-mortem",
+      [
+       {
+        "t": "Sèche, pâle, sans infiltration",
+        "i": "Sans pression artérielle, aucun sang n'infiltre les tissus ; elle date d'après l'arrêt circulatoire, comme lors d'un dépôt ou d'un passage de véhicule."
+       }
+      ],
+      "Elle suggère un cadavre déplacé ou une mise en scène."
+     ],
+     [
+      "Artefact de réanimation",
+      [
+       {
+        "t": "Fractures costales du massage, ponctions, intubation",
+        "i": "Ces lésions sont iatrogènes et se confondent avec celles de l'AVP ; seule la documentation des gestes permet de les distinguer."
+       }
+      ],
+      "Il faut documenter les gestes pratiqués et laisser tubes et cathéters en place."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Décrire type, siège et dimensions de chaque lésion sur un schéma.",
+    "Chez le piéton, mesurer la distance au talon.",
+    "Conserver les vêtements : ils portent vernis et débris."
+   ],
+   "sources": [
+    "Manuel de médecine légale (SSML)"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Conduite sur les lieux : vivant ou mort ?",
+   "rubriques": [
+    "acuteManagement",
+    "presumptionRedFlags"
+   ],
+   "comment": "Cherche d'abord des signes de vie, car le sauvetage prime sur les preuves ; en cas de mort certaine, constate, ne touche à rien et préviens la police.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Victime d'AVP découverte",
+     "i": "Point de départ : la sécurité de la scène est assurée avant tout geste, afin de ne pas ajouter de victime.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Signes de vie ou doute ?",
+     "i": "Au moindre doute, on réanime : la vie prime sur la préservation des preuves.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : réanimation traumatologique",
+     "i": "Contrôle des hémorragies et ventilation selon ATLS ; on conserve le premier prélèvement sanguin avant toute transfusion.",
+     "pec": "reanimation_signes_vie",
+     "notion": "c8"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non : signes certains de mort ?",
+     "i": "Les signes certains sont les lividités, la rigidité et les lésions incompatibles avec la vie (décapitation, destruction crânienne).",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Non ou incertain",
+     "i": "Un doute sur la mort impose de poursuivre la réanimation jusqu'à preuve d'un signe certain.",
+     "pec": "reanimation_signes_vie",
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "Oui : constat de décès",
+     "i": "Le médecin ne déplace pas le corps, note l'heure et la position, et avise la police sans délai (art. 253 CPP).",
+     "pec": "constat_sur_place",
+     "notion": "c8"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Certificat : mort non naturelle ou indéterminée",
+     "i": "Cocher cette case bloque inhumation et crémation jusqu'à la libération du corps par le Ministère public.",
+     "pec": "investigation_medicolegale",
+     "notion": "c6"
+    }
+   ],
+   "points": [
+    "Signes de vie : réanimation, puis documentation des gestes.",
+    "Signes certains : constat, corps non déplacé, police avisée.",
+    "Le certificat coche mort non naturelle ou indéterminée ; le Ministère public libère le corps.",
+    "En cas de réanimation infructueuse, laisser tubes, drains et vêtements."
+   ],
+   "sources": [
+    "CPP art. 253",
+    "ATLS 10e éd."
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Autopsie, toxicologie et examens complémentaires",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Fais trancher la cause et la manière du décès par l'autopsie et la toxicologie, et réserve l'imagerie et la reconstitution au rôle d'orientation ou de complément.",
+   "tableau": {
+    "colonnes": [
+     "Examen",
+     "Apport",
+     "Limite ou piège"
+    ],
+    "lignes": [
+     [
+      "Autopsie médico-légale",
+      [
+       {
+        "t": "Gold standard, ordonnée par le Ministère public",
+        "i": "Elle seule tranche cause et manière du décès ; l'accord des proches n'est pas requis, car l'ordre découle de l'instruction pénale."
+       }
+      ],
+      "Elle reste indispensable si une cause médicale ou une responsabilité pénale est en jeu."
+     ],
+     [
+      "Toxicologie",
+      [
+       {
+        "t": "Sang périphérique (veine fémorale), urine, humeur vitrée",
+        "i": "Le sang périphérique limite la redistribution post-mortem, contrairement au sang cardiaque ; l'humeur vitrée est protégée de la putréfaction."
+       }
+      ],
+      "Le premier prélèvement d'admission, avant transfusion, reflète le mieux l'alcoolémie à l'accident."
+     ],
+     [
+      "Éthanol post-mortem",
+      [
+       {
+        "t": "Humeur vitrée ou urine positives",
+        "i": "Elles confirment une consommation avant le décès, car la fermentation ne produit pas d'éthanol dans ces milieux."
+       }
+      ],
+      "Un sang positif seul peut venir d'une fermentation."
+     ],
+     [
+      "Histologie cœur, cerveau, coronaires",
+      [
+       {
+        "t": "Cherche cause naturelle et lésion axonale",
+        "i": "Le malaise fatal ou la lésion axonale diffuse ne sont visibles qu'au microscope."
+       }
+      ],
+      "Le scanner ne remplace pas ces examens."
+     ],
+     [
+      "Scanner et angio-CT post-mortem",
+      [
+       {
+        "t": "Oriente ou complète l'autopsie",
+        "i": "Il montre fractures, hémorragies, gaz et rupture aortique ; il ne détecte pas une cause naturelle ni ne fixe la responsabilité."
+       }
+      ],
+      "Il ne remplace pas l'autopsie."
+     ],
+     [
+      "Reconstitution accidentologique",
+      [
+       {
+        "t": "Police scientifique, expertise du véhicule, enregistreurs",
+        "i": "Traces et déformations estiment vitesse et freinage, ce qui distingue accident, suicide et faute du conducteur."
+       }
+      ],
+      "Elle ne remplace pas l'examen du corps."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le diagnostic final combine autopsie, toxicologie et enquête.",
+    "Il fixe la cause (traumatique ou médicale) et la manière (accident, suicide, homicide, mort naturelle).",
+    "Un piéton heurté présente des fractures au niveau du pare-chocs et des traces de vernis ou de pneus.",
+    "Un cadavre déposé ne montre pas de réaction vitale ni de sang sur la scène."
+   ],
+   "sources": [
+    "CPP art. 253",
+    "Manuel de médecine légale (SSML)"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Diagnostic différentiel : AVP, chute, cadavre déposé, autres morts violentes",
+   "rubriques": [
+    "positiveDiagnosis",
+    "presumptionRedFlags"
+   ],
+   "comment": "Compare le schéma lésionnel au récit : un schéma incohérent fait remettre en question l'AVP et élargit le SSP aux autres morts non naturelles.",
+   "tableau": {
+    "colonnes": [
+     "Diagnostic",
+     "Signes distinctifs",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Piéton heurté",
+      [
+       {
+        "t": "Fractures au pare-chocs, vernis, traces de pneus",
+        "i": "Ce sont des marques de contact transférées par le véhicule ; elles n'existent pas lors d'une chute."
+       }
+      ],
+      "Mécanisme de choc latéral à hauteur du pare-chocs."
+     ],
+     [
+      "Chute mortelle",
+      [
+       {
+        "t": "Fractures des talons, anneaux de la base du crâne",
+        "i": "La réception sur les pieds puis la tête transmet l'énergie verticalement ; aucun vernis ni empreinte de pneu n'est présent."
+       }
+      ],
+      "Chute accidentelle ou précipitation : la manière est à établir."
+     ],
+     [
+      "Cadavre déposé sur la chaussée",
+      [
+       {
+        "t": "Aucune réaction vitale, lividités incohérentes, peu de sang",
+        "i": "Un corps mort avant le choc ne saigne pas dans les tissus et garde des lividités de sa position initiale."
+       }
+      ],
+      "Il évoque un homicide ou une mise en scène."
+     ],
+     [
+      "Malaise fatal avec AVP",
+      [
+       {
+        "t": "Lésions insuffisantes pour la mort",
+        "i": "La cause du décès est alors médicale (infarctus, AVC) et l'accident en est la conséquence."
+       }
+      ],
+      "La manière du décès peut être une mort naturelle."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le choc routier se prouve par les lésions et les traces de contact.",
+    "Une incohérence lésions-récit impose de penser homicide ou mise en scène.",
+    "Les autres morts non naturelles du SSP G13 sont à évoquer selon le contexte."
+   ],
+   "sources": [
+    "Manuel de médecine légale (SSML)"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Chaîne de preuves, décès tardif et pronostic",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance",
+    "prognosisDischarge",
+    "acuteManagement"
+   ],
+   "comment": "Protège le corps et les prélèvements comme des preuves, et rappelle que la mortalité traumatique est trimodale.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Conserver le corps en chambre froide, sans toilette ni retrait des vêtements ni embaumement, jusqu'à la décision du Ministère public.",
+    "Photographier avec échelle et dessiner le schéma lésionnel avant toute manipulation.",
+    "Étiqueter, sceller et tracer les prélèvements pour qu'ils restent recevables en justice.",
+    "Mortalité trimodale : immédiate (cerveau, aorte), précoce par hémorragie, tardive par sepsis ou défaillance multiviscérale.",
+    "Un décès tardif par sepsis ou embolie pulmonaire reste non naturel, car la cause initiale est traumatique."
+   ],
+   "sources": [
+    "ATLS 10e éd.",
+    "CPP art. 253"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Responsabilité pénale, aptitude à conduire, assurances et proches",
+   "rubriques": [
+    "chronicManagement",
+    "followUpNetwork"
+   ],
+   "comment": "Relie le résultat toxicologique et l'enquête au droit pénal, aux assurances et au soutien des proches.",
+   "tableau": {
+    "colonnes": [
+     "Domaine",
+     "Règle suisse",
+     "Conséquence"
+    ],
+    "lignes": [
+     [
+      "Alcool au volant",
+      [
+       {
+        "t": "0,5 ‰ limite ; dès 0,8 ‰ qualifié",
+        "i": "À 0,8 ‰ l'incapacité de conduire est présumée sans autre preuve, d'où une sanction plus lourde."
+       }
+      ],
+      "Le résultat toxicologique oriente la qualification pénale."
+     ],
+     [
+      "Stupéfiants au volant",
+      [
+       {
+        "t": "THC 1,5 µg/L ; 15 µg/L pour cocaïne, morphine libre, amphétamine, MDMA, méthamphétamine",
+        "i": "Ce sont les valeurs limites de l'ordonnance sur les règles de la circulation ; un dépassement établit l'incapacité de conduire."
+       }
+      ],
+      "La toxicologie post-mortem du conducteur est systématique."
+     ],
+     [
+      "Signalement médical",
+      [
+       {
+        "t": "Le médecin peut annoncer une personne inapte à conduire à l'autorité cantonale",
+        "i": "La loi sur la circulation routière lève le secret médical pour cet avis ; c'est un droit et non une obligation."
+       }
+      ],
+      "Prévention secondaire pour d'autres conducteurs."
+     ],
+     [
+      "Contrôle d'aptitude",
+      [
+       {
+        "t": "Dès 75 ans, tous les deux ans",
+        "i": "Le risque d'incapacité augmente avec l'âge ; l'OAC impose donc un contrôle médical régulier."
+       }
+      ],
+      "Mesure de prévention routière."
+     ],
+     [
+      "Droit pénal",
+      [
+       {
+        "t": "Art. 117 CP et LCR",
+        "i": "L'homicide par négligence et les violations de la LCR sont poursuivis ; le Ministère public dirige l'instruction et reçoit le rapport du légiste."
+       }
+      ],
+      "Le rapport médico-légal alimente la procédure."
+     ],
+     [
+      "Assurances",
+      [
+       {
+        "t": "LAA, LCR art. 58, RC obligatoire du véhicule",
+        "i": "La LAA couvre l'accident ; la responsabilité du détenteur et l'assurance RC obligatoire indemnisent les tiers."
+       }
+      ],
+      "La coordination médecine légale-assureurs est nécessaire."
+     ],
+     [
+      "Proches",
+      [
+       {
+        "t": "Annonce par la police, soutien d'urgence, centres LAVI",
+        "i": "L'annonce directe du décès est faite par la police avec un soutien ; la LAVI aide les victimes d'infraction."
+       }
+      ],
+      "Réseau de soutien psychosocial."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Seules les limites toxicologiques suisses (0,5 ‰ / 0,8 ‰, 1,5 et 15 µg/L) sont à connaître.",
+    "Le signalement par le médecin est une faculté sans violation du secret médical.",
+    "Le soutien des proches passe par la police, la LAVI et l'équipe d'urgence."
+   ],
+   "sources": [
+    "LCR art. 15d, 58",
+    "OAC",
+    "CP art. 117",
+    "LAVI"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "reanimation_signes_vie",
+   "titre": "Victime d'AVP avec signes de vie : réanimation sans perdre les preuves",
+   "but": [
+    "Contrôler l'hémorragie et sécuriser les voies aériennes selon ATLS.",
+    "Préserver les preuves médico-légales sans retarder le sauvetage."
+   ],
+   "moyens": {
+    "accueil": [
+     "Assurer la sécurité de la scène avant tout geste.",
+     "Appeler police, ambulance et renfort médical en même temps.",
+     "Protéger la colonne cervicale et déshabiller en découpant les vêtements, qu'on conserve."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Acide tranexamique (antifibrinolytique)",
+      "posologie": "1 g IV en 10 min, puis 1 g en perfusion sur 8 h, à débuter dans les 3 h suivant le traumatisme (AIPS Swissmedic).",
+      "pourquoi": "Il réduit la mortalité hémorragique des traumatisés si donné précocement, d'après l'essai CRASH-2.",
+      "source": "AIPS Swissmedic ; CRASH-2"
+     },
+     {
+      "molecule": "Ringer-lactate (cristalloïde)",
+      "posologie": "250–500 mL IV en bolus, titré sur la pression artérielle ; cible PAS 80–90 mmHg jusqu'au contrôle de l'hémorragie, PAM ≥ 80 mmHg si traumatisme crânien.",
+      "pourquoi": "Une hypotension permissive limite l'hémodilution et le saignement ; les produits sanguins précoces priment dans le choc hémorragique.",
+      "source": "[Guideline européenne traumatisme hémorragique, 2023]"
+     },
+     {
+      "molecule": "Morphine (opioïde)",
+      "posologie": "2–3 mg IV toutes les 5 min, titrés selon l'EVA ; prudence en cas d'hypotension.",
+      "pourquoi": "Une antalgie titrée soulage sans masquer l'état hémodynamique ; la titration évite la dépression respiratoire.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Contrôler les hémorragies externes par compression ou garrot et stabiliser le bassin.",
+      "pourquoi": "L'hémorragie non contrôlée est la première cause de décès évitable."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Prélever un sang d'admission avant toute transfusion et le tracer.",
+      "pourquoi": "Il reflète le mieux alcoolémie et toxiques au moment de l'accident."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Précise les obligations d'avis à la police et le traitement des prélèvements en cas de décès."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Appliquer l'approche ABCDE de l'ATLS.",
+      "Prioriser le sauvetage sur la conservation des preuves.",
+      "Noter heure, gestes et médicaments administrés."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Sécurise la scène, évalue ABCDE et contrôle l'hémorragie majeure."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose deux voies veineuses, prélève le sang avant perfusion et l'étiquette."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Sécurise les voies aériennes avec immobilisation cervicale et ventile."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Administre l'acide tranexamique et les produits sanguins, puis transfère en centre de traumatologie."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Informe la police et documente chaque geste en cas de décès."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "La mortalité traumatique est trimodale ; les décès immédiats par lésions cérébrales ou aortiques ne sont pas évitables, tandis que l'hémorragie précoce reste réversible.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Pression artérielle, fréquence cardiaque, lactate",
+      "quand": "En continu puis toutes les 15 min",
+      "cible": "PAS 80–90 mmHg avant contrôle de l'hémorragie ; lactate en baisse"
+     },
+     {
+      "quoi": "SpO2",
+      "quand": "En continu",
+      "cible": "≥ 94 %, sans hyperoxie"
+     },
+     {
+      "quoi": "Gestes et médicaments",
+      "quand": "À chaque acte",
+      "cible": "Documentation complète pour la médecine légale"
+     }
+    ],
+    "sortie": "Transfert en centre de traumatologie stabilisé ; en cas de décès, le corps reste en place avec tubes et cathéters pour la médecine légale."
+   },
+   "prevention": {
+    "primaire": "Promouvoir la ceinture, le casque et la limitation de la vitesse et de l'alcool au volant.",
+    "secondaire": "Dépister l'inaptitude à la conduite et signaler à l'autorité cantonale quand le médecin le juge nécessaire.",
+    "tertiaire": "Soutenir les survivants et les proches avec un suivi psychologique."
+   }
+  },
+  {
+   "cle": "constat_sur_place",
+   "titre": "Constat de décès sur les lieux d'un AVP",
+   "but": [
+    "Établir la mort sur des signes certains sans altérer la scène.",
+    "Alerter police et Ministère public pour une mort non naturelle."
+   ],
+   "moyens": {
+    "accueil": [
+     "Assurer la sécurité de la scène.",
+     "Ne pas déplacer le corps.",
+     "Noter heure d'arrivée, position et conditions du terrain."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Constater les signes certains de mort : lividités, rigidité, lésions incompatibles avec la vie.",
+      "pourquoi": "Ces signes excluent toute réanimation utile et fondent le constat légal."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Cocher la mort non naturelle ou indéterminée sur le certificat de décès.",
+      "pourquoi": "Cette mention bloque inhumation et crémation jusqu'à la libération du corps par le Ministère public."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Précise l'obligation d'aviser la police (art. 253 CPP) et la forme du certificat."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Éviter toute modification de la scène.",
+      "Protéger la dignité du corps."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Constate le décès sur des signes certains et note l'heure."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Photographie la scène sans déplacer le corps."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Avise la police sans délai ; elle informe le Ministère public."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Remplit le certificat de décès avec mort non naturelle ou indéterminée."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Il n'y a pas de pronostic vital ; l'enjeu est de conserver les preuves qui permettent de fixer la cause et la manière du décès.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Heure et signes de mort",
+      "quand": "Au constat",
+      "cible": "Notés avec signes certains"
+     },
+     {
+      "quoi": "Avis à la police",
+      "quand": "Immédiatement",
+      "cible": "Heure de l'appel notée"
+     }
+    ],
+    "sortie": "Le corps est confié à la police et à l'institut de médecine légale sur ordre du Ministère public."
+   },
+   "prevention": {
+    "primaire": "",
+    "secondaire": "Documenter les indices de suicide ou d'homicide pour l'enquête.",
+    "tertiaire": "Orienter la famille vers un soutien d'urgence."
+   }
+  },
+  {
+   "cle": "investigation_medicolegale",
+   "titre": "Investigation médico-légale d'un AVP mortel",
+   "but": [
+    "Établir la cause et la manière du décès.",
+    "Fournir des preuves recevables en justice."
+   ],
+   "moyens": {
+    "accueil": [
+     "Conserver le corps en chambre froide sans toilette mortuaire.",
+     "Laisser vêtements, tubes et cathéters en place.",
+     "Photographier avec échelle avant toute manipulation."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Pratiquer l'autopsie médico-légale sur mandat du Ministère public.",
+      "pourquoi": "Elle tranche cause et manière du décès sans le consentement des proches."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Prélever sang fémoral, urine et humeur vitrée pour éthanol, stupéfiants et médicaments.",
+      "pourquoi": "Ces milieux limitent la redistribution post-mortem et la fermentation."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Réaliser histologie cardiaque et cérébrale et examiner les coronaires.",
+      "pourquoi": "Ils recherchent une cause naturelle ou une lésion axonale diffuse."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Réaliser un scanner ou un angio-CT post-mortem si disponible.",
+      "pourquoi": "Il oriente et complète l'autopsie sans la remplacer."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Tracer les prélèvements par étiquetage, scellés et transmission documentée.",
+      "pourquoi": "La chaîne de traçabilité garantit la recevabilité en justice."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre les rapports entre médecin, Ministère public et secret médical."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Éclaire la prise en charge selon LAA et assurance RC."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Respecter le mandat du Ministère public.",
+      "Séparer artefacts de réanimation et lésions initiales.",
+      "Tracer chaque prélèvement."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin légiste",
+       "fait": "Reçoit le corps et le dossier de réanimation puis photographie avant manipulation."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin légiste",
+       "fait": "Décrit les lésions externes, dessine le schéma et réalise l'autopsie."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "laboratoire de toxicologie",
+       "fait": "Analyse sang fémoral, urine et humeur vitrée pour éthanol et stupéfiants."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "police scientifique",
+       "fait": "Reconstruit l'accident par traces, véhicule et enregistreurs de données."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin légiste",
+       "fait": "Rédige le rapport sur cause, manière et responsabilité et le remet au Ministère public."
+      }
+     ]
+    }
+   },
+   "pronostic": "La mortalité immédiate sur les lieux d'un AVP mortel est importante ; l'issue de l'enquête dépend de la qualité des preuves recueillies.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Chaîne de traçabilité",
+      "quand": "À chaque transfert",
+      "cible": "Étiquettes, scellés et documents complets"
+     },
+     {
+      "quoi": "Résultats toxicologiques",
+      "quand": "Selon les délais du laboratoire",
+      "cible": "Éthanol (0,5 ‰ et 0,8 ‰) et stupéfiants confrontés aux limites légales"
+     }
+    ],
+    "sortie": "Le corps est libéré par le Ministère public après autopsie ; le certificat et le rapport sont transmis."
+   },
+   "prevention": {
+    "primaire": "Contribuer aux statistiques de sécurité routière.",
+    "secondaire": "Signaler les causes médicales du malaise pour prévenir d'autres accidents.",
+    "tertiaire": ""
+   }
+  },
+  {
+   "cle": "proches_assurances_prevention",
+   "titre": "Proches, assurances et prévention routière après un AVP mortel",
+   "but": [
+    "Soutenir les proches et les orienter vers l'aide aux victimes.",
+    "Coordonner justice, assurances et santé publique."
+   ],
+   "moyens": {
+    "accueil": [
+     "Laisser la police annoncer le décès avec un soutien d'urgence.",
+     "Informer les proches sur le déroulement de la procédure.",
+     "Respecter le secret médical et le cadre légal."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Orienter les proches vers un soutien d'urgence et un suivi psychologique.",
+      "pourquoi": "Le deuil traumatique expose à un trouble de stress post-traumatique."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Informer sur la LAA, la responsabilité civile du détenteur (art. 58 LCR) et l'assurance RC obligatoire.",
+      "pourquoi": "Ces assurances couvrent frais, rentes et dommages des proches."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Orienter vers les centres de consultation LAVI en cas d'infraction.",
+      "pourquoi": "La LAVI offre conseil, aide immédiate et soutien aux victimes d'infraction."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Signaler à l'autorité cantonale une personne jugée inapte à conduire.",
+      "pourquoi": "Le médecin peut le faire sans violer le secret médical et prévient d'autres accidents."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise LAA, rentes de survivants et coordination avec la RC obligatoire."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Précise secret médical, droit d'annonce et procédure pénale (art. 117 CP)."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Coordonner médecine légale, police, assureurs et soutien aux familles.",
+      "Rester disponible pour les questions des proches."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "police",
+       "fait": "Annonce le décès aux proches et mobilise un soutien d'urgence."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "assistant·e social·e",
+       "fait": "Informe sur LAVI, LAA et assurance RC, et accompagne les démarches."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Répond aux proches dans les limites du secret et de l'instruction."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Signale à l'autorité cantonale les conducteurs inaptes qu'il identifie."
+      }
+     ]
+    }
+   },
+   "pronostic": "Les proches ont un risque accru de deuil compliqué ; un soutien précoce et la clarté de la procédure réduisent cette morbidité.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Détresse psychique des proches",
+      "quand": "Dès l'annonce puis à 4 à 6 semaines",
+      "cible": "Orientation vers un suivi psychologique si symptômes persistants"
+     },
+     {
+      "quoi": "Démarches d'assurance et pénales",
+      "quand": "Pendant l'instruction",
+      "cible": "Dossier complet et droits des proches respectés"
+     }
+    ],
+    "sortie": "Sans objet : l'accompagnement se poursuit en ambulatoire selon les besoins des proches."
+   },
+   "prevention": {
+    "primaire": "Appliquer les mesures de sécurité routière : ceinture, casque, alcool, vitesse.",
+    "secondaire": "Maintenir le contrôle médical d'aptitude dès 75 ans, tous les deux ans.",
+    "tertiaire": "Proposer un soutien psychologique de longue durée aux proches."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6336,
+  "output_tokens": 19678,
+  "output_tokens_details": {
+   "thinking_tokens": 5227
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:52",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": {
+   "verdict": "🟧",
+   "date": "2026-11-26",
+   "aVerifier": [],
+   "audit": "AUDIT_V3_B"
+  }
+ }
+}

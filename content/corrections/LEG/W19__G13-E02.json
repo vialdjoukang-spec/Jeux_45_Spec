@@ -1,0 +1,1279 @@
+{
+ "id": "W19__G13-E02",
+ "portes": [
+  {
+   "ssp": "G13",
+   "nomSSP": "Décès non naturel",
+   "entite": "Chute mortelle (accidentelle ou précipitation)",
+   "entiteId": "G13-E02"
+  }
+ ],
+ "entite": "Chute mortelle (accidentelle ou précipitation)",
+ "cim10": "W19",
+ "ssp": {
+  "code": "G13",
+  "nom": "Décès non naturel",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Décès non naturel : chute de hauteur ou de plain-pied suspectée",
+    "i": "Porte d'entrée du SSP ; tu qualifies d'emblée le décès de non naturel, car une cause externe violente est en jeu.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "La personne est-elle vivante ?",
+    "i": "Tu cherches d'abord des signes de vie, car seule la présence de signes certains de mort autorise à ne pas réanimer.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui ou doute : prise en charge trauma ABCDE",
+    "i": "Urgence vitale : renvoie vers le SSP de traumatisme grave et de choc, avec alarme 144 ou Rega 1414.",
+    "pec": "victime_vivante_polytraumatisee",
+    "notion": "c8"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : constater la mort par signes certains",
+    "i": "Livores fixées, rigidité, putréfaction ou lésion incompatible avec la vie constituent les signes certains.",
+    "pec": "constat_deces_non_naturel",
+    "notion": "c4"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Les lésions et le récit concordent-ils ?",
+    "i": "La concordance biomécanique entre cinétique, hauteur, surface d'impact et lésions fonde le diagnostic de chute.",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Oui : chute probablement accidentelle",
+    "i": "Même ainsi, le décès reste non naturel ; la police est prévenue et l'autopsie est décidée par le ministère public.",
+    "pec": "constat_deces_non_naturel",
+    "notion": "c7"
+   },
+   {
+    "id": "n7",
+    "parent": "n5",
+    "t": "Non : incohérence, lésions de défense, lésions d'âges différents, corps déplacé",
+    "i": "Ces signaux d'alarme évoquent violence ou maltraitance ; tu préserves la scène et tu préviens la police en priorité.",
+    "pec": "constat_deces_non_naturel",
+    "notion": "c5"
+   },
+   {
+    "id": "n8",
+    "parent": "n5",
+    "t": "Indices de suicide : antécédents, lettre d'adieu, précipitation volontaire",
+    "i": "Tu documentes sans conclure sur l'intention ; l'enquête décide, avec des conséquences pour l'assureur-accidents.",
+    "pec": "constat_deces_non_naturel",
+    "notion": "c3"
+   },
+   {
+    "id": "n9",
+    "parent": "n5",
+    "t": "Enfant avec histoire banale ou décès inexpliqué",
+    "i": "Une chute domestique de faible hauteur est rarement mortelle ; tu suspectes une maltraitance et tu alertes la police.",
+    "pec": "constat_deces_non_naturel",
+    "notion": "c1"
+   },
+   {
+    "id": "n10",
+    "parent": "n5",
+    "t": "Cause naturelle préalable possible : infarctus, AVC, syncope",
+    "i": "Seule l'autopsie distingue cause et conséquence ; tu ne délivres pas de certificat de décès naturel.",
+    "pec": "constat_deces_non_naturel",
+    "notion": "c7"
+   },
+   {
+    "id": "n11",
+    "parent": "n4",
+    "t": "Sujet âgé : chute domestique, prévention des chutes",
+    "i": "Pour les proches et les survivants, les mesures de prévention des chutes (BFU) évitent les récidives.",
+    "pec": "prevention_chutes_sujet_age",
+    "notion": "c9"
+   }
+  ]
+ },
+ "specialites": [
+  "LEG"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Chute mortelle (accidentelle ou précipitation) – décès non naturel",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Qualifier le décès et situer l'épidémiologie",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Tu qualifies d'abord le décès de non naturel dès qu'une chute en est l'origine, puis tu laisses l'enquête trancher entre accident, suicide et homicide.",
+   "tableau": {
+    "colonnes": [
+     "Groupe d'âge",
+     "Circonstances fréquentes",
+     "Alerte médico-légale"
+    ],
+    "lignes": [
+     [
+      "Sujet âgé (> 65 ans)",
+      [
+       {
+        "t": "Chute domestique de plain-pied, souvent sous anticoagulant",
+        "i": "Les chutes sont la première cause de décès accidentel en Suisse, et la grande majorité des victimes a plus de 65 ans."
+       }
+      ],
+      [
+       {
+        "t": "Lésions d'âges différents",
+        "i": "Ecchymoses d'âges variés ou fractures consolidées évoquent une maltraitance chronique, pas une simple chute."
+       }
+      ]
+     ],
+     [
+      "Adulte jeune",
+      [
+       {
+        "t": "Montagne, chantier ou précipitation volontaire",
+        "i": "Les chutes de grande hauteur mortelles viennent surtout de ces trois contextes, d'où des intentions très différentes."
+       }
+      ],
+      [
+       {
+        "t": "Suicide ou poussée possibles",
+        "i": "Seule l'enquête et l'autopsie distinguent ces hypothèses ; le médecin ne conclut pas sur l'intention."
+       }
+      ]
+     ],
+     [
+      "Jeune enfant",
+      [
+       {
+        "t": "Chute domestique de faible hauteur",
+        "i": "Elle est rarement mortelle chez l'enfant, car la masse et la hauteur d'impact sont faibles."
+       }
+      ],
+      [
+       {
+        "t": "Décès avec histoire banale",
+        "i": "Un décès avec un récit anodin impose de suspecter une maltraitance, notamment un traumatisme crânien non accidentel."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Toute chute mortelle, de hauteur ou de plain-pied, est un décès non naturel, car une cause externe violente est en jeu.",
+    "Un décès différé reste non naturel, par exemple une pneumonie après fracture du col fémoral, car la chaîne causale débute par l'accident.",
+    "Le médecin certifie le caractère non naturel, mais ne tranche jamais entre accident, suicide et homicide."
+   ],
+   "sources": [
+    "Code de procédure pénale suisse (CPP), art. 253",
+    "BFU – Bureau de prévention des accidents",
+    "Société suisse de médecine légale (SSML)"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Mécanismes lésionnels de la chute",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Tu raisonnes à partir de la cinétique, de la surface d'impact et de la position du corps, car la hauteur seule ne prédit pas la létalité.",
+   "tableau": {
+    "colonnes": [
+     "Mécanisme",
+     "Lésions typiques",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "Décélération brutale de grande hauteur",
+      [
+       {
+        "t": "Rupture aortique à l'isthme",
+        "i": "L'aorte est fixée au ligament artériel, donc cisaillée lors de la décélération ; la mort survient en quelques minutes par hémorragie."
+       },
+       {
+        "t": "Fractures pelviennes, choc hémorragique",
+        "i": "Le bassin saigne abondamment, d'où l'importance de la ceinture pelvienne chez le vivant."
+       }
+      ],
+      [
+       {
+        "t": "Lésions viscérales internes sans plaie externe majeure",
+        "i": "La décélération lèse les organes fixés, d'où la valeur du scanner et de l'autopsie."
+       }
+      ]
+     ],
+     [
+      "Chute sur les pieds",
+      [
+       {
+        "t": "Fractures calcanéennes, tassements thoraco-lombaires, fracture annulaire de la base du crâne",
+        "i": "La force se transmet de façon axiale, des talons vers le rachis puis la base du crâne."
+       }
+      ],
+      [
+       {
+        "t": "Lésions verticales symétriques",
+        "i": "Elles distinguent la chute du piéton heurté, dont les fractures siègent au niveau du pare-chocs."
+       }
+      ]
+     ],
+     [
+      "Impact occipital de plain-pied",
+      [
+       {
+        "t": "Hématome sous-dural aigu et contusions frontales de contrecoup",
+        "i": "L'encéphale se déplace dans la boîte crânienne ; le risque est majeur chez le sujet âgé anticoagulé."
+       }
+      ],
+      [
+       {
+        "t": "Chez l'anticoagulé, gravité disproportionnée",
+        "i": "Une chute banale peut tuer par hémorragie intracrânienne, ce qui reste un décès non naturel."
+       }
+      ]
+     ],
+     [
+      "Facteurs modulants",
+      [
+       {
+        "t": "Surface d'impact, position du corps, âge",
+        "i": "Ils modifient fortement les lésions ; des survies existent après de grandes hauteurs."
+       }
+      ],
+      [
+       {
+        "t": "La hauteur seule ne prédit pas la létalité",
+        "i": "Une hauteur déclarée ne suffit pas à valider ou à exclure un récit ; il faut la concordance biomécanique."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La décélération brutale explique rupture aortique isthmique, hémorragie intracrânienne, fractures pelviennes et choc hémorragique.",
+    "La topographie des lésions renseigne sur la position à l'impact : pieds, tête ou dos.",
+    "La concordance entre lésions et récit est le fondement du diagnostic médico-légal."
+   ],
+   "sources": [
+    "Société suisse de médecine légale (SSML)",
+    "ATLS, 10e éd."
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse : témoins, facteurs favorisants et contexte psychosocial",
+   "rubriques": [
+    "anamnesis"
+   ],
+   "comment": "Tu recueilles l'histoire auprès des témoins et de la police, puis tu cherches ce qui a provoqué la chute et ce qui a aggravé ses conséquences.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Tu recueilles hauteur, surface d'impact, heure et lieu (fenêtre, balcon, échafaudage), auprès des témoins et de la police.",
+    "Tu recherches anticoagulants, antiagrégants, sédatifs, alcool, syncope, hypotension orthostatique et démence, qui causent la chute ou aggravent le saignement.",
+    "Tu explores antécédents psychiatriques, tentatives de suicide, lettres d'adieu, conflits, violence conjugale et maltraitance du sujet âgé.",
+    "Tu notes que ces éléments orientent l'enquête, sans que tu conclues sur l'intention."
+   ],
+   "sources": [
+    "Société suisse de médecine légale (SSML)",
+    "CPP suisse, art. 253"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Examen du corps : signes de mort et phénomènes cadavériques",
+   "rubriques": [
+    "clinicalExam",
+    "surveillance"
+   ],
+   "comment": "Tu constates la mort par des signes certains, tu décris les lésions sans toucher au corps, puis tu consignes les phénomènes cadavériques qui datent le décès.",
+   "tableau": {
+    "colonnes": [
+     "Phénomène",
+     "Délai",
+     "Utilité"
+    ],
+    "lignes": [
+     [
+      "Livores",
+      [
+       {
+        "t": "Apparition 30 min à 2 h, fixation vers 8–12 h",
+        "i": "Elles se fixent progressivement, donc leur mobilité au changement de position date approximativement le décès."
+       }
+      ],
+      [
+       {
+        "t": "Livores discordantes avec la position",
+        "i": "Elles prouvent que le corps a été déplacé après le décès, ce qui impose de prévenir la police."
+       }
+      ]
+     ],
+     [
+      "Rigidité",
+      [
+       {
+        "t": "Installation 2–4 h, disparition 24–48 h",
+        "i": "Elle suit le métabolisme musculaire et se résout par la décomposition ; elle est modulée par la température."
+       }
+      ],
+      [
+       {
+        "t": "Estimation du délai post-mortem",
+        "i": "Elle complète livores et température, car aucun signe isolé n'est assez précis."
+       }
+      ]
+     ],
+     [
+      "Température",
+      [
+       {
+        "t": "Rectale et ambiante, nomogramme de Henssge",
+        "i": "Le refroidissement du corps suit une courbe dépendant de la température ambiante et du poids."
+       }
+      ],
+      [
+       {
+        "t": "Estimation de l'heure du décès",
+        "i": "Elle exige la mesure de la température ambiante, à noter par écrit."
+       }
+      ]
+     ],
+     [
+      "Putréfaction ou lésion incompatible avec la vie",
+      [
+       {
+        "t": "Signes certains de mort",
+        "i": "Comme la destruction du crâne, ils dispensent de toute réanimation."
+       }
+      ],
+      [
+       {
+        "t": "Décrire sans retirer",
+        "i": "Tu ne retires ni vêtements, ni cathéters, ni tubes, pour préserver les indices."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'examen externe cherche déformations squelettiques, fractures ouvertes, plaies du scalp, otorragie ou rhinorragie et signes de choc.",
+    "Tu consignes par écrit l'heure de découverte, la position du corps, la température ambiante, les livores, la rigidité et les lésions."
+   ],
+   "sources": [
+    "Société suisse de médecine légale (SSML)",
+    "Henssge, nomogramme de l'heure du décès"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Signaux d'alarme : quand la chute cache une violence",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Tu compares toujours le récit au tableau lésionnel, et tu préviens la police dès qu'une discordance apparaît.",
+   "tableau": {
+    "colonnes": [
+     "Signal",
+     "Ce qu'il évoque",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Incohérence hauteur ou mécanisme et lésions",
+      [
+       {
+        "t": "Violence préalable",
+        "i": "La gravité ou la topographie des lésions ne correspond pas à la cinétique annoncée, donc l'histoire est suspecte."
+       }
+      ],
+      [
+       {
+        "t": "Prévenir la police",
+        "i": "Elle seule peut sécuriser la scène et lancer l'enquête."
+       }
+      ]
+     ],
+     [
+      "Lésions d'âges différents",
+      [
+       {
+        "t": "Maltraitance chronique (enfant ou personne âgée)",
+        "i": "Des ecchymoses d'âges variés ou des fractures consolidées traduisent des traumatismes répétés."
+       }
+      ],
+      [
+       {
+        "t": "Protection de la victime ou des proches vulnérables",
+        "i": "Un enfant ou un adulte vulnérable de l'entourage peut rester exposé."
+       }
+      ]
+     ],
+     [
+      "Lésions de défense, ecchymoses de saisie, traces de strangulation",
+      [
+       {
+        "t": "Agression préalable ou poussée",
+        "i": "Ces lésions apparaissent lorsque la victime résiste, notamment sur les avant-bras et les mains."
+       }
+      ],
+      [
+       {
+        "t": "Précipitation après coup possible",
+        "i": "Une strangulation peut précéder la chute ; l'autopsie le montre."
+       }
+      ]
+     ],
+     [
+      "Corps retrouvé loin du pied de la façade",
+      [
+       {
+        "t": "Impulsion : saut ou poussée",
+        "i": "Une chute passive depuis le rebord tombe près de la façade, une impulsion projette plus loin."
+       }
+      ],
+      [
+       {
+        "t": "Ne tranche pas entre suicide et homicide",
+        "i": "Cet indice oriente seulement, la distinction relève de l'enquête."
+       }
+      ]
+     ],
+     [
+      "Absence de réaction vitale autour d'une lésion",
+      [
+       {
+        "t": "Lésion post-mortem, mise en scène possible",
+        "i": "Sans hémorragie tissulaire, la lésion s'est produite après la mort."
+       }
+      ],
+      [
+       {
+        "t": "Seule l'autopsie confirme",
+        "i": "La réaction vitale se juge à l'histologie et à la dissection."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Une incohérence entre récit et lésions impose d'évoquer une violence et de prévenir la police.",
+    "Tu préserves la scène et le corps dès qu'un doute existe."
+   ],
+   "sources": [
+    "Société suisse de médecine légale (SSML)",
+    "CPP suisse, art. 253"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Bilan médico-légal : autopsie, toxicologie et imagerie post-mortem",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Tu sais que le ministère public ordonne l'autopsie, puis tu choisis le bon prélèvement et la bonne imagerie en connaissant les pièges de chacun.",
+   "tableau": {
+    "colonnes": [
+     "Examen",
+     "Apport",
+     "Piège ou précision"
+    ],
+    "lignes": [
+     [
+      "Autopsie médico-légale",
+      [
+       {
+        "t": "Référence : cause, mécanisme et lésions vitales",
+        "i": "Elle seule tranche la cause du décès et la vitalité des lésions ; le ministère public l'ordonne dans un institut de médecine légale."
+       }
+      ],
+      [
+       {
+        "t": "Sans consentement des proches",
+        "i": "Elle relève de la procédure pénale, mais les proches doivent être informés clairement."
+       }
+      ]
+     ],
+     [
+      "Toxicologie post-mortem",
+      [
+       {
+        "t": "Sang périphérique fémoral et humeur vitrée",
+        "i": "Le sang cardiaque subit la redistribution post-mortem, donc il surestime certaines concentrations."
+       }
+      ],
+      [
+       {
+        "t": "Éthanol endogène de putréfaction",
+        "i": "La putréfaction produit de l'éthanol ; l'humeur vitrée aide à distinguer alcool ingéré et alcool endogène."
+       }
+      ]
+     ],
+     [
+      "Scanner corps entier post-mortem (virtopsie, Berne)",
+      [
+       {
+        "t": "Fractures, hémorragies, gaz",
+        "i": "Il détecte bien les lésions osseuses et les collections, et oriente ou complète l'autopsie."
+       }
+      ],
+      [
+       {
+        "t": "Mauvais pour les lésions vasculaires",
+        "i": "Le scanner simple identifie mal ces lésions, d'où l'angiographie."
+       }
+      ]
+     ],
+     [
+      "Angio-scanner post-mortem (Lausanne)",
+      [
+       {
+        "t": "Détection des lésions vasculaires",
+        "i": "L'injection de produit de contraste après la mort révèle la source du saignement."
+       }
+      ],
+      [
+       {
+        "t": "Complément, pas substitut",
+        "i": "Il oriente l'autopsie sans toujours la remplacer, notamment en contexte criminel."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'autopsie reste la référence pour trancher cause du décès, mécanisme et vitalité des lésions.",
+    "La toxicologie utilise sang fémoral et humeur vitrée, jamais le sang cardiaque seul."
+   ],
+   "sources": [
+    "Société suisse de médecine légale (SSML)",
+    "Grabherr S. et al., angiographie post-mortem, Lausanne"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Diagnostic positif et différentiel de la chute mortelle",
+   "rubriques": [
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu retiens la chute quand la biomécanique concorde et qu'aucune mort indépendante n'explique le décès, en évitant les rivaux qui miment une chute.",
+   "tableau": {
+    "colonnes": [
+     "Rival",
+     "Discriminant"
+    ],
+    "lignes": [
+     [
+      "AVP, piéton heurté",
+      [
+       {
+        "t": "Fractures au niveau du pare-chocs",
+        "i": "La chute donne des lésions verticales symétriques (talons, rachis, crâne), pas des fractures à hauteur de pare-chocs."
+       }
+      ]
+     ],
+     [
+      "Mort naturelle préalable (infarctus, AVC, syncope)",
+      [
+       {
+        "t": "Seule l'autopsie distingue cause et conséquence",
+        "i": "La mort naturelle peut précéder la chute, donc le médecin ne conclut pas à une simple chute chez un sujet âgé."
+       }
+      ]
+     ],
+     [
+      "Arme à feu, arme blanche, strangulation avec précipitation après coup",
+      [
+       {
+        "t": "Plaies, projectiles ou lésions cervicales à la dissection",
+        "i": "Un cadavre au pied d'un immeuble peut cacher ces causes, d'où l'importance de préserver la scène."
+       }
+      ]
+     ],
+     [
+      "Mise en scène d'une chute",
+      [
+       {
+        "t": "Absence de réaction vitale, livores discordantes",
+        "i": "Elles indiquent des lésions post-mortem ou un déplacement du corps."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le diagnostic repose sur la concordance entre cinétique, hauteur, surface d'impact et lésions.",
+    "Il exige l'exclusion d'une cause de mort indépendante de la chute."
+   ],
+   "sources": [
+    "Société suisse de médecine légale (SSML)"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Conduite du médecin appelé et prise en charge si la victime vit",
+   "rubriques": [
+    "acuteManagement",
+    "hospitalizationComplications"
+   ],
+   "comment": "Tu cherches d'abord des signes certains de mort : s'ils existent, tu avertis la police sans toucher au corps ; sinon tu réanimes selon l'ATLS.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Personne trouvée après une chute",
+     "i": "Point de départ : tu sécurises la scène avant tout geste, puis tu cherches des signes de vie.",
+     "pec": null,
+     "notion": "c8"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Existe-t-il un signe certain de mort ?",
+     "i": "Livores fixées, rigidité, putréfaction ou lésion incompatible avec la vie ; sans eux, tu dois réanimer.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : constater le décès",
+     "i": "Le constat de mort s'effectue sur signes certains, sans réanimation vaine.",
+     "pec": "constat_deces_non_naturel",
+     "notion": "c4"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Qualifier le décès de non naturel",
+     "i": "Une chute mortelle relève d'une cause externe violente, quelle que soit l'intention.",
+     "pec": "constat_deces_non_naturel",
+     "notion": "c1"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Aviser la police ou le ministère public",
+     "i": "L'obligation s'applique à tout décès non naturel ou de cause indéterminée ; tu n'établis pas de certificat de décès naturel.",
+     "pec": "constat_deces_non_naturel",
+     "notion": "c8"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Ne pas déplacer le corps ni retirer cathéters, tubes ou vêtements",
+     "i": "Ces gestes détruisent des indices médico-légaux et peuvent faire suspecter une entrave à l'enquête.",
+     "pec": "constat_deces_non_naturel",
+     "notion": "c8"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Consigner heure de découverte, position, températures, livores, rigidité, lésions",
+     "i": "Ces données datent le décès et fixent l'état initial avant l'intervention de la police et du légiste.",
+     "pec": "constat_deces_non_naturel",
+     "notion": "c4"
+    },
+    {
+     "id": "n8",
+     "parent": "n7",
+     "t": "Informer les proches et orienter vers la postvention",
+     "i": "Tu expliques la procédure médico-légale ; la Main Tendue (143) répond 24 h sur 24.",
+     "pec": "constat_deces_non_naturel",
+     "notion": "c9"
+    },
+    {
+     "id": "n9",
+     "parent": "n2",
+     "t": "Non : signes de vie ou doute",
+     "i": "Dans le doute, tu traites, car on ne renonce pas à une réanimation sans signe certain de mort.",
+     "pec": "victime_vivante_polytraumatisee",
+     "notion": "c8"
+    },
+    {
+     "id": "n10",
+     "parent": "n9",
+     "t": "Alarmer 144 ou Rega 1414, puis ABCDE selon l'ATLS",
+     "i": "La Rega intervient en montagne ; le transfert vise un centre de traumatologie.",
+     "pec": "victime_vivante_polytraumatisee",
+     "notion": "c8"
+    },
+    {
+     "id": "n11",
+     "parent": "n10",
+     "t": "Arrêt cardiaque traumatique : traiter simultanément les causes réversibles",
+     "i": "Hypovolémie, hypoxie, pneumothorax suffocant et tamponnade se traitent avant ou avec les compressions.",
+     "pec": "victime_vivante_polytraumatisee",
+     "notion": "c8"
+    },
+    {
+     "id": "n12",
+     "parent": "n10",
+     "t": "Hémorragie : acide tranexamique, ceinture pelvienne, PAS 80–90 mmHg",
+     "i": "L'acide tranexamique est efficace dans les 3 heures ; l'hypotension permissive est exclue en cas de traumatisme crânien grave.",
+     "pec": "victime_vivante_polytraumatisee",
+     "notion": "c8"
+    },
+    {
+     "id": "n13",
+     "parent": "n10",
+     "t": "Patient anticoagulé : antagoniser",
+     "i": "AVK : vitamine K et CCP ; dabigatran : idarucizumab ; un anticoagulant aggrave surtout l'hémorragie intracrânienne.",
+     "pec": "victime_vivante_polytraumatisee",
+     "notion": "c8"
+    },
+    {
+     "id": "n14",
+     "parent": "n10",
+     "t": "Décès en cours de prise en charge : même procédure que le décès non naturel",
+     "i": "Tu laisses cathéters et tubes en place et tu préviens la police ; un certificat naturel exposerait à une sanction pour faux certificat.",
+     "pec": "constat_deces_non_naturel",
+     "notion": "c8"
+    }
+   ],
+   "points": [
+    "Le blocage de crémation s'applique tant que le ministère public n'a pas libéré le corps ; la crémation exige un contrôle médical supplémentaire.",
+    "Un certificat sciemment inexact (naturel au lieu de non naturel) expose à une sanction pour faux certificat médical.",
+    "Si la victime vit, tu suis l'ATLS et tu transfères vers un centre de traumatologie."
+   ],
+   "sources": [
+    "CPP suisse, art. 253",
+    "ATLS, 10e éd.",
+    "CRASH-2, Lancet 2010",
+    "European guideline on major bleeding and coagulopathy following trauma, 6e éd. 2023"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Pronostic, assurances, proches et prévention des chutes",
+   "rubriques": [
+    "chronicManagement",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Tu sais que l'assureur dépend du statut du défunt et de l'intention, et que la prévention des chutes repose sur des mesures multimodales.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Assureur",
+     "Particularité"
+    ],
+    "lignes": [
+     [
+      "Salarié ≥ 8 h par semaine",
+      [
+       {
+        "t": "LAA couvre accidents professionnels et non professionnels",
+        "i": "Le seuil de 8 heures hebdomadaires déclenche la couverture des accidents non professionnels."
+       }
+      ],
+      [
+       {
+        "t": "Déclaration à l'assureur-accidents (Suva ou privé)",
+        "i": "Le médecin déclare le cas ; l'employeur ou la famille complète."
+       }
+      ]
+     ],
+     [
+      "Personne sans activité, retraité ou < 8 h par semaine",
+      [
+       {
+        "t": "LAMal",
+        "i": "Ces personnes ne sont pas assurées au titre de la LAA pour les accidents non professionnels."
+       }
+      ],
+      [
+       {
+        "t": "Couverture accident à vérifier",
+        "i": "L'assurance maladie doit inclure la couverture accident, ce qu'on vérifie à l'ouverture du dossier."
+       }
+      ]
+     ],
+     [
+      "Suicide",
+      [
+       {
+        "t": "L'assureur-accidents refuse en principe ses prestations",
+        "i": "Il exclut l'atteinte intentionnelle, sauf frais funéraires ou incapacité totale de discernement."
+       }
+      ],
+      [
+       {
+        "t": "L'enquête devient décisive",
+        "i": "La distinction entre accident et suicide a des conséquences financières majeures pour les proches."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le pronostic dépend de l'atteinte cérébrale, du score de Glasgow, de l'hémorragie massive, de l'âge et de l'anticoagulation.",
+    "Chez le sujet âgé, la fracture du col fémoral après chute entraîne une mortalité à un an d'environ 20 à 30 %.",
+    "La prévention repose sur exercices d'équilibre et de force, révision des psychotropes et antihypertenseurs, et adaptation du domicile.",
+    "La vitamine D n'a de bénéfice démontré que chez les personnes carencées ou institutionnalisées ; la Suva cible les chantiers et le BFU les personnes âgées.",
+    "Les proches reçoivent une information claire et un soutien de postvention ; la Main Tendue répond au 143, 24 h sur 24."
+   ],
+   "sources": [
+    "LAA/LAMal, législation suisse",
+    "BFU et Suva",
+    "AIPS Swissmedic"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "constat_deces_non_naturel",
+   "titre": "Constat de décès non naturel après chute",
+   "but": [
+    "Constater la mort et certifier le caractère non naturel du décès.",
+    "Préserver les indices médico-légaux pour l'enquête et l'autopsie.",
+    "Informer les proches avec respect et orienter vers la postvention."
+   ],
+   "moyens": {
+    "accueil": [
+     "Sécuriser la scène avant tout geste.",
+     "Identifier la personne et les témoins présents.",
+     "Ne pas déplacer le corps, ne retirer ni cathéters, ni tubes, ni vêtements."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Consigner l'heure de découverte, la position du corps, les températures rectale et ambiante, les livores, la rigidité et les lésions.",
+      "pourquoi": "Ces données datent le décès et orientent l'enquête avant l'intervention du légiste."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Aviser la police ou le ministère public sans établir de certificat de décès naturel.",
+      "pourquoi": "Tout décès non naturel ou de cause indéterminée relève de l'enquête pénale."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Déclarer le cas à l'assureur-accidents (LAA) ou orienter vers la LAMal selon le statut.",
+      "pourquoi": "Le statut professionnel du défunt détermine la couverture ; le suicide limite les prestations."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Proposer aux proches un soutien de postvention et le numéro 143 de la Main Tendue.",
+      "pourquoi": "Le deuil après décès brutal ou suicide augmente le risque de détresse psychique."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Précise l'obligation d'aviser la police et la sanction du faux certificat de décès."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Distingue LAA et LAMal et explique le refus de prestations en cas de suicide."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Écarter toute personne non indispensable de la scène.",
+      "Garder le corps en l'état jusqu'à l'arrivée de la police.",
+      "Ne signer aucun certificat de décès naturel."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Constate la mort sur signes certains : livores fixées, rigidité, putréfaction ou lésion incompatible avec la vie."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Sécurise la scène et note l'heure d'arrivée, sans toucher au corps ni aux dispositifs."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Avise la police ou le ministère public et déclare le décès comme non naturel."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Consigne par écrit livores, rigidité, températures, position du corps et lésions visibles."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Informe les proches de la procédure médico-légale et leur propose un soutien de postvention."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Conserver les dossiers cliniques et les imageries de l'hospitalisation.",
+      "Rappeler que la chaîne causale débute par l'accident, même après un délai."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Reconnaît qu'un décès différé après chute, comme une pneumonie sur fracture du col fémoral, reste non naturel."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Informe la police ou le ministère public et ne délivre aucun certificat de décès naturel."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "assistant·e social·e",
+       "fait": "Informe la famille sur LAA ou LAMal et sur le blocage de crémation."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Transmet le dossier au légiste et prépare l'entretien avec les proches."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le décès est constaté d'emblée ; la cause est précisée par l'autopsie ordonnée par le ministère public, sans consentement des proches. Le blocage de crémation reste en vigueur jusqu'à libération du corps.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Livores, rigidité et température rectale/ambiante",
+      "quand": "Dès l'arrivée du médecin, avant le transfert du corps",
+      "cible": "Valeurs et heure consignées par écrit pour estimer l'heure du décès (Henssge)."
+     },
+     {
+      "quoi": "Décision du ministère public sur l'autopsie",
+      "quand": "Dans les heures qui suivent l'avis à la police",
+      "cible": "Autopsie ordonnée ou libération du corps avec décision écrite."
+     },
+     {
+      "quoi": "Information des proches",
+      "quand": "Le jour du décès",
+      "cible": "Procédure, blocage de crémation et soutien de postvention expliqués."
+     }
+    ],
+    "sortie": "Le corps est remis à la police ou à l'institut de médecine légale ; la crémation n'est possible qu'après libération par le ministère public et contrôle médical supplémentaire."
+   },
+   "prevention": {
+    "primaire": "Prévenir les chutes par des mesures adaptées au lieu : Suva sur les chantiers, BFU pour les personnes âgées.",
+    "secondaire": "Détecter précocement maltraitance et risque suicidaire chez les proches et les personnes vulnérables.",
+    "tertiaire": "Offrir un accompagnement de postvention aux proches, la Main Tendue (143) étant joignable 24 h sur 24."
+   }
+  },
+  {
+   "cle": "victime_vivante_polytraumatisee",
+   "titre": "Victime vivante après chute de hauteur : polytraumatisme, ATLS",
+   "but": [
+    "Contrôler l'hémorragie et maintenir une perfusion tissulaire suffisante.",
+    "Traiter les causes réversibles d'arrêt cardiaque traumatique.",
+    "Transférer rapidement vers un centre de traumatologie."
+   ],
+   "moyens": {
+    "accueil": [
+     "Alarmer 144 ou Rega 1414 (montagne) sans retard.",
+     "Appliquer ABCDE selon l'ATLS, avec immobilisation cervicale.",
+     "Titrer l'oxygène pour viser une SpO2 de 92 à 96 %."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Acide tranexamique (antifibrinolytique)",
+      "posologie": "1 g IV en 10 min dans les 3 h après le traumatisme, puis 1 g en perfusion sur 8 h.",
+      "pourquoi": "Il réduit la mortalité par hémorragie lorsqu'il est administré dans les 3 heures, selon l'étude CRASH-2.",
+      "source": "[CRASH-2, 2010 ; AIPS Swissmedic]"
+     },
+     {
+      "molecule": "Ringer-Lactate (cristalloïde)",
+      "posologie": "Bolus de 500 mL IV si PAS < 90 mmHg, réévaluation ; viser une PAS de 80 à 90 mmHg sans traumatisme crânien.",
+      "pourquoi": "L'hypotension permissive évite de relancer le saignement avant son contrôle ; elle est contre-indiquée en cas de traumatisme crânien grave.",
+      "source": "[European guideline trauma bleeding, 2023]"
+     },
+     {
+      "molecule": "Morphine (opioïde)",
+      "posologie": "2 à 3 mg IV toutes les 5 min en titration si EVA ≥ 7 ; surveiller fréquence respiratoire et sédation.",
+      "pourquoi": "La titration contrôle la douleur intense en limitant la dépression respiratoire et l'hypotension.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Paracétamol (antalgique)",
+      "posologie": "1 g IV, maximum 4 g par 24 h chez l'adulte de plus de 50 kg ; réduire en cas d'insuffisance hépatique.",
+      "pourquoi": "Il complète l'antalgie en épargnant les opioïdes et sans risque hémorragique, contrairement aux anti-inflammatoires.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Idarucizumab (antidote du dabigatran)",
+      "posologie": "5 g IV, en deux perfusions de 2,5 g, chez le patient saignant sous dabigatran.",
+      "pourquoi": "Il neutralise spécifiquement le dabigatran, utile en cas d'hémorragie intracrânienne chez un sujet âgé anticoagulé.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Complexe prothrombique (CCP) et phytoménadione (vitamine K)",
+      "posologie": "CCP selon INR et poids (notice AIPS) ; vitamine K 5 à 10 mg IV lente, en cas d'AVK.",
+      "pourquoi": "Le CCP corrige immédiatement l'anticoagulation par AVK, la vitamine K assurant l'effet durable.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Poser une ceinture pelvienne et comprimer les hémorragies externes.",
+      "pourquoi": "Le bassin et les plaies saignent abondamment, donc leur contrôle précoce réduit la perte sanguine."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Poser deux voies veineuses périphériques fiables et réchauffer le patient.",
+      "pourquoi": "L'hypothermie aggrave la coagulopathie traumatique et la mortalité."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Traiter pneumothorax suffocant et tamponnade en cas d'arrêt cardiaque traumatique.",
+      "pourquoi": "Ces causes réversibles se traitent avant ou avec les compressions thoraciques, car l'arrêt cardiaque traumatique est souvent hypovolémique."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Rappelle que, si la victime décède, la procédure de décès non naturel s'applique immédiatement."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise la déclaration à l'assureur-accidents pour les frais de traitement."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Suivre l'ATLS dans l'ordre ABCDE avec immobilisation cervicale.",
+      "Ne jamais retarder le transfert pour des examens non vitaux."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Alarme 144 ou Rega 1414 et évalue ABCDE en repérant l'hémorragie exsanguinante."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose deux voies veineuses, administre l'oxygène titré et monitore SpO2, PA et ECG."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Pose la ceinture pelvienne et comprime les hémorragies externes."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Administre l'acide tranexamique 1 g IV dans les 3 heures et vise une PAS de 80 à 90 mmHg."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Antagonise l'anticoagulant si nécessaire et titre l'antalgie à la morphine."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Reçoit le patient en centre de traumatologie pour scanner corps entier et contrôle chirurgical."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le pronostic dépend de l'atteinte cérébrale, du score de Glasgow, de l'hémorragie massive, de l'âge et de l'anticoagulation. Chez le sujet âgé, la fracture du col fémoral entraîne une mortalité à un an d'environ 20 à 30 %.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Hémodynamique : PAS, fréquence cardiaque, lactate",
+      "quand": "En continu, puis toutes les 15 min en salle de déchocage",
+      "cible": "PAS de 80 à 90 mmHg avant contrôle de l'hémorragie ; lactate en baisse."
+     },
+     {
+      "quoi": "Score de Glasgow et pupilles",
+      "quand": "Toutes les 15 min initialement",
+      "cible": "Absence de détérioration neurologique, scanner cérébral urgent en cas d'aggravation."
+     },
+     {
+      "quoi": "SpO2 et analgésie",
+      "quand": "En continu",
+      "cible": "SpO2 de 92 à 96 % ; EVA < 4 sans sédation excessive."
+     }
+    ],
+    "sortie": "Pas de sortie directe : transfert vers un centre de traumatologie, puis hospitalisation en soins intensifs ou chirurgie selon le bilan lésionnel."
+   },
+   "prevention": {
+    "primaire": "Équiper les chantiers et la montagne selon les règles de la Suva et former à la sécurité en hauteur.",
+    "secondaire": "Rechercher des anticoagulants et des facteurs de chute chez toute personne âgée victime de chute.",
+    "tertiaire": "Organiser la rééducation et la prévention des récidives après le séjour hospitalier."
+   }
+  },
+  {
+   "cle": "prevention_chutes_sujet_age",
+   "titre": "Prévention des chutes chez le sujet âgé",
+   "but": [
+    "Réduire le risque de chute et ses conséquences hémorragiques.",
+    "Corriger les facteurs médicamenteux et environnementaux.",
+    "Maintenir l'autonomie du sujet âgé à domicile."
+   ],
+   "moyens": {
+    "accueil": [
+     "Évaluer le risque de chute lors de chaque consultation du sujet âgé.",
+     "Interroger sur chutes antérieures, syncopes et peur de tomber."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Colécalciférol (vitamine D)",
+      "posologie": "800 UI par jour per os chez les personnes carencées ou institutionnalisées, selon la notice AIPS.",
+      "pourquoi": "Le bénéfice sur les chutes n'est démontré que chez les personnes carencées ou institutionnalisées, pas en population générale.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "rééducation",
+      "mesure": "Prescrire des exercices d'équilibre et de force musculaire.",
+      "pourquoi": "Ils réduisent le nombre de chutes, avec le meilleur niveau de preuve."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Réviser psychotropes, antihypertenseurs et anticoagulants selon le rapport bénéfice-risque.",
+      "pourquoi": "Ces traitements favorisent hypotension orthostatique, sédation et saignement grave après chute."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Adapter le domicile : tapis, éclairage, barres d'appui et chaussures stables.",
+      "pourquoi": "Les accidents domestiques sont la principale cause de chute mortelle chez la personne âgée."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Orienter vers les conseils du BFU pour les personnes âgées.",
+      "pourquoi": "Le BFU propose des programmes de prévention suisses adaptés."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Aide à financer les moyens auxiliaires et les adaptations du domicile."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Intégrer la prévention des chutes à chaque suivi gériatrique.",
+      "Impliquer la famille et les soins à domicile."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue risque de chute, médicaments, vision, hypotension orthostatique et cognition."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Réduit les psychotropes et ajuste les antihypertenseurs selon les mesures orthostatiques."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "physiothérapeute",
+       "fait": "Entraîne équilibre et force musculaire à raison de séances régulières."
+      },
+      {
+       "temps": "puis",
+       "qui": "assistant·e social·e",
+       "fait": "Organise l'adaptation du domicile et les aides à domicile."
+      }
+     ]
+    }
+   },
+   "pronostic": "Après fracture du col fémoral, la mortalité à un an atteint environ 20 à 30 %. Les programmes multimodaux réduisent le nombre de chutes.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Nombre de chutes et peur de tomber",
+      "quand": "À chaque consultation",
+      "cible": "Aucune nouvelle chute."
+     },
+     {
+      "quoi": "Pression artérielle couché-debout",
+      "quand": "Après chaque modification de traitement",
+      "cible": "Absence d'hypotension orthostatique."
+     },
+     {
+      "quoi": "Revue de la médication",
+      "quand": "Au moins une fois par an",
+      "cible": "Réduction des traitements à risque."
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée, car la prévention des chutes s'organise à domicile avec suivi de médecin de famille."
+   },
+   "prevention": {
+    "primaire": "Promouvoir activité physique et adaptation du domicile avant la première chute.",
+    "secondaire": "Réduire les facteurs de risque après une première chute, y compris médicaments.",
+    "tertiaire": "Prévenir fracture, perte d'autonomie et décès après une chute grave."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6432,
+  "output_tokens": 22699,
+  "output_tokens_details": {
+   "thinking_tokens": 6804
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:58:06",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": {
+   "verdict": "🟩",
+   "date": "2026-11-26",
+   "aVerifier": [],
+   "audit": "AUDIT_V3_B"
+  }
+ }
+}
