@@ -1,0 +1,1075 @@
+{
+ "id": "R60.0_1__F1_16-E03",
+ "portes": [
+  {
+   "ssp": "F1.16",
+   "nomSSP": "Œdème",
+   "entite": "Œdèmes médicamenteux (inhibiteurs calciques, AINS, corticoïdes)",
+   "entiteId": "F1.16-E03"
+  }
+ ],
+ "entite": "Œdèmes médicamenteux (inhibiteurs calciques, AINS, corticoïdes)",
+ "cim10": "R60.0",
+ "ssp": {
+  "code": "F1.16",
+  "nom": "Œdème",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Œdème des membres inférieurs prenant le godet",
+    "i": "Porte d'entrée du SSP : le premier tri sépare œdème unilatéral, signes d'organe et cause médicamenteuse.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Unilatéral, douloureux ou asymétrique ?",
+    "i": "Un œdème asymétrique n'est pas médicamenteux : la thrombose veineuse profonde doit être exclue.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Suspicion de TVP : score de Wells, D-dimères, écho-doppler",
+    "i": "Sort du cadre médicamenteux : renvoi vers le SSP de la douleur ou tuméfaction d'un membre (TVP).",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n4",
+    "parent": "n1",
+    "t": "Bilatéral et symétrique : drapeau rouge ?",
+    "i": "Avant d'attribuer l'œdème à un médicament, on exclut une atteinte cardiaque, rénale ou protéique.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Dyspnée, orthopnée, prise de poids rapide",
+    "i": "Décompensation cardiaque vraie, notamment sous AINS, corticoïde ou glitazone ; renvoi vers le SSP Dyspnée pour le bilan.",
+    "pec": "urgence",
+    "notion": "c4"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Oligurie ou créatinine en hausse sous AINS",
+    "i": "Insuffisance rénale aiguë hémodynamique ; renvoi vers le SSP d'insuffisance rénale pour le bilan.",
+    "pec": "urgence",
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n4",
+    "t": "Protéinurie, œdème périorbitaire, albumine basse",
+    "i": "Syndrome néphrotique probable : sort du cadre médicamenteux, renvoi vers le SSP protéinurie/néphrologie.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n8",
+    "parent": "n4",
+    "t": "Aucun drapeau rouge : revue médicamenteuse",
+    "i": "Elle datte chaque introduction ou hausse de dose, automédication comprise.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Dihydropyridine (amlodipine, nifédipine)",
+    "i": "Œdème par redistribution : réduire la dose, associer un IEC/sartan ou changer de molécule, sans diurétique.",
+    "pec": "dhp",
+    "notion": "c7"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "AINS ou coxib",
+    "i": "Rétention sodée : arrêt de l'AINS, remplacement par paracétamol ou topique.",
+    "pec": "ains_cortico",
+    "notion": "c7"
+   },
+   {
+    "id": "n11",
+    "parent": "n8",
+    "t": "Corticoïde, pioglitazone, prégabaline ou autre",
+    "i": "Dose minimale efficace pour le corticoïde, arrêt de la pioglitazone, réduction progressive de la prégabaline.",
+    "pec": "ains_cortico",
+    "notion": "c7"
+   },
+   {
+    "id": "n12",
+    "parent": "n8",
+    "t": "Aucun médicament suspect ou œdème persistant après 3 semaines",
+    "i": "Le diagnostic doit être remis en question : IVC, insuffisance cardiaque, cirrhose, syndrome néphrotique, hypothyroïdie, lymphœdème ; renvoi vers les autres entités du SSP.",
+    "pec": null,
+    "notion": "c8"
+   }
+  ]
+ },
+ "specialites": [
+  "TOX"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Œdèmes médicamenteux (inhibiteurs calciques, AINS, corticoïdes)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définition et mécanismes : redistribution (dihydropyridines) ou rétention sodée (AINS, corticoïdes, glitazones)",
+   "rubriques": [
+    "definition",
+    "basicSciences"
+   ],
+   "comment": "Pour raisonner, tu distingues d'abord si le médicament redistribue le liquide (dihydropyridine) ou retient le sodium (AINS, corticoïde, glitazone), car cela décide du rôle des diurétiques.",
+   "tableau": {
+    "colonnes": [
+     "Classe",
+     "Médicament chef de file",
+     "Mécanisme",
+     "Délai",
+     "Diurétique utile ?"
+    ],
+    "lignes": [
+     [
+      "Inhibiteurs calciques dihydropyridines",
+      "Amlodipine, nifédipine",
+      [
+       {
+        "t": "Vasodilatation artériolaire précapillaire sans dilatation veinulaire",
+        "i": "Elle élève la pression hydrostatique capillaire ; vérapamil et diltiazem dilatent peu les artérioles et donnent nettement moins d'œdèmes."
+       }
+      ],
+      "Semaines à mois après introduction ou hausse de dose",
+      [
+       {
+        "t": "Non",
+        "i": "Il s'agit d'une redistribution sans rétention sodée : le diurétique n'agit pas et expose à l'hypovolémie et aux troubles ioniques."
+       }
+      ]
+     ],
+     [
+      "AINS et coxibs",
+      "Ibuprofène, diclofénac",
+      [
+       {
+        "t": "Inhibition des COX, baisse des prostaglandines rénales, rétention de Na et d'eau",
+        "i": "La vasoconstriction afférente explique la rétention ; les coxibs ont le même effet rénal et ne sont donc pas une alternative."
+       }
+      ],
+      "Jours à semaines",
+      [
+       {
+        "t": "Peu utile, arrêter l'AINS",
+        "i": "Le diurétique traite le symptôme mais, associé à un IEC/sartan, majore le risque d'insuffisance rénale aiguë (triple whammy)."
+       }
+      ]
+     ],
+     [
+      "Corticoïdes",
+      "Prednisone, hydrocortisone",
+      [
+       {
+        "t": "Effet minéralocorticoïde : rétention de Na, perte de K",
+        "i": "La dexaméthasone en est quasi dépourvue, donc elle expose beaucoup moins à l'œdème."
+       }
+      ],
+      "Jours à semaines",
+      [
+       {
+        "t": "Rarement",
+        "i": "La priorité est la dose minimale efficace ; un diurétique de l'anse aggrave l'hypokaliémie déjà induite par le corticoïde."
+       }
+      ]
+     ],
+     [
+      "Glitazones",
+      "Pioglitazone",
+      [
+       {
+        "t": "Activation de PPARγ au tubule collecteur : rétention hydrosodée",
+        "i": "Elle est contre-indiquée en insuffisance cardiaque, car l'œdème peut masquer une décompensation."
+       }
+      ],
+      "Semaines",
+      [
+       {
+        "t": "Arrêt préférable",
+        "i": "Stopper la cause évite la décompensation ; le diurétique ne se justifie que si l'insuffisance cardiaque est avérée."
+       }
+      ]
+     ],
+     [
+      "Gabapentinoïdes",
+      "Prégabaline",
+      [
+       {
+        "t": "Œdème dose-dépendant, mécanisme mal élucidé",
+        "i": "Il est souvent oublié à l'anamnèse ; seule la réduction ou l'arrêt progressif du médicament est causale."
+       }
+      ],
+      "Semaines",
+      [
+       {
+        "t": "Non",
+        "i": "Aucune rétention sodée démontrée : le diurétique n'a pas de justification physiopathologique."
+       }
+      ]
+     ],
+     [
+      "Autres rétenteurs de sel",
+      "Minoxidil, œstrogènes, fludrocortisone, ciclosporine, tacrolimus, imatinib, réglisse",
+      [
+       {
+        "t": "Rétention sodée directe ou effet pseudo-minéralocorticoïde",
+        "i": "La glycyrrhizine de la réglisse imite l'aldostérone : hypertension et hypokaliémie associées doivent la faire évoquer."
+       }
+      ],
+      "Variable",
+      "Selon le médicament, après avis spécialisé"
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Un œdème médicamenteux est bilatéral, déclive, prend le godet, apparaît après l'introduction ou l'augmentation d'un médicament et régresse à son arrêt.",
+    "Les dihydropyridines dilatent les artérioles précapillaires bien plus que les veinules : la pression capillaire monte et le liquide passe dans l'interstitium sans prise de poids notable.",
+    "Les dihydropyridines altèrent le réflexe veinulo-artériolaire debout, ce qui aggrave l'œdème déclive en fin de journée.",
+    "Les AINS, les corticoïdes à effet minéralocorticoïde et la pioglitazone retiennent le sodium et l'eau, ce qui entraîne une vraie prise de poids.",
+    "La prégabaline, le minoxidil, les œstrogènes, la ciclosporine, le tacrolimus, l'imatinib et la réglisse sont des causes fréquemment oubliées."
+   ],
+   "sources": [
+    "AIPS Swissmedic, informations professionnelles (amlodipine, pioglitazone, AINS, prégabaline)",
+    "ESC/ESH Guidelines on arterial hypertension 2018"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie : dose, sexe, classe et automédication",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Tu estimes la probabilité pré-test en repérant le médicament, sa dose, le sexe et l'âge du patient, puis l'automédication par AINS vendus sans ordonnance.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "L'œdème de l'amlodipine dépend de la dose : il touche environ 10 % des patients à 10 mg contre environ 3 % à 5 mg.",
+    "Il est plus fréquent chez la femme que chez l'homme et augmente avec la dose.",
+    "Les inhibiteurs calciques non dihydropyridiniques (vérapamil, diltiazem) provoquent nettement moins d'œdèmes que l'amlodipine ou la nifédipine.",
+    "Les AINS (ibuprofène, diclofénac) sont en vente libre en Suisse, ce qui favorise une automédication non déclarée chez les patients âgés polymédiqués.",
+    "Cette cause iatrogène est très fréquente chez le patient hypertendu et doit être évoquée avant tout bilan étiologique lourd."
+   ],
+   "sources": [
+    "AIPS Swissmedic, information professionnelle amlodipine",
+    "Swissmedic, statut de remise des AINS"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse et examen clinique : chronologie et absence d'atteinte d'organe",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Tu cherches la chronologie médicamenteuse, l'automédication et une cascade de prescription, puis tu vérifies à l'examen qu'aucun signe cardiaque, hépatique, rénal ni veineux n'explique l'œdème.",
+   "tableau": {
+    "colonnes": [
+     "Critère",
+     "Œdème de dihydropyridine",
+     "Œdème par rétention sodée (AINS, corticoïde, glitazone)"
+    ],
+    "lignes": [
+     [
+      "Délai d'apparition",
+      [
+       {
+        "t": "Semaines à mois",
+        "i": "Il dépend de la dose et s'installe progressivement avec la redistribution liquidienne."
+       }
+      ],
+      [
+       {
+        "t": "Jours à semaines",
+        "i": "La rétention rénale de sodium s'installe vite après inhibition des COX ou effet minéralocorticoïde."
+       }
+      ]
+     ],
+     [
+      "Poids",
+      [
+       {
+        "t": "Quasi stable",
+        "i": "Il y a déplacement de liquide sans bilan sodé positif."
+       }
+      ],
+      [
+       {
+        "t": "Prise de poids possible",
+        "i": "Le bilan sodé est positif ; une prise de poids rapide avec dyspnée évoque une décompensation cardiaque."
+       }
+      ]
+     ],
+     [
+      "Tension artérielle",
+      [
+       {
+        "t": "Contrôlée, parfois basse",
+        "i": "Le médicament est un antihypertenseur vasodilatateur."
+       }
+      ],
+      [
+       {
+        "t": "Normale ou élevée",
+        "i": "Les AINS et corticoïdes élèvent la tension et contrarient les antihypertenseurs."
+       }
+      ]
+     ],
+     [
+      "Réponse au diurétique",
+      [
+       {
+        "t": "Absente",
+        "i": "Il n'existe pas de surcharge sodée à éliminer."
+       }
+      ],
+      [
+       {
+        "t": "Partielle, mais l'arrêt prime",
+        "i": "Le diurétique ne corrige pas la cause et ajoute un risque rénal et ionique."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le médecin demande la chronologie d'apparition après introduction ou augmentation de dose d'amlodipine, prégabaline, AINS ou corticoïdes.",
+    "Il interroge activement sur l'automédication (AINS sans ordonnance, réglisse, phytothérapie, œstrogènes), que le patient ne mentionne pas spontanément.",
+    "Il recherche un diurétique introduit après l'apparition des œdèmes, signe d'une cascade de prescription.",
+    "L'examen montre des œdèmes malléolaires et prétibiaux bilatéraux, symétriques, indolores, prenant le godet, majorés en fin de journée et régressant avec la surélévation des jambes.",
+    "Il n'y a ni turgescence jugulaire, ni reflux hépato-jugulaire, ni crépitants, ni ascite, ni varices, ni dermite ochre, ni signe de Stemmer."
+   ],
+   "sources": [
+    "ESC 2021 Heart Failure Guidelines (signes cliniques de congestion)",
+    "Pratique clinique suisse de médecine interne générale"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Signes d'alerte : exclure TVP, décompensation cardiaque, IRA et syndrome néphrotique",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Avant de conclure à un œdème médicamenteux bénin, tu cherches un drapeau rouge qui impose un bilan urgent ou un autre SSP.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Œdème sous médicament suspect : drapeau rouge ?",
+     "i": "Le diagnostic d'œdème médicamenteux est un diagnostic d'exclusion qui suppose l'absence d'atteinte d'organe.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Unilatéral, douloureux ou asymétrique",
+     "i": "Un œdème asymétrique n'est pas médicamenteux et évoque une thrombose veineuse profonde.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Score de Wells, D-dimères, écho-doppler veineux",
+     "i": "Le score de Wells fixe la probabilité pré-test et détermine si les D-dimères suffisent à exclure ou si l'écho-doppler s'impose.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Dyspnée, orthopnée, prise de poids rapide",
+     "i": "Sous AINS, corticoïde ou glitazone, ces signes évoquent une décompensation cardiaque vraie qui impose un bilan urgent.",
+     "pec": "urgence",
+     "notion": "c4"
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Oligurie ou créatinine en hausse sous AINS",
+     "i": "Ils évoquent une insuffisance rénale aiguë hémodynamique, surtout avec IEC/sartan et diurétique.",
+     "pec": "urgence",
+     "notion": "c4"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Protéinurie, œdème périorbitaire, albumine basse",
+     "i": "Ils orientent vers un syndrome néphrotique, que les AINS peuvent provoquer par néphrite interstitielle ou lésions glomérulaires minimes.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n7",
+     "parent": "n1",
+     "t": "Aucun drapeau rouge",
+     "i": "Œdèmes bilatéraux indolores sans atteinte d'organe : un œdème médicamenteux est probable et le déchallenge peut être proposé.",
+     "pec": "dhp",
+     "notion": "c6"
+    }
+   ],
+   "points": [
+    "Un œdème unilatéral, douloureux ou asymétrique évoque une thrombose veineuse profonde et impose score de Wells, D-dimères ou écho-doppler veineux.",
+    "Une dyspnée, une orthopnée ou une prise de poids rapide sous AINS, corticoïde ou glitazone évoquent une décompensation cardiaque vraie.",
+    "Une oligurie ou une élévation de la créatinine sous AINS évoque une insuffisance rénale aiguë hémodynamique, surtout avec IEC/sartan et diurétique.",
+    "Une protéinurie, un œdème périorbitaire ou une albumine basse orientent vers un syndrome néphrotique."
+   ],
+   "sources": [
+    "ESC 2021 Heart Failure Guidelines",
+    "KDIGO 2012 Acute Kidney Injury",
+    "AIPS Swissmedic, AINS (précautions rénales et cardiovasculaires)"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Bilan : revue médicamenteuse d'abord, puis bilan ciblé et déchallenge",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Tu commences par la revue médicamenteuse exhaustive, tu limites le bilan biologique aux organes pouvant expliquer l'œdème et tu confirmes par le déchallenge.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Revue médicamenteuse exhaustive",
+     "i": "Elle précise les dates d'introduction et de changement de dose, y compris l'automédication ; c'est l'examen le plus rentable.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Créatinine avec eGFR, Na, K, bandelette urinaire",
+     "i": "Ce bilan de base dépiste l'insuffisance rénale, un trouble ionique, une protéinurie ou une hématurie.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Bandelette positive pour protéines",
+     "i": "Une protéinurie fait doser l'albumine sérique et le rapport protéines/créatinine urinaire pour écarter un syndrome néphrotique.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Doute cardiaque : NT-proBNP",
+     "i": "Un NT-proBNP inférieur à 125 ng/L rend une insuffisance cardiaque chronique très improbable en ambulatoire et soutient la cause médicamenteuse.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "NT-proBNP ≥ 125 ng/L ou signes cliniques",
+     "i": "Un taux élevé n'exclut plus l'insuffisance cardiaque : l'échocardiographie s'impose.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n6",
+     "parent": "n2",
+     "t": "Tests hépatiques, albumine, TSH selon la clinique",
+     "i": "Ils écartent cirrhose, syndrome néphrotique et hypothyroïdie, autres causes d'œdème bilatéral.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n7",
+     "parent": "n2",
+     "t": "Bilan normal : déchallenge",
+     "i": "Réduire la dose ou arrêter le médicament suspect ; la régression en 1 à 3 semaines confirme le diagnostic.",
+     "pec": "dhp",
+     "notion": "c6"
+    }
+   ],
+   "points": [
+    "Le premier examen est la revue médicamenteuse exhaustive, avec dates d'introduction et de modification de dose, y compris automédication.",
+    "Le bilan de base comprend créatinine avec eGFR, sodium, potassium et bandelette urinaire ; albumine, tests hépatiques et TSH s'ajoutent selon la clinique.",
+    "Un NT-proBNP inférieur à 125 ng/L rend une insuffisance cardiaque chronique très improbable en ambulatoire.",
+    "Le déchallenge (réduction ou arrêt) est l'examen diagnostique alternatif : la régression en 1 à 3 semaines confirme la cause.",
+    "Un écho-doppler veineux s'impose en cas d'asymétrie, une échocardiographie en cas de NT-proBNP élevé."
+   ],
+   "sources": [
+    "ESC 2021 Heart Failure Guidelines (NT-proBNP < 125 ng/L)",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Diagnostic positif, imputabilité et pharmacovigilance",
+   "rubriques": [
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu poses le diagnostic sur trois éléments concordants, tu mesures l'imputabilité du médicament et tu connais l'obligation d'annonce à Swissmedic.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le diagnostic repose sur une chronologie compatible avec un médicament œdématogène, des œdèmes bilatéraux et un bilan cardiaque, hépatique, rénal et thyroïdien normal.",
+    "L'échelle de Naranjo évalue l'imputabilité du médicament dans la survenue de l'effet indésirable.",
+    "La régression à l'arrêt (déchallenge positif) renforce l'imputabilité ; la réapparition à la reprise la confirme mais ne se provoque pas volontairement.",
+    "En Suisse, les professionnels de santé annoncent à Swissmedic, via un centre régional de pharmacovigilance, les effets indésirables graves ou inattendus."
+   ],
+   "sources": [
+    "Swissmedic, pharmacovigilance et centres régionaux",
+    "Naranjo CA et al., Clin Pharmacol Ther 1981"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge : adapter le médicament, jamais de diurétique pour une dihydropyridine",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "Tu écartes d'abord l'urgence rénale ou cardiaque, puis tu adaptes le médicament responsable selon son mécanisme au lieu de prescrire un diurétique.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Œdème sous dihydropyridine, fonctions cardiaque et rénale normales",
+     "i": "Aucune urgence : le médecin rassure et planifie l'adaptation du traitement après réévaluation de l'indication.",
+     "pec": "dhp",
+     "notion": "c7"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Dose élevée (amlodipine 10 mg) et TA contrôlée : réduire à 5 mg",
+     "i": "L'œdème dépend de la dose (environ 10 % contre 3 %), donc la réduction suffit souvent.",
+     "pec": "dhp",
+     "notion": "c2"
+    },
+    {
+     "id": "n3",
+     "parent": "n1",
+     "t": "TA non contrôlée : ajouter un IEC ou un sartan",
+     "i": "Ils dilatent le versant veineux et réduisent l'œdème ; des associations fixes existent (amlodipine/valsartan, amlodipine/périndopril).",
+     "pec": "dhp",
+     "notion": "c7"
+    },
+    {
+     "id": "n4",
+     "parent": "n1",
+     "t": "Œdème persistant : lercanidipine, lacidipine ou autre classe",
+     "i": "Ces dihydropyridines sont moins œdématogènes ; une autre classe antihypertensive supprime le mécanisme en cause.",
+     "pec": "dhp",
+     "notion": "c7"
+    },
+    {
+     "id": "n5",
+     "parent": "n1",
+     "t": "Diurétique : à ne pas prescrire",
+     "i": "Il est inefficace et provoque hypokaliémie, déshydratation et insuffisance rénale (cascade de prescription).",
+     "pec": null,
+     "notion": "c8"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "Mesures adjuvantes : surélévation, contention",
+     "i": "Elles soulagent le symptôme mais ne remplacent jamais l'adaptation du médicament en cause.",
+     "pec": "dhp",
+     "notion": "c7"
+    },
+    {
+     "id": "n7",
+     "parent": null,
+     "t": "Œdème sous AINS, corticoïde, glitazone ou prégabaline",
+     "i": "Le mécanisme est une rétention sodée : la cause doit être supprimée ou réduite.",
+     "pec": "ains_cortico",
+     "notion": "c7"
+    }
+   ],
+   "points": [
+    "Si les fonctions rénale et cardiaque sont normales, aucune urgence n'existe ; en cas d'insuffisance rénale aiguë ou de décompensation sous AINS, il faut arrêter l'AINS immédiatement et contrôler créatinine et potassium.",
+    "Le médecin réévalue l'indication de la dihydropyridine et réduit la dose si possible (amlodipine de 10 à 5 mg) tant que la tension reste contrôlée.",
+    "Il remplace l'amlodipine par la lercanidipine ou la lacidipine, ou associe un IEC/sartan qui dilate le versant veineux.",
+    "Sous AINS, il arrête le médicament (coxibs inclus) et prescrit du paracétamol ou un topique ; sous pioglitazone, il arrête le traitement ; sous corticoïdes, il vise la dose minimale efficace avec limitation du sel.",
+    "La surélévation des jambes et la contention sont adjuvantes ; le diurétique n'est pas indiqué pour un œdème de dihydropyridine."
+   ],
+   "sources": [
+    "AIPS Swissmedic, informations professionnelles (amlodipine, lercanidipine, associations fixes)",
+    "ESC/ESH Guidelines on arterial hypertension 2018"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications, pronostic, surveillance et réseau de suivi",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "Tu anticipes la cascade de prescription et le triple whammy, tu contrôles l'évolution à 1 à 3 semaines et tu remets en question le diagnostic si les œdèmes persistent.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La cascade de prescription (diurétique ajouté à un œdème médicamenteux) provoque hypokaliémie, hyponatrémie, déshydratation, hypotension orthostatique, chutes et insuffisance rénale.",
+    "L'association AINS, IEC/sartan et diurétique (triple whammy) expose à l'insuffisance rénale aiguë ; les AINS peuvent aussi causer hypertension, décompensation cardiaque et hyperkaliémie.",
+    "Un œdème chronique fragilise la peau et favorise dermite, ulcère et cellulite infectieuse.",
+    "L'œdème est complètement réversible, régresse en 1 à 3 semaines ; s'il persiste, le médecin cherche une insuffisance veineuse, cardiaque, rénale ou hépatique.",
+    "Le médecin de premier recours coordonne, le pharmacien peut faire un check de polymédication remboursé par la LAMal, et l'intolérance est documentée pour éviter toute ré-exposition."
+   ],
+   "sources": [
+    "AIPS Swissmedic",
+    "Swissmedic, pharmacovigilance",
+    "OFSP / LAMal, prestations pharmaceutiques (check de polymédication)"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "urgence",
+   "titre": "Décompensation cardiaque ou insuffisance rénale aiguë sous AINS, corticoïde ou glitazone",
+   "but": [
+    "Stabiliser la fonction cardiaque et rénale en supprimant le médicament responsable.",
+    "Décider de l'hospitalisation selon la gravité de l'atteinte."
+   ],
+   "moyens": {
+    "accueil": [
+     "Prendre les constantes (TA, FC, SpO2, poids) et évaluer la volémie dès l'arrivée.",
+     "Faire la revue médicamenteuse complète, automédication par AINS comprise.",
+     "Installer le patient en position demi-assise s'il est dyspnéique."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Furosémide (diurétique de l'anse)",
+      "posologie": "20–40 mg i.v. en bolus chez un patient naïf de diurétique, à adapter à la réponse diurétique ; uniquement en cas de surcharge cardiaque avérée.",
+      "pourquoi": "Il traite la congestion d'une insuffisance cardiaque décompensée ; il est inadapté si l'insuffisance rénale est hypovolémique.",
+      "source": "[ESC, 2021]"
+     },
+     {
+      "molecule": "Oxygène (gaz médicinal)",
+      "posologie": "Débit titré pour une SpO2 ≥ 90 %, seulement si SpO2 < 90 %.",
+      "pourquoi": "Il corrige l'hypoxémie d'un œdème pulmonaire ; il n'a pas d'indication systématique chez le patient normoxémique.",
+      "source": "[ESC, 2021]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Arrêter immédiatement l'AINS, le coxib ou la glitazone responsable.",
+      "pourquoi": "La suppression de la cause conditionne la récupération rénale et cardiaque."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Suspendre temporairement IEC/sartan et diurétique si l'insuffisance rénale est hypovolémique.",
+      "pourquoi": "Ils aggravent la baisse de filtration glomérulaire dans le triple whammy."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Surveiller la diurèse, le poids et les constantes.",
+      "pourquoi": "Le bilan hydrique objective la réponse au traitement."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'événement, informe le patient et déclare l'effet indésirable grave à Swissmedic."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Arrêter l'AINS ou le médicament rétenteur dès la suspicion.",
+      "Hospitaliser selon la gravité de l'atteinte cardiaque ou rénale."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue l'état hémodynamique et respiratoire, puis arrête l'AINS ou la glitazone."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose une voie veineuse, monitore les constantes, mesure poids et diurèse."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Demande créatinine, potassium, NT-proBNP, ECG et radiographie du thorax."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Donne du furosémide i.v. si surcharge, ou corrige l'hypovolémie si IRA prérénale."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Cardiologue ou néphrologue guide échocardiographie, dialyse éventuelle et hospitalisation."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Contrôler créatinine et potassium après stabilisation.",
+      "Remplacer l'AINS par une alternative non néphrotoxique."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Contrôle créatinine et potassium 48 à 72 heures après l'arrêt du médicament."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Remplace l'AINS par du paracétamol et réévalue IEC/sartan et diurétique."
+      },
+      {
+       "temps": "puis",
+       "qui": "pharmacien",
+       "fait": "Réalise un check de polymédication pour supprimer les AINS en vente libre."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'insuffisance rénale aiguë hémodynamique sous AINS est généralement réversible après arrêt précoce du médicament ; la décompensation cardiaque dépend de la cardiopathie sous-jacente.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Créatinine et potassium",
+      "quand": "48 à 72 heures puis jusqu'à stabilisation",
+      "cible": "Retour à la valeur de base, kaliémie normale"
+     },
+     {
+      "quoi": "Poids et diurèse",
+      "quand": "Quotidien en hospitalisation",
+      "cible": "Retour au poids sec, diurèse conservée"
+     },
+     {
+      "quoi": "Dyspnée et SpO2",
+      "quand": "En continu puis à chaque visite",
+      "cible": "Absence d'orthopnée, SpO2 ≥ 90 %"
+     },
+     {
+      "quoi": "Tension artérielle",
+      "quand": "À chaque visite",
+      "cible": "Objectif tensionnel individuel atteint sans AINS"
+     }
+    ],
+    "sortie": "Créatinine en baisse vers la valeur de base, kaliémie normale, congestion contrôlée, AINS arrêté et patient informé de ne plus en prendre."
+   },
+   "prevention": {
+    "primaire": "Éviter les AINS chez les patients avec insuffisance cardiaque, insuffisance rénale ou associant IEC/sartan et diurétique.",
+    "secondaire": "Rechercher systématiquement l'automédication par AINS devant tout œdème ou toute hausse de créatinine.",
+    "tertiaire": "Documenter l'intolérance au dossier et informer le patient pour éviter toute ré-exposition."
+   }
+  },
+  {
+   "cle": "dhp",
+   "titre": "Œdème sous dihydropyridine, non compliqué (ambulatoire)",
+   "but": [
+    "Faire régresser l'œdème sans perdre le contrôle tensionnel.",
+    "Éviter la cascade de prescription par diurétique."
+   ],
+   "moyens": {
+    "accueil": [
+     "Rassurer le patient : l'œdème est bénin et réversible après adaptation du traitement.",
+     "Confirmer l'absence de drapeau rouge et noter poids et tension artérielle.",
+     "Lister toutes les dates d'introduction et de modification de dose, automédication comprise."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Amlodipine (inhibiteur calcique dihydropyridinique), réduction de dose",
+      "posologie": "Passer de 10 à 5 mg par voie orale 1 fois par jour si la tension reste contrôlée ; réévaluer à 1–3 semaines.",
+      "pourquoi": "L'œdème dépend de la dose (environ 10 % à 10 mg contre 3 % à 5 mg) ; la réduction suffit souvent.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Amlodipine/valsartan ou amlodipine/périndopril (association fixe dihydropyridine + sartan ou IEC)",
+      "posologie": "1 comprimé par jour selon le dosage fixe adapté à la tension ; contrôler créatinine et potassium 1–2 semaines après l'ajout.",
+      "pourquoi": "L'IEC ou le sartan dilate le versant veineux et réduit l'œdème de l'amlodipine tout en renforçant l'effet antihypertenseur.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Lercanidipine (dihydropyridine moins œdématogène)",
+      "posologie": "10 mg par voie orale 1 fois par jour avant un repas, augmentable à 20 mg selon la réponse tensionnelle.",
+      "pourquoi": "Elle donne moins d'œdèmes que l'amlodipine à efficacité antihypertensive comparable ; la lacidipine est une autre option.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Surélever les jambes plusieurs fois par jour et limiter la station debout prolongée.",
+      "pourquoi": "Cela soulage le symptôme déclive sans remplacer l'adaptation du médicament."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Proposer une contention veineuse légère en traitement adjuvant.",
+      "pourquoi": "Elle limite la stase déclive tant que le traitement n'est pas adapté."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer le mécanisme et inciter à ne jamais prendre d'AINS sans avis.",
+      "pourquoi": "Cela évite une rétention sodée surajoutée et un recours inutile aux diurétiques."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Oriente vers le check de polymédication remboursé par l'assurance obligatoire (LAMal) chez le patient polymédiqué."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'intolérance au dossier et déclare à Swissmedic tout effet grave ou inattendu."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Ne pas prescrire de diurétique pour un œdème de dihydropyridine.",
+      "Réévaluer d'abord l'indication et la dose du médicament.",
+      "Planifier un contrôle à 1 à 3 semaines."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Réévalue l'indication de la dihydropyridine et vérifie que la tension est contrôlée."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "patient·e",
+       "fait": "Apporte la liste complète de ses médicaments, y compris les AINS sans ordonnance."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Réduit l'amlodipine à 5 mg, la remplace par lercanidipine ou ajoute un IEC/sartan."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "pharmacien",
+       "fait": "Réalise le check de polymédication et signale les interactions et les AINS."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Contrôle œdèmes et tension à 1–3 semaines, créatinine et potassium si IEC/sartan ajouté."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'œdème est complètement réversible, sans séquelle, et régresse en 1 à 3 semaines après adaptation du traitement ; sinon le diagnostic doit être remis en question.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Œdèmes (godet, périmètre de cheville)",
+      "quand": "1 à 3 semaines après adaptation",
+      "cible": "Régression nette ou disparition"
+     },
+     {
+      "quoi": "Tension artérielle",
+      "quand": "À chaque changement de traitement puis 1 à 3 semaines",
+      "cible": "Objectif tensionnel individuel maintenu"
+     },
+     {
+      "quoi": "Créatinine et potassium",
+      "quand": "1 à 2 semaines après l'ajout d'un IEC/sartan",
+      "cible": "Créatinine stable, kaliémie normale"
+     },
+     {
+      "quoi": "Poids",
+      "quand": "À chaque contrôle",
+      "cible": "Stable, sans prise de poids"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : fonctions cardiaque et rénale normales, aucun drapeau rouge, œdèmes bilatéraux indolores."
+   },
+   "prevention": {
+    "primaire": "Commencer l'amlodipine à la dose la plus faible efficace et informer le patient du risque d'œdème dose-dépendant.",
+    "secondaire": "Faire une revue médicamenteuse devant tout œdème nouveau et refuser la cascade de prescription par diurétique.",
+    "tertiaire": "Documenter l'intolérance et éviter la ré-exposition à la dose ou à la molécule responsable."
+   }
+  },
+  {
+   "cle": "ains_cortico",
+   "titre": "Œdème par rétention hydrosodée sous AINS, corticoïde, glitazone ou prégabaline, non compliqué",
+   "but": [
+    "Supprimer ou réduire le médicament qui retient le sodium.",
+    "Maintenir le contrôle de la maladie traitée par une alternative adaptée."
+   ],
+   "moyens": {
+    "accueil": [
+     "Confirmer l'absence de décompensation cardiaque, d'insuffisance rénale et de protéinurie.",
+     "Interroger sur l'automédication par AINS, réglisse, phytothérapie et œstrogènes.",
+     "Mesurer poids et tension artérielle pour objectiver la rétention."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Paracétamol (antalgique non AINS)",
+      "posologie": "500–1000 mg par voie orale par prise, jusqu'à 4 fois par jour ; maximum 4 g/j, à réduire (3 g/j) si fragilité, hépatopathie ou alcool.",
+      "pourquoi": "Il soulage la douleur sans inhibition rénale des COX et sans rétention sodée, contrairement aux AINS et aux coxibs.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Diclofénac topique en gel (AINS à usage local)",
+      "posologie": "Appliquer 2 à 4 fois par jour sur la zone douloureuse, selon l'indication, en limitant surface et durée.",
+      "pourquoi": "L'absorption systémique est faible, ce qui permet un traitement local d'une douleur articulaire ou musculaire sans rétention sodée marquée.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Arrêter tous les AINS, coxibs compris, et la pioglitazone, avec une alternative décidée avec le spécialiste.",
+      "pourquoi": "La rétention sodée persiste tant que le médicament est pris ; la pioglitazone est contre-indiquée en insuffisance cardiaque."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Réduire la prégabaline progressivement sur au moins une semaine plutôt que l'arrêter brutalement.",
+      "pourquoi": "L'arrêt progressif évite les symptômes de sevrage tout en supprimant l'œdème dose-dépendant."
+     },
+     {
+      "categorie": "nutrition",
+      "mesure": "Limiter l'apport en sel et éviter la réglisse sous corticoïdes.",
+      "pourquoi": "Le sel et la glycyrrhizine aggravent la rétention hydrosodée et l'hypokaliémie."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer pourquoi les AINS en vente libre sont à éviter.",
+      "pourquoi": "L'automédication non déclarée est la cause fréquente de récidive chez le patient âgé polymédiqué."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Oriente vers le check de polymédication remboursé par l'assurance obligatoire (LAMal)."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente l'intolérance et informe le patient pour éviter toute ré-exposition."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Utiliser la dose minimale efficace de corticoïde, avec contrôle de la tension et du potassium.",
+      "Ne pas ajouter de diurétique avant d'avoir agi sur le médicament en cause."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Identifie le médicament rétenteur et confirme l'absence de décompensation ou d'insuffisance rénale."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Mesure poids et tension, réalise la bandelette urinaire et documente les œdèmes."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Arrête AINS ou pioglitazone, réduit corticoïde au minimum et diminue progressivement la prégabaline."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "spécialiste",
+       "fait": "Rhumatologue ou diabétologue propose un traitement alternatif adapté à la maladie de base."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Revoit à 1–3 semaines poids, tension, œdèmes, créatinine et potassium."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'œdème est complètement réversible après arrêt ou adaptation du médicament responsable, avec régression attendue en 1 à 3 semaines.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Poids et œdèmes",
+      "quand": "1 à 3 semaines après adaptation",
+      "cible": "Retour au poids habituel, œdèmes disparus"
+     },
+     {
+      "quoi": "Tension artérielle",
+      "quand": "À chaque contrôle",
+      "cible": "Objectif individuel, sans poussée hypertensive"
+     },
+     {
+      "quoi": "Créatinine, sodium et potassium",
+      "quand": "1 à 3 semaines et sous corticoïdes au long cours",
+      "cible": "Créatinine stable, kaliémie normale"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : pas de dyspnée, créatinine normale, œdèmes indolores, médicament rétenteur arrêté ou réduit."
+   },
+   "prevention": {
+    "primaire": "Éviter AINS et pioglitazone chez le sujet à risque cardiaque ou rénal et préférer paracétamol ou topique.",
+    "secondaire": "Interroger à chaque consultation sur l'automédication et les médicaments sans ordonnance.",
+    "tertiaire": "Inscrire l'intolérance au dossier et informer le patient pour éviter toute ré-exposition."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6588,
+  "output_tokens": 28403,
+  "output_tokens_details": {
+   "thinking_tokens": 12761
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:59",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": {
+   "verdict": "🟩",
+   "date": "2026-11-26",
+   "aVerifier": [],
+   "audit": "AUDIT_V3_B"
+  }
+ }
+}

@@ -173,3 +173,20 @@ Contrôles lot 9 : `controle_menus_longs.py` des spécialités du lot → 0 menu
 | R49.0__S1_3-E02 | 🟧 | Forme : clé « key » hors schéma retirée d'un énoncé (Q11). Corrigé : Q20 (d4, vignette sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue. |
 
 Contrôles lot 10 : 0 menu fautif ; 0 erreur `valider()` sur les 8 pathologies 🟩/🟧 ; les 2 🟥 (R23.1, R49.0_1) gardent une erreur de schéma et restent hors de main.
+
+## Lot 11 — rangs 605 à 614
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| R52.1__O5_3-E01 | 🟩 | Aucune erreur retenue : fentanyl transmuqueux seulement si ≥ 60 mg/j de morphine orale, paracétamol ≤ 3 g/j si cachexie, congé de proche aidant 3 jours par événement et 10 jours par an (CO art. 329h). |
+| R53__O2_11-E02 | 🟩 | Aucune erreur retenue : déshydratation 3–5 / 6–9 / ≥ 10 %, Step-by-Step (PCT ≥ 0,5 ng/mL, CRP > 20 mg/L, ≤ 21 jours hospitalisé), bolus 10–20 mL/kg. |
+| R54_3__O7_24-E01 | 🟩 | Aucune erreur retenue (Collard 2012 : 10–15 % fragiles, ≈ 40 % préfragiles ; GDS-15 > 5 ; protéines 1,0–1,2 g/kg/j ; vitamine D 800 UI dès 60 ans). |
+| R55_3__F1_19-E01 | 🟩 | Aucune erreur retenue : ESC 2018 (lever actif 1 et 3 min, ≥ 20/10 mmHg ou PAS < 90, massage sinocarotidien > 40 ans avec pause ≥ 3 s, tilt-test), règle de San Francisco. Alerte mécanique de Q11 (« syncope », symptôme d'appel) : laissée. |
+| R55_4__F1_19-E03 | 🟩 | Aucune erreur retenue (hypotension post-prandiale ≥ 20 mmHg dans les 2 h, ESC 2018). |
+| R55__S7_1-E09 | 🟩 | Forme : clé « false » retirée (Q15). Aucune erreur médicale retenue (pooling 500–800 mL, arrêt du flux 6–8 s, règle CHESS, tilt-test avec trinitrine 400 µg). |
+| R60.0_1__F1_16-E03 | 🟩 | Aucune erreur retenue : œdème sous amlodipine ≈ 10 % à 10 mg contre ≈ 3 % à 5 mg ; déchallenge et régression en 1–3 semaines. |
+| R60.9__G12-E03 | 🟧 | Forme : priseEnCharge réparée au lot 1. Aucune erreur médicale retenue (amlodipine dose-dépendante, demi-vie 30–50 h, prégabaline et pioglitazone 1–10 %). |
+| R62.0__O2_11-E01 | 🟧 | Forme : Q01 et Q17 portaient 7 notions (max. 6) ; une notion couverte ailleurs retirée de chacune. Aucune erreur médicale retenue (pas de marche à 18 mois → avis neuropédiatrique ; âge corrigé jusqu'à 24 mois). |
+| R62.8_1__O2_1-E03 | 🟥 | Rejet : questions tronquées par l'API (8 questions, une question A sans réponse juste) ; ne passe pas le schéma. Reste hors de main. |
+
+Contrôles lot 11 : 0 menu fautif ; 0 erreur `valider()` sur les 9 pathologies 🟩/🟧 ; R62.8_1 (🟥) reste hors de main.
