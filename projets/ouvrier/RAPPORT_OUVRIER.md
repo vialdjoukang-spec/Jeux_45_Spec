@@ -54,7 +54,7 @@ Dernier passage : **V3B_N_recup** → en_cours (0.00 USD).
 | V2_C_recup | fait | 10 | 0.0 |
 | AUDIT_V2_A | fait | 8 | 1.908 |
 | V3B_N_lot | fait | 1 | 0.0 |
-| V3B_N_recup | en_cours | 8 | 0.0 |
+| V3B_N_recup | en_cours | 9 | 0.0 |
 | V3B_Q_lot | a_faire | 0 |  |
 | V3B_Q_recup | a_faire | 0 |  |
 | V3B_C_lot | a_faire | 0 |  |
