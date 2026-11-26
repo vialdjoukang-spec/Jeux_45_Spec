@@ -10,7 +10,9 @@ Le plan de conception (conception/html/paraclinique.html) fixe la forme :
 Le script ne rédige rien : il range, relie et recopie les textes déjà produits et audités. Les clichés « candidats » non validés
 (conception/donnees/images) ne sont pas affichés, car aucun n'a été vérifié.
 Sortie : conception/prototypes/paraclinique/donnees/*.json. Signature : AAI (Anthropic AI)"""
-import glob, json, os, re, unicodedata
+import glob, html, json, os, re, sys, unicodedata
+sys.path.insert(0, os.path.dirname(__file__))
+import fiches_tetrade as FT
 
 ICI = os.path.dirname(os.path.abspath(__file__)); RAC = os.path.dirname(os.path.dirname(os.path.dirname(ICI)))
 D = os.path.join(RAC, "conception", "donnees"); P = os.path.join(D, "paraclinique"); PR = os.path.join(D, "pratique", "paraclinique")
@@ -201,6 +203,73 @@ def bulle_diag(nom, signe=None, syndrome=None, signif=None, examen=None):
     return b
 
 
+# ---------------------------------------------------------------- fiche flash d'une pathologie d'imagerie (gabarit de Vial, 26.11.2026 20:29)
+# Définition · Épidémiologie · Mécanisme · Syndrome clinique · Sémiologie radiologique · Diagnostic · Traitement · Sources.
+# Chaque champ vient d'une fiche sourcée (Tétrade, fiches de Paraclinique, table des niveaux) ; sinon il porte « à produire ».
+FT_F = FT.lire()
+FLASH = {}
+_fp = os.path.join(P, "fiches_flash")
+if os.path.isdir(_fp):
+    for f in glob.glob(os.path.join(_fp, "*.json")):
+        for k_, v_ in lire(f).items():
+            if not k_.startswith("_"):
+                FLASH[FT.sa(k_)] = v_
+RUB["patho_img"] = [["def", "Définition"], ["epi", "Épidémiologie"], ["meca", "Mécanisme"], ["synd", "Syndrome clinique"], ["radio", "Sémiologie radiologique"],
+                    ["diag", "Diagnostic"], ["trt", "Traitement"], ["source", "Sources"]]
+AP = "à produire"
+
+
+def terme(lib, defi):
+    return f'<span class=terme tabindex=0 data-def="{html.escape(defi, quote=True)}">{html.escape(lib)}</span>'
+
+
+def fiche_flash(nom, e, p, niv):
+    """Renvoie (bulle, flash) : la bulle garde du texte brut ; les champs *_h portent le HTML survolable."""
+    f = FT.trouver(FT_F, nom) or {}
+    x = FLASH.get(FT.sa(nom)) or {}
+    b = {"def": x.get("def") or f.get("def") or AP, "epi": x.get("epi") or AP, "meca": x.get("meca") or f.get("pourquoi") or AP}
+    sy = x.get("syndromesCliniques") or []
+    b["synd"] = ", ".join(s["nom"] for s in sy) if sy else AP
+    if sy:
+        b["synd_h"] = ", ".join(terme(s["nom"], s["composantes"]) for s in sy)
+    sig = p.get("anomalieTypique")
+    syn = next((s for s in e.get("syndromesParacliniques") or [] if sig and any(sans_accent(a)[:14] in sans_accent(sig) or sans_accent(sig)[:14] in sans_accent(a) for a in s.get("anomaliesQuiLeComposent") or [])), None)
+    rad = []
+    if syn:
+        rad.append(("Syndrome", syn["syndrome"], "Il réunit : " + ", ".join(syn.get("anomaliesQuiLeComposent") or []).lower() + "."))
+    if sig:
+        rad.append(("Signe", sig, f"Sur « {court(e['nom'], 60)} », la pathologie montre typiquement : {sig[0].lower() + sig[1:]}."))
+    b["radio"] = " ; ".join(f"{a} : {l}" for a, l, _ in rad) if rad else AP
+    if rad:
+        b["radio_h"] = " ; ".join(f"{a} : " + terme(l, d) for a, l, d in rad)
+    pi = gs = None
+    if niv and len(niv) > 3:
+        pi, gs = niv[3]["premiereIntention"], niv[3]["goldStandard"]
+    else:
+        for bl in f.get("bilan") or []:
+            if bl["visee"] == "diagnostique" and "1re" in bl["groupe"]:
+                pi = pi or bl["examen"]
+            if bl["visee"] == "diagnostique" and "Gold" in bl["groupe"]:
+                gs = gs or bl["examen"]
+    b["diag"] = (f"Cet examen : {niv[1]} " if niv else "") + f"1re intention : {pi or AP} ; gold standard : {gs or AP}."
+    tr = f.get("traitements") or []
+    but = x.get("butTraitement")
+    moy = x.get("moyensGeneraux")
+    if x.get("moyens"):  # gabarit de Vial : but, puis moyen général (moyens spécifiques), chacun survolable
+        mo = x["moyens"]
+        b["trt"] = f"But : {but or AP}. Moyens : " + ", ".join(f"{m['general']} ({m['specifiques']})" for m in mo)
+        b["trt_h"] = f"But : {html.escape(but or AP)}. Moyens : " + ", ".join(terme(f"{m['general']} ({m['specifiques']})", m.get("detail") or m["specifiques"]) for m in mo)
+    elif tr or but:
+        b["trt"] = f"But : {but or AP}. Moyens : " + (moy or ", ".join(t_["nom"] for t_ in tr))
+        b["trt_h"] = f"But : {html.escape(but or AP)}. Moyens : " + ", ".join(terme(t_["nom"], t_["detail"]) for t_ in tr)
+    else:
+        b["trt"] = AP
+    src = [s_ for s_ in (x.get("source"), f.get("source"), niv[2] if niv else None, (niv[3]["source"] if niv and len(niv) > 3 else None)) if s_]
+    src = [s_.strip().rstrip(".") for s_ in src]
+    src = [s_ for i, s_ in enumerate(src) if not any(j != i and s_ in o for j, o in enumerate(src)) and s_ not in src[:i]]
+    b["source"] = " ; ".join(src) + "." if src else AP
+    return b
+
 # ---------------------------------------------------------------- 1. IMAGERIE : région → organe → modalité → examen → pathologie → fenêtre à deux clichés
 # Chaîne exacte du prompt de Vial (projets/2_Jeux_Paraclinique/PROMPT_VIAL.md) et du plan § 10 ; aucun niveau « technique ».
 SYS = {"Système nerveux": ("#7c3aed", "encephale meninges_et_lcr nerfs_craniens moelle_epiniere queue_de_cheval_et_cone_terminal racines_et_plexus nerfs_peripheriques"),
@@ -337,11 +406,12 @@ for r, (rnom, mesh, cote, coul) in REG.items():
                         if len(niv) > 3:  # angle mort : l'examen oriente seulement ; la survol donne l'examen qui pose le diagnostic
                             bd = dict(bd, premiere=niv[3]["premiereIntention"] + ".", gold=niv[3]["goldStandard"] + ".", source=niv[2] if niv[3]["source"] in niv[2] else niv[2] + " ; " + niv[3]["source"])
                     lib, sig = developpe(p["pathologie"])
+                    bd = fiche_flash(p["pathologie"], e, p, niv)
                     if sig:
-                        bd = dict(bd, **{"def": sig + " " + (bd.get("def") or "")})
-                    pn = noeud(pid, "Pathologie", lib, [parent], "#d64545", bd, "diag", maxc=72, type="Pathologie" if niv else ("Pathologie · examen de référence" if gold else "Pathologie"), exRef=e["id"], signe=p.get("anomalieTypique"))
+                        bd["def"] = sig + " " + bd["def"]
+                    pn = noeud(pid, "Pathologie", lib, [parent], "#d64545", bd, "patho_img", maxc=72, flash=True, type="Pathologie" if niv else ("Pathologie · examen de référence" if gold else "Pathologie"), exRef=e["id"], signe=p.get("anomalieTypique"))
                     if o["stem"] == "poumons_et_voies_aeriennes" and cle(court(e["nom"], 80)) == "radiographie_thoracique" and "pneumonie" in cle(p["pathologie"]):
-                        pn["cliches"] = cliches_pneumonie(); pn["bulle"] = dict(bd, **PIL["p1"])  # infobulle validée du pilote
+                        pn["cliches"] = cliches_pneumonie()  # la fiche flash (gabarit du 26.11) remplace l'infobulle du pilote
                     else:
                         pn["clichesAProduire"] = True
                     N.append(pn)
@@ -711,6 +781,8 @@ for nom, R in (("imagerie", IMG), ("biologie", BIO), ("explorations", FX)):
 ecrire("reseau_imagerie.json", {"onglet": "imagerie", "rubriques": RUB, "noeuds": IMG})
 ecrire("reseau_biologie.json", {"onglet": "biologie", "rubriques": RUB, "noeuds": BIO, "outils": {k: (CALC.get(k) or CRIT.get(k)) for v in OUTILS.values() for k in v if (CALC.get(k) or CRIT.get(k))}})
 ecrire("reseau_explorations.json", {"onglet": "explorations", "rubriques": RUB, "noeuds": FX})
+for _k in ("La", "Ta", "Pi"):  # sigles qui sont aussi des mots français courants : le survol se tromperait
+    GLO.pop(_k, None)
 GLO["PIC"] = "Sigle à deux sens : pression intracrânienne en neurologie ; pneumopathie interstitielle commune (en anglais UIP) en pneumologie, aspect typique de la fibrose pulmonaire idiopathique."
 ecrire("glossaire.json", GLO)
 

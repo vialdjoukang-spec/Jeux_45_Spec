@@ -129,7 +129,7 @@ function construire(noeuds) {
   if (pratique) pratique.marquer();
 }
 function basculer(n) {
-  if (!n.enf.length && !n.cliches) { if (n.outil) action(n, 'outil'); else if (n.fenetre) action(n, 'trace'); return; }
+  if (!n.enf.length && !n.cliches) { if (n.outil) action(n, 'outil'); else if (n.fenetre) action(n, 'trace'); else if (n.flash) ouvrirFen(n.texte, n.couleur, ficheFlash(n)); return; }
   if (etat.ouvert.has(n.id)) replier(n.id);
   else { /* un circuit à la fois (plan § 2) : ouvrir une case replie ses sœurs ouvertes */
     const soeurs = n.de.length ? etat.byId[n.de[0]].enf : etat.N.filter(m => !m.de.length && m.cote === n.cote).map(m => m.id);
@@ -248,12 +248,15 @@ function preparerGlossaire(G0) {
   GRE = ks.length ? new RegExp('(^|[^\\wÀ-ÿ\\-])(' + ks.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')(?![\\wÀ-ÿ])', 'g') : null;
 }
 const gloser = h => GRE ? String(h).split(/(<[^>]+>)/).map(p => p.startsWith('<') ? p : p.replace(GRE, (m, a, b) => a + '<span class=terme tabindex=0 data-def="' + esc(etat.glo[b]) + '">' + b + '</span>')).join('') : h;
+const rubHtml = (RUB, B) => RUB.filter(([k]) => B[k] || B[k + '_h']).map(([k, l]) => '<dt>' + l + '</dt><dd' + (B[k] === 'à produire' ? ' class=apx' : '') + '>' + (B[k + '_h'] || esc(B[k])) + '</dd>').join('');
+/* Fiche flash (gabarit de Vial, 26.11) : le clic sur une pathologie l'ouvre en fenêtre ; chaque syndrome et chaque moyen de traitement se survole. */
+const ficheFlash = n => gloser('<dl class=flash>' + rubHtml(etat.rub[n.rubriques] || [], n.bulle) + '</dl>');
 function montrer(n) {
   if (!n.bulle || n.el.classList.contains('cache')) return;
   const RUB = etat.rub[n.rubriques] || etat.rub.region || [['def', 'Ce que c\'est']], B = n.bulle;
-  const lignes = RUB.filter(([k]) => B[k]).map(([k, l]) => '<dt>' + l + '</dt><dd>' + esc(B[k]) + '</dd>').join('')
+  const lignes = rubHtml(RUB, B)
     + (B.traitement ? '<dt class=trt>Traitement</dt><dd>' + B.traitement.map(([m, p]) => '<b>' + esc(m) + '</b> : ' + esc(p)).join('<br>') + (B.source ? '<div class=src>Source : ' + esc(B.source) + '</div>' : '') + '</dd>' : '');
-  const pied = [n.fiche && n.exRef ? '📄 ouvre la fiche complète' : '', n.fenetre ? '📈 ouvre le tracé calculé' : '', n.cliches ? 'un clic ouvre les deux clichés' : n.clichesAProduire ? 'les deux clichés restent à produire' : '', n.outil ? '🧮 ouvre le calculateur' : '', n.enf.length ? 'un clic révèle la suite' : ''].filter(Boolean).join(' · ');
+  const pied = [n.fiche && n.exRef ? '📄 ouvre la fiche complète' : '', n.fenetre ? '📈 ouvre le tracé calculé' : '', n.cliches ? 'un clic ouvre les deux clichés et la fiche flash' : n.clichesAProduire ? (n.flash ? 'un clic ouvre la fiche flash · ' : '') + 'les deux clichés restent à produire' : '', n.outil ? '🧮 ouvre le calculateur' : '', n.enf.length ? 'un clic révèle la suite' : ''].filter(Boolean).join(' · ');
   bulle.innerHTML = gloser('<h4>' + esc(n.texte) + '</h4><dl>' + lignes + '</dl>') + (pied ? '<div class=pied>' + pied + '.</div>' : '');
   bulle.style.setProperty('--c', n.couleur || 'var(--acc)'); bulle.style.display = 'block';
   const r = n.el.getBoundingClientRect(), bw = bulle.offsetWidth, bh = bulle.offsetHeight;
@@ -300,7 +303,7 @@ function fenetreCliches(n) {
     <figure><figcaption><span>Cliché du patient</span><button class=basc title="Afficher ou masquer les lésions numérotées">Annoté</button></figcaption><div class=cadre><img class=ipat alt="Radiographie thoracique de face du patient" src="${esc(f.img)}"><canvas class=cpat></canvas></div></figure>
     <figure><figcaption><span>Radio-anatomie normale</span></figcaption><div class=cadre><img class=inor alt="Radiographie thoracique de face normale" src="${esc(f.normal.img)}"><canvas class=cnor></canvas></div></figure></div>
     <div class=duo><ol class=les>${f.annotations.map(a => '<li>' + esc(a.texte) + '</li>').join('')}</ol><ul class=rep>${f.normal.reperes.map(a => '<li><b>' + esc(a.n) + '.</b> ' + esc(a.texte) + '</li>').join('')}</ul></div>
-    <details><summary>Diagnostic, conduite et source</summary><p>${esc(f.diagnostic)}</p><p>${esc(f.conduite)}</p><p class=mini>${esc(f.source || '')}</p></details>`;
+    ${n.flash ? '<details open><summary>Fiche flash</summary>' + ficheFlash(n) + '</details>' : ''}<details><summary>Diagnostic, conduite et source</summary><p>${esc(f.diagnostic)}</p><p>${esc(f.conduite)}</p><p class=mini>${esc(f.source || '')}</p></details>`;
   const des = (img, cv, rep) => { const go = () => { cv.width = img.clientWidth; cv.height = img.clientHeight; const q = cv.getContext('2d'), k = img.clientWidth / img.naturalWidth;
       for (const a of rep) { q.strokeStyle = a.couleur || '#2a9d8f'; q.lineWidth = 2; q.setLineDash(a.pointille ? [5, 4] : []); q.beginPath(); q.ellipse(a.x * k, a.y * k, a.rx * k, a.ry * k, 0, 0, 7); q.stroke(); q.setLineDash([]);
         const cx = a.x * k + a.rx * k * .75, cy = a.y * k - a.ry * k * .75; q.fillStyle = a.couleur || '#2a9d8f'; q.beginPath(); q.arc(cx, cy, 9, 0, 7); q.fill(); q.fillStyle = '#111'; q.font = '700 11px Atk'; q.textAlign = 'center'; q.fillText(a.n, cx, cy + 4); } };
