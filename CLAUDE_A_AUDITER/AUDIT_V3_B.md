@@ -207,3 +207,20 @@ Contrôles lot 11 : 0 menu fautif ; 0 erreur `valider()` sur les 9 pathologies �
 | S01.8__S8_9-E02 | 🟧 | Corrigé : seuil antitétanique des plaies à risque (« > 10 ans ») précisé selon l'âge d'après le tableau 10 du Plan de vaccination suisse 2026 lu en ligne (≥ 10 ans de 26 à 64 ans, ≥ 5 ans avant 26 ans et dès 65 ans), dans 3 passages ; réponses inchangées. Aucune autre erreur retenue (irrigation à l'eau du robinet, fermeture primaire ≤ 6–8 h aux membres et ≈ 24 h au visage). |
 
 Contrôles lot 12 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage. Source lue : Plan de vaccination suisse 2026, tableau 10 (bag.admin.ch).
+
+## Lot 13 — rangs 625 à 634
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| S06.0__S8_7-E01 | 🟩 | Aucune erreur retenue (Canadian CT Head Rule, < 1 % de neurochirurgie, seuil bas sous antiagrégant ou intoxication). |
+| S22.0__S8_10-E02 | 🟧 | Corrigé : Q12, Q13, Q14 et Q20 (d4 dont la vignette nomme l'ostéoporose ou le tassement) passées en d3 ; Q12 non masquée. Aucune erreur médicale retenue (Genant, zolédronate 5 mg/an −70 %, alendronate 70 mg/sem., CI si ClCr < 35, perte de taille 4 cm / 2 cm). |
+| S29.0__S2_12-E02 | 🟩 | Aucune erreur retenue (paracétamol ≤ 4 g/j, ibuprofène 400 mg ×3 bref). |
+| S30.1__S8_1-E01 | 🟧 | Corrigé : délai de rappel antitétanique d'une plaie propre mineure (« > 10 ans ») faux de 26 à 64 ans ; aligné sur le tableau 10 du Plan de vaccination suisse 2026 (≥ 20 ans de 26 à 64 ans, ≥ 10 ans aux autres âges). Aucune autre erreur retenue (WSES, morphine titrée 2–3 mg/5 min). |
+| S52.5__S8_8-E02 | 🟩 | Forme : bloc c3 ramené à 5 points. Aucune erreur médicale retenue (inclinaison 22–23°, hauteur 11–12 mm, pente 11°, critères de Lafontaine, seuils d'acceptabilité). |
+| S53.0__S8_4-E02 | 🟩 | Forme : bloc c8 ramené à 5 points et à 4 rubriques (followUpNetwork déplacé vers c7). Aucune erreur médicale retenue (paracétamol 15 mg/kg, réévaluation à 24–48 h). |
+| S70.1__S8_3-E01 | 🟩 | Aucune erreur retenue (gravité par flexion du genou, ΔP < 30 mmHg pour le syndrome des loges, myosite ossifiante à 3–4 semaines). |
+| S76.3__O4_1-E03 | 🟩 | Forme : « horsUrgence » placé dans « urgence » déplacé au bon niveau (plan 4). Aucune erreur médicale retenue (échographie à 48–72 h, reprise selon le grade, force ≥ 90 %). |
+| T14.1_1__S8_9-E01 | 🟧 | Corrigé : délais de rappel antitétanique précisés selon l'âge (tableau 10 du Plan de vaccination suisse 2026) dans 4 passages ; réponses inchangées. Forme : natures « surveillance » remplacées (N45, N47). Aucune autre erreur retenue (lidocaïne 4,5 / 7 mg/kg, eau du robinet). |
+| T14.1__S8_6-E03 | 🟧 | Corrigé : délais de rappel antitétanique précisés selon l'âge (tableau 10 du Plan de vaccination suisse 2026). Forme : bloc c8 ramené à 5 points. Aucune autre erreur retenue (bois radiotransparent, contrôle à 48–72 h). |
+
+Contrôles lot 13 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
