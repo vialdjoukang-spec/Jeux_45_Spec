@@ -1,9 +1,11 @@
-# Ouvrier automatique — 2026-11-26 02:14 UTC
+# Ouvrier automatique — 2026-11-26 02:15 UTC
 
-Dernier passage : **V2_C_lot** → fait (0.00 USD).
+Dernier passage : **V2_C_recup** → en_cours (0.00 USD).
 
-correction : 80 entité(s) à produire.
-lot msgbatch_019VgHb3j8zmRAuEQvqhhsWF
+775 notions, 56 cochées, 679 en attente d'audit, 403 questions
+TRO : 1 pathologies, 28 notions, 0 cochées, 28 en attente d'audit, 20 questions
+URO : 13 pathologies, 363 notions, 28 cochées, 335 en attente d'audit, 260 questions
+arène 45 : 45 spécialités, 15908 questions, 2692 pathologies canoniques
 
 
 **Crédit** : 4.91 USD dépensés, 145.09 USD disponibles avant le 31.01.2027 ; aujourd'hui 4.56 / 149.65 USD.
@@ -53,6 +55,6 @@ lot msgbatch_019VgHb3j8zmRAuEQvqhhsWF
 | V2_Q_lot | fait | 1 | 0.0 |
 | V2_Q_recup | fait | 16 | 0.0 |
 | V2_C_lot | fait | 1 | 0.0 |
-| V2_C_recup | a_faire | 0 |  |
+| V2_C_recup | en_cours | 1 | 0.0 |
 
 Signature : AAI (Anthropic AI)
