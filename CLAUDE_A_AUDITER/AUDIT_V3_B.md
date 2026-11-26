@@ -723,3 +723,24 @@ Contrôles lot 36 : `controle_menus_longs.py` ALL, END, HEM, INT, PEA, TOX → 0
 | E87.0__G3-E16 | 🟩 | Aucune erreur retenue (seuils 280–285 et 290–295 mOsm/kg, Uosm < 300 et > 800, hausse > 50 % après desmopressine, déficit en eau libre, Adrogué-Madias, ≤ 10 mmol/L/24 h si chronique et ≈ 1 mmol/L/h si < 48 h, desmopressine 1–4 µg/j IV ou SC). |
 
 Contrôles lot 37 : `controle_menus_longs.py` END, HEM, INT, MIG, NEP, TOX → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot.
+
+## Lot 38 — rangs 993 à 1000
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| E87.5_1__F1_7-E18 | 🟧 | Corrigé : Q18 (Kprim d4 qui nomme les intoxications bradycardisantes) passée en d3. Aucune erreur médicale retenue (seuils 5,5/6,0/6,5 mmol/L, gluconate de calcium 10 % 10–30 mL, insuline 10 UI + 25 g de glucose, salbutamol 10–20 mg, Lokelma 10 g ×3/j ≤ 48 h, patiromer 8,4 g, glucagon 5–10 mg, insuline haute dose 1 UI/kg, atropine 0,5 mg jusqu'à 3 mg ; ERC 2021). |
+| E87.6_1__O6_2-E11 | 🟧 | Forme : Q04 (d4, suite de cas sans le nom) marquée masquée. Aucune erreur médicale retenue (SMR ≈ 5,9, K+ < 2,5 et < 3,0 mmol/L, QTc > 500 ms, P < 0,32 mmol/L, KCl ≤ 10 mmol/h en périphérie, MgSO4 2 g, Glycophos 10–20 mmol/j, renutrition 10–15 kcal/kg/j, art. 426 CC). |
+| E87.7__F2_17-E14 | 🟩 | Aucune erreur retenue (définition ISBT 2018 jusqu'à 12 h, ≈ 1 % et 5–8 % en soins intensifs, NT-proBNP > 1,5 fois la valeur de base, furosémide 20–40 mg, dérivés nitrés si PAS > 110 mmHg, seuils transfusionnels 70/80 g/L, 1 mL/kg/h et ≤ 4 h par poche). |
+| F05.9_1__O3_2-E13 | 🟩 | Forme : nature « suivi » hors énumération remplacée par « décision » (N55). Aucune erreur médicale retenue (DSM-5 et CIM-10 F05, 20–30 % des patients âgés hospitalisés, 4AT ≥ 4, CAM 94–100 % et 90–95 %, HELP −30 à 40 %, halopéridol 0,5 mg et QTc > 500 ms, dexaméthasone 10 mg/6 h ×4 jours dans la méningite, mesures limitant la liberté de mouvement en dernier recours). Aucun lieu CNP ou CPCM. |
+| F05.9_2__O7_5-E15 | 🟩 | Aucune erreur retenue (alerte AVC, hypoglycémie < 3,9 mmol/L et 15–20 g de glucose, ReMed 24 h sur 24). |
+| F06.1__S9_3-E14 | 🟩 | Aucune erreur retenue (≥ 3 signes selon DSM-5-TR et CIM-11, codes 6A40/6A41, lorazépam 8 mg/j titré jusqu'à 24 mg/j dans la forme maligne, ECT si pas de réponse en 48–72 h, halopéridol proscrit). À vérifier : doses hors AIPS du lorazépam, plafond de 4 mg/j pendant la grossesse. |
+| F10.0_3__O7_5-E11 | 🟩 | Aucune erreur retenue (CIM-10 F10.0–F19.0, cohorte de 802 médecins suivis par 16 programmes et 78,7 % en exercice à 5 ans, ReMed, 0,5 ‰ et 0,1 ‰ au volant). |
+| F10.3_2__O6_1-E14 | 🟩 | Aucune erreur retenue (chronologie 6–24 h / 12–48 h / 48–96 h, CIWA-Ar 67 points avec seuils 10 et 15, thiamine ≥ 200 mg IV ×3/j si Wernicke, diazépam selon CIWA-Ar, oxazépam ou lorazépam si foie altéré, naloxone 0,04–0,4 mg titrée, acamprosate 666 mg ×3/j, naltrexone 50 mg, 0,5/0,8/1,6 ‰ selon la LCR, secret art. 321 CP sur le certificat). |
+
+Contrôles lot 38 : `controle_menus_longs.py` HEM, MIG, NEP, PSY, TOX → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot.
+
+## Fin du groupe B (26.11.2026, AAI)
+- Lots 31 à 38 audités (rangs 904 à 1000, 97 pathologies) : 47 🟩, 50 🟧, 0 🟥, toutes portées sur main après 0 menu fautif, 0 erreur `valider()` et 0 erreur au test sans écran de l'arène.
+- T74.2_2 (rang 919) et A60.0 (rang 932) auditées en entier ; les cinq pathologies signalées pour la PEP « 72 h » sont désormais conformes à la CFIST (≤ 48 h).
+- Corrections réglementaires et médicales notables : délais de déclaration du botulisme (2 h par téléphone) et de la listériose (24 h) selon l'OFSP ; calendrier ROR suisse (9 et 12 mois) ; voriconazole-tacrolimus (dose ramenée au tiers) ; vitamine D 400 UI/j pendant les trois premières années.
+- Le groupe B est entièrement audité ; aucun rang de reprise ne reste dans ce groupe.
