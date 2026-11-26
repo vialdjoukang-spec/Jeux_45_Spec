@@ -278,6 +278,25 @@ Correctif rétroactif (lots 1, 6 et 9) : L29.0__S3_5-E03, N81.6_1__S4_16-E03, R1
 
 Contrôles lot 16 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
 
+## Lot 17 — rangs 674 à 683
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| Z02.7__O7_2-E01 | 🟩 | Forme : clé « false » retirée (Q17). Aucune erreur retenue (LPGA art. 6, CO 324a trois semaines la 1re année, CO 336c 30/90/180 jours, LAA 80 % dès le 3e jour, détection AI à 30 jours, qSOFA ≥ 2). À vérifier : LACI art. 28. |
+| Z03.8_1__O7_23-E01 | 🟩 | Aucune erreur retenue (prévalence < 1/2'000, environ 7'000 maladies rares et 6–8 % de la population, rendement de l'exome 25–40 %, art. 71a–d OAMal, LAGH). À vérifier : délai diagnostique moyen, liste des centres KOSEK. |
+| Z03.8__S9_6-E02 | 🟩 | Aucune erreur retenue (méthylphénidate autorisé dès 6 ans, OMS 2019 : 180 min d'activité, écrans < 1 h, sommeil 10–13 h ; art. 314c CC ; DSM-5 début avant 12 ans ; AAP 2019 de 4 à 18 ans ; HarmoS 4 ans au 31 juillet). |
+| Z11.3__O6_5-E04 | 🟧 | Corrigé (PEP VIH, CFIST 7.11.2025 lue en ligne : limite 48 h, première dose visée dans les 4 h, durée 30 jours, premier choix dolutégravir + emtricitabine/ténofovir disoproxil, bictégravir/FTC/TAF en alternative) : « 72 h » → 48 h, « 2 h » → 4 h, 28 → 30 jours et schéma de premier choix dans les notions, la correction et les « why » ; les vignettes (20 h, 36 h, 6 et 12 jours) gardent leurs réponses justes. Aucune autre erreur retenue (LGV : doxycycline 21 jours ; neurosyphilis : pénicilline G 18–24 MU/j 10–14 jours ; PrEP TDF/FTC, DFG < 60). À vérifier : date du remboursement de la PrEP. |
+| Z12.1__O4_6-E01 | 🟧 | Forme : clé « false » retirée (Q16), bloc c6 ramené à 5 points, erreur de schéma obsolète effacée de `controles`. Corrigé : dépistage colorectal remboursé de 50 à 74 ans depuis le 1.7.2025 (OPAS ; Ligue suisse contre le cancer) et exemption de franchise limitée aux programmes cantonaux. Aucune autre erreur retenue (NordICC −18 % d'incidence, FIT/2 ans, coloscopie/10 ans, parent < 60 ans → coloscopie dès 40 ans). À vérifier : seuil FIT, délai après FIT positif. |
+| Z12.3__O4_6-E02 | 🟧 | Corrigé : Q08 et Q09 (d4 dont la vignette nomme le cancer du sein) passées en d3. Aucune erreur médicale retenue (Cochrane 2013 : 1 décès évité, 10 surtraitées, > 200 faux positifs pour 2000 ; panel britannique 1/235 ; BI-RADS 3 < 2 %, 5 ≥ 95 % ; IRM annuelle BRCA dès 25–30 ans). À vérifier : date du Swiss Medical Board. |
+| Z12.4__O4_6-E04 | 🟧 | Corrigé : Q11 (d4 dont la vignette nomme le CIN2) passée en d3. Aucune erreur médicale retenue (cytologie dès 21 ans tous les 3 ans, HPV dès 30 ans, arrêt vers 70 ans, ASCCP 2019, conisation et prématurité ×1,6). À vérifier : règles de remboursement OPAS et article cité. |
+| Z12.5__O4_6-E03 | 🟩 | Aucune erreur retenue (ERSPC 2019 : 570 invités et 18 diagnostics par décès évité ; Swiss Medical Board 2011 ; IRM avant biopsie, PI-RADS ≥ 3, densité du PSA 0,15 ; inhibiteurs de la 5-alpha-réductase : PSA × 2). |
+| Z13.6_1__O4_7-E01 | 🟧 | Corrigé : Q19 (menu long d4 dont le prompt nomme le risque élevé) passée en d3. Seuils conformes à ESC 2021 (SCORE2 < 50 ans 2,5/7,5 % ; 50–69 ans 5/10 % ; SCORE2-OP 7,5/15 % ; diabète, IRC) et ESC/EAS 2019 (cibles LDL 1,4/1,8/2,6/3,0 mmol/L) ; AGLA 10/20 %. À vérifier : seuil de Lp(a). |
+| Z23_2__O2_4-E03 | 🟩 | Aucune erreur retenue (DTPa-IPV 4–7 ans, dTpa 11–15 ans puis 25/45/65 ans, HBV 2 doses à 11–15 ans, ROR né après 1963, anti-HBs ≥ 10 UI/L, grossesse évitée 1 mois après ROR). À vérifier : intervalle HPV à 2 doses, statut de MenACWY. |
+
+Correctif PEP VIH anticipé (priorité) : la CFIST (recommandations du 7.11.2025, relues en ligne sur bag.admin.ch, expositions professionnelles et non professionnelles) fixe la limite à 48 h, la première dose visée dans les 4 h et une durée de 30 jours ; le premier choix associe dolutégravir 50 mg et emtricitabine/ténofovir disoproxil 200/245 mg, le bictégravir/FTC/TAF restant une alternative. Corrigés sur la branche de veille : Z11.3__O6_5-E04 (lot 17), B20_primo_infection_vih___O7_12-E13 (vignette Q14 portée de 60 h à 30 h pour garder la réponse juste ; « why » du distracteur B réécrit), T14.9__O6_4-E12 (vignettes à 5, 36 et 40 h inchangées), T74.2_2__O2_3-E04 (délais distincts : 48 h pour la PEP, 72 h pour le lévonorgestrel et le constat médico-légal, 120 h pour l'ulipristal et le cuivre) et A60.0__S3_5-E16. Ces quatre dernières seront portées sur main avec leur lot d'audit.
+
+Contrôles lot 17 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
+
 ## Bilan au 26.11.2026 (arrêt de la session AAI)
 
 - Pathologies auditées : 160 (rangs 505 à 664), dont 156 🟩/🟧 portées sur main et 4 🟥 restées hors de main (R23.1__F1_17-E03, R49.0_1__S7_4-E03, R62.8_1__O2_1-E03, T74.1_5__O2_3-E01 : fichiers tronqués ou mal formés, à régénérer).
