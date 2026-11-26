@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-26 01:02 UTC
+# Ouvrier automatique — 2026-11-26 01:17 UTC
 
-Dernier passage : **P3_paraclinique_cliches** → en_cours (0.41 USD).
+Dernier passage : **P3_paraclinique_cliches** → en_cours (0.85 USD).
 
-Troisième passage : 63 entités ont reçu une requête ciblée (projets/outils/cibles_p3c.py), et 27 ont obtenu 1 à 3 candidats libres (Wikimedia Commons, licence, auteur et URL enregistrés, jamais de SVG ni de génital externe) ; j'ai écarté à la main les titres hors sujet (béton, noms propres, schémas) et retiré 49 candidats dessinés Smart-Servier ou schématiques, d'où l'échec voulu de non_perte sur les seuls fichiers d'images. Les audits de conception (34/34) et de couverture passent, la jauge « entités avec cliché » atteint 1 376/1 607 (Paraclinique 98 %). Il reste surtout des analyses chiffrées, des échelles et des examens sans image fiable (IRM appendice, artériographie, PET-CT ORL, V/Q, rhinomanométrie, etc.), à retenter avec d'autres sources (Open-i, MedPix) au prochain passage.
+Quatrième passage : 37 cibles morphologiques (frottis, Gram, Ziehl, immunofluorescence, liquides de ponction, histologie) ont été cherchées sur Wikimedia Commons et Open-i ; 30 entités ont reçu des candidats avec URL, auteur et licence, puis 11 images douteuses (frottis de chien, schéma, hors sujet) ont été retirées avec une note, soit 23 entités nettement gagnées (208 entités encore vides). Audits : conception 34/34, couverture réussie, non_perte OK contre HEAD (l'écart contre origin/main vient des purges des passages précédents) ; les ~185 entités restantes sont surtout des dosages chiffrés à classer « sans objet » après décision médicale, ou des cibles sans image libre fiable. Les candidats gardent le statut « candidat » et attendent l'audit médical.
 
-**Crédit** : 1.07 USD dépensés, 148.93 USD disponibles avant le 31.01.2027 ; aujourd'hui 0.72 / 149.65 USD.
+**Crédit** : 1.92 USD dépensés, 148.08 USD disponibles avant le 31.01.2027 ; aujourd'hui 1.57 / 149.65 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -40,7 +40,7 @@ Troisième passage : 63 entités ont reçu une requête ciblée (projets/outils/
 | END_C_lot | fait | 1 | 0.0 |
 | END_C_recup | fait | 1 | 0.0 |
 | T3_pec_fiches_existantes | fait | 8 | 0.133 |
-| P3_paraclinique_cliches | en_cours | 3 | 0.413 |
+| P3_paraclinique_cliches | en_cours | 4 | 0.849 |
 | P3_tetrade_3d | a_faire | 0 |  |
 | T4_reprise_rejets | en_cours | 0 | 0.0 |
 | T5_items_valides | sans_objet | 0 |  |

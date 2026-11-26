@@ -486,13 +486,13 @@
    "modele": "claude-sonnet-5-5",
    "budget_usd": 12,
    "etat": "en_cours",
-   "essais": 3,
+   "essais": 4,
    "prompt": "Charge les skills 3d-images-upload-super, medical-accuracy-100, optimisation-par-cache-hache-autorun et i-never-waste-token (.claude/skills ou leurs règles). Le jeu Paraclinique compte 1 265 entités avec cliché sur 1 607 (critère « entités avec cliché » de projets/outils/jauges.py). Trouve les entités sans cliché, et pour chacune une vraie image médicale sous licence libre (Open-i NLM, Wikimedia Commons, MedPix), avec l'URL source, l'auteur et la licence. Jamais de SVG, jamais d'image dessinée ; organes génitaux externes exclus. Traite environ 60 entités par passage, par ordre de fréquence clinique ; une entité sans image fiable reste sans image, avec une note. Enregistre au format déjà utilisé par les entités qui ont un cliché. Lance ensuite les régénérations et les audits du jeu (non_perte compris). Écris statut.json : « fait » quand plus aucune entité utile ne peut recevoir d'image, sinon « en_cours ».",
    "note": "Tempête 25.11 (Vial), priorité 3 : jeux les plus avancés.",
    "dernier": {
-    "date": "2026-11-26T01:02:36+00:00",
-    "cout_usd": 0.413,
-    "resume": "Troisième passage : 63 entités ont reçu une requête ciblée (projets/outils/cibles_p3c.py), et 27 ont obtenu 1 à 3 candidats libres (Wikimedia Commons, licence, auteur et URL enregistrés, jamais de SVG ni de génital externe) ; j'ai écarté à la main les titres hors sujet (béton, noms propres, schémas) et retiré 49 candidats dessinés Smart-Servier ou schématiques, d'où l'échec voulu de non_perte sur les seuls fichiers d'images. Les audits de conception (34/34) et de couverture passent, la jauge « entités avec cliché » atteint 1 376/1 607 (Paraclinique 98 %). Il reste surtout des analyses chiffrées, des échelles et des examens sans image fiable (IRM appendice, artériographie, PET-CT ORL, V/Q, rhinomanométrie, etc.), à retenter avec d'autres sources (Open-i, MedPix) au prochain passage."
+    "date": "2026-11-26T01:17:10+00:00",
+    "cout_usd": 0.849,
+    "resume": "Quatrième passage : 37 cibles morphologiques (frottis, Gram, Ziehl, immunofluorescence, liquides de ponction, histologie) ont été cherchées sur Wikimedia Commons et Open-i ; 30 entités ont reçu des candidats avec URL, auteur et licence, puis 11 images douteuses (frottis de chien, schéma, hors sujet) ont été retirées avec une note, soit 23 entités nettement gagnées (208 entités encore vides). Audits : conception 34/34, couverture réussie, non_perte OK contre HEAD (l'écart contre origin/main vient des purges des passages précédents) ; les ~185 entités restantes sont surtout des dosages chiffrés à classer « sans objet » après décision médicale, ou des cibles sans image libre fiable. Les candidats gardent le statut « candidat » et attendent l'audit médical."
    }
   },
   {
