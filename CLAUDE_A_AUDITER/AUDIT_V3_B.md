@@ -459,3 +459,33 @@ Les 4 fiches 🟥 (R23.1, R49.0_1, R62.8_1, T74.1_5) et les 2 fiches en quaranta
 - PEP VIH : les cinq pathologies prioritaires (Z11.3, B20, T14.9, T74.2_2, A60.0) portent toutes la limite de 48 h ; T14.9, T74.2_2 et A60.0 restent à auditer en entier à leur rang.
 - Erreurs nouvelles corrigées : quote-part différenciée à 40 % (et non 20 %) depuis le 1.1.2024 ; rappel antitétanique selon l'âge (tableau 10 du Plan 2026) ; barème MASCC (âge < 60 ans = 2 points) ; PCV13 ou PCV15 pour le schéma 2+1.
 - Reprise suivante : rang 794 et au-delà, dans l'ordre de `RANG_RENDEMENT.json` (environ 160 pathologies du groupe B restantes).
+
+
+## Correction G93.1 (point « à vérifier » du lot 25)
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| G93.1__F1_15-E08 | 🟧 | Forme : cellules de tableau mal enveloppées (c1), bloc c4 ramené à 5 points, « arbre » ajouté au bloc c5 ; Q07 (d4, cryoglobulinémie de type I sans le nom de l'entité) marquée masquée. Corrigé : Q12 (d4 dont la vignette livre les cryoglobulines) passée en d3. Aucune erreur médicale retenue (prélèvement à 37 °C, cryocrite à 4 °C jusqu'à 7 jours, C4 bas, rituximab 375 mg/m² ×4 ou 1 g J1–J15, méthylprednisolone 0,5–1 g 1–3 jours, échanges à 37 °C, RVS12). |
+
+
+## Lot 26 — rangs 794 à 815
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| H83.0__S1_8-E14 | 🟧 | Corrigé : Q17 (Kprim d4 qui nomme la labyrinthite) passée en d3. Aucune erreur médicale retenue (ceftriaxone 2 g/j, 2 g/12 h si méningite, dexaméthasone 10 mg/6 h 4 jours selon ESCMID 2016, ampicilline 2 g/4 h si > 50 ans, ceftriaxone 100 mg/kg/j max 4 g chez l'enfant, 10–14 jours pour le pneumocoque, nystagmus irritatif puis déficitaire). |
+| H91.2__O3_2-E14 | 🟧 | Corrigé : Q07 (d4 qui nomme la surdité brusque) passée en d3. Aucune erreur médicale retenue (AAO-HNS 2019 : ≥ 30 dB sur 3 fréquences contiguës en ≤ 72 h ; prednisone 1 mg/kg/j max 60 mg 7–14 jours ; intratympanique de rattrapage à 2–6 semaines ; antiviral réservé au zoster oticus ; schwannome 1–3 %). |
+| I73.8__F2_22-E15 | 🟧 | Forme : Q11 (d4, vignette sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue (OMS 2016 : Hb > 165/160 g/L, Ht > 49/48 %, plaquettes ≥ 450 G/L ; JAK2 ≈ 95 % des PV et 50–60 % des TE ; hématocrite < 45 % ; aspirine 100 mg ; Willebrand acquis à exclure si plaquettes > 1000 G/L ; SCN9A). |
+| I74.3__F1_14-E14 | 🟩 | Forme : cellules de tableau mal enveloppées (c1) corrigées. Aucune erreur retenue (HNF 5000 UI ou 70–100 UI/kg, TIH chute > 50 % entre J5 et J14, ischémie aiguë < 14 jours, rivaroxaban 2,5 mg ×2/j + aspirine après revascularisation selon VOYAGER PAD). |
+| I80.2_1__F1_10-E17 | 🟧 | Forme : Q04 (d4, suite de cas sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue (HNF 80 UI/kg puis 18 UI/kg/h, anti-Xa 0,3–0,7 ; argatroban 2 µg/kg/min, 0,5 si atteinte hépatique ; rivaroxaban 15 mg ×2/j 21 jours ; apixaban 10 mg ×2/j 7 jours ; altéplase 10 + 90 mg réservée à l'EP à haut risque). |
+| J36__S1_19-E12 | 🟧 | Corrigé : Q12 (d4 qui nomme le phlegmon péri-amygdalien) passée en d3. Aucune erreur médicale retenue (pic 15–35 ans, amoxicilline-clavulanate 2,2 g/8 h, clindamycine 600 mg/8 h IV puis 450 mg PO, réévaluation à 48–72 h, récidive ≈ 10 %). |
+| K12.2_1__F1_13-E13 | 🟩 | Aucune erreur retenue (origine dentaire ≈ 80 %, amoxicilline-clavulanate 2,2 g/8 h, drainage si collection ou échec à 24–48 h, mortalité < 10 % contre > 50 % avant les antibiotiques, glycémie 7,8–10 mmol/L). |
+| K56.5__S3_1-E15 | 🟩 | Forme : clé « false » hors schéma retirée (Q16), clé « horsUrgence » vide sortie du bloc urgence, accueil du plan long_cours porté à 2 mesures. Aucune erreur médicale retenue (antibioprophylaxie dans les 60 min avant l'incision selon Swissnoso, énoxaparine 40 mg/j ou 20 mg/j si ClCr < 30, gastrografine 100 mL avec cliché à 24 h, AINS évités). |
+| K63.1_2__F1_6-E11 | 🟩 | Forme : notions ramenées à 70 (N13 fusionnée dans N12) ; clé « key » hors schéma retirée d'un énoncé Kprim (Q16). Aucune erreur médicale retenue (position assise 5–10 min avant le cliché, amoxicilline-clavulanate 2,2 g/8 h, ≈ 4 jours d'antibiotiques après contrôle de la source selon STOP-IT, opération dans les 6–12 h, score de Boey, IPP 4–8 semaines). |
+| L27.0__O7_22-E14 | 🟧 | Forme : clé « false_placeholder » retirée (Q17). Corrigé : Q13 (d4 qui nomme le DRESS) passée en d3. Aucune erreur médicale retenue (latence 2–8 semaines, atteinte hépatique 70–80 %, RegiSCAR, prednisone 0,5–1 mg/kg/j avec décroissance sur 2–3 mois, mortalité 5–10 %, TSH et glycémie à 3–6 mois, annonce à Swissmedic). |
+| L51.2__G9-E16 | 🟧 | Corrigé : Q11 (d4 qui nomme la nécrolyse épidermique) passée en d3. Aucune erreur médicale retenue (latence 4–28 jours, SCORTEN 7 critères et mortalité 3/12/35/58/90 %, NET > 30 %, ciclosporine 3 mg/kg/j hors indication, apports inférieurs à Parkland). |
+| M34.8_1__F2_12-E18 | 🟩 | Aucune erreur retenue (critères HTA nouvelle et créatinine +50 % ou MAT, captopril 6,25–12,5 mg titré, baisse de 10–20 mmHg/24 h, IEC maintenu même sous dialyse, ADAMTS13 < 10 % pour le PTT). |
+| M46.2__F2_19-E15 | 🟩 | Forme : nature hors énumération de N68 remplacée par « décision ». Aucune erreur médicale retenue (IRM sensibilité > 95 %, fièvre absente 30–40 %, Bernard Lancet 2015 : 6 semaines non inférieures à 12, flucloxacilline 2 g/6 h, céfépime 2 g/8 h, rifampicine si matériel, endocardite 15–30 %, antituberculeux 6–12 mois). |
+| N44.0_1__S4_1-E15 | 🟩 | Aucune erreur retenue (1/4000 avant 25 ans, sauvetage > 90 % avant 6 h, ≈ 50 % à 12 h, < 10 % après 24 h, cryptorchidie 1–3 % à terme, orchidopexie 6–12 mois et au plus tard 18 mois selon EAU). Alerte mécanique « inguinal » (Q12) : localisation, pas le diagnostic, laissée. |
+| N48.3__F1_2-E14 | 🟩 | Forme : nœuds de l'algorithme SSP qui pointaient vers un plan « suivi » inexistant rattachés au plan « urgence ». Aucune erreur retenue (AUA/SMSNA 2022 et EAU : gazométrie pO2 < 30, pCO2 > 60, pH < 7,25 ; phényléphrine 100–500 µg/mL par 1 mL toutes les 3–5 min jusqu'à 1 h ; prothèse si > 36 h réfractaire ; ischémique ≈ 95 %). |
+
+Contrôles lot 26 : `controle_menus_longs.py` ORL, ANG, CMF, CHI, GAS, DER, RHU, URO et INT → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot (les erreurs restantes visent des pathologies non encore auditées).
