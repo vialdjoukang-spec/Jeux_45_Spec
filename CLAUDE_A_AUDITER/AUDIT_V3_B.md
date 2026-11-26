@@ -139,3 +139,20 @@ Contrôles lot 7 : `controle_menus_longs.py GYN` → 0 menu fautif, 0 erreur `va
 | R06.0__O5_3-E02 | 🟩 | Aucune erreur retenue : morphine 2,5–5 mg PO /4 h chez le naïf, SC à 1/2–1/3 de la dose orale, midazolam 1–2,5 mg SC en complément (ASCO 2021). |
 
 Contrôles lot 8 : `controle_menus_longs.py` des spécialités du lot → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
+
+## Lot 9 — rangs 585 à 594
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| R06.8__S1_18-E01 | 🟩 | Aucune erreur retenue : apnée ≥ 10 s, hypopnée ≥ 30 % avec désaturation 3 % ou micro-éveil (AASM), HypnoLaus (IAH ≥ 15 : ≈ 50 % des hommes, 23 % des femmes), STOP-BANG ≥ 3. |
+| R07.3__S2_5-E01 | 🟩 | Forme : nature « surveillance » remplacée (N48). Aucune erreur médicale retenue (ECG dans les 10 min, troponine hs 0/1 h, paracétamol ≤ 4 g/j). |
+| R09.8__O5_3-E03 | 🟧 | Forme : bloc c3 ramené à 5 points. Corrigé : Q04 (d4, vignette sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue (40–50 % des mourants, Bennett 2002). |
+| R11.2_1__O5_4-E02 | 🟩 | Forme : cinq cellules de tableau mal enveloppées corrigées (c2). Aucune erreur médicale retenue : métoclopramide ≤ 30 mg/j (EMA), halopéridol 0,5–2 mg, dexaméthasone 4–8 mg. |
+| R14__S3_2-E01 | 🟩 | Aucune erreur retenue (Rome IV, FODMAP 4–6 semaines encadré, probiotiques 4 semaines). |
+| R15.9__S3_4-E02 | 🟧 | Forme : bloc c9 ramené à 5 points. Corrigé : Q14 (d4 dont la vignette livre la lésion obstétricale) passée en d3. Aucune erreur médicale retenue (RCOG 3a/3b/3c/4, OASIS ≈ 3 % au Royaume-Uni, neuromodulation sacrée après échec). |
+| R17__F1_4-E01 | 🟧 | Corrigé : Q19 (d4, vignette sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue : loi de Hy, Maddrey ≥ 32 et prednisolone 40 mg 28 j, Tokyo 2018 (4–7 j après drainage), AINS rectal 100 mg avant CPRE, Gilbert < 20 % de conjuguée. |
+| R18_1__F1_6-E02 | 🟧 | Corrigé : Q12 et Q20 (d4 qui nomment l'ascite cirrhotique) passées en d3 ; Q19 marquée masquée. Seuils EASL 2018 exacts : SAAG ≥ 11 g/L, protides > 25 g/L, PNN ≥ 250, albumine 1,5 g/kg J1 et 1 g/kg J3, 8 g/L au-delà de 5 L, GPVH ≥ 10 mmHg. |
+| R19.6__F1_13-E01 | 🟩 | Aucune erreur retenue (85–90 % d'origine intra-orale, test organoleptique, chlorhexidine ≤ 2 semaines). |
+| R20.2__S7_9-E05 | 🟧 | Corrigé (forme) : « ssp » de la correction était une chaîne JSON qui avalait priseEnCharge ; structure reconstruite sans changer le texte. Aucune erreur médicale retenue : calcium ionisé 1,15–1,30 mmol/L, Trousseau 3 min, gluconate de calcium 10 % 10–20 mL en 10 min (ESE 2015). |
+
+Contrôles lot 9 : `controle_menus_longs.py` des spécialités du lot → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
