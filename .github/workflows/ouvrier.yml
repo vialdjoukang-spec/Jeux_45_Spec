@@ -34,7 +34,7 @@ jobs:
              && ! git merge-base --is-ancestor "origin/$BRANCHE" origin/main; then
             git checkout -B "$BRANCHE" "origin/$BRANCHE"
             if ! git merge --no-edit origin/main; then
-              autres=$(git diff --name-only --diff-filter=U | grep -v -e '^CLAUDE_A_AUDITER/RAPPORT_' -e '^CLAUDE_A_AUDITER/EN_ATTENTE_AUDIT_MEDICAL.json$' -e '^projets/retours/veille_traites.json$' -e '^projets/ouvrier/' || true)
+              autres=$(git diff --name-only --diff-filter=U | grep -v -e '^CLAUDE_A_AUDITER/RAPPORT_' -e '^CLAUDE_A_AUDITER/EN_ATTENTE_AUDIT_MEDICAL.json$' -e '^projets/retours/veille_traites.json$' -e '^projets/ouvrier/' -e '^projets/JAUGES.md$' -e '^projets/jauges.json$' -e '^tableau/donnees/' || true)
               if [ -n "$autres" ]; then git merge --abort; echo "conflit de données avec main : $autres" >&2; exit 1; fi
               git checkout --ours -- $(git diff --name-only --diff-filter=U) && git add -A && git commit --no-edit -q
             fi
