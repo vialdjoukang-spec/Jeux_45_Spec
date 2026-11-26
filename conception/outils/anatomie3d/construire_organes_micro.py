@@ -9,6 +9,8 @@ et .glb présent → organe sauté. Dépendances : pip install trimesh fast-simp
 import hashlib, json, os, subprocess
 
 import numpy as np, trimesh
+from scipy.sparse.csgraph import minimum_spanning_tree
+from scipy.spatial import cKDTree
 
 ICI = os.path.dirname(os.path.abspath(__file__)); RAC = os.path.dirname(os.path.dirname(os.path.dirname(ICI)))
 SORTIE = os.path.join(RAC, "conception", "prototypes", "moteur", "anatomie3d"); IDX = os.path.join(SORTIE, "index.json")
@@ -28,6 +30,16 @@ def tube(points, r, c, sections=16):
         out.append(trimesh.creation.cylinder(radius=r, segment=[a, b], sections=sections))
     out += [trimesh.creation.icosphere(2, radius=r).apply_translation(p) for p in points]
     return coul(trimesh.util.concatenate(out), c)
+
+
+def stl_bp3d(fmas):
+    """Charge des maillages BodyParts3D (repère mm, Z haut, face vers -Y, gauche du patient vers +X), en ne tirant que les STL manquants."""
+    manque = [f for f in fmas if not os.path.exists(D + f + ".stl")]
+    if manque:
+        if not os.path.isdir(BP):
+            subprocess.run(["git", "clone", "-q", "--filter=blob:none", "--no-checkout", "https://github.com/Kevin-Mattheus-Moerman/BodyParts3D.git", BP], check=True)
+        subprocess.run(["git", "-C", BP, "-c", "gc.auto=0", "checkout", "HEAD", "--"] + [f"assets/BodyParts3D_data/stl/{f}.stl" for f in manque], check=True)
+    return [trimesh.load(D + f + ".stl", force="mesh") for f in fmas]
 
 
 # ---------- voie procédurale : chaque fonction rend (pièces, dimensions de contrôle) ----------
@@ -117,6 +129,86 @@ def microcirculation():
     return [art, ven, trimesh.util.concatenate(caps)], {"capillaire_um": (7.0, 7.0)}
 
 
+def tissu_conduction():
+    # Tissu de conduction reconstruit sur le cœur réel BodyParts3D (paroi FMA7274, veine cave supérieure FMA4720, veine cave inférieure
+    # FMA10951, sinus coronaire FMA4706, valves tricuspide FMA7234 et mitrale FMA7235, aorte ascendante FMA3736, muscles papillaires
+    # FMA7260, FMA7266, FMA9352nsn ; CC BY-SA 2.1 JP). Topologie : Anderson RH, Ho SY. Novartis Found Symp 2003;250:6-17 (nœud sinusal
+    # sous-épicardique dans le sillon terminal ; nœud AV à l'apex du triangle de Koch ; faisceau pénétrant entre septum fibreux et
+    # musculaire ; branches descendant de part et d'autre du septum) et Anderson RH et al. Clin Anat 2009;22:99-113.
+    # Mesures : nœud sinusal en croissant, 13,5 ± 2,5 mm (Sánchez-Quintana D et al. Heart 2005;91:189-194) ; triangle de Koch,
+    # His → ostium du sinus coronaire 25,9 ± 7,9 mm (Ueng KC et al. J Cardiovasc Electrophysiol 1996;7:1017-1023). Unité : mm.
+    import fast_simplification as fs
+    paroi, vcs, vci, sc, tv, mv, aao, pap_vd, pap_vg_p, pap_vg_a = stl_bp3d(
+        ["FMA7274", "FMA4720", "FMA10951", "FMA4706", "FMA7234", "FMA7235", "FMA3736", "FMA7260", "FMA7266", "FMA9352nsn"])
+    v, f = fs.simplify(paroi.vertices.astype(np.float32), paroi.faces.astype(np.int32), target_reduction=1 - 30000 / len(paroi.faces))
+    W = trimesh.Trimesh(v, f); W.fix_normals()
+    bas = lambda m, k=3: m.vertices[m.vertices[:, 2] < m.vertices[:, 2].min() + k].mean(0)
+    J = bas(vcs); I = vci.vertices[vci.vertices[:, 2] > vci.vertices[:, 2].max() - 3].mean(0)    # jonctions caves – oreillette droite
+    racine = bas(aao, 4); H = tv.vertices[np.linalg.norm(tv.vertices - racine, axis=1).argmin()]  # anneau tricuspide au contact de la racine aortique (corps fibreux central)
+    O = sc.vertices[sc.vertices[:, 0].argmin()]                                                    # ostium du sinus coronaire (extrémité droite)
+    C = (tv.vertices.mean(0) + mv.vertices.mean(0)) / 2; u = np.array([1, -0.6, -1.0]); u /= np.linalg.norm(u)
+    A = W.vertices[((W.vertices - C) @ u).argmax()]                                               # apex (en bas, en avant, à gauche)
+    ax = (A - H) / np.linalg.norm(A - H); n = mv.vertices.mean(0) - tv.vertices.mean(0); n -= (n @ ax) * ax; n /= np.linalg.norm(n)  # n : du VD vers le VG
+    surf = lambda P: trimesh.proximity.closest_point(W, np.atleast_2d(P))[0]
+
+    fc, fn = W.triangles_center, W.face_normals
+    rel = fc - H; perp = np.linalg.norm(rel - np.outer(rel @ ax, ax), axis=1)
+    sept = {c_: cKDTree(fc[(perp < 14) & (c_ * (fn @ n) > 0.4)]) for c_ in (1, -1)}   # faces endocardiques du septum : côté VG (+1), côté VD (-1)
+    sept_n = {c_: fn[(perp < 14) & (c_ * (fn @ n) > 0.4)] for c_ in (1, -1)}
+    sept_c = {c_: fc[(perp < 14) & (c_ * (fn @ n) > 0.4)] for c_ in (1, -1)}
+
+    def face_septale(P, cote):   # point de la face endocardique du septum (cote = +1 : VG, -1 : VD), 0,6 mm dans la cavité
+        d_, i_ = sept[cote].query(P)
+        return None if d_ > 15 else sept_c[cote][i_] + 0.6 * sept_n[cote][i_]
+
+    # 1. nœud sinusal : croissant de 13,5 mm, sous l'épicarde du sillon terminal, de la VCS vers la VCI, face latérale droite
+    d = (I - J) / np.linalg.norm(I - J); pts = [J + d * s_ + np.array([-6.0, -4.0, 0]) for s_ in np.linspace(1, 14.5, 10)]
+    ps = surf(np.array(pts)); nrm = ps - W.centroid; nrm /= np.linalg.norm(nrm, axis=1, keepdims=True); ps = ps - 1.0 * nrm
+    lon_ns = float(np.sum(np.linalg.norm(np.diff(ps, axis=0), axis=1)))
+    ns = [trimesh.creation.icosphere(2, radius=r).apply_translation(p) for p, r in zip(ps, np.linspace(2.5, 1.0, len(ps)))]
+    ns += [trimesh.creation.cylinder(radius=r, segment=[a, b], sections=12) for a, b, r in zip(ps[:-1], ps[1:], np.linspace(2.4, 1.0, len(ps) - 1))]
+    # 2. nœud auriculo-ventriculaire compact : ellipsoïde 5 × 3 × 1,5 mm (ordre de grandeur classique de Tawara, repris par Anderson 2009),
+    #    à l'apex du triangle de Koch, 5 mm en arrière du point de His, le long du bord His → ostium du sinus coronaire
+    k = (O - H) / np.linalg.norm(O - H); centre = surf(H + 5 * k)[0]
+    noeud = trimesh.creation.icosphere(3, radius=1.0); noeud.apply_scale([2.5, 1.5, 0.75])
+    z0 = np.cross(k, n); z0 /= np.linalg.norm(z0); R = np.eye(4); R[:3, :3] = np.c_[k, np.cross(z0, k), z0]; noeud.apply_transform(R); noeud.apply_translation(centre)
+    # 3. faisceau de His : du nœud AV au point de His puis 8 mm le long de la crête du septum (bifurcation B)
+    B = H + 8 * ax; his = tube([centre, H, B], 1.0, [210, 40, 40], 12)
+    # 4. branches : droite (cordon unique vers la bande modératrice et le muscle papillaire antérieur du VD) ; gauche en éventail (3 fascicules)
+    def branche(cible, cote, r, c):
+        chemin = [B]
+        for t in np.linspace(0.15, 0.85, 8):
+            q = face_septale(B + t * (cible - B), cote) if cote else None
+            chemin.append(q if q is not None else surf(B + t * (cible - B))[0])
+        chemin.append(cible); return chemin, tube(chemin, r, c, 10)
+    pied = lambda m: m.vertices[((m.vertices - C) @ u).argmax()]   # base d'un muscle papillaire (côté apex)
+    mi_sept = H + 0.6 * (A - H)
+    bd, tbd = branche(pied(pap_vd), -1, 0.6, [40, 150, 60])
+    fasc = [branche(pied(pap_vg_a), 1, 0.6, [40, 170, 90]), branche(pied(pap_vg_p), 1, 0.6, [40, 170, 90]), branche(mi_sept, 1, 0.5, [40, 170, 90])]
+    # 5. réseau de Purkinje : sous-endocarde des deux tiers apicaux des ventricules ; arbre couvrant minimal (arêtes ≤ 12 mm, collées à la paroi)
+    rng = np.random.default_rng(7); cand = W.vertices[rng.choice(len(W.vertices), 6000, replace=False)]
+    _, _, tri = trimesh.proximity.closest_point(W, cand); nv = W.face_normals[tri]
+    endo = W.ray.intersects_any(cand + 0.3 * nv, nv)                                      # la normale sortante rencontre la paroi : face endocardique
+    prof = (cand - C) @ (A - C) / np.linalg.norm(A - C) ** 2
+    garde = endo & (prof > 0.33) & (prof < 1.05); P = cand[garde] + 0.6 * nv[garde]
+    P = P[cKDTree(P).query(P, k=2)[0][:, 1] > 0]
+    sel = [0]; dmin = np.linalg.norm(P - P[0], axis=1)
+    for _ in range(min(260, len(P)) - 1):                                                  # échantillonnage le plus éloigné (couverture régulière)
+        i = int(dmin.argmax()); sel.append(i); dmin = np.minimum(dmin, np.linalg.norm(P - P[i], axis=1))
+    Q = np.vstack([P[sel]] + [np.array(c_[0][-3:]) for c_ in fasc] + [np.array(bd[-3:])])
+    dd, ii = cKDTree(Q).query(Q, k=8); rows, cols, vals = [], [], []
+    for a_ in range(len(Q)):
+        for d_, b_ in zip(dd[a_, 1:], ii[a_, 1:]):
+            if d_ <= 12 and np.linalg.norm(surf((Q[a_] + Q[b_]) / 2)[0] - (Q[a_] + Q[b_]) / 2) < 2.0:
+                rows.append(a_); cols.append(b_); vals.append(d_)
+    from scipy.sparse import coo_matrix
+    T_ = minimum_spanning_tree(coo_matrix((vals, (rows, cols)), shape=(len(Q), len(Q)))).tocoo()
+    purk = [trimesh.creation.cylinder(radius=0.35, segment=[Q[a_], Q[b_]], sections=6) for a_, b_ in zip(T_.row, T_.col)]
+    pieces = [coul(W, [235, 200, 195]), coul(trimesh.util.concatenate(ns), [245, 180, 40]), coul(noeud, [240, 120, 30]), his, tbd] + [t_ for _, t_ in fasc] \
+        + [coul(trimesh.util.concatenate(purk), [120, 200, 120])]
+    return pieces, {"noeud_sinusal_mm": (lon_ns, 13.5), "koch_his_sinus_coronaire_mm": (float(np.linalg.norm(O - H)), 25.9, 7.9 / 25.9)}
+
+
 PROC = {
     "he_sang_globules_rouges": ("Sang : globules rouges", erythrocyte, "µm", "Érythrocyte en disque biconcave, forme d'Evans et Fung (Microvasc Res 1972;4:335-347), diamètre 7,82 µm."),
     "he_sang_globules_blancs": ("Sang : globules blancs", leucocytes, "µm", "Neutrophile (11 µm, noyau à 4 lobes) et petit lymphocyte (7 µm), dimensions de Ross et Pawlina, Histology 8e éd. 2020, chap. 10."),
@@ -124,13 +216,20 @@ PROC = {
     "ne_jonction_neuromusculaire": ("Jonction neuromusculaire", jonction_nm, "µm", "Bouton terminal, vésicules de 50 nm, fente de 50 nm et plaque motrice à plis de 1 µm, d'après Ross et Pawlina 2020 chap. 11 et Heuser et Reese, J Cell Biol 1973."),
     "de_derme_et_hypoderme": ("Derme et hypoderme", lambda: peau(False), "mm", "Bloc de peau de 3 mm : derme de 1,8 mm à papilles et hypoderme à lobules adipeux, d'après Ross et Pawlina 2020 chap. 15."),
     "de_glandes_sudorales_et_sebacees": ("Glandes sudorales et sébacées", lambda: peau(True), "mm", "Glande eccrine (peloton de 0,4 mm et canal hélicoïdal) et glande sébacée annexée au follicule, d'après Ross et Pawlina 2020 chap. 15."),
+    "cv_cur_tissu_de_conduction": ("Cœur : tissu de conduction", tissu_conduction, "mm",
+                                   "Tissu de conduction reconstruit (procédural) sur le cœur réel BodyParts3D 4.0 (CC BY-SA 2.1 JP) : nœud sinusal en croissant de 13,5 mm "
+                                   "sous l'épicarde du sillon terminal (Sánchez-Quintana et al., Heart 2005;91:189-194), nœud AV à l'apex du triangle de Koch "
+                                   "(His → ostium du sinus coronaire 25,9 ± 7,9 mm ; Ueng et al., J Cardiovasc Electrophysiol 1996;7:1017-1023), faisceau de His, "
+                                   "branche droite vers la bande modératrice, branche gauche en trois fascicules et réseau de Purkinje sous-endocardique, "
+                                   "d'après Anderson et Ho, Novartis Found Symp 2003;250:6-17 et Anderson et al., Clin Anat 2009;22:99-113. "
+                                   "Épaisseurs du nœud AV (5 × 3 × 1,5 mm), du His (2 mm) et des fibres de Purkinje (0,7 mm) : grossies ou indicatives, pour la lecture."),
     "cv_microcirculation": ("Microcirculation", microcirculation, "µm", "Artériole de 30 µm, réseau de capillaires de 7 µm et veinule de 30 µm, d'après Levick, Introduction to Cardiovascular Physiology 5e éd. 2010."),
 }
 BP3D = {
     "rn_testicules_epididymes": ("Testicules, épididymes et voies spermatiques", ["FMA7211", "FMA7212", "FMA18256", "FMA18257"],
                                  "Testicules et épididymes droits et gauches, modèle d'atlas isolé (jamais sur le corps entier) ; voies spermatiques absentes de BodyParts3D."),
     "en_gonades": ("Gonades", ["FMA7211", "FMA7212"],
-                   "Gonades masculines (testicules) en modèle d'atlas isolé ; l'ovaire manque dans BodyParts3D (modèle masculin) et reste à produire."),
+                   "Gonades masculines (testicules) en modèle d'atlas isolé ; l'ovaire manque dans BodyParts3D (modèle masculin) ; les ovaires sont produits à part (org_gyneco_ovaires, Human Reference Atlas, CC BY 4.0)."),
 }
 
 index = json.load(open(IDX, encoding="utf-8")); fait = 0
@@ -155,8 +254,8 @@ for oid, (nom, f, unite, src) in PROC.items():
     if index["organes"].get(oid, {}).get("empreinte") == emp and os.path.exists(os.path.join(SORTIE, oid + ".glb")):
         continue
     pieces, ctrl = f(); m = trimesh.util.concatenate(pieces); m.apply_translation(-m.bounds.mean(axis=0))
-    for k, (mes, cible) in ctrl.items():   # contrôle à 10 % des dimensions citées
-        assert abs(mes - cible) / cible <= 0.10, f"{oid} {k} : {mes:.2f} ≠ {cible}"
+    for k, (mes, cible, *tol) in ctrl.items():   # contrôle à 10 % des dimensions citées (ou à l'écart-type publié)
+        assert abs(mes - cible) / cible <= (tol[0] if tol else 0.10), f"{oid} {k} : {mes:.2f} ≠ {cible}"
     sc = trimesh.Scene(); sc.add_geometry(m, node_name=oid, geom_name=oid); chemin = os.path.join(SORTIE, oid + ".glb"); sc.export(chemin)
     assert os.path.getsize(chemin) < 5e6, oid
     index["organes"][oid] = {"nom": nom, "statut": "produit", "pieces": len(pieces), "faces": len(m.faces), "unite": unite,
@@ -167,7 +266,8 @@ for oid, (nom, f, unite, src) in PROC.items():
 
 sup = index["_meta"].setdefault("sources_supplementaires", [])
 for s in ["BodyParts3D 4.0, organes génitaux internes isolés à but didactique (décision de Vial du 26.11.2026), CC BY-SA 2.1 JP",
-          "Modèles procéduraux reconstruits (trimesh) : Evans et Fung 1972 ; Frojmovic et Milton 1982 ; Ross et Pawlina, Histology 8e éd. 2020 ; Heuser et Reese 1973 ; Levick 2010"]:
+          "Modèles procéduraux reconstruits (trimesh) : Evans et Fung 1972 ; Frojmovic et Milton 1982 ; Ross et Pawlina, Histology 8e éd. 2020 ; Heuser et Reese 1973 ; Levick 2010",
+          "Tissu de conduction reconstruit sur le cœur BodyParts3D : Anderson et Ho 2003 ; Anderson et al. 2009 ; Sánchez-Quintana et al. 2005 ; Ueng et al. 1996"]:
     if s not in sup:
         sup.append(s)
 json.dump(index, open(IDX, "w", encoding="utf-8"), ensure_ascii=False, indent=1)

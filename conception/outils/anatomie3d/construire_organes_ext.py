@@ -2,9 +2,13 @@
 Deux voies, lues dans organes_ext.json :
   - « maillages » : maillages réels publiés (PLY/STL), pris dans une archive Zenodo distante (lecture partielle HTTP, remotezip) ;
   - « totalseg »  : scanner réel du jeu TotalSegmentator, segmenté par une tâche ouverte (Apache-2.0) de TotalSegmentator ;
+  - « hra »       : organes de référence 3D du Human Reference Atlas (HuBMAP, CC BY 4.0), segmentés sur la Visible Human
+                    Female (NLM) ; .glb lus sur cdn.humanatlas.io, repère HRA (m, Y haut, face vers +Z, gauche vers +X)
+                    converti au repère BodyParts3D (mm, Z haut, face vers -Y, gauche vers +X) ; une couleur par sous-structure ;
   - « volume »    : étiquettes segmentées d'un examen réel (NIfTI), maillées par marching cubes dans le repère du scanner,
                     converties au repère BodyParts3D (mm, Z haut, face vers -Y, gauche du patient vers +X = LPS), lissées (Taubin).
 Chaque maillage est allégé (≤ 60 000 faces), centré, écrit dans anatomie3d/<organe>.glb (< 15 Mo) et fusionné dans index.json.
+Option EXT_SEUL=id1,id2 : ne traite que ces organes (les autres gardent leur entrée d'index).
 Cache : un organe dont l'empreinte (configuration + taille des fichiers source) n'a pas changé et dont le .glb existe est sauté.
 Dépendances : pip install trimesh fast-simplification remotezip nibabel scikit-image
 Signature : AAI (Anthropic AI)"""
@@ -26,6 +30,24 @@ def extraire(url, membre):
         with RemoteZip(url) as z:
             z.extract(membre, base)
     return cible
+
+
+def hra_vers_morceaux(urls, couleurs):
+    """Télécharge des .glb HRA, applique la scène, convertit m → mm et Y haut → Z haut, colore chaque sous-structure."""
+    import urllib.request
+    R = np.array([[1, 0, 0], [0, 0, -1], [0, 1, 0]], float) * 1000.0   # (x, y, z)_HRA → (x, -z, y)_BP3D, en mm
+    out = []
+    for url in urls:
+        cible = os.path.join(CACHE, "hra", url.rsplit("/", 1)[-1])
+        if not os.path.exists(cible):
+            os.makedirs(os.path.dirname(cible), exist_ok=True); urllib.request.urlretrieve(url, cible)
+        sc = trimesh.load(cible, force="scene")
+        for noeud in sc.graph.nodes_geometry:
+            T, g = sc.graph[noeud]; m = sc.geometry[g].copy(); m.apply_transform(T)
+            m = trimesh.Trimesh(m.vertices @ R.T, m.faces, process=True); m.fix_normals()
+            c = next((v for k, v in couleurs.items() if k in noeud), COUL)
+            m.visual = trimesh.visual.ColorVisuals(m, face_colors=list(c) + [255]); out.append((noeud, m))
+    return out
 
 
 def volume_vers_maillage(chemin, etiquettes, lissage, flou_mm):
@@ -54,7 +76,10 @@ def volume_vers_maillage(chemin, etiquettes, lissage, flou_mm):
 CODE = hashlib.sha256(open(__file__, "rb").read()).hexdigest()[:12]   # un changement du script relance tout
 IDX = os.path.join(SORTIE, "index.json"); index = json.load(open(IDX, encoding="utf-8"))
 os.makedirs(SORTIE, exist_ok=True); fait = 0
+SEUL = [x for x in os.environ.get("EXT_SEUL", "").split(",") if x]
 for oid, o in CONF["organes"].items():
+    if SEUL and oid not in SEUL:
+        continue
     emp = hashlib.sha256(json.dumps([o, MAXF, CODE], ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
     chemin = os.path.join(SORTIE, oid + ".glb")
     if index["organes"].get(oid, {}).get("empreinte") == emp and os.path.exists(chemin):
@@ -73,13 +98,28 @@ for oid, o in CONF["organes"].items():
             subprocess.run(["TotalSegmentator", "-i", ct, "-o", dos, "-ta", o["tache"], "--device", "cpu"], check=True)
         m, ml = volume_vers_maillage(etiq, [1], o.get("lissage", 30), o.get("flou_mm", [0.6, 0.6, 0.6]))
         morceaux.append(m); extra["volume_ml"] = round(ml, 1)
+    elif o["voie"] == "hra":   # organes de référence HRA (Visible Human Female), plusieurs sous-structures colorées
+        noms = []
+        for nom_noeud, mm in hra_vers_morceaux(o["urls"], {k: v for k, v in o.get("couleurs", {}).items()}):
+            morceaux.append(mm); noms.append(nom_noeud)
+        extra["structures"] = noms
     else:
         raise SystemExit(f"{oid} : voie inconnue {o['voie']}")
-    m = trimesh.util.concatenate(morceaux); nf0 = len(m.faces)
-    if nf0 > MAXF:
-        v, f = fs.simplify(m.vertices.astype(np.float32), m.faces.astype(np.int32), target_reduction=1 - MAXF / nf0); m = trimesh.Trimesh(v, f)
-    m.apply_translation(-m.bounds.mean(axis=0))
-    m.visual = trimesh.visual.ColorVisuals(m, face_colors=COUL + [255])
+    nf0 = sum(len(x.faces) for x in morceaux)
+    if o["voie"] == "hra":   # allègement pièce par pièce, au prorata, pour garder la couleur de chaque sous-structure
+        allege = []
+        for x in morceaux:
+            c = x.visual.face_colors[0].tolist()
+            if nf0 > MAXF and len(x.faces) > 200:
+                v, f = fs.simplify(x.vertices.astype(np.float32), x.faces.astype(np.int32), target_reduction=1 - MAXF / nf0); x = trimesh.Trimesh(v, f)
+            x.visual = trimesh.visual.ColorVisuals(x, face_colors=c); allege.append(x)
+        m = trimesh.util.concatenate(allege); m.apply_translation(-m.bounds.mean(axis=0))
+    else:
+        m = trimesh.util.concatenate(morceaux)
+        if nf0 > MAXF:
+            v, f = fs.simplify(m.vertices.astype(np.float32), m.faces.astype(np.int32), target_reduction=1 - MAXF / nf0); m = trimesh.Trimesh(v, f)
+        m.apply_translation(-m.bounds.mean(axis=0))
+        m.visual = trimesh.visual.ColorVisuals(m, face_colors=COUL + [255])
     sc = trimesh.Scene(); sc.add_geometry(m, node_name=oid, geom_name=oid); sc.export(chemin)
     mo = os.path.getsize(chemin) / 1e6
     assert mo < 15, f"{oid} : {mo:.1f} Mo ≥ 15 Mo"
