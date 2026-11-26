@@ -1,6 +1,6 @@
-# Audit automatique — 2026-11-25 02:48
+# Audit automatique — 2026-11-26 04:57
 
-6 fichier(s) : 0 🟩 intégrables · 5 🟧 à compléter · 1 🟥 refusés.
+8 fichier(s) : 0 🟩 intégrables · 5 🟧 à compléter · 3 🟥 refusés.
 
 Légende : 🟩 schéma conforme et ≥ 85 % rempli · 🟧 incomplet ou ancien schéma · 🟥 illisible, chemin ou élément inventé.
 Le fond médical (exactitude, sources, phrases verbales) reste audité par Claude.
@@ -58,5 +58,11 @@ Le fond médical (exactitude, sources, phrases verbales) reste audité par Claud
 - 🟧 `veines_caves_et_systeme_porte.json` : remplissage 24 % (40/170) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees
 - 🟧 `vesicule_et_voies_biliaires.json` : remplissage 23 % (50/213) · champs absents (ancien schéma ?) : analysesRef, avantageSelectif, bulle, delai, discriminant, indication, irradiation_mSv, limite, plutotQue, precautions, prelevementRef, radioAnatomieNormale, referencePour, seuil, signeRecherche, smarterMedicine, visees
 - aVerifier déclarés : 5
+
+### 🟥 `CLAUDE_A_AUDITER/quarantaine/L50.0__G9-E03.questions.json`
+- Format inconnu : la clé « fichiers » manque (format lot attendu).
+
+### 🟥 `CLAUDE_A_AUDITER/quarantaine/Z34.0__O1_7-E01.questions.json`
+- Format inconnu : la clé « fichiers » manque (format lot attendu).
 
 Signature : AAI (Anthropic AI)
