@@ -1,6 +1,6 @@
 # Jauges « jouable » des 4 jeux
 
-Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **26.11.2026 05:34**.
+Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **26.11.2026 05:57**.
 
 ## Tétrade Fondation — 97 %
 
@@ -36,20 +36,20 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 | leçons avec QCM | 228 | 228 | 20 |
 | paquet jouable dans l'arène | 1 | 1 | 15 |
 
-## 45 Spec — 29 % (+1)
+## 45 Spec — 34 % (+6)
 
-`█████░░░░░░░░░░░░░░░`
+`██████░░░░░░░░░░░░░░`
 
 | Critère | Fait | Cible | Poids |
 |---|---:|---:|---:|
 | pathologies traitées (groupes A à D) | 716 | 2525 | 70 |
-| QCM jouables dans l'arène (20 par pathologie) | 15908 | 50500 | 30 |
+| QCM jouables dans l'arène (20 par pathologie) | 24004 | 50500 | 30 |
 
 ## Historique
 
 | Date | Tétrade | Paraclinique | Transversal | 45 Spec |
 |---|---:|---:|---:|---:|
-| 26.11.2026 05:34 | 97 % | 100 % | 100 % | 29 % |
+| 26.11.2026 05:57 | 97 % | 100 % | 100 % | 34 % |
 | 26.11.2026 02:55 | 97 % | 100 % | 100 % | 28 % |
 | 26.11.2026 02:49 | 96 % | 100 % | 100 % | 28 % |
 | 26.11.2026 02:43 | 94 % | 100 % | 100 % | 28 % |
