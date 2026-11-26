@@ -88,3 +88,20 @@ Contrôles lot 4 : `controle_menus_longs.py RHU` → 0 menu fautif, 0 erreur `va
 | N48.4__S4_10-E01 | 🟩 | Forme : natures « surveillance » remplacées par « décision » ; « arbre » manquant ajouté (c3). Aucune erreur retenue : sildénafil 50 mg (25–100), tadalafil 10–20 mg ou 2,5–5 mg/j, testostérone < 8 / 8–12 nmol/L, hématocrite > 54 %, Princeton III. |
 
 Contrôles lot 5 : `controle_menus_longs.py` RHU, TOX, URO → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
+
+## Lot 6 — rangs 555 à 564
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| N60.0__S2_3-E04 | 🟩 | Forme : nature « classification » hors énumération remplacée par « critère » (N20). Aucune erreur médicale retenue (BI-RADS 2/3/4, échographie avant 40 ans). |
+| N60.1__S2_3-E01 | 🟩 | Forme : clé « false_placeholder » retirée (Q18). Aucune erreur médicale retenue (BI-RADS 3 ≤ 2 %, microbiopsie si BI-RADS 4–5). |
+| N76.0__S4_18-E01 | 🟧 | Forme : « arbre » manquant ajouté (c4, c5, c7) ; rubrique followUpNetwork déplacée de c8 (5 rubriques) vers c7. Corrigé : Q12 (d4 qui nomme la vaginose) passée en d3. Aucune erreur médicale retenue : Amsel 3/4, Nugent ≥ 7, métronidazole 500 mg ×2/j 7 j, clindamycine crème 2 %, récidive ≥ 3/an (CDC 2021). |
+| N81.1__S4_16-E01 | 🟩 | Aucune erreur retenue : POP-Q (Bump 1996), Hendrix 2002 (34/19/14 %), Olsen 1997 (11 %). |
+| N81.2__S4_16-E02 | 🟧 | Forme : natures « surveillance » remplacées (N41, N57) ; bloc c4 ramené à 5 points. Corrigé : Q10 et Q18 (d4 qui nomment l'hystérocèle) passées en d3. Aucune erreur médicale retenue (POP-Q, Olsen 1997 : 11 % et ≈ 30 % de réopérations). |
+| N81.6_1__S4_16-E03 | 🟩 | Aucune erreur retenue (POP-Q, fibres 25–30 g/j, dépistage colorectal 50–69 ans). |
+| N87.9__F2_10-E01 | 🟧 | Corrigé : calendrier de dépistage obsolète (« deux frottis annuels puis tous les 3 ans ») remplacé par l'avis d'experts SSGO n° 50 lu en ligne (cytologie tous les 3 ans de 21 à 29 ans ; cytologie ou HPV tous les 3 ans de 30 à 70 ans), dans 5 passages ; Q10 (d4, vignette sans le nom de l'entité) marquée masquée. Forme : rubrique « prevention » hors énumération remplacée (N45). ASCCP 2019 et ESGO 2022 conformes. |
+| N89.8__S4_18-E03 | 🟩 | Forme : Q11 (vignette qui nomme le diagnostic) marquée non masquée ; clé « false » retirée (Q18 ; la valeur juste « true: false » est conservée). Aucune erreur médicale retenue (whiff test, PCR CT/NG si < 25 ans ou nouveau partenaire). |
+| N91.1_1__O1_9-E02 | 🟩 | Aucune erreur retenue (aménorrhée secondaire 3/6 mois, ≥ 20 follicules ou ≥ 10 mL, IVG dans les 12 semaines, test au progestatif). |
+| N93.8__S4_17-E02 | 🟧 | Corrigé : calendrier de dépistage du col obsolète remplacé par l'avis d'experts SSGO n° 50 (frottis tous les 3 ans dès 21 ans), dans 4 passages. Forme : nature « surveillance » (N63) et clé « false » (Q18) corrigées. FIGO 2018 (24–38 j, ≤ 8 j), biopsie ≥ 45 ans, PBAC > 100 conformes. |
+
+Contrôles lot 6 : `controle_menus_longs.py` des spécialités du lot → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage. Source lue : SSGO, avis d'experts n° 50 (sggg.ch).
