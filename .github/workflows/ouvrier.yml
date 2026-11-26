@@ -111,7 +111,7 @@ jobs:
           done
           git push -q origin "HEAD:refs/heads/ouvrier/sauvegarde-${{ github.run_id }}"   # rien ne se perd
           echo "branche d'audit occupée : travail sauvegardé sur ouvrier/sauvegarde-${{ github.run_id }}" >&2; exit 1
-      - name: Enchaîner le passage suivant (tempête du 26.11 : pas d'attente de 30 min)
+      - name: "Enchaîner le passage suivant (tempête du 26.11, sans attente de 30 min)"
         if: always() && steps.file.outputs.tache != '' && steps.fin.outputs.fatal != '1'
         env:
           GH_TOKEN: ${{ github.token }}
