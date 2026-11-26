@@ -1,8 +1,9 @@
 # Ouvrier automatique — 2026-11-26 02:04 UTC
 
-Dernier passage : **V2_N_recup** → fait (0.00 USD).
+Dernier passage : **V2_Q_lot** → fait (0.00 USD).
 
-msgbatch_01569XzQ1C1RxuKJqamSiJBh : 80 écrites, 0 échecs.
+questions : 80 entité(s) à produire.
+lot msgbatch_0129sMJ5tuHHj8xuQZRCYic4
 
 
 **Crédit** : 4.91 USD dépensés, 145.09 USD disponibles avant le 31.01.2027 ; aujourd'hui 4.56 / 149.65 USD.
@@ -49,7 +50,7 @@ msgbatch_01569XzQ1C1RxuKJqamSiJBh : 80 écrites, 0 échecs.
 | T6_vague_urgences | sans_objet | 0 |  |
 | V2_N_lot | fait | 1 | 0.0 |
 | V2_N_recup | fait | 13 | 0.0 |
-| V2_Q_lot | a_faire | 0 |  |
+| V2_Q_lot | fait | 1 | 0.0 |
 | V2_Q_recup | a_faire | 0 |  |
 | V2_C_lot | a_faire | 0 |  |
 | V2_C_recup | a_faire | 0 |  |
