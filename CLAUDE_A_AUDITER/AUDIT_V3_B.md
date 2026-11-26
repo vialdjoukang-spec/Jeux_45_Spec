@@ -705,3 +705,21 @@ Contrôles lot 35 : `controle_menus_longs.py` GYN, HEM, MIG, NCH, ONC, ORL, TOX,
 | E10.1__S4_14-E13 | 🟩 | Aucune erreur retenue (ISPAD 2022 : pH < 7,3 ou HCO3 < 18 et β-hydroxybutyrate ≥ 3 mmol/L, sévérité 7,3/7,2/7,1, bolus 10–20 mL/kg, insuline 0,05–0,1 U/kg/h après 1 h, KCl 40 mmol/L, glucose dès 14–17 mmol/L, œdème cérébral 0,5–0,9 %, mannitol 0,5–1 g/kg, glucagon 0,5/1 mg). À vérifier : cible d'HbA1c. |
 
 Contrôles lot 36 : `controle_menus_longs.py` ALL, END, HEM, INT, PEA, TOX → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot.
+
+## Lot 37 — rangs 982 à 992
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| E11.1__F2_9-E17 | 🟩 | Aucune erreur retenue (β-hydroxybutyrate ≥ 3,0 mmol/L et pH < 7,3 ou HCO3 < 18, glycosurie 60–80 g/j persistant ≈ 3 jours, retrait EMA 2021 de l'indication type 1 de la dapagliflozine, insuline 0,1 UI/kg/h avec glucose 5–10 % d'emblée, insuline différée si K+ < 3,3, résolution BHB < 0,6, iSGLT2 suspendu ≈ 3 jours avant chirurgie). |
+| E16.2_1__S9_9-E13 | 🟧 | Forme : correction mal formée réparée (`notions` en chaîne JSON ; crochets de rangée manquants dans le tableau c5, rétablis sans changer le texte). Corrigé : Q09, Q11, Q19 et Q20 (d4 dont la vignette livre la glycémie basse) passées en d3. Aucune erreur médicale retenue (niveaux 1–3 ADA, 15–20 g de glucose, glucose 30–40 % 20–40 mL, glucagon 1 mg IM ou 3 mg nasal, octréotide 50 µg/6–8 h, jeûne de 72 h). |
+| E23.6__S1_23-E15 | 🟧 | Corrigé : Q17 (Kprim d4 qui nomme l'apoplexie pituitaire) passée en d3. Aucune erreur médicale retenue (≈ 6/100 000, 2–12 % des adénomes, hydrocortisone 100 mg puis 200 mg/24 h, relais 15–25 mg/j, lévothyroxine après l'hydrocortisone, réévaluation à 6 semaines). |
+| E24.9__O2_1-E14 | 🟧 | Corrigé : Q07 et Q20 (d4 qui livrent l'hypercorticisme ou l'adénome corticotrope) passées en d3. Aucune erreur médicale retenue (cortisol < 50 nmol/L après freinage minute, CLU rapporté à 1,73 m², hydrocortisone de stress 50–100 mg/m² et substitution 8–10 mg/m²/j, mitotanémie 14–20 mg/L, TP53/PRKAR1A/MEN1). |
+| E43_1__G16-E19 | 🟩 | Aucune erreur retenue (ASPEN : baisse de P, K ou Mg dans les 5 jours ; critères NICE ; NRS 2002 ≥ 3 ; thiamine 200–300 mg/j ≥ 10 jours ; 10 puis 5 kcal/kg/j ; K 2–4, P 0,3–0,6, Mg 0,2 mmol/kg/j ; art. 426 CC). |
+| E43_2__F2_21-E18 | 🟧 | Forme : Q05 (d4, suite de cas sans le nom) marquée masquée. Aucune erreur médicale retenue (MAS OMS : P/T < −3 DS ou PB < 115 mm, hypothermie < 35,5 °C rectale, EFFORT, GLIM, NICE, thiamine avant glucose, renutrition 10 puis 5 kcal/kg/j). |
+| E43_4__O7_13-E16 | 🟧 | Corrigé : Q14 (d4 qui nomme le haut risque de renutrition) passée en d3. Aucune erreur médicale retenue (GLIM, MAS 6–59 mois, ReSoMal 5 mL/kg/30 min pendant 2 h, Ringer 15 mL/kg en 1 h si choc, restriction sodée ≈ 1 mmol/kg/j, artésunate 2,4 mg/kg). |
+| E51.1__F2_21-E15 | 🟩 | Forme : clé « si » hors schéma retirée (Q09). Aucune erreur médicale retenue (réserves ≈ 30 mg épuisées en 2–3 semaines, thiamine 200–500 mg IV puis 500 mg ×3/j si Wernicke, MgSO4 2 g, réponse en quelques heures). |
+| E53.8_1__O4_3-E15 | 🟧 | Corrigé : la prophylaxie par vitamine D 400 UI/j couvre les trois premières années de vie en Suisse, et non la seule première année (Commission fédérale de l'alimentation et OSAV, recommandation de 2012 reprise par la Société suisse de pédiatrie). Corrigé : Q05 (d4 qui livre le traitement par B12) passée en d3. Aucune autre erreur retenue (MMA et homocystéine, C3 au dépistage néonatal, B12 IM 1000 µg, cblC, position de la COFA sur le régime végan). |
+| E80.1__S6_3-E13 | 🟧 | Corrigé : Q08 et Q11 (d4 qui nomment la porphyrie cutanée tardive ou la mutation UROD) passées en d3. Aucune erreur médicale retenue (type I 75–80 %, HFE, bande de Soret 400–410 nm, pic 619–620 nm contre 626 nm, saignées vers ferritine ≈ 20 µg/L, hydroxychloroquine 100 mg 2×/semaine, hémine 3 mg/kg ×4 jours). |
+| E87.0__G3-E16 | 🟩 | Aucune erreur retenue (seuils 280–285 et 290–295 mOsm/kg, Uosm < 300 et > 800, hausse > 50 % après desmopressine, déficit en eau libre, Adrogué-Madias, ≤ 10 mmol/L/24 h si chronique et ≈ 1 mmol/L/h si < 48 h, desmopressine 1–4 µg/j IV ou SC). |
+
+Contrôles lot 37 : `controle_menus_longs.py` END, HEM, INT, MIG, NEP, TOX → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot.
