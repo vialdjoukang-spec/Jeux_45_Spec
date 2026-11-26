@@ -1,4 +1,4 @@
-# Ouvrier automatique — 2026-11-26 04:58 UTC
+# Ouvrier automatique — 2026-11-26 04:59 UTC
 
 Dernier passage : **V3B_C_recup** → en_cours (0.00 USD).
 
@@ -64,7 +64,7 @@ TypeError: string indices must be integers, not 'str'
 | V3B_Q_lot | fait | 1 | 0.0 |
 | V3B_Q_recup | fait | 20 | 0.0 |
 | V3B_C_lot | fait | 1 | 0.0 |
-| V3B_C_recup | en_cours | 1 | 0.0 |
+| V3B_C_recup | en_cours | 2 | 0.0 |
 | V3C_N_lot | fait | 1 | 0.0 |
 | V3C_N_recup | en_cours | 27 | 0.0 |
 | V3C_Q_lot | a_faire | 0 |  |
