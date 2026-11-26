@@ -1,9 +1,7 @@
 # Ouvrier automatique — 2026-11-26 04:42 UTC
 
-Dernier passage : **V3C_N_lot** → fait (0.00 USD).
+Dernier passage : **V3C_N_recup** → en_cours (0.00 USD).
 
-notions : 600 entité(s) à produire.
-lot msgbatch_012am2CnHeMRSbQT8m2FgCHm
 
 
 **Crédit** : 22.31 USD dépensés, 127.69 USD disponibles avant le 31.01.2027 ; aujourd'hui 21.96 / 149.65 USD.
@@ -62,7 +60,7 @@ lot msgbatch_012am2CnHeMRSbQT8m2FgCHm
 | V3B_C_lot | fait | 1 | 0.0 |
 | V3B_C_recup | bloque | 3 | 0.0 |
 | V3C_N_lot | fait | 1 | 0.0 |
-| V3C_N_recup | a_faire | 0 |  |
+| V3C_N_recup | en_cours | 1 | 0.0 |
 | V3C_Q_lot | a_faire | 0 |  |
 | V3C_Q_recup | a_faire | 0 |  |
 | V3C_C_lot | a_faire | 0 |  |
