@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-26 01:49 UTC
+# Ouvrier automatique — 2026-11-26 01:53 UTC
 
-Dernier passage : **P3_tetrade_3d** → en_cours (0.83 USD).
+Dernier passage : **P3_tetrade_3d** → en_cours (0.46 USD).
 
-14 organes 3D réels ajoutés (76 → 90 sur 124) depuis les maillages Z-Anatomy (CC BY-SA 4.0) et BodyParts3D, chaque .glb faisant 1,2 Mo au plus, avec source et licence dans index.json, génitaux externes exclus, orientation et latéralité vérifiées ; ils s'affichent dans la vue 3D via index.json comme les 76 existants, et les audits (conception 34/34, couverture, fond) réussissent. Restent 34 organes : à produire au prochain passage l'oreille externe et moyenne, les articulations et le péritoine (sources déjà trouvées dans Z-Anatomy). Sans source libre : oreille interne (licence NC), organes féminins (modèle Z-Anatomy masculin), testicules (exclus) et les processus non anatomiques (sang, immunité, pédiatrie, etc.).
+4 organes 3D réels ajoutés (90 → 94 sur 124) : articulations et synoviale, péritoine (modèle partiel), oreille externe (pavillons BodyParts3D) et système lymphatique, tous sous CC BY-SA, chacun sous 1,3 Mo, branchés via index.json ; audits conception 34/34, couverture et fond réussis. Aucun autre organe n'a de maillage libre dans BodyParts3D ni Z-Anatomy (péricarde, tissu de conduction, derme, ongles, muqueuses, sang, immunité, gynécologie, pédiatrie, oreille interne NC, testicules exclus). Pour finir, il reste à tester TotalSegmentator (péricarde, graisse) et à chercher un volume pelvien féminin libre ; sinon la tâche pourra passer à « fait » avec la liste des 30 organes sans source.
 
-**Crédit** : 4.13 USD dépensés, 145.87 USD disponibles avant le 31.01.2027 ; aujourd'hui 3.78 / 149.65 USD.
+**Crédit** : 4.59 USD dépensés, 145.41 USD disponibles avant le 31.01.2027 ; aujourd'hui 4.24 / 149.65 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -41,7 +41,7 @@ Dernier passage : **P3_tetrade_3d** → en_cours (0.83 USD).
 | END_C_recup | fait | 1 | 0.0 |
 | T3_pec_fiches_existantes | fait | 8 | 0.133 |
 | P3_paraclinique_cliches | fait | 8 | 0.413 |
-| P3_tetrade_3d | en_cours | 1 | 0.833 |
+| P3_tetrade_3d | en_cours | 2 | 0.461 |
 | T4_reprise_rejets | en_cours | 0 | 0.0 |
 | T5_items_valides | sans_objet | 0 |  |
 | T7_transversal_lecons | sans_objet | 0 |  |
