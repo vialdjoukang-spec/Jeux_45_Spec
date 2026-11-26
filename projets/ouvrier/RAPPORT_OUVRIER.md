@@ -60,7 +60,7 @@ Dernier passage : **V3C_N_recup** → en_cours (0.00 USD).
 | V3B_C_lot | fait | 1 | 0.0 |
 | V3B_C_recup | bloque | 3 | 0.0 |
 | V3C_N_lot | fait | 1 | 0.0 |
-| V3C_N_recup | en_cours | 25 | 0.0 |
+| V3C_N_recup | en_cours | 26 | 0.0 |
 | V3C_Q_lot | a_faire | 0 |  |
 | V3C_Q_recup | a_faire | 0 |  |
 | V3C_C_lot | a_faire | 0 |  |
