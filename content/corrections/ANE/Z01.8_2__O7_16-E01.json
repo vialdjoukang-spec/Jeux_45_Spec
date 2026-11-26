@@ -1,0 +1,1403 @@
+{
+ "id": "Z01.8_2__O7_16-E01",
+ "portes": [
+  {
+   "ssp": "O7.16",
+   "nomSSP": "Évaluation préinterventionnelle et préopératoire",
+   "entite": "Évaluation anesthésique préopératoire standard (classification ASA)",
+   "entiteId": "O7.16-E01"
+  }
+ ],
+ "entite": "Évaluation anesthésique préopératoire standard (classification ASA)",
+ "cim10": "Z01.8",
+ "ssp": {
+  "code": "O7.16",
+  "nom": "Évaluation préinterventionnelle et préopératoire",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Consultation pré-anesthésique avant un acte programmé",
+    "i": "Anamnèse et examen structurés sont la référence ; l'ASA se détermine à la fin.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Urgence vitale ?",
+    "i": "Si un retard menace la vie ou un organe, on ne retarde pas et on ajoute le suffixe E.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : opérer sans retard, évaluation abrégée, ASA + E",
+    "i": "Le bénéfice immédiat prime sur l'optimisation.",
+    "pec": "pec_report",
+    "notion": "c5"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : condition cardiaque ou infectieuse active ?",
+    "i": "Une sténose aortique serrée symptomatique, un SCA, une IC décompensée, une arythmie rapide ou une infection respiratoire aiguë imposent le report.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Oui : reporter, stabiliser, avis spécialisé",
+    "i": "Le risque évitable dépasse le bénéfice d'un acte élective.",
+    "pec": "pec_report",
+    "notion": "c5"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Non : voie aérienne difficile prévue ?",
+    "i": "Mallampati III–IV, ouverture buccale < 3 cm, distance thyro-mentonnière < 6 cm, mobilité cervicale réduite : on combine les critères.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Oui : plan de voie aérienne difficile",
+    "i": "Le plan prévoit vidéolaryngoscope, intubation vigile éventuelle, aide expérimentée et matériel de secours.",
+    "pec": "pec_voie",
+    "notion": "c8"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Non : comorbidité ASA III ou plus active ?",
+    "i": "Une comorbidité sévère mal contrôlée dépasse le bilan standard.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Oui : évaluation ciblée par organe",
+    "i": "Évaluation cardiaque (MET, RCRI, NT-proBNP), respiratoire, rénale, anticoagulation ou diabète selon l'organe.",
+    "pec": "pec_comorbide",
+    "notion": "c2"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Non : patient ASA I–II",
+    "i": "Aucun bilan sanguin, ECG ou radiographie de routine n'est indiqué.",
+    "pec": "pec_standard",
+    "notion": "c6"
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "Problème spécifique dominant (anticoagulant, diabète, anémie, rénal, gériatrie)",
+    "i": "Le détail relève d'une entité du même SSP O7.16 plus spécifique.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n12",
+    "parent": "n10",
+    "t": "Patient de plus de 65 ans ?",
+    "i": "La fragilité et les troubles cognitifs prédisent delirium et durée de séjour.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n13",
+    "parent": "n12",
+    "t": "Oui : dépister fragilité et cognition, éviter les benzodiazépines",
+    "i": "L'échelle de fragilité clinique guide la prise en charge ; la benzodiazépine favorise le delirium.",
+    "pec": "pec_standard",
+    "notion": "c7"
+   },
+   {
+    "id": "n14",
+    "parent": "n12",
+    "t": "Non : plan d'anesthésie, consentement, jeûne",
+    "i": "La technique se choisit selon comorbidités, voie aérienne et antithrombotiques.",
+    "pec": "pec_standard",
+    "notion": "c7"
+   }
+  ]
+ },
+ "specialites": [
+  "ANE",
+  "MIG"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Évaluation anesthésique préopératoire standard (classification ASA)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Classification ASA : six classes, un suffixe E",
+   "rubriques": [
+    "definition",
+    "positiveDiagnosis"
+   ],
+   "comment": "Tu classes l'état physique du patient avant l'acte, tu ne prédis pas le risque opératoire, et tu ajoutes E si un retard menace la vie ou un organe.",
+   "tableau": {
+    "colonnes": [
+     "Classe ASA",
+     "Définition",
+     "Exemples",
+     "Piège d'examen"
+    ],
+    "lignes": [
+     [
+      "ASA I",
+      "Patient sain",
+      [
+       {
+        "t": "Sain, sans maladie systémique",
+        "i": "Aucune atteinte organique : la classe I ne tolère pas le tabagisme actif, qui fait passer en II."
+       }
+      ],
+      [
+       {
+        "t": "Ne pas classer I un fumeur",
+        "i": "Le tabagisme actif est un exemple officiel de maladie systémique légère, donc ASA II."
+       }
+      ]
+     ],
+     [
+      "ASA II",
+      "Maladie systémique légère",
+      [
+       {
+        "t": "Fumeur, IMC 30–40, grossesse, diabète ou HTA bien contrôlés",
+        "i": "La maladie est présente mais sans limitation fonctionnelle, car elle est bien contrôlée."
+       }
+      ],
+      [
+       {
+        "t": "Contrôle de la maladie",
+        "i": "Le même diabète ou la même HTA mal contrôlés passent en ASA III."
+       }
+      ]
+     ],
+     [
+      "ASA III",
+      "Maladie systémique sévère",
+      [
+       {
+        "t": "BPCO, IMC ≥ 40, dialyse régulière, IDM/AVC/stent > 3 mois",
+        "i": "La limitation fonctionnelle est nette mais la maladie ne menace pas constamment la vie."
+       }
+      ],
+      [
+       {
+        "t": "Seuil des 3 mois",
+        "i": "Un événement coronarien ou cérébral ancien de plus de 3 mois est III ; plus récent, il devient IV."
+       }
+      ]
+     ],
+     [
+      "ASA IV",
+      "Maladie menaçant constamment le pronostic vital",
+      [
+       {
+        "t": "IDM/AVC/stent < 3 mois, ischémie en cours, valvulopathie sévère, sepsis, IRA non dialysée",
+        "i": "La menace vitale est permanente, même sans chirurgie, et la dialyse régulière classe en III."
+       }
+      ],
+      [
+       {
+        "t": "Dialysé (III) ≠ IRA non dialysée (IV)",
+        "i": "La dialyse régulière stabilise la situation ; l'insuffisance rénale non dialysée menace la vie."
+       }
+      ]
+     ],
+     [
+      "ASA V",
+      "Patient moribond",
+      [
+       {
+        "t": "Ne survit pas sans l'intervention",
+        "i": "La chirurgie est le dernier recours vital, ce qui le distingue de la classe IV."
+       }
+      ],
+      [
+       {
+        "t": "Souvent associé au suffixe E",
+        "i": "Le patient moribond est opéré en urgence, donc ASA V-E."
+       }
+      ]
+     ],
+     [
+      "ASA VI",
+      "Mort cérébrale, donneur d'organes",
+      [
+       {
+        "t": "Prélèvement d'organes",
+        "i": "Le patient est cliniquement mort ; l'anesthésie préserve la fonction des organes prélevés."
+       }
+      ],
+      [
+       {
+        "t": "Jamais en consultation élective",
+        "i": "Cette classe ne concerne que le prélèvement d'organes."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le suffixe E s'ajoute quand un retard menace la vie ou la fonction d'un organe.",
+    "Le score ASA ignore l'âge et le type de chirurgie et varie selon l'évaluateur.",
+    "Le score ASA seul ne suffit pas à prédire la mortalité."
+   ],
+   "sources": [
+    "ASA Physical Status Classification System",
+    "SSAR recommandations d'évaluation préanesthésique"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Réserves physiologiques et risque cardiovasculaire périopératoire",
+   "rubriques": [
+    "basicSciences",
+    "epidemiology"
+   ],
+   "comment": "Tu combines capacité fonctionnelle, risque de la chirurgie et facteurs du patient, car le stress chirurgical décompense une réserve déjà limitée.",
+   "tableau": {
+    "colonnes": [
+     "Outil",
+     "Seuil ou composition",
+     "Utilité"
+    ],
+    "lignes": [
+     [
+      "Capacité fonctionnelle",
+      [
+       {
+        "t": "< 4 MET (ne monte pas 2 étages sans s'arrêter)",
+        "i": "Une capacité basse prédit une réserve insuffisante face à l'augmentation de la demande en oxygène."
+       }
+      ],
+      "Augmente le risque cardiovasculaire et oriente vers un bilan ciblé."
+     ],
+     [
+      "Risque de la chirurgie",
+      [
+       {
+        "t": "MACE à 30 jours : < 1 % faible, 1–5 % intermédiaire, > 5 % élevé",
+        "i": "Le risque dépend de l'acte lui-même, indépendamment du patient."
+       }
+      ],
+      "Décide si ECG, NT-proBNP ou avis spécialisé sont utiles."
+     ],
+     [
+      "Score RCRI de Lee",
+      [
+       {
+        "t": "6 facteurs : chirurgie à haut risque, cardiopathie ischémique, insuffisance cardiaque, AVC/AIT, diabète sous insuline, créatinine > 177 µmol/L",
+        "i": "Chaque facteur compte un point ; le score reflète le risque cardiaque du patient, pas celui de l'ASA."
+       }
+      ],
+      "Quantifie le risque cardiaque majeur périopératoire."
+     ],
+     [
+      "NT-proBNP",
+      [
+       {
+        "t": "Chirurgie intermédiaire/élevée + patient cardiovasculaire, à risque ou ≥ 65 ans",
+        "i": "Il affine le risque pronostique là où la clinique seule est imprécise."
+       }
+      ],
+      "Affine le risque et évite des examens invasifs inutiles."
+     ],
+     [
+      "Voie aérienne",
+      [
+       {
+        "t": "Laryngoscopie difficile : quelques %, intubation impossible imprévue : ~1/2000",
+        "i": "La laryngoscopie difficile est fréquente, l'intubation impossible reste rare mais grave."
+       }
+      ],
+      "Justifie un examen systématique de la voie aérienne."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le stress chirurgical libère des catécholamines, induit inflammation et hypercoagulabilité.",
+    "La SSAR recommande une évaluation documentée par un anesthésiste avant toute anesthésie programmée, générale, locorégionale ou sédation.",
+    "L'âge seul ne guide pas les examens."
+   ],
+   "sources": [
+    "ESC/ESAIC 2022 chirurgie non cardiaque",
+    "SSAR recommandations d'évaluation préanesthésique"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse anesthésique et gestion des traitements",
+   "rubriques": [
+    "anamnesis",
+    "chronicManagement"
+   ],
+   "comment": "Tu cherches ce qui modifie le choix des agents, la sécurité de l'induction et la conduite des traitements chroniques.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Conduite",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Antécédents personnels et familiaux",
+      [
+       {
+        "t": "Hyperthermie maligne, déficit en pseudocholinestérase, intubation difficile, NVPO",
+        "i": "Ces antécédents contre-indiquent halogénés ou succinylcholine, ou imposent un plan de voie aérienne."
+       }
+      ],
+      "Adapter agents et prophylaxie."
+     ],
+     [
+      "Allergies",
+      [
+       {
+        "t": "Curares, bêta-lactamines, chlorhexidine, latex",
+        "i": "Ce sont les principales causes d'anaphylaxie périopératoire."
+       }
+      ],
+      [
+       {
+        "t": "Allergie à l'œuf : propofol autorisé",
+        "i": "L'allergie à l'œuf vise les protéines de l'œuf, absentes de la phase lipidique du propofol."
+       }
+      ]
+     ],
+     [
+      "Bêtabloquants, statines",
+      [
+       {
+        "t": "Poursuivis en périopératoire",
+        "i": "Leur arrêt expose à une tachycardie de rebond et à un risque cardiovasculaire accru."
+       }
+      ],
+      "Protéger le myocarde."
+     ],
+     [
+      "IEC et sartans",
+      [
+       {
+        "t": "Suspension possible 24 h avant chirurgie à risque en cas d'hypertension",
+        "i": "Ils favorisent l'hypotension à l'induction ; l'arrêt n'est pas obligatoire s'il n'y a pas d'hypertension."
+       }
+      ],
+      "Limiter l'hypotension peropératoire."
+     ],
+     [
+      "Agonistes du GLP-1",
+      [
+       {
+        "t": "Échographie gastrique ou induction à séquence rapide",
+        "i": "Ils retardent la vidange gastrique : l'estomac peut rester plein malgré le jeûne."
+       }
+      ],
+      "Prévenir l'inhalation."
+     ],
+     [
+      "Tabac",
+      [
+       {
+        "t": "Arrêt ≥ 4 semaines avant l'acte",
+        "i": "Cet arrêt réduit les complications respiratoires et de cicatrisation."
+       }
+      ],
+      "Le conseil d'arrêt fait partie de la consultation."
+     ],
+     [
+      "Antithrombotiques",
+      [
+       {
+        "t": "Plan défini avant le choix de la technique",
+        "i": "Ils conditionnent la ponction neuraxiale : au moins 12 h après la dernière HBPM prophylactique."
+       }
+      ],
+      "Éviter l'hématome rachidien."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Tu interroges aussi sur jeûne, capacité d'effort et médicaments pris.",
+    "Le détail anticoagulation et diabète relève des entités spécialisées du même SSP."
+   ],
+   "sources": [
+    "ESC/ESAIC 2022 chirurgie non cardiaque",
+    "SSAR recommandations d'évaluation préanesthésique",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Examen clinique et voie aérienne",
+   "rubriques": [
+    "clinicalExam"
+   ],
+   "comment": "Tu combines plusieurs critères de voie aérienne, car aucun test isolé n'est fiable, et tu documentes l'état dentaire.",
+   "tableau": {
+    "colonnes": [
+     "Test",
+     "Seuil évocateur",
+     "Limite"
+    ],
+    "lignes": [
+     [
+      "Mallampati",
+      [
+       {
+        "t": "Classes III–IV : laryngoscopie difficile possible",
+        "i": "Plus la base de langue masque le pharynx, plus la glotte est difficile à voir."
+       }
+      ],
+      [
+       {
+        "t": "Sensibilité isolée faible",
+        "i": "Un Mallampati bas n'exclut pas une intubation difficile."
+       }
+      ]
+     ],
+     [
+      "Distance thyro-mentonnière",
+      [
+       {
+        "t": "< 6 cm",
+        "i": "Une mandibule courte aligne mal les axes oral, pharyngé et laryngé."
+       }
+      ],
+      "À combiner avec d'autres critères."
+     ],
+     [
+      "Ouverture buccale",
+      [
+       {
+        "t": "< 3 cm",
+        "i": "L'espace manque pour introduire la lame du laryngoscope."
+       }
+      ],
+      "Une limitation majeure fait envisager vidéolaryngoscope ou intubation vigile."
+     ],
+     [
+      "Mobilité cervicale et protrusion mandibulaire",
+      [
+       {
+        "t": "Mobilité réduite, protrusion limitée",
+        "i": "L'alignement des axes de la voie aérienne devient impossible."
+       }
+      ],
+      "Documenter l'évaluation au dossier."
+     ],
+     [
+      "Auscultation cardiopulmonaire",
+      [
+       {
+        "t": "Souffle systolique irradiant aux carotides, crépitants, galop, œdèmes",
+        "i": "Le souffle évoque une sténose aortique ; galop, crépitants et œdèmes révèlent une insuffisance cardiaque."
+       }
+      ],
+      "Une anomalie nouvelle déclenche un bilan ciblé."
+     ],
+     [
+      "Dentition",
+      [
+       {
+        "t": "Dents mobiles, bridges, prothèses",
+        "i": "Un dommage dentaire survient lors de la laryngoscopie ; l'état initial documenté protège sur le plan médico-légal."
+       }
+      ],
+      "Informer le patient avant l'acte."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Un score STOP-Bang ≥ 3 signale un risque élevé de SAOS : prudence avec les opioïdes et surveillance postopératoire renforcée.",
+    "Chez le patient de plus de 65 ans, tu recherches fragilité et troubles cognitifs, qui prédisent delirium et durée de séjour."
+   ],
+   "sources": [
+    "SSAR recommandations d'évaluation préanesthésique",
+    "ESAIC évaluation préopératoire"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Signaux d'alarme : quand reporter la chirurgie élective",
+   "rubriques": [
+    "presumptionRedFlags",
+    "acuteManagement"
+   ],
+   "comment": "Tu reportes l'acte élective devant toute condition cardiaque active ou infection aiguë, mais tu n'attends pas devant une urgence vitale.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Signal d'alarme découvert en consultation",
+     "i": "La consultation détecte une instabilité que le bilan de routine ne dépiste pas.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Chirurgie urgente vitale ?",
+     "i": "Un retard menacerait la vie ou un organe : on opère sans attendre et on ajoute le suffixe E.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : ne pas retarder, optimiser en parallèle",
+     "i": "Le bénéfice de l'acte dépasse le risque ; on réalise une évaluation abrégée.",
+     "pec": "pec_report",
+     "notion": "c5"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non : chirurgie élective, chercher une condition active",
+     "i": "Sans urgence, le risque évitable justifie la stabilisation préalable.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Sténose aortique serrée symptomatique (syncope, angor, dyspnée)",
+     "i": "La demande en oxygène du stress chirurgical dépasse un débit fixe : on traite d'abord la valve.",
+     "pec": "pec_report",
+     "notion": "c5"
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "Angor instable ou SCA récent",
+     "i": "Une plaque instable décompense sous catécholamines : avis cardiologique et stabilisation avant l'acte.",
+     "pec": "pec_report",
+     "notion": "c5"
+    },
+    {
+     "id": "n7",
+     "parent": "n4",
+     "t": "Insuffisance cardiaque décompensée, arythmie rapide non contrôlée, BAV de haut degré",
+     "i": "Ce sont des conditions cardiaques actives qui imposent de différer l'acte.",
+     "pec": "pec_report",
+     "notion": "c5"
+    },
+    {
+     "id": "n8",
+     "parent": "n4",
+     "t": "Infection respiratoire aiguë",
+     "i": "Elle augmente laryngospasme, bronchospasme et désaturation, surtout chez l'enfant : report de plusieurs semaines.",
+     "pec": "pec_report",
+     "notion": "c5"
+    }
+   ],
+   "points": [
+    "La décision de report est partagée entre anesthésiste, chirurgien, patient et spécialiste d'organe.",
+    "Elle pèse l'urgence de l'acte contre le risque."
+   ],
+   "sources": [
+    "ESC/ESAIC 2022 chirurgie non cardiaque",
+    "SSAR recommandations d'évaluation préanesthésique"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Bilan complémentaire : ciblé, jamais de routine",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Tu poses la référence (anamnèse et examen structurés) et tu ajoutes un examen seulement s'il peut modifier la prise en charge.",
+   "tableau": {
+    "colonnes": [
+     "Examen",
+     "Indication",
+     "Pas indiqué quand"
+    ],
+    "lignes": [
+     [
+      "Anamnèse et examen structurés",
+      [
+       {
+        "t": "Examen de référence pour tous",
+        "i": "Ils identifient les patients à risque et orientent les examens."
+       }
+      ],
+      "Un bilan de routine chez ASA I–II asymptomatique n'apporte rien."
+     ],
+     [
+      "ECG de repos",
+      [
+       {
+        "t": "Maladie ou facteur de risque CV avant chirurgie intermédiaire/élevée",
+        "i": "Il sert de référence et détecte une ischémie ou une arythmie."
+       }
+      ],
+      "Chirurgie à faible risque asymptomatique."
+     ],
+     [
+      "Radiographie thoracique",
+      [
+       {
+        "t": "Signes cardiopulmonaires nouveaux ou inexpliqués",
+        "i": "Elle répond à un symptôme, pas à un dépistage."
+       }
+      ],
+      "Jamais en routine préopératoire."
+     ],
+     [
+      "Hémoglobine",
+      [
+       {
+        "t": "Chirurgie à risque de saignement important ; anémie si < 130 g/L",
+        "i": "Le seuil unique de 130 g/L pour les deux sexes est retenu en Patient Blood Management."
+       }
+      ],
+      "Chirurgie peu hémorragique."
+     ],
+     [
+      "TP, TCA",
+      [
+       {
+        "t": "Antécédent hémorragique ou traitement concerné",
+        "i": "L'anamnèse hémorragique standardisée remplace les tests systématiques."
+       }
+      ],
+      "Patient sans histoire hémorragique."
+     ],
+     [
+      "NT-proBNP et échocardiographie",
+      [
+       {
+        "t": "NT-proBNP : cardiovasculaire/≥ 65 ans ; écho : dyspnée inexpliquée, souffle suspect, IC avec changement",
+        "i": "L'écho répond à un signe nouveau, pas à un dépistage systématique."
+       }
+      ],
+      "Patient sain ou stable."
+     ],
+     [
+      "Créatinine, test de grossesse",
+      [
+       {
+        "t": "Risque rénal ou chirurgie à risque ; doute chez la femme en âge de procréer",
+        "i": "Ils changent l'anesthésie ou la posologie des médicaments."
+       }
+      ],
+      "Sans facteur de risque rénal ni doute."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Un patient ASA III ou plus avec comorbidité active relève d'une évaluation ciblée par organe.",
+    "Les examens se choisissent selon comorbidités et invasivité, jamais selon l'âge seul ni l'exhaustivité."
+   ],
+   "sources": [
+    "ESC/ESAIC 2022 chirurgie non cardiaque",
+    "SSAR recommandations d'évaluation préanesthésique",
+    "ESAIC évaluation préopératoire"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Plan d'anesthésie, consentement, jeûne et prémédication",
+   "rubriques": [
+    "positiveDiagnosis",
+    "chronicManagement"
+   ],
+   "comment": "Tu choisis la technique avec le patient, tu documentes son consentement et tu donnes des consignes de jeûne précises.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Consigne",
+     "Raison"
+    ],
+    "lignes": [
+     [
+      "Adulte, repas léger",
+      [
+       {
+        "t": "Jeûne de 6 h",
+        "i": "Le repas léger quitte l'estomac en 6 h environ."
+       }
+      ],
+      "Réduit le risque d'inhalation."
+     ],
+     [
+      "Adulte, repas gras",
+      [
+       {
+        "t": "Jeûne de 8 h",
+        "i": "Les graisses retardent la vidange gastrique."
+       }
+      ],
+      "Réduit le risque d'inhalation."
+     ],
+     [
+      "Liquides clairs",
+      [
+       {
+        "t": "Autorisés jusqu'à 2 h",
+        "i": "Ils se vident vite ; un jeûne prolongé augmente soif, déshydratation et inconfort."
+       }
+      ],
+      "Éviter un jeûne excessif."
+     ],
+     [
+      "Nourrisson",
+      [
+       {
+        "t": "Lait maternel 4 h, lait artificiel 6 h, liquides clairs 2 h",
+        "i": "Le lait artificiel contient des protéines coagulables, qui se vident plus lentement que le lait maternel."
+       }
+      ],
+      "Adapter au type de lait."
+     ],
+     [
+      "Personne âgée",
+      [
+       {
+        "t": "Éviter la prémédication par benzodiazépine",
+        "i": "Elle favorise le delirium postopératoire."
+       }
+      ],
+      "Prémédication raisonnée."
+     ],
+     [
+      "Choix de la technique",
+      [
+       {
+        "t": "Générale, neuraxiale ou périphérique selon comorbidités, voie aérienne, antithrombotiques",
+        "i": "Le choix pèse risque de la technique et bénéfice pour l'acte."
+       }
+      ],
+      "Consentement éclairé documenté (droit suisse)."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le patient reçoit une information sur techniques, risques et alternatives avant de consentir.",
+    "Le consentement est documenté au dossier."
+   ],
+   "sources": [
+    "SSAR recommandations d'évaluation préanesthésique",
+    "ESAIC jeûne préopératoire",
+    "Code civil suisse, droit du patient"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications périopératoires évitables",
+   "rubriques": [
+    "hospitalizationComplications"
+   ],
+   "comment": "Tu anticipes les trois complications que l'anamnèse et l'examen permettent de prévoir : voie aérienne, NVPO, hyperthermie maligne.",
+   "tableau": {
+    "colonnes": [
+     "Complication",
+     "Facteur déclenchant ou score",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Intubation impossible imprévue",
+      [
+       {
+        "t": "Voie aérienne non anticipée",
+        "i": "Les prédicteurs sont peu sensibles : la complication reste possible malgré un examen normal."
+       }
+      ],
+      [
+       {
+        "t": "Oxygéner, appeler de l'aide, accès cervical chirurgical si ne peut intuber ni oxygéner",
+        "i": "L'oxygénation prime sur l'intubation ; l'accès chirurgical sauve le patient en cas de CICO."
+       }
+      ]
+     ],
+     [
+      "NVPO",
+      [
+       {
+        "t": "Score d'Apfel : sexe féminin, non-fumeur, antécédent de NVPO/mal des transports, opioïdes postopératoires",
+        "i": "Chaque facteur compte un point : le risque passe d'environ 10 % à 80 % avec 4 facteurs."
+       }
+      ],
+      "Prophylaxie adaptée au score."
+     ],
+     [
+      "Hyperthermie maligne",
+      [
+       {
+        "t": "Halogénés et succinylcholine chez un sujet prédisposé",
+        "i": "Elle est favorisée par la prédisposition familiale, d'où l'anamnèse."
+       }
+      ],
+      [
+       {
+        "t": "Dantrolène",
+        "i": "Il bloque la libération de calcium du réticulum sarcoplasmique et traite la crise."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'évaluation préopératoire réduit annulations de dernière minute et complications évitables."
+   ],
+   "sources": [
+    "SSAR recommandations d'évaluation préanesthésique",
+    "Consensus PONV 2020"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Surveillance, sortie et réseau",
+   "rubriques": [
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Tu réévalues le patient le jour même, puis tu coordonnes anesthésiste, chirurgien et médecin de famille.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le jour de l'intervention, l'équipe réévalue jeûne, traitements pris, nouveau symptôme infectieux ou cardiaque et validité du consentement.",
+    "Le Time-Out de la check-list OMS vérifie identité, site, intervention, allergies, voie aérienne difficile et risque hémorragique.",
+    "En chirurgie ambulatoire, le patient sort avec un accompagnant adulte et ne conduit pas pendant 24 heures.",
+    "Le médecin de famille optimise les comorbidités avant la consultation."
+   ],
+   "sources": [
+    "OMS check-list chirurgie sûre",
+    "SSAR recommandations d'évaluation préanesthésique"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "pec_standard",
+   "titre": "Consultation pré-anesthésique du patient ASA I–II, chirurgie programmée",
+   "but": [
+    "Stratifier le risque et attribuer la classe ASA.",
+    "Choisir avec le patient la technique et obtenir son consentement éclairé.",
+    "Éviter tout examen inutile et toute annulation de dernière minute."
+   ],
+   "moyens": {
+    "accueil": [
+     "Vérifier l'identité et le motif de l'intervention.",
+     "Mesurer poids, taille, IMC et constantes.",
+     "Expliquer le déroulement de la consultation et l'objectif."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Ondansétron (antagoniste 5-HT3)",
+      "posologie": "4 mg IV lent chez l'adulte en fin d'intervention, selon le score d'Apfel.",
+      "pourquoi": "Il réduit les NVPO chez les patients à risque identifiés par le score d'Apfel.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Dexaméthasone (corticoïde)",
+      "posologie": "4 à 8 mg IV à l'induction, chez l'adulte à risque de NVPO.",
+      "pourquoi": "Elle complète l'ondansétron dans la prévention multimodale des NVPO chez les patients à risque modéré ou élevé.",
+      "source": "Consensus PONV 2020"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer jeûne, médicaments à poursuivre ou suspendre et déroulement du jour de l'acte.",
+      "pourquoi": "Le patient informé respecte les consignes et évite les annulations."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Conseiller l'arrêt du tabac au moins 4 semaines avant l'acte.",
+      "pourquoi": "Il réduit les complications respiratoires et de cicatrisation."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Organiser un accompagnant adulte pour la sortie en chirurgie ambulatoire.",
+      "pourquoi": "Le patient ne conduit pas pendant 24 heures après l'anesthésie."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantit un consentement éclairé documenté sur techniques, risques et alternatives."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Clarifie la couverture du séjour ambulatoire ou hospitalier et des suites."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Documenter l'évaluation de la voie aérienne et de la dentition au dossier.",
+      "Ne prescrire ni bilan sanguin, ni ECG, ni radiographie de routine.",
+      "Expliquer le plan d'anesthésie et recueillir le consentement."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable (anesthésiste)",
+       "fait": "Recueille antécédents anesthésiques, allergies, médicaments, jeûne et capacité d'effort."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Mesure constantes et IMC et vérifie la liste des traitements."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable (anesthésiste)",
+       "fait": "Examine voie aérienne, dentition, cœur et poumons, puis attribue la classe ASA."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Choisit avec l'anesthésiste la technique et signe son consentement éclairé."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable (anesthésiste)",
+       "fait": "Transmet le plan au chirurgien et au médecin de famille."
+      }
+     ]
+    }
+   },
+   "pronostic": "Une évaluation structurée réduit annulations de dernière minute et complications évitables ; le score ASA seul ne suffit pas à prédire la mortalité.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Jeûne, traitements pris, nouveaux symptômes",
+      "quand": "Jour de l'intervention, avant l'induction",
+      "cible": "Aucun symptôme infectieux ou cardiaque nouveau ; jeûne respecté"
+     },
+     {
+      "quoi": "Time-Out OMS",
+      "quand": "Avant l'incision",
+      "cible": "Identité, site, allergies, voie aérienne et risque hémorragique vérifiés"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si ASA I–II : sortie avec accompagnant adulte, sans conduite pendant 24 heures."
+   },
+   "prevention": {
+    "primaire": "Conseille arrêt du tabac et optimisation des comorbidités avant l'acte.",
+    "secondaire": "Dépiste voie aérienne difficile, allergies et risque de NVPO par l'anamnèse structurée.",
+    "tertiaire": "Documente l'évaluation pour prévenir une récidive de complication à l'anesthésie suivante."
+   }
+  },
+  {
+   "cle": "pec_comorbide",
+   "titre": "Patient ASA III ou plus : évaluation ciblée par organe",
+   "but": [
+    "Quantifier le risque cardiaque, respiratoire et rénal avant l'acte.",
+    "Optimiser les traitements chroniques sans les interrompre à tort.",
+    "Décider de maintenir ou de reporter l'acte avec le chirurgien et le spécialiste."
+   ],
+   "moyens": {
+    "accueil": [
+     "Réunir lettres de sortie, listes de médicaments et derniers bilans.",
+     "Prévoir un temps de consultation plus long.",
+     "Demander l'avis du médecin de famille et du spécialiste d'organe."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Bêtabloquants et statines (poursuite)",
+      "posologie": "Dose habituelle poursuivie, y compris le matin de l'intervention.",
+      "pourquoi": "Leur arrêt expose à un rebond tachycardique et à un risque cardiovasculaire accru en périopératoire.",
+      "source": "ESC/ESAIC 2022"
+     },
+     {
+      "molecule": "IEC ou sartans (suspension)",
+      "posologie": "Suspension possible 24 h avant une chirurgie à risque en cas d'hypertension.",
+      "pourquoi": "Elle limite l'hypotension à l'induction, mais n'est pas obligatoire si l'indication est l'insuffisance cardiaque.",
+      "source": "ESC/ESAIC 2022"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Calculer MET, risque chirurgical et RCRI, puis doser le NT-proBNP si indiqué.",
+      "pourquoi": "Ces outils affinent le risque cardiaque et guident les examens suivants."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Dépister un SAOS par STOP-Bang et adapter l'usage des opioïdes.",
+      "pourquoi": "Un score ≥ 3 signale un risque élevé de complications respiratoires postopératoires."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Planifier une surveillance postopératoire renforcée si ASA ≥ III.",
+      "pourquoi": "Une décompensation d'organe est plus probable chez ces patients."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente la décision partagée et le consentement lorsque le risque est élevé."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Anticipe la durée de séjour et la réadaptation éventuelle."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Ne pas appliquer le bilan standard : cibler par organe.",
+      "Ne pas interrompre bêtabloquants et statines.",
+      "Partager la décision entre anesthésiste, chirurgien, patient et spécialiste."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable (anesthésiste)",
+       "fait": "Évalue capacité fonctionnelle, risque chirurgical, RCRI et traitements en cours."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin de famille",
+       "fait": "Optimise comorbidités et transmet les derniers bilans."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste d'organe",
+       "fait": "Réalise l'évaluation ciblée (cardiaque, respiratoire, rénale, hémostase ou diabète)."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable (anesthésiste)",
+       "fait": "Attribue l'ASA, propose la technique et décide avec le chirurgien du maintien ou du report."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Reçoit l'information et donne son consentement éclairé."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le risque dépend de la comorbidité et de l'acte ; l'ASA seul ne prédit pas la mortalité, d'où l'évaluation par organe.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Paramètres de l'organe concerné",
+      "quand": "Avant l'acte puis après l'intervention",
+      "cible": "Stabilité sous traitement optimisé"
+     },
+     {
+      "quoi": "Réévaluation le jour de l'acte",
+      "quand": "Avant l'induction",
+      "cible": "Aucune décompensation nouvelle"
+     }
+    ],
+    "sortie": "Sortie après l'intervention quand l'état d'organe est stable et le suivi coordonné avec le médecin de famille."
+   },
+   "prevention": {
+    "primaire": "Optimise les comorbidités par le médecin de famille avant l'acte.",
+    "secondaire": "Dépiste fragilité, SAOS et atteinte d'organe avant l'intervention.",
+    "tertiaire": "Organise suivi et réadaptation pour limiter les complications postopératoires."
+   }
+  },
+  {
+   "cle": "pec_report",
+   "titre": "Pathologie instable découverte : report ou urgence vitale",
+   "but": [
+    "Reporter l'acte élective le temps de stabiliser la pathologie.",
+    "Ne pas retarder une urgence vitale et ajouter le suffixe E.",
+    "Choisir en équipe entre report et maintien."
+   ],
+   "moyens": {
+    "accueil": [
+     "Informer le patient que l'acte est reporté pour sa sécurité.",
+     "Contacter chirurgien et spécialiste d'organe.",
+     "Fixer une date de réévaluation."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Traiter d'abord la sténose aortique serrée symptomatique avant la chirurgie non cardiaque.",
+      "pourquoi": "La valve limite le débit ; le stress chirurgical décompense."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Obtenir l'avis cardiologique et la stabilisation d'un angor instable ou SCA.",
+      "pourquoi": "Un acte élective sur ischémie active expose à l'infarctus."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Reporter de plusieurs semaines l'acte après une infection respiratoire aiguë.",
+      "pourquoi": "Le risque de laryngospasme, bronchospasme et désaturation est élevé, surtout chez l'enfant."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Documente la décision partagée de report ou de maintien."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Règle les conséquences du report sur l'hospitalisation et l'arrêt de travail."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Ne pas retarder une intervention dont le retard menace la vie ou un organe.",
+      "Ajouter le suffixe E à la classe ASA."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable (anesthésiste)",
+       "fait": "Évalue en quelques minutes voie aérienne, allergies, jeûne et instabilité."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "chirurgien",
+       "fait": "Confirme l'urgence vitale et le délai acceptable."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable (anesthésiste)",
+       "fait": "Adapte la technique : estomac plein, induction à séquence rapide, monitorage renforcé."
+      },
+      {
+       "temps": "puis",
+       "qui": "infirmier·ère",
+       "fait": "Prépare le matériel et applique le Time-Out OMS."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Reporter l'acte élective jusqu'à stabilisation.",
+      "Peser urgence de l'acte contre risque."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable (anesthésiste)",
+       "fait": "Identifie la condition active et décide du report de l'acte."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "chirurgien",
+       "fait": "Évalue le délai tolérable pour la pathologie opératoire."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "spécialiste d'organe",
+       "fait": "Stabilise la pathologie (valve, coronaire, rythme, infection)."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable (anesthésiste)",
+       "fait": "Réévalue le patient et planifie une nouvelle date."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le report d'un acte élective évite une décompensation évitable ; il ne s'applique pas à l'urgence vitale.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Stabilité de la pathologie active",
+      "quand": "Jusqu'à la nouvelle date",
+      "cible": "Condition cardiaque ou infectieuse contrôlée"
+     },
+     {
+      "quoi": "Réévaluation anesthésique",
+      "quand": "Avant la nouvelle intervention",
+      "cible": "Absence de condition active"
+     }
+    ],
+    "sortie": "Retour à domicile après décision de report ; nouvelle consultation une fois la pathologie stabilisée."
+   },
+   "prevention": {
+    "primaire": "Dépiste symptômes cardiaques et infectieux à l'anamnèse avant tout acte élective.",
+    "secondaire": "Traite la pathologie active découverte avant l'intervention.",
+    "tertiaire": "Documente l'épisode pour la prochaine évaluation préopératoire."
+   }
+  },
+  {
+   "cle": "pec_voie",
+   "titre": "Voie aérienne difficile prévue ou intubation impossible imprévue",
+   "but": [
+    "Garantir l'oxygénation en toutes circonstances.",
+    "Anticiper matériel, technique et aide expérimentée.",
+    "Traiter la situation ne peut intuber ni oxygéner par un accès cervical chirurgical."
+   ],
+   "moyens": {
+    "accueil": [
+     "Informer le patient du risque de voie aérienne difficile.",
+     "Documenter l'évaluation au dossier.",
+     "Prévenir l'équipe avant l'induction."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Prévoir vidéolaryngoscope et intubation vigile éventuelle avec matériel de secours.",
+      "pourquoi": "L'intubation vigile conserve la ventilation spontanée si l'accès est incertain."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Appeler une aide expérimentée dès le premier échec.",
+      "pourquoi": "Le recours précoce à l'aide améliore la sécurité."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Réaliser un accès chirurgical cervical en situation ne peut intuber ni oxygéner.",
+      "pourquoi": "C'est le seul moyen d'oxygéner quand les autres échouent."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Protège le patient et l'équipe par la documentation de l'évaluation et de l'information."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Privilégier l'oxygénation avant l'intubation.",
+      "Appeler de l'aide dès le premier échec."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable (anesthésiste)",
+       "fait": "Oxygène par masque ou dispositif supraglottique et limite les tentatives."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Apporte le chariot de voie aérienne difficile et appelle l'aide."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "second médecin",
+       "fait": "Assiste avec vidéolaryngoscope ou technique alternative."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable (anesthésiste)",
+       "fait": "Réalise l'accès chirurgical cervical si ne peut intuber ni oxygéner."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Combiner plusieurs critères : aucun test isolé n'est fiable.",
+      "Documenter la voie aérienne et la dentition."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable (anesthésiste)",
+       "fait": "Évalue Mallampati, distance thyro-mentonnière, ouverture buccale, mobilité cervicale."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable (anesthésiste)",
+       "fait": "Planifie vidéolaryngoscope, intubation vigile éventuelle et matériel de secours."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Se tient disponible comme aide expérimentée."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Reçoit l'information et signe son consentement."
+      }
+     ]
+    }
+   },
+   "pronostic": "L'intubation impossible imprévue reste rare (environ 1/2000) ; l'anticipation et l'oxygénation évitent l'essentiel des complications graves.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Oxygénation pendant l'induction",
+      "quand": "Continuellement",
+      "cible": "Saturation maintenue"
+     },
+     {
+      "quoi": "Information du patient et du dossier",
+      "quand": "Après l'anesthésie",
+      "cible": "Voie aérienne difficile documentée et transmise"
+     }
+    ],
+    "sortie": "Sortie selon l'acte réalisé, après transmission écrite de la voie aérienne difficile au patient et au médecin de famille."
+   },
+   "prevention": {
+    "primaire": "Examine systématiquement la voie aérienne avant toute anesthésie.",
+    "secondaire": "Prévoit matériel et aide expérimentée en cas de critères positifs.",
+    "tertiaire": "Remet une carte ou un courrier de voie aérienne difficile pour les futures anesthésies."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6896,
+  "output_tokens": 19885,
+  "output_tokens_details": {
+   "thinking_tokens": 4204
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:54",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": {
+   "verdict": "🟧",
+   "date": "2026-11-26",
+   "aVerifier": [],
+   "audit": "AUDIT_V3_B"
+  }
+ }
+}

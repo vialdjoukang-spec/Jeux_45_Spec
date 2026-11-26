@@ -1,0 +1,1225 @@
+{
+ "id": "Z00.0__O4_4-E01",
+ "portes": [
+  {
+   "ssp": "O4.4",
+   "nomSSP": "Demande et organisation de bilans de santé, d’examens médicaux, radiologiques et biologiques",
+   "entite": "Bilan de santé général chez un adulte asymptomatique (Smarter Medicine)",
+   "entiteId": "O4.4-E01"
+  }
+ ],
+ "entite": "Bilan de santé général chez un adulte asymptomatique (Smarter Medicine)",
+ "cim10": "Z00.0",
+ "ssp": {
+  "code": "O4.4",
+  "nom": "Demande et organisation de bilans de santé, d'examens médicaux, radiologiques et biologiques",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Un adulte demande un « check-up complet »",
+    "i": "Porte d'entrée du SSP O4.4 : demande de bilan chez un adulte qui se dit asymptomatique.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Le médecin demande : qu'est-ce qui vous amène aujourd'hui ?",
+    "i": "Cette question ouverte démasque un symptôme caché ou une inquiétude précise.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Le patient a-t-il un symptôme d'alarme ?",
+    "i": "Perte de poids, rectorragie, dysphagie, douleur thoracique d'effort, sueurs nocturnes, toux persistante.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n4",
+    "parent": "n3",
+    "t": "Oui : le médecin renvoie vers le SSP du symptôme et fait un bilan diagnostique",
+    "i": "La probabilité pré-test est élevée : il ne s'agit plus de dépistage ; la conduite suit le SSP du symptôme concerné.",
+    "pec": "symptome_cache",
+    "notion": "c3"
+   },
+   {
+    "id": "n5",
+    "parent": "n3",
+    "t": "Non : le médecin calcule le risque cardiovasculaire et évalue âge, sexe, facteurs de risque",
+    "i": "Le risque global guide les interventions mieux qu'une batterie d'examens.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n6",
+    "parent": "n5",
+    "t": "Le sujet est-il jeune, sans facteur de risque ?",
+    "i": "Smarter Medicine : aucun bénéfice démontré des examens de routine dans cette situation.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Oui : pas de biologie, d'ECG ni de radiographie thoracique ; le médecin mesure la TA, contrôle les vaccins et donne des conseils",
+    "i": "Un test à faible probabilité pré-test génère des faux positifs et une cascade iatrogène.",
+    "pec": "consultation_prevention",
+    "notion": "c6"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Non : le médecin choisit des dépistages ciblés par décision partagée",
+    "i": "Âge, sexe et risque déterminent les tests validés ; le patient choisit après information.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Le médecin prescrit profil lipidique et glycémie/HbA1c (homme ≥ 40 ans, femme ≥ 50 ans, ou plus tôt si facteurs de risque)",
+    "i": "Ces examens alimentent le calcul du risque cardiovasculaire et dépistent le diabète chez les sujets à risque.",
+    "pec": "consultation_prevention",
+    "notion": "c4"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Le médecin propose les dépistages de cancer selon l'âge (FIT/colonoscopie, mammographie, frottis)",
+    "i": "Ces dépistages ont démontré un bénéfice dans des programmes organisés et sont remboursés par la LAMal.",
+    "pec": "consultation_prevention",
+    "notion": "c5"
+   },
+   {
+    "id": "n11",
+    "parent": "n8",
+    "t": "Le médecin propose VIH, VHC, VHB seulement si risque d'exposition",
+    "i": "La prévalence est faible en population générale ; les groupes à risque concentrent le rendement.",
+    "pec": "consultation_prevention",
+    "notion": "c5"
+   },
+   {
+    "id": "n12",
+    "parent": "n8",
+    "t": "Homme de 65 à 75 ans ayant déjà fumé : échographie unique de l'aorte",
+    "i": "Seul groupe où le dépistage de l'anévrisme a démontré un bénéfice.",
+    "pec": "consultation_prevention",
+    "notion": "c5"
+   },
+   {
+    "id": "n13",
+    "parent": "n8",
+    "t": "PSA ou vitamine D demandés : le médecin n'en fait pas systématiquement",
+    "i": "Le PSA exige une décision partagée ; la vitamine D n'a pas de bénéfice démontré sans facteur de risque.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n14",
+    "parent": "n5",
+    "t": "Résultat anormal ou incidentalome : le médecin vérifie avant toute cascade",
+    "i": "Un résultat faussement positif ou une variante normale se gère dans le SSP O4.4 « résultat biologique faussement positif / incidentalome ».",
+    "pec": "suivi_prevention",
+    "notion": "c8"
+   },
+   {
+    "id": "n15",
+    "parent": "n5",
+    "t": "Le médecin formalise un plan de prévention personnalisé et fixe le suivi",
+    "i": "Le bénéfice vient des interventions déclenchées (tabac, TA, vaccins), pas des examens.",
+    "pec": "suivi_prevention",
+    "notion": "c7"
+   }
+  ]
+ },
+ "specialites": [
+  "MIG"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Bilan de santé général chez un adulte asymptomatique (Smarter Medicine)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Un bilan de santé est une consultation de risque, pas un panel d'examens",
+   "rubriques": [
+    "definition",
+    "epidemiology"
+   ],
+   "comment": "Réfléchis d'abord au risque individuel du patient, puis choisis seulement les examens dont le bénéfice est prouvé, jamais un panel standard.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le bilan de santé est une consultation d'évaluation individualisée du risque qui sélectionne des examens validés.",
+    "Les revues Cochrane montrent que les bilans généraux n'abaissent ni la mortalité globale, ni la mortalité cardiovasculaire, ni celle par cancer.",
+    "La demande de « check-up complet » est fréquente en médecine de famille et vient souvent de patients sans facteur de risque, anxieux ou par habitude.",
+    "Les maladies cardiovasculaires et les cancers sont les deux premières causes de décès en Suisse : les dépistages ciblent donc ces deux risques."
+   ],
+   "sources": [
+    "Cochrane, bilans de santé généraux chez l'adulte (Krogsbøll, 2012, mise à jour 2019)",
+    "Smarter Medicine Suisse, SSMIG",
+    "OFS, statistique des causes de décès"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Pourquoi un test inutile nuit : probabilité pré-test, biais et critères de dépistage",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Raisonne en probabilité pré-test : plus la prévalence est basse, plus un test positif est probablement un faux positif et déclenche une cascade iatrogène.",
+   "tableau": {
+    "colonnes": [
+     "Concept",
+     "Définition",
+     "Piège pour le bilan"
+    ],
+    "lignes": [
+     [
+      "Valeur prédictive positive",
+      [
+       {
+        "t": "Dépend de la prévalence",
+        "i": "La VPP chute quand la prévalence baisse, même avec un test de bonne sensibilité et spécificité ; c'est pourquoi le dépistage aveugle échoue."
+       }
+      ],
+      [
+       {
+        "t": "Majorité de faux positifs chez l'asymptomatique",
+        "i": "Chez un sujet à faible probabilité pré-test, la plupart des tests positifs ne reflètent pas une maladie et mènent à des examens inutiles."
+       }
+      ]
+     ],
+     [
+      "Multiplicité des tests",
+      [
+       {
+        "t": "20 tests indépendants, limites à 95 %",
+        "i": "Chaque test a 5 % de chances d'être « anormal » chez un sujet sain : 1 − 0,95^20 donne environ 64 %."
+       }
+      ],
+      [
+       {
+        "t": "Environ 64 % d'au moins une valeur anormale",
+        "i": "Un panel large crée presque toujours un résultat hors norme chez un sujet sain, d'où cascade et anxiété sans maladie."
+       }
+      ]
+     ],
+     [
+      "Biais d'avance (lead-time)",
+      [
+       {
+        "t": "Diagnostic posé plus tôt",
+        "i": "Le dépistage avance la date du diagnostic sans retarder le décès : la survie mesurée paraît plus longue."
+       }
+      ],
+      [
+       {
+        "t": "Survie meilleure sans gain de mortalité",
+        "i": "Seule la mortalité globale ou spécifique dans un essai randomisé prouve un bénéfice, pas la survie depuis le diagnostic."
+       }
+      ]
+     ],
+     [
+      "Biais de durée (length)",
+      [
+       {
+        "t": "Tumeurs lentes sur-représentées",
+        "i": "Le dépistage, périodique, détecte surtout les lésions à croissance lente, qui auraient peu évolué sans traitement."
+       }
+      ],
+      [
+       {
+        "t": "Pronostic apparent trop favorable",
+        "i": "Les cancers agressifs apparaissent entre deux dépistages et échappent à la détection."
+       }
+      ]
+     ],
+     [
+      "Surdiagnostic",
+      [
+       {
+        "t": "Lésion réelle mais qui n'aurait jamais nui",
+        "i": "Le patient reçoit un traitement et une étiquette de maladie sans bénéfice possible."
+       }
+      ],
+      [
+       {
+        "t": "Traitement inutile",
+        "i": "Le préjudice (chirurgie, anxiété, coût) est certain, tandis que le bénéfice est nul."
+       }
+      ]
+     ],
+     [
+      "Critères de Wilson et Jungner (OMS)",
+      [
+       {
+        "t": "Maladie grave, fréquente, phase préclinique, traitement précoce efficace",
+        "i": "Si un seul critère manque, le dépistage ne réduit pas la mortalité et expose aux effets indésirables."
+       }
+      ],
+      [
+       {
+        "t": "Test acceptable et rapport coût/bénéfice favorable",
+        "i": "Un test valide ne suffit pas : il faut aussi un traitement efficace une fois la lésion trouvée."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La VPP dépend de la prévalence : à faible probabilité pré-test, la majorité des positifs sont faux.",
+    "Avec 20 tests à limites de 95 %, la probabilité d'au moins un résultat anormal chez un sujet sain atteint environ 64 %.",
+    "Les biais d'avance, de durée et le surdiagnostic améliorent la survie apparente sans réduire la mortalité réelle.",
+    "Les critères de Wilson et Jungner justifient un dépistage seulement si un traitement précoce efficace existe."
+   ],
+   "sources": [
+    "Wilson et Jungner, OMS, 1968",
+    "Smarter Medicine Suisse, SSMIG",
+    "Cochrane, bilans de santé généraux (2019)"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Anamnèse : demander d'abord pourquoi, et distinguer dépistage et diagnostic",
+   "rubriques": [
+    "anamnesis",
+    "presumptionRedFlags"
+   ],
+   "comment": "Pose d'abord la question « Qu'est-ce qui vous amène aujourd'hui ? » pour démasquer un symptôme caché, puis bascule vers le diagnostic ou la prévention.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Un adulte demande un « check-up complet »",
+     "i": "Point de départ : la demande exprime souvent une inquiétude précise ou un symptôme que le patient n'ose pas dire.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Demande : qu'est-ce qui vous amène aujourd'hui ?",
+     "i": "Cette question ouverte démasque un symptôme caché ou une peur ciblée (décès d'un proche, antécédent familial).",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Le patient a-t-il un symptôme d'alarme ?",
+     "i": "Perte de poids involontaire, rectorragie, dysphagie, douleur thoracique d'effort, sueurs nocturnes ou toux persistante.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Oui : le médecin mène un bilan diagnostique orienté",
+     "i": "La probabilité pré-test est élevée : le même test change de sens et de conduite par rapport au dépistage.",
+     "pec": "symptome_cache",
+     "notion": "c3"
+    },
+    {
+     "id": "n5",
+     "parent": "n3",
+     "t": "Non : le médecin évalue les risques",
+     "i": "Sans symptôme, la consultation devient une évaluation de risque et de prévention individualisée.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n6",
+     "parent": "n5",
+     "t": "Le médecin explore antécédents familiaux, tabac, alcool, activité, vaccins, santé mentale",
+     "i": "Ce sont les facteurs modifiables où l'intervention a un bénéfice prouvé.",
+     "pec": "consultation_prevention",
+     "notion": "c3"
+    }
+   ],
+   "points": [
+    "Un antécédent cardiovasculaire précoce chez un parent du premier degré (homme avant 55 ans, femme avant 65 ans) ou un cancer familial modifie le risque et le dépistage.",
+    "Le médecin quantifie le tabac en paquets-années et documente alimentation et sédentarité.",
+    "L'AUDIT-C est positif dès 4 points chez l'homme et 3 points chez la femme.",
+    "Le médecin explore la santé mentale (PHQ-2, idées suicidaires), la violence domestique et les substances.",
+    "Le médecin compare le carnet de vaccination au plan suisse OFSP/CFV."
+   ],
+   "sources": [
+    "Smarter Medicine Suisse, SSMIG",
+    "OFSP/CFV, plan suisse de vaccination",
+    "AUDIT-C, OMS"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Examen clinique ciblé et calcul du risque cardiovasculaire global",
+   "rubriques": [
+    "clinicalExam",
+    "workupGoldStandard"
+   ],
+   "comment": "Mesure TA et IMC, puis calcule le risque cardiovasculaire global : ce score, plus qu'un panel d'examens, guide les interventions.",
+   "tableau": {
+    "colonnes": [
+     "Âge",
+     "Risque faible à modéré (SCORE2, pays à bas risque)",
+     "Risque élevé",
+     "Risque très élevé"
+    ],
+    "lignes": [
+     [
+      "< 50 ans",
+      [
+       {
+        "t": "< 2,5 %",
+        "i": "Le risque à 10 ans reste bas chez le sujet jeune : le conseil de mode de vie suffit en général."
+       }
+      ],
+      [
+       {
+        "t": "2,5 à < 7,5 %",
+        "i": "Seuils plus bas chez le jeune car le risque à vie est élevé : une intervention individualisée se discute."
+       }
+      ],
+      [
+       {
+        "t": "≥ 7,5 %",
+        "i": "Ce niveau impose une prise en charge intensive du risque, médicaments inclus."
+       }
+      ]
+     ],
+     [
+      "50-69 ans",
+      [
+       {
+        "t": "< 5 %",
+        "i": "Un risque inférieur à 5 % à 10 ans autorise des conseils de mode de vie sans traitement systématique."
+       }
+      ],
+      [
+       {
+        "t": "5 à < 10 %",
+        "i": "Ce palier justifie une discussion de traitement (TA, lipides) après décision partagée."
+       }
+      ],
+      [
+       {
+        "t": "≥ 10 %",
+        "i": "Ce niveau recommande une intervention médicamenteuse intensive en plus du mode de vie."
+       }
+      ]
+     ],
+     [
+      "≥ 70 ans",
+      [
+       {
+        "t": "< 7,5 %",
+        "i": "Les seuils montent avec l'âge car le risque absolu augmente mécaniquement."
+       }
+      ],
+      [
+       {
+        "t": "7,5 à < 15 %",
+        "i": "Le traitement se discute selon fragilité et préférences du patient."
+       }
+      ],
+      [
+       {
+        "t": "≥ 15 %",
+        "i": "Le traitement est recommandé, adapté à la fragilité."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La TA de cabinet se mesure dès 18 ans ; une valeur ≥ 140/90 mmHg se confirme par MAPA ou auto-mesure avant de poser le diagnostic d'hypertension.",
+    "L'IMC de 25 à 29,9 kg/m² définit le surpoids et ≥ 30 kg/m² l'obésité.",
+    "L'examen clinique se cible selon âge, sexe, plaintes et risques, sans rituel systématique.",
+    "Le score AGLA (Suisse) ou SCORE2 (ESC) estime le risque à 10 ans ; la Suisse est un pays à bas risque.",
+    "Le profil lipidique se fait dès 40 ans chez l'homme, dès 50 ans chez la femme, plus tôt si facteurs de risque."
+   ],
+   "sources": [
+    "ESC, prévention cardiovasculaire, 2021 (SCORE2)",
+    "AGLA, calculateur de risque",
+    "SSMIG, recommandations HTA"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Examens de dépistage ciblés validés",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Sélectionne un dépistage uniquement si la population, l'âge et le risque correspondent à une indication démontrée, et propose-le par décision partagée.",
+   "tableau": {
+    "colonnes": [
+     "Dépistage",
+     "Population",
+     "Test et rythme",
+     "Particularité suisse"
+    ],
+    "lignes": [
+     [
+      "Diabète",
+      [
+       {
+        "t": "Sujets à risque",
+        "i": "Le dépistage de masse n'a pas montré de bénéfice ; il cible obésité, antécédent familial, âge, HTA."
+       }
+      ],
+      [
+       {
+        "t": "Glycémie à jeun ≥ 7,0 mmol/l ou HbA1c ≥ 6,5 %",
+        "i": "Le diagnostic se confirme par un second dosage, car une valeur isolée peut être erronée."
+       }
+      ],
+      "Dosage confirmé avant tout diagnostic."
+     ],
+     [
+      "VIH",
+      [
+       {
+        "t": "Selon risque d'exposition ou indication clinique",
+        "i": "La prévalence est basse en population générale : proposer le test à tous aurait un faible rendement."
+       }
+      ],
+      [
+       {
+        "t": "Test avec conseil",
+        "i": "Le conseil pré- et post-test fait partie de la démarche OFSP."
+       }
+      ],
+      "Recommandations OFSP, non systématique."
+     ],
+     [
+      "Hépatites C et B",
+      [
+       {
+        "t": "Usage de drogues, origine de zone endémique, exposition",
+        "i": "Ces groupes concentrent la prévalence et justifient un traitement précoce efficace."
+       }
+      ],
+      "Sérologie ciblée.",
+      "Non systématique dans la population générale."
+     ],
+     [
+      "Cancer colorectal",
+      [
+       {
+        "t": "50-69 ans",
+        "i": "Cette tranche d'âge a le meilleur rapport bénéfice/risque pour le dépistage."
+       }
+      ],
+      [
+       {
+        "t": "FIT tous les 2 ans ou colonoscopie tous les 10 ans",
+        "i": "Le FIT est simple et non invasif ; la colonoscopie dépiste et traite dans le même geste."
+       }
+      ],
+      "Remboursé par la LAMal (OPAS)."
+     ],
+     [
+      "Cancer du sein",
+      [
+       {
+        "t": "Femmes dès 50 ans",
+        "i": "Le bénéfice sur la mortalité est démontré dans les programmes organisés avec double lecture."
+       }
+      ],
+      [
+       {
+        "t": "Mammographie tous les 2 ans",
+        "i": "Le programme organisé limite faux positifs et surdiagnostic par rapport au dépistage opportuniste."
+       }
+      ],
+      "Programmes cantonaux ; 50-69 ans selon le cours, certains programmes vont jusqu'à 74 ans ; franchise exonérée."
+     ],
+     [
+      "Cancer du col",
+      [
+       {
+        "t": "Femmes dès 21 ans",
+        "i": "Le dépistage commence à 21 ans, avant la fréquence élevée des lésions persistantes."
+       }
+      ],
+      [
+       {
+        "t": "Frottis tous les 3 ans après deux contrôles normaux à 1 an",
+        "i": "Deux frottis normaux rapprochés réduisent le risque de faux négatif avant l'espacement."
+       }
+      ],
+      "Remboursé selon OPAS."
+     ],
+     [
+      "Anévrisme de l'aorte abdominale",
+      [
+       {
+        "t": "Homme 65-75 ans ayant déjà fumé",
+        "i": "Le tabagisme est le principal facteur de risque ; le dépistage a prouvé un bénéfice dans ce groupe."
+       }
+      ],
+      [
+       {
+        "t": "Échographie unique",
+        "i": "Un seul examen suffit si l'aorte est normale, car l'anévrisme apparaît rarement ensuite."
+       }
+      ],
+      "Pas de dépistage chez la femme."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le calcul du risque cardiovasculaire reste l'étape décisive, avant tout examen.",
+    "Le dépistage se justifie quand un traitement précoce efficace existe.",
+    "Le PSA exige une décision partagée, car le bénéfice absolu sur la mortalité est faible."
+   ],
+   "sources": [
+    "OPAS, annexe 1, prestations de prévention",
+    "Swiss Cancer Screening",
+    "OFSP, recommandations de dépistage VIH, VHB, VHC"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Ce qu'on ne fait pas : les examens déconseillés (Smarter Medicine)",
+   "rubriques": [
+    "workupAlternatives",
+    "chronicManagement"
+   ],
+   "comment": "Refuse tout examen sans indication clinique ou de risque : l'absence de bénéfice démontré et le risque de cascade l'emportent.",
+   "tableau": {
+    "colonnes": [
+     "Examen de routine",
+     "Pourquoi inutile",
+     "Quand il se justifie"
+    ],
+    "lignes": [
+     [
+      "ECG",
+      [
+       {
+        "t": "Aucun bénéfice chez l'asymptomatique à faible risque",
+        "i": "La probabilité pré-test de maladie est basse, donc les anomalies mineures sont surtout des faux positifs."
+       }
+      ],
+      "Symptômes cardiaques, ou risque cardiovasculaire élevé selon indication."
+     ],
+     [
+      "Radiographie thoracique",
+      [
+       {
+        "t": "Aucune réduction de mortalité démontrée",
+        "i": "Les opacités découvertes sont presque toujours bénignes mais déclenchent un suivi par CT."
+       }
+      ],
+      "Toux persistante, dyspnée, perte de poids."
+     ],
+     [
+      "Formule sanguine, TSH, bandelette urinaire",
+      [
+       {
+        "t": "Rendement très faible hors symptômes",
+        "i": "Les limites de référence à 95 % produisent des anomalies chez 5 % des sujets sains."
+       }
+      ],
+      "Symptôme ou facteur de risque précis."
+     ],
+     [
+      "PSA",
+      [
+       {
+        "t": "Bénéfice absolu faible, surdiagnostic élevé",
+        "i": "Le dépistage évite peu de décès mais engendre biopsies, incontinence et impuissance chez des patients qui n'en avaient pas besoin."
+       }
+      ],
+      "Décision partagée après information sur bénéfices et risques."
+     ],
+     [
+      "Vitamine D",
+      [
+       {
+        "t": "Aucun bénéfice démontré de la supplémentation systématique",
+        "i": "Le dosage et la supplémentation en population générale ne réduisent ni fractures ni mortalité."
+       }
+      ],
+      "Facteur de risque (ostéoporose, malabsorption, insuffisance rénale)."
+     ],
+     [
+      "Imagerie de routine",
+      [
+       {
+        "t": "Aucune indication sans symptôme",
+        "i": "Elle découvre des incidentalomes (surrénale, thyroïde, foie, poumon) qui imposent un suivi inutile."
+       }
+      ],
+      "Indication clinique précise."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Smarter Medicine Suisse déconseille bilan biologique, ECG et radiographie thoracique de routine chez le sujet jeune asymptomatique sans facteur de risque.",
+    "Le même test a une conduite différente en dépistage (asymptomatique) et en diagnostic (symptomatique).",
+    "Le PSA et la vitamine D ne se dosent pas sans indication ni décision partagée."
+   ],
+   "sources": [
+    "Smarter Medicine Suisse, liste SSMIG",
+    "AIPS Swissmedic",
+    "Guideline ESC 2021 prévention"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Plan de prévention personnalisé : vaccins, mode de vie, décision partagée",
+   "rubriques": [
+    "positiveDiagnosis",
+    "chronicManagement"
+   ],
+   "comment": "Conclus par un plan de prévention écrit, avec objectifs et dépistages choisis par décision partagée, puis agis sur les facteurs modifiables.",
+   "tableau": {
+    "colonnes": [
+     "Axe",
+     "Recommandation",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Vaccination tétanos-diphtérie-coqueluche",
+      [
+       {
+        "t": "dTpa à 25 ans, dT à 45 et 65 ans, puis tous les 10 ans",
+        "i": "Ce calendrier OFSP/CFV maintient l'immunité contre le tétanos et la diphtérie ; la coqueluche est couverte une fois à 25 ans."
+       }
+      ],
+      "Contrôle du carnet à chaque bilan."
+     ],
+     [
+      "Grippe",
+      [
+       {
+        "t": "Vaccination annuelle dès 65 ans",
+        "i": "Les plus de 65 ans ont un risque élevé de complications et de décès."
+       }
+      ],
+      "Aussi pour les sujets à risque plus jeunes."
+     ],
+     [
+      "Activité physique",
+      [
+       {
+        "t": "≥ 150 minutes par semaine d'intensité modérée",
+        "i": "Cette dose réduit mortalité cardiovasculaire et diabète selon l'OMS et l'OFSP."
+       }
+      ],
+      "Conseil adapté aux capacités du patient."
+     ],
+     [
+      "Tabac",
+      [
+       {
+        "t": "Conseil bref d'arrêt à chaque consultation",
+        "i": "Un conseil bref répété double environ les chances de sevrage sur le long terme à faible coût."
+       }
+      ],
+      "Premier facteur modifiable du risque cardiovasculaire et de cancer."
+     ],
+     [
+      "Alcool",
+      [
+       {
+        "t": "AUDIT-C positif dès 4 (homme) / 3 (femme)",
+        "i": "Un score positif impose une intervention brève et un second dépistage."
+       }
+      ],
+      "Dépistage répété à chaque bilan."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le résultat est un plan de prévention personnalisé, validé par le patient.",
+    "Le bénéfice du bilan vient des interventions efficaces déclenchées (arrêt du tabac, traitement de l'HTA, dépistage des cancers).",
+    "La multiplication des examens n'apporte aucun gain en soi."
+   ],
+   "sources": [
+    "OFSP/CFV, plan suisse de vaccination",
+    "OFSP, recommandations d'activité physique",
+    "SSMIG"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Complications du bilan inutile : cascade, incidentalomes, fausse réassurance",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance"
+   ],
+   "comment": "Anticipe les préjudices du bilan (cascade, anxiété, étiquetage) avant de prescrire, et adapte l'intervalle des contrôles au risque.",
+   "tableau": {
+    "colonnes": [
+     "Complication",
+     "Mécanisme",
+     "Conséquence"
+    ],
+    "lignes": [
+     [
+      "Cascade diagnostique",
+      [
+       {
+        "t": "Faux positif suivi d'imagerie, biopsie, geste invasif",
+        "i": "Chaque examen de confirmation expose à ses propres risques sans bénéfice pour un patient sain."
+       }
+      ],
+      "Complications, coûts et anxiété."
+     ],
+     [
+      "Incidentalomes",
+      [
+       {
+        "t": "Surrénale, thyroïde, foie, poumon découverts par imagerie inutile",
+        "i": "Ils sont le plus souvent bénins, mais un suivi codifié reste nécessaire."
+       }
+      ],
+      "Mobilisation de ressources."
+     ],
+     [
+      "Anxiété et étiquetage",
+      [
+       {
+        "t": "Un résultat anormal crée une identité de malade",
+        "i": "L'étiquette de maladie persiste même si le résultat se révèle ensuite faux."
+       }
+      ],
+      "Détresse et consultations répétées."
+     ],
+     [
+      "Fausse réassurance",
+      [
+       {
+        "t": "Résultat normal perçu comme garantie",
+        "i": "Le patient retarde la consultation en cas de symptôme, croyant être protégé."
+       }
+      ],
+      "Retard diagnostique."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La TA se contrôle tous les 5 ans si optimale, tous les 3 ans si normale, chaque année si normale haute.",
+    "Les lipides se refont tous les 5 ans si normaux.",
+    "Le médecin de famille centralise les résultats et décide des orientations."
+   ],
+   "sources": [
+    "Smarter Medicine Suisse, SSMIG",
+    "ESC 2021 prévention cardiovasculaire"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Réseau, assurance et droit : LAMal, médecin de famille, consentement",
+   "rubriques": [
+    "followUpNetwork",
+    "prognosisDischarge"
+   ],
+   "comment": "Rappelle que la LAMal ne finance pas le check-up systématique et que tout examen demandé par un tiers exige le consentement du patient.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La LAMal ne rembourse pas un check-up systématique ; elle prend en charge les prestations de prévention ciblées listées par l'OPAS chez les personnes à risque.",
+    "Le médecin de famille coordonne le suivi et oriente vers les spécialistes ou les programmes cantonaux de dépistage.",
+    "Un examen demandé par un employeur ou un assureur exige un consentement éclairé et le respect du secret médical.",
+    "Le pronostic dépend d'une prévention efficiente, sans iatrogénie."
+   ],
+   "sources": [
+    "OPAS, annexe 1",
+    "LAMal",
+    "Code de déontologie FMH, secret médical"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "consultation_prevention",
+   "titre": "Consultation de prévention individualisée chez l'adulte asymptomatique",
+   "but": [
+    "Évaluer le risque individuel et choisir uniquement des examens validés.",
+    "Éviter faux positifs, cascade et anxiété par décision partagée.",
+    "Remettre un plan de prévention personnalisé."
+   ],
+   "moyens": {
+    "accueil": [
+     "Demander d'emblée ce qui motive le bilan aujourd'hui.",
+     "Expliquer que le but n'est pas d'enchaîner les examens mais de réduire le risque.",
+     "Recueillir les attentes et les craintes du patient."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer bénéfices, risques et limites de chaque dépistage proposé.",
+      "pourquoi": "La décision partagée limite surdiagnostic et regrets, notamment pour le PSA et la mammographie."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Donner un conseil bref sur tabac, alcool, alimentation et au moins 150 min d'activité modérée par semaine.",
+      "pourquoi": "Ces facteurs modifiables sont ceux où l'intervention a un bénéfice prouvé."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Mesurer TA et IMC puis calculer le risque cardiovasculaire (AGLA ou SCORE2).",
+      "pourquoi": "Le risque global guide les interventions mieux qu'un panel d'examens."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Contrôler le carnet de vaccination selon le plan suisse.",
+      "pourquoi": "La mise à jour vaccinale est une intervention efficace et peu coûteuse."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise que la LAMal ne rembourse que les prestations de prévention ciblées de l'OPAS chez les personnes à risque."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Rappelle le consentement éclairé et le secret médical si un employeur ou un assureur demande l'examen."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Éviter tout examen sans indication clinique ou de risque.",
+      "Documenter la décision partagée dans le dossier.",
+      "Programmer les rappels selon le risque, pas selon l'habitude."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Demande le motif réel du bilan et recherche un symptôme caché."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Recueille antécédents familiaux, tabac, alcool, activité, vaccins, santé mentale."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Mesure TA, poids, taille et calcule l'IMC pour le risque."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Calcule le risque cardiovasculaire et choisit les dépistages ciblés validés."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Choisit ses dépistages après information sur bénéfices et risques."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Remet le plan de prévention et fixe l'intervalle des contrôles."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le bilan n'abaisse pas la mortalité globale ; le bénéfice vient seulement des interventions efficaces déclenchées (arrêt du tabac, traitement de l'HTA, dépistages des cancers).",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Tension artérielle",
+      "quand": "Tous les 5 ans si optimale, tous les 3 ans si normale, chaque année si normale haute",
+      "cible": "< 140/90 mmHg en consultation, confirmée hors cabinet"
+     },
+     {
+      "quoi": "Profil lipidique",
+      "quand": "Tous les 5 ans si normal",
+      "cible": "Valeurs adaptées au risque cardiovasculaire global"
+     },
+     {
+      "quoi": "Dépistages de cancer",
+      "quand": "FIT tous les 2 ans, mammographie tous les 2 ans, frottis tous les 3 ans",
+      "cible": "Participation selon l'âge et les programmes"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : aucun critère de gravité en l'absence de symptôme d'alarme."
+   },
+   "prevention": {
+    "primaire": "Conseiller arrêt du tabac, activité physique, alimentation et vaccination selon le plan suisse.",
+    "secondaire": "Proposer les dépistages validés (colorectal, sein, col, anévrisme aortique) selon l'âge et le risque.",
+    "tertiaire": "Éviter la cascade iatrogène en gérant les résultats anormaux selon un suivi codifié."
+   }
+  },
+  {
+   "cle": "symptome_cache",
+   "titre": "Bilan diagnostique lorsque le « check-up » cache un symptôme d'alarme",
+   "but": [
+    "Reconnaître le symptôme caché derrière la demande.",
+    "Basculer vers un bilan diagnostic orienté, adapté à la probabilité pré-test.",
+    "Éviter le retard diagnostique dû à la fausse réassurance."
+   ],
+   "moyens": {
+    "accueil": [
+     "Reformuler la plainte du patient sans minimiser.",
+     "Prendre le temps de questionner un symptôme évoqué en fin de consultation."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "autre",
+      "mesure": "Orienter l'anamnèse et l'examen clinique selon le symptôme d'alarme présent.",
+      "pourquoi": "La probabilité pré-test élevée justifie un test diagnostique ciblé, contrairement au dépistage."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer pourquoi le bilan diagnostique diffère d'un check-up de routine.",
+      "pourquoi": "Le patient comprend que le test choisi dépend de son symptôme."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Orienter vers le spécialiste ou le SSP du symptôme concerné.",
+      "pourquoi": "La prise en charge suit la démarche propre à chaque symptôme."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Précise que les examens diagnostiques d'un symptôme sont remboursés par la LAMal, contrairement au check-up."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Considérer toute perte de poids involontaire, rectorragie ou douleur thoracique d'effort comme un motif de bilan diagnostique.",
+      "Fixer un rendez-vous de contrôle rapproché."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Demande « Qu'est-ce qui vous amène aujourd'hui ? » et repère le symptôme d'alarme."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Évalue la probabilité pré-test et la gravité potentielle du symptôme."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Prescrit les examens diagnostiques ciblés selon le symptôme."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Poursuit le bilan si une pathologie grave se confirme."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Réévalue le patient et documente le raisonnement."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le pronostic dépend de la pathologie révélée ; un symptôme d'alarme traité comme un dépistage retarde le diagnostic.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Évolution du symptôme d'alarme",
+      "quand": "Réévaluation précoce, selon la gravité",
+      "cible": "Cause identifiée ou symptôme résolu"
+     },
+     {
+      "quoi": "Résultats des examens diagnostiques",
+      "quand": "Dès leur disponibilité",
+      "cible": "Orientation spécialisée si anomalie confirmée"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire si état stable et bilan organisé ; hospitalisation sinon selon le symptôme (douleur thoracique, rectorragie abondante)."
+   },
+   "prevention": {
+    "primaire": "Informer le patient de consulter à l'apparition de tout symptôme d'alarme.",
+    "secondaire": "Corriger tout résultat normal rassurant à tort qui retarde la consultation.",
+    "tertiaire": "Éviter la récidive de retard diagnostique par un suivi planifié."
+   }
+  },
+  {
+   "cle": "suivi_prevention",
+   "titre": "Suivi à long cours du plan de prévention et gestion des résultats anormaux",
+   "but": [
+    "Maintenir le plan de prévention et mettre à jour les vaccins.",
+    "Gérer les résultats anormaux sans cascade iatrogène.",
+    "Adapter les intervalles de contrôle au risque."
+   ],
+   "moyens": {
+    "accueil": [
+     "Revoir le plan de prévention avec le patient à chaque consultation.",
+     "Rassurer sur les résultats normaux sans minimiser les symptômes futurs."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Vaccin dT / dTpa (tétanos, diphtérie, coqueluche)",
+      "posologie": "0,5 mL i.m., dose unique : dTpa à 25 ans, dT à 45 et 65 ans, puis tous les 10 ans.",
+      "pourquoi": "Ce calendrier OFSP/CFV maintient la protection contre le tétanos et la diphtérie ; la coqueluche est couverte à 25 ans.",
+      "source": "OFSP/CFV, plan suisse de vaccination"
+     },
+     {
+      "molecule": "Vaccin antigrippal inactivé",
+      "posologie": "0,5 mL i.m., une fois par an dès 65 ans ou plus tôt en cas de risque.",
+      "pourquoi": "Le risque de complications et de décès augmente après 65 ans, et la vaccination l'abaisse.",
+      "source": "OFSP/CFV, plan suisse de vaccination"
+     },
+     {
+      "molecule": "Substituts nicotiniques (patch, gomme, pastille)",
+      "posologie": "Dosage et durée selon la consommation et l'information professionnelle de chaque produit (AIPS).",
+      "pourquoi": "Les substituts nicotiniques augmentent les chances de sevrage tabagique en complément du conseil bref.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Conseiller au moins 150 minutes d'activité d'intensité modérée par semaine.",
+      "pourquoi": "Cette dose réduit mortalité cardiovasculaire et diabète."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Proposer un conseil bref d'arrêt du tabac à chaque consultation.",
+      "pourquoi": "Le conseil répété augmente le sevrage à faible coût."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Suivre un résultat anormal par la stratégie codifiée sans multiplier les examens.",
+      "pourquoi": "Un suivi codifié évite la cascade iatrogène chez un patient en réalité sain."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Vérifie la prise en charge LAMal des prestations de prévention de l'OPAS."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Garantit consentement et secret médical vis-à-vis des employeurs et assureurs."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Centraliser tous les résultats chez le médecin de famille.",
+      "Adapter l'intervalle de contrôle au niveau de risque.",
+      "Réévaluer le plan à chaque changement de situation ou d'âge."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Relit le plan de prévention et les résultats récents avec le patient."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Vérifie l'échéance des vaccins et des dépistages selon l'âge."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Contrôle la TA selon l'intervalle prévu."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Gère un résultat anormal par un suivi codifié ou oriente vers le spécialiste."
+      },
+      {
+       "temps": "puis",
+       "qui": "patient·e",
+       "fait": "Participe aux programmes cantonaux de dépistage choisis."
+      }
+     ]
+    }
+   },
+   "pronostic": "Une prévention ciblée réduit les événements évitables sans iatrogénie ; la multiplication des examens n'améliore pas la mortalité.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Tension artérielle",
+      "quand": "5 ans si optimale, 3 ans si normale, 1 an si normale haute",
+      "cible": "< 140/90 mmHg, confirmée par MAPA ou auto-mesure"
+     },
+     {
+      "quoi": "Carnet de vaccination",
+      "quand": "À chaque bilan",
+      "cible": "Calendrier suisse à jour"
+     },
+     {
+      "quoi": "Consommation de tabac et d'alcool",
+      "quand": "À chaque consultation",
+      "cible": "Arrêt du tabac ; AUDIT-C négatif"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée ; aucune hospitalisation requise dans le suivi de prévention."
+   },
+   "prevention": {
+    "primaire": "Maintenir mode de vie, vaccins et contrôle de la TA aux intervalles recommandés.",
+    "secondaire": "Poursuivre les dépistages de cancer selon l'âge dans les programmes cantonaux.",
+    "tertiaire": "Limiter l'anxiété et l'étiquetage après un résultat anormal par une information claire."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6002,
+  "output_tokens": 19289,
+  "output_tokens_details": {
+   "thinking_tokens": 4489
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:57:52",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": {
+   "verdict": "🟧",
+   "date": "2026-11-26",
+   "aVerifier": [],
+   "audit": "AUDIT_V3_B"
+  }
+ }
+}
