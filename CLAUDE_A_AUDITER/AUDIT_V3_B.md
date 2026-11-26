@@ -648,3 +648,24 @@ Contrôles lot 32 : `controle_menus_longs.py` CPL, DER, INF, INT, TOX, TRO → 0
 | C15.9__G16-E23 | 🟩 | Forme : cellule de tableau mal enveloppée corrigée (c2). Aucune erreur médicale retenue (lumière < 13 mm, CROSS, FLOT, nivolumab adjuvant 240/480 mg, thiamine avant renutrition et 10 kcal/kg/j, survie à 5 ans 15–20 % ; ESMO 2022). |
 
 Contrôles lot 33 : `controle_menus_longs.py` CMF, DER, INF, INT, ONC, TRO → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot.
+
+## Lot 34 — rangs 946 à 959
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| C43.7__S6_8-E12 | 🟧 | Corrigé : Q14 et Q20 (d4 qui nomment le mélanome unguéal) passées en d3. Aucune erreur médicale retenue (AJCC 8 : pT1a < 0,8 mm, marges 0,5/1 cm, ganglion sentinelle dès pT1b, nivolumab 240/480 mg, pembrolizumab 200/400 mg, dabrafénib 150 mg ×2 + tramétinib 2 mg 12 mois, nivolumab 1 + ipilimumab 3 mg/kg ×4, LEMO depuis 2020). |
+| C44.6__S6_8-E13 | 🟩 | Aucune erreur retenue (HPV 16, E6/p53 et E7/pRb, contrôle tous les 3–6 mois). À vérifier : délais du rappel antitétanique selon l'âge. |
+| C53.9__S4_16-E15 | 🟧 | Forme : Q07 (d4, suite de cas sans le nom) marquée masquée. Corrigé : Q19 (d4 qui nomme le carcinome du col) passée en d3. Aucune erreur médicale retenue (myome FIGO 0, FIGO 2018 IIIC1/IIIC2, cisplatine 40 mg/m² hebdomadaire, HPV 11–14 ans et rattrapage jusqu'à 26 ans, frottis remboursé tous les 3 ans après deux frottis annuels normaux selon l'OPAS art. 12e). |
+| C67.9_2__O3_7-E13 | 🟩 | Aucune erreur retenue (urothélial ≈ 90 %, non infiltrant ≈ 75 %, re-RTUV à 2–6 semaines, mitomycine 40 mg dans les 24 h, BCG 6 + entretien 1–3 ans, gemcitabine-cisplatine, enfortumab védotine + pembrolizumab, avélumab 800 mg ; EAU). |
+| C69.2__S1_20-E11 | 🟩 | Aucune erreur retenue (leucocorie ≈ 60 %, strabisme ≈ 20 %, 40 % héréditaires, RB1 13q14, pénétrance ≈ 90 %, 1/16 000–20 000, survie > 95 %). |
+| C71.9_4__O2_5-E15 | 🟧 | Forme : cellule de tableau mal enveloppée corrigée (c1) ; nature « surveillance » hors énumération remplacée par « décision » (N63) ; Q12 (d4 sans le nom) marquée masquée. Corrigé : Q05 et Q15 (d4 qui nomment le médulloblastome ou les tumeurs cérébrales) passées en d3. Aucune erreur médicale retenue (20–25 % des cancers de l'enfant, irradiation craniospinale après 3 ans, LCR ≥ 14 jours après la chirurgie, IRM à 48–72 h, Registre suisse du cancer de l'enfant). |
+| C79.5_2__S5_1-E13 | 🟧 | Forme : Q12 (d4 sans le nom) marquée masquée. Aucune erreur médicale retenue (IRM < 24 h si déficit, Bilsky, SINS 0–6/7–12/13–18, dexaméthasone 10–16 mg puis 16 mg/j, Patchell 84 % contre 57 %, 20 Gy/5 ou 8 Gy, dénosumab 120 mg/4 sem., zolédronate 4 mg). |
+| C83.7__F2_10-E14 | 🟧 | Forme : Q08 (d4 sans le nom) marquée masquée. Corrigé : Q12 (d4 qui nomme le lymphome de Burkitt) passée en d3. Aucune erreur médicale retenue (critères de Cairo-Bishop, rasburicase 0,2 mg/kg, hyperhydratation 3 L/m², R-CHOP 21 j ×6, DA-EPOCH-R, entécavir avant rituximab, IPI, Deauville 1–3). |
+| C84.1__G9-E22 | 🟧 | Forme : Q04 (d4 sans le nom) marquée masquée. Corrigé : Q11 et Q13 (d4 qui nomment le syndrome de Sézary) passées en d3. Aucune erreur médicale retenue (B2 ≥ 1000/µL, CD4/CD8 ≥ 10, CD4+CD7− ≥ 40 %, CD4+CD26− ≥ 30 %, stades IVA1/IVA2/IVB, MAVORIC 7,7 contre 3,1 mois, bexarotène 300 mg/m², brentuximab 1,8 mg/kg, art. 71a–71d OAMal). |
+| C92.0_1__S6_2-E15 | 🟩 | Aucune erreur retenue (ELN 2022, OMS 2022, ATRA 45 mg/m², arsenic 0,15 mg/kg et QTc > 500 ms, plaquettes > 30–50 G/L et fibrinogène > 1,5 g/L en LAP, 7+3, vénétoclax-azacitidine, neutropénie fébrile). |
+| C92.0_2__F2_5-E17 | 🟧 | Corrigé : Q13 (d4 qui nomme la LAL Ph+) passée en d3. Aucune erreur médicale retenue (≥ 20 % de blastes sauf anomalie définissante, Ph+ ≈ 25 % des LAL de l'adulte, midostaurine 50 mg ×2 J8–J21, vénétoclax 70 mg avec posaconazole). |
+| C92.0__G4-E22 | 🟧 | Corrigé : Q09 et Q12 (d4 qui nomment l'hémopathie aiguë ou la LAM) passées en d3. Aucune erreur médicale retenue (OMS 2022, ATRA avant confirmation, transfusions < 70 g/L et < 10 G/L, LAM3 > 90 % de guérison). |
+| C92.4__F2_10-E12 | 🟩 | Aucune erreur retenue (score de Sanz, APL0406 97 % contre 86 % à 2 ans, consolidation 4 cycles d'arsenic et 7 d'ATRA, prednisone 0,5 mg/kg en prophylaxie, K+ > 4 mmol/L). |
+| C95.0_1__F2_5-E15 | 🟧 | Forme : Q03 (d4, suite de cas sans le nom) marquée masquée. Aucune erreur médicale retenue (hydroxyurée 50–100 mg/kg/j, pseudo-hypoxémie par consommation leucocytaire, transfusion limitée à 70–80 g/L, plaquettes > 20 G/L, rasburicase et urate sur glace). |
+
+Contrôles lot 34 : `controle_menus_longs.py` DER, GYN, HEM, NCH, ONC, URO → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot.
