@@ -689,3 +689,19 @@ Contrôles lot 34 : `controle_menus_longs.py` DER, GYN, HEM, NCH, ONC, URO → 0
 | D68.4__F2_21-E17 | 🟩 | Aucune erreur retenue (demi-vies VII/IX/X/II, Beriplex max 5000 UI, Konakion 10 mg IV, PFC 15–20 mL/kg, prophylaxie néonatale suisse 2 mg per os à la naissance, J4 et 4 semaines). |
 
 Contrôles lot 35 : `controle_menus_longs.py` GYN, HEM, MIG, NCH, ONC, ORL, TOX, TRO → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot.
+
+## Lot 36 — rangs 973 à 981
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| D69.5__F2_3-E14 | 🟧 | Forme : Q04, Q06 et Q07 (suites de cas sans le nom) marquées masquées. Corrigé : Q14 et Q16 (d4 qui nomment la TIH) passées en d3. Aucune erreur médicale retenue (score 4T 0–3 / 4–5 / 6–8, HNF 1–3 % et HBPM ≈ 0,2 %, J5–J10 ou < 24 h si exposition ≤ 30–100 jours, argatroban 2 µg/kg/min, AVK après ≥ 150 G/L avec chevauchement ≥ 5 jours, phenprocoumone ou acénocoumarol en Suisse). |
+| D70.0_1__F2_14-E17 | 🟧 | Corrigé : Q14 (d4 qui nomme l'agranulocytose) passée en d3. Aucune erreur médicale retenue (PNN < 0,5 G/L, 0,2–0,5 % des patients, 3 premiers mois, antibiothérapie antipseudomonale dans l'heure, G-CSF 5 µg/kg, propranolol, Lugol ≈ 10 jours, cholestyramine). |
+| D70.0__F2_5-E16 | 🟩 | Aucune erreur retenue (2–10 cas/million/an, métamizole, clozapine : FSC hebdomadaire 18 semaines puis mensuelle, MASCC ≥ 21, antifongique après 4–7 jours de fièvre, annonce ElViS, mortalité 5–10 %). |
+| D72.1__G9-E17 | 🟩 | Forme : clé vide « mesuresGénérales » hors schéma retirée. Aucune erreur médicale retenue (délai 2–8 semaines, HLA-B*58:01 et HLA-A*31:01, éosinophilie > 1,5 G/L, RegiSCAR < 2 / 2–3 / 4–5 / > 5, prednisone 0,5–1 mg/kg décrue sur 3–6 mois, auto-immunité tardive). |
+| D75.1_6__F2_22-E11 | 🟩 | Aucune erreur retenue (hématocrite > 55–60 %, JAK2 V617F ≈ 95 %, critères OMS Hb > 165/160 g/L ou Hte > 49/48 %, saignée 400–500 mL, cible < 45 % selon CYTO-PV, aspirine 100 mg, hydroxyurée si > 60 ans ou thrombose, ruxolitinib 10 mg ×2). |
+| D75.8_2__F2_25-E13 | 🟧 | Corrigé : Q13 (d4 qui nomme la TIH) passée en d3. Aucune erreur médicale retenue (score 4T, nadir médian ≈ 60 G/L, argatroban et aPTT 1,5–3 fois sans dépasser 100 s, danaparoïde 1250/2500/3750 U puis 400/300/150–200 U/h, fondaparinux 5/7,5/10 mg, anticorps disparus en ≈ 100 jours). |
+| D89.8_3__O7_19-E11 | 🟩 | Aucune erreur retenue (ZUMA-1 : CRS 93 % dont 13 % ≥ 3 et neurotoxicité 64 % dont 28 % ≥ 3, grading ASTCT, ICE 10 points, tocilizumab 8 mg/kg max 800 mg, dexaméthasone 10 mg/6 h, méthylprednisolone 1 g si grade 4, conduite interdite 8 semaines). |
+| E03.5_1__G8-E15 | 🟧 | Forme : Q05 (suite de cas sans le nom) marquée masquée. Aucune erreur médicale retenue (hypothermie < 35 °C, natrémie < 120 mmol/L, score de Popoveniuc, hydrocortisone 100 mg/8 h avant la lévothyroxine, charge 200–400 µg IV, mortalité 20–40 %). À vérifier : dose d'entretien IV. |
+| E10.1__S4_14-E13 | 🟩 | Aucune erreur retenue (ISPAD 2022 : pH < 7,3 ou HCO3 < 18 et β-hydroxybutyrate ≥ 3 mmol/L, sévérité 7,3/7,2/7,1, bolus 10–20 mL/kg, insuline 0,05–0,1 U/kg/h après 1 h, KCl 40 mmol/L, glucose dès 14–17 mmol/L, œdème cérébral 0,5–0,9 %, mannitol 0,5–1 g/kg, glucagon 0,5/1 mg). À vérifier : cible d'HbA1c. |
+
+Contrôles lot 36 : `controle_menus_longs.py` ALL, END, HEM, INT, PEA, TOX → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot.
