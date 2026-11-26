@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-26 01:17 UTC
+# Ouvrier automatique — 2026-11-26 01:23 UTC
 
-Dernier passage : **P3_paraclinique_cliches** → en_cours (0.85 USD).
+Dernier passage : **P3_paraclinique_cliches** → en_cours (0.30 USD).
 
-Quatrième passage : 37 cibles morphologiques (frottis, Gram, Ziehl, immunofluorescence, liquides de ponction, histologie) ont été cherchées sur Wikimedia Commons et Open-i ; 30 entités ont reçu des candidats avec URL, auteur et licence, puis 11 images douteuses (frottis de chien, schéma, hors sujet) ont été retirées avec une note, soit 23 entités nettement gagnées (208 entités encore vides). Audits : conception 34/34, couverture réussie, non_perte OK contre HEAD (l'écart contre origin/main vient des purges des passages précédents) ; les ~185 entités restantes sont surtout des dosages chiffrés à classer « sans objet » après décision médicale, ou des cibles sans image libre fiable. Les candidats gardent le statut « candidat » et attendent l'audit médical.
+Cinquième passage : 48 cibles à image (endoscopie, imagerie, explorations, histologie) ont été cherchées sur Wikimedia Commons et Open-i, et les candidats sans rapport (béton, portraits, schémas, dessins Smart-Servier, images astronomiques, animaux, formats .tif) ont été retirés avec une note ; 35 entités ont gagné (1 411 sur 1 607 avec cliché) un candidat réel avec URL, auteur et licence (spirométrie, polysomnographie, Kleihauer, bursite olécrânienne, dermatomyosite, abcès du sein, IRM d'appendicite, écho-Doppler rénal, écho du nerf médian, test respiratoire à l'urée, ANCA). Audits de conception, de couverture et de fond passés ; non_perte échoue contre HEAD seulement à cause des retraits volontaires de candidats hors sujet. Il reste environ 180 entités, surtout des dosages chiffrés à classer « sans objet » après décision médicale, et des examens sans image libre fiable (PET-CT, angiographie, cryobiopsie, vidéonystagmographie).
 
-**Crédit** : 1.92 USD dépensés, 148.08 USD disponibles avant le 31.01.2027 ; aujourd'hui 1.57 / 149.65 USD.
+**Crédit** : 2.22 USD dépensés, 147.78 USD disponibles avant le 31.01.2027 ; aujourd'hui 1.87 / 149.65 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -40,7 +40,7 @@ Quatrième passage : 37 cibles morphologiques (frottis, Gram, Ziehl, immunofluor
 | END_C_lot | fait | 1 | 0.0 |
 | END_C_recup | fait | 1 | 0.0 |
 | T3_pec_fiches_existantes | fait | 8 | 0.133 |
-| P3_paraclinique_cliches | en_cours | 4 | 0.849 |
+| P3_paraclinique_cliches | en_cours | 5 | 0.302 |
 | P3_tetrade_3d | a_faire | 0 |  |
 | T4_reprise_rejets | en_cours | 0 | 0.0 |
 | T5_items_valides | sans_objet | 0 |  |
