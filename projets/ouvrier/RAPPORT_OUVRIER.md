@@ -1,8 +1,10 @@
 # Ouvrier automatique — 2026-11-26 01:57 UTC
 
-Dernier passage : **T4_reprise_rejets** → fait (0.06 USD).
+Dernier passage : **V2_N_lot** → fait (0.00 USD).
 
-J'ai examiné les 476 fiches actives de content/fiches : aucune n'a de controles.erreurs non vide ni d'audit.rejector égal à « rejet ». Je n'ai donc archivé aucune fiche et je n'ai soumis aucun lot, ce qui n'a coûté aucun crédit API. Aucune fiche active n'est en erreur, donc la tâche est terminée.
+notions : 80 entité(s) à produire.
+lot msgbatch_01569XzQ1C1RxuKJqamSiJBh
+
 
 **Crédit** : 4.91 USD dépensés, 145.09 USD disponibles avant le 31.01.2027 ; aujourd'hui 4.56 / 149.65 USD.
 
@@ -46,7 +48,7 @@ J'ai examiné les 476 fiches actives de content/fiches : aucune n'a de controles
 | T5_items_valides | sans_objet | 0 |  |
 | T7_transversal_lecons | sans_objet | 0 |  |
 | T6_vague_urgences | sans_objet | 0 |  |
-| V2_N_lot | a_faire | 0 |  |
+| V2_N_lot | fait | 1 | 0.0 |
 | V2_N_recup | a_faire | 0 |  |
 | V2_Q_lot | a_faire | 0 |  |
 | V2_Q_recup | a_faire | 0 |  |
