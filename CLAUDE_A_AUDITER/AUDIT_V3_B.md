@@ -378,3 +378,7 @@ Contrôles lot 21 : 0 menu fautif, 0 erreur `valider()` sur les 9 pathologies �
 - Outils utilisés (hors dépôt, /home/claude/audB_tools) : audit.py (contrôle mécanique + digest), autofix.py, schema.py, rubbal.py, cap70.py, trim6.py, repssp.py, ccr74.py, fix.py (journal + champ `audit.claude`), porter.sh (portage + contrôles).
 
 Signature : AAI (Anthropic AI)
+
+
+## Mise à jour 26.11 (œil de la tempête)
+Les 4 fiches 🟥 (R23.1, R49.0_1, R62.8_1, T74.1_5) et les 2 fiches en quarantaine (Z34.0, L50.0) ont été régénérées et contrôlées, puis fusionnées sur main (commit ad04df54) : statut 🟩.
