@@ -2,7 +2,6 @@
 
 Dernier passage : **V3C_N_recup** → en_cours (0.00 USD).
 
-msgbatch_012am2CnHeMRSbQT8m2FgCHm : 600 écrites, 0 échecs.
 
 
 **Crédit** : 22.31 USD dépensés, 127.69 USD disponibles avant le 31.01.2027 ; aujourd'hui 21.96 / 149.65 USD.
@@ -61,7 +60,7 @@ msgbatch_012am2CnHeMRSbQT8m2FgCHm : 600 écrites, 0 échecs.
 | V3B_C_lot | fait | 1 | 0.0 |
 | V3B_C_recup | bloque | 3 | 0.0 |
 | V3C_N_lot | fait | 1 | 0.0 |
-| V3C_N_recup | en_cours | 16 | 0.0 |
+| V3C_N_recup | en_cours | 17 | 0.0 |
 | V3C_Q_lot | a_faire | 0 |  |
 | V3C_Q_recup | a_faire | 0 |  |
 | V3C_C_lot | a_faire | 0 |  |
