@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paraclinique — choisir, lire et interpréter l'examen</title>
+<!-- Jeu PARACLINIQUE livré seul, fidèle à conception/html/paraclinique.html. Moteur 3D et fenêtres de tracés réutilisés depuis ../moteur (import, sans modification).
+     Skills : obsidian-like-complex-network, 3d-images-upload-super, medical-workout, user-wanna-learn-all, web-aesthetic-github-toolkit, frontend-design.
+     Signature : AAI (Anthropic AI) — Claude Opus 5.5, Claude Code, 26.11.2026 -->
+<link rel="stylesheet" href="../commun/vendor/open-props-1.7.23.min.css">
+<link rel="stylesheet" href="jeu.css">
+<script type="importmap">{"imports":{"three":"../moteur/three/build/three.module.js","three/addons/":"../moteur/three/examples/jsm/"}}</script>
+</head>
+<body data-onglet="imagerie" data-mode="theorie">
+<aside id="cote" aria-label="Sommaire du jeu">
+  <div class="marque"><span class="titre">Paraclinique</span><span class="sous">De l'examen au diagnostic</span></div>
+  <div class="modes" role="tablist" aria-label="Théorie ou pratique">
+    <button role="tab" data-mode="theorie" aria-selected="true">Théorie</button>
+    <button role="tab" data-mode="pratique" aria-selected="false">Pratique</button>
+  </div>
+  <p class="aide-mode" id="aideMode">La théorie remplit l'arbre que tu consultes : tu survoles une case pour lire son explication.</p>
+  <nav aria-label="Onglets de contenu">
+    <h2 class="rub">Sommaire</h2>
+    <ol class="sommaire">
+      <li><button data-onglet="imagerie"><span class="num">1</span><span><b>Imagerie</b><small>Tu pars d'une région du corps.</small></span></button></li>
+      <li><button data-onglet="biologie"><span class="num">2</span><span><b>Biologie</b><small>Tu pars d'un prélèvement.</small></span></button></li>
+      <li><button data-onglet="explorations"><span class="num">3</span><span><b>Explorations fonctionnelles</b><small>Tu pars d'une fonction.</small></span></button></li>
+    </ol>
+  </nav>
+  <div class="recherche">
+    <h2 class="rub"><label for="q">Recherche : organe ou examen</label></h2>
+    <input id="q" type="search" autocomplete="off" placeholder="Ex. : poumon, spirométrie, lipase…" aria-describedby="aideQ">
+    <p id="aideQ" class="mini">Tu choisis un organe pour le mode Organe, ou un examen pour le mode Examen ; la recherche tolère les fautes et les accents.</p>
+    <ul id="propositions" role="listbox" hidden></ul>
+  </div>
+  <div class="outils">
+    <button id="theme" title="Changer le fond : sept fonds contrastés"><i></i><span>Bleu ciel</span></button>
+    <button id="repli" title="Clic : replier le dernier circuit ouvert · double-clic : tout replier">↺ Replier</button>
+  </div>
+  <details class="legende"><summary>Légende</summary>
+    <ul>
+      <li><span class="ic">+</span> La case cache une suite ; un clic la révèle, un second clic la replie.</li>
+      <li><span class="ic">📄</span> La fiche complète de l'examen s'ouvre en fenêtre.</li>
+      <li><span class="ic">📈</span> Un tracé calculé, avec curseurs, s'ouvre en fenêtre.</li>
+      <li><span class="ic">🖼</span> La fenêtre à deux clichés montre le cliché brut, puis annoté.</li>
+      <li><span class="ic">🧮</span> Le calculateur ou la grille de critères s'exécute sur tes valeurs.</li>
+      <li><span class="ic">🎯</span> En Pratique, la case porte des défis à jouer.</li>
+      <li><span class="ic pastille-ok"></span> Tu as réussi les défis de la case ; <span class="ic pastille-ko"></span> tu dois les revoir.</li>
+    </ul>
+  </details>
+  <p class="signature">Signature : AAI (Anthropic AI)</p>
+</aside>
+<button id="ouvrirCote" aria-controls="cote" aria-expanded="false">☰ Sommaire</button>
+<main id="scene" aria-label="Réseau des examens posé sur le corps 3D">
+  <header id="tete"><h1 id="titre"></h1><p id="chaine"></p></header>
+  <div id="pastilles" hidden></div>
+  <div id="monde"><canvas id="gl"></canvas><canvas id="ln"></canvas><div id="cases"></div></div>
+  <div id="zoom"><button data-z="1.15" title="Agrandir">+</button><button data-z="0.87" title="Réduire">−</button><button data-z="0" title="Recentrer">⌂</button></div>
+  <p id="etat" role="status">Le corps 3D se charge…</p>
+</main>
+<section id="pratique" aria-label="Pratique : exercices et jeu" hidden></section>
+<div id="bulle" role="tooltip"></div>
+<div id="fen" role="dialog" aria-modal="false" hidden><div class="fh"><b id="fenTitre"></b><button id="fenFermer" title="Fermer la fenêtre">✕</button></div><div id="fenCorps"></div></div>
+<script type="module" src="jeu.js"></script>
+</body>
+</html>
