@@ -41,3 +41,25 @@ Contrôles transversaux du passage : aucun CNP, CPCM ni PEP VIH dans les dix pat
 `controle_menus_longs.py` : ALL, ANG, CHI → 0 menu fautif, 0 erreur de schéma ; CMF → 0 menu fautif ; 2 erreurs de schéma restantes sur K12.0_1 et K12.2 (pathologies 21 et suivantes, au prochain passage).
 
 Reste à auditer : pathologies 21 à 80 (K12.0_1 → K52.1).
+
+## Passage 3 — pathologies 21 à 31 sur 80 (11 pathologies)
+
+Méthode : la pathologie 21 est relue par moi ; les neuf autres sont relues par trois sous-agents avec la même grille (doses, seuils, PEP VIH, CNP/CPCM, masquage des niveaux 4–5, menus longs, « why »). Aucune source primaire n'a été lue en ligne : les doutes sont dans `audit.claude.aVerifier`.
+
+| # | Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|---|
+| 21 | K12.0_1 Aphtose buccale récidivante | 🟧 | Corrigé : clé parasite `false_placeholder` (Q18), accords (Q09, Q15), formulation de N05. À vérifier : colchicine en première intention (EULAR 2018 concerne Behçet), aprémilast et thalidomide extrapolés de Behçet, sources de N05 et N08. |
+| 22 | K12.0 Aphtose buccale bénigne | 🟧 | Corrigé : Q20 passée à `diagnosticMasque=false` (l'énoncé nomme « aphtes majeurs »), accord de N34. À vérifier : indication suisse de l'aprémilast, doses de colchicine et de prednisone, bêtabloquants (N13), durée de l'aphte mineur (N52). |
+| 23 | K12.2 Cellulite / abcès odontogène | 🟧 | Corrigé : clé parasite `correger` (Q20), accord (Q01), « why » de Q06-C. À vérifier : durée d'antibiothérapie 5–7 jours (SSI), fréquence des dents causales (N07). |
+| 24 | D69.6_1 Pseudo-thrombopénie à l'EDTA | 🟥→🟧 | Corrigé : `priseEnCharge` collée dans la chaîne `ssp` (JSON malformé), reconstruite ; clé parasite (Q16) ; accord (Q10). À vérifier : part de 15–20 % des thrombopénies fortuites, 0,1–2 % des FSC, facteur citrate. |
+| 25 | D72.8 Leucocytose sous corticoïdes ou stress | 🟧 | Corrigé : accords (Q03, Q08), « why » faux de Q20-H (mononucléose), « prophylaxie du pneumocoque » → pneumocystose. À vérifier : seuil de neutrophilie, leucocytes < 30 G/L (N05), seuils de prophylaxie, doses d'hydrocortisone et d'antibiotiques. |
+| 26 | D75.1 Polyglobulie secondaire | 🟧 | Corrigé : « why » de Q07-E, accord (Q19). À vérifier : seuil de saignée (Hct 60–65 %), patch nicotinique, critères d'oxygénothérapie (GOLD), tiotropium et varénicline. |
+| 27 | D75.8 Thrombocytose réactive | 🟩 | Rien de faux. À vérifier : posologie du fer et du carboxymaltose, fréquences JAK2/CALR/MPL, N18 sans source. |
+| 28 | A41.9 Sepsis et choc septique | 🟧 | Corrigé : N39 faux (définition Sepsis-3 du choc), Q11 (niveau 4) nommait le diagnostic, reformulée. À vérifier : contrôle de source en 6–12 h (SSC 2016 contre 2021), mortalités, 7–8 %/h (Kumar), posologies. |
+| 29 | R65.2 Choc septique | 🟧 | Corrigé : déclaration de la méningococcie par le médecin au médecin cantonal sous 24 h (N78, Q08, correction) ; source de N26 ; Q03 (noradrénaline en voie centrale). À vérifier : circuit exact de déclaration, hémocultures négatives, posologies. |
+| 30 | E43_3 Dénutrition liée à l'âge | 🟩 | Rien à corriger (GLIM, EWGSOP2, MNA-SF, NRS-2002, thiamine, reprise nutritionnelle). À vérifier : prévalences N05–N07, vitamine D 800 UI/j. |
+| 31 | E61.1 Carence martiale | 🟧 | Corrigé : clé parasite `false` (Q16), source du seuil de ferritine (< 30 µg/L, la BSG 2021 retient < 45 µg/L), AABB 2023. À vérifier : seuil de ferritine, prévalence suisse N05, N38, acide tranexamique. |
+
+Contrôles du passage : aucun CNP, CPCM ni PEP VIH ; tous les niveaux 4–5 sont masqués ; menus longs à 1–3 justes. `controle_menus_longs.py` CMF, HEM, INT, MIG → 0 menu fautif, 0 erreur de schéma.
+
+Reste à auditer : 49 pathologies (OPH, ORL, MTR, PEA, TOX et autres, de H00.0 à K52.1).

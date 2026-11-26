@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-26 03:13 UTC
+# Ouvrier automatique — 2026-11-26 03:28 UTC
 
-Dernier passage : **AUDIT_V2_A** → en_cours (2.12 USD).
+Dernier passage : **AUDIT_V2_A** → en_cours (2.35 USD).
 
-Deux passages sont faits : 20 pathologies sur 80 sont auditées (ALL, ANG, CHI et une partie de CMF), avec 3 schémas de correction réparés (K60.2, K02.9, K04.7_1) et plusieurs formules vagues ou seuils non sourcés corrigés. Aucune source primaire n'a pu être lue en ligne, donc les doutes sont marqués « à vérifier » dans audit.claude.aVerifier et dans CLAUDE_A_AUDITER/AUDIT_V2_A.md. Il reste les pathologies 21 à 80 (K12.0_1 → K52.1), à traiter par lots de 10 aux passages suivants.
+Trois passages sont faits : 31 pathologies sur 80 sont auditées et corrigées (journal dans CLAUDE_A_AUDITER/AUDIT_V2_A.md). Les contrôles de menus longs donnent 0 sur ALL, ANG, CHI, CMF, HEM, INT et MIG. Il reste 49 pathologies (OPH, ORL et autres) pour les prochains passages.
 
-**Crédit** : 7.94 USD dépensés, 142.06 USD disponibles avant le 31.01.2027 ; aujourd'hui 7.59 / 149.65 USD.
+**Crédit** : 10.29 USD dépensés, 139.71 USD disponibles avant le 31.01.2027 ; aujourd'hui 9.94 / 149.65 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -52,7 +52,7 @@ Deux passages sont faits : 20 pathologies sur 80 sont auditées (ALL, ANG, CHI e
 | V2_Q_recup | fait | 16 | 0.0 |
 | V2_C_lot | fait | 1 | 0.0 |
 | V2_C_recup | fait | 10 | 0.0 |
-| AUDIT_V2_A | en_cours | 2 | 2.118 |
+| AUDIT_V2_A | en_cours | 3 | 2.346 |
 | V3B_N_lot | a_faire | 0 |  |
 | V3B_N_recup | a_faire | 0 |  |
 | V3B_Q_lot | a_faire | 0 |  |
