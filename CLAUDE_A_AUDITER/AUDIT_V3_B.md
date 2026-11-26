@@ -365,6 +365,24 @@ Contrôles lot 20 : 0 menu fautif, 0 erreur `valider()` sur les 9 pathologies �
 
 Contrôles lot 21 : 0 menu fautif, 0 erreur `valider()` sur les 9 pathologies 🟩/🟧 ; Z71.8_20 (🟥) reste hors de main.
 
+
+## Lot 22 — rangs 724 à 734
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| Z71.8_2__O5_2-E01 | 🟩 | Aucune erreur retenue (CC art. 360–373 et 370–378 : ordre des représentants après les directives, assistance régulière exigée). |
+| Z72.3__O4_3-E01 | 🟩 | Aucune erreur retenue (OMS 2020 : 150–300 min modérées ou 75–150 soutenues, force ≥ 2 j, multicomposante ≥ 3 j après 65 ans, 60 min/j chez l'enfant ; ≤ 1,5 MET ; 31 % d'inactifs en 2022 ; DPP −58 %). Alerte mécanique de Q19 (« activité physique » dans le prompt) : thème de la question, laissée. À vérifier : seuils de temps assis et de pas. |
+| Z72.4__O4_3-E03 | 🟩 | Aucune erreur retenue (OMS sucres < 10 %, sel < 5 g, IMC et tour de taille IDF, syndrome métabolique, FIB-4 < 1,3, PREDIMED −30 %, pyramide suisse 3 légumes + 2 fruits, sémaglutide et liraglutide dès IMC 30 ou 27 avec comorbidité, bariatrique dès IMC 35, charcuterie groupe 1 du CIRC). À vérifier : version de la Stratégie suisse de nutrition postérieure à 2024. |
+| Z79.0__O7_16-E03 | 🟩 | Aucune erreur retenue (BRIDGE 2015 : 0,4 contre 0,3 % et 1,3 contre 3,2 % ; PAUSE : 1 jour/2 jours d'omission, reprise à 24 h ou 48–72 h ; ESC 2022 : 6 mois après stent électif, 12 mois après SCA, 1 mois au minimum ; ESAIC/ESRA 72 h avant neuraxial sous anti-Xa ; anti-Xa < 30 ng/mL ; idarucizumab 5 g ; P2Y12 3–5/5/7 jours ; dabigatran contre-indiqué < 30 mL/min). |
+| Z80.9__O4_7-E03 | 🟧 | Corrigé : dépistage colorectal remboursé de 50 à 74 ans depuis le 1.7.2025 (OPAS), exemption de franchise limitée aux programmes cantonaux (le col n'en bénéficie pas) ; calendrier du col sans les « deux frottis annuels » (SSGO avis n° 50 : cytologie tous les 3 ans), dans la notion N39, la correction et Q20. Aucune autre erreur retenue (CIRC : 40 % évitables, 13 localisations liées à l'obésité, alcool + 7 % par 10 g/j, charcuterie + 18 % par 50 g/j ; radon 300 Bq/m³ ORaP ; AUDIT-C ≥ 4/≥ 3 ; Jha 2013 : arrêt à 25–34 ans ≈ 10 ans). À vérifier : doses du rattrapage HPV, nombre de décès dus au radon. |
+| Z91.1_4__O7_11-E01 | 🟧 | Forme : notion vide N25 (« diagnostic_placeholder ») retirée. Corrigé : Q07, Q13 et Q17 (d4 dont la vignette nomme le refus de traitement) passées en d3. Aucune erreur médicale retenue (adhérence ≈ 50 % OMS, SAMSON ≈ 90 % nocebo, quote-part 10 % plafonnée à 700 CHF, CC art. 378, PAFA réservé au trouble psychique). |
+| Z91.1_5__O7_15-E01 | 🟧 | Corrigé (vérifié sur bag.admin.ch, quote-part différenciée) : la quote-part de l'original quand un générique moins cher existe vaut 40 % depuis le 1.1.2024, et non 20 % (N47, correction et options). Aucune autre erreur retenue (ESH 2023 : 135/85, 120/70, 130/80 ; cible < 140/90 puis 130/80 ; baisse ≤ 25 % la 1re heure ; SAMSON ; lipides à 8 ± 4 semaines ; couverture < 80 %). |
+| Z91.1__O3_4-E01 | 🟩 | Aucune erreur retenue (hypotension orthostatique 20/10 mmHg à 3 min, triple whammy, ACB ≥ 3, STOPP/START v3, Beers 2023, PRISCUS 2.0, LPTh art. 26). À vérifier : prévalence suisse de la polymédication, paliers de 25 % toutes les 2 semaines. |
+| Z94.0__O7_20-E02 | 🟩 | Forme : deux natures de notion hors énumération (N06, N41) remplacées par « décision ». Aucune erreur retenue (KDIGO 2020 : adresser 6–12 mois avant la dialyse ; VIH contrôlé CD4 > 200 ; vaccins vivants ≥ 4 semaines avant la greffe ; pancréas-rein dans le DT1, foie-rein dans l'hyperoxalurie). À vérifier : activité annuelle suisse, survie du greffon à 5 ans. |
+| C54.1__S4_12-E10 | 🟧 | Corrigé : Q04 (d4 dont la vignette livre l'adénocarcinome) passée en d3. Aucune erreur médicale retenue (épaisseur ≤ 4 mm < 1 %, Lynch ≈ 3 %, méthylation du promoteur MLH1 avant Lynch, classification moléculaire POLE/dMMR/p53/NSMP, pembrolizumab-lenvatinib après platine si pMMR, saignement > 6 mois sous THS continu combiné). |
+
+Contrôles lot 22 : `controle_menus_longs.py` MIG, PSP, TOX et GYN → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
+
 ## Bilan au 26.11.2026 (arrêt de la session AAI)
 
 - Pathologies auditées : 160 (rangs 505 à 664), dont 156 🟩/🟧 portées sur main et 4 🟥 restées hors de main (R23.1__F1_17-E03, R49.0_1__S7_4-E03, R62.8_1__O2_1-E03, T74.1_5__O2_3-E01 : fichiers tronqués ou mal formés, à régénérer).
@@ -378,3 +396,7 @@ Contrôles lot 21 : 0 menu fautif, 0 erreur `valider()` sur les 9 pathologies �
 - Outils utilisés (hors dépôt, /home/claude/audB_tools) : audit.py (contrôle mécanique + digest), autofix.py, schema.py, rubbal.py, cap70.py, trim6.py, repssp.py, ccr74.py, fix.py (journal + champ `audit.claude`), porter.sh (portage + contrôles).
 
 Signature : AAI (Anthropic AI)
+
+
+## Mise à jour 26.11 (œil de la tempête)
+Les 4 fiches 🟥 (R23.1, R49.0_1, R62.8_1, T74.1_5) et les 2 fiches en quarantaine (Z34.0, L50.0) ont été régénérées et contrôlées, puis fusionnées sur main (commit ad04df54) : statut 🟩.
