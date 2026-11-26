@@ -357,20 +357,20 @@
    "situation": "starting_point",
    "diagnosticMasque": true,
    "serie": null,
-   "stem": "Un homme de 44 ans se coupe superficiellement avec un couteau de cuisine propre à Sion. La plaie est propre et mineure. Son carnet montre une primovaccination complète et un dTpa à 25 ans, sans autre dose.",
+   "stem": "Un homme de 46 ans se coupe superficiellement avec un couteau de cuisine propre à Sion. La plaie est propre et mineure. Son carnet montre une primovaccination complète et un dTpa à 25 ans, sans autre dose.",
    "prompt": "Quelle prophylaxie antitétanique est indiquée ?",
    "options": [
     {
      "key": "A",
-     "text": "dT seul, car la dernière dose date de plus de 10 ans",
+     "text": "dT seul, car la dernière dose date de 20 ans ou plus",
      "correct": true,
-     "why": "Plaie propre mineure : dT si dernière dose > 10 ans, sans immunoglobulines."
+     "why": "Plaie propre mineure de 26 à 64 ans : dT si dernière dose ≥ 20 ans, sans immunoglobulines."
     },
     {
      "key": "B",
      "text": "Aucune mesure, le prochain rappel étant prévu à 65 ans",
      "correct": false,
-     "why": "Le rappel de plaie est indépendant du calendrier à 45 ans."
+     "why": "Le rappel de 45 ans manque et la dernière dose date de 21 ans : le dT est dû maintenant."
     },
     {
      "key": "C",
@@ -405,10 +405,10 @@
     "zeroD": "Coupure propre chez un adulte de 44 ans.",
     "mechanism": "Les anticorps déclinent, la mémoire immunitaire exige un rappel après dix ans.",
     "semiology": "Plaie propre, superficielle, sans souillure ni tissu dévitalisé.",
-    "discriminant": "Plaie propre mineure : seuil de dix ans, pas d'immunoglobulines.",
+    "discriminant": "Plaie propre mineure : seuil de 10 ans (20 ans de 26 à 64 ans), pas d'immunoglobulines.",
     "decision": "dT seul car 19 ans depuis la dernière dose.",
     "trap": "Ajouter des immunoglobulines ou ignorer le rappel.",
-    "anchor": "Plaie propre mineure : dT si > 10 ans."
+    "anchor": "Plaie propre mineure : dT si ≥ 10 ans (≥ 20 ans de 26 à 64 ans)."
    },
    "sources": [
     "OFSP/CFV, Plan de vaccination suisse – prophylaxie du tétanos"
@@ -1140,7 +1140,7 @@
    "id": "Q19",
    "format": "MenuLong",
    "situation": "starting_point",
-   "diagnosticMasque": false,
+   "diagnosticMasque": true,
    "serie": null,
    "stem": "Un homme de 77 ans, en bonne santé, consulte à Berne le 20 octobre. Il a reçu un dT il y a 4 ans et trois doses de FSME, la dernière il y a 6 ans. Né en 1947, il n'a jamais eu de zona.",
    "prompt": "Quelles vaccinations sont indiquées aujourd'hui ? (1 à 3 réponses)",
@@ -1401,6 +1401,14 @@
  },
  "audit": {
   "rejector": null,
-  "claude": null
+  "claude": {
+   "verdict": "🟧",
+   "date": "2026-11-26",
+   "aVerifier": [
+    "Schéma de rattrapage dT 0, 2, 8 mois",
+    "Seuil d'âge VRS (75 ans)"
+   ],
+   "audit": "AUDIT_V3_B"
+  }
  }
 }
