@@ -1,14 +1,10 @@
-# Ouvrier automatique — 2026-11-26 02:21 UTC
+# Ouvrier automatique — 2026-11-26 03:00 UTC
 
-Dernier passage : **V2_C_recup** → fait (0.00 USD).
+Dernier passage : **AUDIT_V2_A** → en_cours (0.91 USD).
 
-775 notions, 56 cochées, 679 en attente d'audit, 403 questions
-TRO : 1 pathologies, 28 notions, 0 cochées, 28 en attente d'audit, 20 questions
-URO : 13 pathologies, 363 notions, 28 cochées, 335 en attente d'audit, 260 questions
-arène 45 : 45 spécialités, 15908 questions, 2692 pathologies canoniques
+Passage 1 : 10 pathologies sur 80 auditées (D84.8 à K60.0), journal dans CLAUDE_A_AUDITER/AUDIT_V2_A.md ; 1 verdict 🟧 (prophylaxie anti-VHB, aciclovir ophtalmique) et 9 🟩, avec corrections de fond et de forme et doutes marqués « à vérifier ». Aucun CNP, CPCM ni PEP VIH ; menus longs à 0 sur ALL, ANG et CHI. Les sources primaires n'ont pas pu être relues en ligne ; il reste 70 pathologies (K60.2 en premier, dont la correction sans priseEnCharge) et 17 questions de niveau 4–5 non masquées à examiner.
 
-
-**Crédit** : 4.91 USD dépensés, 145.09 USD disponibles avant le 31.01.2027 ; aujourd'hui 4.56 / 149.65 USD.
+**Crédit** : 5.82 USD dépensés, 144.18 USD disponibles avant le 31.01.2027 ; aujourd'hui 5.47 / 149.65 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -56,5 +52,24 @@ arène 45 : 45 spécialités, 15908 questions, 2692 pathologies canoniques
 | V2_Q_recup | fait | 16 | 0.0 |
 | V2_C_lot | fait | 1 | 0.0 |
 | V2_C_recup | fait | 10 | 0.0 |
+| AUDIT_V2_A | en_cours | 1 | 0.913 |
+| V3B_N_lot | a_faire | 0 |  |
+| V3B_N_recup | a_faire | 0 |  |
+| V3B_Q_lot | a_faire | 0 |  |
+| V3B_Q_recup | a_faire | 0 |  |
+| V3B_C_lot | a_faire | 0 |  |
+| V3B_C_recup | a_faire | 0 |  |
+| V3C_N_lot | a_faire | 0 |  |
+| V3C_N_recup | a_faire | 0 |  |
+| V3C_Q_lot | a_faire | 0 |  |
+| V3C_Q_recup | a_faire | 0 |  |
+| V3C_C_lot | a_faire | 0 |  |
+| V3C_C_recup | a_faire | 0 |  |
+| V3D_N_lot | a_faire | 0 |  |
+| V3D_N_recup | a_faire | 0 |  |
+| V3D_Q_lot | a_faire | 0 |  |
+| V3D_Q_recup | a_faire | 0 |  |
+| V3D_C_lot | a_faire | 0 |  |
+| V3D_C_recup | a_faire | 0 |  |
 
 Signature : AAI (Anthropic AI)
