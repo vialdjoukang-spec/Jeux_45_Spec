@@ -1,13 +1,14 @@
 """Organes 3D réels hors Z-Anatomy / BodyParts3D, un .glb par organe, 0 token.
 Deux voies, lues dans organes_ext.json :
   - « maillages » : maillages réels publiés (PLY/STL), pris dans une archive Zenodo distante (lecture partielle HTTP, remotezip) ;
+  - « totalseg »  : scanner réel du jeu TotalSegmentator, segmenté par une tâche ouverte (Apache-2.0) de TotalSegmentator ;
   - « volume »    : étiquettes segmentées d'un examen réel (NIfTI), maillées par marching cubes dans le repère du scanner,
                     converties au repère BodyParts3D (mm, Z haut, face vers -Y, gauche du patient vers +X = LPS), lissées (Taubin).
 Chaque maillage est allégé (≤ 60 000 faces), centré, écrit dans anatomie3d/<organe>.glb (< 15 Mo) et fusionné dans index.json.
 Cache : un organe dont l'empreinte (configuration + taille des fichiers source) n'a pas changé et dont le .glb existe est sauté.
 Dépendances : pip install trimesh fast-simplification remotezip nibabel scikit-image
 Signature : AAI (Anthropic AI)"""
-import hashlib, json, os, sys
+import hashlib, json, os, subprocess, sys
 
 import numpy as np, trimesh, fast_simplification as fs
 from remotezip import RemoteZip
@@ -64,6 +65,13 @@ for oid, o in CONF["organes"].items():
             m = trimesh.load(extraire(o["zip"], mb), force="mesh"); morceaux.append(trimesh.Trimesh(m.vertices, m.faces))
     elif o["voie"] == "volume":
         m, ml = volume_vers_maillage(extraire(o["zip"], o["membre"]), o["etiquettes"], o.get("lissage", 30), o.get("flou_mm", [0.6, 0.6, 0.6]))
+        morceaux.append(m); extra["volume_ml"] = round(ml, 1)
+    elif o["voie"] == "totalseg":   # scanner réel segmenté par TotalSegmentator (tâche ouverte Apache-2.0), puis maillé
+        ct = extraire(o["zip"], o["membre"]); dos = os.path.join(CACHE, "ts_" + o["tache"] + "_" + hashlib.sha1(o["membre"].encode()).hexdigest()[:8])
+        etiq = os.path.join(dos, o["classe"] + ".nii.gz")
+        if not os.path.exists(etiq):
+            subprocess.run(["TotalSegmentator", "-i", ct, "-o", dos, "-ta", o["tache"], "--device", "cpu"], check=True)
+        m, ml = volume_vers_maillage(etiq, [1], o.get("lissage", 30), o.get("flou_mm", [0.6, 0.6, 0.6]))
         morceaux.append(m); extra["volume_ml"] = round(ml, 1)
     else:
         raise SystemExit(f"{oid} : voie inconnue {o['voie']}")

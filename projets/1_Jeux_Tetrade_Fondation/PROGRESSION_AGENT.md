@@ -342,3 +342,12 @@ Nouveau constructeur `conception/outils/anatomie3d/construire_organes_ext.py` (c
 Source écartée : UT-EndoMRI (Zenodo 15750762, utérus et **ovaires** segmentés à la main) porte la mention CC BY 4.0 sur Zenodo, mais son README réserve l'usage à la recherche non commerciale : licence contradictoire, donc ovaires non produits sans l'accord de Vial.
 
 Le script Z-Anatomy fusionne désormais `sources_supplementaires` au lieu de l'écraser. Contrôles : conception 34/34, couverture réussie, non-perte 0.
+
+## 18. Organes 3D réels : 99 → 101 / 124 (tempête, 2026-11-26)
+
+`construire_organes_ext.py` gagne la voie « totalseg » : il prend un scanner réel du jeu TotalSegmentator (Zenodo 10047292, **CC BY 4.0**), le segmente avec une tâche ouverte de TotalSegmentator v2 (poids **Apache-2.0**) sur CPU, puis maille l'étiquette. Le résultat de segmentation reste en cache.
+
+- **Péricarde** (`cv_pericarde`) : scanner thoracique s1157 (femme de 42 ans), tâche `trunk_cavities`, classe `pericardium` ; 797 mL, 151 × 110 × 103 mm ; pointe orientée en bas et à gauche du patient (latéralité vérifiée). Le modèle montre la surface externe du sac (cœur inclus) ; les feuillets séreux ne sont pas distingués.
+- **Seins** (`org_gyneco_seins`) : scanner cou-thorax-abdomen-pelvis s0835 (femme de 53 ans), tâche `breasts` ; 2,58 L pour les deux seins, entièrement dans le champ. Le scanner s1157 a été écarté, car il coupait le haut des seins.
+
+Restent 23 organes sans source réelle libre : tissu de conduction, microcirculation, derme et hypoderme, glandes sudorales et sébacées, jonction neuromusculaire, gonades, ovaires et trompes (seule source trouvée : UT-EndoMRI, licence contradictoire), vagin et vulve (vulve exclue par règle), placenta, sang (globules rouges, blancs, plaquettes), immunité (barrières, innée, adaptative, complément), 5 processus pédiatriques, testicules (exclus par règle).
