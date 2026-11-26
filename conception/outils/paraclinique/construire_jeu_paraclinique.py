@@ -305,6 +305,44 @@ def cliches_pneumonie():
     return c
 
 
+# ---------------------------------------------------------------- atlas radiologique (dépôt organigramme-examen-federal, imagerie_GROK/harnais, branché le 27.11.2026)
+# Une paire de l'atlas ne s'affiche que si sa modalité est celle de l'examen (pas de radiographie sous un scanner).
+from PIL import Image as _Img
+ATL_D = os.path.join(P, "atlas", "manifest"); ATL_I = os.path.join(RAC, "conception", "prototypes", "paraclinique", "atlas")
+ATLAS_LIEN = {"poumons_et_voies_aeriennes": {"Épanchement pleural": "IMG-132", "Pneumothorax": "IMG-134", "Insuffisance cardiaque gauche": "IMG-122",
+    "Œdème pulmonaire cardiogénique": "IMG-122", "Cancer bronchique": "IMG-111", "BPCO avec emphysème": "IMG-114", "Bronchectasies": "IMG-117",
+    "Tuberculose pulmonaire": "IMG-106", "Tuberculose": "IMG-106", "Fibrose pulmonaire idiopathique": "IMG-115", "PINS d'une connectivite": "IMG-119",
+    "Pneumopathie d'hypersensibilité": "IMG-120", "Sarcoïdose": "IMG-118", "Nodule inflammatoire": "IMG-110", "Cancer bronchique précoce": "IMG-112",
+    "Embolie pulmonaire": "IMG-125", "HTP-TEC": "IMG-126", "Cancer bronchique non à petites cellules": "IMG-111", "Pneumonie": "IMG-105"}}
+MOD_ATL = {"Radiographie": "RX", "Mammographie": "RX", "Scanner (CT)": "TDM", "Échographie et Doppler": "US", "Scintigraphie": "MN", "TEP-CT": "MN", "IRM": "IRM", "Angiographie": "INT"}
+ROLE_C = {"principale": "#e0a400", "associée": "#0891b2", "associee": "#0891b2", "complication": "#db2777"}
+
+
+def cliches_atlas(stem, patho, modalite):
+    i = (ATLAS_LIEN.get(stem) or {}).get(patho)
+    f = os.path.join(ATL_D, f"{i}.json") if i else None
+    if not f or not os.path.exists(f):
+        return None
+    m = lire(f); pa = m.get("patho") or {}; no = m.get("normal") or {}
+    if not pa.get("file") or not (m.get("cliche") or "").startswith(MOD_ATL.get(modalite, "?")):
+        return None
+    img = os.path.join(ATL_I, pa["file"].replace("images/", "")); W, H = _Img.open(img).size
+    ann = []
+    for j, a in enumerate(pa.get("arrows") or [], 1):
+        if a.get("contour"):
+            xs = [q[0] for q in a["contour"]]; ys = [q[1] for q in a["contour"]]
+            x, y, rx, ry = (min(xs) + max(xs)) / 2 * W, (min(ys) + max(ys)) / 2 * H, max(.02, (max(xs) - min(xs)) / 2) * W, max(.02, (max(ys) - min(ys)) / 2) * H
+        else:
+            x, y, rx, ry = a["tip"][0] * W, a["tip"][1] * H, .045 * W, .045 * W
+        ann.append({"n": j, "x": round(x), "y": round(y), "rx": round(rx), "ry": round(ry), "couleur": ROLE_C.get(a.get("role", ""), "#e0a400"),
+                    "texte": f"{a.get('label', '')} ({a.get('role', 'lésion')}) : {a.get('definition', '')}".strip()})
+    c = {"titre": f"Preuve d'imagerie — {m['cliche']} : patient et normal", "annotations": ann, "img": "atlas/" + pa["file"].replace("images/", ""),
+         "diagnostic": m["dx"] + ". " + (m.get("pair_match") or ""), "conduite": ("À vérifier : " + " ; ".join(m["a_verifier"])) if m.get("a_verifier") else "",
+         "source": f"Cliché du patient : {pa.get('author', '?')}, {pa.get('license', '?')}, {pa.get('source_url', '')}"
+                   + (f" ; cliché normal : {no.get('author', '?')}, {no.get('license', '?')}, {no.get('source_url', '')}" if no.get("file") else "") + f" ; atlas {i}."}
+    c["normal"] = {"img": "atlas/" + no["file"].replace("images/", ""), "source": no.get("source_url"), "reperes": []} if no.get("file") else None
+    return c
+
 # Chaîne fixée par Vial le 26.11.2026 (PROMPT_VIAL.md, § Ajout du 26.11) : région → organes de la région → modalités d'imagerie de l'organe
 # (groupe par nature, barre perpendiculaire) → examens de la modalité → pathologies de l'organe diagnostiquées par cet examen → fenêtre à deux clichés.
 # Les neuf types d'imagerie du plan (§ 10, « Imagerie : examens »), dans son ordre ; aucun groupe hors plan.
@@ -413,7 +451,11 @@ for r, (rnom, mesh, cote, coul) in REG.items():
                     if o["stem"] == "poumons_et_voies_aeriennes" and cle(court(e["nom"], 80)) == "radiographie_thoracique" and "pneumonie" in cle(p["pathologie"]):
                         pn["cliches"] = cliches_pneumonie()  # la fiche flash (gabarit du 26.11) remplace l'infobulle du pilote
                     else:
-                        pn["clichesAProduire"] = True
+                        ca = cliches_atlas(o["stem"], p["pathologie"], m)
+                        if ca:
+                            pn["cliches"] = ca
+                        else:
+                            pn["clichesAProduire"] = True
                     N.append(pn)
 _nv = {}
 for x in N:

@@ -300,15 +300,15 @@ function fenetreCliches(n) {
      radio-anatomie normale à droite (repères lettrés), puis la description énumérative des lésions et des repères. */
   const f = n.cliches, w = document.createElement('div'); w.className = 'fcli'; w.hidden = true; w.style.setProperty('--c', '#2a9d8f');
   w.innerHTML = `<div class=ft>${esc(f.titre)}</div><div class=duo>
-    <figure><figcaption><span>Cliché du patient</span><button class=basc title="Afficher ou masquer les lésions numérotées">Annoté</button></figcaption><div class=cadre><img class=ipat alt="Radiographie thoracique de face du patient" src="${esc(f.img)}"><canvas class=cpat></canvas></div></figure>
-    <figure><figcaption><span>Radio-anatomie normale</span></figcaption><div class=cadre><img class=inor alt="Radiographie thoracique de face normale" src="${esc(f.normal.img)}"><canvas class=cnor></canvas></div></figure></div>
-    <div class=duo><ol class=les>${f.annotations.map(a => '<li>' + esc(a.texte) + '</li>').join('')}</ol><ul class=rep>${f.normal.reperes.map(a => '<li><b>' + esc(a.n) + '.</b> ' + esc(a.texte) + '</li>').join('')}</ul></div>
+    <figure><figcaption><span>Cliché du patient</span><button class=basc title="Afficher ou masquer les lésions numérotées">Annoté</button></figcaption><div class=cadre><img class=ipat alt="Cliché du patient" src="${esc(f.img)}"><canvas class=cpat></canvas></div></figure>
+    <figure><figcaption><span>${f.normal ? 'Cliché normal' + (f.normal.reperes.length ? ' (radio-anatomie)' : '') : 'Cliché normal'}</span></figcaption><div class=cadre>${f.normal ? `<img class=inor alt="Cliché normal de même technique" src="${esc(f.normal.img)}"><canvas class=cnor></canvas>` : '<p class=apx style="padding:40px 12px;text-align:center">Le cliché normal apparié reste à produire.</p>'}</div></figure></div>
+    <div class=duo><ol class=les>${f.annotations.map(a => '<li>' + esc(a.texte) + '</li>').join('')}</ol><ul class=rep>${((f.normal || {}).reperes || []).map(a => '<li><b>' + esc(a.n) + '.</b> ' + esc(a.texte) + '</li>').join('')}</ul></div>
     ${n.flash ? '<details open><summary>Fiche flash</summary>' + ficheFlash(n) + '</details>' : ''}<details><summary>Diagnostic, conduite et source</summary><p>${esc(f.diagnostic)}</p><p>${esc(f.conduite)}</p><p class=mini>${esc(f.source || '')}</p></details>`;
   const des = (img, cv, rep) => { const go = () => { cv.width = img.clientWidth; cv.height = img.clientHeight; const q = cv.getContext('2d'), k = img.clientWidth / img.naturalWidth;
       for (const a of rep) { q.strokeStyle = a.couleur || '#2a9d8f'; q.lineWidth = 2; q.setLineDash(a.pointille ? [5, 4] : []); q.beginPath(); q.ellipse(a.x * k, a.y * k, a.rx * k, a.ry * k, 0, 0, 7); q.stroke(); q.setLineDash([]);
         const cx = a.x * k + a.rx * k * .75, cy = a.y * k - a.ry * k * .75; q.fillStyle = a.couleur || '#2a9d8f'; q.beginPath(); q.arc(cx, cy, 9, 0, 7); q.fill(); q.fillStyle = '#111'; q.font = '700 11px Atk'; q.textAlign = 'center'; q.fillText(a.n, cx, cy + 4); } };
     img.complete && img.naturalWidth ? go() : img.addEventListener('load', go); new ResizeObserver(() => img.naturalWidth && img.clientWidth && go()).observe(img); };
-  const cp = w.querySelector('.cpat'); des(w.querySelector('.ipat'), cp, f.annotations); des(w.querySelector('.inor'), w.querySelector('.cnor'), f.normal.reperes);
+  const cp = w.querySelector('.cpat'); des(w.querySelector('.ipat'), cp, f.annotations); if (f.normal) des(w.querySelector('.inor'), w.querySelector('.cnor'), f.normal.reperes);
   w.querySelector('.basc').onclick = e => { e.stopPropagation(); const v = cp.style.display === 'none'; cp.style.display = v ? 'block' : 'none'; e.target.textContent = v ? 'Annoté' : 'Brut'; };
   w.querySelectorAll('img').forEach(im => im.addEventListener('load', () => etat.N.length && dessiner()));
   w.addEventListener('pointerdown', e => e.stopPropagation()); w.querySelector('details').addEventListener('toggle', () => dessiner());
