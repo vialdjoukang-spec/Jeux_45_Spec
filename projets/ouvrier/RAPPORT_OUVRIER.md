@@ -1,4 +1,4 @@
-# Ouvrier automatique — 2026-11-26 04:31 UTC
+# Ouvrier automatique — 2026-11-26 04:32 UTC
 
 Dernier passage : **V3B_Q_recup** → en_cours (0.00 USD).
 
@@ -56,7 +56,7 @@ Dernier passage : **V3B_Q_recup** → en_cours (0.00 USD).
 | V3B_N_lot | fait | 1 | 0.0 |
 | V3B_N_recup | fait | 14 | 0.0 |
 | V3B_Q_lot | fait | 1 | 0.0 |
-| V3B_Q_recup | en_cours | 7 | 0.0 |
+| V3B_Q_recup | en_cours | 8 | 0.0 |
 | V3B_C_lot | a_faire | 0 |  |
 | V3B_C_recup | a_faire | 0 |  |
 | V3C_N_lot | a_faire | 0 |  |
