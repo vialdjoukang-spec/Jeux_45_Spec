@@ -558,3 +558,26 @@ Contrôles lot 28 : `controle_menus_longs.py` CHI, CPL, DER, MIG, ORL, ORT, TOX 
 | H81.0__S1_12-E07 | 🟩 | Aucune erreur retenue (Bárány 2015 : ≥ 2 crises de 20 min à 12 h, forme probable jusqu'à 24 h ; prévalence ≈ 0,2 % ; bilatéralisation 15–30 % ; bétahistine 24–48 mg/j ; métoclopramide ≤ 30 mg/j et 5 jours ; migraine vestibulaire 5 min–72 h). |
 
 Contrôles lot 29 : `controle_menus_longs.py` GEN, HEM, MIG, NEU, ONC, OPH, ORL, PEA, URO → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot.
+
+
+## Lot 30 — rangs 883 à 903
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| I73.0__F1_10-E06 | 🟧 | Corrigé : Q18 et Q19 (d4 qui nomment le phénomène de Raynaud) passées en d3. Aucune erreur médicale retenue (primaire 80–90 %, 3–5 % de la population, début < 30 ans ; nifédipine retard 30–60 mg et amlodipine 5–10 mg hors indication ; sildénafil 20 mg ×3/j ; bosentan 62,5 puis 125 mg ×2/j ; iloprost 0,5–2 ng/kg/min 6 h/j 3–5 jours). |
+| J31.0_1__S1_14-E07 | 🟧 | Forme : Q18 (d4, énoncé sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue (rebond après 5–7 jours d'usage continu, durée limitée par l'AIPS des décongestionnants, mométasone 2 pulvérisations/narine/j 4–6 semaines). |
+| J35.2__S1_14-E08 | 🟩 | Aucune erreur retenue (volume maximal 2–6 ans et régression 7–10 ans, grades I–IV de nasofibroscopie, polysomnographie avant 2 ans ou terrain à risque, AAO-HNS 2022 : pas d'adénoïdectomie avant 4 ans pour l'otite séromuqueuse sans autre indication, amoxicilline 80–90 mg/kg/j). |
+| K44.9__S2_4-E08 | 🟩 | Aucune erreur retenue (type I ≈ 95 %, jonction > 2 cm au-dessus du hiatus, consensus de Lyon : temps d'exposition acide > 6 %, pantoprazole 40 mg 4–8 semaines puis dose minimale, risques à long terme des IPP). |
+| K57.3__G6-E05 | 🟧 | Forme : blocs c2 et c8 ramenés à 5 points. Corrigé (erreur systématique n° 3, OPAS art. 12e, en vigueur le 1.7.2025) : le dépistage colorectal remboursé couvre 50–74 ans et non 50–69 ans (4 occurrences). Aucune autre erreur retenue (diverticulite chez 4–15 % des porteurs, CRP > 150 mg/L, scanner > 90 %, amoxicilline-clavulanate 2,2 g/8 h, ≈ 4 jours d'antibiotiques après contrôle du foyer). |
+| L12.0__G9-E14 | 🟧 | Corrigé : Q11 (d4 qui nomme la pemphigoïde bulleuse) passée en d3. Aucune erreur médicale retenue (critères cliniques de Vaillant, clobétasol < 40 g/j avec décroissance sur 6–12 mois, Joly 2002 : survie à 1 an 76 % contre 58 %, BLISTER : doxycycline 200 mg/j, prednisone 0,5 mg/kg/j, méthotrexate 5–15 mg/sem. hors indication, gliptines). |
+| L23.9__G9-E05 | 🟩 | Aucune erreur retenue (lecture des patch-tests à J2 puis J3–J4 voire J7 ; mométasone 0,1 % 1–2 semaines ; prednisone 0,5–1 mg/kg/j sur 2–3 semaines ; nickel 0,5 et 0,2 µg/cm²/semaine ; maladie professionnelle LAA si causalité prépondérante > 50 % ; alitrétinoïne 10–30 mg/j). |
+| L40.8__S3_5-E06 | 🟩 | Aucune erreur retenue (repousse 4–6 mois aux mains et 12–18 mois aux pieds ; triamcinolone 2,5–10 mg/mL intramatriciel ; méthotrexate 7,5–15 mg/sem. ; posologies d'adalimumab, sécukinumab, bimékizumab, guselkumab et risankizumab conformes ; terbinafine 6/12 semaines après preuve mycologique). |
+| L90.0__F1_2-E04 | 🟧 | Forme : bloc c9 ramené à 5 points. Corrigé : Q12 (d4 qui nomme le lichen scléreux) passée en d3. Aucune erreur médicale retenue (clobétasol 0,05 % dégressif sur 3 mois puis entretien, tacrolimus hors indication en 2e ligne, carcinome 3–5 % HPV-indépendant sur dVIN). |
+| M35.0__G3-E09 | 🟩 | Forme : clé « false_placeholder » retirée (Q16). Aucune erreur médicale retenue (ACR/EULAR 2016 : focus score ≥ 1 et anti-SSA 3 points, Schirmer ≤ 5 mm 1 point ; sex-ratio 9:1 ; pilocarpine 5 mg 3–4×/j ; hydroxychloroquine ≤ 5 mg/kg/j hors indication ; méthylprednisolone 250–1000 mg). |
+| M45__S1_16-E05 | 🟩 | Aucune erreur retenue (HLA-B27 > 85 % des patients et 6–8 % de la population, retard diagnostique 5–8 ans, ASAS ≥ 3 mois avant 45 ans, AINS à pleine dose dont étoricoxib 90 mg, adalimumab 40 mg/2 sem. évalué à 12 semaines). |
+| M84.3__O4_1-E06 | 🟩 | Aucune erreur retenue (Lappe 2008 : calcium 2000 mg + vitamine D 800 UI −20 % chez les recrues, IRM sensible ≈ 100 % et plus précoce de 2–3 semaines, guérison 6–12 semaines pour les sites à bas risque). |
+| N23__G10-E07 | 🟩 | Aucune erreur retenue (prévalence ≈ 10 %, récidive ≈ 50 % à 10 ans, diclofénac ≤ 150 mg/j, tamsulosine 0,4 mg pour un calcul distal > 5 mm hors indication AIPS, expulsion ≈ 70 % ≤ 5 mm et ≈ 50 % de 5 à 10 mm, diurèse ≥ 2,5 L/j). |
+| N41.1__S4_13-E07 | 🟩 | Aucune erreur retenue (NIH catégorie III > 90 %, catégorie II 5–10 %, prévalence ≈ 8 %, lévofloxacine ou ciprofloxacine ≥ 4 semaines selon EAU, apyrexie attendue en 48–72 h dans la forme aiguë). |
+| N60.2__F1_5-E06 | 🟧 | Corrigé : seuil d'âge incohérent (échographie seule < 35 ans, mammographie associée « ≥ 40 ans », laissant 35–39 ans sans conduite) aligné sur 35 ans, comme les notions. Aucune autre erreur retenue (fibroadénome 15–35 ans, BI-RADS 3 ≤ 2 % suivi à 6/12/24 mois, dépistage cantonal 50–74 ans tous les 2 ans sans franchise). Alerte mécanique « nodule » (Q11) : signe, pas le diagnostic, laissée. |
+
+Contrôles lot 30 : `controle_menus_longs.py` ANG, CHI, DER, GYN, ORL, ORT, RHU, URO → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot.
