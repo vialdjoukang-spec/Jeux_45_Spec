@@ -1,6 +1,6 @@
 # Jauges « jouable » des 4 jeux
 
-Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **26.11.2026 02:49**.
+Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **26.11.2026 02:53**.
 
 ## Tétrade Fondation — 96 % (+2)
 
@@ -10,7 +10,7 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 |---|---:|---:|---:|
 | systèmes rédigés | 14 | 14 | 45 |
 | interprétations de courbes | 178 | 119 | 10 |
-| organes en 3D réelle | 90 | 124 | 15 |
+| organes en 3D réelle | 94 | 124 | 15 |
 | questions et puzzles jouables dans l'arène | 108 | 100 | 30 |
 
 ## Paraclinique — 100 %

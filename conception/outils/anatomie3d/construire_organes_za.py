@@ -47,11 +47,12 @@ IDX = os.path.join(SORTIE, "index.json"); index = json.load(open(IDX, encoding="
 os.makedirs(SORTIE, exist_ok=True); fait = 0
 for oid, o in CONF["organes"].items():
     morceaux, noms = [], []
+    src = CONF["_meta"]["source_za"]
     if "bp" in o:
-        ms = [bp_stl(i) for i in o["bp"]]; noms = o["bp"]; src = CONF["_meta"]["source_bp"]
+        ms = [bp_stl(i) for i in o["bp"]]; noms = list(o["bp"]); src = CONF["_meta"]["source_bp"]
         morceaux = [trimesh.Trimesh(m.vertices, m.faces) for m in ms]
-    else:
-        src = CONF["_meta"]["source_za"]
+        if "fichier" in o or "multi" in o: src = CONF["_meta"]["source_za"] + " ; " + CONF["_meta"]["source_bp"]
+    if "bp" not in o or "fichier" in o or "multi" in o:
         for cle, mot in ([(o["fichier"], None)] if "fichier" in o else []) + [tuple(x) for x in o.get("multi", [])]:
             sel = choisir(cle, o["noms"] if mot is None else [mot], o.get("exclure", [".j$"]) if mot is None else [r"\.j$"])
             for nom, V, F in sel:
