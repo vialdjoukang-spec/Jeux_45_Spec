@@ -581,3 +581,7 @@ Contrôles lot 29 : `controle_menus_longs.py` GEN, HEM, MIG, NEU, ONC, OPH, ORL,
 | N60.2__F1_5-E06 | 🟧 | Corrigé : seuil d'âge incohérent (échographie seule < 35 ans, mammographie associée « ≥ 40 ans », laissant 35–39 ans sans conduite) aligné sur 35 ans, comme les notions. Aucune autre erreur retenue (fibroadénome 15–35 ans, BI-RADS 3 ≤ 2 % suivi à 6/12/24 mois, dépistage cantonal 50–74 ans tous les 2 ans sans franchise). Alerte mécanique « nodule » (Q11) : signe, pas le diagnostic, laissée. |
 
 Contrôles lot 30 : `controle_menus_longs.py` ANG, CHI, DER, GYN, ORL, ORT, RHU, URO → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot.
+
+## Pause du 26.11.2026 (11:01, AAI)
+- G93.1 corrigée (ERC-ESICM 2022, PMID 35089409) ; lots 26 à 30 audités (rangs 794 à 903, 75 pathologies) : 33 🟩, 42 🟧, 0 🟥, toutes portées sur main ; T14.9 auditée en entier.
+- Reprise : rang 904 (N62__O6_2-E09), dans l'ordre de `RANG_RENDEMENT.json` ; T74.2_2 (rang 919) et A60.0 (rang 932, correction mal formée) restent à auditer en entier.
