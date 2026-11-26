@@ -190,3 +190,20 @@ Contrôles lot 10 : 0 menu fautif ; 0 erreur `valider()` sur les 8 pathologies �
 | R62.8_1__O2_1-E03 | 🟥 | Rejet : questions tronquées par l'API (8 questions, une question A sans réponse juste) ; ne passe pas le schéma. Reste hors de main. |
 
 Contrôles lot 11 : 0 menu fautif ; 0 erreur `valider()` sur les 9 pathologies 🟩/🟧 ; R62.8_1 (🟥) reste hors de main.
+
+## Lot 12 — rangs 615 à 624
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| R62.8__O2_1-E02 | 🟩 | Forme : Q08 (vignette qui nomme le diagnostic) marquée non masquée. Aucune erreur retenue (taille cible ± 6,5 cm, intervalle ± 8,5 cm, vitesse prépubertaire 4–7 cm/an, 2,3 % sous −2 DS). |
+| R64__F1_8-E02 | 🟩 | Aucune erreur retenue : Fearon 2011 (> 5 % en 6 mois ou > 2 % si IMC < 20 ou sarcopénie ; précachexie ; réfractaire < 3 mois), préhension < 27/16 kg, nutrition entérale si < 60 % des besoins 1–2 semaines (ESPEN). |
+| R68.0__G8-E03 | 🟩 | Forme : bloc c8 ramené à 5 points. Aucune erreur médicale retenue (stades suisses HT I–IV, irritabilité myocardique < 30 °C, CK > 5 × N). |
+| R73.0_1__O4_7-E02 | 🟧 | Forme : clé « si » retirée (Q13). Corrigé : Q04 et Q12 (d4 qui nomment le prédiabète) passées en d3. Seuils exacts : ADA (5,6–6,9 mmol/L ; HbA1c 5,7–6,4 % ; 7,8–11,0 à 2 h), OMS 6,1 ; DPP −58 % / −31 %, DPPOS −27 % / −18 %, DPS −58 % ; dépistage asiatique dès IMC 23. |
+| R73.0__F2_9-E02 | 🟧 | Corrigé : Q19 (menu long d4 qui nomme le prédiabète) passée en d3. Aucune erreur médicale retenue (ADA 2024, OMS 6,1–6,9 mmol/L, 5–10 %/an, tour de taille ≥ 94/80 cm). |
+| R79.9__O4_4-E02 | 🟩 | Aucune erreur retenue (1 − 0,95²⁰ ≈ 64 %, valeur de référence 2,77 × √(CVa² + CVi²), valeurs critiques). |
+| R80.9__F2_24-E02 | 🟩 | Forme : clé « si » retirée (Q09). Aucune erreur médicale retenue (RAC ≥ 3 mg/mmol, > 150 mg/24 h, néphrotique > 3,5 g/24 h, contrôle à 2–4 semaines, KDIGO 2024). |
+| R82.9__F2_15-E02 | 🟩 | Aucune erreur retenue (analyse dans les 2 h ou 4 °C, ≥ 10⁵ UFC/mL ou ≥ 10³ chez la femme symptomatique). |
+| S01.0__S8_7-E03 | 🟧 | Corrigé : délais de rappel antitétanique donnés sans l'âge ; précisés selon le tableau 10 du Plan de vaccination suisse 2026 lu en ligne (26–64 ans : ≥ 20 / ≥ 10 ans ; < 26 et ≥ 65 ans : ≥ 10 / ≥ 5 ans), dans 5 passages ; les réponses justes restent justes. Aucune autre erreur retenue (PECARN, anticoagulé → scanner, TEN-4-FACESp, fils J7–J10). |
+| S01.8__S8_9-E02 | 🟧 | Corrigé : seuil antitétanique des plaies à risque (« > 10 ans ») précisé selon l'âge d'après le tableau 10 du Plan de vaccination suisse 2026 lu en ligne (≥ 10 ans de 26 à 64 ans, ≥ 5 ans avant 26 ans et dès 65 ans), dans 3 passages ; réponses inchangées. Aucune autre erreur retenue (irrigation à l'eau du robinet, fermeture primaire ≤ 6–8 h aux membres et ≈ 24 h au visage). |
+
+Contrôles lot 12 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage. Source lue : Plan de vaccination suisse 2026, tableau 10 (bag.admin.ch).

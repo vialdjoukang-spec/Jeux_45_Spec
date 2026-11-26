@@ -1,0 +1,1092 @@
+{
+ "id": "R73.0_1__O4_7-E02",
+ "portes": [
+  {
+   "ssp": "O4.7",
+   "nomSSP": "Évaluation partagée des facteurs de risque et de protection des maladies fréquentes menaçant la vie, notamment cardiovasculaires, métaboliques, oncologiques et neurologiques",
+   "entite": "Prédiabète et prévention du diabète de type 2 (syndrome métabolique)",
+   "entiteId": "O4.7-E02"
+  }
+ ],
+ "entite": "Prédiabète et prévention du diabète de type 2 (syndrome métabolique)",
+ "cim10": "R73.0",
+ "ssp": {
+  "code": "O4.7",
+  "nom": "Évaluation partagée des facteurs de risque et de protection des maladies fréquentes menaçant la vie, notamment cardiovasculaires, métaboliques, oncologiques et neurologiques",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Adulte en évaluation des facteurs de risque métaboliques et cardiovasculaires",
+    "i": "Porte d'entrée O4.7 : consultation de prévention ou découverte d'une anomalie glycémique, d'un surpoids ou d'une HTA.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Symptômes de diabète (polyuro-polydipsie, amaigrissement) ou cétonurie ?",
+    "i": "On élimine d'abord un diabète décompensé ou une acidocétose avant de parler de prévention.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : glycémie aléatoire ≥ 11,1 mmol/L ou cétose",
+    "i": "Cette situation exige une évaluation médicale le jour même ; l'acidocétose ou l'état hyperosmolaire relèvent du SSP des urgences métaboliques.",
+    "pec": "pec_decompense",
+    "notion": "c6"
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Non : tester GAJ, HbA1c ou HGPO (≥ 35 ans, FINDRISC ≥ 15 ou facteur de risque)",
+    "i": "Le dépistage cible les sujets à risque ; tous les adultes dès 35 ans, répété au moins tous les 3 ans.",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Tests normaux",
+    "i": "On répète le dépistage au moins tous les 3 ans et on conseille un mode de vie sain.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "Test ≥ seuil du diabète",
+    "i": "On confirme par un second test ; si confirmé, on quitte le prédiabète pour la prise en charge du diabète de type 2.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n7",
+    "parent": "n4",
+    "t": "Prédiabète (zone intermédiaire) ± syndrome métabolique",
+    "i": "Au moins un test en zone intermédiaire sans seuil de diabète : on débute la prévention du diabète.",
+    "pec": "pec_modevie",
+    "notion": "c1"
+   },
+   {
+    "id": "n8",
+    "parent": "n7",
+    "t": "Évaluer le risque cardiovasculaire global (AGLA, SCORE2) et lipides, TA, tabac",
+    "i": "Le prédiabète est un facteur de risque indépendant mais n'indique pas une statine à lui seul ; si le risque est élevé, on bascule vers le SSP du risque cardiovasculaire.",
+    "pec": null,
+    "notion": "c8"
+   },
+   {
+    "id": "n9",
+    "parent": "n7",
+    "t": "FIB-4 anormal (≥ 1,3 ; élastographie si intermédiaire)",
+    "i": "Un FIB-4 élevé évoque une fibrose hépatique : on renvoie vers l'entité stéatose métabolique avancée (MASH).",
+    "pec": null,
+    "notion": "c7"
+   },
+   {
+    "id": "n10",
+    "parent": "n7",
+    "t": "IMC ≥ 35, âge < 60 ans, antécédent de diabète gestationnel ou progression malgré le mode de vie",
+    "i": "Ces profils tirent le plus de bénéfice de la metformine ; l'obésité sévère ouvre la discussion bariatrique.",
+    "pec": "pec_pharma",
+    "notion": "c8"
+   }
+  ]
+ },
+ "specialites": [
+  "PSP"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Prédiabète et prévention du diabète de type 2 (syndrome métabolique)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Définir le prédiabète : trois tests, des seuils ADA et OMS",
+   "rubriques": [
+    "definition",
+    "positiveDiagnosis"
+   ],
+   "comment": "Je classe chaque test (GAJ, HbA1c, HGPO) dans sa zone, puis je retiens la catégorie la plus sévère sans jamais conclure sur une seule valeur limite.",
+   "tableau": {
+    "colonnes": [
+     "Test",
+     "Normal",
+     "Prédiabète (ADA)",
+     "Diabète",
+     "Piège"
+    ],
+    "lignes": [
+     [
+      "Glycémie à jeun (jeûne ≥ 8 h)",
+      "< 5,6 mmol/L",
+      [
+       {
+        "t": "5,6–6,9 mmol/L",
+        "i": "Seuil ADA : l'OMS ne retient que 6,1–6,9 mmol/L, donc la prévalence change selon la définition choisie."
+       }
+      ],
+      "≥ 7,0 mmol/L",
+      [
+       {
+        "t": "Doser en plasma veineux",
+        "i": "La glycémie capillaire ne pose pas le diagnostic : sa précision est insuffisante au voisinage des seuils."
+       }
+      ]
+     ],
+     [
+      "HbA1c",
+      "< 5,7 %",
+      [
+       {
+        "t": "5,7–6,4 %",
+        "i": "Zone intermédiaire ADA ; l'HbA1c détecte moins bien le prédiabète que la GAJ ou l'HGPO."
+       }
+      ],
+      "≥ 6,5 %",
+      [
+       {
+        "t": "Fausse en anémie, hémoglobinopathie, IRC, transfusion récente, grossesse",
+        "i": "La durée de vie des globules rouges ou la glycation sont modifiées : on remplace alors par glycémie plasmatique ou HGPO."
+       }
+      ]
+     ],
+     [
+      "Glycémie 2 h après HGPO 75 g",
+      "< 7,8 mmol/L",
+      [
+       {
+        "t": "7,8–11,0 mmol/L (intolérance au glucose)",
+        "i": "Reflète l'insulinorésistance musculaire postprandiale ; l'HGPO peut classer un patient que la GAJ laisse normal."
+       }
+      ],
+      "≥ 11,1 mmol/L",
+      [
+       {
+        "t": "Test lourd, peu utilisé en routine",
+        "i": "Il reste valide et utile en cas de discordance ou d'HbA1c non fiable."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Un seul test en zone intermédiaire suffit à retenir un prédiabète si aucun test n'atteint le seuil du diabète.",
+    "GAJ 5,8 mmol/L et HbA1c 6,6 % : le patient est diabétique, on répète le test qui dépasse le seuil.",
+    "Une glycémie aléatoire ≥ 11,1 mmol/L avec symptômes suffit à poser le diagnostic de diabète.",
+    "Une hyperglycémie de stress (infection, corticoïdes) impose de refaire le test à distance."
+   ],
+   "sources": [
+    "ADA Standards of Care 2025",
+    "OMS/IDF 2006"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Syndrome métabolique : 3 critères sur 5",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Je compte les critères harmonisés et je retiens que trois suffisent, sans qu'aucun ne soit obligatoire dans la définition harmonisée.",
+   "tableau": {
+    "colonnes": [
+     "Critère",
+     "Seuil",
+     "Pourquoi il compte"
+    ],
+    "lignes": [
+     [
+      "Tour de taille",
+      [
+       {
+        "t": "≥ 94 cm (homme), ≥ 80 cm (femme), seuils européens",
+        "i": "Mesure la graisse viscérale, source d'acides gras libres et de cytokines qui aggravent l'insulinorésistance."
+       }
+      ],
+      "On le mesure entre dernière côte et crête iliaque."
+     ],
+     [
+      "Triglycérides",
+      "≥ 1,7 mmol/L",
+      [
+       {
+        "t": "Dyslipidémie athérogène",
+        "i": "L'excès hépatique de VLDL accompagne la stéatose et abaisse le HDL."
+       }
+      ]
+     ],
+     [
+      "HDL-cholestérol",
+      "< 1,0 (homme), < 1,3 (femme) mmol/L",
+      "Il s'associe aux triglycérides élevés dans la dyslipidémie athérogène."
+     ],
+     [
+      "Pression artérielle",
+      "≥ 130/85 mmHg ou traitement",
+      "L'hyperinsulinisme favorise la rétention sodée et l'activation sympathique."
+     ],
+     [
+      "Glycémie à jeun",
+      "≥ 5,6 mmol/L ou diabète traité",
+      "Elle traduit l'insulinorésistance hépatique avec néoglucogenèse accrue."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le syndrome métabolique multiplie le risque de diabète de type 2 et de maladie cardiovasculaire.",
+    "Plus de 50 % des personnes obèses présentent un syndrome métabolique."
+   ],
+   "sources": [
+    "Alberti, harmonisation du syndrome métabolique, Circulation 2009"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Épidémiologie et grands essais de prévention",
+   "rubriques": [
+    "epidemiology"
+   ],
+   "comment": "Je retiens que le mode de vie bat la metformine dans le DPP, et que cet avantage persiste mais s'atténue à 15 ans.",
+   "tableau": {
+    "colonnes": [
+     "Étude",
+     "Intervention",
+     "Résultat",
+     "Message"
+    ],
+    "lignes": [
+     [
+      "DPP (Knowler, 2002)",
+      "Mode de vie intensif vs metformine vs placebo",
+      [
+       {
+        "t": "−58 % (mode de vie) vs −31 % (metformine)",
+        "i": "Perte de poids ≥ 7 % et 150 min/semaine ont davantage d'effet que la metformine, qui agit surtout sur la glycémie à jeun."
+       }
+      ],
+      "Le mode de vie est le traitement de première ligne."
+     ],
+     [
+      "DPPOS (suivi 15 ans)",
+      "Suivi à long terme du DPP",
+      [
+       {
+        "t": "−27 % (mode de vie), −18 % (metformine)",
+        "i": "L'effet persiste, mais le gain s'atténue avec le temps : il faut un renforcement durable."
+       }
+      ],
+      "Le bénéfice se maintient à long terme."
+     ],
+     [
+      "DPS finlandaise (Tuomilehto, 2001)",
+      "Mode de vie chez sujets en surpoids avec intolérance au glucose",
+      [
+       {
+        "t": "−58 % de diabète",
+        "i": "Elle confirme le DPP dans une population européenne, plus proche du contexte suisse."
+       }
+      ],
+      "L'effet est reproductible hors des États-Unis."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le prédiabète touche environ 10–15 % des adultes.",
+    "Il évolue vers le diabète chez environ 5 à 10 % des patients par an, davantage si plusieurs tests sont anormaux.",
+    "Le prédiabète est un facteur de risque cardiovasculaire indépendant : il impose un calcul du risque global (AGLA, SCORE2)."
+   ],
+   "sources": [
+    "Knowler NEJM 2002",
+    "Tuomilehto NEJM 2001",
+    "DPPOS, Lancet Diabetes Endocrinol 2015"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Physiopathologie : de l'insulinorésistance à l'épuisement bêta-cellulaire",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Je suis la chaîne causale : graisse viscérale, insulinorésistance, hyperinsulinisme compensateur, puis épuisement bêta-cellulaire et hyperglycémie.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La graisse viscérale libère des acides gras libres et des cytokines pro-inflammatoires qui aggravent l'insulinorésistance et favorisent stéatose et dyslipidémie.",
+    "L'insulinorésistance hépatique accroît la néoglucogenèse et explique la glycémie à jeun élevée.",
+    "L'insulinorésistance musculaire réduit la captation postprandiale et explique l'intolérance au glucose à 2 h.",
+    "L'hyperinsulinisme compense d'abord, puis l'épuisement bêta-cellulaire fait passer à l'hyperglycémie postprandiale puis à jeun : c'est le diabète de type 2."
+   ],
+   "sources": [
+    "ADA Standards of Care 2025"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Anamnèse et examen : qui tester et quoi chercher",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Je repère les profils à tester plus tôt, les médicaments hyperglycémiants et les signes d'insulinorésistance ou de cause secondaire.",
+   "tableau": {
+    "colonnes": [
+     "Élément",
+     "Seuil ou signe",
+     "Conséquence"
+    ],
+    "lignes": [
+     [
+      "Dépistage général",
+      "Adulte ≥ 35 ans, puis test au moins tous les 3 ans",
+      [
+       {
+        "t": "Plus tôt si surpoids et facteur de risque",
+        "i": "Parent du 1er degré diabétique, sédentarité, HTA, dyslipidémie ou maladie cardiovasculaire augmentent la probabilité prétest."
+       }
+      ]
+     ],
+     [
+      "Origine sud-asiatique",
+      "Dépistage dès IMC ≥ 23 kg/m²",
+      [
+       {
+        "t": "Seuil d'IMC plus bas",
+        "i": "Ces personnes développent un diabète à IMC plus faible, avec davantage de graisse viscérale."
+       }
+      ]
+     ],
+     [
+      "Diabète gestationnel ou SOPK",
+      "Test tous les 1 à 3 ans à vie",
+      "Le risque de diabète reste élevé de façon prolongée."
+     ],
+     [
+      "Médicaments",
+      "Glucocorticoïdes, antipsychotiques atypiques, thiazides",
+      [
+       {
+        "t": "Cause secondaire possible",
+        "i": "Ils élèvent la glycémie ; on réévalue le traitement avant d'étiqueter un prédiabète."
+       }
+      ]
+     ],
+     [
+      "Sommeil",
+      "Ronflements, somnolence",
+      [
+       {
+        "t": "Rechercher un syndrome d'apnées du sommeil",
+        "i": "Il accompagne fréquemment l'insulinorésistance et aggrave le contrôle métabolique."
+       }
+      ]
+     ],
+     [
+      "Examen",
+      "IMC (surpoids ≥ 25, obésité ≥ 30), tour de taille, TA, acanthosis nigricans",
+      "Hépatomégalie (stéatose), hirsutisme (SOPK), vergetures violacées (Cushing) orientent vers une comorbidité ou une cause secondaire."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'acanthosis nigricans (plaques brunes veloutées du cou et des aisselles) est un marqueur cutané d'insulinorésistance.",
+    "Le patient est typiquement asymptomatique : c'est le dépistage qui fait le diagnostic."
+   ],
+   "sources": [
+    "ADA Standards of Care 2025"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Drapeaux rouges : quand ce n'est plus un prédiabète",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Je cherche d'abord les signes de décompensation ou d'un autre type de diabète avant de rassurer un patient avec une glycémie limite.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Évoque",
+     "Conduite"
+    ],
+    "lignes": [
+     [
+      "Polyuro-polydipsie avec amaigrissement, glycémie aléatoire ≥ 11,1",
+      [
+       {
+        "t": "Diabète décompensé",
+        "i": "La glycémie aléatoire ≥ 11,1 mmol/L avec symptômes suffit au diagnostic, sans second test."
+       }
+      ],
+      "Évaluation médicale le jour même."
+     ],
+     [
+      "Nausées, douleurs abdominales, respiration profonde, cétonurie",
+      [
+       {
+        "t": "Acidocétose (diabète de type 1 ou LADA)",
+        "i": "Une carence insulinique avec cétogenèse n'existe pas dans le prédiabète du type 2."
+       }
+      ],
+      "Glycémie immédiate, gaz du sang, urgence."
+     ],
+     [
+      "Diabète récent avec amaigrissement inexpliqué après 50 ans",
+      [
+       {
+        "t": "Cancer du pancréas",
+        "i": "Il peut révéler un diabète par destruction ou insulinorésistance paranéoplasique."
+       }
+      ],
+      "Imagerie abdominale."
+     ],
+     [
+      "Jeune non obèse avec diabète familial sur plusieurs générations",
+      [
+       {
+        "t": "MODY",
+        "i": "La transmission autosomique dominante et l'absence d'insulinorésistance orientent vers une forme monogénique."
+       }
+      ],
+      "Avis spécialisé et génétique."
+     ],
+     [
+      "Adulte mince avec hyperglycémie",
+      [
+       {
+        "t": "LADA",
+        "i": "On recherche les anticorps anti-GAD, car le traitement et le pronostic diffèrent."
+       }
+      ],
+      "Anticorps anti-GAD, avis endocrinologique."
+     ],
+     [
+      "Glycémie limite pendant infection ou corticothérapie",
+      [
+       {
+        "t": "Hyperglycémie de stress",
+        "i": "Elle peut simuler un prédiabète et se normalise après l'épisode."
+       }
+      ],
+      "Refaire le test à distance."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Ces situations sortent du cadre du prédiabète simple et justifient un avis spécialisé."
+   ],
+   "sources": [
+    "ADA Standards of Care 2025"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Démarche diagnostique et bilan",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives",
+    "positiveDiagnosis"
+   ],
+   "comment": "Je teste d'abord, je classe selon les seuils, je répète ce qui dépasse le seuil du diabète, puis j'évalue le risque cardiovasculaire et hépatique.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Adulte à tester (≥ 35 ans, FINDRISC ≥ 15 ou facteur de risque)",
+     "i": "Le FINDRISC (8 items) cible les personnes à tester ; un score ≥ 15 indique un risque élevé.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "GAJ plasmatique, HbA1c ou HGPO 75 g",
+     "i": "Chaque test est valide ; l'HbA1c est remplacée par la glycémie ou l'HGPO en cas d'anémie, hémoglobinopathie, IRC, transfusion ou grossesse.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Symptômes de diabète avec glycémie aléatoire ≥ 11,1",
+     "i": "Ce tableau suffit à poser le diagnostic de diabète sans second test.",
+     "pec": "pec_decompense",
+     "notion": "c6"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Tous les tests normaux",
+     "i": "Le risque reste faible à court terme ; on répète le test au moins tous les 3 ans.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n5",
+     "parent": "n2",
+     "t": "Au moins un test en zone intermédiaire, aucun au seuil du diabète",
+     "i": "Définition du prédiabète : GAJ 5,6–6,9, HbA1c 5,7–6,4 % ou glycémie 2 h 7,8–11,0.",
+     "pec": "pec_modevie",
+     "notion": "c1"
+    },
+    {
+     "id": "n6",
+     "parent": "n2",
+     "t": "Un test au seuil du diabète (GAJ ≥ 7,0, HbA1c ≥ 6,5 %, 2 h ≥ 11,1)",
+     "i": "On confirme par un second test, ce qui évite un faux diagnostic de diabète.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n7",
+     "parent": "n6",
+     "t": "Confirmation positive",
+     "i": "Diabète de type 2 manifeste : on dépiste rétinopathie, néphropathie et neuropathie et on quitte le champ du prédiabète.",
+     "pec": null,
+     "notion": "c8"
+    },
+    {
+     "id": "n8",
+     "parent": "n6",
+     "t": "Confirmation négative",
+     "i": "On classe le patient en prédiabète si un test reste en zone intermédiaire.",
+     "pec": "pec_modevie",
+     "notion": "c1"
+    },
+    {
+     "id": "n9",
+     "parent": "n5",
+     "t": "Bilan associé : lipides, ALAT, créatinine/eGFR, FIB-4",
+     "i": "Les lipides et le risque global guident la prévention cardiovasculaire ; l'eGFR est requis avant metformine ; le FIB-4 dépiste la fibrose.",
+     "pec": null,
+     "notion": "c8"
+    }
+   ],
+   "points": [
+    "Le bilan associe profil lipidique, ALAT, créatinine avec eGFR et calcul du FIB-4 (âge, ASAT, ALAT, plaquettes).",
+    "Les glycémies capillaires ne permettent pas de poser le diagnostic."
+   ],
+   "sources": [
+    "ADA Standards of Care 2025",
+    "SSED/SGED"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Prise en charge : le mode de vie d'abord",
+   "rubriques": [
+    "acuteManagement",
+    "chronicManagement"
+   ],
+   "comment": "Je commence par une intervention intensive sur le mode de vie et je n'escalade qu'en fonction du profil, en gérant en parallèle le risque cardiovasculaire global.",
+   "tableau": {
+    "colonnes": [
+     "Option",
+     "Efficacité",
+     "Indication",
+     "Particularité suisse"
+    ],
+    "lignes": [
+     [
+      "Mode de vie intensif",
+      [
+       {
+        "t": "−58 % de diabète (DPP)",
+        "i": "La perte de poids soutenue prédit la protection mieux que la méthode ; chaque kilo perdu réduit le risque d'environ 16 %."
+       }
+      ],
+      "Tous les patients : perte ≥ 7 % et ≥ 150 min/semaine d'activité modérée",
+      "L'assurance de base rembourse, sur ordonnance, le conseil d'un diététicien diplômé (obésité, diabète, maladies cardiovasculaires)."
+     ],
+     [
+      "Metformine",
+      [
+       {
+        "t": "−31 % (DPP)",
+        "i": "Elle agit par réduction de la néoglucogenèse hépatique, moins efficacement que le mode de vie."
+       }
+      ],
+      "IMC ≥ 35, âge < 60 ans, antécédent de diabète gestationnel ou prédiabète évolutif",
+      [
+       {
+        "t": "Contre-indiquée si DFG < 30 mL/min (AIPS)",
+        "i": "Le risque d'acidose lactique augmente avec l'insuffisance rénale ; on dose aussi la vitamine B12 au long cours."
+       }
+      ]
+     ],
+     [
+      "Analogues du GLP-1",
+      "Non utilisés en routine pour le prédiabète isolé",
+      "Obésité, selon critères d'indication",
+      [
+       {
+        "t": "Remboursement limité",
+        "i": "Il dépend des critères de la liste des spécialités et de l'indication, non du seul prédiabète."
+       }
+      ]
+     ],
+     [
+      "Chirurgie bariatrique",
+      "Perte de poids importante",
+      "IMC ≥ 35 kg/m² après échec d'un traitement conservateur supervisé",
+      "Accord préalable du médecin-conseil et critères stricts de l'assurance obligatoire."
+     ],
+     [
+      "Statine / antihypertenseur",
+      [
+       {
+        "t": "Selon le risque cardiovasculaire global",
+        "i": "Le prédiabète seul n'indique pas de statine ; AGLA ou SCORE2 guident la décision."
+       }
+      ],
+      "Risque élevé",
+      "L'arrêt du tabac reste prioritaire."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Le programme DPP comprend 16 séances en 24 semaines avec suivi et sert de modèle.",
+    "L'alimentation est de type méditerranéen, riche en fibres, pauvre en boissons sucrées, sucres ajoutés et graisses saturées.",
+    "L'activité associe endurance, renforcement 2 à 3 fois par semaine et réduction de la sédentarité.",
+    "Le prédiabète seul ne requiert aucune prise en charge urgente."
+   ],
+   "sources": [
+    "ADA Standards of Care 2025",
+    "AIPS Swissmedic (metformine)",
+    "OPAS/OFSP"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Complications, pronostic, suivi et réseau",
+   "rubriques": [
+    "hospitalizationComplications",
+    "prognosisDischarge",
+    "surveillance",
+    "followUpNetwork"
+   ],
+   "comment": "J'anticipe le diabète, la maladie cardiovasculaire et la stéatose hépatique, je rappelle que le prédiabète est réversible et je programme un suivi au moins annuel.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Le diabète de type 2 manifeste impose ensuite le dépistage de la rétinopathie, de la néphropathie et de la neuropathie.",
+    "Le syndrome métabolique expose à l'athérosclérose, à l'hypertension et à une dyslipidémie athérogène ; la MASLD peut évoluer vers fibrose, cirrhose et carcinome hépatocellulaire.",
+    "Le prédiabète est réversible : une perte de poids soutenue ramène à la normoglycémie.",
+    "Le médecin recontrôle HbA1c ou glycémie à jeun au moins une fois par an, avec poids, TA et lipides ; sous metformine, il surveille eGFR et vitamine B12.",
+    "Le médecin de premier recours coordonne diététicien et programmes d'activité physique et oriente vers l'endocrinologue en cas de doute sur le type de diabète."
+   ],
+   "sources": [
+    "ADA Standards of Care 2025",
+    "EASL 2024 (MASLD)"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "pec_modevie",
+   "titre": "Prédiabète : intervention intensive sur le mode de vie (long cours)",
+   "but": [
+    "Obtenir une perte de poids ≥ 7 % et ≥ 150 minutes par semaine d'activité d'intensité modérée.",
+    "Réduire l'incidence du diabète de type 2 et le risque cardiovasculaire global.",
+    "Maintenir les changements durablement par un suivi structuré."
+   ],
+   "moyens": {
+    "accueil": [
+     "Le médecin annonce le diagnostic en insistant sur sa réversibilité.",
+     "Le médecin explore les motivations, les obstacles et les représentations du patient.",
+     "Le médecin fixe avec le patient des objectifs réalistes et mesurables."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "nutrition",
+      "mesure": "Le patient adopte une alimentation de type méditerranéen, riche en fibres, sans boissons sucrées ni sucres ajoutés.",
+      "pourquoi": "Elle favorise la perte de poids et améliore sensibilité à l'insuline et lipides."
+     },
+     {
+      "categorie": "rééducation",
+      "mesure": "Le patient pratique ≥ 150 min/semaine d'endurance modérée et 2 à 3 séances de renforcement musculaire.",
+      "pourquoi": "Elle améliore la captation musculaire du glucose, indépendamment de la perte de poids."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Le patient suit un programme structuré inspiré du DPP (16 séances en 24 semaines).",
+      "pourquoi": "Le DPP a obtenu −58 % d'incidence du diabète grâce à ce curriculum et à son suivi."
+     },
+     {
+      "categorie": "hygiène de vie",
+      "mesure": "Le médecin traite tabac, alcool et sommeil et dépiste un syndrome d'apnées du sommeil.",
+      "pourquoi": "Ces facteurs aggravent l'insulinorésistance et le risque cardiovasculaire."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Le médecin révise les médicaments hyperglycémiants (corticoïdes, antipsychotiques atypiques, thiazides) quand c'est possible.",
+      "pourquoi": "Ils peuvent induire ou aggraver l'hyperglycémie."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Elle permet la prescription d'un conseil diététique remboursé par l'assurance de base pour obésité, diabète ou maladies cardiovasculaires."
+     },
+     {
+      "discipline": "Santé publique et prévention",
+      "apport": "Elle oriente vers des programmes de prévention du diabète et d'activité physique et utilise les scores FINDRISC et AGLA."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Le médecin explique que le prédiabète est réversible et que le mode de vie est le traitement de première ligne.",
+      "Le médecin calcule le risque cardiovasculaire global et traite tabac, TA et lipides selon ce risque.",
+      "Le médecin planifie un suivi structuré et régulier."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il confirme le prédiabète, exclut un diabète et évalue risque cardiovasculaire, ALAT, FIB-4, eGFR."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Elle mesure poids, tour de taille, TA et remet le matériel éducatif."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "diététicien·ne",
+       "fait": "Il ou elle conseille un régime méditerranéen individualisé, sur ordonnance remboursée par l'assurance de base."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "physiothérapeute",
+       "fait": "Il ou elle propose un programme d'activité physique adapté aux capacités du patient."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Il réévalue le poids et la glycémie, puis discute la metformine ou l'endocrinologue si besoin."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le prédiabète est réversible : une perte de poids soutenue ramène à la normoglycémie, et chaque kilo perdu réduit le risque de diabète d'environ 16 % dans le DPP.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "HbA1c ou glycémie à jeun",
+      "quand": "Au moins une fois par an",
+      "cible": "Absence de passage au seuil du diabète ; retour à la normale"
+     },
+     {
+      "quoi": "Poids et tour de taille",
+      "quand": "À chaque consultation",
+      "cible": "Perte ≥ 7 % du poids initial"
+     },
+     {
+      "quoi": "Pression artérielle et lipides",
+      "quand": "Au moins annuel",
+      "cible": "Selon le risque cardiovasculaire global (AGLA, SCORE2)"
+     },
+     {
+      "quoi": "Activité physique et alimentation",
+      "quand": "À chaque consultation",
+      "cible": "≥ 150 min/semaine d'activité modérée"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : le prédiabète n'est ni symptomatique ni décompensé, sans cétose ni glycémie ≥ 11,1 mmol/L."
+   },
+   "prevention": {
+    "primaire": "Le médecin conseille à toute la population un poids normal, une activité régulière et une alimentation équilibrée.",
+    "secondaire": "Le médecin dépiste les sujets à risque dès 35 ans (FINDRISC, test glycémique) et répète le test au moins tous les 3 ans.",
+    "tertiaire": "Le médecin prévient le diabète et les complications cardiovasculaires et hépatiques par un suivi annuel et le contrôle des facteurs de risque."
+   }
+  },
+  {
+   "cle": "pec_pharma",
+   "titre": "Prédiabète à haut risque : metformine et options pour l'obésité",
+   "but": [
+    "Réduire la progression vers le diabète chez les profils où la metformine agit le plus.",
+    "Orienter les obésités sévères vers les options remboursées selon critères."
+   ],
+   "moyens": {
+    "accueil": [
+     "Le médecin explique que le médicament complète le mode de vie sans le remplacer.",
+     "Le médecin vérifie la fonction rénale et les contre-indications avant toute prescription.",
+     "Le médecin informe sur les effets digestifs et le statut d'indication."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Metformine (biguanide)",
+      "posologie": "Débuter à 500 mg 1×/j au repas, puis augmenter par paliers hebdomadaires jusqu'à 850 mg 2×/j (dose du DPP). Contre-indiquée si DFG < 30 mL/min ; ne pas initier si DFG 30–45 ; vérifier la vitamine B12 au long cours.",
+      "pourquoi": "Elle réduit de 31 % l'incidence du diabète dans le DPP, surtout si IMC ≥ 35, âge < 60 ans ou diabète gestationnel antérieur.",
+      "source": "AIPS Swissmedic ; [ADA, 2025]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Le médecin adresse en chirurgie bariatrique si IMC ≥ 35 kg/m² après échec d'un traitement conservateur supervisé, avec accord du médecin-conseil.",
+      "pourquoi": "L'assurance obligatoire rembourse selon critères stricts et accord préalable."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Le médecin discute un analogue du GLP-1 dans le cadre de l'obésité, non du prédiabète isolé, selon critères d'indication et de remboursement.",
+      "pourquoi": "Ils ne font pas partie du traitement de routine du prédiabète."
+     },
+     {
+      "categorie": "nutrition",
+      "mesure": "Le patient poursuit l'alimentation méditerranéenne et l'activité physique sous metformine.",
+      "pourquoi": "Le mode de vie reste plus efficace que la metformine (−58 % contre −31 %)."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Elle fixe les conditions de remboursement de la chirurgie bariatrique et des traitements de l'obésité."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Elle encadre l'information du patient sur un usage éventuellement hors étiquette et son consentement."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Le médecin ne prescrit la metformine qu'en complément du mode de vie.",
+      "Le médecin contrôle eGFR et vitamine B12 régulièrement.",
+      "Le médecin reconsidère le traitement si l'eGFR baisse ou en cas d'insuffisance rénale aiguë."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il vérifie eGFR, âge, IMC, antécédent de diabète gestationnel et évolution glycémique."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Il prescrit la metformine à dose progressive et informe sur les effets digestifs."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "diététicien·ne",
+       "fait": "Il ou elle poursuit l'accompagnement nutritionnel."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Il ou elle évalue l'indication bariatrique ou endocrinologique si obésité sévère ou doute sur le type de diabète."
+      }
+     ]
+    }
+   },
+   "pronostic": "La metformine ralentit la progression (−31 % dans le DPP, −18 % à 15 ans), moins que le mode de vie intensif (−58 % puis −27 %).",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "eGFR",
+      "quand": "Au moins une fois par an",
+      "cible": "DFG ≥ 30 mL/min ; arrêt si inférieur"
+     },
+     {
+      "quoi": "Vitamine B12",
+      "quand": "Périodiquement, surtout si anémie ou neuropathie",
+      "cible": "Absence de carence"
+     },
+     {
+      "quoi": "HbA1c ou glycémie à jeun",
+      "quand": "Au moins une fois par an",
+      "cible": "Absence de progression vers le diabète"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : aucune hospitalisation n'est requise tant que le patient reste asymptomatique."
+   },
+   "prevention": {
+    "primaire": "",
+    "secondaire": "Le médecin identifie les profils à haut risque et recontrôle leur glycémie au moins chaque année.",
+    "tertiaire": "Le médecin prévient les complications cardiovasculaires par le contrôle de la TA, des lipides et du tabac."
+   }
+  },
+  {
+   "cle": "pec_decompense",
+   "titre": "Hyperglycémie symptomatique ou cétose : évaluation le jour même",
+   "but": [
+    "Écarter une acidocétose ou un état hyperosmolaire et stabiliser le patient.",
+    "Poser le diagnostic de diabète et en identifier le type."
+   ],
+   "moyens": {
+    "accueil": [
+     "Le médecin mesure immédiatement la glycémie et recherche une cétonurie.",
+     "Le médecin évalue la conscience, l'hydratation et les signes vitaux.",
+     "Le médecin recherche un facteur déclenchant, par exemple une infection."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "NaCl 0,9 % (cristalloïde)",
+      "posologie": "En cas d'acidocétose avérée : 500–1000 mL/h durant les 2 à 4 premières heures IV, puis adaptation à l'hémodynamique et au sodium.",
+      "pourquoi": "La réhydratation corrige l'hypovolémie liée à la diurèse osmotique, avant l'insuline.",
+      "source": "[ADA/EASD, 2024]"
+     },
+     {
+      "molecule": "Insuline rapide (insuline humaine ou analogue)",
+      "posologie": "Perfusion IV 0,1 UI/kg/h, seulement si K+ ≥ 3,3 mmol/L ; supplémentation en potassium selon la kaliémie.",
+      "pourquoi": "Elle arrête la cétogenèse ; sans potassium suffisant, elle expose à une hypokaliémie dangereuse.",
+      "source": "[ADA/EASD, 2024]"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "L'infirmier·ère surveille glycémie, signes vitaux et diurèse en continu.",
+      "pourquoi": "La surveillance rapproche détecte l'hypoglycémie et l'hypokaliémie."
+     },
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Le patient reçoit une éducation de base sur l'autosurveillance et les signes d'alarme.",
+      "pourquoi": "Elle prépare la sortie dès qu'un diabète est diagnostiqué."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Elle organise la prise en charge du diabète et l'accès aux consultations de diététique et d'éducation thérapeutique."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Le médecin mesure la glycémie capillaire et la cétonurie dès l'arrivée.",
+      "Le médecin hospitalise si acidocétose, état hyperosmolaire ou altération de la conscience.",
+      "Le médecin renvoie vers le SSP de l'acidocétose ou de l'état hyperosmolaire."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il évalue ABCDE, glycémie et cétones pour trier entre acidocétose et hyperglycémie sans cétose."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Elle pose une voie veineuse et prélève gaz du sang, ionogramme, créatinine, cétonémie."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Il débute la réhydratation, puis l'insuline si K+ ≥ 3,3 mmol/L."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "Il ou elle prend en charge le patient en soins intensifs ou aux urgences selon la gravité."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Le médecin pose le diagnostic de diabète sans attendre un second test si symptômes et glycémie ≥ 11,1 mmol/L.",
+      "Le médecin recherche un type 1, un LADA, un MODY ou un cancer du pancréas selon le profil."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Il exclut une cétose, évalue l'état général et la glycémie plasmatique."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Il commence le traitement, par exemple metformine si eGFR suffisant, et organise le suivi."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "diététicien·ne",
+       "fait": "Il ou elle débute l'éducation nutritionnelle."
+      },
+      {
+       "temps": "puis",
+       "qui": "spécialiste",
+       "fait": "L'endocrinologue précise le type de diabète en cas de doute."
+      }
+     ]
+    }
+   },
+   "pronostic": "Une acidocétose reconnue tôt se résout sous insuline et réhydratation ; un diabète symptomatique non traité expose aux complications aiguës et chroniques.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Glycémie et cétones",
+      "quand": "Toutes les heures en cas de perfusion d'insuline",
+      "cible": "Baisse progressive de la glycémie et disparition de la cétose"
+     },
+     {
+      "quoi": "Kaliémie et pH",
+      "quand": "Toutes les 2 à 4 heures en phase aiguë",
+      "cible": "K+ dans la norme, pH normalisé"
+     },
+     {
+      "quoi": "HbA1c et complications",
+      "quand": "Au diagnostic, puis selon le suivi du diabète",
+      "cible": "Objectif individualisé"
+     }
+    ],
+    "sortie": "Sortie si hémodynamique stable, cétose résolue, alimentation reprise, traitement relais établi et éducation de base effectuée."
+   },
+   "prevention": {
+    "primaire": "",
+    "secondaire": "Le médecin dépiste le diabète dès 35 ans et chez les personnes à risque pour éviter une présentation décompensée.",
+    "tertiaire": "Le médecin dépiste rétinopathie, néphropathie et neuropathie dès le diagnostic de diabète."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 7080,
+  "output_tokens": 19700,
+  "output_tokens_details": {
+   "thinking_tokens": 5459
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:58:05",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": {
+   "verdict": "🟧",
+   "date": "2026-11-26",
+   "aVerifier": [],
+   "audit": "AUDIT_V3_B"
+  }
+ }
+}
