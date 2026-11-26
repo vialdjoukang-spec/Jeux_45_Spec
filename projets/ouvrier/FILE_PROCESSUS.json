@@ -486,13 +486,13 @@
    "modele": "claude-sonnet-5-5",
    "budget_usd": 12,
    "etat": "en_cours",
-   "essais": 1,
+   "essais": 2,
    "prompt": "Charge les skills 3d-images-upload-super, medical-accuracy-100, optimisation-par-cache-hache-autorun et i-never-waste-token (.claude/skills ou leurs règles). Le jeu Paraclinique compte 1 265 entités avec cliché sur 1 607 (critère « entités avec cliché » de projets/outils/jauges.py). Trouve les entités sans cliché, et pour chacune une vraie image médicale sous licence libre (Open-i NLM, Wikimedia Commons, MedPix), avec l'URL source, l'auteur et la licence. Jamais de SVG, jamais d'image dessinée ; organes génitaux externes exclus. Traite environ 60 entités par passage, par ordre de fréquence clinique ; une entité sans image fiable reste sans image, avec une note. Enregistre au format déjà utilisé par les entités qui ont un cliché. Lance ensuite les régénérations et les audits du jeu (non_perte compris). Écris statut.json : « fait » quand plus aucune entité utile ne peut recevoir d'image, sinon « en_cours ».",
    "note": "Tempête 25.11 (Vial), priorité 3 : jeux les plus avancés.",
    "dernier": {
-    "date": "2026-11-25T22:49:46+00:00",
-    "cout_usd": 0.348,
-    "resume": "J'ai écrit projets/outils/cliches_cibles.py (requêtes anglaises ciblées, filtre de pertinence sur le titre, jamais de SVG, génital externe exclu) et traité 66 entités d'imagerie ou d'endoscopie : 33 ont reçu 1 à 3 clichés Wikimedia Commons avec URL, auteur et licence libre, et le critère « entités avec cliché » passe de 1 265 à 1 298 sur 1 607. J'ai écarté les candidats Open-i (licence non vérifiée, service en panne) et 17 candidats hors sujet ; les 33 autres entités traitées restent sans image faute de résultat fiable, et il reste environ 54 entités visuelles vides à reprendre avec d'autres requêtes. Les audits conception (34/34), couverture et non_perte (0 perte) sont réussis ; les analyses biologiques chiffrées restent à classer en « sans objet » au prochain passage."
+    "date": "2026-11-26T00:57:19+00:00",
+    "cout_usd": 0.304,
+    "resume": "Deuxième passage : 77 entités d'imagerie, d'endoscopie et de tracé ont reçu une requête ciblée (projets/outils/cibles_p3b.py), et 58 ont obtenu 1 à 3 candidats libres (Wikimedia Commons, Open-i ; licence, auteur et URL enregistrés, statut « candidat », aucun SVG, aucun génital externe). J'ai retiré 71 candidats hors sujet ou dessinés (schémas, béton, studios Disney, dessins Wellcome), ce qui fait signaler non_perte en échec sur les seuls fichiers d'images : la perte est voulue. Les autres audits passent (34/34, couverture RÉUSSI) ; il reste les analyses de biologie (valeurs chiffrées sans image possible) et une vingtaine d'examens sans image fiable, à revoir au prochain passage."
    }
   },
   {

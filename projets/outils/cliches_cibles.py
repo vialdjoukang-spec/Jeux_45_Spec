@@ -76,6 +76,7 @@ CIBLES = [
  ("uterus_col_ovaires_et_annexes__coelioscopie_diagnostique", ["laparoscopy endometriosis"], r"laparoscop|endometrio"),
  ("grossesse_foetus_et_placenta__irm_foetale", ["fetal MRI"], r"fetal|foetal"),
 ]
+exec(open(os.path.join(RAC, 'projets/outils/cibles_p3b.py'), encoding='utf-8').read()); CIBLES += CIBLES2   # 2e passage
 a = int(sys.argv[1]) if len(sys.argv) > 2 else 0
 b = int(sys.argv[2]) if len(sys.argv) > 2 else len(CIBLES)
 GENITAL = re.compile(r"penis|penile|vulva|scrot|genital|testic", re.I)
