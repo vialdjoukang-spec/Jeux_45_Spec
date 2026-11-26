@@ -309,3 +309,13 @@ Article du Code civil sur l'avis à l'APEA (314c ou 314d) ; version suisse en vi
 
 ### Merge conseillé
 Les trois branches système modifient la même zone de `systemes_rediges.py` (une ligne chacune après « Dermatologique ») : conflit trivial, garder les trois lignes. Après fusion des 3 systèmes, la jauge « systèmes rédigés » passe de 11 à 14/14.
+
+## 14. Organes 3D réels : 76 → 90 / 124 (ouvrier, passage 1, 2026-11-26)
+
+14 organes ajoutés par `conception/outils/anatomie3d/construire_organes_za.py` (configuration `organes_za.json`, lecteur FBX `fbxlite.py`, cache par empreinte). Source : maillages Z-Anatomy (dépôt `Z-Anatomy/Unity-app_Z-Anatomy`, FBX dérivés de BodyParts3D, CC BY-SA 4.0), convertis au repère BodyParts3D (mm, Z haut, face vers -Y, gauche du patient vers +X), allégés à 60 000 faces au plus (chaque `.glb` pèse 1,2 Mo au plus) ; les cheveux et sourcils viennent de BodyParts3D 4.0 (CC BY-SA 2.1 JP). Rendus de contrôle vérifiés : orientation, latéralité (poumon gauche à +X avec son échancrure cardiaque) et proportions.
+
+Produits : thyroïde, parathyroïdes, glandes salivaires, pharynx (respiratoire et digestif), plèvre, larynx, ganglions lymphatiques, vascularisation cérébrale, artères des membres, racines et plexus, nerfs périphériques, système nerveux autonome, cheveux et sourcils. Exclus par règle : nerf pudendal, branche génitale, poils pubiens, testicules. Le modèle Z-Anatomy est masculin : utérus, ovaires, trompes, seins, vagin, placenta n'existent pas dans une source libre vérifiée.
+
+Pistes pour le prochain passage (sources réelles trouvées, non encore produites) : oreille externe et moyenne (osselets, membrane tympanique, trompe auditive, pavillon BodyParts3D), articulations et synoviale (capsules, ménisques de `Joints100.fbx`), péritoine (épiploons et mésos de `VisceralSystem100.fbx`, avec note de modèle partiel). Sans source libre : oreille interne (cochlée sous CC BY-NC-SA), organes féminins (TotalSegmentator ne les segmente pas ; chercher un volume IRM pelvien féminin sous licence libre), processus non anatomiques (sang, immunité, complément, pédiatrie, jonction neuromusculaire, tissu de conduction, microcirculation) à traiter ensuite comme cas « sans maillage ».
+
+Audits relancés : conception 34/34, couverture réussie, audit du fond sans correction. Jauge « organes en 3D réelle » : 76 → 90 / 124. Les `.glb` restent hors Git ; `index.json` est versionné.

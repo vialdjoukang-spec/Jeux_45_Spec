@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-26 01:43 UTC
+# Ouvrier automatique — 2026-11-26 01:49 UTC
 
-Dernier passage : **P3_paraclinique_cliches** → fait (0.41 USD).
+Dernier passage : **P3_tetrade_3d** → en_cours (0.83 USD).
 
-Sur les 97 entités sans cliché, 14 ont reçu des candidats Commons libres (PET-TDM, échographie d'ascite, IRM prostatique, olfactométrie, spondylodiscite, épanchement de hanche, frottis de Tzanck, etc.) ; 58 analyses chiffrées ou sérologies ont été déclarées « sans objet » avec une note. Les 25 entités restantes (EBUS, DLCO, navigation bronchique, rhinomanométrie, ENMG, bilans composites, etc.) n'ont trouvé aucune image fiable sous licence libre et restent sans image ; Open-i était hors service pendant ce passage. Les régénérations et audits sont passés (conception 34/34, couverture réussie, non-perte sans perte après retour des normalisations de ganglions_cervicaux), et plus aucune entité utile ne peut recevoir d'image avec les sources actuelles.
+14 organes 3D réels ajoutés (76 → 90 sur 124) depuis les maillages Z-Anatomy (CC BY-SA 4.0) et BodyParts3D, chaque .glb faisant 1,2 Mo au plus, avec source et licence dans index.json, génitaux externes exclus, orientation et latéralité vérifiées ; ils s'affichent dans la vue 3D via index.json comme les 76 existants, et les audits (conception 34/34, couverture, fond) réussissent. Restent 34 organes : à produire au prochain passage l'oreille externe et moyenne, les articulations et le péritoine (sources déjà trouvées dans Z-Anatomy). Sans source libre : oreille interne (licence NC), organes féminins (modèle Z-Anatomy masculin), testicules (exclus) et les processus non anatomiques (sang, immunité, pédiatrie, etc.).
 
-**Crédit** : 3.30 USD dépensés, 146.70 USD disponibles avant le 31.01.2027 ; aujourd'hui 2.95 / 149.65 USD.
+**Crédit** : 4.13 USD dépensés, 145.87 USD disponibles avant le 31.01.2027 ; aujourd'hui 3.78 / 149.65 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -41,7 +41,7 @@ Sur les 97 entités sans cliché, 14 ont reçu des candidats Commons libres (PET
 | END_C_recup | fait | 1 | 0.0 |
 | T3_pec_fiches_existantes | fait | 8 | 0.133 |
 | P3_paraclinique_cliches | fait | 8 | 0.413 |
-| P3_tetrade_3d | a_faire | 0 |  |
+| P3_tetrade_3d | en_cours | 1 | 0.833 |
 | T4_reprise_rejets | en_cours | 0 | 0.0 |
 | T5_items_valides | sans_objet | 0 |  |
 | T7_transversal_lecons | sans_objet | 0 |  |
