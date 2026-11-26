@@ -1,0 +1,156 @@
+# Site public (GitHub Pages, gratuit) : remplace pages.yml sans rien perdre.
+#  /        → tableau de bord (tableau/), qui lit toujours ses JSON live sur raw.githubusercontent.com ;
+#  /jeux/   → les 4 jeux (Tétrade, Paraclinique, Transversal, Arène 45 Spec) avec leurs données, corps.glb et les organes .glb.
+# Les .glb restent hors de git (.gitignore) : ils sont reconstruits ici par les scripts existants, sous cache haché
+# (skill optimisation-par-cache-hache-autorun) : empreinte des scripts et des configurations → aucune reconstruction si rien n'a changé.
+# Seul le manifeste projets/organes_servis.json (les .glb réellement servis, avec leur taille) revient sur main, sans push forcé.
+# Skills : pipeline-autonomous-builder, gratis-dashboard-live, 3d-rotatable-anatomy-generator. Signature : AAI (Anthropic AI)
+name: Publier le site (tableau + jeux + 3D)
+on:
+  push:
+    branches: [main]
+    paths:
+      - "conception/**"
+      - "tableau/**"
+      - "skills/3d-images-upload-super/scripts/**"
+      - ".github/workflows/site.yml"
+  workflow_dispatch:
+permissions: {contents: write, pages: write, id-token: write}
+concurrency: {group: pages, cancel-in-progress: false}
+env:
+  A3D: conception/prototypes/moteur/anatomie3d
+  MOT: conception/prototypes/moteur
+jobs:
+  site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    environment: {name: github-pages, url: "${{ steps.deploiement.outputs.page_url }}"}
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+
+      # 1. Modèles 3D sous cache haché : la clé ne dépend que des scripts et des configurations qui les produisent.
+      - name: Empreinte des scripts 3D
+        id: emp
+        run: echo "h=${{ hashFiles('conception/outils/anatomie3d/*.py', 'conception/outils/anatomie3d/*.json', 'skills/3d-images-upload-super/scripts/*.py', 'conception/outils/catalogue/construire_catalogue.py') }}" >> "$GITHUB_OUTPUT"
+      - name: Restaurer les modèles 3D
+        id: cache3d
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            conception/prototypes/moteur/anatomie3d
+            conception/prototypes/moteur/corps.glb
+          key: modeles3d-${{ steps.emp.outputs.h }}
+          restore-keys: modeles3d-
+      - name: Outils 3D (seulement si l'empreinte a changé)
+        if: steps.cache3d.outputs.cache-hit != 'true'
+        run: |
+          pip install -q numpy scipy networkx trimesh fast-simplification remotezip nibabel scikit-image
+          pip install -q torch --index-url https://download.pytorch.org/whl/cpu && pip install -q TotalSegmentator || echo "::warning::TotalSegmentator indisponible : les organes de la voie totalseg ne seront pas servis"
+      - name: Construire corps.glb
+        if: steps.cache3d.outputs.cache-hit != 'true'
+        run: python -c "import sys; sys.path.insert(0, 'conception/outils/catalogue'); import construire_catalogue as c; print(c.corps())"
+      - name: Construire les organes BodyParts3D (FMA)
+        if: steps.cache3d.outputs.cache-hit != 'true'
+        run: |
+          # construire_organes.py réécrit index.json : on garde les entrées des autres voies pour que leur propre cache joue.
+          mkdir -p "$A3D"; [ -f "$A3D/index.json" ] && cp "$A3D/index.json" /tmp/index_avant.json || echo '{"organes":{}}' > /tmp/index_avant.json
+          python conception/outils/anatomie3d/construire_organes.py
+          python - <<'PY'
+          import json, os
+          p = os.environ["A3D"] + "/index.json"; n = json.load(open(p, encoding="utf-8")); a = json.load(open("/tmp/index_avant.json", encoding="utf-8"))
+          for k, v in a.get("organes", {}).items():
+              n["organes"].setdefault(k, v)
+          for k in ("sources_supplementaires", "exclus"):
+              if k in a.get("_meta", {}): n["_meta"].setdefault(k, a["_meta"][k])
+          json.dump(n, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+          PY
+      - name: Construire les organes Z-Anatomy
+        if: steps.cache3d.outputs.cache-hit != 'true'
+        continue-on-error: true
+        run: python conception/outils/anatomie3d/construire_organes_za.py
+      - name: Construire les organes externes (Zenodo, TotalSegmentator)
+        if: steps.cache3d.outputs.cache-hit != 'true'
+        continue-on-error: true
+        run: python conception/outils/anatomie3d/construire_organes_ext.py
+      - name: Construire les organes micro et internes
+        if: steps.cache3d.outputs.cache-hit != 'true'
+        continue-on-error: true
+        run: python conception/outils/anatomie3d/construire_organes_micro.py
+      - name: Mémoriser les modèles 3D
+        if: steps.cache3d.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            conception/prototypes/moteur/anatomie3d
+            conception/prototypes/moteur/corps.glb
+          key: modeles3d-${{ steps.emp.outputs.h }}
+
+      # 2. Assemblage du site : tableau à la racine, jeux sous /jeux/ (même arborescence relative que conception/prototypes/).
+      - uses: actions/setup-node@v4
+        with: {node-version: "22"}
+      - name: Assembler le site
+        run: |
+          set -e; S=_site; rm -rf $S; mkdir -p $S/jeux
+          cp -r tableau/. $S/
+          for d in moteur arene45 commun veille; do cp -r conception/prototypes/$d $S/jeux/; done
+          rm -rf $S/jeux/moteur/three $S/jeux/moteur/__pycache__
+          mkdir -p /tmp/n && npm i --prefix /tmp/n -s three@0.170.0 > /dev/null
+          mkdir -p $S/jeux/moteur/three/examples && cp -r /tmp/n/node_modules/three/build $S/jeux/moteur/three/ && cp -r /tmp/n/node_modules/three/examples/jsm $S/jeux/moteur/three/examples/
+          cp conception/outils/atkinson-hyperlegible-latin-400-normal.woff2 $S/jeux/moteur/atk400.woff2
+          cp conception/outils/atkinson-hyperlegible-latin-700-normal.woff2 $S/jeux/moteur/atk700.woff2
+          cat > $S/jeux/index.html <<'HTML'
+          <!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Les 4 jeux</title>
+          <style>@font-face{font-family:A;src:url(moteur/atk400.woff2)}@font-face{font-family:A;font-weight:700;src:url(moteur/atk700.woff2)}
+          body{font-family:A,sans-serif;background:#eef6fb;color:#0a0d12;margin:0}main{max-width:720px;margin:40px auto;padding:0 20px;font-size:16px;line-height:1.5}
+          a{display:block;background:#fff;border:1px solid #c9d6e2;border-radius:12px;padding:14px 18px;margin:10px 0;color:#14507a;text-decoration:none;font-weight:700}a span{display:block;font-weight:400;color:#3a4556}</style></head>
+          <body><main><h1>Les 4 jeux</h1>
+          <a href="moteur/reseau3d.html#tetrade.json">1. Tétrade Fondation<span>Le réseau topo-systémique s'ouvre sur le corps 3D réel ; chaque organe se tourne en 3D.</span></a>
+          <a href="moteur/reseau3d.html#paraclinique_complet.json">2. Paraclinique<span>Le réseau place tous les examens sur le corps, de la tête aux pieds.</span></a>
+          <a href="moteur/arene.html#paquet=transversal_A">3. Transversal<span>L'arène fait jouer les leçons des disciplines transversales.</span></a>
+          <a href="arene45/index.html">4. Arène 45 Spec<span>L'arène fait jouer les QCM des 45 spécialités.</span></a>
+          <a href="../">Retour au tableau de bord</a></main></body></html>
+          HTML
+
+      # 3. Manifeste des .glb réellement servis (seule sortie qui revient dans git ; contenu déterministe, sans horodatage).
+      - name: Écrire organes_servis.json
+        run: |
+          python - <<'PY'
+          import json, os
+          S = "_site"; f = []
+          for r, _, fs in os.walk(S):
+              for n in fs:
+                  if n.endswith(".glb"):
+                      p = os.path.join(r, n); f.append({"chemin": os.path.relpath(p, S), "organe": n[:-4] if "/anatomie3d/" in p else None, "octets": os.path.getsize(p)})
+          f.sort(key=lambda x: x["chemin"]); org = [x for x in f if x["organe"]]
+          m = {"_meta": {"quoi": "Fichiers .glb réellement présents dans le site publié (GitHub Pages), écrit par .github/workflows/site.yml",
+                         "site": "https://vialdjoukang-spec.github.io/Jeux_45_Spec/", "glb": len(f), "organes": len(org),
+                         "corps": any(x["chemin"].endswith("/corps.glb") for x in f), "octets": sum(x["octets"] for x in f),
+                         "signature": "AAI (Anthropic AI)"}, "fichiers": f}
+          os.makedirs("projets", exist_ok=True)
+          for p in (S + "/organes_servis.json", "projets/organes_servis.json"):
+              json.dump(m, open(p, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+          print(f"{len(f)} .glb servis, dont {len(org)} organes ; {m['_meta']['octets'] / 1e6:.1f} Mo")
+          PY
+          du -sh _site; touch _site/.nojekyll
+
+      # 4. Déploiement Pages, puis retour du manifeste sur main (pull --rebase, jamais de push forcé).
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with: {path: _site}
+      - id: deploiement
+        uses: actions/deploy-pages@v4
+      - name: Committer le manifeste
+        run: |
+          cp projets/organes_servis.json /tmp/organes_servis.json
+          git config user.name "site-bot"; git config user.email "site-bot@users.noreply.github.com"
+          for i in 1 2 3 4; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            cp /tmp/organes_servis.json projets/organes_servis.json; git add projets/organes_servis.json
+            git diff --cached --quiet && exit 0
+            git commit -qm "Site : $(python3 -c "import json;m=json.load(open('projets/organes_servis.json'))['_meta'];print(f\"{m['glb']} fichiers .glb servis, dont {m['organes']} organes\")") [skip ci]"
+            git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 7
+          done
+          exit 1

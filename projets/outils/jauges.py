@@ -24,8 +24,10 @@ def jeu(nom, criteres):
 # 1. Tétrade
 red = len(re.findall(r'^\s+"[^"]+": \{"dossier"', open("conception/outils/systemes_rediges.py", encoding="utf-8").read(), re.M))
 interp = J("conception/prototypes/moteur/interpretations.json"); n_int = sum(len(v) for k, v in interp.items() if k != "_meta" and isinstance(v, dict))
-i3d = J("conception/prototypes/moteur/anatomie3d/index.json")["organes"] if os.path.exists("conception/prototypes/moteur/anatomie3d/index.json") else {}
-o3d = sum(1 for v in i3d.values() if v.get("statut") == "produit")
+# Organes 3D : on ne compte que les .glb réellement servis sur le site publié (manifeste écrit par .github/workflows/site.yml),
+# et non les entrées d'index.json, car les .glb sont exclus de git et n'existent que dans le site déployé.
+SERVIS = "projets/organes_servis.json"
+o3d = len({x["organe"] for x in J(SERVIS)["fichiers"] if x.get("organe")}) if os.path.exists(SERVIS) else 0
 IDX = J("conception/prototypes/moteur/arenes/index.json") if os.path.exists("conception/prototypes/moteur/arenes/index.json") else []
 moteur = os.path.exists("conception/prototypes/moteur/arene.html")
 paquet = lambda pre: sum(x["n"] for x in IDX if x["paquet"].startswith(pre)) if moteur else 0   # questions jouables dans l'arène commune
