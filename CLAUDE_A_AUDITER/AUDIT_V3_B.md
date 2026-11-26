@@ -297,6 +297,23 @@ Correctif PEP VIH anticipé (priorité) : la CFIST (recommandations du 7.11.2025
 
 Contrôles lot 17 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
 
+## Lot 18 — rangs 684 à 693
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| Z24.0__O4_2-E02 | 🟧 | Corrigé (erreur de fond) : seuils de rappel antitétanique après plaie donnés sans l'âge (10 ans plaie propre, 5 ans plaie à risque) ; selon le tableau 10 du Plan de vaccination suisse 2026 (PDF OFSP lu), ils doublent de 26 à 64 ans (20 et 10 ans). Notions, correction, nœuds SSP et « why » réécrits ; Q06 : vignette portée de 44 à 46 ans (dTpa à 25 ans, 21 ans plus tôt) pour garder « dT seul » juste. Q16 (immunosupprimé, dernière dose < 5 ans : Ig sans dT) et Q20 (80 ans, 7 ans : dT + Ig) conformes. Forme : Q19 marquée masquée. Aucune autre erreur retenue (dTpa à 25 ans, dT à 45 et 65 ans puis /10 ans, FSME 3 doses et rappel à 10 ans, Shingrix dès 65 ans, Ig 250 UI). |
+| Z30.0_4__O4_5-E01 | 🟧 | Corrigé : Q19 (menu long d4 dont le prompt nomme l'entité) passée en d3. Aucune erreur médicale retenue (OMS MEC 2015 : migraine avec aura cat. 4, fumeuse ≥ 35 ans < 15/≥ 15 cig. cat. 3/4, allaitement < 6 sem. cat. 4 ; EMA 2014 : TEV 2, 5–7 et 9–12/10 000 ; ulipristal 120 h, reprise hormonale après 5 jours ; FSRH : 12/24 mois d'aménorrhée). |
+| Z30.0__S4_8-E01 | 🟧 | Forme : champ `ssp` stocké en chaîne JSON (qui avalait priseEnCharge) réparé. Corrigé : Q19 (d4 qui nomme la contraception combinée) passée en d3. Aucune erreur médicale retenue (OMS MEC 2015, EMA 2014, oubli > 12 h, vomissements 3–4 h, patch > 24 h, arrêt 4 semaines avant chirurgie majeure). À vérifier : délai de l'anneau. |
+| Z30.4__S4_8-E02 | 🟩 | Forme : cellules de tableau mal enveloppées et clé « mesuresGénérales » normalisées. Aucune erreur médicale retenue (désogestrel 75 µg fenêtre 12 h, implant 68 mg 3 ans, cancer du sein actuel cat. 4, allaitement cat. 2 puis 1). |
+| Z31.5_1__O7_25-E03 | 🟩 | Aucune erreur retenue (1/25 porteur CF, risque 1/150 du frère sain, DPI autorisé depuis 2017 sans remboursement LAMal, don d'ovocytes interdit, acide folique 0,4 mg, CP 119). |
+| Z31.5__O7_25-E02 | 🟩 | Aucune erreur retenue (DPNI remboursé si risque combiné ≥ 1/1000, clarté nucale ≥ 3,5 mm → test invasif, PVC dès 11 SA, amniocentèse dès 15 SA, LAGH : sexe fœtal après 12 semaines, limites d'assurance 400 000 et 40 000 francs). |
+| Z32.1__O1_9-E01 | 🟧 | Corrigé : Q20 (menu long d4 qui nomme la grossesse intra-utérine évolutive) passée en d3. Aucune erreur médicale retenue (LCC ≥ 7 mm sans activité cardiaque ou sac ≥ 25 mm sans embryon, SRU 2013 ; CP 119–120 ; 7 contrôles et 2 échographies ; contraception d'urgence 72/120 h). |
+| Z34.0__O1_7-E01 | 🟧 | Notions et correction justes ; questions absentes (à produire). Aucune erreur retenue (Hb < 110 g/L au T1, ferritine < 30 µg/L, DPNI remboursé si ≥ 1/1000, aspirine 150 mg avant 16 SA jusqu'à 36 SA, anti-D dans les 72 h, exemption dès la 13e SA). |
+| Z34.8__O1_7-E02 | 🟩 | Aucune erreur retenue (HGPO 75 g 5,1/10,0/8,5 mmol/L, anti-D 300 µg à 28 SA, bétaméthasone 12 mg × 2 entre 24 et 34 SA, congé maternité 14 semaines à 80 %). À vérifier : seuil plaquettaire de la prééclampsie, fenêtre du vaccin VRS maternel, seuil des acides biliaires. |
+| Z36.0_1__O1_3-E02 | 🟩 | Aucune erreur retenue (DPNI dès 10 SA, sensibilité T21 ≈ 99 %, clarté nucale ≥ 3,5 mm → puce, risque de fausse couche 0,1–0,2 %). Alertes mécaniques de Q09 et Q19 (« invasif » dans le prompt) : terme de la conduite, questions laissées. |
+
+Contrôles lot 18 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
+
 ## Bilan au 26.11.2026 (arrêt de la session AAI)
 
 - Pathologies auditées : 160 (rangs 505 à 664), dont 156 🟩/🟧 portées sur main et 4 🟥 restées hors de main (R23.1__F1_17-E03, R49.0_1__S7_4-E03, R62.8_1__O2_1-E03, T74.1_5__O2_3-E01 : fichiers tronqués ou mal formés, à régénérer).
