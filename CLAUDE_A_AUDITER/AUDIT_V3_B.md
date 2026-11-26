@@ -314,6 +314,23 @@ Contrôles lot 17 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du l
 
 Contrôles lot 18 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
 
+## Lot 19 — rangs 694 à 703
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| Z36.0__O1_3-E01 | 🟧 | Corrigé : Q09 et Q19 (d4 dont la vignette nomme le risque combiné) passées en d3. Aucune erreur médicale retenue (11+0–13+6 SA, LCC 45–84 mm, 85–90 % pour 5 % de faux positifs, DPNI remboursé si ≥ 1/1000, clarté nucale ≥ 3,5 mm, exemption dès la 13e semaine, LAGH). |
+| Z36.3__O1_3-E03 | 🟩 | Forme : bloc c8 ramené à 4 rubriques (followUpNetwork déplacé vers c7). Aucune erreur médicale retenue (2 échographies OPAS, la seconde à 20–23 SA ; ventriculomégalie ≥ 10, 13–15, > 15 mm ; pli nucal ≥ 6 mm ; DPNI remboursé si ≥ 1/1000). |
+| Z50.0__O7_14-E02 | 🟩 | Aucune erreur retenue (ESC classe I A, mortalité CV RR 0,74, Borg 11–14 et 40–59 % de la réserve, LDL < 1,4 mmol/L, TA < 130/80 sans < 120, 1 MET ≈ −13 %, FEVG réévaluée à 6–12 semaines). |
+| Z50.1__O7_14-E01 | 🟩 | Aucune erreur retenue (rivaroxaban 10 mg 2 semaines genou / 5 semaines hanche selon l'AIPS, calcium 1000 mg et vitamine D 800 UI, physiothérapie par séries de 9 séances, ANQ). |
+| Z50.8__O7_14-E03 | 🟧 | Forme : Q20 (d4, vignette sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue (GOLD 2024 : groupes B et E, début dans les 4 semaines après exacerbation, prednisone 40 mg 5 jours, SpO2 88–92 %, OLD si PaO2 ≤ 7,3 kPa ; ATS/ERS 2013 : 6–12 semaines). |
+| Z51.5_1__O5_2-E03 | 🟩 | Aucune erreur retenue (ASSM 2021 : DNR distinct de DNI et de la non-admission en USI, statut par défaut = traitement complet ; CC art. 16, 370–378 ; CFS de Rockwood). |
+| Z51.5__O5_2-E02 | 🟩 | Aucune erreur retenue (chimiothérapie dans les 14 derniers jours = indicateur d'excès, ECOG 3–4, ASCO : soins palliatifs dans les 8 semaines, CC art. 378, CP art. 114–115, congé de proche aidant 3 jours par événement et 10 par an). |
+| Z51.8__O4_4-E03 | 🟧 | Forme : cellules de tableau mal enveloppées corrigées ; Q19 (d4, vignette sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue (Smarter Medicine : pas d'imagerie dans les 6 premières semaines sans drapeau rouge, ICHD-3, céphalée par abus médicamenteux ≥ 10/≥ 15 jours, sumatriptan 50–100 mg ou 6 mg s.c., ibuprofène 400 mg ×3/j). |
+| Z52.4__O7_20-E03 | 🟧 | Corrigé : Q19 (d4 dont la vignette nomme le don de rein) passée en d3. Seuils conformes à KDIGO 2017 (DFG ≥ 90 / < 60, albuminurie 30–100 et > 100 mg/g) ; mortalité 3,1/10 000 (Segev 2010) ; prééclampsie 11 % contre 5 %. À vérifier : horizon de l'étude de Muzaale (15 ans, et non 12). |
+| Z52.9__O7_20-E01 | 🟥 | Rejet (contenu obsolète au cœur de l'entité) : la pathologie repose sur le « registre national de Swisstransplant » comme voie actuelle et seule source consultable ; Swisstransplant a mis fin à son exploitation (annonce au PFPDT du 18.10.2022, communiqué fédéral du 20.10.2022 lu en ligne). L'OFSP cite aujourd'hui la carte de donneur, les directives anticipées et le DEP, annonce un registre fédéral électronique pour le second semestre 2027 et l'entrée en vigueur du consentement présumé au premier semestre 2028. Une vingtaine de questions et de notions en dépendent : à régénérer. Forme réparée au passage (`horsUrgence` remonté au niveau de `conduite`). Reste hors de main. |
+
+Contrôles lot 19 : 0 menu fautif, 0 erreur `valider()` sur les 9 pathologies 🟩/🟧 ; Z52.9 (🟥) reste hors de main ; arène et test sans écran sur la branche de portage.
+
 ## Bilan au 26.11.2026 (arrêt de la session AAI)
 
 - Pathologies auditées : 160 (rangs 505 à 664), dont 156 🟩/🟧 portées sur main et 4 🟥 restées hors de main (R23.1__F1_17-E03, R49.0_1__S7_4-E03, R62.8_1__O2_1-E03, T74.1_5__O2_3-E01 : fichiers tronqués ou mal formés, à régénérer).

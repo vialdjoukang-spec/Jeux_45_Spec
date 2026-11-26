@@ -1,0 +1,1263 @@
+{
+ "id": "Z51.5_1__O5_2-E03",
+ "portes": [
+  {
+   "ssp": "O5.2",
+   "nomSSP": "Modification des objectifs thérapeutiques et décisions de fin de vie",
+   "entite": "Décision de non-réanimation (DNR / NTBR) et limitation des soins invasifs (USI / intubation)",
+   "entiteId": "O5.2-E03"
+  }
+ ],
+ "entite": "Décision de non-réanimation (DNR / NTBR) et limitation des soins invasifs (USI / intubation)",
+ "cim10": "Z51.5",
+ "ssp": {
+  "code": "O5.2",
+  "nom": "Modification des objectifs thérapeutiques et décisions de fin de vie",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Question du statut de réanimation ou d'une limitation de soins",
+    "i": "Patient polymorbide, CFS ≥ 6–7 ou maladie avancée, souvent à l'occasion d'une aggravation ou d'une admission.",
+    "pec": null,
+    "notion": "c2"
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "Arrêt cardiaque en cours ?",
+    "i": "L'urgence commande : sans temps de discussion, seul le statut déjà connu décide.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n3",
+    "parent": "n2",
+    "t": "Oui : DNR valide, documenté et connu ?",
+    "i": "On ne retient un DNR que s'il est écrit, daté, signé et accessible immédiatement.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n4",
+    "parent": "n3",
+    "t": "Oui : pas de RCP, confort, proches, constat du décès",
+    "i": "Respect de la décision documentée ; l'obstination déraisonnable est évitée.",
+    "pec": "dnr_decompensation_aigue",
+    "notion": "c7"
+   },
+   {
+    "id": "n5",
+    "parent": "n3",
+    "t": "Non ou doute : débuter la RCP, réévaluer dès clarification",
+    "i": "Le statut par défaut est le traitement complet ; on arrête la RCP dès qu'un DNR valide est établi.",
+    "pec": "arret_cardiaque_statut_inconnu",
+    "notion": "c6"
+   },
+   {
+    "id": "n6",
+    "parent": "n2",
+    "t": "Non : statut documenté, à jour et cohérent avec l'état actuel ?",
+    "i": "Un statut ancien non réévalué peut ne plus correspondre à la volonté ni au pronostic.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Oui : appliquer le niveau de soins, traiter symptômes et cause",
+    "i": "On délivre pleinement tout ce que le niveau inclut, y compris antibiotiques, oxygène et antalgie.",
+    "pec": "dnr_decompensation_aigue",
+    "notion": "c7"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Non, absent ou périmé : patient capable de discernement pour cette décision ?",
+    "i": "Le discernement est présumé (CC art. 16) et évalué pour la décision précise.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Oui : entretien structuré, RCP médicalement indiquée ?",
+    "i": "Information sur chances et risques, recommandation claire, puis recueil de la préférence.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n10",
+    "parent": "n9",
+    "t": "Non, RCP vaine : DNR recommandé et expliqué",
+    "i": "Le médecin n'est pas tenu de proposer une RCP sans indication médicale, même si on la demande.",
+    "pec": "entretien_statut_reanimation",
+    "notion": "c5"
+   },
+   {
+    "id": "n11",
+    "parent": "n9",
+    "t": "Oui : le patient accepte-t-il la RCP ?",
+    "i": "Le choix revient au patient informé, capable de discernement et libre de toute pression.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n12",
+    "parent": "n11",
+    "t": "Accepte : traitement complet, décision écrite",
+    "i": "Même une décision de réanimation se documente, pour que l'équipe de garde ne doive pas deviner.",
+    "pec": "entretien_statut_reanimation",
+    "notion": "c5"
+   },
+   {
+    "id": "n13",
+    "parent": "n11",
+    "t": "Refuse : libre volonté vérifiée ?",
+    "i": "On exclut dépression, pression des proches et information incomplète avant d'appliquer le refus.",
+    "pec": null,
+    "notion": "c4"
+   },
+   {
+    "id": "n14",
+    "parent": "n13",
+    "t": "Doute : compléter l'information, avis psychiatrique, éthique",
+    "i": "Un refus influencé n'est pas autonome ; la dépression sort du cadre et renvoie à la psychiatrie de liaison.",
+    "pec": "entretien_statut_reanimation",
+    "notion": "c4"
+   },
+   {
+    "id": "n15",
+    "parent": "n13",
+    "t": "Libre : DNR (± DNI, ± non-USI) écrit, signé",
+    "i": "Chaque limite est précisée séparément avec la liste des mesures maintenues.",
+    "pec": "entretien_statut_reanimation",
+    "notion": "c1"
+   },
+   {
+    "id": "n16",
+    "parent": "n8",
+    "t": "Non, incapable : directives anticipées ou mandat retrouvés ?",
+    "i": "On les cherche chez patient, proches, médecin traitant, EMS, carte d'assuré et dossier électronique.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n17",
+    "parent": "n16",
+    "t": "Oui : suivre, sauf illégalité, doute sur la libre volonté ou situation non prévue",
+    "i": "Ce sont les trois exceptions légales à l'application des directives (CC art. 372).",
+    "pec": "entretien_statut_reanimation",
+    "notion": "c3"
+   },
+   {
+    "id": "n18",
+    "parent": "n16",
+    "t": "Non : représentant selon la cascade CC 378, volonté présumée",
+    "i": "Le représentant exprime la volonté présumée du patient, pas la sienne.",
+    "pec": null,
+    "notion": "c3"
+   },
+   {
+    "id": "n19",
+    "parent": "n18",
+    "t": "Accord : décision documentée",
+    "i": "La décision est écrite, datée, signée et fondée sur la volonté présumée.",
+    "pec": "entretien_statut_reanimation",
+    "notion": "c5"
+   },
+   {
+    "id": "n20",
+    "parent": "n19",
+    "t": "Planifier la réévaluation et transmettre le plan au réseau",
+    "i": "EMS, domicile, 144, médecin traitant et hôpital doivent connaître la décision ; elle se relit à chaque changement.",
+    "pec": "reevaluation_acp_long_cours",
+    "notion": "c8"
+   },
+   {
+    "id": "n21",
+    "parent": "n18",
+    "t": "Désaccord persistant : colloque, éthique clinique, second avis, APEA",
+    "i": "Escalade par paliers, l'APEA étant saisie en dernier recours (CC art. 373, 381).",
+    "pec": "entretien_statut_reanimation",
+    "notion": "c9"
+   }
+  ]
+ },
+ "specialites": [
+  "INT",
+  "MIG"
+ ],
+ "circuit": "NON_MONOGRAPHIQUE",
+ "theme": "Décision de non-réanimation (DNR/NTBR) et limitation des soins invasifs (USI, intubation)",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "DNR, DNI, non-admission aux soins intensifs et niveaux de soins : quatre décisions distinctes",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Raisonne limite par limite : demande-toi séparément si la RCP, l'intubation, l'admission aux soins intensifs et la VNI sont exclues, puis note le plafond thérapeutique.",
+   "tableau": {
+    "colonnes": [
+     "Limitation",
+     "Ce qu'elle exclut",
+     "Ce qui reste possible",
+     "Piège d'examen"
+    ],
+    "lignes": [
+     [
+      "DNR / NTBR",
+      "Pas de RCP en cas d'arrêt cardiorespiratoire.",
+      "Antibiotiques, oxygène, antalgie, perfusions, parfois VNI ou USI selon le plan.",
+      [
+       {
+        "t": "Interpréter DNR comme « arrêt de tout soin »",
+        "i": "Le DNR ne concerne que l'arrêt cardiaque ; retarder antibiotiques, transfert ou antalgie est un sous-traitement, pas l'application du DNR."
+       }
+      ]
+     ],
+     [
+      "DNI",
+      "Pas d'intubation ni de ventilation invasive.",
+      "Oxygène, VNI ou haut débit, traitement médical complet, parfois USI sans intubation.",
+      [
+       {
+        "t": "Le DNI ne se déduit pas du DNR",
+        "i": "Chaque limite répond à un bénéfice et à un risque propres ; si elle n'est pas écrite séparément, l'équipe de garde improvise."
+       }
+      ]
+     ],
+     [
+      "Non-admission aux soins intensifs",
+      "Pas de transfert en unité de soins intensifs.",
+      "Traitement complet en étage, VNI selon le plan, soins palliatifs en parallèle.",
+      [
+       {
+        "t": "Confondre avec un DNR",
+        "i": "Un patient peut être réanimable mais non admissible aux soins intensifs, ou l'inverse ; seul un plan écrit lève l'ambiguïté."
+       }
+      ]
+     ],
+     [
+      "Niveaux de soins A à D",
+      "Fixent le plafond thérapeutique, du traitement maximal aux soins de confort exclusifs.",
+      "Tout ce que le niveau inclut doit être délivré pleinement.",
+      [
+       {
+        "t": "Les définitions varient selon l'institution suisse",
+        "i": "Il n'existe pas de classification nationale unique ; le candidat doit donc préciser le contenu concret du niveau plutôt que citer une lettre."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "DNR (NTBR) = uniquement pas de RCP ; ce n'est jamais « ne rien faire ».",
+    "DNI et non-admission aux soins intensifs sont des décisions autonomes, chacune écrite explicitement.",
+    "Le niveau de soins précise le plafond thérapeutique ; sa définition dépend de l'institution.",
+    "Le statut par défaut sans décision documentée est le traitement complet."
+   ],
+   "sources": [
+    "ASSM, Décisions de réanimation, 2021",
+    "ASSM, Mesures de soins intensifs, 2013"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Qui discuter, pourquoi : fragilité, pronostic de la RCP et rythmes de l'arrêt",
+   "rubriques": [
+    "epidemiology",
+    "basicSciences",
+    "clinicalExam"
+   ],
+   "comment": "Cible la discussion sur la fragilité, le pronostic et les valeurs du patient, jamais sur l'âge seul, et pratique-la avant la décompensation.",
+   "tableau": {
+    "colonnes": [
+     "CFS (Rockwood)",
+     "Description",
+     "Conséquence pour la discussion"
+    ],
+    "lignes": [
+     [
+      "1 à 3",
+      "En forme, actif ou autonome avec maladies bien contrôlées.",
+      "Aucune décision de limitation systématique ; l'ACP reste utile."
+     ],
+     [
+      "4 à 5",
+      "Vulnérable puis fragilité légère (aide pour activités instrumentales).",
+      [
+       {
+        "t": "Discussion proactive si maladie chronique évolutive",
+        "i": "Le pronostic dépend alors davantage de la maladie que de la fragilité ; on anticipe avant l'aggravation."
+       }
+      ]
+     ],
+     [
+      "6",
+      "Fragilité modérée : aide pour sorties, ménage, parfois bain.",
+      [
+       {
+        "t": "Discussion recommandée",
+        "i": "Les réserves physiologiques sont faibles : la survie sans séquelle après RCP devient très improbable et les risques iatrogènes pèsent lourd."
+       }
+      ]
+     ],
+     [
+      "7",
+      "Dépendance complète pour les soins personnels, mais stable.",
+      [
+       {
+        "t": "Discussion indispensable",
+        "i": "Un patient CFS ≥ 7 survit très rarement sans séquelle neurologique à une RCP ; la décision doit précéder l'urgence."
+       }
+      ]
+     ],
+     [
+      "8 à 9",
+      "8 : très fragile, proche de la fin de vie ; 9 : maladie terminale, espérance de vie inférieure à 6 mois.",
+      [
+       {
+        "t": "RCP le plus souvent médicalement vaine",
+        "i": "Aucun bénéfice attendu : le médecin recommande clairement le DNR et n'a pas l'obligation de proposer la RCP."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "L'âge seul ne justifie jamais un DNR : on pèse pronostic, fragilité, valeurs et souhaits.",
+    "Chez le patient fragile, polymorbide ou terminal, la survie sans séquelle neurologique après RCP est inférieure à 1–2 %.",
+    "L'arrêt cardiaque du patient fragile survient surtout sur rythme non choquable (asystolie, AESP), de pronostic plus sombre que la FV.",
+    "La RCP expose à fractures costales et sternales, lésions cérébrales hypoxiques, séjour prolongé aux soins intensifs et dépendance.",
+    "La CFS surestime la fragilité avant 65 ans, en cas de handicap stable ou de déficience intellectuelle ; on l'interprète avec prudence."
+   ],
+   "sources": [
+    "Rockwood et al., Clinical Frailty Scale, CMAJ 2005",
+    "ASSM, Décisions de réanimation, 2021"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Capacité de discernement, directives anticipées et cascade de représentation (CC)",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Évalue d'abord le discernement pour cette décision précise, puis cherche les directives, puis seulement applique la cascade légale de représentation.",
+   "tableau": {
+    "colonnes": [
+     "Rang CC art. 378",
+     "Représentant thérapeutique",
+     "Condition"
+    ],
+    "lignes": [
+     [
+      "1",
+      "Personne désignée dans les directives anticipées ou le mandat pour cause d'inaptitude.",
+      [
+       {
+        "t": "Priorité à la volonté exprimée par le patient",
+        "i": "Le patient a choisi lui-même son représentant : aucun proche ne passe devant lui, même plus proche par le sang."
+       }
+      ]
+     ],
+     [
+      "2",
+      "Curateur ayant un droit de représentation en matière médicale.",
+      "Mesure de curatelle existante."
+     ],
+     [
+      "3",
+      "Conjoint ou partenaire enregistré.",
+      [
+       {
+        "t": "Ménage commun ou assistance personnelle régulière",
+        "i": "La loi exige un lien vécu, pas seulement un statut d'état civil, pour garantir que le représentant connaît la volonté présumée."
+       }
+      ]
+     ],
+     [
+      "4",
+      "Personne faisant ménage commun avec le patient.",
+      "Assistance personnelle régulière."
+     ],
+     [
+      "5 à 7",
+      "Descendants, puis père et mère, puis frères et sœurs.",
+      "Assistance personnelle régulière au patient."
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La capacité de discernement est présumée chez l'adulte (CC art. 16) et s'apprécie pour la décision concernée, au moment de la discussion.",
+    "Les quatre capacités à examiner : comprendre, apprécier sa portée, raisonner sur les options, exprimer un choix stable.",
+    "Rechercher activement directives anticipées, mandat pour cause d'inaptitude et document d'urgence chez patient, proches, médecin traitant, EMS, carte d'assuré (CC art. 371) et dossier électronique.",
+    "Le représentant décide selon la volonté présumée et les intérêts du patient, et non selon ses propres préférences."
+   ],
+   "sources": [
+    "Code civil suisse art. 16, 370–373, 377–381",
+    "ASSM, Directives anticipées, 2021"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Drapeaux rouges : erreurs fréquentes autour du statut de réanimation",
+   "rubriques": [
+    "presumptionRedFlags"
+   ],
+   "comment": "Repère chaque situation où le statut est flou, unilatéral, périmé ou mal compris, puis corrige-la avant qu'elle ne génère un préjudice.",
+   "tableau": {
+    "colonnes": [
+     "Drapeau rouge",
+     "Risque",
+     "Réflexe correct"
+    ],
+    "lignes": [
+     [
+      "DNR compris comme « arrêt de tout soin »",
+      "Retard d'antibiotiques, d'oxygène, de transfert ou d'antalgie.",
+      [
+       {
+        "t": "Documenter précisément les mesures maintenues",
+        "i": "Une liste écrite des mesures maintenues ou exclues empêche l'équipe de garde d'interpréter le DNR comme un abandon thérapeutique."
+       }
+      ]
+     ],
+     [
+      "DNR inscrit sans discussion",
+      "Décision non conforme, atteinte à l'autodétermination.",
+      [
+       {
+        "t": "Aucune décision unilatérale de l'équipe",
+        "i": "Le patient capable, ou son représentant, doit être informé et entendu ; le médecin recommande mais ne décrète pas."
+       }
+      ]
+     ],
+     [
+      "Statut ancien non réévalué",
+      "Décision qui ne reflète plus pronostic ni volonté.",
+      [
+       {
+        "t": "Relire à chaque hospitalisation et changement clinique",
+        "i": "La décision n'est jamais définitive ; l'état et les souhaits du patient évoluent."
+       }
+      ]
+     ],
+     [
+      "Confusion DNR, DNI, non-USI",
+      "Mauvaise application en situation critique.",
+      [
+       {
+        "t": "Écrire chaque limite séparément",
+        "i": "RCP, intubation, USI et VNI répondent à des bénéfices différents ; un seul intitulé ne couvre pas les trois."
+       }
+      ]
+     ],
+     [
+      "Contexte périopératoire",
+      "Suspension automatique du DNR ou maintien aveugle.",
+      [
+       {
+        "t": "Rediscuter avec patient, chirurgien et anesthésiste",
+        "i": "Les arrêts peropératoires sont souvent réversibles et liés à l'anesthésie ; la limitation doit être renégociée explicitement."
+       }
+      ]
+     ],
+     [
+      "Refus sous dépression, pression ou information incomplète",
+      "Refus non libre appliqué à tort.",
+      [
+       {
+        "t": "Vérifier la libre volonté avant d'appliquer",
+        "i": "Un refus influencé n'exprime pas la volonté autonome ; on traite la cause, on complète l'information, puis on réentend le patient."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Un DNR sans discussion avec le patient ou son représentant est non conforme.",
+    "Le DNR n'est pas suspendu automatiquement au bloc opératoire.",
+    "Un statut flou ou contesté entraîne conflits, détresse morale des soignants et hospitalisations non souhaitées."
+   ],
+   "sources": [
+    "ASSM, Décisions de réanimation, 2021",
+    "Code civil suisse art. 16, 377"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Entretien structuré et documentation : l'examen qui tranche",
+   "rubriques": [
+    "workupGoldStandard",
+    "positiveDiagnosis"
+   ],
+   "comment": "Informe, recommande, recueille la préférence, puis consigne par écrit tous les éléments et transmets-les à tous les acteurs de la prise en charge.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Statut de réanimation à clarifier",
+     "i": "Sans décision documentée, le statut par défaut est le traitement complet avec RCP.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Le patient est-il capable de discernement pour cette décision ?",
+     "i": "Le discernement est présumé (CC art. 16) et s'évalue sur quatre capacités : comprendre, apprécier, raisonner, exprimer un choix stable.",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Oui : entretien sur chances et risques de la RCP, recommandation, préférence",
+     "i": "Le médecin donne une recommandation claire puis recueille la préférence ; il ne délègue pas le choix en le laissant sans avis.",
+     "pec": "entretien_statut_reanimation",
+     "notion": "c5"
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Non : directives anticipées d'abord",
+     "i": "Elles s'appliquent sauf si elles violent la loi, si la libre volonté est douteuse ou si la situation n'était pas prévue (CC art. 372).",
+     "pec": null,
+     "notion": "c3"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Pas de directives : représentant selon la cascade, volonté présumée",
+     "i": "Le représentant (CC art. 378) transmet la volonté présumée du patient ; il ne décide pas selon ses propres valeurs.",
+     "pec": "entretien_statut_reanimation",
+     "notion": "c3"
+    },
+    {
+     "id": "n6",
+     "parent": "n1",
+     "t": "RCP sans indication médicale",
+     "i": "Le médecin n'est pas tenu de la proposer ni de la pratiquer, même sur demande du patient ou des proches ; il explique sa position.",
+     "pec": "entretien_statut_reanimation",
+     "notion": "c5"
+    },
+    {
+     "id": "n7",
+     "parent": "n1",
+     "t": "Documentation écrite, datée, signée",
+     "i": "Elle mentionne participants, motifs, niveau de soins, RCP, intubation, USI et liste des mesures maintenues ou exclues.",
+     "pec": "entretien_statut_reanimation",
+     "notion": "c5"
+    },
+    {
+     "id": "n8",
+     "parent": "n7",
+     "t": "Transmission à toute l'équipe et aux relais",
+     "i": "Soins, garde, urgences, EMS, domicile, 144 et autre hôpital doivent connaître le plan, sinon la décision reste inapplicable.",
+     "pec": "reevaluation_acp_long_cours",
+     "notion": "c9"
+    }
+   ],
+   "points": [
+    "Un DNR se justifie si la RCP est vaine, si le patient la refuse après information, ou si les séquelles probables contredisent ses valeurs.",
+    "La décision est écrite, datée, signée, avec participants, motifs, niveau de soins et mesures maintenues ou exclues.",
+    "Le statut est établi quand RCP, intubation et admission aux soins intensifs sont chacune précisées oui ou non."
+   ],
+   "sources": [
+    "ASSM, Décisions de réanimation, 2021",
+    "Code civil suisse art. 372, 378"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Arrêt cardiaque sans statut clair et situations particulières",
+   "rubriques": [
+    "positiveDiagnosis",
+    "acuteManagement"
+   ],
+   "comment": "Quand le statut est inconnu ou douteux, réanime d'abord puis réévalue dès que la volonté du patient est clarifiée.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Sans décision documentée, la RCP est tentée : c'est le statut par défaut.",
+    "En cas de doute aux urgences, on débute la RCP puis on la réévalue dès que la volonté du patient est connue.",
+    "Arrêter une RCP ou un traitement devenu inefficace équivaut éthiquement et juridiquement à ne pas l'instaurer.",
+    "En urgence sans directives connues, on décide selon la volonté présumée et l'intérêt du patient incapable de discernement (CC art. 379).",
+    "Un essai thérapeutique limité dans le temps reste possible lorsque le pronostic est incertain."
+   ],
+   "sources": [
+    "Code civil suisse art. 379",
+    "ASSM, Décisions de réanimation, 2021",
+    "ERC / Swiss Resuscitation Council, 2021"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Décompensation aiguë sous limitation : appliquer le plan et soulager",
+   "rubriques": [
+    "acuteManagement",
+    "hospitalizationComplications"
+   ],
+   "comment": "Applique strictement le niveau de soins défini, traite pleinement tout ce qu'il inclut et soulage activement les symptômes sans attendre.",
+   "tableau": {
+    "colonnes": [
+     "Situation",
+     "Conduite",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Décompensation aiguë, patient DNR",
+      "Oxygène, antibiotiques, perfusions, éventuellement VNI selon le plan.",
+      [
+       {
+        "t": "Traitement complet de ce que le niveau inclut",
+        "i": "Le DNR ne limite que la RCP ; sous-traiter un patient DNR relève de l'erreur et prive le patient d'un bénéfice voulu."
+       }
+      ]
+     ],
+     [
+      "Arrêt cardiaque, patient DNR valide",
+      "Pas de RCP, confort, accompagnement des proches, constat du décès.",
+      [
+       {
+        "t": "Respecter la décision documentée",
+        "i": "Une RCP contre une décision valide constituerait une atteinte à l'autodétermination et une obstination déraisonnable."
+       }
+      ]
+     ],
+     [
+      "Dyspnée, douleur, anxiété",
+      "Opioïdes et benzodiazépines titrés, mesures non médicamenteuses.",
+      [
+       {
+        "t": "Traiter sans attendre l'aggravation",
+        "i": "La souffrance se soulage activement même sous DNR ; la titration limite le risque de dépression respiratoire."
+       }
+      ]
+     ],
+     [
+      "Obstination ou sous-traitement",
+      "Corriger le plan dès qu'il ne correspond plus au but thérapeutique.",
+      [
+       {
+        "t": "Deux écueils symétriques",
+        "i": "L'obstination déraisonnable prolonge la souffrance ; le sous-traitement prive le patient de soins proportionnés."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Un DNR ne signifie pas un pronostic vital imminent.",
+    "L'obstination déraisonnable contredit les recommandations éthiques suisses et porte atteinte à la dignité.",
+    "Un statut flou génère détresse morale des soignants et hospitalisations non souhaitées."
+   ],
+   "sources": [
+    "ASSM, Décisions de réanimation, 2021",
+    "palliative.ch, Recommandations de soins palliatifs"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Long cours : planification anticipée, réévaluation et réseau",
+   "rubriques": [
+    "chronicManagement",
+    "surveillance",
+    "prognosisDischarge",
+    "followUpNetwork"
+   ],
+   "comment": "Anticipe la crise par la planification anticipée, relis le statut à chaque changement et assure que tout le réseau connaît le plan.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "La décision n'est jamais définitive : réévaluation à chaque hospitalisation, changement clinique important ou demande du patient ou du représentant.",
+    "L'ACP au cabinet ou en EMS prépare la crise et débouche sur un plan d'urgence partagé.",
+    "Les directives anticipées peuvent figurer sur la carte d'assuré avec leur lieu de dépôt (CC art. 371) et dans le dossier électronique du patient.",
+    "En EMS, le statut est relu à intervalles réguliers ; la nouvelle version est datée et signée.",
+    "Le médecin traitant coordonne EMS, soins à domicile, équipes mobiles de soins palliatifs, 144 et hôpital."
+   ],
+   "sources": [
+    "Code civil suisse art. 371",
+    "ASSM, Directives anticipées, 2021"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Désaccord persistant : escalade éthique et juridique",
+   "rubriques": [
+    "workupAlternatives",
+    "followUpNetwork"
+   ],
+   "comment": "Escalade par paliers : explique, réunis l'équipe, sollicite l'éthique clinique ou un second avis, puis saisis l'APEA en dernier recours.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Désaccord entre équipe, patient ou proches",
+     "i": "Il survient surtout quand le statut est flou ou quand une demande de RCP sans indication médicale est formulée.",
+     "pec": null,
+     "notion": "c4"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Réentretien : expliquer pronostic et motifs médicaux",
+     "i": "Beaucoup de conflits viennent d'une information incomplète ; reprendre le dialogue reste le premier palier.",
+     "pec": "entretien_statut_reanimation",
+     "notion": "c5"
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Colloque interdisciplinaire et second avis médical",
+     "i": "Il confronte les points de vue et vérifie l'indication médicale sans attendre une crise aiguë.",
+     "pec": "entretien_statut_reanimation",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "Éthique clinique",
+     "i": "Elle aide à clarifier valeurs, proportionnalité et dignité ; son avis est consultatif.",
+     "pec": "entretien_statut_reanimation",
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "APEA si conflit entre représentants ou doute sur l'intérêt du patient",
+     "i": "Elle peut être saisie (CC art. 373 et 381) pour trancher quand le patient est incapable de discernement.",
+     "pec": null,
+     "notion": "c3"
+    }
+   ],
+   "points": [
+    "Le médecin n'a pas à pratiquer une RCP sans indication médicale, même si proches ou patient la demandent.",
+    "L'APEA est saisie en dernier recours, pas comme réflexe initial."
+   ],
+   "sources": [
+    "Code civil suisse art. 373, 381",
+    "ASSM, Décisions de réanimation, 2021"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "dnr_decompensation_aigue",
+   "titre": "Décompensation aiguë ou arrêt cardiaque chez un patient sous limitation de soins",
+   "but": [
+    "Appliquer strictement le niveau de soins défini et traiter pleinement tout ce qu'il inclut.",
+    "Soulager dyspnée, douleur et anxiété activement, sans attendre l'aggravation.",
+    "Éviter à la fois l'obstination déraisonnable et le sous-traitement inapproprié."
+   ],
+   "moyens": {
+    "accueil": [
+     "Lire d'emblée le statut écrit : niveau de soins, RCP, intubation, USI et VNI.",
+     "Vérifier date, validité et concordance du statut avec la situation clinique actuelle.",
+     "Informer l'équipe de garde et les proches du plan en vigueur."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Morphine (opioïde)",
+      "posologie": "2,5 mg sc, répétable toutes les 4 h selon l'effet ; réduire ou espacer si âge avancé ou insuffisance rénale, envisager hydromorphone ou fentanyl.",
+      "pourquoi": "Soulage dyspnée et douleur ; la titration limite le risque de dépression respiratoire chez le patient fragile.",
+      "source": "AIPS Swissmedic ; palliative.ch"
+     },
+     {
+      "molecule": "Midazolam (benzodiazépine)",
+      "posologie": "1–2,5 mg sc, répétable toutes les 2–4 h ; réduire chez le patient âgé fragile.",
+      "pourquoi": "Traite anxiété et angoisse associées à la dyspnée ; la titration évite une sédation excessive.",
+      "source": "AIPS Swissmedic ; palliative.ch"
+     },
+     {
+      "molecule": "Oxygène (gaz médical)",
+      "posologie": "Titrer le débit pour SpO2 ≥ 92 % (88–92 % si BPCO hypercapnique), uniquement en cas d'hypoxémie.",
+      "pourquoi": "Traite l'hypoxémie, mais soulage peu la dyspnée sans hypoxémie ; il reste inclus dans un plan DNR.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Antibiotique selon le foyer infectieux",
+      "posologie": "Choix et dose selon foyer, antibiogramme et fonction rénale ; durée la plus courte possible.",
+      "pourquoi": "Traite la cause réversible quand le niveau de soins l'inclut, car le DNR ne limite pas ce traitement.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Positionner le patient semi-assis, ventiler à l'aide d'un ventilateur de table et assurer les soins de bouche.",
+      "pourquoi": "Ces gestes soulagent la dyspnée sans effet indésirable et se combinent aux traitements médicamenteux."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Accompagner les proches et expliquer ce qui est maintenu et ce qui est exclu.",
+      "pourquoi": "Une information claire réduit conflits, détresse morale et demandes de réanimation tardives."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Consigner chaque décision prise pendant l'épisode dans le dossier.",
+      "pourquoi": "Cela garantit la continuité et la traçabilité entre équipes de garde."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Conseille la titration des symptômes réfractaires et accompagne patient et proches."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Cadre la validité du statut, la volonté présumée et la responsabilité du médecin."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Lire le statut écrit avant tout geste invasif.",
+      "Traiter les symptômes dès le début, en parallèle du traitement de la cause.",
+      "Documenter chaque décision en temps réel."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Lit le statut écrit et confirme niveau de soins, RCP, intubation, USI et VNI."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Surveille SpO2, tension, fréquence respiratoire et pose un accès pour les traitements du plan."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Traite la cause réversible compatible avec le plafond : oxygène, antibiotiques, perfusions, éventuellement VNI."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "médecin responsable",
+       "fait": "Prescrit morphine et midazolam titrés contre dyspnée, douleur et anxiété."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Ne débute pas de RCP en cas d'arrêt cardiaque, assure le confort et constate le décès."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Informe les proches, documente l'épisode et fixe la réévaluation du statut."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Un DNR n'indique pas un pronostic vital imminent ; le pronostic dépend de la maladie sous-jacente. Les soins proportionnés préservent confort et dignité.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Dyspnée, douleur, anxiété (échelles de symptômes)",
+      "quand": "À chaque passage, au minimum toutes les 4 h en phase aiguë",
+      "cible": "Symptômes contrôlés, patient confortable"
+     },
+     {
+      "quoi": "SpO2, fréquence respiratoire, vigilance",
+      "quand": "En continu ou à chaque tour selon le plan",
+      "cible": "Absence de détresse, pas de sédation excessive"
+     },
+     {
+      "quoi": "Concordance statut écrit et état clinique",
+      "quand": "À chaque changement clinique important",
+      "cible": "Statut daté, valide et connu de l'équipe"
+     }
+    ],
+    "sortie": "Retour au lieu de vie (EMS ou domicile) si symptômes contrôlés, plan d'urgence écrit transmis et proches informés ; sinon poursuite des soins selon le plafond défini."
+   },
+   "prevention": {
+    "primaire": "Proposer la planification anticipée des soins aux patients fragiles avant toute décompensation.",
+    "secondaire": "Relire le statut à chaque hospitalisation pour éviter une application erronée.",
+    "tertiaire": "Soutenir proches et soignants après un décès ou un conflit pour réduire la détresse morale."
+   }
+  },
+  {
+   "cle": "entretien_statut_reanimation",
+   "titre": "Clarifier et documenter le statut de réanimation (patient capable ou représentant)",
+   "but": [
+    "Obtenir une décision éclairée, libre et conforme aux valeurs du patient.",
+    "Consigner par écrit chaque limite et les mesures maintenues, puis transmettre à tous.",
+    "Prévenir conflit et décision unilatérale par un entretien structuré."
+   ],
+   "moyens": {
+    "accueil": [
+     "Planifier l'entretien dans un lieu calme, avec le temps nécessaire et, si souhaité, les proches.",
+     "Évaluer le discernement pour cette décision précise avant d'informer.",
+     "Rechercher les directives anticipées, le mandat et le document d'urgence existants."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Informer sur chances et risques de la RCP, donner une recommandation claire, puis recueillir la préférence.",
+      "pourquoi": "Le choix éclairé suppose une information réaliste et une recommandation médicale explicite."
+     },
+     {
+      "categorie": "psychothérapie",
+      "mesure": "Rechercher une dépression ou une pression externe en cas de refus, avec avis psychiatrique si besoin.",
+      "pourquoi": "Un refus non libre ne doit pas être appliqué comme une volonté autonome."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Rédiger le plan écrit : date, signature, participants, motifs, niveau de soins, RCP, intubation, USI, mesures maintenues.",
+      "pourquoi": "L'écrit rend la décision applicable par toute l'équipe, y compris de garde."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Précise discernement, directives anticipées, cascade de représentation et recours à l'APEA."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Aide à aborder le pronostic et à planifier des soins proportionnés."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Aborder le statut avant la décompensation, idéalement chez tout patient fragile ou en maladie avancée.",
+      "Respecter la volonté du patient et ne jamais décider unilatéralement.",
+      "Réévaluer la décision à chaque changement clinique."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Évalue le discernement pour cette décision et le pronostic, CFS comprise."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Recherche directives, mandat, carte d'assuré et document d'urgence auprès du patient, des proches et de l'EMS."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Conduit l'entretien : information, recommandation, recueil de la préférence ou de la volonté présumée."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Donne un avis en cas de doute sur le discernement, la dépression ou l'indication."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Rédige le plan daté et signé avec niveau de soins et liste des mesures maintenues."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Transmet le plan à l'équipe, à l'EMS, au 144 et au médecin traitant ; recourt à l'éthique ou à l'APEA si désaccord."
+      }
+     ]
+    }
+   },
+   "pronostic": "Une décision claire et partagée évite l'obstination et le sous-traitement, et réduit les hospitalisations non souhaitées. Le statut garde sa valeur tant qu'il reste réévalué.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Statut écrit complet (RCP, intubation, USI, VNI)",
+      "quand": "À chaque décision",
+      "cible": "Quatre limites précisées séparément, date et signature"
+     },
+     {
+      "quoi": "Relecture du statut",
+      "quand": "À chaque hospitalisation, évolution clinique ou demande",
+      "cible": "Statut actualisé et daté"
+     },
+     {
+      "quoi": "Transmission aux relais",
+      "quand": "À chaque transfert",
+      "cible": "EMS, domicile, 144 et hôpital informés"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si le patient est stable : le critère est un plan écrit complet et transmis au réseau."
+   },
+   "prevention": {
+    "primaire": "Proposer la planification anticipée des soins et la rédaction de directives anticipées à tout patient fragile.",
+    "secondaire": "Réévaluer le statut à chaque changement d'état pour éviter qu'il devienne caduc.",
+    "tertiaire": "Gérer les conflits résiduels par colloque et éthique clinique."
+   }
+  },
+  {
+   "cle": "arret_cardiaque_statut_inconnu",
+   "titre": "Arrêt cardiaque sans statut de réanimation clarifié",
+   "but": [
+    "Débuter la RCP quand aucune décision documentée n'existe, car le statut par défaut est le traitement complet.",
+    "Rechercher le statut pendant la RCP et l'arrêter dès qu'un DNR valide est établi."
+   ],
+   "moyens": {
+    "accueil": [
+     "Appeler l'équipe de réanimation sans délai.",
+     "Interroger proches, EMS, médecin traitant et dossier sur directives ou DNR.",
+     "Identifier rapidement le rythme initial."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Adrénaline (sympathomimétique)",
+      "posologie": "1 mg iv/io, dès que possible si rythme non choquable ; si rythme choquable, après le 3e choc ; répétable toutes les 3–5 min.",
+      "pourquoi": "Augmente le retour à la circulation spontanée mais n'améliore pas la survie sans séquelle chez le patient fragile.",
+      "source": "ERC / Swiss Resuscitation Council, 2021"
+     },
+     {
+      "molecule": "Amiodarone (antiarythmique)",
+      "posologie": "300 mg iv/io après le 3e choc, puis 150 mg après le 5e choc, en cas de FV ou TV sans pouls.",
+      "pourquoi": "Facilite la réponse à la défibrillation répétée ; il ne s'applique pas aux rythmes non choquables.",
+      "source": "ERC / Swiss Resuscitation Council, 2021"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Débuter compressions thoraciques de qualité et défibrillation précoce selon le rythme.",
+      "pourquoi": "Le délai avant RCP détermine la survie, et l'incertitude sur le statut impose l'action."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Cesser la RCP dès qu'un DNR valide est présenté ou lorsque la poursuite est médicalement vaine.",
+      "pourquoi": "Arrêter un traitement sans but équivaut éthiquement à ne pas l'instaurer."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Justifie la RCP par défaut et la réévaluation dès que la volonté est clarifiée."
+     },
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Guide l'accompagnement des proches et la transition vers les soins de confort."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Considérer le traitement complet comme le statut par défaut.",
+      "Réévaluer la poursuite de la RCP dès que la volonté du patient est connue.",
+      "Documenter la chronologie et les motifs de la décision."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin responsable",
+       "fait": "Débute la RCP selon l'algorithme ERC et appelle l'équipe de réanimation."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Pose un DAE ou moniteur, assure l'accès veineux ou intraosseux et administre l'adrénaline."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "second médecin",
+       "fait": "Recherche directives, DNR, document d'urgence et proches auprès de l'EMS, du médecin traitant et du dossier."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin responsable",
+       "fait": "Arrête la RCP si un DNR valide est présenté ou si la poursuite est vaine."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Informe les proches, constate le décès ou organise les soins post-réanimation, puis débriefe l'équipe."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Chez le patient fragile, la survie sans séquelle neurologique après RCP est inférieure à 1–2 %, surtout sur rythme non choquable ; il faut anticiper ce pronostic avant l'urgence.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Rythme et retour à la circulation spontanée",
+      "quand": "Toutes les 2 min pendant la RCP",
+      "cible": "Décision de poursuivre ou d'arrêter documentée"
+     },
+     {
+      "quoi": "Recherche du statut (directives, DNR, proches)",
+      "quand": "Pendant la RCP, sans retarder les compressions",
+      "cible": "Volonté du patient clarifiée"
+     },
+     {
+      "quoi": "Statut après retour à la circulation",
+      "quand": "Dès la stabilisation",
+      "cible": "Niveau de soins défini avec proches ou représentant"
+     }
+    ],
+    "sortie": "Pas de sortie immédiate : en cas de retour à la circulation, transfert en soins intensifs ou en unité adaptée selon le niveau de soins clarifié ensuite."
+   },
+   "prevention": {
+    "primaire": "Clarifier le statut de réanimation de tout patient fragile avant qu'une urgence survienne.",
+    "secondaire": "Rendre le statut accessible rapidement : dossier, carte d'assuré, document d'urgence.",
+    "tertiaire": "Débriefer l'équipe et les proches pour réduire la détresse morale après une RCP contestée."
+   }
+  },
+  {
+   "cle": "reevaluation_acp_long_cours",
+   "titre": "Planification anticipée, réévaluation et transmission du statut au long cours",
+   "but": [
+    "Maintenir un statut de réanimation à jour et concordant avec le pronostic et la volonté du patient.",
+    "Prévenir les hospitalisations non souhaitées par un plan d'urgence partagé.",
+    "Assurer que tout le réseau connaisse et applique le plan."
+   ],
+   "moyens": {
+    "accueil": [
+     "Relire le statut à chaque hospitalisation, changement clinique et demande du patient ou du représentant.",
+     "Vérifier que le patient comprend toujours sa maladie et ses objectifs.",
+     "Contrôler l'existence de directives anticipées et leur lieu de dépôt."
+    ],
+    "pharmacologique": [],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Conduire des entretiens de planification anticipée au cabinet ou en EMS, avec proches si le patient le souhaite.",
+      "pourquoi": "L'ACP prépare la crise et aboutit à un plan d'urgence partagé."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Mentionner les directives anticipées et leur lieu de dépôt sur la carte d'assuré et dans le dossier électronique.",
+      "pourquoi": "Cela rend la volonté accessible en urgence (CC art. 371)."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Dater et signer chaque nouvelle version du statut et la transmettre à tous les relais.",
+      "pourquoi": "Un statut obsolète ou inconnu des intervenants perd sa valeur."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "M Médecine palliative",
+      "apport": "Fournit équipes mobiles, conseil de symptômes et anticipation des crises à domicile ou en EMS."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Facilite la coordination des prestations de soins à domicile et d'EMS selon les besoins."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Considérer le statut comme évolutif, jamais définitif.",
+      "Coordonner le réseau autour d'un plan d'urgence unique.",
+      "Respecter l'autodétermination du patient capable de discernement."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "médecin traitant",
+       "fait": "Initie l'ACP chez le patient fragile ou en maladie avancée et recueille ses valeurs."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "médecin traitant",
+       "fait": "Rédige avec lui un plan d'urgence incluant niveau de soins, RCP, intubation et USI."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "infirmier·ère",
+       "fait": "Relie plan, directives et carte d'assuré au dossier et vérifie la connaissance du plan en EMS."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin traitant",
+       "fait": "Transmet le plan au 144, aux soins à domicile, à l'équipe mobile de soins palliatifs et à l'hôpital."
+      },
+      {
+       "temps": "puis",
+       "qui": "médecin responsable",
+       "fait": "Réévalue le statut à chaque hospitalisation ou évolution clinique, puis date et signe la nouvelle version."
+      }
+     ]
+    }
+   },
+   "pronostic": "Un plan partagé et à jour limite hospitalisations non souhaitées, obstination déraisonnable et conflits ; il respecte la dignité du patient jusqu'à la fin de vie.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Date et validité du statut",
+      "quand": "À chaque hospitalisation et à intervalles réguliers en EMS",
+      "cible": "Statut récent, signé, concordant avec l'état actuel"
+     },
+     {
+      "quoi": "Connaissance du plan par le réseau",
+      "quand": "À chaque transfert ou changement d'équipe",
+      "cible": "EMS, domicile, 144, hôpital informés"
+     },
+     {
+      "quoi": "Souhaits et objectifs du patient",
+      "quand": "À chaque changement clinique important",
+      "cible": "Plan cohérent avec les valeurs exprimées"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée : le critère est un plan d'urgence écrit, signé et connu du réseau."
+   },
+   "prevention": {
+    "primaire": "Proposer l'ACP et la rédaction de directives anticipées avant la maladie avancée.",
+    "secondaire": "Réévaluer le statut à chaque transition de soins pour éviter un statut obsolète.",
+    "tertiaire": "Soutenir proches et soignants lors des conflits ou après une décision difficile."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6156,
+  "output_tokens": 26454,
+  "output_tokens_details": {
+   "thinking_tokens": 9465
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:58:01",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": {
+   "verdict": "🟩",
+   "date": "2026-11-26",
+   "aVerifier": [],
+   "audit": "AUDIT_V3_B"
+  }
+ }
+}
