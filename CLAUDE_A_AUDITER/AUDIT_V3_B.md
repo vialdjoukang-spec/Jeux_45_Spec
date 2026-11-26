@@ -71,3 +71,20 @@ Contrôles lot 3 : `controle_menus_longs.py` ORT et RHU → 0 menu fautif, 0 err
 | M85.8__F2_20-E02 | 🟧 | Corrigé (forme) : correction mal formée (« ssp » en chaîne avalant priseEnCharge, « ">» » à la place de « ": ») reconstruite sans changer le texte. Corrigé : Q11 marquée masquée, Q14 (d4 qui nomme l'ostéopénie) passée en d3. Seuils OMS, Z-score ≤ −2,0, alendronate 70 mg/sem., zolédronate 5 mg/an, dénosumab 60 mg/6 mois, vitamine D 800 UI conformes. |
 
 Contrôles lot 4 : `controle_menus_longs.py RHU` → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
+
+## Lot 5 — rangs 545 à 554
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| M94.0_1__S2_12-E01 | 🟩 | Aucune erreur retenue (exclusion d'une cause viscérale avant 40 ans de facteurs de risque, réévaluation à 3–4 semaines). |
+| N14.2__F2_12-E03 | 🟩 | Forme : clé « false » hors schéma retirée (Q16) ; bloc c9 ramené à 5 points. Aucune erreur retenue : KDIGO 2012 (≥ 26,5 µmol/L en 48 h, ×1,5 en 7 j, stade 3), EXTRIP lithium > 4,0 mmol/L avec IR, vancomycine AUC/CMI 400–600, Tox Info 145. |
+| N18.9__O3_4-E03 | 🟩 | Aucune erreur retenue : KDIGO 2024 (G3a–G5, A1–A3), metformine CI < 30 et ≤ 1000 mg/j à 30–44, dabigatran CI < 30, iSGLT2 dès DFG 20, finérénone si K ≤ 5,0. |
+| N30.0_1__S4_2-E01 | 🟩 | Aucune erreur retenue : fosfomycine 3 g dose unique, nitrofurantoïne retard 100 mg ×2/j 5 j, cotrimoxazole 3 j en 2e ligne (SSI) ; Bent 2002 (≈ 90 %). |
+| N30.0_2__S4_7-E02 | 🟩 | Aucune erreur retenue (SSI : fosfomycine, nitrofurantoïne 5 j ; cystite de l'homme 7 j ; ceftriaxone 2 g IV ; pyélonéphrite 7 j). Alerte mécanique de Q06 (« douloureuse ») : faux positif, la vignette décrit la prostate. |
+| N34.1__S4_3-E02 | 🟧 | Corrigé : Q19 (menu long d4 qui nomme l'urétrite) passée en d3. Aucune erreur médicale retenue : ceftriaxone 1 g dose unique, doxycycline 100 mg ×2/j 7 j, Mycoplasma genitalium séquentiel, PCR de contrôle ≥ 2 semaines (IUSTI). |
+| N39.4__S4_14-E02 | 🟩 | Forme : 71 notions (max. 70) → N69 (pronostic, non utilisée) fusionnée dans N68 ; natures « surveillance » remplacées par « décision ». Aucune erreur retenue. Vérifié : mirabégron 25 mg/j puis 50 mg/j (AIPS Betmiga, Brevier) ; solifénacine 5–10 mg ; polyurie nocturne > 33 % (ICS). |
+| N46__S4_4-E02 | 🟧 | Corrigé : Q11 (d4 dont la vignette donne l'azoospermie non obstructive confirmée) passée en d3. Valeurs de référence OMS 2021 exactes (16 M/mL, 30 % progressive, 1,4 mL, 39 M) ; orchidopexie 6–12 mois, au plus tard 18 mois. |
+| N47.1__F1_2-E02 | 🟩 | Forme : cellules de tableau mal enveloppées (c1) corrigées. Aucune erreur retenue (rétractabilité 4 % / 50 % / 90 %, abstention chez le petit enfant asymptomatique, succès > 80 % des dermocorticoïdes). |
+| N48.4__S4_10-E01 | 🟩 | Forme : natures « surveillance » remplacées par « décision » ; « arbre » manquant ajouté (c3). Aucune erreur retenue : sildénafil 50 mg (25–100), tadalafil 10–20 mg ou 2,5–5 mg/j, testostérone < 8 / 8–12 nmol/L, hématocrite > 54 %, Princeton III. |
+
+Contrôles lot 5 : `controle_menus_longs.py` RHU, TOX, URO → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
