@@ -365,3 +365,9 @@ Signature : AAI (Anthropic AI)
 ## SSP+ annulés (Vial, 25.11.2026)
 - Le projet SSP+ est annulé : on ne produit que sur les 248 SSP du catalogue officiel. `projets/ssp_plus/` et `data/ssp_etendus/` restent en archive, sans usage en production.
 - Les JSON pour Gemini (`data/gemini_qcm/`, construits par `projets/ssp_plus/construire_gemini.py`) marquent `dejaProduit` les diagnostics déjà couverts par nos QCM : Gemini ne produit que les autres.
+
+## Leçons (groupe C, lot 5, 26.11.2026)
+- Sources obstétricales lisibles par `curl` : NICE NG201 (palpation après 36+0, ceinture pelvienne 1.4.15), NG192 (contre-indications de la version), NG121 (siège et gros fœtus en travail), NG207 (macrosomie sans diabète), NG3 (diabète et grossesse), toutes sur `/chapter/Recommendations` ; FAQ DGGG « Äußere Wendung » 2023 (PDF dggg.de, taux de succès et de complications, anti-D) ; protocole HUG du diabète gestationnel (`hug.ch/vdoc/HUG_000000833.pdf`, planification 38–39 semaines, césarienne discutée au-delà de 4500 g) ; FAQ SECO « Protection de la maternité » (simple avis, station debout).
+- RCOG Green-top (Wiley), Thieme et boris.unibe.ch refusent `curl` (protection anti-robot) et WebFetch demande une permission : remplace-les par NICE et la FAQ DGGG, sans contourner.
+- `aips.py "Dafalgan"` renvoie une association (codéine ou caféine) : vérifie le nom du produit dans le fichier et prends un monoproduit (Panadol S, Brufen).
+- Une étape de série qui dit « la version réussit » ou « après échec de la manœuvre » nomme le traitement propre au siège : `m=0` et `d` ≤ 3.
