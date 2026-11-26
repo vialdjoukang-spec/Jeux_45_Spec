@@ -669,3 +669,23 @@ Contrôles lot 33 : `controle_menus_longs.py` CMF, DER, INF, INT, ONC, TRO → 0
 | C95.0_1__F2_5-E15 | 🟧 | Forme : Q03 (d4, suite de cas sans le nom) marquée masquée. Aucune erreur médicale retenue (hydroxyurée 50–100 mg/kg/j, pseudo-hypoxémie par consommation leucocytaire, transfusion limitée à 70–80 g/L, plaquettes > 20 G/L, rasburicase et urate sur glace). |
 
 Contrôles lot 34 : `controle_menus_longs.py` DER, GYN, HEM, NCH, ONC, URO → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot.
+
+## Lot 35 — rangs 960 à 972
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| D25.2__S4_5-E13 | 🟩 | Forme : blocs c3 et c8 ramenés à 5 points. Aucune erreur médicale retenue (FIGO 7, incidence cumulée 70–80 % à 50 ans, fièvre > 38,5 °C évoquant une infection, AINS contre-indiqués au 3e trimestre). |
+| D43.0__S9_2-E13 | 🟧 | Corrigé : Q14 (d4 qui nomme le glioblastome) passée en d3. Aucune erreur médicale retenue (OMS 2021, Stupp 60 Gy/30 + témozolomide 75 puis 150–200 mg/m², survie médiane ≈ 15 mois, IRM à 48–72 h, RANO, art. 15d LCR). |
+| D48.6__S2_3-E13 | 🟩 | Forme : clé « false » hors schéma retirée (Q18) ; nature « surveillance » remplacée par « décision » (N55, N56). Aucune erreur médicale retenue (< 1 % des tumeurs mammaires, mitoses < 5 / 5–9 / ≥ 10 par 10 champs, MED12, dépistage cantonal 50–74 ans). À vérifier : marge de 1 cm pour les formes bénignes. |
+| D57.0__F1_17-E14 | 🟧 | Forme : clé « ww » hors schéma retirée (Q09) ; Q04 (d4 sans le nom) marquée masquée. Aucune erreur médicale retenue (chute ≥ 20 g/L, transfusion 5–10 mL/kg sans dépasser 100 g/L, pénicilline V 2 mois–5 ans 125/250 mg, ceftriaxone 80 mg/kg, réticulocytes < 1 % dans la crise aplasique). |
+| D59.8__S6_5-E13 | 🟧 | Forme : Q04 (d4 sans le nom) marquée masquée. Corrigé : Q14 (d4 qui nomme le paludisme grave) passée en d3. Aucune erreur médicale retenue (G6PD faussement normale en crise, SEAQUAMAT −34 %, AQUAMAT −22,5 %, prednisone 1 mg/kg/j, rituximab 375 mg/m² ×4, hémolyse retardée J7–J21). |
+| D59.9_1__F1_17-E16 | 🟩 | Aucune erreur retenue (déclencheurs G6PD, diurèse > 0,5 mL/kg/h, artésunate 2,4 mg/kg, ADAMTS13, CD55/CD59, gluconate de calcium et insuline-glucose). |
+| D60.9__F2_16-E18 | 🟩 | Forme : bloc c3 ramené à 5 points ; mesures générales d'urgence scindées en deux phrases (schéma, minimum 2) ; nature « surveillance » remplacée par « décision » (N58). Aucune erreur médicale retenue (antigène P, arrêt 7–10 jours, réticulocytes < 10 G/L, PCR B19, IgIV 0,4 g/kg/j ×5 avec garantie art. 71a–d OAMal, non soumise à déclaration). |
+| D62__G4-E19 | 🟧 | Forme : Q09 et Q20 (d4 sans le nom) marquées masquées. Aucune erreur médicale retenue (ATLS classe III 30–40 %, shock index > 1, seuils 70/80 g/L, ésoméprazole 80 mg puis 8 mg/h 72 h, érythromycine 250 mg, terlipressine, Blatchford 0–1, AIMS65, idarucizumab 5 g ; ESGE). |
+| D68.3_5__O3_4-E13 | 🟧 | Forme : Q06 (d4 sans le nom) marquée masquée. Aucune erreur médicale retenue (ISTH, PPSB 25/35/50 UI/kg, vitamine K 5–10 mg, andexanet doses basse et haute, phenprocoumone t½ ≈ 6 jours, apixaban 2,5 mg si ≥ 2 critères, dabigatran 110 mg, édoxaban 30 mg). |
+| D68.3_6__O7_16-E12 | 🟩 | Forme : bloc c4 ramené à 5 points. Aucune erreur médicale retenue (INR > 1,5, Beriplex max 5000 UI, délais neuraxiaux 12/24/72 h, INR ≤ 1,4 pour l'anesthésie neuraxiale, décompression d'hématome en 8–12 h). |
+| D68.3_7__O7_22-E17 | 🟧 | Forme : clé « false » hors schéma retirée (Q16) ; Q05 et Q08 (d4 sans le nom) marquées masquées. Corrigé : Q15 (d4 qui nomme l'hémorragie grave sous AOD) passée en d3. Aucune erreur médicale retenue (RR d'HIC 0,48 sous AOD, azolés et CYP2C9/3A4, PAS 130–150 mmHg, annonce ElViS selon art. 59 LPTh). |
+| D68.3__S1_5-E14 | 🟩 | Aucune erreur retenue (Kiesselbach ≈ 90 %, compression 10–15 min, acide tranexamique topique ou 1 g IV, PPSB et vitamine K, rivaroxaban 15 mg si ClCr 15–49). |
+| D68.4__F2_21-E17 | 🟩 | Aucune erreur retenue (demi-vies VII/IX/X/II, Beriplex max 5000 UI, Konakion 10 mg IV, PFC 15–20 mL/kg, prophylaxie néonatale suisse 2 mg per os à la naissance, J4 et 4 semaines). |
+
+Contrôles lot 35 : `controle_menus_longs.py` GYN, HEM, MIG, NCH, ONC, ORL, TOX, TRO → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot.
