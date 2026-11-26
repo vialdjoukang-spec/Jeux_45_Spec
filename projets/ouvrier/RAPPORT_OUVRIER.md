@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-26 04:05 UTC
+# Ouvrier automatique — 2026-11-26 04:19 UTC
 
-Dernier passage : **AUDIT_V2_A** → en_cours (3.28 USD).
+Dernier passage : **AUDIT_V2_A** → fait (1.91 USD).
 
-Passage 7 terminé : 71 pathologies sur 80 sont auditées (E66.1 à G44.4, TOX et PEA), toutes 🟧 avec corrections sur place et points à vérifier dans audit.claude. Les contrôles des menus longs affichent 0 menu fautif ; il reste 3 erreurs de schéma sur des pathologies non auditées (G72.0, G89.3_1, K52.1). Il reste 9 pathologies à auditer au prochain passage : G72.0, G89.3_1, J01.0, J02.9, J03.0, J03.9, J03.9_1, J38.1, K52.1.
+Les 80 pathologies sont auditées (passage 8 : pathologies 72 à 80, TOX et ORL) ; les erreurs de schéma, les niveaux 4–5 non masqués et plusieurs why incohérents sont corrigés sur place. Aucune source primaire n'a pu être lue en ligne : toutes les doses et tous les seuils incertains sont marqués « à vérifier » dans audit.claude.aVerifier et dans le journal CLAUDE_A_AUDITER/AUDIT_V2_A.md. controle_menus_longs.py renvoie 0 menu fautif et 0 erreur de schéma sur TOX et ORL.
 
-**Crédit** : 20.40 USD dépensés, 129.60 USD disponibles avant le 31.01.2027 ; aujourd'hui 20.05 / 149.65 USD.
+**Crédit** : 22.31 USD dépensés, 127.69 USD disponibles avant le 31.01.2027 ; aujourd'hui 21.96 / 149.65 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -52,7 +52,7 @@ Passage 7 terminé : 71 pathologies sur 80 sont auditées (E66.1 à G44.4, TOX e
 | V2_Q_recup | fait | 16 | 0.0 |
 | V2_C_lot | fait | 1 | 0.0 |
 | V2_C_recup | fait | 10 | 0.0 |
-| AUDIT_V2_A | en_cours | 7 | 3.284 |
+| AUDIT_V2_A | fait | 8 | 1.908 |
 | V3B_N_lot | a_faire | 0 |  |
 | V3B_N_recup | a_faire | 0 |  |
 | V3B_Q_lot | a_faire | 0 |  |

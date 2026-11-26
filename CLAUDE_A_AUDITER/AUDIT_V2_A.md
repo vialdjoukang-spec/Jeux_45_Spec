@@ -147,3 +147,23 @@ Méthode : cinq sous-agents avec la même grille ; JSON revalidés par moi avec 
 Contrôles du passage : aucun CNP, CPCM ni PEP VIH ; niveaux 4–5 masqués ; menus longs à 1–3 justes. `controle_menus_longs.py PEA` → 0 menu fautif, 0 erreur de schéma ; `TOX` → 0 menu fautif ; 3 erreurs de schéma restantes sur des pathologies non encore auditées (G72.0, G89.3_1, K52.1).
 
 Reste à auditer : 9 pathologies (G72.0, G89.3_1, J01.0, J02.9, J03.0, J03.9, J03.9_1, J38.1, K52.1).
+
+## Passage 8 — pathologies 72 à 80 sur 80 (9 pathologies, TOX et ORL)
+
+Méthode : trois sous-agents avec la même grille ; JSON revalidés par moi avec `controle_menus_longs.py`. Aucune source primaire lue en ligne : les doutes sont dans `audit.claude.aVerifier` des fichiers corrections.
+
+| # | Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|---|
+| 72 | G72.0 Myalgies sous statines | 🟧 | Corrigé : bloc `notions` mal formé (crochet manquant, schéma restauré), Q08-B incohérente (induction du CYP3A4) reformulée. À vérifier : seuils CK 4–10× et > 10× LSN (ESC/EAS 2019), SAMSON, limitation OFSP des anti-PCSK9, simvastatine/amlodipine et acide bempédoïque (AIPS), contre-indication aux statines dans la myopathie anti-HMGCR. |
+| 73 | G89.3_1 Douleur cancéreuse réfractaire | 🟧 | Corrigé : nature « indication » → « décision » (N49), créatinine de Q02 rendue cohérente avec un DFG de 24 mL/min. À vérifier : fréquence 10–20 % des douleurs réfractaires, rapport morphine SC/oral, réduction de 25–50 % à la rotation, dexaméthasone 16 mg/j, méthadone en insuffisance rénale, kétamine hors AMM. |
+| 74 | J01.0 Rhinosinusite aiguë | 🟧 | Corrigé : Q06 et Q13 masquées, why de Q03-E (« au moins trois » critères), Q05 (odeur fétide), Q07. À vérifier : amoxicilline 1 g ×3/j 5–7 j (SSI, AIPS), alternatives, seuils EPOS 2020. |
+| 75 | J02.9 Pharyngite virale | 🟧 | Corrigé : propriété `statements` manquante restaurée (schéma), why de Q15 (RAA) et N52 (glomérulonéphrite) nuancés. À vérifier : seuils de test SSI contre ESCMID 2012, proportions virales, ibuprofène en grossesse, posologies AIPS. |
+| 76 | J03.0 Angine à streptocoque A | 🟧 | Corrigé : ambiguïté de la vignette Q05. À vérifier : durées d'antibiotique (pénicilline V 10 j, amoxicilline 6 j) face à la SSI, doses AIPS, céfuroxime en allergie non sévère, déclaration OFSP. |
+| 77 | J03.9 Angine aiguë | 🟧 | Corrigé : délai du RAA « 2 à 4 semaines », « le métamizole ». À vérifier : amoxicilline 6 j (source HAS 2011, IDSA 10 j), doses AIPS, seuil du test rapide, OPAS art. 10-11, fenêtre de 9 jours de prophylaxie du RAA. |
+| 78 | J03.9_1 Angine ou pharyngite | 🟧 | Corrigé : clé parasite `false` (Q19), Q20 masquée et vignette réécrite, énoncés nominaux de Q16–Q19. À vérifier : amoxicilline 6 j (HAS 2011), doses AIPS, corticoïde unique (ESCMID 2012), Paul-Bunnell, Paradise chez l'adulte, test rapide à l'OFSP. |
+| 79 | J38.1 Lésions bénignes des cordes vocales | 🟧 | Corrigé : « arcure », why de Q15 (J38.1 polypes, J38.2 nodules), source de N45. À vérifier : n° Ligne stop-tabac, séances de logopédie (OPAS), patch de nicotine, AAO-HNS 2018, intitulé de l'entité (surtout des nodules, J38.2). |
+| 80 | K52.1 Diarrhée médicamenteuse ou toxique | 🟧 | Corrigé : nature « drapeau » → « signe » (N23), Q19-F (atorvastatine, association discutée) remplacée par l'acide folique. À vérifier : probiotiques AGA 2020, fidaxomicine/vancomycine (ESCMID 2021), sources « SSI 2023 », lopéramide max 12 mg/j, budésonide 9 mg/j, ECCO 2021. |
+
+Contrôles du passage : aucun CNP, CPCM ni PEP VIH ; niveaux 4–5 masqués ; menus longs à 1–3 justes ; `controle_menus_longs.py TOX` et `ORL` → 0 menu fautif, 0 erreur de schéma.
+
+Reste à auditer : aucune. Les 80 pathologies sont auditées.
