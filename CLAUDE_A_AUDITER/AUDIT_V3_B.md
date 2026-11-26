@@ -241,3 +241,20 @@ Contrôles lot 13 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du l
 | T74.3_2__O6_3-E02 | 🟩 | Aucune erreur retenue (≈ 27 % de violences par un partenaire, PHQ-9 / GAD-7 ≥ 10). |
 
 Contrôles lot 14 : 0 menu fautif ; 0 erreur `valider()` sur les 9 pathologies 🟩/🟧 ; T74.1_5 (🟥) reste hors de main.
+
+## Lot 15 — rangs 645 à 654
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| T75.1_1__S8_5-E01 | 🟩 | Aucune erreur retenue (Szpilman grades 1–2, SpO₂ ≥ 95 %, surveillance 4–6 h, O₂ si < 94 %, ERC 2021). |
+| T78.1__O7_7-E03 | 🟧 | Forme : natures « surveillance » remplacées (N59–N61). Corrigé : Q12 (d4 dont la vignette nomme l'anaphylaxie) passée en d3. Aucune erreur médicale retenue (tryptase 30 min–2 h, seuil 20 % + 2 µg/L, alpha-gal 3–6 h). |
+| T79.3__S6_4-E05 | 🟧 | Corrigé (erreur de fond) : Q05 donnait comme juste un rappel antitétanique chez un homme de 40 ans avec plaie souillée et dernier rappel à 7 ans ; selon le tableau 10 du Plan de vaccination suisse 2026 (26–64 ans, plaie à risque : rappel si ≥ 10 ans), aucune dose n'était due. Vignette portée à « 12 ans », distracteur D et « why » alignés, notions N45 et N46 corrigées (seuils par âge). Aucune autre erreur retenue (ISO ≤ 30 j, antibiotique si érythème > 5 cm ou T > 38,5 °C, 5–7 j). |
+| T81.0_1__S8_12-E02 | 🟧 | Corrigé : Q03 (d4 dont la vignette nomme l'hématome) passée en d3. Aucune erreur médicale retenue (BARC 3a, protamine 1 mg/100 UI, résorption 2–3 semaines). |
+| T81.4__O7_9-E03 | 🟩 | Aucune erreur retenue (définitions CDC des ISO, Swissnoso, antibioprophylaxie ≤ 60 min, 120 min pour vancomycine et quinolones). |
+| T88.1__O2_4-E02 | 🟩 | Forme : nature « drapeau rouge » hors énumération remplacée (N19). Aucune erreur médicale retenue (ROR : fièvre 5–15 %, éruption ≈ 5 % ; convulsion à J5–J12 ; nourrisson < 3 mois fébrile → bilan). |
+| T88.5__G8-E02 | 🟩 | Forme : clé « false » retirée (Q16). Aucune erreur médicale retenue (< 36 °C, plage interseuil 0,2 → 4 °C, chute de 1–1,5 °C la première heure). |
+| V89.2__G13-E03 | 🟧 | Corrigé : Q09 et Q11 (d4 dont la vignette nomme l'accident) passées en d3. Aucune erreur médicale retenue : décès à 30 jours (statistique suisse), limites THC 1,5 µg/L et 15 µg/L (cocaïne, morphine, amphétamines), contrôle médical dès 75 ans tous les 2 ans. |
+| W19__G13-E02 | 🟩 | Aucune erreur retenue (lividités et rigidité, acide tranexamique 1 g + 1 g/8 h dans les 3 h, LAA ≥ 8 h/sem., La Main Tendue 143). |
+| X70.0__G13-E01 | 🟩 | Aucune erreur retenue (survivant : 24 h de surveillance, angio-scanner cervical, avis psychiatrique). |
+
+Contrôles lot 15 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
