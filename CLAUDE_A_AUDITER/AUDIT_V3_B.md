@@ -105,3 +105,20 @@ Contrôles lot 5 : `controle_menus_longs.py` RHU, TOX, URO → 0 menu fautif, 0 
 | N93.8__S4_17-E02 | 🟧 | Corrigé : calendrier de dépistage du col obsolète remplacé par l'avis d'experts SSGO n° 50 (frottis tous les 3 ans dès 21 ans), dans 4 passages. Forme : nature « surveillance » (N63) et clé « false » (Q18) corrigées. FIGO 2018 (24–38 j, ≤ 8 j), biopsie ≥ 45 ans, PBAC > 100 conformes. |
 
 Contrôles lot 6 : `controle_menus_longs.py` des spécialités du lot → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage. Source lue : SSGO, avis d'experts n° 50 (sggg.ch).
+
+## Lot 7 — rangs 565 à 574
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| O13__O1_4-E03 | 🟩 | Forme : bloc c8 ramené à 5 points. Aucune erreur médicale retenue : ISSHP 2021 (≥ 140/90 après 20 SA, ≥ 160/110 sévère, PCR ≥ 30 mg/mmol, cible diastolique 85), sFlt-1/PlGF < 38 (Zeisler 2016), aspirine 100–150 mg avant 16 SA, LAMal sans franchise dès la 13e semaine. |
+| O23.4__O1_4-E04 | 🟩 | Aucune erreur retenue (fosfomycine 3 g, nitrofurantoïne évitée à 36–38 SA, ECBU de contrôle, SGB → antibioprophylaxie per-partum). |
+| O26.8_1__O1_7-E05 | 🟩 | Forme : clé « false » retirée (Q17). Aucune erreur médicale retenue (PA devant toute épigastralgie après 20 SA). |
+| O26.8__O1_4-E01 | 🟧 | Forme : priseEnCharge réparée (lot 1). Corrigé : Q12 (d4, vignette sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue (ISSHP 2021, volume plasmatique +40–50 %). |
+| O36.0__F2_17-E01 | 🟩 | Aucune erreur retenue : anti-D 300 µg à 28 SA et dans les 72 h (encore utile au-delà), 300 µg ≈ 15 mL d'hématies fœtales, Doppler ACM dès 16–18 SA. |
+| O36.5__O2_7-E01 | 🟧 | Corrigé : Q16 (d4 qui nomme le RCIU) passée en d3. Aucune erreur médicale retenue (bétaméthasone 12 mg ×2, MgSO₄ < 32 SA, transfert niveau III < 32 SA ou < 1500 g). |
+| O36.8__O2_7-E02 | 🟧 | Corrigé (forme) : le champ « notions » de la correction était une chaîne JSON invalide (6 lignes de tableau ouvertes par « [{ » au lieu de « [[{ ») ; structure reconstruite sans changer le texte ; clé « false » retirée d'une Kprim. Aucune erreur médicale retenue (RCOG 2011, CTG ≥ 20 min dès 28 SA, mort-né ≥ 22 SA ou 500 g, allocation dès 23 semaines). |
+| O47.9__O1_4-E02 | 🟧 | Corrigé : Q13 (d4 qui nomme les contractions irrégulières) passée en d3. Aucune erreur médicale retenue (fibronectine < 50 ng/mL, col < 25 mm, ≥ 4 CU/20 min). |
+| O62.1__O1_5-E01 | 🟧 | Corrigé : Q14 (d4 dont la vignette dit « col stagnant ») passée en d3 non masquée ; Q19 (vignette sans le nom) marquée masquée. Aucune erreur médicale retenue (ACOG/SMFM 2014 : phase active 6 cm, arrêt 4 h/6 h ; carbétocine 100 µg ; suivi sage-femme 56 jours). |
+| O64.0__O1_5-E02 | 🟧 | Corrigé : Q20 (menu long d4 qui nomme la variété postérieure persistante) passée en d3. Aucune erreur médicale retenue (15–20 % / 5 %, 2e phase prolongée 3 h/2 h sous péridurale, ventouse abandonnée après 3 tractions, CI < 34 SA). |
+
+Contrôles lot 7 : `controle_menus_longs.py GYN` → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
