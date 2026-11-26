@@ -156,3 +156,20 @@ Contrôles lot 8 : `controle_menus_longs.py` des spécialités du lot → 0 menu
 | R20.2__S7_9-E05 | 🟧 | Corrigé (forme) : « ssp » de la correction était une chaîne JSON qui avalait priseEnCharge ; structure reconstruite sans changer le texte. Aucune erreur médicale retenue : calcium ionisé 1,15–1,30 mmol/L, Trousseau 3 min, gluconate de calcium 10 % 10–20 mL en 10 min (ESE 2015). |
 
 Contrôles lot 9 : `controle_menus_longs.py` des spécialités du lot → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
+
+## Lot 10 — rangs 595 à 604
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| R23.1__F1_17-E03 | 🟥 | Rejet : la correction produite par l'API est tronquée (« ssp » en chaîne réparé, mais aucune priseEnCharge) et ne passe pas le schéma. Forme réparée sur veille : ssp, clé « false » (Q16), rubriques de c8 réparties. Contenu médical relu sans erreur (seuils OMS de l'anémie, ferritine < 15 µg/L). Reste hors de main. |
+| R25.1__S7_3-E03 | 🟩 | Forme : Q12 (vignette qui nomme le diagnostic) marquée non masquée. Aucune erreur retenue : lithiémie résiduelle à 12 h et toxicité > 1,5 mmol/L, valproatémie 50–100 mg/L, glucose 15–20 g, propranolol 10–40 mg ponctuel. Alerte mécanique de Q11 (« tremblement », symptôme d'appel) : laissée. |
+| R25.3__S7_10-E04 | 🟩 | Forme : bloc c8 ramené à 4 rubriques (deux rubriques déplacées vers c7). Aucune erreur médicale retenue (fasciculations chez ≈ 70 % des adultes sains). |
+| R26.8_1__O3_6-E02 | 🟧 | Corrigé : notion N32 vide (« placeholder », rubrique « diagnostic_placeholder », non utilisée) supprimée ; Q14 (d4, vignette sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue (hypotension orthostatique ≥ 20/10 mmHg à 3 min, appui unipodal < 5 s). |
+| R27.0__S7_1-E03 | 🟧 | Corrigé : Q17 (Kprim d4 qui nomme l'ataxie sensitive) passée en d3. Aucune erreur médicale retenue : hydroxocobalamine 1 mg IM un jour sur deux puis tous les 2 mois, B12 orale 1000–2000 µg, zone grise 150–250 pmol/L, monofilament 10 g. |
+| R29.6__S7_1-E01 | 🟩 | Aucune erreur retenue (30 % / 50 % de chuteurs, TUG > 12–14 s, Tinetti 1988, exercice −23 %, vitamine D 800 UI dès 60 ans). |
+| R47.0__S7_4-E01 | 🟩 | Aucune erreur retenue : altéplase 0,9 mg/kg (max 90 mg, 10 % en bolus) dans les 4,5 h, PA < 185/110 puis < 180/105, AOD < 48 h, INR > 1,7, thrombectomie jusqu'à 24 h selon l'imagerie, Engelter 2006 (30 %). |
+| R47.1__S7_4-E02 | 🟧 | Forme : 77 notions (max. 70) → 7 notions non utilisées fusionnées dans une voisine de même rubrique. Corrigé : Q07 (d4, vignette sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue : riluzole 50 mg ×2/j, IgIV 2 g/kg, règle 20-30-40, décrément > 10 % à 3 Hz. |
+| R49.0_1__S7_4-E03 | 🟥 | Rejet : correction non lisible par le schéma (« notions » en chaîne JSON invalide malgré réparation automatique ; « ssp » réparé). Contenu relu sans erreur (AAO-HNS 2018 : laryngoscopie au-delà de 4 semaines ou d'emblée si alarme). Reste hors de main. |
+| R49.0__S1_3-E02 | 🟧 | Forme : clé « key » hors schéma retirée d'un énoncé (Q11). Corrigé : Q20 (d4, vignette sans le nom de l'entité) marquée masquée. Aucune erreur médicale retenue. |
+
+Contrôles lot 10 : 0 menu fautif ; 0 erreur `valider()` sur les 8 pathologies 🟩/🟧 ; les 2 🟥 (R23.1, R49.0_1) gardent une erreur de schéma et restent hors de main.
