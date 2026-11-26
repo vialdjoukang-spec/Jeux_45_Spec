@@ -277,3 +277,17 @@ Contrôles lot 15 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du l
 Correctif rétroactif (lots 1, 6 et 9) : L29.0__S3_5-E03, N81.6_1__S4_16-E03, R14__S3_2-E01 et R15.9__S3_4-E02 donnaient le dépistage colorectal remboursé « de 50 à 69 ans » ; l'OPAS l'étend à 74 ans depuis le 1.7.2025 (programmes cantonaux). Âge et mention de franchise corrigés et reportés sur main avec ce lot. Le même chiffre obsolète subsiste dans Z12.1__O4_6-E01, Z53.8__O7_11-E03, Z80.9__O4_7-E03 et K57.3__G6-E05 (non encore audités).
 
 Contrôles lot 16 : 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
+
+## Bilan au 26.11.2026 (arrêt de la session AAI)
+
+- Pathologies auditées : 160 (rangs 505 à 664), dont 156 🟩/🟧 portées sur main et 4 🟥 restées hors de main (R23.1__F1_17-E03, R49.0_1__S7_4-E03, R62.8_1__O2_1-E03, T74.1_5__O2_3-E01 : fichiers tronqués ou mal formés, à régénérer).
+- Reste à auditer : 248 pathologies du groupe B (à partir du rang 665, X… à Z… puis les ids hors classement), dans l'ordre de `content/pathologies/RANG_RENDEMENT.json`.
+- Erreurs systématiques repérées, à corriger lors des lots suivants :
+  1. PEP VIH « 72 h » au lieu de 48 h (CFIST 2025) : Z11.3__O6_5-E04, B20_primo_infection_vih___O7_12-E13, T14.9__O6_4-E12, T74.2_2__O2_3-E04, A60.0__S3_5-E16 (vignettes à relire, car certaines réponses dépendent du délai).
+  2. Rappel antitétanique sans l'âge (tableau 10 du Plan de vaccination suisse 2026 : 26–64 ans ≥ 20/≥ 10 ans ; < 26 et ≥ 65 ans ≥ 10/≥ 5 ans) : à rechercher dans toute plaie ou brûlure restante.
+  3. Dépistage colorectal remboursé « 50–69 ans » au lieu de 50–74 ans depuis le 1.7.2025 : Z12.1__O4_6-E01, Z53.8__O7_11-E03, Z80.9__O4_7-E03, K57.3__G6-E05.
+  4. Calendrier du col « deux frottis annuels puis tous les 3 ans » (obsolète, SSGO n° 50).
+  5. Corrections API mal formées (champ en chaîne JSON) qui empêchent la construction de l'arène sur la branche de veille : Z30.0__S4_8-E01, O36.8 réparée, D55.0__F2_16-E17, A60.0__S3_5-E16, R68.3__F1_4-E04, Z63.6__O3_6-E12, R06.4__O7_8-E05, H34.1__S1_2-E11, G10__O7_25-E06, Z56.6__O6_4-E03, E16.2_1__S9_9-E13, O36.8 et R49.0_1 (voir lot 1) ; outils de réparation : `repssp` et reconstruction par `json.loads` après retrait des virgules finales.
+- Outils utilisés (hors dépôt, /home/claude/audB_tools) : audit.py (contrôle mécanique + digest), autofix.py, schema.py, rubbal.py, cap70.py, trim6.py, repssp.py, ccr74.py, fix.py (journal + champ `audit.claude`), porter.sh (portage + contrôles).
+
+Signature : AAI (Anthropic AI)
