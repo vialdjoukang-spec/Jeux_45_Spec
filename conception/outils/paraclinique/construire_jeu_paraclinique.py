@@ -228,22 +228,30 @@ def cliches_pneumonie():
 
 # Chaîne fixée par Vial le 26.11.2026 (PROMPT_VIAL.md, § Ajout du 26.11) : région → organes de la région → modalités d'imagerie de l'organe
 # (groupe par nature, barre perpendiculaire) → examens de la modalité → pathologies de l'organe diagnostiquées par cet examen → fenêtre à deux clichés.
-MODALITES = [("TEP", r"\bTEP\b|\bPET\b|PET-|TEP-"), ("Scintigraphie", r"scintigraph|SPECT|DaTSCAN|MIBG|DMSA|MAG3|HIDA|sestamibi|DOTATATE"),
-             ("IRM", r"\bIRM\b|IRM |-IRM|neurographie"), ("Scanner (TDM)", r"\bCT\b|-CT\b|scanner|TDM|tomodensito|cone beam|cisternograph"),
+# Les neuf types d'imagerie du plan (§ 10, « Imagerie : examens »), dans son ordre ; aucun groupe hors plan.
+MODALITES = [("TEP-CT", r"\bTEP\b|\bPET\b|PET-|TEP-"), ("Scintigraphie", r"scintigraph|SPECT|DaTSCAN|MIBG|DMSA|MAG3|HIDA|sestamibi|DOTATATE"),
+             ("Mammographie", r"mammograph|tomosynth"), ("Ostéodensitométrie", r"DXA|ost[ée]odensito"),
+             ("Angiographie", r"art[ée]riograph|angiograph|coronarograph|DSA|cavograph|phl[ée]bograph|lymphograph|py[ée]lograph"),
+             ("IRM", r"\bIRM\b|IRM |-IRM|neurographie"), ("Scanner (CT)", r"\bCT\b|-CT\b|scanner|TDM|tomodensito|cone beam|cisternograph"),
              ("Échographie et Doppler", r"[ée]cho|doppler|POCUS|eFAST|[ée]lastograph|CEUS"),
-             ("Angiographie et opacifications", r"art[ée]riograph|angiograph|coronarograph|DSA|cavograph|phl[ée]bograph|lymphograph|py[ée]lograph|cath[ée]t[ée]risme"),
-             ("Ostéodensitométrie", r"DXA|ost[ée]odensito"), ("Radiographie", r"radiograph|clich|transit|orthopantomo|mammograph|tomosynth|d[ée]f[ée]cograph|cystograph|ur[ée]trograph|hyst[ée]ros|[âa]ge osseux|bilan radiologique|radioscopie|EOS"),
-             ("Autres imageries", r".")]
-MODCOUL = {"Radiographie": "#475569", "Échographie et Doppler": "#0f766e", "Scanner (TDM)": "#1d4ed8", "IRM": "#7c3aed", "TEP": "#b45309",
-           "Scintigraphie": "#a16207", "Angiographie et opacifications": "#b91c1c", "Ostéodensitométrie": "#5f7f3a", "Autres imageries": "#6b7280"}
+             ("Radiographie", r"radiograph|clich|transit|orthopantomo|d[ée]f[ée]cograph|cystograph|ur[ée]trograph|hyst[ée]ros|[âa]ge osseux|bilan radiologique|radioscopie|EOS")]
+ORDRE_PLAN = ["Radiographie", "Échographie et Doppler", "Scanner (CT)", "IRM", "Scintigraphie", "TEP-CT", "Angiographie", "Mammographie", "Ostéodensitométrie"]
+HORS_PLAN = []
+MODCOUL = {"Radiographie": "#475569", "Échographie et Doppler": "#0f766e", "Scanner (CT)": "#1d4ed8", "IRM": "#7c3aed", "TEP-CT": "#b45309",
+           "Scintigraphie": "#a16207", "Angiographie": "#b91c1c", "Mammographie": "#be185d", "Ostéodensitométrie": "#5f7f3a"}
 MODBUL = {"Radiographie": "Elle superpose les plans mais répond vite, à faible dose, au lit du malade.",
           "Échographie et Doppler": "Elle n'irradie pas et voit les interfaces liquide-solide et les flux, mais dépend de l'opérateur.",
-          "Scanner (TDM)": "Il voit l'os, le sang frais et les organes pleins en coupes fines, au prix d'une irradiation.",
+          "Scanner (CT)": "Il voit l'os, le sang frais et les organes pleins en coupes fines, au prix d'une irradiation.",
           "IRM": "Elle caractérise les tissus mous sans rayons, mais reste longue et peu disponible en urgence.",
-          "TEP": "Elle montre l'activité métabolique d'une lésion, surtout pour stadifier un cancer ou chercher un foyer.",
+          "TEP-CT": "Elle montre l'activité métabolique d'une lésion, surtout pour stadifier un cancer ou chercher un foyer.",
           "Scintigraphie": "Elle mesure la fonction d'un tissu plutôt que sa forme.",
-          "Angiographie et opacifications": "Elle opacifie une lumière (vaisseau, voie urinaire, voie biliaire) et permet souvent un geste dans le même temps.",
-          "Ostéodensitométrie": "Elle mesure la densité minérale osseuse pour poser le diagnostic d'ostéoporose.", "Autres imageries": "Elle complète les modalités principales."}
+          "Angiographie": "Elle opacifie une lumière (vaisseau, voie urinaire, voie biliaire) et permet souvent un geste dans le même temps.",
+          "Ostéodensitométrie": "Elle mesure la densité minérale osseuse pour poser le diagnostic d'ostéoporose.",
+          "Mammographie": "Elle dépiste et caractérise les lésions du sein, avec la classification BI-RADS."}
+NIV = {f[:-5]: lire(os.path.join(P, "niveaux", f)) for f in os.listdir(os.path.join(P, "niveaux"))} if os.path.isdir(os.path.join(P, "niveaux")) else {}
+NIV_ORDRE = ["Première intention", "Examen de référence", "Deuxième intention", "Dépistage", "Stadification", "Orientation : à confirmer", "Diagnostic différentiel"]
+NIV_COUL = {"Première intention": "#15803d", "Examen de référence": "#1d4ed8", "Deuxième intention": "#0e7490", "Dépistage": "#a16207",
+            "Stadification": "#7c3aed", "Orientation : à confirmer": "#c2410c", "Diagnostic différentiel": "#6b7280"}
 
 
 def modalite_de(nom):
@@ -268,13 +276,17 @@ for r, (rnom, mesh, cote, coul) in REG.items():
         ex = [e for e in o["examens"] if e["modalite"] == "Imagerie"]
         par_m = {}
         for e in ex:
-            par_m.setdefault(modalite_de(e["nom"]), []).append(e)
+            m_ = modalite_de(e["nom"])
+            if m_ is None:
+                HORS_PLAN.append(f"{o['nom']} : {e['nom']}"); continue
+            par_m.setdefault(m_, []).append(e)
+        ex = [e for L in par_m.values() for e in L]
         N.append(noeud(oid, "Organe", o["nom"], [rid], ocoul,
                        {"def": f"L'organe « {o['nom']} » s'explore par {len(ex)} examens d'imagerie, rangés en {len(par_m)} modalités.",
                         "pourquoi": "L'organe est la cible de l'investigation : tu choisis ensuite la modalité qui répond à ta question.",
-                        "confusion": "Aucune confusion fréquente.", "retenir": "Modalités : " + ", ".join(m for m, _ in MODALITES if m in par_m) + "."},
+                        "confusion": "Aucune confusion fréquente.", "retenir": "Modalités : " + ", ".join(m for m in ORDRE_PLAN if m in par_m) + "."},
                        "region", type="Organe", fiche=o["stem"]))
-        for m in [m for m, _ in MODALITES if m in par_m]:
+        for m in [m for m in ORDRE_PLAN if m in par_m]:
             mid = f"{oid}__m{cle(m)[:16]}"; L_ = par_m[m]
             N.append(noeud(mid, "Modalité", m, [oid], MODCOUL[m],
                            {"def": f"La modalité « {m} » offre {len(L_)} examen{'s' if len(L_) > 1 else ''} pour cet organe.",
@@ -287,20 +299,48 @@ for r, (rnom, mesh, cote, coul) in REG.items():
                 N.append(noeud(eid, "Examen", e["nom"], [mid], "#2a9d8f" if b.get("pourquoi") else "#9aa2b4", b, "examen",
                                type="Examen" if b.get("pourquoi") else "Examen · à produire", exRef=e["id"], fiche=o["stem"], aRediger=None if b.get("pourquoi") else True))
                 ref = [sans_accent(x)[:18] for x in e.get("referencePour") or []]
+                tab = next((v for k_, v in (NIV.get(o["stem"]) or {}).items() if not k_.startswith("_") and sans_accent(e["nom"]).startswith(sans_accent(k_))), None)
                 for p in (e.get("pathologiesAssociees") or [])[:7]:
-                    pid = f"{eid}__{cle(p['pathologie'])[:30]}"
+                    parent = eid; niv = None
+                    if tab:
+                        niv = tab.get(p["pathologie"])
+                        assert niv, f"niveau manquant : {e['nom']} / {p['pathologie']}"
+                        parent = f"{eid}__n{cle(niv[0])[:14]}"
+                        if parent not in {x["id"] for x in N}:
+                            N.append(noeud(parent, "Niveau", niv[0], [eid], NIV_COUL[niv[0]],
+                                           {"def": f"Ce groupe réunit les pathologies pour lesquelles cet examen intervient au niveau « {niv[0].lower()} ».",
+                                            "pourquoi": "Le niveau d'indication te dit si tu demandes cet examen d'emblée, pour trancher, pour dépister, pour stadifier ou seulement pour orienter.",
+                                            "confusion": "Un examen qui oriente ne confirme pas : un autre examen tranche ensuite.",
+                                            "retenir": "Les niveaux suivent l'ordre : première intention, référence, deuxième intention, dépistage, stadification, orientation, diagnostic différentiel."},
+                                           "examen", type="Niveau d'indication", ordre=NIV_ORDRE.index(niv[0])))
+                    pid = f"{parent}__{cle(p['pathologie'])[:30]}"
                     if any(x["id"] == pid for x in N):
                         continue
                     bp = bulle_patho(p, e)
                     bd = bulle_diag(p["pathologie"], bp.get("signe"), bp.get("syndrome"), bp.get("retenir"), e["nom"])
                     gold = any(x and x in sans_accent(p["pathologie"]) for x in ref)
-                    pn = noeud(pid, "Pathologie", p["pathologie"], [eid], "#d64545", bd, "diag", type="Pathologie · examen de référence" if gold else "Pathologie", exRef=e["id"])
+                    if niv:
+                        bd = dict(bd, retenir=niv[1], source=niv[2])
+                    pn = noeud(pid, "Pathologie", p["pathologie"], [parent], "#d64545", bd, "diag", type="Pathologie" if niv else ("Pathologie · examen de référence" if gold else "Pathologie"), exRef=e["id"], signe=p.get("anomalieTypique"))
                     if o["stem"] == "poumons_et_voies_aeriennes" and cle(court(e["nom"], 80)) == "radiographie_thoracique" and "pneumonie" in cle(p["pathologie"]):
                         pn["cliches"] = cliches_pneumonie(); pn["bulle"] = dict(bd, **PIL["p1"])  # infobulle validée du pilote
                     else:
                         pn["clichesAProduire"] = True
                     N.append(pn)
+_nv = {}
+for x in N:
+    if x["nature"] == "Niveau":
+        _nv.setdefault(x["de"][0], []).append(x)
+_vus, _N2 = set(), []
+for x in N:
+    if x["nature"] == "Niveau":
+        if x["de"][0] not in _vus:
+            _vus.add(x["de"][0]); _N2 += sorted(_nv[x["de"][0]], key=lambda y: y["ordre"])
+    else:
+        _N2.append(x)
+N = _N2
 IMG = N
+print('hors plan (exclus de l\'Imagerie) :', len(HORS_PLAN), HORS_PLAN)
 
 # ---------------------------------------------------------------- 2. BIOLOGIE : prélèvement → examens → interprétation, calculs, critères → diagnostics → traitement
 PREL = {p: lire(os.path.join(P, "biologie", "prelevements", p + ".json")) for p in

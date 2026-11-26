@@ -14,7 +14,11 @@ err, bilan = [], {}
 
 SCENES = [  # (nom, hash, script exécuté après le chargement) — chaînes du prompt de Vial (PROMPT_VIAL.md)
     ("0_accueil_imagerie", "onglet=imagerie", ""),
-    ("1_imagerie_thorax_pneumonie", "onglet=imagerie", "const o='im_r4__poumons_et_voies_aeriennes';const m=J.etat.N.find(n=>n.de[0]===o&&n.texte==='Radiographie');const e=J.etat.N.find(n=>n.de[0]===m.id&&/thoracique/.test(n.texte));const p=J.etat.N.find(n=>n.de[0]===e.id&&/neumonie/.test(n.texte));J.ouvrirChemin(['im_r4',o,m.id,e.id,p.id]);"),
+    ("P1_poumons_modalites", "onglet=imagerie", "J.ouvrirChemin(['im_r4','im_r4__poumons_et_voies_aeriennes']);"),
+    ("P2_poumons_rx_niveaux", "onglet=imagerie", "const o='im_r4__poumons_et_voies_aeriennes';const m=J.etat.N.find(n=>n.de[0]===o&&n.texte==='Radiographie');const e=J.etat.N.find(n=>n.de[0]===m.id);const v=J.etat.N.filter(n=>n.de[0]===e.id);J.ouvrirChemin(['im_r4',o,m.id,e.id,...v.map(n=>n.id)]);"),
+    ("P3_poumons_ct_hr", "onglet=imagerie", "const o='im_r4__poumons_et_voies_aeriennes';const m=J.etat.N.find(n=>n.de[0]===o&&/Scanner/.test(n.texte));const e=J.etat.N.find(n=>n.de[0]===m.id&&/haute/.test(n.texte));const v=J.etat.N.filter(n=>n.de[0]===e.id);J.ouvrirChemin(['im_r4',o,m.id,e.id,...v.map(n=>n.id)]);"),
+    ("P4_poumons_scinti", "onglet=imagerie", "const o='im_r4__poumons_et_voies_aeriennes';const m=J.etat.N.find(n=>n.de[0]===o&&/Scintigraphie/.test(n.texte));const e=J.etat.N.find(n=>n.de[0]===m.id);const v=J.etat.N.filter(n=>n.de[0]===e.id);J.ouvrirChemin(['im_r4',o,m.id,e.id,...v.map(n=>n.id)]);"),
+    ("1_imagerie_thorax_pneumonie", "onglet=imagerie", "const o='im_r4__poumons_et_voies_aeriennes';const m=J.etat.N.find(n=>n.de[0]===o&&n.texte==='Radiographie');const e=J.etat.N.find(n=>n.de[0]===m.id&&/thoracique/.test(n.texte));const v=J.etat.N.find(n=>n.de[0]===e.id&&/Premi/.test(n.texte));const p=J.etat.N.find(n=>n.de[0]===v.id&&/neumonie/.test(n.texte));J.ouvrirChemin(['im_r4',o,m.id,e.id,v.id,p.id]);"),
     ("2_imagerie_abdomen", "onglet=imagerie", "const o='im_r5__foie';const m=J.etat.N.find(n=>n.de[0]===o&&/chograph/.test(n.texte));const e=J.etat.N.find(n=>n.de[0]===m.id);J.ouvrirChemin(['im_r5',o,m.id,e.id]);"),
     ("2b_imagerie_pelvis", "onglet=imagerie", "J.ouvrirChemin(['im_r6']);"),
     ("2c_imagerie_pelvis_organe", "onglet=imagerie", "const o=J.etat.N.find(n=>n.de[0]==='im_r6'&&/ut[ée]rus/i.test(n.texte));J.ouvrirChemin(['im_r6',o.id]);"),
