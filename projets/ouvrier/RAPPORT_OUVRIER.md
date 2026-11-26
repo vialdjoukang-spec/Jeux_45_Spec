@@ -1,9 +1,7 @@
-# Ouvrier automatique — 2026-11-26 04:19 UTC
+# Ouvrier automatique — 2026-11-26 04:20 UTC
 
-Dernier passage : **V3B_N_lot** → fait (0.00 USD).
+Dernier passage : **V3B_N_recup** → en_cours (0.00 USD).
 
-notions : 408 entité(s) à produire.
-lot msgbatch_01EzF3pvSUho8BXkuotRGB3n
 
 
 **Crédit** : 22.31 USD dépensés, 127.69 USD disponibles avant le 31.01.2027 ; aujourd'hui 21.96 / 149.65 USD.
@@ -56,7 +54,7 @@ lot msgbatch_01EzF3pvSUho8BXkuotRGB3n
 | V2_C_recup | fait | 10 | 0.0 |
 | AUDIT_V2_A | fait | 8 | 1.908 |
 | V3B_N_lot | fait | 1 | 0.0 |
-| V3B_N_recup | a_faire | 0 |  |
+| V3B_N_recup | en_cours | 1 | 0.0 |
 | V3B_Q_lot | a_faire | 0 |  |
 | V3B_Q_recup | a_faire | 0 |  |
 | V3B_C_lot | a_faire | 0 |  |
