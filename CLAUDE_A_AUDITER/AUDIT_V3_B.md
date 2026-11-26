@@ -122,3 +122,20 @@ Contrôles lot 6 : `controle_menus_longs.py` des spécialités du lot → 0 menu
 | O64.0__O1_5-E02 | 🟧 | Corrigé : Q20 (menu long d4 qui nomme la variété postérieure persistante) passée en d3. Aucune erreur médicale retenue (15–20 % / 5 %, 2e phase prolongée 3 h/2 h sous péridurale, ventouse abandonnée après 3 tractions, CI < 34 SA). |
 
 Contrôles lot 7 : `controle_menus_longs.py GYN` → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
+
+## Lot 8 — rangs 575 à 584
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| O70.1__O1_2-E03 | 🟧 | Corrigé : Q12 (d4 qui nomme la déchirure du 2e degré) passée en d3. Aucune erreur médicale retenue (RCOG GTG 29 : 3a/3b/3c/4 ; miction dans les 6 h ; sage-femme 56 jours ; LAMal maternité). |
+| O80.0__O1_2-E01 | 🟩 | Aucune erreur retenue : terme 37+0–41+6, phase active 5 cm (OMS) / 6 cm (ACOG), SGB 35–37 SA, ocytocine 5 UI IV ou 10 UI IM, délivrance ≤ 30 min, anti-D 300 µg, vitamine K 2 mg à J0, J4 et S4 (SSP). |
+| O92.1__O1_6-E02 | 🟧 | Corrigé (forme) : « ssp » de la correction était une chaîne mal formée (« ">» à la place de « ": ») ; structure reconstruite sans changer le texte. Aucune erreur médicale retenue (paracétamol, ibuprofène compatibles, mupirocine 2 %, ABM #26). |
+| O92.4__O1_6-E03 | 🟩 | Aucune erreur retenue (perte ≤ 7–10 %, prise 20–30 g/j, lactogenèse II à 30–72 h, 8–12 tétées/24 h, natrémie > 145 mmol/L). |
+| O92.7__O1_6-E01 | 🟩 | Aucune erreur retenue (ABM protocole 20 : 8–12 tétées, pression inverse, fébricule < 38,5 °C < 24 h). |
+| O99.1__F2_25-E03 | 🟧 | Corrigé (forme) : champ « notions » de la correction en chaîne JSON invalide (code JavaScript dans une cellule) reconstruit ; rubrique nulle de N35 remplacée par positiveDiagnosis. Aucune erreur médicale retenue : < 150 G/L, rarement < 70 G/L, HELLP selon Tennessee (≤ 100 G/L, ASAT ≥ 70, LDH ≥ 600), neuraxiale sûre ≥ 70 G/L. |
+| Q87.4_1__O7_23-E03 | 🟧 | Corrigé : Q12, Q13 et Q16 (d4 qui nomment le syndrome de Marfan) passées en d3. Aucune erreur médicale retenue (25 % de novo, Gand révisée, surveillance annuelle). |
+| R03.0__F1_1-E03 | 🟩 | Forme : « arbre » manquant ajouté (c4). Aucune erreur médicale retenue : ESH 2023 (MAPA < 130/80, jour < 135/85, nuit < 120/70 ; automesure < 135/85 ; MAPA valide ≥ 70 %). |
+| R04.0__S1_5-E01 | 🟧 | Forme : trois Kprim portaient 5 énoncés (maximum 4) ; un énoncé redondant retiré de chacune (Q16, Q17 : vrai ; Q18 : faux sur l'antibiothérapie, déjà traité en N40). Aucune erreur médicale retenue (AAO-HNSF 2020 : 90 % antérieures, 60 %/6 %, compression 10–15 min). |
+| R06.0__O5_3-E02 | 🟩 | Aucune erreur retenue : morphine 2,5–5 mg PO /4 h chez le naïf, SC à 1/2–1/3 de la dose orale, midazolam 1–2,5 mg SC en complément (ASCO 2021). |
+
+Contrôles lot 8 : `controle_menus_longs.py` des spécialités du lot → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot ; arène et test sans écran sur la branche de portage.
