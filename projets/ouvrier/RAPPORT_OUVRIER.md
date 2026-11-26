@@ -1,6 +1,6 @@
 # Ouvrier automatique — 2026-11-26 04:41 UTC
 
-Dernier passage : **V3B_C_recup** → en_cours (0.00 USD).
+Dernier passage : **V3B_C_recup** → bloque (0.00 USD).
 
 Traceback (most recent call last):
   File "/home/runner/work/Jeux_45_Spec/Jeux_45_Spec/scripts/couverture_notions.py", line 15, in <module>
@@ -63,7 +63,7 @@ AttributeError: 'str' object has no attribute 'get'
 | V3B_Q_lot | fait | 1 | 0.0 |
 | V3B_Q_recup | fait | 20 | 0.0 |
 | V3B_C_lot | fait | 1 | 0.0 |
-| V3B_C_recup | en_cours | 2 | 0.0 |
+| V3B_C_recup | bloque | 3 | 0.0 |
 | V3C_N_lot | a_faire | 0 |  |
 | V3C_N_recup | a_faire | 0 |  |
 | V3C_Q_lot | a_faire | 0 |  |
