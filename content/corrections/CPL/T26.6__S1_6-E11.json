@@ -1,0 +1,1339 @@
+{
+ "id": "T26.6__S1_6-E11",
+ "portes": [
+  {
+   "ssp": "S1.6",
+   "nomSSP": "Blépharospasme",
+   "entite": "Brûlure oculaire chimique (base ou acide) avec blépharospasme incoercible",
+   "entiteId": "S1.6-E11"
+  },
+  {
+   "ssp": "S8.2",
+   "nomSSP": "Brûlures, lésions dues au froid",
+   "entite": "Brûlure chimique oculaire aiguë",
+   "entiteId": "S8.2-E16"
+  }
+ ],
+ "entite": "Brûlure chimique oculaire aiguë",
+ "cim10": "T26.6",
+ "ssp": {
+  "code": "S8.2",
+  "nom": "Brûlures, lésions dues au froid",
+  "officiel": true,
+  "algorithme": [
+   {
+    "id": "n1",
+    "parent": null,
+    "t": "Patient présente une brûlure ou une lésion due au froid",
+    "i": "Porte d'entrée du SSP S8.2 : le mécanisme et la région atteinte orientent d'emblée la suite.",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n2",
+    "parent": "n1",
+    "t": "L'agent est-il une projection chimique sur l'œil ?",
+    "i": "La projection oculaire est une urgence ophtalmologique absolue, qui passe avant tout examen.",
+    "pec": null,
+    "notion": "c1"
+   },
+   {
+    "id": "n3",
+    "parent": "n1",
+    "t": "Autre mécanisme : thermique, électrique, froid, inhalation",
+    "i": "Hors de cette entité ; renvoie aux autres entités du SSP S8.2 (brûlure cutanée, électrique, gelure, voies aériennes).",
+    "pec": null,
+    "notion": null
+   },
+   {
+    "id": "n4",
+    "parent": "n2",
+    "t": "Laver l'œil immédiatement, avant tout examen",
+    "i": "Le délai avant lavage est le principal facteur pronostique.",
+    "pec": "lavage_urgent",
+    "notion": "c7"
+   },
+   {
+    "id": "n5",
+    "parent": "n4",
+    "t": "Produit inconnu ou acide fluorhydrique : appeler le 145",
+    "i": "Tox Info Suisse conseille sur le risque toxique, sans interrompre le lavage.",
+    "pec": "lavage_urgent",
+    "notion": "c1"
+   },
+   {
+    "id": "n6",
+    "parent": "n4",
+    "t": "pH conjonctival 5 à 10 min après arrêt : 7,0 à 7,4 ?",
+    "i": "Un pH hors cible signe du produit résiduel ou un relargage.",
+    "pec": null,
+    "notion": "c6"
+   },
+   {
+    "id": "n7",
+    "parent": "n6",
+    "t": "Non : reprendre le lavage, éversion et balayage des culs-de-sac",
+    "i": "Retire les particules de chaux ou de ciment qui libèrent la base.",
+    "pec": "lavage_urgent",
+    "notion": "c7"
+   },
+   {
+    "id": "n8",
+    "parent": "n6",
+    "t": "Oui : lampe à fente, fluorescéine, pression, acuité",
+    "i": "Classe l'atteinte selon Roper-Hall et détecte une pénétration intraoculaire.",
+    "pec": null,
+    "notion": "c5"
+   },
+   {
+    "id": "n9",
+    "parent": "n8",
+    "t": "Grade I–II sans atteinte de chambre antérieure",
+    "i": "Cornée claire ou détails de l'iris visibles, ischémie < 1/3 : suivi ambulatoire possible.",
+    "pec": "ambulatoire_grade_I_II",
+    "notion": "c5"
+   },
+   {
+    "id": "n10",
+    "parent": "n8",
+    "t": "Grade III–IV, ou uvéite, hypertonie, trouble du cristallin",
+    "i": "Ischémie ≥ 1/3 ou pénétration intraoculaire : hospitalisation en ophtalmologie.",
+    "pec": "hospitalisation_grade_III_IV",
+    "notion": "c5"
+   },
+   {
+    "id": "n11",
+    "parent": "n1",
+    "t": "Blépharospasme incoercible sans mécanisme clair (S1.6)",
+    "i": "Chercher une projection chimique à l'anamnèse ; si confirmée, retour au lavage immédiat.",
+    "pec": null,
+    "notion": "c4"
+   }
+  ]
+ },
+ "specialites": [
+  "CPL"
+ ],
+ "circuit": "MONOGRAPHIQUE",
+ "theme": "Brûlure chimique oculaire aiguë",
+ "notions": [
+  {
+   "id": "c1",
+   "titre": "Agents corrosifs : bases, acides et exception de l'acide fluorhydrique",
+   "rubriques": [
+    "definition"
+   ],
+   "comment": "Identifie d'abord la nature du produit, car une base ou l'acide fluorhydrique pénètre en profondeur alors qu'un acide ordinaire reste plus superficiel.",
+   "tableau": {
+    "colonnes": [
+     "Classe",
+     "Exemples",
+     "Mécanisme",
+     "Gravité / particularité"
+    ],
+    "lignes": [
+     [
+      "Base forte",
+      [
+       {
+        "t": "Soude, chaux, ciment, déboucheurs",
+        "i": "Accidents de chantier et domestiques les plus fréquents ; la chaux et le ciment laissent en plus des particules dans les culs-de-sac."
+       }
+      ],
+      [
+       {
+        "t": "Saponification des lipides membranaires, nécrose de liquéfaction",
+        "i": "Détruit les membranes cellulaires et laisse le produit diffuser vers le stroma ; l'acide, lui, coagule."
+       }
+      ],
+      [
+       {
+        "t": "Pénètre la chambre antérieure en quelques minutes",
+        "i": "Explique l'urgence du lavage et les atteintes du limbe, de l'iris et du cristallin."
+       }
+      ]
+     ],
+     [
+      "Base forte",
+      [
+       {
+        "t": "Ammoniaque",
+        "i": "Base très liposoluble utilisée comme produit ménager et industriel."
+       }
+      ],
+      [
+       {
+        "t": "Nécrose de liquéfaction ultra-rapide",
+        "i": "Sa liposolubilité la fait traverser la cornée plus vite que les autres bases."
+       }
+      ],
+      [
+       {
+        "t": "Atteint la chambre antérieure en quelques secondes",
+        "i": "Le lavage sur place décide du pronostic, car le transfert est déjà trop tardif."
+       }
+      ]
+     ],
+     [
+      "Acide",
+      [
+       {
+        "t": "Détartrants, acides de batterie ou de piscine",
+        "i": "Plus souvent domestiques ; l'atteinte reste plus superficielle qu'avec une base."
+       }
+      ],
+      [
+       {
+        "t": "Nécrose de coagulation",
+        "i": "Les protéines précipitées forment une barrière qui limite la pénétration, contrairement aux bases."
+       }
+      ],
+      [
+       {
+        "t": "Moins profond, mais lavage tout aussi urgent",
+        "i": "Un acide concentré peut quand même détruire le limbe ; ne jamais conclure à la bénignité sans pH ni lampe à fente."
+       }
+      ]
+     ],
+     [
+      "Acide, exception",
+      [
+       {
+        "t": "Acide fluorhydrique",
+        "i": "Industriel (verre, métal, nettoyants), rare mais piégeant à l'examen."
+       }
+      ],
+      [
+       {
+        "t": "Pénètre les tissus comme une base",
+        "i": "Le fluorure diffuse en profondeur, ce qui échappe à la règle « acide = superficiel »."
+       }
+      ],
+      [
+       {
+        "t": "Lésions profondes : appeler Tox Info Suisse (145)",
+        "i": "Une toxicité systémique est possible ; seul un avis toxicologique guide les mesures supplémentaires."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Base plus grave qu'acide, sauf acide fluorhydrique.",
+    "Ammoniaque : chambre antérieure atteinte en quelques secondes.",
+    "Produit inconnu : Tox Info Suisse au 145."
+   ],
+   "sources": [
+    "Tox Info Suisse",
+    "Dua, Br J Ophthalmol 2001"
+   ]
+  },
+  {
+   "id": "c2",
+   "titre": "Épidémiologie, contexte suisse et assurances",
+   "rubriques": [
+    "epidemiology",
+    "followUpNetwork"
+   ],
+   "comment": "Replace l'accident dans son contexte (chantier ou domicile), car il détermine le public touché, l'assureur compétent et la prévention.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Les brûlures chimiques représentent environ 10 à 20 % des traumatismes oculaires, surtout chez l'homme jeune.",
+    "Chantier et industrie : l'accident relève de la LAA, déclaré à la Suva ou à l'assureur LAA de l'employeur.",
+    "Domicile : déboucheurs, lessives, eau de Javel ; l'enfant est touché, notamment par les capsules de lessive.",
+    "Tout patient voit l'ophtalmologue le jour même, même si l'œil paraît peu atteint après lavage."
+   ],
+   "sources": [
+    "LAA / Suva",
+    "Tox Info Suisse"
+   ]
+  },
+  {
+   "id": "c3",
+   "titre": "Physiopathologie : de la pénétration à l'insuffisance limbique",
+   "rubriques": [
+    "basicSciences"
+   ],
+   "comment": "Relie chaque structure atteinte à sa conséquence clinique, car elle explique les signes, les complications et la durée de la surveillance.",
+   "tableau": {
+    "colonnes": [
+     "Structure atteinte",
+     "Mécanisme",
+     "Conséquence clinique"
+    ],
+    "lignes": [
+     [
+      "Épithélium et stroma cornéens",
+      [
+       {
+        "t": "Nécrose de liquéfaction (base) ou de coagulation (acide)",
+        "i": "Le type de nécrose détermine la profondeur : la base diffuse, l'acide forme une barrière protéique."
+       }
+      ],
+      [
+       {
+        "t": "Défect épithélial, œdème et trouble stromal",
+        "i": "Visibles à la fluorescéine ; un défect qui persiste annonce une fonte stromale."
+       }
+      ]
+     ],
+     [
+      "Cellules souches limbiques",
+      [
+       {
+        "t": "Destruction par la base en quelques minutes",
+        "i": "Le limbe est la seule source de renouvellement de l'épithélium cornéen."
+       }
+      ],
+      [
+       {
+        "t": "Insuffisance limbique, conjonctivalisation, néovascularisation",
+        "i": "Sans cellules souches, la conjonctive recouvre la cornée, qui devient vascularisée et opaque ; la greffe limbique devient alors nécessaire."
+       }
+      ]
+     ],
+     [
+      "Vaisseaux limbiques",
+      [
+       {
+        "t": "Occlusion vasculaire",
+        "i": "Provoque le limbe blanc et exsangue, marqueur direct de l'ischémie."
+       }
+      ],
+      [
+       {
+        "t": "Ischémie limbique : signe de gravité majeur",
+        "i": "Plus l'ischémie est étendue, plus la cicatrisation est mauvaise ; c'est le critère central de Roper-Hall."
+       }
+      ]
+     ],
+     [
+      "Chambre antérieure, trabéculum, cristallin",
+      [
+       {
+        "t": "Rétraction du collagène, prostaglandines, pénétration de l'agent",
+        "i": "La contraction du collagène et les prostaglandines élèvent la pression intraoculaire ; la base fait aussi irriter l'uvée et le cristallin."
+       }
+      ],
+      [
+       {
+        "t": "Hypertonie précoce, uvéite, cataracte, glaucome secondaire",
+        "i": "Justifie la mesure de la pression intraoculaire et le traitement hypotonisant."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "La base détruit le limbe ; la cornée ne se re-épithélialise plus.",
+    "Le limbe blanc est le signe de gravité majeur.",
+    "Le glaucome et la cataracte viennent de l'atteinte de la chambre antérieure."
+   ],
+   "sources": [
+    "Dua, Br J Ophthalmol 2001",
+    "Roper-Hall 1965"
+   ]
+  },
+  {
+   "id": "c4",
+   "titre": "Anamnèse et examen clinique",
+   "rubriques": [
+    "anamnesis",
+    "clinicalExam"
+   ],
+   "comment": "Interroge pendant le lavage et n'examine qu'après lui, en cherchant l'ischémie limbique et les particules résiduelles.",
+   "tableau": null,
+   "arbre": null,
+   "points": [
+    "Anamnèse : nature, concentration et volume du produit, étiquette ou fiche de sécurité, lentilles (à retirer), délai et durée du lavage déjà fait.",
+    "Le délai avant lavage et la durée du lavage sur place sont les facteurs pronostiques anamnestiques majeurs.",
+    "Signes : douleur, blépharospasme incoercible, larmoiement, photophobie ; l'anesthésique topique permet l'examen.",
+    "Examen : hyperhémie, chémosis, défect épithélial, trouble cornéen ; éversion des paupières pour rechercher des particules de chaux ou de ciment.",
+    "Rechercher une brûlure cutanée palpébrale associée."
+   ],
+   "sources": [
+    "Roper-Hall 1965",
+    "Tox Info Suisse"
+   ]
+  },
+  {
+   "id": "c5",
+   "titre": "Signes de gravité et classification de Roper-Hall et de Dua",
+   "rubriques": [
+    "presumptionRedFlags",
+    "positiveDiagnosis"
+   ],
+   "comment": "Classe l'atteinte selon la transparence cornéenne et l'ischémie limbique, car le grade décide de l'hospitalisation et du pronostic.",
+   "tableau": {
+    "colonnes": [
+     "Grade de Roper-Hall",
+     "Cornée",
+     "Ischémie limbique",
+     "Pronostic et orientation"
+    ],
+    "lignes": [
+     [
+      "I",
+      [
+       {
+        "t": "Épithélium atteint, cornée claire",
+        "i": "Aucune atteinte stromale : l'œil cicatrise sans séquelle."
+       }
+      ],
+      [
+       {
+        "t": "Absente",
+        "i": "Pas de destruction des cellules souches limbiques."
+       }
+      ],
+      [
+       {
+        "t": "Excellent, ambulatoire avec contrôle à 24 h",
+        "i": "Le risque de fonte ou de conjonctivalisation est négligeable."
+       }
+      ]
+     ],
+     [
+      "II",
+      [
+       {
+        "t": "Cornée trouble, détails de l'iris visibles",
+        "i": "Le stroma est touché de façon superficielle."
+       }
+      ],
+      [
+       {
+        "t": "Moins d'un tiers du limbe",
+        "i": "Le limbe restant suffit à recouvrir la cornée."
+       }
+      ],
+      [
+       {
+        "t": "Bon, ambulatoire avec contrôle à 24 h",
+        "i": "Sous traitement, la ré-épithélialisation reste le plus souvent complète."
+       }
+      ]
+     ],
+     [
+      "III",
+      [
+       {
+        "t": "Perte épithéliale totale, stroma trouble, iris peu visible",
+        "i": "L'atteinte profonde menace la fonte stromale."
+       }
+      ],
+      [
+       {
+        "t": "Un tiers à la moitié du limbe",
+        "i": "L'insuffisance limbique partielle devient probable."
+       }
+      ],
+      [
+       {
+        "t": "Réservé, hospitalisation en ophtalmologie",
+        "i": "Surveillance de la pression, de l'épithélialisation et risque de fonte nécessitent un suivi rapproché."
+       }
+      ]
+     ],
+     [
+      "IV",
+      [
+       {
+        "t": "Cornée opaque « porcelaine », iris et pupille masqués",
+        "i": "Signe de destruction très profonde, souvent par une base forte."
+       }
+      ],
+      [
+       {
+        "t": "Plus de la moitié du limbe",
+        "i": "Aucune régénération épithéliale fiable n'est possible."
+       }
+      ],
+      [
+       {
+        "t": "Très mauvais, cécité fonctionnelle fréquente, hospitalisation",
+        "i": "La reconstruction chirurgicale (membrane amniotique, greffe limbique) est souvent nécessaire."
+       }
+      ]
+     ],
+     [
+      "Dua I à VI",
+      [
+       {
+        "t": "Limbe en heures d'horloge et conjonctive atteinte en %",
+        "i": "Mesure plus fine que Roper-Hall, qui ne distingue pas bien les atteintes limbiques intermédiaires."
+       }
+      ],
+      [
+       {
+        "t": "Du grade I (≤ 3 h) au VI (limbe entier)",
+        "i": "Plus l'étendue limbique augmente, plus le pronostic se dégrade."
+       }
+      ],
+      [
+       {
+        "t": "Grade VI : pronostic très mauvais",
+        "i": "Le limbe entier est détruit."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Œil blanc et peu douloureux après projection de base : ne rassure pas, il évoque une ischémie et une destruction nerveuse.",
+    "pH conjonctival > 7,4 malgré un lavage prolongé : produit résiduel ou pénétration profonde, donc poursuivre le lavage.",
+    "Uvéite, hypertonie ou trouble du cristallin : pénétration intraoculaire, typique d'une base forte ou de l'ammoniaque.",
+    "Diagnostic différentiel : kératite actinique, abrasion, conjonctivite, glaucome aigu ; l'anamnèse de projection tranche."
+   ],
+   "sources": [
+    "Roper-Hall 1965",
+    "Dua, Br J Ophthalmol 2001"
+   ]
+  },
+  {
+   "id": "c6",
+   "titre": "Bilan : pH, lampe à fente et examens inutiles",
+   "rubriques": [
+    "workupGoldStandard",
+    "workupAlternatives"
+   ],
+   "comment": "Mesure le pH sans retarder le lavage, puis complète après lavage par la lampe à fente, la pression et l'acuité, sans bilan biologique.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Patient avec projection chimique oculaire",
+     "i": "Le lavage précède tout examen et toute mesure d'acuité.",
+     "pec": "lavage_urgent",
+     "notion": "c7"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Papier pH du cul-de-sac à l'arrivée",
+     "i": "Confirme le caractère corrosif sans retarder le lavage.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Laver, arrêter 5 à 10 min, remesurer le pH",
+     "i": "Un pH qui remonte révèle un relargage du produit depuis les culs-de-sac.",
+     "pec": "lavage_urgent",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n3",
+     "t": "pH entre 7,0 et 7,4 : lampe à fente avec fluorescéine",
+     "i": "Évalue le défect épithélial, la transparence cornéenne, l'ischémie limbique et la chambre antérieure.",
+     "pec": null,
+     "notion": "c5"
+    },
+    {
+     "id": "n5",
+     "parent": "n4",
+     "t": "Mesurer la pression intraoculaire et l'acuité visuelle",
+     "i": "La pression peut s'élever précocement ; l'acuité sert de référence au suivi.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n4",
+     "t": "Atteinte profonde suspectée : test de Seidel",
+     "i": "Recherche une perforation ou une fuite d'humeur aqueuse.",
+     "pec": "hospitalisation_grade_III_IV",
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n1",
+     "t": "Pas de prise de sang ni d'imagerie systématique",
+     "i": "Aucun examen biologique n'aide au diagnostic ni à la décision ; l'OCT du segment antérieur reste facultatif en urgence.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n8",
+     "parent": "n7",
+     "t": "Traumatisme associé : imagerie orbitaire",
+     "i": "Utile seulement en cas de suspicion de corps étranger intraoculaire ou de lésion orbitaire.",
+     "pec": null,
+     "notion": null
+    }
+   ],
+   "points": [
+    "pH neutre visé : 7,0 à 7,4.",
+    "Acuité visuelle après le lavage, jamais avant.",
+    "Aucun examen biologique nécessaire pour une brûlure oculaire isolée."
+   ],
+   "sources": [
+    "Roper-Hall 1965",
+    "Dua, Br J Ophthalmol 2001"
+   ]
+  },
+  {
+   "id": "c7",
+   "titre": "Prise en charge aiguë : lavage immédiat",
+   "rubriques": [
+    "acuteManagement"
+   ],
+   "comment": "Lave tout de suite et longuement, sans chercher de neutralisant, avant tout examen ou transfert.",
+   "tableau": null,
+   "arbre": [
+    {
+     "id": "n1",
+     "parent": null,
+     "t": "Laver sur les lieux avec l'eau disponible",
+     "i": "Chaque minute gagnée avant le transfert limite la destruction du limbe ; l'eau du robinet suffit si aucun soluté n'est disponible.",
+     "pec": "lavage_urgent",
+     "notion": "c7"
+    },
+    {
+     "id": "n2",
+     "parent": "n1",
+     "t": "Aux urgences : NaCl 0,9 % ou Ringer lactate en continu",
+     "i": "Irrigation d'au moins 15 à 30 min, plusieurs litres, jusqu'à pH neutre.",
+     "pec": "lavage_urgent",
+     "notion": null
+    },
+    {
+     "id": "n3",
+     "parent": "n2",
+     "t": "Instiller un anesthésique topique",
+     "i": "L'oxybuprocaïne ou la proxymétacaïne réduit le blépharospasme et rend le lavage possible ; une lentille de Morgan aide.",
+     "pec": "lavage_urgent",
+     "notion": null
+    },
+    {
+     "id": "n4",
+     "parent": "n2",
+     "t": "Évertir les paupières et balayer les culs-de-sac",
+     "i": "Retire les particules de chaux ou de ciment, qui libèrent la base en continu.",
+     "pec": "lavage_urgent",
+     "notion": null
+    },
+    {
+     "id": "n5",
+     "parent": "n2",
+     "t": "Ne jamais chercher de neutralisant",
+     "i": "La réaction acide-base est exothermique et retarde le lavage.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n6",
+     "parent": "n2",
+     "t": "Diphoterine en milieu industriel",
+     "i": "Solution amphotère polyvalente : elle ne doit jamais retarder le lavage à l'eau ou au sérum physiologique.",
+     "pec": null,
+     "notion": null
+    },
+    {
+     "id": "n7",
+     "parent": "n2",
+     "t": "Produit inconnu : Tox Info Suisse 145",
+     "i": "Un conseil toxicologique précise le risque, notamment pour l'acide fluorhydrique.",
+     "pec": null,
+     "notion": "c1"
+    },
+    {
+     "id": "n8",
+     "parent": "n2",
+     "t": "Transférer chez l'ophtalmologue en poursuivant le lavage",
+     "i": "Le lavage ne s'interrompt pas pendant le transport.",
+     "pec": "hospitalisation_grade_III_IV",
+     "notion": null
+    }
+   ],
+   "points": [
+    "Lavage avant l'examen, l'acuité visuelle et le transfert.",
+    "Jamais de neutralisation acide-base.",
+    "Chez l'enfant, la sédation est souvent nécessaire pour le lavage et l'examen."
+   ],
+   "sources": [
+    "Tox Info Suisse",
+    "AIPS Swissmedic"
+   ]
+  },
+  {
+   "id": "c8",
+   "titre": "Traitement médical et chirurgical après le lavage",
+   "rubriques": [
+    "chronicManagement"
+   ],
+   "comment": "Associe des traitements qui favorisent l'épithélialisation et limitent l'inflammation, en bornant les corticoïdes pour éviter la fonte stromale.",
+   "tableau": {
+    "colonnes": [
+     "Moyen",
+     "Rôle",
+     "Limite ou piège"
+    ],
+    "lignes": [
+     [
+      "Lubrifiants sans conservateur",
+      [
+       {
+        "t": "Protègent la surface oculaire",
+        "i": "Les conservateurs sont toxiques pour un épithélium déjà lésé."
+       }
+      ],
+      [
+       {
+        "t": "Poursuivis plusieurs semaines",
+        "i": "Le film lacrymal reste altéré par l'atteinte du limbe et des cellules caliciformes."
+       }
+      ]
+     ],
+     [
+      "Antibiotique topique",
+      [
+       {
+        "t": "Prévient la surinfection d'un défect épithélial",
+        "i": "Le défect ouvre la porte aux germes."
+       }
+      ],
+      [
+       {
+        "t": "Sans effet sur la brûlure elle-même",
+        "i": "Il traite le risque infectieux, non la nécrose."
+       }
+      ]
+     ],
+     [
+      "Cycloplégique",
+      [
+       {
+        "t": "Atropine ou cyclopentolate : soulage la douleur de l'uvéite",
+        "i": "Bloque le spasme du corps ciliaire et réduit les synéchies."
+       }
+      ],
+      [
+       {
+        "t": "Dilate la pupille et floute la vue",
+        "i": "Prévenir le patient pour la conduite et le travail."
+       }
+      ]
+     ],
+     [
+      "Corticoïde local précoce",
+      [
+       {
+        "t": "Limite l'inflammation initiale",
+        "i": "Les corticoïdes agissent surtout durant la première semaine."
+       }
+      ],
+      [
+       {
+        "t": "Limité à environ 7 à 10 jours",
+        "i": "Au-delà, ils freinent la synthèse de collagène et favorisent la fonte stromale."
+       }
+      ]
+     ],
+     [
+      "Vitamine C, doxycycline",
+      [
+       {
+        "t": "Favorisent la synthèse du collagène et inhibent les collagénases",
+        "i": "Limitent la fonte cornéenne."
+       }
+      ],
+      [
+       {
+        "t": "Doxycycline orale en option",
+        "i": "À éviter chez l'enfant et durant la grossesse."
+       }
+      ]
+     ],
+     [
+      "Membrane amniotique, greffe limbique, kératoplastie",
+      [
+       {
+        "t": "Membrane amniotique dans les atteintes sévères",
+        "i": "Réduit l'inflammation et aide l'épithélialisation."
+       }
+      ],
+      [
+       {
+        "t": "Greffe limbique ou kératoplastie à distance",
+        "i": "On les planifie après quiescence de l'inflammation, car une greffe sur œil inflammatoire échoue."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Corticoïdes précoces mais courts.",
+    "Membrane amniotique dans les atteintes sévères ; reconstruction limbique à distance.",
+    "Hypotonisants si hypertonie ; éviter les prostaglandines pendant l'inflammation."
+   ],
+   "sources": [
+    "AIPS Swissmedic",
+    "Dua, Br J Ophthalmol 2001"
+   ]
+  },
+  {
+   "id": "c9",
+   "titre": "Complications, surveillance, pronostic et orientation",
+   "rubriques": [
+    "hospitalizationComplications",
+    "surveillance",
+    "prognosisDischarge"
+   ],
+   "comment": "Surveille le pH, l'épithélium et la pression, car la fonte cornéenne survient surtout après la première semaine, quand le patient se croit guéri.",
+   "tableau": {
+    "colonnes": [
+     "Phase",
+     "Complication ou surveillance",
+     "Pourquoi"
+    ],
+    "lignes": [
+     [
+      "Premiers jours",
+      [
+       {
+        "t": "pH, pression intraoculaire, hypertonie",
+        "i": "Le pH remonte en cas de relargage ; l'hypertonie précoce vient de la rétraction du collagène et des prostaglandines."
+       }
+      ],
+      [
+       {
+        "t": "Timolol, acétazolamide, pas de prostaglandines",
+        "i": "Les prostaglandines entretiennent l'inflammation."
+       }
+      ]
+     ],
+     [
+      "Jours 1 à 7",
+      [
+       {
+        "t": "Épithélialisation quotidienne à la fluorescéine",
+        "i": "Un défect persistant annonce une fonte stromale."
+       }
+      ],
+      [
+       {
+        "t": "Grade III–IV : hospitalisation",
+        "i": "Le suivi est rapproché et la chirurgie possible."
+       }
+      ]
+     ],
+     [
+      "Après la première semaine",
+      [
+       {
+        "t": "Fonte cornéenne, ulcération stromale, perforation",
+        "i": "La phase de réparation active les collagénases ; elle est aggravée par des corticoïdes prolongés."
+       }
+      ],
+      [
+       {
+        "t": "Limiter les corticoïdes à 7 à 10 jours",
+        "i": "Évite d'aggraver la fonte."
+       }
+      ]
+     ],
+     [
+      "Tardif",
+      [
+       {
+        "t": "Insuffisance limbique, opacification, symblépharon, sécheresse, cataracte, glaucome",
+        "i": "Séquelles directes de la destruction limbique et de la pénétration intraoculaire."
+       }
+      ],
+      [
+       {
+        "t": "Grade IV : cécité fonctionnelle fréquente",
+        "i": "L'étendue de l'ischémie initiale détermine l'évolution."
+       }
+      ]
+     ]
+    ]
+   },
+   "arbre": null,
+   "points": [
+    "Grade I–II : contrôle à 24 h ; grade III–IV : hospitalisation.",
+    "Le pronostic dépend du délai de lavage et de l'ischémie limbique initiale.",
+    "Tout patient voit l'ophtalmologue le jour même."
+   ],
+   "sources": [
+    "Roper-Hall 1965",
+    "Dua, Br J Ophthalmol 2001"
+   ]
+  }
+ ],
+ "priseEnCharge": [
+  {
+   "cle": "lavage_urgent",
+   "titre": "Urgence : lavage oculaire immédiat et continu",
+   "but": [
+    "Éliminer l'agent corrosif et ramener le pH conjonctival à 7,0–7,4 le plus vite possible.",
+    "Préserver les cellules souches limbiques et la transparence cornéenne."
+   ],
+   "moyens": {
+    "accueil": [
+     "Faire laver l'œil au point d'eau le plus proche dès l'arrivée, avant l'inscription et l'examen.",
+     "Faire retirer les lentilles de contact et installer le patient couché, tête inclinée vers l'œil lavé.",
+     "Demander l'étiquette ou la fiche de sécurité du produit à l'accompagnant."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "NaCl 0,9 % ou Ringer lactate (soluté d'irrigation)",
+      "posologie": "Irrigation continue d'au moins 15–30 min, plusieurs litres, jusqu'à pH 7,0–7,4 ; eau du robinet si rien d'autre ; contrôle du pH 5–10 min après arrêt.",
+      "pourquoi": "Dilue et élimine l'agent corrosif ; un pH neutre évite la destruction limbique.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Oxybuprocaïne 0,4 % (anesthésique local topique)",
+      "posologie": "1 goutte avant le lavage, répétable si blépharospasme ; usage ponctuel aux urgences, jamais prescrit en ambulatoire.",
+      "pourquoi": "Lève le blépharospasme pour permettre un lavage efficace ; l'usage prolongé est toxique pour l'épithélium.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Paracétamol (antalgique)",
+      "posologie": "1 g par voie orale ou intraveineuse jusqu'à 4×/j, maximum 4 g/j ; 15 mg/kg si poids < 50 kg.",
+      "pourquoi": "Soulage la douleur intense après le lavage ; les opioïdes sont ajoutés si la douleur persiste.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Évertir les paupières et balayer les culs-de-sac avec un bâtonnet humide.",
+      "pourquoi": "Retire les particules de chaux ou de ciment qui libèrent le produit en continu."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Utiliser une lentille de lavage de type Morgan si le blépharospasme persiste.",
+      "pourquoi": "Permet une irrigation continue et mains libres sur toute la surface oculaire."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Sédater l'enfant si nécessaire pour laver et examiner.",
+      "pourquoi": "Un lavage incomplet chez l'enfant aggrave le pronostic visuel."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "Toxicologie clinique (Tox Info Suisse 145)",
+      "apport": "Identifie le risque d'un produit inconnu et précise le danger de l'acide fluorhydrique."
+     },
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Oriente la déclaration de l'accident professionnel vers l'assureur LAA (Suva)."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Laver avant tout examen, mesure d'acuité ou transfert.",
+      "Ne jamais chercher à neutraliser un acide par une base ni l'inverse.",
+      "Poursuivre le lavage pendant le transport si le pH n'est pas normalisé."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "Patient ou témoin sur les lieux",
+       "fait": "Lave l'œil sous l'eau du robinet, paupières écartées, pendant au moins 15 min."
+      },
+      {
+       "temps": "d'abord",
+       "qui": "Médecin responsable",
+       "fait": "Instille l'anesthésique, lance l'irrigation NaCl 0,9 % ou Ringer et évertit les paupières."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "Infirmier·ère",
+       "fait": "Retire les lentilles, mesure le pH au papier et récupère l'étiquette du produit."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "Second médecin",
+       "fait": "Appelle Tox Info Suisse (145) si le produit est inconnu ou s'il s'agit d'acide fluorhydrique."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "Médecin responsable",
+       "fait": "Balaie les culs-de-sac et poursuit jusqu'à pH 7,0–7,4."
+      },
+      {
+       "temps": "puis",
+       "qui": "Infirmier·ère",
+       "fait": "Arrête le lavage 5–10 min, remesure le pH ; le médecin reprend le lavage si le pH remonte."
+      },
+      {
+       "temps": "puis",
+       "qui": "Médecin responsable",
+       "fait": "Mesure l'acuité et la pression, puis alerte l'ophtalmologue de garde."
+      }
+     ]
+    },
+    "horsUrgence": null
+   },
+   "pronostic": "Le pronostic dépend du délai et de la qualité du lavage sur les lieux, puis de l'ischémie limbique initiale ; un lavage dans les premières minutes améliore nettement l'évolution.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "pH conjonctival",
+      "quand": "À l'arrivée, puis 5–10 min après chaque arrêt du lavage",
+      "cible": "7,0 à 7,4 stable"
+     },
+     {
+      "quoi": "Pression intraoculaire",
+      "quand": "Après le lavage, puis répétée",
+      "cible": "Normale, sans hypertonie"
+     },
+     {
+      "quoi": "Acuité visuelle",
+      "quand": "Après le lavage",
+      "cible": "Valeur de référence notée pour le suivi"
+     }
+    ],
+    "sortie": "Pas de sortie directe : transfert chez l'ophtalmologue de garde le jour même, pH neutre stable, lavage poursuivi pendant le transport si besoin."
+   },
+   "prevention": {
+    "primaire": "Porter des lunettes de protection au travail, installer des postes de lavage oculaire accessibles et ranger les produits ménagers hors de portée des enfants.",
+    "secondaire": "Laver immédiatement sur les lieux de l'accident, car le délai avant lavage décide du pronostic.",
+    "tertiaire": "Assurer le suivi ophtalmologique pour prévenir fonte cornéenne, symblépharon et insuffisance limbique."
+   }
+  },
+  {
+   "cle": "ambulatoire_grade_I_II",
+   "titre": "Grade I–II de Roper-Hall : traitement ambulatoire avec contrôle à 24 h",
+   "but": [
+    "Favoriser la ré-épithélialisation et prévenir surinfection et douleur.",
+    "Dépister à 24 h toute aggravation vers un grade supérieur."
+   ],
+   "moyens": {
+    "accueil": [
+     "Expliquer que l'œil reste lésé malgré une apparence calme et que le contrôle à 24 h est obligatoire.",
+     "Interdire les lentilles de contact jusqu'à guérison complète."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Hyaluronate de sodium sans conservateur (larmes artificielles)",
+      "posologie": "1 goutte 4 à 6×/j, davantage si besoin, pendant plusieurs semaines.",
+      "pourquoi": "Protège la surface cornéenne en cours de cicatrisation, sans conservateur toxique pour l'épithélium.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Ofloxacine 0,3 % collyre (antibiotique topique)",
+      "posologie": "1 goutte 4×/j jusqu'à ré-épithélialisation.",
+      "pourquoi": "Prévient la surinfection d'un défect épithélial, qui ouvre la porte aux germes.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Cyclopentolate 1 % (cycloplégique)",
+      "posologie": "1 goutte 2–3×/j selon l'ophtalmologue, jusqu'à régression de la douleur.",
+      "pourquoi": "Soulage la douleur d'origine ciliaire et réduit l'inflammation de chambre antérieure.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Dexaméthasone 0,1 % collyre (corticoïde local)",
+      "posologie": "1 goutte 4×/j, 7 à 10 jours au maximum, sur décision de l'ophtalmologue.",
+      "pourquoi": "Limite l'inflammation précoce ; une durée prolongée expose à la fonte cornéenne stromale.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "éducation thérapeutique",
+      "mesure": "Expliquer les signes d'alarme (douleur croissante, baisse de vision) qui imposent de revenir sans attendre.",
+      "pourquoi": "Une aggravation tardive peut survenir après une apparente amélioration."
+     },
+     {
+      "categorie": "social et assurances",
+      "mesure": "Déclarer l'accident professionnel à l'assureur LAA (Suva) et établir un certificat d'arrêt de travail.",
+      "pourquoi": "La LAA couvre les soins et l'incapacité de travail après un accident professionnel."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Assure la prise en charge et l'indemnisation par la LAA et la Suva."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Impose de documenter l'accident, d'informer le patient et de certifier l'arrêt de travail."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": null,
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Vérifier la normalité du pH et de la pression avant de laisser sortir le patient.",
+      "S'assurer que le patient peut revenir à 24 h et qu'il comprend les signes d'alarme."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "Ophtalmologue",
+       "fait": "Confirme le grade I–II à la lampe à fente et exclut toute atteinte de chambre antérieure."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "Médecin responsable",
+       "fait": "Prescrit larmes, antibiotique, cycloplégique et corticoïde court, puis remet les consignes écrites."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "Assistant·e social·e ou secrétariat",
+       "fait": "Déclare l'accident à la LAA et prépare le certificat d'arrêt de travail."
+      },
+      {
+       "temps": "puis",
+       "qui": "Ophtalmologue",
+       "fait": "Contrôle à 24 h l'épithélialisation et la pression, puis arrête ou poursuit le traitement."
+      }
+     ]
+    }
+   },
+   "pronostic": "Les grades I et II guérissent le plus souvent sans séquelle visuelle significative sous traitement bien conduit.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Épithélialisation à la fluorescéine",
+      "quand": "À 24 h, puis tous les 1 à 3 jours jusqu'à guérison",
+      "cible": "Défect épithélial fermé"
+     },
+     {
+      "quoi": "Pression intraoculaire",
+      "quand": "À chaque contrôle",
+      "cible": "Normale"
+     },
+     {
+      "quoi": "Acuité visuelle",
+      "quand": "À chaque contrôle",
+      "cible": "Retour à la valeur initiale"
+     }
+    ],
+    "sortie": "Prise en charge ambulatoire d'emblée si grade I–II, pH neutre stable, pression normale, chambre antérieure calme et contrôle à 24 h assuré."
+   },
+   "prevention": {
+    "primaire": "Porter des lunettes de protection sur les chantiers et lors de l'usage de produits corrosifs.",
+    "secondaire": "Faire consulter l'ophtalmologue le jour même, même si l'œil paraît peu atteint.",
+    "tertiaire": "Contrôler la surface oculaire jusqu'à guérison pour prévenir sécheresse et récidive de défect."
+   }
+  },
+  {
+   "cle": "hospitalisation_grade_III_IV",
+   "titre": "Grade III–IV ou pénétration intraoculaire : hospitalisation en ophtalmologie",
+   "but": [
+    "Limiter l'inflammation, la fonte cornéenne et l'hypertonie dans les premiers jours.",
+    "Préserver la surface oculaire et planifier la reconstruction limbique chirurgicale."
+   ],
+   "moyens": {
+    "accueil": [
+     "Poursuivre le lavage jusqu'à pH neutre avant le transfert et le pendant.",
+     "Prévenir l'ophtalmologue de garde avec le grade estimé et le produit en cause."
+    ],
+    "pharmacologique": [
+     {
+      "molecule": "Dexaméthasone 0,1 % ou prednisolone acétate 1 % (corticoïde local)",
+      "posologie": "1 goutte 4 à 6×/j initialement selon l'ophtalmologue ; limité à environ 7–10 jours.",
+      "pourquoi": "Réduit l'inflammation précoce ; une poursuite prolongée augmente le risque de fonte cornéenne.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Atropine 1 % (cycloplégique)",
+      "posologie": "1 goutte 1–2×/j selon l'ophtalmologue.",
+      "pourquoi": "Soulage l'uvéite et réduit le risque de synéchies en bloquant le corps ciliaire.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Acide ascorbique (vitamine C)",
+      "posologie": "1 à 2 g/j par voie orale ; forme locale selon l'ophtalmologue.",
+      "pourquoi": "Favorise la synthèse du collagène et limite la fonte cornéenne stromale.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Doxycycline (antibiotique, inhibiteur des collagénases)",
+      "posologie": "100 mg 2×/j par voie orale chez l'adulte ; à éviter chez l'enfant < 8 ans et pendant la grossesse.",
+      "pourquoi": "Inhibe les métalloprotéinases qui détruisent le stroma cornéen après la première semaine.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Timolol 0,5 % collyre (bêtabloquant)",
+      "posologie": "1 goutte 2×/j si hypertonie ; contre-indiqué en cas d'asthme ou de bradycardie.",
+      "pourquoi": "Abaisse la pression intraoculaire ; éviter les prostaglandines pendant l'inflammation.",
+      "source": "AIPS Swissmedic"
+     },
+     {
+      "molecule": "Acétazolamide (inhibiteur de l'anhydrase carbonique)",
+      "posologie": "250 mg par voie orale, 2 à 4×/j si hypertonie sévère ; adapter à la fonction rénale.",
+      "pourquoi": "Complète le timolol quand la pression reste élevée malgré le collyre.",
+      "source": "AIPS Swissmedic"
+     }
+    ],
+    "nonPharmacologique": [
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Poser une membrane amniotique dans l'atteinte sévère, selon l'ophtalmologue.",
+      "pourquoi": "Réduit l'inflammation et favorise l'épithélialisation sur un limbe détruit."
+     },
+     {
+      "categorie": "geste ou chirurgie",
+      "mesure": "Planifier greffe de cellules souches limbiques ou kératoplastie après quiescence de l'inflammation.",
+      "pourquoi": "Une greffe sur œil encore inflammatoire échoue le plus souvent."
+     },
+     {
+      "categorie": "soins infirmiers",
+      "mesure": "Instiller les collyres, lubrifier sans conservateur et prévenir le symblépharon par la lyse des brides.",
+      "pourquoi": "Maintient la surface oculaire et évite l'adhérence conjonctivale."
+     },
+     {
+      "categorie": "autre",
+      "mesure": "Sédater l'enfant pour l'examen et le traitement.",
+      "pourquoi": "Un examen complet est impossible sans sédation chez le jeune enfant."
+     }
+    ],
+    "transversal": [
+     {
+      "discipline": "A Assurances sociales",
+      "apport": "Assure la prise en charge par la LAA (Suva), les indemnités journalières et l'évaluation des séquelles."
+     },
+     {
+      "discipline": "F Droit médical suisse",
+      "apport": "Impose l'information du patient et de la famille sur le pronostic visuel réservé et sur les chirurgies envisagées."
+     }
+    ]
+   },
+   "conduite": {
+    "urgence": {
+     "mesuresGenerales": [
+      "Poursuivre le lavage pendant le transfert.",
+      "Évaluer le grade et la chambre antérieure avant toute prescription.",
+      "Hospitaliser en ophtalmologie pour surveillance rapprochée."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "Ophtalmologue de garde",
+       "fait": "Classe l'atteinte selon Roper-Hall ou Dua, mesure la pression et cherche une perforation (test de Seidel)."
+      },
+      {
+       "temps": "en même temps",
+       "qui": "Infirmier·ère",
+       "fait": "Contrôle le pH, instille les traitements prescrits et note la douleur."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "Médecin responsable",
+       "fait": "Débute corticoïde court, cycloplégique, vitamine C et hypotonisant si hypertonie."
+      }
+     ]
+    },
+    "horsUrgence": {
+     "mesuresGenerales": [
+      "Surveiller de près la première semaine, puis la phase de fonte stromale.",
+      "Limiter strictement la durée des corticoïdes.",
+      "Planifier la reconstruction chirurgicale à distance de l'inflammation."
+     ],
+     "etapes": [
+      {
+       "temps": "d'abord",
+       "qui": "Ophtalmologue",
+       "fait": "Contrôle chaque jour l'épithélialisation, la pression et la cornée à la lampe à fente."
+      },
+      {
+       "temps": "ensuite",
+       "qui": "Ophtalmologue",
+       "fait": "Pose une membrane amniotique si l'atteinte est sévère et arrête les corticoïdes à 7–10 jours."
+      },
+      {
+       "temps": "puis",
+       "qui": "Ophtalmologue",
+       "fait": "Traite les complications : fonte, perforation, hypertonie, symblépharon."
+      },
+      {
+       "temps": "puis",
+       "qui": "Assistant·e social·e",
+       "fait": "Organise la déclaration LAA, l'arrêt de travail et la réadaptation visuelle si la vue est durablement basse."
+      },
+      {
+       "temps": "puis",
+       "qui": "Ophtalmologue",
+       "fait": "Décide d'une greffe limbique ou d'une kératoplastie après quiescence."
+      }
+     ]
+    }
+   },
+   "pronostic": "Le grade IV conduit souvent à une cécité fonctionnelle ; le grade III reste réservé, avec un risque de fonte cornéenne surtout après la première semaine.",
+   "surveillance": {
+    "suivi": [
+     {
+      "quoi": "Épithélialisation cornéenne à la fluorescéine",
+      "quand": "Chaque jour au début",
+      "cible": "Défect en régression, sans fonte stromale"
+     },
+     {
+      "quoi": "Pression intraoculaire",
+      "quand": "Plusieurs fois par jour au début",
+      "cible": "Normale sous hypotonisants"
+     },
+     {
+      "quoi": "Chambre antérieure et épaisseur cornéenne",
+      "quand": "À chaque examen, particulièrement après la première semaine",
+      "cible": "Pas d'amincissement ni d'ulcération"
+     },
+     {
+      "quoi": "pH conjonctival",
+      "quand": "Après lavage et en cas de doute",
+      "cible": "7,0 à 7,4"
+     }
+    ],
+    "sortie": "Sortie quand l'inflammation régresse, l'épithélialisation progresse, la pression est contrôlée et un suivi ophtalmologique rapproché est assuré."
+   },
+   "prevention": {
+    "primaire": "Équiper les chantiers de lunettes de protection et de postes de lavage oculaire, et sécuriser les produits ménagers.",
+    "secondaire": "Laver immédiatement sur place et adresser au spécialiste le jour même.",
+    "tertiaire": "Prévenir symblépharon, opacification et glaucome secondaire par un suivi ophtalmologique prolongé."
+   }
+  }
+ ],
+ "controles": {
+  "erreurs": []
+ },
+ "usage": {
+  "cache_creation": {
+   "ephemeral_1h_input_tokens": 0,
+   "ephemeral_5m_input_tokens": 0
+  },
+  "cache_creation_input_tokens": 0,
+  "cache_read_input_tokens": 5163,
+  "inference_geo": "global",
+  "input_tokens": 6669,
+  "output_tokens": 24720,
+  "output_tokens_details": {
+   "thinking_tokens": 8747
+  },
+  "server_tool_use": null,
+  "service_tier": "batch",
+  "speed": "standard",
+  "_mode": "lot"
+ },
+ "signature": {
+  "date": "2026-11-26T04:58:04",
+  "modele": "claude-sonnet-5-5",
+  "auteur": "AAI (Anthropic AI)"
+ },
+ "audit": {
+  "rejector": null,
+  "claude": {
+   "verdict": "🟧",
+   "date": "2026-11-26",
+   "aVerifier": [],
+   "audit": "AUDIT_V3_B"
+  }
+ }
+}
