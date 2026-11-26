@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-26 03:00 UTC
+# Ouvrier automatique — 2026-11-26 03:13 UTC
 
-Dernier passage : **AUDIT_V2_A** → en_cours (0.91 USD).
+Dernier passage : **AUDIT_V2_A** → en_cours (2.12 USD).
 
-Passage 1 : 10 pathologies sur 80 auditées (D84.8 à K60.0), journal dans CLAUDE_A_AUDITER/AUDIT_V2_A.md ; 1 verdict 🟧 (prophylaxie anti-VHB, aciclovir ophtalmique) et 9 🟩, avec corrections de fond et de forme et doutes marqués « à vérifier ». Aucun CNP, CPCM ni PEP VIH ; menus longs à 0 sur ALL, ANG et CHI. Les sources primaires n'ont pas pu être relues en ligne ; il reste 70 pathologies (K60.2 en premier, dont la correction sans priseEnCharge) et 17 questions de niveau 4–5 non masquées à examiner.
+Deux passages sont faits : 20 pathologies sur 80 sont auditées (ALL, ANG, CHI et une partie de CMF), avec 3 schémas de correction réparés (K60.2, K02.9, K04.7_1) et plusieurs formules vagues ou seuils non sourcés corrigés. Aucune source primaire n'a pu être lue en ligne, donc les doutes sont marqués « à vérifier » dans audit.claude.aVerifier et dans CLAUDE_A_AUDITER/AUDIT_V2_A.md. Il reste les pathologies 21 à 80 (K12.0_1 → K52.1), à traiter par lots de 10 aux passages suivants.
 
-**Crédit** : 5.82 USD dépensés, 144.18 USD disponibles avant le 31.01.2027 ; aujourd'hui 5.47 / 149.65 USD.
+**Crédit** : 7.94 USD dépensés, 142.06 USD disponibles avant le 31.01.2027 ; aujourd'hui 7.59 / 149.65 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -52,7 +52,7 @@ Passage 1 : 10 pathologies sur 80 auditées (D84.8 à K60.0), journal dans CLAUD
 | V2_Q_recup | fait | 16 | 0.0 |
 | V2_C_lot | fait | 1 | 0.0 |
 | V2_C_recup | fait | 10 | 0.0 |
-| AUDIT_V2_A | en_cours | 1 | 0.913 |
+| AUDIT_V2_A | en_cours | 2 | 2.118 |
 | V3B_N_lot | a_faire | 0 |  |
 | V3B_N_recup | a_faire | 0 |  |
 | V3B_Q_lot | a_faire | 0 |  |

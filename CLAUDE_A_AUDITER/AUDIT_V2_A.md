@@ -22,4 +22,22 @@ Contrôles transversaux sur les 80 : aucun CNP ni CPCM ; aucune mention de PEP V
 
 Contrôles : `controle_menus_longs.py` ALL, ANG, CHI → 0 menu fautif ; reste 1 erreur de schéma sur K60.2 (correction sans `priseEnCharge`, pathologie 11 du prochain passage). Les spécialités CMF, HEM, MIG, OPH, ORL, PEA, TOX affichent encore des erreurs de schéma sur des pathologies non auditées (traitées aux passages suivants).
 
-Reste à auditer : pathologies 11 à 80 (K60.2 → K52.1).
+## Passage 2 — pathologies 11 à 20 sur 80
+
+| # | Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|---|
+| 11 | K60.2 Fissure anale | 🟧 | Corrigé : `ssp` était une chaîne mal formée qui avalait `priseEnCharge` (schéma restauré, 3 plans) ; sources ASCRS harmonisées sur 2017 ; dose de toxine botulique « 10–20 UI » retirée (non confirmée) ; accord « indurée ». À vérifier : dose de toxine (RCP), trinitrine 0,4 % et diltiazem/nifédipine topiques en Suisse (AIPS), taux de guérison (70–80 % ici, ≈ 50 % dans K60.0), aciclovir et pénicilline benzathine face aux recommandations suisses. |
+| 12 | K64.5_1 Hémorroïdes thrombosées / fissure | 🟧 | Corrigé : seuil non sourcé « douleur de plus de deux semaines » (N59, Q16) remplacé par « au-delà de l'évolution attendue » (cohérent avec la résorption en 2–4 semaines). À vérifier : seuil de reconsultation (ASCRS), ibuprofène dès la 20e semaine de grossesse et paracétamol 3 g/j (AIPS), trinitrine 0,2–0,4 % et nifédipine (statut suisse). |
+| 13 | H92.0 Otalgie | 🟧 | Corrigé : « why » de Q15-G contradictoire avec son statut de distracteur ; « drainage l'abcès » → « draine ». À vérifier : N05 (≈ 50 % des otalgies à tympan normal, sans source), N59 (réévaluation à 2 semaines), Q13 (OPG d'emblée pour une dysfonction temporo-mandibulaire, discutable). |
+| 14 | K00.7 Dentition (poussée dentaire) | 🟩 | Corrigé : bloc de correction à 5 rubriques scindé en deux (schéma : 4 au plus). Paracétamol 10–15 mg/kg et NICE NG143 conformes. À vérifier : fluor du dentifrice du nourrisson et âge du 1er contrôle (SSO), N33 (salicylés, belladone), fenêtre de 8 jours de Macknin 2000. |
+| 15 | K02.9_1 Carie de la petite enfance | 🟧 | Corrigé : deux fautes de grammaire. À vérifier : dentifrice ≈ 500 ppm avant 6 ans et 1re visite vers 2 ans (SSO), doses pédiatriques paracétamol/ibuprofène et amoxicilline-clavulanate (AIPS). |
+| 16 | K02.9 Caries profondes, restaurations défectueuses | 🟧 | Corrigé : `ssp` mal formé qui avalait `priseEnCharge` (schéma restauré). Q19 (niveau 4) masquée. À vérifier : ibuprofène « contre-indiqué au 3e trimestre » (AIPS : seconde moitié de la grossesse), doxycycline en prophylaxie d'endocardite (ESC 2023), source de N35. |
+| 17 | K04.7_1 Fluxion dentaire | 🟧 | Corrigé : N51 (« sepsis, première cause de décès » non étayé) reformulé ; Q07 (niveau 4) `diagnosticMasque` passé à vrai ; `ssp` mal formé qui avalait `priseEnCharge` (réparé par moi après l'audit). À vérifier : AINS et aggravation (N48), clindamycine seule en allergie IgE (Q12, SSI), art. 31 LAMal / OPAS (N08). |
+| 18 | K04.7 Pulpite, abcès péri-apical | 🟧 | Corrigé : clé parasite `false_placeholder` (Q15) ; « drainage l'abcès » → « draine ». À vérifier : AINS en grossesse (N44, AIPS), N05 (≈ 2 milliards de caries non traitées, GBD 2017 ≈ 2,3). |
+| 19 | K05.3 Maladie parodontale chronique | 🟧 | Corrigé : seuil de l'étape 3 (≥ 6 mm ou saignante ≥ 4 mm) ; paracétamol chiffré (≥ 50 kg : 1 g, max 4 g/j ; < 50 kg : 15 mg/kg, max 60 mg/kg/j) ; formule vague « dose selon Fagerström » remplacée par un schéma chiffré. À vérifier : métronidazole 500 mg contre 400 mg ×3 (EFP S3), schéma nicotinique (AIPS), PSR/PSI (SSO), OPAS, AINS et cellulite (Q06). |
+| 20 | K07.6 Dysfonction temporo-mandibulaire | 🟩 | Corrigé : paracétamol chiffré. Seuils DC/TMD, prednisone 40–60 mg/j dans l'artérite à cellules géantes et rappels dT conformes. À vérifier : N51 (Cochrane 2018, année), N52 (9 séances de physiothérapie, OPAS art. 5), amitriptyline 10–25 mg hors AMM. |
+
+Contrôles transversaux du passage : aucun CNP, CPCM ni PEP VIH dans les dix pathologies ; tous les niveaux 4–5 sont masqués ; tous les menus longs ont 1 à 3 justes. Limite inchangée : aucune source primaire lue en ligne (accès bloqué) ; les seuils ont été confrontés aux recommandations connues et les doutes sont dans `audit.claude.aVerifier`.
+`controle_menus_longs.py` : ALL, ANG, CHI → 0 menu fautif, 0 erreur de schéma ; CMF → 0 menu fautif ; 2 erreurs de schéma restantes sur K12.0_1 et K12.2 (pathologies 21 et suivantes, au prochain passage).
+
+Reste à auditer : pathologies 21 à 80 (K12.0_1 → K52.1).
