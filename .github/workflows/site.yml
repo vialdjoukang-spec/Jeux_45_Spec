@@ -20,6 +20,8 @@ concurrency: {group: pages, cancel-in-progress: false}
 env:
   A3D: conception/prototypes/moteur/anatomie3d
   MOT: conception/prototypes/moteur
+  # À incrémenter quand une étape de construction 3D de ce fichier change (la clé du cache haché en dépend).
+  V3D: "2"
 jobs:
   site:
     runs-on: ubuntu-latest
@@ -42,13 +44,13 @@ jobs:
           path: |
             conception/prototypes/moteur/anatomie3d
             conception/prototypes/moteur/corps.glb
-          key: modeles3d-${{ steps.emp.outputs.h }}
+          key: modeles3d-v${{ env.V3D }}-${{ steps.emp.outputs.h }}
           restore-keys: modeles3d-
       - name: Outils 3D (seulement si l'empreinte a changé)
         if: steps.cache3d.outputs.cache-hit != 'true'
         run: |
           pip install -q numpy scipy networkx trimesh fast-simplification remotezip nibabel scikit-image
-          pip install -q torch --index-url https://download.pytorch.org/whl/cpu && pip install -q TotalSegmentator || echo "::warning::TotalSegmentator indisponible : les organes de la voie totalseg ne seront pas servis"
+          pip install -q torch torchvision --index-url https://download.pytorch.org/whl/cpu && pip install -q TotalSegmentator || echo "::warning::TotalSegmentator indisponible : les organes de la voie totalseg ne seront pas servis"
       - name: Construire corps.glb
         if: steps.cache3d.outputs.cache-hit != 'true'
         run: python -c "import sys; sys.path.insert(0, 'conception/outils/catalogue'); import construire_catalogue as c; print(c.corps())"
@@ -86,7 +88,7 @@ jobs:
           path: |
             conception/prototypes/moteur/anatomie3d
             conception/prototypes/moteur/corps.glb
-          key: modeles3d-${{ steps.emp.outputs.h }}
+          key: modeles3d-v${{ env.V3D }}-${{ steps.emp.outputs.h }}
 
       # 2. Assemblage du site : tableau à la racine, jeux sous /jeux/ (même arborescence relative que conception/prototypes/).
       - uses: actions/setup-node@v4
