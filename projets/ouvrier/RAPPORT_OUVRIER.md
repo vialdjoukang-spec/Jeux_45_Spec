@@ -1,9 +1,7 @@
-# Ouvrier automatique — 2026-11-26 01:57 UTC
+# Ouvrier automatique — 2026-11-26 01:58 UTC
 
-Dernier passage : **V2_N_lot** → fait (0.00 USD).
+Dernier passage : **V2_N_recup** → en_cours (0.00 USD).
 
-notions : 80 entité(s) à produire.
-lot msgbatch_01569XzQ1C1RxuKJqamSiJBh
 
 
 **Crédit** : 4.91 USD dépensés, 145.09 USD disponibles avant le 31.01.2027 ; aujourd'hui 4.56 / 149.65 USD.
@@ -49,7 +47,7 @@ lot msgbatch_01569XzQ1C1RxuKJqamSiJBh
 | T7_transversal_lecons | sans_objet | 0 |  |
 | T6_vague_urgences | sans_objet | 0 |  |
 | V2_N_lot | fait | 1 | 0.0 |
-| V2_N_recup | a_faire | 0 |  |
+| V2_N_recup | en_cours | 1 | 0.0 |
 | V2_Q_lot | a_faire | 0 |  |
 | V2_Q_recup | a_faire | 0 |  |
 | V2_C_lot | a_faire | 0 |  |
