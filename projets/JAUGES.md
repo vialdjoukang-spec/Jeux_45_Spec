@@ -1,6 +1,6 @@
 # Jauges « jouable » des 4 jeux
 
-Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **25.11.2026 23:49**.
+Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **26.11.2026 01:16**.
 
 ## Tétrade Fondation — 94 %
 
@@ -20,7 +20,7 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 | Critère | Fait | Cible | Poids |
 |---|---:|---:|---:|
 | examens complets | 820 | 820 | 30 |
-| entités avec cliché | 1298 | 1607 | 15 |
+| entités avec cliché | 1265 | 1607 | 15 |
 | réseau complet sur le corps 3D | 1 | 1 | 20 |
 | cas de l'arène « le bon examen » | 20 | 20 | 20 |
 | paquet jouable dans l'arène | 1 | 1 | 15 |

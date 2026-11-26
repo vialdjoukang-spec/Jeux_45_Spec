@@ -34,7 +34,7 @@ jobs:
              && ! git merge-base --is-ancestor "origin/$BRANCHE" origin/main; then
             git checkout -B "$BRANCHE" "origin/$BRANCHE"
             if ! git merge --no-edit origin/main; then
-              autres=$(git diff --name-only --diff-filter=U | grep -v -e '^CLAUDE_A_AUDITER/RAPPORT_' -e '^CLAUDE_A_AUDITER/EN_ATTENTE_AUDIT_MEDICAL.json$' -e '^projets/retours/veille_traites.json$' -e '^projets/ouvrier/' || true)
+              autres=$(git diff --name-only --diff-filter=U | grep -v -e '^CLAUDE_A_AUDITER/RAPPORT_' -e '^CLAUDE_A_AUDITER/EN_ATTENTE_AUDIT_MEDICAL.json$' -e '^projets/retours/veille_traites.json$' -e '^projets/ouvrier/' -e '^projets/JAUGES.md$' -e '^projets/jauges.json$' -e '^tableau/donnees/' || true)
               if [ -n "$autres" ]; then git merge --abort; echo "conflit de données avec main : $autres" >&2; exit 1; fi
               git checkout --ours -- $(git diff --name-only --diff-filter=U) && git add -A && git commit --no-edit -q
             fi
@@ -111,3 +111,8 @@ jobs:
           done
           git push -q origin "HEAD:refs/heads/ouvrier/sauvegarde-${{ github.run_id }}"   # rien ne se perd
           echo "branche d'audit occupée : travail sauvegardé sur ouvrier/sauvegarde-${{ github.run_id }}" >&2; exit 1
+      - name: "Enchaîner le passage suivant (tempête du 26.11, sans attente de 30 min)"
+        if: always() && steps.file.outputs.tache != '' && steps.fin.outputs.fatal != '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run ouvrier.yml -R "${{ github.repository }}" --ref main || true
