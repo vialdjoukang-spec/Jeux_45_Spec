@@ -63,3 +63,24 @@ Méthode : la pathologie 21 est relue par moi ; les neuf autres sont relues par 
 Contrôles du passage : aucun CNP, CPCM ni PEP VIH ; tous les niveaux 4–5 sont masqués ; menus longs à 1–3 justes. `controle_menus_longs.py` CMF, HEM, INT, MIG → 0 menu fautif, 0 erreur de schéma.
 
 Reste à auditer : 49 pathologies (OPH, ORL, MTR, PEA, TOX et autres, de H00.0 à K52.1).
+
+## Passage 4 — pathologies 32 à 41 sur 80 (10 pathologies)
+
+Méthode : trois sous-agents avec la même grille (doses, seuils, PEP VIH, CNP/CPCM, masquage des niveaux 4–5, menus longs, « why », clés parasites) ; vérification finale par moi (JSON valides, champ `audit.claude` rempli). Aucune source primaire lue en ligne : les doutes sont dans `audit.claude.aVerifier`.
+
+| # | Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|---|
+| 32 | F32.1_1 Dépression de l'âgé | 🟧 | Corrigé : Q03 (« sans IRM d'emblée » → imagerie si doute ou déficit persistant), « why » de Q20-J. À vérifier : doses d'escitalopram/citalopram > 65 ans, sertraline, lorazépam, art. 426/429 CC, seuils MoCA/GDS/PHQ-9, remboursement de la psychothérapie. |
+| 33 | F43.2_1 Trouble de l'adaptation, burn-out | 🟧 | Corrigé : Q04 `diagnosticMasque` vrai, « why » de Q16. À vérifier : articles LPGA/LAI/CO/LACI/CP/LCR et ATF, chiffres AI et suicides, début ≤ 1 mois (CIM-10) contre 3 mois (DSM-5), délai de 3–6 mois pour changer de profession. |
+| 34 | H00.0 Orgelet | 🟧 | Corrigé : clé parasite `false` (Q17) ; amoxicilline-clavulanate 875/125 « 2–3×/j » → 2×/j. À vérifier : posologies AIPS (flucloxacilline, amoxicilline-clavulanate IV), schéma pédiatrique, durée 7–10 jours. |
+| 35 | H00.1 Chalazion | 🟧 | Corrigé : clé parasite `false` (Q16). À vérifier : tobramycine/dexaméthasone, doxycycline hors AMM, triamcinolone, délai d'adressage (« au-delà d'un mois » contre 4–8 semaines), régression sous compresses. |
+| 36 | H01.1 Eczéma ou cellulite palpébrale | 🟧 | Corrigé : amoxicilline-clavulanate de la correction alignée sur 1 g 3×/j (AIPS : 2×/j possible) ; cellules de tableau au schéma. À vérifier : posologie dans la cellulite pré-septale, amoxicilline seule (N43), tacrolimus topique hors AMM, cétirizine 20 mg/j hors AMM. |
+| 37 | H02.4 Ptosis | 🟧 | Corrigé : Q04 et Q07 `diagnosticMasque` vrai ; cellules de tableau au schéma. À vérifier : excursion du releveur > 10 mm (BCSC 12–15 mm), garantie de prise en charge LAMal. |
+| 38 | H04.1 Sécheresse oculaire | 🟧 | Corrigé : « why » faux de Q07-E (compresses chaudes et glaucome aigu). À vérifier : ciclosporine 0,1 % (Swissmedic), non-remboursement des larmes artificielles. |
+| 39 | H10.0 Conjonctivite bactérienne | 🟧 | Corrigé : Q19 (7 notions liées, 6 au plus). À vérifier : ceftriaxone 1 g IM, doxycycline 7 jours (source OFSP), chloramphénicol et azithromycine collyre (AIPS), ceftriaxone néonatale. |
+| 40 | H10.1 Conjonctivite allergique | 🟧 | Corrigé : accords (Q02, Q10, Q14). À vérifier : prévalence, calendrier pollinique, collyres (épinastine), immunothérapie 3 ans, Q20 (ulcère en bouclier). |
+| 41 | H11.3 Hémorragie sous-conjonctivale | 🟧 | Corrigé : accords (N02, Q07). À vérifier : résorption 10–14 jours, reconsultation à 2–3 semaines, paracétamol et ondansétron (AIPS). |
+
+Contrôles du passage : aucun CNP, CPCM ni PEP VIH ; niveaux 4–5 masqués ; menus longs à 1–3 justes. `controle_menus_longs.py` MTR et OPH → 0 menu fautif ; il reste des erreurs de schéma sur des pathologies OPH non encore auditées (H25.9, H49.2, H52.1, H53.0, H57.0_1…).
+
+Reste à auditer : 39 pathologies (H25.9_1 → K52.1).
