@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**116 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**119 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -723,9 +723,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 713 | 1713 | `P08.2__O1_1-E06` | PED | Grossesse prolongée / Post-maturité (>= 42 0/7 SA) | produite |
 | 714 | 1714 | `Q02__S1_13-E04` | GEN | Microcéphalie congénitale infectieuse (TORCH : CMV, Zika, toxoplasmose, rubéole) | produite |
 | 715 | 1715 | `Q39.3__S2_9-E05` | PED | Anneau de Schatzki (anneau muqueux œsophagien inférieur) | produite |
-| 716 | 1716 | `R00.1__F1_7-E04` | TOX | Bradycardie sinusale physiologique ou iatrogène | — |
-| 717 | 1717 | `R01.0__F1_3-E11` | GYN | Souffle cardiaque fonctionnel / innocent (anémie, grossesse, fièvre) | — |
-| 718 | 1718 | `R09.1__S2_10-E04` | MIG | Pleurésie sèche ou pneumonie avec douleur pleurétique | — |
+| 716 | 1716 | `R00.1__F1_7-E04` | TOX | Bradycardie sinusale physiologique ou iatrogène | produite |
+| 717 | 1717 | `R01.0__F1_3-E11` | GYN | Souffle cardiaque fonctionnel / innocent (anémie, grossesse, fièvre) | produite |
+| 718 | 1718 | `R09.1__S2_10-E04` | MIG | Pleurésie sèche ou pneumonie avec douleur pleurétique | produite |
 | 719 | 1719 | `R11__O5_3-E05` | MIG | Nausées et vomissements incoercibles en soins palliatifs | — |
 | 720 | 1720 | `R13__O3_3-E04` | MIG | Dysphagie oropharyngée neurogène ou presbyphagie | — |
 | 721 | 1721 | `R15__O3_7-E06` | MIG | Incontinence fécale passive ou par impériosité (lésion sphinctérienne / neuropathie) | — |
