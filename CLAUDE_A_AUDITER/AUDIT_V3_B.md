@@ -419,6 +419,23 @@ Contrôles lot 23 : `controle_menus_longs.py` CPL, DER, GEN, HEM, INF, NEU, ORL 
 
 Contrôles lot 24 : `controle_menus_longs.py` DER, HEM, NCH et ONC → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot. Contrôle PEP prioritaire : Z11.3, B20, T14.9, T74.2_2 et A60.0 portent toutes la limite de 48 h (CFIST 7.11.2025) ; les « 72 h » restants de T74.2_2 et T14.9 visent le lévonorgestrel et le constat médico-légal, à juste titre. T14.9, T74.2_2 et A60.0 restent à auditer à leur rang (835, 919, 932).
 
+
+## Lot 25 — rangs 771 à 793
+
+| Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|
+| D89.1__F2_23-E17 | 🟧 | Forme : cellules de tableau mal enveloppées (c1), bloc c4 ramené à 5 points, « arbre » ajouté au bloc c5 ; Q07 (d4, cryoglobulinémie de type I sans le nom de l'entité) marquée masquée. Corrigé : Q12 (d4 dont la vignette livre les cryoglobulines) passée en d3. Aucune erreur médicale retenue (prélèvement à 37 °C, cryocrite à 4 °C jusqu'à 7 jours, C4 bas, rituximab 375 mg/m² ×4 ou 1 g J1–J15, méthylprednisolone 0,5–1 g 1–3 jours, échanges à 37 °C, RVS12). |
+| G24.0_1__S1_6-E14 | 🟩 | Aucune erreur retenue (EMA 2013 : métoclopramide ≤ 30 mg/24 h et ≤ 5 jours ; bipéridène 2,5–5 mg IV/IM selon l'AIPS, effet en 5–15 min ; relais oral 48–72 h ; 90 % des dystonies dans les 5 jours ; Tox Info Suisse 145). |
+| G91.9__O2_5-E14 | 🟧 | Corrigé : Q11 et Q12 (d4 dont la vignette livre la dilatation ventriculaire) passées en d3. Aucune erreur médicale retenue (macrocéphalie > +2 DS, ventriculomégalie anténatale ≥ 10 mm, L1CAM, NaCl 3 % 2–5 mL/kg ou mannitol 0,25–1 g/kg, dysfonction de dérivation 30–40 % la 1re année, acide folique 0,4 mg/j, infirmité congénitale AI). Alerte mécanique « nourrisson » (Q05, Q10, Q20) : terrain, pas le diagnostic, laissée. |
+| G93.1__F1_15-E08 | 🟩 | Aucune erreur retenue sur les seuils pronostiques (ERC-ESICM 2021 : M ≤ 3 à ≥ 72 h, N20 absente, NSE > 60 µg/L à 48/72 h, EEG très malin > 24 h, IRM J2–J7 ; Szpilman 44 % et 93 % ; SpO2 92–98 %, PAM ≥ 65 mmHg, CC art. 378). À vérifier : formulation de la température cible (32–36 °C) face à l'ERC-ESICM 2022, délai du scanner. |
+| G95.1__S5_2-E15 | 🟩 | Forme : natures hors énumération de N12 et N61 corrigées. Aucune erreur médicale retenue (ISNCSCI/AIS, PAM ≥ 85 mmHg la 1re semaine, décompression < 12 h, PPSB 50 UI/kg sous anti-Xa, idarucizumab 5 g, vitamine K 5–10 mg IV, dysréflexie au-dessus de T6). |
+| H33.0__S1_2-E13 | 🟩 | Aucune erreur retenue (10–15/100 000/an, bilatéral ≈ 10 %, macula à plat opérée dans les 24 h, SF6 ≈ 2 semaines, C3F8 6–8 semaines, PVR 5–10 %, succès primaire 85–90 %). |
+| H34.1__S1_2-E11 | 🟩 | Forme : correction mal formée réparée (`ssp` en chaîne JSON avalant `priseEnCharge`, reconstruite sans changer le texte, 4 blocs) ; clé « false » retirée (Q18). Aucune erreur médicale retenue (1–2/100 000/an, ischémie irréversible vers 240 min, artère cilio-rétinienne 15–30 %, thrombolyse < 4,5 h hors indication Swissmedic, VS/CRP > 50 ans, méthylprednisolone 500–1000 mg ×3 j, LDL < 1,8 mmol/L, endartériectomie dans les 2 semaines si sténose 70–99 %). |
+| H60.2__S1_10-E12 | 🟧 | Corrigé : Q06 (d4 qui nomme l'otite externe nécrosante) passée en d3 ; Q08 (d4, étape de série sans le nom) marquée masquée. Aucune erreur médicale retenue (Pseudomonas > 90 %, diabète ≈ 90 %, pipéracilline-tazobactam 4,5 g ×3–4/j ou céfépime 2 g ×3/j, ciprofloxacine 500–750 mg ×2/j, 6–8 semaines, suivi par gallium-67 ou TEP-FDG, mortalité 10–20 %). |
+| H70.0__S1_4-E14 | 🟧 | Corrigé (Plan de vaccination suisse 2026, lu dans le PDF de l'OFSP) : le schéma 2+1 du nourrisson utilise le PCV13 ou le PCV15 (le PCV20 n'y est pas recommandé). Aucune autre erreur retenue (< 1 % des OMA, ceftriaxone 50–100 mg/kg/j, paracétamol 15 mg/kg/6 h, 10–14 jours d'antibiothérapie au total). |
+
+Contrôles lot 25 : `controle_menus_longs.py` ALL, INT, NCH, OPH, ORL et TOX → 0 menu fautif, 0 erreur `valider()` sur les pathologies du lot (D76.1, rang 770, déjà audité au lot 24).
+
 ## Bilan au 26.11.2026 (arrêt de la session AAI)
 
 - Pathologies auditées : 160 (rangs 505 à 664), dont 156 🟩/🟧 portées sur main et 4 🟥 restées hors de main (R23.1__F1_17-E03, R49.0_1__S7_4-E03, R62.8_1__O2_1-E03, T74.1_5__O2_3-E01 : fichiers tronqués ou mal formés, à régénérer).
