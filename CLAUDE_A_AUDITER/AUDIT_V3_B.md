@@ -453,3 +453,9 @@ Signature : AAI (Anthropic AI)
 
 ## Mise à jour 26.11 (œil de la tempête)
 Les 4 fiches 🟥 (R23.1, R49.0_1, R62.8_1, T74.1_5) et les 2 fiches en quarantaine (Z34.0, L50.0) ont été régénérées et contrôlées, puis fusionnées sur main (commit ad04df54) : statut 🟩.
+
+## Reprise du 26.11.2026 (tempête, AAI)
+- Lots 22 à 25 audités (rangs 724 à 793, 39 pathologies) : 39 🟩/🟧 portées sur main, aucun 🟥.
+- PEP VIH : les cinq pathologies prioritaires (Z11.3, B20, T14.9, T74.2_2, A60.0) portent toutes la limite de 48 h ; T14.9, T74.2_2 et A60.0 restent à auditer en entier à leur rang.
+- Erreurs nouvelles corrigées : quote-part différenciée à 40 % (et non 20 %) depuis le 1.1.2024 ; rappel antitétanique selon l'âge (tableau 10 du Plan 2026) ; barème MASCC (âge < 60 ans = 2 points) ; PCV13 ou PCV15 pour le schéma 2+1.
+- Reprise suivante : rang 794 et au-delà, dans l'ordre de `RANG_RENDEMENT.json` (environ 160 pathologies du groupe B restantes).
