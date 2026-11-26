@@ -2,7 +2,7 @@
 
 Ce dossier ne contient que les données qui ont passé l'audit de fond de Claude : un examen y entre si son cœur clinique est rempli (visees, signeRecherche, seuil, indication, discriminant, avantageSelectif, plutotQue, limite, precautions, irradiation_mSv, delai) et si aucun doute ne reste ouvert sur lui. La liste aCompleter de chaque fichier nomme les examens fiables auxquels il manque encore les champs de présentation (synonymes, aspectNormal, anomaliesElementaires, syndromesParacliniques, pathologiesAssociees) : ils partent en lot de complément. Le jeu peut les charger telles quelles. Les sources de travail restent dans `conception/donnees/` ; ce dossier est régénéré par `python projets/outils/audit_fond.py`.
 
-Mise à jour : 2026-11-25 · 816 examens fiables sur 820 · 27 à compléter en présentation · 507 justifications acceptées · 6 doutes encore ouverts.
+Mise à jour : 2026-11-26 · 816 examens fiables sur 820 · 27 à compléter en présentation · 507 justifications acceptées · 6 doutes encore ouverts.
 
 | Organe | Examens | Fiables | Doutes ouverts |
 |---|---|---|---|

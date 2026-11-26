@@ -11,7 +11,8 @@ for fn in sorted(glob.glob("content/notions/*/*.json")):
     Q = json.load(open(fq, encoding="utf-8")) if os.path.exists(fq) else {"questions": [], "audit": {}}
     valide = (Q.get("audit") or {}).get("rejector") == "pass"
     par = collections.defaultdict(list)
-    for q in Q["questions"]:
+    for q in (Q.get("questions") or []):
+        if not isinstance(q, dict): continue   # fichier mal formé : ignoré ici, signalé par valider()
         for n in q.get("notions", []):
             par[n].append((q["id"], q.get("angle")))
     spec = fn.split(os.sep)[2]

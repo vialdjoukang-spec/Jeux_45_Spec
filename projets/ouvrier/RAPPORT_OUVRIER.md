@@ -1,13 +1,14 @@
-# Ouvrier automatique — 2026-11-24 16:36 UTC
+# Ouvrier automatique — 2026-11-26 04:57 UTC
 
-Dernier passage : **T4_reprise_rejets** → bloque (0.00 USD).
+Dernier passage : **V3C_N_recup** → en_cours (0.00 USD).
 
-Credit balance is too low
 
-**Crédit** : 51.97 USD dépensés, 140.03 USD disponibles avant le 27.11.2026 ; aujourd'hui 1.35 / 141.38 USD.
+
+**Crédit** : 22.31 USD dépensés, 127.69 USD disponibles avant le 31.01.2027 ; aujourd'hui 21.96 / 149.65 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
+| T0_ping_api | fait | 1 | 0.002 |
 | complement_3 | fait | 1 | 0.03 |
 | complement_1 | fait | 1 | 0.133 |
 | complement_2 | fait | 1 | 0.035 |
@@ -39,15 +40,36 @@ Credit balance is too low
 | END_C_lot | fait | 1 | 0.0 |
 | END_C_recup | fait | 1 | 0.0 |
 | T3_pec_fiches_existantes | fait | 8 | 0.133 |
-| T4_reprise_rejets | bloque | 4 | 0.0 |
+| P3_paraclinique_cliches | fait | 8 | 0.413 |
+| P3_tetrade_3d | fait | 3 | 0.261 |
+| T4_reprise_rejets | fait | 1 | 0.061 |
 | T5_items_valides | sans_objet | 0 |  |
 | T7_transversal_lecons | sans_objet | 0 |  |
 | T6_vague_urgences | sans_objet | 0 |  |
-| V2_N_lot | bloque | 0 |  |
-| V2_N_recup | bloque | 0 |  |
-| V2_Q_lot | bloque | 0 |  |
-| V2_Q_recup | bloque | 0 |  |
-| V2_C_lot | bloque | 0 |  |
-| V2_C_recup | bloque | 0 |  |
+| V2_N_lot | fait | 1 | 0.0 |
+| V2_N_recup | fait | 13 | 0.0 |
+| V2_Q_lot | fait | 1 | 0.0 |
+| V2_Q_recup | fait | 16 | 0.0 |
+| V2_C_lot | fait | 1 | 0.0 |
+| V2_C_recup | fait | 10 | 0.0 |
+| AUDIT_V2_A | fait | 8 | 1.908 |
+| V3B_N_lot | fait | 1 | 0.0 |
+| V3B_N_recup | fait | 14 | 0.0 |
+| V3B_Q_lot | fait | 1 | 0.0 |
+| V3B_Q_recup | fait | 20 | 0.0 |
+| V3B_C_lot | fait | 1 | 0.0 |
+| V3B_C_recup | bloque | 3 | 0.0 |
+| V3C_N_lot | fait | 1 | 0.0 |
+| V3C_N_recup | en_cours | 27 | 0.0 |
+| V3C_Q_lot | a_faire | 0 |  |
+| V3C_Q_recup | a_faire | 0 |  |
+| V3C_C_lot | a_faire | 0 |  |
+| V3C_C_recup | a_faire | 0 |  |
+| V3D_N_lot | a_faire | 0 |  |
+| V3D_N_recup | a_faire | 0 |  |
+| V3D_Q_lot | a_faire | 0 |  |
+| V3D_Q_recup | a_faire | 0 |  |
+| V3D_C_lot | a_faire | 0 |  |
+| V3D_C_recup | a_faire | 0 |  |
 
 Signature : AAI (Anthropic AI)

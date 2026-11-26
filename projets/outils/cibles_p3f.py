@@ -1,0 +1,17 @@
+CIBLES6 = [  # 6e passage ouvrier : derniers examens à image ; motifs stricts (titre) pour écarter le hors-sujet
+ ("mediastin__biopsie_ganglionnaire_par_ebus", ["sarcoidosis lymph node granuloma histology", "non-caseating granuloma EBUS-TBNA cytology"], r"sarcoid|granuloma"),
+ ("peau__pcr_hsv_vzv_sur_frottis_de_vesicule", ["herpes zoster vesicles dermatome", "herpes simplex labialis vesicles"], r"zoster|herpes|vesicle"),
+ ("retroperitoine__igg4_seriques", ["IgG4-related retroperitoneal fibrosis CT", "IgG4-related disease histology storiform fibrosis"], r"IgG4|retroperitoneal"),
+ ("vesicule_et_voies_biliaires__igg4", ["IgG4-related sclerosing cholangitis cholangiography", "IgG4 sclerosing cholangitis"], r"IgG4"),
+ ("nez_sinus_et_cavum__anca", ["c-ANCA immunofluorescence", "granulomatosis with polyangiitis nasal"], r"ANCA|granulomatosis|Wegener"),
+ ("poumons_et_voies_aeriennes__anca_anticorps_des_connectivites", ["ANCA immunofluorescence neutrophils", "antinuclear antibody immunofluorescence HEp-2"], r"ANCA|antinuclear|HEp-2"),
+ ("racines_et_plexus__serologie_de_la_borreliose", ["erythema migrans Lyme disease"], r"erythema migrans|Lyme"),
+ ("foie__afp", ["hepatocellular carcinoma CT arterial phase washout"], r"hepatocellular"),
+ ("thyroide__anticorps_anti_tpo", ["Hashimoto thyroiditis histology lymphocytic infiltrate"], r"Hashimoto|thyroiditis"),
+ ("cheville_et_pied__acide_urique", ["gouty tophi", "monosodium urate crystals polarized microscopy"], r"gout|tophi|urate"),
+ ("rachis_osseux__crp_vs_hemocultures", ["vertebral osteomyelitis spondylodiscitis MRI"], r"spondylodiscitis|osteomyelitis|discitis"),
+ ("testicules_et_scrotum__afp_hcg_ldh", ["testicular seminoma ultrasound"], r"seminoma|testicular tumo"),
+ ("uterus_col_ovaires_et_annexes__ca_125_he4", ["ovarian cancer CT ascites peritoneal carcinomatosis"], r"ovarian"),
+ ("vesicule_et_voies_biliaires__ca_19_9", ["pancreatic adenocarcinoma CT double duct sign"], r"pancrea"),
+ ("colon_rectum_et_anus__ace", ["colorectal adenocarcinoma colonoscopy"], r"colorectal|colon|rectal"),
+]

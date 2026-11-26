@@ -7,8 +7,8 @@
   "plafond_par_passage_usd": 40,
   "espace_de_travail": "Default (projets/ouvrier/workspace_id.txt)",
   "test": "2026-11-23 00:55",
-  "plafond_total_usd": 120,
-  "note_vial": "25.11.2026 23:31 : nouveau crédit API de 200 USD ; tempête d'agents par l'API seulement ; plafond 190 USD (5 % de marge) ; arrêt au premier refus de l'API.",
+  "plafond_total_usd": 150,
+  "note_vial": "25.11.2026 23:31 : nouveau crédit API de 200 USD ; tempête d'agents par l'API seulement ; plafond 190 USD (5 % de marge) ; arrêt au premier refus de l'API. Répartition : 120 USD pour Jeux_45_Spec (jeux avancés puis 45 Spec), 70 USD réservés au cours de psychiatrie et à l'allemand. 26.11 01:23 : ordre de Vial = 3 jeux avancés, puis 45 Spec, puis psychiatrie, puis squelette allemand ; plafond porté à 150 USD ici, 40 USD pour le dépôt de psychiatrie.",
   "sans_repartition_journaliere": true,
   "depuis": "2026-11-25T22:30:00+00:00"
  },
@@ -17,12 +17,17 @@
    "id": "T0_ping_api",
    "titre": "Vérification : l'API répond et le crédit est disponible",
    "modele": "claude-haiku-5-5",
-   "budget_usd": 0.05,
-   "etat": "a_faire",
-   "essais": 0,
+   "budget_usd": 0.5,
+   "etat": "fait",
+   "essais": 1,
    "fin": "une_fois",
    "prompt": "Réponds seulement : API OK. N'écris aucun fichier.",
-   "note": "Test de Vial 25.11 avant la tempête."
+   "note": "Test de Vial 25.11 avant la tempête. Réussi le 25.11 22:41 (0,0022 USD) : l'API répond.",
+   "dernier": {
+    "date": "2026-11-25T22:41:59+00:00",
+    "cout_usd": 0.002,
+    "resume": "API OK"
+   }
   },
   {
    "id": "complement_3",
@@ -476,17 +481,47 @@
    }
   },
   {
+   "id": "P3_paraclinique_cliches",
+   "titre": "Paraclinique : clichés réels pour les 342 entités qui n'en ont pas",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 12,
+   "etat": "fait",
+   "essais": 8,
+   "prompt": "Charge les skills 3d-images-upload-super, medical-accuracy-100, optimisation-par-cache-hache-autorun et i-never-waste-token (.claude/skills ou leurs règles). Le jeu Paraclinique compte 1 265 entités avec cliché sur 1 607 (critère « entités avec cliché » de projets/outils/jauges.py). Trouve les entités sans cliché, et pour chacune une vraie image médicale sous licence libre (Open-i NLM, Wikimedia Commons, MedPix), avec l'URL source, l'auteur et la licence. Jamais de SVG, jamais d'image dessinée ; organes génitaux externes exclus. Traite environ 60 entités par passage, par ordre de fréquence clinique ; une entité sans image fiable reste sans image, avec une note. Enregistre au format déjà utilisé par les entités qui ont un cliché. Lance ensuite les régénérations et les audits du jeu (non_perte compris). Écris statut.json : « fait » quand plus aucune entité utile ne peut recevoir d'image, sinon « en_cours ».",
+   "note": "Tempête 25.11 (Vial), priorité 3 : jeux les plus avancés.",
+   "dernier": {
+    "date": "2026-11-26T01:43:57+00:00",
+    "cout_usd": 0.413,
+    "resume": "Sur les 97 entités sans cliché, 14 ont reçu des candidats Commons libres (PET-TDM, échographie d'ascite, IRM prostatique, olfactométrie, spondylodiscite, épanchement de hanche, frottis de Tzanck, etc.) ; 58 analyses chiffrées ou sérologies ont été déclarées « sans objet » avec une note. Les 25 entités restantes (EBUS, DLCO, navigation bronchique, rhinomanométrie, ENMG, bilans composites, etc.) n'ont trouvé aucune image fiable sous licence libre et restent sans image ; Open-i était hors service pendant ce passage. Les régénérations et audits sont passés (conception 34/34, couverture réussie, non-perte sans perte après retour des normalisations de ganglions_cervicaux), et plus aucune entité utile ne peut recevoir d'image avec les sources actuelles."
+   }
+  },
+  {
+   "id": "P3_tetrade_3d",
+   "titre": "Tétrade : vraie 3D pour les 48 organes qui n'en ont pas",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 12,
+   "etat": "fait",
+   "essais": 3,
+   "prompt": "Charge les skills 3d-rotatable-anatomy-generator, 3d-images-upload-super, organ-catalog-great-master et optimisation-par-cache-hache-autorun. La Tétrade a 76 organes en vraie 3D sur 124 (critère « organes en 3D réelle » de projets/outils/jauges.py). Pour chaque organe manquant, prends d'abord un maillage réel existant sous licence (BodyParts3D, Z-Anatomy), sinon un volume segmenté (TotalSegmentator, sous-ensemble public) converti par voxel_vers_glb.py. Garde chaque .glb sous 15 Mo, note la source et la licence, et exclus les organes génitaux externes. Jamais de SVG ni de forme dessinée. Branche chaque modèle dans la vue 3D du jeu, comme les 76 existants, puis lance les audits du jeu. Traite environ 12 organes par passage. Écris statut.json : « fait » quand les 124 organes sont couverts ou que les restants n'ont aucune source réelle (liste-les), sinon « en_cours ».",
+   "note": "Tempête 25.11 (Vial), priorité 3 : jeux les plus avancés.",
+   "dernier": {
+    "date": "2026-11-26T01:56:05+00:00",
+    "cout_usd": 0.261,
+    "resume": "Trois organes 3D réels ajoutés (ongles, muqueuses nasales, corps adipeux infrapatellaires) depuis Z-Anatomy CC BY-SA 4.0 : 97 organes sur 124, audits 34/34 et couverture réussis. Les 27 restants n'ont aucune source réelle libre vérifiée (BodyParts3D recoupé avec FMA.csv, Z-Anatomy balayé) : péricarde, tissu de conduction, microcirculation, derme, glandes cutanées, jonction neuromusculaire, gonades, sang, immunité (4), oreille interne (licence NC), 7 gynécologiques, 5 pédiatriques. Muqueuses et tissu adipeux sont des modèles partiels, signalés par une note."
+   }
+  },
+  {
    "id": "T4_reprise_rejets",
    "titre": "45 Spec T4 : reprise des fiches tronquées ou en erreur",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 6,
-   "etat": "en_cours",
-   "essais": 0,
+   "etat": "fait",
+   "essais": 1,
    "prompt": "Lis d'abord projets/ouvrier/MISSION_45SPEC.md et applique ses règles constantes. Exécute T4 : repère les fiches dont controles.erreurs n'est pas vide ou audit.rejector == 'rejet', déplace-les dans content/fiches/_archives/ en gardant le motif, puis resoumets-les en lot avec le schéma actuel et récupère-les. Mets « fait » quand aucune fiche active n'est en erreur.",
    "dernier": {
-    "date": "2026-11-24T16:36:15+00:00",
-    "cout_usd": 0.0,
-    "resume": "Credit balance is too low"
+    "date": "2026-11-26T01:57:16+00:00",
+    "cout_usd": 0.061,
+    "resume": "J'ai examiné les 476 fiches actives de content/fiches : aucune n'a de controles.erreurs non vide ni d'audit.rejector égal à « rejet ». Je n'ai donc archivé aucune fiche et je n'ai soumis aucun lot, ce qui n'a coûté aucun crédit API. Aucune fiche active n'est en erreur, donc la tâche est terminée."
    },
    "echecs": 0
   },
@@ -526,10 +561,15 @@
    "commande": "python scripts/produire_notions_questions.py notions soumettre --groupe A --max 400",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 5,
-   "etat": "bloque",
-   "essais": 0,
+   "etat": "fait",
+   "essais": 1,
    "fin": "une_fois",
-   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
+   "note": "Tempête 25.11 (Vial) : reprise sur le nouveau crédit ; groupe A, puis B, C, D ; selection() saute le déjà-produit.",
+   "dernier": {
+    "date": "2026-11-26T01:57:46+00:00",
+    "cout_usd": 0.0,
+    "resume": "notions : 80 entité(s) à produire.\nlot msgbatch_01569XzQ1C1RxuKJqamSiJBh\n"
+   }
   },
   {
    "id": "V2_N_recup",
@@ -537,11 +577,16 @@
    "commande": "python scripts/produire_notions_questions.py notions recuperer",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
-   "etat": "bloque",
-   "essais": 0,
+   "etat": "fait",
+   "essais": 13,
    "fin": "lots_recuperes",
    "suivi": "scripts/batchs_notions_questions.json",
-   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
+   "note": "Tempête 25.11 (Vial) : reprise sur le nouveau crédit ; groupe A, puis B, C, D ; selection() saute le déjà-produit.",
+   "dernier": {
+    "date": "2026-11-26T02:04:26+00:00",
+    "cout_usd": 0.0,
+    "resume": "msgbatch_01569XzQ1C1RxuKJqamSiJBh : 80 écrites, 0 échecs.\n"
+   }
   },
   {
    "id": "V2_Q_lot",
@@ -549,10 +594,15 @@
    "commande": "python scripts/produire_notions_questions.py questions soumettre --groupe A --max 400",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 13,
-   "etat": "bloque",
-   "essais": 0,
+   "etat": "fait",
+   "essais": 1,
    "fin": "une_fois",
-   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
+   "note": "Tempête 25.11 (Vial) : reprise sur le nouveau crédit ; groupe A, puis B, C, D ; selection() saute le déjà-produit.",
+   "dernier": {
+    "date": "2026-11-26T02:04:58+00:00",
+    "cout_usd": 0.0,
+    "resume": "questions : 80 entité(s) à produire.\nlot msgbatch_0129sMJ5tuHHj8xuQZRCYic4\n"
+   }
   },
   {
    "id": "V2_Q_recup",
@@ -560,11 +610,16 @@
    "commande": "python scripts/produire_notions_questions.py questions recuperer",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
-   "etat": "bloque",
-   "essais": 0,
+   "etat": "fait",
+   "essais": 16,
    "fin": "lots_recuperes",
    "suivi": "scripts/batchs_notions_questions.json",
-   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
+   "note": "Tempête 25.11 (Vial) : reprise sur le nouveau crédit ; groupe A, puis B, C, D ; selection() saute le déjà-produit.",
+   "dernier": {
+    "date": "2026-11-26T02:13:49+00:00",
+    "cout_usd": 0.0,
+    "resume": "msgbatch_0129sMJ5tuHHj8xuQZRCYic4 : 80 écrites, 0 échecs.\n"
+   }
   },
   {
    "id": "V2_C_lot",
@@ -572,10 +627,15 @@
    "commande": "python scripts/produire_notions_questions.py correction soumettre --groupe A --max 400",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 6,
-   "etat": "bloque",
-   "essais": 0,
+   "etat": "fait",
+   "essais": 1,
    "fin": "une_fois",
-   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
+   "note": "Tempête 25.11 (Vial) : reprise sur le nouveau crédit ; groupe A, puis B, C, D ; selection() saute le déjà-produit.",
+   "dernier": {
+    "date": "2026-11-26T02:14:25+00:00",
+    "cout_usd": 0.0,
+    "resume": "correction : 80 entité(s) à produire.\nlot msgbatch_019VgHb3j8zmRAuEQvqhhsWF\n"
+   }
   },
   {
    "id": "V2_C_recup",
@@ -583,11 +643,279 @@
    "commande": "python scripts/produire_notions_questions.py correction recuperer && python scripts/couverture_notions.py && python conception/outils/arene45/construire_arene45.py",
    "modele": "claude-sonnet-5-5",
    "budget_usd": 1,
-   "etat": "bloque",
+   "etat": "fait",
+   "essais": 10,
+   "fin": "lots_recuperes",
+   "suivi": "scripts/batchs_notions_questions.json",
+   "note": "Tempête 25.11 (Vial) : reprise sur le nouveau crédit ; groupe A, puis B, C, D ; selection() saute le déjà-produit.",
+   "dernier": {
+    "date": "2026-11-26T02:21:50+00:00",
+    "cout_usd": 0.0,
+    "resume": "775 notions, 56 cochées, 679 en attente d'audit, 403 questions\nTRO : 1 pathologies, 28 notions, 0 cochées, 28 en attente d'audit, 20 questions\nURO : 13 pathologies, 363 notions, 28 cochées, 335 en attente d'audit, 260 questions\narène 45 : 45 spécialités, 15908 questions, 2692 pathologies canoniques\n"
+   }
+  },
+  {
+   "id": "AUDIT_V2_A",
+   "titre": "Audit médical des 80 pathologies du groupe A produites par l'API (nuit du 26.11)",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 12,
+   "etat": "fait",
+   "essais": 8,
+   "prompt": "Charge les skills medical-accuracy-100, switzerland-medical-professor, agent-producteur-45spec (section Leçons) et always-twice-check-before-delivery. Les fichiers content/notions, questions et corrections ajoutés sur cette branche par rapport à origin/main (git diff --name-only --diff-filter=A origin/main...HEAD -- content) sont 80 pathologies produites par l'API sans audit. Audite-les par lots de 10 à chaque passage. Vérifie chaque dose, seuil et critère contre une source primaire que tu lis toi-même ; vérifie la règle PEP VIH 48 h, l'absence de CNP et CPCM, le diagnostic masqué des questions de niveau 4–5, menus longs avec 1 à 3 justes, et les « why ». Corrige sur place ce qui est faux, et marque « à vérifier » ce qui reste incertain. Tiens un journal dans CLAUDE_A_AUDITER/AUDIT_V2_A.md : pathologie, verdict 🟩🟧🟥, corrections. Lance python projets/45spec/controle_menus_longs.py sur chaque spécialité touchée (0 attendu). Écris projets/ouvrier/statut.json : « fait » quand les 80 sont auditées, sinon « en_cours ».",
+   "note": "Œil de la tempête (Claude), 26.11 03:55 : audit par l'API avant fusion sur main.",
+   "dernier": {
+    "date": "2026-11-26T04:19:04+00:00",
+    "cout_usd": 1.908,
+    "resume": "Les 80 pathologies sont auditées (passage 8 : pathologies 72 à 80, TOX et ORL) ; les erreurs de schéma, les niveaux 4–5 non masqués et plusieurs why incohérents sont corrigés sur place. Aucune source primaire n'a pu être lue en ligne : toutes les doses et tous les seuils incertains sont marqués « à vérifier » dans audit.claude.aVerifier et dans le journal CLAUDE_A_AUDITER/AUDIT_V2_A.md. controle_menus_longs.py renvoie 0 menu fautif et 0 erreur de schéma sur TOX et ORL."
+   }
+  },
+  {
+   "id": "V3B_N_lot",
+   "titre": "Groupe B (rendement) (NEU,PSY,MIG,INF) : notions, dans la limite du crédit",
+   "commande": "python scripts/produire_notions_questions.py notions soumettre --groupe B --max 600",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 5,
+   "etat": "fait",
+   "essais": 1,
+   "fin": "une_fois",
+   "note": "Tempête 26.11 : groupe B.",
+   "dernier": {
+    "date": "2026-11-26T04:19:46+00:00",
+    "cout_usd": 0.0,
+    "resume": "notions : 408 entité(s) à produire.\nlot msgbatch_01EzF3pvSUho8BXkuotRGB3n\n"
+   }
+  },
+  {
+   "id": "V3B_N_recup",
+   "titre": "Groupe B (rendement) : récupération des notions",
+   "commande": "python scripts/produire_notions_questions.py notions recuperer",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 1,
+   "etat": "fait",
+   "essais": 14,
+   "fin": "lots_recuperes",
+   "suivi": "scripts/batchs_notions_questions.json",
+   "note": "Tempête 26.11 : groupe B.",
+   "dernier": {
+    "date": "2026-11-26T04:27:36+00:00",
+    "cout_usd": 0.0,
+    "resume": "msgbatch_01EzF3pvSUho8BXkuotRGB3n : 408 écrites, 0 échecs.\n"
+   }
+  },
+  {
+   "id": "V3B_Q_lot",
+   "titre": "Groupe B (rendement) : questions",
+   "commande": "python scripts/produire_notions_questions.py questions soumettre --groupe B --max 600",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 13,
+   "etat": "fait",
+   "essais": 1,
+   "fin": "une_fois",
+   "note": "Tempête 26.11 : groupe B.",
+   "dernier": {
+    "date": "2026-11-26T04:28:10+00:00",
+    "cout_usd": 0.0,
+    "resume": "questions : 408 entité(s) à produire.\nlot msgbatch_019YDV2mYncSQTAJdnBP2ydV\n"
+   }
+  },
+  {
+   "id": "V3B_Q_recup",
+   "titre": "Groupe B (rendement) : récupération des questions",
+   "commande": "python scripts/produire_notions_questions.py questions recuperer",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 1,
+   "etat": "fait",
+   "essais": 20,
+   "fin": "lots_recuperes",
+   "suivi": "scripts/batchs_notions_questions.json",
+   "note": "Tempête 26.11 : groupe B.",
+   "dernier": {
+    "date": "2026-11-26T04:39:25+00:00",
+    "cout_usd": 0.0,
+    "resume": "msgbatch_019YDV2mYncSQTAJdnBP2ydV : 408 écrites, 0 échecs.\n"
+   }
+  },
+  {
+   "id": "V3B_C_lot",
+   "titre": "Groupe B (rendement) : corrections",
+   "commande": "python scripts/produire_notions_questions.py correction soumettre --groupe B --max 600",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 6,
+   "etat": "fait",
+   "essais": 1,
+   "fin": "une_fois",
+   "note": "Tempête 26.11 : groupe B.",
+   "dernier": {
+    "date": "2026-11-26T04:40:03+00:00",
+    "cout_usd": 0.0,
+    "resume": "correction : 408 entité(s) à produire.\nlot msgbatch_01Dukna9QfenrkpmDWp9eKzs\n"
+   }
+  },
+  {
+   "id": "V3B_C_recup",
+   "titre": "Groupe B (rendement) : récupération, couverture et arène",
+   "commande": "python scripts/produire_notions_questions.py correction recuperer && python scripts/couverture_notions.py && python conception/outils/arene45/construire_arene45.py",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 1,
+   "etat": "a_faire",
    "essais": 0,
    "fin": "lots_recuperes",
    "suivi": "scripts/batchs_notions_questions.json",
-   "note": "En pause jusqu'au nouveau crédit (jeudi) ; puis groupe A (500 pathologies à plus haut rendement, ≈ 130 USD pour les ≈ 390 restantes)."
+   "note": "Tempête 26.11 : groupe B.",
+   "echecs": 0,
+   "dernier": {
+    "date": "2026-11-26T04:41:48+00:00",
+    "cout_usd": 0.0,
+    "resume": "Traceback (most recent call last):\n  File \"/home/runner/work/Jeux_45_Spec/Jeux_45_Spec/scripts/couverture_notions.py\", line 15, in <module>\n    for n in q.get(\"notions\", []):\n             ^^^^^\nAttributeError: 'str' object has no attribute 'get'\n"
+   }
+  },
+  {
+   "id": "V3C_N_lot",
+   "titre": "Groupe C (rendement) (NEU,PSY,MIG,INF) : notions, dans la limite du crédit",
+   "commande": "python scripts/produire_notions_questions.py notions soumettre --groupe C --max 600",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 5,
+   "etat": "fait",
+   "essais": 1,
+   "fin": "une_fois",
+   "note": "Tempête 26.11 : groupe C.",
+   "dernier": {
+    "date": "2026-11-26T04:42:21+00:00",
+    "cout_usd": 0.0,
+    "resume": "notions : 600 entité(s) à produire.\nlot msgbatch_012am2CnHeMRSbQT8m2FgCHm\n"
+   }
+  },
+  {
+   "id": "V3C_N_recup",
+   "titre": "Groupe C (rendement) : récupération des notions",
+   "commande": "python scripts/produire_notions_questions.py notions recuperer",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 1,
+   "etat": "en_cours",
+   "essais": 27,
+   "fin": "lots_recuperes",
+   "suivi": "scripts/batchs_notions_questions.json",
+   "note": "Tempête 26.11 : groupe C.",
+   "dernier": {
+    "date": "2026-11-26T04:57:17+00:00",
+    "cout_usd": 0.0,
+    "resume": ""
+   }
+  },
+  {
+   "id": "V3C_Q_lot",
+   "titre": "Groupe C (rendement) : questions",
+   "commande": "python scripts/produire_notions_questions.py questions soumettre --groupe C --max 600",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 13,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "une_fois",
+   "note": "Tempête 26.11 : groupe C."
+  },
+  {
+   "id": "V3C_Q_recup",
+   "titre": "Groupe C (rendement) : récupération des questions",
+   "commande": "python scripts/produire_notions_questions.py questions recuperer",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 1,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "lots_recuperes",
+   "suivi": "scripts/batchs_notions_questions.json",
+   "note": "Tempête 26.11 : groupe C."
+  },
+  {
+   "id": "V3C_C_lot",
+   "titre": "Groupe C (rendement) : corrections",
+   "commande": "python scripts/produire_notions_questions.py correction soumettre --groupe C --max 600",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 6,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "une_fois",
+   "note": "Tempête 26.11 : groupe C."
+  },
+  {
+   "id": "V3C_C_recup",
+   "titre": "Groupe C (rendement) : récupération, couverture et arène",
+   "commande": "python scripts/produire_notions_questions.py correction recuperer && python scripts/couverture_notions.py && python conception/outils/arene45/construire_arene45.py",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 1,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "lots_recuperes",
+   "suivi": "scripts/batchs_notions_questions.json",
+   "note": "Tempête 26.11 : groupe C."
+  },
+  {
+   "id": "V3D_N_lot",
+   "titre": "Groupe D (rendement) (NEU,PSY,MIG,INF) : notions, dans la limite du crédit",
+   "commande": "python scripts/produire_notions_questions.py notions soumettre --groupe D --max 600",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 5,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "une_fois",
+   "note": "Tempête 26.11 : groupe D."
+  },
+  {
+   "id": "V3D_N_recup",
+   "titre": "Groupe D (rendement) : récupération des notions",
+   "commande": "python scripts/produire_notions_questions.py notions recuperer",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 1,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "lots_recuperes",
+   "suivi": "scripts/batchs_notions_questions.json",
+   "note": "Tempête 26.11 : groupe D."
+  },
+  {
+   "id": "V3D_Q_lot",
+   "titre": "Groupe D (rendement) : questions",
+   "commande": "python scripts/produire_notions_questions.py questions soumettre --groupe D --max 600",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 13,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "une_fois",
+   "note": "Tempête 26.11 : groupe D."
+  },
+  {
+   "id": "V3D_Q_recup",
+   "titre": "Groupe D (rendement) : récupération des questions",
+   "commande": "python scripts/produire_notions_questions.py questions recuperer",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 1,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "lots_recuperes",
+   "suivi": "scripts/batchs_notions_questions.json",
+   "note": "Tempête 26.11 : groupe D."
+  },
+  {
+   "id": "V3D_C_lot",
+   "titre": "Groupe D (rendement) : corrections",
+   "commande": "python scripts/produire_notions_questions.py correction soumettre --groupe D --max 600",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 6,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "une_fois",
+   "note": "Tempête 26.11 : groupe D."
+  },
+  {
+   "id": "V3D_C_recup",
+   "titre": "Groupe D (rendement) : récupération, couverture et arène",
+   "commande": "python scripts/produire_notions_questions.py correction recuperer && python scripts/couverture_notions.py && python conception/outils/arene45/construire_arene45.py",
+   "modele": "claude-sonnet-5-5",
+   "budget_usd": 1,
+   "etat": "a_faire",
+   "essais": 0,
+   "fin": "lots_recuperes",
+   "suivi": "scripts/batchs_notions_questions.json",
+   "note": "Tempête 26.11 : groupe D."
   }
  ],
  "_note": "L'état vivant de la file se trouve sur la branche veille/audit-medical ; cette copie de main sert de déclencheur.",
