@@ -36,19 +36,20 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 | leçons avec QCM | 228 | 228 | 20 |
 | paquet jouable dans l'arène | 1 | 1 | 15 |
 
-## 45 Spec — 36 % (+1)
+## 45 Spec — 37 % (+1)
 
 `███████░░░░░░░░░░░░░`
 
 | Critère | Fait | Cible | Poids |
 |---|---:|---:|---:|
-| pathologies traitées (groupes A à D) | 913 | 2525 | 70 |
-| QCM jouables dans l'arène (20 par pathologie) | 18228 | 50500 | 30 |
+| pathologies traitées (groupes A à D) | 923 | 2525 | 70 |
+| QCM jouables dans l'arène (20 par pathologie) | 18428 | 50500 | 30 |
 
 ## Historique
 
 | Date | Tétrade | Paraclinique | Transversal | 45 Spec |
 |---|---:|---:|---:|---:|
+| 26.11.2026 06:35 | 97 % | 100 % | 100 % | 37 % |
 | 26.11.2026 06:31 | 97 % | 100 % | 100 % | 36 % |
 | 26.11.2026 06:26 | 97 % | 100 % | 100 % | 35 % |
 | 26.11.2026 06:22 | 97 % | 100 % | 100 % | 34 % |
@@ -68,6 +69,5 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 | 24.11.2026 15:02 | 94 % | 97 % | 100 % | 13 % |
 | 24.11.2026 13:43 | 94 % | 97 % | 100 % | 12 % |
 | 24.11.2026 13:24 | 94 % | 97 % | 100 % | 11 % |
-| 24.11.2026 12:32 | 94 % | 97 % | 100 % | 10 % |
 
 Signature : AAI (Anthropic AI)
