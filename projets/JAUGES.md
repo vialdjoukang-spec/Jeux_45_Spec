@@ -42,8 +42,8 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 
 | Critère | Fait | Cible | Poids |
 |---|---:|---:|---:|
-| pathologies traitées (groupes A à D) | 903 | 2525 | 70 |
-| QCM jouables dans l'arène (20 par pathologie) | 18028 | 50500 | 30 |
+| pathologies traitées (groupes A à D) | 913 | 2525 | 70 |
+| QCM jouables dans l'arène (20 par pathologie) | 18228 | 50500 | 30 |
 
 ## Historique
 
