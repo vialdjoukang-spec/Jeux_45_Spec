@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**113 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**116 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -718,10 +718,10 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 708 | 1708 | `O40__O2_7-E04` | GYN | Hydramnios (polyhydramnios : excès de liquide amniotique) | produite |
 | 709 | 1709 | `O41.0__O2_7-E03` | GYN | Oligoamnios (insuffisance de liquide amniotique) | produite |
 | 710 | 1710 | `O81.4__O1_5-E03` | GYN | Extraction instrumentale (ventouse obstétricale ou forceps) | produite |
-| 711 | 1711 | `O92.7_1__O1_6-E04` | GYN | Canal lactophore bouché (stase lactée localisée) | — |
-| 712 | 1712 | `O99.2__O1_7-E07` | GYN | Prise en charge d'une hypothyroïdie préexistante ou infraclinique en grossesse | — |
+| 711 | 1711 | `O92.7_1__O1_6-E04` | GYN | Canal lactophore bouché (stase lactée localisée) | produite |
+| 712 | 1712 | `O99.2__O1_7-E07` | GYN | Prise en charge d'une hypothyroïdie préexistante ou infraclinique en grossesse | produite |
 | 713 | 1713 | `P08.2__O1_1-E06` | PED | Grossesse prolongée / Post-maturité (>= 42 0/7 SA) | produite |
-| 714 | 1714 | `Q02__S1_13-E04` | GEN | Microcéphalie congénitale infectieuse (TORCH : CMV, Zika, toxoplasmose, rubéole) | — |
+| 714 | 1714 | `Q02__S1_13-E04` | GEN | Microcéphalie congénitale infectieuse (TORCH : CMV, Zika, toxoplasmose, rubéole) | produite |
 | 715 | 1715 | `Q39.3__S2_9-E05` | PED | Anneau de Schatzki (anneau muqueux œsophagien inférieur) | produite |
 | 716 | 1716 | `R00.1__F1_7-E04` | TOX | Bradycardie sinusale physiologique ou iatrogène | — |
 | 717 | 1717 | `R01.0__F1_3-E11` | GYN | Souffle cardiaque fonctionnel / innocent (anémie, grossesse, fièvre) | — |
