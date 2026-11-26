@@ -77,6 +77,7 @@ CIBLES = [
  ("grossesse_foetus_et_placenta__irm_foetale", ["fetal MRI"], r"fetal|foetal"),
 ]
 exec(open(os.path.join(RAC, 'projets/outils/cibles_p3b.py'), encoding='utf-8').read()); CIBLES += CIBLES2   # 2e passage
+exec(open(os.path.join(RAC, 'projets/outils/cibles_p3c.py'), encoding='utf-8').read()); CIBLES += CIBLES3   # 3e passage
 a = int(sys.argv[1]) if len(sys.argv) > 2 else 0
 b = int(sys.argv[2]) if len(sys.argv) > 2 else len(CIBLES)
 GENITAL = re.compile(r"penis|penile|vulva|scrot|genital|testic", re.I)
@@ -85,6 +86,7 @@ for f in glob.glob(os.path.join(RAC, "conception/donnees/images/paraclinique/**/
     for k in json.load(open(f, encoding="utf-8")).get("cliches", {}): index[k] = f
 bilan = []
 for eid, qs, pat in CIBLES[a:b]:
+    eid = next((k for k in index if k == eid or k.startswith(eid)), eid)   # préfixe accepté
     f = index.get(eid)
     if not f: print("?", eid); continue
     d = json.load(open(f, encoding="utf-8"))

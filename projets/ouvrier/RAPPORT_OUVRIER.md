@@ -1,10 +1,10 @@
-# Ouvrier automatique — 2026-11-26 00:57 UTC
+# Ouvrier automatique — 2026-11-26 01:02 UTC
 
-Dernier passage : **P3_paraclinique_cliches** → en_cours (0.30 USD).
+Dernier passage : **P3_paraclinique_cliches** → en_cours (0.41 USD).
 
-Deuxième passage : 77 entités d'imagerie, d'endoscopie et de tracé ont reçu une requête ciblée (projets/outils/cibles_p3b.py), et 58 ont obtenu 1 à 3 candidats libres (Wikimedia Commons, Open-i ; licence, auteur et URL enregistrés, statut « candidat », aucun SVG, aucun génital externe). J'ai retiré 71 candidats hors sujet ou dessinés (schémas, béton, studios Disney, dessins Wellcome), ce qui fait signaler non_perte en échec sur les seuls fichiers d'images : la perte est voulue. Les autres audits passent (34/34, couverture RÉUSSI) ; il reste les analyses de biologie (valeurs chiffrées sans image possible) et une vingtaine d'examens sans image fiable, à revoir au prochain passage.
+Troisième passage : 63 entités ont reçu une requête ciblée (projets/outils/cibles_p3c.py), et 27 ont obtenu 1 à 3 candidats libres (Wikimedia Commons, licence, auteur et URL enregistrés, jamais de SVG ni de génital externe) ; j'ai écarté à la main les titres hors sujet (béton, noms propres, schémas) et retiré 49 candidats dessinés Smart-Servier ou schématiques, d'où l'échec voulu de non_perte sur les seuls fichiers d'images. Les audits de conception (34/34) et de couverture passent, la jauge « entités avec cliché » atteint 1 376/1 607 (Paraclinique 98 %). Il reste surtout des analyses chiffrées, des échelles et des examens sans image fiable (IRM appendice, artériographie, PET-CT ORL, V/Q, rhinomanométrie, etc.), à retenter avec d'autres sources (Open-i, MedPix) au prochain passage.
 
-**Crédit** : 0.65 USD dépensés, 149.35 USD disponibles avant le 31.01.2027 ; aujourd'hui 0.30 / 149.65 USD.
+**Crédit** : 1.07 USD dépensés, 148.93 USD disponibles avant le 31.01.2027 ; aujourd'hui 0.72 / 149.65 USD.
 
 | Tâche | État | Passages | Dernier coût (USD) |
 |---|---|---|---|
@@ -40,7 +40,7 @@ Deuxième passage : 77 entités d'imagerie, d'endoscopie et de tracé ont reçu 
 | END_C_lot | fait | 1 | 0.0 |
 | END_C_recup | fait | 1 | 0.0 |
 | T3_pec_fiches_existantes | fait | 8 | 0.133 |
-| P3_paraclinique_cliches | en_cours | 2 | 0.304 |
+| P3_paraclinique_cliches | en_cours | 3 | 0.413 |
 | P3_tetrade_3d | a_faire | 0 |  |
 | T4_reprise_rejets | en_cours | 0 | 0.0 |
 | T5_items_valides | sans_objet | 0 |  |
