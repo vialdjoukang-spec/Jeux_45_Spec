@@ -105,3 +105,24 @@ Méthode : trois sous-agents avec la même grille ; JSON revalidés par moi. Auc
 Contrôles du passage : aucun CNP, CPCM ni PEP VIH ; niveaux 4–5 masqués ; menus longs à 1–3 justes. `controle_menus_longs.py OPH` → 0 menu fautif ; 1 erreur de schéma restante sur H57.0_1 (pathologie non encore auditée).
 
 Reste à auditer : 29 pathologies (H57.0_1 → K52.1).
+
+## Passage 6 — pathologies 52 à 61 sur 80 (10 pathologies, OPH et ORL)
+
+Méthode : trois sous-agents avec la même grille ; JSON revalidés par moi avec `controle_menus_longs.py`. Aucune source primaire relue en ligne (une recherche ponctuelle sur l'otite externe nécrosante) : les doutes sont dans `audit.claude.aVerifier`.
+
+| # | Pathologie | Verdict | Corrections et points à vérifier |
+|---|---|---|---|
+| 52 | H57.0_1 Mydriase iatrogène topique | 🟧 | Corrigé : seuil d'anisocorie physiologique « ≤ 1 mm » uniformisé, oblique inférieur ajouté (nerf III), clé parasite `si` retirée (Q12-C). À vérifier : doses du glaucome aigu, lorazépam et physostigmine (Tox Info 145), durées de mydriase, sources « EGS 2020 » et sociétés suisses trop vagues. |
+| 53 | H57.0 Anisocorie physiologique | 🟧 | Corrigé : phrase ambiguë sur le faux négatif en phase aiguë (c'est l'apraclonidine). À vérifier : « ESO 2021 », aspirine (CADISS, TREAT-CAD), acétazolamide i.v., pilocarpine 0,1 % magistrale, prévalence 15–20 %. |
+| 54 | H53.2 Diplopie monoculaire | 🟧 | Corrigé : chiffre « 20–25 % des consultations » retiré (sans source). À vérifier : hyaluronate et ciclosporine (AIPS), LiMA, art. 15d LCR, PPP AAO cataracte, BUT < 10 s. |
+| 55 | H60.3 Otite externe aiguë bactérienne | 🟧 | Corrigé : source « IDSA/ESCMID 2020 » inexistante remplacée (consensus multispécialité, J Laryngol Otol 2020), Q07 masqué. À vérifier : référence exacte, ciprofloxacine et gouttes (AIPS). |
+| 56 | H60.5_1 Otite externe diffuse aiguë | 🟧 | Corrigé : coquille N31, « why » de Q09 (« triade ») et de Q20-G. À vérifier : spécialité suisse ciprofloxacine-dexaméthasone, nerfs IX–XII contre IX–XI, durées ciprofloxacine et clotrimazole, libellé de discipline. |
+| 57 | H66.0 Otite moyenne aiguë perforée | 🟧 | Corrigé : durées d'amoxicilline alignées sur l'AAP 2013 (N46, correction, Q04, Q20), Q08 masqué, coquille Q01, trois blocs de 6 points ramenés à 5 (schéma). À vérifier : durées SSI/SSP, doses des alternatives (AIPS), vaccin antipneumococcique actuel de l'OFSP, taux de fermeture > 90 %. |
+| 58 | H81.2 Névrite vestibulaire | 🟧 | Corrigé : source de la prednisone (Strupp 2004 testait la méthylprednisolone) reprécisée. À vérifier : schéma de prednisone, ondansétron et diménhydrinate, thrombolyse (SSN 2023), 9 séances OPAS, HINTS contre IRM précoce. |
+| 59 | H93.1 Acouphènes chroniques | 🟧 | Corrigé : accord Q03, « why » de Q14-A, 6 questions passées à `diagnosticMasque` faux (vignette nommant l'acouphène), Q11 masquée (« sifflement »), OSLUM développée. À vérifier : OSLUM 100 dB(A), seuil Suva 85 dB(A), forfait AVS/AI, THI ≥ 58, prednisone 1 mg/kg/j. |
+| 60 | J00 Rhinite aiguë virale | 🟧 | Corrigé : clé parasite `__` (conduite.urgence), discipline « S Santé publique » invalide → « N Médecine sociale Prévention OFSP », Q05/Q12/Q13 `diagnosticMasque` faux. À vérifier : décongestionnant 5 contre 5–7 jours, xylométazoline pédiatrique, ibuprofène dès 3 mois, intitulé Smarter medicine. |
+| 61 | J00_1 Rhinopharyngite | 🟧 | Corrigé : « 2 à 5 rhumes par an », vignette Q12 complétée, `prevention.tertiaire` remplie. À vérifier : durée de xylométazoline, prévalence de la rhinite allergique (SAPALDIA), millésimes ACCP 2006/CHEST 2016 et ARIA 2019/2020, posologies AIPS, dexchlorphéniramine. |
+
+Contrôles du passage : aucun CNP, CPCM ni PEP VIH ; niveaux 4–5 masqués ; menus longs à 1–3 justes. `controle_menus_longs.py OPH` → 0 menu fautif, 0 erreur de schéma ; `ORL` → 0 menu fautif ; 2 erreurs de schéma restantes sur des pathologies non encore auditées (J02.9 `statements` manquant, J03.9_1 clé `false`).
+
+Reste à auditer : 19 pathologies (E66.1, F06.7, F10.0_1, F32.1_3, F80.8, F82, F90.0_1, F90.0_2, F93.1, G44.4, G72.0, G89.3_1, J01.0, J02.9, J03.0, J03.9, J03.9_1, J38.1, K52.1).
