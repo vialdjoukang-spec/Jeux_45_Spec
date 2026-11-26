@@ -1,8 +1,8 @@
 # Jauges « jouable » des 4 jeux
 
-Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **26.11.2026 10:43**.
+Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Dernière mesure : **26.11.2026 10:44**.
 
-## Tétrade Fondation — 99 % (+14)
+## Tétrade Fondation — 99 %
 
 `███████████████████░`
 
@@ -36,19 +36,20 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 | leçons avec QCM | 228 | 228 | 20 |
 | paquet jouable dans l'arène | 1 | 1 | 15 |
 
-## 45 Spec — 41 %
+## 45 Spec — 42 % (+1)
 
 `████████░░░░░░░░░░░░`
 
 | Critère | Fait | Cible | Poids |
 |---|---:|---:|---:|
 | pathologies traitées (groupes A à D) | 1045 | 2525 | 70 |
-| QCM jouables dans l'arène (20 par pathologie) | 20888 | 50500 | 30 |
+| QCM jouables dans l'arène (20 par pathologie) | 21188 | 50500 | 30 |
 
 ## Historique
 
 | Date | Tétrade | Paraclinique | Transversal | 45 Spec |
 |---|---:|---:|---:|---:|
+| 26.11.2026 10:44 | 99 % | 100 % | 100 % | 42 % |
 | 26.11.2026 10:33 | 99 % | 100 % | 100 % | 41 % |
 | 26.11.2026 10:31 | 85 % | 100 % | 100 % | 41 % |
 | 26.11.2026 10:24 | 85 % | 100 % | 100 % | 40 % |
@@ -68,6 +69,5 @@ Mesure automatique du dépôt, mise à jour toutes les 5 minutes environ. Derni�
 | 26.11.2026 02:30 | 94 % | 99 % | 100 % | 28 % |
 | 26.11.2026 02:02 | 94 % | 98 % | 100 % | 28 % |
 | 25.11.2026 06:18 | 94 % | 97 % | 100 % | 28 % |
-| 25.11.2026 04:33 | 94 % | 97 % | 100 % | 27 % |
 
 Signature : AAI (Anthropic AI)
