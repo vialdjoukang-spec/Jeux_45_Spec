@@ -1,0 +1,203 @@
+{
+ "_meta": {
+  "lot": 3,
+  "date": "27.11.2026",
+  "role": "contre-audit et correction",
+  "note": "Posologies relues contre le texte AIPS (cache refdata) ; calculs refaits en Python (tous exacts) ; valeurs de temps2 HUG RPA et Insel non relisibles (hôtes hcuge.ch et insel.ch refusés) sauf le seuil réticulocytaire de 120 G/L, confirmé sur hug.ch (base de connaissance SMPR « anémie »)."
+ },
+ "fiches": [
+  {
+   "id": "EX-1-S1-taux-antiepileptiques",
+   "verdict": "ok",
+   "constats": []
+  },
+  {
+   "id": "EX-1-S10-hemolyse-haptoglobine-ldh-bilirubine",
+   "verdict": "a_verifier",
+   "constats": [
+    {
+     "gravite": "MAJEUR",
+     "chemin": "temps2_examen[4].normal",
+     "avant": "< 0.5 g/L (Insel)",
+     "apres": "< 0.5 g/L (Insel) ; à vérifier : unité et borne dans Insel ZLM, Cobas PRO – Referenzwerte Klinische Chemie v21.0 (document inaccessible depuis la session le 27.11.2026), car cette borne paraît élevée pour un plasma normal",
+     "applique": "oui (mention « à vérifier » seule, sans nouvelle valeur)",
+     "source": "Source Insel non lue : hôte insel.ch refusé par le proxy le 27.11.2026"
+    },
+    {
+     "gravite": "MINEUR",
+     "chemin": "traitement.moyens[2].source",
+     "avant": "Institut für Hausarztmedizin UZH / Stadtspital Zürich, R. Kühne : Paraproteindiagnostik (MGUS) und Neutropenie",
+     "apres": null,
+     "applique": "non : document hors sujet pour le PTT ; à retirer ou remplacer par une source PTT lors d'une relecture",
+     "source": "Constat sur le titre de la source citée"
+    }
+   ]
+  },
+  {
+   "id": "EX-1-S11-bilan-etiologique-delirium",
+   "verdict": "corrigee",
+   "constats": [
+    {
+     "gravite": "CRITIQUE",
+     "chemin": "traitement.moyens[1].posologie",
+     "avant": "Tu ne le redonnes pas après un ictère ou une atteinte hépatique sous Augmentin (contre-indication).",
+     "apres": "Tu ne le donnes pas en cas d'hypersensibilité connue aux pénicillines ou aux céphalosporines, et tu ne le redonnes pas après un ictère ou une atteinte hépatique sous Augmentin (contre-indications de l'AIPS).",
+     "applique": "oui",
+     "source": "AIPS Augmentin comprimés filmés n° 45674, mise à jour septembre 2026, rubrique Contre-indications (lu le 27.11.2026)"
+    },
+    {
+     "gravite": "MAJEUR",
+     "chemin": "traitement.moyens[0].posologie",
+     "avant": "—",
+     "apres": "Aucun médicament n'a de posologie ici ; la vitesse maximale de correction de la natrémie par 24 h et l'indication d'un soluté salé hypertonique devant une confusion (symptômes modérément sévères) restent à vérifier : Spasovski 2014, texte intégral, chapitre traitement de l'hyponatrémie ; tu dois vérifier dans l'AIPS (Swissmedic).",
+     "applique": "oui (renvoi « à vérifier » sans chiffre : texte intégral non lisible depuis la session)",
+     "source": "Spasovski G et al., Eur J Endocrinol 2014;170:G1-47, doi 10.1530/EJE-13-1020 (métadonnées PubMed lues le 27.11.2026, pas de texte PMC)"
+    }
+   ]
+  },
+  {
+   "id": "EX-1-S2-ige-specifiques-pneumallergenes",
+   "verdict": "ok",
+   "constats": []
+  },
+  {
+   "id": "EX-1-S5-lipase",
+   "verdict": "ok",
+   "constats": [
+    {
+     "gravite": "MINEUR",
+     "chemin": "traitement.moyens[0].posologie",
+     "avant": "30 ml/kg/j (environ 540 ml/h)",
+     "apres": null,
+     "applique": "non : la fiche reproduit fidèlement l'AIPS, qui porte elle-même ces deux chiffres discordants (30 ml/kg/j ≈ 90 ml/h chez 70 kg) ; le débit de la pancréatite suit les objectifs RMS 2017",
+     "source": "AIPS Ringer-Lactat Fresenius n° 42692, mise à jour octobre 2019, rubrique Posologie (lu le 27.11.2026)"
+    }
+   ]
+  },
+  {
+   "id": "EX-1-S6-ionogramme-potassium",
+   "verdict": "corrigee",
+   "constats": [
+    {
+     "gravite": "CRITIQUE",
+     "chemin": "traitement.moyens[7].posologie ; traitement.moyens[9].posologie",
+     "avant": "L'AIPS lue ne donne pas d'adaptation : adaptation rénale (risque d'hyperkaliémie) et hépatique à vérifier dans l'AIPS",
+     "apres": "L'AIPS contre-indique le KCl en cas d'anurie, d'oligurie, d'insuffisance rénale, de déshydratation grave, d'hyperkaliémie, d'hyperchlorémie, d'acidose et d'insuffisance corticosurrénale non traitée ; elle ne donne pas d'adaptation hépatique : à vérifier dans l'AIPS ; vérifier dans l'AIPS (Swissmedic).",
+     "applique": "oui",
+     "source": "AIPS Kalium chloratum 15% Sintetica n° 51434, mise à jour février 2024, rubrique Contre-indications (lu le 27.11.2026)"
+    },
+    {
+     "gravite": "MAJEUR",
+     "chemin": "traitement.moyens[0..2].posologie",
+     "avant": "dose du gluconate de calcium, de l'insuline-glucose IV et du salbutamol nébulisé : à vérifier",
+     "apres": null,
+     "applique": "non : l'AIPS du gluconate de calcium 10 % IV manque au corpus, Actrapid® et Ventolin® ne couvrent pas l'hyperkaliémie, RMS 2018 inaccessible ; les doses d'urgence restent à compléter (protocole HUG ou CHUV)",
+     "source": "Corpus AIPS interrogé le 27.11.2026 (gluconate de calcium IV absent)"
+    }
+   ]
+  },
+  {
+   "id": "EX-1-S8-acylcarnitines",
+   "verdict": "corrigee",
+   "constats": [
+    {
+     "gravite": "MINEUR",
+     "chemin": "traitement.moyens[1,2,4].posologie",
+     "avant": "l'AIPS limite la dose journalière à 15 g/kg chez l'enfant de 1–2 ans",
+     "apres": "l'AIPS limite la dose journalière à 18 g/kg chez le prématuré, 15 g/kg chez le nouveau-né et l'enfant de 1–2 ans",
+     "applique": "oui",
+     "source": "AIPS Glucose 10% B. Braun n° 29550, mise à jour février 2025, rubrique Enfants et adolescents (lu le 27.11.2026)"
+    }
+   ]
+  },
+  {
+   "id": "EX-1-S9-acide-urique",
+   "verdict": "corrigee",
+   "constats": [
+    {
+     "gravite": "CRITIQUE",
+     "chemin": "traitement.moyens[0].posologie",
+     "avant": "elle le contre-indique en insuffisance hépatique sévère et en insuffisance rénale sévère (clairance < 30 ml/min).",
+     "apres": "… en insuffisance cardiaque sévère (NYHA III–IV), en cas d'ulcère gastroduodénal ou d'hémorragie digestive (présents ou répétés dans les antécédents, ou déjà provoqués par un AINS), de maladie de Crohn ou de colite ulcéreuse, d'asthme ou d'urticaire déclenchés par l'aspirine ou un AINS, et au 3e trimestre de la grossesse.",
+     "applique": "oui",
+     "source": "AIPS Proxen® n° 43522, mise à jour septembre 2024, rubrique Contre-indications (lu le 27.11.2026)"
+    },
+    {
+     "gravite": "MINEUR",
+     "chemin": "traitement.moyens[0].posologie",
+     "avant": "avec au moins 2 semaines entre deux injections.",
+     "apres": "avec au moins 2 semaines entre deux injections, et elle demande d'éviter l'injection dans une articulation infectée.",
+     "applique": "oui",
+     "source": "AIPS Kenacort®-A 10/A 40 n° 26177, mise à jour décembre 2021, rubrique Mises en garde (lu le 27.11.2026)"
+    },
+    {
+     "gravite": "CRITIQUE",
+     "chemin": "traitement.moyens[2].posologie",
+     "avant": "elle réduit la dose en insuffisance hépatique ; tu dois vérifier dans l'AIPS (Swissmedic).",
+     "apres": "… Tu évites l'association à l'azathioprine ou à la mercaptopurine, car l'AIPS rapporte des myélosuppressions mortelles (sinon dose de ces médicaments réduite au quart), et tu arrêtes l'allopurinol dès la première éruption cutanée (DRESS, SSJ, NET) ; tu dois vérifier dans l'AIPS (Swissmedic).",
+     "applique": "oui",
+     "source": "AIPS Zyloric® n° 32917, mise à jour août 2025, rubriques Mises en garde et Interactions (lu le 27.11.2026)"
+    },
+    {
+     "gravite": "CRITIQUE",
+     "chemin": "traitement.moyens[3].posologie",
+     "avant": "elle signale plus de décès cardiovasculaires que sous allopurinol chez le patient cardiovasculaire ;",
+     "apres": "… et elle contre-indique l'association à l'azathioprine ou à la mercaptopurine ;",
+     "applique": "oui",
+     "source": "AIPS Adenuric® n° 65851, mise à jour juin 2022, rubrique Contre-indications (lu le 27.11.2026)"
+    }
+   ]
+  },
+  {
+   "id": "EX-1-S10-myelogramme",
+   "verdict": "corrigee",
+   "constats": [
+    {
+     "gravite": "CRITIQUE",
+     "chemin": "traitement.moyens[0].posologie",
+     "avant": "sans dépasser 500–600 mg/m² cumulés chez l'adulte ;",
+     "apres": "sans dépasser 550 mg/m² cumulés chez l'adulte, ou 400 mg/m² après une radiothérapie médiastinale ou un autre cardiotoxique, et elle la contre-indique en cas d'insuffisance cardiaque, d'infarctus récent, d'arythmie sévère, de myélosuppression persistante ou d'infection sévère ;",
+     "applique": "oui",
+     "source": "AIPS Daunoblastin® n° 68340 (médicament de comparaison étranger ; mise à jour de l’information : avril 2022, revue Swissmedic septembre 2022), rubriques Posologie et Contre-indications (lu le 27.11.2026)"
+    }
+   ]
+  },
+  {
+   "id": "EX-1-S5-calprotectine-fecale",
+   "verdict": "corrigee",
+   "constats": [
+    {
+     "gravite": "CRITIQUE",
+     "chemin": "traitement.moyens[1].posologie",
+     "avant": "sans dépasser 16 mg par jour chez l'adulte (AIPS Imodium®, diarrhée chronique).",
+     "apres": "… Tu ne le donnes pas en cas de colite ulcéreuse aiguë, de dysenterie (selles glairo-sanglantes et forte fièvre), d'entérocolite bactérienne invasive ou de colite pseudomembraneuse, car il expose au mégacôlon toxique ; tu écartes donc d'abord une MICI quand la calprotectine monte (AIPS).",
+     "applique": "oui",
+     "source": "AIPS Imodium®/- lingual n° 40363, mise à jour décembre 2025, rubrique Contre-indications (lu le 27.11.2026)"
+    }
+   ]
+  },
+  {
+   "id": "EX-1-S4-pcr-aspergillus",
+   "verdict": "corrigee",
+   "constats": [
+    {
+     "gravite": "CRITIQUE",
+     "chemin": "traitement.moyens[0].posologie",
+     "avant": "la forme Child-Pugh C n'a pas été étudiée (AIPS). Tu dois vérifier dans l'AIPS (Swissmedic).",
+     "apres": "… Tu gardes la voie IV au moins 7 jours avant le relais oral, et tu vérifies les interactions, car l'AIPS contre-indique notamment la carbamazépine, le phénobarbital, la rifampicine, la rifabutine, le millepertuis, le sirolimus, le vénétoclax en phase de titration et les substrats du CYP3A4 qui allongent le QTc.",
+     "applique": "oui",
+     "source": "AIPS Vfend® n° 55945, mise à jour mai 2026, rubriques Posologie et Contre-indications (lu le 27.11.2026)"
+    }
+   ]
+  }
+ ],
+ "resume": {
+  "fiches": 11,
+  "ok": 3,
+  "critiques": 8,
+  "majeurs": 3,
+  "mineurs": 4,
+  "appliques": 12,
+  "non_appliques": 3
+ }
+}
