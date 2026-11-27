@@ -58,6 +58,15 @@ Sorties : `content/notions/<SPEC>/<id>.json`, `content/questions/<SPEC>/<id>.jso
 3. **Les discordances de sources** (déjà listées dans `REPRISE_C.md` : métoclopramide, atropine 0,5 vs 1 mg, PCR amniotique, etc.) : on cite la source suisse, on signale l'écart, on ne tranche pas de mémoire.
 4. **L'audit médical** : rien du groupe C n'est audité (`rejector = null`). L'audit Gemini (`Gemini_cross-check-hard/4_Jeux_45_Spec/`, 289 lots) doit passer avant toute annonce « fini ».
 
+## 7 bis. Pièges trouvés par l'audit croisé (27.11.2026, 10 pathologies : Gemini + Fable) — à éviter absolument
+1. **Référence mal attribuée** : vérifie l'auteur réel avant de citer (ex. les « Grenzsteine der Entwicklung » sont de Michaelis, Tübingen, pas de Largo).
+2. **Kprim faux coté vrai** : relis chaque énoncé Kprim comme un piège ; une phrase vraie pour un diagnostic peut être fausse pour un autre (ex. « plaquettes normales » n'exclut pas une leucémie).
+3. **Posologie non conforme à la spécialité suisse** : lis la fiche AIPS de la spécialité réellement commercialisée (ex. protamine).
+4. **Produit ou forme absents en Suisse** : vérifie sur compendium.ch la forme et la voie (ex. pas de flucloxacilline orale ; pas de warfarine → phenprocoumone, acénocoumarol ; pas de glucose 30 % injectable référencé).
+5. **Contre-indication omise** : quand la vignette pose un terrain (ex. antécédent d'invagination), donne la contre-indication qui en découle (Rotarix, RCP § 4.3).
+6. **Recommandation périmée** : cherche la version la plus récente avant de citer (ex. KDIGO 2025, AAO 2024).
+7. **Rien de mémoire** : chaque source est ouverte (recherche web) avant d'être citée.
+
 ## 8. Rapport à Vial (court, phrases verbales)
 Pathologies produites (avant → après), contrôles verts, branches fusionnées, points « à vérifier », skills chargés. Aucun contenu de question dans le rapport.
 
