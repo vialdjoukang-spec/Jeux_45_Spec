@@ -15,7 +15,7 @@ Tu produis une seule pathologie, à la main, sans API. Le relecteur (session pri
 
 ## Sources : rien de mémoire
 - Chaque source est **ouverte dans cette session** avant d'être citée (WebSearch, puis WebFetch sur l'URL renvoyée ; connecteur PubMed pour résumés et PMC). Vérifie auteur réel, année, et qu'aucune version plus récente n'existe. Les amorces du catalogue ne sont pas une source.
-- Réseau : `curl` ne passe que pour `compendium.ch` et `hug.ch` ; tout le reste par WebSearch / WebFetch / PubMed.
+- Réseau (constaté au lot 10) : `curl` et WebFetch ne passent que pour `compendium.ch`, `www.hug.ch` et `www.chuv.ch` ; nice.org.uk, bag.admin.ch, aafp.org, msdmanuals.com sont refusés : n'insiste pas. Le reste se lit par le connecteur PubMed (résumés, texte PMC par `get_full_text_article`) et par WebSearch ; un extrait de WebSearch ne vaut pas lecture : cite alors « résumé lu » ou « (à vérifier) ».
 - Ordre : sources suisses d'abord (OFSP, AIPS/Compendium, HUG, CHUV, sociétés suisses, SMW, Revue médicale suisse), puis NICE, ESC, EASL, etc. Une recommandation se cite d'après son propre texte.
 - Une affirmation sans source lue s'écrit avec la source « Avis d'expert (à vérifier) ». Jamais de référence, de PMID ni de DOI inventés.
 - **Posologies** : chacune est vérifiée sur compendium.ch (`mkdir -p /tmp/src; python3 projets/45spec/outils/aips.py "<nom commercial>" <motifs>` puis lis `/tmp/src/aips_<nom>.txt` ; contrôle le nom du produit renvoyé) et porte la mention exacte « posologies à vérifier dans l'AIPS (Swissmedic) ». Vérifie que le produit, la forme et la voie existent en Suisse ; cite la spécialité suisse ; signale toute discordance recommandation ↔ notice au lieu de trancher.
