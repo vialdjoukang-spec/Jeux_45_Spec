@@ -288,7 +288,8 @@ def syndrome_radio(nom):
 def fiche_flash(nom, e, p, niv, libelle=None, syn_force=None, organe=None):
     """Renvoie (bulle, flash) : la bulle garde du texte brut ; les champs *_h portent le HTML survolable."""
     f = FT.trouver(FT_F, nom) or {}
-    x = FLASH_ORG.get((organe, FT.sa(nom))) or FLASH.get(FT.sa(nom)) or {}
+    x = (FLASH_ORG.get((organe, FT.sa(nom))) or (libelle and FLASH_ORG.get((organe, FT.sa(libelle))))
+         or FLASH.get(FT.sa(nom)) or (libelle and FLASH.get(FT.sa(libelle))) or {})  # clé au nom source ou au libellé développé
     b = {"def": x.get("def") or f.get("def") or AP, "epi": x.get("epi") or AP, "meca": x.get("meca") or f.get("pourquoi") or AP}
     sy = x.get("syndromesCliniques") or []
     b["synd"] = ", ".join(s["nom"] for s in sy) if sy else AP
