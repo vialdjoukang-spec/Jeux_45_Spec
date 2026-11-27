@@ -39,7 +39,8 @@ SYN = {"insuffisance cardiaque gauche": "insuffisance cardiaque", "oedeme pulmon
        "bpco avec emphyseme": "bronchopneumopathie chronique obstructive", "cancer bronchique": "cancer bronchopulmonaire", "cancer bronchique precoce": "cancer bronchopulmonaire",
        "cancer bronchique non a petites cellules": "cancer bronchopulmonaire", "pneumonie": "pneumonie communautaire",
        "tuberculose": "tuberculose pulmonaire", "pneumothorax": "pneumothorax spontane", "htp tec": "hypertension pulmonaire",
-       "bpco ou pneumonie": "bronchopneumopathie chronique obstructive"}
+       "bpco ou pneumonie": "bronchopneumopathie chronique obstructive",
+       "aomi": "arteriopathie obliterante", "aomi symptomatique": "arteriopathie obliterante"}
 
 
 def trouver(F, nom):
