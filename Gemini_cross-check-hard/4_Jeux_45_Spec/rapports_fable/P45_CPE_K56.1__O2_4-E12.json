@@ -1,0 +1,149 @@
+{
+ "lot": "P45_CPE_K56.1__O2_4-E12",
+ "auditeur": "claude-fable-5-2",
+ "date": "2026-11-27",
+ "fichiers_audites": [
+  {
+   "chemin": "content/notions/CPE/K56.1__O2_4-E12.json",
+   "sha256": "d1a656407f624294"
+  },
+  {
+   "chemin": "content/questions/CPE/K56.1__O2_4-E12.json",
+   "sha256": "a1deb2e2692e927d"
+  },
+  {
+   "chemin": "content/corrections/CPE/K56.1__O2_4-E12.json",
+   "sha256": "3d7fdf10954b3298"
+  }
+ ],
+ "verdict_lot": "🟧 majeurs",
+ "nb_elements_relus": 54,
+ "constats": [
+  {
+   "id": "P45_CPE_K56.1__O2_4-E12-001",
+   "gravite": "🟧 majeur",
+   "categorie": "omission_grave",
+   "fichier": "content/corrections/CPE/K56.1__O2_4-E12.json",
+   "localisation": "priseEnCharge[1].moyens.transversal[0].apport",
+   "texte_actuel": "On rappelle le plan de vaccination.",
+   "probleme": "Le lot porte l'entité O2.4-E12 « IIA après vaccin rotavirus », mais aucun des trois fichiers (27 notions, 20 questions, corrections) ne dit qu'un antécédent d'invagination contre-indique le vaccin rotavirus (donc la 2e dose chez un nourrisson de moins de 24 semaines), ni que le sur-risque se concentre dans les 7 jours après la 1re dose. Le suivi se borne à « rappeler le plan de vaccination » et la prévention à « informer sur le vaccin » : l'étudiant peut en déduire qu'on poursuit le schéma après une IIA, réponse fausse à une question PROFILES sur O2.4. Le dépôt le dit ailleurs (content/notions/PSP/Z23_1__O2_4-E01.json : « contre-indiqué après une invagination »), d'où une lacune entre fichiers. Aucune des 20 questions ne teste le scénario vaccinal.",
+   "correction_proposee": "Ajouter une notion suisse et une question : « Un antécédent d'invagination intestinale contre-indique le vaccin contre les rotavirus ; après une IIA, on ne donne pas la dose suivante. Le sur-risque, faible, se concentre dans les 7 jours qui suivent la 1re dose. » Remplacer l'apport par : « On vérifie le statut vaccinal ; après une IIA, le vaccin contre les rotavirus est contre-indiqué. » Formulation suisse exacte à confirmer dans l'AIPS de Rotarix (swissmedicinfo.ch, hôte bloqué ici).",
+   "preuve": {
+    "source": "Rotarix, résumé des caractéristiques du produit (Commission européenne, registre communautaire, annexe I), rubrique 4.3 Contre-indications ; même contre-indication reprise par Stowe et al. 2016 (PMID 27286641)",
+    "annee": "2023",
+    "lien": "https://ec.europa.eu/health/documents/community-register/2023/20230113158270/anx_158270_fr.pdf",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Antécédents d'invagination intestinale."
+   },
+   "confiance": "probable"
+  },
+  {
+   "id": "P45_CPE_K56.1__O2_4-E12-002",
+   "gravite": "🟨 mineur",
+   "categorie": "logique_ou_contradiction",
+   "fichier": "content/corrections/CPE/K56.1__O2_4-E12.json",
+   "localisation": "priseEnCharge[0].prevention.primaire (identique en priseEnCharge[1].prevention.primaire)",
+   "texte_actuel": "On informe sur le vaccin rotavirus.",
+   "probleme": "Le vaccin rotavirus est rangé en prévention primaire de l'invagination, alors qu'il en augmente transitoirement le risque (risque relatif 5,4 dans les 7 jours après la 1re dose de Rotarix, 1,8 après la 2e). Il prévient la gastro-entérite à rotavirus, pas l'IIA : la case inverse le sens du lien.",
+   "correction_proposee": "« Il n'existe pas de prévention primaire de l'invagination idiopathique. Lors de la vaccination contre les rotavirus, on informe les parents des signes d'invagination à surveiller dans la semaine qui suit, surtout après la 1re dose. »",
+   "preuve": {
+    "source": "Rosillon D et al., Risk of Intussusception After Rotavirus Vaccination: Meta-analysis of Postlicensure Studies, Pediatr Infect Dis J 34(7):763-8",
+    "annee": "2015",
+    "lien": "https://doi.org/10.1097/INF.0000000000000715 (PMID 26069948)",
+    "lu_le": "2026-11-27",
+    "extrait_court": "The overall estimate of relative risk of intussusception during the 7 days postdose 1 was 5.4"
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_CPE_K56.1__O2_4-E12-003",
+   "gravite": "🟨 mineur",
+   "categorie": "chiffre_suisse",
+   "fichier": "content/notions/CPE/K56.1__O2_4-E12.json",
+   "localisation": "notions[24].enonce (N25)",
+   "texte_actuel": "En Suisse, l'OFSP recommande depuis 2024 la vaccination orale contre le rotavirus à 2 et 4 mois (1re dose avant 16 semaines), remboursée par l'assurance obligatoire des soins ; le léger risque d'invagination après la première dose justifie l'information des parents (à vérifier).",
+   "probleme": "Seule notion suisse du lot, livrée à l'étudiant avec la mention « (à vérifier) » dans l'énoncé et sans les bornes que l'examen attend. Vérification faite : le fond est juste (vaccination complémentaire depuis le 1.1.2024, 2 doses à 2 et 4 mois, prise en charge par l'AOS, « avant 16 semaines » = au plus tard 15 semaines et 6 jours), mais il manque la borne de la 2e dose (au plus tard 23 semaines et 6 jours, contre-indiqué après la 24e semaine), l'intervalle minimal de 4 semaines et la fenêtre de risque (7 jours après la 1re dose). Le dépôt donne ces bornes dans content/notions/PSP/Z23_1__O2_4-E01.json.",
+   "correction_proposee": "« En Suisse, l'OFSP et la CFV recommandent depuis le 1.1.2024, en vaccination complémentaire, 2 doses orales de vaccin contre les rotavirus à 2 et 4 mois : 1re dose entre 6 semaines et 15 semaines et 6 jours, 2e au plus tard à 23 semaines et 6 jours (intervalle minimal 4 semaines), à la charge de l'AOS. Le faible sur-risque d'invagination, surtout dans les 7 jours après la 1re dose, justifie d'informer les parents. » Retirer « (à vérifier) » ; confirmer sur le plan de vaccination suisse 2026 (bag.admin.ch, hôte bloqué ici).",
+   "preuve": {
+    "source": "OFSP et CFV, Plan de vaccination suisse 2024 (copie hébergée par le canton de Neuchâtel) ; OFSP Bulletin 4/24, Vaccination contre les rotavirus : recommandations complémentaires pour les nourrissons",
+    "annee": "2024",
+    "lien": "https://www.ne.ch/autorites/DFS/SCSP/medecin-cantonal/maladies-vaccinations/Documents/V_PlanVaccinationSuisse_2024.pdf",
+    "lu_le": "2026-11-27",
+    "extrait_court": "au plus tard à 23 semaines et 6 jours"
+   },
+   "confiance": "probable"
+  },
+  {
+   "id": "P45_CPE_K56.1__O2_4-E12-004",
+   "gravite": "🟨 mineur",
+   "categorie": "posologie",
+   "fichier": "content/corrections/CPE/K56.1__O2_4-E12.json",
+   "localisation": "priseEnCharge[0].moyens.pharmacologique[0].posologie",
+   "texte_actuel": "Bolus selon le poids et l'état hémodynamique ; à vérifier dans l'AIPS.",
+   "probleme": "Aucune dose : l'étudiant n'apprend pas le volume du bolus, chiffre attendu à l'examen pour un nourrisson en choc (N07, Q05). Le renvoi est en outre faux : l'AIPS ne fixe pas le volume de remplissage, qui relève des recommandations de réanimation pédiatrique (ERC). Même défaut à pharmacologique[1] (« Paracétamol ou opioïde selon la douleur ; à vérifier dans l'AIPS ») : aucune dose en mg/kg.",
+   "correction_proposee": "« Cristalloïde isotonique, de préférence balancé : bolus de 10 ml/kg IV, à répéter après réévaluation (signes de surcharge) selon l'état hémodynamique [ERC, Paediatric Life Support]. » Pour l'antalgie, donner les doses en mg/kg tirées de l'AIPS ou de SwissPedDose. L'ERC 2025 (PMID 41117571) remplace l'édition 2021 : le volume de 10 ml/kg y est rapporté inchangé par une source secondaire, à confirmer dans le texte.",
+   "preuve": {
+    "source": "Van de Voorde P et al., European Resuscitation Council Guidelines 2021: Paediatric Life Support, Resuscitation 161:327-387",
+    "annee": "2021",
+    "lien": "https://cprguidelines.eu/assets/guidelines/European-Resuscitation-Council-Guidelines-2021-Pa.pdf (PMID 33773830)",
+    "lu_le": "2026-11-27",
+    "extrait_court": "For children with circulatory failure, give 1 or more fluid bolus(es) of 10 ml/kg."
+   },
+   "confiance": "probable"
+  },
+  {
+   "id": "P45_CPE_K56.1__O2_4-E12-005",
+   "gravite": "🟨 mineur",
+   "categorie": "droit_suisse",
+   "fichier": "content/corrections/CPE/K56.1__O2_4-E12.json",
+   "localisation": "priseEnCharge[1].moyens.nonPharmacologique[1].mesure",
+   "texte_actuel": "On note l'épisode dans le carnet de santé.",
+   "probleme": "Pour l'entité du lot (IIA après vaccin rotavirus, SSP O2.4), noter l'épisode dans le carnet ne suffit pas : une invagination survenue après la vaccination est un effet indésirable grave d'un médicament, que le médecin est tenu de déclarer à Swissmedic (LPTh art. 59 al. 3). Cette obligation suisse n'apparaît dans aucun des trois fichiers.",
+   "correction_proposee": "Ajouter : « Si l'invagination survient dans les jours qui suivent une dose de vaccin contre les rotavirus, on la déclare à Swissmedic comme effet indésirable grave (LPTh art. 59 al. 3) et on la note dans le carnet de vaccination. »",
+   "preuve": {
+    "source": "Loi fédérale sur les médicaments et les dispositifs médicaux (LPTh, RS 812.21), art. 59 al. 3, état au 1.1.2025",
+    "annee": "2025",
+    "lien": "https://www.fedlex.admin.ch/eli/cc/2001/422/20250101/fr#art_59",
+    "lu_le": "2026-11-27",
+    "extrait_court": "est tenu de déclarer à l’institut tout effet indésirable grave ou jusque-là inconnu"
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_CPE_K56.1__O2_4-E12-006",
+   "gravite": "🟦 forme",
+   "categorie": "source_fausse_ou_invente",
+   "fichier": "content/notions/CPE/K56.1__O2_4-E12.json",
+   "localisation": "notions[13].source (N14)",
+   "texte_actuel": "[Fallon et al. 2013, Needle decompression to avoid tension pneumoperitoneum after pneumatic reduction of pediatric intussusception, Pediatr Radiol 43(6):662-7, PMID 23283408]",
+   "probleme": "La source existe et le PMID, la revue, le volume et les pages sont exacts, mais le titre est amputé de « and hemodynamic compromise ». Simple défaut de transcription, sans effet sur le fond (la source soutient bien l'exsufflation à l'aiguille puis la chirurgie).",
+   "correction_proposee": "[Fallon et al. 2013, Needle decompression to avoid tension pneumoperitoneum and hemodynamic compromise after pneumatic reduction of pediatric intussusception, Pediatr Radiol 43(6):662-7, PMID 23283408]",
+   "preuve": {
+    "source": "PubMed, notice de Fallon SC et al., Pediatr Radiol 2013;43(6):662-7",
+    "annee": "2013",
+    "lien": "https://doi.org/10.1007/s00247-012-2604-y (PMID 23283408)",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Needle decompression to avoid tension pneumoperitoneum and hemodynamic compromise after pneumatic reduction of pediatric intussusception."
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_CPE_K56.1__O2_4-E12-007",
+   "gravite": "🟦 forme",
+   "categorie": "langue_ou_sigle",
+   "fichier": "content/questions/CPE/K56.1__O2_4-E12.json",
+   "localisation": "questions[2].options[0].why (aussi questions[3], [6], [8], [11] options[0].why ; questions[16].statements[0].why ; questions[18].options[0..2].why)",
+   "texte_actuel": "\"why\": \"HW.\"",
+   "probleme": "L'explication de la bonne réponse se réduit à « HW. », abréviation non définie (probablement Hwang) qui n'explique rien à l'étudiant ; dix occurrences. Plus largement, les « why » des distracteurs se limitent souvent à « Faux. », sans le motif.",
+   "correction_proposee": "Remplacer par une phrase explicative, par exemple en Q03 : « Sans choc, péritonite ni pneumopéritoine, le lavement guidé est le traitement de choix (succès d'environ 82 %). »",
+   "preuve": {
+    "source": "Hwang J et al., Current diagnosis and image-guided reduction for intussusception in children, Clin Exp Pediatr 66(1):12-21",
+    "annee": "2023",
+    "lien": "https://doi.org/10.3345/cep.2021.01816 (PMID 35798026, PMC9815940)",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Nonoperative enema reduction is the treatment of choice for childhood intussusception unless there are signs of perforation or peritonitis."
+   },
+   "confiance": "certaine"
+  }
+ ]
+}
