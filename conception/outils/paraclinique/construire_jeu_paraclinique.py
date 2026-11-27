@@ -398,7 +398,10 @@ def cliches_atlas(stem, patho, modalite):
     m = lire(f); pa = m.get("patho") or {}; no = m.get("normal") or {}
     if not pa.get("file") or not (m.get("cliche") or "").startswith(MOD_ATL.get(modalite, "?")):
         return None
-    img = os.path.join(ATL_I, pa["file"].replace("images/", "")); W, H = _Img.open(img).size
+    img = os.path.join(ATL_I, pa["file"].replace("images/", ""))
+    if not os.path.exists(img):  # clone partiel ou image absente : pas de fenêtre plutôt qu'un plantage
+        return None
+    W, H = _Img.open(img).size
     ann = []
     for j, a in enumerate(pa.get("arrows") or [], 1):
         if a.get("contour"):
