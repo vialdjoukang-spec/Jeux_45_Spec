@@ -83,7 +83,9 @@ VIDES = {"dosage", "serique", "plasmatique", "sanguin", "sanguine", "urinaire", 
          "ponction", "prelevement", "fiche", "rapide", "aigue", "chronique", "contre", "entre", "apres", "avant", "pendant",
          "autres", "autre", "selon", "chaque", "toutes", "plusieurs", "ionogramme", "biochimie", "serologie", "serologies",
          "dosages", "proteines", "glucose", "acide", "complet", "complete", "normal", "precoce", "systematique", "biopsie",
-         "imagerie", "clinique", "examens", "tubes", "heures", "jours"}
+         "imagerie", "clinique", "examens", "tubes", "heures", "jours", "pcr", "surveillance", "marqueurs", "prelevement",
+         "prelevements", "lesion", "frottis", "sanguins", "sanguines", "serologie", "dosage", "taux", "screening", "general", "unknown",
+         "ancien", "terme", "active", "endogene", "quantitative", "qualitative", "temps", "reel", "typage", "rapport", "concentration"}
 
 
 def sans_accents(s):
@@ -177,20 +179,23 @@ def charger_tetrade():
     return T
 
 
-def mots_examen(d):
-    """Mots distinctifs d'un examen (titre, nom exact, synonymes, paramètres) pour le reconnaître dans une ligne de la Tétrade."""
+PANELS = re.compile(r"bilan-etiologique|bilan-initial|bilan-metabolique|surveillance-|lithiemie|digoxinemie|toxicologi|marqueurs-consommation")
+SIGLES_VIDES = {"PCR", "LCR", "IGA", "IGG", "IGM", "IGE", "RAST", "TDM", "STM", "DD", "GM", "TS", "TPT", "EPS", "IF", "PN", "CK", "TP"}
+
+
+def mots_examen(i, d):
+    """Mots distinctifs d'un examen (titre et synonymes) pour le reconnaître dans une ligne du bilan de la Tétrade.
+    Un panel (bilan du delirium, surveillance d'un médicament…) ne se reconnaît qu'à son titre, sans sa parenthèse."""
     e = d.get("entete") or {}
-    src = [d.get("titre", ""), e.get("nom_exact", ""), e.get("synonymes", "")]
-    src += [p.get("parametre", "") for p in d.get("temps2_examen") or [] if isinstance(p, dict)]
+    titre = d.get("titre", "")
+    src = [titre.split("(")[0]] if PANELS.search(i) else [titre, e.get("synonymes", "")]
     m = set()
     for s in src:
         for j in jetons(s):
             if len(j) >= 5 and j not in VIDES:
                 m.add(j)
-    # Sigles courts écrits en capitales (PTH, TSH, BNP, CRP…) : on les garde tels quels.
-    for s in src:
-        for sig in re.findall(r"\b[A-Z][A-Z0-9-]{1,6}\b", s):
-            if len(sig) >= 2:
+        for sig in re.findall(r"\b[A-Z][A-Za-z0-9-]{1,6}\b", s):
+            if sig.upper() == sig and sig.upper() not in SIGLES_VIDES and len(sig) >= 2:
                 m.add(sans_accents(sig))
     return m
 
@@ -203,7 +208,7 @@ def ligne_nomme(ligne, mots):
 def main():
     F = charger_fiches()
     T = charger_tetrade()
-    MOTS = {i: mots_examen(d) for i, d in F.items()}
+    MOTS = {i: mots_examen(i, d) for i, d in F.items()}
 
     P = {}  # clé = libellé normalisé (minuscules) → pathologie
 
