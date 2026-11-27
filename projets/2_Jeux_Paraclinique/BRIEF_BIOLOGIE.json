@@ -1,0 +1,175 @@
+{
+ "projet": "Jeux_45_Spec / Paraclinique / onglet Biologie",
+ "branche": "paraclinique-biologie",
+ "fusion_main": "après feu vert de Vial uniquement",
+ "modele": {
+  "construction": "claude-opus-5-5",
+  "contre_audit_10pct": "claude-opus-5-5 (session neuve) ou claude-fable-5-2 si Vial l'accorde"
+ },
+ "lire_avant": [
+  "projets/2_Jeux_Paraclinique/PROMPT_VIAL.md#Biologie",
+  "organigramme-examen-federal:Claude/_progression/CAHIER_ARCHITECTURE_v2.md#§0,§5,§5.1,§5.2,§7",
+  "organigramme-examen-federal:Claude/_progression/donnees/examens/EX-1-*.json (101, audit-ok)",
+  "organigramme-examen-federal:Claude/_progression/audits/BIO_RESUME.md",
+  "conception/outils/paraclinique/construire_jeu_paraclinique.py (PREL, ANAB, OUTILS_EX, CALC, CRIT)",
+  "conception/donnees/paraclinique/{biologie/,criteres.json,calculs.json}"
+ ],
+ "chaine": [
+  "Prélèvement (matrice)",
+  "Examen",
+  "Temps 1 Indications",
+  "Temps 2 L'examen",
+  "Calculs",
+  "Temps 3 Interprétation",
+  "Diagnostic",
+  "Traitement (but, moyens, posologie)"
+ ],
+ "matrices_ordre": [
+  "Sang et buvard",
+  "Moelle",
+  "Urines",
+  "LCR",
+  "Selles",
+  "Sérosités et synovial",
+  "Respiratoire et ORL",
+  "Génital et fœto-maternel",
+  "Salive, sueur, calculs, peau"
+ ],
+ "axe_secondaire": [
+  "Cytologie-hématologie",
+  "Hémostase",
+  "Biochimie",
+  "Immuno-hormonologie",
+  "Microbiologie",
+  "Pharmaco-toxicologie"
+ ],
+ "schema_fiche": {
+  "id": "EX-1-<système>-<slug>",
+  "entree_primaire": [
+   "<matrice>"
+  ],
+  "axe_secondaire": [
+   "<discipline>"
+  ],
+  "entete": {
+   "nom_exact": "",
+   "synonymes": "",
+   "systemes": [],
+   "prelevement_conditions": "",
+   "bon_usage_ch": ""
+  },
+  "temps1_indications": {
+   "urgence_aigu": "",
+   "diagnostic_etiologie": "",
+   "depistage_pretherapeutique": "",
+   "suivi": "",
+   "ne_pas_demander": ""
+  },
+  "temps2_examen": [
+   {
+    "parametre": "",
+    "normal": "valeur + unité SI (source)",
+    "anomalie": "",
+    "seuil_alerte": ""
+   }
+  ],
+  "calculs": [
+   {
+    "formule": "",
+    "usage": "",
+    "exemple_resolu": "",
+    "source": "",
+    "outil": "id dans calculs.json ou criteres.json"
+   }
+  ],
+  "temps3_interpretation": [
+   {
+    "entite_anormale_chiffree": "",
+    "associees_presentes": "",
+    "a_rechercher": "",
+    "syndrome_anamnese_status": "",
+    "confirmation": "",
+    "diagnostic": ""
+   }
+  ],
+  "traitement": {
+   "but": "",
+   "moyens": [
+    {
+     "general": "",
+     "specifiques": "",
+     "posologie": "dose, voie, rythme, adaptation rein/foie ; vérifier dans l'AIPS (Swissmedic)",
+     "source": ""
+    }
+   ]
+  },
+  "annexeA_pieges": {
+   "lignes": [
+    {
+     "si": "",
+     "consequence": ""
+    }
+   ],
+   "mnemotechnique": ""
+  },
+  "sources": [
+   "Auteur/Société, année, document (lu le jj.mm.aaaa)"
+  ],
+  "passerelles": [
+   {
+    "type": "",
+    "cible": "",
+    "pourquoi": ""
+   }
+  ],
+  "_origine": {
+   "depot": "organigramme-examen-federal",
+   "chemin": "",
+   "commit": ""
+  }
+ },
+ "scripts_0_token": {
+  "importer_ex1.py": "copie sans réécriture + _origine + rangement par matrice + FILE_BIOLOGIE.json des trous",
+  "auditer_biologie.py": "8 blocs présents ; chaque chiffre sourcé ; posologie → AIPS ; unités SI ; verbe conjugué ; ids uniques ; passerelles résolues ; non-perte",
+  "capture": "Playwright 1280 et 380 px, une fiche par matrice, 0 erreur console"
+ },
+ "agents": {
+  "max": 4,
+  "partage": "lots de matrices exclusifs",
+  "skills_min": [
+   "skills-are-oxygen-vital",
+   "medical-accuracy-100",
+   "switzerland-medical-professor",
+   "ultra-competent-fast-doctor",
+   "all-context-ultrasystematic",
+   "web-designer-pilot-faithful",
+   "obsidian-like-complex-network",
+   "optimisation-par-cache-hache-autorun",
+   "always-twice-check-before-delivery"
+  ]
+ },
+ "sources_priorite": [
+  "AIPS Swissmedic (compendium.ch)",
+  "OFSP Liste des analyses",
+  "HUG / CHUV",
+  "sociétés suisses",
+  "ESC, EASL, KDIGO, IDSA, ERS…",
+  "PubMed (MCP)"
+ ],
+ "regles_vial": [
+  "phrases entièrement verbales",
+  "Atkinson Hyperlegible ~15 px, fond clair",
+  "une seule fenêtre ouverte",
+  "bleu normal / rouge pathologie / vert traitement",
+  "sigles développés + survol",
+  "rien de mémoire : sinon « à vérifier » + où",
+  "aucun QCM montré",
+  "jamais de push forcé ni de contournement de permission",
+  "aucun contenu non audité sur main"
+ ],
+ "livrable": [
+  "PR paraclinique-biologie → main avec tableau de conformité",
+  "captures dans projets/2_Jeux_Paraclinique/captures/biologie/",
+  "rapport final 6 points (voir BRIEF_BIOLOGIE_CLAUDE_CODE.md §7)"
+ ]
+}
