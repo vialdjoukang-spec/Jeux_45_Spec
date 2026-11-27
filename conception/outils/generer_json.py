@@ -44,6 +44,14 @@ def squelette(d):
 VIDE = (None, "", [], {})
 
 
+# Identifiants d'examen figés après un renommage : le nom affiché change, l'identifiant (et donc les données remplies) ne change pas.
+ID_FIXE = {"Radiographies du poignet et de la main (incidences du scaphoïde)": "coude_poignet_et_main__radiographies_du_coude_du_poignet_et_de_"}
+
+
+def idex(org, e):
+    return ID_FIXE.get(e) or slug(org) + "__" + slug(e)
+
+
 def conserver(neuf, ancien):
     """Fusion conservatrice : le squelette régénéré garde toute valeur déjà remplie (lots fusionnés, audit)."""
     if isinstance(neuf, dict) and isinstance(ancien, dict):
@@ -207,7 +215,7 @@ for reg, orgs in TOPO.items():
     for org, mods in orgs.items():
         ecrits.append(ecrire(f"paraclinique/topographie/{slug(reg)}/{slug(org)}.json", {"_meta": {"region": reg, "organe": org, "statut": "LISTE COMPLÈTE — indication, principe, interprétation et bulle à remplir",
                 "regles": ["Biologie : les valeurs de référence vivent dans biologie/analyses ; ici, tu dis pourquoi on demande l'analyse pour cet organe et ce qu'on y cherche."]},
-            "examens": [{"id": slug(org) + "__" + slug(e), "modalite": MODALITES[k], "nom": e, "visees": [], "signeRecherche": None, "seuil": None, "indication": None, "discriminant": None, "avantageSelectif": None, "plutotQue": None, "limite": None, "referencePour": [], "smarterMedicine": None, "radioAnatomieNormale": None, "precautions": None, "irradiation_mSv": None, "delai": None, "prelevementRef": None,
+            "examens": [{"id": idex(org, e), "modalite": MODALITES[k], "nom": e, "visees": [], "signeRecherche": None, "seuil": None, "indication": None, "discriminant": None, "avantageSelectif": None, "plutotQue": None, "limite": None, "referencePour": [], "smarterMedicine": None, "radioAnatomieNormale": None, "precautions": None, "irradiation_mSv": None, "delai": None, "prelevementRef": None,
                          **({"analysesRef": list(analyses_de(e))} if k == "BIO" else {}), "synonymes": [], "aspectNormal": None, "anomaliesElementaires": [], "syndromesParacliniques": [], "pathologiesAssociees": [], "bulle": None} for k, v in mods.items() for e in v], "glossaire": {}}))
 ORGANES_DE = {}
 for _r, _os in TOPO.items():
@@ -230,7 +238,7 @@ for pre, exs in PRELEVEMENTS.items():
 ecrits.append(ecrire("paraclinique/explorations/liste.json", {"_meta": {"statut": "LISTE COMPLÈTE"}, "elements": EXPLORATIONS}))
 for sysn, orgs in SYS_ORG.items():
     ecrits.append(ecrire(f"tetrade/{slug(sysn)}/examens.json", {"_meta": {"systeme": sysn, "progression": ["topo-systemique", "topo-organe"], "statut": "RELIÉ AU CATALOGUE"},
-        "organes": [{"organe": o, "region": next(r for r, og in TOPO.items() if o in og), "examens": [slug(o) + "__" + slug(e) for v in next(og[o] for og in TOPO.values() if o in og).values() for e in v]} for o in orgs]}))
+        "organes": [{"organe": o, "region": next(r for r, og in TOPO.items() if o in og), "examens": [idex(o, e) for v in next(og[o] for og in TOPO.values() if o in og).values() for e in v]} for o in orgs]}))
 
 # ---------- techniques, visées, smarter medicine, disciplines transversales (remplis) ----------
 ecrits.append(ecrire("paraclinique/techniques_discriminants.json", {"_meta": {"statut": "REMPLI — à auditer"}, "familles": {f: [dict(zip(["technique", "discriminant", "preferQuand", "plutotQue", "limite"], l)) for l in lst] for f, lst in TECHNIQUES.items()}}))
@@ -297,7 +305,7 @@ for reg, orgs in TOPO.items():
         for k, v in mods.items():
             for e in v:
                 x = _ex_rech.setdefault(_norm(e), {"examen": e, "modalite": MODALITES[k], "organes": [], "cles": _cles_rech(e), "analyses": list(analyses_de(e)) if k == "BIO" else []})
-                x["organes"].append({"organe": org, "fichier": f, "id": slug(org) + "__" + slug(e)})
+                x["organes"].append({"organe": org, "fichier": f, "id": idex(org, e)})
 for fam, (prel, lst) in FAMILLES.items():
     for _, a_, p_ in [x for x in ANALYSES if x[0] == fam]:
         x = _ex_rech.setdefault(_norm(a_), {"examen": a_, "modalite": "Analyse biologique", "organes": [], "cles": _cles_rech(a_), "analyses": [a_]})

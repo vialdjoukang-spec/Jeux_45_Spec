@@ -72,7 +72,7 @@ TOPO = {
  },
  "7. Membres et appareil locomoteur": {
   "Épaule": {"IMG": ["Radiographie de l'épaule (face, profil de Lamy)", "Échographie de l'épaule (coiffe des rotateurs)", "Arthro-CT", "IRM et arthro-IRM"]},
-  "Coude, poignet et main": {"IMG": ["Radiographies du coude, du poignet et de la main (incidences du scaphoïde)", "Échographie (tendons, canal carpien)", "CT (fracture du scaphoïde)", "IRM du poignet"], "FCT": ["ENMG (canal carpien, nerf ulnaire)"]},
+  "Coude, poignet et main": {"IMG": ["Radiographies du poignet et de la main (incidences du scaphoïde)", "Échographie (tendons, canal carpien)", "CT (fracture du scaphoïde)", "IRM du poignet"], "FCT": ["ENMG (canal carpien, nerf ulnaire)"]},
   "Hanche et bassin": {"IMG": ["Radiographie du bassin et de la hanche (face, profil de Lauenstein)", "Échographie de hanche (nourrisson, épanchement)", "CT (fracture complexe)", "IRM (ostéonécrose, fracture de stress)"]},
   "Genou": {"IMG": ["Radiographie du genou (face, profil, défilé fémoropatellaire, en charge)", "Échographie (épanchement, kyste poplité)", "IRM du genou (ménisques, ligaments croisés)", "Arthro-CT"], "END": ["Arthroscopie"]},
   "Cheville et pied": {"IMG": ["Radiographies cheville et pied (règles d'Ottawa)", "Échographie (tendon d'Achille, ligaments)", "CT", "IRM"]},
