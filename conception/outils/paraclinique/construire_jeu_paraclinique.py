@@ -236,7 +236,46 @@ def terme(lib, defi):
     return f'<span class=terme tabindex=0 data-def="{html.escape(defi, quote=True)}">{html.escape(lib)}</span>'
 
 
-def fiche_flash(nom, e, p, niv):
+# Sémiologie radiologique : un « syndrome » est un groupement élémentaire d'images (masse, épanchement, obstruction…),
+# jamais une maladie. Retour de Vial (27.11) : « Syndrome : cancer pancréatique ? ». Le champ source nomme souvent la maladie :
+# on le traduit vers le syndrome radiologique élémentaire, et on n'affiche rien si aucune règle ne s'applique.
+SYNDROMES_RADIO = [
+    (r"maltraitance", "Syndrome traumatique"), (r"d[eé]bord discal|protrusion discale", "Syndrome compressif"),
+    (r"rupture|fracture|traumat", "Syndrome traumatique"), (r"ur[eè]tr", "Syndrome obstructif"), (r"thrombectomie|occlusion (d'une |de l')?art", "Syndrome ischémique"),
+    (r"asthme|bronchopneumopathie|\bBPCO\b", "Syndrome bronchique"), (r"polyradicul|d[eé]my[eé]lin", "Syndrome inflammatoire"),
+    (r"congestive", "Syndrome vasculaire"),
+    (r"m[eé]ningit|enc[eé]phalit|ventriculit", "Syndrome infectieux"), (r"fistule art[eé]rio|malformation art[eé]rio|cavernome", "Syndrome vasculaire"),
+    (r"arthrite|spondylarthr|polyarthrite", "Syndrome inflammatoire"), (r"an[eé]vrism", "Syndrome vasculaire"),
+    (r"alv[eé]ol", "Syndrome alvéolaire"), (r"interstiti|fibrose pulm|pneumopathie interst", "Syndrome interstitiel"),
+    (r"bronch(ectas|iol)|emphys|trapping", "Syndrome bronchique"), (r"atélect|collapsus", "Syndrome d'atélectasie"),
+    (r"pneumothorax|pneumop[eé]ritoine|pneumom[eé]diastin|air libre", "Syndrome aérique extra-digestif (gaz anormal)"),
+    (r"h[eé]morrag|h[eé]matome|h[eé]mopéritoine|h[eé]mothorax|saignement", "Syndrome hémorragique"),
+    (r"isch[eé]m|infarctus|p[eé]nombre|\bAVC\b|AIT|n[eé]crose avasculaire|ost[eé]on[eé]crose", "Syndrome ischémique"),
+    (r"fractur|traumat|rupture|l[eé]sion de la rate|contusion|luxation|d[eé]chirure|entorse", "Syndrome traumatique"),
+    (r"lithias|calcul|obstruct|occlusion intestinale|dilatation|hydron[eé]phrose|ict[eè]re|colique|jonction py[eé]lo|r[eé]tention|st[eé]nose (de la voie|bili|ur[eé]t)", "Syndrome obstructif"),
+    (r"st[eé]nose|thrombos|occlusion art|embol|an[eé]vrism|dissection|art[eé]riopathie|ath[eé]ro|vasospasme|varic|insuffisance veineuse|budd|hypertension portale|malformation art[eé]rio", "Syndrome vasculaire"),
+    (r"[eé]panchement|ascite|pleur[eé]sie|p[eé]ricardite|hydarthrose|chyl", "Syndrome d'épanchement"),
+    (r"cancer|carcinom|ad[eé]nocarcinom|tumeu?r|m[eé]tastas|lymphom|my[eé]lom|sarcom|ad[eé]nome|nodule|masse|n[eé]oplas|m[eé]ningiom|gliom|carcinose|polype|incidentalome|l[eé]sion (suspecte|tumorale|focale)|tipmp|kyste dermo|h[eé]mangiom|ph[eé]ochrom", "Syndrome de masse (tumoral)"),
+    (r"kyste|pseudokyste|polykyst", "Syndrome kystique"),
+    (r"abc[eè]s|infect|ost[eé]omy[eé]lit|spondylodisc|pyo|tubercul|sepsis|empy[eè]me|cellulite|fasciite", "Syndrome infectieux"),
+    (r"(it|ites)\b|inflamm|vascularite|sarco|crohn|arthrit|myosit|bursit|tendinop|enth[eé]s|sclérose en plaques|démyélin", "Syndrome inflammatoire"),
+    (r"conflit|hernie discale|compression|canal [eé]troit|myélopathie|radicul|plexopath|canal carpien|syndrome du d[eé]fil[eé]", "Syndrome compressif"),
+    (r"d[eé]g[eé]n[eé]r|arthrose|d[eé]mence|atrophi|ost[eé]opor|ost[eé]op[eé]n|discopathie|cicatrice", "Syndrome dégénératif ou atrophique"),
+    (r"malformat|cong[eé]nital|dysplasi|agén[eé]s|hypoplas|ectopi|ectop", "Syndrome malformatif"),
+]
+
+
+def syndrome_radio(nom):
+    nom = unicodedata.normalize("NFC", nom or "")
+    if re.match(r"(?i)syndrome (pleural|alv|interstit|nodulaire|de masse|aortique|kystique|bronchique|d'[eé]panchement|m[eé]diastin|obstructif|occlusif|cavitaire|osseux|lytique)", nom or ""):
+        return nom
+    for motif, syn in SYNDROMES_RADIO:
+        if re.search(motif, nom or "", re.I):
+            return syn
+    return None
+
+
+def fiche_flash(nom, e, p, niv, libelle=None):
     """Renvoie (bulle, flash) : la bulle garde du texte brut ; les champs *_h portent le HTML survolable."""
     f = FT.trouver(FT_F, nom) or {}
     x = FLASH.get(FT.sa(nom)) or {}
@@ -249,7 +288,9 @@ def fiche_flash(nom, e, p, niv):
     syn = next((s for s in e.get("syndromesParacliniques") or [] if sig and any(sans_accent(a)[:14] in sans_accent(sig) or sans_accent(sig)[:14] in sans_accent(a) for a in s.get("anomaliesQuiLeComposent") or [])), None)
     rad = []
     if syn:
-        rad.append(("Syndrome", syn["syndrome"], "Il réunit : " + ", ".join(syn.get("anomaliesQuiLeComposent") or []).lower() + "."))
+        sr = syndrome_radio(libelle or nom) or syndrome_radio(syn["syndrome"])
+        if sr:
+            rad.append(("Syndrome radiologique", sr[0].lower() + sr[1:] if not sr.startswith("Syndrome ") else sr[9:], "Ce syndrome radiologique réunit ici : " + ", ".join(syn.get("anomaliesQuiLeComposent") or []).lower() + "."))
     if sig:
         rad.append(("Signe", sig, f"Sur « {court(e['nom'], 60)} », la pathologie montre typiquement : {sig[0].lower() + sig[1:]}."))
     b["radio"] = " ; ".join(f"{a} : {l}" for a, l, _ in rad) if rad else AP
@@ -470,7 +511,7 @@ for r, (rnom, mesh, cote, coul) in REG.items():
                         if len(niv) > 3:  # angle mort : l'examen oriente seulement ; la survol donne l'examen qui pose le diagnostic
                             bd = dict(bd, premiere=niv[3]["premiereIntention"] + ".", gold=niv[3]["goldStandard"] + ".", source=niv[2] if niv[3]["source"] in niv[2] else niv[2] + " ; " + niv[3]["source"])
                     lib, sig = developpe(p["pathologie"])
-                    bd = fiche_flash(p["pathologie"], e, p, niv)
+                    bd = fiche_flash(p["pathologie"], e, p, niv, lib)
                     if sig and sig.split(" = ")[0] not in bd["def"]:
                         bd["def"] = sig + " " + bd["def"]
                     pn = noeud(pid, "Pathologie", lib, [parent], "#d64545", bd, "patho_img", maxc=72, flash=True, type="Pathologie" if niv else ("Pathologie · examen de référence" if gold else "Pathologie"), exRef=e["id"], signe=p.get("anomalieTypique"))
