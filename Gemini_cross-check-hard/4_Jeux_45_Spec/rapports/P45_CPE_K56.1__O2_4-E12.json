@@ -1,0 +1,96 @@
+{
+ "lot": "P45_CPE_K56.1__O2_4-E12",
+ "auditeur": "gemini-4-neon (medium)",
+ "date": "2026-11-27",
+ "fichiers_audites": [
+  {
+   "chemin": "content/notions/CPE/K56.1__O2_4-E12.json",
+   "sha256": "d1a656407f624294"
+  },
+  {
+   "chemin": "content/questions/CPE/K56.1__O2_4-E12.json",
+   "sha256": "a1deb2e2692e927d"
+  },
+  {
+   "chemin": "content/corrections/CPE/K56.1__O2_4-E12.json",
+   "sha256": "3d7fdf10954b3298"
+  }
+ ],
+ "verdict_lot": "🟥 critique",
+ "nb_elements_relus": 54,
+ "constats": [
+  {
+   "id": "P45_CPE_K56.1__O2_4-E12-001",
+   "gravite": "🟥 critique",
+   "categorie": "examen_federal",
+   "fichier": "content/questions/CPE/K56.1__O2_4-E12.json",
+   "localisation": "questions[17] (Q18.statements[3])",
+   "texte_actuel": "Stem : \"Vous suivez un enfant après une invagination intestinale aiguë.\" / Item 4 : \"L'OFSP déconseille la vaccination contre le rotavirus.\" (true: false)",
+   "probleme": "Le stem place explicitement l'étudiant dans le suivi d'un enfant ayant un antécédent d'invagination intestinale aiguë (IIA). Or, selon l'OFSP (Bulletin 14/2024) et l'AIPS Swissmedic de Rotarix®, un antécédent d'IIA constitue une contre-indication absolue à la vaccination contre le rotavirus. Corriger cet item comme « Faux » dans ce contexte clinique est dangereusement ambigu et induit l'étudiant en erreur sur une contre-indication majeure (et un piège classique de l'examen fédéral pour le SSP O2.4).",
+   "correction_proposee": "Remplacer l'item 4 par « Un antécédent d'invagination intestinale contre-indique le vaccin contre le rotavirus (Rotarix®). » (true: true), ou préciser « Chez un nourrisson sans antécédent d'invagination, l'OFSP déconseille la vaccination contre le rotavirus. » (true: false).",
+   "preuve": {
+    "source": "OFSP-Bulletin 14 du 2 avril 2024 — Contre-indications à la vaccination contre les rotavirus : Addendum",
+    "annee": "2024",
+    "lien": "https://www.bag.admin.ch/ofsp-bulletin",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Rotarix® est contre-indiqué chez les nourrissons avec antécédent d'invagination intestinale ou en cas de malformation congénitale de l'appareil gastro-intestinal y prédisposant"
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_CPE_K56.1__O2_4-E12-002",
+   "gravite": "🟧 majeur",
+   "categorie": "omission_grave",
+   "fichier": "content/notions/CPE/K56.1__O2_4-E12.json",
+   "localisation": "notions[24] (N25.enonce)",
+   "texte_actuel": "En Suisse, l'OFSP recommande depuis 2024 la vaccination orale contre le rotavirus à 2 et 4 mois (1re dose avant 16 semaines), remboursée par l'assurance obligatoire des soins ; le léger risque d'invagination après la première dose justifie l'information des parents (à vérifier).",
+   "probleme": "Alors que cette fiche couvre la porte SSP O2.4 (« Invagination intestinale aiguë après vaccin rotavirus »), N25 omet la contre-indication absolue de Rotarix® chez tout nourrisson avec antécédent d'invagination intestinale ou malformation digestive prédisposante (p. ex. diverticule de Meckel), ainsi que l'âge limite de la 2e dose (24 semaines de vie). En outre, la note de brouillon « (à vérifier) » subsiste dans l'énoncé final.",
+   "correction_proposee": "Corriger N25 : « En Suisse, l'OFSP recommande depuis le 1.1.2024 la vaccination orale complémentaire contre le rotavirus (Rotarix®) à 2 et 4 mois (1re dose dès 6 semaines et avant 16 semaines, 2e dose avant 24 semaines), remboursée par l'AOS ; le léger surrisque d'invagination après la 1re dose justifie l'information des parents, et un antécédent d'invagination ou une malformation digestive prédisposante (p. ex. diverticule de Meckel) contre-indique formellement le vaccin. »",
+   "preuve": {
+    "source": "Compendium.ch — Information professionnelle Swissmedic (AIPS) ROTARIX liquid susp orale",
+    "annee": "2024",
+    "lien": "https://compendium.ch",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Rotarix ne doit pas être utilisé chez les enfants ayant des antécédents d'invagination intestinale ou chez les enfants ayant une malformation congénitale"
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_CPE_K56.1__O2_4-E12-003",
+   "gravite": "🟧 majeur",
+   "categorie": "omission_grave",
+   "fichier": "content/corrections/CPE/K56.1__O2_4-E12.json",
+   "localisation": "priseEnCharge[1].prevention.primaire et priseEnCharge[1].moyens.transversal[0]",
+   "texte_actuel": "\"prevention\": {\"primaire\": \"On informe sur le vaccin rotavirus.\"} ; \"transversal\": [{\"discipline\": \"N Médecine sociale Prévention OFSP\", \"apport\": \"On rappelle le plan de vaccination.\"}]",
+   "probleme": "Dans la fiche de suivi « Après la réduction » d'une IIA, rappeler le plan de vaccination et mentionner « On informe sur le vaccin rotavirus » sans préciser que l'antécédent d'IIA contre-indique formellement Rotarix® expose à administrer une dose contre-indiquée (p. ex. la 2e dose chez un nourrisson ayant présenté une IIA après la 1re dose).",
+   "correction_proposee": "Préciser dans `priseEnCharge[1].prevention.primaire` et `moyens.transversal` que l'antécédent d'invagination intestinale contre-indique définitivement le vaccin contre le rotavirus (Rotarix®), tout en poursuivant normalement les autres vaccinations du plan suisse.",
+   "preuve": {
+    "source": "OFSP-Bulletin 14 du 2 avril 2024 — Contre-indications à la vaccination contre les rotavirus : Addendum",
+    "annee": "2024",
+    "lien": "https://www.bag.admin.ch/ofsp-bulletin",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Rotarix® est contre-indiqué chez les nourrissons avec antécédent d'invagination intestinale ou en cas de malformation congénitale de l'appareil gastro-intestinal y prédisposant"
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_CPE_K56.1__O2_4-E12-004",
+   "gravite": "🟨 mineur",
+   "categorie": "logique_ou_contradiction",
+   "fichier": "content/corrections/CPE/K56.1__O2_4-E12.json",
+   "localisation": "ssp.algorithme[2] (id: n3)",
+   "texte_actuel": "{\"id\": \"n2\", \"parent\": \"n1\", \"t\": \"Image en cible, enfant stable\", ...}, {\"id\": \"n3\", \"parent\": \"n2\", \"t\": \"Choc ou péritonite\", \"i\": \"On réanime et on opère.\"}",
+   "probleme": "Dans l'algorithme du SSP S3.3, le nœud `n3` (« Choc ou péritonite ») est placé comme enfant de `n2` (« Image en cible, enfant stable »), ce qui est logiquement contradictoire et incohérent avec l'arbre `notions[1].arbre` (`c2`), où `d3` (« Choc, péritonite, pneumopéritoine ») et `d4` (« Enfant stable ») sont correctement des nœuds frères sous `d2` (« Image en cible »).",
+   "correction_proposee": "Rattacher `n3` (« Choc, péritonite ou pneumopéritoine ») comme nœud frère de `n2` sous `n1`, ou insérer un nœud parent « Image en cible » dont `n2` (« Enfant stable ») et `n3` (« Choc ou péritonite ») dépendent.",
+   "preuve": {
+    "source": "Hwang J, Yoon HM, Kim PH et al., Clin Exp Pediatr 2023;66(1):12-21 (PMID 35798026)",
+    "annee": "2023",
+    "lien": "https://pubmed.ncbi.nlm.nih.gov/35798026/",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Nonoperative enema reduction, the treatment of choice for childhood intussusception in cases without signs of perforation or peritonitis"
+   },
+   "confiance": "certaine"
+  }
+ ],
+ "_sources_web_consultees": []
+}

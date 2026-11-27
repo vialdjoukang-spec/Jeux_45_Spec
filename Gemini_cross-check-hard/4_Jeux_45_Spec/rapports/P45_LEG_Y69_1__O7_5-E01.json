@@ -1,0 +1,96 @@
+{
+ "lot": "P45_LEG_Y69_1__O7_5-E01",
+ "auditeur": "gemini-4-neon (medium)",
+ "date": "2026-11-27",
+ "fichiers_audites": [
+  {
+   "chemin": "content/notions/LEG/Y69_1__O7_5-E01.json",
+   "sha256": "3da298fc22055e6b"
+  },
+  {
+   "chemin": "content/questions/LEG/Y69_1__O7_5-E01.json",
+   "sha256": "6db7a558a938e44a"
+  },
+  {
+   "chemin": "content/corrections/LEG/Y69_1__O7_5-E01.json",
+   "sha256": "1a8c55a4f42bf4e1"
+  }
+ ],
+ "verdict_lot": "🟥 critique",
+ "nb_elements_relus": 90,
+ "constats": [
+  {
+   "id": "P45_LEG_Y69_1__O7_5-E01-001",
+   "gravite": "🟥 critique",
+   "categorie": "posologie",
+   "fichier": "content/corrections/LEG/Y69_1__O7_5-E01.json",
+   "localisation": "priseEnCharge[0].moyens.pharmacologique[2]",
+   "texte_actuel": "1 mg neutralise environ 100 UI d'héparine reçues dans les 2 h précédentes, injection i.v. lente, maximum 50 mg.",
+   "probleme": "Posologie à risque de surdosage en protamine (effet anticoagulant paradoxal, hypotension sévère, réaction anaphylactoïde) et non conforme à la spécialité autorisée en Suisse (Sulfate de protamine LEO Pharma 7000 UI/5 ml). En raison de la demi-vie courte de l'héparine i.v. (30 min à 2 h), la dose de 1 mg/100 UI ne s'applique que dans les 15 à 30 minutes suivant l'administration ; au-delà, la dose doit être réduite (ex. 0,5 mg/100 UI entre 30 et 60 min). De plus, 1 ml (10 mg) de Sulfate de protamine LEO Pharma neutralise ~1400 UI d'héparine.",
+   "correction_proposee": "Adapter la dose selon le temps écoulé depuis l'héparine i.v. : ~1 mg/100 UI (ou 1 ml = 10 mg de Sulfate de protamine LEO Pharma pour ~1400 UI d'héparine) si < 15–30 min, puis réduire la dose dès > 15–30 min (ex. 0,5 mg/100 UI à 30–60 min), en injection i.v. lente sur ~10 min, maximum 50 mg (7000 UI) par bolus, sous contrôle de l'aPTT/ACT.",
+   "preuve": {
+    "source": "Sulfate de protamine LEO Pharma — Information professionnelle / Compendium",
+    "annee": "2025",
+    "lien": "https://compendium.ch",
+    "lu_le": "2026-11-27",
+    "extrait_court": "La dose de sulfate de protamine, en relation avec la dose administrée d'héparine, doit être réduite si plus de 15 minutes se sont écoulées"
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_LEG_Y69_1__O7_5-E01-002",
+   "gravite": "🟧 majeur",
+   "categorie": "posologie",
+   "fichier": "content/corrections/LEG/Y69_1__O7_5-E01.json",
+   "localisation": "priseEnCharge[0].moyens.pharmacologique[1]",
+   "texte_actuel": "Glucose 30 % (antihypoglycémiant) — 50 ml (15 g) i.v. en bolus si hypoglycémie symptomatique, à répéter selon la glycémie, puis perfusion de glucose si insuline retard. (source: AIPS Swissmedic)",
+   "probleme": "Le Glucose 30 % injectable n'est pas commercialisé ni référencé dans l'AIPS Swissmedic (concentration française classique). En Suisse (compendium.ch : Glucose Amino, Glucose Bichsel), les solutions injectables/de perfusion autorisées sont à 5 %, 10 %, 20 %, 40 % et 50 %. Les protocoles hospitaliers suisses (ex. HUG) utilisent le Glucose 40 % (ampoules de 10 ml = 4 g) ou le Glucose 20 %/10 %.",
+   "correction_proposee": "Remplacer « Glucose 30 % » par « Glucose 40 % » (ampoules 10 ml = 4 g ; ex. 40 ml = 16 g à 80 ml = 32 g en IVD lent selon protocole hospitalier suisse, ou Glucose 20 %/10 % selon la voie veineuse), suivi d'une perfusion de Glucose 5 % ou 10 % si insuline retard.",
+   "preuve": {
+    "source": "HUG — Directives d'administration du Glucose 40 % ; compendium.ch (Glucose Amino)",
+    "annee": "2024",
+    "lien": "https://pharmacie.hug.ch/infomedic/utilismedic/glucose40.pdf",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Glucose 40% (400 g/L). Ampoules 10 mL (1 x 10 amp). 4 g glucose / ampoule."
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_LEG_Y69_1__O7_5-E01-003",
+   "gravite": "🟧 majeur",
+   "categorie": "chiffre_suisse",
+   "fichier": "content/questions/LEG/Y69_1__O7_5-E01.json",
+   "localisation": "questions[7].stem",
+   "texte_actuel": "Mme R., 82 ans, polymédiquée, quitte l'hôpital pour un EMS. La lettre de sortie indique de l'apixaban, mais la warfarine figure encore dans le pilulier. Le médecin de l'EMS vous appelle.",
+   "probleme": "La warfarine n'est pas commercialisée en Suisse. Dans une vignette clinique se déroulant en Suisse (« quitte l'hôpital pour un EMS »), les seuls antivitamines K (AVK) disponibles sur le marché suisse sont la phenprocoumone (Marcoumar®) et l'acénocoumarol (Sintrom®).",
+   "correction_proposee": "Remplacer « la warfarine » par « la phenprocoumone (Marcoumar®) » ou « l'acénocoumarol (Sintrom®) ».",
+   "preuve": {
+    "source": "Revue Médicale Suisse — Antibiothérapie : interactions médicamenteuses et alimentaires",
+    "annee": "2009",
+    "lien": "https://www.revmed.ch/revue-medicale-suisse/2009/revue-medicale-suisse-220/antibiotherapie-interactions-medicamenteuses-et-alimentaires",
+    "lu_le": "2026-11-27",
+    "extrait_court": "warfarine (coumarine non commercialisée en Suisse)"
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_LEG_Y69_1__O7_5-E01-004",
+   "gravite": "🟨 mineur",
+   "categorie": "critere_ou_score",
+   "fichier": "content/notions/LEG/Y69_1__O7_5-E01.json",
+   "localisation": "notions[2].enonce",
+   "texte_actuel": "L'index NCC MERP classe la gravité de A (circonstance à risque) à I (décès) ; les catégories A à D correspondent aux erreurs sans dommage.",
+   "probleme": "Dans l'index officiel NCC MERP, la catégorie A correspond à « No Error » (circonstance à risque, sans erreur survenue), tandis que seules les catégories B à D correspondent à « Error, No Harm » (erreurs sans dommage). Cette formulation (reprise dans Q16.statements[2] et corrections c1.points[3]) contredit légèrement le tableau de c1 qui précise pour A « Aucune erreur n'a eu lieu ».",
+   "correction_proposee": "Préciser que la catégorie A correspond à une circonstance à risque (sans erreur) et les catégories B à D aux erreurs sans dommage, et harmoniser Q16.statements[2] et corrections c1.points[3].",
+   "preuve": {
+    "source": "NCC MERP — Revision of NCC MERP Categorizing Medication Errors Index",
+    "annee": "2022",
+    "lien": "https://www.nccmerp.org/about-medication-errors",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Category A. No Error. Category B, C, D. Error, No Harm. Category E,F,G,H. Error, Harm. Category I. Error, Death."
+   },
+   "confiance": "certaine"
+  }
+ ],
+ "_sources_web_consultees": []
+}
