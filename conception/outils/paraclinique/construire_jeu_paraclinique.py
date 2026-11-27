@@ -275,7 +275,7 @@ def syndrome_radio(nom):
     return None
 
 
-def fiche_flash(nom, e, p, niv, libelle=None):
+def fiche_flash(nom, e, p, niv, libelle=None, syn_force=None):
     """Renvoie (bulle, flash) : la bulle garde du texte brut ; les champs *_h portent le HTML survolable."""
     f = FT.trouver(FT_F, nom) or {}
     x = FLASH.get(FT.sa(nom)) or {}
@@ -287,7 +287,11 @@ def fiche_flash(nom, e, p, niv, libelle=None):
     sig = p.get("anomalieTypique")
     syn = next((s for s in e.get("syndromesParacliniques") or [] if sig and any(sans_accent(a)[:14] in sans_accent(sig) or sans_accent(sig)[:14] in sans_accent(a) for a in s.get("anomaliesQuiLeComposent") or [])), None)
     rad = []
-    if syn:
+    if syn_force is not None:  # tableau validé par un radiologue : il l'emporte sur les mots-clés ("" = aucun syndrome)
+        if syn_force:
+            rad.append(("Syndrome radiologique", syn_force[9:] if syn_force.startswith("Syndrome ") else syn_force,
+                        "Ce syndrome radiologique réunit ici : " + (", ".join((syn or {}).get("anomaliesQuiLeComposent") or []).lower() or "les anomalies du signe ci-après") + "."))
+    elif syn:
         sr = syndrome_radio(libelle or nom) or syndrome_radio(syn["syndrome"])
         if sr:
             rad.append(("Syndrome radiologique", sr[0].lower() + sr[1:] if not sr.startswith("Syndrome ") else sr[9:], "Ce syndrome radiologique réunit ici : " + ", ".join(syn.get("anomaliesQuiLeComposent") or []).lower() + "."))
@@ -363,6 +367,10 @@ def cliches_pneumonie():
 # Une paire de l'atlas ne s'affiche que si sa modalité est celle de l'examen (pas de radiographie sous un scanner).
 from PIL import Image as _Img
 ATL_D = os.path.join(P, "atlas", "manifest"); ATL_I = os.path.join(RAC, "conception", "prototypes", "paraclinique", "atlas")
+# Syndromes radiologiques validés par un radiologue, un fichier par organe : {pathologie (nom source): "Syndrome …" ou ""}.
+_DSV = os.path.join(P, "syndromes_radio")
+SYN_VALIDE = {f[:-5]: {k_: v_ for k_, v_ in lire(os.path.join(_DSV, f)).items() if not k_.startswith("_")}
+              for f in sorted(os.listdir(_DSV)) if f.endswith(".json")} if os.path.isdir(_DSV) else {}
 ATLAS_LIEN = {f[:-5]: {k_: v_ for k_, v_ in lire(os.path.join(P, "atlas_liens", f)).items() if not k_.startswith("_")}
               for f in os.listdir(os.path.join(P, "atlas_liens"))} if os.path.isdir(os.path.join(P, "atlas_liens")) else {}
 MOD_ATL = {"Radiographie": "RX", "Mammographie": "RX", "Scanner (CT)": "TDM", "Échographie et Doppler": "US", "Scintigraphie": "MN", "TEP-CT": "MN", "IRM": "IRM", "Angiographie": "INT"}
@@ -511,7 +519,7 @@ for r, (rnom, mesh, cote, coul) in REG.items():
                         if len(niv) > 3:  # angle mort : l'examen oriente seulement ; la survol donne l'examen qui pose le diagnostic
                             bd = dict(bd, premiere=niv[3]["premiereIntention"] + ".", gold=niv[3]["goldStandard"] + ".", source=niv[2] if niv[3]["source"] in niv[2] else niv[2] + " ; " + niv[3]["source"])
                     lib, sig = developpe(p["pathologie"])
-                    bd = fiche_flash(p["pathologie"], e, p, niv, lib)
+                    bd = fiche_flash(p["pathologie"], e, p, niv, lib, (SYN_VALIDE.get(o["stem"]) or {}).get(p["pathologie"]))
                     if sig and sig.split(" = ")[0] not in bd["def"]:
                         bd["def"] = sig + " " + bd["def"]
                     pn = noeud(pid, "Pathologie", lib, [parent], "#d64545", bd, "patho_img", maxc=72, flash=True, type="Pathologie" if niv else ("Pathologie · examen de référence" if gold else "Pathologie"), exRef=e["id"], signe=p.get("anomalieTypique"))
