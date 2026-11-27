@@ -1,0 +1,29 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Rapport d'audit croisé Gemini (un fichier par lot)",
+ "type": "object",
+ "required": ["lot", "auditeur", "date", "fichiers_audites", "verdict_lot", "constats"],
+ "properties": {
+  "lot": {"type": "string"},
+  "auditeur": {"type": "string", "description": "modèle et niveau de réflexion, ex. gemini-4-neon (xhigh)"},
+  "date": {"type": "string", "description": "AAAA-MM-JJ"},
+  "fichiers_audites": {"type": "array", "items": {"type": "object", "required": ["chemin", "sha256"], "properties": {"chemin": {"type": "string"}, "sha256": {"type": "string"}}}},
+  "verdict_lot": {"enum": ["🟩 conforme", "🟨 mineurs seulement", "🟧 majeurs", "🟥 critique"]},
+  "nb_elements_relus": {"type": "integer"},
+  "constats": {"type": "array", "items": {"type": "object",
+   "required": ["id", "gravite", "categorie", "fichier", "localisation", "texte_actuel", "probleme", "correction_proposee", "preuve", "confiance"],
+   "properties": {
+    "id": {"type": "string", "description": "<lot>-001"},
+    "gravite": {"enum": ["🟥 critique", "🟧 majeur", "🟨 mineur", "🟦 forme"]},
+    "categorie": {"enum": ["chiffre_suisse", "posologie", "seuil_ou_valeur", "unite", "critere_ou_score", "recommandation_obsolete", "source_fausse_ou_invente", "indication_ou_niveau", "examen_federal", "droit_suisse", "logique_ou_contradiction", "omission_grave", "langue_ou_sigle"]},
+    "fichier": {"type": "string"},
+    "localisation": {"type": "string", "description": "clé JSON exacte ou numéro de ligne"},
+    "texte_actuel": {"type": "string", "description": "copie exacte, au plus 300 caractères"},
+    "probleme": {"type": "string"},
+    "correction_proposee": {"type": "string"},
+    "preuve": {"type": "object", "required": ["source", "annee", "lien", "lu_le", "extrait_court"],
+     "properties": {"source": {"type": "string"}, "annee": {"type": "string"}, "lien": {"type": "string", "description": "URL, DOI ou PMID réellement ouvert"}, "lu_le": {"type": "string"}, "extrait_court": {"type": "string", "description": "au plus 25 mots, mot pour mot"}}},
+    "confiance": {"enum": ["certaine", "probable", "à confirmer"]}
+   }}}
+ }
+}
