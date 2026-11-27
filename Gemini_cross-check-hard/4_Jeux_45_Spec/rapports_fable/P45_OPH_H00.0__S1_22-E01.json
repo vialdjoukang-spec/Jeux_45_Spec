@@ -1,0 +1,203 @@
+{
+ "lot": "P45_OPH_H00.0__S1_22-E01",
+ "auditeur": "claude-fable-5-2",
+ "date": "2026-11-27",
+ "fichiers_audites": [
+  {
+   "chemin": "content/notions/OPH/H00.0__S1_22-E01.json",
+   "sha256": "d8942110a6ac8c3b"
+  },
+  {
+   "chemin": "content/questions/OPH/H00.0__S1_22-E01.json",
+   "sha256": "17522bcef49a972b"
+  },
+  {
+   "chemin": "content/corrections/OPH/H00.0__S1_22-E01.json",
+   "sha256": "a7f3d1782ff4b010"
+  }
+ ],
+ "verdict_lot": "🟥 critique",
+ "nb_elements_relus": 83,
+ "constats": [
+  {
+   "id": "P45_OPH_H00.0__S1_22-E01-001",
+   "gravite": "🟥 critique",
+   "categorie": "posologie",
+   "fichier": "content/corrections/OPH/H00.0__S1_22-E01.json",
+   "localisation": "priseEnCharge[0].moyens.pharmacologique[2].posologie (clé orgelet_simple, molécule flucloxacilline, source « AIPS Swissmedic »)",
+   "texte_actuel": "Adulte : 500 mg à 1 g par voie orale 3×/j, à jeun, 5–7 jours ; enfant : dose pondérale selon l'AIPS ; contre-indiquée si allergie aux pénicillines.",
+   "probleme": "Produit non disponible en Suisse sous cette forme : aucune flucloxacilline orale n'est commercialisée (compendium.ch, ATC J01CF05 : uniquement Floxapen subst sèche 500 mg/1 g/2 g et Flucloxacilline Stragen 1 g/2 g, tous parentéraux i.m./i.v.). La posologie orale « 500 mg à 1 g 3×/j, à jeun » attribuée à « AIPS Swissmedic » ne figure donc dans aucune information professionnelle suisse : la source ne dit pas ce qu'on lui fait dire. Incohérence interne en plus : le plan cellulite_urgence du même fichier et Q03/Q19 retiennent l'amoxicilline-acide clavulanique orale pour l'extension palpébrale.",
+   "correction_proposee": "Supprimer la flucloxacilline orale. La remplacer par l'anti-staphylococcique oral réellement disponible et déjà retenu ailleurs dans le lot : amoxicilline-acide clavulanique 1 g (875/125 mg) par voie orale 2×/j (max. 3×/j), au début des repas (compendium.ch, Augmentin : « 625 mg 3×/j. ou 1 g 2–max. 3×/j. »). Garder la flucloxacilline uniquement en i.v. (1 g 3×/j) si une voie parentérale est voulue. Alternative orale en cas d'allergie aux pénicillines : à définir sur l'AIPS (non vérifiée ici).",
+   "preuve": {
+    "source": "compendium.ch (HCI Solutions), fiche FLOXAPEN subst sèche 500 mg et recherche ATC J01CF05 (5 produits, tous parentéraux)",
+    "annee": "2026 (consultation en ligne)",
+    "lien": "https://compendium.ch/fr/product/24998-floxapen-subst-seche-500-mg",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Adultes: 1 g 3×/j. i.m./i.v."
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_OPH_H00.0__S1_22-E01-002",
+   "gravite": "🟧 majeur",
+   "categorie": "source_fausse_ou_invente",
+   "fichier": "content/notions/OPH/H00.0__S1_22-E01.json",
+   "localisation": "notions[37] (N38).enonce + .source « [Cochrane, 2017] » ; même usage dans anglesMorts[0] et, fichier questions, questions[2], [15], [18].sources (Q03, Q16, Q19, tous sur l'« orgelet externe »)",
+   "texte_actuel": "Les pommades antibiotiques locales (acide fusidique, tobramycine) n'ont pas de bénéfice démontré dans l'hordéole aigu, et leur usage reste facultatif.",
+   "probleme": "La revue Cochrane citée (Lindsley, Nichols, Dickersin 2017, CD007742.pub4) ne porte que sur l'hordéole INTERNE aigu : les hordéoles externes (orgelets, objet de ce lot) sont explicitement hors champ. Elle n'a trouvé aucun essai et conclut à l'absence de preuve « pour ou contre » toutes les interventions non chirurgicales, compresses chaudes comprises. Le lot lui fait dire (a) que les antibiotiques locaux sont spécifiquement sans bénéfice alors que les compresses seraient le traitement validé, (b) qu'elle fonde la prise en charge de l'orgelet externe (Q03, Q16, Q19). Les deux lectures dépassent la source.",
+   "correction_proposee": "Reformuler N38, anglesMorts[0] et les « why » liés : « Aucun essai randomisé n'a évalué les traitements non chirurgicaux de l'hordéole (Cochrane 2017, hordéole interne ; orgelet externe hors champ) : ni les compresses chaudes ni les antibiotiques locaux n'ont de preuve ; les compresses restent la première intention par consensus d'experts, l'antibiotique local est facultatif. » Ne pas citer cette revue comme source des questions portant sur l'orgelet externe sans cette précision.",
+   "preuve": {
+    "source": "Lindsley K, Nichols JJ, Dickersin K. Non-surgical interventions for acute internal hordeolum. Cochrane Database Syst Rev 2017;1:CD007742 (résumé PubMed, PMID 28068454)",
+    "annee": "2017",
+    "lien": "https://doi.org/10.1002/14651858.CD007742.pub4",
+    "lu_le": "2026-11-27",
+    "extrait_court": "External hordeola, also known as styes, were not included in the scope of this review."
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_OPH_H00.0__S1_22-E01-003",
+   "gravite": "🟨 mineur",
+   "categorie": "source_fausse_ou_invente",
+   "fichier": "content/corrections/OPH/H00.0__S1_22-E01.json",
+   "localisation": "notions[5].sources[0] (c6, bilan : HbA1c, prélèvement SARM) ; même source plaquée en notions[0], [1], [2], [4], [7].sources (c1, c2, c3, c5, c8 : définition, examen, durée de guérison 5–7 jours, réseau suisse)",
+   "texte_actuel": "Une glycémie ou une HbA1c est demandée en cas d'orgelets récidivants, pour dépister un diabète.",
+   "probleme": "« Cochrane (Lindsley), 2017 » est donnée comme source de blocs dont elle ne traite pas : dépistage du diabète par HbA1c, prélèvement à la recherche d'un SARM, durée de guérison de 5 à 7 jours, rôle du pharmacien et du médecin de premier recours en Suisse. Cette revue de traitement n'a inclus aucune étude ; son résumé ne contient aucune de ces données. Texte intégral non ouvert (PMC n'a renvoyé que le résumé) : le chapitre « Background » peut couvrir les généralités (fréquence, origine bactérienne, drainage spontané, chalazion), pas le bilan ni le contexte suisse.",
+   "correction_proposee": "Retirer « Cochrane (Lindsley), 2017 » des blocs c6 et c8 (et de c1, c3, c5 si le texte intégral ne les étaye pas) ; y citer la source réellement utilisée (traité d'ophtalmologie avec édition et année) ou marquer « avis d'experts ». Réserver la revue Cochrane au bloc traitement c7.",
+   "preuve": {
+    "source": "Lindsley K, Nichols JJ, Dickersin K. Cochrane Database Syst Rev 2017;1:CD007742 (résumé PubMed, PMID 28068454)",
+    "annee": "2017",
+    "lien": "https://doi.org/10.1002/14651858.CD007742.pub4",
+    "lu_le": "2026-11-27",
+    "extrait_court": "No trials were identified for this review."
+   },
+   "confiance": "probable"
+  },
+  {
+   "id": "P45_OPH_H00.0__S1_22-E01-004",
+   "gravite": "🟨 mineur",
+   "categorie": "recommandation_obsolete",
+   "fichier": "content/notions/OPH/H00.0__S1_22-E01.json",
+   "localisation": "notions[5].source (N06) ; idem notions[18].source (N19) et notions[41].source (N42) : « [AAO, 2018] »",
+   "texte_actuel": "La blépharite chronique, la rosacée oculaire et la peau séborrhéique favorisent la survenue et la récidive des orgelets.",
+   "probleme": "La source « [AAO, 2018] » (Blepharitis Preferred Practice Pattern, Ophthalmology 2019;126:P56-P93, PMID 30366800) est remplacée par une nouvelle édition du même Preferred Practice Pattern (Lin A et al., Ophthalmology 2024;131(4):P50-P86, PMID 38349296, en ligne le 13.02.2024). Le fond cité (hygiène palpébrale, facteurs favorisants) n'est a priori pas modifié, d'où la gravité mineure, mais la référence est périmée. Les fichiers questions et corrections citent le même document sans année (« AAO Preferred Practice Pattern: Blepharitis », « AAO, Blepharitis PPP »).",
+   "correction_proposee": "Remplacer « [AAO, 2018] » par « [AAO, Blepharitis PPP 2023 — Ophthalmology 2024;131:P50-P86] » dans les trois fichiers, après relecture du texte intégral de l'édition 2023 pour confirmer que les trois énoncés y figurent toujours.",
+   "preuve": {
+    "source": "Lin A, Ahmad S, Amescua G, et al. ; AAO Preferred Practice Pattern Cornea/External Disease Panel. Ophthalmology 2024;131(4):P50-P86 (notice PubMed, PMID 38349296)",
+    "annee": "2024",
+    "lien": "https://doi.org/10.1016/j.ophtha.2023.12.036",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Blepharitis Preferred Practice Pattern®."
+   },
+   "confiance": "probable"
+  },
+  {
+   "id": "P45_OPH_H00.0__S1_22-E01-005",
+   "gravite": "🟨 mineur",
+   "categorie": "examen_federal",
+   "fichier": "content/corrections/OPH/H00.0__S1_22-E01.json",
+   "localisation": "ssp.officiel",
+   "texte_actuel": "\"officiel\": false",
+   "probleme": "Le SSP S1.22 « Gonflement de la paupière » (swelling of the eyelid) est un SSP officiel PROFILES : il figure au catalogue officiel du dépôt, et les fichiers frères du même SSP (corrections/OPH/H00.1__S1_22-E02.json, H01.1__S1_22-E03.json) portent « officiel »: true. Le marquer « non officiel » ici fait croire à un SSP additionnel hors examen fédéral.",
+   "correction_proposee": "Passer ssp.officiel à true dans content/corrections/OPH/H00.0__S1_22-E01.json.",
+   "preuve": {
+    "source": "Dépôt Jeux_45_Spec, data/references/CATALOGUE_OFFICIEL_PROFILES_248.md, ligne 44 (catalogue PROFILES des 248 SSP)",
+    "annee": "2026",
+    "lien": "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/data/references/CATALOGUE_OFFICIEL_PROFILES_248.md",
+    "lu_le": "2026-11-27",
+    "extrait_court": "| `S1.22` | S | swelling of the eyelid | Gonflement de la paupière |"
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_OPH_H00.0__S1_22-E01-006",
+   "gravite": "🟨 mineur",
+   "categorie": "logique_ou_contradiction",
+   "fichier": "content/corrections/OPH/H00.0__S1_22-E01.json",
+   "localisation": "notions[5].arbre[4].t (c6, nœud n5) et notions[5].arbre[1].i (nœud n2)",
+   "texte_actuel": "Non (fièvre, baisse visuelle, exophtalmie) : scanner orbitaire avec contraste, CRP, formule, hémocultures",
+   "probleme": "L'arbre du bilan déclenche le scanner orbitaire injecté dès qu'un seul des quatre éléments est anormal, fièvre isolée comprise, et affirme (n2) que quatre éléments normaux « excluent une atteinte préseptale ». Contradiction avec le reste du lot : N22 et Q01 (why de l'option C) réservent le scanner à la suspicion de cellulite orbitaire, et Q05 traite l'enfant fébrile à globe normal (cellulite préseptale) par antibiotique systémique sans imagerie. Examen irradiant proposé en première ligne sans signe orbitaire, chez l'enfant notamment.",
+   "correction_proposee": "Scinder le nœud n5 : « Fièvre ou œdème de toute la paupière, globe normal : cellulite préseptale — antibiotique systémique, CRP et formule si hospitalisation, scanner seulement si examen du globe impossible ou absence d'amélioration en 24–48 h » ; « Baisse visuelle, exophtalmie, ophtalmoplégie douloureuse : scanner orbitaire avec contraste, hémocultures, hospitalisation ». Corriger n2 : ces éléments excluent l'atteinte orbitaire, pas la préseptale. Seuils d'imagerie à confirmer sur une source pédiatrique suisse.",
+   "preuve": {
+    "source": "Dépôt Jeux_45_Spec, content/questions/OPH/H00.0__S1_22-E01.json, questions[0].options[2] (Q01, option C « Scanner orbitaire avec produit de contraste d'emblée »)",
+    "annee": "2026",
+    "lien": "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/content/questions/OPH/H00.0__S1_22-E01.json",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Réservé à la suspicion de cellulite orbitaire."
+   },
+   "confiance": "probable"
+  },
+  {
+   "id": "P45_OPH_H00.0__S1_22-E01-007",
+   "gravite": "🟨 mineur",
+   "categorie": "logique_ou_contradiction",
+   "fichier": "content/corrections/OPH/H00.0__S1_22-E01.json",
+   "localisation": "ssp.algorithme[13].t (nœud n14, parent n9) ; même défaut ssp.algorithme[14] (nœud n15, tumeur maligne)",
+   "texte_actuel": "Oui, nodule ferme indolore à distance du bord, depuis des semaines : chalazion",
+   "probleme": "Le nœud parent n9 pose la question « tuméfaction aiguë, douloureuse, localisée et unilatérale ? » ; ses enfants n14 (chalazion : « ferme indolore… depuis des semaines ») et n15 (tumeur : récidive chronique) répondent « Oui » à une question dont ils contredisent deux termes sur quatre (aiguë, douloureuse). L'étudiant qui suit l'arbre ne peut pas atteindre le chalazion ni la tumeur par une réponse cohérente.",
+   "correction_proposee": "Reformuler n9 en « tuméfaction localisée et unilatérale ? », puis créer deux sous-nœuds : « aiguë et douloureuse » (orgelet, dacryocystite, zona) et « chronique, indolore » (chalazion, tumeur maligne à biopsier).",
+   "preuve": {
+    "source": "Dépôt Jeux_45_Spec, content/corrections/OPH/H00.0__S1_22-E01.json, ssp.algorithme[8].t (nœud n9)",
+    "annee": "2026",
+    "lien": "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/content/corrections/OPH/H00.0__S1_22-E01.json",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Non : tuméfaction aiguë, douloureuse, localisée et unilatérale ?"
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_OPH_H00.0__S1_22-E01-008",
+   "gravite": "🟨 mineur",
+   "categorie": "logique_ou_contradiction",
+   "fichier": "content/questions/OPH/H00.0__S1_22-E01.json",
+   "localisation": "questions[0].options[3].why (Q01, série S1 étape 1/4, diagnosticMasque: true)",
+   "texte_actuel": "Demandé seulement en cas d'orgelets récidivants.",
+   "probleme": "Fuite du diagnostic masqué : l'explication du distracteur D de Q01 nomme l'« orgelet » alors que l'étape suivante de la même série (Q02, diagnosticMasque: true) demande précisément « Quel est le diagnostic le plus probable ? ». Si les explications s'affichent entre deux étapes, la réponse de Q02 est donnée.",
+   "correction_proposee": "Remplacer par « Demandé seulement en cas de lésions palpébrales récidivantes. » (même formulation neutre que l'option B).",
+   "preuve": {
+    "source": "Dépôt Jeux_45_Spec, content/questions/OPH/H00.0__S1_22-E01.json, questions[1].prompt (Q02)",
+    "annee": "2026",
+    "lien": "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/content/questions/OPH/H00.0__S1_22-E01.json",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Quel est le diagnostic le plus probable ?"
+   },
+   "confiance": "probable"
+  },
+  {
+   "id": "P45_OPH_H00.0__S1_22-E01-009",
+   "gravite": "🟦 forme",
+   "categorie": "langue_ou_sigle",
+   "fichier": "content/questions/OPH/H00.0__S1_22-E01.json",
+   "localisation": "questions[16].stem (Q17)",
+   "texte_actuel": "Gonflement palpéral aigu : signes d'alarme à reconnaître devant une lésion d'allure d'orgelet.",
+   "probleme": "Faute de frappe : « palpéral » pour « palpébral ».",
+   "correction_proposee": "« Gonflement palpébral aigu : signes d'alarme à reconnaître devant une lésion d'allure d'orgelet. »",
+   "preuve": {
+    "source": "Dépôt Jeux_45_Spec, content/questions/OPH/H00.0__S1_22-E01.json, questions[16].stem",
+    "annee": "2026",
+    "lien": "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/content/questions/OPH/H00.0__S1_22-E01.json",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Gonflement palpéral aigu"
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_OPH_H00.0__S1_22-E01-010",
+   "gravite": "🟦 forme",
+   "categorie": "langue_ou_sigle",
+   "fichier": "content/corrections/OPH/H00.0__S1_22-E01.json",
+   "localisation": "notions[3].points[2] (c4)",
+   "texte_actuel": "Une angio-œdème palpébral avec urticaire, dyspnée ou hypotension signe une anaphylaxie et impose l'adrénaline intramusculaire.",
+   "probleme": "Faute de genre : « angio-œdème » est masculin (« Une angio-œdème »).",
+   "correction_proposee": "« Un angio-œdème palpébral avec urticaire, dyspnée ou hypotension signe une anaphylaxie et impose l'adrénaline intramusculaire. »",
+   "preuve": {
+    "source": "Dépôt Jeux_45_Spec, content/corrections/OPH/H00.0__S1_22-E01.json, notions[3].points[2]",
+    "annee": "2026",
+    "lien": "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/content/corrections/OPH/H00.0__S1_22-E01.json",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Une angio-œdème palpébral avec urticaire, dyspnée ou hypotension"
+   },
+   "confiance": "certaine"
+  }
+ ]
+}
