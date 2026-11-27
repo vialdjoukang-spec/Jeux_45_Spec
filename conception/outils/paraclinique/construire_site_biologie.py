@@ -45,6 +45,7 @@ T1 = [("urgence_aigu", "Urgence"), ("diagnostic_etiologie", "Diagnostic et étio
       ("depistage_pretherapeutique", "Dépistage et bilan préthérapeutique"), ("suivi_surveillance", "Suivi")]
 VISEES = {"diagnostique": "Diagnostique", "retentissement": "Retentissement", "etiologique": "Étiologique",
           "complications": "Complications", "therapeutique": "Thérapeutique", "sortie": "Sortie"}
+HORS_BIO = {"Imagerie", "Clinique", "Explorations", "Endoscopie", "ECG", "Génétique", "Anatomopathologie", "Histologie"}
 NIVEAU_T3 = "Interprétation au temps 3 (niveau non précisé)"
 
 # Tête de phrase à retirer pour obtenir le libellé (« Il s'agit d'une goutte. » → « goutte »).
@@ -85,7 +86,7 @@ VIDES = {"dosage", "serique", "plasmatique", "sanguin", "sanguine", "urinaire", 
          "dosages", "proteines", "glucose", "acide", "complet", "complete", "normal", "precoce", "systematique", "biopsie",
          "imagerie", "clinique", "examens", "tubes", "heures", "jours", "pcr", "surveillance", "marqueurs", "prelevement",
          "prelevements", "lesion", "frottis", "sanguins", "sanguines", "serologie", "dosage", "taux", "screening", "general", "unknown",
-         "ancien", "terme", "active", "endogene", "quantitative", "qualitative", "temps", "reel", "typage", "rapport", "concentration"}
+         "ancien", "terme", "active", "criteres", "depistage", "fecale", "osseuse", "osseuses", "medicaments", "toxiques", "endogene", "quantitative", "qualitative", "temps", "reel", "typage", "rapport", "concentration"}
 
 
 def sans_accents(s):
@@ -261,7 +262,7 @@ def main():
                 for gr, lignes in groupes.items():
                     for li in lignes:
                         nom, signe = (li + ["", ""])[:2]
-                        lie = [i for i in F if ligne_nomme(nom, MOTS[i])]
+                        lie = [] if gr in HORS_BIO else [i for i in F if ligne_nomme(nom, MOTS[i])]
                         tet["bilan"].append({"visee": VISEES.get(vis, vis), "groupe": gr, "examen": nom, "signe": signe, "fiches": lie})
             nb_tetrade += 1
         p["tetrade"] = tet
