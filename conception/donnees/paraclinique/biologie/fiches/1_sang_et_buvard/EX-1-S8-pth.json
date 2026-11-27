@@ -149,7 +149,10 @@
   "AIPS Rocaltrol®, capsules molles, n° Swissmedic 41728, mise à jour novembre 2025 (lu le 27.11.2026)",
   "AIPS Carbonate de calcium Salmon Pharma 500 mg, n° Swissmedic 50383, mise à jour juillet 2020 (lu le 27.11.2026)",
   "AIPS du gluconate de calcium 10 % IV : à vérifier (compendium.ch), absent du corpus refdata lu le 27.11.2026",
-  "Mentions « (non vérifié CH) » : connaissances internationales non relues sur une source suisse ce jour ; à vérifier avant usage."
+  "Mentions « (non vérifié CH) » : connaissances internationales non relues sur une source suisse ce jour ; à vérifier avant usage.",
+  "Payne RB, Little AJ, Williams RB, Milner JR. Interpretation of serum calcium in patients with abnormal serum proteins. Br Med J 1973;4:643-6 ; PubMed 4758544 (résumé lu le 27.11.2026)",
+  "Christensen SE et al. Discriminative power of three indices of renal calcium excretion for the distinction between familial hypocalciuric hypercalcaemia and primary hyperparathyroidism. Clin Endocrinol (Oxf) 2008;69:713-20 ; PubMed 18410554 (résumé lu le 27.11.2026)",
+  "English KA, Lines KE, Thakker RV. Genetics of hereditary forms of primary hyperparathyroidism. Hormones (Athens) 2024;23:3-14 ; PubMed 38038882 (texte intégral lu le 27.11.2026)"
  ],
  "passerelles": [
   {
@@ -183,7 +186,23 @@
    "pourquoi": "L'hyperparathyroïdie primaire peut fragiliser l'os, donc on mesure la densité osseuse."
   }
  ],
- "calculs": "à produire",
+ "calculs": [
+  {
+   "nom": "Calcémie corrigée pour l'albumine",
+   "formule": "Tu calcules Ca corrigé (mmol/L) = Ca mesuré (mmol/L) + 0,025 × (40 − albumine en g/L) ; c'est la conversion en unités SI de la formule d'origine Ca ajusté = Ca − albumine + 4,0, avec le calcium en mg/100 mL et l'albumine en g/100 mL (Payne 1973).",
+   "a_quoi_ca_sert": "Tu lis la PTH avec un calcium juste : une hypoalbuminémie abaisse le calcium total et peut masquer une hypercalcémie, ce qui fausse le couple PTH–calcium.",
+   "exemple": "Une patiente a un calcium total à 2,60 mmol/L et une albumine à 30 g/L. Tu calcules 40 − 30 = 10 ; puis 0,025 × 10 = 0,25 ; enfin 2,60 + 0,25 = 2,85 mmol/L. Le calcium corrigé dépasse 2,52 mmol/L (HUG RPA), donc l'hypercalcémie est vraie, et une PTH élevée ou normale haute oriente vers une hyperparathyroïdie primaire.",
+   "source": "Payne RB, Little AJ, Williams RB, Milner JR, 1973, Br Med J 4:643-6 (PubMed 4758544) (lu le 27.11.2026)",
+   "outil": "calc_calcium_corrige"
+  },
+  {
+   "nom": "Rapport des clairances calcium/créatinine (CCCR)",
+   "formule": "Tu calcules CCCR = (Ca urinaire × créatinine plasmatique) ÷ (Ca plasmatique × créatinine urinaire), sur des urines de 24 h et un sang du même jour, avec les deux créatinines dans la même unité ; cette forme découle du rapport des deux clairances (U × V ÷ P), le volume s'annulant (à vérifier : formule écrite dans la méthode de Christensen 2008, texte intégral non lu).",
+   "a_quoi_ca_sert": "Devant une hypercalcémie avec PTH non freinée, ce calcul aide à distinguer l'hypercalcémie hypocalciurique familiale de l'hyperparathyroïdie primaire : un CCCR < 0,01 se voit chez environ 80 % des FHH de type 1 et chez moins de 20 % des hyperparathyroïdies primaires (English 2024) ; un seuil < 0,020 retient 98 % des FHH, puis l'analyse du gène CASR tranche (Christensen 2008).",
+   "exemple": "Un patient a, sur les urines de 24 h, un calcium à 2,0 mmol/L et une créatinine à 8000 µmol/L ; dans le sang, un calcium à 2,70 mmol/L et une créatinine à 80 µmol/L (valeurs d'exemple). Tu calcules 2,0 × 80 = 160 ; puis 2,70 × 8000 = 21 600 ; enfin 160 ÷ 21 600 = 0,0074. Comme 0,0074 < 0,01, tu évoques une hypercalcémie hypocalciurique familiale et tu demandes l'analyse génétique avant toute chirurgie.",
+   "source": "Christensen SE et al., 2008, Clin Endocrinol 69:713-20 (PubMed 18410554) ; English KA, Lines KE, Thakker RV, Hormones 2024 (PubMed 38038882) (lu le 27.11.2026)"
+  }
+ ],
  "traitement": {
   "but": "Tu fais retirer l'adénome qui sécrète trop de PTH, tu abaisses une hypercalcémie menaçante, tu remplaces la vitamine D ou le calcitriol qui manquent et tu évites une chirurgie inutile dans l'hypercalcémie hypocalciurique familiale.",
   "moyens": [

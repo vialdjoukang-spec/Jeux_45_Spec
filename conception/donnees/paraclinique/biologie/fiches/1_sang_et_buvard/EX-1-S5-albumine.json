@@ -112,7 +112,9 @@
   "Finci L, Mouraux S, Knuchel J, Bochatay L. Prise en charge initiale de l'ascite inaugurale chez le patient cirrhotique. Rev Med Suisse 2017;13:1509-15 (lu le 13.11.2026)",
   "Viollier AG, répertoire des analyses en ligne : alpha-1-Antitrypsin (Stuhl) 14410 (lu le 13.11.2026)",
   "OFSP : Liste des analyses (annexe 3 OPAS), édition du 01.07.2026, fichier Excel (positions et points lus le 13.11.2026)",
-  "Mentions « (non vérifié CH) » : connaissances internationales non relues sur une source suisse ce jour ; à vérifier avant usage."
+  "Mentions « (non vérifié CH) » : connaissances internationales non relues sur une source suisse ce jour ; à vérifier avant usage.",
+  "Payne RB, Little AJ, Williams RB, Milner JR. Interpretation of serum calcium in patients with abnormal serum proteins. Br Med J 1973;4:643-6 ; PubMed 4758544 (résumé lu le 27.11.2026)",
+  "Figge J, Jabor A, Kazda A, Fencl V. Anion gap and hypoalbuminemia. Crit Care Med 1998;26:1807-10 ; PubMed 9824071 (résumé lu le 27.11.2026)"
  ],
  "passerelles": [
   {
@@ -146,7 +148,24 @@
    "pourquoi": "Si l'écart protéines − albumine s'élargit, on type la gammapathie."
   }
  ],
- "calculs": "à produire",
+ "calculs": [
+  {
+   "nom": "Calcémie corrigée pour l'albumine",
+   "formule": "Tu calcules Ca corrigé (mmol/L) = Ca mesuré (mmol/L) + 0,025 × (40 − albumine en g/L), conversion SI de la formule d'origine Ca ajusté = Ca − albumine + 4,0 (calcium en mg/100 mL, albumine en g/100 mL) (Payne 1973).",
+   "a_quoi_ca_sert": "Une albumine basse abaisse le calcium total sans toucher le calcium ionisé ; ce calcul t'évite de traiter une fausse hypocalcémie.",
+   "exemple": "Un patient dénutri a un calcium total à 2,05 mmol/L et une albumine à 25 g/L. Tu calcules 40 − 25 = 15 ; puis 0,025 × 15 = 0,375 ; enfin 2,05 + 0,375 = 2,43 mmol/L. Le calcium corrigé reste dans l'intervalle de 2,20 à 2,52 mmol/L (HUG RPA, fiche EX-1-S8-pth), donc l'hypocalcémie n'était qu'apparente.",
+   "source": "Payne RB, Little AJ, Williams RB, Milner JR, 1973, Br Med J 4:643-6 (PubMed 4758544) (lu le 27.11.2026)",
+   "outil": "calc_calcium_corrige"
+  },
+  {
+   "nom": "Trou anionique corrigé pour l'albumine",
+   "formule": "Tu calcules TA corrigé (mmol/L) = TA observé + 0,25 × (albumine normale − albumine mesurée), avec l'albumine en g/L (Figge 1998).",
+   "a_quoi_ca_sert": "Chaque g/L d'albumine en moins fait sous-estimer de 0,25 mmol/L les anions du trou (Figge 1998) ; sans correction, une hypoalbuminémie marquée peut masquer une acidose à trou anionique élevé.",
+   "exemple": "Un patient de soins intensifs a un TA observé à 10 mmol/L et une albumine à 20 g/L ; tu prends 40 g/L comme albumine normale (valeur d'exemple, à remplacer par celle de ton laboratoire). Tu calcules 40 − 20 = 20 ; puis 0,25 × 20 = 5 ; enfin 10 + 5 = 15 mmol/L. Le TA corrigé dépasse de 5 mmol/L le TA observé, donc tu le compares à l'intervalle de ton laboratoire avant d'exclure une acidose à TA élevé.",
+   "source": "Figge J, Jabor A, Kazda A, Fencl V, 1998, Crit Care Med 26:1807-10 (PubMed 9824071) (lu le 27.11.2026)",
+   "outil": "calc_trou_anionique_corrige"
+  }
+ ],
  "traitement": {
   "but": "Tu traites la cause de l'hypoalbuminémie (foie, rein, intestin ou inflammation), car la perfusion d'albumine ne corrige pas une perte ou un défaut de synthèse qui persiste.",
   "moyens": [
