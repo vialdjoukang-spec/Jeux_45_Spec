@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**125 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**128 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -732,9 +732,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 722 | 1722 | `R16.2__F1_6-E07` | MIG | Hépatosplénomégalie à la percussion (flèche hépatique > 12 cm et matité de l'espace de Traube) | produite |
 | 723 | 1723 | `R18__S3_2-E03` | MIG | Ascite sur cirrhose hépatique décompensée | produite |
 | 724 | 1724 | `R23.2__G7-E05` | MIG | Érythème émotionnel / hyperactivité sympathique physiologique | produite |
-| 725 | 1725 | `R26.0__S7_2-E07` | MIG | Marche cérébelleuse (ataxique ébrieuse) | — |
-| 726 | 1726 | `R32__S4_14-E05` | MIG | Incontinence urinaire par regorgement sur obstruction sous-vésicale chronique | — |
-| 727 | 1727 | `R33_1__S9_9-E04` | URO | Rétention aiguë d'urine ou fécalome (delirium réflexe gériatrique) | — |
+| 725 | 1725 | `R26.0__S7_2-E07` | MIG | Marche cérébelleuse (ataxique ébrieuse) | produite |
+| 726 | 1726 | `R32__S4_14-E05` | MIG | Incontinence urinaire par regorgement sur obstruction sous-vésicale chronique | produite |
+| 727 | 1727 | `R33_1__S9_9-E04` | URO | Rétention aiguë d'urine ou fécalome (delirium réflexe gériatrique) | produite |
 | 728 | 1728 | `R41.8_1__O7_15-E06` | MIG | Oublis liés à la polymédication ou aux troubles cognitifs du sujet âgé | — |
 | 729 | 1729 | `R41.8__O7_10-E04` | MIG | Évaluation de la capacité de discernement avant un geste | — |
 | 730 | 1730 | `R50.2__G6-E08` | TOX | Fièvre médicamenteuse (hypersensibilité / bêta-lactamines) | — |
