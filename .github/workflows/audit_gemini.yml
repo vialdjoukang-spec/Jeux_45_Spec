@@ -15,6 +15,10 @@ on:
         description: "Plafond de dépense de cette passe, en dollars"
         required: true
         default: "2"
+      liste:
+        description: "Fichier de lots ciblés, dans le dossier du jeu (laisser vide = tous)"
+        required: false
+        default: ""
       effort:
         description: "Niveau de réflexion de Gemini (low, medium, high, xhigh)"
         required: true
@@ -48,7 +52,7 @@ jobs:
         run: >
           python Gemini_cross-check-hard/outils/audit_gemini.py
           --jeu "${{ inputs.jeu }}" --max-lots "${{ inputs.max_lots }}"
-          --max-usd "${{ inputs.max_usd }}" --effort "${{ inputs.effort }}"
+          --max-usd "${{ inputs.max_usd }}" --effort "${{ inputs.effort }}" ${{ inputs.liste && format('--liste "{0}"', inputs.liste) || '' }}
           2>&1 | tee Gemini_cross-check-hard/derniere_passe.log; exit ${PIPESTATUS[0]}
       - name: Contrôle des rapports (0 token)
         if: always()

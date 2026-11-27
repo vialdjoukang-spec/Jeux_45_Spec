@@ -102,12 +102,14 @@ def main():
     a.add_argument("--max-usd", type=float, default=2.0); a.add_argument("--modele", default="gemini-4-neon")
     a.add_argument("--effort", default="medium", help="low | medium | high | xhigh")
     a.add_argument("--lot", default=None, help="auditer seulement ce lot")
+    a.add_argument("--liste", default=None, help="fichier JSON listant les lots à auditer (ex. TEST_COMPARATIF.json)")
     o = a.parse_args()
     cle = os.environ.get("GEMINI_API_KEY")
     if not cle:
         sys.exit("GEMINI_API_KEY absente : ajoute-la dans les secrets du dépôt (jamais dans un fichier).")
     man = json.load(open(f"{G}/{o.jeu}/MANIFESTE_LOTS.json"))
-    a_faire = [l for l in man["lots"] if (o.lot is None or l["lot"] == o.lot) and not a_jour(l)]
+    cible = set(json.load(open(f"{G}/{o.jeu}/{o.liste}"))["lots"]) if o.liste else None
+    a_faire = [l for l in man["lots"] if (o.lot is None or l["lot"] == o.lot) and (cible is None or l["lot"] in cible) and not a_jour(l)]
     print(f"{o.jeu} : {len(a_faire)} lot(s) à auditer ; plafond {o.max_lots} lot(s) et {o.max_usd} $")
     systeme, total, date = consignes(), 0.0, datetime.date.today().isoformat()
     for lot in a_faire[:o.max_lots]:

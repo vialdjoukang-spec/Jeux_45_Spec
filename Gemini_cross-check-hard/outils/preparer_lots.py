@@ -64,10 +64,12 @@ ecrire("3_Transversal", [lot(f"TR_{os.path.basename(f)[:-5]}", f"Transversal —
                              "droit suisse de la santé, assurances sociales, santé publique OFSP, éthique, numéros suisses")
                          for f in sorted(glob.glob("conception/donnees/tetrade/transversales/**/*.json", recursive=True))])
 
-# 4. Jeux 45 Spec : un lot par spécialité (decks) + SSP
-D = [lot(f"S45_{os.path.basename(f)[:-5]}", f"45 Spec — deck {os.path.basename(f)[:-5]}", [f],
-         "exactitude de la bonne réponse, distracteurs, explication, chiffres suisses, conformité PROFILES et SSP")
-     for f in sorted(glob.glob("conception/prototypes/arene45/decks/*.json")) if not f.endswith("ALL.json")]
+# 4. Jeux 45 Spec : un lot par pathologie produite (notions + questions + correction, ~140 Ko) + SSP
+D = []
+for fq in sorted(glob.glob("content/questions/*/*.json")):
+    sp, base = fq.split("/")[2], os.path.basename(fq)[:-5]
+    D.append(lot(f"P45_{sp}_{base}", f"45 Spec — {sp} — {base}", [f"content/notions/{sp}/{base}.json", fq, f"content/corrections/{sp}/{base}.json"],
+                 "bonne réponse juste, distracteurs, masquage du diagnostic, explications, chiffres et posologies suisses, sources réelles, conformité PROFILES et SSP"))
 D += [lot(f"SSP_{os.path.basename(f)[:-5]}", f"45 Spec — {os.path.basename(f)[:-5]}", [f], "algorithme décisionnel de la SSP, conformité PROFILES")
       for f in sorted(glob.glob("data/ssp/SSP_*.json"))]
 ecrire("4_Jeux_45_Spec", D)
