@@ -145,6 +145,14 @@ def auditer_fiche(d, ids_bio, cibles):
             faute("A1", b, "bloc absent sans « à produire »")
         elif vide(d[b]) and d[b] != AP:
             faute("A1", b, "bloc vide : il doit porter « à produire »")
+    # A1 bis : un bloc Calculs rédigé en texte ne sert qu'à déclarer l'absence de calcul, avec sa raison
+    c = d.get("calculs")
+    if isinstance(c, str) and c != AP and not c.startswith("Aucun calcul usuel : "):
+        faute("A1", "calculs", "texte libre : écrire une liste de calculs ou « Aucun calcul usuel : <raison> »")
+    if isinstance(c, list):
+        for i, x in enumerate(c):
+            if not isinstance(x, dict) or any(vide(x.get(k)) for k in ("nom", "formule", "a_quoi_ca_sert", "exemple", "source")):
+                faute("A1", f"calculs[{i}]", "calcul incomplet : nom, formule, a_quoi_ca_sert, exemple, source")
     # A2 + A4 sur le temps 2
     t2 = d.get("temps2_examen")
     if isinstance(t2, list):
