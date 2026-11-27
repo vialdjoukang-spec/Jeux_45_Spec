@@ -11,7 +11,7 @@
 - Branches `origin/agent/45spec-C-lot3, lot5, lot7, lot8, lot9` : un commit chacune non fusionné tel quel ; `REPRISE_C.md` les déclare fusionnés. Vérifie par diff de contenu (`git diff origin/main origin/agent/45spec-C-lotN -- content/`) avant de les supprimer ou de les fusionner.
 
 ## 2. À lire, dans cet ordre (et rien d'autre avant d'agir)
-1. `projets/SEQUENCE_VIAL.md`, puis `PROMPT_JEU_45_SPECIALITES_SUISSE.md` (ou `00_existant/PROMPT_JEU_45_SPECIALITES_SUISSE.md`) : le prompt de Vial, épinglé.
+1. `projets/SEQUENCE_VIAL.md`, puis `00_existant/PROMPT_JEU_45_SPECIALITES_SUISSE.md` : le prompt de Vial, épinglé.
 2. `.claude/skills/agent-producteur-45spec/SKILL.md` : méthode, règles de fond, leçons (obligatoire).
 3. `.claude/skills/production-45spec-sans-api/`, `production-manuelle-45spec/`, `45spec-production-sans-api/` : variantes ; en cas de conflit, `agent-producteur-45spec` l'emporte.
 4. `projets/45spec/REPRISE_C.md` et `PROGRESSION_C.md`.
