@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Biologie — le bilan de chaque pathologie</title>
+<meta name="description" content="Tu choisis une pathologie ou un examen : le site range les examens biologiques par niveau d'intention et ouvre leur fiche à 3 temps.">
+<!-- Site Biologie du jeu Paraclinique (demande de Vial du 27.11.2026, épinglée dans projets/2_Jeux_Paraclinique/PROMPT_VIAL.md).
+     Données : donnees/*.json, écrites par conception/outils/paraclinique/construire_site_biologie.py (0 token) depuis les 101 fiches auditées
+     et la Tétrade ; la fiche à 3 temps réutilise ficheBioHtml de ../paraclinique/biologie.js. Le site ne rédige aucun texte médical.
+     Skills : web-designer-pilot-faithful, web-aesthetic-github-toolkit, obsidian-like-complex-network, medical-accuracy-100.
+     Signature : AAI (Anthropic AI) -->
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<a class="saut" href="#contenu">Aller au contenu</a>
+<header class="tete" role="banner">
+  <div class="tete-in">
+    <a class="marque" href="#" aria-label="Accueil du site Biologie">
+      <span class="marque-pastille" aria-hidden="true"></span>
+      <span class="marque-txt"><b>Biologie</b><small>Le bilan de chaque pathologie</small></span>
+    </a>
+    <form class="selecteur" role="search" id="selecteur" autocomplete="off">
+      <div class="bascule" role="radiogroup" aria-label="Ce que tu cherches">
+        <button type="button" role="radio" data-mode="patho" aria-checked="true">Pathologie</button>
+        <button type="button" role="radio" data-mode="examen" aria-checked="false">Examen</button>
+      </div>
+      <div class="champ">
+        <label class="vh" for="q" id="qLabel">Chercher une pathologie</label>
+        <input id="q" type="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="sugg"
+               aria-describedby="qAide" placeholder="Ex. : hyperkaliémie, goutte, méningite…" spellcheck="false">
+        <kbd class="raccourci" aria-hidden="true">/</kbd>
+        <ul id="sugg" role="listbox" aria-labelledby="qLabel" hidden></ul>
+      </div>
+      <p id="qAide" class="vh">La recherche tolère les fautes et les accents ; tu parcours les propositions avec les flèches et tu valides avec Entrée.</p>
+    </form>
+    <button class="btn-filtres" id="btnFiltres" type="button" aria-controls="filtres" aria-expanded="false">Filtres</button>
+  </div>
+</header>
+
+<div class="cadre">
+  <aside id="filtres" class="filtres" aria-label="Filtres latéraux">
+    <div class="filtres-tete"><h2>Filtrer</h2><button type="button" id="raz" class="lien">Tout effacer</button></div>
+    <section aria-labelledby="fMat"><h3 id="fMat" class="rub">Prélèvement</h3><div class="puces" id="listeMat"></div></section>
+    <section aria-labelledby="fSys"><h3 id="fSys" class="rub">Système</h3><div class="puces" id="listeSys"></div></section>
+    <section aria-labelledby="fNiv"><h3 id="fNiv" class="rub">Niveau d'intention</h3><div class="puces" id="listeNiv"></div></section>
+    <p class="note">Un filtre resserre le catalogue de l'accueil ; un second clic le retire.</p>
+  </aside>
+  <main id="contenu" class="contenu" tabindex="-1"></main>
+</div>
+
+<footer class="pied">
+  <p>Le site affiche mot pour mot les fiches auditées du jeu Paraclinique et les bilans de la Tétrade ; il ne rédige aucun texte médical.
+     Tu vérifies toujours une posologie dans l'AIPS (Swissmedic) avant de l'appliquer.</p>
+  <p><a href="../paraclinique/index.html">Revenir au jeu Paraclinique</a> · Signature : AAI (Anthropic AI)</p>
+</footer>
+
+<div id="bulle" role="tooltip" hidden></div>
+<div id="voile" hidden></div>
+<div id="fenetre" role="dialog" aria-modal="true" aria-labelledby="fenTitre" hidden>
+  <div class="fen-tete">
+    <div><p class="fen-sur" id="fenSur"></p><h2 id="fenTitre"></h2></div>
+    <div class="fen-actions"><a id="fenPage" class="btn secondaire" href="#">Ouvrir la page de l'examen</a>
+      <button id="fenFermer" class="btn icone" type="button" aria-label="Fermer la fiche">✕</button></div>
+  </div>
+  <div class="fen-corps fiche" id="fenCorps"></div>
+</div>
+<script type="module" src="site.js"></script>
+</body>
+</html>

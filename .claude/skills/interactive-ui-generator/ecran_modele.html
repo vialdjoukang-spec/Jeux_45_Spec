@@ -1,0 +1,197 @@
+<meta name="dash-one-writer">
+<meta name="dash-form" content="freeform">
+<style>
+  /* Écran temps réel du chantier Biologie : titres et libellés en rouge, valeurs en bleu, infobulles blanches sur fond sombre (choix de Vial). */
+  .cb { --cb-titre: #b91c1c; --cb-val: #1d4ed8; --cb-bulle: #111827; --cb-ok: #15803d; --cb-cours: #b45309; --cb-rail: color-mix(in srgb, var(--color-border-line) 60%, transparent);
+        display: grid; gap: var(--cds-gap-lg); font-family: var(--font-anthropic-sans); color: var(--cb-val); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cb { --cb-titre: #f87171; --cb-val: #93c5fd; --cb-ok: #4ade80; --cb-cours: #fbbf24; } }
+  :root[data-theme="dark"] .cb { --cb-titre: #f87171; --cb-val: #93c5fd; --cb-ok: #4ade80; --cb-cours: #fbbf24; }
+  .cb h1, .cb h2, .cb th, .cb .lab { color: var(--cb-titre); }
+  .cb h1 { font: 400 var(--cds-font-size-title)/1.15 var(--font-anthropic-serif); margin: 0; text-wrap: balance; }
+  .cb h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0 0 var(--cds-gap-sm); }
+  .cb .phrase { margin: var(--cds-gap-xs) 0 0; font-size: var(--cds-font-size-body); }
+  .cb .tete { display: flex; flex-wrap: wrap; gap: var(--cds-gap-lg); align-items: flex-end; justify-content: space-between; }
+  .cb .grand { font: 400 3.2rem/1 var(--font-anthropic-serif); font-variant-numeric: tabular-nums; color: var(--cb-val); }
+  .cb .vivant { display: inline-flex; gap: 6px; align-items: center; font-size: var(--cds-font-size-caption); color: var(--cb-titre); }
+  .cb .vivant i { width: 9px; height: 9px; border-radius: 50%; background: #dc2626; }
+  @media (prefers-reduced-motion: no-preference) { .cb .vivant i { animation: cb-pouls 1.4s ease-in-out infinite; } }
+  @keyframes cb-pouls { 50% { opacity: .25; } }
+  .cb .carte { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; position: relative; }
+  .cb .deux { display: grid; gap: var(--cds-gap-lg); grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); }
+  .cb [data-draw="jauges"], .cb [data-draw="flux"] { position: relative; }
+  .cb .jauge { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px var(--cds-gap-sm); margin-bottom: var(--cds-gap-sm); cursor: help; }
+  .cb .jauge .rail { grid-column: 1 / -1; height: 10px; border-radius: 5px; background: var(--cb-rail); overflow: hidden; }
+  .cb .jauge .rail b { display: block; height: 100%; border-radius: 5px; }
+  @media (prefers-reduced-motion: no-preference) { .cb .jauge .rail b { transition: width var(--cds-dur-slow) var(--cds-ease-out); } }
+  .cb .jauge .n { font-variant-numeric: tabular-nums; }
+  .cb .defile { overflow-x: auto; }
+  .cb table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-body); font-variant-numeric: tabular-nums; }
+  .cb th, .cb td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+  .cb th { font-weight: var(--cds-font-weight-medium); font-size: var(--cds-font-size-caption); letter-spacing: .03em; }
+  .cb td.num, .cb th.num { text-align: right; }
+  .cb .pill { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); color: #fff; }
+  .cb .pill.termine { background: var(--cb-ok); } .cb .pill.en_cours { background: var(--cb-cours); } .cb .pill.a_faire { background: #64748b; }
+  .cb .flux { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--cds-gap-sm); }
+  .cb .flux li { display: grid; grid-template-columns: 3.2rem minmax(0, 1fr); gap: var(--cds-gap-sm); padding-bottom: var(--cds-gap-sm); border-bottom: 1px solid var(--color-border-line); cursor: help; }
+  .cb .flux .h { color: var(--cb-titre); font-variant-numeric: tabular-nums; }
+  .cb .flux .qui { font-weight: var(--cds-font-weight-medium); }
+  .cb .flux .n { font-size: var(--cds-font-size-caption); }
+  .cb .bulle { position: absolute; z-index: 5; max-width: 300px; padding: 8px 10px; border-radius: 8px; background: var(--cb-bulle); color: #fff; font-size: var(--cds-font-size-caption); line-height: 1.45; pointer-events: none; box-shadow: var(--cds-shadow-popover); }
+  .cb .regle { font-size: var(--cds-font-size-caption); margin: var(--cds-gap-sm) 0 0; }
+</style>
+
+<div class="cb">
+  <header class="tete" id="tete">
+    <div>
+      <h1>Chantier Biologie en direct</h1>
+      <p class="phrase"><span data-draw="phrase" class="dash-skeleton">—</span></p>
+    </div>
+    <div>
+      <span class="vivant"><i></i>Temps réel</span>
+      <div class="grand"><span data-draw="pct" data-source="avancement" class="dash-skeleton">—</span></div>
+      <span class="lab">avancement pondéré</span>
+    </div>
+  </header>
+
+  <section class="deux">
+    <div class="carte" id="jauges">
+      <h2>Jauges</h2>
+      <div data-draw="jauges" data-source="jauges" style="min-height: 220px"></div>
+      <p class="regle">Chaque jauge compte ce qui est fait sur sa cible ; l'avancement additionne les jauges pondérées. Survole une jauge pour lire sa règle.</p>
+    </div>
+    <div class="carte" id="agents">
+      <h2>Agents</h2>
+      <div class="defile">
+        <table data-source="agents" data-row-key="id">
+          <thead><tr><th data-field="nom">Agent</th><th data-field="perimetre">Périmètre</th><th data-field="statut">Statut</th><th data-field="produit">Produit</th></tr></thead>
+          <tbody data-draw="agents"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="deux">
+    <div class="carte" id="flux">
+      <h2>Circulation des fichiers</h2>
+      <ul class="flux" data-draw="flux" data-source="flux" style="min-height: 200px"></ul>
+    </div>
+    <div class="carte" id="matrices">
+      <h2>Fiches par matrice</h2>
+      <div class="defile">
+        <table data-source="matrices" data-row-key="id">
+          <thead><tr><th data-field="matrice">Matrice</th><th class="num" data-field="fiches">Fiches</th><th class="num" data-field="vertes">Vertes</th><th class="num" data-field="traitement">Traitement</th><th class="num" data-field="completes">Complètes</th></tr></thead>
+          <tbody data-draw="matrices"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  dash.calc('avancement', {
+    title: 'Avancement pondéré',
+    description: 'Somme des jauges, chacune plafonnée à sa cible et pondérée par son poids, rapportée au total des poids.',
+    inputs: ['jauges'],
+    fn: (jauges) => {
+      const P = jauges.reduce((s, j) => s + Number(j.poids), 0);
+      return P ? Math.round(100 * jauges.reduce((s, j) => s + Math.min(1, Number(j.fait) / Number(j.cible)) * Number(j.poids), 0) / P) : 0;
+    }
+  });
+  window.cbBulle = (hote, cible, texte) => {
+    let b = hote.querySelector(':scope > .bulle');
+    if (!texte) { if (b) b.remove(); return; }
+    if (!b) { b = document.createElement('div'); b.className = 'bulle'; hote.appendChild(b); }
+    b.textContent = texte;
+    const r = cible.getBoundingClientRect(), h = hote.getBoundingClientRect();
+    b.style.left = Math.max(0, Math.min(r.left - h.left, h.width - b.offsetWidth)) + 'px';
+    b.style.top = (r.bottom - h.top + 6) + 'px';
+  };
+</script>
+<script>
+  const ok = (id) => dash.data(id).status === 'ok';
+  const tri = (rows) => rows.slice().sort((a, b) => Number(a.ordre) - Number(b.ordre));
+  const fin = (el) => el.classList.remove('dash-skeleton');
+
+  dash.draw('pct', (el) => {
+    const a = dash.data('avancement');
+    if (a.status === 'loading') return;
+    fin(el); el.textContent = a.status === 'ok' ? a.data + ' %' : '—';
+  });
+
+  dash.draw('phrase', (el) => {
+    const j = dash.data('jauges'), g = dash.data('agents');
+    if (j.status === 'loading' || g.status === 'loading') return;
+    fin(el);
+    if (!ok('jauges') || !ok('agents')) { el.textContent = '—'; return; }
+    const enCours = g.data.filter((x) => x.statut === 'en_cours').map((x) => x.nom);
+    const reste = tri(j.data).filter((x) => Number(x.fait) < Number(x.cible)).map((x) => x.quoi.toLowerCase());
+    el.textContent = (enCours.length ? enCours.join(', ') + (enCours.length > 1 ? ' travaillent' : ' travaille') + ' maintenant' : 'Aucun agent ne travaille en ce moment')
+      + (reste.length ? ' ; il reste : ' + reste.join(', ') + '.' : ' ; toutes les jauges sont pleines.');
+  });
+
+  dash.draw('jauges', (el) => {
+    const d = dash.data('jauges');
+    if (d.status !== 'ok') { el.textContent = d.status === 'error' ? 'Les jauges ne se chargent pas.' : '—'; return; }
+    el.replaceChildren();
+    for (const j of tri(d.data)) {
+      const p = Math.min(1, Number(j.fait) / Number(j.cible));
+      const ligne = document.createElement('div'); ligne.className = 'jauge'; ligne.tabIndex = 0;
+      const lab = document.createElement('span'); lab.className = 'lab'; lab.textContent = j.quoi;
+      const n = document.createElement('span'); n.className = 'n'; n.textContent = j.fait + ' / ' + j.cible;
+      n.dataset.source = 'jauges'; n.dataset.field = 'fait'; n.dataset.where = 'id=' + encodeURIComponent(j.id);
+      const rail = document.createElement('div'); rail.className = 'rail';
+      const b = document.createElement('b'); b.style.width = (100 * p) + '%';
+      b.style.background = p >= 1 ? 'var(--cb-ok)' : p > 0 ? 'var(--cb-cours)' : 'var(--cds-chart-muted)';
+      rail.appendChild(b); ligne.append(lab, n, rail);
+      const t = j.regle + ' Poids ' + j.poids + ' sur 100.';
+      ligne.onmouseenter = ligne.onfocus = () => cbBulle(el, ligne, t);
+      ligne.onmouseleave = ligne.onblur = () => cbBulle(el, ligne, null);
+      el.appendChild(ligne);
+    }
+  });
+
+  dash.draw('agents', (el) => {
+    const d = dash.data('agents');
+    if (d.status !== 'ok') { el.replaceChildren(); return; }
+    const L = { termine: 'Terminé', en_cours: 'En cours', a_faire: 'À faire' };
+    el.replaceChildren(...tri(d.data).map((a) => {
+      const tr = document.createElement('tr'); tr.dataset.key = a.id;
+      const c = (t) => { const td = document.createElement('td'); td.textContent = t ?? ''; return td; };
+      const s = document.createElement('td'); const pill = document.createElement('span');
+      pill.className = 'pill ' + a.statut; pill.textContent = L[a.statut] || a.statut; s.appendChild(pill);
+      tr.append(c(a.nom), c(a.perimetre), s, c(a.produit));
+      return tr;
+    }));
+  });
+
+  dash.draw('flux', (el) => {
+    const d = dash.data('flux');
+    if (d.status !== 'ok') { el.replaceChildren(); return; }
+    const rows = tri(d.data).reverse();
+    el.replaceChildren(...rows.map((f, i) => {
+      const li = document.createElement('li'); li.tabIndex = 0;
+      const h = document.createElement('span'); h.className = 'h'; h.textContent = f.heure;
+      const corps = document.createElement('div');
+      const q = document.createElement('div'); q.className = 'qui'; q.textContent = f.agent + ' → ' + f.cible;
+      const n = document.createElement('div'); n.className = 'n';
+      const nb = document.createElement('span'); nb.textContent = f.fichiers;
+      nb.dataset.source = 'flux'; nb.dataset.field = 'fichiers'; nb.dataset.where = 'id=' + encodeURIComponent(f.id);
+      n.append(nb, document.createTextNode(' fichier' + (Number(f.fichiers) > 1 ? 's' : '') + ' · commit ' + f.commit));
+      corps.append(q, n); li.append(h, corps);
+      li.onmouseenter = li.onfocus = () => cbBulle(el, li, f.quoi);
+      li.onmouseleave = li.onblur = () => cbBulle(el, li, null);
+      return li;
+    }));
+  });
+
+  dash.draw('matrices', (el) => {
+    const d = dash.data('matrices');
+    if (d.status !== 'ok') { el.replaceChildren(); return; }
+    el.replaceChildren(...tri(d.data).map((m) => {
+      const tr = document.createElement('tr'); tr.dataset.key = m.id;
+      const c = (t, num) => { const td = document.createElement('td'); td.textContent = t; if (num) td.className = 'num'; return td; };
+      tr.append(c(m.matrice), c(m.fiches, 1), c(m.vertes, 1), c(m.traitement, 1), c(m.completes, 1));
+      return tr;
+    }));
+  });
+</script>

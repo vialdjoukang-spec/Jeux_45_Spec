@@ -7,6 +7,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { ouvrirFenetre } from '../moteur/fenetres.js';
 import { CALCS, calculer } from './calculs.js';
 import { Pratique } from './pratique.js';
+import { vueBio, barreBio, ficheBioHtml } from './biologie.js';
 
 const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
 const Q = new URLSearchParams(location.hash.slice(1));
@@ -16,7 +17,7 @@ const charger = (() => { const c = {}; return u => c[u] ??= fetch(u).then(r => {
 
 const ONGLETS = {
   imagerie: { titre: 'Examens paracliniques — imagerie topographique', chaine: 'Région → organe → modalité (radiographie, échographie, scanner, IRM, TEP, scintigraphie…) → examen → pathologie → fenêtre à deux clichés' },
-  biologie: { titre: 'Examens paracliniques — biologie par prélèvement', chaine: 'Prélèvement → examens → interprétation, calculs et critères → diagnostic → traitement avec posologie' },
+  biologie: { titre: 'Examens paracliniques — biologie par prélèvement', chaine: 'Prélèvement (matrice) → examen → fiche à 3 temps (indications · l\'examen · interprétation) → diagnostic → traitement avec posologie' },
   explorations: { titre: 'Examens paracliniques — explorations des fonctions', chaine: 'Fonction → exploration → tracé ou résultat → interprétation (seuils) → diagnostic → traitement' }
 };
 const MODES = {
@@ -27,7 +28,7 @@ const CORPS = { voile: [-58, -230, 630, 58, -60, 790], opacitePeau: .2, cible: [
 const TH = [['blanc', 'Blanc'], ['ciel', 'Bleu ciel'], ['champagne', 'Champagne'], ['or', 'Or pâle'], ['menthe', 'Vert pâle'], ['nuit', 'Nuit'], ['anthracite', 'Anthracite']];
 let G = 40; const GF = 9, GC = 20;
 
-const etat = { onglet: 'imagerie', mode: 'theorie', N: [], byId: {}, ouvert: new Set(), pile: [], vue: { tx: 0, ty: 0, s: 1 }, organe: null, glo: {}, rub: {} };
+const etat = { bio: { vue: 'matrice', discs: new Set() }, onglet: 'imagerie', mode: 'theorie', N: [], byId: {}, ouvert: new Set(), pile: [], vue: { tx: 0, ty: 0, s: 1 }, organe: null, glo: {}, rub: {} };
 const scene = $('#scene'), monde = $('#monde'), cases = $('#cases'), gl = $('#gl'), ln = $('#ln'), bulle = $('#bulle');
 let W = 0, H = 0, mobile = false;
 
@@ -108,7 +109,7 @@ function construire(noeuds) {
     el.style.setProperty('--c', n.couleur || '#64748b'); el.tabIndex = -1;
     const ics = [];
     if (n.enf.length || n.cliches) ics.push('<span class=plus>+</span>');
-    if (n.fiche && n.exRef) ics.push('<span data-a=fiche title="Ouvrir la fiche complète">📄</span>');
+    if ((n.fiche && n.exRef) || n.bioFiche) ics.push('<span data-a=fiche title="Ouvrir la fiche complète">📄</span>');
     if (n.fenetre) ics.push('<span data-a=trace title="Ouvrir le tracé calculé">📈</span>');
     if (n.cliches) ics.push('<span data-a=cliches title="Ouvrir la fenêtre à deux clichés">🖼</span>');
     if (n.clichesAProduire) ics.push('<span class=apx title="Les deux clichés de cette pathologie restent à produire">🖼</span>');
@@ -256,7 +257,7 @@ function montrer(n) {
   const RUB = etat.rub[n.rubriques] || etat.rub.region || [['def', 'Ce que c\'est']], B = n.bulle;
   const lignes = rubHtml(RUB, B)
     + (B.traitement ? '<dt class=trt>Traitement</dt><dd>' + B.traitement.map(([m, p]) => '<b>' + esc(m) + '</b> : ' + esc(p)).join('<br>') + (B.source ? '<div class=src>Source : ' + esc(B.source) + '</div>' : '') + '</dd>' : '');
-  const pied = [n.fiche && n.exRef ? '📄 ouvre la fiche complète' : '', n.fenetre ? '📈 ouvre le tracé calculé' : '', n.cliches ? 'un clic ouvre les deux clichés et la fiche flash' : n.clichesAProduire ? (n.flash ? 'un clic ouvre la fiche flash · ' : '') + 'les deux clichés restent à produire' : '', n.outil ? '🧮 ouvre le calculateur' : '', n.enf.length ? 'un clic révèle la suite' : ''].filter(Boolean).join(' · ');
+  const pied = [(n.fiche && n.exRef) || n.bioFiche ? '📄 ouvre la fiche complète' : '', n.fenetre ? '📈 ouvre le tracé calculé' : '', n.cliches ? 'un clic ouvre les deux clichés et la fiche flash' : n.clichesAProduire ? (n.flash ? 'un clic ouvre la fiche flash · ' : '') + 'les deux clichés restent à produire' : '', n.outil ? '🧮 ouvre le calculateur' : '', n.enf.length ? 'un clic révèle la suite' : ''].filter(Boolean).join(' · ');
   bulle.innerHTML = gloser('<h4>' + esc(n.texte) + '</h4><dl>' + lignes + '</dl>') + (pied ? '<div class=pied>' + pied + '.</div>' : '');
   bulle.style.setProperty('--c', n.couleur || 'var(--acc)'); bulle.style.display = 'block';
   const r = n.el.getBoundingClientRect(), bw = bulle.offsetWidth, bh = bulle.offsetHeight;
@@ -272,6 +273,7 @@ bulle.addEventListener('mouseleave', cacherBulle);
 const fen = $('#fen');
 function ouvrirFen(titre, couleur, html) {
   const fd = document.getElementById('fdet'); if (fd) fd.remove();
+  if (fen.classList.contains('centre')) { fen.classList.remove('centre'); fen.style.left = fen.style.top = fen.style.right = ''; }
   $('#fenTitre').textContent = titre; fen.style.setProperty('--c', couleur || 'var(--acc)'); $('#fenCorps').innerHTML = html; fen.hidden = false; fen.scrollTop = 0; return $('#fenCorps');
 }
 $('#fenFermer').onclick = () => fen.hidden = true;
@@ -331,9 +333,19 @@ function fenetreOutil(n) {
     c.querySelector('#res').textContent = t; };
   c.querySelectorAll('input').forEach(i => i.onchange = maj); maj();
 }
+/* Biologie : la fiche à 3 temps s'ouvre dans la fenêtre centrée (une seule fenêtre à la fois) ; ses rubriques s'expliquent au survol. */
+async function ficheBio(id, couleur) {
+  const d = await charger('donnees/biologie/' + id + '.json');
+  const c = ouvrirFen(d.titre || id, couleur, ficheBioHtml(d, { esc, gloser, outils: etat.outils || {}, existe: x => etat.bioIds && etat.bioIds.has(x) }));
+  fen.classList.add('centre'); const r = fen.getBoundingClientRect();
+  fen.style.right = 'auto'; fen.style.left = Math.max(8, (innerWidth - r.width) / 2) + 'px'; fen.style.top = Math.max(8, (innerHeight - r.height) / 2) + 'px';
+  c.querySelectorAll('[data-outil]').forEach(b => b.onclick = () => fenetreOutil({ outil: b.dataset.outil }));
+  c.querySelectorAll('[data-fiche]').forEach(a => a.onclick = ev => { ev.preventDefault(); ficheBio(a.dataset.fiche, couleur); });
+}
 function action(n, a) {
   bulle.style.display = 'none';
-  if (a === 'fiche') ficheExamen(n.fiche, n.exRef, n.couleur);
+  if (a === 'fiche' && n.bioFiche) ficheBio(n.bioFiche, n.couleur);
+  else if (a === 'fiche') ficheExamen(n.fiche, n.exRef, n.couleur);
   else if (a === 'trace') { fen.hidden = true; ouvrirFenetre(n.fenetre, n.texte, n.couleur, null); }
   else if (a === 'cliches') { if (!etat.ouvert.has(n.id)) basculer(n); }
   else if (a === 'outil') fenetreOutil(n);
@@ -347,8 +359,10 @@ async function ouvrirOnglet(o, garderVue) {
   $$('.sommaire button').forEach(b => b.classList.toggle('actif', b.dataset.onglet === o));
   $('#titre').textContent = ONGLETS[o].titre; $('#chaine').textContent = ONGLETS[o].chaine; $('#etat').textContent = 'Le réseau de l\'onglet se charge…';
   const d = await charger('donnees/reseau_' + o + '.json'); etat.rub = d.rubriques; etat.outils = d.outils || etat.outils;
-  await chargerCorps(); montrerCorps(); construire(d.noeuds); dessiner();
-  $('#etat').textContent = `${d.noeuds.length} cases · le réseau se replie par défaut ; tu déplies un circuit à la fois.`;
+  const noeuds = o === 'biologie' ? vueBio(d.noeuds, etat.bio) : d.noeuds;
+  if (o === 'biologie') { etat.bioIds = new Set(d.noeuds.filter(n => n.bioFiche).map(n => n.bioFiche)); barreBio($('#tete'), d.bio.disciplines, etat.bio, () => ouvrirOnglet('biologie')); }
+  await chargerCorps(); montrerCorps(); construire(noeuds); dessiner();
+  $('#etat').textContent = `${noeuds.length} cases · le réseau se replie par défaut ; tu déplies un circuit à la fois.`;
   if (pratique && etat.mode === 'pratique') await pratique.ouvrirOnglet(o);
   history.replaceState(null, '', '#' + new URLSearchParams({ onglet: o, mode: etat.mode }).toString());
 }

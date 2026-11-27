@@ -69,6 +69,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 .hausse{color:var(--bon)} .baisse{color:var(--grave)}
 .fragile{font-size:12px;color:var(--alerte)}
 [data-tip]{cursor:help}
+.bio-tete{display:flex;justify-content:space-between;align-items:baseline;gap:12px}.bio-tete h3{margin:0}.bio-tete .pct{font-weight:700;font-size:1.4em}
 .tip-ico{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;background:var(--voile);color:var(--ardoise);font-size:11px;margin-left:4px;cursor:help;border:1px solid var(--filet)}
 /* Courbes */
 .courbe{position:relative}
@@ -118,6 +119,7 @@ footer{color:var(--ardoise);font-size:13px}
   <ol>
     <li><a href="#bandeau">Verdict</a></li>
     <li><a href="#jeux">Les 4 jeux</a></li>
+    <li><a href="#biologie">Chantier Biologie</a></li>
     <li><a href="#grille">Grille 45 Spec</a></li>
     <li><a href="#travail">Travail en cours</a></li>
     <li><a href="#couts">Coûts API</a></li>
@@ -150,6 +152,12 @@ footer{color:var(--ardoise);font-size:13px}
     <a href="jeux/arene45/index.html">Arène 45 Spec</a> ·
     <a href="jeux/">tous les jeux</a></p>
   <div class="jeux" id="liste-jeux"></div>
+</section>
+
+<section id="biologie">
+  <h2 class="t">Chantier Biologie (Paraclinique)</h2>
+  <p class="sous">Le bloc mesure l'onglet Biologie : fiches importées, audit mécanique, bloc Traitement avec posologie, contre-audit et captures ; survolez un chiffre pour lire sa règle.</p>
+  <div class="carte" id="bio-carte"><p class="sous">La mesure du chantier Biologie se charge…</p></div>
 </section>
 
 <section id="grille">
@@ -233,6 +241,7 @@ async function rafraichir() {
     const [etat, grille, travail, couts, blocages, journal, hist] = await Promise.all(
       ["etat.json", "grille.json", "travail.json", "couts.json", "blocages.json", "journal.json"].map(n => charger(n)).concat([charger("historique.jsonl", true)]));
     D = {etat, grille, travail, couts, blocages, journal, hist: hist.split("\n").filter(Boolean).map(l => JSON.parse(l))};
+    try { D.bio = await charger("biologie.json"); } catch (e) { D.bio = null; /* bloc facultatif : la page reste lisible sans lui */ }
     rendre();
   } catch (e) {
     $("#alerte").textContent = "La page n'a pas pu lire les mesures : " + e.message + " Elle réessaie dans une minute.";
@@ -249,7 +258,7 @@ function rendre() {
   const al = $("#alerte");
   if (age > 60) { al.textContent = "La dernière mesure date de plus d'une heure : le robot tableau.yml semble en panne ou retardé par GitHub."; al.classList.add("vue"); }
   else al.classList.remove("vue");
-  rendreJeux(); rendreGrille(); rendreTravail(); rendreCouts(); rendreBlocages(); rendreJournal(); rendreHistorique();
+  rendreJeux(); rendreBio(); rendreGrille(); rendreTravail(); rendreCouts(); rendreBlocages(); rendreJournal(); rendreHistorique();
 }
 
 function signe(v) { return v == null ? "–" : (v > 0 ? "+" : "") + v + " pts"; }
@@ -274,6 +283,24 @@ function rendreJeux() {
         ${j.jours_historique < 3 ? `<span class="fragile">L'historique couvre ${j.jours_historique} jour(s) : la projection reste fragile.</span>` : ""}
       </div></article>`;
   }).join("");
+}
+
+function rendreBio() {
+  const B = D.bio, el = $("#bio-carte");
+  if (!B || B.absent) { el.innerHTML = `<p class="sous">${esc(B ? B.absent : "Le robot n'a pas encore mesuré le chantier Biologie.")}</p>`; return; }
+  const C = "#7b4fc4", R = B.regles;
+  const seg = B.criteres.map(c => `<span style="width:${c.contribution}%;background:${C};opacity:${0.45 + 0.55 * c.poids / 35}" tabindex="0" data-tip="${esc(c.quoi)} : ${c.fait} sur ${c.cible} (poids ${c.poids}) ; ce critère apporte ${c.contribution} points."></span>`).join("");
+  const lignes = B.criteres.map(c => `<tr><td>${esc(c.quoi)}</td><td class="n">${nf.format(c.fait)}</td><td class="n">${nf.format(c.cible)}</td><td class="n">${c.poids}</td><td class="n"><span class="mini"><i style="width:${c.part}%;background:${C}"></i></span>${c.part} %</td></tr>`).join("");
+  const cel = (v, n) => { const tx = n ? v / n : 0; return `<td class="cel" style="background:${couleurCase(tx)};color:${tx > 0.55 ? "#fff" : "var(--encre)"}">${v}/${n}</td>`; };
+  const mats = B.matrices.map(m => `<tr><td class="nom">${esc(m.matrice)}</td><td class="n">${m.fiches}</td>${cel(m.vertes, m.fiches)}${cel(m.traitement, m.fiches)}${cel(m.faites, m.fiches)}</tr>`).join("");
+  const defs = Object.entries(B.defauts || {}).map(([k, v]) => `<span class="chip" tabindex="0" data-tip="${esc(R.defauts[k] || k)}"><b>${v}</b> ${k}</span>`).join("") || `<span class="chip"><b>0</b> défaut</span>`;
+  el.innerHTML = `<header class="bio-tete"><h3>Onglet Biologie</h3><span class="pct" data-tip="${esc(R.jauge)}">${B.pct} %</span></header>
+    <div class="rail" role="img" aria-label="Chantier Biologie : ${B.pct} %">${seg}</div>
+    <p class="sous" data-tip="${esc(R.ref)}">Le robot lit la branche <b>${esc(B.ref)}</b>, commitée le ${dfmt(B.ref_date)}.</p>
+    <table class="criteres"><thead><tr><th>Critère</th><th class="n">Fait</th><th class="n">Cible</th><th class="n">Poids</th><th class="n">Part</th></tr></thead><tbody>${lignes}</tbody></table>
+    <div class="chips"><span class="chip" tabindex="0" data-tip="${esc(R.a_verifier)}"><b>${nf.format(B.a_verifier)}</b> mentions « à vérifier »</span>
+      <span class="chip" tabindex="0" data-tip="Analyses des fichiers biologie/analyses/*.json dont le nom ne figure dans aucune fiche (rapprochement par nom, à confirmer)."><b>${nf.format(B.analyses_sans_fiche ?? 0)}</b> analyses candidates sans fiche</span>${defs}</div>
+    <div class="grille-wrap"><table class="grille"><thead><tr><th>Matrice</th><th class="n">Fiches</th><th style="text-align:center" data-tip="${esc(R.vertes)}">Vertes</th><th style="text-align:center">Traitement</th><th style="text-align:center">Faites</th></tr></thead><tbody>${mats}</tbody></table></div>`;
 }
 
 function couleurCase(taux) { return RAMPE[Math.min(RAMPE.length - 1, Math.ceil(taux * (RAMPE.length - 1)))]; }

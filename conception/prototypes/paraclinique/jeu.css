@@ -166,3 +166,36 @@ body[data-mode=pratique] #scene{right:360px}
 
 /* fiche flash */
 dl.flash{display:grid;grid-template-columns:150px 1fr;gap:6px 12px;font-size:13.5px}dl.flash dt{font-weight:700;color:var(--c,#b91c1c);font-size:11.5px;text-transform:uppercase;letter-spacing:.03em}dl.flash dd{margin:0}.apx{color:#9aa2b4;font-style:italic}
+
+/* ======================================================================== BIOLOGIE (BRIEF_BIOLOGIE § 3, § 6) : fenêtre centrée à 15 px, couleurs à sens fixe
+   bleu = normal · rouge = pathologie · vert = traitement ; la discipline (axe secondaire) colore la case d'examen et le filtre. */
+:root{--bio-nl:#1d4ed8;--bio-pa:#b91c1c;--bio-tt:#15803d;--bio-al:#9a3412}
+body:not([data-onglet=biologie]) #bioOutils{display:none}
+#bioOutils{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-top:6px;max-width:calc(100% - 300px)}
+#bioOutils .seg{display:inline-flex;border:1px solid var(--bord);border-radius:999px;overflow:hidden}
+#bioOutils .seg button{border:0;background:var(--carte);color:var(--texte);padding:4px 11px;font:700 12.5px var(--police);cursor:pointer}
+#bioOutils .seg button[aria-pressed=true]{background:var(--texte);color:var(--carte)}
+#bioOutils .discs{display:flex;flex-wrap:wrap;gap:4px}
+#bioOutils .discs button{border:1.5px solid var(--c);background:var(--carte);color:var(--texte);border-radius:999px;padding:2px 9px;font:600 12px var(--police);cursor:pointer}
+#bioOutils .discs button[aria-pressed=true]{background:var(--c);color:#fff}
+#fen.centre{right:auto;width:min(760px,calc(100vw - 24px));max-height:calc(100vh - 24px);font-size:15px;line-height:1.5}
+#fen.centre h3.bh{display:flex;gap:8px;align-items:center;font-size:15px;margin:16px 0 6px;color:var(--texte);border-bottom:1px solid var(--bord);padding-bottom:3px}
+#fen.centre h3.bh .num{display:grid;place-items:center;min-width:22px;height:22px;border-radius:50%;background:var(--mi);font-size:12px}
+#fen.centre .grille{grid-template-columns:minmax(120px,190px) 1fr}
+#fen.centre .param{margin:6px 0 10px;padding-left:9px;border-left:3px solid var(--bord)}#fen.centre .param.trt{border-left-color:var(--bio-tt)}
+#fen.centre .nl{color:var(--bio-nl)}#fen.centre .pa{color:var(--bio-pa)}#fen.centre .tt{color:var(--bio-tt)}#fen.centre .al{color:var(--bio-al)}
+#fen.centre .poso{color:var(--bio-tt);font-weight:600}#fen.centre .src{font-size:13px;color:var(--sous)}
+#fen.centre .npd{color:var(--bio-al);font-weight:600}#fen.centre .apx,.apx{color:#6b7280;font-style:italic}#fen.centre .tiret{color:var(--sous)}
+#fen.centre details.t3 summary{font-weight:700}#fen.centre .meta{font-size:13px;color:var(--sous)}
+#fen.centre .sources,#fen.centre .passerelles,#fen.centre .pieges{font-size:14px}
+@media (max-width:700px){#fen.centre .grille{grid-template-columns:1fr}#fen.centre .grille dt{margin-top:4px}#bioOutils{max-width:100%}}
+
+/* Retour de Vial (27.11.2026) : titres et libellés en ROUGE pour les repérer d'un coup d'œil ; texte en BLEU ;
+   infobulles : encre blanche pure sur fond sombre. */
+:root{--titre-rouge:#b91c1c;--texte-bleu:#1d4ed8;--bulle-fond:#111827}
+#fen.centre h3.bh,#fen.centre h3.bh .terme,#fen.centre .grille dt,#fen.centre .param>b,#fen.centre details.t3 summary,#fen.centre .meta b,#fen.centre .passerelles b{color:var(--titre-rouge)}
+#fen.centre .grille dd,#fen.centre p,#fen.centre li,#fen.centre .nl,#fen.centre .pa,#fen.centre .tt,#fen.centre .al,#fen.centre .poso,#fen.centre .npd{color:var(--texte-bleu)}
+#fen.centre .src,#fen.centre .mini,#fen.centre .apx,#fen.centre .tiret{color:#4b5f86}
+#bulle{background:var(--bulle-fond);color:#fff;border-color:#000}
+#bulle h4,#bulle dd,#bulle .pied,#bulle .src{color:#fff}#bulle dt,#bulle dt.trt{color:#fca5a5}#bulle .pied{border-top-color:#374151}
+.terme:hover::after,.terme:focus::after{background:var(--bulle-fond);color:#fff}

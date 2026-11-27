@@ -1,6 +1,6 @@
 # Site public (GitHub Pages, gratuit) : remplace pages.yml sans rien perdre.
 #  /        → tableau de bord (tableau/), qui lit toujours ses JSON live sur raw.githubusercontent.com ;
-#  /jeux/   → les 4 jeux (Tétrade, Paraclinique, Transversal, Arène 45 Spec) avec leurs données, corps.glb et les organes .glb.
+#  /jeux/   → les 4 jeux (Tétrade, Paraclinique, Transversal, Arène 45 Spec) et le site Biologie (biologie-site/) avec leurs données, corps.glb et les organes .glb.
 # Les .glb restent hors de git (.gitignore) : ils sont reconstruits ici par les scripts existants, sous cache haché
 # (skill optimisation-par-cache-hache-autorun) : empreinte des scripts et des configurations → aucune reconstruction si rien n'a changé.
 # Seul le manifeste projets/organes_servis.json (les .glb réellement servis, avec leur taille) revient sur main, sans push forcé.
@@ -95,11 +95,13 @@ jobs:
         with: {node-version: "22"}
       - name: Reconstruire les données de Paraclinique (0 token ; les agents ne committent que leurs fichiers de données)
         run: pip install -q pillow && python conception/outils/paraclinique/construire_jeu_paraclinique.py
+      - name: Reconstruire les données du site Biologie (0 token)
+        run: python conception/outils/paraclinique/construire_site_biologie.py
       - name: Assembler le site
         run: |
           set -e; S=_site; rm -rf $S; mkdir -p $S/jeux
           cp -r tableau/. $S/
-          for d in moteur arene45 commun veille paraclinique; do cp -r conception/prototypes/$d $S/jeux/; done
+          for d in moteur arene45 commun veille paraclinique biologie-site; do cp -r conception/prototypes/$d $S/jeux/; done
           rm -rf $S/jeux/moteur/three $S/jeux/moteur/__pycache__
           mkdir -p /tmp/n && npm i --prefix /tmp/n -s three@0.170.0 > /dev/null
           mkdir -p $S/jeux/moteur/three/examples && cp -r /tmp/n/node_modules/three/build $S/jeux/moteur/three/ && cp -r /tmp/n/node_modules/three/examples/jsm $S/jeux/moteur/three/examples/
@@ -115,6 +117,7 @@ jobs:
           <a href="paraclinique/index.html">2. Paraclinique<span>Le jeu se livre seul : réseau sur le corps 3D, onglets Théorie et Pratique, Imagerie, Biologie et Explorations fonctionnelles.</span></a>
           <a href="moteur/arene.html#paquet=transversal_A">3. Transversal<span>L'arène fait jouer les leçons des disciplines transversales.</span></a>
           <a href="arene45/index.html">4. Arène 45 Spec<span>L'arène fait jouer les QCM des 45 spécialités.</span></a>
+          <a href="biologie-site/index.html">5. Biologie : le bilan de chaque pathologie<span>Le site range les examens biologiques de chaque pathologie par niveau d'intention et ouvre leur fiche à 3 temps.</span></a>
           <a href="../">Retour au tableau de bord</a></main></body></html>
           HTML
 

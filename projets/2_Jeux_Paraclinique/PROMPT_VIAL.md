@@ -44,3 +44,8 @@ Ordre de Vial (27.11, 00:57) : « Les exigences sont dans le prompt le plus éla
 - **Gabarit de fiche, identique partout** : En-tête (nom exact, synonymes, systèmes, prélèvement et conditions, bon usage suisse : Liste des analyses, Smarter Medicine) · Temps 1 Indications (urgence · diagnostic-étiologie · dépistage-préthérapeutique · suivi · **ne pas demander**) · Temps 2 L'examen (paramètre · normal avec unité · anomalie et seuil · seuil d'alerte — un paramètre lu seul) · Calculs (formule, à quoi ça sert, exemple résolu, source) · Temps 3 Interprétation (entité anormale chiffrée → anomalies associées présentes / à rechercher → syndrome anamnèse / status → confirmation, diagnostic, conduite) · Pièges (si… → conséquence ; mnémotechnique dès 3 entités) · Sources · Passerelles (type, fiche cible, pourquoi).
 - **Règles** : sources suisses d'abord (AIPS, HUG, CHUV, sociétés suisses) ; « Selon X » seulement si la page a été lue, sinon « non vérifié CH » ; Atkinson Hyperlegible ≈ 15 px ; une seule fenêtre ouverte ; couleurs à sens fixe (bleu normal, rouge pathologie, vert traitement).
 - **Exigence du prompt Paraclinique (21.11)** maintenue : prélèvement → réseau des examens → interprétation, calculs, critères (Kass…) → diagnostic → traitement avec posologie. Vial (26.11) : « En biologie, je serai beaucoup plus exigeant. »
+
+## Ajout de Vial (27.11.2026) : site Biologie
+> « UN VÉRITABLE SITE INTERNET permettant de sélectionner les Pathologies et voir les bilans biologiques d'investigation associés, le niveau d'intention. Avec un Front très travaillé. Barre de sélection d'examen. »
+
+Livré dans `conception/prototypes/biologie-site/` (données : `conception/outils/paraclinique/construire_site_biologie.py`).

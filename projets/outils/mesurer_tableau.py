@@ -204,6 +204,49 @@ except Exception as ex:
 ev.sort(key=lambda e: dt.datetime.fromisoformat(e["date"].replace("Z", "+00:00")), reverse=True)
 ecrire("journal.json", {"maj": NOW.isoformat(), "evenements": ev[:20]})
 
+# ---------- 6 bis. Chantier Biologie (onglet Biologie du jeu Paraclinique, BRIEF_BIOLOGIE_CLAUDE_CODE.md) ----------
+# Source : la référence (main ou branche) dont AUDIT_BIOLOGIE.json a été commité en dernier ; on lit les rapports des scripts
+# auditer_biologie.py et importer_ex1.py, jamais une estimation. Aucun contenu médical n'est publié : des comptes.
+PB = "projets/2_Jeux_Paraclinique"; FB = "conception/donnees/paraclinique/biologie/fiches"
+refs = ["origin/main"] + [r for r in git("for-each-ref", "--format=%(refname:short)", "refs/remotes/origin").split() if r not in ("origin/main", "origin/HEAD", "origin")]
+cand = [(int(git("log", "-1", "--format=%ct", r, "--", f"{PB}/AUDIT_BIOLOGIE.json").strip() or 0), r) for r in refs]
+cand = [c for c in cand if c[0]]
+bio = None
+if cand:
+    t_bio, ref_bio = max(cand)
+    AUD = git_json(ref_bio, f"{PB}/AUDIT_BIOLOGIE.json") or {}; FIL = git_json(ref_bio, f"{PB}/FILE_BIOLOGIE.json") or {}
+    CA = git_json(ref_bio, f"{PB}/CONTRE_AUDIT_BIOLOGIE.json") or {}
+    fiches_b = FIL.get("fiches", []); nfb = len(fiches_b); rouges = set(AUD.get("defauts", {}))
+    caps = [x for x in git("ls-tree", "-r", "--name-only", ref_bio, f"{PB}/captures/biologie/").split() if re.search(r"_fiche_.*_(1280|380)\.png$", x)]
+    a_verif = sum(int(l.rsplit(":", 1)[1]) for l in git("grep", "-c", "à vérifier", ref_bio, "--", FB).splitlines() if ":" in l)
+    trt = sum(1 for f in fiches_b if not f.get("traitement_absent"))
+    comp = (AUD.get("resume") or {}).get("completes", 0); vertes = nfb - len(rouges & {f["id"] for f in fiches_b})
+    ech = max(1, -(-nfb // 10)); ca_fait = len(CA.get("fiches", []))
+    crit = [("fiches importées ou créées (101 EX-1 au départ)", nfb, 101, 10), ("fiches vertes à l'audit mécanique A1–A10", vertes, max(nfb, 1), 25),
+            ("fiches avec bloc Traitement rédigé (posologie → AIPS)", trt, max(nfb, 1), 35), ("fiches complètes (aucun bloc « à produire »)", comp, max(nfb, 1), 15),
+            ("contre-audit médical de 10 % des fiches (session neuve)", ca_fait, ech, 10), ("captures 1280 et 380 px d'une fiche par matrice", len(caps), 18, 5)]
+    tp = sum(p for *_, p in crit)
+    mats = []
+    for m in (FIL.get("resume") or {}).get("par_matrice", {}):
+        L = [f for f in fiches_b if f.get("matrice") == m]
+        mats.append({"matrice": m, "fiches": len(L), "vertes": sum(1 for f in L if f["id"] not in rouges),
+                     "traitement": sum(1 for f in L if not f.get("traitement_absent")), "faites": sum(1 for f in L if f.get("statut") == "fait")})
+    bio = {"maj": NOW.isoformat(), "ref": ref_bio.replace("origin/", ""), "ref_date": dt.datetime.fromtimestamp(t_bio, TZ).isoformat(),
+           "pct": round(100 * sum(min(1, v / c) * p for _, v, c, p in crit if c) / tp),
+           "criteres": [{"quoi": q, "fait": v, "cible": c, "poids": p, "part": round(100 * min(1, v / c)) if c else 0,
+                         "contribution": round(100 * min(1, v / c) * p / tp, 1) if c else 0} for q, v, c, p in crit],
+           "matrices": mats, "defauts": (AUD.get("resume") or {}).get("defauts_par_code", {}), "a_verifier": a_verif,
+           "statuts": (FIL.get("resume") or {}).get("statuts", {}), "analyses_sans_fiche": (FIL.get("resume") or {}).get("analyses_sans_fiche"),
+           "regles": {"jauge": "Moyenne pondérée des 6 critères (fait / cible plafonné à 1) ; mesure des rapports commités par auditer_biologie.py et importer_ex1.py.",
+                      "ref": "Référence lue : la branche ou main où AUDIT_BIOLOGIE.json a été commité en dernier.",
+                      "vertes": "Fiche sans aucun défaut A1–A10 dans AUDIT_BIOLOGIE.json.",
+                      "a_verifier": "Nombre de mentions « à vérifier » dans les fiches : chaque mention dit où vérifier ; elle reste visible tant qu'aucune source lue ne la lève.",
+                      "defauts": {"A1": "Bloc du gabarit absent ou vide sans « à produire ».", "A2": "Valeur chiffrée sans source.", "A3": "Posologie sans renvoi final à l'AIPS.",
+                                  "A4": "Unité non SI sans son équivalent SI.", "A5": "Phrase nominale (sans verbe conjugué).", "A6": "Identifiant dupliqué.",
+                                  "A7": "Passerelle sans raison ou vers une fiche inexistante.", "A8": "Valeur remplie disparue (non-perte).",
+                                  "A9": "Source sans année ou sans date de lecture.", "A10": "Bloc Traitement incomplet (but, moyens, posologie, source)."}}}
+ecrire("biologie.json", bio or {"maj": NOW.isoformat(), "absent": "Aucun AUDIT_BIOLOGIE.json commité sur main ni sur une branche."})
+
 # ---------- 7. État global + historique ----------
 bas = min(jeux, key=lambda j: j["pct"]) if jeux else None
 n_att = sum(attente_branche.values())
@@ -218,7 +261,7 @@ etat = {"maj": NOW.isoformat(), "jauges_maj": jg.get("maj"), "global_pct": glob_
 ecrire("etat.json", etat)
 H = f"{OUT}/historique.jsonl"; neuf = {"date": NOW.isoformat(timespec="minutes"), "pct": [j["pct"] for j in jeux], "global": glob_pct,
                                      "produit": sum(totaux[g]["produit"] for g in totaux), "audite": sum(totaux[g]["audite"] for g in totaux),
-                                     "attente": n_att, "jouables": sum(jouables.values()), "cout": compte}
+                                     "attente": n_att, "jouables": sum(jouables.values()), "cout": compte, "bio": bio["pct"] if bio else None}
 dernier = None
 if os.path.exists(H):
     l = [x for x in open(H, encoding="utf-8").read().splitlines() if x.strip()]

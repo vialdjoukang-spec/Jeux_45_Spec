@@ -18,3 +18,5 @@ Dotation minimale de chaque agent : les cinq premiers skills ci-dessus (décisio
 Signature : AAI (Anthropic AI)
 
 | production-45spec-sans-api | Production manuelle (sans API) des notions/questions/corrections 45 Spec via lib.py et contrôles | agent qui remplace l'API pour une spécialité 45 Spec | psych-ultra-ch, medical-accuracy-100 |
+| interactive-ui-generator | Écran temps réel épinglé (artefact Data + base partagée) : pourcentages, agents, circulation des fichiers ; scripts/generer_ecran.py | tableau de bord dynamique, écran en direct, voir les agents travailler | gratis-dashboard-live, dataviz, agentic-hurican |
+| web-aesthetic-github-toolkit | Outils esthétiques libres et maintenus (Open Props, Floating UI, a11y-dialog, Fuse.js, Pagefind, Cytoscape.js, Playwright+axe) pliés à la charte de Vial ; mis à jour le 27.11.2026 (Pico, Tippy, Shoelace archivés ; Animate.css non OSI) | page web, site, barre de recherche, graphe | web-designer-pilot-faithful, interactive-ui-generator, dataviz |
