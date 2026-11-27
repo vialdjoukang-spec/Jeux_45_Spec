@@ -35,7 +35,7 @@ Tu produis une seule pathologie, à la main, sans API. Le relecteur (session pri
 
 ## Contrôles à passer avant de rendre la main (tous)
 ```
-cd /home/user/Jeux_45_Spec
+cd "$(git rev-parse --show-toplevel)"     # ton arbre de travail (dépôt principal ou worktree isolé) ; tous les chemins de la consigne sont relatifs à cette racine
 python3 projets/45spec/couverture_compacte.py projets/45spec/compact_C/<NOM_COMPACT>.py      # aucune sortie
 PYTHONPATH=projets/45spec python3 projets/45spec/constructeur_agent_45spec.py projets/45spec/compact_C/<NOM_COMPACT>.py   # « non couvertes [] | err {} »
 python3 projets/45spec/outils/masque.py projets/45spec/compact_C/<NOM_COMPACT>.py <mots et paraphrases du diagnostic>   # aucune ligne « contient » ; d45 masqués ≥ 5 ; d12 ≥ 2
