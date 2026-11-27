@@ -1,0 +1,221 @@
+{
+ "lot": "P45_CAR_I31.9_tamponnade_pericardi__F1_18-E12",
+ "auditeur": "claude-fable-5-2",
+ "date": "2026-11-27",
+ "fichiers_audites": [
+  {
+   "chemin": "content/notions/CAR/I31.9_tamponnade_pericardi__F1_18-E12.json",
+   "sha256": "4e404eeea679f7ea"
+  },
+  {
+   "chemin": "content/questions/CAR/I31.9_tamponnade_pericardi__F1_18-E12.json",
+   "sha256": "501d64fb994769c2"
+  },
+  {
+   "chemin": "content/corrections/CAR/I31.9_tamponnade_pericardi__F1_18-E12.json",
+   "sha256": "b51fd4a505279e33"
+  }
+ ],
+ "verdict_lot": "🟧 majeurs",
+ "nb_elements_relus": 102,
+ "constats": [
+  {
+   "id": "P45_CAR_I31.9_tamponnade_pericardi__F1_18-E12-001",
+   "gravite": "🟧 majeur",
+   "categorie": "recommandation_obsolete",
+   "fichier": "content/questions/CAR/I31.9_tamponnade_pericardi__F1_18-E12.json",
+   "localisation": "questions[0].sources[0] (idem sources de 18 des 20 questions ; notions[*].source « ESC 2015 » ; corrections notions[*].sources et priseEnCharge[*].moyens.pharmacologique[*].source)",
+   "texte_actuel": "ESC 2015 Guidelines on pericardial diseases",
+   "probleme": "Tout le lot (notions, questions, corrections) s'appuie sur les recommandations ESC 2015 des maladies du péricarde. Elles sont remplacées depuis 2025 par les « 2025 ESC Guidelines for the management of myocarditis and pericarditis » (Schulz-Menger et al., Eur Heart J 2025;46(40):3952-4041), qui couvrent la péricardite, l'épanchement et la tamponnade, avec un algorithme et un score de « tamponnade certaine » (objet d'une correspondance publiée : PMID 41290397) absents du lot. Le lot a été produit le 24.11.2026, plus d'un an après la parution. Limite de l'audit : le texte intégral 2025 n'a pas pu être ouvert (pas de version PMC, hôtes escardio/academic.oup bloqués) ; seules l'existence, la date et le périmètre sont vérifiés. Les chiffres du lot attribués à ESC 2015 (colchicine 3 mois, seuils échographiques, critère de retrait du drain) doivent donc être relus contre le texte 2025.",
+   "correction_proposee": "Remplacer partout « ESC 2015 » par « ESC 2025 (myocardite et péricardite) » après relecture du texte 2025 : vérifier la durée de la colchicine (au moins 3 mois au premier épisode selon les résumés consultés), la classification de l'épanchement, l'algorithme et le score de tamponnade, le critère de retrait du drain ; ajouter une notion sur la démarche 2025 de la tamponnade.",
+   "preuve": {
+    "source": "PubMed — Schulz-Menger J et al., 2025 ESC Guidelines for the management of myocarditis and pericarditis, Eur Heart J 2025;46(40):3952-4041 (PMID 40878297)",
+    "annee": "2025",
+    "lien": "https://doi.org/10.1093/eurheartj/ehaf192",
+    "lu_le": "2026-11-27",
+    "extrait_court": "2025 ESC Guidelines for the management of myocarditis and pericarditis."
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_CAR_I31.9_tamponnade_pericardi__F1_18-E12-002",
+   "gravite": "🟧 majeur",
+   "categorie": "posologie",
+   "fichier": "content/corrections/CAR/I31.9_tamponnade_pericardi__F1_18-E12.json",
+   "localisation": "priseEnCharge[2].moyens.pharmacologique[1].posologie (source : priseEnCharge[2].moyens.pharmacologique[1].source = « ESC 2015 péricardiopathies »)",
+   "texte_actuel": "0,5 mg/j si poids < 70 kg, 0,5 mg 2 fois par jour si ≥ 70 kg, pendant 3 mois ; adapter si insuffisance rénale ; éviter avec clarithromycine ou inhibiteurs forts du CYP3A4/P-gp.",
+   "probleme": "La colchicine dispose en Suisse d'une spécialité autorisée avec l'indication « péricardite aiguë ou récidivante » (COLCTAB 0,5 mg et 1 mg, Streuli) : la source attendue à l'examen fédéral est l'AIPS, pas l'ESC 2015. Or l'information suisse est plus stricte que le texte : (1) l'insuffisance rénale sévère (Clcr < 30 ml/min) est une CONTRE-INDICATION, alors que le lot écrit seulement « adapter si insuffisance rénale » ; (2) l'association aux inhibiteurs de la P-gp, aux inhibiteurs puissants du CYP3A4 ou à la ciclosporine est contre-indiquée, alors que le lot écrit « éviter » ; (3) le seuil de poids suisse est > 70 kg : 2 × 0,5 mg/j, ≤ 70 kg : 1 × 0,5 mg/j (le lot écrit < 70 / ≥ 70 kg), durée au moins 3 mois. Un étudiant qui retient « adapter » prescrirait la colchicine à dose réduite à un patient dont la clairance est de 20 ml/min, ce que l'AIPS interdit (toxicité médullaire et neuromusculaire).",
+   "correction_proposee": "« Colchicine (COLCTAB) : 0,5 mg 1 fois par jour si ≤ 70 kg, 0,5 mg 2 fois par jour si > 70 kg, pendant au moins 3 mois ; contre-indiquée si Clcr < 30 ml/min, insuffisance hépatique sévère, ou association à un inhibiteur de la P-gp, à un inhibiteur puissant du CYP3A4 (clarithromycine) ou à la ciclosporine. » Source : « AIPS Swissmedic COLCTAB ». Reporter la même correction dans notions N52 (notions[51]).",
+   "preuve": {
+    "source": "compendium.ch — COLCTAB Tabl 0.5 mg (Streuli Pharma AG), monographie Swissmedic, rubrique Kontraindikation",
+    "annee": "2026",
+    "lien": "https://compendium.ch/product/1620894/mpro",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Kontraindikation Schwere Niereninsuffizienz (Clcr <30 ml/Min.), Blutbildveränderungen, schlechter Allgemeinzustand (Polymorbidität), schwere Leberfunktionsstörung, schwere Herzinsuffizienz, schwere Magen-Darm-Insuffizienz, gleichzeitig mit P-Glykoprotein-Hemmern, starken CYP3A4-Hemmern oder Ciclosporin."
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_CAR_I31.9_tamponnade_pericardi__F1_18-E12-003",
+   "gravite": "🟨 mineur",
+   "categorie": "recommandation_obsolete",
+   "fichier": "content/questions/CAR/I31.9_tamponnade_pericardi__F1_18-E12.json",
+   "localisation": "questions[6].sources[0] (idem notions[27].source « ERC 2021 » et corrections notions[2].sources[1] « ERC 2021 Guidelines réanimation »)",
+   "texte_actuel": "ERC Guidelines 2021 Advanced Life Support",
+   "probleme": "Les recommandations ERC 2021 de réanimation avancée sont remplacées par les « European Resuscitation Council Guidelines 2025 Adult Advanced Life Support » (Soar et al., Resuscitation 2025;215 Suppl 1:110769, octobre 2025). Le message porté par le lot (tamponnade = cause réversible d'AESP, échographie pendant la réanimation, amiodarone réservée aux rythmes choquables) est ancien et stable, d'où la gravité mineure, mais la version citée n'est plus en vigueur. Le texte intégral 2025 n'a pas pu être ouvert : la permanence du contenu est à confirmer à la lecture.",
+   "correction_proposee": "Citer « ERC Guidelines 2025 Adult Advanced Life Support » dans Q07, N28 et le bloc c3, après relecture du chapitre des causes réversibles.",
+   "preuve": {
+    "source": "PubMed — Soar J et al., European Resuscitation Council Guidelines 2025 Adult Advanced Life Support, Resuscitation 2025;215 Suppl 1:110769 (PMID 41117572)",
+    "annee": "2025",
+    "lien": "https://doi.org/10.1016/j.resuscitation.2025.110769",
+    "lu_le": "2026-11-27",
+    "extrait_court": "This section provides recommendations for ALS for adults with in- or out-of-hospital cardiac arrest."
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_CAR_I31.9_tamponnade_pericardi__F1_18-E12-004",
+   "gravite": "🟨 mineur",
+   "categorie": "logique_ou_contradiction",
+   "fichier": "content/corrections/CAR/I31.9_tamponnade_pericardi__F1_18-E12.json",
+   "localisation": "notions[5].comment (idem ssp.algorithme[7].t « Hémopéricarde, dissection A, rupture, caillots ou pus : chirurgie urgente » et priseEnCharge[1].titre)",
+   "texte_actuel": "Choisis le drainage selon la nature du liquide et la cause : percutané échoguidé si liquide ou sang non coagulé, chirurgical si hémopéricarde, caillots ou pus.",
+   "probleme": "La phrase se contredit : le sang non coagulé relève du drainage percutané, mais « l'hémopéricarde » relève de la chirurgie, alors qu'un hémopéricarde est précisément du sang dans le péricarde. Le reste du lot traite l'hémopéricarde iatrogène (ablation, angioplastie, sous anticoagulant) par péricardiocentèse : tableau c2 (« Péricardiocentèse ; chirurgie si caillots »), Q13, et la prise en charge « tamponnade_instable » qui contient idarucizumab et protamine « en cas d'hémopéricarde ». L'algorithme SSP (n8) et le titre de priseEnCharge[1] disent en revanche « Hémopéricarde … : chirurgie urgente » sans restriction. L'étudiant ne sait plus si l'hémopéricarde iatrogène se ponctionne ou s'opère.",
+   "correction_proposee": "Écrire partout la même règle : « percutané échoguidé si liquide ou sang non coagulé (y compris hémopéricarde iatrogène), chirurgical si hémopéricarde par dissection de type A, rupture de paroi libre ou traumatisme pénétrant, caillots postopératoires ou pus » ; corriger de même ssp.algorithme[7].t et priseEnCharge[1].titre.",
+   "preuve": {
+    "source": "Dépôt Jeux_45_Spec — même fichier, notions[1].tableau (bloc c2, ligne « Iatrogène »), contradiction interne",
+    "annee": "2026",
+    "lien": "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/content/corrections/CAR/I31.9_tamponnade_pericardi__F1_18-E12.json",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Péricardiocentèse ; chirurgie si caillots"
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_CAR_I31.9_tamponnade_pericardi__F1_18-E12-005",
+   "gravite": "🟨 mineur",
+   "categorie": "logique_ou_contradiction",
+   "fichier": "content/questions/CAR/I31.9_tamponnade_pericardi__F1_18-E12.json",
+   "localisation": "questions[13].prompt (Q14, diagnosticMasque = true)",
+   "texte_actuel": "Quel signe oriente vers une péricardite constrictive plutôt que vers une tamponnade ?",
+   "probleme": "La question est déclarée à diagnostic masqué, mais son intitulé nomme les deux diagnostics en jeu (« péricardite constrictive » et « tamponnade »), et la vignette livre déjà « péricarde épaissi sans épanchement abondant ». La règle de production interdit tout mot qui trahit le diagnostic quand diagnosticMasque = true. Le contrôle automatique ne le voit pas, car il exige les deux mots « tamponnade » et « péricardique ».",
+   "correction_proposee": "Soit passer diagnosticMasque à false (question de discrimination assumée), soit reformuler : « Quel signe de l'examen clinique est le plus cohérent avec le mécanisme en cause chez ce patient ? » sans nommer les diagnostics.",
+   "preuve": {
+    "source": "Dépôt Jeux_45_Spec — scripts/produire_notions_questions.py, règle 6 du prompt des questions",
+    "annee": "2026",
+    "lien": "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/scripts/produire_notions_questions.py",
+    "lu_le": "2026-11-27",
+    "extrait_court": "aucun mot de la vignette, du titre ou de la question ne trahit le diagnostic"
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_CAR_I31.9_tamponnade_pericardi__F1_18-E12-006",
+   "gravite": "🟨 mineur",
+   "categorie": "source_fausse_ou_invente",
+   "fichier": "content/corrections/CAR/I31.9_tamponnade_pericardi__F1_18-E12.json",
+   "localisation": "notions[0].sources[1] (idem notions[7].sources[1])",
+   "texte_actuel": "Cours de cardiologie, examen fédéral",
+   "probleme": "« Cours de cardiologie, examen fédéral » n'est pas une source : ni auteur, ni société, ni année, ni document que l'on puisse ouvrir. Le format imposé est « [Société, année] ou AIPS ». Aucun fait du bloc ne peut être vérifié sur cette mention ; les blocs c1 et c8 contiennent pourtant des chiffres (15 à 50 mL, seuils de 10 et 20 mm, retrait du drain sous 25 mL/24 h, 24 à 72 h).",
+   "correction_proposee": "Supprimer cette mention et citer la source réelle de chaque chiffre (recommandation ESC en vigueur, ou revue identifiable avec année).",
+   "preuve": {
+    "source": "Dépôt Jeux_45_Spec — scripts/produire_notions_questions.py, schéma du champ « source »",
+    "annee": "2026",
+    "lien": "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/scripts/produire_notions_questions.py",
+    "lu_le": "2026-11-27",
+    "extrait_court": "[Société, année] ou AIPS ; chaîne vide pour une notion de mécanisme universel."
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_CAR_I31.9_tamponnade_pericardi__F1_18-E12-007",
+   "gravite": "🟨 mineur",
+   "categorie": "source_fausse_ou_invente",
+   "fichier": "content/corrections/CAR/I31.9_tamponnade_pericardi__F1_18-E12.json",
+   "localisation": "priseEnCharge[2].moyens.pharmacologique[3].posologie (et .source = « AIPS Swissmedic »)",
+   "texte_actuel": "Quadrithérapie 2 mois puis rifampicine + isoniazide jusqu'à 6 mois au total, doses selon poids (recommandations suisses LPLS).",
+   "probleme": "Le schéma antituberculeux (2 mois de quadrithérapie puis 4 mois de bithérapie) est attribué à « AIPS Swissmedic », alors qu'une information professionnelle de médicament ne fixe pas un schéma national ; le texte lui-même renvoie à des « recommandations suisses LPLS », sigle qui ne correspond à aucun organisme (la Ligue pulmonaire suisse s'abrège LPS). La référence suisse est le guide national « Tuberculose en Suisse — Guide à l'usage des professionnels de la santé » (Ligue pulmonaire suisse et OFSP, version 2024 selon la recherche). Le contenu du schéma n'a pas pu être relu dans le guide (bag.admin.ch bloqué).",
+   "correction_proposee": "Source : « Ligue pulmonaire suisse / OFSP, Tuberculose en Suisse — Guide à l'usage des professionnels de la santé (version en vigueur) » ; remplacer « LPLS » par « Ligue pulmonaire suisse et OFSP ».",
+   "preuve": {
+    "source": "OFSP — page Tuberculose (résultat de recherche web, page non ouverte directement)",
+    "annee": "2024",
+    "lien": "https://www.bag.admin.ch/fr/tuberculose",
+    "lu_le": "2026-11-27",
+    "extrait_court": "les directives nationales «Tuberculose en Suisse - Guide à l'usage des professionnels de la santé»"
+   },
+   "confiance": "probable"
+  },
+  {
+   "id": "P45_CAR_I31.9_tamponnade_pericardi__F1_18-E12-008",
+   "gravite": "🟨 mineur",
+   "categorie": "chiffre_suisse",
+   "fichier": "content/notions/CAR/I31.9_tamponnade_pericardi__F1_18-E12.json",
+   "localisation": "notions[7].enonce (N08, suisse = true, source = « ESC 2015 » ; repris dans corrections notions[1].tableau « Fréquente en Suisse » et Q16)",
+   "texte_actuel": "Les causes iatrogènes (ablation de fibrillation auriculaire, angioplastie, stimulateur, chirurgie cardiaque) sont fréquentes en Suisse, alors que la tuberculose reste une cause rare.",
+   "probleme": "La notion est marquée « suisse » et affirme une épidémiologie suisse (causes iatrogènes fréquentes, tuberculose rare), mais sa seule source est une recommandation européenne qui ne contient pas de données suisses. L'affirmation est plausible pour un pays développé, mais elle n'est pas sourcée pour la Suisse ; elle sert de bonne réponse dans le Kprim Q16 (« En Suisse, la tuberculose est la cause la plus fréquente de tamponnade » : faux).",
+   "correction_proposee": "Soit reformuler « dans les pays développés » et retirer le marquage suisse, soit citer une donnée suisse réelle (OFSP : incidence de la tuberculose en Suisse ; série suisse d'épanchements péricardiques) après l'avoir ouverte.",
+   "preuve": {
+    "source": "ESC 2015 Guidelines for the diagnosis and management of pericardial diseases (Adler et al.) — texte intégral non ouvert",
+    "annee": "2015",
+    "lien": "https://doi.org/10.1093/eurheartj/ehv318",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Source non ouverte (hôte bloqué) : à vérifier."
+   },
+   "confiance": "à confirmer"
+  },
+  {
+   "id": "P45_CAR_I31.9_tamponnade_pericardi__F1_18-E12-009",
+   "gravite": "🟦 forme",
+   "categorie": "langue_ou_sigle",
+   "fichier": "content/corrections/CAR/I31.9_tamponnade_pericardi__F1_18-E12.json",
+   "localisation": "notions[5].arbre[2].i (bloc c6, nœud n3)",
+   "texte_actuel": "Le chirurgien cardiaque évacue la collection et répare la cause ; le sang est préféré à la ponction seule.",
+   "probleme": "La fin de la phrase n'a pas de sens : « le sang est préféré à la ponction seule ». Le sens attendu est que la chirurgie est préférée à la ponction seule en cas de saignement.",
+   "correction_proposee": "« Le chirurgien cardiaque évacue la collection et répare la cause ; en cas de saignement actif, la chirurgie est préférée à la ponction seule. »",
+   "preuve": {
+    "source": "Dépôt Jeux_45_Spec — scripts/produire_notions_questions.py, règle 1 (langue)",
+    "annee": "2026",
+    "lien": "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/scripts/produire_notions_questions.py",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Français ; chaque phrase contient un verbe conjugué ; aucune phrase nominale."
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_CAR_I31.9_tamponnade_pericardi__F1_18-E12-010",
+   "gravite": "🟦 forme",
+   "categorie": "langue_ou_sigle",
+   "fichier": "content/questions/CAR/I31.9_tamponnade_pericardi__F1_18-E12.json",
+   "localisation": "questions[4].ladder.discriminant (Q05)",
+   "texte_actuel": "Absence de crépitants distingue du œdème pulmonaire.",
+   "probleme": "Faute de français : « du œdème » au lieu de « de l'œdème » ; la phrase n'a pas non plus de déterminant (« L'absence de crépitants distingue… »).",
+   "correction_proposee": "« L'absence de crépitants distingue la tamponnade de l'œdème pulmonaire. »",
+   "preuve": {
+    "source": "Dépôt Jeux_45_Spec — scripts/produire_notions_questions.py, règle 1 (langue)",
+    "annee": "2026",
+    "lien": "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/scripts/produire_notions_questions.py",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Français ; chaque phrase contient un verbe conjugué ; aucune phrase nominale."
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_CAR_I31.9_tamponnade_pericardi__F1_18-E12-011",
+   "gravite": "🟦 forme",
+   "categorie": "langue_ou_sigle",
+   "fichier": "content/questions/CAR/I31.9_tamponnade_pericardi__F1_18-E12.json",
+   "localisation": "questions[0].ladder.anchor (défaut systématique : la plupart des champs ladder.* et plusieurs « why » des 20 questions)",
+   "texte_actuel": "Hypotension + jugulaires + poumons clairs = tamponnade.",
+   "probleme": "Les champs ladder (zeroD, semiology, anchor, trap…) et plusieurs « why » sont des phrases nominales ou des équations, alors que la règle 1 de production exige un verbe conjugué dans chaque phrase. Le défaut est systématique dans le fichier des questions.",
+   "correction_proposee": "Réécrire en phrases verbales courtes, par exemple : « Une hypotension avec jugulaires turgescentes et poumons clairs évoque une tamponnade. »",
+   "preuve": {
+    "source": "Dépôt Jeux_45_Spec — scripts/produire_notions_questions.py, règle 1 (langue)",
+    "annee": "2026",
+    "lien": "https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/scripts/produire_notions_questions.py",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Français ; chaque phrase contient un verbe conjugué ; aucune phrase nominale."
+   },
+   "confiance": "certaine"
+  }
+ ]
+}
