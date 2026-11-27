@@ -49,8 +49,8 @@ NIVEAU_T3 = "Interprétation au temps 3 (niveau non précisé)"
 
 # Tête de phrase à retirer pour obtenir le libellé (« Il s'agit d'une goutte. » → « goutte »).
 ART = r"(?=une? |des |la |le |les |l'|d'|de )"
-TETE = re.compile(r"^(?:il s'agit (?:probablement |plutôt |alors |donc |sans doute )?|il peut s'agir |"
-                  r"(?:le patient|la patiente|l'enfant|le nourrisson|le nouveau-né|il|elle) (?:a|fait|présente|souffre d'|développe)(?: probablement)? " + ART + "|"
+TETE = re.compile(r"^(?:il s'agit (?:probablement |plutôt |alors |donc |sans doute |peut-être |possiblement )?|il peut s'agir |on parle |"
+                  r"(?:le patient|la patiente|l'enfant|le nourrisson|le nouveau-né|il|elle) (?:souffre (?=d')|(?:a|fait|présente|développe)(?: probablement)? " + ART + ")|"
                   r"on (?:retient|suspecte|évoque|pose|diagnostique|confirme) (?:le diagnostic d[e'] ?)?|"
                   r"(?:ce|cette|ces|le|la|cela)\b[^,.;]{0,60}? (?:oriente vers|évoque|fait évoquer|signe) |"
                   r"(?:le )?diagnostic (?:est|retenu) :? ?)", re.I)
@@ -60,11 +60,13 @@ ARTICLE = re.compile(r"^(?:d'une |d'un |de la |du |des |de l'|d'|de |une |un |la
 NON_PATHO = re.compile(r"\b(?:exclu|exclue|écart|douteux|ininterprétable|ne peut pas|on ne peut|normale?s?\b|est immun|"
                        r"porteur sain|efficace|reste |non cardiaque|probablement d'origine non|indéterminée|on doit |"
                        r"faux|faussement|artefact|pas de |aucun|aucune|n'est pas|ne s'agit pas|il ne s'agit|contamin|"
-                       r"erreur d'identification)", re.I)
+                       r"erreur d'identification|pas d'|indétermin|non spécifique|non-adhésion)", re.I)
+# Sans tête reconnue, une phrase qui commence ainsi décrit une démarche ou un résultat, pas une pathologie.
+DEBUT_NON = re.compile(r"^(?:on |(?:le |la |l')?(?:patient|patiente|résultat|pal)\b)", re.I)
 VERBE = re.compile(r" (?:a|ont|est|sont|se|reste|rend|menace|masquent?|constitue|atteint|fait|peut|doit|augmente|baisse|monte|"
                    r"élève|abaisse|traduit|signe|montre|indique|confirme|oriente|suggère|évoque|explique|cause|provoque|reflète|"
-                   r"correspond|devient|paraît|parait|reste) ", re.I)
-COUPE = re.compile(r",| \(| : | car | parce que | qui | dont | ;|;| donc | alors que | puisque | lorsque | quand | si ")
+                   r"correspond|devient|paraît|parait|prend|surestiment|sous-estiment|élèvent|abaissent|faussent|répond|s'élève|interagit|recherche|classe|hésite|reclasse) ", re.I)
+COUPE = re.compile(r", | \(| : | < | > | car | parce que | qui | dont | ;|;| donc | alors que | puisque | lorsque | quand | si ")
 GENERIQUES = {"syndrome", "maladie", "insuffisance", "carence", "deficit", "infection", "hepatite", "anemie", "cancer", "tumeur",
               "leucemie", "lymphome", "diabete", "hypertension", "intoxication", "grossesse", "epanchement", "ascite", "arthrite",
               "meningite", "encephalite", "encephalopathie", "peritonite", "pneumonie", "allergie", "neutropenie", "thrombopenie",
@@ -99,13 +101,13 @@ def slug(s):
 def libelle(phrase):
     """Libellé normalisé d'une conclusion de fiche, ou None si ce n'est pas une entité nosologique."""
     s = (phrase or "").strip()
-    if not s or NON_PATHO.search(s):
+    if not s or NON_PATHO.search(COUPE.split(s)[0]):
         return None
     if TETE.match(s):
         t = TETE.sub("", s)
     elif INDUIT.match(s):
         t = INDUIT.sub("", s)
-    elif VERBE.search(" " + s + " "):
+    elif DEBUT_NON.match(s) or VERBE.search(" " + s + " "):
         return None  # phrase verbale qui ne nomme pas une entité (« La carence en fer se corrige. »)
     else:
         t = s
