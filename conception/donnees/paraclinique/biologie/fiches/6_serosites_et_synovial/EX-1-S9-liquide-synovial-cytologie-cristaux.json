@@ -153,7 +153,9 @@
   "AIPS Naproxen-Mepha®, n° Swissmedic 51480, mise à jour septembre 2024 (lu le 27.11.2026)",
   "AIPS Prednisone Streuli®, n° Swissmedic 29349, mise à jour juin 2026 (lu le 27.11.2026)",
   "AIPS Diprophos®, n° Swissmedic 39528, mise à jour mars 2026 (lu le 27.11.2026)",
-  "AIPS Dafalgan®, n° Swissmedic 47503, mise à jour juillet 2026 (lu le 27.11.2026)"
+  "AIPS Dafalgan®, n° Swissmedic 47503, mise à jour juillet 2026 (lu le 27.11.2026)",
+  "Margaretten ME, Kohlwes J, Moore D, Bent S. Does this adult patient have septic arthritis? JAMA 2007;297:1478-88, doi:10.1001/jama.297.13.1478, PMID 17405973, résumé (non vérifié CH) (lu le 27.11.2026)",
+  "Peach HG, Bath NE. Post-test probability that men in the community with raised plasma ferritin concentrations are hazardous drinkers. J Clin Pathol 1999;52:853-5, doi:10.1136/jcp.52.11.853, PMID 10690180, résumé (méthode cotes avant test × rapport de vraisemblance) (lu le 27.11.2026)"
  ],
  "passerelles": [
   {
@@ -187,7 +189,16 @@
    "pourquoi": "La biopsie synoviale permet de prélever la membrane elle-même."
   }
  ],
- "calculs": "à produire",
+ "calculs": [
+  {
+   "nom": "Probabilité d'arthrite septique après le compte leucocytaire (rapport de vraisemblance)",
+   "formule": "Tu convertis la probabilité clinique avant ponction en cote (p ÷ (1 − p)), tu la multiplies par le rapport de vraisemblance du compte leucocytaire synovial, puis tu reconvertis la cote obtenue en probabilité (cote ÷ (1 + cote)) (Peach 1999) ; les rapports valent 0,32 sous 25 000/µL, 2,9 dès 25 000/µL, 7,7 au-delà de 50 000/µL et 28 au-delà de 100 000/µL (Margaretten 2007).",
+   "a_quoi_ca_sert": "Ce calcul te dit, avant le Gram et la culture, à quel point l'arthrite septique devient probable ou improbable, en combinant ton estimation clinique et le compte leucocytaire du liquide (Margaretten 2007).",
+   "exemple": "Tu estimes la probabilité clinique à 20 %, soit une cote de 0,20 ÷ 0,80 = 0,25. Le liquide contient 60 000 leucocytes/µL (rapport 7,7) : 0,25 × 7,7 = 1,925, et 1,925 ÷ 2,925 = 0,66, soit 66 %, ce qui rend l'arthrite septique probable. Avec 12 000/µL (rapport 0,32), 0,25 × 0,32 = 0,08, et 0,08 ÷ 1,08 = 0,074, soit 7 %, ce qui la rend peu probable sans l'exclure ; seuls le Gram et la culture confirment le germe.",
+   "source": "Margaretten ME et al., JAMA 2007;297:1478-88 (rapports de vraisemblance, résumé) et Peach HG, Bath NE, J Clin Pathol 1999;52:853-5 (méthode des cotes, résumé) (lu le 27.11.2026).",
+   "outil": "crit_liquide_synovial_septique"
+  }
+ ],
  "traitement": {
   "but": "Tu stérilises et tu évacues une articulation septique sans délai, tu éteins une crise microcristalline avec la molécule que le terrain tolère, et tu soulages un épanchement mécanique ou une hémarthrose en traitant leur cause.",
   "moyens": [
