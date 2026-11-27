@@ -141,6 +141,7 @@ def analyses_sans_fiche(fiches):
 
 def statut(d, t):
     tr = d.get("traitement")
+    t = [x for x in t if x["nature"] != "« — » déclaré"]  # « — » = aucun, déclaré (cahier § 0) : pas un trou
     if not t:
         return "fait"
     if tr and not vide(tr):
