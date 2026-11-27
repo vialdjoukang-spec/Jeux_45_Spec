@@ -250,7 +250,7 @@ SYNDROMES_RADIO = [
     (r"bronch(ectas|iol)|emphys|trapping", "Syndrome bronchique"), (r"atélect|collapsus", "Syndrome d'atélectasie"),
     (r"pneumothorax|pneumop[eé]ritoine|pneumom[eé]diastin|air libre", "Syndrome aérique extra-digestif (gaz anormal)"),
     (r"h[eé]morrag|h[eé]matome|h[eé]mopéritoine|h[eé]mothorax|saignement", "Syndrome hémorragique"),
-    (r"isch[eé]m|infarctus|p[eé]nombre|\bAVC\b|AIT|n[eé]crose avasculaire|ost[eé]on[eé]crose", "Syndrome ischémique"),
+    (r"isch[eé]m|infarctus|p[eé]nombre|\bAVC\b|\bAIT\b|n[eé]crose avasculaire|ost[eé]on[eé]crose", "Syndrome ischémique"),
     (r"fractur|traumat|rupture|l[eé]sion de la rate|contusion|luxation|d[eé]chirure|entorse", "Syndrome traumatique"),
     (r"lithias|calcul|obstruct|occlusion intestinale|dilatation|hydron[eé]phrose|ict[eè]re|colique|jonction py[eé]lo|r[eé]tention|st[eé]nose (de la voie|bili|ur[eé]t)", "Syndrome obstructif"),
     (r"st[eé]nose|thrombos|occlusion art|embol|an[eé]vrism|dissection|art[eé]riopathie|ath[eé]ro|vasospasme|varic|insuffisance veineuse|budd|hypertension portale|malformation art[eé]rio", "Syndrome vasculaire"),
