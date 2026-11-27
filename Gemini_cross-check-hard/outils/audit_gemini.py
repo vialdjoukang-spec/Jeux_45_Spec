@@ -55,15 +55,22 @@ def appeler(modele, cle, systeme, texte, effort):
              "tools": [{"google_search": {}}],
              "generationConfig": {"temperature": 0.2, "thinkingConfig": {"thinkingLevel": effort}}}
     req = urllib.request.Request(url, data=json.dumps(corps).encode(), headers={"Content-Type": "application/json", "x-goog-api-key": cle})
-    for essai in range(4):
+    for essai in range(3):
+        t0 = time.time()
         try:
-            with urllib.request.urlopen(req, timeout=900) as r:
+            with urllib.request.urlopen(req, timeout=2400) as r:
                 return json.loads(r.read())
         except urllib.error.HTTPError as e:
-            detail = e.read().decode()[:400]
-            if e.code in (429, 500, 503) and essai < 3:
-                time.sleep(20 * (essai + 1)); continue
+            detail = e.read().decode()[:600]
+            print(f"HTTP {e.code} après {round(time.time() - t0)} s : {detail}", flush=True)
+            if e.code in (429, 500, 503, 504) and essai < 2:
+                time.sleep(30 * (essai + 1)); continue
             raise SystemExit(f"API Gemini : HTTP {e.code} — {detail}")
+        except (TimeoutError, urllib.error.URLError, ConnectionError) as e:
+            print(f"Pas de réponse après {round(time.time() - t0)} s ({e}) ; essai {essai + 1}/3", flush=True)
+            if essai < 2:
+                continue
+            raise SystemExit("API Gemini : aucune réponse après 3 essais (délai dépassé)")
 
 
 def extraire(rep):
@@ -91,7 +98,7 @@ def main():
     a = argparse.ArgumentParser()
     a.add_argument("--jeu", required=True); a.add_argument("--max-lots", type=int, default=1)
     a.add_argument("--max-usd", type=float, default=2.0); a.add_argument("--modele", default="gemini-4-neon")
-    a.add_argument("--effort", default="high", help="low | medium | high | xhigh")
+    a.add_argument("--effort", default="medium", help="low | medium | high | xhigh")
     a.add_argument("--lot", default=None, help="auditer seulement ce lot")
     o = a.parse_args()
     cle = os.environ.get("GEMINI_API_KEY")
@@ -105,6 +112,7 @@ def main():
         if total >= o.max_usd:
             print("Plafond de dépense atteint : arrêt."); break
         t0 = time.time()
+        print(f"→ lot {lot['lot']} : {sum(f['octets'] for f in lot['fichiers'])} octets envoyés à {o.modele} ({o.effort})", flush=True)
         rep = appeler(o.modele, cle, systeme, message(lot, date), o.effort)
         u = rep.get("usageMetadata", {})
         tin = u.get("promptTokenCount", 0); tout = u.get("candidatesTokenCount", 0) + u.get("thoughtsTokenCount", 0)
