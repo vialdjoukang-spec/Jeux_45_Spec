@@ -12,7 +12,8 @@ Sorties :
   - donnees/pathologies/<id>.json : examens liés avec niveau d'intention et phrase source, traitement, bilan de la Tétrade, sources ;
   - donnees/examens.json : index des examens, avec les pathologies qu'ils diagnostiquent ou suivent ;
   - donnees/fiches/<id>.json : copie exacte de chaque fiche (le site est autonome) ;
-  - donnees/meta.json : systèmes, matrices, disciplines, règles de dérivation, comptes.
+  - donnees/meta.json : systèmes, matrices, disciplines, règles de dérivation, comptes ;
+  - donnees/glossaire.json : copie du glossaire des sigles du jeu Paraclinique.
 
 Le script ne rédige aucun texte médical : il découpe et regroupe les phrases des fiches et de la Tétrade, mot pour mot.
 Niveau d'intention, par ordre de priorité :
@@ -34,6 +35,7 @@ import unicodedata
 RACINE = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", ".."))
 FICHES = os.path.join(RACINE, "conception/donnees/paraclinique/biologie/fiches")
 TETRADE = os.path.join(RACINE, "conception/prototypes/moteur/tetrade.json")
+GLOSSAIRE = os.path.join(RACINE, "conception/prototypes/paraclinique/donnees/glossaire.json")
 SORTIE = os.path.join(RACINE, "conception/prototypes/biologie-site/donnees")
 
 SYSTEMES = {"S1": "Neurologie", "S2": "Tête, cou, ORL et œil", "S3": "Cardiovasculaire", "S4": "Respiratoire",
@@ -317,10 +319,11 @@ def main():
     ex = []
     for i, d in F.items():
         e = d.get("entete") or {}
-        ps = [p["id"] for p in sortie if any(l["examen"] == i for l in p["liens"])]
+        ps = [{"id": p["id"], "nom": p["nom"], "niveau": l["niveau"], "origine": l["origine"]}
+              for p in sortie for l in p["liens"] if l["examen"] == i]
         ex.append({"id": i, "titre": d.get("titre"), "nom_exact": e.get("nom_exact"), "synonymes": e.get("synonymes"),
                    "systeme": d.get("systeme"), "matrice": d.get("_matrice"), "disciplines": d.get("axe_secondaire") or [],
-                   "pathologies": ps})
+                   "pathologies": ps, "niveaux": sorted({x["niveau"] for x in ps})})
     ex.sort(key=lambda x: sans_accents(x["titre"] or ""))
 
     os.makedirs(os.path.join(SORTIE, "fiches"), exist_ok=True)
@@ -360,6 +363,8 @@ def main():
                         "liens": sum(len(p["liens"]) for p in sortie)},
             "empreinte_fiches": emp, "signature": "AAI (Anthropic AI)"}
     ecrire("meta.json", meta)
+    # Glossaire des sigles (développés au survol), repris tel quel du jeu Paraclinique.
+    shutil.copyfile(GLOSSAIRE, os.path.join(SORTIE, "glossaire.json"))
     print(f"{len(F)} fiches | {len(sortie)} pathologies ({meta['comptes']['avec_tetrade']} avec bilan de la Tétrade) | "
           f"{meta['comptes']['liens']} liens pathologie → examen | {len(ex)} examens")
 
