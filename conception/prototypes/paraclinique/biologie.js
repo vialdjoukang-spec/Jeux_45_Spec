@@ -33,6 +33,9 @@ export function barreBio(hote, disciplines, etat, rafraichir) {
 
 /* ---------------------------------------------------------------- fiche à 3 temps (gabarit identique partout, brief § 3) */
 const AP = 'à produire';
+/* Retour de Vial (27.11) : positions et points tarifaires de la Liste des analyses masqués à l'affichage (la fiche garde la donnée). */
+const TARIF = /Liste des analyses|\bpoints?\b|\b\d{4}\.\d{2}\b|\bposition/i;
+const sansTarif = s => typeof s === 'string' ? s.split(/(?<=[.;])\s+/).filter(x => !TARIF.test(x)).join(' ').trim() || '—' : s;
 const RUBQ = {
   entete: 'L\'en-tête nomme l\'examen, ses synonymes, son prélèvement avec ses conditions, et son bon usage en Suisse (Liste des analyses de l\'OFSP, Smarter Medicine).',
   t1: 'Le temps 1 dit quand tu demandes l\'examen : urgence, diagnostic et étiologie, dépistage et bilan préthérapeutique, suivi ; il dit aussi quand tu ne le demandes pas.',
@@ -53,7 +56,7 @@ export function ficheBioHtml(d, { esc, gloser, outils, existe }) {
   const dl = rows => '<dl class=grille>' + rows.filter(([, v]) => v !== undefined).map(([t, v, c]) => `<dt>${t}</dt><dd${c ? ' class=' + c : ''}>${P(v)}</dd>`).join('') + '</dl>';
   const e = d.entete || {}, t1 = d.temps1_indications || {};
   let h = `<p class=meta><b>${esc(d.id)}</b> · système ${esc(d.systeme || '—')} · prélèvement : ${esc(d._matrice)} · discipline : ${esc((d.axe_secondaire || []).join(', '))}</p>`;
-  h += H('entete', 'En-tête', 0) + dl([['Nom exact', e.nom_exact], ['Synonymes', e.synonymes], ['Prélèvement et conditions', e.prelevement_conditions], ['Bon usage suisse', e.bon_usage_suisse ?? e.bon_usage_ch]]);
+  h += H('entete', 'En-tête', 0) + dl([['Nom exact', e.nom_exact], ['Synonymes', e.synonymes], ['Prélèvement et conditions', e.prelevement_conditions], ['Bon usage suisse', sansTarif(e.bon_usage_suisse ?? e.bon_usage_ch)]]);
   h += H('t1', 'Temps 1 · Indications', 1) + dl(T1.filter(([k]) => k in t1).map(([k, l]) => [l, t1[k], k === 'ne_pas_demander' ? 'npd' : '']));
   h += H('t2', 'Temps 2 · L\'examen', 2);
   h += Array.isArray(d.temps2_examen) ? d.temps2_examen.map(r => `<div class=param><b>${esc(r.parametre)}</b>${dl([['Normal', r.normal, 'nl'], ['Anomalie et seuil', r.anomalie, 'pa'], ['Seuil d\'alerte', r.seuil_alerte, 'al']])}</div>`).join('') : `<p>${P(d.temps2_examen)}</p>`;

@@ -71,13 +71,27 @@ def _txt(*vs, sep=" "):
     return sep.join(v.strip() for v in vs if _plein(v)) or None
 
 
+TARIF = re.compile(r"Liste des analyses|\bpoints?\b|\b\d{4}\.\d{2}\b|\bposition", re.I)
+
+
+def sans_tarif(s):
+    """Retour de Vial (27.11) : les positions et points de la Liste des analyses ne servent pas l'apprenant ; on les masque à l'affichage
+    (la fiche garde la donnée, contrôle de non-perte)."""
+    if not isinstance(s, str):
+        return s
+    ph = [x for x in re.split(r"(?<=[.;])\s+", s) if not TARIF.search(x)]
+    return " ".join(ph).strip() or None
+
+
 def libelle_diag(s):
     """Libellé court de la case : le groupe nominal du diagnostic, sans sujet ni justification (la phrase entière reste dans la bulle)."""
     s = (s or "").strip()
     s = re.sub(r"^(?:Il|Elle|Cela|Ce tableau|Le patient|La patiente|L'enfant|Le nouveau-né)\s+(?:s'agit|a|fait|présente|souffre|signe|oriente vers|évoque|correspond à)\s+"
                r"(?:d'une?|de la|de l'|du|des|d'|à une?|vers une?|une?)?\s*", "", s, flags=re.I)
     s = re.sub(r"^On (?:retient|pose|évoque|suspecte)\s+(?:le diagnostic d[e'] ?)?(?:une?|la|le|l'|des)?\s*", "", s, flags=re.I)
+    s = re.sub(r"^(?:Ce|Cette|Ces)\b.*?\b(?:oriente|orientent) vers\s+(?:une?|le|la|l'|des)?\s*", "", s, flags=re.I)
     s = re.split(r"\s*;\s*|,\s+car\s+|\s+car\s+|,\s+si\s+|\s+:\s+", s)[0]
+    s = re.sub(r"\s*\([^)]*$", "", s)  # parenthèse coupée par la découpe
     s = s.rstrip(" .")
     return s[:1].upper() + s[1:] if s else s
 
@@ -127,7 +141,7 @@ def construire(fiches_dir, noeud, court, CALC, CRIT, ecrire, developpe=None):
         eid = f"bx_{i}"
         tr = d.get("traitement")
         b = {"nom": e.get("nom_exact"), "syn": e.get("synonymes"), "prel": e.get("prelevement_conditions"),
-             "usage": e.get("bon_usage_suisse") or e.get("bon_usage_ch"), "disc": "Discipline : " + ", ".join(d.get("axe_secondaire") or [disc]) + "."}
+             "usage": sans_tarif(e.get("bon_usage_suisse") or e.get("bon_usage_ch")), "disc": "Discipline : " + ", ".join(d.get("axe_secondaire") or [disc]) + "."}
         N.append(noeud(eid, "Examen", dev(d.get("titre") or e.get("nom_exact") or i), [f"bm_{mi}"], coul, {k: v for k, v in b.items() if v},
                        "bex", type=disc, maxc=60, deSys=[f"bs_{d.get('systeme')}"] if d.get("systeme") in syspres else None,
                        bioFiche=i, disc=disc, trtAProduire=True if not isinstance(tr, dict) else None))
