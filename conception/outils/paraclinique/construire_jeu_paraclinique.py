@@ -220,13 +220,23 @@ def bulle_diag(nom, signe=None, syndrome=None, signif=None, examen=None):
 # Définition · Épidémiologie · Mécanisme · Syndrome clinique · Sémiologie radiologique · Diagnostic · Traitement · Sources.
 # Chaque champ vient d'une fiche sourcée (Tétrade, fiches de Paraclinique, table des niveaux) ; sinon il porte « à produire ».
 FT_F = FT.lire()
-FLASH = {}
+FLASH = {}       # repli par nom : la fiche la plus complète l'emporte (et non la dernière lue)
+FLASH_ORG = {}   # (organe, nom) : la fiche de l'organe affiché l'emporte toujours
 _fp = os.path.join(P, "fiches_flash")
+
+
+def _pleins(v):
+    return sum(1 for x in v.values() if x not in (None, "", [], {})) if isinstance(v, dict) else 0
+
+
 if os.path.isdir(_fp):
-    for f in glob.glob(os.path.join(_fp, "*.json")):
+    for f in sorted(glob.glob(os.path.join(_fp, "*.json"))):
+        st_ = os.path.basename(f)[:-5]
         for k_, v_ in lire(f).items():
             if not k_.startswith("_"):
-                FLASH[FT.sa(k_)] = v_
+                FLASH_ORG[(st_, FT.sa(k_))] = v_
+                if _pleins(v_) >= _pleins(FLASH.get(FT.sa(k_))):
+                    FLASH[FT.sa(k_)] = v_
 RUB["patho_img"] = [["def", "Définition"], ["epi", "Épidémiologie"], ["meca", "Mécanisme"], ["synd", "Syndrome clinique"], ["radio", "Sémiologie radiologique"],
                     ["diag", "Diagnostic"], ["trt", "Traitement"], ["source", "Sources"]]
 AP = "à produire"
@@ -275,10 +285,10 @@ def syndrome_radio(nom):
     return None
 
 
-def fiche_flash(nom, e, p, niv, libelle=None, syn_force=None):
+def fiche_flash(nom, e, p, niv, libelle=None, syn_force=None, organe=None):
     """Renvoie (bulle, flash) : la bulle garde du texte brut ; les champs *_h portent le HTML survolable."""
     f = FT.trouver(FT_F, nom) or {}
-    x = FLASH.get(FT.sa(nom)) or {}
+    x = FLASH_ORG.get((organe, FT.sa(nom))) or FLASH.get(FT.sa(nom)) or {}
     b = {"def": x.get("def") or f.get("def") or AP, "epi": x.get("epi") or AP, "meca": x.get("meca") or f.get("pourquoi") or AP}
     sy = x.get("syndromesCliniques") or []
     b["synd"] = ", ".join(s["nom"] for s in sy) if sy else AP
@@ -519,7 +529,7 @@ for r, (rnom, mesh, cote, coul) in REG.items():
                         if len(niv) > 3:  # angle mort : l'examen oriente seulement ; la survol donne l'examen qui pose le diagnostic
                             bd = dict(bd, premiere=niv[3]["premiereIntention"] + ".", gold=niv[3]["goldStandard"] + ".", source=niv[2] if niv[3]["source"] in niv[2] else niv[2] + " ; " + niv[3]["source"])
                     lib, sig = developpe(p["pathologie"])
-                    bd = fiche_flash(p["pathologie"], e, p, niv, lib, (SYN_VALIDE.get(o["stem"]) or {}).get(p["pathologie"]))
+                    bd = fiche_flash(p["pathologie"], e, p, niv, lib, (SYN_VALIDE.get(o["stem"]) or {}).get(p["pathologie"]), o["stem"])
                     if sig and sig.split(" = ")[0] not in bd["def"]:
                         bd["def"] = sig + " " + bd["def"]
                     pn = noeud(pid, "Pathologie", lib, [parent], "#d64545", bd, "patho_img", maxc=72, flash=True, type="Pathologie" if niv else ("Pathologie · examen de référence" if gold else "Pathologie"), exRef=e["id"], signe=p.get("anomalieTypique"))
