@@ -40,6 +40,8 @@ def consignes():
 
 def message(lot, date):
     parts = [f"Lot à auditer : {lot['lot']} — {lot['titre']}\nFocus : {lot['focus']}\nDate du jour : {date}\n"
+             "OBLIGATOIRE : utilise l'outil google_search pour retrouver et ouvrir CHAQUE source avant de la citer ; "
+             "une preuve non retrouvée par la recherche porte \"confiance\": \"à confirmer\".\n"
              f"Recopie dans fichiers_audites exactement ces empreintes : "
              + json.dumps([{"chemin": f["chemin"], "sha256": f["sha256"]} for f in lot["fichiers"]], ensure_ascii=False)]
     for f in lot["fichiers"]:
