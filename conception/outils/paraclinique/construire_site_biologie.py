@@ -48,18 +48,22 @@ VISEES = {"diagnostique": "Diagnostique", "retentissement": "Retentissement", "e
 NIVEAU_T3 = "Interprétation au temps 3 (niveau non précisé)"
 
 # Tête de phrase à retirer pour obtenir le libellé (« Il s'agit d'une goutte. » → « goutte »).
-TETE = re.compile(r"^(?:cette \w+ )?(?:il s'agit (?:probablement |plutôt |alors |donc )?|il peut s'agir |"
-                  r"(?:le patient|la patiente|l'enfant|le nourrisson|le nouveau-né|il|elle) (?:a|fait|présente|souffre|développe)(?: probablement)? |"
+ART = r"(?=une? |des |la |le |les |l'|d'|de )"
+TETE = re.compile(r"^(?:il s'agit (?:probablement |plutôt |alors |donc |sans doute )?|il peut s'agir |"
+                  r"(?:le patient|la patiente|l'enfant|le nourrisson|le nouveau-né|il|elle) (?:a|fait|présente|souffre d'|développe)(?: probablement)? " + ART + "|"
                   r"on (?:retient|suspecte|évoque|pose|diagnostique|confirme) (?:le diagnostic d[e'] ?)?|"
-                  r"(?:le tableau|cela|ce tableau|ce profil|ceci) (?:oriente|évoque|signe|fait évoquer) (?:vers )?|"
+                  r"(?:ce|cette|ces|le|la|cela)\b[^,.;]{0,60}? (?:oriente vers|évoque|fait évoquer|signe) |"
                   r"(?:le )?diagnostic (?:est|retenu) :? ?)", re.I)
-ARTICLE = re.compile(r"^(?:d'une |d'un |de la |du |des |de l'|d'|une |un |la |le |les |l')", re.I)
+INDUIT = re.compile(r"^(?:le |la |l')?[\w'-]+ a (?:induit|provoqué|déclenché)(?: ou démasqué)? (?=une? |des )", re.I)
+ARTICLE = re.compile(r"^(?:d'une |d'un |de la |du |des |de l'|d'|de |une |un |la |le |les |l')", re.I)
 # Conclusion qui n'est pas une entité nosologique : on ne l'indexe pas comme pathologie (la fiche la garde au temps 3).
 NON_PATHO = re.compile(r"\b(?:exclu|exclue|écart|douteux|ininterprétable|ne peut pas|on ne peut|normale?s?\b|est immun|"
                        r"porteur sain|efficace|reste |non cardiaque|probablement d'origine non|indéterminée|on doit |"
-                       r"faux|faussement|artefact|pas de |aucun|aucune|n'est pas|ne s'agit pas|il ne s'agit)", re.I)
-VERBE = re.compile(r" (?:est|sont|reste|rend|augmente|baisse|monte|élève|abaisse|traduit|signe|montre|indique|confirme|"
-                   r"oriente|suggère|évoque|explique|cause|provoque|reflète|correspond|devient|parait|paraît) ", re.I)
+                       r"faux|faussement|artefact|pas de |aucun|aucune|n'est pas|ne s'agit pas|il ne s'agit|contamin|"
+                       r"erreur d'identification)", re.I)
+VERBE = re.compile(r" (?:a|ont|est|sont|se|reste|rend|menace|masquent?|constitue|atteint|fait|peut|doit|augmente|baisse|monte|"
+                   r"élève|abaisse|traduit|signe|montre|indique|confirme|oriente|suggère|évoque|explique|cause|provoque|reflète|"
+                   r"correspond|devient|paraît|parait|reste) ", re.I)
 COUPE = re.compile(r",| \(| : | car | parce que | qui | dont | ;|;| donc | alors que | puisque | lorsque | quand | si ")
 GENERIQUES = {"syndrome", "maladie", "insuffisance", "carence", "deficit", "infection", "hepatite", "anemie", "cancer", "tumeur",
               "leucemie", "lymphome", "diabete", "hypertension", "intoxication", "grossesse", "epanchement", "ascite", "arthrite",
@@ -97,33 +101,50 @@ def libelle(phrase):
     s = (phrase or "").strip()
     if not s or NON_PATHO.search(s):
         return None
-    t = TETE.sub("", s)
+    if TETE.match(s):
+        t = TETE.sub("", s)
+    elif INDUIT.match(s):
+        t = INDUIT.sub("", s)
+    elif VERBE.search(" " + s + " "):
+        return None  # phrase verbale qui ne nomme pas une entité (« La carence en fer se corrige. »)
+    else:
+        t = s
     t = ARTICLE.sub("", t.strip())
     t = COUPE.split(t)[0].strip().rstrip(".").strip()
+    t = re.sub(r" ou (?:d'une?|une?|de la|du|des) ", " ou ", t)
     t = re.sub(r"\s+", " ", t)
-    if not t or len(t) < 4 or len(t) > 90:
-        return None
-    # Phrase restée verbale (ex. « La créatinine est élevée… ») : ce n'est pas un libellé de pathologie.
-    if VERBE.search(" " + t + " ") and TETE.match(s) is None:
+    if not t or len(t) < 4 or len(t) > 90 or VERBE.search(" " + t + " "):
         return None
     if t[0].isupper() and not (len(t) > 1 and t[1].isupper()):
         t = t[0].lower() + t[1:]
     return t
 
 
+SUFFIXES = re.compile(r"(?:emie|urie|ite|ose|ome|pathie|penie|cytose|isme|algie|rragie|thorax|ectasie|plasie|oedeme|ase)$")
+
+
 def noyau(lib):
     """Terme de famille (« hyperkaliémie médicamenteuse modérée » → « hyperkaliémie ») ; sert aux voisines et à la recherche dans le temps 1."""
     mots = lib.split(" ")
-    if not mots:
-        return lib
-    if sans_accents(mots[0]) not in GENERIQUES and len(mots[0]) >= 6:
+    if sans_accents(mots[0]) not in GENERIQUES:
         return mots[0]
     pris = [mots[0]]
-    for m in mots[1:]:
+    for k, m in enumerate(mots[1:], 1):
+        if sans_accents(m) in ("ou", "et", "sans", "avec"):
+            break
         pris.append(m)
-        if sans_accents(m).strip("'") not in LIENS and not m.endswith("'"):
+        if sans_accents(m).strip("'") not in LIENS and not m.endswith("'") and sans_accents(m) != "non":
+            if k + 1 < len(mots) and re.fullmatch(r"[A-Z][A-Z0-9-]{0,5}", mots[k + 1]):
+                pris.append(mots[k + 1])
             break
     return " ".join(pris)
+
+
+def noyau_cherchable(n):
+    """Le terme de famille sert à repérer la pathologie dans le temps 1 seulement s'il est assez précis."""
+    if " " in n:
+        return True
+    return len(n) >= 7 and SUFFIXES.search(sans_accents(n)) is not None
 
 
 def phrases(texte):
@@ -211,7 +232,7 @@ def main():
 
     # Examens qui citent la pathologie (libellé complet ou terme de famille) dans une rubrique du temps 1, sans l'interpréter au temps 3.
     for p in P.values():
-        termes = sorted({p["cle"], p["famille"]}, key=len, reverse=True)
+        termes = [p["cle"]] + ([p["famille"]] if noyau_cherchable(p["famille"]) else [])
         for i, d in F.items():
             t1 = d.get("temps1_indications") or {}
             for k, _ in T1:
