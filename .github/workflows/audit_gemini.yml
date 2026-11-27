@@ -1,0 +1,57 @@
+name: Audit Gemini (cross-check-hard)
+
+on:
+  workflow_dispatch:
+    inputs:
+      jeu:
+        description: "Jeu à auditer (ex. 2_Paraclinique/Imagerie, 1_Tetrade, 4_Jeux_45_Spec)"
+        required: true
+        default: "2_Paraclinique/Imagerie"
+      max_lots:
+        description: "Nombre maximal de lots dans cette passe"
+        required: true
+        default: "1"
+      max_usd:
+        description: "Plafond de dépense de cette passe, en dollars"
+        required: true
+        default: "2"
+      effort:
+        description: "Niveau de réflexion de Gemini (low, medium, high, xhigh)"
+        required: true
+        default: "high"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: audit-gemini
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Manifestes à jour (0 token)
+        run: python Gemini_cross-check-hard/outils/preparer_lots.py
+      - name: Audit par l'API Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: >
+          python Gemini_cross-check-hard/outils/audit_gemini.py
+          --jeu "${{ inputs.jeu }}" --max-lots "${{ inputs.max_lots }}"
+          --max-usd "${{ inputs.max_usd }}" --effort "${{ inputs.effort }}"
+      - name: Contrôle des rapports (0 token)
+        run: python Gemini_cross-check-hard/outils/valider_rapports.py || true
+      - name: Dépôt des rapports
+        run: |
+          git config user.name "audit-gemini[bot]"
+          git config user.email "audit-gemini@users.noreply.github.com"
+          git add Gemini_cross-check-hard
+          git diff --cached --quiet && exit 0
+          git commit -m "Audit Gemini ${{ inputs.jeu }} : passe de ${{ inputs.max_lots }} lot(s)"
+          for i in 1 2 3 4 5; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 10; done
