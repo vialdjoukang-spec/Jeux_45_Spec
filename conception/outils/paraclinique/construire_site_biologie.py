@@ -8,7 +8,8 @@ Entrées (lues, jamais réécrites) :
   - conception/donnees/paraclinique/biologie/fiches/*/EX-1-*.json : 101 fiches auditées (gabarit à 3 temps) ;
   - conception/prototypes/moteur/tetrade.json : bilans des diagnostics de la Tétrade (visée → groupe → [examen, signe]).
 Sorties :
-  - donnees/pathologies.json : index des pathologies (libellé normalisé), examens liés avec niveau d'intention et phrase source ;
+  - donnees/pathologies.json : index léger des pathologies (libellé normalisé) ;
+  - donnees/pathologies/<id>.json : examens liés avec niveau d'intention et phrase source, traitement, bilan de la Tétrade, sources ;
   - donnees/examens.json : index des examens, avec les pathologies qu'ils diagnostiquent ou suivent ;
   - donnees/fiches/<id>.json : copie exacte de chaque fiche (le site est autonome) ;
   - donnees/meta.json : systèmes, matrices, disciplines, règles de dérivation, comptes.
@@ -45,7 +46,7 @@ T1 = [("urgence_aigu", "Urgence"), ("diagnostic_etiologie", "Diagnostic et étio
       ("depistage_pretherapeutique", "Dépistage et bilan préthérapeutique"), ("suivi_surveillance", "Suivi")]
 VISEES = {"diagnostique": "Diagnostique", "retentissement": "Retentissement", "etiologique": "Étiologique",
           "complications": "Complications", "therapeutique": "Thérapeutique", "sortie": "Sortie"}
-HORS_BIO = {"Imagerie", "Clinique", "Explorations", "Endoscopie", "ECG", "Génétique", "Anatomopathologie", "Histologie"}
+HORS_BIO = {"Imagerie", "Clinique", "Explorations", "Endoscopie", "ECG", "Génétique", "Anatomopathologie", "Histologie", "Score"}
 NIVEAU_T3 = "Interprétation au temps 3 (niveau non précisé)"
 
 # Tête de phrase à retirer pour obtenir le libellé (« Il s'agit d'une goutte. » → « goutte »).
@@ -330,7 +331,22 @@ def main():
         if os.path.basename(f)[:-5] not in F:
             os.remove(f)
     ecrire = lambda nom, obj: json.dump(obj, open(os.path.join(SORTIE, nom), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
-    ecrire("pathologies.json", sortie)
+    # Index léger (chargé à l'ouverture) + une fiche détaillée par pathologie (chargée au clic).
+    os.makedirs(os.path.join(SORTIE, "pathologies"), exist_ok=True)
+    for f in glob.glob(os.path.join(SORTIE, "pathologies", "*.json")):
+        os.remove(f)
+    index = []
+    for p in sortie:
+        ecrire(os.path.join("pathologies", p["id"] + ".json"), p)
+        niv = []
+        for l in p["liens"]:
+            if l["niveau"] not in niv:
+                niv.append(l["niveau"])
+        index.append({"id": p["id"], "nom": p["nom"], "famille": p["famille"], "systemes": p["systemes"], "matrices": p["matrices"],
+                      "disciplines": p["disciplines"], "examens": [l["examen"] for l in p["liens"]], "niveaux": niv,
+                      "tetrade": bool(p["tetrade"]), "traitement": bool(p["traitements"] or (p["tetrade"] or {}).get("traitement")),
+                      "voisines": p["voisines"]})
+    ecrire("pathologies.json", index)
     ecrire("examens.json", ex)
     emp = hashlib.sha256("".join(sorted(json.dumps(d, sort_keys=True, ensure_ascii=False) for d in F.values())).encode()).hexdigest()[:16]
     meta = {"systemes": SYSTEMES, "matrices": MATRICES,
