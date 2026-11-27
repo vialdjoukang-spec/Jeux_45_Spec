@@ -1,0 +1,167 @@
+{
+ "lot": "P45_LEG_Y69_1__O7_5-E01",
+ "auditeur": "claude-fable-5-2",
+ "date": "2026-11-27",
+ "fichiers_audites": [
+  {
+   "chemin": "content/notions/LEG/Y69_1__O7_5-E01.json",
+   "sha256": "3da298fc22055e6b"
+  },
+  {
+   "chemin": "content/questions/LEG/Y69_1__O7_5-E01.json",
+   "sha256": "6db7a558a938e44a"
+  },
+  {
+   "chemin": "content/corrections/LEG/Y69_1__O7_5-E01.json",
+   "sha256": "1a8c55a4f42bf4e1"
+  }
+ ],
+ "verdict_lot": "🟧 majeurs",
+ "nb_elements_relus": 82,
+ "constats": [
+  {
+   "id": "P45_LEG_Y69_1__O7_5-E01-001",
+   "gravite": "🟧 majeur",
+   "categorie": "posologie",
+   "fichier": "content/corrections/LEG/Y69_1__O7_5-E01.json",
+   "localisation": "priseEnCharge[0].moyens.pharmacologique[2].posologie",
+   "texte_actuel": "1 mg neutralise environ 100 UI d'héparine reçues dans les 2 h précédentes, injection i.v. lente, maximum 50 mg.",
+   "probleme": "Le ratio « 1 mg pour 100 UI » est attribué à l'AIPS Swissmedic, mais la seule protamine au Compendium suisse (Sulfate de protamine LEO Pharma 1400 UI/ml, 10 mg/ml) indique que 10 mg neutralisent environ 1400 UI d'héparine, soit environ 140 UI par mg. L'AIPS demande en outre de réduire la dose dès que plus de 15 minutes se sont écoulées depuis l'héparine i.v. (et non un forfait « dans les 2 h »). Seul le plafond de 50 mg par bolus concorde. La source citée ne dit donc pas ce chiffre ; le ratio 1 mg/100 UI correspond à l'ancienne protamine chlorhydrate 1000 UI/ml, absente du Compendium.",
+   "correction_proposee": "« Sulfate de protamine (Sulfate de protamine LEO Pharma 1400 UI/ml) : 1 ml (10 mg) neutralise environ 1400 UI d'héparine non fractionnée ; dose à réduire si l'héparine i.v. date de plus de 15 min, idéalement guidée par aPTT/ACT ; i.v. lente sur 10 min, au plus 5 ml (50 mg) par bolus. » Vérifier la cohérence avec la ligne « Héparine non fractionnée » de notions[5].tableau.",
+   "preuve": {
+    "source": "Information professionnelle suisse (AIPS, via compendium.ch) — Sulfate de protamine LEO Pharma 1400 UI antidote à l'héparine/ml, rubrique Posologie",
+    "annee": "2025",
+    "lien": "https://compendium.ch/fr/product/1642478/mpro",
+    "lu_le": "2026-11-27",
+    "extrait_court": "1 ml de sulfate de protamine LEO Pharma (10 mg de sulfate de protamine) neutralise environ 1400 UI d'héparine."
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_LEG_Y69_1__O7_5-E01-002",
+   "gravite": "🟧 majeur",
+   "categorie": "logique_ou_contradiction",
+   "fichier": "content/questions/LEG/Y69_1__O7_5-E01.json",
+   "localisation": "questions[15].statements[2].text",
+   "texte_actuel": "Dans l'index NCC MERP, les catégories A à D correspondent aux erreurs sans dommage.",
+   "probleme": "Affirmation Kprim cotée VRAIE alors que l'index NCC MERP range la catégorie A dans « No Error » (aucune erreur survenue) et seulement B, C, D dans « Error, No Harm ». Le lot se contredit : questions[3].options[4].why dit « A désigne une situation sans erreur survenue » et la ligne A du tableau c1 dit « Aucune erreur n'a eu lieu ». Un candidat rigoureux répond FAUX et perd le point. La même formule fautive figure dans notions[2].enonce (N03), questions[3].ladder.anchor, questions[15].ladder.anchor et corrections notions[0].points[3]. Accessoirement, l'index est daté « 2001 » partout alors qu'il a été révisé en 2022.",
+   "correction_proposee": "Reformuler partout : « Dans l'index NCC MERP, la catégorie A désigne une circonstance à risque sans erreur ; les catégories B à D sont des erreurs sans dommage ; E à I impliquent un dommage ou le décès. » Garder l'affirmation Kprim vraie avec « B à D », ou la coter fausse si « A à D » est conservé. Citer « NCC MERP, index révisé 2022 ».",
+   "preuve": {
+    "source": "NCC MERP — Index for Categorizing Medication Errors, version révisée 2022 (lu via recherche web)",
+    "annee": "2022",
+    "lien": "https://www.nccmerp.org/sites/default/files/2022ncc-merp-categorizing-medication-errors-index.pdf",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Category A No Error Yellow"
+   },
+   "confiance": "certaine"
+  },
+  {
+   "id": "P45_LEG_Y69_1__O7_5-E01-003",
+   "gravite": "🟨 mineur",
+   "categorie": "posologie",
+   "fichier": "content/corrections/LEG/Y69_1__O7_5-E01.json",
+   "localisation": "priseEnCharge[0].moyens.pharmacologique[1].molecule",
+   "texte_actuel": "Glucose 30 % (antihypoglycémiant)",
+   "probleme": "Le glucose à 30 % est une présentation française ; la recherche compendium.ch (65 produits « gluc… ») ne trouve en Suisse que des solutions injectables ou de perfusion à 5, 10, 20, 40 et 50 %, et aucune à 30 %. La posologie « 50 ml (15 g) » est donc attribuée à tort à l'« AIPS Swissmedic », qui ne décrit pas ce produit. La dose en grammes (15 g) reste correcte.",
+   "correction_proposee": "« Glucose 40 % : 20 à 40 ml i.v. (8 à 16 g), ou glucose 20 % : 50 à 100 ml i.v. (10 à 20 g), à répéter selon la glycémie, puis perfusion de glucose si insuline retard » ; citer l'information professionnelle d'un produit suisse (Glucosum Bichsel 40 %, Glucose Amino 40 %, Glucose B. Braun 20 %).",
+   "preuve": {
+    "source": "Information professionnelle suisse (AIPS, via compendium.ch) — Glucose Amino, solutions injectables 5 %, 10 %, 20 %, 40 % ; recherche produits compendium.ch « glucose/glucosum »",
+    "annee": "2026",
+    "lien": "https://compendium.ch/fr/product/29318/mpro",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Les solutions de perfusion glucosées de 20% et 40% peuvent être administrées en présence d'états hypoglycémiques"
+   },
+   "confiance": "probable"
+  },
+  {
+   "id": "P45_LEG_Y69_1__O7_5-E01-004",
+   "gravite": "🟨 mineur",
+   "categorie": "droit_suisse",
+   "fichier": "content/questions/LEG/Y69_1__O7_5-E01.json",
+   "localisation": "questions[2].options[0].why",
+   "texte_actuel": "Devoir d'information issu du mandat, art. 398 CO.",
+   "probleme": "La série S1 se déroule dans un « hôpital cantonal » (questions[0].stem). Or, selon le Tribunal fédéral, les soins dans un hôpital public relèvent d'une tâche publique : la relation n'est pas un mandat de droit privé et le devoir d'informer découle alors du droit public cantonal (loi cantonale sur la santé, droits des patients), non de l'art. 398 CO. L'art. 398 CO reste exact pour le cabinet ou la clinique privée (Q14, Q18). La base légale citée est donc inexacte pour cette vignette ; même remarque pour questions[2].ladder.mechanism et questions[2].sources.",
+   "correction_proposee": "« Devoir d'information : droits du patient selon la loi cantonale sur la santé à l'hôpital public ; devoir de diligence et de fidélité du mandat (art. 398 al. 2 et 400 CO) en pratique privée. » Ou déplacer la vignette dans une clinique privée.",
+   "preuve": {
+    "source": "Tribunal fédéral, ATF 133 III 462 consid. 2.1, citant ATF 122 III 101 consid. 2a/aa (lu via recherche web)",
+    "annee": "2007",
+    "lien": "https://servat.unibe.ch/dfr/bge/c3133462.html",
+    "lu_le": "2026-11-27",
+    "extrait_court": "les soins dispensés aux malades dans les hôpitaux publics ne se rattachent pas à l'exercice d'une industrie (cf. art. 61 al. 2 CO)"
+   },
+   "confiance": "probable"
+  },
+  {
+   "id": "P45_LEG_Y69_1__O7_5-E01-005",
+   "gravite": "🟨 mineur",
+   "categorie": "recommandation_obsolete",
+   "fichier": "content/corrections/LEG/Y69_1__O7_5-E01.json",
+   "localisation": "notions[4].tableau.lignes[3][3]",
+   "texte_actuel": "Via le centre régional de pharmacovigilance",
+   "probleme": "Circuit dépassé : Swissmedic demande aujourd'hui aux professionnels de déclarer directement et en ligne via le portail ElViS (ElViS 2.0 annoncé pour le 21.12.2026) ; les centres régionaux de pharmacovigilance n'interviennent plus que dans l'évaluation, en collaboration avec Swissmedic. Même formule dans notions[28].enonce (N29) du fichier notions. Le délai légal (15 jours pour un effet grave) n'est mentionné nulle part.",
+   "correction_proposee": "« Déclaration directe à Swissmedic par le portail électronique ElViS, dans les 15 jours pour un effet indésirable grave ; les centres régionaux de pharmacovigilance participent à l'évaluation. »",
+   "preuve": {
+    "source": "Swissmedic — Déclaration d'effets indésirables de médicaments par les professionnels de la santé (ElViS) (lu via recherche web)",
+    "annee": "2026",
+    "lien": "https://www.swissmedic.ch/swissmedic/fr/home/medicaments-a-usage-humain/surveillance-du-marche/pharmacovigilance/elvis.html",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Les professionnels de la santé peuvent directement déclarer les effets indésirables à Swissmedic."
+   },
+   "confiance": "probable"
+  },
+  {
+   "id": "P45_LEG_Y69_1__O7_5-E01-006",
+   "gravite": "🟨 mineur",
+   "categorie": "logique_ou_contradiction",
+   "fichier": "content/questions/LEG/Y69_1__O7_5-E01.json",
+   "localisation": "questions[11].ladder.decision",
+   "texte_actuel": "Déclarer dans CIRRNET et assurer le retour d'information.",
+   "probleme": "Un professionnel ne déclare pas « dans CIRRNET » : il déclare dans le CIRS local de son institution, et ce sont les systèmes locaux affiliés qui transmettent leurs déclarations au réseau CIRRNET. Le fichier corrections le dit correctement (priseEnCharge[1] : « Déclarer l'événement au CIRS local et, si l'institution y participe, à CIRRNET »). La question 12 (cabinet de groupe) et son option A (« Caractéristiques de CIRRNET ») confondent les deux niveaux. À vérifier aussi : l'art. 58g let. c OAMal impose désormais aux fournisseurs de disposer d'un système interne de rapports et d'apprentissage, ce que le lot ne mentionne pas.",
+   "correction_proposee": "« Déclarer dans le CIRS local ; l'institution affiliée transmet à CIRRNET, et assurer le retour d'information. » Aligner l'option A et le « why » de la question 12 sur cette distinction.",
+   "preuve": {
+    "source": "Sécurité des patients Suisse — présentation de CIRRNET (Critical Incident Reporting & Reacting NETwork) ; FMH, prise de position CIRS, BMS 2024",
+    "annee": "2024",
+    "lien": "https://fmh.ch/files/pdf30/cirs_position_fmh_bms-2024-1525832001.pdf",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Source non ouverte (hôte bloqué) : à vérifier."
+   },
+   "confiance": "à confirmer"
+  },
+  {
+   "id": "P45_LEG_Y69_1__O7_5-E01-007",
+   "gravite": "🟨 mineur",
+   "categorie": "droit_suisse",
+   "fichier": "content/notions/LEG/Y69_1__O7_5-E01.json",
+   "localisation": "notions[35].source",
+   "texte_actuel": "LPMéd art. 40",
+   "probleme": "L'art. 40 LPMéd énumère des devoirs professionnels généraux (soin et conscience professionnelle, formation continue, droits du patient, publicité, secret, urgence, assurance RC) pour les personnes exerçant sous leur propre responsabilité ; il ne règle ni la tenue du dossier ni l'interdiction de le modifier. Selon le guide ASSM/FMH (chap. 3.5), l'obligation de tenir le dossier repose sur le droit du mandat, les lois cantonales sur la santé et le Code de déontologie FMH ; la falsification relève de l'art. 251 CP, que questions[10].sources cite d'ailleurs correctement. Incohérence de base légale entre N36 et Q11.",
+   "correction_proposee": "Source de N36 : « Lois cantonales sur la santé ; art. 400 CO ; art. 251 CP (faux dans les titres) ; Code de déontologie FMH ».",
+   "preuve": {
+    "source": "ASSM/FMH — Bases juridiques pour le quotidien du médecin, chap. 3.5 Dossier médical ; LPMéd (RS 811.11) art. 40 sur fedlex.admin.ch",
+    "annee": "2026",
+    "lien": "https://leitfaden.fmh.ch/fr/guide-pratique-bases-juridique/3-fondement-juridique-medecin/35-dossier-medical.pdf?c=6601",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Source non ouverte (hôte bloqué) : à vérifier."
+   },
+   "confiance": "à confirmer"
+  },
+  {
+   "id": "P45_LEG_Y69_1__O7_5-E01-008",
+   "gravite": "🟨 mineur",
+   "categorie": "source_fausse_ou_invente",
+   "fichier": "content/corrections/LEG/Y69_1__O7_5-E01.json",
+   "localisation": "notions[6].sources[2]",
+   "texte_actuel": "Sécurité des patients Suisse, Quand surviennent des erreurs",
+   "probleme": "Titre introuvable. La publication n° 1 de la fondation (version française de « Wenn etwas schief geht ») s'intitulerait « Lorsque les choses tournent mal : communiquer et agir après un incident ». Autres intitulés de sources non retrouvés et à contrôler sur patientensicherheit.ch et samw.ch : « Sécurité des patients Suisse – Prise en charge des erreurs médicamenteuses » (questions[0].sources), « ASSM – Gestion des erreurs » (questions[2].sources ; le document réel est le guide ASSM/FMH « Bases juridiques pour le quotidien du médecin », chap. 8.2) et « Sécurité des patients Suisse – Recommandations prescription sûre » (questions[12].sources). Si ces titres n'existent pas, ce sont des sources inventées (🟥 selon la grille).",
+   "correction_proposee": "Remplacer par les titres exacts vérifiés, par exemple « Fondation Sécurité des patients Suisse, publication n° 1 : Lorsque les choses tournent mal — communiquer et agir après un incident » et « ASSM/FMH, Bases juridiques pour le quotidien du médecin, chap. 8.2 ».",
+   "preuve": {
+    "source": "Fondation Sécurité des patients Suisse — catalogue des publications (série n° 1)",
+    "annee": "2009",
+    "lien": "https://patientensicherheit.ch/fr/publications/",
+    "lu_le": "2026-11-27",
+    "extrait_court": "Source non ouverte (hôte bloqué) : à vérifier."
+   },
+   "confiance": "à confirmer"
+  }
+ ]
+}
