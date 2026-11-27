@@ -30,6 +30,9 @@ concurrency:
 jobs:
   audit:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
     timeout-minutes: 340
     steps:
       - uses: actions/checkout@v4
@@ -39,15 +42,19 @@ jobs:
       - name: Manifestes à jour (0 token)
         run: python Gemini_cross-check-hard/outils/preparer_lots.py
       - name: Audit par l'API Gemini
+        id: audit
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: >
           python Gemini_cross-check-hard/outils/audit_gemini.py
           --jeu "${{ inputs.jeu }}" --max-lots "${{ inputs.max_lots }}"
           --max-usd "${{ inputs.max_usd }}" --effort "${{ inputs.effort }}"
+          2>&1 | tee Gemini_cross-check-hard/derniere_passe.log; exit ${PIPESTATUS[0]}
       - name: Contrôle des rapports (0 token)
+        if: always()
         run: python Gemini_cross-check-hard/outils/valider_rapports.py || true
-      - name: Dépôt des rapports
+      - name: Dépôt des rapports et du journal (même en cas d'échec)
+        if: always()
         run: |
           git config user.name "audit-gemini[bot]"
           git config user.email "audit-gemini@users.noreply.github.com"
