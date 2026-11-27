@@ -8,13 +8,14 @@
   --rouge:#b3122b;--rouge-fonce:#8f0e22;--rouge-pale:#fdeef0;--rouge-trait:#f2c4cb;
   --bleu:#123c78;--bleu-2:#33598f;--bleu-3:#5b7aa6;--bleu-pale:#eef4fb;--bleu-trait:#cfdcec;
   --fond:#f5f8fc;--carte:#ffffff;--bord:#dbe5f0;--bord-fort:#bccce0;
-  --bulle:#0b1424;--ok:#1d6b3a;--gris:#6b7a90;
+  --bulle:#0b1424;--ok:#1d6b3a;--gris:#5a687c;
   --r1:6px;--r2:10px;--r3:14px;--r-rond:999px;
   --o1:0 1px 2px #0f2a5214;--o2:0 2px 6px #0f2a520f,0 8px 24px #0f2a5214;--o3:0 18px 50px #0b142440;
   --e1:4px;--e2:8px;--e3:12px;--e4:16px;--e5:24px;--e6:32px;--e7:48px;
   --lecture:72ch;--trans:160ms cubic-bezier(.2,.7,.2,1);
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%;scroll-padding-top:96px}
 body{margin:0;font-family:var(--police);font-size:15px;line-height:1.55;color:var(--bleu);background:var(--fond);
   background-image:radial-gradient(1200px 400px at 85% -120px,#e3eefa 0,transparent 70%),radial-gradient(900px 300px at -10% -80px,#fbeef0 0,transparent 70%);
@@ -62,10 +63,10 @@ p{margin:0 0 var(--e3)}
 .filtres{position:sticky;top:96px;max-height:calc(100vh - 116px);overflow:auto;padding:var(--e4);background:var(--carte);border:1px solid var(--bord);border-radius:var(--r3);box-shadow:var(--o1)}
 .filtres-tete{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:var(--e2)}
 .filtres-tete h2{font-size:17px;margin:0}
-.filtres section{padding:var(--e3) 0;border-top:1px solid var(--bord)}
+.filtres section{padding:var(--e2) 0;border-top:1px solid var(--bord)}
 .rub{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin:0 0 var(--e2)}
 .puces{display:flex;flex-direction:column;gap:3px}
-.puce{display:flex;align-items:center;gap:8px;width:100%;text-align:left;border:1px solid transparent;background:transparent;border-radius:var(--r1);padding:5px 8px;color:var(--bleu);cursor:pointer;font-size:14px;transition:background var(--trans),border-color var(--trans)}
+.puce{display:flex;align-items:center;gap:8px;width:100%;text-align:left;border:1px solid transparent;background:transparent;border-radius:var(--r1);padding:3px 8px;line-height:1.35;color:var(--bleu);cursor:pointer;font-size:14px;transition:background var(--trans),border-color var(--trans)}
 .puce::before{content:"";width:13px;height:13px;border-radius:4px;border:1.5px solid var(--bord-fort);background:var(--carte);flex:none;transition:background var(--trans),border-color var(--trans)}
 .puce:hover{background:var(--bleu-pale)}
 .puce[aria-pressed=true]{background:var(--rouge-pale);border-color:var(--rouge-trait)}
@@ -123,6 +124,9 @@ p{margin:0 0 var(--e3)}
 .tuile small{color:var(--bleu-2);font-size:12.5px}
 .tuile .pastilles{display:flex;flex-wrap:wrap;gap:4px}
 .pt{width:9px;height:9px;border-radius:50%;background:var(--c);display:inline-block}
+.legende-niv{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 var(--e4);padding:var(--e2) var(--e3);list-style:none;font-size:12.5px;color:var(--bleu-2);background:var(--carte);border:1px solid var(--bord);border-radius:var(--r2)}
+.legende-niv li{display:flex;align-items:center;gap:6px}
+.tuile{min-height:0}
 .vide-cat{padding:var(--e5);text-align:center;color:var(--bleu-2)}
 
 /* ---------- vue pathologie ---------- */
@@ -187,7 +191,7 @@ details.repli>div{margin-top:var(--e3)}
 .fiche dl.grille{display:grid;grid-template-columns:minmax(150px,210px) minmax(0,1fr);gap:8px 16px;margin:0}
 .fiche dl.grille dt{font-weight:700;font-size:13px}
 .fiche dl.grille dd{margin:0}
-.fiche dd.npd{color:var(--rouge-fonce)}
+.fiche dd.npd{color:var(--bleu);padding-left:10px;border-left:3px solid var(--rouge-trait)}
 .fiche .pa{color:var(--rouge-fonce)}
 .fiche .nl{color:var(--bleu)}
 .fiche .tt,.fiche dd.tt{color:var(--ok)}
