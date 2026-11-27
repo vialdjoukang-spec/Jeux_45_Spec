@@ -142,13 +142,26 @@ def noeud(id_, nature, texte, de, couleur, bulle, rub, **kw):
     return n
 
 
+# Libellés de pathologie : sens imposé par le contexte de l'imagerie (le glossaire général peut donner un autre sens).
+SIGLE_LIBELLE = {"ACG": "artérite à cellules géantes"}
+
+
 def developpe(nom):
-    """Remplace un sigle du libellé par son nom complet (glossaire) ; renvoie (libellé, définition du sigle)."""
+    """Remplace un sigle du libellé par son nom complet ; renvoie (libellé, définition du sigle).
+    On ne développe que si le glossaire donne un groupe nominal (pas une phrase) et si le sigle n'est pas élidé (l'HPV)."""
     for tok in re.findall(r"\b[A-Z][A-Z0-9-]{2,}\b", nom):
-        g = GLO.get(tok)
-        if g:
-            plein = re.split(r"[:,(]", g)[0].strip()
-            return nom.replace(tok, plein[0].lower() + plein[1:] if not nom.startswith(tok) else plein, 1), f"{tok} = {g}"
+        g = SIGLE_LIBELLE.get(tok) or GLO.get(tok)
+        if not g:
+            continue
+        plein = re.split(r"[:,(]", g)[0].strip().rstrip(".").strip()
+        phrase = re.search(r"\b(est|sont|relie|désigne|mesure|permet|correspond)\b", plein) or re.match(r"(L'|L’|Le |La |Les )", plein)
+        elide = re.search(r"[lLdD][’']" + re.escape(tok), nom)
+        if tok in SIGLE_LIBELLE:
+            phrase = None
+        if phrase or elide or len(plein.split()) > 8:
+            return nom, f"{tok} = {GLO.get(tok, g)}"
+        rep = plein if nom.startswith(tok) else plein[0].lower() + plein[1:]
+        return nom.replace(tok, rep, 1), f"{tok} = {SIGLE_LIBELLE.get(tok) or g}"
     return nom, None
 
 

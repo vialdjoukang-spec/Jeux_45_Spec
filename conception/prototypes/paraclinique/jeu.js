@@ -118,7 +118,6 @@ function construire(noeuds) {
     el.innerHTML = (n.type ? '<b class=ty>' + esc(n.type) + '</b>' : '') + esc(n.texte) + '<span class=ics>' + ics.join('') + '</span>';
     el.style.setProperty('--ni', ics.length);
     cases.appendChild(el); n.el = el;
-    if (n.cliches) n.fenEl = fenetreCliches(n);
     el.addEventListener('click', e => { const a = e.target.closest('[data-a]'); if (a) { e.stopPropagation(); action(n, a.dataset.a); return; } basculer(n); });
     el.addEventListener('mouseenter', () => montrer(n)); el.addEventListener('mouseleave', () => cacherBulle());
     el.addEventListener('focus', () => montrer(n)); el.addEventListener('blur', () => cacherBulle());
@@ -201,7 +200,8 @@ function disposer() {
       a[0].y = best; pris0.push([best - h / 2, best + h / 2]); }
   }
   /* fenêtre à deux clichés posée dans la toile sous la pathologie, comme le pilote : la chaîne remonte en bloc si la fenêtre déborde */
-  for (const n of N) { if (!n.fenEl) continue; const on = etat.ouvert.has(n.id) && vis.includes(n); n.fenEl.hidden = !on; if (!on) continue;
+  for (const n of N) { if (n.cliches && !n.fenEl && etat.ouvert.has(n.id)) n.fenEl = fenetreCliches(n); // création paresseuse : aucun cliché chargé avant l'ouverture
+    if (!n.fenEl) continue; const on = etat.ouvert.has(n.id) && vis.includes(n); n.fenEl.hidden = !on; if (!on) continue;
     const ww = mobile ? W - 16 : Math.min(480, W - 24); n.fenEl.style.width = ww + 'px'; const wh = n.fenEl.offsetHeight;
     const racineDe = m => { while (m.de.length) m = byId[m.de[0]]; return m; }, rac = racineDe(n);
     const wx = mobile ? 8 : n.cote === 'd' ? Math.max(Rr + 8, Math.min(W - 12 - ww, n.x + n.w / 2 - ww)) : Math.min(L - 8 - ww, Math.max(12, n.x - n.w / 2));
