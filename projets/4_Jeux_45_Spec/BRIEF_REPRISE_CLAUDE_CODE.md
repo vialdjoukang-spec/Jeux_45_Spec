@@ -1,7 +1,7 @@
 # BRIEF — Claude Code reprend la main sur Jeux 45 Spec (MedSuisse Arena 45)
 
 > Phrase de lancement : « Lis et exécute projets/4_Jeux_45_Spec/BRIEF_REPRISE_CLAUDE_CODE.md ». Modèle : Opus 5.5, effort Élevé.
-> Ordre de Vial : ce jeu ne démarre qu'après la fin de Paraclinique et de la Tétrade, avec une pause d'une heure entre deux jeux (`projets/SEQUENCE_VIAL.md`).
+> Décision de Vial (27.11.2026, 17:19) : le 45 Spec avance dès maintenant dans sa propre session, en parallèle de Paraclinique ; l'audit se fait ensuite avec Fable 5.2 (§ 9).
 
 ## 1. État mesuré (27.11.2026)
 - Jauge : **1 228 / 2 525 pathologies**, **24 548 / 50 500 QCM** (20 par pathologie), soit **49 %** (`projets/JAUGES.md`, régénérée automatiquement).
@@ -60,5 +60,11 @@ Sorties : `content/notions/<SPEC>/<id>.json`, `content/questions/<SPEC>/<id>.jso
 
 ## 8. Rapport à Vial (court, phrases verbales)
 Pathologies produites (avant → après), contrôles verts, branches fusionnées, points « à vérifier », skills chargés. Aucun contenu de question dans le rapport.
+
+## 9. Audit par Fable 5.2 (session séparée, après production)
+Phrase de lancement, modèle Fable 5.2 : « Lis Gemini_cross-check-hard/PROMPT_GEMINI.md et Gemini_cross-check-hard/SKILL.md, puis audite le jeu 4_Jeux_45_Spec selon son MANIFESTE_LOTS.json ; signe tes rapports "auditeur": "claude-fable-5-2" ».
+- Rapports : `Gemini_cross-check-hard/4_Jeux_45_Spec/rapports/<lot>.json`, au format `outils/SCHEMA_RAPPORT.json`.
+- Contrôle : `python Gemini_cross-check-hard/outils/valider_rapports.py`.
+- L'auditeur n'écrit que dans `rapports/` ; il ne corrige pas le contenu et ne montre aucun QCM à Vial.
 
 Signature : AAI (Anthropic AI)
