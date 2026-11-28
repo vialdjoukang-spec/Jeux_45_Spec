@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**141 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**143 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -745,8 +745,8 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 735 | 1735 | `R63.0__O5_3-E07` | MIG | Anorexie, cachexie et question de l'hydratation / nutrition artificielle en fin de vie | produite |
 | 736 | 1736 | `R64_1__O3_3-E03` | MIG | Dénutrition secondaire à une pathologie néoplasique ou inflammatoire (cachexie) | produite |
 | 737 | 1737 | `R68.1__O2_8-E08` | PED | Malaise grave du nourrisson (BRUE à haut risque / ancien ALTE) ayant réanimé | produite |
-| 738 | 1738 | `R73.9__F2_9-E06` | MIG | Hyperglycémie de stress ou cortico-induite | — |
-| 739 | 1739 | `R76.1__O7_13-E05` | MIG | Infection tuberculeuse latente (ITL) chez migrant de zone d'endémie | — |
+| 738 | 1738 | `R73.9__F2_9-E06` | MIG | Hyperglycémie de stress ou cortico-induite | produite |
+| 739 | 1739 | `R76.1__O7_13-E05` | MIG | Infection tuberculeuse latente (ITL) chez migrant de zone d'endémie | produite |
 | 740 | 1740 | `R79.8__F2_12-E06` | MIG | Élévation isolée de l'urée ou créatinine non rénale | produite |
 | 741 | 1741 | `R82.7__O4_6-E05` | GYN | Bactériurie asymptomatique (ne pas traiter sauf grossesse / chirurgie urologique) | produite |
 | 742 | 1742 | `R93.8__O4_4-E04` | MIG | Incidentalome surrénalien, thyroïdien ou pulmonaire découvert au CT | produite |
