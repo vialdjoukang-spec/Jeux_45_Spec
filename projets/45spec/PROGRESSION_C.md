@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**131 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**135 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -738,10 +738,10 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 728 | 1728 | `R41.8_1__O7_15-E06` | MIG | Oublis liés à la polymédication ou aux troubles cognitifs du sujet âgé | produite |
 | 729 | 1729 | `R41.8__O7_10-E04` | MIG | Évaluation de la capacité de discernement avant un geste | produite |
 | 730 | 1730 | `R50.2__G6-E08` | TOX | Fièvre médicamenteuse (hypersensibilité / bêta-lactamines) | produite |
-| 731 | 1731 | `R53_1__O7_18-E06` | MIG | Demande de perfusions de vitamines ou bilan endocrinien large pour fatigue banale | — |
-| 732 | 1732 | `R55_1__S7_10-E07` | MIG | Syncope convulsivante (brève anoxie cérébrale mimant une crise) | — |
-| 733 | 1733 | `R56.8__S7_10-E08` | MIG | Crise épileptique provoquée métabolique ou toxique (hyponatrémie, hypoglycémie, cocaïne/tramadol) | — |
-| 734 | 1734 | `R61.1__G1-E06` | TOX | Hyperhidrose médicamenteuse (ISRS, opioïdes, bêtabloquants) | — |
+| 731 | 1731 | `R53_1__O7_18-E06` | MIG | Demande de perfusions de vitamines ou bilan endocrinien large pour fatigue banale | produite |
+| 732 | 1732 | `R55_1__S7_10-E07` | MIG | Syncope convulsivante (brève anoxie cérébrale mimant une crise) | produite |
+| 733 | 1733 | `R56.8__S7_10-E08` | MIG | Crise épileptique provoquée métabolique ou toxique (hyponatrémie, hypoglycémie, cocaïne/tramadol) | produite |
+| 734 | 1734 | `R61.1__G1-E06` | TOX | Hyperhidrose médicamenteuse (ISRS, opioïdes, bêtabloquants) | produite |
 | 735 | 1735 | `R63.0__O5_3-E07` | MIG | Anorexie, cachexie et question de l'hydratation / nutrition artificielle en fin de vie | — |
 | 736 | 1736 | `R64_1__O3_3-E03` | MIG | Dénutrition secondaire à une pathologie néoplasique ou inflammatoire (cachexie) | — |
 | 737 | 1737 | `R68.1__O2_8-E08` | PED | Malaise grave du nourrisson (BRUE à haut risque / ancien ALTE) ayant réanimé | produite |
