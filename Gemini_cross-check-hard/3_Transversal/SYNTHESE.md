@@ -6,26 +6,27 @@ Audit du 28.11.2026 : **248 lots sur 248**. Chaque constat porte une source ouve
 
 | Gravité | Constats | Corrigés dans les sources |
 |---|---|---|
-| 🟥 critique | 5 | 5 |
+| 🟥 critique | 6 | 6 |
 | 🟧 majeur | 38 | 36 |
-| 🟨 mineur | 67 | 0 |
+| 🟨 mineur | 69 | 0 |
 | 🟦 forme | 6 | 0 |
-| **Total** | **116** | **41** |
+| **Total** | **119** | **42** |
 
 ## Verdict des lots
 
 | Verdict | Lots |
 |---|---|
-| 🟩 conforme | 159 |
+| 🟩 conforme | 158 |
 | 🟨 mineurs seulement | 53 |
 | 🟧 majeurs | 31 |
-| 🟥 critique | 5 |
+| 🟥 critique | 6 |
 
 ## Familles d'erreurs
 
 | Gravité | Catégorie | Constats |
 |---|---|---|
 | 🟥 critique | source_fausse_ou_invente | 5 |
+| 🟥 critique | posologie | 1 |
 | 🟧 majeur | source_fausse_ou_invente | 13 |
 | 🟧 majeur | recommandation_obsolete | 8 |
 | 🟧 majeur | logique_ou_contradiction | 4 |
@@ -37,10 +38,10 @@ Audit du 28.11.2026 : **248 lots sur 248**. Chaque constat porte une source ouve
 | 🟧 majeur | examen_federal | 1 |
 | 🟨 mineur | droit_suisse | 19 |
 | 🟨 mineur | source_fausse_ou_invente | 9 |
-| 🟨 mineur | chiffre_suisse | 7 |
+| 🟨 mineur | chiffre_suisse | 8 |
 | 🟨 mineur | recommandation_obsolete | 7 |
+| 🟨 mineur | posologie | 6 |
 | 🟨 mineur | logique_ou_contradiction | 5 |
-| 🟨 mineur | posologie | 5 |
 | 🟨 mineur | critere_ou_score | 4 |
 | 🟨 mineur | seuil_ou_valeur | 4 |
 | 🟨 mineur | indication_ou_niveau | 2 |
@@ -60,6 +61,7 @@ Audit du 28.11.2026 : **248 lots sur 248**. Chaque constat porte une source ouve
 | TR_trans_m_s3_01-001 | _meta.sources[3] | Cette référence n'existe pas : PubMed ne contient aucun article aux Annals of Oncology 2012;23:1957, et aucun article de Maltoni ne porte ce titre. Les deux travaux réels sont l'étude prospective multicentrique (Ann Oncol 2009;20:1163-1169) et la revue systéma | [PubMed, PMID 19542532 (Maltoni M et al., Ann Oncol 2009;20(7):1163-9)](https://doi.org/10.1093/annonc/mdp048) | oui |
 | TR_trans_m_s4_02-001 | _meta.sources[2] et parties > 8. Pratique suisse | Cette source n'existe pas : la liste BIGORIO de palliative.ch compte douze recommandations (dyspnée, nausées, délire, sédation, exacerbation douloureuse, iléus, spiritualité, hydratation, proches, anxiété, pharmacothérapie, fatigue) et aucune ne porte sur les  | [HUG, Soins palliatifs — aide-mémoire destiné aux soignants, Urgences :](https://www.hug.ch/soins-palliatifs-aide-memoire-destine-aux-soignants/urgences-hemorragie-aigue) | oui |
 | TR_trans_m_s4_03-001 | _meta.sources[3] | Cette référence n'existe pas : PubMed ne contient aucun article aux Annals of Oncology 2012;23:1957 et aucun article de Maltoni ne porte ce titre. La revue systématique de 2012 est parue au Journal of Clinical Oncology. | [PubMed, PMID 22412129 (Maltoni M et al., J Clin Oncol 2012;30(12):1378](https://doi.org/10.1200/JCO.2011.37.3795) | oui |
+| TR_trans_q_s3_03-002 | parties > 3. Outils et méthodes ; decisionFinale ; items[1]  | Le cas (eGFR 26) et le QCM 2 (eGFR 25) font reprendre la metformine après 48 heures chez des patients dont la fonction rénale se situe sous 30 mL/min. L'information suisse contre-indique la metformine en cas d'insuffisance rénale sévère (clairance < 30 mL/min) | [compendium.ch, Glucophage cpr pell 1000 mg, résumé de l'information pr](https://compendium.ch/fr/product/122963-glucophage-cpr-pell-1000-mg) | oui |
 
 ## Constats 🟧 majeur
 
@@ -106,17 +108,18 @@ Audit du 28.11.2026 : **248 lots sur 248**. Chaque constat porte une source ouve
 
 ## Points non vérifiés et sites bloqués
 
-Les rapports listent **468 points non vérifiés** (champ `non_verifies`, avec l'endroit où vérifier). Aucun n'est devenu un constat faute de source lue.
+Les rapports listent **466 points non vérifiés** (champ `non_verifies`, avec l'endroit où vérifier). Aucun n'est devenu un constat faute de source lue.
 
 | Site | Rapports concernés |
 |---|---|
+| compendium.ch | 30 |
 | fmh.ch | 26 |
-| compendium.ch | 24 |
 | bger.ch | 22 |
 | pubmed.ncbi.nlm.nih.gov | 14 |
-| hug.ch | 12 |
 | annalsofoncology.org | 12 |
+| hug.ch | 12 |
 | icd.who.int | 12 |
+| swissmedicinfo.ch | 6 |
 | eur-lex.europa.eu | 3 |
 | smartermedicine.ch | 3 |
 | tbinfo.ch | 3 |
@@ -132,6 +135,8 @@ Les rapports listent **468 points non vérifiés** (champ `non_verifies`, avec l
 | siwf.ch | 1 |
 | nccn.org | 1 |
 | ncbi.nlm.nih.gov | 1 |
+| clinicalmicrobiologyandinfection.org | 1 |
+| core.ac.uk | 1 |
 | nara-antibiotic-resistance.ch | 1 |
 | suva.ch | 1 |
 | epi.ch | 1 |
