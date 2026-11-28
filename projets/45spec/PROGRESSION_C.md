@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**206 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**210 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -16,10 +16,10 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 6 | 1006 | `F32.2__O2_10-E13` | PSY | Dépression sévère avec risque suicidaire sur échec ou harcèlement scolaire | produite |
 | 7 | 1007 | `F32.3__O2_2-E13` | PEA | Épisode dépressif sévère avec signes psychotiques ou catatonie de l'adolescent | produite |
 | 8 | 1008 | `F40.2_2__S9_7-E13` | PSY | Peur irrationnelle aiguë avec refus de soins vitaux (ex. phobie des hôpitaux / aiguilles) | produite |
-| 9 | 1009 | `F43.0_1__O4_6-E15` | PSY | Détresse psychologique aiguë suite à l'annonce d'un dépistage positif ou faux positif | — |
-| 10 | 1010 | `F43.0_2__O6_7-E13` | LEG | État de stress aigu avec sidération ou mutisme réactionnel à l'annonce d'un décès | — |
-| 11 | 1011 | `F43.0_3__O6_9-E14` | MTR | Crise de panique ou effondrement émotionnel aigu au travail (burnout aigu) | — |
-| 12 | 1012 | `F43.0_4__O7_19-E15` | PSY | Détresse psychologique majeure ou faux espoirs face à une maladie neurodégénérative avancée | — |
+| 9 | 1009 | `F43.0_1__O4_6-E15` | PSY | Détresse psychologique aiguë suite à l'annonce d'un dépistage positif ou faux positif | produite |
+| 10 | 1010 | `F43.0_2__O6_7-E13` | LEG | État de stress aigu avec sidération ou mutisme réactionnel à l'annonce d'un décès | produite |
+| 11 | 1011 | `F43.0_3__O6_9-E14` | MTR | Crise de panique ou effondrement émotionnel aigu au travail (burnout aigu) | produite |
+| 12 | 1012 | `F43.0_4__O7_19-E15` | PSY | Détresse psychologique majeure ou faux espoirs face à une maladie neurodégénérative avancée | produite |
 | 13 | 1013 | `F43.0_5__O7_25-E15` | PSY | Détresse psychologique majeure ou culpabilité parentale après annonce génétique | — |
 | 14 | 1014 | `F43.0__O2_3-E15` | LEG | Détresse psychologique aiguë / fugue sur maltraitance intrafamiliale | — |
 | 15 | 1015 | `F44.8_1__S9_11-E13` | PSY | État dissociatif aigu sévère avec stupeur ou errance dangereuse | — |
