@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**149 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**154 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -757,12 +757,12 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 747 | 1747 | `S36.0_1__S8_1-E02` | CHI | Traumatisme splénique fermé (grade I à III) | produite |
 | 748 | 1748 | `S36.1__S8_1-E03` | CHI | Traumatisme hépatique fermé (grade I à III) | produite |
 | 749 | 1749 | `S37.0__S8_1-E04` | CHI | Traumatisme rénal fermé (contusion ou lacération mineure) | produite |
-| 750 | 1750 | `S42.0__S8_8-E07` | ORT | Fracture de la clavicule | — |
-| 751 | 1751 | `S43.1__S8_4-E05` | ORT | Disjonction acromio-claviculaire (stades I à III de Rockwood) | — |
-| 752 | 1752 | `S63.1__S8_4-E04` | ORT | Luxation interphalangienne des doigts | — |
-| 753 | 1753 | `S66.9__S8_9-E05` | CMA | Plaie de la main avec section des tendons fléchisseurs ou extenseurs | — |
+| 750 | 1750 | `S42.0__S8_8-E07` | ORT | Fracture de la clavicule | produite |
+| 751 | 1751 | `S43.1__S8_4-E05` | ORT | Disjonction acromio-claviculaire (stades I à III de Rockwood) | produite |
+| 752 | 1752 | `S63.1__S8_4-E04` | ORT | Luxation interphalangienne des doigts | produite |
+| 753 | 1753 | `S66.9__S8_9-E05` | CMA | Plaie de la main avec section des tendons fléchisseurs ou extenseurs | produite |
 | 754 | 1754 | `S82.8__S8_8-E05` | ORT | Fracture malléolaire (uni-, bi- ou trimalléolaire) | — |
-| 755 | 1755 | `S83.0__S8_4-E03` | ORT | Luxation latérale de la patella (rotule) | — |
+| 755 | 1755 | `S83.0__S8_4-E03` | ORT | Luxation latérale de la patella (rotule) | produite |
 | 756 | 1756 | `S83.2__S8_8-E06` | ORT | Lésion méniscale traumatique aiguë du genou | — |
 | 757 | 1757 | `T14.0__S1_22-E04` | MIG | Piqûre d'insecte périorbitaire | — |
 | 758 | 1758 | `T18.2__S8_6-E06` | MIG | Corps étranger gastrique ou intestinal avalé (pièce, objet mousse) | — |
