@@ -1,0 +1,265 @@
+from constructeur_agent_45spec import pec
+ID = "F32.3__O2_2-E13"
+PLAN = "non_monographique"
+NG134 = "[NICE NG134, Depression in children and young people: identification and management (2019), recommandations 1.1.11, 1.3.14–1.3.15 et 1.6.14–1.6.46, lues le 28.11.2026]"
+CG155 = "[NICE CG155, Psychosis and schizophrenia in children and young people (2013, révisé 2016), recommandations 1.3.4–1.3.25, lues le 28.11.2026]"
+BAP = "[Rogers et al., British Association for Psychopharmacology, Evidence-based consensus guidelines for the management of catatonia (2023, PMID 37039129, PMC10101189), recommandations et tableaux 3, 7 et 9, lus le 28.11.2026]"
+GRAUS = "[Graus et al., A clinical approach to diagnosis of autoimmune encephalitis, Lancet Neurol (2016, PMID 26906964), panel 4 et passage sur l'adolescent, lus le 28.11.2026]"
+AACAP = "[AACAP, Walter et al., Clinical Practice Guideline for Children and Adolescents With Major and Persistent Depressive Disorders (2023, PMID 36273673), évaluation et diagnostic différentiel, lus le 28.11.2026]"
+ECTA = "[AACAP, Ghaziuddin et al., Summary of the practice parameter for the use of ECT with adolescents (2004, PMID 14691369), résumé lu le 28.11.2026]"
+RMS26 = "[Salamoni et al. (HUG), Origine organique d'un premier épisode psychotique : quand y penser ?, Rev Med Suisse (2026;22:311–315), résumé lu le 28.11.2026]"
+RMS08 = "[Gervasoni et Bertschy, La dépression majeure avec symptômes psychotiques, Rev Med Suisse (2008;4:1984–1987), introduction et questions-réponses lues le 28.11.2026]"
+CC = "[Code civil suisse (RS 210), art. 14, 16, 19c, 301, 304, 314b, 426, 427, 429, 430, 434 et 439, état au 01.01.2026, fedlex.admin.ch, lu le 28.11.2026]"
+HUG = "[HUG, Malatavie Unité de crise, Soins hospitaliers : guide d'accueil pour les adolescents de 14 à 18 ans (2016) et offre de soins du SPEA, lus le 28.11.2026]"
+CPD = "[Compendium.ch, résumés (Brevier) de Fluoxetin-Mepha, Zoloft, Cipralex, Zyprexa, Risperdal et Seroquel, indications et âges autorisés, lus le 28.11.2026 ; AIPS complètes à vérifier]"
+LOR = "[Compendium.ch, résumés (Brevier) de Temesta et Temesta Expidet (lorazépam oral) et de Rativor (lorazépam injectable), posologie et contre-indications, lus le 28.11.2026 ; AIPS complètes à vérifier]"
+EXP = "Avis d'expert (à vérifier)"
+_N = [
+("def","definition","critère",1,0,RMS08,"L'épisode dépressif sévère avec symptômes psychotiques (CIM-10 F32.3) associe aux critères d'un épisode sévère des idées délirantes, des hallucinations ou une stupeur dépressive."),
+("cong","definition","signe",2,0,RMS08,"Les idées délirantes de culpabilité, de ruine ou d'incurabilité sont congruentes à l'humeur ; des idées de persécution sont classées comme non congruentes, distinction fragile et influencée par la culture."),
+("epi","epidemiology","chiffre",1,0,RMS08,"Chez l'adulte, environ un épisode dépressif majeur sur cinq (19 % dans une étude citée) comporte des caractéristiques psychotiques ; la forme est sous-diagnostiquée et la stupeur ou les formes atténuées de catatonie sont souvent méconnues."),
+("orgpct","epidemiology","chiffre",1,1,RMS26,"Dans un premier épisode psychotique, une origine organique ou toxique se retrouve dans environ 14 % des cas, sans marqueur biologique ni drapeau rouge bien établi : une équipe des HUG propose un bilan protocolisé, aux urgences ou au cabinet."),
+("mech","basicSciences","mécanisme",1,0,GRAUS,"L'encéphalite à anticorps anti-récepteur NMDA est due à des IgG dirigées contre la sous-unité GluN1 ; une tumeur associée est rare avant 12 ans (0 à 5 %) et fréquente chez la femme de plus de 18 ans (58 %, le plus souvent un tératome de l'ovaire)."),
+("subst","anamnesis","terrain particulier",2,0,AACAP+" ; "+CG155,"On fait l'anamnèse des médicaments prescrits et non prescrits, y compris les produits en vente libre et naturels, et des substances : cannabis, stimulants, alcool, opiacés ou corticoïdes peuvent produire des symptômes dépressifs, et les drogues aggravent les symptômes psychotiques."),
+("fam","anamnesis","critère",1,0,NG134,"Devant tout trouble de l'humeur de l'enfant ou de l'adolescent, on recherche une dépression unipolaire ou bipolaire chez les parents et les grands-parents."),
+("cata","clinicalExam","signe",3,0,BAP,"La catatonie se diagnostique sur au moins trois signes : stupeur ou agitation, mutisme, négativisme, posture ou catalepsie, écholalie ou échopraxie, réduction des apports ; on s'adresse au patient comme s'il comprenait et l'on ne prend pas son absence de réponse pour une opposition volontaire."),
+("bfcrs","clinicalExam","examen",1,0,BAP,"L'échelle de Bush-Francis (BFCRS, 23 items, dont 14 de dépistage) est la plus utilisée et la seule validée par un test au lorazépam ; chez l'enfant et l'adolescent, la recommandation britannique préconise l'échelle pédiatrique PCRS, dérivée de la BFCRS."),
+("nmdar","presumptionRedFlags","critère",2,0,GRAUS,"Une encéphalite anti-NMDA est probable devant un début rapide (moins de 3 mois) d'au moins quatre groupes de symptômes (comportement ou cognition, langage, crises, mouvements anormaux, baisse de vigilance, dysautonomie), un EEG anormal ou un LCR inflammatoire, et l'exclusion des autres causes ; l'adolescent débute souvent par une psychose, une catatonie, une irritabilité et une insomnie."),
+("malig","presumptionRedFlags","complication",2,0,BAP,"Une catatonie avec hyperthermie et dysautonomie est maligne : on arrête tout antagoniste dopaminergique, on débute le lorazépam et l'on recourt à l'électroconvulsivothérapie bilatérale en l'absence de réponse en 48 à 72 heures ; le syndrome malin des neuroleptiques associe aussi rigidité, hyperthermie et dysautonomie."),
+("org","workupGoldStandard","décision",3,0,CG155+" ; "+BAP,"Un premier épisode demande une anamnèse et un examen physique complets à la recherche d'une maladie cérébrale organique ou d'un médicament en cause ; en cas de catatonie inaugurale ou de doute, on envisage une IRM ou un scanner, la recherche d'anticorps anti-récepteur NMDA dans le sérum et le LCR, et un EEG s'il existe un risque de crise ou une encéphalite possible."),
+("csf","workupAlternatives","examen",1,0,GRAUS,"La recherche d'anticorps anti-récepteur NMDA doit inclure le LCR : un dosage dans le seul sérum expose à des faux négatifs et à des faux positifs."),
+("noimg","workupAlternatives","piège",1,0,CG155+" ; "+AACAP,"Dans un premier épisode psychotique sans signe d'alerte, l'imagerie cérébrale structurelle n'est pas un examen de routine, et les examens de laboratoire se demandent selon les signes et symptômes d'une maladie somatique."),
+("base","workupAlternatives","examen",1,0,CG155,"Avant un antipsychotique, on note poids et taille sur une courbe de croissance, tour de taille, pouls et pression artérielle, glycémie à jeun ou HbA1c, lipides et prolactine, mouvements anormaux et état nutritionnel ; on propose un ECG en cas de risque cardiovasculaire ou d'hospitalisation."),
+("bip","positiveDiagnosis","diagnostic différentiel",2,0,AACAP+" ; "+NG134,"Le risque d'évolution bipolaire est plus élevé en cas d'hypomanie spontanée ou induite par un antidépresseur, de caractéristiques psychotiques, d'hypersomnie ou d'antécédent familial de trouble bipolaire."),
+("fep","positiveDiagnosis","diagnostic différentiel",1,0,CG155+" ; "+RMS08,"Si les symptômes suffisent pour une psychose affective (dépression psychotique unipolaire ou trouble bipolaire), on suit les recommandations des troubles de l'humeur et non celles d'un premier épisode schizophrénique ; des idées de persécution non congruentes doivent faire réévaluer le diagnostic."),
+("loraz","acuteManagement","décision",3,0,BAP+" ; "+LOR,"Si le diagnostic est incertain, on fait un test au lorazépam : 1 à 2 mg IV ou IM, ou 2 mg par voie orale, puis réévaluation à 5, 15 ou 30 minutes selon la voie ; une baisse de 50 % du score est positive mais non spécifique à 100 %, et l'on traite sans attendre tous les résultats (posologies à vérifier dans l'AIPS (Swissmedic))."),
+("combo","acuteManagement","décision",3,0,NG134,"Dans la dépression psychotique de l'adolescent, on envisage d'ajouter un antipsychotique de deuxième génération au traitement en cours (dose et durée optimales inconnues, hors indication avant 18 ans selon NICE), toujours avec une psychothérapie, l'antidépresseur de premier choix restant la fluoxétine prescrite par un pédopsychiatre."),
+("pafa","acuteManagement","contexte suisse",2,1,CC,"Lorsqu'un mineur est placé dans un établissement psychiatrique, les règles du placement à des fins d'assistance s'appliquent par analogie (art. 314b CC) : un médecin habilité par le canton peut l'ordonner pour six semaines au plus, et le mineur capable de discernement peut lui-même en appeler au juge dans un délai de dix jours."),
+("apcaut","acuteManagement","piège",1,0,BAP+" ; "+CG155,"En présence de signes catatoniques, on évite les antipsychotiques puissants en dose de charge : ils peuvent induire ou aggraver une catatonie ; un antipsychotique se donne plutôt avec une benzodiazépine, à faible dose et en titration lente."),
+("offl","chronicManagement","contexte suisse",2,1,CPD,"Au Compendium, la fluoxétine n'a de posologie de la dépression qu'au-delà de 18 ans, la sertraline n'est autorisée chez l'enfant que pour les troubles obsessionnels (dès 6 ans), l'escitalopram de 18 à 65 ans, l'olanzapine porte « moins de 18 ans » parmi les contre-indications et la quétiapine ou la rispéridone ne visent chez l'adolescent que la schizophrénie ou la manie : la dépression psychotique du mineur se traite donc hors indication, avec information et consentement documentés."),
+("ect","chronicManagement","décision",2,0,NG134+" ; "+ECTA+" ; "+BAP,"L'électroconvulsivothérapie se réserve à l'adolescent très sévèrement atteint, avec symptômes menaçant la vie ou résistants, après évaluation par un praticien expérimenté et en milieu spécialisé ; elle n'est pas recommandée chez l'enfant de 5 à 11 ans, et elle fait partie du traitement de première ligne de la catatonie pédiatrique avec le lorazépam."),
+("compl","hospitalizationComplications","complication",2,0,BAP,"L'immobilité et le refus de boire exposent à la déshydratation, à l'hypernatrémie, à la rhabdomyolyse, à la thrombose veineuse et à l'embolie pulmonaire, aux escarres, aux infections et à l'insuffisance rénale : on prévoit une thromboprophylaxie pharmacologique, des contrôles des points d'appui, des étirements et une alimentation artificielle à discuter."),
+("surv","surveillance","décision",1,0,NG134+" ; "+CG155,"Après l'introduction d'un antidépresseur, on revoit l'adolescent et ses parents chaque semaine pendant les 4 premières semaines et l'on guette comportement suicidaire, automutilation et hostilité ; un antipsychotique s'évalue sur 4 à 6 semaines à dose optimale, en surveillant efficacité et effets indésirables."),
+("prog","prognosisDischarge","pronostic",1,0,NG134,"Après la rémission (moins de 2 symptômes et fonctionnement complet pendant au moins 8 semaines), on poursuit l'antidépresseur au moins 6 mois, on l'arrête progressivement sur 6 à 12 semaines et l'on revoit l'adolescent régulièrement pendant 12 mois."),
+("parents","followUpNetwork","contexte suisse",1,1,CC+" ; "+NG134,"Les parents déterminent les soins de l'enfant sous réserve de sa propre capacité et le représentent ; l'adolescent capable de discernement exerce seul ses droits strictement personnels, et l'on associe l'adolescent et ses parents à l'admission et au traitement chaque fois que possible."),
+("hosp","followUpNetwork","contexte suisse",1,1,NG134+" ; "+HUG,"On envisage l'hospitalisation en cas de risque élevé de suicide, d'automutilation grave ou d'auto-négligence, ou d'évaluation intensive nécessaire ; à Genève, l'unité de crise Malatavie accueille les 14–18 ans sur une base volontaire pour un mois au plus, et les urgences psychiatriques adultes reçoivent dès 16 ans révolus."),
+]
+K = {k: i+1 for i, (k, *_r) in enumerate(_N)}
+N = [t[1:] for t in _N]
+n = lambda *ks: [K[k] for k in ks]
+AM = ["Catatonie : au moins trois signes, absence de réponse non volontaire, test au lorazépam non spécifique à 100 %.",
+      "Premier épisode avec catatonie : IRM, EEG et anticorps anti-NMDA dans le LCR, pas seulement le sérum.",
+      "Hyperthermie et dysautonomie sous antipsychotique : arrêter tout antagoniste dopaminergique.",
+      "Dépression psychotique du mineur : antipsychotique de deuxième génération hors indication en Suisse et selon NICE.",
+      "Mineur en clinique psychiatrique : règles du PAFA par analogie (art. 314b CC), recours au juge en 10 jours.",
+      "Antécédent familial bipolaire et caractéristiques psychotiques : guetter le virage sous antidépresseur."]
+A = lambda *o: list(o)
+Q = [
+{"f":"A","s":("S1",1,3),"st":"Une adolescente de 15 ans, amenée aux urgences pédiatriques, s'est repliée dans sa chambre depuis trois semaines, dort très peu et mange de moins en moins. Depuis deux jours, elle reste figée, ne parle plus, garde les bras levés quand on les place ainsi, résiste à toute mobilisation passive et fixe le vide. Elle est afébrile et ses constantes sont normales.",
+ "p":"Quelle est votre première démarche ?","o":A(
+  (1,"Vous cotez les signes sur une échelle standardisée, administrez une dose test de 1 à 2 mg de lorazépam IV ou IM (ou 2 mg par voie orale) et réévaluez les signes, tout en lançant le bilan somatique","Juste : test recommandé par la BAP 2023 quand le diagnostic est incertain, sans attendre tous les résultats ; formes injectables suisses autorisées dès 18 ans seulement (posologies à vérifier dans l'AIPS (Swissmedic))."),
+  (0,"Vous injectez de l'halopéridol IM pour lever le blocage","Faux : un antipsychotique puissant peut induire ou aggraver ce tableau et l'orienter vers une forme maligne (BAP 2023)."),
+  (0,"Vous attendez les résultats de l'IRM et de la ponction lombaire avant tout traitement","Faux : la BAP 2023 demande de traiter vite, sans attendre tous les examens."),
+  (0,"Vous considérez le silence comme une opposition volontaire et organisez un suivi ambulatoire","Faux : l'absence de réponse ne doit pas être prise pour un refus volontaire, et l'évaluation se fait en milieu spécialisé (BAP 2023)."),
+  (0,"Vous prescrivez un somnifère et la renvoyez à domicile avec un contrôle dans une semaine","Faux : ce tableau moteur demande une évaluation et un traitement immédiats en milieu spécialisé, par benzodiazépine ou électroconvulsivothérapie (BAP 2023).")),
+ "n":n("cata","loraz","apcaut","malig"),"a":"application","d":4,"l":("Adolescente figée, muette, postures imposées.","Dysfonction des circuits moteurs sensibles au GABA.","Au moins trois signes moteurs et comportementaux.","Postures maintenues et négativisme.","Test au lorazépam et bilan somatique.","Halopéridol ou attente des examens.","Figée et muette : coter, tester, traiter.")},
+{"f":"A","s":("S1",2,3),"st":"Après l'injection, le score de l'échelle passe de 18 à 7. L'adolescente se met à parler : elle se dit responsable de la ruine financière de ses parents, affirme mériter de mourir et entend une voix qui lui répète qu'elle doit disparaître. L'examen neurologique sommaire ne montre pas de déficit focal.",
+ "p":"Quelle est la démarche diagnostique la plus appropriée ?","o":A(
+  (1,"Vous complétez l'examen physique et neurologique, le bilan sanguin et le dépistage urinaire de toxiques, et, dans ce premier épisode, vous demandez une IRM, un EEG et la recherche d'anticorps anti-récepteur NMDA dans le sérum et le LCR","Juste : bilan recommandé par la BAP 2023 et par NICE CG155 pour un premier épisode ; Graus 2016 exige le LCR."),
+  (0,"Vous renoncez au bilan, car la réponse au lorazépam prouve une cause psychiatrique","Faux : la réponse au test n'est pas spécifique à 100 %, et une encéphalite peut aussi produire ce tableau (BAP 2023)."),
+  (0,"Vous dosez les anticorps anti-récepteur NMDA dans le seul sérum","Faux : le sérum seul expose à des faux négatifs et faux positifs ; le LCR est nécessaire (Graus 2016)."),
+  (0,"Vous demandez une biopsie cérébrale","Faux : examen invasif sans indication à ce stade."),
+  (0,"Vous demandez seulement un dosage de la TSH","Faux : un bilan isolé ne suffit pas dans un premier épisode avec signes moteurs.")),
+ "n":n("org","csf","cong","nmdar"),"a":"application","d":4,"l":("Réponse au test, puis idées de ruine et voix accusatrice.","Contenu congruent à l'humeur.","Premier épisode avec signes moteurs.","Test positif mais non spécifique.","IRM, EEG, anticorps dans le LCR.","Bilan abandonné après le test.","Test positif ≠ cause exclue.")},
+{"f":"A","s":("S1",3,3),"m":0,"st":"Le bilan, y compris le LCR, l'EEG et l'IRM, est normal. L'équipe retient un épisode dépressif sévère avec caractéristiques psychotiques et catatonie, et les parents acceptent le traitement.",
+ "p":"Quelle conduite thérapeutique proposez-vous ?","o":A(
+  (1,"Vous poursuivez le lorazépam, associez psychothérapie et antidépresseur (la fluoxétine en premier choix selon NICE) et envisagez un antipsychotique de deuxième génération hors indication, à faible dose et après bilan de base, en surveillant hypomanie et idées suicidaires","Juste : NICE NG134 1.6.32 et 1.6.14, CG155 1.3.18 et BAP 2023 ; usage hors indication au Compendium (posologies à vérifier dans l'AIPS (Swissmedic))."),
+  (0,"Vous donnez de l'halopéridol en dose de charge pour contrôler rapidement les symptômes","Faux : NICE CG155 proscrit la dose de charge, et un antipsychotique puissant peut aggraver la catatonie (BAP 2023)."),
+  (0,"Vous prescrivez de la venlafaxine","Faux : NICE NG134 déconseille la paroxétine et la venlafaxine chez l'enfant et l'adolescent."),
+  (0,"Vous prescrivez du millepertuis pour limiter les effets indésirables","Faux : NICE NG134 ne recommande pas le millepertuis chez l'enfant et l'adolescent."),
+  (0,"Vous prescrivez un antidépresseur seul, sans psychothérapie, avec un contrôle à 3 mois","Faux : NICE NG134 exige une psychothérapie associée et un contact hebdomadaire pendant 4 semaines.")),
+ "n":n("combo","apcaut","base","offl","bip"),"a":"application","d":3,"l":("Bilan normal, diagnostic posé.","Dépression avec composante psychotique et motrice.","Signes psychotiques et catatonie.","Association et surveillance.","Antidépresseur, psychothérapie, antipsychotique de 2e génération.","Dose de charge ou venlafaxine.","Associer, titrer, surveiller.")},
+{"f":"A","st":"Une adolescente de 17 ans ne dort plus depuis 12 jours, se dit coupable de tout et entend des voix, puis parle de moins en moins. Aujourd'hui, elle présente des mouvements involontaires de la bouche, une crise convulsive généralisée, une fréquence cardiaque à 135/min et une pression artérielle très variable.",
+ "p":"Quelle est la conduite la plus adaptée ?","o":A(
+  (1,"Vous demandez en urgence un avis neurologique, un EEG, une IRM et une ponction lombaire avec recherche d'anticorps anti-récepteur NMDA dans le LCR et le sérum, et vous recherchez une tumeur selon l'âge et le sexe","Juste : quatre groupes de symptômes en moins de 3 mois remplissent les critères d'encéphalite anti-NMDA probable de Graus 2016, qui imposent bilan, recherche tumorale et immunothérapie."),
+  (0,"Vous l'hospitalisez en psychiatrie et augmentez progressivement l'halopéridol","Faux : le tableau neurologique impose d'abord le bilan d'une encéphalite, et un antipsychotique puissant expose à une aggravation motrice ou à une forme maligne (BAP 2023)."),
+  (0,"Vous dosez les anticorps dans le sérum et rassurez la famille s'ils sont négatifs","Faux : le LCR est indispensable (Graus 2016)."),
+  (0,"Vous attendez la confirmation des anticorps avant toute immunothérapie","Faux : selon Graus 2016, les critères de diagnostic probable suffisent pour débuter l'immunothérapie."),
+  (0,"Vous prescrivez un somnifère et la revoyez dans une semaine","Faux : crise, mouvements anormaux et dysautonomie relèvent d'une urgence neurologique.")),
+ "n":n("nmdar","csf","mech","org"),"a":"piège","d":5,"l":("Psychose, mutisme, dyskinésies, crise, dysautonomie.","Anticorps anti-GluN1.","Au moins quatre groupes en moins de 3 mois.","Crise et dyskinésies.","EEG, IRM, LCR, recherche tumorale.","Halopéridol ou sérum seul.","Psychose + crise + dyskinésies = encéphalite.")},
+{"f":"A","m":0,"st":"Un garçon de 14 ans, hospitalisé pour un état très sévère avec idées de culpabilité et voix accusatrices, reçoit de la fluoxétine depuis 10 jours. Son père a un trouble bipolaire. Depuis deux jours, il est euphorique, dort deux heures par nuit et parle sans arrêt.",
+ "p":"Que faites-vous ?","o":A(
+  (1,"Vous arrêtez l'antidépresseur et réévaluez le diagnostic vers un trouble bipolaire, l'antécédent paternel et les caractéristiques psychotiques étant des facteurs de risque","Juste : AACAP 2023 (facteurs de risque d'évolution bipolaire) ; la manie aiguë contre-indique la fluoxétine selon le résumé suisse."),
+  (0,"Vous augmentez la fluoxétine, car il s'agit d'une amélioration de l'humeur","Piège : euphorie et besoin de sommeil réduit signent un virage, pas une guérison."),
+  (0,"Vous remplacez la fluoxétine par de la paroxétine","Faux : NICE NG134 déconseille la paroxétine, et le problème est le virage."),
+  (0,"Vous poursuivez le même traitement et revoyez la situation dans 4 semaines","Faux : un virage demande une réévaluation immédiate."),
+  (0,"Vous concluez à un effet du cannabis sans autre démarche","Faux : rien ne l'oriente ici, et le terrain familial impose de réévaluer le diagnostic.")),
+ "n":n("bip","fam","offl"),"a":"piège","d":3,"l":("Euphorie et insomnie sous antidépresseur.","Virage d'un trouble bipolaire.","Antécédent paternel, caractéristiques psychotiques.","Besoin de sommeil réduit.","Arrêter et réévaluer.","Augmenter la dose.","Père bipolaire + virage = arrêter l'antidépresseur.")},
+{"f":"A","st":"Un garçon de 16 ans fume du cannabis chaque jour, prend avant les examens des comprimés stimulants achetés à un camarade et reçoit depuis trois semaines de fortes doses de corticoïdes pour une poussée de maladie inflammatoire de l'intestin. Il est très abattu, ne dort plus, se dit convaincu d'avoir ruiné sa famille et entend une voix qui l'accuse.",
+ "p":"Quelle démarche complète le mieux l'évaluation initiale, en plus de l'évaluation du risque suicidaire ?","o":A(
+  (1,"Vous faites l'anamnèse complète des médicaments prescrits et non prescrits, des produits naturels et des substances, avec un dépistage urinaire de toxiques, et discutez du rôle des corticoïdes avec le gastro-entérologue","Juste : AACAP 2023 (corticoïdes, stimulants, cannabis), NICE CG155 1.3.4 et BAP 2023."),
+  (0,"Vous demandez une IRM cérébrale systématique sans revoir les médicaments","Faux : l'imagerie n'est pas de routine sans signe d'alerte (NICE CG155 1.3.5), et la cause médicamenteuse reste à explorer."),
+  (0,"Vous concluez à une schizophrénie débutante et donnez de l'halopéridol en dose de charge","Faux : NICE CG155 1.3.25 proscrit la dose de charge, et les causes toxiques doivent être examinées."),
+  (0,"Vous lui conseillez du millepertuis en plus","Faux : NICE NG134 ne le recommande pas et signale ses interactions."),
+  (0,"Vous attribuez tout au cannabis et le renvoyez à domicile avec un conseil d'arrêt","Faux : la sévérité du tableau et les autres facteurs (corticoïdes, stimulants) demandent une évaluation complète.")),
+ "n":n("subst","noimg","org"),"a":"application","d":4,"l":("Cannabis, stimulants, corticoïdes, idées de ruine.","Causes toxiques et médicamenteuses.","Plusieurs expositions.","Anamnèse des produits.","Réconciliation et dépistage urinaire.","IRM ou dose de charge.","Psychose + produits = tout inventorier.")},
+{"f":"A","st":"Une adolescente de 15 ans, immobile et muette depuis cinq jours, a reçu de l'halopéridol IM dans un autre hôpital pour une agitation. Elle a 39,4 °C, une fréquence cardiaque à 130/min, une pression artérielle instable, une rigidité généralisée et une créatine kinase à 8000 U/l.",
+ "p":"Quelle est la conduite immédiate ?","o":A(
+  (1,"Vous arrêtez tout antagoniste dopaminergique, débutez le lorazépam, assurez réhydratation et surveillance intensive, et envisagez une électroconvulsivothérapie bilatérale en l'absence de réponse en 48 à 72 heures","Juste : BAP 2023 pour la forme maligne et le syndrome malin des neuroleptiques (posologies à vérifier dans l'AIPS (Swissmedic))."),
+  (0,"Vous augmentez l'halopéridol pour contrôler l'agitation","Faux : la BAP 2023 demande l'arrêt de tous les antagonistes dopaminergiques."),
+  (0,"Vous remplacez l'halopéridol par de l'olanzapine","Faux : tout antagoniste dopaminergique doit être arrêté (BAP 2023)."),
+  (0,"Vous donnez un antipyrétique et la transférez en unité ouverte","Faux : la dysautonomie et la rhabdomyolyse imposent une surveillance intensive."),
+  (0,"Vous traitez par antibiotiques seuls en poursuivant l'halopéridol","Faux : la fièvre s'inscrit ici dans une réaction grave à l'antipsychotique, qu'il faut arrêter.")),
+ "n":n("malig","apcaut","compl","ect"),"a":"piège","d":5,"l":("Fièvre, rigidité, dysautonomie après halopéridol.","Blocage dopaminergique.","Hyperthermie et CK élevée.","Antipsychotique récent.","Arrêt, lorazépam, réanimation.","Augmenter l'antipsychotique.","Fièvre + rigidité sous antipsychotique = arrêter.")},
+{"f":"A","st":"Un garçon de 16 ans reste allongé, immobile, depuis cinq jours, boit très peu et ne mange plus. Le lorazépam vient d'être débuté et l'amélioration est lente.",
+ "p":"Quelles mesures prenez-vous en plus ?","o":A(
+  (1,"Vous prévoyez une thromboprophylaxie pharmacologique, des contrôles des points d'appui, des étirements, une hydratation et une alimentation artificielle à discuter, et recherchez rhabdomyolyse, hypernatrémie et insuffisance rénale","Juste : complications et mesures listées par la BAP 2023."),
+  (0,"Vous attendez la reprise spontanée de l'alimentation sans autre mesure","Faux : déshydratation et dénutrition menacent rapidement la vie."),
+  (0,"Vous le maintenez attaché au lit pour éviter les chutes","Faux : la contention aggrave le risque thromboembolique et ne répond à aucune indication ici."),
+  (0,"Vous ajoutez de l'halopéridol pour accélérer la reprise","Faux : un antipsychotique puissant peut aggraver le tableau (BAP 2023)."),
+  (0,"Vous limitez la surveillance aux constantes une fois par jour","Faux : la surveillance doit couvrir hydratation, peau, mollets et biologie.")),
+ "n":n("compl","cata"),"a":"application","d":4,"l":("Immobile, ne boit plus.","Stase et déshydratation.","Refus des apports.","Risque de thrombose et d'escarres.","Prévenir chaque complication.","Attendre.","Immobile = prévenir thrombose, escarres, déshydratation.")},
+{"f":"A","st":"Une adolescente de 15 ans se dit coupable de la maladie de sa mère, mange à peine et entend une voix qui lui ordonne de sauter du balcon. Ses parents souhaitent son admission en clinique psychiatrique ; elle refuse et veut rentrer.",
+ "p":"Que retenez-vous du cadre légal suisse ?","o":A(
+  (1,"Les règles du placement à des fins d'assistance s'appliquent par analogie : un médecin habilité par le canton peut l'ordonner pour six semaines au plus après l'avoir examinée, et elle peut elle-même en appeler au juge dans les dix jours si elle est capable de discernement","Juste : art. 314b, 429, 430 et 439 CC."),
+  (0,"Aucune hospitalisation n'est possible avant 18 ans sans son accord","Faux : l'art. 314b CC applique par analogie le placement à des fins d'assistance au mineur."),
+  (0,"Seul un juge pénal peut ordonner son admission","Faux : l'APEA ou un médecin habilité par le canton ordonnent le placement (art. 428–429 CC)."),
+  (0,"Le placement ordonné par le médecin dure jusqu'à sa majorité","Faux : le placement médical ne peut dépasser six semaines (art. 429 CC)."),
+  (0,"Son recours suspend l'admission jusqu'à la décision du juge","Faux : le recours n'a pas d'effet suspensif, sauf décision contraire du médecin ou du juge (art. 430 CC).")),
+ "n":n("pafa","parents","hosp"),"a":"piège","d":4,"l":("Mineure, voix impérative, refus de soins.","Danger pour elle-même.","Ordre de se jeter dans le vide.","Mineure en clinique psychiatrique.","PAFA par analogie.","Pas d'hospitalisation avant 18 ans.","Mineur en clinique = art. 314b CC.")},
+{"f":"A","st":"Un garçon de 16 ans s'assombrit progressivement depuis six semaines et se dit coupable d'avoir ruiné ses parents. L'examen physique et neurologique est normal ; il n'a ni signe moteur, ni crise, ni trouble de la vigilance, ni consommation de produits. Ses parents exigent une IRM, un EEG et une ponction lombaire « pour être sûrs ».",
+ "p":"Que leur répondez-vous ?","o":A(
+  (1,"Vous expliquez qu'une imagerie cérébrale n'est pas systématique sans signe d'alerte, que les examens se choisissent selon l'anamnèse et l'examen, et que vous les demanderez si apparaissent un début brutal, des crises, des mouvements anormaux, une dysautonomie ou des signes moteurs","Juste : NICE CG155 1.3.5 et AACAP 2023 ; Graus 2016 et BAP 2023 pour les signes qui changent la conduite."),
+  (0,"Vous faites une ponction lombaire chez tout adolescent présentant ce tableau","Faux : la ponction se discute devant une catatonie inaugurale ou une encéphalite possible (BAP 2023)."),
+  (0,"Vous déclarez l'EEG obligatoire avant tout traitement","Faux : la BAP 2023 réserve l'EEG au risque de crise ou à une encéphalite possible."),
+  (0,"Vous affirmez qu'une cause organique est exceptionnelle et qu'aucun examen clinique n'est utile","Faux : une origine organique ou toxique se retrouve dans environ 14 % des premiers épisodes (Rev Med Suisse 2026), et l'examen physique complet reste obligatoire."),
+  (0,"Vous demandez une IRM tous les 3 mois pour suivre l'évolution","Faux : aucun suivi par imagerie n'est indiqué.")),
+ "n":n("noimg","org","nmdar","orgpct"),"a":"piège","d":5,"l":("Tableau progressif, examen normal.","Absence de signe d'atteinte cérébrale.","Pas de crise ni de signe moteur.","Signes d'alerte absents.","Pas d'imagerie systématique, réévaluer.","Examens pour tous.","Pas d'alerte = pas d'imagerie de routine.")},
+{"f":"A","st":"Une adolescente de 17 ans ne boit plus depuis trois jours, reste immobile et muette malgré cinq jours de lorazépam à doses croissantes, et se dit indigne de vivre.",
+ "p":"Quelle étape thérapeutique proposez-vous ?","o":A(
+  (1,"Une électroconvulsivothérapie bilatérale dans un centre spécialisé, après évaluation par un praticien expérimenté, avec l'information et le consentement de l'adolescente selon sa capacité de discernement et l'accord de ses parents","Juste : NICE NG134 1.6.43–1.6.44, BAP 2023 et AACAP 2004 ; art. 19c et 304 CC."),
+  (0,"De l'halopéridol à forte dose","Faux : un antipsychotique puissant peut aggraver le tableau (BAP 2023)."),
+  (0,"La poursuite du même traitement pendant 4 semaines supplémentaires","Faux : l'arrêt des boissons menace la vie, et l'échec des benzodiazépines appelle l'électroconvulsivothérapie (BAP 2023)."),
+  (0,"Une sonde nasogastrique seule en attendant la guérison spontanée","Faux : la nutrition ne traite pas la cause, et l'échec des benzodiazépines appelle l'électroconvulsivothérapie (BAP 2023)."),
+  (0,"Aucune électroconvulsivothérapie, car elle est interdite avant 18 ans","Faux : NICE NG134 l'admet chez l'adolescent dans ces conditions ; elle n'est déconseillée que chez l'enfant de 5 à 11 ans.")),
+ "n":n("ect","loraz","parents"),"a":"application","d":4,"l":("Refus de boire, échec des benzodiazépines.","Forme résistante menaçant la vie.","Immobilité persistante.","Échec du lorazépam.","Électroconvulsivothérapie en centre spécialisé.","Attendre ou halopéridol.","Échec du lorazépam = électroconvulsivothérapie.")},
+{"f":"A","m":0,"st":"Vous enseignez la dépression avec caractéristiques psychotiques à des étudiants.",
+ "p":"Quelle affirmation est exacte ?","o":A(
+  (1,"Des idées délirantes de culpabilité ou de ruine sont congruentes à l'humeur","Juste : Rev Med Suisse 2008."),
+  (0,"Des idées de persécution sont congruentes à l'humeur","Faux : elles sont classées non congruentes et doivent faire réévaluer le diagnostic (Rev Med Suisse 2008 ; NICE CG155)."),
+  (0,"Cette forme est exceptionnelle","Faux : environ un épisode dépressif majeur sur cinq chez l'adulte, souvent méconnu (Rev Med Suisse 2008)."),
+  (0,"Le diagnostic exige toujours des hallucinations","Faux : idées délirantes, hallucinations ou stupeur suffisent (CIM-10 F32.3)."),
+  (0,"Une stupeur ne peut jamais relever d'un épisode dépressif","Faux : la CIM-10 inclut la stupeur dépressive.")),
+ "n":n("def","cong","epi","fep"),"a":"direct","d":2,"l":("Définition.","Contenu délirant.","Congruence à l'humeur.","Culpabilité ou persécution.","Classer le contenu.","Persécution congruente.","Ruine, culpabilité = congruent.")},
+{"f":"A","m":0,"st":"Vous voulez coter une catatonie chez une adolescente de 14 ans.",
+ "p":"Quel instrument retenez-vous ?","o":A(
+  (1,"L'échelle de Bush-Francis (23 items, dont 14 de dépistage), la plus utilisée, ou chez l'enfant et l'adolescent l'échelle pédiatrique PCRS qui en dérive","Juste : BAP 2023."),
+  (0,"Le PHQ-9","Faux : il dépiste la dépression, pas les signes catatoniques."),
+  (0,"L'échelle de Glasgow","Faux : elle cote la vigilance, et la catatonie se cote sur ses signes propres."),
+  (0,"Le Mini-Mental State","Faux : il explore la cognition et suppose la participation du patient."),
+  (0,"L'échelle de Hamilton pour la dépression","Faux : elle n'évalue pas les signes moteurs catatoniques.")),
+ "n":n("bfcrs","cata"),"a":"direct","d":2,"l":("Cotation.","Signes moteurs et comportementaux.","Échelle standardisée.","BFCRS ou PCRS.","Coter avant et après le test.","Échelles de dépression.","Bush-Francis ; PCRS chez l'enfant.")},
+{"f":"A","m":0,"st":"Une pédopsychiatre veut ajouter un antipsychotique au traitement d'une adolescente de 16 ans atteinte d'une dépression avec caractéristiques psychotiques et vérifie le statut des médicaments au Compendium.",
+ "p":"Quelle affirmation est exacte ?","o":A(
+  (1,"Le résumé suisse de l'olanzapine mentionne l'âge inférieur à 18 ans parmi les contre-indications : son ajout est hors indication et demande information et consentement documentés","Juste : Compendium (Zyprexa) ; NICE NG134 1.6.32 signale aussi l'usage hors indication."),
+  (0,"La sertraline est autorisée dès 6 ans dans la dépression","Faux : chez l'enfant, la sertraline n'est autorisée que pour les troubles obsessionnels (Compendium, Zoloft)."),
+  (0,"L'escitalopram est autorisé dès 12 ans dans la dépression","Faux : le résumé suisse vise 18 à 65 ans (Compendium, Cipralex)."),
+  (0,"La rispéridone est autorisée dès 15 ans dans la dépression avec caractéristiques psychotiques","Piège : dès 15 ans, l'indication porte sur la manie (Compendium, Risperdal)."),
+  (0,"Le lorazépam injectable est autorisé dès 12 ans","Faux : le lorazépam injectable suisse vise l'adulte et porte « moins de 18 ans » en contre-indication (Compendium, Rativor) ; le seuil de 12 ans concerne les formes orales.")),
+ "n":n("offl","combo"),"a":"piège","d":3,"l":("Prescription chez le mineur.","Autorisation par âge et indication.","Statut suisse.","Hors indication.","Informer et documenter.","Croire à une indication pédiatrique.","Mineur + antipsychotique = hors indication.")},
+{"f":"Kprim","m":0,"st":"Vous faites un test au lorazépam chez un adolescent suspect de catatonie.",
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A(
+  (1,"On donne 1 à 2 mg par voie intraveineuse et l'on réévalue les signes après 5 minutes.","Vrai : protocole de la BAP 2023 (posologies à vérifier dans l'AIPS (Swissmedic))."),
+  (1,"Une baisse de 50 % du score sur une échelle standardisée définit une réponse positive.","Vrai : BAP 2023."),
+  (0,"Une réponse positive prouve une cause psychiatrique primaire et exclut une encéphalite.","Faux : le test n'est pas spécifique à 100 %, et une encéphalite anti-NMDA peut produire une catatonie (BAP 2023)."),
+  (1,"En l'absence de réponse, on peut répéter le test, de préférence par voie parentérale.","Vrai : BAP 2023, tableau 9.")),
+ "n":n("loraz","bfcrs","nmdar"),"a":"direct","d":3,"l":("Test diagnostique.","Agoniste GABA-A.","Score avant et après.","Baisse de 50 %.","Tester, répéter si besoin.","Test positif = cause exclue.","Positif ≠ spécifique.")},
+{"f":"Kprim","m":0,"st":"Vous débutez un antidépresseur et un antipsychotique chez une adolescente de 15 ans atteinte d'une dépression avec caractéristiques psychotiques.",
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A(
+  (1,"Avant l'antipsychotique, on note poids et taille sur une courbe de croissance et l'on dose glycémie à jeun ou HbA1c, lipides et prolactine.","Vrai : NICE CG155 1.3.18."),
+  (1,"On propose un ECG si elle est hospitalisée.","Vrai : NICE CG155 1.3.19."),
+  (1,"On la revoit avec ses parents chaque semaine pendant les 4 premières semaines de l'antidépresseur, en guettant idées suicidaires et hostilité.","Vrai : NICE NG134 1.6.14 et 1.6.18."),
+  (0,"Après la rémission, on arrête l'antidépresseur brutalement au bout d'un mois.","Faux : on le poursuit au moins 6 mois après la rémission et on l'arrête sur 6 à 12 semaines (NICE NG134).")),
+ "n":n("base","surv","prog","combo"),"a":"direct","d":3,"l":("Mise en route.","Effets métaboliques et cardiaques.","Bilan de base.","Courbe de croissance, ECG.","Surveiller chaque semaine.","Arrêt brutal.","Bilan avant, suivi serré après.")},
+{"f":"Kprim","m":0,"st":"Vous informez les parents d'une adolescente de 15 ans hospitalisée contre son gré pour une dépression avec idées délirantes.",
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A(
+  (1,"La majorité civile est fixée à 18 ans révolus.","Vrai : art. 14 CC."),
+  (1,"Une adolescente capable de discernement exerce seule ses droits strictement personnels, sous réserve des cas où la loi exige l'accord du représentant légal.","Vrai : art. 19c CC."),
+  (1,"Placée dans un établissement psychiatrique, elle bénéficie par analogie des règles du placement à des fins d'assistance et peut, si elle est capable de discernement, en appeler elle-même au juge.","Vrai : art. 314b CC."),
+  (0,"Un médecin habilité par le canton peut ordonner un placement de trois mois.","Faux : le placement médical ne peut dépasser six semaines (art. 429 CC).")),
+ "n":n("pafa","parents"),"a":"direct","d":3,"l":("Cadre légal du mineur.","Capacité de discernement.","Placement en clinique.","Art. 314b CC.","Informer des droits.","Trois mois.","Mineur : PAFA par analogie, 6 semaines.")},
+{"f":"Kprim","m":0,"st":"Vous évoquez une encéphalite à anticorps anti-récepteur NMDA chez une adolescente de 16 ans avec un premier épisode psychotique.",
+ "p":"Ces affirmations sont-elles vraies ou fausses ?","o":A(
+  (1,"L'adolescente débute souvent par une psychose, une agitation ou une catatonie, avec irritabilité et insomnie, avant les troubles du langage, les dyskinésies et la dysautonomie.","Vrai : Graus 2016."),
+  (0,"Le diagnostic probable exige des anticorps positifs.","Faux : les critères de diagnostic probable reposent sur les symptômes, l'EEG ou le LCR et l'exclusion des autres causes (Graus 2016)."),
+  (1,"La recherche d'anticorps doit inclure le LCR.","Vrai : Graus 2016."),
+  (1,"Si les critères sont remplis, on débute l'immunothérapie et l'on recherche une tumeur selon l'âge et le sexe.","Vrai : Graus 2016.")),
+ "n":n("nmdar","csf","mech"),"a":"direct","d":3,"l":("Encéphalite auto-immune.","Anticorps anti-GluN1.","Évolution par étapes.","Critères sans anticorps.","Immunothérapie et tumeur.","Attendre les anticorps.","Probable = traiter sans attendre.")},
+{"f":"MenuLong","st":"Une adolescente de 15 ans reste immobile depuis quatre jours, ne parle plus, garde les postures qu'on lui impose et refuse de manger. C'est son premier épisode ; le bilan sanguin et le dépistage urinaire de toxiques sont déjà prélevés.",
+ "p":"Choisissez les TROIS examens complémentaires à envisager dans ce premier épisode, selon la recommandation britannique de 2023.","o":A(
+  (1,"IRM cérébrale (ou scanner)","Juste : BAP 2023 pour un premier épisode ou un diagnostic incertain."),
+  (1,"Recherche d'anticorps anti-récepteur NMDA dans le sérum et le LCR","Juste : BAP 2023 ; Graus 2016 pour le LCR."),
+  (1,"EEG","Juste : BAP 2023 en cas de risque de crise ou d'encéphalite possible."),
+  (0,"Biopsie cérébrale","Faux : examen invasif sans indication à ce stade."),
+  (0,"Scintigraphie osseuse","Faux : sans rapport avec le tableau."),
+  (0,"Coronarographie","Faux : sans indication chez cette adolescente."),
+  (0,"Densitométrie osseuse","Faux : sans rapport avec le diagnostic."),
+  (0,"Spirométrie","Faux : sans rapport avec le tableau."),
+  (0,"Gastroscopie","Faux : le refus de manger ne relève pas d'une cause digestive ici."),
+  (0,"IRM du genou","Faux : sans rapport avec la rigidité posturale."),
+  (0,"Audiogramme","Faux : le mutisme n'est pas une surdité."),
+  (0,"Test génétique de la mucoviscidose","Faux : sans indication.")),
+ "n":n("org","csf","nmdar","cata"),"a":"application","d":4,"l":("Immobile, muette, postures, premier épisode.","Cause cérébrale à exclure.","Signes moteurs inauguraux.","Premier épisode.","IRM, anticorps, EEG.","Examens hors sujet.","Premier épisode moteur = IRM, LCR, EEG.")},
+{"f":"MenuLong","m":0,"st":"Un adolescent présente un épisode dépressif sévère avec caractéristiques psychotiques et signes catatoniques.",
+ "p":"Choisissez les TROIS causes somatiques ou toxiques de cette liste qui peuvent produire un tel tableau.","o":A(
+  (1,"Encéphalite à anticorps anti-récepteur NMDA","Juste : BAP 2023, tableau 3 ; Graus 2016."),
+  (1,"Maladie de Wilson","Juste : BAP 2023, tableau 3."),
+  (1,"Cannabis et cannabinoïdes de synthèse","Juste : BAP 2023, tableau 3 ; AACAP 2023."),
+  (0,"Rhinite allergique saisonnière","Faux : sans lien avec ce tableau."),
+  (0,"Verrue plantaire","Faux : sans lien."),
+  (0,"Scoliose idiopathique légère","Faux : sans lien."),
+  (0,"Otite externe","Faux : sans lien."),
+  (0,"Myopie","Faux : sans lien."),
+  (0,"Eczéma léger des mains","Faux : sans lien."),
+  (0,"Fracture du poignet consolidée","Faux : sans lien."),
+  (0,"Hernie inguinale réductible","Faux : sans lien."),
+  (0,"Entorse de cheville","Faux : sans lien.")),
+ "n":n("subst","mech","orgpct"),"a":"direct","d":3,"l":("Causes secondaires.","Atteinte cérébrale ou toxique.","Liste des causes.","Encéphalite, Wilson, cannabis.","Rechercher.","Affections banales.","Toujours chercher une cause organique.")},
+]
+for _q in Q: _q["src"] = BAP
+for i, s in ((1,[BAP,CG155,GRAUS]),(2,[NG134,CG155,BAP,CPD]),(3,[GRAUS,BAP]),(4,[AACAP,NG134,CPD]),(5,[AACAP,CG155,BAP,NG134]),(8,[CC]),(9,[CG155,AACAP,RMS26,BAP]),(10,[NG134,BAP,ECTA,CC]),(11,[RMS08,CG155]),(13,[CPD,LOR,NG134]),(15,[CG155,NG134]),(16,[CC]),(17,[GRAUS]),(18,[BAP,GRAUS]),(19,[BAP,AACAP,GRAUS])): Q[i]["src"] = s
+Q[0]["src"] = [BAP, LOR]; Q[14]["src"] = [BAP, LOR]; Q[6]["src"] = [BAP, LOR]
+C = {"theme":"Épisode dépressif sévère avec signes psychotiques ou catatonie de l'adolescent (porte O2.2) : contenu délirant congruent, catatonie sur au moins trois signes (Bush-Francis, PCRS), test au lorazépam non spécifique, bilan organique d'un premier épisode (IRM, EEG, anticorps anti-NMDA dans le LCR selon Graus 2016), causes toxiques et médicamenteuses, risque bipolaire, forme maligne et prudence avec les antipsychotiques, complications de l'immobilité, électroconvulsivothérapie selon NICE et la BAP, antipsychotique de deuxième génération hors indication en Suisse, placement à des fins d'assistance du mineur (art. 314b CC) et rôle des parents",
+ "notions":[
+  {"titre":"Comprendre","rub":["definition","epidemiology","basicSciences","prognosisDischarge"],"comment":"La dépression sévère peut porter des idées délirantes congruentes, des hallucinations ou une stupeur ; une cause organique se cache dans une part notable des premiers épisodes.",
+   "points":["Culpabilité, ruine, incurabilité : congruent ; persécution : non congruent.","Environ 14 % d'origine organique ou toxique dans un premier épisode psychotique (Rev Med Suisse 2026).","Après rémission : antidépresseur au moins 6 mois, arrêt sur 6 à 12 semaines, suivi 12 mois."],"sources":[RMS08,RMS26,GRAUS,NG134]},
+  {"titre":"Reconnaître","rub":["anamnesis","clinicalExam","presumptionRedFlags","positiveDiagnosis"],"comment":"On cherche les signes catatoniques, les signes d'encéphalite, les produits en cause et le risque bipolaire.",
+   "arbre":[("d1",None,"Premier épisode avec idées délirantes ou immobilité","On fait un examen physique et neurologique complet.",None,None),("d2","d1","Au moins trois signes catatoniques","On cote l'échelle et l'on fait un test au lorazépam.",None,None),("d3","d1","Crises, dyskinésies, dysautonomie","On évoque une encéphalite anti-NMDA.",None,None),("d4","d2","Fièvre et dysautonomie","On arrête tout antagoniste dopaminergique.",None,None)],
+   "points":["Absence de réponse : jamais présumée volontaire.","Antécédent familial bipolaire, caractéristiques psychotiques : risque de virage.","Cannabis, stimulants, corticoïdes : à rechercher."],"sources":[BAP,GRAUS,AACAP,NG134]},
+  {"titre":"Explorer et décider","rub":["workupGoldStandard","workupAlternatives","acuteManagement","chronicManagement"],"comment":"Le bilan dépend des signes ; le traitement associe benzodiazépine, antidépresseur, psychothérapie et, au besoin, antipsychotique ou électroconvulsivothérapie.",
+   "tab":(["Situation","Conduite","Remarque"],[["Catatonie incertaine","Test au lorazépam",[("BAP","1–2 mg IV ou IM, ou 2 mg oral ; posologies à vérifier dans l'AIPS (Swissmedic).")]],["Premier épisode avec catatonie","IRM, EEG, anticorps NMDA sérum et LCR",[("Graus","Le LCR est indispensable.")]],["Dépression psychotique","Antidépresseur, psychothérapie, antipsychotique de 2e génération",[("Suisse","Hors indication chez le mineur.")]],["Échec du lorazépam ou menace vitale","Électroconvulsivothérapie bilatérale",[("NICE","Centre spécialisé, praticien expérimenté.")]]]),
+   "points":["Pas d'imagerie de routine sans signe d'alerte (NICE CG155).","Pas de dose de charge d'antipsychotique."],"sources":[BAP,GRAUS,NG134,CPD]},
+  {"titre":"Suivre et protéger","rub":["hospitalizationComplications","surveillance","followUpNetwork"],"comment":"On prévient les complications de l'immobilité, on surveille de près et l'on respecte le cadre légal du mineur.",
+   "points":["Thromboprophylaxie, points d'appui, étirements, hydratation.","Contact hebdomadaire les 4 premières semaines.","Art. 314b CC : PAFA par analogie, recours au juge en 10 jours."],"sources":[BAP,NG134,CC,HUG]}],
+ "ssp":("O2.2","Problèmes comportementaux durant l’enfance et l’adolescence",True,[
+   ("n1",None,"Adolescent replié, immobile ou délirant","On sécurise et l'on évalue le risque suicidaire.","urg","c2"),
+   ("n2","n1","Signes catatoniques","On cote l'échelle et l'on fait un test au lorazépam.","urg","c3"),
+   ("n3","n1","Premier épisode","On fait le bilan organique ciblé.","urg","c3"),
+   ("n4","n3","Crises, dyskinésies, dysautonomie","On demande EEG, IRM et LCR avec anticorps anti-NMDA.","urg","c2"),
+   ("n5","n2","Fièvre et dysautonomie","On arrête les antagonistes dopaminergiques et l'on transfère en soins intensifs.","urg","c4"),
+   ("n6","n3","Bilan normal","On associe antidépresseur, psychothérapie et antipsychotique au besoin.","urg","c3"),
+   ("n7","n1","Refus de soins avec danger","On applique le placement à des fins d'assistance par analogie.","urg","c4")]),
+ "pec":[
+  pec("urg","Épisode dépressif sévère avec signes psychotiques ou catatonie de l'adolescent",["On protège la vie de l'adolescent et l'on exclut une cause organique.","On traite la catatonie, puis l'épisode dépressif, en associant l'adolescent et ses parents."],
+      ["On s'adresse à l'adolescent comme s'il comprenait tout ce qui est dit.","On l'accueille en milieu hospitalier spécialisé et l'on recherche le risque suicidaire."],
+      [("Lorazépam","Test : 1–2 mg IV ou IM, ou 2 mg oral (BAP 2023) ; résumé suisse de Temesta : > 12 ans, 3–7,5 mg/j en psychiatrie ; formes injectables suisses autorisées dès 18 ans ; doses plus élevées admises par la BAP en catatonie (discordance) ; posologies à vérifier dans l'AIPS (Swissmedic)","Il lève les signes catatoniques et confirme le diagnostic.",LOR),
+       ("Fluoxétine","NICE : 10 mg/j, puis 20 mg/j après 1 semaine si nécessaire ; le résumé suisse ne donne une posologie de la dépression qu'au-delà de 18 ans ; posologies à vérifier dans l'AIPS (Swissmedic)","C'est le seul antidépresseur dont le bénéfice dépasse les risques chez l'adolescent selon NICE.",NG134),
+       ("Antipsychotique de deuxième génération","Dose et durée optimales inconnues (NICE) ; début sous la limite basse adulte si non autorisé chez l'enfant (CG155) ; hors indication chez le mineur au Compendium ; posologies à vérifier dans l'AIPS (Swissmedic)","Il renforce le traitement des symptômes psychotiques de la dépression.",CPD)],
+      [("psychothérapie","On associe toujours une psychothérapie à l'antidépresseur.","NICE ne propose pas d'antidépresseur sans psychothérapie concomitante."),("soins infirmiers","On prévient thrombose, escarres et contractures et l'on surveille les apports.","L'immobilité expose à des complications graves."),("nutrition","On assure l'hydratation et l'on discute une alimentation artificielle.","Le refus de boire et de manger menace la vie.")],
+      [("F Droit médical suisse","On applique l'art. 314b CC et l'on informe des droits de recours."),("O Pharmacologie Toxicologie Sécurité","On documente l'usage hors indication et l'on surveille les effets indésirables."),("C Communication clinique","On associe l'adolescent et ses parents aux décisions.")],
+      (["On protège la vie.","On exclut une cause organique.","On traite sans attendre tous les résultats."],[("d'abord","pédopsychiatre et pédiatre","Ils évaluent le risque suicidaire, cotent les signes catatoniques et font le test au lorazépam."),("en même temps","neurologue","Il discute IRM, EEG et ponction lombaire avec anticorps anti-NMDA."),("ensuite","pédopsychiatre","Il associe antidépresseur, psychothérapie et, au besoin, antipsychotique ou électroconvulsivothérapie.")]),
+      (["On prépare la sortie avec la famille.","On surveille le virage et la rechute."],[("d'abord","pédopsychiatre","Il revoit l'adolescent chaque semaine pendant 4 semaines après l'antidépresseur."),("ensuite","équipe ambulatoire","Elle poursuit la psychothérapie et le suivi scolaire."),("puis","pédopsychiatre","Il revoit l'adolescent régulièrement pendant 12 mois après la rémission.")]),
+      "La catatonie répond le plus souvent au lorazépam ou à l'électroconvulsivothérapie ; l'épisode dépressif expose à la rechute et à une évolution bipolaire.",
+      [("Signes catatoniques (échelle standardisée)","Avant et après chaque dose test, puis chaque jour","Baisse d'au moins 50 %"),("Idées suicidaires, hostilité, virage","Chaque semaine pendant 4 semaines","Absence"),("Poids, glycémie, lipides, prolactine","Avant puis pendant l'antipsychotique","Stables")],
+      "L'adolescent sort avec un plan de crise, un suivi pédopsychiatrique et des parents informés des signes d'alerte.",
+      ("On repère tôt les consommations de cannabis et de stimulants chez l'adolescent.","On recherche une cause organique dans tout premier épisode.","On poursuit le traitement au moins 6 mois après la rémission et l'on surveille 12 mois.")),]}
