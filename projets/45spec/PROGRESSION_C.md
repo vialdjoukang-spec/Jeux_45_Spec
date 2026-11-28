@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**135 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**137 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -742,8 +742,8 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 732 | 1732 | `R55_1__S7_10-E07` | MIG | Syncope convulsivante (brève anoxie cérébrale mimant une crise) | produite |
 | 733 | 1733 | `R56.8__S7_10-E08` | MIG | Crise épileptique provoquée métabolique ou toxique (hyponatrémie, hypoglycémie, cocaïne/tramadol) | produite |
 | 734 | 1734 | `R61.1__G1-E06` | TOX | Hyperhidrose médicamenteuse (ISRS, opioïdes, bêtabloquants) | produite |
-| 735 | 1735 | `R63.0__O5_3-E07` | MIG | Anorexie, cachexie et question de l'hydratation / nutrition artificielle en fin de vie | — |
-| 736 | 1736 | `R64_1__O3_3-E03` | MIG | Dénutrition secondaire à une pathologie néoplasique ou inflammatoire (cachexie) | — |
+| 735 | 1735 | `R63.0__O5_3-E07` | MIG | Anorexie, cachexie et question de l'hydratation / nutrition artificielle en fin de vie | produite |
+| 736 | 1736 | `R64_1__O3_3-E03` | MIG | Dénutrition secondaire à une pathologie néoplasique ou inflammatoire (cachexie) | produite |
 | 737 | 1737 | `R68.1__O2_8-E08` | PED | Malaise grave du nourrisson (BRUE à haut risque / ancien ALTE) ayant réanimé | produite |
 | 738 | 1738 | `R73.9__F2_9-E06` | MIG | Hyperglycémie de stress ou cortico-induite | — |
 | 739 | 1739 | `R76.1__O7_13-E05` | MIG | Infection tuberculeuse latente (ITL) chez migrant de zone d'endémie | — |
