@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**137 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**141 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -747,10 +747,10 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 737 | 1737 | `R68.1__O2_8-E08` | PED | Malaise grave du nourrisson (BRUE à haut risque / ancien ALTE) ayant réanimé | produite |
 | 738 | 1738 | `R73.9__F2_9-E06` | MIG | Hyperglycémie de stress ou cortico-induite | — |
 | 739 | 1739 | `R76.1__O7_13-E05` | MIG | Infection tuberculeuse latente (ITL) chez migrant de zone d'endémie | — |
-| 740 | 1740 | `R79.8__F2_12-E06` | MIG | Élévation isolée de l'urée ou créatinine non rénale | — |
-| 741 | 1741 | `R82.7__O4_6-E05` | GYN | Bactériurie asymptomatique (ne pas traiter sauf grossesse / chirurgie urologique) | — |
-| 742 | 1742 | `R93.8__O4_4-E04` | MIG | Incidentalome surrénalien, thyroïdien ou pulmonaire découvert au CT | — |
-| 743 | 1743 | `S02.0__S8_7-E06` | CMF | Fracture simple de la voûte crânienne (linéaire non déplacée) | — |
+| 740 | 1740 | `R79.8__F2_12-E06` | MIG | Élévation isolée de l'urée ou créatinine non rénale | produite |
+| 741 | 1741 | `R82.7__O4_6-E05` | GYN | Bactériurie asymptomatique (ne pas traiter sauf grossesse / chirurgie urologique) | produite |
+| 742 | 1742 | `R93.8__O4_4-E04` | MIG | Incidentalome surrénalien, thyroïdien ou pulmonaire découvert au CT | produite |
+| 743 | 1743 | `S02.0__S8_7-E06` | CMF | Fracture simple de la voûte crânienne (linéaire non déplacée) | produite |
 | 744 | 1744 | `S02.2__S1_5-E04` | CMF | Traumatisme nasal ou fracture des os propres du nez | — |
 | 745 | 1745 | `S27.3__S8_11-E04` | CTH | Contusion pulmonaire parenchymateuse | — |
 | 746 | 1746 | `S32.0_2__S8_10-E06` | ORT | Fracture des processus transverses ou épineux (fracture parcellaire stable) | — |
