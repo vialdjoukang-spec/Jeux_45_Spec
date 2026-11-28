@@ -1,6 +1,6 @@
 # File de production — 5 chantiers hors 45 Spec
 
-Mesure automatique du 28.11.2026 04:06. Progression d'ensemble : **19 %**.
+Mesure automatique du 28.11.2026 04:07. Progression d'ensemble : **19 %**.
 
 | # | Chantier | Branche | Modèle | Fait | Cible | % | État | Session | PR |
 |---|---|---|---|---:|---:|---:|---|---|---|

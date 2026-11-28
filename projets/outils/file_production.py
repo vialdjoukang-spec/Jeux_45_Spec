@@ -1,14 +1,16 @@
 """File de production des 5 chantiers hors 45 Spec : mesure le dépôt (0 token) et écrit
 projets/file_production/FILE_PRODUCTION.json (source unique de l'état) et FILE_PRODUCTION.md.
-  python3 projets/outils/file_production.py
+  python3 projets/outils/file_production.py             → mesure l'arbre courant
+  python3 projets/outils/file_production.py --branches  → mesure chaque chantier sur sa propre branche (origin/<branche>), sinon sur l'arbre courant
 Les prompts vivent dans projets/PROMPTS_CHANTIERS_RESTANTS.md ; ce script ne les recopie pas.
 Signature : AAI (Anthropic AI)"""
-import datetime, glob, json, os, re
+import datetime, glob, json, os, subprocess, sys, tempfile
 
 R = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ICI = R  # la file s'écrit toujours dans l'arbre courant ; R peut pointer sur l'arbre d'une branche
 P = lambda *a: os.path.join(R, *a)
 J = lambda *a: json.load(open(P(*a), encoding="utf-8"))
-SORTIE = P("projets", "file_production", "FILE_PRODUCTION.json")
+SORTIE = os.path.join(ICI, "projets", "file_production", "FILE_PRODUCTION.json")
 
 
 def biologie():
@@ -53,13 +55,29 @@ CHANTIERS = [  # ordre = ordre de la file ; role fixe le modèle (règle de Vial
 ]
 
 
+def sur_branche(branche, mesure):
+    """Mesure dans un arbre détaché de origin/<branche> ; sans branche distante, mesure l'arbre courant."""
+    global R
+    ref = "origin/" + branche
+    if subprocess.run(["git", "-C", ICI, "rev-parse", "-q", "--verify", ref], capture_output=True).returncode:
+        return mesure()
+    d = tempfile.mkdtemp(prefix="file_")
+    subprocess.run(["git", "-C", ICI, "worktree", "add", "-f", "--detach", d, ref], check=True, capture_output=True)
+    try:
+        R = d
+        return mesure()
+    finally:
+        R = ICI
+        subprocess.run(["git", "-C", ICI, "worktree", "remove", "--force", d], capture_output=True)
+
+
 def main():
     ancien = {c["id"]: c for c in json.load(open(SORTIE, encoding="utf-8"))["chantiers"]} if os.path.exists(SORTIE) else {}
     quand = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=1))).strftime("%d.%m.%Y %H:%M")
     ch = []
     for i, nom, branche, role, unite, mesure in CHANTIERS:
         try:
-            fait, cible = mesure()
+            fait, cible = sur_branche(branche, mesure) if "--branches" in sys.argv else mesure()
         except Exception as e:  # une mesure cassée ne bloque pas la file
             fait, cible = ancien.get(i, {}).get("fait", 0), ancien.get(i, {}).get("cible", 1)
             print(f"mesure {i} en échec : {e}")
@@ -83,7 +101,7 @@ def main():
     L += ["", "Unités mesurées : " + " ; ".join(f"{c['id']} = {c['unite']}" for c in ch) + ".", ""]
     L += [f"- Chantier {c['id']} : {c['note']}" for c in ch if c["note"]]
     L += ["", "Signature : AAI (Anthropic AI)", ""]
-    open(P("projets", "file_production", "FILE_PRODUCTION.md"), "w", encoding="utf-8").write("\n".join(L))
+    open(os.path.join(ICI, "projets", "file_production", "FILE_PRODUCTION.md"), "w", encoding="utf-8").write("\n".join(L))
     print(f"progression {tot} % ; " + " ; ".join(f"{c['id']}:{c['fait']}/{c['cible']}" for c in ch))
 
 
