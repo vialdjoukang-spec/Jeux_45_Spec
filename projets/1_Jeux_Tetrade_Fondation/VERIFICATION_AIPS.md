@@ -13,3 +13,4 @@
 | Système | « à vérifier » avant | après | Écarts AIPS signalés | Absents du marché suisse |
 |---|---|---|---|---|
 | cardio | 40 | 4 | spironolactone 12,5 mg ; amiodarone IV en 10–20 min ; MgSO₄ 2 g en bolus ; HNF en UI/kg ; demi-dose de ténectéplase ≥ 75 ans ; altéplase 0,6 mg/kg ; hydrocortisone 200 mg/j (choc septique) ; corticoïdes 1 mg/kg (PTT) ; AAS 75 mg | ampicilline, nadolol |
+| respi | 36 | 0 | mométasone (schéma inverse de l'AIPS dans la polypose) ; prednisone en mg/kg ; dexaméthasone orale et adrénaline nébulisée (croup) ; salbutamol nébulisé 5 mg ; MgSO₄ IV dans l'asthme ; itraconazole 200 mg 2×/j ; altéplase et dornase intrapleurales ; naloxone dès 0,04 mg | — |
