@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**128 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**131 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -735,9 +735,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 725 | 1725 | `R26.0__S7_2-E07` | MIG | Marche cérébelleuse (ataxique ébrieuse) | produite |
 | 726 | 1726 | `R32__S4_14-E05` | MIG | Incontinence urinaire par regorgement sur obstruction sous-vésicale chronique | produite |
 | 727 | 1727 | `R33_1__S9_9-E04` | URO | Rétention aiguë d'urine ou fécalome (delirium réflexe gériatrique) | produite |
-| 728 | 1728 | `R41.8_1__O7_15-E06` | MIG | Oublis liés à la polymédication ou aux troubles cognitifs du sujet âgé | — |
-| 729 | 1729 | `R41.8__O7_10-E04` | MIG | Évaluation de la capacité de discernement avant un geste | — |
-| 730 | 1730 | `R50.2__G6-E08` | TOX | Fièvre médicamenteuse (hypersensibilité / bêta-lactamines) | — |
+| 728 | 1728 | `R41.8_1__O7_15-E06` | MIG | Oublis liés à la polymédication ou aux troubles cognitifs du sujet âgé | produite |
+| 729 | 1729 | `R41.8__O7_10-E04` | MIG | Évaluation de la capacité de discernement avant un geste | produite |
+| 730 | 1730 | `R50.2__G6-E08` | TOX | Fièvre médicamenteuse (hypersensibilité / bêta-lactamines) | produite |
 | 731 | 1731 | `R53_1__O7_18-E06` | MIG | Demande de perfusions de vitamines ou bilan endocrinien large pour fatigue banale | — |
 | 732 | 1732 | `R55_1__S7_10-E07` | MIG | Syncope convulsivante (brève anoxie cérébrale mimant une crise) | — |
 | 733 | 1733 | `R56.8__S7_10-E08` | MIG | Crise épileptique provoquée métabolique ou toxique (hyponatrémie, hypoglycémie, cocaïne/tramadol) | — |
