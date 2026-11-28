@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**210 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**212 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -20,8 +20,8 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 10 | 1010 | `F43.0_2__O6_7-E13` | LEG | État de stress aigu avec sidération ou mutisme réactionnel à l'annonce d'un décès | produite |
 | 11 | 1011 | `F43.0_3__O6_9-E14` | MTR | Crise de panique ou effondrement émotionnel aigu au travail (burnout aigu) | produite |
 | 12 | 1012 | `F43.0_4__O7_19-E15` | PSY | Détresse psychologique majeure ou faux espoirs face à une maladie neurodégénérative avancée | produite |
-| 13 | 1013 | `F43.0_5__O7_25-E15` | PSY | Détresse psychologique majeure ou culpabilité parentale après annonce génétique | — |
-| 14 | 1014 | `F43.0__O2_3-E15` | LEG | Détresse psychologique aiguë / fugue sur maltraitance intrafamiliale | — |
+| 13 | 1013 | `F43.0_5__O7_25-E15` | PSY | Détresse psychologique majeure ou culpabilité parentale après annonce génétique | produite |
+| 14 | 1014 | `F43.0__O2_3-E15` | LEG | Détresse psychologique aiguë / fugue sur maltraitance intrafamiliale | produite |
 | 15 | 1015 | `F44.8_1__S9_11-E13` | PSY | État dissociatif aigu sévère avec stupeur ou errance dangereuse | — |
 | 16 | 1016 | `F80.3__O2_5-E13` | PEA | Syndrome de Landau-Kleffner (aphasie acquise épileptique) | — |
 | 17 | 1017 | `G04.9_1__S7_10-E13` | NEU | Convulsions fébriles complexes / méningo-encéphalite convulsivante | produite |
