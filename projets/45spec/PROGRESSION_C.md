@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**203 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**206 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -13,9 +13,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 3 | 1003 | `F31.6__S9_5-E13` | PSY | État mixte bipolaire (dépression agitée / manie dysphorique) | produite |
 | 4 | 1004 | `F32.2_2__O6_1-E15` | PSY | Épisode dépressif sévère avec incapacité fonctionnelle totale | produite |
 | 5 | 1005 | `F32.2_3__O7_14-E16` | PSY | Détresse psychologique aiguë avec rupture de projet et risque suicidaire | produite |
-| 6 | 1006 | `F32.2__O2_10-E13` | PSY | Dépression sévère avec risque suicidaire sur échec ou harcèlement scolaire | — |
-| 7 | 1007 | `F32.3__O2_2-E13` | PEA | Épisode dépressif sévère avec signes psychotiques ou catatonie de l'adolescent | — |
-| 8 | 1008 | `F40.2_2__S9_7-E13` | PSY | Peur irrationnelle aiguë avec refus de soins vitaux (ex. phobie des hôpitaux / aiguilles) | — |
+| 6 | 1006 | `F32.2__O2_10-E13` | PSY | Dépression sévère avec risque suicidaire sur échec ou harcèlement scolaire | produite |
+| 7 | 1007 | `F32.3__O2_2-E13` | PEA | Épisode dépressif sévère avec signes psychotiques ou catatonie de l'adolescent | produite |
+| 8 | 1008 | `F40.2_2__S9_7-E13` | PSY | Peur irrationnelle aiguë avec refus de soins vitaux (ex. phobie des hôpitaux / aiguilles) | produite |
 | 9 | 1009 | `F43.0_1__O4_6-E15` | PSY | Détresse psychologique aiguë suite à l'annonce d'un dépistage positif ou faux positif | — |
 | 10 | 1010 | `F43.0_2__O6_7-E13` | LEG | État de stress aigu avec sidération ou mutisme réactionnel à l'annonce d'un décès | — |
 | 11 | 1011 | `F43.0_3__O6_9-E14` | MTR | Crise de panique ou effondrement émotionnel aigu au travail (burnout aigu) | — |
