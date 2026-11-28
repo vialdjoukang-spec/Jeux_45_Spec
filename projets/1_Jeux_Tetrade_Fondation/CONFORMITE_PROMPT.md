@@ -21,7 +21,7 @@ Généré par `projets/1_Jeux_Tetrade_Fondation/outils/conformite_prompt.py` le 
 | « un signe paraclinique à préciser (type d'examen) » (pathologies avec Gold standard) | ✅ 57/57 | ✅ 45/45 | ✅ 55/55 | ✅ 35/35 | ✅ 78/78 | ✅ 80/80 | ✅ 45/45 | ✅ 17/17 | ✅ 40/40 | ✅ 57/57 | ✅ 32/32 | ✅ 33/33 | ✅ 33/33 | ✅ 24/24 |
 | « le ou les diagnostics… par spécialité » (4 paliers TF/F/U/R ; organes avec un piège rare) | ✅ 14/14/15/14 ; R 14/14 | ✅ 8/16/10/11 ; R 10/10 | ✅ 13/17/13/12 ; R 12/12 | ✅ 7/12/9/7 ; R 6/6 | ✅ 17/24/24/13 ; R 13/13 | ✅ 14/34/17/15 ; R 10/10 | ✅ 8/18/13/6 ; R 6/6 | ✅ 3/5/5/4 ; R 4/4 | ✅ 11/16/8/5 ; R 5/5 | ✅ 13/21/12/11 ; R 11/11 | ✅ 7/14/5/6 ; R 6/6 | ✅ 9/10/7/7 ; R 7/7 | ✅ 9/9/8/7 ; R 7/7 | ✅ 5/8/6/5 ; R 5/5 |
 | « tout doit être tellement concis » (cases de plus de 45 caractères) | ✅ 0 | ✅ 0 | ✅ 0 | ✅ 0 | ✅ 0 | ✅ 0 | ✅ 0 | ✅ 0 | ✅ 0 | ✅ 0 | ✅ 0 | ✅ 0 | ✅ 0 | ✅ 0 |
-| Sources : mentions « à vérifier » restantes (règle commune « rien de mémoire ») | ⚠️ 4 | ✅ 0 | ✅ 0 | ⚠️ 1 | ✅ 0 | ⚠️ 1 | ✅ 0 | ✅ 0 | ✅ 0 | ✅ 0 | ⚠️ 33 | ⚠️ 36 | ⚠️ 33 | ⚠️ 23 |
+| Sources : mentions « à vérifier » restantes (règle commune « rien de mémoire ») | ⚠️ 4 | ✅ 0 | ✅ 0 | ⚠️ 1 | ✅ 0 | ⚠️ 1 | ✅ 0 | ✅ 0 | ✅ 0 | ✅ 0 | ✅ 0 | ⚠️ 36 | ⚠️ 33 | ⚠️ 23 |
 
 ## 2. Exigences du moteur (communes à tous les systèmes)
 
