@@ -26,3 +26,33 @@
 | psyche | 36 | 1 | 3 doutes levés (méthylphénidate adulte : Concerta remboursé, Ritaline seulement narcolepsie ; lisdexamfétamine sans indication boulimie ; varénicline Dalita autorisée hors LS) ; recommandation suisse de sevrage tabagique non lue (reste « à vérifier ») | physostigmine (Anticholium), oxybate de sodium |
 | gyneco | 33 | 1 | méthotrexate dans la GEU hors indication ; flucloxacilline orale sans produit suisse (aussi signalée en derma ×2 et loco ×1) ; avis SSGO et prise en charge du test HPV primaire : lieu de vérification précisé | flucloxacilline orale |
 | pediatrie | 23 | 1 | gel de dextrose 40 % sans AIPS ; SwissPedDose exige un compte (contrôle pédiatrique « à vérifier » dans l'en-tête) | gel de dextrose 40 % |
+| **Total** | **613** | **9** | | |
+
+## Sources lues (28.11.2026)
+- AIPS Swissmedic : base AmiKo FR du 27.11.2026 (`pillbox.oddb.org/amiko_db_full_idx_fr.zip`), 4651 informations professionnelles.
+- Index Refdata des articles (`files.refdata.ch/simis-public-prod/Articles/1.0/Refdata.Articles.zip`, généré le 28.11.2026, 18 523 articles) : présence sur le marché suisse. Il peut manquer des solutions hospitalières : le gluconate de calcium injectable garde donc sa mention « à vérifier ».
+- Liste des spécialités de l'OFSP : publication du 03.11.2026 (`epl.bag.admin.ch/static/sl/archive/per-year/2026/2026-11-03/BAG_xls_2026.zip`, fichier `foph-sl-publication-20261103-fr.ndjson`) : remboursement et limitations.
+- PubMed : FMD 2019 (doi 10.1177/1358863X18821816), ISL 2023 (Lymphology 56:133-151), BTS 2023 (doi 10.1136/thorax-2022-219784), EAU 2025 (doi 10.1016/j.eururo.2025.02.020).
+
+## Les 9 « à vérifier » restants
+| Système | Objet | Raison | Où vérifier |
+|---|---|---|---|
+| cardio | Myxome : référentiel chirurgical suisse | Aucun référentiel publié trouvé | Société suisse de chirurgie cardiaque et vasculaire thoracique |
+| cardio | Syndrome cave supérieur : recommandation ESMO | Référence imprécise | esmo.org (Clinical Practice Guidelines) |
+| cardio | Thrombus cave : chapitre EAU 2025 | Seul le résumé a été lu | uroweb.org (texte intégral) |
+| cardio | Chylothorax : chapitre BTS 2023 | Notice sans résumé | thorax.bmj.com (texte intégral) |
+| renal | Gluconate/chlorure de calcium IV (hyperkaliémie) | Ni AIPS ni article Refdata (index possiblement incomplet pour l'hôpital) | Pharmacie hospitalière |
+| endocrino | Gluconate de calcium IV (hypocalcémie) | Idem | Pharmacie hospitalière |
+| gyneco | Avis SSGO récent ; prise en charge du test HPV primaire | Non lus | sggg.ch ; Liste des analyses (OFSP) |
+| psyche | Recommandation suisse récente de sevrage tabagique | Non lue | Ligue pulmonaire suisse |
+| pediatrie | Doses pédiatriques dans SwissPedDose | Base sous compte | db.swisspeddose.ch |
+
+## Sites bloqués (notés, non contournés)
+- `ssi.guidelines.ch` : application avec authentification (recommandations SSI non lues).
+- `db.swisspeddose.ch` : connexion exigée.
+- `www.spezialitaetenliste.ch/File.axd` : renvoie désormais l'application web ; la LS a été lue par l'archive officielle `epl.bag.admin.ch`.
+
+## Limites d'outillage relevées
+- `non_perte.py` (référence origin/main) compte comme perte la suppression d'un champ `aVerifier`, même résolu : les doutes levés gardent donc leur champ, réécrit « Doute levé le 28.11.2026 : … ».
+- Après un rebase sur main, la branche poussée divergeait : elle a été fusionnée (sans push forcé), puis main a été intégrée par fusion.
+- Les 4 fichiers paracliniques en perte sur main (`ganglions_cervicaux.json` ×2, `coude_poignet_et_main.json`, `recherche/index.json`) relèvent d'autres couloirs : restaurés à chaque contrôle, jamais commités.

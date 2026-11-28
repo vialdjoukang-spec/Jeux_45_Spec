@@ -90,7 +90,14 @@ def main():
                                             ("gold", M[n]["gold"] < M[n]["pats"]), ("concision", M[n]["trop"] > 0), ("innervation", M[n]["ana"]["innerv"] < M[n]["n"])) if v]
     L += ["", "## 3. Écarts", "", "- Circuits symptômes → syndrome → examen → diagnostics : %s seulement ; les %d autres systèmes s'arrêtent aux signes et aux pathologies." % (
         ", ".join(court[n] for n in noms if M[n]["syn"]) or "aucun", sum(1 for n in noms if not M[n]["syn"])),
-          "- Détail des écarts mesurés : " + " ; ".join("%s (%s)" % (court[n], ", ".join(k for m, k in ec if m == n)) for n in dict.fromkeys(n for n, _ in ec)) + ".", ""]
+          "- Détail des écarts mesurés : " + " ; ".join("%s (%s)" % (court[n], ", ".join(k for m, k in ec if m == n)) for n in dict.fromkeys(n for n, _ in ec)) + ".",
+          "- Les symptômes d'interrogatoire n'ont pas de champ « question à poser » : l'infobulle (def, pourquoi, confusion, retenir) décrit le symptôme sans formuler la question ni les caractéristiques à demander, comme le prompt l'exige.",
+          "- Le mannequin 3D ne se retourne pas : reseau3d.html n'écoute que la molette ; le vagin n'a pas de source 3D libre et la vulve reste exclue par règle.",
+          "- Théorie/Pratique et la recherche Organe/Examen vivent dans des pages séparées (arene.html) et non dans le réseau.", "",
+          "## 4. Limites de la mesure", "",
+          "- Anatomie macro, micro, vascularisation, innervation et questions : détection par mots-clés dans le texte ; un ⚠️ signale une absence probable à relire, pas une preuve.",
+          "- Les organes renvoyés à un autre système (LIENS : pharynx, thymus, circulation pulmonaire, organes lymphoïdes, ORL partagés) comptent comme présents.",
+          "- Les exigences du moteur sont vérifiées dans le code (reseau3d.html, tetrade.json), sans capture d'écran.", ""]
     open(os.path.join(RAC, "projets/1_Jeux_Tetrade_Fondation/CONFORMITE_PROMPT.md"), "w", encoding="utf-8").write("\n".join(L))
     print("\n".join(L[-4:]))
 

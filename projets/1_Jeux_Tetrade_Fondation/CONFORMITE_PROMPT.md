@@ -39,3 +39,12 @@ Généré par `projets/1_Jeux_Tetrade_Fondation/outils/conformite_prompt.py` le 
 
 - Circuits symptômes → syndrome → examen → diagnostics : cardio, respi seulement ; les 12 autres systèmes s'arrêtent aux signes et aux pathologies.
 - Détail des écarts mesurés : cardio (questions, innervation) ; respi (questions, innervation) ; digestif (syndromes, questions, innervation) ; renal (syndromes, questions, innervation) ; neuro (syndromes, questions) ; endocrino (syndromes, questions) ; hemato (syndromes, questions, innervation) ; infectio (syndromes, questions, innervation) ; orl (syndromes, questions) ; loco (syndromes, questions, innervation) ; derma (syndromes, questions, innervation) ; psyche (syndromes, questions, innervation) ; gyneco (syndromes, questions, innervation) ; pediatrie (syndromes, questions, innervation).
+- Les symptômes d'interrogatoire n'ont pas de champ « question à poser » : l'infobulle (def, pourquoi, confusion, retenir) décrit le symptôme sans formuler la question ni les caractéristiques à demander, comme le prompt l'exige.
+- Le mannequin 3D ne se retourne pas : reseau3d.html n'écoute que la molette ; le vagin n'a pas de source 3D libre et la vulve reste exclue par règle.
+- Théorie/Pratique et la recherche Organe/Examen vivent dans des pages séparées (arene.html) et non dans le réseau.
+
+## 4. Limites de la mesure
+
+- Anatomie macro, micro, vascularisation, innervation et questions : détection par mots-clés dans le texte ; un ⚠️ signale une absence probable à relire, pas une preuve.
+- Les organes renvoyés à un autre système (LIENS : pharynx, thymus, circulation pulmonaire, organes lymphoïdes, ORL partagés) comptent comme présents.
+- Les exigences du moteur sont vérifiées dans le code (reseau3d.html, tetrade.json), sans capture d'écran.
