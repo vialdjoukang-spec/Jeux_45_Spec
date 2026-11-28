@@ -10,4 +10,4 @@ git add "$C" content/notions content/questions content/corrections && git commit
 
 Co-Authored-By: Claude Fable 5.2 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01JErHPp63XmLeYp7iwrHcDK" || exit 1
-git -C "$P" cherry-pick "$(git rev-parse HEAD)" >/dev/null && git -C "$P" push -q origin agent/45spec-C-suite && echo "reportée : $L"
+git -C "$P" cherry-pick "$(git rev-parse HEAD)" >/dev/null && git -C "$P" pull -q --no-rebase --no-edit origin agent/45spec-C-suite && git -C "$P" push -q origin agent/45spec-C-suite && echo "reportée : $L"
