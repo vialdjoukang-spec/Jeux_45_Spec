@@ -21,3 +21,4 @@
 - 28.11.2026 · lot 12 (génétique, 2 fiches : séquençage de panel, exome, génome ; BRCA1/2).
 - 28.11.2026 · lot 11 (pharmaco-toxicologie et génétique, 10 fiches : vancomycine, aminosides, tacrolimus, ciclosporine, toxicologie capillaire, caryotype, CGH-array, FISH, mutation HFE, pharmacogénétique).
 - 28.11.2026 · lot 9 (auto-immunité, 10 fiches : ANA, anti-ADN natif, anti-ENA, anti-SSA et anti-SSB, anti-PLA2R, cryoglobulines, anticorps des myosites, anti-RACh, anti-MuSK, anti-MOG) ; anti-MuSK, anti-MOG et anti-HMGCR sourcés chez Viollier (absents du RPA des HUG).
+- 28.11.2026 · lot 10 (auto-immunité et divers, 10 fiches : anti-gangliosides, anti-MAG, anti-facteur intrinsèque, anti-cellules pariétales, auto-anticorps hépatiques, ECA, électrophorèse des protéines urinaires, IFI cutanée, NSE, plombémie) ; aucun chélateur du plomb (succimer, DMPS, édétate calcique) dans le corpus AIPS suisse consulté : renvoi à Tox Info Suisse.
