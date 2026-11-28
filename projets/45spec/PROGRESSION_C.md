@@ -2,14 +2,14 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**198 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**201 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
 | # | Rang | Id | Spécialité | Pathologie | Statut |
 |---|---|---|---|---|---|
 | 1 | 1001 | `F14.0_1__S9_6-E12` | PSY | Délire agité hyperthermique (excited delirium) sur cocaïne/cathinones | produite |
-| 2 | 1002 | `F15.0_1__S9_8-E12` | TOX | Intoxication aiguë aux stimulants / drogues de synthèse avec violence (cocaïne, méthamphétamine, PCP) | — |
+| 2 | 1002 | `F15.0_1__S9_8-E12` | TOX | Intoxication aiguë aux stimulants / drogues de synthèse avec violence (cocaïne, méthamphétamine, PCP) | produite |
 | 3 | 1003 | `F31.6__S9_5-E13` | PSY | État mixte bipolaire (dépression agitée / manie dysphorique) | produite |
 | 4 | 1004 | `F32.2_2__O6_1-E15` | PSY | Épisode dépressif sévère avec incapacité fonctionnelle totale | — |
 | 5 | 1005 | `F32.2_3__O7_14-E16` | PSY | Détresse psychologique aiguë avec rupture de projet et risque suicidaire | — |
@@ -802,11 +802,11 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 792 | 1792 | `Z25.8__O4_2-E03` | PEA | Vaccination de l'adolescent (HPV, méningocoques, rattrapage ROR/varicelle/VHB) | produite |
 | 793 | 1793 | `Z26.8__O4_2-E04` | PSP | Vaccination de la femme enceinte (coqueluche dTpa, grippe, VRS) | produite |
 | 794 | 1794 | `Z28.2_1__O7_11-E05` | PSP | Refus de vaccination (adulte ou parents pour enfant) | produite |
-| 795 | 1795 | `Z28.2__O2_4-E05` | PSP | Hésitation vaccinale parentale et entretien motivationnel | — |
+| 795 | 1795 | `Z28.2__O2_4-E05` | PSP | Hésitation vaccinale parentale et entretien motivationnel | produite |
 | 796 | 1796 | `Z28.8__O2_4-E04` | PSP | Rattrapage vaccinal chez l'enfant incomplètement vacciné ou migrant | produite |
 | 797 | 1797 | `Z30.1_1__S4_8-E05` | GYN | Contraception d'urgence par DIU au cuivre (stérilet post-coïtal) | produite |
 | 798 | 1798 | `Z30.1__S4_8-E03` | GYN | Dispositif intra-utérin (DIU au cuivre ou hormonal au lévonorgestrel) | produite |
-| 799 | 1799 | `Z30.2__S4_4-E04` | MIG | Demande de stérilisation chirurgicale (vasectomie / ligature tubaire) | — |
+| 799 | 1799 | `Z30.2__S4_4-E04` | MIG | Demande de stérilisation chirurgicale (vasectomie / ligature tubaire) | produite |
 | 800 | 1800 | `Z30.3__S4_8-E04` | GYN | Contraception d'urgence orale (lévonorgestrel ou acétate d'ulipristal) | produite |
 
 Signature : AAI (Anthropic AI)
