@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**141 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**155 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -745,24 +745,24 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 735 | 1735 | `R63.0__O5_3-E07` | MIG | Anorexie, cachexie et question de l'hydratation / nutrition artificielle en fin de vie | produite |
 | 736 | 1736 | `R64_1__O3_3-E03` | MIG | Dénutrition secondaire à une pathologie néoplasique ou inflammatoire (cachexie) | produite |
 | 737 | 1737 | `R68.1__O2_8-E08` | PED | Malaise grave du nourrisson (BRUE à haut risque / ancien ALTE) ayant réanimé | produite |
-| 738 | 1738 | `R73.9__F2_9-E06` | MIG | Hyperglycémie de stress ou cortico-induite | — |
-| 739 | 1739 | `R76.1__O7_13-E05` | MIG | Infection tuberculeuse latente (ITL) chez migrant de zone d'endémie | — |
+| 738 | 1738 | `R73.9__F2_9-E06` | MIG | Hyperglycémie de stress ou cortico-induite | produite |
+| 739 | 1739 | `R76.1__O7_13-E05` | MIG | Infection tuberculeuse latente (ITL) chez migrant de zone d'endémie | produite |
 | 740 | 1740 | `R79.8__F2_12-E06` | MIG | Élévation isolée de l'urée ou créatinine non rénale | produite |
 | 741 | 1741 | `R82.7__O4_6-E05` | GYN | Bactériurie asymptomatique (ne pas traiter sauf grossesse / chirurgie urologique) | produite |
 | 742 | 1742 | `R93.8__O4_4-E04` | MIG | Incidentalome surrénalien, thyroïdien ou pulmonaire découvert au CT | produite |
 | 743 | 1743 | `S02.0__S8_7-E06` | CMF | Fracture simple de la voûte crânienne (linéaire non déplacée) | produite |
-| 744 | 1744 | `S02.2__S1_5-E04` | CMF | Traumatisme nasal ou fracture des os propres du nez | — |
-| 745 | 1745 | `S27.3__S8_11-E04` | CTH | Contusion pulmonaire parenchymateuse | — |
-| 746 | 1746 | `S32.0_2__S8_10-E06` | ORT | Fracture des processus transverses ou épineux (fracture parcellaire stable) | — |
-| 747 | 1747 | `S36.0_1__S8_1-E02` | CHI | Traumatisme splénique fermé (grade I à III) | — |
-| 748 | 1748 | `S36.1__S8_1-E03` | CHI | Traumatisme hépatique fermé (grade I à III) | — |
-| 749 | 1749 | `S37.0__S8_1-E04` | CHI | Traumatisme rénal fermé (contusion ou lacération mineure) | — |
-| 750 | 1750 | `S42.0__S8_8-E07` | ORT | Fracture de la clavicule | — |
-| 751 | 1751 | `S43.1__S8_4-E05` | ORT | Disjonction acromio-claviculaire (stades I à III de Rockwood) | — |
-| 752 | 1752 | `S63.1__S8_4-E04` | ORT | Luxation interphalangienne des doigts | — |
-| 753 | 1753 | `S66.9__S8_9-E05` | CMA | Plaie de la main avec section des tendons fléchisseurs ou extenseurs | — |
-| 754 | 1754 | `S82.8__S8_8-E05` | ORT | Fracture malléolaire (uni-, bi- ou trimalléolaire) | — |
-| 755 | 1755 | `S83.0__S8_4-E03` | ORT | Luxation latérale de la patella (rotule) | — |
+| 744 | 1744 | `S02.2__S1_5-E04` | CMF | Traumatisme nasal ou fracture des os propres du nez | produite |
+| 745 | 1745 | `S27.3__S8_11-E04` | CTH | Contusion pulmonaire parenchymateuse | produite |
+| 746 | 1746 | `S32.0_2__S8_10-E06` | ORT | Fracture des processus transverses ou épineux (fracture parcellaire stable) | produite |
+| 747 | 1747 | `S36.0_1__S8_1-E02` | CHI | Traumatisme splénique fermé (grade I à III) | produite |
+| 748 | 1748 | `S36.1__S8_1-E03` | CHI | Traumatisme hépatique fermé (grade I à III) | produite |
+| 749 | 1749 | `S37.0__S8_1-E04` | CHI | Traumatisme rénal fermé (contusion ou lacération mineure) | produite |
+| 750 | 1750 | `S42.0__S8_8-E07` | ORT | Fracture de la clavicule | produite |
+| 751 | 1751 | `S43.1__S8_4-E05` | ORT | Disjonction acromio-claviculaire (stades I à III de Rockwood) | produite |
+| 752 | 1752 | `S63.1__S8_4-E04` | ORT | Luxation interphalangienne des doigts | produite |
+| 753 | 1753 | `S66.9__S8_9-E05` | CMA | Plaie de la main avec section des tendons fléchisseurs ou extenseurs | produite |
+| 754 | 1754 | `S82.8__S8_8-E05` | ORT | Fracture malléolaire (uni-, bi- ou trimalléolaire) | produite |
+| 755 | 1755 | `S83.0__S8_4-E03` | ORT | Luxation latérale de la patella (rotule) | produite |
 | 756 | 1756 | `S83.2__S8_8-E06` | ORT | Lésion méniscale traumatique aiguë du genou | — |
 | 757 | 1757 | `T14.0__S1_22-E04` | MIG | Piqûre d'insecte périorbitaire | — |
 | 758 | 1758 | `T18.2__S8_6-E06` | MIG | Corps étranger gastrique ou intestinal avalé (pièce, objet mousse) | — |
