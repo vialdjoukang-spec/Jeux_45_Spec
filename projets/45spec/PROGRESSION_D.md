@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-D`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**118 / 725 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**121 / 725 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -17,9 +17,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 7 | 1807 | `Z54.0__O7_2-E04` | MIG | Incapacité de travail post-opératoire ou post-traumatique (LAA) | produite |
 | 8 | 1808 | `Z56.6_1__O6_4-E06` | MIG | Harcèlement sexuel au travail ou dans les études | produite |
 | 9 | 1809 | `Z60.2_1__O5_5-E04` | PSP | Isolement social et précarité socio-économique | produite |
-| 10 | 1810 | `Z60.2_2__O7_4-E04` | PSP | Isolement social et perte d'autonomie dans la maladie chronique | — |
-| 11 | 1811 | `Z60.2__O5_1-E06` | PSP | Isolement social et précarisation financière du proche aidant | — |
-| 12 | 1812 | `Z60.3_1__O7_24-E06` | MIG | Patient en situation de migration précaire ou sans-papiers (accès LAMal) | — |
+| 10 | 1810 | `Z60.2_2__O7_4-E04` | PSP | Isolement social et perte d'autonomie dans la maladie chronique | produite |
+| 11 | 1811 | `Z60.2__O5_1-E06` | PSP | Isolement social et précarisation financière du proche aidant | produite |
+| 12 | 1812 | `Z60.3_1__O7_24-E06` | MIG | Patient en situation de migration précaire ou sans-papiers (accès LAMal) | produite |
 | 13 | 1813 | `Z60.8__O7_10-E05` | MIG | Consentement représenté par proche ou curateur (art. 378 CC) | — |
 | 14 | 1814 | `Z63.4_2__O6_7-E05` | MIG | Deuil périnatal (fausse couche, IMG, mortinatalité, mort subite du nourrisson) | — |
 | 15 | 1815 | `Z63.8_2__O6_6-E04` | MIG | Conflits d'adaptation dans une famille recomposée | — |
