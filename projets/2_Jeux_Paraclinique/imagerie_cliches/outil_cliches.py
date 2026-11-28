@@ -200,7 +200,8 @@ def appliquer(fchoix, fcand):
         liens_f = os.path.join(P, "atlas_liens", organe + ".json")
         L = json.load(open(liens_f, encoding="utf-8")) if os.path.exists(liens_f) else {"_meta": {"role": "Pathologie de Paraclinique → dossier de l'atlas (IMG-xxx), seulement si la modalité du dossier est celle de l'examen.", "signature": "AAI (Anthropic AI)"}}
         deja = L.get(patho); deja = deja if isinstance(deja, list) else ([deja] if deja else [])
-        if any(isinstance(x, str) and x.startswith("IMC-") and json.load(open(os.path.join(ATL_M, x + ".json"), encoding="utf-8"))["patho"]["source_url"] == c["page"] for x in deja):
+        ids_ = [x.get("atlas") if isinstance(x, dict) else x for x in deja]  # forme texte ou objet (normal apparié)
+        if any(i_ and i_.startswith("IMC-") and os.path.exists(os.path.join(ATL_M, i_ + ".json")) and json.load(open(os.path.join(ATL_M, i_ + ".json"), encoding="utf-8"))["patho"]["source_url"] == c["page"] for i_ in ids_):
             continue
         i = prochain_id(); dest = os.path.join(ATL_I, "patho", f"{i}_patho.jpg")
         meta = META.get(c["titre"]) or {"url": None, "mime": "", "licence": ""}; u = meta["url"]
