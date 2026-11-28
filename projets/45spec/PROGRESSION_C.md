@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**173 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**178 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -781,12 +781,12 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 771 | 1771 | `T80.8__F2_17-E04` | CHI | Réaction fébrile non hémolytique post-transfusionnelle (RFNH) | produite |
 | 772 | 1772 | `T81.8__S6_4-E06` | CHI | Retard de cicatrisation sur carence nutritionnelle, tabac ou médicament | produite |
 | 773 | 1773 | `T82.7__O7_9-E04` | CHI | Bactériémie liée au cathéter veineux central ou périphérique | produite |
-| 774 | 1774 | `T88.7_1__G7-E04` | TOX | Flushing médicamenteux (inhibiteurs calciques, niacine, dérivés nitrés) | — |
-| 775 | 1775 | `T88.7_3__O7_15-E05` | MIG | Abandon de traitement pour effets indésirables non signalés | — |
-| 776 | 1776 | `T88.7__G5-E08` | TOX | Effet indésirable médicamenteux (polymédication / iatrogénie) | — |
-| 777 | 1777 | `T88.8_1__O7_19-E06` | MIG | Risques généraux des vecteurs viraux (immunogénicité, hépatotoxicité, mutagenèse) | — |
+| 774 | 1774 | `T88.7_1__G7-E04` | TOX | Flushing médicamenteux (inhibiteurs calciques, niacine, dérivés nitrés) | produite |
+| 775 | 1775 | `T88.7_3__O7_15-E05` | MIG | Abandon de traitement pour effets indésirables non signalés | produite |
+| 776 | 1776 | `T88.7__G5-E08` | TOX | Effet indésirable médicamenteux (polymédication / iatrogénie) | produite |
+| 777 | 1777 | `T88.8_1__O7_19-E06` | MIG | Risques généraux des vecteurs viraux (immunogénicité, hépatotoxicité, mutagenèse) | produite |
 | 778 | 1778 | `W54.0_1__S8_9-E03` | CMA | Plaie par morsure animale ou humaine (chat, chien, humain) | — |
-| 779 | 1779 | `W74__G13-E06` | LEG | Noyade accidentelle | — |
+| 779 | 1779 | `W74__G13-E06` | LEG | Noyade accidentelle | produite |
 | 780 | 1780 | `W75.9__O2_8-E02` | LEG | Asphyxie accidentelle liée au sommeil (étouffement, coincement, co-sleeping dangereux) | — |
 | 781 | 1781 | `X42__G13-E05` | LEG | Surdose mortelle aux opioïdes / stupéfiants | — |
 | 782 | 1782 | `X74__G13-E07` | LEG | Suicide par arme à feu | — |
