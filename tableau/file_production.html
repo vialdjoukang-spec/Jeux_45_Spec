@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>File de production</title>
+<!-- Base : Open Props (argyleink/open-props, MIT), version figée ; pliée à la charte dans un seul :root.
+     Données : projets/file_production/FILE_PRODUCTION.json lu en direct sur main. Signature : AAI (Anthropic AI) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/open-props@1.7.4/open-props.min.css">
+<style>
+:root{
+  --fond:#fbf6ea; --fond2:#f3ead3; --carte:#fffdf8; --trait:#e3d3a6; --or:#8a6a12; --or-vif:#c9a227;
+  --rouge:#a3121f; --bleu:#12356b; --doux:#4a5d7e; --vert:#17663a; --piste:#efe5c8;
+  --police:"Atkinson Hyperlegible",system-ui,sans-serif; --titre:"Cormorant Garamond",Georgia,serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(1200px 600px at 80% -10%,#fff7dc 0,transparent 60%),linear-gradient(180deg,var(--fond),var(--fond2));
+  color:var(--bleu);font:15px/1.55 var(--police);min-height:100vh}
+main{max-width:1080px;margin:0 auto;padding:var(--size-7) 16px var(--size-9)}
+header{display:grid;grid-template-columns:1fr auto;gap:var(--size-6);align-items:center;padding-bottom:var(--size-6);border-bottom:1px solid var(--trait)}
+.sur{letter-spacing:.22em;text-transform:uppercase;font-size:12px;color:var(--or);font-weight:700;margin:0}
+h1{font:700 clamp(34px,6vw,56px)/1.02 var(--titre);color:var(--rouge);margin:.15em 0 .2em;letter-spacing:-.01em}
+.chapo{margin:0;max-width:56ch;color:var(--doux)}
+.anneau{--p:0;width:148px;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;
+  background:conic-gradient(var(--or-vif) calc(var(--p)*1%),var(--piste) 0);box-shadow:var(--shadow-3);transition:--p .8s var(--ease-out-3)}
+.anneau>div{width:118px;aspect-ratio:1;border-radius:50%;background:var(--carte);display:grid;place-items:center;text-align:center}
+.anneau b{font:700 40px/1 var(--titre);color:var(--rouge);display:block}
+.anneau span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--or)}
+.pistes{display:grid;gap:var(--size-4);margin-top:var(--size-6)}
+.piste{background:var(--carte);border:1px solid var(--trait);border-radius:var(--radius-3);padding:var(--size-4) var(--size-5);
+  display:grid;grid-template-columns:54px 1fr auto;gap:var(--size-2) var(--size-4);align-items:center;box-shadow:var(--shadow-2);
+  animation:monte .5s var(--ease-out-3) both;animation-delay:calc(var(--i)*70ms)}
+.num{font:700 44px/1 var(--titre);color:var(--or-vif);grid-row:span 2}
+h2{font:700 24px/1.15 var(--titre);color:var(--rouge);margin:0}
+.meta{margin:0;font-size:13px;color:var(--doux);overflow-wrap:anywhere}
+.meta code{font:inherit;color:var(--bleu);font-weight:700}
+.etat{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.35em .9em;border-radius:99px;border:1px solid currentColor;white-space:nowrap}
+.e-en_cours{color:var(--or)} .e-fusionne,.e-fait{color:var(--vert)} .e-bloque{color:var(--rouge)} .e-a_faire,.e-a_auditer{color:var(--doux)}
+.e-en_cours::before{content:"";display:inline-block;width:.55em;height:.55em;border-radius:50%;background:currentColor;margin-right:.5em;animation:pouls 1.6s infinite}
+.barre{grid-column:2/4;display:grid;grid-template-columns:1fr auto;gap:var(--size-3);align-items:center}
+.rail{height:10px;border-radius:99px;background:var(--piste);overflow:hidden}
+.rail i{display:block;height:100%;width:var(--w);border-radius:99px;background:linear-gradient(90deg,var(--or),var(--or-vif));transition:width .8s var(--ease-out-3)}
+.compte{font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
+.compte small{font-weight:400;color:var(--doux)}
+.note{grid-column:2/4;margin:0;font-size:13px;color:var(--doux);border-left:3px solid var(--trait);padding-left:var(--size-3)}
+.liens{grid-column:2/4;margin:0;font-size:13px}
+a{color:var(--bleu);text-underline-offset:3px} a:hover{color:var(--rouge)}
+footer{margin-top:var(--size-7);font-size:13px;color:var(--doux);display:flex;flex-wrap:wrap;gap:var(--size-2) var(--size-5);justify-content:space-between}
+.alerte{background:#fdecee;border:1px solid var(--rouge);color:var(--rouge);border-radius:var(--radius-2);padding:var(--size-3);margin-top:var(--size-5)}
+@property --p{syntax:"<number>";inherits:false;initial-value:0}
+@keyframes monte{from{opacity:0;transform:translateY(10px)}}
+@keyframes pouls{50%{opacity:.25}}
+@media (max-width:620px){
+  header{grid-template-columns:1fr;justify-items:start}
+  .piste{grid-template-columns:1fr auto;padding:var(--size-4)}
+  .num{grid-row:auto;font-size:30px;grid-column:1/3}
+  .barre,.note,.liens{grid-column:1/3}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <p class="sur">Jeux 45 Spec · hors 45 Spec</p>
+      <h1>File de production</h1>
+      <p class="chapo">Cinq couloirs travaillent en parallèle, chacun sur sa branche. Le dépôt se mesure lui-même ; cette page se rafraîchit chaque minute.</p>
+    </div>
+    <div class="anneau" id="anneau" role="img" aria-label="Progression d'ensemble"><div><div><b id="tot">—</b><span>ensemble</span></div></div></div>
+  </header>
+  <div id="alerte" class="alerte" hidden></div>
+  <section class="pistes" id="pistes" aria-live="polite"></section>
+  <footer><span id="quand">Mesure en cours de lecture.</span><span><a href="./">Tableau de bord général</a> · <a href="https://github.com/vialdjoukang-spec/Jeux_45_Spec/blob/main/projets/PROMPTS_CHANTIERS_RESTANTS.md">Prompts des chantiers</a></span></footer>
+</main>
+<script>
+const SRC = new URLSearchParams(location.search).get("src")
+  || "https://raw.githubusercontent.com/vialdjoukang-spec/Jeux_45_Spec/main/projets/file_production/FILE_PRODUCTION.json";
+const DEPOT = "https://github.com/vialdjoukang-spec/Jeux_45_Spec";
+const ETATS = {a_faire:"À faire", en_cours:"En cours", a_auditer:"À auditer", fusionne:"Fusionné", fait:"Fait", bloque:"Bloqué"};
+const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+const lien = (h, x) => { const a = el("a", "", x); a.href = h; return a; };
+function rendre(d) {
+  document.getElementById("tot").textContent = d.progression_pct + " %";
+  document.getElementById("anneau").style.setProperty("--p", d.progression_pct);
+  document.getElementById("quand").textContent = "Dernière mesure du dépôt : " + d.mesure_le + ".";
+  const P = document.getElementById("pistes"); P.replaceChildren();
+  d.chantiers.forEach((c, i) => {
+    const a = el("article", "piste"); a.style.setProperty("--i", i);
+    a.append(el("div", "num", String(c.id).padStart(2, "0")));
+    const t = el("div"); t.append(el("h2", "", c.chantier));
+    const m = el("p", "meta"); m.append(c.role + " · " + c.modele + " · "); m.append(el("code", "", c.branche)); t.append(m);
+    a.append(t, el("span", "etat e-" + c.etat, ETATS[c.etat] || c.etat));
+    const b = el("div", "barre"), r = el("div", "rail"), f = el("i"); f.style.setProperty("--w", Math.min(100, c.pct) + "%"); r.append(f);
+    r.setAttribute("role", "progressbar"); r.setAttribute("aria-valuenow", c.pct); r.setAttribute("aria-valuemin", 0); r.setAttribute("aria-valuemax", 100); r.setAttribute("aria-label", c.chantier);
+    const n = el("span", "compte", c.fait + " / " + c.cible + " "); n.append(el("small", "", "· " + c.pct + " %")); b.append(r, n); a.append(b);
+    const u = el("p", "liens"); u.append(c.unite + ". ", lien(DEPOT + "/tree/" + c.branche, "Branche"));
+    if (c.pr) u.append(" · ", lien(DEPOT + "/pull/" + c.pr, "PR " + c.pr));
+    if (c.session) u.append(" · ", lien("https://claude.ai/code/" + c.session, "Session"));
+    a.append(u);
+    if (c.note) a.append(el("p", "note", c.note));
+    P.append(a);
+  });
+}
+async function lire() {
+  const A = document.getElementById("alerte");
+  try {
+    const r = await fetch(SRC + (SRC.includes("?") ? "&" : "?") + "t=" + Date.now(), {cache: "no-store"});
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    rendre(await r.json()); A.hidden = true;
+  } catch (e) { A.hidden = false; A.textContent = "La file n'a pas pu être lue (" + e.message + "). Elle sera relue dans une minute."; }
+}
+lire(); setInterval(lire, 60000);
+</script>
+</body>
+</html>

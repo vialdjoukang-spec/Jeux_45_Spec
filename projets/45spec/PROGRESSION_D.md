@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-D`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**121 / 725 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**124 / 725 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -20,9 +20,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 10 | 1810 | `Z60.2_2__O7_4-E04` | PSP | Isolement social et perte d'autonomie dans la maladie chronique | produite |
 | 11 | 1811 | `Z60.2__O5_1-E06` | PSP | Isolement social et précarisation financière du proche aidant | produite |
 | 12 | 1812 | `Z60.3_1__O7_24-E06` | MIG | Patient en situation de migration précaire ou sans-papiers (accès LAMal) | produite |
-| 13 | 1813 | `Z60.8__O7_10-E05` | MIG | Consentement représenté par proche ou curateur (art. 378 CC) | — |
-| 14 | 1814 | `Z63.4_2__O6_7-E05` | MIG | Deuil périnatal (fausse couche, IMG, mortinatalité, mort subite du nourrisson) | — |
-| 15 | 1815 | `Z63.8_2__O6_6-E04` | MIG | Conflits d'adaptation dans une famille recomposée | — |
+| 13 | 1813 | `Z60.8__O7_10-E05` | MIG | Consentement représenté par proche ou curateur (art. 378 CC) | produite |
+| 14 | 1814 | `Z63.4_2__O6_7-E05` | MIG | Deuil périnatal (fausse couche, IMG, mortinatalité, mort subite du nourrisson) | produite |
+| 15 | 1815 | `Z63.8_2__O6_6-E04` | MIG | Conflits d'adaptation dans une famille recomposée | produite |
 | 16 | 1816 | `Z64.0__O1_8-E04` | MIG | Consultation de conseil et d'accompagnement en cas d'ambivalence | — |
 | 17 | 1817 | `Z71.3_1__O7_3-E05` | PSP | Régimes végétarien et végétalien (végan) : prévention des carences | — |
 | 18 | 1818 | `Z71.3_2__O7_21-E06` | MIG | Compléments alimentaires et vitamines (magnésium, oméga-3, curcuma) | — |
