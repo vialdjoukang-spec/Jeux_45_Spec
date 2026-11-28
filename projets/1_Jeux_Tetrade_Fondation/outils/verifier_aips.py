@@ -213,7 +213,7 @@ def main():
                     autres += cands[1:30]
                 else:
                     absentes.append((dci, mq))
-            for w in idx.dans_texte(pos):
+            for w in idx.dans_texte(nom + " " + pos):
                 f = idx.cherche(w) or [idx.vocab[w]]
                 if f[0]["id"] not in {x["id"] for x in fiches}:
                     fiches.append(f[0]); noms_ok.append(w)
