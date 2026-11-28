@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**154 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**155 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -761,7 +761,7 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 751 | 1751 | `S43.1__S8_4-E05` | ORT | Disjonction acromio-claviculaire (stades I à III de Rockwood) | produite |
 | 752 | 1752 | `S63.1__S8_4-E04` | ORT | Luxation interphalangienne des doigts | produite |
 | 753 | 1753 | `S66.9__S8_9-E05` | CMA | Plaie de la main avec section des tendons fléchisseurs ou extenseurs | produite |
-| 754 | 1754 | `S82.8__S8_8-E05` | ORT | Fracture malléolaire (uni-, bi- ou trimalléolaire) | — |
+| 754 | 1754 | `S82.8__S8_8-E05` | ORT | Fracture malléolaire (uni-, bi- ou trimalléolaire) | produite |
 | 755 | 1755 | `S83.0__S8_4-E03` | ORT | Luxation latérale de la patella (rotule) | produite |
 | 756 | 1756 | `S83.2__S8_8-E06` | ORT | Lésion méniscale traumatique aiguë du genou | — |
 | 757 | 1757 | `T14.0__S1_22-E04` | MIG | Piqûre d'insecte périorbitaire | — |
