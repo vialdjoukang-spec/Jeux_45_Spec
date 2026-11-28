@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**182 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**185 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -790,9 +790,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 780 | 1780 | `W75.9__O2_8-E02` | LEG | Asphyxie accidentelle liée au sommeil (étouffement, coincement, co-sleeping dangereux) | produite |
 | 781 | 1781 | `X42__G13-E05` | LEG | Surdose mortelle aux opioïdes / stupéfiants | produite |
 | 782 | 1782 | `X74__G13-E07` | LEG | Suicide par arme à feu | produite |
-| 783 | 1783 | `Y61.0__O7_5-E04` | TOX | Complication chirurgicale ou technique évitable (oubli de compresse, erreur de côté, lésion iatrogène) | — |
-| 784 | 1784 | `Y69_2__O7_5-E03` | LEG | Erreur diagnostique ou retard de diagnostic par biais cognitif d'un confrère | — |
-| 785 | 1785 | `Z01.8__O4_4-E06` | MIG | Bilan préopératoire ciblé avant chirurgie élective | — |
+| 783 | 1783 | `Y61.0__O7_5-E04` | TOX | Complication chirurgicale ou technique évitable (oubli de compresse, erreur de côté, lésion iatrogène) | produite |
+| 784 | 1784 | `Y69_2__O7_5-E03` | LEG | Erreur diagnostique ou retard de diagnostic par biais cognitif d'un confrère | produite |
+| 785 | 1785 | `Z01.8__O4_4-E06` | MIG | Bilan préopératoire ciblé avant chirurgie élective | produite |
 | 786 | 1786 | `Z02.4_2__O7_17-E04` | MIG | Évaluation médicale d'aptitude à la conduite automobile (niveaux 1–4 OCR) | — |
 | 787 | 1787 | `Z02.8__O7_17-E05` | MIG | Certificat pour voyage aérien, prolongation de séjour ou annulation | — |
 | 788 | 1788 | `Z04.1__O7_17-E06` | MIG | Constat médical initial de lésions traumatiques (accident LAA ou agression) | — |
