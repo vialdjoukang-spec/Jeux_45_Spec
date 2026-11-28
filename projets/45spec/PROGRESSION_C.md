@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**188 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**191 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -796,9 +796,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 786 | 1786 | `Z02.4_2__O7_17-E04` | MIG | Évaluation médicale d'aptitude à la conduite automobile (niveaux 1–4 OCR) | produite |
 | 787 | 1787 | `Z02.8__O7_17-E05` | MIG | Certificat pour voyage aérien, prolongation de séjour ou annulation | produite |
 | 788 | 1788 | `Z04.1__O7_17-E06` | MIG | Constat médical initial de lésions traumatiques (accident LAA ou agression) | produite |
-| 789 | 1789 | `Z12.5_1__O7_18-E04` | PSP | Demande de dépistage PSA ou marqueurs tumoraux sans indication | — |
-| 790 | 1790 | `Z13.0__O1_3-E06` | PSP | Dépistage des hémoglobinopathies (thalassémie, drépanocytose) chez les parents | — |
-| 791 | 1791 | `Z13.8_2__O4_7-E04` | PSP | Prévention des troubles neurocognitifs et démences (facteurs Lancet Commission) | — |
+| 789 | 1789 | `Z12.5_1__O7_18-E04` | PSP | Demande de dépistage PSA ou marqueurs tumoraux sans indication | produite |
+| 790 | 1790 | `Z13.0__O1_3-E06` | PSP | Dépistage des hémoglobinopathies (thalassémie, drépanocytose) chez les parents | produite |
+| 791 | 1791 | `Z13.8_2__O4_7-E04` | PSP | Prévention des troubles neurocognitifs et démences (facteurs Lancet Commission) | produite |
 | 792 | 1792 | `Z25.8__O4_2-E03` | PEA | Vaccination de l'adolescent (HPV, méningocoques, rattrapage ROR/varicelle/VHB) | — |
 | 793 | 1793 | `Z26.8__O4_2-E04` | PSP | Vaccination de la femme enceinte (coqueluche dTpa, grippe, VRS) | — |
 | 794 | 1794 | `Z28.2_1__O7_11-E05` | PSP | Refus de vaccination (adulte ou parents pour enfant) | — |
