@@ -8,3 +8,6 @@
 - `conception/pdf/paraclinique.pdf`
 - `conception/outils/catalogue_paraclinique.py`
 - `conception/donnees/paraclinique/`
+
+## Journal Biologie (branche `paraclinique-biologie-suite`)
+- 28.11.2026 · lot 0 : 28 analyses du catalogue déjà couvertes par une fiche existante sont rattachées par synonyme (champ `_rattachements`) ; plan des 112 fiches à créer en 12 lots (`LOTS_BIOLOGIE_SUITE.json`) ; outil de lecture des sources `conception/outils/paraclinique/sources_bio.py` (RPA HUG, AIPS refdata, cache) ; `importer_ex1.py` cartographie sans le dépôt source ; analyses sans fiche 140 → 112 ; audit 101/101 vert.
