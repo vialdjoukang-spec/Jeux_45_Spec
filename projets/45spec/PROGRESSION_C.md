@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**196 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**198 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -805,8 +805,8 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 795 | 1795 | `Z28.2__O2_4-E05` | PSP | Hésitation vaccinale parentale et entretien motivationnel | — |
 | 796 | 1796 | `Z28.8__O2_4-E04` | PSP | Rattrapage vaccinal chez l'enfant incomplètement vacciné ou migrant | produite |
 | 797 | 1797 | `Z30.1_1__S4_8-E05` | GYN | Contraception d'urgence par DIU au cuivre (stérilet post-coïtal) | produite |
-| 798 | 1798 | `Z30.1__S4_8-E03` | GYN | Dispositif intra-utérin (DIU au cuivre ou hormonal au lévonorgestrel) | — |
+| 798 | 1798 | `Z30.1__S4_8-E03` | GYN | Dispositif intra-utérin (DIU au cuivre ou hormonal au lévonorgestrel) | produite |
 | 799 | 1799 | `Z30.2__S4_4-E04` | MIG | Demande de stérilisation chirurgicale (vasectomie / ligature tubaire) | — |
-| 800 | 1800 | `Z30.3__S4_8-E04` | GYN | Contraception d'urgence orale (lévonorgestrel ou acétate d'ulipristal) | — |
+| 800 | 1800 | `Z30.3__S4_8-E04` | GYN | Contraception d'urgence orale (lévonorgestrel ou acétate d'ulipristal) | produite |
 
 Signature : AAI (Anthropic AI)
