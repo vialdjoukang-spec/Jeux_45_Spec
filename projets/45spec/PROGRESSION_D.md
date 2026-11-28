@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-D`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**112 / 725 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**115 / 725 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -11,9 +11,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 1 | 1801 | `Z32.1_1__O1_9-E05` | GYN | Grossesse méconnue sous contraception (oubli de pilule, interactions médicamenteuses) | produite |
 | 2 | 1802 | `Z34.9__O7_2-E05` | MTR | Incapacité de travail pendant la grossesse (arrêt maladie vs interdiction d'occuper OProMa) | produite |
 | 3 | 1803 | `Z50.4__O7_14-E06` | MTR | Réadaptation psychiatrique et réinsertion socioprofessionnelle | produite |
-| 4 | 1804 | `Z50.8_1__O7_14-E05` | MPR | Réadaptation gériatrique après déclin fonctionnel et chutes | — |
-| 5 | 1805 | `Z51.5_2__O5_2-E05` | INT | Arrêt ou non-instauration d'une suppléance vitale (dialyse, ventilation, nutrition artificielle) | — |
-| 6 | 1806 | `Z53.1__O7_11-E04` | MIG | Refus de transfusion sanguine pour convictions religieuses | — |
+| 4 | 1804 | `Z50.8_1__O7_14-E05` | MPR | Réadaptation gériatrique après déclin fonctionnel et chutes | produite |
+| 5 | 1805 | `Z51.5_2__O5_2-E05` | INT | Arrêt ou non-instauration d'une suppléance vitale (dialyse, ventilation, nutrition artificielle) | produite |
+| 6 | 1806 | `Z53.1__O7_11-E04` | MIG | Refus de transfusion sanguine pour convictions religieuses | produite |
 | 7 | 1807 | `Z54.0__O7_2-E04` | MIG | Incapacité de travail post-opératoire ou post-traumatique (LAA) | — |
 | 8 | 1808 | `Z56.6_1__O6_4-E06` | MIG | Harcèlement sexuel au travail ou dans les études | — |
 | 9 | 1809 | `Z60.2_1__O5_5-E04` | PSP | Isolement social et précarité socio-économique | — |
