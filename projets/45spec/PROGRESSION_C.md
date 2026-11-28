@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**191 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**196 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -799,12 +799,12 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 789 | 1789 | `Z12.5_1__O7_18-E04` | PSP | Demande de dépistage PSA ou marqueurs tumoraux sans indication | produite |
 | 790 | 1790 | `Z13.0__O1_3-E06` | PSP | Dépistage des hémoglobinopathies (thalassémie, drépanocytose) chez les parents | produite |
 | 791 | 1791 | `Z13.8_2__O4_7-E04` | PSP | Prévention des troubles neurocognitifs et démences (facteurs Lancet Commission) | produite |
-| 792 | 1792 | `Z25.8__O4_2-E03` | PEA | Vaccination de l'adolescent (HPV, méningocoques, rattrapage ROR/varicelle/VHB) | — |
-| 793 | 1793 | `Z26.8__O4_2-E04` | PSP | Vaccination de la femme enceinte (coqueluche dTpa, grippe, VRS) | — |
-| 794 | 1794 | `Z28.2_1__O7_11-E05` | PSP | Refus de vaccination (adulte ou parents pour enfant) | — |
+| 792 | 1792 | `Z25.8__O4_2-E03` | PEA | Vaccination de l'adolescent (HPV, méningocoques, rattrapage ROR/varicelle/VHB) | produite |
+| 793 | 1793 | `Z26.8__O4_2-E04` | PSP | Vaccination de la femme enceinte (coqueluche dTpa, grippe, VRS) | produite |
+| 794 | 1794 | `Z28.2_1__O7_11-E05` | PSP | Refus de vaccination (adulte ou parents pour enfant) | produite |
 | 795 | 1795 | `Z28.2__O2_4-E05` | PSP | Hésitation vaccinale parentale et entretien motivationnel | — |
-| 796 | 1796 | `Z28.8__O2_4-E04` | PSP | Rattrapage vaccinal chez l'enfant incomplètement vacciné ou migrant | — |
-| 797 | 1797 | `Z30.1_1__S4_8-E05` | GYN | Contraception d'urgence par DIU au cuivre (stérilet post-coïtal) | — |
+| 796 | 1796 | `Z28.8__O2_4-E04` | PSP | Rattrapage vaccinal chez l'enfant incomplètement vacciné ou migrant | produite |
+| 797 | 1797 | `Z30.1_1__S4_8-E05` | GYN | Contraception d'urgence par DIU au cuivre (stérilet post-coïtal) | produite |
 | 798 | 1798 | `Z30.1__S4_8-E03` | GYN | Dispositif intra-utérin (DIU au cuivre ou hormonal au lévonorgestrel) | — |
 | 799 | 1799 | `Z30.2__S4_4-E04` | MIG | Demande de stérilisation chirurgicale (vasectomie / ligature tubaire) | — |
 | 800 | 1800 | `Z30.3__S4_8-E04` | GYN | Contraception d'urgence orale (lévonorgestrel ou acétate d'ulipristal) | — |
