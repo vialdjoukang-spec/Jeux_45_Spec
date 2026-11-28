@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**148 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**149 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -755,7 +755,7 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 745 | 1745 | `S27.3__S8_11-E04` | CTH | Contusion pulmonaire parenchymateuse | produite |
 | 746 | 1746 | `S32.0_2__S8_10-E06` | ORT | Fracture des processus transverses ou épineux (fracture parcellaire stable) | produite |
 | 747 | 1747 | `S36.0_1__S8_1-E02` | CHI | Traumatisme splénique fermé (grade I à III) | produite |
-| 748 | 1748 | `S36.1__S8_1-E03` | CHI | Traumatisme hépatique fermé (grade I à III) | — |
+| 748 | 1748 | `S36.1__S8_1-E03` | CHI | Traumatisme hépatique fermé (grade I à III) | produite |
 | 749 | 1749 | `S37.0__S8_1-E04` | CHI | Traumatisme rénal fermé (contusion ou lacération mineure) | produite |
 | 750 | 1750 | `S42.0__S8_8-E07` | ORT | Fracture de la clavicule | — |
 | 751 | 1751 | `S43.1__S8_4-E05` | ORT | Disjonction acromio-claviculaire (stades I à III de Rockwood) | — |
