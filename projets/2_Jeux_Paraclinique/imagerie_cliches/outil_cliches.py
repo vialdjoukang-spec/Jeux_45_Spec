@@ -40,6 +40,8 @@ def get(url, binaire=False, essais=7):
             return b if binaire else json.loads(b)
         except urllib.error.HTTPError as ex:
             att = int(ex.headers.get("Retry-After") or 0) if ex.code == 429 else 0
+            if binaire and att > 120:  # fichier étranglé (originaux) : on le reporte au passage suivant plutôt que d'attendre 10 min
+                print("   ↷ reporté", ex.code, f"Retry-After {att} s", url[:80], flush=True); return None
             print("   ⚠", ex.code, f"attente {max(att, 5 * (e + 1))} s", url[:80], flush=True); time.sleep(max(att, 5 * (e + 1)) + 1)
         except Exception as ex:
             print("   ⚠", type(ex).__name__, str(ex)[:80], url[:80], flush=True); time.sleep(3 + 6 * e)
@@ -81,23 +83,51 @@ def police(t):
     return ImageFont.load_default()
 
 
+MODRX = {"IRM": r"MRI|\bMR\b|T1|T2|FLAIR|DWI|weighted", "Scanner": r"\bCT\b|computed tomograph|CTA", "Radiographie": r"X-?ray|radiograph|R[öo]ntgen|OPG|panoram",
+         "Échographie et Doppler": r"ultraso|sonograph|\bsono|doppler|echocardi", "Scintigraphie": r"scintig|SPECT|szintig|bone scan|MIBI|DaT",
+         "TEP-CT": r"\bPET\b|PET-|FDG", "Angiographie": r"angiogra|\bDSA\b|arteriogra", "Mammographie": r"mammo", "Ostéodensitométrie": r"DXA|DEXA"}
+
+
+def moisson():
+    """Candidats Commons déjà moissonnés gratuitement (circuit chercher_cliches.py), sans doublon."""
+    import glob
+    H, vus = [], set()
+    for f in glob.glob(os.path.join(RAC, "conception/donnees/images/**/*.json"), recursive=True):
+        try:
+            d = json.load(open(f, encoding="utf-8"))
+        except Exception:
+            continue
+        for L in (d.get("cliches") or {}).values():
+            for c in L:
+                if c.get("source") == "Wikimedia Commons" and c.get("page") and c["page"] not in vus and LIBRES.search(c.get("licence", "")) \
+                        and not INTERDIT.search(c.get("licence", "")) and not GENITAL.search(c["titre"]) and not c["titre"].lower().endswith(".svg"):
+                    vus.add(c["page"]); H.append({"titre": c["titre"], "page": c["page"], "url": c["url"],
+                                                  "vignette": re.sub(r"/\d+px-", "/330px-", c.get("vignette") or ""), "licence": c["licence"], "licence_url": "",
+                                                  "auteur": c.get("auteur", ""), "description": "", "taille": None, "requete": "moisson " + c.get("requete", "")})
+    return H
+
+
 def chercher(freq, sortie):
     R = json.load(open(freq, encoding="utf-8")); os.makedirs(sortie, exist_ok=True)
-    C = {}
+    C = {}; H = moisson()
     for k, v in R.items():
         if k.startswith("_"):
             continue
         rx = re.compile(v.get("re") or ".", re.I); vus, L = set(), []
-        for q in v["q"]:
+        rxb = re.compile(r"\b(?:" + (v.get("re") or ".") + ")", re.I)  # bornes de mot pour la moisson (« SPECT » ≠ « inSPECTion »)
+        mx = re.compile(r"\b(?:" + MODRX.get(k.split(" | ")[2], ".") + ")", re.I)
+        for c in ([] if k.startswith("NORMAL") else H):  # un motif « normal » est trop large pour la moisson : recherche directe
+            if rxb.search(c["titre"]) and mx.search(c["titre"]) and c["page"] not in vus:
+                vus.add(c["page"]); L.append(c)
+        for q in ([] if len(L) >= 3 else v["q"]):
             for c in commons(q):
                 if c["page"] in vus or not rx.search(c["titre"] + " " + c["description"]):
                     continue
                 vus.add(c["page"]); L.append(c)
-            if len(L) >= 4:
+            if L:  # économie de quota Wikimedia : une seule recherche dès qu'un candidat existe
                 break
         C[k] = L[:4]; print(f"{len(C[k])} {k}", flush=True)
-    json.dump(C, open(os.path.join(sortie, "candidats.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    planches(C, sortie)
+        json.dump(C, open(os.path.join(sortie, "candidats.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 
 def planches(C, sortie, par=8, w=300, h=230):
@@ -128,28 +158,56 @@ def jpeg(b, dest, cote=1024):
 
 
 def vignette_1024(page_titre):
-    p = {"action": "query", "format": "json", "titles": "File:" + page_titre, "prop": "imageinfo", "iiprop": "url|mime", "iiurlwidth": 1024}
+    """Relit la page du fichier au moment d'appliquer : URL 1024 px, licence, auteur, description (licence lue à la source)."""
+    p = {"action": "query", "format": "json", "titles": "File:" + page_titre, "prop": "imageinfo", "iiprop": "url|mime|extmetadata", "iiurlwidth": 1024,
+         "iiextmetadatafilter": "LicenseShortName|LicenseUrl|Artist|ImageDescription"}
     pg = next(iter(((get("https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode(p)) or {}).get("query") or {}).get("pages", {}).values()), {})
-    ii = (pg.get("imageinfo") or [{}])[0]
-    return ii.get("thumburl") or ii.get("url")
+    ii = (pg.get("imageinfo") or [{}])[0]; md = ii.get("extmetadata") or {}
+    return ii.get("thumburl") or ii.get("url"), {"licence": nettoie((md.get("LicenseShortName") or {}).get("value", "")),
+            "licence_url": nettoie((md.get("LicenseUrl") or {}).get("value", "")), "auteur": nettoie((md.get("Artist") or {}).get("value", ""))[:160],
+            "description": nettoie((md.get("ImageDescription") or {}).get("value", ""))[:600], "mime": ii.get("mime", "")}
+
+
+def relire(titres):
+    """Relit à la source, par paquets de 50 titres (une requête), licence, auteur, description et URL de la vignette standard 500 px."""
+    out = {}
+    for i in range(0, len(titres), 50):
+        p = {"action": "query", "format": "json", "titles": "|".join("File:" + t for t in titres[i:i + 50]), "prop": "imageinfo",
+             "iiprop": "url|mime|extmetadata", "iiurlwidth": 500, "iiextmetadatafilter": "LicenseShortName|LicenseUrl|Artist|ImageDescription"}
+        q = (get("https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode(p)) or {}).get("query") or {}
+        norm = {x["to"]: x["from"] for x in q.get("normalized", [])}
+        for pg in (q.get("pages") or {}).values():
+            ii = (pg.get("imageinfo") or [{}])[0]; md = ii.get("extmetadata") or {}
+            t = norm.get(pg.get("title"), pg.get("title", "")).replace("File:", "")
+            out[t] = {"url": ii.get("thumburl") or ii.get("url"), "mime": ii.get("mime", ""), "licence": nettoie((md.get("LicenseShortName") or {}).get("value", "")),
+                      "licence_url": nettoie((md.get("LicenseUrl") or {}).get("value", "")), "auteur": nettoie((md.get("Artist") or {}).get("value", ""))[:160],
+                      "description": nettoie((md.get("ImageDescription") or {}).get("value", ""))[:600]}
+    return out
 
 
 def appliquer(fchoix, fcand):
     CH = json.load(open(fchoix, encoding="utf-8")); CA = json.load(open(fcand, encoding="utf-8"))
+    META = relire(sorted({CA[v.get("de", k)][v["c"]]["titre"] for k, v in CH.items() if not k.startswith("_") and not k.startswith("NORMAL") and v.get("c") is not None}))
     NO = json.load(open(NORMAUX, encoding="utf-8")) if os.path.exists(NORMAUX) else {}
-    faits = []
+    faits = []; fr = os.path.join(ICI, "REJETS.json"); REJ = json.load(open(fr, encoding="utf-8")) if os.path.exists(fr) else {}
     for k, v in CH.items():
-        if k.startswith("_") or v.get("c") is None:
+        if k.startswith("_") or k.startswith("NORMAL") or v.get("c") is None:
             continue
         organe, patho, mod = k.split(" | ")
-        c = CA[k][v["c"]]
+        c = CA[v.get("de", k)][v["c"]]
+        if c["page"] in REJ:
+            print("   ✗ déjà rejeté au contrôle visuel", k); continue
         liens_f = os.path.join(P, "atlas_liens", organe + ".json")
         L = json.load(open(liens_f, encoding="utf-8")) if os.path.exists(liens_f) else {"_meta": {"role": "Pathologie de Paraclinique → dossier de l'atlas (IMG-xxx), seulement si la modalité du dossier est celle de l'examen.", "signature": "AAI (Anthropic AI)"}}
         deja = L.get(patho); deja = deja if isinstance(deja, list) else ([deja] if deja else [])
         if any(isinstance(x, str) and x.startswith("IMC-") and json.load(open(os.path.join(ATL_M, x + ".json"), encoding="utf-8"))["patho"]["source_url"] == c["page"] for x in deja):
             continue
         i = prochain_id(); dest = os.path.join(ATL_I, "patho", f"{i}_patho.jpg")
-        b = get(vignette_1024(c["titre"]), True)
+        meta = META.get(c["titre"]) or {"url": None, "mime": "", "licence": ""}; u = meta["url"]
+        if not LIBRES.search(meta["licence"]) or INTERDIT.search(meta["licence"]) or "svg" in meta["mime"]:
+            print("   ✗ licence refusée à la relecture", k, meta["licence"]); continue
+        c = dict(c, **{x: meta[x] or c.get(x, "") for x in ("licence", "licence_url", "auteur", "description")})
+        b = get(u, True) if u else None
         if not b:
             print("   ✗ téléchargement", k); continue
         W, H = jpeg(b, dest)
@@ -186,6 +244,83 @@ def normal(cle, titre, modalite, region, plan):
     json.dump(NO, open(NORMAUX, "w", encoding="utf-8"), ensure_ascii=False, indent=1); print("normal", cle, lic)
 
 
+def revue(fcand):
+    """Affiche les candidats en texte court (titre, licence, début de description) pour choisir sans télécharger."""
+    C = json.load(open(fcand, encoding="utf-8"))
+    for k, L in C.items():
+        print("##", k)
+        for r, c in enumerate(L):
+            print(f"  {r}: {c['titre'][:90]} [{c['licence']}] {c['description'][:150]}")
+
+
+def planche_locale(ids, sortie):
+    """Planche-contact des clichés appliqués (fichiers locaux) pour le contrôle visuel : 5 colonnes, légende = dossier, cliché, dx."""
+    f1 = police(13); w, h = 260, 220
+    M = [json.load(open(os.path.join(ATL_M, i + ".json"), encoding="utf-8")) for i in ids]
+    for s in range(0, len(M), 20):
+        ch = M[s:s + 20]; rows = (len(ch) + 4) // 5
+        S = Image.new("RGB", (5 * w, rows * (h + 34)), "white"); d = ImageDraw.Draw(S)
+        for j, m in enumerate(ch):
+            x, y = (j % 5) * w, (j // 5) * (h + 34)
+            try:
+                im = Image.open(os.path.join(ATL_I, m["patho"]["file"].replace("images/", ""))).convert("RGB"); im.thumbnail((w - 6, h - 4)); S.paste(im, (x + 2, y + 2))
+            except Exception:
+                d.text((x + 6, y + 40), "ERREUR", fill="red", font=f1)
+            d.text((x + 3, y + h + 2), f"{m['id']} {m['cliche']}"[:36], fill="black", font=f1); d.text((x + 3, y + h + 17), m["dx"][:36], fill="#444", font=f1)
+        S.save(f"{sortie}_{s // 20:02d}.png")
+
+
+def retirer(ids, motif):
+    """Retire des dossiers IMC rejetés au contrôle visuel : manifeste, image et liens ; garde la trace dans REJETS.json."""
+    fr = os.path.join(ICI, "REJETS.json"); RJ = json.load(open(fr, encoding="utf-8")) if os.path.exists(fr) else {}
+    for i in ids:
+        fm = os.path.join(ATL_M, i + ".json")
+        if not os.path.exists(fm):
+            continue
+        m = json.load(open(fm, encoding="utf-8")); RJ[m["patho"]["source_url"]] = {"dx": m["dx"], "cliche": m["cliche"], "motif": motif}
+        os.remove(fm); img = os.path.join(ATL_I, m["patho"]["file"].replace("images/", ""))
+        if os.path.exists(img):
+            os.remove(img)
+        for f in os.listdir(os.path.join(P, "atlas_liens")):
+            fp = os.path.join(P, "atlas_liens", f); L = json.load(open(fp, encoding="utf-8")); ch = False
+            for k, v in list(L.items()):
+                if k.startswith("_"):
+                    continue
+                vs = v if isinstance(v, list) else [v]
+                garde = [x for x in vs if (x.get("atlas") if isinstance(x, dict) else x) != i]
+                if len(garde) != len(vs):
+                    ch = True
+                    if not garde:
+                        del L[k]
+                    else:
+                        L[k] = garde if len(garde) > 1 else garde[0]
+            if ch:
+                json.dump(L, open(fp, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+        print("retiré", i)
+    json.dump(RJ, open(fr, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+
+def normaux_appliquer(fchoix, fcand):
+    """Enregistre les normaux choisis (clés « NORMAL | clé | modalité ») : licence relue, image 960 px dans atlas/normal, entrée dans normaux.json."""
+    CH = json.load(open(fchoix, encoding="utf-8")); CA = json.load(open(fcand, encoding="utf-8"))
+    NO = json.load(open(NORMAUX, encoding="utf-8")) if os.path.exists(NORMAUX) else {"_meta": {"role": "Clichés normaux vérifiés (regardés) du couloir 3, réutilisables à modalité, région et plan identiques.", "signature": "AAI (Anthropic AI)"}}
+    choix = {k: v for k, v in CH.items() if k.startswith("NORMAL") and v.get("c") is not None}
+    META = relire(sorted({CA[v.get("de", k)][v["c"]]["titre"] for k, v in choix.items()}))
+    for k, v in choix.items():
+        cle = v.get("cle") or k.split(" | ")[1]; c = CA[v.get("de", k)][v["c"]]; meta = META.get(c["titre"]) or {}
+        if not LIBRES.search(meta.get("licence", "")) or INTERDIT.search(meta.get("licence", "")) or "svg" in meta.get("mime", ""):
+            print("   ✗ licence refusée", k, meta.get("licence")); continue
+        b = get(meta["url"], True)
+        if not b:
+            print("   ✗ téléchargement", k); continue
+        jpeg(b, os.path.join(ATL_I, "normal", f"IMC-N-{cle}.jpg"))
+        NO[cle] = {"file": f"images/normal/IMC-N-{cle}.jpg", "source_url": c["page"], "license": meta["licence"], "license_url": meta["licence_url"],
+                   "author": meta["auteur"] or "?", "modality": v["modalite"], "region": v["region"], "plane": v["plan"], "caption_source": meta["description"][:300]}
+        print("   ✓ normal", cle, meta["licence"])
+    json.dump(NO, open(NORMAUX, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+
 if __name__ == "__main__":
     a = sys.argv[1:]
-    {"chercher": lambda: chercher(a[1], a[2]), "appliquer": lambda: appliquer(a[1], a[2]), "normal": lambda: normal(*a[1:6])}[a[0]]()
+    {"chercher": lambda: chercher(a[1], a[2]), "appliquer": lambda: appliquer(a[1], a[2]), "normal": lambda: normal(*a[1:6]),
+     "revue": lambda: revue(a[1]), "normaux": lambda: normaux_appliquer(a[1], a[2]), "planche": lambda: planche_locale(a[2:], a[1]), "retirer": lambda: retirer(a[2:], a[1])}[a[0]]()
