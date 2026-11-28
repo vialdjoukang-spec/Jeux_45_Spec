@@ -384,12 +384,15 @@ SYN_VALIDE = {f[:-5]: {k_: v_ for k_, v_ in lire(os.path.join(_DSV, f)).items() 
               for f in sorted(os.listdir(_DSV)) if f.endswith(".json")} if os.path.isdir(_DSV) else {}
 ATLAS_LIEN = {f[:-5]: {k_: v_ for k_, v_ in lire(os.path.join(P, "atlas_liens", f)).items() if not k_.startswith("_")}
               for f in os.listdir(os.path.join(P, "atlas_liens"))} if os.path.isdir(os.path.join(P, "atlas_liens")) else {}
-MOD_ATL = {"Radiographie": "RX", "Mammographie": "RX", "Scanner (CT)": "TDM", "Échographie et Doppler": "US", "Scintigraphie": "MN", "TEP-CT": "MN", "IRM": "IRM", "Angiographie": "INT"}
+MOD_ATL = {"Radiographie": "RX", "Mammographie": "RX", "Scanner (CT)": "TDM", "Échographie et Doppler": "US", "Scintigraphie": "MN", "TEP-CT": "MN", "IRM": "IRM", "Angiographie": "INT", "Ostéodensitométrie": "RX"}
 ROLE_C = {"principale": "#e0a400", "associée": "#0891b2", "associee": "#0891b2", "complication": "#db2777"}
 
 
 def cliches_atlas(stem, patho, modalite):
     lien = (ATLAS_LIEN.get(stem) or {}).get(patho)
+    if isinstance(lien, list):  # plusieurs dossiers (un par modalité, couloir 3 du 28.11.2026) : on prend celui de la modalité de l'examen
+        _m = lambda x: (lire(os.path.join(ATL_D, f"{x.get('atlas') if isinstance(x, dict) else x}.json")) if os.path.exists(os.path.join(ATL_D, f"{x.get('atlas') if isinstance(x, dict) else x}.json")) else {}).get("cliche") or ""
+        lien = next((x for x in lien if _m(x).startswith(MOD_ATL.get(modalite, "?"))), None)
     i = lien.get("atlas") if isinstance(lien, dict) else lien
     nor_aj = lien.get("normal") if isinstance(lien, dict) else None
     f = os.path.join(ATL_D, f"{i}.json") if i else None
