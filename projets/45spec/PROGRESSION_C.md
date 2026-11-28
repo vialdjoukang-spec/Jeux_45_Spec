@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**179 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**182 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -787,9 +787,9 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 777 | 1777 | `T88.8_1__O7_19-E06` | MIG | Risques généraux des vecteurs viraux (immunogénicité, hépatotoxicité, mutagenèse) | produite |
 | 778 | 1778 | `W54.0_1__S8_9-E03` | CMA | Plaie par morsure animale ou humaine (chat, chien, humain) | produite |
 | 779 | 1779 | `W74__G13-E06` | LEG | Noyade accidentelle | produite |
-| 780 | 1780 | `W75.9__O2_8-E02` | LEG | Asphyxie accidentelle liée au sommeil (étouffement, coincement, co-sleeping dangereux) | — |
-| 781 | 1781 | `X42__G13-E05` | LEG | Surdose mortelle aux opioïdes / stupéfiants | — |
-| 782 | 1782 | `X74__G13-E07` | LEG | Suicide par arme à feu | — |
+| 780 | 1780 | `W75.9__O2_8-E02` | LEG | Asphyxie accidentelle liée au sommeil (étouffement, coincement, co-sleeping dangereux) | produite |
+| 781 | 1781 | `X42__G13-E05` | LEG | Surdose mortelle aux opioïdes / stupéfiants | produite |
+| 782 | 1782 | `X74__G13-E07` | LEG | Suicide par arme à feu | produite |
 | 783 | 1783 | `Y61.0__O7_5-E04` | TOX | Complication chirurgicale ou technique évitable (oubli de compresse, erreur de côté, lésion iatrogène) | — |
 | 784 | 1784 | `Y69_2__O7_5-E03` | LEG | Erreur diagnostique ou retard de diagnostic par biais cognitif d'un confrère | — |
 | 785 | 1785 | `Z01.8__O4_4-E06` | MIG | Bilan préopératoire ciblé avant chirurgie élective | — |
