@@ -39,8 +39,14 @@ class Index:
         self.c = c
 
     def cherche(self, nom, marque=None):
-        """Renvoie les fiches candidates : d'abord la marque, sinon la substance (DCI)."""
+        """Renvoie les fiches candidates : d'abord la marque, sinon la substance (DCI), sinon l'ATC connu."""
         cands = []
+        atc = SYN_ATC.get(norm(nom or "").strip())
+        if atc and not marque:
+            cands = [f for f in self.fi if f["atc"].startswith(atc)]
+            if cands:
+                cands.sort(key=lambda f: (bool(IMPORT_PARALLELE.search(f["auth"] or "")), len(f["titre"])))
+                return cands
         if marque:
             nm = re.sub(r"\s+", " ", norm(marque).replace("®", "")).strip()
             cands = [f for f in self.fi if f["n_titre"].replace("®", "").replace("  ", " ").startswith(nm)] or \
@@ -64,6 +70,18 @@ class Index:
         maj = next((v for k, v in s.items() if k.lower().startswith("mise à jour")), "")
         maj = html.unescape(maj).replace("Mise à jour de l’information", "").strip().split("\n")[0].strip()
         return dict(posologie=pos, indications=ind, maj=maj[:20])
+
+# DCI française → code ATC, quand le nom de la substance dans la base diffère
+SYN_ATC = {"acide acetylsalicylique": "B01AC06", "noradrenaline": "C01CA03", "nitroglycerine": "C01DA02", "heparine non fractionnee": "B01AB01",
+           "heparine": "B01AB01", "penicilline v": "J01CE02", "piperacilline": "J01CR05", "amoxicilline": "J01CA04", "dornase alfa": "R05CB13",
+           "sulfate de magnesium": "B05XA05", "magnesium": "B05XA05", "naloxone": "V03AB15", "dexamethasone": "H02AB02", "salbutamol": "R03AC02",
+           "hydrocortisone": "H02AB09", "methylprednisolone": "H02AB04", "prednisolone": "H02AB06", "insuline": "A10A", "adrenaline": "C01CA24",
+           "cotrimoxazole": "J01EE01", "trimethoprime-sulfamethoxazole": "J01EE01", "fer": "B03A", "vitamine k": "B02BA01", "glucose": "B05BA03",
+           "amoxicilline-acide clavulanique": "J01CR02", "amoxicilline/acide clavulanique": "J01CR02", "piperacilline-tazobactam": "J01CR05",
+           "trimethoprime-sulfamethoxazole": "J01EE01", "cotrimoxazole": "J01EE01", "varenicline": "N07BA03", "mometasone nasale": "R01AD09",
+           "sacubitril/valsartan": "C09DX04", "nivolumab-ipilimumab": "L01FF01", "ipilimumab": "L01FX04"}
+SYN_ATC_VOIE = {"salbutamol": ("R03AC02", "inhal"), "dexamethasone": ("H02AB02", "")}
+MEDIC = re.compile(r"(ine|ol|ide|ate|one|mab|nib|pril|sartan|statine|azole|cycline|mycine|cilline|floxacine|parine|xaban|vir|tide|mide|zine|pam|lam|ane|ase|ium|ène|ine V)$", re.I)
 
 DOSE = re.compile(r"(\d+(?:[.,]\d+)?)(?:\s*[–\-à]\s*(\d+(?:[.,]\d+)?))?\s*(mg/kg|µg/kg|mg/m2|mg/m²|UI/kg|mg|µg|mcg|g|UI|U|ml|mmol)\b")
 
@@ -95,6 +113,7 @@ MARQUE = re.compile(r"([A-ZÀ-Ý][\wÀ-ÿ\- ]*?)®")
 def molecules(nom):
     """« Clopidogrel (Plavix®) ou prasugrel (Efient®) » → [(dci, marque), …]"""
     out = []
+    nom = re.sub(r"(\w{5,})-(\w{5,})", r"\1/\2", nom)
     for morceau in re.split(r"\s+(?:ou|puis|et|\+)\s+|,\s*|/", nom):
         m = re.match(r"\s*([^()]+?)\s*(?:\(([^)]*)\))?\s*$", morceau)
         if not m:
@@ -134,7 +153,9 @@ def main():
         for t in p["t"]:
             nom, _, pos = t.partition("|")
             ds = doses(pos)
-            for dci, mq in molecules(nom):
+            nn = norm(nom.split("(")[0]).strip()
+            mols = [(nom.split("(")[0].strip(), (MARQUE.findall(nom) or [None])[0])] if nn in SYN_ATC and "-" in nn or "/" in nn and nn in SYN_ATC else molecules(nom)
+            for dci, mq in mols:
                 cands = idx.cherche(dci, mq)
                 if not cands:
                     lignes.append(dict(t=t, dci=dci, marque=mq, aips=None, doses=ds))
@@ -155,7 +176,7 @@ def main():
         revue = []
         for L in lignes:
             if L["aips"] is None:
-                if L["doses"] or not GESTE.search(L["dci"]):
+                if L["doses"] or (MEDIC.search(L["dci"].split()[0] if L["dci"] else "") and not GESTE.search(L["dci"])):
                     revue.append("absente:" + L["dci"])
             elif any(not o for _, _, o in L["doses"]):
                 revue.append("dose:" + L["dci"])
@@ -164,17 +185,18 @@ def main():
         json.dump(rapport, open(sys.argv[sys.argv.index("--json") + 1], "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     rev = "--revue" in sys.argv
     print("AUTO (doses toutes retrouvées) : %d / %d" % (sum(not r["revue"] for r in rapport), len(rapport)))
-    if rev:
-        print(" ; ".join(r["nom"] for r in rapport if not r["revue"]))
     for r in rapport:
         if rev and not r["revue"]:
             continue
-        print("\n## %s — %s" % (r["nom"], r["organe"]))
+        print("\n## %s — %s   [%s]" % (r["nom"], r["organe"], ", ".join(r["revue"])))
         vu = None
         for L in r["lignes"]:
-            if L["t"] != vu:
-                vu = L["t"]; print("  t %s" % L["t"][:200])
             a = L["aips"]
+            pb = (a is None and ("absente:" + L["dci"]) in r["revue"]) or (a and any(not o for _, _, o in L["doses"]))
+            if rev and not pb:
+                continue
+            if L["t"] != vu:
+                vu = L["t"]; print("  t %s" % L["t"][:220])
             if not a:
                 print("    ✗ %s (%s) : aucune AIPS" % (L["dci"], L["marque"]))
                 continue
