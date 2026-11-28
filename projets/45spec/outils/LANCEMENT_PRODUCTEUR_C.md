@@ -9,4 +9,4 @@ Ta mission : produire UNE pathologie du groupe C, en suivant à la lettre la con
 - Réseau : l'accès est libre par curl ; WebFetch ne résout pas toujours les hôtes (PMC, MSD, fedlex) : passe alors par curl ou le connecteur PubMed. Un site qui refuse les robots ne se contourne pas.
 
 Rends la main seulement quand tous les contrôles de la consigne passent. Ton rapport final suit le format de la consigne (court, sans recopier de question) et donne le chemin absolu de ta forme compacte et de ton journal de preuves.
-- Tétanos : le rappel de l'adulte se fait en Suisse par un vaccin dTpa (par exemple Boostrix) ; n'écris pas « rappel dT » (vaccin bivalent indisponible selon le plan de vaccination 2026, à relire).
+- Tétanos : le rappel de l'adulte se fait en Suisse par un vaccin dTpa (par exemple Boostrix) ; écris « rappel antitétanique (dTpa) » plutôt que « rappel dT » (le dT bivalent seul n'est pas disponible ; Revaxis est un dT-IPV ; relis le plan de vaccination 2026).
