@@ -8,22 +8,24 @@ P=$(git rev-parse --show-toplevel); B=agent/45spec-C-suite; F=${FUSION:-/home/us
 msg="$1"; shift
 git -C "$P" push -q -u origin "$B" || { echo "ARRÊT : push de la branche refusé"; exit 3; }
 [ -d "$F" ] || git -C "$P" worktree add -q --detach "$F" "$B" || exit 1
-cd "$F" && git fetch -q origin "$B" main && git checkout -q --detach "origin/$B" && git merge -q --no-edit origin/main || { echo "ARRÊT : fusion de main dans la branche"; exit 1; }
+cd "$F" && git fetch -q origin "$B" main && git checkout -q --detach "origin/$B" && git merge -q --no-edit -X theirs origin/main || { echo "ARRÊT : fusion de main dans la branche"; exit 1; }
 for f in "$@"; do
   c=$(python3 projets/45spec/couverture_compacte.py "$f"); [ -z "$c" ] || { echo "ARRÊT couverture $f : $c"; exit 1; }
   l=$(PYTHONPATH=projets/45spec python3 projets/45spec/constructeur_agent_45spec.py "$f" | tail -1); echo "$l"
   echo "$l" | grep -q 'non couvertes \[\] | err {}$' || { echo "ARRÊT constructeur $f"; exit 1; }
   n=$(grep -o '"d":[45]' "$f" | wc -l); [ "$n" -ge 5 ] || { echo "ARRÊT : $f n'a que $n questions d 4-5"; exit 1; }
 done
-out=$(bash projets/45spec/outils/controles45.sh . 2>&1); echo "$out" | grep -v '^127.0.0.1' | tail -5
-if echo "$out" | grep -q "fautifs" || ! echo "$out" | grep -q "^erreurs: 0"; then echo "CONTRÔLES ROUGES : pas de fusion sur main"; exit 2; fi
-SP=$(sed -n '1p' projets/45spec/PROGRESSION_C.md | sed 's/.*groupe C ; //; s/)$//; s/, /,/g')
-python3 projets/45spec/progression_groupe.py C C "$SP"
-git add -A projets/45spec content conception; git diff --cached --quiet || git commit -q -m "$msg" || { echo "ARRÊT : commit"; exit 1; }
 ok=0
 for i in 1 2 3 4; do
-  git push -q origin "HEAD:refs/heads/$B" "HEAD:refs/heads/main" && { ok=1; break; }
-  sleep $((2**i)); git fetch -q origin main && git merge -q --no-edit origin/main || break
+  # main peut bouger (autres producteurs) : les fichiers régénérés (decks, rang, progression) se refont par les contrôles, d'où -X theirs
+  git fetch -q origin main && git merge -q --no-edit -X theirs origin/main || { echo "ARRÊT : fusion de main"; exit 1; }
+  out=$(bash projets/45spec/outils/controles45.sh . 2>&1); echo "$out" | grep -v '^127.0.0.1' | tail -4
+  if echo "$out" | grep -q "fautifs" || ! echo "$out" | grep -q "^erreurs: 0"; then echo "CONTRÔLES ROUGES : pas de fusion sur main"; exit 2; fi
+  SP=$(sed -n '1p' projets/45spec/PROGRESSION_C.md | sed 's/.*groupe C ; //; s/)$//; s/, /,/g')
+  python3 projets/45spec/progression_groupe.py C C "$SP"
+  git add -A projets/45spec content conception; git diff --cached --quiet || git commit -q -m "$msg" || { echo "ARRÊT : commit"; exit 1; }
+  git push -q origin "HEAD:refs/heads/$B" "HEAD:refs/heads/main" 2>/dev/null && { ok=1; break; }
+  sleep $((2**i))
 done
 [ "$ok" = 1 ] || { echo "ARRÊT : push sur main ou sur la branche refusé"; exit 4; }
 git -C "$P" pull -q --ff-only origin "$B" || echo "ATTENTION : l'arbre principal n'a pas pu avancer en fast-forward"

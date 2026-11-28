@@ -15,7 +15,7 @@ Tu produis une seule pathologie, à la main, sans API. Le relecteur (session pri
 
 ## Sources : rien de mémoire
 - Chaque source est **ouverte dans cette session** avant d'être citée (WebSearch, puis WebFetch sur l'URL renvoyée ; connecteur PubMed pour résumés et PMC). Vérifie auteur réel, année, et qu'aucune version plus récente n'existe. Les amorces du catalogue ne sont pas une source.
-- Réseau (constaté au lot 10) : `curl` et WebFetch ne passent que pour `compendium.ch`, `www.hug.ch` et `www.chuv.ch` ; nice.org.uk, bag.admin.ch, aafp.org, msdmanuals.com sont refusés : n'insiste pas. Le reste se lit par le connecteur PubMed (résumés, texte PMC par `get_full_text_article`) et par WebSearch ; un extrait de WebSearch ne vaut pas lecture : cite alors « résumé lu » ou « (à vérifier) ».
+- Réseau (constaté au lot 10) : `curl` et WebFetch ne passent que pour `compendium.ch`, `www.hug.ch`, `www.chuv.ch` et `www.bag.admin.ch` (OFSP : LiMA, plan de vaccination, déclarations) ; nice.org.uk, aafp.org, msdmanuals.com sont refusés : n'insiste pas. Le reste se lit par le connecteur PubMed (résumés, texte PMC par `get_full_text_article`) et par WebSearch ; un extrait de WebSearch ne vaut pas lecture : cite alors « résumé lu » ou « (à vérifier) ».
 - Ordre : sources suisses d'abord (OFSP, AIPS/Compendium, HUG, CHUV, sociétés suisses, SMW, Revue médicale suisse), puis NICE, ESC, EASL, etc. Une recommandation se cite d'après son propre texte.
 - Une affirmation sans source lue s'écrit avec la source « Avis d'expert (à vérifier) ». Jamais de référence, de PMID ni de DOI inventés.
 - **Posologies** : chacune est vérifiée sur compendium.ch (`mkdir -p /tmp/src; python3 projets/45spec/outils/aips.py "<nom commercial>" <motifs>` puis lis `/tmp/src/aips_<nom>.txt` ; contrôle le nom du produit renvoyé) et porte la mention exacte « posologies à vérifier dans l'AIPS (Swissmedic) ». Vérifie que le produit, la forme et la voie existent en Suisse ; cite la spécialité suisse ; signale toute discordance recommandation ↔ notice au lieu de trancher.
@@ -35,7 +35,7 @@ Tu produis une seule pathologie, à la main, sans API. Le relecteur (session pri
 
 ## Contrôles à passer avant de rendre la main (tous)
 ```
-cd /home/user/Jeux_45_Spec
+cd "$(git rev-parse --show-toplevel)"     # ton arbre de travail (dépôt principal ou worktree isolé) ; tous les chemins de la consigne sont relatifs à cette racine
 python3 projets/45spec/couverture_compacte.py projets/45spec/compact_C/<NOM_COMPACT>.py      # aucune sortie
 PYTHONPATH=projets/45spec python3 projets/45spec/constructeur_agent_45spec.py projets/45spec/compact_C/<NOM_COMPACT>.py   # « non couvertes [] | err {} »
 python3 projets/45spec/outils/masque.py projets/45spec/compact_C/<NOM_COMPACT>.py <mots et paraphrases du diagnostic>   # aucune ligne « contient » ; d45 masqués ≥ 5 ; d12 ≥ 2
