@@ -82,7 +82,9 @@ def main():
             fait, cible = ancien.get(i, {}).get("fait", 0), ancien.get(i, {}).get("cible", 1)
             print(f"mesure {i} en échec : {e}")
         a = ancien.get(i, {})
-        etat = "fait" if fait >= cible else a.get("etat", "a_faire")
+        etat = a.get("etat", "a_faire")
+        if fait >= cible and etat not in ("fusionne", "bloque"):
+            etat = "fait"
         ch.append({"id": i, "chantier": nom, "branche": branche, "role": role,
                    "modele": "opus (effort élevé)" if role == "rédaction" else "fable",
                    "prompt": f"projets/PROMPTS_CHANTIERS_RESTANTS.md § {i}", "unite": unite,
