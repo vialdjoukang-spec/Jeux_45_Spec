@@ -35,7 +35,10 @@ export function barreBio(hote, disciplines, etat, rafraichir) {
 const AP = 'à produire';
 /* Retour de Vial (27.11) : positions et points tarifaires de la Liste des analyses masqués à l'affichage (la fiche garde la donnée). */
 const TARIF = /Liste des analyses|\bpoints?\b|\b\d{4}\.\d{2}\b|\bposition/i;
-const sansTarif = s => typeof s === 'string' ? s.split(/(?<=[.;])\s+/).filter(x => !TARIF.test(x)).join(' ').trim() || '—' : s;
+/* Découpe en phrases sur « . » ou « ; » suivis d'une espace, hors parenthèses (une source « (OFSP … ; HUG …) » reste entière). */
+const ABREV = /(?:^|[\s(])(?:art|let|al|ch|cf|ex|env|resp|vol|fig|réf|p)\.$/i;  // « art. 13 let. b » ne coupe pas la phrase
+const phrasesHorsParen = s => { const r = []; let d = 0, c = ''; for (let i = 0; i < s.length; i++) { const ch = s[i]; c += ch; if (ch === '(') d++; else if (ch === ')') d = Math.max(0, d - 1); else if ((ch === '.' || ch === ';') && d === 0 && /\s/.test(s[i + 1] || '') && !(ch === '.' && ABREV.test(c))) { r.push(c.trim()); c = ''; } } if (c.trim()) r.push(c.trim()); return r; };
+const sansTarif = s => typeof s === 'string' ? phrasesHorsParen(s).filter(x => !TARIF.test(x)).join(' ').trim() || '—' : s;
 const RUBQ = {
   entete: 'L\'en-tête nomme l\'examen, ses synonymes, son prélèvement avec ses conditions, et son bon usage en Suisse (Liste des analyses de l\'OFSP, Smarter Medicine).',
   t1: 'Le temps 1 dit quand tu demandes l\'examen : urgence, diagnostic et étiologie, dépistage et bilan préthérapeutique, suivi ; il dit aussi quand tu ne le demandes pas.',
