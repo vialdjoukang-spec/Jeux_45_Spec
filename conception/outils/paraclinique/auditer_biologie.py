@@ -67,7 +67,7 @@ PRONOM_VERBE = re.compile(r"\b(?:je|j'|tu|il|elle|ils|elles|on|nous|vous|qui|cel
 REFLEXIF = re.compile(r"\b(?:s'|s’|se\s+)[a-zà-ÿ]{3,}", re.I)  # s'élève, s'explique, se recueille
 EXEMPTS = {"id", "module", "type", "titre", "sous_onglet", "systeme", "etiquettes", "entree_primaire", "axe_secondaire", "nom_exact",
            "synonymes", "sources", "parametre", "normal", "seuil_alerte", "cible", "nom", "source", "_origine", "_matrice", "_matrice_raison",
-           "outil", "mnemotechnique", "formule", "exemple", "specifiques", "general"}
+           "outil", "mnemotechnique", "formule", "exemple", "specifiques", "general", "_creation", "_rattachements"}
 
 
 def est_verbale(ph):

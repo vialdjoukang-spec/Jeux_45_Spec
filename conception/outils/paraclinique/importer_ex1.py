@@ -156,8 +156,15 @@ def main():
     src = os.path.join(a.source, REL_SRC)
     fs = sorted(glob.glob(os.path.join(src, "EX-1-*.json")))
     if not fs:
-        sys.exit(f"Aucune fiche EX-1 dans {src}")
-    commit = subprocess.run(["git", "-C", a.source, "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip() or "inconnu"
+        # Dépôt source absent (session sans accès) : on saute l'import, déjà fait, et on recalcule seulement la file.
+        # La non-perte des fiches reste garantie par auditer_biologie.py (contrôle A8).
+        print(f"source absente ({src}) : import sauté, cartographie seule")
+        try:
+            commit = lire(FILE)["_meta"]["source_commit"]
+        except Exception:
+            commit = "inconnu"
+    else:
+        commit = subprocess.run(["git", "-C", a.source, "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip() or "inconnu"
     ecrites, gardees, pertes, ids = 0, 0, [], {}
     for f in fs:
         d = lire(f)
@@ -198,7 +205,8 @@ def main():
                        "axe_secondaire": d.get("axe_secondaire"), "traitement_absent": vide(d.get("traitement")),
                        "trous": t, "statut": statut(d, t)})
     asf = analyses_sans_fiche(fiches)
-    resume = {"fiches": len(lignes), "importees_depuis_source": len(fs),
+    resume = {"fiches": len(lignes), "importees_depuis_source": sum(1 for d in fiches if "_origine" in d),
+              "creees_dans_ce_depot": sum(1 for d in fiches if "_origine" not in d),
               "par_matrice": {m: sum(1 for x in lignes if x["matrice"] == m) for m in MATRICES},
               "traitement_absent": sum(x["traitement_absent"] for x in lignes),
               "statuts": {s: sum(1 for x in lignes if x["statut"] == s) for s in ("à faire", "en cours", "fait")},

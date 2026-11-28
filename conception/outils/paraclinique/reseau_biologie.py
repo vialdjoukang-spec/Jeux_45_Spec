@@ -73,13 +73,26 @@ def _txt(*vs, sep=" "):
 
 TARIF = re.compile(r"Liste des analyses|\bpoints?\b|\b\d{4}\.\d{2}\b|\bposition", re.I)
 
+ABREV = re.compile(r"(?:^|[\s(])(?:art|let|al|ch|cf|ex|env|resp|vol|fig|réf|p)\.$", re.I)  # « art. 13 let. b » ne coupe pas la phrase
+
 
 def sans_tarif(s):
     """Retour de Vial (27.11) : les positions et points de la Liste des analyses ne servent pas l'apprenant ; on les masque à l'affichage
     (la fiche garde la donnée, contrôle de non-perte)."""
     if not isinstance(s, str):
         return s
-    ph = [x for x in re.split(r"(?<=[.;])\s+", s) if not TARIF.search(x)]
+    ph, d, c = [], 0, ""
+    for i, ch in enumerate(s):  # découpe sur « . » ou « ; » + espace, hors parenthèses : une source « (OFSP … ; HUG …) » reste entière
+        c += ch
+        if ch == "(":
+            d += 1
+        elif ch == ")":
+            d = max(0, d - 1)
+        elif ch in ".;" and d == 0 and s[i + 1:i + 2].isspace() and not (ch == "." and ABREV.search(c)):
+            ph.append(c.strip()); c = ""
+    if c.strip():
+        ph.append(c.strip())
+    ph = [x for x in ph if not TARIF.search(x)]
     return " ".join(ph).strip() or None
 
 
