@@ -1,0 +1,38 @@
+# File de production des 5 chantiers hors 45 Spec : mesure gratuite de chaque branche de couloir, publiée sur main.
+# Cache haché (skill optimisation-par-cache-hache-autorun) : rien ne tourne si aucune branche n'a bougé.
+# Skills : pipeline-autonomous-builder, gratis-dashboard-live. Signature : AAI (Anthropic AI)
+name: File de production
+on:
+  schedule: [{cron: "*/20 * * * *"}]
+  workflow_dispatch:
+concurrency: {group: file-production, cancel-in-progress: true}
+permissions: {contents: write}
+jobs:
+  mesure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main, fetch-depth: 0}
+      - name: Empreinte des branches de couloir
+        id: emp
+        run: |
+          h=$(git for-each-ref --format='%(objectname)' refs/remotes/origin/paraclinique-biologie-suite refs/remotes/origin/paraclinique-explorations-audit refs/remotes/origin/paraclinique-imagerie-cliches refs/remotes/origin/tetrade-finition refs/remotes/origin/transversal-audit | sha256sum | cut -c1-20)
+          echo "h=$h" >> "$GITHUB_OUTPUT"; mkdir -p .marque && echo "$h" > .marque/h
+      - id: cache
+        uses: actions/cache@v4
+        with: {path: .marque, key: "file-production-${{ steps.emp.outputs.h }}"}
+      - name: Mesurer et publier
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          git config user.name "file-bot"; git config user.email "file-bot@users.noreply.github.com"
+          for i in 1 2 3 4; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            python3 projets/outils/file_production.py --branches
+            git add projets/file_production
+            git diff --cached --quiet && exit 0
+            git commit -qm "File de production : mesure des 5 couloirs [skip ci]"
+            git push -q origin HEAD:main && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
