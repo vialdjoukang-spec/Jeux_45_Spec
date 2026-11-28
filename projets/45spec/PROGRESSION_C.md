@@ -2,7 +2,7 @@
 
 Production par l'agent Claude sans appel API, branche `agent/45spec-C`, ordre du rang de `content/pathologies/RANG_RENDEMENT.json`.
 
-**166 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
+**167 / 800 pathologies produites sur cette branche** (les pathologies déjà produites ailleurs sont sautées).
 
 Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « à vérifier » dans `source`.
 
@@ -774,7 +774,7 @@ Statut d'audit : en attente (`audit.rejector = null`). Chiffres incertains : « 
 | 764 | 1764 | `T74.1_6__O2_3-E05` | LEG | Fractures suspectes de maltraitance (métaphysaires en anse de seau, côtes postérieures, fémur pré-ambulant) | produite |
 | 765 | 1765 | `T74.1_9__O3_1-E04` | LEG | Maltraitance physique chronique (coups, contention injustifiée) | produite |
 | 766 | 1766 | `T74.8__O3_1-E03` | LEG | Abus financier ou spoliation de la personne âgée | produite |
-| 767 | 1767 | `T74.9_1__O7_24-E05` | LEG | Patient victime de violence domestique ou maltraitance | — |
+| 767 | 1767 | `T74.9_1__O7_24-E05` | LEG | Patient victime de violence domestique ou maltraitance | produite |
 | 768 | 1768 | `T78.1_1__O7_7-E05` | ALL | Syndrome d'allergie orale (réaction croisée pollen-aliment) | — |
 | 769 | 1769 | `T80.3__F2_17-E03` | CHI | Allo-immunisation anti-érythrocytaire post-transfusionnelle | — |
 | 770 | 1770 | `T80.5__F2_17-E05` | ALL | Réaction allergique urticarienne post-transfusionnelle | — |
